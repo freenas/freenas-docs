@@ -25,9 +25,9 @@ The Groups interface allows you to manage UNIX-style groups on the
 FreeNAS® system.
 
 .. note:: if a directory service is running on your network, you do
-          not need to recreate the network's users or groups. Instead,
-          import the existing account information into FreeNAS®. Refer
-          to :ref:`Directory Service` for details.
+   not need to recreate the network's users or groups. Instead, import
+   the existing account information into FreeNAS®. Refer to
+   :ref:`Directory Service` for details.
 
 This section describes how to create a group and assign it user
 accounts. The next section will describe how to create user accounts.
@@ -156,10 +156,9 @@ that account:
   the account.
 
 .. note:: it is important to set the email address for the built-in
-          *root* user account as important system messages are sent to
-          the *root* user. For security reasons, password logins are
-          disabled for the *root* account and changing this setting is
-          highly discouraged.
+   *root* user account as important system messages are sent to the
+   *root* user. For security reasons, password logins are disabled for
+   the *root* account and changing this setting is highly discouraged.
 
 Every account that came with the FreeNAS® operating system, except for
 the *root* user, is a system account. Each system account is used by a
