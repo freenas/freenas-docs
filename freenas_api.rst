@@ -21,8 +21,8 @@ As seen in Figure 26.1a, an online version of the API is available at
 
 .. image:: images/api.png
 
-The rest of this section walks through some code examples to get you
-started using the APIs.
+The rest of this section shows code examples to illustrate the use of
+the API.
 
 .. _A Simple API Example:
 
@@ -38,25 +38,26 @@ contains some API usage examples. This section provides a walk-through
 of the :file:`newuser.py` script, shown below, as it provides a simple
 example that creates a user.
 
-In order to create a customized script based on this example, you will
-need a FreeNAS® system running at least version 9.2.0. If you would
-like to test the scripts directly on the FreeNAS® system, create a
-user account. When creating this user account, select an existing
-volume or dataset for the user's "Home Directory". Once the user is
-created, start the SSH service using :menuselection:`Services -->
-Control Services`. That user will now be able to :command:`ssh` to the
-IP address of the FreeNAS® system in order to create and run scripts.
-Alternately, you can test your scripts on any system that has the
-software mentioned in the previous section installed.
+A FreeNAS® system running at least version 9.2.0 is required when
+creating a customized script based on this example. To test the
+scripts directly on the FreeNAS® system, create a user account and
+select an existing volume or dataset for the user's
+"Home Directory". After creating the user, start the SSH service using
+:menuselection:`Services --> Control Services`.
+That user will now be able to :command:`ssh` to the IP address of the
+FreeNAS® system to create and run scripts. Alternately, scripts can be
+tested on any system with the required software installed as shown in
+the previous section.
 
 To customize this script, copy the contents of this example into a
 filename that ends in :file:`.py`. The text that is highlighted in red
-below should be modified in your copy in order to match the needs of
-the user being created. The text in black should remain as-is. After
-saving your changes, run the script by typing
+below can be modified in the new version to match the needs of
+the user being created. The text in black should not be changed.
+After saving changes, run the script by typing
 :command:`python scriptname.py`. If all goes well, the new user
 account will appear in
-:menuselection:`Account --> Users --> View Users` in the FreeNAS® GUI.
+:menuselection:`Account --> Users --> View Users`
+in the FreeNAS® GUI.
 
 Here is the example script with an explanation of the line numbers
 below it.
@@ -88,10 +89,10 @@ Where:
 and handle data in JSON format.
 
 **Line 4:** replace *freenas.mydomain* with the "Hostname" value in
-:menuselection:`System --> System Information`. Note that your script
-will fail if the machine running the script is not able to resolve
-that hostname. If you are not using HTTPS to access the FreeNAS®
-system, change *https* to *http*.
+:menuselection:`System --> System Information`.
+Note that the script will fail if the machine running it is not able
+to resolve that hostname. Change *https* to *http* to use HTTP rather
+than HTTPS to access the FreeNAS® system.
 
 **Line 5:** replace *freenas* with the password that you use to access
 the FreeNAS® system.
@@ -99,15 +100,14 @@ the FreeNAS® system.
 **Line 7:** if you are using HTTPS and want to force validation of the
 SSL certificate, change *False* to *True*.
 
-**Lines 8-16:** sets the values for the user being created. The
+**Lines 8-16:** set the values for the user being created. The
 `"Users" resource
 <http://api.freenas.org/resources/account.html#users>`_ describes this
-resource in more detail. The allowed parameters are listed in the
-"Json Parameters" section of that resource. Since this resource
-creates a FreeBSD user, the values that you input must be valid for a
-FreeBSD user account. Table 26.1a summarizes the valid values. Since
-this resource is using JSON, the possible boolean values are *True* or
-*False*.
+in more detail. Allowed parameters are listed in the "JSON Parameters"
+section of that resource. Since this resource creates a FreeBSD user,
+the values entered must be valid for a FreeBSD user account.
+Table 26.1a summarizes acceptable values. This resource uses JSON, so
+the possible boolean values are *True* or *False*.
 
 **Table 26.1a: Valid JSON Parameters for Users Create Resource**
 
@@ -141,10 +141,10 @@ this resource is using JSON, the possible boolean values are *True* or
 | bsdusr_shell             | string   | specify full path to a UNIX shell that is installed on the system                                                    |
 |                          |          |                                                                                                                      |
 +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-| bsdusr_password_disabled | boolean  | if set to *True*, user is not allowed to login                                                                       |
+| bsdusr_password_disabled | boolean  | if set to *True*, user is not allowed to log in                                                                      |
 |                          |          |                                                                                                                      |
 +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-| bsdusr_locked            | boolean  | if set to *True*, user is not allowed to login                                                                       |
+| bsdusr_locked            | boolean  | if set to *True*, user is not allowed to log in                                                                      |
 |                          |          |                                                                                                                      |
 +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
 | bsdusr_sudo              | boolean  | if set to *True*, :command:`sudo` is enabled for the user                                                            |
@@ -155,11 +155,10 @@ this resource is using JSON, the possible boolean values are *True* or
 +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
 
 
-.. note:: when using boolean values, JSON returns raw lowercase values
-          whereas Python uses uppercase values. This means that you
-          should use *True* or *False* in your Python scripts even
-          though the example JSON responses in the API documentation
-          are displayed as *true* or *false*.
+.. note:: When using boolean values, JSON returns raw lowercase values
+   but Python uses uppercase values. So use *True* or *False* in
+   Python scripts even though the example JSON responses in the API
+   documentation are displayed as *true* or *false*.
 
 .. _A More Complex Example:
 
@@ -168,14 +167,13 @@ A More Complex Example
 
 This section provides a walk-through of a more complex example found
 in the :file:`startup.py` script. Use the searchbar within the API
-documentation to quickly locate the JSON parameters used in this
-example. This example defines a class and several methods which are
-used to create a ZFS volume, create a ZFS dataset, share this dataset
-over CIFS, and enable the CIFS service. The responses from some
-methods are used as parameters in other methods. In addition to the
-import lines seen in the previous example, this example imports two
-additional Python modules to provide parsing functions for command
-line arguments::
+documentation to quickly locate the JSON parameters used here. This
+example defines a class and several methods to create a ZFS volume,
+create a ZFS dataset, share the dataset over CIFS, and enable the CIFS
+service. Responses from some methods are used as parameters in other
+methods.  In addition to the import lines seen in the previous
+example, two additional Python modules are imported to provide parsing
+functions for command line arguments::
 
  import argparse
  import sys
@@ -207,10 +205,10 @@ username, and password provided by the user via the command line::
  raise ValueError(r)
 
 A *get_disks* method is defined to get all the disks in the system as
-a *disk_name* response. The *create_pool* method will then use this
-information to create a ZFS pool named *tank* which will be created as
-a stripe. The *volume_name* and *layout* JSON parameters are described
-in the "Storage Volume" resource of the API documentation.
+a *disk_name* response. The *create_pool* method uses this information
+to create a ZFS pool named *tank* which is created as a stripe. The
+*volume_name* and *layout* JSON parameters are described in the
+"Storage Volume" resource of the API documentation.
 ::
 
  def _get_disks(self):
@@ -249,9 +247,8 @@ resource of the API documentation.
             'cifs_guestonly': True
  })
 
-Finally, the *service_start* method issues a command to enable the
-CIFS service. The *srv_enable* JSON parameter is described in the
-Services Services resource.
+Finally, the *service_start* method enables the CIFS service. The
+*srv_enable* JSON parameter is described in the Services resource.
 ::
 
  def service_start(self, name):
