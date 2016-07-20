@@ -348,9 +348,6 @@ check to see if the card/drive is UDMA compliant.
 If the system BIOS does not support EFI with BIOS emulation, see if it
 has an option to boot using legacy BIOS mode.
 
-When installing FreeNAS® to a compact flash card, make sure that the
-card has been MSDOS formatted first.
-
 When the system starts to boot but hangs with this repeated error
 message::
 
