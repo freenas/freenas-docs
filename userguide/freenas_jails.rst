@@ -7,12 +7,11 @@ Jails
 The previous section described how to find, install, and configure
 software using "Plugins".
 
-This section describes how to use "Jails", which allows users who are
-comfortable using the command line to have more control over software
+This section describes how to use "Jails", which allow users who are
+comfortable with the command line to have more control over software
 installation and management. Any software installed using "Jails" must
 be managed from the command line of the jail. If you prefer to use a
-GUI to manage software, use
-:ref:`Plugins` instead.
+GUI to manage software, use :ref:`Plugins` instead.
 
 While FreeNAS® automatically creates a jail whenever a plugin is
 installed, it does not let the user install multiple plugins into the
@@ -28,14 +27,14 @@ In FreeNAS® 9.x, two types of jails are supported:
    system-level virtualization. Consider it as another independent
    instance of FreeBSD running on the same hardware, without all of
    the overhead usually associated with virtualization.  The jail will
-   install the FreeBSD software management utilities so that you can
-   compile FreeBSD ports and install FreeBSD packages from the command
-   line of the jail.
+   install the FreeBSD software management utilities so FreeBSD ports
+   can be compiled and FreeBSD packages can be installed from the
+   command line of the jail.
 
-#. A Virtualbox template is also provided. This template will install
+#. A Virtualbox template is also provided. This template installs
    an instance of
    `phpVirtualBox <http://sourceforge.net/projects/phpvirtualbox/>`_,
-   which provides a web-based front-end to
+   a web-based front-end to
    `VirtualBox <https://www.virtualbox.org/>`_
    This can then be used to install any operating system and to use
    the software management tools provided by that operating system.
@@ -58,7 +57,7 @@ separation by installing different applications in each jail, or to
 create one jail for all installed applications, or to mix and match
 how software is installed into each jail.
 
-The rest of this section describes the following:
+The rest of this section describes:
 
 * :ref:`Jails Configuration`
 
@@ -73,29 +72,27 @@ The rest of this section describes the following:
 Jails Configuration
 -------------------
 
-Before you can create any jails, you must first configure which volume
-or dataset will be used to hold the jails. To do so, click
-:menuselection:`Jails --> Configuration` to access the screen shown in
-Figure 13.1a.
+Before creating any jails, a volume or dataset must be selected to
+hold the jails. Click
+:menuselection:`Jails --> Configuration`
+to access the screen shown in Figure 13.1a.
 **It is recommended to create a dataset to use for the "Jail Root"**.
-As jails are created, they will automatically be installed into their
-own dataset under the specified path. For example, if you configure a
-"Jail Root" of :file:`/mnt/volume1/dataset1` and create a jail named
-*jail1*, it will be installed into its own dataset named
+As jails are created, they are automatically installed into their own
+dataset under the specified path. For example, if the "Jail Root" is
+set to :file:`/mnt/volume1/dataset1` and a jail named *jail1* is
+created, it will be installed into its own dataset named
 :file:`/mnt/volume1/dataset1/jail1`.
 
 **Figure 13.1a: Global Jail Configuration**
 
 .. image:: images/jails1.png
 
-.. warning:: if you have already installed any :ref:`Plugins`, the
-             "Jail Root", "IPv4 Network",
-             "IPv4 Network Start Address", and
-             "IPv4 Network End Address"
-             will automatically be filled in. You should double-check
-             that the pre-configured IP addressing values are
-             appropriate for your jails and will not conflict with
-             addresses used by other systems on the network.
+.. warning:: If any :ref:`Plugins` have already been installed, the
+   "Jail Root", "IPv4 Network", "IPv4 Network Start Address", and
+   "IPv4 Network End Address" are automatically filled in.
+   Double-check that the pre-configured IP address values are
+   appropriate for the jails and do not conflict with addresses used
+   by other systems on the network.
 
 Table 13.1a summarizes the fields in this configuration screen. Refer
 to the text below the table for more details on how to properly
@@ -103,7 +100,8 @@ configure the "Jail Root" and network settings.  Some settings are
 only available in "Advanced Mode". To see these settings, either click
 the "Advanced Mode" button or configure the system to always display
 these settings by checking the box "Show advanced fields by default"
-in :menuselection:`System --> Advanced`.
+in
+:menuselection:`System --> Advanced`.
 
 **Table 13.1a: Jail Configuration Options**
 
@@ -112,7 +110,7 @@ in :menuselection:`System --> Advanced`.
 |                            |               |                                                                                |
 |                            |               |                                                                                |
 +============================+===============+================================================================================+
-| Jail Root                  | browse button | mandatory as you cannot add a jail until this is set                           |
+| Jail Root                  | browse button | mandatory; jails cannot be added until this is set                             |
 |                            |               |                                                                                |
 +----------------------------+---------------+--------------------------------------------------------------------------------+
 | IPv4 DHCP                  | checkbox      | check this box if the network has a DHCP server                                |
@@ -121,25 +119,25 @@ in :menuselection:`System --> Advanced`.
 | IPv4 Network               | string        | only available in "Advanced Mode"; format is IP address of *network/CIDR mask* |
 |                            |               |                                                                                |
 +----------------------------+---------------+--------------------------------------------------------------------------------+
-| IPv4 Network Start Address | string        | only available in "Advanced Mode"; input the first IP address in the           |
+| IPv4 Network Start Address | string        | only available in "Advanced Mode"; enter the first IP address in the           |
 |                            |               | reserved range in the format *host/CIDR mask*                                  |
 |                            |               |                                                                                |
 +----------------------------+---------------+--------------------------------------------------------------------------------+
-| IPv4 Network End Address   | string        | only available in "Advanced Mode"; input the last IP address in the reserved   |
+| IPv4 Network End Address   | string        | only available in "Advanced Mode"; enter the last IP address in the reserved   |
 |                            |               | range in the format *host/CIDR mask*                                           |
 |                            |               |                                                                                |
 +----------------------------+---------------+--------------------------------------------------------------------------------+
-| IPv6 Autoconfigure         | checkbox      | check this box if the network has a DHCPv6 server and you plan to use          |
-|                            |               | IPv6 to access jails                                                           |
+| IPv6 Autoconfigure         | checkbox      | check this box if the network has a DHCPv6 server and IPv6 will be used        |
+|                            |               | to access jails                                                                |
 |                            |               |                                                                                |
 +----------------------------+---------------+--------------------------------------------------------------------------------+
-| IPv6 Network               | string        | only available in "Advanced Mode"; input the network address                   |
+| IPv6 Network               | string        | only available in "Advanced Mode"; enter the network address                   |
 |                            |               | for a properly configured IPv6 network                                         |
 +----------------------------+---------------+--------------------------------------------------------------------------------+
-| IPv6 Network Start Address | string        | only available in "Advanced Mode"; input the first IP address in the reserved  |
+| IPv6 Network Start Address | string        | only available in "Advanced Mode"; enter the first IP address in the reserved  |
 |                            |               | range for a properly configured IPv6 network                                   |
 +----------------------------+---------------+--------------------------------------------------------------------------------+
-| IPv6 Network End Address   | string        | only available in "Advanced Mode"; input the last IP address in the reserved   |
+| IPv6 Network End Address   | string        | only available in "Advanced Mode"; enter the last IP address in the reserved   |
 |                            |               | range for a properly configured IPv6 network                                   |
 +----------------------------+---------------+--------------------------------------------------------------------------------+
 | Collection URL             | string        | only available in "Advanced Mode"; changing the default may break the          |
@@ -153,10 +151,10 @@ installed as well as any software, log files, and data to be stored
 within each jail. At a bare minimum, budget at least 2GB per jail and
 do not select a dataset that is less than 2GB in size.
 
-.. note:: if you plan to add storage to a jail, be aware that the path
-          size is limited to 88 characters. Make sure that the length
-          of your volume name plus the dataset name plus the jail name
-          does not exceed this limit.
+.. note:: If you plan to add storage to a jail, be aware that the path
+   size is limited to 88 characters. Make sure that the length of the
+   volume name plus the dataset name plus the jail name does not
+   exceed this limit.
 
 If the network contains a DHCP server, it is recommended to check the
 box "IPv4 DHCP" (or "IPv6 Autoconfigure, for a properly configured
@@ -165,12 +163,13 @@ as the DHCP server will automatically assign the jail the next
 available lease and record the lease as in use.
 
 If a static IP address is needed so that users always know the IP
-address of the jail, input the start and end address for the IPv4
-and/or IPv6 network. The range that you define by the start and end
-addresses will be automatically assigned as you create jails. For
-example, if you plan to create 5 jails on the 192.168.1.0 network, you
-could input a "IPv4 Network Start Address" of *192.168.1.100* and a
+address of the jail, enter the start and end address for the IPv4
+and/or IPv6 network. The range defined by the start and end addresses
+will be automatically assigned as jails are created. For example, if
+you plan to create 5 jails on the 192.168.1.0 network, enter a "IPv4
+Network Start Address" of *192.168.1.100* and a
 "IPv4 Network End Address" of *192.168.1.104*.
+
 **If you create a start and end range on a network that contains a
 DHCP server, it is very important that you also reserve those
 addresses on the DHCP server.**
@@ -183,19 +182,18 @@ system in the network.
 
 FreeNAS® will automatically detect and display the "IPv4 Network" that
 the administrative interface is connected to. This setting is
-important as the IPv4 as the IP address(es) used by your jails must be
-:command:`ping` able from the FreeNAS® system in order for your jails
-and any installed software to be accessible. If your network topology
-requires you to change the default value, you will also need to
-configure a default gateway, and possibly a static route, to the
-specified network. If you change this value, ensure that the subnet
-mask value is correct as an incorrect mask can make the IP network
-unreachable. When in doubt, keep the default setting for
-"IPv4 Network". If you are using VMware, make sure that the vswitch is
-set to "promiscuous mode".
+important. The IP addresses used by the jails must be pingable from
+the FreeNAS® system for the jails and any installed software to be
+accessible. If the network topology requires changing the default
+value, a default gateway and possibly a static route need to be added
+to the specified network. After changing this value, ensure that the
+subnet mask value is correct, as an incorrect mask can make the IP
+network unreachable. When in doubt, keep the default setting for
+"IPv4 Network". With VMware, make sure that the vswitch is set to
+"promiscuous mode".
 
-Once you click the "Save" button to save the configuration, you are
-now ready to create and manage jails as described in the rest of this
+After clicking the "Save" button to save the configuration, the system
+is ready to create and manage jails as described in the rest of this
 chapter.
 
 .. index:: Add Jail, New Jail, Create Jail
@@ -204,8 +202,9 @@ chapter.
 Adding Jails
 ------------
 
-To create a jail, click :menuselection:`Jails --> Add Jail` to access
-the screen shown in Figure 13.2a.
+To create a jail, click
+:menuselection:`Jails --> Add Jail`
+to access the screen shown in Figure 13.2a.
 
 .. note:: the "Add Jail" menu item will not appear until after you
           configure :menuselection:`Jails --> Configuration`.
@@ -214,8 +213,8 @@ the screen shown in Figure 13.2a.
 
 .. image:: images/jails3a.png
 
-By default, the only required value to create a jail is to give it a
-name. The default is to create a FreeBSD jail.
+By default, the only required value to create a jail is a name.
+FreeBSD jails are created by default.
 
 Table 13.2a summarizes the available options. Most settings are only
 available in "Advanced Mode" and are not needed if the intent is to
@@ -252,21 +251,21 @@ settings by checking the box "Show advanced fields by default" in
 |                           |                |                                                                                                              |
 |                           |                |                                                                                                              |
 +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| IPv4 bridge address       | integer        | only available in "Advanced Mode" and will be greyed out if "VIMAGE" is unchecked; see NOTE below            |
+| IPv4 bridge address       | integer        | only available in "Advanced Mode" and will be grayed out if "VIMAGE" is unchecked; see NOTE below            |
 |                           |                |                                                                                                              |
 +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
 | IPv4 bridge netmask       | drop-down menu | only available in "Advanced Mode"; select the subnet mask associated with "IPv4 bridge address"; will be     |
-|                           |                | greyed if "VIMAGE" is unchecked                                                                              |
+|                           |                | grayed out if "VIMAGE" is unchecked                                                                          |
 |                           |                |                                                                                                              |
 +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| IPv4 default gateway      | string         | only available in "Advanced Mode"; will be greyed out if "VIMAGE" is unchecked                               |
+| IPv4 default gateway      | string         | only available in "Advanced Mode"; will be grayed out if "VIMAGE" is unchecked                               |
 |                           |                |                                                                                                              |
 +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
 | IPv6 Autoconfigure        | checkbox       | only available in "Advanced Mode"; if unchecked, make sure that the defined address does not conflict with   |
 |                           |                | the DHCP server's pool of available addresses                                                                |
 |                           |                |                                                                                                              |
 +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| IPv6 address              | integer        | only available in "Advanced Mode"; this and the other IPv6 settings will be greyed out if "IPv6              |
+| IPv6 address              | integer        | only available in "Advanced Mode"; this and the other IPv6 settings will be grayed out if "IPv6              |
 |                           |                | Autoconfigure" is checked; input IPv6 address that is reachable within the local network and is not in use   |
 |                           |                | by any other host in the network                                                                             |
 |                           |                |                                                                                                              |
@@ -274,22 +273,22 @@ settings by checking the box "Show advanced fields by default" in
 | IPv6 prefix length        | drop-down menu | only available in "Advanced Mode"; select the prefix length associated with "IPv6 address"                   |
 |                           |                |                                                                                                              |
 +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| IPv6 bridge address       | integer        | only available in "Advanced Mode" and will be greyed if "VIMAGE" is unchecked; see NOTE below                |
+| IPv6 bridge address       | integer        | only available in "Advanced Mode" and will be grayed out if "VIMAGE" is unchecked; see NOTE below            |
 |                           |                |                                                                                                              |
 +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| IPv6 bridge prefix length | drop-down menu | only available in "Advanced Mode" and will be greyed out if "VIMAGE" is unchecked; select the prefix length  |
+| IPv6 bridge prefix length | drop-down menu | only available in "Advanced Mode" and will be grayed out if "VIMAGE" is unchecked; select the prefix length  |
 |                           |                | associated with "IPv6 address"                                                                               |
 |                           |                |                                                                                                              |
 +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| IPv6 default gateway      | string         | only available in "Advanced Mode" and will be greyed if "VIMAGE" is unchecked; used to set the jail's        |
+| IPv6 default gateway      | string         | only available in "Advanced Mode" and will be grayed out if "VIMAGE" is unchecked; used to set the jail's    |
 |                           |                | default gateway IPv6 address                                                                                 |
 |                           |                |                                                                                                              |
 +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| MAC                       | string         | only available in "Advanced Mode" and will be greyed out if "VIMAGE" is unchecked; if you choose to input a  |
+| MAC                       | string         | only available in "Advanced Mode" and will be grayed out if "VIMAGE" is unchecked; if you choose to input a  |
 |                           |                | static MAC address, you must do so for every jail you create                                                 |
 |                           |                |                                                                                                              |
 +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| NIC                       | drop-down menu | only available in "Advanced Mode" and will be greyed out if "VIMAGE" is checked; can be used to specify      |
+| NIC                       | drop-down menu | only available in "Advanced Mode" and will be grayed out if "VIMAGE" is checked; can be used to specify      |
 |                           |                | the interface to use for jail connections                                                                    |
 |                           |                |                                                                                                              |
 +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
@@ -297,26 +296,26 @@ settings by checking the box "Show advanced fields by default" in
 |                           |                | *allow.sysvipc=1,allow.raw_sockets=1*)                                                                       |
 |                           |                |                                                                                                              |
 +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| Autostart                 | checkbox       | only available in "Advanced Mode"; uncheck if you want to start the jail manually                            |
+| Autostart                 | checkbox       | only available in "Advanced Mode"; uncheck if the jail will be started manually                              |
 |                           |                |                                                                                                              |
 +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
 | VIMAGE                    | checkbox       | only available in "Advanced Mode"; gives a jail its own virtualized network stack; requires promiscuous mode |
 |                           |                | to be enabled on the interface                                                                               |
 |                           |                |                                                                                                              |
 +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| NAT                       | checkbox       | only available in "Advanced Mode" and will be greyed out for Linux jails or if "VIMAGE" is unchecked;        |
+| NAT                       | checkbox       | only available in "Advanced Mode" and will be grayed out for Linux jails or if "VIMAGE" is unchecked;        |
 |                           |                | enables Network Address Translation for the jail                                                             |
 |                           |                |                                                                                                              |
 +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
 
 
-.. note:: the IPv4 and IPv6 bridge interface is used to bridge the
+.. note:: The IPv4 and IPv6 bridge interface is used to bridge the
    `epair(4) <http://www.freebsd.org/cgi/man.cgi?query=epair>`_
    device, which is automatically created for each started jail, to a
    physical network device. The default network device is the one that
    is configured with a default gateway. So, if *em0* is the FreeBSD
-   name of the physical interface and three jails are running, the
-   following virtual interfaces will be automatically created:
+   name of the physical interface and three jails are running, these
+   virtual interfaces are automatically created:
    *bridge0*,
    *epair0a*,
    *epair1a*, and
@@ -328,120 +327,114 @@ settings by checking the box "Show advanced fields by default" in
    jail, if configured, or the bridge IP, if configured; either is
    correct.
 
-   The only time you need to specify an address and mask for the
-   bridge is when you need to configure the jail to be on a different
-   network than the FreeNAS® system. For example, if the FreeNAS®
-   system is on the *10.0.0.0/24* network and the jail needs to be
-   configured for the *192.168.0.0/24* network, set the
-   "IPv4 bridge address" and "IPv4 bridge netmask" fields for the
+   The only time an IP address and mask are required for the bridge is
+   when the jail will be on a different network than the FreeNAS®
+   system. For example, if the FreeNAS® system is on the *10.0.0.0/24*
+   network and the jail will be on the *192.168.0.0/24* network, set
+   the "IPv4 bridge address" and "IPv4 bridge netmask" fields for the
    jail.
 
-If you uncheck both the "VIMAGE" and "NAT" boxes, the jail must be
+If both the "VIMAGE" and "NAT" boxes are unchecked, the jail must be
 configured with an IP address within the same network as the interface
 it is bound to, and that address will be assigned as an alias on that
 interface. To use a "VIMAGE" jail on the same subnet, uncheck "NAT"
 and configure an IP address within the same network. In both of these
-cases, you only configure an IP address and do not configure a bridge
+cases, configure only an IP address and do not configure a bridge
 or a gateway address.
 
-After making your selections, click the "OK" button. The jail will be
-created and will be added to the "Jails" tab as well as in the tree
-menu under "Jails". By default, the jail will automatically start,
-unless you specify otherwise by unchecking the "Autostart" box.
+After making selections, click the "OK" button. The jail is created
+and added to the "Jails" tab as well as in the tree menu under
+"Jails". Jails start automatically.  To prevent this, uncheck the
+"Autostart" box.
 
-The first time you add a jail or use a template, the GUI will
-automatically download the necessary components from the Internet. If
-it is unable to connect to the Internet, the jail creation will fail.
-Otherwise, a progress bar will indicate the status of the download and
-provide an estimated time for the process to complete. Once the first
-jail is created, or a template used, subsequent jails will be added
-instantaneously as the downloaded base for creating the jail is saved
-to the "Jail Root".
+The first time a jail is added or used as a template, the GUI
+automatically downloads the necessary components from the Internet. A
+progress bar indicates the status of the download and provides an
+estimated time for the process to complete. If it is unable to connect
+to the Internet, jail creation fails.
+
+After the first jail is created or a template has been used,
+subsequent jails will be added very quickly because the downloaded
+base for creating the jail has been saved to the "Jail Root".
 
 .. _Managing Jails:
 
 Managing Jails
 ~~~~~~~~~~~~~~
 
-To view and configure the added jails, click "Jails". In the example
+Click "Jails" to view and configure the added jails. In the example
 shown in Figure 13.2b, the list entry for the jail named *xdm_1* has
-been clicked in order to enable that jail's configuration options. The
-entry indicates the name of the jail, its IP address, whether or not
-it will start automatically at system boot, whether or not it is
-currently running, and the type of jail (e.g. *standard* indicates
-that it is a FreeBSD jail whereas *pluginjail* would indicate that it
-was installed using :ref:`Plugins`).
+been clicked to enable that jail's configuration options. The entry
+indicates the jail name, IP address, whether it will start
+automatically at system boot, if it is currently running, and jail
+type: *standard* for a FreeBSD jail, or *pluginjail* if it was
+installed using :ref:`Plugins`.
 
 **Figure 13.2b: Viewing Added Jails**
 
 .. image:: images/jails4a.png
 
-In order, from left to right, the following configuration icons are
-available:
+From left to right, these configuration icons are available:
 
-**Edit Jail:** used to edit the jail's settings which were described
-in Table 13.2a. Note that once a jail is created, the jail's name and
-type cannot be changed so these fields will be greyed out.
+**Edit Jail:** edit the jail settings which were described
+in Table 13.2a. After a jail has been created, the jail name and
+type cannot be changed, so these fields will be grayed out.
 
-.. note:: if you need to modify the IP address information for a jail,
-          use it's "Edit Jail" button instead of the associated
-          networking commands from the command line of the jail.
+.. note:: To modify the IP address information for a jail, use the
+   "Edit Jail" button instead of the associated networking commands
+   from the command line of the jail.
 
-**Add Storage:** used to configure the jail to access an area of
+**Add Storage:** configure the jail to access an area of
 storage as described in :ref:`Add Storage`.
 
-**Upload Plugin:** used to manually upload a plugin previously
-downloaded from the `plugins repository
-<http://download.freenas.org/plugins/9/x64/>`_.
+**Upload Plugin:** manually upload a plugin previously downloaded from
+the
+`plugins repository <http://download.freenas.org/plugins/9/x64/>`_.
 
-**Start/Stop:** this icon will vary, depending upon the current
-"Status" of the jail. If the jail is currently stopped, the icon will
-be green and can be used to start the jail. If the jail is currently
-running, the icon will be red and can be used to stop the jail. A
-stopped jail and its applications are inaccessible until it is
-restarted.
+**Start/Stop:** this icon changes appearance depending on the current
+"Status" of the jail. When the jail is not running, the icon is green
+and clicking it starts the jail. When the jail is already running, the
+icon is red and clicking it stops the jail. A stopped jail and its
+applications are inaccessible until it is restarted.
 
-**Restart:** used to restart the jail.
+**Restart:** restart the jail.
 
-**Shell:** used to access a *root* command prompt in order to
-configure the selected jail from the command line. When finished, type
-:command:`exit` to close the shell.
+**Shell:** access a *root* command prompt to configure the selected
+jail from the command line. When finished, type :command:`exit` to
+close the shell.
 
 .. _Accessing a Jail Using SSH:
 
 Accessing a Jail Using SSH
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you prefer to use :command:`ssh` to access a jail instead of the
-jail's "Shell" icon, you will need to first start the :command:`ssh`
-service and create a user account for :command:`ssh` access. To do
-this, click the "Shell" icon for the jail you wish to configure
-:command:`ssh` access to.
+:command:`ssh` can be used to access a jail instead of the jail's
+"Shell" icon. This requires starting the :command:`ssh` service and
+creating a user account for :command:`ssh` access. Start by clicking
+the "Shell" icon for the desired jail.
 
-To start the SSH service, look for the following line in that jail's
+To start the SSH service, look for this line in the jail's
 :file:`/etc/rc.conf`::
 
  sshd_enable="NO"
 
-Change the *NO* to *YES* and save the file. Then, start the SSH
+Change the *NO* to *YES* and save the file. Then start the SSH
 daemon::
 
  service sshd start
 
-The jail's RSA key pair should be generated and the key's fingerprint
+The jail's RSA key pair will be generated and the key fingerprint
 and random art image displayed.
 
-Next, add a user account. If you want the user to have superuser
-privileges, make sure the user is placed in the *wheel* group when it
-is created. Type :command:`adduser` and follow the prompts. When you
-get to this prompt, **do not** press :kbd:`Enter` but instead type
-*wheel*::
+Add a user account by typing :command:`adduser` and following the
+prompts. If the user needs superuser privileges, they must be added to
+the *wheel* group. For those users, enter *wheel* at this prompt:
 
  Login group is user1. Invite user1 into other groups? []: wheel
 
-Once the user is created, set the *root* password so that the new user
+After creating the user, set the *root* password so that the new user
 will be able to use the :command:`su` command to gain superuser
-privilege. To set the password, type :command:`passwd` then input and
+privilege. To set the password, type :command:`passwd` then enter and
 confirm the desired password.
 
 Finally, test from another system that the user can successfully
@@ -458,9 +451,9 @@ fingerprint of the host::
  Password: type_password_here
 
 
-.. note:: each jail has its own user accounts and service
-          configuration. This means that you will need to repeat
-          these steps for each jail that requires SSH access.
+.. note:: Each jail has its own user accounts and service
+   configuration. These steps must be repeated for each jail that
+   requires SSH access.
 
 .. _Add Storage:
 
@@ -468,19 +461,20 @@ Add Storage
 ^^^^^^^^^^^
 
 It is possible to give a FreeBSD jail access to an area of storage on
-the FreeNAS® system. This is useful if you install an application that
-stores a large amount of data or if an installed application needs
-access to the data stored on the FreeNAS® system. An example would be
-transmission, which stores torrents. The storage is added using the
+the FreeNAS® system. This is useful for applications that store a
+large amount of data or if an application in a jail needs access to
+the data stored on the FreeNAS® system. One example is transmission,
+which stores torrents. The storage is added using the
 `mount_nullfs(8)
-<http://www.freebsd.org/cgi/man.cgi?query=mount_nullfs>`_ mechanism
-which links data that resides outside of the jail as a storage area
-within the jail.
+<http://www.freebsd.org/cgi/man.cgi?query=mount_nullfs>`_
+mechanism, which links data that resides outside of the jail as a
+storage area within the jail.
 
 To add storage, click the "Add Storage" button for a highlighted
 jail's entry to open the screen shown in Figure 13.2c. This screen can
-also be accessed by expanding the jail's name in the tree view and
-clicking :menuselection:`Storage --> Add Storage`.
+also be accessed by expanding the jail name in the tree view and
+clicking
+:menuselection:`Storage --> Add Storage`.
 
 **Figure 13.2c: Adding Storage to a Jail**
 
@@ -488,107 +482,101 @@ clicking :menuselection:`Storage --> Add Storage`.
 
 Browse to the "Source" and "Destination", where:
 
-* **Source:** is the directory or dataset on the FreeNAS® system you
-  would like to gain access to from the jail. This directory **must**
-  reside outside of the volume or dataset being used by the jail. This
-  is why it is recommended to create a separate dataset to store
-  jails, so that the dataset holding the jails will always be separate
-  from any datasets used for storage on the FreeNAS® system.
+* **Source:** is the directory or dataset on the FreeNAS® system
+  which will be accessed by the jail. This directory **must** reside
+  outside of the volume or dataset being used by the jail. This is why
+  it is recommended to create a separate dataset to store jails, so
+  the dataset holding the jails is always separate from any datasets
+  used for storage on the FreeNAS® system.
 
 * **Destination:** select an **existing, empty** directory within the
   jail to link to the "Source" storage area. If that directory does
-  not exist yet, type in the desired directory name and check the
+  not exist yet, enter the desired directory name and check the
   "Create directory" box.
 
-When you are adding storage, it is typically because the user and
-group account associated with an application installed inside of a
-jail needs to access data stored on the FreeNAS® system. Before
-selecting the "Source", it is important to first ensure that the
-permissions of the selected directory or dataset grant permission to
-the user/group account inside of the jail. This is typically not the
-default, as the users and groups created inside of a jail are totally
-separate from the users and groups of the FreeNAS® system.
+Storage is typically added because the user and group account
+associated with an application installed inside of a jail needs to
+access data stored on the FreeNAS® system. Before selecting the
+"Source", it is important to first ensure that the permissions of the
+selected directory or dataset grant permission to the user/group
+account inside of the jail. This is not the default, as the users and
+groups created inside of a jail are totally separate from the users
+and groups of the FreeNAS® system.
 
-This means that the workflow for adding storage is usually as follows:
+So the workflow for adding storage usually goes like this:
 
 #.  Determine the name of the user and group account used by the
     application. For example, the installation of the transmission
     application automatically creates a user account named
-    *transmission* and a group account named *transmission*. When in
-    doubt, check the files :file:`/etc/passwd` (to find the user
+    *transmission* and a group account also named *transmission*. When
+    in doubt, check the files :file:`/etc/passwd` (to find the user
     account) and :file:`/etc/group` (to find the group account) inside
-    of the jail. Typically, the user and group names are similar to
+    the jail. Typically, the user and group names are similar to
     the application name. Also, the UID and GID are usually the same
     as the port number used by the service.
 
-#.  On the FreeNAS® system, create a user account and group account to
-    match the name of the user and group used by the application in
+#.  On the FreeNAS® system, create a user account and group account
+    that match the user and group names used by the application in
     the jail.
 
-#.  On the FreeNAS® system, determine if you want the jail to have
-    access to existing data or if you want to set aside an area of
-    storage for the jail to use.
+#.  Decide whether the jail should have access to existing data or if
+    a new area of storage will be set aside for the jail to use.
 
-#.  If the jail should access existing data, edit the permissions of
-    the volume or dataset so that the user and group account has the
+#.  If the jail will access existing data, edit the permissions of
+    the volume or dataset so the user and group accounts have the
     desired read and write access. If multiple applications or jails
-    are to have access to the same data, you will need to create a
-    separate group and add each needed user account to that group.
+    are to have access to the same data, create a new group and add
+    each needed user account to that group.
 
-#.  If you are instead setting aside an area of storage for that jail
-    (or individual application), create a dataset. Then, edit the
-    permissions of that dataset so that the user and group account has
-    the desired read and write access.
+#.  If an area of storage is being set aside for that jail or
+    individual application, create a dataset. Edit the permissions of
+    that dataset so the user and group account has the desired read
+    and write access.
 
 #.  Use the "Add Storage" button of the jail and select the configured
     volume/dataset as the "Source".
 
-If you wish to prevent writes to the storage, check the box
-"Read-Only".
+To prevent writes to the storage, check the box "Read-Only".
 
 By default, the "Create directory" box is checked. This means that the
-directory will automatically be created for you under the specified
+directory will automatically be created under the specified
 "Destination" path if the directory does not already exist.
 
-Once a storage has been added, it will be added to the tree under the
-specified jail. In the example shown in Figure 13.2d, a dataset named
-:file:`volume1/data` has been chosen as the "Source" as it contains
-the files stored on the FreeNAS® system. When the storage was created,
-the user browsed to :file:`volume1/jails/freebsd1/usr/local` in the
-"Destination" field, then typed in *test* as the directory. Since this
-directory did not already exist, it was created as the
-"Create directory" box was left as checked. The resulting storage was
-added to the *freenas1* entry in the tree as :file:`/usr/local/test`.
-The user has clicked this :file:`/usr/local/test` entry in order to
-access its "Edit" screen.
+After storage has been added or created, it appears in the tree
+under the specified jail. In the example shown in Figure 13.2d, a
+dataset named :file:`volume1/data` has been chosen as the "Source" as
+it contains the files stored on the FreeNAS® system. When the storage
+was created, the user browsed to
+:file:`volume1/jails/freebsd1/usr/local` in the "Destination" field,
+then entered *test* as the directory. Since this directory did not
+already exist, it was created, because the "Create directory" box was
+left as checked. The resulting storage was added to the *freenas1*
+entry in the tree as :file:`/usr/local/test`. The user has clicked
+this :file:`/usr/local/test` entry to access the "Edit" screen.
 
 **Figure 13.2d: Example Storage**
 
 .. image:: images/jails6.png
 
-By default, the storage is mounted as it is created. To unmount the
-storage, uncheck its "Mounted?" box.
+Storage is normally mounted as it is created. To unmount the
+storage, uncheck the "Mounted?" box.
 
-.. note:: a mounted dataset will not automatically mount any of its
-          child datasets. While the child datasets may appear
-          browsable inside the jail, any changes will not be visible.
-          Since each dataset is considered to be its own filesystem,
-          each child dataset must have its own mount point, meaning
-          that you need to create a separate storage for any child
-          datasets which need to be mounted.
+.. note:: A mounted dataset will not automatically mount any of its
+   child datasets. While the child datasets may appear to be browsable
+   inside the jail, any changes will not be visible. Since each
+   dataset is considered to be its own filesystem, each child dataset
+   must have its own mount point, so separate storage must be created
+   for any child datasets which need to be mounted.
 
 To delete the storage, click its "Delete" button.
 
-.. warning:: it is important to realize that an added storage is
-             really just a pointer to the selected storage directory
-             on the FreeNAS® system. It does **not** create a copy of
-             that data within the jail.
-             **This means that if you delete any files from the
-             "Destination"  directory located in the jail, you are
-             really deleting those files from the "Source" directory
-             located on the FreeNAS® system.**
-             However, if you delete the storage, you are only
-             deleting the pointer, not the data itself.
+.. warning:: It is important to realize that added storage is really
+   just a pointer to the selected storage directory on the FreeNAS®
+   system. It does **not** copy that data to the jail. **Files that
+   are deleted from the "Destination" directory in the jail are really
+   deleted from the "Source" directory on the FreeNAS® system.**
+   However, removing the jail storage entry only removes the pointer,
+   leaving the data intact but not accessible from the jail.
 
 .. _Installing FreeBSD Packages:
 
@@ -596,18 +584,18 @@ Installing FreeBSD Packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The quickest and easiest way to install software inside the jail is to
-install a FreeBSD package. A FreeBSD package is pre-compiled, meaning
-that it contains all the binaries and dependencies required for the
+install a FreeBSD package. FreeBSD packages are pre-compiled.  They
+contains all the binaries and a list of dependencies required for the
 software to run on a FreeBSD system.
 
-A lot of software has been ported to FreeBSD (currently over 24,000
-applications) and most of that software is available as a package. One
-way to find FreeBSD software is to use the searchbar at
+A huge amount of software has been ported to FreeBSD, currently over
+24,000 applications, and most of that software is available as a
+package. One way to find FreeBSD software is to use the search bar at
 `FreshPorts.org <http://www.freshports.org/>`_.
 
-Once you have located the name of the package you would like to
-install, use the :command:`pkg install` command to install it. For
-example, to install the audiotag package, use this command::
+After finding the name of the desired package, use the
+:command:`pkg install` command to install it. For example, to install
+the audiotag package, use this command::
 
  pkg install audiotag
 
@@ -615,12 +603,14 @@ When prompted, type **y** to complete the installation. The
 installation messages will indicate if the package and its
 dependencies successfully download and install.
 
-.. warning:: **do not** use the :command:`pkg_add` command in a
-             FreeNAS® jail as it will cause inconsistencies in your
-             package management database.
+.. warning:: Some older versions of FreeBSD used package systems
+   which are now obsolete. Do not use commands from those obsolete
+   package systems in a FreeNAS® jail, as they will cause
+   inconsistencies in the jail's package management database. Use the
+   current FreeBSD package system as shown in these examples.
 
-You can confirm that the installation was successful by querying the
-package database::
+A successful installation can be confirmed by querying the package
+database::
 
  pkg info -f audiotag
  audiotag-0.19_1
@@ -650,7 +640,7 @@ package database::
  WWW:		http://github.com/Daenyth/audiotag
 
 
-To see what was installed with the package::
+To show what was installed by the package::
 
  pkg info -l audiotag
  audiotag-0.19_1:
@@ -673,125 +663,114 @@ files in a subdirectory called :file:`etc`.
 Compiling FreeBSD Ports
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Typically, software is installed into a FreeBSD jail using packages.
-Occasionally you may prefer to compile the port yourself. Compiling
-the port offers the following advantages:
+Software is typically installed into FreeBSD jails using packages. But
+sometimes there are good reasons to compile a port instead. Compiling
+ports offers these advantages:
 
 * Not every port has an available package. This is usually due to
   licensing restrictions or known, unaddressed security
   vulnerabilities.
 
-* Sometimes the package is out-of-date and you need a feature that
-  became available in the newer version.
+* Sometimes the package is out-of-date and a feature is needed that
+  only became available in the newer version.
 
 * Some ports provide compile options that are not available in the
-  pre-compiled package. These options are used to add additional
-  features or to strip out the features you do not need.
+  pre-compiled package. These options are used to add or remove
+  features or options.
 
-Compiling the port yourself has the following dis-advantages:
+Compiling a port has these disadvantages:
 
 * It takes time. Depending upon the size of the application, the
-  amount of dependencies, the amount of CPU and RAM on the system, and
-  the current load on the FreeNAS® system, the amount of time can
-  range from a few minutes to a few hours or even to a few days.
+  amount of dependencies, the speed of the CPU, the amount of RAM
+  available, and the current load on the FreeNAS® system, the time
+  needed can range from a few minutes to a few hours or even to a few
+  days.
 
-.. note:: if the port doesn't provide any compile options, you are
-          better off saving your time and the FreeNAS® system's
-          resources by using the :command:`pkg install` command
-          instead.
+.. note:: If the port does not provide any compile options, it saves
+   time and preserves the FreeNAS® system's resources to just use the
+   :command:`pkg install` command instead.
 
-You can determine if the port has any configurable compile options by
-clicking its FreshPorts listing. Figure 13.2e shows the
-"Configuration Options" for audiotag.
+The
+`FreshPorts.org <http://www.freshports.org/>`_
+listing shows whether a port has any configurable compile options.
+Figure 13.2e shows the "Configuration Options" for audiotag.
 
 **Figure 13.2e: Configuration Options for Audiotag**
 
 .. image:: images/ports1.png
 
-In FreeBSD, a :file:`Makefile` is used to provide the compiling
-instructions to the :command:`make` command. The :file:`Makefile` is
-in ascii text, fairly easy to understand, and documented in
-`bsd.port.mk
-<https://svnweb.freebsd.org/ports/head/Mk/bsd.port.mk?view=log>`_.
+This port has five configurable options (DOCS, FLAC, ID3, MP4,
+and VORBIS) and each option is enabled (on) by default.
 
-If the port has any configurable compile options, they will be listed
-at FreshPorts in the port's "Configuration Options". This port
-contains five configurable options (DOCS, FLAC, ID3, MP4, and VORBIS)
-and each option is enabled (on) by default.
+FreeBSD packages are always built using the default options. When
+compiling a port yourself, those options are presented in a menu,
+allowing the default values to be changed.
 
-FreeBSD packages are always built using the default options. When you
-compile the port yourself, those options will be presented to you in a
-menu, allowing you to change their default settings.
-
-Before you can compile a port, the ports collection must be installed
-within the jail. From within the jail, use the :command:`portsnap`
-utility. This command will download the ports collection and extract
+The Ports Collection must be installed in a jail before ports can be
+compiled. Inside the jail, use the :command:`portsnap`
+utility. This command downloads the ports collection and extracts
 it to the jail's :file:`/usr/ports/` directory::
 
  portsnap fetch extract
 
-.. note:: if you install additional software at a later date, you
-          should make sure that the ports collection is up-to-date
-          using by typing
-          :command:`portsnap fetch update`.
+.. note:: To install additional software at a later date, make sure
+   the ports collection is updated with
+   :command:`portsnap fetch update`.
 
-To compile a port, you will :command:`cd` into a subdirectory of
+To compile a port, :command:`cd` into a subdirectory of
 :file:`/usr/ports/`. The entry for the port at FreshPorts provides the
 location to :command:`cd` into and the :command:`make` command to run.
-This example will compile the audiotag port::
+This example compiles and installs the audiotag port::
 
  cd /usr/ports/audio/audiotag
  make install clean
 
 Since this port has configurable options, the first time this command
-is run the configure screen shown in Figure 13.2f will be displayed:
+is run, the configure screen shown in Figure 13.2f is displayed:
 
 **Figure 13.2f: Configuration Options for Audiotag Port**
 
 .. image:: images/ports2.png
 
-To change an option's setting, use the arrow keys to highlight the
-option, then press the :kbd:`spacebar` to toggle the selection. Once
-you are finished, tab over to OK and press :kbd:`Enter`. The port will
-begin to compile and install.
+Use the arrow keys to select an option and press :kbd:`spacebar`
+to toggle the value. When all the values are as desired, press
+:kbd:`Enter`.  The port will begin to compile and install.
 
-.. note:: if you change your mind, the configuration screen will not
-          be displayed again should you stop and restart the build.
-          Type
-          :command:`make config && make install clean`
-          if you need to change your selected options.
+.. note:: The configuration screen will not be shown again, even
+   if the build is stopped and restarted. It can be redisplayed
+   by typing :command:`make config`.  Change the settings, then
+   rebuild with :command:`make clean install clean`.
 
-If the port has any dependencies with options, their configuration
-screens will be displayed and the compile will pause until it receives
-your input. It is a good idea to keep an eye on the compile until it
-finishes and you are returned to the command prompt.
+Many ports depend on other ports. Those other ports can also have
+configuration screens that will be shown before compiling begins. It
+is a good idea to keep an eye on the compile until it finishes and the
+command prompt returns.
 
-Once the port is installed, it is registered in the same package
-database that manages packages. This means that you can use
-:command:`pkg info` to determine what was installed, as described in
-the previous section.
+When the port is installed, it is registered in the same package
+database that manages packages. The same :command:`pkg info` command
+can be used to determine what was installed, as described in the
+previous section.
 
 .. _Starting Installed Software:
 
 Starting Installed Software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once the package or port is installed, you will need to configure and
-start it. If you are familiar with how to configure the software, look
-for its configuration file in :file:`/usr/local/etc` or a subdirectory
-thereof. Many FreeBSD packages contain a sample configuration file to
-get you started. If you are unfamiliar with the software, you will
-need to spend some time at the software's website to learn which
-configuration options are available and which configuration file(s)
-need to be edited.
+After packages or ports are installed, they need to be configured and
+started. If you are familiar with the software, look for the
+configuration file in :file:`/usr/local/etc` or a subdirectory of it.
+Many FreeBSD packages contain a sample configuration file as a
+reference. If you are unfamiliar with the software, you will need to
+spend some time at the software's website to learn which configuration
+options are available and which configuration files require editing.
 
 Most FreeBSD packages that contain a startable service include a
 startup script which is automatically installed to
-:file:`/usr/local/etc/rc.d/`. Once your configuration is complete, you
-can test that the service starts by running the script with the
+:file:`/usr/local/etc/rc.d/`. After the configuration is complete, the
+starting of the service can be tested by running the script with the
 :command:`onestart` option. As an example, if openvpn is installed
-into the jail, these commands will run its startup script and verify
-that the service started::
+into the jail, these commands run its startup script and verify that
+the service started::
 
  /usr/local/etc/rc.d/openvpn onestart
  Starting openvpn.
@@ -803,7 +782,7 @@ that the service started::
  USER	COMMAND		PID	FD	PROTO	LOCAL ADDRESS	FOREIGN ADDRESS
  root	openvpn		48386 	4	udp4	*:54789		*:*
 
-If you instead receive an error::
+If it produces an error::
 
  /usr/local/etc/rc.d/openvpn onestart
  Starting openvpn.
@@ -811,19 +790,19 @@ If you instead receive an error::
 
 Run :command:`tail /var/log/messages` to see if any error messages
 hint at the problem. Most startup failures are related to a
-mis-configuration: either a typo or a missing option in a
+misconfiguration: either a typo or a missing option in a
 configuration file.
 
-Once you have verified that the service starts and is working as
-intended, add a line to :file:`/etc/rc.conf` to ensure that the
-service automatically starts whenever the jail is started. The line to
-start a service always ends in *enable="YES"* and typically starts
+After verifying that the service starts and is working as intended,
+add a line to :file:`/etc/rc.conf` to start the
+service automatically when the jail is started. The line to
+start a service always ends in *_enable="YES"* and typically starts
 with the name of the software. For example, this is the entry for the
 openvpn service::
 
  openvpn_enable="YES"
 
-When in doubt, the startup script will tell you which line to put in
+When in doubt, the startup script shows the line to put in
 :file:`/etc/rc.conf`. This is the description in
 :file:`/usr/local/etc/rc.d/openvpn`:
 
@@ -848,7 +827,7 @@ When in doubt, the startup script will tell you which line to put in
  # NAME_enable="NO"
  # set to YES to enable openvpn
 
-The startup script will also indicate if any additional parameters are
+The startup script also indicates if any additional parameters are
 available::
 
  # NAME_if=
@@ -871,37 +850,36 @@ available::
 Using the phpVirtualBox Template
 --------------------------------
 
-If the software you need requires a different operating system or you
-wish to use a non-FreeBSD operating system to manage software, use the
-VirtualBox template to create an instance of phpVirtualBox. In the
-"Add Jail" screen, click the "Advanced Mode" button. As seen in the
-example in Figure 13.3a, input a "Jail Name", verify that the
-"IPv4 address" is valid and not in use by another host or jail, and
-select *VirtualBox* from the "Template" drop-down menu. Press the "OK"
-button to begin the installation.
+If software requires a different operating system or a non-FreeBSD
+operating system is needed to manage software, use the VirtualBox
+template to create an instance of phpVirtualBox. In the "Add Jail"
+screen, click the "Advanced Mode" button. As shown in the example in
+Figure 13.3a, enter a "Jail Name", verify that the "IPv4 address" is
+valid and not in use by another host or jail, and select *VirtualBox*
+from the "Template" drop-down menu. Press the "OK" button to begin the
+installation.
 
 **Figure 13.3a: Creating a phpVirtualBox Instance**
 
 .. image:: images/jails7.png
 
-Once installed, input the IP address of the VirtualBox jail into a web
-browser and enter the username and password of *admin* into the login
-screen. Once authenticated, the screen shown in Figure 13.3b will
-appear in the web browser.
+After installation, enter the IP address of the VirtualBox jail into a
+web browser and enter the username and password *admin* into the login
+screen. After authenticatication, the screen shown in Figure 13.3b
+appears in the web browser.
 
 **Figure 13.3b: The phpVirtualBox Interface**
 
 .. image:: images/jails8.png
 
-Click the "New" button to create virtual machines. You can then
-install the desired operating systems and software into the created
+Click the "New" button to create virtual machines. The desired
+operating systems and software can then be installed into the new
 virtual machines.
 
-.. note:: if the FreeNAS® system reboots, the installed virtual
-          machines will not automatically restart. To configure
-          auto-start, refer to this
-          `forum post
-          <https://forums.freenas.org/index.php?threads/enabling-autostart-of-virtualbox-vms-on-freenas.26503/>`_.
+.. note:: By default, virtual machines are not started when the
+   FreeNAS® system boots. To configure auto-start, refer to this
+   `forum post
+   <https://forums.freenas.org/index.php?threads/enabling-autostart-of-virtualbox-vms-on-freenas.26503/>`_.
 
 .. _Managing Jail Templates:
 
@@ -913,53 +891,53 @@ FreeNAS® supports the ability to add custom templates to the
 
 By default, FreeNAS® provides the *VirtualBox* template. To view the
 default and any customized templates, click
-:menuselection:`Jails --> Templates`. A listing showing the default
-template is seen in Figure 13.4a.
+:menuselection:`Jails --> Templates`.
+A listing showing the default template is seen in Figure 13.4a.
 
 **Figure 13.4a: Listing of Default Jail Templates**
 
 .. image:: images/jails9.png
 
-The listing contains the following columns:
+The listing contains these columns:
 
-* **Name:** will appear in the "Template" drop-down menu when adding a
+* **Name:** appears in the "Template" drop-down menu when adding a
   new jail.
 
 * **URL:** when adding a new jail using this template, the template
-  will be downloaded from this location.
+  is downloaded from this location.
 
 * **Instances:** indicates if the template has been used to create a
   jail. In this example, the template has not yet been used so its
- "Instances" shows as *0*.
+  "Instances" shows *0*.
 
 To create a custom template, first install the desired operating
-system and configure it the way you want. The installation can be
-either to an existing jail or on another system.
+system and configure it as needed. The installation can be either to
+an existing jail or on another system.
 
-Next, create an mtree specification using this command::
+Next, create an mtree specification using this command, replacing
+*/path/to/jail* with the actual path to the jail::
 
- mtree -c -p </path/to/jail> -k sha256digest > file.mtree
+ mtree -c -p /path/to/jail -k sha256digest > file.mtree
 
-Once your configuration is complete, create a tarball of the entire
-operating system that you wish to use as a template. This tarball
-needs to be compressed with :command:`gzip` and end in a :file:`.tgz`
-extension. Be careful when creating the tarball as you don't want to
-end up in a recursive loop. In other words, the resulting tarball
-needs to be saved outside of the operating system being tarballed,
-such as to an external USB drive or network share. Alternately, you
-can create a temporary directory within the operating system and use
-the *--exclude* switch to :command:`tar` to exclude this directory
-from the tarball. The exact :command:`tar` command to use will vary,
-depending upon the operating system being used to create the tarball.
+After configuration is complete, create a tarball of the entire
+operating system to be used as a template. This tarball needs to be
+compressed with :command:`gzip` and end in a :file:`.tgz` extension.
+Be careful when creating the tarball as it is possible to end up in a
+recursive loop. In other words, the resulting tarball must be saved
+outside of the operating system being tarballed, such as to an
+external USB drive or network share. Alternately, create a temporary
+directory within the operating system and use the *--exclude* switch
+to :command:`tar` to exclude this directory from the tarball. The
+exact :command:`tar` command to use will vary, depending upon the
+operating system being used to create the tarball.
 
-Once you have generated the :file:`.mtree` and :file:`.tgz` files,
-save them to either an FTP share or an HTTP server. You will need the
-associated FTP or HTTP URL in order to add the template to the list of
-available templates.
+Save the generated :file:`.mtree` and :file:`.tgz` files to either an
+FTP share or an HTTP server. The FTP or HTTP URL is needed to add the
+template to the list of available templates.
 
 To add the template, click
 :menuselection:`Jails --> Templates --> Add Jail Templates`
-which will open the screen seen in Figure 13.4b.
+which opens the screen shown in Figure 13.4b.
 
 **Figure 13.4b: Adding A Custom Jail Template**
 
@@ -973,7 +951,7 @@ Table 13.4a summarizes the fields in this screen.
 | **Setting**  | **Value**      | **Description**                                                                               |
 |              |                |                                                                                               |
 +==============+================+===============================================================================================+
-| Name         | string         | value will appear in the "Name" column of "View Jail Templates"                               |
+| Name         | string         | value appears in the "Name" column of "View Jail Templates"                                   |
 |              |                |                                                                                               |
 +--------------+----------------+-----------------------------------------------------------------------------------------------+
 | OS           | drop-down menu | choices are  *FreeBSD* or                                                                     |
@@ -985,34 +963,33 @@ Table 13.4a summarizes the fields in this screen.
 |              |                | *x64* (64-bit)                                                                                |
 |              |                |                                                                                               |
 +--------------+----------------+-----------------------------------------------------------------------------------------------+
-| URL          | string         | input the full URL to the :file:`.tgz` file, including the protocol (*ftp://* or              |
+| URL          | string         | enter the full URL to the :file:`.tgz` file, including the protocol (*ftp://* or              |
 |              |                | or *http://*)                                                                                 |
 |              |                |                                                                                               |
 +--------------+----------------+-----------------------------------------------------------------------------------------------+
 | Mtree        | string         | paste the mtree specification for the template                                                |
 |              |                |                                                                                               |
 +--------------+----------------+-----------------------------------------------------------------------------------------------+
-| Read-only    | checkbox       | if this box is checked, the "Name" and "URL" of the template cannot be changed after creation |
+| Read-only    | checkbox       | when checked, the "Name" and "URL" of the template cannot be changed after creation           |
 |              |                |                                                                                               |
 +--------------+----------------+-----------------------------------------------------------------------------------------------+
 
-Once a template has been added, you can click the entry for the
-template to access its "Edit" and "Delete" buttons. If you click a
-template's "Edit" button, it will open the configuration screen shown
-in the Figure 13.4c.
+After adding a template, click the entry for the template to access
+the "Edit" and "Delete" buttons. Clicking a template's "Edit" button
+opens the configuration screen shown in Figure 13.4c.
 
-.. note:: the "Delete" button is not available for the built-in
-          *VirtualBox* template and its "Edit" button opens as
-          read-only.
+.. note:: The "Delete" button is not available for the built-in
+   *VirtualBox* template and the "Edit" button opens it as
+   read-only.
 
 **Figure 13.4c: Editing a Template's Options**
 
 .. image:: images/jails10a.png
 
-If you click a template's "Delete" button, a warning message will
-prompt you to confirm the deletion. Note that once a template is
-deleted, it will be removed from the "Templates" drop-down menu and
-will be no longer available for creating new jails.
+Clicking a template's "Delete" button shows a warning message that
+prompts for confirmation of the deletion. Note that once a template is
+deleted, it is removed from the "Templates" drop-down menu and will no
+longer be available for creating new jails.
 
 .. index:: bhyve, iohyve
 .. _Using iohve:
@@ -1025,15 +1002,14 @@ Beginning with version |version|, FreeNAS® includes the
 command line utility for creating, managing, and launching
 `bhyve <https://en.wikipedia.org/wiki/Bhyve>`_ guests.
 
-.. note:: this type of virtualization requires an Intel or AMD
-          processor that reports the "POPCNT" (POPulation Count)
-          processor feature. To verify that your processor has this
-          feature, type
-          :command:`grep POPCNT /var/run/dmesg.boot` from
-          :ref:`Shell`. If you just receive your prompt back, you will
-          not be able to install guests using :command:`iohyve`.
+.. note:: This type of virtualization requires an Intel or AMD
+   processor that reports the "POPCNT" (POPulation Count) processor
+   feature. To verify that the processor has this feature, type
+   :command:`grep POPCNT /var/run/dmesg.boot` from :ref:`Shell`. If
+   the prompt just returns, the CPU is not capable of running virtual
+   guests with :command:`iohyve`.
 
-To initialize this utility, run this command, substituting the name of
+Run this command to initialize iohyve, substituting the name of
 the pool to hold the bhyve guests and the name of the network
 interface::
 
@@ -1045,9 +1021,9 @@ interface::
 
  ln -s /mnt/iohyve /iohyve
 
-Next, tell :command:`iohyve` which installation ISO to download. In
-this example, we ask it to fetch the 64-bit version of FreeBSD 10.3,
-then verify that the fetch was successful::
+The next step is to tell :command:`iohyve` which installation ISO to
+download. This example shows fetching the 64-bit version of FreeBSD
+10.3, then verify that the fetch was successful::
 
  iohyve fetch ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/10.3/FreeBSD-10.3-RELEASE-amd64-bootonly.iso
  Fetching ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/10.3/FreeBSD-10.3-RELEASE-amd64-bootonly.iso...
@@ -1057,7 +1033,7 @@ then verify that the fetch was successful::
  Listing ISO's...
  FreeBSD-10.3-RELEASE-amd64-bootonly.iso
 
-Then, specify the name and size of the guest to create and verify its
+Specify the name and size of the guest to create it and verify its
 status::
 
  iohyve create freebsd10.3 8G
@@ -1067,14 +1043,10 @@ status::
  Guest		VMM?	Running?	rcboot?		Description
  freebsd10.3    NO      NO              NO              Thu_Mar_24_09:37:30_PDT_2016
 
-Note that the newly created guest is not running, nor is it set to
+The newly created guest is not yet running, nor is it set to
 automatically start (rcboot) when :command:`iohyve` starts.
 
-To install the guest using the specified ISO::
+Install a guest using a specified ISO::
 
  iohyve install freebsd10.3 FreeBSD-10.3-RELEASE-amd64-bootonly.iso
  Installing freebsd10.3...
-
-
-
-
