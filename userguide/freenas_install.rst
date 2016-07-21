@@ -259,7 +259,7 @@ includes any inserted USB thumb drives, which have names beginning
 with *da*.
 
 In this example, the user is performing a test installation using
-VirtualBox and has created a 8 GB virtual disk to hold the operating
+VirtualBox and has created an 8 GB virtual disk to hold the operating
 system.
 
 **Figure 2.3c: Selecting the Install Drive**
@@ -424,12 +424,13 @@ Be aware of these caveats **before** attempting an upgrade to
   **one** UFS-formatted disk, you will need to create a ZFS volume
   using **other** disks after the upgrade, then use the instructions
   in :ref:`Import Disk` to mount the UFS-formatted disk to copy the
-  data to the ZFS volume. With only have one disk, back up its data to
+  data to the ZFS volume. With only one disk, back up its data to
   another system or media before the upgrade, format the disk as ZFS
   after the upgrade, then restore the backup. If your data currently
   resides on a UFS RAID of disks, you will not be able to import that
-  UFS volume. Instead, back up that data before the upgrade, create a
-  ZFS volume after the upgrade, then restore the data from backup.
+  data to the ZFS volume. Instead, back up that data before the
+  upgrade, create a ZFS volume after the upgrade, then restore the
+  data from backup.
 
 * The initial configuration wizard will not recognize an encrypted ZFS
   pool. If your ZFS pool is GELI-encrypted and the
@@ -443,18 +444,18 @@ Be aware of these caveats **before** attempting an upgrade to
 * **DO NOT upgrade the ZFS pool unless you are absolutely sure that
   you will never want to go back to the previous version.**
   For this reason, the update process will not automatically upgrade
-  the ZFS pool, though the :ref:`Alert` system show when newer
+  the ZFS pool, though the :ref:`Alert` system shows when newer
   feature flags are available for the pool. Unless you need a new
   feature flag, it is safe to leave the ZFS pool at its current
   version and uncheck the alert. If you do decide to upgrade the pool,
   you will not be able to boot into a previous version that does not
   support the newer feature flags.
 
-* The *mps* driver for 6G Avago SAS HBAs is version 20, which requires
-  phase 20 firmware on the controller and the *mpr* driver for 12G
-  Avago SAS HBAs is version 13 which requires P12 firmware. It is
-  recommended to upgrade the firmware before installing FreeNAS® or
-  immediately after upgrading FreeNAS®, using the instructions in
+* The *mps* driver for 6 G Avago SAS HBAs is version 20, which
+  requires phase 20 firmware on the controller and the *mpr* driver
+  for 12 G Avago SAS HBAs is version 13 which requires P12 firmware.
+  It is recommended to upgrade the firmware before installing FreeNAS®
+  or immediately after upgrading FreeNAS®, using the instructions in
   :ref:`Alert`. Running older firmware can cause many woes, including
   the failure to probe all of the attached disks, which can lead to
   degraded or unavailable arrays. While you can mismatch your firmware
@@ -654,11 +655,11 @@ button as shown in Figure 2.5f.
 The warning message reminds you that a pool upgrade is irreversible.
 Click "OK" to proceed with the upgrade.
 
-The upgrade itself only takes a seconds and is non-disruptive. It is
-not necessary to stop any sharing services to upgrade the pool.
+The upgrade itself only takes a few seconds and is non-disruptive. It
+is not necessary to stop any sharing services to upgrade the pool.
 However, it is best to upgrade when the pool is not being heavily
-used. The upgrade process will suspend I/O for a short period, but
-is nearly instantaneous on a quiet pool.
+used. The upgrade process will suspend I/O for a short period, but is
+nearly instantaneous on a quiet pool.
 
 .. index:: Virtualization, VM
 .. _Virtualization:
@@ -814,7 +815,7 @@ the :file:`.iso`, the host CPU either does not have the required
 extension or AMD-V/VT-x is disabled in the system BIOS.
 
 .. note:: If you receive a kernel panic when booting into the ISO,
-   stop the virtual machine. Then, go to System and check the box
+   stop the virtual machine. Then, go to "System" and check the box
    "Enable IO APIC".
 
 To configure the network adapter, go to

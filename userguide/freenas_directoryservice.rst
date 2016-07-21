@@ -55,7 +55,7 @@ on the FreeNAS® system.
 
 Next, add a DNS record for the FreeNAS® system on the Windows server
 and verify that the hostname of the FreeNAS® system can be
-:command:`ping` ed from the domain controller.
+pinged from the domain controller.
 
 Active Directory relies on Kerberos, which is a time sensitive
 protocol. The time on both the FreeNAS® system and the
@@ -244,10 +244,11 @@ occurs automatically once a day as a cron job.
    connecting to the realm,
    `verify <https://support.microsoft.com/en-us/kb/909264>`_
    that your settings do not include any disallowed characters. Also,
-   the Administrator Password cannot contain the *$* character. If a
-   *$* exists in the domain administrator's password, :command:`kinit`
-   will report a "Password Incorrect" error and :command:`ldap_bind`
-   will report an "Invalid credentials (49)" error.
+   the Administrator account password cannot contain the *$*
+   character. If a *$* exists in the domain administrator's password,
+   :command:`kinit` will report a "Password Incorrect" error and
+   :command:`ldap_bind` will report an "Invalid credentials (49)"
+   error.
 
 It can take a few minutes after configuring the Active Directory
 service for the AD information to be populated to the FreeNAS® system.
@@ -284,7 +285,7 @@ provide more troubleshooting information::
  getent group
 
 If the :command:`wbinfo` commands display the network users, but they
-do not show up in the drop-down menu of a Permissions screen, it may
+do not show up in the drop-down menu of a "Permissions" screen, it may
 be because it is taking longer than the default 10 seconds for the
 FreeNAS® system to join Active Directory. Try bumping up the value of
 "AD timeout" to 60 seconds.
@@ -343,7 +344,7 @@ the "Domain Controller" field of
 If the System Will not Join the Domain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If the system will not join the active directory domain, run these
+If the system will not join the Active Directory domain, run these
 commands in the order listed. If any of the commands fail or result in
 a traceback, create a bug report at
 `bugs.freenas.org <https://bugs.freenas.org/>`_
@@ -395,9 +396,8 @@ users and their associated permissions. Examples of LDAP servers
 include Microsoft Server (2000 and newer), Mac OS X Server, Novell
 eDirectory, and OpenLDAP running on a BSD or Linux system. If an LDAP
 server is running on your network, configure the FreeNAS® LDAP service
-so that the network users can authenticate to the LDAP server and
-thus be provided authorized access to the data stored on the FreeNAS®
-system.
+so network users can authenticate to the LDAP server and have
+authorized access to the data stored on the FreeNAS® system.
 
 .. note:: LDAP authentication for CIFS shares will be disabled unless
    the LDAP directory has been configured for and populated with Samba
@@ -407,7 +407,8 @@ system.
    `The Linux Samba-OpenLDAP Howto
    <http://download.gna.org/smbldap-tools/docs/samba-ldap-howto/#htoc29>`_.
    In addition, the LDAP server must support SSL/TLS and the
-   certificate for the LDAP server needs to be imported.
+   certificate for the LDAP server must be imported with
+   :menuselection:`System -> Certificates -> Import Certificate`.
 
 Figure 9.2a shows the LDAP Configuration screen that is seen after
 clicking
