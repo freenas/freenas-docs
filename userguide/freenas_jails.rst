@@ -230,7 +230,7 @@ settings by checking the box "Show advanced fields by default" in
 |                           |                |                                                                                                              |
 |                           |                |                                                                                                              |
 +===========================+================+==============================================================================================================+
-| Jail Name                 | string         | mandatory; can only contain letters, numbers, or the underscore character                                    |
+| Jail Name                 | string         | mandatory; can only contain letters, numbers, dashes, or the underscore character                            |
 |                           |                |                                                                                                              |
 +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
 | Template                  | drop-down menu | only available in "Advanced Mode"; contains the *VirtualBox* template for creating an instance of            |
