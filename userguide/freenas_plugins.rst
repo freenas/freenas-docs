@@ -82,8 +82,8 @@ will then install the plugin and add it to the "Installed" tab as
 shown in Figure 12.1c.
 
 .. warning:: be patient and wait for the installation to finish.
-             Navigating away from the installation before it is
-            finished will cause problems with the installation.
+   Navigating away from the installation before it is finished will
+   cause problems with the installation.
 
 **Figure 12.1c: Viewing Installed PBIs**
 
