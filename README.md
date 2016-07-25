@@ -34,19 +34,19 @@ source code from git:
 
 ```
 cd /path/to/your-build-directory
-git clone git://github.com/freenas/freenas.git
-cd freenas/docs/userguide
+git clone git://github.com/freenas/freenas-docs
+cd freenas-docs/userguide
 ```
 
 ##Building the Documentation
 
 All of the following commands need to be run from /path/to/your-build-directory/freenas/docs/userguide. These formats are currently available: HTML, single
-HTML, PDF, and EPUB. The output of either HTML can be found in /path/to/your-build-directory/freenas/docs/userguide/_build/ and can be viewed in a web browser. The
-PDF output will be found in /path/to/your-build-directory/freenas/docs/userguide/_build/latex/FreeNAS.pdf. The EPUB output will be found in
-/path/to/your-build-directory/freenas/docs/userguide/_build/freenas_userguide.epub.
+HTML, PDF, and EPUB. The output of either HTML can be found in /path/to/your-build-directory/freenas-docs/userguide/_build/ and can be viewed in a web browser. The
+PDF output will be found in /path/to/your-build-directory/freenas-docs/userguide/_build/latex/FreeNAS.pdf. The EPUB output will be found in
+/path/to/your-build-directory/freenas-docs/userguide/_build/freenas_userguide.epub.
 
 To build a local copy of the HTML, with a separate page for each chapter and that chapter's table of contents in the left frame with navigational links
-to browse between chapters, run the following command. This is the same format that is published at doc.freenas.org/9.3.
+to browse between chapters, run the following command. This is the same format that is published at doc.freenas.org/9.10.
 
 ```
 sphinx-build -b html . _build
