@@ -82,17 +82,17 @@ General tab:
 | Setting              | Value          | Description                                                                                                                    |
 |                      |                |                                                                                                                                |
 +======================+================+================================================================================================================================+
-| Protocol             | drop-down menu | protocol to use when connecting to the administrative GUI from a browser; if you change the default of *HTTP* to               |
-|                      |                | *HTTPS* or to                                                                                                                  |
-|                      |                | *HTTP+HTTPS*, select the certificate to use in "Certificate"; if you do not have a certificate, first create a CA (in `CAs`_)  |
-|                      |                | then the certificate (in `Certificates`_)                                                                                      |
+| Protocol             | drop-down menu | protocol to use when connecting to the administrative GUI from a browser; if changed to                                        |
+|                      |                | *HTTPS* or *HTTP+HTTPS*,                                                                                                       |
+|                      |                | select a certificate to use in "Certificate"; if you do not have a certificate, first create a CA (in `CAs`_), create          |
+|                      |                | a certificate (in `Certificates`_), then verify the certificate fingerprint logged to :file:`/var/log/messages`                |
 |                      |                |                                                                                                                                |
 +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
 | Certificate          | drop-down menu | required for *HTTPS*; browse to the location of the certificate to use for encrypted connections                               |
 |                      |                |                                                                                                                                |
 +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
 | WebGUI IPv4 Address  | drop-down menu | choose from a list of recent IP addresses to limit the one to use when accessing the administrative GUI; the                   |
-|                      |                | built-in HTTP server will automatically bind to the wildcard address of *0.0.0.0* (any address) and will issue an              | 
+|                      |                | built-in HTTP server will automatically bind to the wildcard address of *0.0.0.0* (any address) and will issue an              |
 |                      |                | alert if the specified address becomes unavailable                                                                             |
 |                      |                |                                                                                                                                |
 +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
