@@ -127,63 +127,11 @@ built-in features by installing additional software.
 What's New in |version|
 -----------------------
 
-* Based on FreeBSD 10.3 which adds `these features
-  <https://www.freebsd.org/releases/10.3R/relnotes.html>`_. This
-  includes many new hardware drivers and updates to existing drivers.
-
-* Samba has been updated to
-  `4.3.4 <https://www.samba.org/samba/history/samba-4.3.4.html>`_.
-
-* USB3 support is now enabled by default.
-
-* The "Remote Graphite Server Hostname" field has been added to
-  :menuselection:`System --> Advanced`.
-
-* The "Firmware Update" button has been removed from
-  :menuselection:`System --> Advanced`. Updates are now performed
-  using
-  :menuselection:`System --> Update`.
-
-* The "Disabled" option has been removed from
-  :menuselection:`Storage --> Replication Tasks --> Add Replication
-  --> Encryption Cipher`.
-
-* The "Disable Active Directory user/group cache" checkbox has been
-  added to
-  :menuselection:`Directory Service --> Active Directory
-  --> Advanced Mode`.
-
-* The "Kerberos keytab" drop-down menu has been renamed to "Kerberos
-  Principal" in
-  :menuselection:`Directory Service --> Active Directory
-  --> Advanced Mode`.
-
-* The CrucibleWDS plugin has been deprecated and replaced with
-  `CloneDeploy <https://sourceforge.net/projects/clonedeploy/>`_.
-
-* :command:`iohyve` has been added for creating, managing, and
-  launching
-  `bhyve <https://en.wikipedia.org/wiki/Bhyve>`_
-  guests from the command line. This utility requires an Intel or AMD
-  processor that reports the "POPCNT" (POPulation CouNT) processor
-  feature.
-
-* `htop <http://hisham.hm/htop/>`_ has been added which can be run
-  from :ref:`Shell`.
-
-* The `jed <http://www.jedsoft.org/jed/>`_ editor has been added and
-  can be run from :ref:`Shell`.
-
-.. _What's New Since 9.10 was Released:
-
-What's New Since 9.10 was Released
-----------------------------------
-
 FreeNAS® uses a "rolling release" model instead of point releases. The
 :ref:`Update` mechanism makes it easy to keep up-to-date with the
 latest security fixes, bug fixes, and new features. Some updates
 affect the user interface, so this section lists any functional
-changes that have occurred since 9.10 was released.
+changes that have occurred since |version| was released.
 
 .. note:: The screenshots in this documentation assume that your
    system is fully updated to the latest STABLE version of FreeNAS®
@@ -191,71 +139,14 @@ changes that have occurred since 9.10 was released.
    documentation, make sure that the system is fully up-to-date. If is
    is not, apply any outstanding updates.
 
-* UEFI boot support has been added for both new installs and upgrades.
-  Installer images contain hybrid BIOS/UEFI support so they can be
-  installed on both types of firmware.
+* When security certificates or SSH keys are generated, the
+  fingerprints are logged in :file:`/var/log/messages`,
+  :file:`var/log/debug.log`, and the console.
 
-* Support for Mellanox ConnectX-4 40Gb adapter cards has been added.
+* Dashes have been added to the characters allowed in jail names.
 
-* Samba has been updated to
-  `4.3.6 <https://www.samba.org/samba/history/samba-4.3.6.html>`_.
-
-* Smartmontools has been updated to
-  `6.5
-  <https://www.smartmontools.org/browser/tags/RELEASE_6_5/smartmontools/NEWS>`_
-  which adds
-  `NVMe support <https://www.smartmontools.org/wiki/NVMe_Support>`_.
-
-* The "Syslog level" drop-down menu has been added to
-  :menuselection:`System --> General`.
-
-* The "Keep" / "Unkeep" button has been added to
-  :menuselection:`System --> Boot` and the "Keep" column has been
-  added to this screen.
-
-* The "Readonly" column has been added to
-  :menuselection:`Storage --> Volumes --> View Volumes`
-  so it is easy to visualize which are read-only replications from
-  another server.
-
-* The "fruit", "shell_snap", "snapper", "unityed_media", and "worm"
-  VFS objects have been added to
-  :menuselection:`Sharing --> Windows (CIFS Shares)
-  --> Add Windows (CIFS) Share --> Advanced Mode
-  --> VFS Objects`,
-  while the "notify_fam" VFS object has been removed. The "recycle",
-  "shadow_copy2", "zfs_space", and "zfsacl" VFS objects have been
-  hidden from this screen as they are always enabled.
-
-* The "SMB3_02" and "SMB3_11" protocols have been added to the "Server
-  minimum protocol" and "Server maximum protocol" drop-down menus
-  :menuselection:`Services --> CIFS`.
-  The default "Server maximum protocol" is now "SMB3".
-
-* The "SMB2_22" and "SMB2_24" protocols have been removed from the
-  "Server minimum protocol" and "Server maximum protocol" drop-down
-  menus
-  :menuselection:`Services --> CIFS`
-  as they are not used by any Windows products.
-
-* The "NFSv3 ownership model for NFSv4" checkbox has been added to
-  :menuselection:`Services --> NFS`.
-
-* The "Auxiliary Parameters" field of
-  :menuselection:`Services --> UPS`
-  has been split into two so that you can specify additional
-  :file:`ups.conf` and :file:`upsd.conf` settings.
-
-* An alert is generated for these two conditions: an update failed or
-  an update completed and the system needs a reboot to complete the
-  updating process.
-
-* :command:`iohyve` has been updated to version 0.7.5.
-
-* Timestamps have been added to alerts.
-
-* The :command:`nslookup` and :command:`dig` command line utilities
-  have returned.
+* The GUI prevents duplicate MAC addresses from being entered for
+  jails.
 
 .. index:: Hardware Recommendations
 .. _Hardware Recommendations:
