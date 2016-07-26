@@ -139,6 +139,12 @@ changes that have occurred since |version| was released.
    documentation, make sure that the system is fully up-to-date. If is
    is not, apply any outstanding updates.
 
+* The "Update Server" URL in
+  :menuselection:`System --> Update`
+  has changed to *update.ixsystems.com*. Due to the way the updater
+  works, it will take two update cycles for existing FreeNAS®
+  installations to reflect this change.
+
 * When security certificates or SSH keys are generated, the
   fingerprints are logged in :file:`/var/log/messages`,
   :file:`var/log/debug.log`, and the console.
