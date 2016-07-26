@@ -168,9 +168,10 @@ CIFS
 ----
 
 The settings that are configured when creating CIFS Shares in
-:menuselection:`Sharing --> Windows (CIFS) Shares --> Add Windows
-(CIFS) Share` are specific to each configured CIFS Share. In contrast,
-global settings which apply to all CIFS shares are configured in
+:menuselection:`Sharing --> Windows (CIFS) Shares
+--> Add Windows (CIFS) Share`
+are specific to each configured CIFS Share. In contrast, global
+settings which apply to all CIFS shares are configured in
 :menuselection:`Services --> CIFS`.
 
 .. note:: After starting the CIFS service, it may take several minutes
@@ -178,6 +179,9 @@ global settings which apply to all CIFS shares are configured in
           <http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/NetworkBrowsing.html#id2581357>`_
           to occur and for the FreeNAS® system to become available in
           Windows Explorer.
+
+.. note:: CIFS cannot be disabled while :ref:`Active Directory` is
+   enabled.
 
 Figure 11.3a shows the global CIFS configuration options which are
 described in Table 11.3a. This configuration screen is really a
