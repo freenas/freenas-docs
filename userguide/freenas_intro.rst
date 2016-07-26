@@ -139,6 +139,9 @@ changes that have occurred since |version| was released.
    documentation, make sure that the system is fully up-to-date. If is
    is not, apply any outstanding updates.
 
+* Samba has been updated to
+  `4.3.10 <https://www.samba.org/samba/history/samba-4.3.10.html>`_.
+
 * The "Update Server" URL in
   :menuselection:`System --> Update`
   has changed to *update.ixsystems.com*. Due to the way the updater
