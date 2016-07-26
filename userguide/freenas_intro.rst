@@ -148,6 +148,9 @@ changes that have occurred since |version| was released.
 * The GUI prevents duplicate MAC addresses from being entered for
   jails.
 
+* A new alert is shown when attempting to bind NFS to a non-existent
+  IP address.
+
 .. index:: Hardware Recommendations
 .. _Hardware Recommendations:
 

@@ -59,6 +59,8 @@ that trigger an alert include:
 * an update failed, or an update completed and the system needs a
   reboot to complete the updating process.
 
+* an attempt is made to bind NFS to a non-existent IP address
+
 * the status of an Avago MegaRAID SAS controller has changed;
   `mfiutil(8) <http://www.freebsd.org/cgi/man.cgi?query=mfiutil>`_
   is included for managing these devices
