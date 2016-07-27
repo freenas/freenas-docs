@@ -140,7 +140,7 @@ changes that have occurred since |version| was released.
    is not, apply any outstanding updates.
 
 * Samba has been updated to
-  `4.3.10 <https://www.samba.org/samba/history/samba-4.3.10.html>`_.
+  `4.3.11 <https://www.samba.org/samba/history/samba-4.3.11.html>`_.
 
 * The "Update Server" URL in
   :menuselection:`System --> Update`
