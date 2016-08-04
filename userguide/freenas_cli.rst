@@ -3,11 +3,10 @@
 Command Line Utilities
 ======================
 
-Several command line utilities which are provided with FreeNAS® are
-demonstrated in this section.
+Several command line utilities provided with FreeNAS® are demonstrated
+in this section.
 
-The following utilities can be used for benchmarking and performance
-testing:
+These utilities can be used for benchmarking and performance testing:
 
 * :ref:`Iperf`: used for measuring maximum TCP and UDP bandwidth
   performance
@@ -19,14 +18,14 @@ testing:
 
 * :ref:`arcstat`: used to gather ZFS ARC statistics
 
-The following utilities are specific to RAID controllers:
+These utilities are specific to RAID controllers:
 
 * :ref:`tw_cli`:_used to monitor and maintain 3ware RAID controllers
 
 * :ref:`MegaCli`: used to configure and manage Avago MegaRAID SAS
   family of RAID controllers
 
-This section also describes the following utilities:
+This section also describes these other utilities:
 
 * :ref:`freenas-debug`: the backend used to dump FreeNAS® debugging
   information
@@ -34,7 +33,7 @@ This section also describes the following utilities:
 * :ref:`tmux`: a terminal multiplexer similar to GNU screen
 
 * :ref:`Dmidecode`: reports information about system hardware as
-  described in the system's BIOS
+  described in the system BIOS
 
 .. index:: Iperf
 .. _Iperf:
@@ -44,36 +43,36 @@ Iperf
 
 Iperf is a utility for measuring maximum TCP and UDP bandwidth
 performance. It can be used to chart network throughput over time. For
-example, you can use it to test the speed of different types of shares
-to determine which type best performs on your network.
+example, it can be used to test the speed of different types of shares
+to determine which type performs best on your network.
 
-FreeNAS® includes the Iperf server. To perform network testing, you
-will need to install an Iperf client on a desktop system that has
-network access to the FreeNAS® system. This section will demonstrate
-how to use the `xjperf GUI client
+FreeNAS® includes the Iperf server. An Iperf client must be installed
+on a desktop system that has network access to the FreeNAS® system to
+perform the tests. This section demonstrates using the
+`xjperf GUI client
 <http://code.google.com/p/xjperf/downloads/detail?name=jperf-2.0.2.zip>`_
-as it works on Windows, Mac OS X, Linux, and BSD systems.
+which works on Windows, Mac OS X, Linux, and BSD systems.
 
-Since this client is java based, you will also need to install the
+Since this client is Java based, the
 appropriate `JRE
 <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
-for the client operating system.
+must also be installed on the client.
 
-Linux and BSD users will need to install the iperf package using their
+Linux and BSD users can install the iperf package using their
 operating system's package management system.
 
-To start xjperf on Windows: unzip the downloaded file, start Command
-Prompt in Run as administrator mode, :command:`cd` to the unzipped
-folder, and run
-:command:`jperf.bat`.
+To start xjperf on Windows: unzip the downloaded file, start
+"Command Prompt" in "Run as administrator" mode, :command:`cd` to the
+unzipped folder, and run :command:`jperf.bat`.
 
 To start xjperf on Mac OS X, Linux, or BSD, unzip the downloaded file,
 :command:`cd` to the unzipped directory, type
 :command:`chmod u+x jperf.sh`, and run
 :command:`./jperf.sh`.
 
-Once the client is ready, you need to start the Iperf server on
-FreeNAS®. To see the available server options, open Shell and type::
+After the client is ready, the Iperf server must be started on
+FreeNAS®. Open :ref:`Shell` and type this command to see the available
+server options::
 
  iperf --help | more
  Usage: iperf [-s|-c host] [options]
@@ -128,7 +127,7 @@ FreeNAS®. To see the available server options, open Shell and type::
  IPERF_<long option name>, such as IPERF_BANDWIDTH.
 
 For example, to perform a TCP test and start the server in daemon mode
-(so that you get your prompt back), type::
+(so that the prompt returns), type::
 
  iperf -sD
  ------------------------------------------------------------
@@ -139,28 +138,28 @@ For example, to perform a TCP test and start the server in daemon mode
  The Iperf daemon process ID: 4842
 
 
-.. note:: if you close Shell, the daemon process will stop. Have your
-          environment setup (e.g. shares configured and started)
-          **before** starting the iperf process.
+.. note:: if you close :ref:`Shell`, the daemon process will stop.
+   Have your environment set up (shares configured and started)
+   **before** starting the iperf process.
 
-From your desktop, open the client. Input the IP of address of the
-FreeNAS® system, specify the running time for the test under
-:menuselection:`Application layer options --> Transmit` (the default
-test time is 10 seconds), and click the "Run Iperf!" button. Figure
-24.1a shows an example of the client running on a Windows system while
-an SFTP transfer is occurring on the network.
+On the desktop, open the client. Enter the IP address of the FreeNAS®
+system, specify the running time for the test under
+:menuselection:`Application layer options --> Transmit`
+(the default test time is 10 seconds), and click the "Run Iperf!"
+button. Figure 24.1a shows an example of the client running on a
+Windows system while an SFTP transfer is occurring on the network.
 
 **Figure 24.1a: Viewing Bandwidth Statistics Using xjperf**
 
 .. image:: images/iperf.png
 
-Depending upon the traffic being tested (e.g. the type of share
-running on your network), you may need to test UDP instead of TCP. To
-start the iperf server in UDP mode, use :command:`iperf -sDu` as the
-**u** specifies UDP; the startup message should indicate that the
-server is listening for UDP datagrams. If you are not sure if the
-traffic that you wish to test is UDP or TCP, run this command to
-determine which services are running on the FreeNAS® system::
+Depending on the traffic being tested (the type of share on the
+network), it might be necessary to test UDP instead of TCP.
+Use :command:`iperf -sDu` to start the iperf server in UDP mode;
+the **u** specifies UDP.  The startup message indicates that the
+server is listening for UDP datagrams. To determine whether to test
+UDP or TCP traffic, run this command to show which services are
+running on the FreeNAS® system::
 
  sockstat -4 | more
  USER	COMMAND	PID	FD PROTO	LOCAL ADDRESS	FOREIGN ADDRESS
@@ -186,8 +185,8 @@ determine which services are running on the FreeNAS® system::
  root	syslogd	1089	6  udp4		127.0.0.1:514	*:*
 
 
-When you are finished testing, either type :command:`killall iperf` or
-close Shell to terminate the iperf server process.
+When finished testing, either type :command:`killall iperf` or close
+:ref:`Shell` to terminate the iperf server process.
 
 .. index:: Netperf
 .. _Netperf:
@@ -195,24 +194,23 @@ close Shell to terminate the iperf server process.
 Netperf
 -------
 
-Netperf is a benchmarking utility that can be used to measure the
-performance of unidirectional throughput and end-to-end latency.
+Netperf is a benchmarking utility used to measure the performance of
+unidirectional throughput and end-to-end latency.
 
-Before you can use the :command:`netperf` command, you must start its
-server process using this command::
+Before using the :command:`netperf` command, the server process must
+be started::
 
  netserver
  Starting netserver with host 'IN(6)ADDR_ANY' port '12865' and family AF_UNSPEC
 
-The following command will display the available options for
-performing tests with the :command:`netperf` command. The `Netperf
-Manual 
+The following command displays the available options for performing
+tests with the :command:`netperf` command. The
+`Netperf Manual
 <http://www.netperf.org/svn/netperf2/tags/netperf-2.6.0/doc/netperf.html>`_
 describes each option in more detail and explains how to perform many
 types of tests. It is the best reference for understanding how each
-test works and how to interpret your results. When you are finished
-with your tests, type :command:`killall netserver` to stop the server
-process.
+test works and how to interpret the results. When finished testing,
+type :command:`killall netserver` to stop the server process.
 ::
 
  netperf -h |more
@@ -253,17 +251,17 @@ process.
      -V			Display the netperf version and exit
 
 
-For those options taking two parms, at least one must be specified;
-specifying one value without a comma will set both parms to that
+For those options taking two parameters, at least one must be given.
+Specifying one value without a comma will set both parameters to that
 value, specifying a value with a leading comma will set just the
-second parm, a value with a trailing comma will set just the first. To
-set each parm to unique values, specify both and separate them with a
-comma.
+second parameter, and a value with a trailing comma will set just the
+first. To set each parameter to unique values, specify both and
+separate them with a comma.
 
-For these options taking two parms, specifying one value with no comma
-will only set the first parms and will leave the second at the default
-value. To set the second value it must be preceded with a comma or be
-a comma-separated pair. This is to retain previous netperf behaviour.
+For options taking two parameters, specifying one value with no comma
+will only set the first parameter and will leave the second at the
+default value. To set the second value, it must be preceded with a
+comma or be a comma-separated pair.
 
 .. index:: IOzone
 .. _IOzone:
@@ -272,23 +270,22 @@ IOzone
 ------
 
 IOzone is a disk and filesystem benchmarking tool. It can be used to
-test file I/O performance for the following operations: read, write,
-re-read, re-write, read backwards, read strided, fread, fwrite, random
-read, pread, mmap, aio_read, and aio_write.
+test file I/O performance for many operations: read, write, re-read,
+re-write, read backwards, read strided, fread, fwrite, random read,
+pread, mmap, aio_read, and aio_write.
 
-FreeNAS® ships with IOzone, meaning that it can be run from Shell.
-When using IOzone on FreeNAS®, :command:`cd` to a directory in a
-volume that you have permission to write to, otherwise you will get an
-error about being unable to write the temporary file.
+FreeNAS® ships with IOzone, meaning that it can be run from
+:ref:`Shell`. When using IOzone on FreeNAS®, :command:`cd` to a
+directory in a volume where you have write permissions. Otherwise, it
+will show an error about being unable to write the temporary file.
 
 Before using IOzone, read through the `IOzone documentation PDF
-<http://www.iozone.org/docs/IOzone_msword_98.pdf>`_ as it describes
-the tests, the many command line switches, and how to interpret your
+<http://www.iozone.org/docs/IOzone_msword_98.pdf>`_. It describes
+the tests, the many command line switches, and the meaning of the
 results.
 
-If you have never used this tool before, these resources provide good
-starting points on which tests to run, when to run them, and how to
-interpret the results:
+These resources provide good starting points on which tests to run,
+when to run them, and interpreting the results:
 
 * `How To Measure Linux Filesystem I/O Performance With iozone
   <http://www.cyberciti.biz/tips/linux-filesystem-benchmarking-with-iozone.html>`_
@@ -299,23 +296,9 @@ interpret the results:
 * `10 iozone Examples for Disk I/O Performance Measurement on Linux
   <http://www.thegeekstuff.com/2011/05/iozone-examples/>`_
 
-You can receive a summary of the available switches by typing the
-following command. As you can see from the number of options, IOzone
-is comprehensive and it may take some time to learn how to use the
-tests effectively.
-
-Starting with version 9.2.1, FreeNAS® enables compression on newly
-created ZFS pools by default. Since IOzone creates test data that is
-compressible, this can skew test results. To configure IOzone to
-generate incompressible test data, include the options
-**-+w 1 -+y 1 -+C 1**.
-
-Alternatively, consider temporarily disabling compression on the ZFS
-pool or dataset when running IOzone benchmarks.
-
-.. note:: if you prefer to visualize the collected data, scripts are
-          available to render IOzone's output in
-          `Gnuplot <http://www.gnuplot.info/>`_.
+A summary of the available switches is shown by typing this command.
+As you can see from the number of options, IOzone is comprehensive and
+it takes some time to learn how to use the tests effectively.
 
 ::
 
@@ -424,6 +407,19 @@ pool or dataset when running IOzone benchmarks.
 	  -+P Service  Service of the PIT server.
 	  -+z Enable latency histogram logging.
 
+Starting with version 9.2.1, FreeNAS® enables compression on newly
+created ZFS pools by default. Since IOzone creates test data that is
+compressible, this can skew test results. To configure IOzone to
+generate incompressible test data, include the options
+**-+w 1 -+y 1 -+C 1**.
+
+An alternative is to temporarily disable compression on the ZFS pool
+or dataset when running IOzone benchmarks.
+
+.. note:: if you prefer to visualize the collected data, scripts are
+          available to render IOzone's output in
+          `Gnuplot <http://www.gnuplot.info/>`_.
+
 .. index:: arcstat
 .. _arcstat:
 
@@ -432,31 +428,31 @@ arcstat
 
 Arcstat is a script that prints out ZFS
 `ARC <https://en.wikipedia.org/wiki/Adaptive_replacement_cache>`_
-statistics. Originally it was a perl script created by Sun. That perl
-script was ported to FreeBSD and was then ported as a Python script
-for use on FreeNAS®.
+statistics. Originally it was a Perl script created by Sun. That Perl
+script was ported to FreeBSD and was then translated into a Python
+script for use on FreeNAS®.
 
-Watching ARC hits/misses and percentages will provide an indication of
-how well your ZFS pool is fetching from the ARC rather than using disk
-I/O. Ideally, you want as many things fetching from cache as possible.
-Keep your load in mind as you review the stats. For random reads,
-expect a miss and having to go to disk to fetch the data. For cached
-reads, expect it to pull out of the cache and have a hit.
+Watching ARC hits/misses and percentages provides an indication of how
+well the ZFS pool is fetching from the ARC rather than direct from
+disk. Ideally, as many things as possible should be fetched from
+cache. Keep the load in mind while reviewing the stats. For random
+reads, expect a miss and having to go to disk to fetch the data. For
+cached reads, expect data to come from the cache and have a hit.
 
 Like all cache systems, the ARC takes time to fill with data. This
 means that it will have a lot of misses until the pool has been in use
-for a while. If there continues to be lots of misses and high disk I/O
-on cached reads, there is cause to investigate further and tune the
-system.
+for some time. If there continue to be lots of misses and high disk
+I/O on cached reads, it is a reason to investigate further and tune
+the system.
 
 The
 `FreeBSD ZFS Tuning Guide <https://wiki.FreeBSD.org/ZFSTuningGuide>`_
 provides some suggestions for commonly tuned :command:`sysctl` values.
 It should be noted that performance tuning is more of an art than a
-science and that any changes you make will probably require several
-iterations of tune and test. Be aware that what needs to be tuned will
-vary depending upon the type of workload and that what works for one
-person's network may not benefit yours.
+science and that getting the right settings will probably require
+several iterations of tuning and testing. Be aware that what needs to
+be tuned will vary depending upon the type of workload and that what
+works for one person's network may not benefit yours.
 
 In particular, the value of pre-fetching depends upon the amount of
 memory and the type of workload, as seen in these two examples:
@@ -467,23 +463,23 @@ memory and the type of workload, as seen in these two examples:
 * `ZFS prefetch algorithm can cause performance drawbacks
   <http://southbrain.com/south/2008/04/the-nightmare-comes-slowly-zfs.html>`_
 
-FreeNAS® provides two command line scripts which an be manually run
-from Shell:
+FreeNAS® provides two command line scripts which can be run manually
+from :ref:`Shell`:
 
 * :command:`arc_summary.py`: provides a summary of the statistics
 
 * :command:`arcstat.py`: used to watch the statistics in real time
 
 The advantage of these scripts is that they can be used to provide
-real time (right now) information, whereas the current GUI reporting
-mechanism is designed to only provide graphs charted over time.
+real time, live information, where the current GUI reporting mechanism
+is only designed to provide graphs charted over time.
 
 This `forum post
 <https://forums.freenas.org/index.php?threads/benchmarking-zfs.7928/>`__
 demonstrates some examples of using these scripts with hints on how to
 interpret the results.
 
-To view the help for arcstat.py::
+To view the help screen for arcstat.py::
 
  arcstat.py -h
  Usage: arcstat [-hvx] [-f fields] [-o file] [-s string] [interval [count]]
@@ -500,8 +496,9 @@ To view the help for arcstat.py::
  arcstat -v
  arcstat -f time,hit%,dh%,ph%,mh% 1
 
-To view ARC statistics in real time, specify an interval and a count.
-This command will display every 1 second for a count of five.
+Specifying an interval and count shows ARC statistics in real time.
+This command displays statistics every second for a count of five
+seconds.
 ::
 
  arcstat.py 1 5
@@ -762,7 +759,7 @@ To receive a summary of statistics, use::
         vfs.zfs.arc_min                         383454208
         vfs.zfs.arc_max                         3067633664
 
-When reading the tunable values, 0 means no, 1 typically means yes,
+In the tunable values, 0 means no, 1 typically means yes,
 and any other number represents a value. To receive a brief
 description of a "sysctl" value, use :command:`sysctl -d`. For
 example::
@@ -770,26 +767,25 @@ example::
  sysctl -d vfs.zfs.zio.use_uma
  vfs.zfs.zio.use_uma: Use uma(9) for ZIO allocations
 
-The ZFS tunables require a fair understanding of how ZFS works,
-meaning that you will be reading man pages and searching for the
-meaning of acronyms you are unfamiliar with.
+The ZFS tunables demand a good understanding of how ZFS works,
+and this requires reading man pages and searching for the meaning of
+unfamiliar acronyms.
 **Do not change a tunable's value without researching it first.**
 If the tunable takes a numeric value (rather than 0 for no or 1 for
 yes), do not make one up. Instead, research examples of beneficial
 values that match your workload.
 
-If you decide to change any of the ZFS tunables, continue to monitor
-the system to determine the effect of the change. It is recommended
-that you test your changes first at the command line using
-:command:`sysctl`. For example, to disable pre-fetch (i.e. change
-disable to *1* or yes)::
+After changing any of the ZFS tunables, continue to monitor the system
+to determine the effect of the change. It is recommended to test
+changes first at the command line using :command:`sysctl`. For
+example, to disable pre-fetch (i.e. change disable to *1* or yes)::
 
  sysctl vfs.zfs.prefetch_disable=1
  vfs.zfs.prefetch_disable: 0 -> 1
 
-The output will indicate the old value followed by the new value. If
+The output indicates the old value followed by the new value. If
 the change is not beneficial, change it back to the original value. If
-the change turns out to be beneficial, you can make it permanent by
+the change turns out to be beneficial, it can be made permanent by
 creating a "sysctl" using the instructions in :ref:`Tunables`.
 
 .. index:: tw_cli
@@ -807,15 +803,16 @@ and
 `twa(4) <http://www.freebsd.org/cgi/man.cgi?query=twa>`_
 drivers.
 
-Before using this command, read its
+Read this command's
 `man page <http://www.cyberciti.biz/files/tw_cli.8.html>`_
-as it describes the terminology and provides some usage examples.
+before using it, as it describes the terminology and provides some
+usage examples.
 
-If you type :command:`tw_cli` in Shell, the prompt will change,
-indicating that you have entered interactive mode where you can run
-all sorts of maintenance commands on the controller and its arrays.
+Type :command:`tw_cli` in :ref:`Shell` and the prompt changes,
+indicating interactive mode where all sorts of maintenance commands
+can be run on the controller and its arrays.
 
-Alternately, you can specify one command to run. For example, to view
+Individual commands can also be run directly. For example, to view
 the disks in the array::
 
  tw_cli /c0 show
@@ -845,7 +842,7 @@ the disks in the array::
  ---------------------------------------------------------------------------
  bbu	On		Yes		OK	OK	OK	212	03-Jan-2012
 
-Or, to review the event log::
+Or to review the event log::
 
  tw_cli /c0 show events
  Ctl	Date				Severity	AEN Message
@@ -878,14 +875,14 @@ Or, to review the event log::
  c0	[Sat Mar 10 2012 15:58:15]	INFO		Verify completed: unit=0
 
 
-If you add some disks to the array and they are not showing up in the
-GUI, try running the following command::
+If disks have been added to the array and they are not showing up in
+the GUI, run this command::
 
  tw_cli /c0 rescan
 
 Use the drives to create units and export them to the operating
 system. When finished, run :command:`camcontrol rescan all` and they
-should now be available in the FreeNAS® GUI.
+become available in the FreeNAS® GUI.
 
 This `forum post
 <https://forums.freenas.org/index.php?threads/3ware-drive-monitoring.13835/>`__
@@ -898,15 +895,15 @@ MegaCli
 -------
 
 :command:`MegaCli` is the command line interface for the Avago
-:MegaRAID SAS family of RAID controllers. FreeNAS® also includes the
+MegaRAID SAS family of RAID controllers. FreeNAS® also includes the
 `mfiutil(8) <http://www.freebsd.org/cgi/man.cgi?query=mfiutil>`_
 utility which can be used to configure and manage connected storage
 devices.
 
 The :command:`MegaCli` command is quite complex with several dozen
 options. The commands demonstrated in the `Emergency Cheat Sheet
-<http://tools.rapidsoft.de/perc/perc-cheat-sheet.html>`_ can get you
-started.
+<http://tools.rapidsoft.de/perc/perc-cheat-sheet.html>`_ provide a
+useful introduction.
 
 .. index:: freenas-debug
 .. _freenas-debug:
@@ -915,14 +912,15 @@ freenas-debug
 -------------
 
 The FreeNAS® GUI provides an option to save debugging information to a
-text file using :menuselection:`System --> Advanced --> Save Debug`.
+text file using
+:menuselection:`System --> Advanced --> Save Debug`.
 This debugging information is created by the :command:`freenas-debug`
 command line utility and a copy of the information is saved to
 :file:`/var/tmp/fndebug`.
 
-Using Shell, you can run this command manually to gather the specific
-debugging information that you need. To see the available options,
-type::
+Using :ref:`Shell`, this command can be run manually to gather
+specific debugging information when required. To see the available
+options, type::
 
  freenas-debug
  usage: /usr/local/bin/freenas-debug <options>
@@ -951,9 +949,8 @@ type::
  Output will be saved to /var/tmp/fndebug
 
 
-For example, if you are troubleshooting your Active Directory
-configuration, try the following commands to generate and view the
-debug file::
+For example, to troubleshoot an Active Directory configuration, use
+these commands to generate and view the debug file::
 
  freenas-debug -a
 
@@ -966,37 +963,35 @@ tmux
 ----
 
 :command:`tmux` is a terminal multiplexer which enables a number of
-:terminals to be created, accessed, and controlled from a single
-:screen. :command:`tmux` is an alternative to GNU :command:`screen`.
+terminals to be created, accessed, and controlled from a single
+screen. :command:`tmux` is an alternative to GNU :command:`screen`.
 Similar to screen, :command:`tmux` can be detached from a screen and
-continue running in the background, then later reattached. Unlike
-:ref:`Shell`, :command:`tmux` allows you to have access to a command
-prompt while still providing access to the graphical administration
-screens.
+continue running in the background, then be reattached later. Unlike
+:ref:`Shell`, :command:`tmux` allows access to a command prompt while
+still providing access to the graphical administration screens.
 
-To start a session, simply type :command:`tmux`. As seen in Figure
-24.8a, a new session with a single window will open with a status line
-at the bottom of the screen. This line shows information on the
-current session and is used to enter interactive commands.
+Start a session by typing :command:`tmux`. As seen in Figure 24.8a, a
+new session with a single window opens with a status line at the
+bottom of the screen. This line shows information on the current
+session and is used to enter interactive commands.
 
 **Figure 24.8a: tmux Session**
 
 .. image:: images/tmux.png
 
-To create a second window, press :kbd:`Ctrl+b` then :kbd:`"`. To close
-a window, type :command:`exit` within the window.
+Press :kbd:`Ctrl+b` then :kbd:`"` to create a second window. Type
+:command:`exit` within a window to close it.
 
 `tmux(1)
 <http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/./man1/tmux.1?query=tmux>`_
 lists all of the key bindings and commands for interacting with
 :command:`tmux` windows and sessions.
 
-If you close :ref:`Shell` while :command:`tmux` is running, it will
-detach its session. The next time you open Shell, run
+If you close :ref:`Shell` while :command:`tmux` is running, the
+session is detached.  The next time :ref:`Shell` is opened, run
 :command:`tmux attach` to return to the previous session. To leave the
-:command:`tmux` session entirely, type :command:`exit`. If you have
-multiple windows running, you will need to :command:`exit` out of each
-first.
+:command:`tmux` session entirely, type :command:`exit`. When there are
+multiple windows running, :command:`exit` must be entered in each.
 
 These resources provide more information about using :command:`tmux`:
 
@@ -1014,10 +1009,10 @@ Dmidecode
 
 Dmidecode reports hardware information as reported by the system BIOS.
 Dmidecode does not scan the hardware, it only reports what the BIOS
-told it to. A sample output can be seen
+tells it. Sample output can be seen
 `here <http://www.nongnu.org/dmidecode/sample/dmidecode.txt>`_.
 
-To view the BIOS report, type the command with no arguments::
+Type this command with no arguments to view the BIOS report::
 
  dmidecode | more
 
