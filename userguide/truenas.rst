@@ -1,23 +1,27 @@
+%brand% User Guide |release|
+================================
+
 .. toctree::
    :numbered:
    :maxdepth: 4
 
-   Introduction <truenas_introduction>
-   ZFS Primer <truenas_zfsprimer>
-   Initial Setup <truenas_quick>
-   Account <truenas_account>
-   System <truenas_system>
-   Tasks <truenas_tasks>
-   Network <truenas_network>
-   Storage <truenas_storage>
-   Directory Service <truenas_directoryservice>
-   Sharing <truenas_sharing>
-   Services <truenas_services>
-   vCenter <truenas_vcenter>
-   Reporting <truenas_reporting>
-   Wizard <truenas_wizard>
-   Additional Options <truenas_options>
-   Using the FreeNAS® API <truenas_api>
+   tn_intro
+   tn_initial
+   account
+   system
+   tasks
+   network
+   storage
+   directoryservice
+   sharing
+   services
+   tn_vcenter
+   reporting
+   tn_wizard
+   tn_options
+   zfsprimer
+   api
+   tn_eula
 
 .. only:: html
 

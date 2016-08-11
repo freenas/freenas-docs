@@ -1,0 +1,525 @@
+#!/usr/bin/env perl
+# ts=4
+
+# preproc: preprocess .rst files
+# Warren Block, 2016-08-11
+
+use strict;
+use warnings;
+use utf8;
+use open qw/:std :utf8/;	# write all output in UTF8
+
+use Getopt::Std;
+use File::Basename;
+use File::Copy 'cp';
+use File::Path qw(make_path remove_tree);
+#use POSIX qw/strftime/;
+
+my $cp = "/bin/cp";
+
+my $prog    = basename($0);
+my $version = "1.10";
+
+my $defaultoutdir = "processed";
+
+our $verbose = 0;
+our $tag;
+our $outdir;
+our @copyfiles;
+
+
+our($opt_c, $opt_h, $opt_o, $opt_s, $opt_t, $opt_v);
+
+sub usage {
+	print <<USAGE;
+$prog $version
+usage: $prog -h
+       $prog -t tag [-c files_and_dirs_to_copy] [-o output_dir] [-v]
+
+    DESCRIPTION
+
+       $prog is a Sphinx preprocessing tool making it easier to create
+       conditional Sphinx documents.  $prog has three major functions:
+
+       * Parsing the master document
+
+       $prog accepts a "tag" with the -t option.  This tag is the
+       basename of the Sphinx "master document", which is just an .rst
+       file defining the "toctree" and the rest of the document
+       structure. $prog parses the master document and copies the .rst
+       files listed to a temporary build directory (normally "obj").
+
+       * Copying associated files
+
+       Sphinx documents are not just .rst files.  Some associated files
+       like conf.py describe the build, and there can be other files and
+       directories containing screenshots or other data. $prog accepts a
+       space-delimited list of these files with the -c flag, and copies
+       them to the temporary build directory.
+
+       * Preprocessing .rst files
+
+       Sphinx provides very limited conditional processing.  $prog
+       expands on that with conditional text, including external files,
+       and substituting values.  See PROCESSING, below.
+
+    OPTIONS
+
+       -h  show summary of command line options and exit
+
+       -c  space-delimited list of files and directories to copy to
+           output directory, default is 'conf.py _static artwork images'
+
+       -o  output directory to create, default is "$defaultoutdir"
+           (Note: existing contents are erased!)
+
+       -t  tag name to build (typically freenas or truenas)
+
+       -v  verbose output
+
+    PROCESSING
+
+       $prog does several types of preprocessing on .rst input files.
+
+     Conditional Text
+
+       Sections of text marked with #ifdef are included or removed based
+       on the "tag" specified with -t.  With '-t freenas', sections of
+       text marked with '#ifdef freenas' remain in the output file.
+       Sections of text marked with other #ifdef values are removed from
+       the output.  With '-t freenas', this text:
+
+           #ifdef freenas
+               This section of text about FreeNAS will remain
+               in the output file.
+           #endif freenas
+           #ifdef truenas
+               This section of TrueNAS text will not appear in
+               the output file.
+           #endif truenas
+
+       becomes
+
+               This section of text about FreeNAS will remain
+               in the output file.
+
+       in the processed file written to the build directory.
+
+     Including External Files
+
+       External files can be included with the #include operator:
+
+           #include snippets/upgradingazfspool.rst
+
+       Included files are indented to the same level of the #include
+       statement, allowing them to be written without any indent, but
+       still used at any level of indent by just adjusting the #include
+       statement.  For example:
+
+       ### main file
+         # this include file (abc.rst) will be indented two spaces
+         #include abc.rst
+           # this include file (xyz.rst) will be indented four spaces
+           #include xyz.rst
+
+       Include statements can be combined with #ifdef to conditionally
+       include a file for a specific tag.  For example, to include a
+       snippet only when building with the "truenas" tag:
+
+           #ifdef truenas
+           #include snippets/upgradingazfspool.rst
+           #endif truenas
+
+     Value Substitution
+
+       Specially-marked text strings are replaced with literal values.
+
+         String         Replacement
+         ------         -----------
+         %brand%        FreeNAS® or TrueNAS®, depending on -t setting
+         %chapternum%   The current chapter number
+
+       For example, when building with '-t truenas', this literal text
+       in the second file listed in truenas.rst:
+
+           This chapter, Chapter %chapternum%, describes %brand%.
+
+       becomes
+
+           This chapter, Chapter 2, describes TrueNAS®.
+
+       Special care is taken when replacing text inside tables to
+       preserve aligment of the vertical bar column separators.  If a
+       replacement string is not the same length as the string being
+       replaced, spaces are added or removed at the end of the column to
+       make up for the difference.  For example, with '-t freenas'
+       substituting the eight-character 'FreeNAS®' for the
+       seven-character '%brand%':
+
+           | %brand% is a famous NAS system.  |
+
+       becomes
+
+           | FreeNAS® is a famous NAS system. |
+
+       Processing stops with an error if there are not enough spaces to
+       make up for the difference at the end of the column:
+
+           | %brand% |
+
+       cannot be replaced if the replacement is any longer.  There is
+       only one space before the final vertical bar, and $prog preserves
+       at least one space after replacements.  Sphinx produces an error
+       if table vertical bars are not aligned, so this substitution
+       cannot be made.  The solution is to add spaces to this column of
+       the table.  All rows of the column, of course, or Sphinx will
+       produce errors.
+
+    EXAMPLES
+
+       $prog -t freenas -o obj -c 'conf.py _static artwork images'
+
+    NOTES
+
+       $prog expects input files to be either ASCII or UTF-8, and
+       preprocessed files are written out as UTF-8.
+USAGE
+	exit 0;
+}
+
+sub checkexists {
+    my @files = @_;
+    print "checking for missing files\n" if $verbose;
+    for my $f (@files) {
+        print "  checking '$f'\n" if $verbose;
+        die "** '$f' does not exist\n" unless -f $f;
+    }
+}
+
+sub slurpfile {
+    my $fname = shift;
+    open (my $fh, "<", $fname) or die "** cannot open '$fname'\n";
+    $/ = undef;
+    my $contents = <$fh>;
+    close $fh or die "** cannot close '$fname'\n";
+    return $contents;
+}
+
+sub writefile {
+    my ($fname, $contents) = @_;
+    open (my $fh, ">", $fname) or die "** cannot open '$fname'\n";
+    print $fh $contents;
+    close $fh or die "** cannot close '$fname'\n";
+}
+
+sub parseinput {
+    print "parse input\n" if $verbose;
+    $outdir  = $opt_o;
+    $tag     = $opt_t;
+
+    unless ( $opt_c ) {
+        $opt_c = 'conf.py _static artwork images';
+    }
+
+    @copyfiles = split(/\s+/, $opt_c);
+
+    # output directory must be set
+    unless ( $outdir ) {
+        # set the default
+        $outdir = $defaultoutdir;
+    }
+    print "outdir: $outdir\n" if $verbose;
+
+    if ( $verbose ) {
+        print "option values:\n";
+        print "  tag: $opt_t\n";
+        print "  copy files: '$opt_c'\n" if $opt_c;
+        print "  output dir: '$opt_o'\n" if $opt_o;
+    }
+}
+
+
+sub checkinput {
+    print "check input\n" if $verbose;
+
+    # -t is required
+    die "  ** -t tag (freenas or truenas) is required\n" unless $opt_t;
+
+    # tag file must exist
+    my $masterfile = "$tag.rst";
+    print "  masterfile: '$masterfile'\n" if $verbose;
+    unless ( -f $masterfile ) {
+        die "  ** master file '$masterfile' not found\n";
+    }
+
+    # copyfiles must all exist
+    for my $cf (@copyfiles) {
+        die "  ** copyfile '$cf' does not exist\n" unless -e $cf;
+    }
+
+    if ( -e $outdir && (! -d $outdir) ) {
+        die "** output directory '$outdir' is not a directory\n";
+    }
+}
+
+sub init {
+    print "init\n" if $verbose;
+    if ( -d $outdir ) {
+        print "  removing old output directory '$outdir'\n" if $verbose;
+        my $removed_count = remove_tree($outdir, {safe => 1});
+        print "removed: $removed_count\n" if $verbose;
+    } else {
+        print "  no old output directory '$outdir'\n" if $verbose;
+    }
+    # create new, empty outdir
+    print "  creating output directory '$outdir'\n" if $verbose;
+    my @created = make_path($outdir);
+
+}
+
+sub parsemasterfile {
+    my $fname = "$tag.rst";
+    my @files;
+
+    # include the master file for preprocessing
+    push @files, $fname;
+
+    print "parsing master file '$fname'\n" if $verbose;
+	open (my $fh, "<", $fname) or die "  ** cannot open '$fname'\n";
+
+    while (<$fh>) {
+        chomp;
+        # ignore blank lines
+        next if /^\s*$/;
+        # ignore lines that start with anything besides whitespace
+        next if /^\S/;
+        # ignore lines with punctuation
+        next if /(:|=|-)/;
+        # ignore lines with upper-case characters
+        next if /[A-Z]/;
+
+        my $line = $_;
+        $line =~ s/^\s*//;
+        $line =~ s/\s*$//;
+        print "  $line\n" if $verbose;
+        push @files, "$line.rst";
+    }
+    close $fh or die "  ** cannot close '$fname'\n";
+    return @files;
+}
+
+sub copymiscfiles {
+    print "copying files and directories\n" if $verbose;
+
+    for my $cf (@copyfiles) {
+        if ( -f $cf ) {
+            print "  copying file '$cf' to '$outdir'\n" if $verbose;
+            cp ($cf, $outdir);
+        }
+        if ( -d $cf ) {
+            print "  copying directory '$cf' to '$outdir'\n" if $verbose;
+            # use /bin/cp rather than require File::Copy::Recursive
+		    `$cp -rp "$cf" "$outdir"`;
+	    }
+    }
+}
+
+
+# process #include
+sub do_includes {
+    my ($fn, $chapnum, $contents) = @_;
+    print "  processing #include statements\n" if $verbose;
+    while ( $contents =~ /^(\s*)#include(\s+)(\S+)(.*)$/gm ) {
+
+        my ($indent, $sep, $incfname, $trailing) = ($1, $2, $3, $4);
+        $indent =~ tr/\n//d;
+
+        if ( $trailing ) {
+            print "  ** in '$fn': text following filename in #include statement:\n";
+            print "  ** '$indent#include$sep$incfname$trailing'";
+            die "\n";
+        }
+
+        # preprocess the included file
+        my $incfile = processonefile($incfname, $chapnum);
+
+        # adjust the include file to have the same indent as the
+        # #include statement
+        $incfile =~ s/^/$indent/gm;
+
+        # replace the #include statement with
+        # the contents of the include file
+
+        $contents =~ s/^$indent#include$sep$incfname\n/$incfile/gms;
+    }
+    return $contents;
+}
+
+sub do_ifdefs {
+    my ($fn, $chapnum, $contents) = @_;
+    print "  processing #ifdef statements\n" if $verbose;
+
+    # check for trailing content on line after tag
+    if ( $contents =~ /^(\s*(?:#ifdef|#endif))\s+(\S+)(?:\t| )(\S+)$/m ) {
+        print "  ** in '$fn': characters after tag name:\n";
+        die   "  ** '$1 $2 $3'\n";
+    }
+
+    # remove #ifdef and #endif lines when tag matches
+    # note that \s is not used because it matches newlines
+    # with the /s modifier
+    $contents =~ s/^[ \t]*#ifdef[ \t]+$tag.*?\n//gms;
+    $contents =~ s/^[ \t]*#endif[ \t]+$tag.*?\n//gms;
+
+    while ( $contents =~ /^[ \t]*#ifdef[ \t]+(\S+)$/gm ) {
+        my $remtag = $1;
+        if ( $contents =~ s/^[ \t]*(#ifdef[ \t]+$remtag.*?#endif[ \t]+$remtag).*?\n//ms ) {
+            my $block = $1;
+            if ( $verbose ) {
+                print "    removed block:\n";
+                print "    block=----\n$1\n----\n";
+            }
+        } else {
+            die "  ** in '$fn': no matching '#endif $remtag' found\n";
+        }
+    }
+
+    # if there are any #ifdefs or #endifs left, they were unmatched
+    if ( $contents =~ /^([ \t]*(?:#ifdef|#endif)[ \t]+\S+)/ ) {
+        print "  ** in '$fn': unmatched #ifdef/#endifs:\n";
+        print "contents='$contents'\n";
+        die   "  ** '$1'\n";
+    }
+    return $contents;
+}
+
+sub do_substitutes {
+    my ($fn, $chapnum, $contents) = @_;
+    print "  processing substitutions\n" if $verbose;
+
+    my %replist;
+    #            '@something@' => 'replaced by this' );
+    # could load a list of keys and replacements from a file
+
+    if ( $tag eq 'freenas' ) {
+        $replist{'%brand%'} = "FreeNAS®";
+    } elsif ( $tag eq 'truenas' ) {
+        $replist{'%brand%'} = "TrueNAS®";
+    }
+
+    $replist{'%chapternum%'} = $chapnum;
+
+    for my $key (keys %replist) {
+        my $repl = $replist{$key};
+        print "    replacing '$key' with '$repl'\n" if $verbose;
+
+        my $keylen = length($key);
+        my $replen = length($repl);
+
+        if ( $keylen == $replen ) {
+            print "    replacement is same length as key, no problem\n" if $verbose;
+            $contents =~ s/$key/$repl/gm;
+            return $contents;
+        }
+
+        print "    replacement is not the same length as key, watching out for tables\n" if $verbose;
+
+        while ( $contents =~ /^(\s*)\|(.*$key.*\|\s*)$/gm ) {
+            my $indent = $1;
+            $indent =~ tr/\n//d;
+            my $line = $2;
+
+            # save the old line as the pattern to replace
+            my $origline = "$indent|$line";
+
+            # split the table row into sections between vertical bars
+            my @sections = split('\|', $origline);
+
+            for my $sect (@sections) {
+                next unless $sect =~ /$key/;
+
+                # count the number of keys in the section
+                my $keycount = $sect =~ s/$key/$key/g;
+                # calculate spaces to add or remove from end of section
+                my $pad = ' ' x ($keycount * abs($replen - $keylen));
+                if ($replen > $keylen) {
+                    unless ( $sect =~ s/$pad $/ / ) {
+                        print "    ** in '$fn': not enough spaces at end of section for\n";
+                        print "    ** '$key' to '$repl' replacement in\n";
+                        print "    ** '|$sect|'";
+                        die "\n";
+                    }
+
+                    # replace the key with the longer replacement
+                    $sect =~ s/$key/$repl/g;
+                } else {
+                    # replacement is shorter, do the replacement
+                    $sect =~ s/$key/$repl/g;
+                    # pad the end of the section with the spaces
+                    $sect .= $pad;
+                }
+            }
+            # build the replacement string for the whole line
+            my $calcline = "$indent" . join('|', @sections) . '|';
+
+            unless ( $contents =~ s/\Q$origline\E/$calcline/gm ) {
+                print "    ** in '$fn': replacement of original line\n";
+                print "    ** '$origline'\n";
+                print "    ** with new line\n";
+                print "    ** '$calcline'\n";
+                print "    ** failed, probably due to a bug in $prog\n";
+                die "\n";
+            }
+        }
+        # do all the ordinary replacements
+        $contents =~ s/$key/$repl/g;
+    }
+
+    return $contents;
+}
+
+sub processonefile {
+    my ($fname, $chapnum) = @_;
+    print "processing $fname\n" if $verbose;
+
+    my $fcontents = slurpfile($fname);
+
+    $fcontents = do_includes($fname, $chapnum, $fcontents);
+    $fcontents = do_ifdefs($fname, $chapnum, $fcontents);
+    $fcontents = do_substitutes($fname, $chapnum, $fcontents);
+
+    return $fcontents;
+}
+
+sub processfiles {
+    my @files = @_;
+
+    my $chapternum = 0;
+
+    for my $fname (@files) {
+        my $contents = processonefile($fname, $chapternum);
+        writefile("$outdir/$fname", $contents);
+        $chapternum++;
+    }
+}
+
+sub instructions {
+    print "output in $outdir, build with\n";
+    print "  cd $outdir && sphinx-build -t $tag -b singlehtml . _build/singlehtml\n";
+    print "    or\n";
+    print "  cd $outdir && sphinx-build -t $tag -b html . _build/html\n";
+}
+
+
+# main
+usage() unless getopts('c:ho:s:t:v');
+usage() if $opt_h;
+$verbose = 1 if $opt_v;
+parseinput();
+checkinput();
+init();
+my @rstfiles = parsemasterfile();
+copymiscfiles();
+checkexists(@rstfiles);
+processfiles(@rstfiles);
+instructions();

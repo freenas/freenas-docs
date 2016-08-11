@@ -10,8 +10,8 @@ developed at Sun with the intent to open source the filesystem so that it could 
 some of the original ZFS engineers founded
 `OpenZFS <http://open-zfs.org/wiki/Main_Page>`_ in order to provided continued, collaborative development of the open source version. To differentiate itself from Oracle ZFS
 version numbers, OpenZFS uses feature flags. Feature flags are used to tag features with unique names in order to provide portability between OpenZFS
-implementations running on different platforms, as long as all of the feature flags enabled on the ZFS pool are supported by both platforms. FreeNAS® uses
-OpenZFS and each new version of FreeNAS® keeps up-to-date with the latest feature flags and OpenZFS bug fixes.
+implementations running on different platforms, as long as all of the feature flags enabled on the ZFS pool are supported by both platforms. %brand% uses
+OpenZFS and each new version of %brand% keeps up-to-date with the latest feature flags and OpenZFS bug fixes.
 
 Here is an overview of the features provided by ZFS:
 
@@ -29,19 +29,19 @@ all available disks. As a 128-bit filesystem, the maximum filesystem or file siz
 the checksum for each disk block it reads. If ZFS identifies a disk block checksum error on a pool that is mirrored or uses RAIDZ*, ZFS will fix the corrupted
 data with the correct data. Since some disk blocks are rarely read, regular scrubs should be scheduled so that ZFS can read all of the data blocks in order to
 validate their checksums and correct any corrupted blocks. While multiple disks are required in order to provide redundancy and data correction, ZFS will
-still provide  data corruption detection to a system with one disk. FreeNAS® automatically schedules a monthly scrub for each ZFS pool and the results of the
+still provide  data corruption detection to a system with one disk. %brand% automatically schedules a monthly scrub for each ZFS pool and the results of the
 scrub will be displayed in :ref:`View Volumes`. Reading the scrub results can provide an early indication of possible disk failure.
   
 Unlike traditional UNIX filesystems, **you do not need to define partition sizes at filesystem creation time**. Instead, you feed a certain number of disk(s)
 at a time (known as a vdev) to a ZFS pool and create filesystems from the pool as needed. As more capacity is needed, identical vdevs can be striped into the
-pool. In FreeNAS®, :ref:`Volume Manager` can be used to create or extend ZFS pools. Once a pool is created, it can be divided into dynamically-sized
+pool. In %brand%, :ref:`Volume Manager` can be used to create or extend ZFS pools. Once a pool is created, it can be divided into dynamically-sized
 datasets or fixed-size zvols as needed. Datasets can be used to optimize storage for the type of data being stored as permissions and properties such as
 quotas and compression can be set on a per-dataset level. A zvol is essentially a raw, virtual block device which can be used for applications that need
 raw-device semantics such as iSCSI device extents.
   
 **ZFS supports real-time data compression**. Compression happens when a block is written to disk, but only if the written data will benefit from compression.
 When a compressed block is accessed, it is automatically decompressed. Since compression happens at the block level, not the file level, it is transparent to
-any applications accessing the compressed data. By default, ZFS pools made using FreeNAS® version 9.2.1 or later will use the recommended LZ4 compression
+any applications accessing the compressed data. By default, ZFS pools made using %brand% version 9.2.1 or later will use the recommended LZ4 compression
 algorithm.
   
 **ZFS provides low-cost, instantaneous snapshots** of the specified pool, dataset, or zvol. Due to COW, the initial size of a snapshot is 0 bytes and the size
@@ -55,7 +55,7 @@ minutes of the data loss). Snapshots are stored locally but can also be replicat
 copy but instead converts a snapshot into a stream of data. This design means that the ZFS pool on the receiving end does not need to be identical and can use
 a different RAIDZ level, volume size, compression settings, etc.
   
-**ZFS boot environments provide a method for recovering from a failed upgrade**. In FreeNAS®, a snapshot of the dataset the operating
+**ZFS boot environments provide a method for recovering from a failed upgrade**. In %brand%, a snapshot of the dataset the operating
 system resides on is automatically taken before an upgrade or a system update. This saved boot environment is automatically added to the GRUB boot loader.
 Should the upgrade or configuration change fail, simply reboot and select the previous boot environment from the boot menu. Users can also create their own
 boot environments in :menuselection:`System --> Boot` as needed, for example before making configuration changes. This way, the system can be rebooted into
@@ -78,7 +78,7 @@ if the log device fails and only the data in the device which had not been writt
 can replace the lost log device in the :menuselection:`View Volumes --> Volume Status` screen. Note that a dedicated log device can not be shared between ZFS
 pools and that the same device cannot hold both a log and a cache device.
 
-**ZFS provides a read cache** in RAM, known as the ARC, to reduce read latency. FreeNAS® adds ARC stats to 
+**ZFS provides a read cache** in RAM, known as the ARC, to reduce read latency. %brand% adds ARC stats to 
 `top(1) <http://www.freebsd.org/cgi/man.cgi?query=top>`_ and includes the :command:`arc_summary.py`
 and :command:`arcstat.py` tools for monitoring the efficiency of the ARC. If an SSD is dedicated as a cache device, it is known as an
 `L2ARC <https://blogs.oracle.com/brendan/entry/test>`_ and ZFS uses it to store more reads which can increase random read performance. However, adding an
@@ -112,7 +112,7 @@ disk space or performance:
   vdevs.
 
 * Some older ZFS documentation recommends that a certain number of disks is needed for each type of RAIDZ in order to achieve optimal performance. On systems
-  using LZ4 compression, which is the default for FreeNAS® 9.2.1 and higher, this is no longer true. See
+  using LZ4 compression, which is the default for %brand% 9.2.1 and higher, this is no longer true. See
   `ZFS RAIDZ stripe width, or: How I Learned to Stop Worrying and Love RAIDZ <http://blog.delphix.com/matt/2014/06/06/zfs-stripe-width/>`_ for details.
 
 The following resources can also help you determine the RAID configuration best suited to your storage needs:

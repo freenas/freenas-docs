@@ -49,13 +49,13 @@ To build a local copy of the HTML, with a separate page for each chapter and tha
 to browse between chapters, run the following command. This is the same format that is published at doc.freenas.org/9.10.
 
 ```
-sphinx-build -b html . _build
+make html
 ```
 
 To build a local copy of the HTML as one long page, with the entire table of contents in the left frame, use this command instead:
 
 ```
-sphinx-build -b singlehtml . _build
+make singlehtml
 ```
 
 To build a local PDF, run this command TWICE and ignore its error messages:
@@ -68,7 +68,7 @@ yes '' | gmake latexpdf
 To build a local EPUB, run this command:
 
 ```
-sphinx-build -b epub . _build
+make epub
 ```
 
 ##Editing the Documentation

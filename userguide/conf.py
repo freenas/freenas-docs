@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+# requirements:
+# textproc/py-sphinx
+# textproc/py-sphinx_numfig
+# textproc/py-sphinx_rtd_theme
+# textproc/py-sphinxcontrib-httpdomain
+
 import sys, os
 
 templates_path = ['_templates']
@@ -22,25 +28,31 @@ version = '9.10.1'
 # The full version, including alpha/beta/rc tags.
 release = '9.10.1-STABLE'
 
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-if tags.has('truenas'):
-    project = u'TrueNAS User Guide'
-    master_doc = 'truenas'
-    exclude_patterns = ['_build', 'freenas*', 'errata', 'zfsprimer*']
-    extensions = [
+# exclude_patterns is a list of patterns relative to the source directory
+# that match files and directories to ignore when looking for source files.
+tags.add('freenas')
+brand = u'FreeNAS®'
+project = brand + u' User Guide'
+master_doc = 'freenas'
+extensions = [
     'sphinx.ext.ifconfig',
     'sphinxcontrib.httpdomain',
     'sphinx.ext.numfig'
-    ]
-    numfig = True
-    numfig_secnum_depth = (2)
+]
+numfig = True
+numfig_secnum_depth = (2)
+numfig_number_figures = False
+# numfig_figure_caption_prefix = "Figure"
 
-else:
-    project = u'FreeNAS User Guide'
-    master_doc = 'freenas'
-    exclude_patterns = ['_build', 'truenas*', 'errata']
-    extensions = ['sphinxcontrib.httpdomain']
+if tags.has('truenas'):
+    brand = u'TrueNAS®'
+    tags.remove('freenas')
+    project = brand + u' User Guide'
+    master_doc = 'truenas'
+
+# |brand| will be replaced with FreeNAS® or TrueNAS®
+# rst_epilog = '.. |brand| replace:: %s' % brand
+
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -63,25 +75,23 @@ html_theme_options = {
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-if tags.has('truenas'):
-    html_title = 'TrueNAS User Guide 9.10.1 Table of Contents'
-else:
-    html_title = 'FreeNAS User Guide 9.10.1 Table of Contents'
+html_title = brand + ' User Guide ' + version + ' Table of Contents'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
+html_logo = "artwork/freenaslogo.png"
 if tags.has('truenas'):
-    html_logo = "truenaslogo.png"
-else:
-    html_logo = "freenaslogo.png"
+    html_logo = "artwork/truenaslogo.png"
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-html_favicon = "freenas.ico"
+html_favicon = "artwork/freenas.ico"
+if tags.has('truenas'):
+    html_favicon = "artwork/truenas.ico"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -131,17 +141,23 @@ html_show_sphinx = False
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'FreeNASdoc'
+if tags.has('truenas'):
+    htmlhelp_basename = 'TrueNASdoc'
 
 # -- Options for Epub output ----------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'FreeNAS User Guide'
+epub_title = u'FreeNAS® User Guide'
+if tags.has('truenas'):
+    epub_title = u'TrueNAS® User Guide'
 epub_author = u'iXsystems'
 epub_publisher = u'iXsystems'
 epub_copyright = u'2011-2016, iXsystems'
 
 # The basename for the epub file. It defaults to the project name.
 epub_basename = u'freenas_userguide'
+if tags.has('truenas'):
+    epub_basename = u'truenas_userguide'
 
 # The HTML theme for the epub output. Since the default themes are not optimized
 # for small screen space, using the same theme for HTML and epub output is
