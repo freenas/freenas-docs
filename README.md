@@ -58,11 +58,10 @@ To build a local copy of the HTML as one long page, with the entire table of con
 make singlehtml
 ```
 
-To build a local PDF, run this command TWICE and ignore its error messages:
+To build a local PDF, run this command:
 
 ```
-yes '' | gmake latexpdf
-yes '' | gmake latexpdf
+make pdf
 ```
 
 To build a local EPUB, run this command:

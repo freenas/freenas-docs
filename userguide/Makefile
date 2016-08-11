@@ -5,7 +5,7 @@
 TAG           = freenas
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
-PREPROC       = $(.CURDIR)/preproc
+PREPROC       = ./preproc
 PREPROCDIR    = processed
 PAPER         =
 BUILDDIR      = _build
@@ -17,7 +17,7 @@ ALLSPHINXOPTS   = -t $(TAG) -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHIN
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
-.PHONY: help clean preproc html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
+.PHONY: help clean preproc html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex pdf latexpdf text man changes linkcheck doctest gettext
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -115,15 +115,15 @@ latex:	preproc
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo
 	@echo "Build finished; the LaTeX files are in $(PREPROCDIR)/$(BUILDDIR)/latex."
-	@echo "Run \`make' in that directory to run these through (pdf)latex" \
-	      "(use \`make latexpdf' here to do that automatically)."
+	@echo "Run \`gmake' in that directory to run these through (pdf)latex" \
+	      "(use \`gmake latexpdf' here to do that automatically)."
 
-latexpdf:	preproc
+latexpdf pdf:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo "Running LaTeX files through pdflatex..."
-	$(MAKE) -C $(PREPROCDIR)/$(BUILDDIR)/latex all-pdf
-	@echo "pdflatex finished; the PDF files are in $(PREPROCDIR)/$(BUILDDIR)/latex."
+	gmake -C $(PREPROCDIR)/$(BUILDDIR)/latex all-pdf
+	@echo "pdflatex finished; the PDF files are in $(PREPROCDIR)/$(BUILDDIR)/latex/."
 
 text:	preproc
 	cd $(PREPROCDIR) && \
