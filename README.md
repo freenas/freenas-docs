@@ -34,8 +34,8 @@ pkg install textproc/py-sphinxcontrib-httpdomain (cd /usr/ports/textproc/py-sphi
 rehash
 ```
 
-If you wish to generate a PDF version of the documentation, this
-software also needs to be installed:
+To generate a PDF version of the documentation, this software also needs
+to be installed:
 
 ```
 pkg install print/tex-formats (cd /usr/ports/print/tex-formats/ && make install)
@@ -59,35 +59,36 @@ All of the following commands need to be run from
 /path/to/your-build-directory/freenas/docs/userguide. These formats are
 currently available: HTML, single HTML, PDF, and EPUB. The output of
 either HTML can be found in
-/path/to/your-build-directory/freenas-docs/userguide/processed/_build/ and can be
-viewed in a web browser. The PDF output will be found in
+/path/to/your-build-directory/freenas-docs/userguide/processed/_build/
+and can be viewed in a web browser. The PDF output will be found in
 /path/to/your-build-directory/freenas-docs/userguide/processed/_build/latex/FreeNAS.pdf.
 The EPUB output will be found in
 /path/to/your-build-directory/freenas-docs/userguide/processed/_build/freenas_userguide.epub.
 
-To build a local copy of the HTML, with a separate page for each chapter
-and that chapter's table of contents in the left frame with navigational
-links to browse between chapters, run the following command. This is the
-same format that is published at doc.freenas.org/9.10.
+To build the document in HTML with a separate page for each chapter and
+that chapter's table of contents in the left frame with navigational
+links to browse between chapters:
 
 ```
 make html
 ```
 
-To build a local copy of the HTML as one long page, with the entire
-table of contents in the left frame, use this command instead:
+This is the same format that is published at doc.freenas.org/9.10.
+
+To build one long HTML page with the entire table of contents in the
+left frame, use:
 
 ```
 make singlehtml
 ```
 
-To build a local PDF, run this command:
+To build a PDF:
 
 ```
 make pdf
 ```
 
-To build a local EPUB, run this command:
+To build an EPUB:
 
 ```
 make epub
@@ -95,8 +96,8 @@ make epub
 
 ##Editing the Documentation
 
-If you want to edit the User Guide, make changes to the *.rst file for
-the chapter to edit, using any ASCII text editor. Refer to
+To edit the User Guide, make changes to the *.rst file for the chapter
+to edit using any ASCII text editor. Refer to
 http://docutils.sourceforge.net/docs/user/rst/quickref.html for help
 with formatting syntax. Refer to
 http://wiki.typo3.org/Editors_%28reST%29 for a list of reST editors.
