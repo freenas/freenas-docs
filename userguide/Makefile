@@ -51,7 +51,7 @@ html:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
-	@echo "Build finished. The HTML pages are in $(PREPROCDIR)/$(BUILDDIR)/html."
+	@echo "Build finished. The HTML index page is $(PREPROCDIR)/$(BUILDDIR)/html/$(TAG).html"
 
 dirhtml:	preproc
 	cd $(PREPROCDIR) && \
@@ -63,7 +63,7 @@ singlehtml:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml
 	@echo
-	@echo "Build finished. The HTML page is in $(PREPROCDIR)/$(BUILDDIR)/singlehtml."
+	@echo "Build finished. The HTML page is $(PREPROCDIR)/$(BUILDDIR)/singlehtml/$(TAG).html"
 
 pickle:	preproc
 	cd $(PREPROCDIR) && \
@@ -122,6 +122,7 @@ latexpdf pdf:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo "Running LaTeX files through pdflatex..."
+	# gmake is required here
 	gmake -C $(PREPROCDIR)/$(BUILDDIR)/latex all-pdf
 	@echo "pdflatex finished; the PDF files are in $(PREPROCDIR)/$(BUILDDIR)/latex/."
 
