@@ -12,6 +12,8 @@ or a FreeBSD jail.
 
 ##Requirements:
 
+Perl must be installed on the system.
+
 At a minimum, the following software needs to be installed as the
 root/superuser. If this is the first time you have used pkg on the
 system, it may prompt you to fetch and install it. Say yes to the
@@ -30,7 +32,9 @@ already installed.
 portsnap fetch extract
 pkg install devel/git (cd /usr/ports/devel/git/ && make install)
 pkg install textproc/py-sphinx (cd /usr/ports/textproc/py-sphinx/ && make install)
-pkg install textproc/py-sphinxcontrib-httpdomain (cd /usr/ports/textproc/py-sphinxcontrib-httpdomain && make install)
+pkg install textproc/py-sphinxcontrib-httpdomain (cd /usr/ports/textproc/py-sphinxcontrib-httpdomain && make
+install)
+pkg install textproc/py-sphinx_numfig (cd /usr/ports/textproc/py-sphinx_numfig && make install)
 rehash
 ```
 
