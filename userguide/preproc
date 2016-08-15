@@ -18,7 +18,7 @@ use File::Path qw(make_path remove_tree);
 my $cp = "/bin/cp";
 
 my $prog    = basename($0);
-my $version = "1.10";
+my $version = "1.11";
 
 my $defaultoutdir = "processed";
 
@@ -424,9 +424,8 @@ sub do_substitutes {
 
         print "    replacement is not the same length as key, watching out for tables\n" if $verbose;
 
-        while ( $contents =~ /^(\s*)\|(.*$key.*\|\s*)$/gm ) {
+        while ( $contents =~ /^([\t ]*)\|(.*$key.*\|[\t ]*)$/gm ) {
             my $indent = $1;
-            $indent =~ tr/\n//d;
             my $line = $2;
 
             # save the old line as the pattern to replace
@@ -460,7 +459,7 @@ sub do_substitutes {
                 }
             }
             # build the replacement string for the whole line
-            my $calcline = "$indent" . join('|', @sections) . '|';
+            my $calcline = join('|', @sections) . '|';
 
             unless ( $contents =~ s/\Q$origline\E/$calcline/gm ) {
                 print "    ** in '$fn': replacement of original line\n";
