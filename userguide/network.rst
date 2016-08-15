@@ -34,59 +34,68 @@ Global Configuration
 --------------------
 
 :menuselection:`Network --> Global Configuration`,
-shown in Figure %chapternum%.1a, is for general network settings that are not
-unique to any particular network interface.
+shown in
+:numref:`Figure %s <global_net_config_fig>`,
+is for general network settings that are not unique to any particular
+network interface.
 
-**Figure %chapternum%.1a: Global Configuration**
+.. _global_net_config_fig:
 
-.. image:: images/network1.png
+.. figure:: images/network1.png
 
-Table %chapternum%.1a summarizes the settings on the Global Configuration tab.
-Hostname and domain fields are pre-filled as shown in Figure %chapternum%.1a, but
-can be changed to meet requirements of the local network.
+   Global Network Configuration
 
-**Table %chapternum%.1a: Global Configuration Settings**
 
-+------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-| **Setting**            | **Value**  | **Description**                                                                                                      |
-|                        |            |                                                                                                                      |
-+========================+============+======================================================================================================================+
-| Hostname               | string     | system host name                                                                                                     |
-|                        |            |                                                                                                                      |
-+------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-| Domain                 | string     | system domain name                                                                                                   |
-|                        |            |                                                                                                                      |
-+------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-| IPv4 Default Gateway   | IP address | typically not set (see NOTE below)                                                                                   |
-|                        |            |                                                                                                                      |
-+------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-| IPv6 Default Gateway   | IP address | typically not set (see NOTE below)                                                                                   |
-|                        |            |                                                                                                                      |
-+------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-| Nameserver 1           | IP address | primary DNS server (typically in Windows domain)                                                                     |
-|                        |            |                                                                                                                      |
-+------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-| Nameserver 2           | IP address | secondary DNS server                                                                                                 |
-|                        |            |                                                                                                                      |
-+------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-| Nameserver 3           | IP address | tertiary DNS server                                                                                                  |
-|                        |            |                                                                                                                      |
-+------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-| HTTP Proxy             | string     | enter the proxy information for the network in the format *http://my.proxy.server:3128* or                           |
-|                        |            | *http://user@password:my.proxy.server:3128*                                                                          |
-|                        |            |                                                                                                                      |
-+------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-| Enable netwait feature | checkbox   | if enabled, network services are not started at boot until the interface is able to ping the addresses               |
-|                        |            | listed in "Netwait IP list"                                                                                          |
-|                        |            |                                                                                                                      |
-+------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-| Netwait IP list        | string     | if "Enable netwait feature" is checked, list of IP addresses to ping; otherwise, ping the default gateway            |
-|                        |            |                                                                                                                      |
-+------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-| Host name database     | string     | used to add one entry per line which will be appended to :file:`/etc/hosts`; use the format                          |
-|                        |            | *IP_address space hostname* where multiple hostnames can be used if separated by a space                             |
-|                        |            |                                                                                                                      |
-+------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+:numref:`Table %s <global_net_config_tab>`
+summarizes the settings on the Global Configuration tab.
+Hostname and domain fields are pre-filled as shown in
+:numref:`Figure %s <global_net_config_fig>`,
+but can be changed to meet requirements of the local network.
+
+.. _global_net_config_tab:
+
+.. table:: **Global Configuration Settings**
+
+   +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+   | **Setting**            | **Value**  | **Description**                                                                                                      |
+   |                        |            |                                                                                                                      |
+   +========================+============+======================================================================================================================+
+   | Hostname               | string     | system host name                                                                                                     |
+   |                        |            |                                                                                                                      |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+   | Domain                 | string     | system domain name                                                                                                   |
+   |                        |            |                                                                                                                      |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+   | IPv4 Default Gateway   | IP address | typically not set (see NOTE below)                                                                                   |
+   |                        |            |                                                                                                                      |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+   | IPv6 Default Gateway   | IP address | typically not set (see NOTE below)                                                                                   |
+   |                        |            |                                                                                                                      |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+   | Nameserver 1           | IP address | primary DNS server (typically in Windows domain)                                                                     |
+   |                        |            |                                                                                                                      |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+   | Nameserver 2           | IP address | secondary DNS server                                                                                                 |
+   |                        |            |                                                                                                                      |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+   | Nameserver 3           | IP address | tertiary DNS server                                                                                                  |
+   |                        |            |                                                                                                                      |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+   | HTTP Proxy             | string     | enter the proxy information for the network in the format *http://my.proxy.server:3128* or                           |
+   |                        |            | *http://user@password:my.proxy.server:3128*                                                                          |
+   |                        |            |                                                                                                                      |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+   | Enable netwait feature | checkbox   | if enabled, network services are not started at boot until the interface is able to ping the addresses               |
+   |                        |            | listed in "Netwait IP list"                                                                                          |
+   |                        |            |                                                                                                                      |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+   | Netwait IP list        | string     | if "Enable netwait feature" is checked, list of IP addresses to ping; otherwise, ping the default gateway            |
+   |                        |            |                                                                                                                      |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+   | Host name database     | string     | used to add one entry per line which will be appended to :file:`/etc/hosts`; use the format                          |
+   |                        |            | *IP_address space hostname* where multiple hostnames can be used if separated by a space                             |
+   |                        |            |                                                                                                                      |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
 
 When Active Directory is being used, set the IP address of the
 realm's DNS server in the "Nameserver 1" field.
@@ -123,56 +132,63 @@ or editing a manually configured interface.
    appear in this screen, even though it is already dynamically
    configured and in use.
 
-Figure %chapternum%.2a shows the screen that opens on clicking
+:numref:`Figure %s <add_net_interface_fig>`
+shows the screen that opens on clicking
 :menuselection:`Interfaces --> Add Interface`.
-Table %chapternum%.2a summarizes the configuration options shown when adding an
-interface or editing an already configured interface. Note that if any
-changes to this screen require a network restart, the screen will turn
-red when the "OK" button is clicked and a pop-up message will point
-out that network connectivity to the %brand% system will be
-interrupted while the changes are applied.
+:numref:`Table %s <net_interface_config_tab>`
+summarizes the configuration options shown when adding an interface or
+editing an already configured interface. Note that if any changes to
+this screen require a network restart, the screen will turn red when
+the "OK" button is clicked and a pop-up message will point out that
+network connectivity to the %brand% system will be interrupted while
+the changes are applied.
 
-**Figure %chapternum%.2a: Adding or Editing an Interface**
+.. _add_net_interface_fig:
 
-.. image:: images/interface.png
+.. figure:: images/interface.png
 
-**Table %chapternum%.2a: Interface Configuration Settings**
+   Adding or Editing an Interface
 
-+---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-| **Setting**         | **Value**      | **Description**                                                                                                     |
-|                     |                |                                                                                                                     |
-+=====================+================+=====================================================================================================================+
-| NIC                 | drop-down menu | select the FreeBSD device name; is a read-only field when editing an interface                                      |
-|                     |                |                                                                                                                     |
-+---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-| Interface Name      | string         | description of interface                                                                                            |
-|                     |                |                                                                                                                     |
-+---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-| DHCP                | checkbox       | requires static IPv4 or IPv6 configuration if unchecked; note that only one interface can be configured for DHCP    |
-|                     |                |                                                                                                                     |
-+---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-| IPv4 Address        | IP address     | set if "DHCP" is unchecked                                                                                          |
-|                     |                |                                                                                                                     |
-+---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-| IPv4 Netmask        | drop-down menu | set if "DHCP" is unchecked                                                                                          |
-|                     |                |                                                                                                                     |
-+---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-| Auto configure IPv6 | checkbox       | only one interface can be configured for this option; if unchecked, manual configuration is                         |
-|                     |                | required to use IPv6                                                                                                |
-|                     |                |                                                                                                                     |
-+---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-| IPv6 Address        | IPv6 address   | must be unique on network                                                                                           |
-|                     |                |                                                                                                                     |
-+---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-| IPv6 Prefix Length  | drop-down menu | match the prefix used on network                                                                                    |
-|                     |                |                                                                                                                     |
-+---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-| Options             | string         | additional parameters from                                                                                          |
-|                     |                | `ifconfig(8) <http://www.freebsd.org/cgi/man.cgi?query=ifconfig>`_,                                                 |
-|                     |                | separate multiple parameters with a space; for example: *mtu 9000* will increase the MTU for interfaces that        |
-|                     |                | support jumbo frames                                                                                                |
-|                     |                |                                                                                                                     |
-+---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
+
+.. _net_interface_config_tab:
+
+.. table:: **Interface Configuration Settings**
+
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
+   | **Setting**         | **Value**      | **Description**                                                                                                     |
+   |                     |                |                                                                                                                     |
+   +=====================+================+=====================================================================================================================+
+   | NIC                 | drop-down menu | select the FreeBSD device name; is a read-only field when editing an interface                                      |
+   |                     |                |                                                                                                                     |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
+   | Interface Name      | string         | description of interface                                                                                            |
+   |                     |                |                                                                                                                     |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
+   | DHCP                | checkbox       | requires static IPv4 or IPv6 configuration if unchecked; note that only one interface can be configured for DHCP    |
+   |                     |                |                                                                                                                     |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
+   | IPv4 Address        | IP address     | set if "DHCP" is unchecked                                                                                          |
+   |                     |                |                                                                                                                     |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
+   | IPv4 Netmask        | drop-down menu | set if "DHCP" is unchecked                                                                                          |
+   |                     |                |                                                                                                                     |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
+   | Auto configure IPv6 | checkbox       | only one interface can be configured for this option; if unchecked, manual configuration is                         |
+   |                     |                | required to use IPv6                                                                                                |
+   |                     |                |                                                                                                                     |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
+   | IPv6 Address        | IPv6 address   | must be unique on network                                                                                           |
+   |                     |                |                                                                                                                     |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
+   | IPv6 Prefix Length  | drop-down menu | match the prefix used on network                                                                                    |
+   |                     |                |                                                                                                                     |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
+   | Options             | string         | additional parameters from                                                                                          |
+   |                     |                | `ifconfig(8) <http://www.freebsd.org/cgi/man.cgi?query=ifconfig>`_,                                                 |
+   |                     |                | separate multiple parameters with a space; for example: *mtu 9000* will increase the MTU for interfaces that        |
+   |                     |                | support jumbo frames                                                                                                |
+   |                     |                |                                                                                                                     |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
 
 
 This screen also provides for the configuration of IP aliases, making
@@ -243,44 +259,52 @@ configuration or troubleshooting issue.
 
 IPMI is configured from
 :menuselection:`Network --> IPMI`.
-The IPMI configuration screen, shown in Figure %chapternum%.3a, provides a
-shortcut to the most basic IPMI configuration. Those already familiar
-with IPMI management tools can use them instead. Table %chapternum%.3a summarizes
-the options available when configuring IPMI with the %brand% GUI.
+The IPMI configuration screen, shown in
+:numref:`Figure %s <ipmi_config_fig>`,
+provides a shortcut to the most basic IPMI configuration. Those
+already familiar with IPMI management tools can use them instead.
+:numref:`Table %s <ipmi_options_tab>`
+summarizes the options available when configuring IPMI with the
+%brand% GUI.
 
-**Figure %chapternum%.3a: IPMI Configuration**
+.. _ipmi_config_fig:
 
-.. image:: images/ipmi1.png
+.. figure:: images/ipmi1.png
 
-**Table %chapternum%.3a: IPMI Options**
+   IPMI Configuration
 
-+----------------------+----------------+-----------------------------------------------------------------------------+
-| **Setting**          | **Value**      | **Description**                                                             |
-|                      |                |                                                                             |
-|                      |                |                                                                             |
-+======================+================+=============================================================================+
-| Channel              | drop-down menu | select the channel to use                                                   |
-|                      |                |                                                                             |
-+----------------------+----------------+-----------------------------------------------------------------------------+
-| Password             | string         | enter the password used to connect to the IPMI interface from a web browser |
-|                      |                |                                                                             |
-+----------------------+----------------+-----------------------------------------------------------------------------+
-| DHCP                 | checkbox       | if left unchecked, the following three fields must be set                   |
-|                      |                |                                                                             |
-+----------------------+----------------+-----------------------------------------------------------------------------+
-| IPv4 Address         | string         | IP address used to connect to the IPMI web GUI                              |
-|                      |                |                                                                             |
-+----------------------+----------------+-----------------------------------------------------------------------------+
-| IPv4 Netmask         | drop-down menu | subnet mask associated with the IP address                                  |
-|                      |                |                                                                             |
-+----------------------+----------------+-----------------------------------------------------------------------------+
-| IPv4 Default Gateway | string         | default gateway associated with the IP address                              |
-|                      |                |                                                                             |
-+----------------------+----------------+-----------------------------------------------------------------------------+
-| VLAN ID              | string         | enter the VLAN identifier if the IPMI out-of-band management interface is   |
-|                      |                | not on the same VLAN as management networking                               |
-|                      |                |                                                                             |
-+----------------------+----------------+-----------------------------------------------------------------------------+
+
+.. _ipmi_options_tab:
+
+.. table:: **IPMI Options**
+
+   +----------------------+----------------+-----------------------------------------------------------------------------+
+   | **Setting**          | **Value**      | **Description**                                                             |
+   |                      |                |                                                                             |
+   |                      |                |                                                                             |
+   +======================+================+=============================================================================+
+   | Channel              | drop-down menu | select the channel to use                                                   |
+   |                      |                |                                                                             |
+   +----------------------+----------------+-----------------------------------------------------------------------------+
+   | Password             | string         | enter the password used to connect to the IPMI interface from a web browser |
+   |                      |                |                                                                             |
+   +----------------------+----------------+-----------------------------------------------------------------------------+
+   | DHCP                 | checkbox       | if left unchecked, the following three fields must be set                   |
+   |                      |                |                                                                             |
+   +----------------------+----------------+-----------------------------------------------------------------------------+
+   | IPv4 Address         | string         | IP address used to connect to the IPMI web GUI                              |
+   |                      |                |                                                                             |
+   +----------------------+----------------+-----------------------------------------------------------------------------+
+   | IPv4 Netmask         | drop-down menu | subnet mask associated with the IP address                                  |
+   |                      |                |                                                                             |
+   +----------------------+----------------+-----------------------------------------------------------------------------+
+   | IPv4 Default Gateway | string         | default gateway associated with the IP address                              |
+   |                      |                |                                                                             |
+   +----------------------+----------------+-----------------------------------------------------------------------------+
+   | VLAN ID              | string         | enter the VLAN identifier if the IPMI out-of-band management interface is   |
+   |                      |                | not on the same VLAN as management networking                               |
+   |                      |                |                                                                             |
+   +----------------------+----------------+-----------------------------------------------------------------------------+
 
 #ifdef freenas
 After configuration, the IPMI interface is accessed using a web
@@ -442,14 +466,17 @@ interfaces have been manually configured in
 If any manually-configured interfaces exist, delete them as
 **lagg creation will fail if any interfaces are manually configured**.
 
-Figure %chapternum%.4a shows the configuration options when adding a lagg
-interface using
+:numref:`Figure %s <create_lagg_fig>`
+shows the configuration options when adding a lagg interface using
 :menuselection:`Network --> Link Aggregations
 --> Create Link Aggregation`.
 
-**Figure %chapternum%.4a: Creating a lagg Interface**
+.. _create_lagg_fig:
 
-.. image:: images/lagg1.png
+.. figure:: images/lagg1.png
+
+   Creating a lagg Interface
+
 
 #ifdef freenas
 .. note:: If interfaces are installed but do not appear in the
@@ -467,7 +494,10 @@ Once the lagg device has been created, click its entry to enable its
 "Edit", "Delete", and "Edit Members" buttons.
 
 Clicking the "Edit" button for a lagg opens the configuration screen
-shown in Figure %chapternum%.4b. Table %chapternum%.4a describes the options in this screen.
+shown in
+:numref:`Figure %s <lagg_edit_fig>`.
+:numref:`Table %s <lagg_opts_tab>`
+describes the options in this screen.
 
 After creating the lagg interface, set the IP address manually or with
 DHCP. The connection to the web interface may be temporarily
@@ -477,46 +507,51 @@ interface.  If the IP address was set manually, it might also be
 necessary to manually enter a default gateway from the console setup
 menu option to get access into the GUI through the new lagg interface.
 
-**Figure %chapternum%.4b: Editing a lagg**
+.. _lagg_edit_fig:
 
-.. image:: images/lagg2.png
+.. figure:: images/lagg2.png
 
-**Table %chapternum%.4a: Configurable Options for a lagg**
+   Editing a lagg
 
-+---------------------+----------------+----------------------------------------------------------------------------------+
-| **Setting**         | **Value**      | **Description**                                                                  |
-|                     |                |                                                                                  |
-|                     |                |                                                                                  |
-+=====================+================+==================================================================================+
-| NIC                 | string         | read-only; automatically assigned the next available numeric ID                  |
-|                     |                |                                                                                  |
-+---------------------+----------------+----------------------------------------------------------------------------------+
-| Interface Name      | string         | by default same as device (NIC) name, can be changed to a more descriptive value |
-|                     |                |                                                                                  |
-+---------------------+----------------+----------------------------------------------------------------------------------+
-| DHCP                | checkbox       | check if the lagg device will get IP address info from DHCP server               |
-|                     |                |                                                                                  |
-+---------------------+----------------+----------------------------------------------------------------------------------+
-| IPv4 Address        | string         | mandatory if "DHCP" is left unchecked                                            |
-|                     |                |                                                                                  |
-+---------------------+----------------+----------------------------------------------------------------------------------+
-| IPv4 Netmask        | drop-down menu | mandatory if "DHCP" is left unchecked                                            |
-|                     |                |                                                                                  |
-+---------------------+----------------+----------------------------------------------------------------------------------+
-| Auto configure IPv6 | checkbox       | check only if DHCP server available to provide IPv6 address info                 |
-|                     |                |                                                                                  |
-+---------------------+----------------+----------------------------------------------------------------------------------+
-| IPv6 Address        | string         | optional                                                                         |
-|                     |                |                                                                                  |
-+---------------------+----------------+----------------------------------------------------------------------------------+
-| IPv6 Prefix Length  | drop-down menu | required if an IPv6 address is entered                                           |
-|                     |                |                                                                                  |
-+---------------------+----------------+----------------------------------------------------------------------------------+
-| Options             | string         | additional                                                                       |
-|                     |                | `ifconfig(8) <http://www.freebsd.org/cgi/man.cgi?query=ifconfig>`_               |
-|                     |                | options                                                                          |
-|                     |                |                                                                                  |
-+---------------------+----------------+----------------------------------------------------------------------------------+
+
+.. _lagg_opts_tab:
+
+.. table:: **Configurable Options for a lagg**
+
+   +---------------------+----------------+----------------------------------------------------------------------------------+
+   | **Setting**         | **Value**      | **Description**                                                                  |
+   |                     |                |                                                                                  |
+   |                     |                |                                                                                  |
+   +=====================+================+==================================================================================+
+   | NIC                 | string         | read-only; automatically assigned the next available numeric ID                  |
+   |                     |                |                                                                                  |
+   +---------------------+----------------+----------------------------------------------------------------------------------+
+   | Interface Name      | string         | by default same as device (NIC) name, can be changed to a more descriptive value |
+   |                     |                |                                                                                  |
+   +---------------------+----------------+----------------------------------------------------------------------------------+
+   | DHCP                | checkbox       | check if the lagg device will get IP address info from DHCP server               |
+   |                     |                |                                                                                  |
+   +---------------------+----------------+----------------------------------------------------------------------------------+
+   | IPv4 Address        | string         | mandatory if "DHCP" is left unchecked                                            |
+   |                     |                |                                                                                  |
+   +---------------------+----------------+----------------------------------------------------------------------------------+
+   | IPv4 Netmask        | drop-down menu | mandatory if "DHCP" is left unchecked                                            |
+   |                     |                |                                                                                  |
+   +---------------------+----------------+----------------------------------------------------------------------------------+
+   | Auto configure IPv6 | checkbox       | check only if DHCP server available to provide IPv6 address info                 |
+   |                     |                |                                                                                  |
+   +---------------------+----------------+----------------------------------------------------------------------------------+
+   | IPv6 Address        | string         | optional                                                                         |
+   |                     |                |                                                                                  |
+   +---------------------+----------------+----------------------------------------------------------------------------------+
+   | IPv6 Prefix Length  | drop-down menu | required if an IPv6 address is entered                                           |
+   |                     |                |                                                                                  |
+   +---------------------+----------------+----------------------------------------------------------------------------------+
+   | Options             | string         | additional                                                                       |
+   |                     |                | `ifconfig(8) <http://www.freebsd.org/cgi/man.cgi?query=ifconfig>`_               |
+   |                     |                | options                                                                          |
+   |                     |                |                                                                                  |
+   +---------------------+----------------+----------------------------------------------------------------------------------+
 
 
 This screen also allows the configuration of an alias for the lagg
@@ -525,47 +560,56 @@ link.
 
 Click the "Edit Members" button, click the entry for a member, then
 click its "Edit" button to see the configuration screen shown in
-Figure %chapternum%.4c. The configurable options are summarized in Table %chapternum%.4b.
+:numref:`Figure %s <lagg_member_edit_fig>`.
+The configurable options are summarized in
+:numref:`Table %s <lagg_config_member_tab>`.
 
-**Figure %chapternum%.4c: Editing a Member Interface**
+.. _lagg_member_edit_fig:
 
-.. image:: images/lagg3.png
+.. figure:: images/lagg3.png
 
-**Table %chapternum%.4b: Configuring a Member Interface**
+   Editing a Member Interface
 
-+----------------------+----------------+------------------------------------------------------------------------------------------------+
-| **Setting**          | **Value**      | **Description**                                                                                |
-|                      |                |                                                                                                |
-|                      |                |                                                                                                |
-+======================+================+================================================================================================+
-| LAGG Interface group | drop-down menu | select the member interface to configure                                                       |
-|                      |                |                                                                                                |
-+----------------------+----------------+------------------------------------------------------------------------------------------------+
-| LAGG Priority Number | integer        | order of selected interface within the lagg; configure a failover to set the master interface  |
-|                      |                | to *0* and the other interfaces to                                                             |
-|                      |                | *1*,                                                                                           |
-|                      |                | *2*, etc.                                                                                      |
-|                      |                |                                                                                                |
-+----------------------+----------------+------------------------------------------------------------------------------------------------+
-| LAGG Physical NIC    | drop-down menu | physical interface of the selected member                                                      |
-|                      |                |                                                                                                |
-+----------------------+----------------+------------------------------------------------------------------------------------------------+
-| Options              | string         | additional parameters from                                                                     |
-|                      |                | `ifconfig(8) <http://www.freebsd.org/cgi/man.cgi?query=ifconfig>`_                             |
-|                      |                |                                                                                                |
-+----------------------+----------------+------------------------------------------------------------------------------------------------+
+
+.. _lagg_config_member_tab:
+
+.. table:: **Configuring a Member Interface**
+
+   +----------------------+----------------+------------------------------------------------------------------------------------------------+
+   | **Setting**          | **Value**      | **Description**                                                                                |
+   |                      |                |                                                                                                |
+   |                      |                |                                                                                                |
+   +======================+================+================================================================================================+
+   | LAGG Interface group | drop-down menu | select the member interface to configure                                                       |
+   |                      |                |                                                                                                |
+   +----------------------+----------------+------------------------------------------------------------------------------------------------+
+   | LAGG Priority Number | integer        | order of selected interface within the lagg; configure a failover to set the master interface  |
+   |                      |                | to *0* and the other interfaces to                                                             |
+   |                      |                | *1*,                                                                                           |
+   |                      |                | *2*, etc.                                                                                      |
+   |                      |                |                                                                                                |
+   +----------------------+----------------+------------------------------------------------------------------------------------------------+
+   | LAGG Physical NIC    | drop-down menu | physical interface of the selected member                                                      |
+   |                      |                |                                                                                                |
+   +----------------------+----------------+------------------------------------------------------------------------------------------------+
+   | Options              | string         | additional parameters from                                                                     |
+   |                      |                | `ifconfig(8) <http://www.freebsd.org/cgi/man.cgi?query=ifconfig>`_                             |
+   |                      |                |                                                                                                |
+   +----------------------+----------------+------------------------------------------------------------------------------------------------+
 
 
 Options can be set at the lagg level using the "Edit" button, or at
 the individual parent interface level using the "Edit Members" button.
-Changes are typically made at the lagg level (Figure %chapternum%.4c) as each
-interface member will inherit from the lagg. To configure at the
-interface level (Figure %chapternum%.4d) instead, the configuration must be
-repeated for each interface within the lagg. However, some lagg
-options can only be set by editing the interface. For instance, the
-MTU of a lagg is inherited from the interface, so setting the MTU on a
-lagg requires setting all of the interfaces to the same MTU **before**
-creating the lagg.
+Changes are typically made at the lagg level
+(:numref:`Figure %s <lagg_edit_fig>`)
+as each interface member will inherit from the lagg. To configure at
+the interface level
+(:numref:`Figure %s <lagg_member_edit_fig>`)
+instead, the configuration must be repeated for each interface within
+the lagg. However, some lagg options can only be set by editing the
+interface. For instance, the MTU of a lagg is inherited from the
+interface, so setting the MTU on a lagg requires setting all of the
+interfaces to the same MTU **before** creating the lagg.
 
 .. note:: When changing the MTU to create a jumbo frame lagg, a reboot
    is required.
@@ -598,31 +642,38 @@ Static Routes
 No static routes are defined on a default %brand% system. If a static
 route is required to reach portions of the network, add the route with
 :menuselection:`Network --> Static Routes --> Add Static Route`,
-shown in Figure %chapternum%.6a.
+shown in
+:numref:`Figure %s <add_static_route_fig>`.
 
-**Figure %chapternum%.6a: Adding a Static Route**
+.. _add_static_route_fig:
 
-.. image:: images/static.png
+.. figure:: images/static.png
 
-The available options are summarized in Table %chapternum%.6a.
+   Adding a Static Route
 
-**Table %chapternum%.6a: Static Route Options**
 
-+---------------------+-----------+-------------------------------------+
-| **Setting**         | **Value** | **Description**                     |
-|                     |           |                                     |
-|                     |           |                                     |
-+=====================+===========+=====================================+
-| Destination network | integer   | use the format *A.B.C.D/E* where    |
-|                     |           | *E* is the CIDR mask                |
-|                     |           |                                     |
-+---------------------+-----------+-------------------------------------+
-| Gateway             | integer   | enter the IP address of the gateway |
-|                     |           |                                     |
-+---------------------+-----------+-------------------------------------+
-| Description         | string    | optional                            |
-|                     |           |                                     |
-+---------------------+-----------+-------------------------------------+
+The available options are summarized in
+:numref:`Table %s <static_route_opts_tab>`.
+
+.. _static_route_opts_tab:
+
+.. table:: **Static Route Options**
+
+   +---------------------+-----------+-------------------------------------+
+   | **Setting**         | **Value** | **Description**                     |
+   |                     |           |                                     |
+   |                     |           |                                     |
+   +=====================+===========+=====================================+
+   | Destination network | integer   | use the format *A.B.C.D/E* where    |
+   |                     |           | *E* is the CIDR mask                |
+   |                     |           |                                     |
+   +---------------------+-----------+-------------------------------------+
+   | Gateway             | integer   | enter the IP address of the gateway |
+   |                     |           |                                     |
+   +---------------------+-----------+-------------------------------------+
+   | Description         | string    | optional                            |
+   |                     |           |                                     |
+   +---------------------+-----------+-------------------------------------+
 
 
 Added static routes are shown in "View Static Routes". Click a route's
@@ -656,34 +707,41 @@ interfaces provided they have different tags.
 
 Click
 :menuselection:`Network --> VLANs --> Add VLAN`,
-to see the screen shown in Figure %chapternum%.7a.
+to see the screen shown in
+:numref:`Figure %s <adding_vlan_fig>`.
 
-**Figure %chapternum%.7a: Adding a VLAN**
+.. _adding_vlan_fig:
 
-.. image:: images/vlan.png
+.. figure:: images/vlan.png
 
-Table %chapternum%.7a summarizes the configurable fields.
+   Adding a VLAN
 
-**Table %chapternum%.7a: Adding a VLAN**
 
-+-------------------+----------------+---------------------------------------------------------------------------------------------------+
-| **Setting**       | **Value**      | **Description**                                                                                   |
-|                   |                |                                                                                                   |
-+===================+================+===================================================================================================+
-| Virtual Interface | string         | use the format *vlanX* where                                                                      |
-|                   |                | *X* is a number representing a vlan interface not currently being used as a parent                |
-|                   |                |                                                                                                   |
-+-------------------+----------------+---------------------------------------------------------------------------------------------------+
-| Parent Interface  | drop-down menu | usually an Ethernet card connected to a properly configured switch port; note that newly created  |
-|                   |                | :ref:`Link Aggregations` will not appear in the drop-down until the system is rebooted            |
-|                   |                |                                                                                                   |
-+-------------------+----------------+---------------------------------------------------------------------------------------------------+
-| VLAN Tag          | integer        | number between 1 and 4095 which matches a numeric tag set up in the switched network              |
-|                   |                |                                                                                                   |
-+-------------------+----------------+---------------------------------------------------------------------------------------------------+
-| Description       | string         | optional                                                                                          |
-|                   |                |                                                                                                   |
-+-------------------+----------------+---------------------------------------------------------------------------------------------------+
+:numref:`Table %s <adding_vlan_tab>`
+summarizes the configurable fields.
+
+.. _adding_vlan_tab:
+
+.. table:: **Adding a VLAN**
+
+   +-------------------+----------------+---------------------------------------------------------------------------------------------------+
+   | **Setting**       | **Value**      | **Description**                                                                                   |
+   |                   |                |                                                                                                   |
+   +===================+================+===================================================================================================+
+   | Virtual Interface | string         | use the format *vlanX* where                                                                      |
+   |                   |                | *X* is a number representing a vlan interface not currently being used as a parent                |
+   |                   |                |                                                                                                   |
+   +-------------------+----------------+---------------------------------------------------------------------------------------------------+
+   | Parent Interface  | drop-down menu | usually an Ethernet card connected to a properly configured switch port; note that newly created  |
+   |                   |                | :ref:`Link Aggregations` will not appear in the drop-down until the system is rebooted            |
+   |                   |                |                                                                                                   |
+   +-------------------+----------------+---------------------------------------------------------------------------------------------------+
+   | VLAN Tag          | integer        | number between 1 and 4095 which matches a numeric tag set up in the switched network              |
+   |                   |                |                                                                                                   |
+   +-------------------+----------------+---------------------------------------------------------------------------------------------------+
+   | Description       | string         | optional                                                                                          |
+   |                   |                |                                                                                                   |
+   +-------------------+----------------+---------------------------------------------------------------------------------------------------+
 
 
 The parent interface of a VLAN must be up, but it can have an IP
