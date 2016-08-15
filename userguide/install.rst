@@ -230,12 +230,14 @@ Performing the Installation
 ---------------------------
 
 With the installation media inserted, boot the system from that media.
-The %brand% installer GRUB menu is displayed as is shown in Figure
-2.3a.
+The %brand% installer GRUB menu is displayed as is shown in
+:numref:`Figure %s <grub_menu_fig>`.
 
-**Figure 2.3a: %brand% Grub Menu**
+.. _grub_menu_fig:
 
-.. image:: images/install1.png
+.. figure:: images/install1.png
+
+   Grub Menu
 
 .. note:: If the installer does not boot, verify that the installation
    device is listed first in the boot order in the BIOS. When booting
@@ -248,37 +250,47 @@ The %brand% installer GRUB menu is displayed as is shown in Figure
 
 Wait for the menu to time out or press :kbd:`Enter` to boot into the
 installer. After the media has finished booting, the console setup
-menu is displayed as shown in Figure 2.3b.
+menu is displayed as shown in
+:numref:`Figure %s <console_setup_fig>`.
 
-**Figure 2.3b: %brand% Console Setup**
+.. _console_setup_fig:
 
-.. image:: images/install2.png
+.. figure:: images/install2.png
+
+   Console Setup
 
 Press :kbd:`Enter` to select the default option, "1 Install/Upgrade".
-The next menu, shown in Figure 2.3c, lists all available drives. This
-includes any inserted USB thumb drives, which have names beginning
-with *da*.
+The next menu, shown in
+:numref:`Figure %s <select_drive_fig>`,
+lists all available drives. This includes any inserted USB thumb
+drives, which have names beginning with *da*.
 
 In this example, the user is performing a test installation using
 VirtualBox and has created an 8 GB virtual disk to hold the operating
 system.
 
-**Figure 2.3c: Selecting the Install Drive**
+.. _select_drive_fig:
 
-.. image:: images/install3.png
+.. figure:: images/install3.png
+
+   Selecting the Install Drive
 
 Use the arrow keys to highlight the destination USB drive, compact
 flash device, or virtual disk. Press the :kbd:`spacebar` to select it.
 To mirror the boot device, move to the second device and press
 :kbd:`spacebar` to select it as well. After making these selections,
 press :kbd:`Enter`. %brand% displays the warning shown in
-Figure 2.3d, a reminder not to install the operating system on a drive
-that is meant for storage. Press :kbd:`Enter` to continue on to the
-screen shown in Figure 2.3f.
+:numref:`Figure %s <install_warning_fig>`,
+a reminder not to install the operating system on a drive that is
+meant for storage. Press :kbd:`Enter` to continue on to the screen
+shown in
+:numref:`Figure %s <set_root_pass_fig>`.
 
-**Figure 2.3d: %brand% Installation Warning**
+.. _install_warning_fig:
 
-.. image:: images/cdrom3.png
+.. figure:: images/cdrom3.png
+
+   Installation Warning
 
 .. note:: At this time, the installer does not check the size of the
    install media before attempting an installation. A minimum size of
@@ -290,20 +302,28 @@ screen shown in Figure 2.3f.
 
 The installer recognizes existing installations of previous versions
 of %brand% 8.x or 9.x. When an existing installation is present, the
-menu shown in Figure 2.3e is displayed.  To overwrite an existing
-installation, use the arrows to move to "Fresh Install" and press
-:kbd:`Enter` twice to continue to the screen shown in Figure 2.3f.
+menu shown in
+:numref:`Figure %s <fresh_install_fig>`
+is displayed.  To overwrite an existing installation, use the arrows
+to move to "Fresh Install" and press :kbd:`Enter` twice to continue to
+the screen shown in Figure 2.3f.
 
-**Figure 2.3e: Performing a Fresh Install**
+.. _fresh_install_fig:
 
-.. image:: images/upgrade1.png
+.. figure:: images/upgrade1.png
 
-The screen shown in Figure 2.3f prompts for the *root* password
+   Performing a Fresh Install
+
+The screen shown in
+:numref:`Figure %s <set_root_pass_fig>`
+prompts for the *root* password
 which is used to log in to the administrative graphical interface.
 
-**Figure 2.3f: Set the Root Password**
+.. _set_root_pass_fig:
 
-.. image:: images/install4.png
+.. figure:: images/install4.png
+
+   Set the Root Password
 
 Setting a password is mandatory and the password cannot be blank.
 Since this password provides access to the administrative GUI, it
@@ -319,12 +339,15 @@ installation.
    that the administrative GUI should be behind a properly configured
    firewall and protected by a secure password.
 
-The message in Figure 2.3g is shown after the installation is
-complete.
+The message in
+:numref:`Figure %s <install_complete_fig>`
+is shown after the installation is complete.
 
-**Figure 2.3g: %brand% Installation Complete**
+.. _install_complete_fig:
 
-.. image:: images/cdrom4.png
+.. figure:: images/cdrom4.png
+
+   Installation Complete
 
 Press :kbd:`Enter` to return to the first menu, shown in Figure 2.3a.
 Highlight "3 Reboot System" and press :kbd:`Enter`. If booting from
@@ -511,12 +534,14 @@ installer will present a screen showing all available drives; select
 the device %brand% is installed into and press :kbd:`Enter`.
 
 The installer will recognize that an earlier version of %brand% is
-installed on the device and will present the message shown in Figure
-2.5a.
+installed on the device and will present the message shown in
+:numref:`Figure %s <upgrade_install_fig>`.
 
-**Figure 2.5a: Upgrading a %brand% Installation**
+.. _upgrade_install_fig:
 
-.. image:: images/upgrade1.png
+.. figure:: images/upgrade1.png
+
+   Upgrading a %brand% Installation
 
 .. note:: If you choose a "Fresh Install", the backup of your
    configuration data must be restored using
@@ -527,13 +552,16 @@ To perform an upgrade, press :kbd:`Enter` to accept the default of
 "Upgrade Install". Again, the installer will remind you that the
 operating system should be installed on a disk that is not used for
 storage. Press :kbd:`Enter` to start the upgrade. The installer
-unpacks the new image and displays the menu shown in Figure 2.5b. The
-database file that is preserved and migrated contains your %brand%
+unpacks the new image and displays the menu shown in
+:numref:`Figure %s <preserve_migrate_fig>`.
+The database file that is preserved and migrated contains your %brand%
 configuration settings.
 
-**Figure 2.5b: %brand% will Preserve and Migrate Settings**
+.. _preserve_migrate_fig:
 
-.. image:: images/upgrade2.png
+.. figure:: images/upgrade2.png
+
+   Preserve and Migrate Settings
 
 Press :kbd:`Enter` and %brand% will indicate that the upgrade is
 complete and that you should reboot. Press "OK", highlight
@@ -575,8 +603,10 @@ If an update fails, an alert is issued and the details are written to
 
 To return to a previous version of the operating system, physical or
 IPMI access to the %brand% console is needed. Reboot the system and
-watch for the boot menu. In the example shown in Figure 2.5e, the
-first boot menu entry, *FreeNAS (default)*, refers to the initial
+watch for the boot menu. In the example shown in
+Figure 2.5e,
+:numref:`Figure %s <boot_menu_fig>`,
+the first boot menu entry, *FreeNAS (default)*, refers to the initial
 installation, before the update was applied. The second boot entry,
 *FreeNAS-1415259326*, refers to the current version of the operating
 system, after the update was applied. This second entry is highlighted
@@ -585,9 +615,11 @@ system will boot unless another entry is manually selected. Both
 entries include a date and timestamp showing when that boot
 environment was created.
 
-**Figure 2.5e: Boot Menu**
+.. _boot_menu_fig:
 
-.. image:: images/boot1.png
+.. figure:: images/boot1.png
+
+   Boot Menu
 
 To boot into the previous version of the operating system, use the up
 or down arrow to select it and press :kbd:`Enter`.
@@ -659,49 +691,65 @@ configurations or learning how to use the features provided by
 %brand%.
 
 To create the virtual machine, start VirtualBox and click the "New"
-button, shown in Figure 2.6a, to start the new virtual machine wizard.
+button, shown in
+:numref:`Figure %s <vb_initial_fig>`,
+to start the new virtual machine wizard.
 
-**Figure 2.6a: Initial VirtualBox Screen**
+.. _vb_initial_fig:
 
-.. image:: images/virtualbox1.png
+.. figure:: images/virtualbox1.png
 
-Click the "Next" button to see the screen in Figure 2.6b. Enter a name
-for the virtual machine, click the "Operating System" drop-down menu
-and select BSD, and select "FreeBSD (64-bit)" from the "Version"
-dropdown.
+   Initial VirtualBox Screen
 
-**Figure 2.6b: Type in a Name and Select the Operating System for the
-New Virtual Machine**
+Click the "Next" button to see the screen in
+:numref:`Figure %s <vb_nameos_fig>`.
+Enter a name for the virtual machine, click the "Operating System"
+drop-down menu and select BSD, and select "FreeBSD (64-bit)" from the
+"Version" dropdown.
 
-.. image:: images/virtualbox2.png
+.. _vb_nameos_fig:
 
-Click "Next" to see the screen in Figure 2.6c. The base memory size
-must be changed to **at least 8192 MB**. When finished, click "Next"
-to see the screen in Figure 2.6d.
+.. figure:: images/virtualbox2.png
 
-**Figure 2.6c: Select the Amount of Memory Reserved for the Virtual
-Machine**
+   Type in a Name and Select the Operating System for the New Virtual
+   Machine
 
-.. image:: images/virtualbox3.png
+Click "Next" to see the screen in
+:numref:`Figure %s <vb_mem_fig>`.
+The base memory size must be changed to **at least 8192 MB**. When
+finished, click "Next" to see the screen in
+:numref:`Figure %s <vb_hd_fig>`.
 
-**Figure 2.6d: Select Whether to Use an Existing or Create a New
-Virtual Hard Drive**
+.. _vb_mem_fig:
 
-.. image:: images/virtualbox4.png
+.. figure:: images/virtualbox3.png
+
+   Select the Amount of Memory Reserved for the Virtual Machine
+
+.. _vb_hd_fig:
+
+.. figure:: images/virtualbox4.png
+
+   Select Existing or Create a New Virtual Hard Drive
 
 Click "Create" to launch the "Create Virtual Hard Drive Wizard" shown
-in Figure 2.6e.
+in
+:numref:`Figure %s <vb_virt_drive_fig>`.
 
-**Figure 2.6e: Create New Virtual Hard Drive Wizard**
+.. _vb_virt_drive_fig:
 
-.. image:: images/virtualbox5.png
+.. figure:: images/virtualbox5.png
 
-Select "VDI" and click the "Next" button to see the screen in Figure
-2.6f.
+   Create New Virtual Hard Drive Wizard
 
-**Figure 2.6f: Select the Storage Type for the Virtual Disk**
+Select "VDI" and click the "Next" button to see the screen in
+:numref:`Figure %s <vb_virt_type_fig>`.
 
-.. image:: images/virtualbox6.png
+.. _vb_virt_type_fig:
+
+.. figure:: images/virtualbox6.png
+
+   Select Storage Type for Virtual Disk
 
 Choose either "Dynamically allocated" or "Fixed-size" storage. The
 first option uses disk space as needed until it reaches the maximum
@@ -709,11 +757,15 @@ size that is set in the next screen. The second option creates a disk
 the full amount of disk space, whether it is used or not. Choose the
 first option to conserve disk space; otherwise, choose the second
 option as it allows VirtualBox to run slightly faster. After selecting
-"Next", the screen in Figure 2.6g is shown.
+"Next", the screen in
+:numref:`Figure %s <vb_virt_filename_fig>`
+is shown.
 
-**Figure 2.6g: Select the File Name and Size of the Virtual Disk**
+.. _vb_virt_filename_fig:
 
-.. image:: images/virtualbox7.png
+.. figure:: images/virtualbox7.png
+
+   Select File Name and Size of Virtual Disk
 
 This screen is used to set the size (or upper limit) of the virtual
 disk. **Increase the default size to 8 GB**. Use the folder icon to
@@ -725,24 +777,32 @@ After making a selection and pressing "Next", a summary of the
 configuration options chosen is shown. Use the "Back" button to return
 to a previous screen if any values need to be modified. Otherwise,
 click "Finish" to complete the wizard. The new virtual machine is
-listed in the left frame, as shown in the example in Figure 2.6h.
+listed in the left frame, as shown in the example in
+:numref:`Figure %s <vb_new_vm_fig>`.
 
-**Figure 2.6h: The New Virtual Machine**
+.. _vb_new_vm_fig:
 
-.. image:: images/virtualbox8.png
+.. figure:: images/virtualbox8.png
+
+   The New Virtual Machine
 
 Create the virtual disks to be used for storage. Click the "Storage"
 hyperlink in the right frame to access the storage screen seen in
-Figure 2.6i.
+:numref:`Figure %s <vb_storage_settings_fig>`.
 
-**Figure 2.6i: The Storage Settings of the Virtual Machine**
+.. _vb_storage_settings_fig:
 
-.. image:: images/virtualbox9.png
+.. figure:: images/virtualbox9.png
+
+   Storage Settings of the Virtual Machine
 
 Click the "Add Attachment" button, select "Add Hard Disk" from the
 pop-up menu, then click the "Create New Disk" button. This launches
-the Create New Virtual Hard Drive Wizard (seen in Figures 2.2e and
-2.2f). Since this disk will be used for storage, create a size
+the Create New Virtual Hard Drive Wizard (seen in
+:numref:`Figure %s <vb_virt_drive_fig>`
+and
+:numref:`%s <vb_virt_type_fig>`).
+This disk will be used for storage, so create a size
 appropriate to your needs, making sure that it is **at least 4 GB**.
 To practice with RAID configurations, create as many virtual disks as
 needed. Two disks can be created on each IDE controller. For
@@ -750,11 +810,14 @@ additional disks, click the "Add Controller" button to create another
 controller for attaching additional disks.
 
 Create a device for the installation media. Highlight the word
-"Empty", then click the "CD" icon as shown in Figure 2.6j.
+"Empty", then click the "CD" icon as shown in
+:numref:`Figure %s <vb_config_iso_fig>`.
 
-**Figure 2.6j: Configuring the ISO Installation Media**
+.. _vb_config_iso_fig:
 
-.. image:: images/virtualbox10.png
+.. figure:: images/virtualbox10.png
+
+   Configuring ISO Installation Media
 
 Click "Choose a virtual CD/DVD disk file..." to browse to the location
 of the :file:`.iso` file. If the :file:`.iso` was burned to CD, select
@@ -774,12 +837,16 @@ To configure the network adapter, go to
 :menuselection:`Settings --> Network`.
 In the "Attached to" drop-down menu select "Bridged Adapter", then
 choose the name of the physical interface from the "Name" drop-down
-menu. In the example shown in Figure 2.6k, the Intel Pro/1000 Ethernet
-card is attached to the network and has a device name of *em0*.
+menu. In the example shown in
+:numref:`Figure %s <vb_bridged_fig>`,
+the Intel Pro/1000 Ethernet card is attached to the network and has a
+device name of *em0*.
 
-**Figure 2.6k: Configuring a Bridged Adapter in VirtualBox**
+.. _vb_bridged_fig:
 
-.. image:: images/virtualbox11.png
+.. figure:: images/virtualbox11.png
+
+   Configuring a Bridged Adapter in VirtualBox
 
 After configuration is complete, click the "Start" arrow and install
 %brand% as described in `Performing the Installation`_. Once %brand%
@@ -811,39 +878,53 @@ and manage virtual machines.
 Once the VMware vSphere client is installed, use it to connect to the
 ESXi server. To create a new virtual machine, click
 :menuselection:`File --> New --> Virtual Machine`.
-The New Virtual Machine Wizard will launch as shown in Figure 2.6l.
+The New Virtual Machine Wizard will launch as shown in
+:numref:`Figure %s <esxi_new_vm_fig>`.
 
-**Figure 2.6l: New Virtual Machine Wizard**
+.. _esxi_new_vm_fig:
 
-.. image:: images/esxi1a.png
+.. figure:: images/esxi1a.png
+
+   New Virtual Machine Wizard
 
 Click "Next" and enter a name for the virtual machine. Click "Next"
 and highlight a datastore. An example is shown in Figure 2.6m. Click
-"Next". In the screen shown in Figure 2.6n, click "Other", then select
-a FreeBSD 64-bit architecture.
+"Next". In the screen shown in
+:numref:`Figure %s <esxi_datastore_fig>`,
+click "Other", then select a FreeBSD 64-bit architecture.
 
-**Figure 2.6m: Select a Datastore**
+.. _esxi_datastore_fig:
 
-.. image:: images/esxi2a.png
+.. figure:: images/esxi2a.png
 
-**Figure 2.6n: Select the Operating System**
+   Select Datastore
 
-.. image:: images/esxi3a.png
+.. _esxi_os_fig:
+
+.. figure:: images/esxi3a.png
+
+   Select Operating System
 
 Click "Next" and create a virtual disk file of **8 GB** to hold the
-%brand% operating system, as shown in Figure 2.6o.
+%brand% operating system, as shown in
+:numref:`Figure %s <esxi_create_disk_fig>`.
 
-**Figure 2.6o: Create a Disk for the Operating System**
+.. _esxi_create_disk_fig:
 
-.. image:: images/esxi4a.png
+.. figure:: images/esxi4a.png
+
+   Create Disk for the Operating System
 
 Click "Next" then "Finish". The new virtual machine is listed in the
 left frame. Right-click the virtual machine and select "Edit Settings"
-to access the screen shown in Figure 2.6p.
+to access the screen shown in
+:numref:`Figure %s <esxi_vm_settings_fig>`.
 
-**Figure 2.6p: Virtual Machine's Settings**
+.. _esxi_vm_settings_fig:
 
-.. image:: images/esxi5a.png
+.. figure:: images/esxi5a.png
+
+   Virtual Machine Settings
 
 Increase the "Memory Configuration" to **at least 8192 MB**.
 
@@ -854,15 +935,19 @@ To create a storage disk,
 click :menuselection:`Hard disk 1 --> Add`.
 In the "Device Type" menu, highlight "Hard Disk" and click "Next".
 Select "Create a new virtual disk" and click "Next". In the screen
-shown in Figure 2.6q, select the size of the disk. To dynamically
-allocate space as needed, check the box "Allocate and commit space on
-demand (Thin Provisioning)". Click "Next", then "Next", then "Finish"
-to create the disk. Repeat to create the amount of storage disks
-needed to meet your requirements.
+shown in
+:numref:`Figure %s <esxi_create_storage_fig>`,
+select the size of the disk. To dynamically allocate space as needed,
+check the box
+"Allocate and commit space on demand (Thin Provisioning)". Click
+"Next", then "Next", then "Finish" to create the disk. Repeat to
+create the amount of storage disks needed to meet your requirements.
 
-**Figure 2.6q: Creating a Storage Disk**
+.. _esxi_create_storage_fig:
 
-.. image:: images/esxi6a.png
+.. figure:: images/esxi6a.png
+
+   Creating a Storage Disk
 
 For ESX 5.0, Workstation 8.0, or Fusion 4.0 or higher, additional
 configuration is needed so that the virtual HPET setting does not
