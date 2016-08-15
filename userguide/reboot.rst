@@ -4,14 +4,18 @@
 Reboot
 ======
 
-If you click the "Reboot" entry in the tree, you will receive the
-warning message shown in Figure 18a and your browser color will change
-to red to indicate that you have selected an option that will
-negatively impact users of the %brand% system.
+Clicking the "Reboot" entry in the tree shows the
+warning message in
+:numref:`Figure %s <reboot_warning_fig>`.
+The browser screen color changes to red to indicate that this option
+will negatively impact current users of the %brand% system.
 
-**Figure 18a: Reboot Warning Message**
+.. _reboot_warning_fig:
 
-.. image:: images/reboot.png
+.. figure:: images/reboot.png
+
+  Reboot Warning Message
+
 
 If a scrub or resilver is in progress when a reboot is requested, an
 additional warning will ask you to make sure that you wish to proceed.
@@ -20,14 +24,13 @@ periodically run :command:`zpool status` from Shell until it is
 verified that the scrub or resilver process is complete. Once
 complete, the reboot request can be re-issued.
 
-Click the "Cancel" button if you wish to cancel the reboot request.
-Otherwise, click the "Reboot" button to reboot the system. Rebooting
-the system will disconnect all clients, including the web
-administration GUI. The URL in your web browser will change to add
-*/system/reboot/* to the end of the IP address. Wait a few minutes for
-the system to boot, then use your browser's "back" button to return to
-the %brand% system's IP address. If all went well, you should receive
-the GUI login screen. If the login screen does not appear, you will
-need physical access to the %brand% system's monitor and keyboard so
-that you can determine what problem is preventing the system from
-resuming normal operation.
+Click the "Cancel" button to cancel the reboot request. Otherwise,
+click the "Reboot" button to reboot the system. Rebooting the system
+will disconnect all clients, including the web administration GUI. The
+URL in the web browser will change to add */system/reboot/* to the end
+of the IP address. Wait a few minutes for the system to boot, then use
+your browser's "back" button to return to the %brand% system's IP
+address. If all went well, the the GUI login screen will appear. If
+the login screen does not appear, you will need physical access to the
+%brand% system's monitor and keyboard to determine what problem is
+preventing the system from resuming normal operation.

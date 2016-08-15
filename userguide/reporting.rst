@@ -5,11 +5,15 @@ Reporting
 =========
 
 Reporting displays several graphs, as seen in the example in
-Figure %chapternum%a. Click the tab for a device type to see its graphs.
+:numref:`Figure %s <reporting_graphs_fig>`.
+Click the tab for a device type to see its graphs.
 
-**Figure %chapternum%a: Reporting Graphs**
+.. _reporting_graphs_fig:
 
-.. image:: images/reporting3.png
+.. figure:: images/reporting3.png
+
+   Reporting Graphs
+
 
 %brand% uses
 `collectd <https://collectd.org/>`_

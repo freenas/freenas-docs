@@ -3,18 +3,18 @@
 Booting Into %brand%
 ----------------------
 
-When you boot into %brand%, the Console Setup, shown in
+The Console Setup menu, shown in
 :numref:`Figure %s <console_setup_menu_fig>`,
-will appear at the end of the boot process. If you have access to the
+appears at the end of the boot process. If you have access to the
 %brand% system's keyboard and monitor, this Console Setup menu can be
 used to administer the system should the administrative GUI become
 inaccessible.
 
 .. note:: you can access the Console Setup menu from within the
-          %brand% GUI by typing :command:`/etc/netcli` from Shell.
-          You can disable the Console Setup menu by unchecking the
-          "Enable Console Menu" in
-          :menuselection:`System --> Advanced`.
+   %brand% GUI by typing :command:`/etc/netcli` from Shell.
+   You can disable the Console Setup menu by unchecking the
+   "Enable Console Menu" in
+   :menuselection:`System --> Advanced`.
 
 .. _console_setup_menu_fig:
 
