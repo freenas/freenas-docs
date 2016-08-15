@@ -14,12 +14,17 @@ as resources, which are available beneath a specified base URL. Each
 resource is manipulated using the HTTP methods defined in :rfc:`2616`,
 such as GET, PUT, POST, or DELETE.
 
-As seen in Figure %chapternum%.1a, an online version of the API is available at
+As shown in
+:numref:`Figure %s <api_fig>`,
+an online version of the API is available at
 `api.freenas.org <http://api.freenas.org>`_.
 
-**Figure %chapternum%.1a: %brand% API Documentation**
+.. _api_fig:
 
-.. image:: images/api.png
+.. figure:: images/api.png
+
+   API Documentation
+
 
 The rest of this section shows code examples to illustrate the use of
 the API.
@@ -106,53 +111,56 @@ SSL certificate, change *False* to *True*.
 in more detail. Allowed parameters are listed in the "JSON Parameters"
 section of that resource. Since this resource creates a FreeBSD user,
 the values entered must be valid for a FreeBSD user account.
-Table %chapternum%.1a summarizes acceptable values. This resource uses JSON, so
-the possible boolean values are *True* or *False*.
+:numref:`Table %s <api_json_parms_tab>`
+summarizes acceptable values. This resource uses JSON, so the boolean
+values are *True* or *False*.
 
-**Table %chapternum%.1a: Valid JSON Parameters for Users Create Resource**
+.. _api_json_parms_tab:
 
-+--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-| **JSON Parameter**       | **Type** | **Description**                                                                                                      |
-|                          |          |                                                                                                                      |
-|                          |          |                                                                                                                      |
-+==========================+==========+======================================================================================================================+
-| bsdusr_username          | string   | maximum 32 characters, though a maximum of 8 is recommended for interoperability; can include numerals but cannot    |
-|                          |          | include a space                                                                                                      |
-|                          |          |                                                                                                                      |
-+--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-| bsdusr_full_name         | string   | may contain spaces and uppercase characters                                                                          |
-|                          |          |                                                                                                                      |
-+--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-| bsdusr_password          | string   | can include a mix of upper and lowercase letters, characters, and numbers                                            |
-|                          |          |                                                                                                                      |
-+--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-| bsdusr_uid               | integer  | by convention, user accounts have an ID greater than 1000 with a maximum allowable value of 65,535                   |
-|                          |          |                                                                                                                      |
-+--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-| bsdusr_group             | integer  | if "bsdusr_creategroup" is set to *False*, specify the numeric ID of the group to create                             |
-|                          |          |                                                                                                                      |
-+--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-| bsdusr_creategroup       | boolean  | if set to *True*, a primary group with the same numeric ID as "bsdusr_uid" will be automatically created             |
-|                          |          |                                                                                                                      |
-+--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-| bsdusr_mode              | string   | sets default numeric UNIX permissions of user's home directory                                                       |
-|                          |          |                                                                                                                      |
-+--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-| bsdusr_shell             | string   | specify full path to a UNIX shell that is installed on the system                                                    |
-|                          |          |                                                                                                                      |
-+--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-| bsdusr_password_disabled | boolean  | if set to *True*, user is not allowed to log in                                                                      |
-|                          |          |                                                                                                                      |
-+--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-| bsdusr_locked            | boolean  | if set to *True*, user is not allowed to log in                                                                      |
-|                          |          |                                                                                                                      |
-+--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-| bsdusr_sudo              | boolean  | if set to *True*, :command:`sudo` is enabled for the user                                                            |
-|                          |          |                                                                                                                      |
-+--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-| bsdusr_sshpubkey         | string   | contents of SSH authorized keys file                                                                                 |
-|                          |          |                                                                                                                      |
-+--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
+.. table:: **JSON Parameters for Users Create Resource**
+
+   +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | **JSON Parameter**       | **Type** | **Description**                                                                                                      |
+   |                          |          |                                                                                                                      |
+   |                          |          |                                                                                                                      |
+   +==========================+==========+======================================================================================================================+
+   | bsdusr_username          | string   | maximum 32 characters, though a maximum of 8 is recommended for interoperability; can include numerals but cannot    |
+   |                          |          | include a space                                                                                                      |
+   |                          |          |                                                                                                                      |
+   +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | bsdusr_full_name         | string   | may contain spaces and uppercase characters                                                                          |
+   |                          |          |                                                                                                                      |
+   +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | bsdusr_password          | string   | can include a mix of upper and lowercase letters, characters, and numbers                                            |
+   |                          |          |                                                                                                                      |
+   +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | bsdusr_uid               | integer  | by convention, user accounts have an ID greater than 1000 with a maximum allowable value of 65,535                   |
+   |                          |          |                                                                                                                      |
+   +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | bsdusr_group             | integer  | if "bsdusr_creategroup" is set to *False*, specify the numeric ID of the group to create                             |
+   |                          |          |                                                                                                                      |
+   +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | bsdusr_creategroup       | boolean  | if set to *True*, a primary group with the same numeric ID as "bsdusr_uid" will be automatically created             |
+   |                          |          |                                                                                                                      |
+   +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | bsdusr_mode              | string   | sets default numeric UNIX permissions of user's home directory                                                       |
+   |                          |          |                                                                                                                      |
+   +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | bsdusr_shell             | string   | specify full path to a UNIX shell that is installed on the system                                                    |
+   |                          |          |                                                                                                                      |
+   +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | bsdusr_password_disabled | boolean  | if set to *True*, user is not allowed to log in                                                                      |
+   |                          |          |                                                                                                                      |
+   +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | bsdusr_locked            | boolean  | if set to *True*, user is not allowed to log in                                                                      |
+   |                          |          |                                                                                                                      |
+   +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | bsdusr_sudo              | boolean  | if set to *True*, :command:`sudo` is enabled for the user                                                            |
+   |                          |          |                                                                                                                      |
+   +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | bsdusr_sshpubkey         | string   | contents of SSH authorized keys file                                                                                 |
+   |                          |          |                                                                                                                      |
+   +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
 
 
 .. note:: When using boolean values, JSON returns raw lowercase values

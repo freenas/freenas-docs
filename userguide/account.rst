@@ -42,7 +42,7 @@ to see a screen like
 
 .. figure:: images/group1.png
 
-   (caption) Group Management
+   Group Management
 
 All groups that came with the operating system will be listed. Each
 group has an entry indicating the group ID, group name, whether or not
