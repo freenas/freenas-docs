@@ -36,13 +36,10 @@ project = brand + u' User Guide'
 master_doc = 'freenas'
 extensions = [
     'sphinx.ext.ifconfig',
-    'sphinxcontrib.httpdomain',
-    'sphinx.ext.numfig'
+    'sphinxcontrib.httpdomain'
 ]
 numfig = True
 numfig_secnum_depth = (2)
-numfig_number_figures = False
-# numfig_figure_caption_prefix = "Figure"
 
 if tags.has('truenas'):
     brand = u'TrueNAS®'
