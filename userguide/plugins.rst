@@ -7,9 +7,11 @@ Plugins
 %brand% 8.2.0 introduced the ability to extend the built-in NAS
 services by providing a mechanism for installing additional software.
 This mechanism was known as the Plugins architecture and is based on
-`FreeBSD jails <https://en.wikipedia.org/wiki/Freebsd_jail>`_ and
+`FreeBSD jails <https://en.wikipedia.org/wiki/Freebsd_jail>`_
+and
 `PC-BSD 9.x PBIs
-<http://wiki.pcbsd.org/index.php/AppCafe%C2%AE/9.2>`_. This allowed
+<http://wiki.pcbsd.org/index.php/AppCafe%C2%AE/9.2>`_.
+This allowed
 users to install and configure additional applications once they had
 created and configured a plugins jail.
 
@@ -32,8 +34,9 @@ It is recommended that users skim through both the :ref:`Plugins` and
 and limitations of each and to choose the method that best meets their
 software needs.
 
-.. note:: due to ABI (application binary interface) changes,
-          %brand% 8.x Plugins cannot be installed on a 9.x system.
+.. note:: Due to ABI (application binary interface) changes, %brand%
+   8.x Plugins cannot be installed on a 9.x system.
+
 
 .. _Installing Plugins:
 
@@ -54,43 +57,58 @@ advantages:
   the %brand% GUI so that these options can be configured from the
   GUI
 
-To install a plugin, click "Plugins". As seen in Figure 12.1a, the
-list of available plugins will be displayed.
+To install a plugin, click "Plugins". As seen in
+:numref:`Figure %s <view_list_plugins_fig>`,
+the list of available plugins will be displayed.
 
-**Figure 12.1a: Viewing the List of Available Plugins**
 
-.. image:: images/plugins1.png
+.. _view_list_plugins_fig:
+
+.. figure:: images/plugins1.png
+
+   Viewing the List of Available Plugins
+
 
 .. note:: if the list of available plugins is not displayed, open
-          :ref:`Shell` and verify that the %brand% system can
-          :command:`ping` an address on the Internet. If it cannot,
-          you may have to add a default gateway address and/or DNS
-          server address in
-          :menuselection:`Network --> Global Configuration`.
+   :ref:`Shell` and verify that the %brand% system can :command:`ping`
+   an address on the Internet. If it cannot, you may have to add a
+   default gateway address and/or DNS server address in
+   :menuselection:`Network --> Global Configuration`.
 
 Highlight the plugin you would like to install, click its "Install"
-button, then click "OK". In the example shown in Figure 12.1b, SABnzbd
-is selected for installation.
+button, then click "OK". In the example shown in
+:numref:`Figure %s <installing_plugin_fig>`,
+SABnzbd is selected for installation.
 
-**Figure 12.1b: Installing a Plugin**
 
-.. image:: images/plugins2.png
+.. _installing_plugin_fig:
+
+.. figure:: images/plugins2.png
+
+   Installing a Plugin
+
 
 The installation will take a few minutes as the system will first
 download and configure a jail to contain the installed software. It
 will then install the plugin and add it to the "Installed" tab as
-shown in Figure 12.1c.
+shown in
+:numref:`Figure %s <view_installed_plugins_fig>`.
 
-.. warning:: be patient and wait for the installation to finish.
+.. warning:: Be patient and wait for the installation to finish.
    Navigating away from the installation before it is finished will
    cause problems with the installation.
 
-**Figure 12.1c: Viewing Installed PBIs**
 
-.. image:: images/plugins3.png
+.. _view_installed_plugins_fig:
 
-As seen in the example shown in Figure 12.1c, entries for the
-installed PBI will appear in the following locations:
+.. figure:: images/plugins3.png
+
+   Viewing Installed PBIs
+
+
+As seen in the example shown in
+:numref:`Figure %s <view_installed_plugins_fig>`,
+entries for the installed PBI will appear in the following locations:
 
 * the "Installed" tab of "Plugins"
 
@@ -105,16 +123,15 @@ the jail that was created, whether the application status is "ON" or
 If a newer version of the application is available as a plugin, a
 button to update the application will also appear.
 
-.. note:: the "Service status" of a plugin must be turned to "ON"
-          before the installed application is available. Before
-          starting the service, check to see if it has a configuration
-          menu by clicking its entry in the "Plugins" section of the
-          tree. If the application is configurable, this will open a
-          graphical screen that contains the available configuration
-          options. Plugins which are not configurable will instead
-          display a message with a hyperlink for accessing the
-          software. However, that hyperlink will **not work** until
-          the plugin is started.
+.. note:: The "Service status" of a plugin must be turned to "ON"
+   before the installed application is available. Before starting the
+   service, check to see if it has a configuration menu by clicking
+   its entry in the "Plugins" section of the tree. If the application
+   is configurable, this will open a graphical screen that contains
+   the available configuration options. Plugins which are not
+   configurable will instead display a message with a hyperlink for
+   accessing the software. However, that hyperlink will **not work**
+   until the plugin is started.
 
 You should always review a plugin's configuration options before
 attempting to start it. some plugins have options that need to be set
@@ -138,6 +155,7 @@ change to a blue "ON". If it fails to start, click the jail's "shell"
 icon and type :command:`tail /var/log/messages` to see if any errors
 were logged.
 
+
 .. _Updating Plugins:
 
 Updating Plugins
@@ -145,17 +163,23 @@ Updating Plugins
 
 When a newer version of a plugin becomes available in the official
 repository, an "Update" button is added to the entry for the plugin in
-the "Installed" tab. In the example shown in Figure 12.2a, a newer
-version of Transmission is available.
+the "Installed" tab. In the example shown in
+:numref:`Figure %s <updating_installed_plugin_fig>`,
+a newer version of Transmission is available.
 
-**Figure 12.2a: Updating an Installed Plugin**
 
-.. image:: images/plugins4.png
+.. _updating_installed_plugin_fig:
+
+.. figure:: images/plugins4.png
+
+   Updating an Installed Plugin
+
 
 Click the "OK" button to start the download and installation of the
 latest version of the plugin. Once the update is complete, the entry
 for the plugin will be refreshed to show the new version number and
 the "Update" button will disappear.
+
 
 .. _Uploading Plugins:
 
@@ -171,13 +195,18 @@ that it was developed for 9.x. as 8.x and 10.x applications will not
 work on a 9.x %brand% system.
 
 Once you have downloaded the plugin, click the "Upload" button. As
-seen in the example in Figure 12.3a, this will prompt you to browse to
-the location of the downloaded file. Once selected, click the "Upload"
-button to begin the installation.
+seen in the example in
+:numref:`Figure %s <install_pbi_plugin_fig>`,
+this will prompt you to browse to the location of the downloaded file.
+Once selected, click the "Upload" button to begin the installation.
 
-**Figure 12.3a: Installing a Previously Downloaded *.pbi File**
 
-.. image:: images/plugins5.png
+.. _install_pbi_plugin_fig:
+
+.. figure:: images/plugins5.png
+
+   Installing a Previously Downloaded *.pbi File*
+
 
 When the installation is complete, an entry for the plugin will be
 added to the "Installed" tab and its associated jail will be listed
@@ -185,6 +214,7 @@ under "Jails". However, if it is not a %brand% plugin, it will not be
 added to "Plugins" in the tree. In this case, if the application
 requires any configuration, you will have to perform it from the
 command line of the jail's shell instead of from the GUI.
+
 
 .. _Deleting Plugins:
 
@@ -198,15 +228,20 @@ you do not have any data or configuration in the jail that you need to
 save. If you do, back up that data first, **before** deleting the
 plugin.
 
-In the example shown in Figure 12.4a, Sabnzbd has been installed and
-the user has clicked its "Delete" button. A pop-up message asks the
-user if they are sure that they want to delete. **This is the one and
-only warning.** If the user clicks "Yes", the plugin and the
-associated jail will be permanently deleted.
+In the example shown in
+:numref:`Figure %s <deleting_installed_plugin_fig>`,
+Sabnzbd has been installed and the user has clicked its "Delete"
+button. A pop-up message asks the user if they are sure that they want
+to delete. **This is the one and only warning.** If the user clicks
+"Yes", the plugin and the associated jail will be permanently deleted.
 
-**Figure 12.4a: Deleting an Installed Plugin**
 
-.. image:: images/plugins6.png
+.. _deleting_installed_plugin_fig:
+
+.. figure:: images/plugins6.png
+
+   Deleting an Installed Plugin
+
 
 .. _Available Plugins:
 
