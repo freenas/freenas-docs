@@ -54,6 +54,7 @@ before configuring your storage disks, so that you are aware of all of
 the possible features, know which ones will benefit your setup most,
 and are aware of any caveats or hardware restrictions.**
 
+
 .. _Volume Manager:
 
 Volume Manager
@@ -67,64 +68,74 @@ using "Volume Manager".
 
 If you click on
 :menuselection:`Storage --> Volumes --> Volume Manager`,
-you will see a screen similar to the example shown in Figure %chapternum%.1a.
+you will see a screen like the example shown in
+:numref:`Figure %s <create_zfs_pool_volman_fig>`.
 
-**Figure %chapternum%.1a: Creating a ZFS Pool Using Volume Manager**
 
-.. image:: images/zfs1a.png
+.. _create_zfs_pool_volman_fig:
 
-Table %chapternum%.1a summarizes the configuration options of this screen.
+.. figure:: images/zfs1a.png
 
-**Table %chapternum%.1a: Options When Creating a ZFS Volume**
+   Creating a ZFS Pool Using Volume Manager
 
-+------------------+----------------+--------------------------------------------------------------------------------------------+
-| **Setting**      | **Value**      | **Description**                                                                            |
-|                  |                |                                                                                            |
-+==================+================+============================================================================================+
-| Volume name      | string         | ZFS volumes must conform to these                                                          |
-|                  |                | `naming conventions <http://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`__;     |
-|                  |                | it is recommended to choose a name that will stick out in the logs (e.g. **not**           |
-|                  |                | :file:`data` or :file:`freenas`)                                                           |
-|                  |                |                                                                                            |
-+------------------+----------------+--------------------------------------------------------------------------------------------+
-| Volume to extend | drop-down menu | used to extend an existing ZFS pool; see :ref:`Extending a ZFS Volume` for instructions    |
-|                  |                |                                                                                            |
-+------------------+----------------+--------------------------------------------------------------------------------------------+
-| Encryption       | checkbox       | read the section on :ref:`Encryption` before choosing to use encryption                    |
-|                  |                |                                                                                            |
-+------------------+----------------+--------------------------------------------------------------------------------------------+
-| Available disks  | display        | displays the number and size of available disks; hover over "show" to list the available   |
-|                  |                | device names; click the *+* to add all of the disks to the pool                            |
-|                  |                |                                                                                            |
-+------------------+----------------+--------------------------------------------------------------------------------------------+
-| Volume layout    | drag and drop  | click and drag the icon to select the desired number of disks for a vdev; once at least    |
-|                  |                | one disk is selected, the layouts supported by the selected number of disks will be        |
-|                  |                | added to the drop-down menu                                                                |
-|                  |                |                                                                                            |
-+------------------+----------------+--------------------------------------------------------------------------------------------+
-| Add Extra Device | button         | used to configure multiple vdevs or to add log or cache devices during pool creation       |
-|                  |                |                                                                                            |
-+------------------+----------------+--------------------------------------------------------------------------------------------+
-| Manual setup     | button         | used to make a non-optimal pool (not recommended); see :ref:`Manual Setup` for details     |
-|                  |                |                                                                                            |
-+------------------+----------------+--------------------------------------------------------------------------------------------+
 
-To configure the pool, drag the slider to select the desired number of
-disks. "Volume Manager" will display the resulting storage capacity,
-which takes swap into account. If you wish to change the layout or the
-number of disks, use the mouse to drag the slider to the desired
-volume layout. The "Volume layout" drop-down menu can also be clicked
-if a different level of redundancy is required.
+:numref:`Table %s <zfs_vol_opts_tab>`
+summarizes the configuration options of this screen.
 
-.. note:: for performance and capacity reasons, this screen will not
-          allow you to create a volume from disks of differing sizes.
-          While it is not recommended, it is possible to create a
-          volume in this situation by using the "Manual setup" button
-          and following the instructions in :ref:`Manual Setup`.
 
-"Volume Manager" will not allow you to select a configuration if the
-number of disks selected is not enough to create that configuration.
-The following layouts are supported:
+.. _zfs_vol_opts_tab:
+
+.. table:: **Options When Creating a ZFS Volume**
+
+   +------------------+----------------+--------------------------------------------------------------------------------------------+
+   | **Setting**      | **Value**      | **Description**                                                                            |
+   |                  |                |                                                                                            |
+   +==================+================+============================================================================================+
+   | Volume name      | string         | ZFS volumes must conform to these                                                          |
+   |                  |                | `naming conventions <http://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`__;     |
+   |                  |                | it is recommended to choose a name that will stick out in the logs (e.g. **not**           |
+   |                  |                | :file:`data` or :file:`freenas`)                                                           |
+   |                  |                |                                                                                            |
+   +------------------+----------------+--------------------------------------------------------------------------------------------+
+   | Volume to extend | drop-down menu | used to extend an existing ZFS pool; see :ref:`Extending a ZFS Volume` for instructions    |
+   |                  |                |                                                                                            |
+   +------------------+----------------+--------------------------------------------------------------------------------------------+
+   | Encryption       | checkbox       | read the section on :ref:`Encryption` before choosing to use encryption                    |
+   |                  |                |                                                                                            |
+   +------------------+----------------+--------------------------------------------------------------------------------------------+
+   | Available disks  | display        | displays the number and size of available disks; hover over "show" to list the available   |
+   |                  |                | device names; click the *+* to add all of the disks to the pool                            |
+   |                  |                |                                                                                            |
+   +------------------+----------------+--------------------------------------------------------------------------------------------+
+   | Volume layout    | drag and drop  | click and drag the icon to select the desired number of disks for a vdev; once at least    |
+   |                  |                | one disk is selected, the layouts supported by the selected number of disks will be        |
+   |                  |                | added to the drop-down menu                                                                |
+   |                  |                |                                                                                            |
+   +------------------+----------------+--------------------------------------------------------------------------------------------+
+   | Add Extra Device | button         | used to configure multiple vdevs or to add log or cache devices during pool creation       |
+   |                  |                |                                                                                            |
+   +------------------+----------------+--------------------------------------------------------------------------------------------+
+   | Manual setup     | button         | used to make a non-optimal pool (not recommended); see :ref:`Manual Setup` for details     |
+   |                  |                |                                                                                            |
+   +------------------+----------------+--------------------------------------------------------------------------------------------+
+
+Drag the slider to select the desired number of disks.
+"Volume Manager" will display the resulting storage capacity, taking
+swap space into account. To change the layout or the number of disks,
+use the mouse to drag the slider to the desired volume layout. The
+"Volume layout" drop-down menu can also be clicked if a different
+level of redundancy is required.
+
+.. note:: For performance and capacity reasons, this screen does not
+   allow creating a volume from disks of differing sizes. While it is
+   not recommended, it is possible to create a volume in this
+   situation by using the "Manual setup" button and following the
+   instructions in :ref:`Manual Setup`.
+
+
+"Volume Manager" only allows choosing a configuration if enough disks
+have been selected to create that configuration. These layouts are
+supported:
 
 * **Stripe:** requires at least one disk
 
@@ -136,10 +147,10 @@ The following layouts are supported:
 
 * **RAIDZ3:** requires at least five disks
 
-* **log device:** requires at least one dedicated device, where an SSD
-  is recommended
+* **log device:** requires at least one dedicated device,
+  SSD is recommended
 
-* **cache device:** requires at least one dedicated device, where an
+* **cache device:** requires at least one dedicated device,
   SSD is recommended
 
 If you have more than five disks and are using ZFS, consider the
@@ -148,30 +159,25 @@ overview of the recommended disk group sizes as well as more
 information about log and cache devices can be found in the
 :ref:`ZFS Primer`.
 
-The "Add Volume" button warns that
-**existing data will be cleared**.
+The "Add Volume" button warns that **existing data will be cleared**.
 In other words, creating a new volume reformats the selected disks. If
 your intent is to **not** overwrite the data on an existing volume,
-click the "Cancel" button and refer to
-:ref:`Import Disk`
-and
-:ref:`Import Volume`
-to see if the existing format is supported. If so, perform that
-supported action instead. If the current storage format is not
-supported, you will need to backup the data to an external media,
-format the disks, then restore the data to the new volume.
+click the "Cancel" button and refer to :ref:`Import Disk` and
+:ref:`Import Volume` to see if the existing format is supported. If
+so, perform that supported action instead. If the current storage
+format is not supported, it is necessary to back up the data to
+external media, format the disks, then restore the data to the new
+volume.
 
 Depending upon the size and number of disks, the type of controller,
-and whether or not encryption is selected, creating the volume may
-take some time. Once the volume is created, the screen will refresh
-and the new volume will be listed in the tree under
+and whether encryption is selected, creating the volume may take some
+time. After the volume is created, the screen will refresh and the new
+volume will be listed in the tree under
 :menuselection:`Storage --> Volumes`.
 Click the *+* next to the volume name to access its
-:ref:`Change Permissions`,
-:ref:`Create Dataset`,
-and
-:ref:`Create zvol`
-options.
+:ref:`Change Permissions`, :ref:`Create Dataset`, and
+:ref:`Create zvol` options.
+
 
 .. index:: Encryption
 .. _Encryption:
@@ -204,7 +210,7 @@ right for your %brand% system:
   be securely stored.
 
 * On the other hand, if the key is lost, the data on the disks is
-  inaccessible. Always backup the key!
+  inaccessible. Always back up the key!
 
 * The encryption key is per ZFS volume (pool). If you create multiple
   pools, each pool has its own encryption key.
@@ -239,76 +245,87 @@ right for your %brand% system:
   Volume Manager will automatically encrypt the new vdev being added
   to the existing encrypted pool.
 
-.. note:: the encryption facility used by %brand% is designed to
-          protect against physical theft of the disks. It is not
-          designed to protect against unauthorized software access.
-          Ensure that only authorized users have access to the
-          administrative GUI and that proper permissions are set on
-          shares if sensitive data is stored on the system.
+.. note:: The encryption facility used by %brand% is designed to
+   protect against physical theft of the disks. It is not designed to
+   protect against unauthorized software access. Ensure that only
+   authorized users have access to the administrative GUI and that
+   proper permissions are set on shares if sensitive data is stored on
+   the system.
+
 
 To create an encrypted volume, check the "Encryption" box shown in
-Figure %chapternum%.1a. A pop-up message will remind you that
-**it is extremely important**
+:numref:`Figure %s <create_zfs_pool_volman_fig>`.
+A pop-up message will remind you that **it is extremely important**
 to make a backup of the key as without it the data on the disks is
-inaccessible. Refer to
-:ref:`Managing Encrypted Volumes`
-for instructions.
+inaccessible. Refer to :ref:`Managing Encrypted Volumes` for
+instructions.
+
 
 .. _Manual Setup:
 
 Manual Setup
 ^^^^^^^^^^^^
 
-The "Manual Setup" button shown in Figure %chapternum%.1a can be used to create a
-non-optimal ZFS volume. While this is **not** recommended, it can, for
-example, be used to create a volume containing disks of different
-sizes.
+The "Manual Setup" button shown in
+:numref:`Figure %s <create_zfs_pool_volman_fig>`
+can be used to create a non-optimal ZFS volume. While this is **not**
+recommended, it can, for example, be used to create a volume
+containing disks of different sizes.
 
-.. note:: when using disks of differing sizes, the volume is limited
-          by the size of the smallest disk. For this reason, it is
-          recommended to instead use "Volume Manager" with same-size
-          disks.
+.. note:: When using disks of differing sizes, the volume is limited
+   by the size of the smallest disk. For this reason, it is
+   recommended to instead use "Volume Manager" with same-size disks.
 
-Figure %chapternum%.1b shows the "Manual Setup" screen and Table %chapternum%.1b summarizes
-the available options.
 
-**Figure %chapternum%.1b: Creating a Non-Optimal ZFS Volume**
+:numref:`Figure %s <zfs_create_nonopt_vol_fig>`
+shows the "Manual Setup" screen and
+:numref:`Table %s <zfs_manual_opts_tab>`
+summarizes the available options.
 
-.. image:: images/manual.png
 
-**Table %chapternum%.1b: Manual Setup Options**
+.. _zfs_create_nonopt_vol_fig:
 
-+---------------+------------------+------------------------------------------------------------------------------------------------+
-| **Setting**   | **Value**        | **Description**                                                                                |
-|               |                  |                                                                                                |
-|               |                  |                                                                                                |
-+===============+==================+================================================================================================+
-| Volume name   | string           | ZFS volumes must conform to these                                                              |
-|               |                  | `naming conventions <http://docs.oracle.com/cd/E19082-01/817-2271/gbcpt/index.html>`_ ;        |
-|               |                  | it is recommended to choose a name that will stick out in the logs (e.g.                       |
-|               |                  | **not** :file:`data` or :file:`freenas`)                                                       |
-|               |                  |                                                                                                |
-+---------------+------------------+------------------------------------------------------------------------------------------------+
-| Encryption    | checkbox         | read the section on `Encryption`_ before choosing to use encryption                            |
-|               |                  |                                                                                                |
-+---------------+------------------+------------------------------------------------------------------------------------------------+
-| Member disks  | list             | highlight desired number of disks from list of available disks                                 |
-|               |                  |                                                                                                |
-+---------------+------------------+------------------------------------------------------------------------------------------------+
-#ifdef freenas
-| Deduplication | drop-down menu   | choices are *Off*,                                                                             |
-|               |                  | *Verify*, and                                                                                  |
-|               |                  | *On*; carefully consider the section on `Deduplication`_ before changing this setting          |
-|               |                  |                                                                                                |
-#endif freenas
-#ifdef truenas
-| Deduplication | drop-down menu   | do not change this setting unless instructed to do so by your iXsystems support engineer       |
-|               |                  |                                                                                                |
-#endif truenas
-+---------------+------------------+------------------------------------------------------------------------------------------------+
-| ZFS Extra     | bullet selection | used to specify if disk is used for storage (*None*), a log device, a cache device, or a spare |
-|               |                  |                                                                                                |
-+---------------+------------------+------------------------------------------------------------------------------------------------+
+.. figure:: images/manual.png
+
+   Creating a Non-Optimal ZFS Volume
+
+
+.. _zfs_manual_opts_tab:
+
+.. table:: **Manual Setup Options**
+
+   +---------------+------------------+------------------------------------------------------------------------------------------------+
+   | **Setting**   | **Value**        | **Description**                                                                                |
+   |               |                  |                                                                                                |
+   |               |                  |                                                                                                |
+   +===============+==================+================================================================================================+
+   | Volume name   | string           | ZFS volumes must conform to these                                                              |
+   |               |                  | `naming conventions <http://docs.oracle.com/cd/E19082-01/817-2271/gbcpt/index.html>`_ ;        |
+   |               |                  | it is recommended to choose a name that will stick out in the logs (e.g.                       |
+   |               |                  | **not** :file:`data` or :file:`freenas`)                                                       |
+   |               |                  |                                                                                                |
+   +---------------+------------------+------------------------------------------------------------------------------------------------+
+   | Encryption    | checkbox         | read the section on `Encryption`_ before choosing to use encryption                            |
+   |               |                  |                                                                                                |
+   +---------------+------------------+------------------------------------------------------------------------------------------------+
+   | Member disks  | list             | highlight desired number of disks from list of available disks                                 |
+   |               |                  |                                                                                                |
+   +---------------+------------------+------------------------------------------------------------------------------------------------+
+   #ifdef freenas
+   | Deduplication | drop-down menu   | choices are *Off*,                                                                             |
+   |               |                  | *Verify*, and                                                                                  |
+   |               |                  | *On*; carefully consider the section on `Deduplication`_ before changing this setting          |
+   |               |                  |                                                                                                |
+   #endif freenas
+   #ifdef truenas
+   | Deduplication | drop-down menu   | do not change this setting unless instructed to do so by your iXsystems support engineer       |
+   |               |                  |                                                                                                |
+   #endif truenas
+   +---------------+------------------+------------------------------------------------------------------------------------------------+
+   | ZFS Extra     | bullet selection | used to specify if disk is used for storage (*None*), a log device, a cache device, or a spare |
+   |               |                  |                                                                                                |
+   +---------------+------------------+------------------------------------------------------------------------------------------------+
+
 
 .. _Extending a ZFS Volume:
 
@@ -317,20 +334,21 @@ Extending a ZFS Volume
 
 The "Volume to extend" drop-down menu in
 :menuselection:`Storage --> Volumes --> Volume Manager`,
-shown in Figure %chapternum%.1a, can be used to add additional disks to an
-existing ZFS volume. This drop-down menu will be empty if no ZFS
-volume exists.
+shown in
+:numref:`Figure %s <create_zfs_pool_volman_fig>`,
+can be used to add additional disks to an existing ZFS volume. This
+drop-down menu will be empty if no ZFS volume exists.
 
-.. note:: if the existing volume is encrypted, a warning message will
-          remind you that the operation of extending a volume will
-          reset the passphrase and recovery key. After extending the
-          volume, you should immediately recreate both using the
-          instructions in
-          :ref:`Managing Encrypted Volumes`.
+.. note:: If the existing volume is encrypted, a warning message will
+   remind you that the operation of extending a volume will reset the
+   passphrase and recovery key. After extending the volume, you should
+   immediately recreate both using the instructions in
+   :ref:`Managing Encrypted Volumes`.
 
-Once an existing volume has been selected from the drop-down menu,
+
+After an existing volume has been selected from the drop-down menu,
 drag and drop the desired disks and select the desired volume
-layout. For example you can:
+layout. For example, you can:
 
 * select an SSD with a volume layout of "Log (ZIL)" to add a log
   device to the ZFS pool. Selecting 2 SSDs will create a mirrored log
@@ -347,11 +365,9 @@ the addition of virtual devices, known as vdevs, to an existing ZFS
 pool. A vdev can be a single disk, a stripe, a mirror, a RAIDZ1,
 RAIDZ2, or a RAIDZ3. **Once a vdev is created, you cannot add more
 drives to that vdev**; however, you can stripe a new vdev (and its
-disks) with the
-**same type of existing vdev**
-in order to increase the overall size of ZFS the pool. In other words,
-when you extend a ZFS volume, you are really striping similar vdevs.
-Here are some examples:
+disks) with the **same type of existing vdev** to increase the overall
+size of ZFS the pool. In other words, when you extend a ZFS volume,
+you are really striping similar vdevs. Here are some examples:
 
 * to extend a ZFS stripe, add one or more disks. Since there is no
   redundancy, you do not have to add the same amount of disks as the
@@ -374,112 +390,119 @@ an error message will appear, indicating the number of disks that are
 needed. You will need to select the correct number of disks in order
 to continue.
 
+
 .. _Change Permissions:
 
 Change Permissions
 ~~~~~~~~~~~~~~~~~~
 
 Setting permissions is an important aspect of configuring volumes. The
-graphical administrative interface is meant to set the
-**initial**
+graphical administrative interface is meant to set the **initial**
 permissions for a volume or dataset in order to make it available as a
 share. Once a share is available, the client operating system should
 be used to fine-tune the permissions of the files and directories that
 are created by the client.
 
-The chapter on
-:ref:`Sharing`
-contains configuration examples for several types of permission
-scenarios. This section provides an overview of the screen that is
-used to set permissions.
+The chapter on :ref:`Sharing` contains configuration examples for
+several types of permission scenarios. This section provides an
+overview of the screen that is used to set permissions.
 
-.. note:: in order for users and groups to be available, they must
-          either be first created using the instructions in
-          :ref:`Account`
-          or imported from a directory service using the instructions
-          in :ref:`Directory Service`. If more than 50 users or groups
-          are available, the drop-down menus described in this section
-          will automatically truncate their display to 50 for
-          performance reasons. In this case, start to type in the
-          desired user or group name so that the display narrows its
-          search to matching results.
+.. note:: For users and groups to be available, they must either be
+   first created using the instructions in :ref:`Account` or imported
+   from a directory service using the instructions in
+   :ref:`Directory Service`. If more than 50 users or groups are
+   available, the drop-down menus described in this section will
+   automatically truncate their display to 50 for performance reasons.
+   In this case, start to type in the desired user or group name so
+   that the display narrows its search to matching results.
 
-Once a volume or dataset is created, it will be listed by its mount
-point name in
+
+After a volume or dataset is created, it is listed by its mount point
+name in
 :menuselection:`Storage --> Volumes --> View Volumes`.
 If you click the "Change Permissions" icon for a specific
-volume/dataset, you will see the screen shown in Figure %chapternum%.1c. Table
-%chapternum%.1c summarizes the options in this screen.
+volume/dataset, you will see the screen shown in
+:numref:`Figure %s <zfs_change_permissions_vol_fig>`.
+:numref:`Table %s <zfs_opts_permissions_tab>`
+summarizes the options in this screen.
 
-**Figure %chapternum%.1c: Changing Permissions on a Volume or Dataset**
 
-.. image:: images/perms1.png
+.. _zfs_change_permissions_vol_fig:
 
-**Table %chapternum%.1c: Options When Changing Permissions**
+.. figure:: images/perms1.png
 
-+----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-| **Setting**                | **Value**        | **Description**                                                                                            |
-|                            |                  |                                                                                                            |
-|                            |                  |                                                                                                            |
-+============================+==================+============================================================================================================+
-| Apply Owner (user)         | checkbox         | uncheck to prevent new permission change from being applied to "Owner (user)", see NOTE below              |
-|                            |                  |                                                                                                            |
-+----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-| Owner (user)               | drop-down menu   | user to control the volume/dataset; users which were manually created or imported from a directory service |
-|                            |                  | will appear in the drop-down menu                                                                          |
-|                            |                  |                                                                                                            |
-+----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-| Apply Owner (group)        | checkbox         | uncheck to prevent new permission change from being applied to "Owner (group)", see NOTE below             |
-|                            |                  |                                                                                                            |
-+----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-| Owner (group)              | drop-down menu   | group to control the volume/dataset; groups which were manually created or imported from a directory       |
-|                            |                  | service will appear in the drop-down menu                                                                  |
-|                            |                  |                                                                                                            |
-+----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-| Apply Mode                 | checkbox         | uncheck to prevent new permission change from being applied to "Mode", see NOTE below                      |
-|                            |                  |                                                                                                            |
-+----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-| Mode                       | checkboxes       | only applies to the *Unix*                                                                                 |
-|                            |                  | or *Mac* "Permission Type" so will be greyed out if                                                        |
-|                            |                  | *Windows* is selected                                                                                      |
-|                            |                  |                                                                                                            |
-+----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-| Permission Type            | bullet selection | choices are *Unix*,                                                                                        |
-|                            |                  | *Mac* or                                                                                                   |
-|                            |                  | *Windows*; select the type which matches the type of client accessing the volume/dataset                   |
-|                            |                  |                                                                                                            |
-+----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-| Set permission recursively | checkbox         | if checked, permissions will also apply to subdirectories of the volume/dataset; if data already exists    |
-|                            |                  | on the volume/dataset, change the permissions on the **client side** to prevent a performance lag          |
-|                            |                  |                                                                                                            |
-+----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   Changing Permissions on a Volume or Dataset
 
-.. note:: the "Apply Owner (user)", "Apply Owner (group)", and
-          "Apply Mode" checkboxes allow you to fine-tune the change
-          permissions behavior. By default, all boxes are checked and
-          %brand% resets the owner, group, and mode whenever the
-          "Change" button is clicked. These checkboxes allow you to
-          fine-tune which settings to change. For example, to just
-          change the "Owner (group)" setting, uncheck the boxes
-          "Apply Owner (user)" and "Apply Mode".
+
+.. _zfs_opts_permissions_tab:
+
+.. table:: **Options When Changing Permissions**
+
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | **Setting**                | **Value**        | **Description**                                                                                            |
+   |                            |                  |                                                                                                            |
+   |                            |                  |                                                                                                            |
+   +============================+==================+============================================================================================================+
+   | Apply Owner (user)         | checkbox         | uncheck to prevent new permission change from being applied to "Owner (user)", see NOTE below              |
+   |                            |                  |                                                                                                            |
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Owner (user)               | drop-down menu   | user to control the volume/dataset; users which were manually created or imported from a directory service |
+   |                            |                  | will appear in the drop-down menu                                                                          |
+   |                            |                  |                                                                                                            |
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Apply Owner (group)        | checkbox         | uncheck to prevent new permission change from being applied to "Owner (group)", see NOTE below             |
+   |                            |                  |                                                                                                            |
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Owner (group)              | drop-down menu   | group to control the volume/dataset; groups which were manually created or imported from a directory       |
+   |                            |                  | service will appear in the drop-down menu                                                                  |
+   |                            |                  |                                                                                                            |
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Apply Mode                 | checkbox         | uncheck to prevent new permission change from being applied to "Mode", see NOTE below                      |
+   |                            |                  |                                                                                                            |
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Mode                       | checkboxes       | only applies to the *Unix*                                                                                 |
+   |                            |                  | or *Mac* "Permission Type" so will be greyed out if                                                        |
+   |                            |                  | *Windows* is selected                                                                                      |
+   |                            |                  |                                                                                                            |
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Permission Type            | bullet selection | choices are *Unix*,                                                                                        |
+   |                            |                  | *Mac* or                                                                                                   |
+   |                            |                  | *Windows*; select the type which matches the type of client accessing the volume/dataset                   |
+   |                            |                  |                                                                                                            |
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Set permission recursively | checkbox         | if checked, permissions will also apply to subdirectories of the volume/dataset; if data already exists    |
+   |                            |                  | on the volume/dataset, change the permissions on the **client side** to prevent a performance lag          |
+   |                            |                  |                                                                                                            |
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+
+
+.. note:: The "Apply Owner (user)", "Apply Owner (group)", and
+   "Apply Mode" checkboxes allow you to fine-tune the change
+   permissions behavior. By default, all boxes are checked and
+   %brand% resets the owner, group, and mode whenever the "Change"
+   button is clicked. These checkboxes allow you to fine-tune which
+   settings to change. For example, to just change the "Owner (group)"
+   setting, uncheck the boxes "Apply Owner (user)" and "Apply Mode".
+
 
 If you have a mix of operating systems or clients will be accessing
 the volume/dataset using a non-CIFS share, select the *Unix*
-"Permission Type" as all clients understand them.
+"Permission Type", as all clients understand them.
 
 The *Windows* "Permission Type" augments traditional *Unix*
 permissions with ACLs. Use the *Windows* "Permission Type" for CIFS
 shares or when the %brand% system is a member of an Active Directory
 domain.
 
-If you change your mind about the "Permission Type", you do not have
-to recreate the volume/dataset as existing data is not lost. However,
-if you change from *Windows* to *Unix* or *Mac*, the extended
-permissions provided by ACLs will be removed from the existing files.
+If you change your mind about the "Permission Type", it is not
+necessary to recreate the volume/dataset, as existing data is not
+lost. However, changing from *Windows* to *Unix* or *Mac* will remove
+the extended permissions provided by ACLs from existing files.
 
 When you select the *Windows* "Permission Type", the ACLs are set to
 what Windows sets on new files and directories by default. The Windows
 client should then be used to fine-tune the permissions as required.
+
 
 .. index:: Create Dataset
 .. _Create Dataset:
@@ -495,23 +518,32 @@ also similar to a filesystem in that you can set properties such as
 quotas and compression as well as create snapshots.
 
 .. note:: ZFS provides thick provisioning using quotas and thin
-          provisioning using reserved space.
+   provisioning using reserved space.
 
-If you select an existing ZFS volume in the tree then click
-"Create Dataset", you will see the screen shown in Figure %chapternum%.1d.
 
-**Figure %chapternum%.1d: Creating a ZFS Dataset**
+Selecting an existing ZFS volume in the tree and clicking
+"Create Dataset" shows the screen in
+:numref:`Figure %s <zfs_create_dataset>`.
+
+
+.. _zfs_create_dataset:
 
 #ifdef freenas
-.. image:: images/dataset.png
+.. figure:: images/dataset.png
+
+   Creating a ZFS Dataset
 #endif freenas
 #ifdef truenas
 .. _tn_dataset1:
 
-.. image:: images/tn_dataset1.png
+.. figure:: images/tn_dataset1.png
+
+   Creating a ZFS Dataset
 #endif truenas
 
-Table %chapternum%.1d summarizes the options available when creating a ZFS
+
+:numref:`Table %s <zfs_dataset_opts_tab>`
+summarizes the options available when creating a ZFS
 dataset. Some settings are only available in "Advanced Mode". To see
 these settings, either click the "Advanced Mode" button or configure
 the system to always display these settings by checking the box
@@ -523,71 +555,76 @@ highlighting the dataset name and clicking its "Edit Options" button
 in
 :menuselection:`Storage --> Volumes --> View Volumes`.
 
-**Table %chapternum%.1d: ZFS Dataset Options**
 
-+--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-| **Setting**              | **Value**           | **Description**                                                                                           |
-|                          |                     |                                                                                                           |
-+==========================+=====================+===========================================================================================================+
-| Dataset Name             | string              | mandatory; input a unique name for the dataset                                                            |
-|                          |                     |                                                                                                           |
-+--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-| Compression Level        | drop-down menu      | see the section on :ref:`Compression` for a description of the available algorithms                       |
-|                          |                     |                                                                                                           |
-+--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-| Share type               | drop-down menu      | select the type of share that will be used on the dataset; choices are *UNIX* for an NFS share,           |
-|                          |                     | *Windows* for a CIFS share, or                                                                            |
-|                          |                     | *Mac* for an AFP share                                                                                    |
-|                          |                     |                                                                                                           |
-+--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-| Case Sensitivity         | drop-down menu      | choices are *sensitive* (default, assumes filenames are case sensitive),                                  |
-|                          |                     | *insensitive* (assumes filenames are not case sensitive), or                                              |
-|                          |                     | *mixed* (understands both types of filenames)                                                             |
-|                          |                     |                                                                                                           |
-+--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-| Enable atime             | Inherit, On, or Off | controls whether the access time for files is updated when they are read; setting this property to *Off*  |
-|                          |                     | avoids producing log traffic when reading files and can result in significant performance gains           |
-|                          |                     |                                                                                                           |
-+--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-| Quota for this dataset   | integer             | only available in "Advanced Mode"; default of *0* disables quotas; specifying a value means to use no     |
-|                          |                     | more than the specified size and is suitable for user datasets to prevent users from hogging available    |
-|                          |                     | space                                                                                                     |
-|                          |                     |                                                                                                           |
-+--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-| Quota for this dataset   | integer             | only available in "Advanced Mode"; a specified value applies to both this dataset and any child datasets  |
-| and all children         |                     |                                                                                                           |
-|                          |                     |                                                                                                           |
-+--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-| Reserved space for this  | integer             | only available in "Advanced Mode"; default of *0* is unlimited; specifying a value                        |
-| dataset                  |                     | means to keep at least this much space free and is suitable for datasets containing logs which could      |
-|                          |                     | take up all available free space                                                                          |
-|                          |                     |                                                                                                           |
-+--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-| Reserved space for this  | integer             | only available in Advanced Mode; a specified value applies to both this dataset and any child datasets    |
-| dataset and all children |                     |                                                                                                           |
-|                          |                     |                                                                                                           |
-+--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-#ifdef freenas
-| ZFS Deduplication        | drop-down menu      | read the section on :ref:`Deduplication` before making a change to this setting                           |
-|                          |                     |                                                                                                           |
-#endif freenas
-#ifdef truenas
-| ZFS Deduplication        | drop-down menu      | do not change this setting unless instructed to do so by your iXsystems support engineer                  |
-|                          |                     |                                                                                                           |
-#endif truenas
-+--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-| Record Size              | drop-down menu      | only available in "Advanced Mode"; while ZFS automatically adapts the record size dynamically to adapt to |
-|                          |                     | data, if the data has a fixed size (e.g. a database), matching that size may result in better performance |
-|                          |                     |                                                                                                           |
-+--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+.. _zfs_dataset_opts_tab:
 
-Once a dataset is created, you can click on that dataset and select
+.. table:: **ZFS Dataset Options**
+
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+   | **Setting**              | **Value**           | **Description**                                                                                           |
+   |                          |                     |                                                                                                           |
+   +==========================+=====================+===========================================================================================================+
+   | Dataset Name             | string              | mandatory; input a unique name for the dataset                                                            |
+   |                          |                     |                                                                                                           |
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+   | Compression Level        | drop-down menu      | see the section on :ref:`Compression` for a description of the available algorithms                       |
+   |                          |                     |                                                                                                           |
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+   | Share type               | drop-down menu      | select the type of share that will be used on the dataset; choices are *UNIX* for an NFS share,           |
+   |                          |                     | *Windows* for a CIFS share, or                                                                            |
+   |                          |                     | *Mac* for an AFP share                                                                                    |
+   |                          |                     |                                                                                                           |
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+   | Case Sensitivity         | drop-down menu      | choices are *sensitive* (default, assumes filenames are case sensitive),                                  |
+   |                          |                     | *insensitive* (assumes filenames are not case sensitive), or                                              |
+   |                          |                     | *mixed* (understands both types of filenames)                                                             |
+   |                          |                     |                                                                                                           |
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+   | Enable atime             | Inherit, On, or Off | controls whether the access time for files is updated when they are read; setting this property to *Off*  |
+   |                          |                     | avoids producing log traffic when reading files and can result in significant performance gains           |
+   |                          |                     |                                                                                                           |
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+   | Quota for this dataset   | integer             | only available in "Advanced Mode"; default of *0* disables quotas; specifying a value means to use no     |
+   |                          |                     | more than the specified size and is suitable for user datasets to prevent users from hogging available    |
+   |                          |                     | space                                                                                                     |
+   |                          |                     |                                                                                                           |
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+   | Quota for this dataset   | integer             | only available in "Advanced Mode"; a specified value applies to both this dataset and any child datasets  |
+   | and all children         |                     |                                                                                                           |
+   |                          |                     |                                                                                                           |
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+   | Reserved space for this  | integer             | only available in "Advanced Mode"; default of *0* is unlimited; specifying a value                        |
+   | dataset                  |                     | means to keep at least this much space free and is suitable for datasets containing logs which could      |
+   |                          |                     | take up all available free space                                                                          |
+   |                          |                     |                                                                                                           |
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+   | Reserved space for this  | integer             | only available in Advanced Mode; a specified value applies to both this dataset and any child datasets    |
+   | dataset and all children |                     |                                                                                                           |
+   |                          |                     |                                                                                                           |
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+   #ifdef freenas
+   | ZFS Deduplication        | drop-down menu      | read the section on :ref:`Deduplication` before making a change to this setting                           |
+   |                          |                     |                                                                                                           |
+   #endif freenas
+   #ifdef truenas
+   | ZFS Deduplication        | drop-down menu      | do not change this setting unless instructed to do so by your iXsystems support engineer                  |
+   |                          |                     |                                                                                                           |
+   #endif truenas
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+   | Record Size              | drop-down menu      | only available in "Advanced Mode"; while ZFS automatically adapts the record size dynamically to adapt to |
+   |                          |                     | data, if the data has a fixed size (e.g. a database), matching that size may result in better performance |
+   |                          |                     |                                                                                                           |
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+
+
+After a dataset is created, you can click on that dataset and select
 "Create Dataset", thus creating a nested dataset, or a dataset within
-a dataset. You can also create a zvol within a dataset. When creating
+a dataset. A zvol can also be created within a dataset. When creating
 datasets, double-check that you are using the "Create Dataset" option
 for the intended volume or dataset. If you get confused when creating
 a dataset on a volume, click all existing datasets to close them--the
 remaining "Create Dataset" will be for the volume.
+
 
 #ifdef freenas
 .. index:: Deduplication
@@ -601,22 +638,19 @@ in order to save space. Depending upon the amount of duplicate data,
 deduplicaton can improve storage capacity as less data is written and
 stored. However, the process of deduplication is RAM intensive and a
 general rule of thumb is 5 GB RAM per TB of storage to be
-deduplicated.
-**In most cases, using compression instead of deduplication will
-provide a comparable storage gain with less impact on performance.**
+deduplicated. **In most cases, using compression instead of
+deduplication will provide a comparable storage gain with less impact
+on performance.**
 
 In %brand%, deduplication can be enabled during dataset creation. Be
-forewarned that
-**there is no way to undedup the data within a dataset once
-deduplication is enabled**
-as disabling deduplication has
-**NO EFFECT**
-on existing data. The more data you write to a deduplicated dataset,
-the more RAM it requires and when the system starts storing the DDTs
-(dedup tables) on disk because they no longer fit into RAM,
-performance craters. Furthermore, importing an unclean pool can
-require between 3-5 GB of RAM per TB of deduped data, and if the
-system doesn't have the needed RAM it will panic, with the only
+forewarned that **there is no way to undedup the data within a dataset
+once deduplication is enabled**, as disabling deduplication has
+**NO EFFECT** on existing data. The more data you write to a
+deduplicated dataset, the more RAM it requires and when the system
+starts storing the DDTs (dedup tables) on disk because they no longer
+fit into RAM, performance craters. Furthermore, importing an unclean
+pool can require between 3-5 GB of RAM per TB of deduped data, and if
+the system does not have the needed RAM, it will panic, with the only
 solution being to add more RAM or to recreate the pool.
 **Think carefully before enabling dedup!**
 This `article
@@ -638,18 +672,17 @@ identical. Since hash collisions are extremely rare, *Verify* is
 usually not worth the performance hit.
 
 .. note:: once deduplication is enabled, the only way to disable it is
-          to use the :command:`zfs set dedup=off dataset_name` command
-          from
-          :ref:`Shell`.
-          However, any data that is already stored as deduplicated
-          will not be un-deduplicated as only newly stored data after
-          the property change will not be deduplicated. The only way
-          to remove existing deduplicated data is to copy all of the
-          data off of the dataset, set the property to off, then copy
-          the data back in again. Alternately, create a new dataset
-          with "ZFS Deduplication" left as disabled, copy the data to
-          the new dataset, and destroy the original dataset.
+   to use the :command:`zfs set dedup=off dataset_name` command from
+   :ref:`Shell`. However, any data that is already stored as
+   deduplicated will not be un-deduplicated as only newly stored data
+   after the property change will not be deduplicated. The only way to
+   remove existing deduplicated data is to copy all of the data off of
+   the dataset, set the property to off, then copy the data back in
+   again. Alternately, create a new dataset with "ZFS Deduplication"
+   left as disabled, copy the data to the new dataset, and destroy the
+   original dataset.
 #endif freenas
+
 
 .. index:: Compression
 .. _Compression:
@@ -661,8 +694,8 @@ When selecting a compression type, you need to balance performance
 with the amount of disk space saved by compression. Compression is
 transparent to the client and applications as ZFS automatically
 compresses data as it is written to a compressed dataset or zvol and
-automatically decompresses that data as it is read. The following
-compression algorithms are supported:
+automatically decompresses that data as it is read. These compression
+algorithms are supported:
 
 * **lz4:** recommended compression method as it allows compressed
   datasets to operate at near real-time speed. This algorithm only
@@ -687,6 +720,7 @@ or zvol, compression will not be used on the dataset/zvol. This is not
 recommended as using *lz4* has a negligible performance impact and
 allows for more storage capacity.
 
+
 .. index:: ZVOL
 .. _Create zvol:
 
@@ -694,54 +728,60 @@ Create zvol
 ~~~~~~~~~~~
 
 A zvol is a feature of ZFS that creates a raw block device over ZFS.
-This allows you to use a zvol as an
-:ref:`iSCSI`
-device extent.
+This allows you to use a zvol as an :ref:`iSCSI` device extent.
 
 To create a zvol, select an existing ZFS volume or dataset from the
-tree then click "Create zvol" to open the screen shown in Figure %chapternum%.1e.
+tree then click "Create zvol" to open the screen shown in
+:numref:`Figure %s <zfs_create_zvol_fig>`.
 
-**Figure %chapternum%.1e: Creating a zvol**
 
-.. image:: images/zvol1.png
+.. _zfs_create_zvol_fig:
 
-The configuration options are described in Table %chapternum%.1e. Some settings
-are only available in "Advanced Mode". To see these settings, either
-click the "Advanced Mode" button or configure the system to always
-display these settings by checking the box
-"Show advanced fields by default"
-in
+.. figure:: images/zvol1.png
+
+   Creating a zvol
+
+
+The configuration options are described in
+:numref:`Table %s <zfs_zvol_config_opts_tab>`.
+Some settings are only available in "Advanced Mode". To see these
+settings, either click the "Advanced Mode" button or configure the
+system to always display these settings by checking the box
+"Show advanced fields by default" in
 :menuselection:`System --> Advanced`.
 
-**Table %chapternum%.1e: zvol Configuration Options**
 
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| **Setting**        | **Value**      | **Description**                                                                                                      |
-|                    |                |                                                                                                                      |
-|                    |                |                                                                                                                      |
-+====================+================+======================================================================================================================+
-| zvol Name          | string         | mandatory; input a name for the zvol                                                                                 |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Size for this zvol | integer        | specify size and value such as *10Gib*; if the size is more than 80% of the available capacity, the creation will    |
-|                    |                | fail with an "out of space" error unless the "Force size" box is checked                                             |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Force size         | checkbox       | by default, the system will not let you create a zvol if that operation will bring the pool to over 80% capacity;    |
-|                    |                | **while NOT recommended**, checking this box will force the creation of the zvol in this situation                   |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Compression level  | drop-down menu | see the section on :ref:`Compression` for a description of the available algorithms                                  |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Sparse volume      | checkbox       | used to provide thin provisioning; use with caution for when this option is selected, writes will fail when the      |
-|                    |                | pool is low on space                                                                                                 |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Block size         | drop-down menu | only available in "Advanced Mode" and by default is based on the number of disks in pool; can be set to match the    |
-|                    |                | block size of the filesystem which will be formatted onto the iSCSI target                                           |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+.. _zfs_zvol_config_opts_tab:
+
+.. table:: **zvol Configuration Options**
+
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | **Setting**        | **Value**      | **Description**                                                                                                      |
+   |                    |                |                                                                                                                      |
+   |                    |                |                                                                                                                      |
+   +====================+================+======================================================================================================================+
+   | zvol Name          | string         | mandatory; input a name for the zvol                                                                                 |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Size for this zvol | integer        | specify size and value such as *10Gib*; if the size is more than 80% of the available capacity, the creation will    |
+   |                    |                | fail with an "out of space" error unless the "Force size" box is checked                                             |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Force size         | checkbox       | by default, the system will not let you create a zvol if that operation will bring the pool to over 80% capacity;    |
+   |                    |                | **while NOT recommended**, checking this box will force the creation of the zvol in this situation                   |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Compression level  | drop-down menu | see the section on :ref:`Compression` for a description of the available algorithms                                  |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Sparse volume      | checkbox       | used to provide thin provisioning; use with caution for when this option is selected, writes will fail when the      |
+   |                    |                | pool is low on space                                                                                                 |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Block size         | drop-down menu | only available in "Advanced Mode" and by default is based on the number of disks in pool; can be set to match the    |
+   |                    |                | block size of the filesystem which will be formatted onto the iSCSI target                                           |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
 
 
 .. _Import Disk:
@@ -751,15 +791,20 @@ Import Disk
 
 The
 :menuselection:`Volume --> Import Disk`
-screen, shown in Figure %chapternum%.1f, is used to import a **single** disk that
-has been formatted with the UFS, NTFS, MSDOS, or EXT2/3 filesystem.
-The import is meant to be a temporary measure in order to copy the
-data from a disk to an existing ZFS dataset. Only one disk can be
-imported at a time.
+screen, shown in
+:numref:`Figure %s <zfs_import_disk_fig>`,
+is used to import a **single** disk that has been formatted with the
+UFS, NTFS, MSDOS, or EXT2/3 filesystem. The import is meant to be a
+temporary measure to copy the data from a disk to an existing ZFS
+dataset. Only one disk can be imported at a time.
 
-**Figure %chapternum%.1f: Importing a Disk**
 
-.. image:: images/import1.png
+.. _zfs_import_disk_fig:
+
+.. figure:: images/import1.png
+
+   Importing a Disk
+
 
 Use the drop-down menu to select the disk to import, select the type
 of filesystem on the disk, and browse to the ZFS dataset that will
@@ -767,6 +812,7 @@ hold the copied data. When you click "Import Volume", the disk will be
 automatically mounted, its contents will be copied to the specified
 ZFS dataset, and the disk will automatically unmount once the copy
 operation completes.
+
 
 .. _Import Volume:
 
@@ -782,24 +828,34 @@ disks, a new installation does not affect the data on the disks.
 However, the new operating system needs to be configured to use the
 existing volume.
 
-Figure %chapternum%.1g shows the initial pop-up window that appears when you
-select to import a volume.
+:numref:`Figure %s <zfs_import_vol_fig>`
+shows the initial pop-up window that appears when you import a volume.
 
-**Figure %chapternum%.1g: Initial Import Volume Screen**
 
-.. image:: images/auto1.png
+.. _zfs_import_vol_fig:
+
+.. figure:: images/auto1.png
+
+   Initial Import Volume Screen
+
 
 If you are importing an unencrypted ZFS pool, select
-"No: Skip to import" to open the screen shown in Figure %chapternum%.1h.
+"No: Skip to import" to open the screen shown in
+:numref:`Figure %s <zfs_import_nonencrypt_fig>`.
 
-**Figure %chapternum%.1h: Importing a Non-Encrypted Volume**
 
-.. image:: images/auto2.png
+.. _zfs_import_nonencrypt_fig:
+
+.. figure:: images/auto2.png
+
+   Importing a Non-Encrypted Volume
+
 
 Existing volumes should be available for selection from the drop-down
-menu. In the example shown in Figure %chapternum%.1h, the %brand% system has an
-existing, unencrypted ZFS pool. Once the volume is selected, click the
-"OK" button to import the volume.
+menu. In the example shown in
+:numref:`Figure %s <zfs_import_nonencrypt_fig>`,
+the %brand% system has an existing, unencrypted ZFS pool. Once the
+volume is selected, click the "OK" button to import the volume.
 
 If an existing ZFS pool does not show in the drop-down menu, run
 :command:`zpool import` from :ref:`Shell` to import the pool.
@@ -815,24 +871,31 @@ appear in the output, check to see if the controller driver is
 supported or if it needs to be loaded using :ref:`Tunables`.
 #endif freenas
 
+
 .. _Importing an Encrypted Pool:
 
 Importing an Encrypted Pool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you are importing an existing GELI-encrypted ZFS pool, you must
-decrypt the disks before importing the pool. In Figure %chapternum%.1g, select
-"Yes: Decrypt disks" to access the screen shown in Figure %chapternum%.1i.
+decrypt the disks before importing the pool. In
+:numref:`Figure %s <zfs_import_vol_fig>`,
+select "Yes: Decrypt disks" to access the screen shown in
+:numref:`Figure %s <zfs_decrypt_import_fig>`.
 
-**Figure %chapternum%.1i: Decrypting the Disks Before Importing the ZFS Pool**
 
-.. image:: images/decrypt.png
+.. _zfs_decrypt_import_fig:
+
+.. figure:: images/decrypt.png
+
+   Decrypting Disks Before Importing a ZFS Pool
+
 
 Select the disks in the encrypted pool, browse to the location of the
 saved encryption key, input the passphrase associated with the key,
 then click "OK" to decrypt the disks.
 
-.. note:: the encryption key is required to decrypt the pool. If the
+.. note:: The encryption key is required to decrypt the pool. If the
    pool cannot be decrypted, it cannot be re-imported after a failed
    upgrade or lost configuration. This means that it is
    **very important** to save a copy of the key and to remember the
@@ -840,8 +903,10 @@ then click "OK" to decrypt the disks.
    :ref:`Managing Encrypted Volumes` for instructions on how to
    manage the keys for encrypted volumes.
 
-Once the pool is decrypted, it should appear in the drop-down menu of
-Figure %chapternum%.1h. Click the "OK" button to finish the volume import.
+Once the pool is decrypted, it will appear in the drop-down menu of
+:numref:`Figure %s <zfs_import_nonencrypt_fig>`.
+Click the "OK" button to finish the volume import.
+
 
 .. _View Disks:
 
@@ -849,9 +914,10 @@ View Disks
 ~~~~~~~~~~
 
 :menuselection:`Storage --> Volumes --> View Disks`
-allows you to view all of the disks recognized by the %brand% system.
-An example is shown in
+shows all of the disks recognized by the %brand% system. An example is
+shown in
 :numref:`Figure %s <viewing_disks_fig>`.
+
 
 .. _viewing_disks_fig:
 
@@ -866,55 +932,60 @@ An example is shown in
    Viewing Disks
 #endif truenas
 
+
 The current configuration of each device is displayed. Click a disk's
 entry and then its "Edit" button to change its configuration. The
-configurable options are described in Table %chapternum%.1f.
+configurable options are described in
+:numref:`Table %s <zfs_disk_opts_tab>`.
 
-**Table %chapternum%.1f: Disk Options**
 
-+--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-| **Setting**                                            | **Value**      | **Description**                                                                                                          |
-|                                                        |                |                                                                                                                          |
-+========================================================+================+==========================================================================================================================+
-| Name                                                   | string         | read-only value showing FreeBSD device name for disk                                                                     |
-|                                                        |                |                                                                                                                          |
-+--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-| Serial                                                 | string         | read-only value showing the disk's serial number                                                                         |
-|                                                        |                |                                                                                                                          |
-+--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-| Description                                            | string         | optional                                                                                                                 |
-|                                                        |                |                                                                                                                          |
-+--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-| HDD Standby                                            | drop-down menu | indicates the time of inactivity (in minutes) before the drive enters standby mode in order to conserve energy; this     |
-|                                                        |                | `forum post <https://forums.freenas.org/index.php?threads/how-to-find-out-if-a-drive-is-spinning-down-properly.2068/>`__ |
-|                                                        |                | demonstrates how to determine if a drive has spun down                                                                   |
-|                                                        |                |                                                                                                                          |
-+--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-| Advanced Power Management                              | drop-down menu | default is *Disabled*, can select a power management profile from the menu                                               |
-|                                                        |                |                                                                                                                          |
-+--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-| Acoustic Level                                         | drop-down menu | default is *Disabled*; can be modified for disks that understand                                                         |
-|                                                        |                | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`_                                                     |
-|                                                        |                |                                                                                                                          |
-+--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-| Enable S.M.A.R.T.                                      | checkbox       | enabled by default if the disk supports S.M.A.R.T.; unchecking this box will disable any configured                      |
-|                                                        |                | :ref:`S.M.A.R.T. Tests` for the disk                                                                                     |
-|                                                        |                |                                                                                                                          |
-+--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-| S.M.A.R.T. extra options                               | string         | additional `smartctl(8) <http://linux.die.net/man/8/smartctl>`_  options                                                 |
-|                                                        |                |                                                                                                                          |
-+--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+.. _zfs_disk_opts_tab:
+
+.. table:: **Disk Options**
+
+   +--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | **Setting**                                            | **Value**      | **Description**                                                                                                          |
+   |                                                        |                |                                                                                                                          |
+   +========================================================+================+==========================================================================================================================+
+   | Name                                                   | string         | read-only value showing FreeBSD device name for disk                                                                     |
+   |                                                        |                |                                                                                                                          |
+   +--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Serial                                                 | string         | read-only value showing the disk's serial number                                                                         |
+   |                                                        |                |                                                                                                                          |
+   +--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Description                                            | string         | optional                                                                                                                 |
+   |                                                        |                |                                                                                                                          |
+   +--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | HDD Standby                                            | drop-down menu | indicates the time of inactivity (in minutes) before the drive enters standby mode in order to conserve energy; this     |
+   |                                                        |                | `forum post <https://forums.freenas.org/index.php?threads/how-to-find-out-if-a-drive-is-spinning-down-properly.2068/>`__ |
+   |                                                        |                | demonstrates how to determine if a drive has spun down                                                                   |
+   |                                                        |                |                                                                                                                          |
+   +--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Advanced Power Management                              | drop-down menu | default is *Disabled*, can select a power management profile from the menu                                               |
+   |                                                        |                |                                                                                                                          |
+   +--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Acoustic Level                                         | drop-down menu | default is *Disabled*; can be modified for disks that understand                                                         |
+   |                                                        |                | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`_                                                     |
+   |                                                        |                |                                                                                                                          |
+   +--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Enable S.M.A.R.T.                                      | checkbox       | enabled by default if the disk supports S.M.A.R.T.; unchecking this box will disable any configured                      |
+   |                                                        |                | :ref:`S.M.A.R.T. Tests` for the disk                                                                                     |
+   |                                                        |                |                                                                                                                          |
+   +--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | S.M.A.R.T. extra options                               | string         | additional `smartctl(8) <http://linux.die.net/man/8/smartctl>`_  options                                                 |
+   |                                                        |                |                                                                                                                          |
+   +--------------------------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
 Clicking a disk's entry will also display its "Wipe" button which can
 be used to blank a disk while providing a progress bar of the wipe's
 status. Use this option before discarding a disk.
 
-.. note:: should a disk's serial number not be displayed in this
-          screen, use the :command:`smartctl` command within
-          :ref:`Shell`. For example, to determine the serial number of
-          disk *ada0*, type
-          :command:`smartctl -a /dev/ada0 | grep Serial`.
+.. note:: If a disk's serial number is not displayed in this screen,
+   use the :command:`smartctl` command from :ref:`Shell`. For example,
+   to determine the serial number of disk *ada0*, type
+   :command:`smartctl -a /dev/ada0 | grep Serial`.
+
 
 #ifdef truenas
 .. _View Enclosure:
@@ -925,11 +996,14 @@ View Enclosure
 Click :menuselection:`Storage --> Volumes --> View Enclosure` to
 receive a status summary of the appliance's disks and hardware. An
 example is shown in
-:numref:`Figure %s: View Enclosure <tn_enclosure1>`.
+:numref:`Figure %s <tn_enclosure1>`.
 
 .. _tn_enclosure1:
 
 .. figure:: images/tn_enclosure1.png
+
+   View Enclosure
+
 
 This screen is divided into the following sections:
 
@@ -953,17 +1027,19 @@ and the disk chassis.
 and VCC.
 #endif truenas
 
+
 .. _View Volumes:
 
 View Volumes
 ~~~~~~~~~~~~
 
-If you click
-:menuselection:`Storage --> Volumes --> View Volumes`,
-you can view and further configure existing ZFS pools, datasets, and
-zvols. The example shown in Figure %chapternum%.1k demonstrates one ZFS pool
-(*volume1*) with two datasets (the one automatically created with the
-pool, *volume1*, and *dataset1*) and one zvol (*zvol1*).
+:menuselection:`Storage --> Volumes --> View Volumes`
+is used to view and further configure existing ZFS pools, datasets,
+and zvols. The example shown in
+:numref:`Figure %s <zfs_view_vol_fig>`
+shows one ZFS pool (*volume1*) with two datasets (the one
+automatically created with the pool, *volume1*, and *dataset1*) and
+one zvol (*zvol1*).
 
 Note that in this example, there are two datasets named *volume1*. The
 first represents the ZFS pool and its "Used" and "Available" entries
@@ -979,19 +1055,24 @@ how much disk space is “Used”, how much disk space is “Available”, the
 type of “Compression”, the “Compression Ratio”, the “Status”, and
 whether or not it is mounted as read-only.
 
-**Figure %chapternum%.1k: Viewing Volumes**
 
-.. image:: images/volume1b.png
+.. _zfs_view_vol_fig:
 
-If you click the entry for a pool, several buttons will appear at the
-bottom of the screen. In order from left to right, these buttons are
-used to perform the following:
+.. figure:: images/volume1b.png
+
+   Viewing Volumes
+
+
+Clicking the entry for a pool causes several buttons to appear at the
+bottom of the screen. The buttons perform these actions:
 
 **Detach Volume:** allows you to either export the pool or to delete
 the contents of the pool, depending upon the choice you make in the
-screen shown in Figure %chapternum%.1l. The "Detach Volume" screen displays the
-current used space and indicates if there are any shares, provides
-checkboxes to "Mark the disks as new (destroy data)" and to
+screen shown in
+:numref:`Figure %s <zfs_detach_vol_fig>`.
+The "Detach Volume" screen displays the current used space and
+indicates if there are any shares, provides checkboxes to
+"Mark the disks as new (destroy data)" and to
 "Also delete the share's configuration", asks if you are sure that you
 want to do this, and the browser will turn red to alert you that you
 are about to do something that will make the data inaccessible.
@@ -1006,9 +1087,13 @@ new, the pool and all the data in its datasets, zvols, and shares will
 be destroyed and the underlying disks will be returned to their raw
 state.**
 
-**Figure %chapternum%.1l: Detaching or Deleting a Volume**
 
-.. image:: images/detach1.png
+  .. _zfs_detach_vol_fig:
+
+  .. figure:: images/detach1.png
+
+     Detach or Delete a Volume
+
 
 **Scrub Volume:** scrubs and how to schedule them are described in
 more detail in :ref:`Scrubs`. This button allows you to manually
@@ -1020,19 +1105,20 @@ beginning, not where the cancelled scrub left off. To view the current
 status of a running scrub or the statistics from the last completed
 scrub, click the "Volume Status" button.
 
-**Volume Status:** as seen in the example in
+**Volume Status:** as shown in the example in
 :numref:`Figure %s <volume_status_fig>`,
 this screen shows the device name and status of each disk in the ZFS
 pool as well as any read, write, or checksum errors. It also indicates
-the status of the latest ZFS scrub. If you click the entry for a
-device, buttons will appear to edit the device's options (shown in
-Figure %chapternum%.1n), offline or online the device, or replace the
-device (as described in
+the status of the latest ZFS scrub. Clicking the entry for a device
+causes buttons to appear to edit the device's options (shown in
+:numref:`Figure %s <zfs_edit_disk_fig>`),
+offline or online the device, or replace the device (as described in
 :ref:`Replacing a Failed Drive`).
 
 **Upgrade:** used to upgrade the pool to the latest ZFS features, as
 described in :ref:`Upgrading a ZFS Pool`. This button will not appear
 if the pool is running the latest versions of feature flags.
+
 
 .. _volume_status_fig:
 
@@ -1047,76 +1133,88 @@ if the pool is running the latest versions of feature flags.
    Volume Status
 #endif truenas
 
-If you click a disk in "Volume Status" and click its "Edit Disk"
-button, you will see the screen shown in Figure %chapternum%.1n. Table %chapternum%.1f
+
+Selecting a disk in "Volume Status" and clicking its "Edit Disk"
+button shows the screen in
+:numref:`Figure %s <zfs_edit_disk_fig>`.
+:numref:`Table %s <zfs_disk_opts_tab>`
 summarizes the configurable options.
 
-**Figure %chapternum%.1n: Editing a Disk**
 
-.. image:: images/disk.png
+.. _zfs_edit_disk_fig:
+
+.. figure:: images/disk.png
+
+   Editing a Disk
+
 
 #ifdef freenas
-.. note:: Versions of %brand% prior to 8.3.1 required a reboot in
-   order to apply changes to the "HDD Standby",
-   "Advanced Power Management", and "Acoustic Level" settings.
-   As of 8.3.1, changes to these settings are applied immediately.
+.. note:: Versions of %brand% prior to 8.3.1 required a reboot to
+   apply changes to the "HDD Standby", "Advanced Power Management",
+   and "Acoustic Level" settings. As of 8.3.1, changes to these
+   settings are applied immediately.
 #endif freenas
 
-If you click a dataset in
-:menuselection:`Storage --> Volumes --> View Volumes`,
-six buttons will appear at the bottom of the screen. In order from
-left to right, these buttons allow you to:
+Clicking a dataset in
+:menuselection:`Storage --> Volumes --> View Volumes`
+causes buttons to appear at the bottom of the screen, providing these
+options:
 
-**Change Permissions:** allows you to edit the dataset's permissions
-as described in :ref:`Change Permissions`.
+**Change Permissions:** edit the dataset's permissions as described in
+:ref:`Change Permissions`.
 
-**Create Snapshot:** allows you to create a one-time snapshot. If you
-wish to schedule the regular creation of snapshots, instead use
+**Create Snapshot:** create a one-time snapshot. To schedule the
+regular creation of snapshots, instead use
 :ref:`Periodic Snapshot Tasks`.
 
-**Destroy Dataset:** if you click the "Destroy Dataset" button, the
-browser will turn red to indicate that this is a destructive action.
-The "Destroy Dataset" screen forces you to check the box
+**Destroy Dataset:** clicking the "Destroy Dataset" button causes the
+browser window to turn red to indicate that this is a destructive
+action. The "Destroy Dataset" screen forces you to check the box
 "I'm aware this will destroy all child datasets and snapshots within
 this dataset" before it will perform this action.
 
-**Edit Options:** allows you to edit the volume's properties described
-in Table %chapternum%.1d. Note that it will not let you change the dataset's
-name.
+**Edit Options:** edit the volume's properties described in 
+:numref:`Table %s <zfs_create_dataset>`.
+Note that it will not allow changing the dataset's name.
 
 **Create Dataset:** used to create a child dataset within this
 dataset.
 
-**Create zvol:** allows you to create a child zvol within this
+**Create zvol:** create a child zvol within this
 dataset.
 
-If you click a zvol in
-:menuselection:`Storage --> Volumes --> View Volumes`,
-three icons will appear at the bottom of the screen:
+Clicking a zvol in
+:menuselection:`Storage --> Volumes --> View Volumes` causes
+icons to appear at the bottom of the screen:
 "Create Snapshot", "Edit zvol", and "Destroy zvol". Similar to
-datasets, you cannot edit a zvol's name and you will need to confirm
-that you wish to destroy the zvol.
+datasets, a zvol's name cannot be changed, and destroying a zvol
+requires confirmation.
+
 
 .. _Managing Encrypted Volumes:
 
 Managing Encrypted Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you check the "Encryption" box during the creation of a pool, five
-additional buttons will be added to the entry for the pool in
+If the "Encryption" box is checked during the creation of a pool,
+additional buttons appear in the entry for the pool in
 :menuselection:`Storage --> Volumes --> View Volumes`.
-An example is seen in Figure %chapternum%.1o.
+An example is shown in
+:numref:`Figure %s <zfs_encrypt_pool_icons_fig>`.
 
-**Figure %chapternum%.1o: Encryption Icons Associated with an Encrypted Pool**
 
-.. image:: images/encrypt1.png
+.. _zfs_encrypt_pool_icons_fig:
 
-In order from left to right, these additional encryption buttons are
-used to:
+.. figure:: images/encrypt1.png
+
+   Encryption Icons Associated with an Encrypted Pool
+
+
+These additional encryption buttons are used to:
 
 **Create/Change Passphrase:** click this button to set and confirm the
 passphrase associated with the GELI encryption key. You will be
-prompted to input and repeat the desired passphrase and a red warning
+prompted to enter and repeat the desired passphrase and a red warning
 reminds you to "Remember to add a new recovery key as this action
 invalidates the previous recovery key". Unlike a password, a
 passphrase can contain spaces and is typically a series of words. A
@@ -1151,8 +1249,8 @@ this is only performed when the administrator suspects that the
 current key may be compromised. This action also removes the current
 passphrase.
 
-**Add recovery key:** generates a new recovery key. This screen will
-prompt you to input the password used to access the %brand%
+**Add recovery key:** generates a new recovery key. This screen
+prompts for entry of the password used to access the %brand%
 administrative GUI and then to select the directory in which to save
 the key. Note that the recovery key is saved to the client system, not
 on the %brand% system. This recovery key can be used if the
@@ -1163,16 +1261,16 @@ whenever the passphrase is changed.
 administrator suspects that the current recovery key may be
 compromised. **Immediately** create a new passphrase and recovery key.
 
-.. note:: the passphrase, recovery key, and encryption key need to be
-          protected. Do not reveal the passphrase to others. On the
-          system containing the downloaded keys, take care that that
-          system and its backups are protected. Anyone who has the
-          keys has the ability to re-import the disks should they be
-          discarded or stolen.
+.. note:: The passphrase, recovery key, and encryption key must be
+   protected. Do not reveal the passphrase to others. On the system
+   containing the downloaded keys, take care that the system and its
+   backups are protected. Anyone who has the keys has the ability to
+   re-import the disks if they are discarded or stolen.
 
-.. warning:: if a re-key fails on a multi-disk system, an alert will
-             be generated. **Do not ignore this alert** as doing so
-             may result in the loss of data.
+.. warning:: If a re-key fails on a multi-disk system, an alert is
+   generated. **Do not ignore this alert** as doing so may result in
+   the loss of data.
+
 
 .. _View Multipaths:
 
@@ -1195,9 +1293,10 @@ multipath-capable hardware. Any multipath-capable devices that are
 detected will be placed in multipath units with the parent devices
 hidden. The configuration will be displayed in
 :menuselection:`Storage --> Volumes --> View Multipaths`.
-Note that this option will not be displayed in the
+Note that this option is not be displayed in the
 :menuselection:`Storage --> Volumes`
 tree on systems that do not contain multipath-capable hardware.
+
 
 .. index:: Replace Failed Drive
 .. _Replacing a Failed Drive:
@@ -1206,89 +1305,100 @@ Replacing a Failed Drive
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 #ifdef freenas
-If you are using any form of redundant RAID, you should replace a
-failed drive as soon as possible to repair the degraded state of the
-RAID. Depending upon the capability of your hardware, you may or may
-not need to reboot in order to replace the failed drive. AHCI capable
-hardware does not require a reboot.
+With any form of redundant RAID, failed drives must be replaces as
+soon as possible to repair the degraded state of the RAID. Depending
+on the hardware's capabilities, it might be necessary to reboot to
+replace the failed drive. AHCI capable hardware does not require a
+reboot.
 #endif freenas
 #ifdef truenas
-You should replace a failed drive as soon as possible to repair the
-degraded state of the RAID.
+Replace failed drives as soon as possible to repair the degraded
+state of the RAID.
 #endif truenas
 
-.. note:: striping (RAID0) does not provide redundancy. If you lose a
-          disk in a stripe, the volume will be destroyed and you will
-          need to recreate the volume and restore the data from
-          backup.
+.. note:: Striping (RAID0) does not provide redundancy. If a disk in
+   a stripe fails, the volume will be destroyed and must be recreated
+   and the data restored from backup.
 
-.. note:: if your pool is encrypted with GELI, refer to
-          :ref:`Replacing an Encrypted Drive` before proceeding.
+.. note:: If your pool is encrypted with GELI, refer to
+   :ref:`Replacing an Encrypted Drive` before proceeding.
+
 
 Before physically removing the failed device, go to
 :menuselection:`Storage --> Volumes --> View Volumes`.
-Next, select your volume's name. At the bottom of the interface you
-will see several icons, one of which is "Volume Status". Click the
-"Volume Status" icon and locate the failed disk. Once you have located
-the failed device in the GUI, perform the following steps:
+Select the volume's name. At the bottom of the interface are
+several icons, one of which is "Volume Status". Click the
+"Volume Status" icon and locate the failed disk. Then perform these
+steps:
 
 #ifdef freenas
 #.  If the disk is formatted with ZFS, click the disk's entry then its
     "Offline" button in order to change that disk's status to OFFLINE.
     This step is needed to properly remove the device from the ZFS
-    pool and to prevent swap issues. If your hardware supports
+    pool and to prevent swap issues. If the hardware supports
     hot-pluggable disks, click the disk's "Offline" button, pull the
     disk, then skip to step 3. If there is no "Offline" button but
     only a "Replace" button, then the disk is already offlined and you
     can safely skip this step.
 #endif freenas
 #ifdef truenas
-#.  Click the disk's entry then its "Offline" button in order to
-    change that disk's status to OFFLINE. This step is needed to
-    properly remove the device from the ZFS pool and to prevent swap
-    issues. Click the disk's "Offline" button and pull the disk. If
-    there is no "Offline" button but only a "Replace" button, then the
-    disk is already offlined and you can safely skip this step.
+#.  Click the disk's entry then its "Offline" button to change that
+    disk's status to OFFLINE. This step is needed to properly remove
+    the device from the ZFS pool and to prevent swap issues. Click the
+    disk's "Offline" button and pull the disk. If there is no
+    "Offline" button but only a "Replace" button, then the disk is
+    already offlined and you can safely skip this step.
 #endif truenas
 
-    .. note:: if the process of changing the disk's status to OFFLINE
-              fails with a "disk offline failed - no valid replicas"
-              message, you will need to scrub the ZFS volume first
-              using its "Scrub Volume" button in
-              :menuselection:`Storage --> Volumes --> View Volumes`.
-              Once the scrub completes, try to "Offline" the disk
-              again before proceeding.
+    .. note:: If the process of changing the disk's status to OFFLINE
+       fails with a "disk offline failed - no valid replicas" message,
+       the ZFS volume must be scrubbed first with the "Scrub Volume"
+       button in
+       :menuselection:`Storage --> Volumes --> View Volumes`.
+       After the scrub completes, try to "Offline" the disk again
+       before proceeding.
 
 #ifdef freenas
-#.  If the hardware is not AHCI capable, shutdown the system in order
-    to physically replace the disk. When finished, return to the GUI
+#.  If the hardware is not AHCI capable, shut down the system to
+    physically replace the disk. When finished, return to the GUI
     and locate the OFFLINE disk.
 #endif freenas
 
-#.  Once the disk has been replaced and is showing as OFFLINE, click
+#.  After the disk has been replaced and is showing as OFFLINE, click
     the disk again and then click its "Replace" button. Select the
     replacement disk from the drop-down menu and click the
-    "Replace Disk" button.  Once you click the "Replace Disk" button,
-    the ZFS pool will start to resilver and the status of the resilver
-    will be displayed.
+    "Replace Disk" button.  After clicking the "Replace Disk" button,
+    the ZFS pool starts to resilver and the status of the resilver
+    is displayed.
 
-#. Once the drive replacement process is complete, readd the replaced
-   disk in the :ref:`S.M.A.R.T. Tests` screen.
+#. After the drive replacement process is complete, re-add the
+   replaced disk in the :ref:`S.M.A.R.T. Tests` screen.
 
-In the example shown in Figure %chapternum%.1p, a failed disk is being replaced
-by disk *ada5* in the volume named :file:`volume1`.
+In the example shown in
+:numref:`Figure %s <zfs_replace_failed_fig>`,
+a failed disk is being replaced by disk *ada5* in the volume named
+:file:`volume1`.
 
-**Figure %chapternum%.1p: Replacing a Failed Disk**
 
-.. image:: images/replace.png
+.. _zfs_replace_failed_fig:
 
-Once the resilver is complete, "Volume Status" will show a "Completed"
-resilver status and indicate if there were any errors. Figure %chapternum%.1q
+.. figure:: images/replace.png
+
+   Replacing a Failed Disk
+
+
+After the resilver is complete, "Volume Status" shows a "Completed"
+resilver status and indicates if there were any errors.
+:numref:`Figure %s <zfs_disk_replacement_fig>`
 indicates that the disk replacement was successful for this example.
 
-**Figure %chapternum%.1q: Disk Replacement is Complete**
 
-.. image:: images/replace2.png
+.. _zfs_disk_replacement_fig:
+
+.. figure:: images/replace2.png
+
+   Disk Replacement is Complete
+
 
 .. _Replacing an Encrypted Drive:
 
@@ -1327,6 +1437,7 @@ reboot, you may lose access to the pool permanently.**
     recovery key. The old recovery key will no longer function, so it
     can be safely discarded.
 
+
 .. _Removing a Log or Cache Device:
 
 Removing a Log or Cache Device
@@ -1360,6 +1471,7 @@ of writes.
 Removing or replacing a cache device will not result in any data loss,
 but may have an impact on read performance until the device is
 replaced.
+
 
 .. _Replacing Drives to Grow a ZFS Pool:
 
@@ -1407,7 +1519,8 @@ disastrous, **do not attempt this method unless the system has a
 reliable backup.** Replace one drive at a time and wait for the
 resilver process to complete on the replaced drive before replacing
 the next drive. Once all the drives are replaced and the resilver
-completes, you should see the added space in the pool.
+completes, you will see the added space in the pool.
+
 
 .. index:: Periodic Snapshot, Snapshot
 .. _Periodic Snapshot Tasks:
@@ -1415,13 +1528,12 @@ completes, you should see the added space in the pool.
 Periodic Snapshot Tasks
 -----------------------
 
-A periodic snapshot task allows you to schedule the creation of
-read-only versions of ZFS volumes and datasets at a given point in
-time. Snapshots can be created quickly and, if little data changes,
-new snapshots take up very little space. For example, a snapshot where
-no files have changed takes 0 MB of storage, but as you make changes
-to files, the snapshot size changes to reflect the size of the
-changes.
+A periodic snapshot task allows scheduling the creation of read-only
+versions of ZFS volumes and datasets at a given point in time.
+Snapshots can be created quickly and, if little data changes, new
+snapshots take up very little space. For example, a snapshot where no
+files have changed takes 0 MB of storage, but as you make changes to
+files, the snapshot size changes to reflect the size of the changes.
 
 Snapshots provide a clever way of keeping a history of files, should
 you need to recover an older copy or even a deleted file. For this
@@ -1432,69 +1544,78 @@ strategy allows the administrator to roll the system back to a
 specific time or, if there is a catastrophic loss, an off-site
 snapshot can restore the system up to the last snapshot interval.
 
-Before you can create a snapshot, you need to have an existing ZFS
-volume. How to create a volume is described in :ref:`Volume Manager`.
+An existing ZFS volume is required before creating a snapshot.
+Creating a volume is described in :ref:`Volume Manager`.
 
 To create a periodic snapshot task, click
 :menuselection:`Storage --> Periodic Snapshot Tasks
 --> Add Periodic Snapshot`
-which will open the screen shown in Figure %chapternum%.2a. Table %chapternum%.2a summarizes
-the fields in this screen.
+which opens the screen shown in
+:numref:`Figure %s <zfs_periodic_snapshot_fig>`.
+:numref:`Table %s <zfs_periodic_snapshot_opts_tab>`
+summarizes the fields in this screen.
 
-.. note:: if you just need a one-time snapshot, instead use
-          :menuselection:`Storage --> Volumes --> View Volumes`
-          and click the "Create Snapshot" button for the volume or
-          dataset that you wish to snapshot.
+.. note:: If you just need a one-time snapshot, instead use
+   :menuselection:`Storage --> Volumes --> View Volumes`
+   and click the "Create Snapshot" button for the volume or dataset
+   that you wish to snapshot.
 
-**Figure %chapternum%.2a: Creating a Periodic Snapshot**
 
-.. image:: images/periodic1a.png
+.. _zfs_periodic_snapshot_fig:
 
-**Table %chapternum%.2a: Options When Creating a Periodic Snapshot**
+.. figure:: images/periodic1a.png
 
-+----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-| **Setting**    | **Value**                  | **Description**                                                                                              |
-|                |                            |                                                                                                              |
-+================+============================+==============================================================================================================+
-| Volume/Dataset | drop-down menu             | select an existing ZFS volume, dataset, or zvol                                                              |
-|                |                            |                                                                                                              |
-+----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-| Recursive      | checkbox                   | select this box to take separate snapshots of the volume/dataset and each of its child datasets; if          |
-|                |                            | unchecked, only one snapshot is taken of the specified Volume/Dataset                                        |
-|                |                            |                                                                                                              |
-+----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-| Lifetime       | integer and drop-down menu | how long to keep the snapshot on this system; if the snapshot is replicated, it is not removed from the      |
-|                |                            | receiving system when the lifetime expires                                                                   |
-|                |                            |                                                                                                              |
-+----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-| Begin          | drop-down menu             | do not create snapshots before this time of day                                                              |
-|                |                            |                                                                                                              |
-+----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-| End            | drop-down menu             | do not create snapshots after this time of day                                                               |
-|                |                            |                                                                                                              |
-+----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-| Interval       | drop-down menu             | how often to take snapshot between *Begin* and                                                               |
-|                |                            | *End* times                                                                                                  |
-|                |                            |                                                                                                              |
-+----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-| Weekday        | checkboxes                 | which days of the week to take snapshots                                                                     |
-|                |                            |                                                                                                              |
-+----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-| Enabled        | checkbox                   | uncheck to disable the scheduled snapshot task without deleting it                                           |
-|                |                            |                                                                                                              |
-+----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   Creating a Periodic Snapshot
+
+
+.. _zfs_periodic_snapshot_opts_tab:
+
+.. table:: **Options When Creating a Periodic Snapshot**
+
+   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | **Setting**    | **Value**                  | **Description**                                                                                              |
+   |                |                            |                                                                                                              |
+   +================+============================+==============================================================================================================+
+   | Volume/Dataset | drop-down menu             | select an existing ZFS volume, dataset, or zvol                                                              |
+   |                |                            |                                                                                                              |
+   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Recursive      | checkbox                   | select this box to take separate snapshots of the volume/dataset and each of its child datasets; if          |
+   |                |                            | unchecked, only one snapshot is taken of the specified Volume/Dataset                                        |
+   |                |                            |                                                                                                              |
+   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Lifetime       | integer and drop-down menu | how long to keep the snapshot on this system; if the snapshot is replicated, it is not removed from the      |
+   |                |                            | receiving system when the lifetime expires                                                                   |
+   |                |                            |                                                                                                              |
+   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Begin          | drop-down menu             | do not create snapshots before this time of day                                                              |
+   |                |                            |                                                                                                              |
+   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | End            | drop-down menu             | do not create snapshots after this time of day                                                               |
+   |                |                            |                                                                                                              |
+   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Interval       | drop-down menu             | how often to take snapshot between *Begin* and                                                               |
+   |                |                            | *End* times                                                                                                  |
+   |                |                            |                                                                                                              |
+   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Weekday        | checkboxes                 | which days of the week to take snapshots                                                                     |
+   |                |                            |                                                                                                              |
+   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Enabled        | checkbox                   | uncheck to disable the scheduled snapshot task without deleting it                                           |
+   |                |                            |                                                                                                              |
+   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
 
 If the "Recursive" box is checked, you do not need to create snapshots
 for every dataset individually as they are included in the snapshot.
 The downside is that there is no way to exclude certain datasets from
 being included in a recursive snapshot.
 
-Once you click the "OK" button, a snapshot will be taken and this task
+When the "OK" button is clicked, a snapshot is taken and the task
 will be repeated according to your settings.
 
 After creating a periodic snapshot task, an entry for the snapshot
 task will be added to "View Periodic Snapshot Tasks". Click an entry
 to access its "Edit" and "Delete" buttons.
+
 
 .. index:: Replication
 .. _Replication Tasks:
@@ -1502,19 +1623,17 @@ to access its "Edit" and "Delete" buttons.
 Replication Tasks
 -----------------
 
-A replication task allows you to automate the copy of ZFS snapshots to
-another system over an encrypted connection. This allows you to create
-an off-site backup of a ZFS dataset or pool.
+A replication task makes it possible to automate the copy of ZFS
+snapshots to another system over an encrypted connection. This allows
+you to create an off-site backup of a ZFS dataset or pool.
 
 This section will refer to the system generating the ZFS snapshots as
-*PUSH* and the system to receive a copy of the ZFS snapshots as
-*PULL*.
+*PUSH* and the system receiving a copy of the ZFS snapshots as *PULL*.
 
 Before you can configure a replication task, the following
 pre-requisites must be met:
 
-* a ZFS pool must exist on both *PUSH* and
-  *PULL*.
+* a ZFS pool must exist on both *PUSH* and *PULL*.
 
 * a periodic snapshot task must be created on *PUSH*. You will not be
   able to create a replication task before the first snapshot exists.
@@ -1543,6 +1662,7 @@ between the following two %brand% systems:
   existing ZFS volume named :file:`/mnt/remote` which will store the
   pushed snapshots.
 
+
 .. _Configure PULL:
 
 Configure PULL
@@ -1556,11 +1676,16 @@ To obtain a copy of the replication key: on *PUSH* go to
 :menuselection:`Storage --> Replication Tasks
 --> View Replication Tasks`.
 Click the "View Public Key" button and copy its contents. An example
-is shown in Figure %chapternum%.3a.
+is shown in
+:numref:`Figure %s <zfs_copy_replication_key_fig>`.
 
-**Figure %chapternum%.3a: Copy the Replication Key**
 
-.. image:: images/replication1a.png
+.. _zfs_copy_replication_key_fig:
+
+.. figure:: images/replication1a.png
+
+   Copy the Replication Key
+
 
 Go to *PULL* and click
 :menuselection:`Account --> Users --> View Users`.
@@ -1573,6 +1698,7 @@ On *PULL*, ensure that the SSH service is enabled in
 :menuselection:`Services --> Control Services`.
 Start it if it is not already running.
 
+
 .. _Configure PUSH:
 
 Configure PUSH
@@ -1584,8 +1710,9 @@ that at least one snapshot is listed in
 
 To create the replication task, click
 :menuselection:`Storage --> Replication Tasks --> Add Replication`
-which will open the screen shown in Figure %chapternum%.3b. For this example, the
-required configuration is as follows:
+which opens the screen shown in
+:numref:`Figure %s <zfs_add_replication_task_fig>`.
+For this example, the required configuration is as follows:
 
 * the Volume/Dataset is :file:`local/data`
 
@@ -1601,75 +1728,82 @@ required configuration is as follows:
   *PULL*, its key will automatically be populated to the
   "Remote hostkey" box
 
-**Figure %chapternum%.3b: Adding a Replication Task**
 
-.. image:: images/replication2c.png
+.. _zfs_add_replication_task_fig:
 
-Table %chapternum%.3a summarizes the available options in the "Add Replication"
-screen.
+.. figure:: images/replication2c.png
 
-**Table %chapternum%.3a: Adding a Replication Task**
+  Adding a Replication Task
 
-+---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| **Setting**               | **Value**      | **Description**                                                                                              |
-|                           |                |                                                                                                              |
-|                           |                |                                                                                                              |
-+===========================+================+==============================================================================================================+
-| Volume/Dataset            | drop-down menu | the ZFS volume or dataset on *PUSH* containing the snapshots to be replicated; the drop-down menu will be    |
-|                           |                | empty if a snapshot does not already exist                                                                   |
-|                           |                |                                                                                                              |
-+---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| Remote ZFS Volume/Dataset | string         | the ZFS volume on *PULL* that will store the snapshots;                                                      |
-|                           |                | :file:`/mnt/` is assumed and should not be included in the path                                              |
-|                           |                |                                                                                                              |
-+---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| Recursively replicate     | checkbox       | if checked will also replicate child datasets                                                                |
-|                           |                |                                                                                                              |
-|                           |                |                                                                                                              |
-+---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| Delete stale snapshots    | checkbox       | if checked, will delete any previous snapshots on *PULL* which are no longer stored on                       |
-|                           |                | *PUSH*                                                                                                       |
-|                           |                |                                                                                                              |
-+---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| Replication Stream        | drop-down menu | choices are *lz4 (fastest)*,                                                                                 |
-| Compression               |                | *pigz (all rounder)*,                                                                                        |
-|                           |                | *plzip (best compression)*, or                                                                               |
-|                           |                | *Off* (no compression); selecting a compression algorithm can reduce the size of the data being replicated   |
-|                           |                |                                                                                                              |
-+---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| Limit (kB/s)              | integer        | limits replication speed to specified value in kilobytes/second; default of *0* is unlimited                 |
-|                           |                |                                                                                                              |
-+---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| Begin                     | drop-down menu | the replication cannot start before this time; the times selected in the "Begin" and                         |
-|                           |                | "End" fields set the replication window for when replication can occur                                       |
-|                           |                |                                                                                                              |
-+---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| End                       | drop-down menu | the replication must start by this time; once started, replication will occur until it is finished (see NOTE |
-|                           |                | below)                                                                                                       |
-|                           |                |                                                                                                              |
-+---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| Enabled                   | checkbox       | uncheck to disable the scheduled replication task without deleting it                                        |
-|                           |                |                                                                                                              |
-+---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| Remote hostname           | string         | IP address or DNS name of *PULL*                                                                             |
-|                           |                |                                                                                                              |
-+---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| Remote port               | string         | must match port being used by SSH service on *PULL*                                                          |
-|                           |                |                                                                                                              |
-+---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| Dedicated User Enabled    | checkbox       | allows a user account other than root to be used for replication                                             |
-|                           |                |                                                                                                              |
-+---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| Dedicated User            | drop-down menu | only available if "Dedicated User Enabled" is checked; select the user account to be used for replication    |
-|                           |                |                                                                                                              |
-+---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| Encryption Cipher         | drop-down menu | choices are *Standard* or                                                                                    |
-|                           |                | *Fast*                                                                                                       |
-|                           |                |                                                                                                              |
-+---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-| Remote hostkey            | string         | use the "SSH Key Scan" button to retrieve the public key of *PULL*                                           |
-|                           |                |                                                                                                              |
-+---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+
+:numref:`Table %s <zfs_add_replication_task_opts_tab>`
+summarizes the available options in the "Add Replication" screen.
+
+
+.. _zfs_add_replication_task_opts_tab:
+
+.. table:: **Adding a Replication Task**
+
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | **Setting**               | **Value**      | **Description**                                                                                              |
+   |                           |                |                                                                                                              |
+   |                           |                |                                                                                                              |
+   +===========================+================+==============================================================================================================+
+   | Volume/Dataset            | drop-down menu | the ZFS volume or dataset on *PUSH* containing the snapshots to be replicated; the drop-down menu will be    |
+   |                           |                | empty if a snapshot does not already exist                                                                   |
+   |                           |                |                                                                                                              |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | Remote ZFS Volume/Dataset | string         | the ZFS volume on *PULL* that will store the snapshots;                                                      |
+   |                           |                | :file:`/mnt/` is assumed and should not be included in the path                                              |
+   |                           |                |                                                                                                              |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | Recursively replicate     | checkbox       | if checked will also replicate child datasets                                                                |
+   |                           |                |                                                                                                              |
+   |                           |                |                                                                                                              |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | Delete stale snapshots    | checkbox       | if checked, will delete any previous snapshots on *PULL* which are no longer stored on                       |
+   |                           |                | *PUSH*                                                                                                       |
+   |                           |                |                                                                                                              |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | Replication Stream        | drop-down menu | choices are *lz4 (fastest)*,                                                                                 |
+   | Compression               |                | *pigz (all rounder)*,                                                                                        |
+   |                           |                | *plzip (best compression)*, or                                                                               |
+   |                           |                | *Off* (no compression); selecting a compression algorithm can reduce the size of the data being replicated   |
+   |                           |                |                                                                                                              |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | Limit (kB/s)              | integer        | limits replication speed to specified value in kilobytes/second; default of *0* is unlimited                 |
+   |                           |                |                                                                                                              |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | Begin                     | drop-down menu | the replication cannot start before this time; the times selected in the "Begin" and                         |
+   |                           |                | "End" fields set the replication window for when replication can occur                                       |
+   |                           |                |                                                                                                              |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | End                       | drop-down menu | the replication must start by this time; once started, replication will occur until it is finished (see NOTE |
+   |                           |                | below)                                                                                                       |
+   |                           |                |                                                                                                              |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | Enabled                   | checkbox       | uncheck to disable the scheduled replication task without deleting it                                        |
+   |                           |                |                                                                                                              |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | Remote hostname           | string         | IP address or DNS name of *PULL*                                                                             |
+   |                           |                |                                                                                                              |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | Remote port               | string         | must match port being used by SSH service on *PULL*                                                          |
+   |                           |                |                                                                                                              |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | Dedicated User Enabled    | checkbox       | allows a user account other than root to be used for replication                                             |
+   |                           |                |                                                                                                              |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | Dedicated User            | drop-down menu | only available if "Dedicated User Enabled" is checked; select the user account to be used for replication    |
+   |                           |                |                                                                                                              |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | Encryption Cipher         | drop-down menu | choices are *Standard* or                                                                                    |
+   |                           |                | *Fast*                                                                                                       |
+   |                           |                |                                                                                                              |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | Remote hostkey            | string         | use the "SSH Key Scan" button to retrieve the public key of *PULL*                                           |
+   |                           |                |                                                                                                              |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
 
 
 By default, replication occurs when snapshots occur. For example, if
@@ -1689,8 +1823,8 @@ itself should occur after office hours. For the "End" time, consider
 how long replication will take so that it finishes before the next
 day's office hours begin.
 
-Once the replication task is saved, *PUSH* will immediately attempt to
-replicate its latest snapshot to *PULL*. If the replication is
+After the replication task is saved, *PUSH* will immediately attempt
+to replicate its latest snapshot to *PULL*. If the replication is
 successful, the snapshot will appear in the
 :menuselection:`Storage --> Snapshots`
 tab of *PULL*. Also, the "Last snapshot sent to remote side" and
@@ -1700,13 +1834,14 @@ on *PUSH* will indicate when the last snapshot was successfully sent
 to that "Remote Hostname". If the snapshot is not replicated, refer to
 :ref:`Troubleshooting Replication` for troubleshooting tips.
 
+
 .. _Troubleshooting Replication:
 
 Troubleshooting Replication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you have followed all of the steps above and have *PUSH* snapshots
-that are not replicating to *PULL*, check to see if SSH is working
+If you have followed all of the steps above and *PUSH* snapshots
+are not replicating to *PULL*, check to see if SSH is working
 properly. On *PUSH*, open Shell and try to :command:`ssh` into *PULL*.
 Replace **hostname_or_ip** with the value for *PULL*::
 
@@ -1740,19 +1875,20 @@ snapshot name::
 
  zfs send local/data@auto-20110922.1753-2h | ssh -i /data/ssh/replication 192.168.2.6 zfs receive local/data@auto-20110922.1753-2h
 
-.. note:: if the :command:`zfs send` fails, open :ref:`Shell` on
-          *PULL* and use the
-          :command:`zfs destroy -R volume_name@snapshot_name`
-          command to delete the stuck snapshot. You can then use the
-          :command:`zfs list -t snapshot` on *PULL* to confirm if the
-          snapshot successfully replicated.
+.. note:: If the :command:`zfs send` fails, open :ref:`Shell` on
+   *PULL* and use the
+   :command:`zfs destroy -R volume_name@snapshot_name`
+   command to delete the stuck snapshot. You can then use the
+   :command:`zfs list -t snapshot` on *PULL* to confirm if the
+   snapshot successfully replicated.
 
-After successfully transmitting the snapshot, recheck again after the
+After successfully transmitting the snapshot, check again after the
 time period between snapshots lapses to see if the next snapshot
 successfully transmitted. If it is still not working, you can manually
 send the specified snapshot with this command::
 
  zfs send local/data@auto-20110922.1753-2h | ssh -i /data/ssh/replication 192.168.2.6 zfs receive local/data@auto-20110922.1753-2h
+
 
 .. index:: Scrub
 .. _Scrubs:
@@ -1783,58 +1919,66 @@ added to
 :menuselection:`Storage --> Scrubs`
 and a summary of this entry can be viewed in
 :menuselection:`Storage --> Scrubs --> View Scrubs`.
-Figure %chapternum%.4a displays the default settings for the volume named
-:file:`volume1`. In this example, the entry has been highlighted and
-the "Edit" button clicked in order to display the "Edit" screen. Table
-%chapternum%.4a summarizes the options in this screen.
-
-**Figure %chapternum%.4a: Viewing a Volume's Default Scrub Settings**
-
-.. image:: images/scrub1.png
-
-**Table %chapternum%.4a: ZFS Scrub Options**
-
-+----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-| **Setting**    | **Value**                   | **Description**                                                                                             |
-|                |                             |                                                                                                             |
-|                |                             |                                                                                                             |
-+================+=============================+=============================================================================================================+
-| Volume         | drop-down menu              | select ZFS volume to scrub                                                                                  |
-|                |                             |                                                                                                             |
-+----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-| Threshold days | integer                     | number of days since the last scrub completed before the next scrub can occur, regardless of the calendar   |
-|                |                             | schedule; the default is a multiple of 7 which should ensure that the scrub always occurs on the same day   |
-|                |                             | of the week                                                                                                 |
-|                |                             |                                                                                                             |
-+----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-| Description    | string                      | optional                                                                                                    |
-|                |                             |                                                                                                             |
-+----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-| Minute         | slider or minute selections | if use the slider, scrub occurs every N minutes; if use minute selections, scrub starts at the highlighted  |
-|                |                             | minutes                                                                                                     |
-|                |                             |                                                                                                             |
-+----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-| Hour           | slider or hour selections   | if use the slider, scrub occurs every N hours; if use hour selections, scrub occurs at the highlighted      |
-|                |                             | hours                                                                                                       |
-|                |                             |                                                                                                             |
-+----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-| Day of Month   | slider or month selections  | if use the slider, scrub occurs every N days; if use month selections, scrub occurs on the highlighted days |
-|                |                             | of the selected months                                                                                      |
-|                |                             |                                                                                                             |
-+----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-| Month          | checkboxes                  | scrub occurs on the selected months                                                                         |
-|                |                             |                                                                                                             |
-+----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-| Day of week    | checkboxes                  | scrub occurs on the selected days; default is *Sunday* to least impact users                                |
-|                |                             |                                                                                                             |
-+----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-| Enabled        | checkbox                    | uncheck to disable the scheduled scrub without deleting it                                                  |
-|                |                             |                                                                                                             |
-+----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+:numref:`Figure %s <zfs_view_volume_scrub_fig>`
+displays the default settings for the volume named :file:`volume1`. In
+this example, the entry has been highlighted and the "Edit" button
+clicked to display the "Edit" screen.
+:numref:`Table %s <zfs_scrub_opts_tab>`
+summarizes the options in this screen.
 
 
-You should review the default selections and, if necessary, modify
-them to meet the needs of your environment.
+.. _zfs_view_volume_scrub_fig:
+
+.. figure:: images/scrub1.png
+
+   Viewing a Volume's Default Scrub Settings
+
+
+.. _zfs_scrub_opts_tab:
+
+.. table:: **ZFS Scrub Options**
+
+   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   | **Setting**    | **Value**                   | **Description**                                                                                             |
+   |                |                             |                                                                                                             |
+   |                |                             |                                                                                                             |
+   +================+=============================+=============================================================================================================+
+   | Volume         | drop-down menu              | select ZFS volume to scrub                                                                                  |
+   |                |                             |                                                                                                             |
+   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   | Threshold days | integer                     | number of days since the last scrub completed before the next scrub can occur, regardless of the calendar   |
+   |                |                             | schedule; the default is a multiple of 7 which should ensure that the scrub always occurs on the same day   |
+   |                |                             | of the week                                                                                                 |
+   |                |                             |                                                                                                             |
+   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   | Description    | string                      | optional                                                                                                    |
+   |                |                             |                                                                                                             |
+   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   | Minute         | slider or minute selections | if use the slider, scrub occurs every N minutes; if use minute selections, scrub starts at the highlighted  |
+   |                |                             | minutes                                                                                                     |
+   |                |                             |                                                                                                             |
+   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   | Hour           | slider or hour selections   | if use the slider, scrub occurs every N hours; if use hour selections, scrub occurs at the highlighted      |
+   |                |                             | hours                                                                                                       |
+   |                |                             |                                                                                                             |
+   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   | Day of Month   | slider or month selections  | if use the slider, scrub occurs every N days; if use month selections, scrub occurs on the highlighted days |
+   |                |                             | of the selected months                                                                                      |
+   |                |                             |                                                                                                             |
+   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   | Month          | checkboxes                  | scrub occurs on the selected months                                                                         |
+   |                |                             |                                                                                                             |
+   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   | Day of week    | checkboxes                  | scrub occurs on the selected days; default is *Sunday* to least impact users                                |
+   |                |                             |                                                                                                             |
+   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   | Enabled        | checkbox                    | uncheck to disable the scheduled scrub without deleting it                                                  |
+   |                |                             |                                                                                                             |
+   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+
+
+Review the default selections and, if necessary, modify them to meet
+the needs of your environment.
 
 While a "Delete" button is provided, **deleting a scrub is not
 recommended as a scrub provides an early indication of disk issues
@@ -1843,6 +1987,7 @@ intensive for your hardware, consider unchecking the "Enabled" button
 for the scrub as a temporary measure until the hardware can be
 upgraded.
 
+
 .. index:: Snapshots
 .. _Snapshots:
 
@@ -1850,18 +1995,23 @@ Snapshots
 -------------
 
 The "Snapshots" tab can be used to review the listing of available
-snapshots. An example is shown in Figure %chapternum%.5a.
+snapshots. An example is shown in
+:numref:`Figure %s <zfs_view_avail_snapshots_fig>`.
 
-.. note:: if snapshots do not appear, check that the current time
-          configured in :ref:`Periodic Snapshot Tasks` does not
-          conflict with the "Begin", "End", and "Interval" settings.
-          If the snapshot was attempted but failed, an entry will be
-          added to :file:`/var/log/messages`. This log file can be
-          viewed in :ref:`Shell`.
+.. note:: If snapshots do not appear, check that the current time
+   configured in :ref:`Periodic Snapshot Tasks` does not conflict with
+   the "Begin", "End", and "Interval" settings. If the snapshot was
+   attempted but failed, an entry will be added to
+   :file:`/var/log/messages`. This log file can be viewed in
+   :ref:`Shell`.
 
-**Figure %chapternum%.5a: Viewing Available Snapshots**
 
-.. image:: images/periodic3a.png
+.. _zfs_view_avail_snapshots_fig:
+
+.. figure:: images/periodic3a.png
+
+   Viewing Available Snapshots
+
 
 The listing will include the name of the volume or dataset, the name
 of each snapshot, and the amount of used and referenced data, where:
@@ -1893,10 +2043,9 @@ from, since its contents are identical.
 It will also indicate if the snapshot has been replicated to a remote
 system.
 
-The most recent snapshot will have 3 icons. The icons associated with
-a snapshot allow you to:
+The most recent snapshot shows icons that allow:
 
-**Clone Snapshot:** will prompt for the name of the clone to create.
+**Clone Snapshot:** prompt for the name of the clone to create.
 The clone will be a writable copy of the snapshot. Since a clone is
 really a dataset which can be mounted, the clone will appear in the
 "Active Volumes" tab, instead of the "Periodic Snapshots" tab, and
@@ -1915,7 +2064,7 @@ you want to rollback to this snapshot state. If you click "Yes", any
 files that have changed since the snapshot was taken will be reverted
 back to their state at the time of the snapshot.
 
-.. note:: rollback is a potentially dangerous operation and will cause
+.. note:: Rollback is a potentially dangerous operation and will cause
    any configured replication tasks to fail as the replication system
    uses the existing snapshot when doing an incremental backup. If you
    do need to restore the data within a snapshot, the recommended
@@ -1938,7 +2087,7 @@ newer versions of Windows Explorer, as described in
 shadow copy using Explorer without requiring any interaction with the
 %brand% graphical administrative interface.
 
-The ZFS Snapshots screen allows you to create filters to view
+The ZFS Snapshots screen allows the creation of filters to view
 snapshots by selected criteria. To create a filter, click the
 "Define filter" icon (near the text "No filter applied"). When
 creating a filter:
@@ -1956,7 +2105,7 @@ creating a filter:
   and
   *is empty*.
 
-*   input a value that meets your view criteria.
+* enter a value that meets your view criteria.
 
 * click the "Filter" button to save your filter and exit the define
   filter screen. Alternately, click the "+" button to add another
@@ -1967,6 +2116,7 @@ before leaving the define filter screen. Once a filter is selected,
 the "No filter applied" text will change to "Clear filter". If you
 click "Clear filter", a pop-up message will indicate that this will
 remove the filter and all available snapshots will be listed.
+
 
 .. index:: VMware Snapshot
 .. _VMware-Snapshot:
@@ -1984,33 +2134,41 @@ deleted on the VMware side but still exist in the ZFS snapshot and can
 be used as stable resurrection points in that snapshot.  These
 coordinated snapshots will be listed in :ref:`Snapshots`.
 
-Figure %chapternum%.6a shows the menu for adding a VMware snapshot and Table %chapternum%.6a
+:numref:`Figure %s <zfs_add_vmware_snapshot_fig>`
+shows the menu for adding a VMware snapshot and
+:numref:`Table %s <zfs_vmware_snapshot_opts_tab>`
 summarizes the available options.
 
-**Figure %chapternum%.6a: Adding a VMware Snapshot**
 
-.. image:: images/vmware1a.png
+.. _zfs_add_vmware_snapshot_fig:
 
-**Table %chapternum%.6a: VMware Snapshot Options**
+.. figure:: images/vmware1a.png
 
-+----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-| **Setting**    | **Value**                   | **Description**                                                                                             |
-|                |                             |                                                                                                             |
-|                |                             |                                                                                                             |
-+================+=============================+=============================================================================================================+
-| Hostname       | string                      | IP address or hostname of VMware host; when clustering, this is the vCenter server for the cluster          |
-|                |                             |                                                                                                             |
-+----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-| Username       | string                      | user on VMware host with enough permission to snapshot virtual machines                                     |
-|                |                             |                                                                                                             |
-+----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-| Password       | string                      | password associated with "Username"                                                                         |
-|                |                             |                                                                                                             |
-+----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-| ZFS Filesystem | drop-down menu              | the filesystem to snapshot                                                                                  |
-|                |                             |                                                                                                             |
-+----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-| Datastore      | drop-down menu              | after inputting the "Hostname", "Username", and "Password", click the "Fetch Datastores" button to populate |
-|                |                             | the menu and select the datastore to synchronize with                                                       |
-|                |                             |                                                                                                             |
-+----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   Adding a VMware Snapshot
+
+
+.. _zfs_vmware_snapshot_opts_tab:
+
+.. table:: **VMware Snapshot Options**
+
+   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   | **Setting**    | **Value**                   | **Description**                                                                                             |
+   |                |                             |                                                                                                             |
+   |                |                             |                                                                                                             |
+   +================+=============================+=============================================================================================================+
+   | Hostname       | string                      | IP address or hostname of VMware host; when clustering, this is the vCenter server for the cluster          |
+   |                |                             |                                                                                                             |
+   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   | Username       | string                      | user on VMware host with enough permission to snapshot virtual machines                                     |
+   |                |                             |                                                                                                             |
+   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   | Password       | string                      | password associated with "Username"                                                                         |
+   |                |                             |                                                                                                             |
+   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   | ZFS Filesystem | drop-down menu              | the filesystem to snapshot                                                                                  |
+   |                |                             |                                                                                                             |
+   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+   | Datastore      | drop-down menu              | after inputting the "Hostname", "Username", and "Password", click the "Fetch Datastores" button to populate |
+   |                |                             | the menu and select the datastore to synchronize with                                                       |
+   |                |                             |                                                                                                             |
+   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
