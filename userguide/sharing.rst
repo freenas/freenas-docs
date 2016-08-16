@@ -31,7 +31,7 @@ the default permissions from the client operating system to meet the
 requirements of the network.
 #endif truenas
 
-.. note:: shares are created to provide and control access to an area
+.. note:: Shares are created to provide and control access to an area
    of storage. Before creating your shares, it is recommended to make
    a list of the users that will need access to storage data, which
    operating systems these users are using, whether or not all users
@@ -89,28 +89,26 @@ will be slower than unencrypted FTP due to the overhead of
 encryption, but the data passing through the network will be
 encrypted.
 
-.. note:: while the GUI will let you do it, it is a bad idea to share
-          the same volume or dataset using multiple types of access
-          methods. Different types of shares and services use
-          different file locking methods. For example, if the same
-          volume is configured to use both NFS and FTP, NFS will lock
-          a file for editing by an NFS user, but a FTP user can
-          simultaneously edit or delete that file. This will result in
-          lost edits and confused users. Another example: if a volume
-          is configured for both AFP and CIFS, Windows users may be
-          confused by the extra filenames used by Mac files and delete
-          the ones they don't understand; this will corrupt the files
-          on the AFP share. Pick the one type of share or service that
-          makes the most sense for the types of clients that will
-          access that volume, and configure that volume for that one
-          type of share or service. If you need to support multiple
-          types of shares, divide the volume into datasets and use one
-          dataset per share.
+.. note:: While the GUI will let you do it, it is a bad idea to share
+   the same volume or dataset using multiple types of access methods.
+   Different types of shares and services use different file locking
+   methods. For example, if the same volume is configured to use both
+   NFS and FTP, NFS will lock a file for editing by an NFS user, but a
+   FTP user can simultaneously edit or delete that file. This will
+   result in lost edits and confused users. Another example: if a
+   volume is configured for both AFP and CIFS, Windows users may be
+   confused by the extra filenames used by Mac files and delete the
+   ones they don't understand; this will corrupt the files on the AFP
+   share. Pick the one type of share or service that makes the most
+   sense for the types of clients that will access that volume, and
+   configure that volume for that one type of share or service. If you
+   need to support multiple types of shares, divide the volume into
+   datasets and use one dataset per share.
 
 This section will demonstrate how to fine-tune the configuration of
 AFP, NFS, CIFS, WebDAV, and iSCSI shares. FTP and SSH configurations
-are described in
-:ref:`Services Configuration`.
+are described in :ref:`Services Configuration`.
+
 
 .. index:: AFP, Apple Filing Protocol
 .. _Apple (AFP) Shares:
@@ -123,111 +121,121 @@ Apple (AFP) Shares
 `Netatalk <http://netatalk.sourceforge.net/>`_
 AFP server to share data with Apple systems. This section describes
 the configuration screen for fine-tuning AFP shares created using the
-:ref:`Initial Configuration Wizard`.
-It then provides configuration examples for using the Wizard to create
-a guest share, configuring Time Machine to backup to a dataset on the
-%brand% system, and for connecting to the share from a Mac OS X
-client.
+:ref:`Initial Configuration Wizard`. It then provides configuration
+examples for using the Wizard to create a guest share, configuring
+Time Machine to backup to a dataset on the %brand% system, and for
+connecting to the share from a Mac OS X client.
 #endif freenas
 #ifdef truenas
 %brand% uses the
 `Netatalk <http://netatalk.sourceforge.net/>`_
 AFP server to share data with Apple systems. This section describes
 the configuration screen for fine-tuning AFP shares created using the
-:ref:`Wizard`.
-It then provides configuration examples for using the Wizard to create
-a guest share, configuring Time Machine to backup to a dataset on the
-%brand% system, and for connecting to the share from a Mac OS X
-client.
+:ref:`Wizard`. It then provides configuration examples for using the
+Wizard to create a guest share, configuring Time Machine to backup to
+a dataset on the %brand% system, and for connecting to the share from
+a Mac OS X client.
 #endif truenas
 
 To view the AFP share created by the Wizard, click
-:menuselection:`Sharing --> Apple (AFP)` and highlight the name of the
-share. Click its "Edit" button to see the configuration options shown
-in Figure %chapternum%.1a. The values showing for these options will vary,
-depending upon the information given when the share was created.
+:menuselection:`Sharing --> Apple (AFP)`
+and highlight the name of the share. Click its "Edit" button to see
+the configuration options shown in
+:numref:`Figure %s <creating_afp_share_fig>`.
+The values showing for these options will vary, depending upon the
+information given when the share was created.
 
-**Figure %chapternum%.1a: Creating an AFP Share**
 
-.. image:: images/afp2.png
+.. _creating_afp_share_fig:
 
-.. note:: while Table %chapternum%.1a summarizes the available options for
-          fine-tuning an AFP share, you typically should not change
-          the default settings of an AFP share as doing so may cause
-          the share to not work as expected. Most settings are only
-          available when you click "Advanced Mode". Do **not** change
-          an advanced option unless you fully understand the function
-          of that option. Refer to `Setting up Netatalk
-          <http://netatalk.sourceforge.net/2.2/htmldocs/configuration.html>`_
-          for a more detailed explanation of the available options.
+.. figure:: images/afp2.png
 
-**Table %chapternum%.1a: AFP Share Configuration Options**
+   Creating an AFP Share
 
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| **Setting**                  | **Value**     | **Description**                                                                                             |
-|                              |               |                                                                                                             |
-+==============================+===============+=============================================================================================================+
-| Path                         | browse button | browse to the volume/dataset to share; do not nest additional volumes, datasets, or symbolic links beneath  |
-|                              |               | this path because Netatalk lacks complete support                                                           |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Name                         | string        | volume name that will appear in the Mac computer's "connect to server" dialogue; limited to 27 characters   |
-|                              |               | and cannot contain a period                                                                                 |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Share Comment                | string        | only available in "Advanced Mode"; optional                                                                 |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Allow List                   | string        | only available in "Advanced Mode"; comma delimited list of allowed users and/or groups where groupname      |
-|                              |               | begins with a *@*; note that adding an entry will deny any user/group that is not specified                 |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Deny List                    | string        | only available in "Advanced Mode"; comma delimited list of denied users and/or groups where groupname       |
-|                              |               | begins with a *@*; note that adding an entry will allow all users/groups that are not specified             |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Read-only Access             | string        | only available in "Advanced Mode"; comma delimited list of users and/or groups who only have read access    |
-|                              |               | where groupname begins with a *@*                                                                           |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Read-write Access            | string        | only available in "Advanced Mode"; comma delimited list of users and/or groups who have read and write      |
-|                              |               | access where groupname begins with a @                                                                      |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Time Machine                 | checkbox      | when checked, %brand% will advertise itself as a Time Machine disk so it can be found by Macs; due to a     |
-|                              |               | limitation in how Mac deals with low-diskspace issues when multiple Mac's share the same volume, checking   |
-|                              |               | "Time Machine" on multiple shares may result in intermittent failed backups                                 |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Zero Device Numbers          | checkbox      | only available in "Advanced Mode"; enable when the device number is not constant across a reboot            |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| No Stat                      | checkbox      | only available in "Advanced Mode"; if checked, AFP won't stat the volume path when enumerating the volumes  |
-|                              |               | list; useful for automounting or volumes created by a preexec script                                        |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| AFP3 UNIX Privs              | checkbox      | only available in "Advanced Mode"; enables Unix privileges supported by OSX 10.5 and higher; do not enable  |
-|                              |               | if the network contains Mac OS X 10.4 clients or lower as they do not support these                         |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Default file permission      | checkboxes    | only available in "Advanced Mode"; only works with Unix ACLs; new files created on the share are set with   |
-|                              |               | the selected permissions                                                                                    |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Default directory permission | checkboxes    | only available in "Advanced Mode"; only works with Unix ACLs; new directories created on the share are set  |
-|                              |               | with the selected permissions                                                                               |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Default umask                | integer       | only available in "Advanced Mode"; umask for newly created files, default is *000* (anyone can read, write, |
-|                              |               | and execute)                                                                                                |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Hosts Allow                  | string        | only available in "Advanced Mode"; comma, space, or tab delimited list of allowed hostnames or IP addresses |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Hosts Deny                   | string        | only available in "Advanced Mode"; comma, space, or tab delimited list of denied hostnames or IP addresses  |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+
+.. note:: While
+   :numref:`Table %s <afp_share_config_opts_tab>`
+   summarizes the available options for fine-tuning an AFP share, you
+   typically should not change the default settings of an AFP share as
+   doing so may cause the share to not work as expected. Most settings
+   are only available when you click "Advanced Mode". Do **not**
+   change an advanced option unless you fully understand the function
+   of that option. Refer to
+   `Setting up Netatalk
+   <http://netatalk.sourceforge.net/2.2/htmldocs/configuration.html>`_
+   for a more detailed explanation of the available options.
+
+
+.. _afp_share_config_opts_tab:
+
+.. table:: **AFP Share Configuration Options**
+
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | **Setting**                  | **Value**     | **Description**                                                                                             |
+   |                              |               |                                                                                                             |
+   +==============================+===============+=============================================================================================================+
+   | Path                         | browse button | browse to the volume/dataset to share; do not nest additional volumes, datasets, or symbolic links beneath  |
+   |                              |               | this path because Netatalk lacks complete support                                                           |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Name                         | string        | volume name that will appear in the Mac computer's "connect to server" dialogue; limited to 27 characters   |
+   |                              |               | and cannot contain a period                                                                                 |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Share Comment                | string        | only available in "Advanced Mode"; optional                                                                 |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Allow List                   | string        | only available in "Advanced Mode"; comma delimited list of allowed users and/or groups where groupname      |
+   |                              |               | begins with a *@*; note that adding an entry will deny any user/group that is not specified                 |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Deny List                    | string        | only available in "Advanced Mode"; comma delimited list of denied users and/or groups where groupname       |
+   |                              |               | begins with a *@*; note that adding an entry will allow all users/groups that are not specified             |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Read-only Access             | string        | only available in "Advanced Mode"; comma delimited list of users and/or groups who only have read access    |
+   |                              |               | where groupname begins with a *@*                                                                           |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Read-write Access            | string        | only available in "Advanced Mode"; comma delimited list of users and/or groups who have read and write      |
+   |                              |               | access where groupname begins with a @                                                                      |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Time Machine                 | checkbox      | when checked, %brand% will advertise itself as a Time Machine disk so it can be found by Macs; due to a     |
+   |                              |               | limitation in how Mac deals with low-diskspace issues when multiple Mac's share the same volume, checking   |
+   |                              |               | "Time Machine" on multiple shares may result in intermittent failed backups                                 |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Zero Device Numbers          | checkbox      | only available in "Advanced Mode"; enable when the device number is not constant across a reboot            |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | No Stat                      | checkbox      | only available in "Advanced Mode"; if checked, AFP won't stat the volume path when enumerating the volumes  |
+   |                              |               | list; useful for automounting or volumes created by a preexec script                                        |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | AFP3 UNIX Privs              | checkbox      | only available in "Advanced Mode"; enables Unix privileges supported by OSX 10.5 and higher; do not enable  |
+   |                              |               | if the network contains Mac OS X 10.4 clients or lower as they do not support these                         |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Default file permission      | checkboxes    | only available in "Advanced Mode"; only works with Unix ACLs; new files created on the share are set with   |
+   |                              |               | the selected permissions                                                                                    |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Default directory permission | checkboxes    | only available in "Advanced Mode"; only works with Unix ACLs; new directories created on the share are set  |
+   |                              |               | with the selected permissions                                                                               |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Default umask                | integer       | only available in "Advanced Mode"; umask for newly created files, default is *000* (anyone can read, write, |
+   |                              |               | and execute)                                                                                                |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Hosts Allow                  | string        | only available in "Advanced Mode"; comma, space, or tab delimited list of allowed hostnames or IP addresses |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Hosts Deny                   | string        | only available in "Advanced Mode"; comma, space, or tab delimited list of denied hostnames or IP addresses  |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+
 
 .. _Creating AFP Guest Shares:
 
@@ -239,20 +247,23 @@ access the AFP share without requiring their user accounts to first be
 created on or imported into the %brand% system.
 
 .. note:: if you create a guest share as well a share that requires
-          authentication, AFP will only map users who login as guest
-          to the guest share. This means that if a user logs in to the
-          share that requires authentication, the permissions on the
-          guest share may prevent that user from writing to the guest
-          share. The only way to allow both guest and authenticated
-          users to write to a guest share is to set the permissions on
-          the guest share to 777 or to add the authenticated users to
-          a guest group and set the permissions to 77x.
+   authentication, AFP will only map users who login as guest to the
+   guest share. This means that if a user logs in to the share that
+   requires authentication, the permissions on the guest share may
+   prevent that user from writing to the guest share. The only way to
+   allow both guest and authenticated users to write to a guest share
+   is to set the permissions on the guest share to 777 or to add the
+   authenticated users to a guest group and set the permissions to
+   77x.
 
-Before creating a guest share, go to :menuselection:`Services --> AFP`
+
+Before creating a guest share, go to
+:menuselection:`Services --> AFP`
 and make sure that the "Guest Access" box is checked.
 
-Then, to create the AFP guest share, click "Wizard", then click the
-"Next" button twice to display the screen shown in Figure %chapternum%.1b.
+To create the AFP guest share, click "Wizard", then click the "Next"
+button twice to display the screen shown in
+:numref:`Figure %s <creating_guest_afp_share_fig>`.
 Complete the following fields in this screen:
 
 #. **Share name:** input a name for the share that is useful to you
@@ -270,9 +281,13 @@ Complete the following fields in this screen:
    Clicking the "Add" button will add an entry to the "Name" frame
    with the name that you typed into "Share name".
 
-**Figure %chapternum%.1b: Creating a Guest AFP Share**
 
-.. image:: images/afp6.png
+.. _creating_guest_afp_share_fig:
+
+.. figure:: images/afp6.png
+
+   Creating a Guest AFP Share
+
 
 Click the "Next" button twice, then the "Confirm" button to create the
 share. The Wizard will automatically create a dataset for the share
@@ -283,20 +298,26 @@ share will also be added as an entry to
 
 Mac OS X users can connect to the guest AFP share by clicking
 :menuselection:`Go --> Connect to Server`. In the example shown in
-Figure %chapternum%.1c, the user has input *afp://* followed by the IP address
-of the %brand% system.
+:numref:`Figure %s <afp_connect_server_fig>`,
+the user has input *afp://* followed by the IP address of the %brand%
+system.
 
 Click the "Connect" button. Once connected, Finder will automatically
 open. The name of the AFP share will be displayed in the SHARED
 section in the left frame and the contents of any data that has been
 saved in the share will be displayed in the right frame.
 
-**Figure %chapternum%.1c: Connect to Server Dialogue**
 
-.. image:: images/afp3.png
+.. _afp_connect_server_fig:
+
+.. figure:: images/afp3.png
+
+   Connect to Server Dialogue
+
 
 To disconnect from the volume, click the "eject" button in the
 "Shared" sidebar.
+
 
 .. index:: Time Machine
 .. _Creating Authenticated and Time Machine Shares:
@@ -315,7 +336,7 @@ user.
 
 To use the Wizard to create an authenticated or Time Machine share,
 enter the following information, as seen in the example in
-Figure %chapternum%.1d.
+:numref:`Figure %s <create_time_machine_share_fig>`.
 
 #. **Share name:** input a name for the share that is useful to you
    but which is under 27 characters and does not contain a period. In
@@ -335,33 +356,44 @@ Figure %chapternum%.1d.
    create a new group to be used by Time Machine users, input the name
    into the "Group" field and check the "Create Group" checkbox.
    Otherwise, input the same name as the user. In the example shown in
-   Figure %chapternum%.1e, a new user named *user1* will be created, as well as
-   a new group named *tm_backups*. Since a new user is being created,
-   this screen prompts for the password for the user to use when
-   accessing the share. It also provides an opportunity to change the
-   default permissions on the share. When finished, click "Return" to
-   return to the screen shown in Figure %chapternum%.1d.
+   :numref:`Figure %s <create_tm_auth_user_fig>`,
+   a new user named *user1* will be created, as well as a new group
+   named *tm_backups*. Since a new user is being created, this screen
+   prompts for the password for the user to use when accessing the
+   share. It also provides an opportunity to change the default
+   permissions on the share. When finished, click "Return" to return
+   to the screen shown in
+   :numref:`Figure %s <create_time_machine_share_fig>`.
 
-#. Click the "Add" button. **If you forget to do this, the share will
-   not be created**. Clicking the "Add" button will add an entry to
-   the "Name" frame with the name that you typed into "Share name".
+#. Click the "Add" button.
+   **If you forget to do this, the share will not be created**.
+   Clicking the "Add" button will add an entry to the "Name" frame
+   with the name that was entered in "Share name".
+
 
 If you wish to configure multiple authenticated or Time Machine
 shares, repeat for each user, giving each user their own "Share name"
 and "Ownership". When finished, click the "Next" button twice, then
-the "Confirm" button to create the share(s). The Wizard will
-automatically create a dataset for each share that contains the
-correct ownership and start the AFP service for you, so that the
-share(s) are immediately available. The new share(s) will also be
-added as entries to :menuselection:`Sharing --> Apple (AFP)`.
+the "Confirm" button to create the shares. The Wizard automatically
+creates a dataset for each share with the correct ownership and starts
+the AFP service so the shares are immediately available. The new
+shares are also added as entries to
+:menuselection:`Sharing --> Apple (AFP)`.
 
-**Figure %chapternum%.1d: Creating a Time Machine Share**
 
-.. image:: images/afp7.png
+.. _create_time_machine_share_fig:
 
-**Figure %chapternum%.1e: Creating an Authenticated User**
+.. figure:: images/afp7.png
 
-.. image:: images/afp8.png
+   Creating a Time Machine Share
+
+
+.. _create_tm_auth_user_fig:
+
+.. figure:: images/afp8.png
+
+   Creating an Authenticated User
+
 
 At this point, it may be desirable to configure a quota for each Time
 Machine share, to restrict backups from using all of the available
@@ -374,43 +406,57 @@ becomes full, make sure that the quota size you set is sufficient to
 hold the desired number of backups.**
 Note that a default installation of Mac OS X is ~21 GB in size.
 
-To configure a quota, go to :menuselection:`Storage --> Volumes` and
-highlight the entry for the share. In the example shown in
-Figure %chapternum%.1f, the Time Machine share name is *backup_user1*. Click the
-"Edit Options" button for the share, then "Advanced Mode". Input a
+To configure a quota, go to
+:menuselection:`Storage --> Volumes`
+and highlight the entry for the share. In the example shown in
+:numref:`Figure %s <set_quota_fig>`,
+the Time Machine share name is *backup_user1*. Click the
+"Edit Options" button for the share, then "Advanced Mode". Enter a
 value in the "Quota for this dataset" field then click "Edit Dataset"
 to save the change. In this example, the Time Machine share is
 restricted to 200GB.
 
-**Figure %chapternum%.1f: Setting a Quota**
 
-.. image:: images/afp9a.png
+.. _set_quota_fig:
+
+.. figure:: images/afp9a.png
+
+   Setting a Quota
+
 
 To configure Time Machine on the Mac OS X client, go to
-:menuselection:`System Preferences --> Time Machine` which will open
-the screen shown in Figure %chapternum%.1g. Click "ON" and a pop-up menu should
-show the %brand% system as a backup option. In our example, it is
-listed as *backup_user1 on "freenas"*. Highlight the entry
-representing the %brand% system and click the "Use Backup Disk"
-button. A connection bar will open and will prompt for the user
-account's password--in this example, the password that was set for the
-*user1* account.
+:menuselection:`System Preferences --> Time Machine`
+which will open the screen shown in
+:numref:`Figure %s <config_tm_osx>`.
+Click "ON" and a pop-up menu will show the %brand% system as a backup
+option. In our example, it is listed as *backup_user1 on "freenas"*.
+Highlight the entry representing the %brand% system and click the
+"Use Backup Disk" button. A connection bar will open and will prompt
+for the user account's password--in this example, the password that
+was set for the *user1* account.
 
-**Figure %chapternum%.1g: Configuring Time Machine on Mac OS X Lion**
 
-.. image:: images/afp5.png
+.. _config_tm_osx:
+
+.. figure:: images/afp5.png
+
+   Configuring Time Machine on Mac OS X Lion
+
 
 If you receive a "Time Machine could not complete the backup. The
 backup disk image could not be created (error 45)" error when backing
 up to the %brand% system, you will need to create a sparsebundle
-image using `these instructions
+image using
+`these instructions
 <http://forum1.netgear.com/showthread.php?t=49482>`_.
 
 If you receive the message "Time Machine completed a verification of
 your backups. To improve reliability, Time Machine must create a new
 backup for you." and you do not want to perform another complete
-backup or lose past backups, follow the instructions in this `post
+backup or lose past backups, follow the instructions in this
+`post
 <http://www.garth.org/archives/2011,08,27,169,fix-time-machine-sparsebundle-nas-based-backup-errors.html>`_.
+
 
 .. index:: NFS, Network File System
 .. _Unix (NFS) Shares:
@@ -427,7 +473,7 @@ the Ultimate or Enterprise editions or install an NFS client
 application.
 
 #ifdef freenas
-.. note:: for performance reasons, iSCSI is preferred to NFS shares
+.. note:: For performance reasons, iSCSI is preferred to NFS shares
    when %brand% is installed on ESXi. If you are considering creating
    NFS shares on ESXi, read through the performance analysis at
    `Running ZFS over NFS as a VMware Store
@@ -435,98 +481,113 @@ application.
 #endif freenas
 
 To create an NFS share using the Wizard, click the "Next" button twice
-to display the screen shown in Figure %chapternum%.2a. Input a "Share name" that
-makes sense to you, but which does not contain a space. Click the
-button for "Generic Unix (NFS)", then click "Add" so that the share's
-name appears in the "Name" frame. When finished, click the "Next"
-button twice, then the "Confirm" button to create the share. Creating
-an NFS share using the wizard will automatically create a new dataset
-for the share, start the services required by NFS, and add an entry
-for the share in :menuselection:`Sharing --> Unix (NFS) Shares`.
+to display the screen shown in
+:numref:`Figure %s <nfs_share_wiz_fig>`.
+Enter a "Share name" which makes sense to you, but does not contain a
+space. Click the button for "Generic Unix (NFS)", then click "Add" so
+that the share's name appears in the "Name" frame. When finished,
+click the "Next" button twice, then the "Confirm" button to create the
+share. Creating an NFS share using the wizard will automatically
+create a new dataset for the share, start the services required by
+NFS, and add an entry for the share in
+:menuselection:`Sharing --> Unix (NFS) Shares`.
 Depending upon your requirements, you may wish to fine-tune the NFS
 share to control which IP addresses are allowed to access the NFS
 share and to restrict the permissions of the mounted share.
 
-**Figure %chapternum%.2a: NFS Share Wizard**
 
-.. image:: images/nfs6.png
+.. _nfs_share_wiz_fig:
 
-To edit the NFS share, click :menuselection:`Sharing --> Unix (NFS)`,
+.. figure:: images/nfs6.png
+
+   NFS Share Wizard
+
+
+To edit the NFS share, click
+:menuselection:`Sharing --> Unix (NFS)`,
 highlight the entry for the share, and click its "Edit" button. In the
-example shown in Figure %chapternum%.2b, the configuration screen is open for
-the *nfs_share1* share.
+example shown in
+:numref:`Figure %s <nfs_share_settings_fig>`,
+the configuration screen is open for the *nfs_share1* share.
 
-**Figure %chapternum%.2b: NFS Share Settings**
 
-.. image:: images/nfs2.png
+.. _nfs_share_settings_fig:
 
-Table %chapternum%.2a summarizes the available configuration options in this
-screen. Some settings are only available by clicking the
-"Advanced Mode" button.
+.. figure:: images/nfs2.png
 
-**Table %chapternum%.2a: NFS Share Options**
+   NFS Share Settings
 
-+---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-| **Setting**         | **Value**      | **Description**                                                                                                    |
-|                     |                |                                                                                                                    |
-+=====================+================+====================================================================================================================+
-| Path                | browse button  | the path that clients will use when mounting the share; click "Add extra path" to select multiple paths            |
-|                     |                |                                                                                                                    |
-+---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-| Comment             | string         | used to set the share name; if left empty, share name will be the list of selected "Path"s                         |
-|                     |                |                                                                                                                    |
-+---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-| Authorized networks | string         | only available in "Advanced Mode"; space delimited list of allowed network addresses in the form *1.2.3.0/24*      |
-|                     |                | where the number after the slash is a CIDR mask                                                                    |
-|                     |                |                                                                                                                    |
-+---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-| Authorized  IP      | string         | only available in "Advanced Mode"; space delimited list of allowed IP addresses or hostnames                       |
-| addresses or hosts  |                |                                                                                                                    |
-|                     |                |                                                                                                                    |
-+---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-| All directories     | checkbox       | if checked, the client can mount any subdirectory within the "Path"                                                |
-|                     |                |                                                                                                                    |
-+---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-| Read only           | checkbox       | prohibits writing to the share                                                                                     |
-|                     |                |                                                                                                                    |
-+---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-| Quiet               | checkbox       | only available in "Advanced Mode"; inhibits some syslog diagnostics which can be useful to avoid some annoying     |
-|                     |                | error messages; see                                                                                                |
-|                     |                | `exports(5) <http://www.freebsd.org/cgi/man.cgi?query=exports>`_                                                   |
-|                     |                | for examples                                                                                                       |
-|                     |                |                                                                                                                    |
-+---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-| Maproot User        | drop-down menu | only available in "Advanced Mode"; if a user is selected, the *root* user is limited to that user's permissions    |
-|                     |                |                                                                                                                    |
-+---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-| Maproot Group       | drop-down menu | only available in "Advanced Mode"; if a group is selected, the *root* user will also be limited to that group's    |
-|                     |                | permissions                                                                                                        |
-|                     |                |                                                                                                                    |
-+---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-| Mapall User         | drop-down menu | only available in "Advanced Mode"; the specified user's permissions are used by all clients                        |
-|                     |                |                                                                                                                    |
-+---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-| Mapall Group        | drop-down menu | only available in "Advanced Mode"; the specified group's permission are used by all clients                        |
-|                     |                |                                                                                                                    |
-+---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-| Security            | selection      | only available in "Advanced Mode" and only appears if "Enable NFSv4" is checked in                                 |
-|                     |                | :menuselection:`Services --> NFS`; choices are *sys* or the following Kerberos options:                            |
-|                     |                | *krb5* (authentication only),                                                                                      |
-|                     |                | *krb5i* (authentication and integrity), or                                                                         |
-|                     |                | *krb5p* (authentication and privacy); if multiple security mechanisms are added to the "Selected" column using the |
-|                     |                | arrows, use the "Up" or "Down" buttons to list in order of preference                                              |
-|                     |                |                                                                                                                    |
-+---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+
+:numref:`Table %s <nfs_share_opts_tab>`
+summarizes the available configuration options in this screen. Some
+settings are only available by clicking the "Advanced Mode" button.
+
+
+.. _nfs_share_opts_tab:
+
+.. table:: **NFS Share Options**
+
+   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | **Setting**         | **Value**      | **Description**                                                                                                    |
+   |                     |                |                                                                                                                    |
+   +=====================+================+====================================================================================================================+
+   | Path                | browse button  | the path that clients will use when mounting the share; click "Add extra path" to select multiple paths            |
+   |                     |                |                                                                                                                    |
+   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | Comment             | string         | used to set the share name; if left empty, share name will be the list of selected "Path"s                         |
+   |                     |                |                                                                                                                    |
+   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | Authorized networks | string         | only available in "Advanced Mode"; space delimited list of allowed network addresses in the form *1.2.3.0/24*      |
+   |                     |                | where the number after the slash is a CIDR mask                                                                    |
+   |                     |                |                                                                                                                    |
+   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | Authorized  IP      | string         | only available in "Advanced Mode"; space delimited list of allowed IP addresses or hostnames                       |
+   | addresses or hosts  |                |                                                                                                                    |
+   |                     |                |                                                                                                                    |
+   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | All directories     | checkbox       | if checked, the client can mount any subdirectory within the "Path"                                                |
+   |                     |                |                                                                                                                    |
+   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | Read only           | checkbox       | prohibits writing to the share                                                                                     |
+   |                     |                |                                                                                                                    |
+   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | Quiet               | checkbox       | only available in "Advanced Mode"; inhibits some syslog diagnostics which can be useful to avoid some annoying     |
+   |                     |                | error messages; see                                                                                                |
+   |                     |                | `exports(5) <http://www.freebsd.org/cgi/man.cgi?query=exports>`_                                                   |
+   |                     |                | for examples                                                                                                       |
+   |                     |                |                                                                                                                    |
+   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | Maproot User        | drop-down menu | only available in "Advanced Mode"; if a user is selected, the *root* user is limited to that user's permissions    |
+   |                     |                |                                                                                                                    |
+   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | Maproot Group       | drop-down menu | only available in "Advanced Mode"; if a group is selected, the *root* user will also be limited to that group's    |
+   |                     |                | permissions                                                                                                        |
+   |                     |                |                                                                                                                    |
+   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | Mapall User         | drop-down menu | only available in "Advanced Mode"; the specified user's permissions are used by all clients                        |
+   |                     |                |                                                                                                                    |
+   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | Mapall Group        | drop-down menu | only available in "Advanced Mode"; the specified group's permission are used by all clients                        |
+   |                     |                |                                                                                                                    |
+   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | Security            | selection      | only available in "Advanced Mode" and only appears if "Enable NFSv4" is checked in                                 |
+   |                     |                | :menuselection:`Services --> NFS`; choices are *sys* or the following Kerberos options:                            |
+   |                     |                | *krb5* (authentication only),                                                                                      |
+   |                     |                | *krb5i* (authentication and integrity), or                                                                         |
+   |                     |                | *krb5p* (authentication and privacy); if multiple security mechanisms are added to the "Selected" column using the |
+   |                     |                | arrows, use the "Up" or "Down" buttons to list in order of preference                                              |
+   |                     |                |                                                                                                                    |
+   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+
 
 When creating the NFS share, keep the following points in mind:
 
 
 #.  The "Maproot" and "Mapall" options are exclusive, meaning you can
-    only use one or the other--the GUI will not let you use both. The
-    "Mapall" options supersede the "Maproot" options. If you only wish
-    to restrict the *root* user's permissions, set the "Maproot"
-    option. If you wish to restrict the permissions of all users, set
-    the "Mapall" options.
+    only use one or the other--the GUI will not allow both. The
+    "Mapall" options supersede the "Maproot" options. To restrict only
+    the *root* user's permissions, set the "Maproot" option. To
+    restrict the permissions of all users, set the "Mapall" options.
 
 #.  Each volume or dataset is considered to be its own filesystem and
     NFS is not able to cross filesystem boundaries.
@@ -536,6 +597,7 @@ When creating the NFS share, keep the following points in mind:
 
 #.  The "All directories" option can only be used once per share per
     filesystem.
+
 
 To better understand these restrictions, consider the following
 scenario where there are:
@@ -577,6 +639,7 @@ Second NFS share:
 Note that this requires the creation of two shares as it cannot be
 accomplished in one share.
 
+
 .. _Example Configuration:
 
 Example Configuration
@@ -600,11 +663,13 @@ A better scenario is to do the following:
     menus for the share in
     :menuselection:`Sharing --> Unix (NFS) Shares`.
 
+
 With this configuration, it does not matter which user account
 connects to the NFS share, as it will be mapped to the *nobody* user
 account and will only have the permissions that you specified on the
 volume/dataset. For example, even if the *root* user is able to
 connect, it will not gain *root* access to the share.
+
 
 .. _Connecting to the Share:
 
@@ -626,6 +691,7 @@ IP address of *192.168.2.2* has been configured as follows:
     * "MapAll User" and "MapAll Group" are both set to *nobody*
 
     * the "All Directories" checkbox has been checked
+
 
 .. _From BSD or Linux:
 
@@ -656,9 +722,10 @@ without any error messages, indicating that the share was successfully
 mounted.
 
 .. note:: if this command fails on a Linux system, make sure that the
-          `nfs-utils
-          <http://sourceforge.net/projects/nfs/files/nfs-utils/>`_
-          package is installed.
+   `nfs-utils
+   <http://sourceforge.net/projects/nfs/files/nfs-utils/>`_
+   package is installed.
+
 
 Once mounted, this configuration allows users on the client system to
 copy files to and from :file:`/mnt` (the mount point) and all files
@@ -670,6 +737,7 @@ wish to make the share inaccessible, first unmount the share on the
 client as the superuser::
 
  umount /mnt
+
 
 .. _From Microsoft:
 
@@ -694,21 +762,26 @@ will need to install the following on the Windows system:
 * `.NET Framework 4.0
   <http://www.microsoft.com/en-us/download/details.aspx?id=17851>`_
 
-Once everything is installed, run the NFSClient executable to start
-the GUI client. In the example shown in Figure %chapternum%.2c, the user has
-connected to the example :file:`/mnt/data` share of the %brand%
-system at *192.168.2.2*.
+After everything is installed, run the NFSClient executable to start
+the GUI client. In the example shown in
+:numref:`Figure %s <nekodrive_fig>`,
+the user has connected to the example :file:`/mnt/data` share of the
+%brand% system at *192.168.2.2*.
+
 
 .. note:: Nekodrive does not support Explorer drive mapping via NFS.
-          If you need this functionality,
-          `try this utility 
-          <http://www.citi.umich.edu/projects/nfsv4/windows/readme.html>`_
-          instead.
+   If you need this functionality,
+   `try this utility 
+   <http://www.citi.umich.edu/projects/nfsv4/windows/readme.html>`_
+   instead.
 
-**Figure %chapternum%.2c: Using the Nekodrive NFSClient from Windows 7 Home
-Edition**
 
-.. image:: images/nfs5.jpg
+.. _nekodrive_fig:
+
+.. figure:: images/nfs5.jpg
+
+   Using the Nekodrive NFSClient from Windows 7 Home Edition
+
 
 .. _From Mac OS X:
 
@@ -716,26 +789,35 @@ From Mac OS X
 ^^^^^^^^^^^^^
 
 To mount the NFS volume from a Mac OS X client, click on
-:menuselection:`Go --> Connect to Server`. In the "Server Address"
-field, input *nfs://* followed by the IP address of the %brand%
-system and the name of the volume/dataset being shared by NFS. The
-example shown in Figure %chapternum%.2d continues with our example of
-*192.168.2.2:/mnt/data*.
+:menuselection:`Go --> Connect to Server`.
+In the "Server Address" field, enter *nfs://* followed by the IP
+address of the %brand% system and the name of the volume/dataset being
+shared by NFS. The example shown in
+:numref:`Figure %s <mount_nfs_osx_fig>`
+continues with our example of *192.168.2.2:/mnt/data*.
 
 Once connected, Finder will automatically open. The IP address of the
 %brand% system will be displayed in the SHARED section in the left
 frame and the contents of the share will be displayed in the right
-frame. In the example shown in Figure %chapternum%.2e, :file:`/mnt/data` has one
-folder named :file:`images`. The user can now copy files to and from
-the share.
+frame. In the example shown in
+:numref:`Figure %s <view_nfs_finder_fig>`,
+:file:`/mnt/data` has one folder named :file:`images`. The user can
+now copy files to and from the share.
 
-**Figure %chapternum%.2d: Mounting the NFS Share from Mac OS X**
 
-.. image:: images/nfs3.png
+.. _mount_nfs_osx_fig:
 
-**Figure %chapternum%.2e: Viewing the NFS Share in Finder**
+.. figure:: images/nfs3.png
 
-.. image:: images/nfs4.png
+   Mounting the NFS Share from Mac OS X
+
+
+.. _view_nfs_finder_fig:
+
+.. figure:: images/nfs4.png
+
+   Viewing the NFS Share in Finder
+
 
 .. _Troubleshooting NFS:
 
@@ -772,8 +854,9 @@ base" field of
 Some older versions of NFS clients default to UDP instead of TCP and
 do not auto-negotiate for TCP. By default, %brand% uses TCP. To
 support UDP connections, go to
-:menuselection:`Services --> NFS` and check the box
-"Serve UDP NFS clients".
+:menuselection:`Services --> NFS`
+and check the box "Serve UDP NFS clients".
+
 
 .. index:: WebDAV
 .. _WebDAV Shares:
@@ -819,42 +902,52 @@ pop-up message. Input a username of *webdav* and the password
 configured in
 :menuselection:`Services --> WebDAV`.
 
-.. warning:: at this time, only the *webdav* user is supported. For
-             this reason, it is important to set a good password for
-             this account and to only give the password to users which
-             should have access to the WebDAV share.
+.. warning:: At this time, only the *webdav* user is supported. For
+   this reason, it is important to set a good password for this
+   account and to only give the password to users which should have
+   access to the WebDAV share.
 
 To create a WebDAV share, click
 :menuselection:`Sharing --> WebDAV Shares --> Add WebDAV Share`
-which will open the screen shown in Figure %chapternum%.3a.
+which will open the screen shown in
+:numref:`Figure %s <add_webdav_share_fig>`.
 
-**Figure %chapternum%.3a: Adding a WebDAV Share**
 
-.. image:: images/webdav.png
+.. _add_webdav_share_fig:
 
-Table %chapternum%.3a summarizes the available options.
+.. figure:: images/webdav.png
 
-**Table %chapternum%.3a: WebDAV Share Options**
+   Adding a WebDAV Share
 
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| **Setting**                  | **Value**     | **Description**                                                                                             |
-|                              |               |                                                                                                             |
-+==============================+===============+=============================================================================================================+
-| Share Path Name              | string        | input a name for the share                                                                                  |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Comment                      | string        | optional                                                                                                    |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Path                         | browse button | browse to the volume/dataset to share                                                                       |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Read Only                    | checkbox      | if checked, users cannot write to the share                                                                 |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Change User & Group          | checkbox      | if checked, automatically sets the share's contents to the *webdav* user and group                          |
-| Ownership                    |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+
+:numref:`Table %s <webdav_share_opts_tab>`
+summarizes the available options.
+
+
+.. _webdav_share_opts_tab:
+
+.. table:: **WebDAV Share Options**
+
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | **Setting**                  | **Value**     | **Description**                                                                                             |
+   |                              |               |                                                                                                             |
+   +==============================+===============+=============================================================================================================+
+   | Share Path Name              | string        | input a name for the share                                                                                  |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Comment                      | string        | optional                                                                                                    |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Path                         | browse button | browse to the volume/dataset to share                                                                       |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Read Only                    | checkbox      | if checked, users cannot write to the share                                                                 |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Change User & Group          | checkbox      | if checked, automatically sets the share's contents to the *webdav* user and group                          |
+   | Ownership                    |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+
 
 Once you click "OK", a pop-up will ask if you would like to enable the
 service. Once the service starts, review the settings in
@@ -862,6 +955,7 @@ service. Once the service starts, review the settings in
 as they are used to determine which URL is used to access the WebDAV
 share and whether or not authentication is required to access the
 share. These settings are described in :ref:`WebDAV`.
+
 
 .. index:: CIFS, Samba, Windows Shares, SMB
 .. _Windows (CIFS) Shares:
@@ -891,87 +985,97 @@ read through this entire chapter before creating any CIFS shares so
 that you have a good idea of the best configuration scenario to meet
 your network's needs.
 
-Figure %chapternum%.4a shows the configuration screen that appears when you
-click :menuselection:`Sharing --> Windows (CIFS Shares)
+:numref:`Figure %s <adding_cifs_share_fig>`
+shows the configuration screen that appears when you click
+:menuselection:`Sharing --> Windows (CIFS Shares)
 --> Add Windows (CIFS) Share`.
 
-**Figure %chapternum%.4a: Adding a CIFS Share**
 
-.. image:: images/cifs2.png
+.. _adding_cifs_share_fig:
 
-Table %chapternum%.4a summarizes the options when creating a CIFS share. Some
-settings are only available when you click the "Advanced Mode" button.
-For simple sharing scenarios, you will not need any "Advanced Mode"
-options. For more complex sharing scenarios, only change an
-"Advanced Mode" option if you understand the function of that option.
+.. figure:: images/cifs2.png
+
+   Adding a CIFS Share
+
+
+:numref:`Table %s <cifs_share_opts_tab>`
+summarizes the options when creating a CIFS share. Some settings are
+only available when you click the "Advanced Mode" button. For simple
+sharing scenarios, you will not need any "Advanced Mode" options. For
+more complex sharing scenarios, only change an "Advanced Mode" option
+if you understand the function of that option.
 `smb.conf(5) <http://www.sloop.net/smb.conf.html>`_ provides more
 details for each configurable option.
 
-**Table %chapternum%.4a: Options for a CIFS Share**
 
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| **Setting**                  | **Value**     | **Description**                                                                                             |
-|                              |               |                                                                                                             |
-+==============================+===============+=============================================================================================================+
-| Path                         | browse button | select volume/dataset/directory to share                                                                    |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Use as home share            | checkbox      | check this box if the share is meant to hold user home directories; only one share can be the homes share   |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Name                         | string        | mandatory; name of share                                                                                    |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Comment                      | string        | only available in "Advanced Mode";  optional description                                                    |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Apply Default Permissions    | checkbox      | sets the ACLs to allow read/write for owner/group and read-only for others; should only be unchecked when   |
-|                              |               | creating a share on a system that already has custom ACLs set                                               |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Export Read Only             | checkbox      | only available in "Advanced Mode"; prohibits write access to the share                                      |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Browsable to Network Clients | checkbox      | only available in "Advanced Mode"; when checked, users see the contents of */homes* (including other users' |
-|                              |               | home directories) and when unchecked, users see only their own home directory                               |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Export Recycle Bin           | checkbox      | only available in "Advanced Mode"; deleted files are instead moved to a hidden :file:`.recycle` directory   |
-|                              |               | in the root folder of the share                                                                             |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Show Hidden Files            | checkbox      | only available in "Advanced Mode"; if enabled, will display filenames that begin with a dot (Unix hidden    |
-|                              |               | files)                                                                                                      |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Allow Guest Access           | checkbox      | if checked, no password is required to connect to the share and all users share the permissions of the      |
-|                              |               | guest user defined in the CIFS service                                                                      |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Only Allow Guest Access      | checkbox      | only available in "Advanced Mode"; requires "Allow guest access" to also be checked; forces guest access    |
-|                              |               | for all connections                                                                                         |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Hosts Allow                  | string        | only available in "Advanced Mode"; comma, space, or tab delimited list of allowed hostnames or IP addresses;|
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Hosts Deny                   | string        | only available in "Advanced Mode"; comma, space, or tab delimited list of denied hostnames or IP addresses; |
-|                              |               | allowed hosts take precedence so can use *ALL* in this field and specify allowed hosts in                   |
-|                              |               | "Hosts Allow"                                                                                               |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| VFS Objects                  | selection     | only available in "Advanced Mode" and adds virtual file system modules to enhance functionality; Table      |
-|                              |               | %chapternum%.4b summarizes the available modules                                                            |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Periodic Snapshot Task       | drop-down     | used to configure home directory shadow copies on a per-share basis; select the pre-configured periodic     |
-|                              | menu          | snapshot task to use for the share's shadow copies                                                          |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-| Auxiliary Parameters         | string        | only available in "Advanced Mode"; additional :file:`smb4.conf` parameters not covered by other option      |
-|                              |               | fields                                                                                                      |
-|                              |               |                                                                                                             |
-+------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+.. _cifs_share_opts_tab:
+
+.. table:: **Options for a CIFS Share**
+
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | **Setting**                  | **Value**     | **Description**                                                                                             |
+   |                              |               |                                                                                                             |
+   +==============================+===============+=============================================================================================================+
+   | Path                         | browse button | select volume/dataset/directory to share                                                                    |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Use as home share            | checkbox      | check this box if the share is meant to hold user home directories; only one share can be the homes share   |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Name                         | string        | mandatory; name of share                                                                                    |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Comment                      | string        | only available in "Advanced Mode";  optional description                                                    |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Apply Default Permissions    | checkbox      | sets the ACLs to allow read/write for owner/group and read-only for others; should only be unchecked when   |
+   |                              |               | creating a share on a system that already has custom ACLs set                                               |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Export Read Only             | checkbox      | only available in "Advanced Mode"; prohibits write access to the share                                      |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Browsable to Network Clients | checkbox      | only available in "Advanced Mode"; when checked, users see the contents of */homes* (including other users' |
+   |                              |               | home directories) and when unchecked, users see only their own home directory                               |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Export Recycle Bin           | checkbox      | only available in "Advanced Mode"; deleted files are instead moved to a hidden :file:`.recycle` directory   |
+   |                              |               | in the root folder of the share                                                                             |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Show Hidden Files            | checkbox      | only available in "Advanced Mode"; if enabled, will display filenames that begin with a dot (Unix hidden    |
+   |                              |               | files)                                                                                                      |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Allow Guest Access           | checkbox      | if checked, no password is required to connect to the share and all users share the permissions of the      |
+   |                              |               | guest user defined in the CIFS service                                                                      |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Only Allow Guest Access      | checkbox      | only available in "Advanced Mode"; requires "Allow guest access" to also be checked; forces guest access    |
+   |                              |               | for all connections                                                                                         |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Hosts Allow                  | string        | only available in "Advanced Mode"; comma, space, or tab delimited list of allowed hostnames or IP addresses;|
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Hosts Deny                   | string        | only available in "Advanced Mode"; comma, space, or tab delimited list of denied hostnames or IP addresses; |
+   |                              |               | allowed hosts take precedence so can use *ALL* in this field and specify allowed hosts in                   |
+   |                              |               | "Hosts Allow"                                                                                               |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | VFS Objects                  | selection     | only available in "Advanced Mode" and adds virtual file system modules to enhance functionality; Table      |
+   |                              |               | %chapternum%.4b summarizes the available modules                                                            |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Periodic Snapshot Task       | drop-down     | used to configure home directory shadow copies on a per-share basis; select the pre-configured periodic     |
+   |                              | menu          | snapshot task to use for the share's shadow copies                                                          |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   | Auxiliary Parameters         | string        | only available in "Advanced Mode"; additional :file:`smb4.conf` parameters not covered by other option      |
+   |                              |               | fields                                                                                                      |
+   |                              |               |                                                                                                             |
+   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+
 
 Note the following regarding some of the "Advanced Mode" settings:
 
@@ -1007,156 +1111,161 @@ these lines instead::
  client lanman auth = yes
   client plaintext auth = yes
 
-Table %chapternum%.4b provides an overview of the available VFS modules. Be sure
-to research each module **before** adding or deleting it from the
-"Selected" column of the "VFS Objects" field for the share. Some
-modules will need additional configuration after they are added. Refer
-to `Stackable VFS modules
+:numref:`Table %s <avail_vfs_modules_tab>`
+provides an overview of the available VFS modules. Be sure to research
+each module **before** adding or deleting it from the "Selected"
+column of the "VFS Objects" field for the share. Some modules need
+additional configuration after they are added. Refer to
+`Stackable VFS modules
 <https://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/VFS.html>`_
 and the
 `vfs_* man pages <https://www.samba.org/samba/docs/man/manpages/>`_
 for more details.
 
-**Table %chapternum%.4b: Available VFS Modules**
 
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| **Value**           | **Description**                                                                                                                            |
-|                     |                                                                                                                                            |
-+=====================+============================================================================================================================================+
-| acl_tdb             | stores NTFS ACLs in a tdb file in order to enable full mapping of Windows ACLs                                                             |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| acl_xattr           | stores NTFS ACLs in Extended Attributes (EAs) in order to enable the full mapping of Windows ACLs                                          |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| aio_fork            | enables async I/O                                                                                                                          |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| aio_posix           | enables asynchronous I/O on systems running POSIX kernels                                                                                  |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| aio_pthread         | implements async I/O in Samba vfs using a pthread pool instead of the internal Posix AIO interface                                         |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| audit               | logs share access, connects/disconnects, directory opens/creates/removes, and file opens/closes/renames/unlinks/chmods to syslog           |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| cacheprime          | primes the kernel file data cache                                                                                                          |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| cap                 | translates filenames to and from the CAP encoding format, commonly used in Japanese language environments                                  |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| catia               | creates filenames that use characters that are illegal in CIFS filenames                                                                   |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| commit              | tracks the amount of data written to a file and synchronizes it to disk when a specified amount accumulates                                |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| crossrename         | allows server side rename operations even if source and target are on different physical devices                                           |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| default_quota       | stores the default quotas that are reported to a windows client in the quota record of a user                                              |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| dfs_samba4          | distributed file system for providing an alternative name space, load balancing, and automatic failover                                    |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| dirsort             | sorts directory entries alphabetically before sending them to the client                                                                   |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| expand_msdfs        | enables support for Microsoft Distributed File System (DFS)                                                                                |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| extd_audit          | sends "audit" logs to both syslog and the Samba log files                                                                                  |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| fake_acls           | stores file ownership and ACLs as extended attributes                                                                                      |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| fake_perms          | allows roaming profile files and directories to be set as read-only                                                                        |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| fruit               | enhances OS X support by providing the SMB2 AAPL extension and Netatalk interoperability (see NOTE below table)                            |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| full_audit          | records selected client operations to the system log                                                                                       |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| linux_xfs_sgid      | used to work around an old Linux XFS bug                                                                                                   |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| media_harmony       | allows Avid editorial workstations to share a network drive                                                                                |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| netatalk            | eases the co-existence of CIFS and AFP shares                                                                                              |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| posix_eadb          | provides Extended Attributes (EAs) support so they can be used on filesystems which do not provide native support for EAs                  |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| preopen             | useful for video streaming applications that want to read one file per frame                                                               |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| readahead           | useful for Windows Vista clients reading data using Windows Explorer                                                                       |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| readonly            | marks a share as read-only for all clients connecting within the configured time period                                                    |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| scannedonly         | ensures that only files that have been scanned for viruses are visible and accessible                                                      |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| shadow_copy         | allows Microsoft shadow copy clients to browse shadow copies on Windows shares                                                             |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| shadow_copy_test    | shadow copy testing                                                                                                                        |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| shell_snap          | provides shell-script callouts for snapshot creation and deletion operations issued by remote clients using the File Server Remote VSS     |
-|                     | Protocol (FSRVP)                                                                                                                           |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| skel_opaque         | implements dummy versions of all VFS modules (useful to VFS module developers)                                                             |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| skel_transparent    | implements dummy passthrough functions of all VFS modules (useful to VFS module developers)                                                |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| smb_traffic_analyzer| logs Samba read and write operations through a socket to a helper application                                                              |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| snapper             | provides the ability for remote SMB clients to access shadow copies of FSRVP snapshots using Windows Explorer                              |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| streams_depot       | **experimental** module to store alternate data streams in a central directory                                                             |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| streams_xattr       | enables storing of NTFS alternate data streams in the file system                                                                          |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| syncops             | ensures metadata operations are performed synchronously                                                                                    |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| time_audit          | logs system calls that take longer than the number of defined milliseconds                                                                 |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| unityed_media       | allows multiple Avid clients to share a network drive                                                                                      |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| worm                | controls the writability of files and folders depending on their change time and an adjustable grace period                                |     
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-| xattr_tdb           | stores Extended Attributes (EAs) in a tdb file so they can be used on filesystems which do not provide support for EAs                     |
-|                     |                                                                                                                                            |
-+---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+.. _avail_vfs_modules_tab:
 
-.. note:: when using "fruit", also add the "streams_xattr" and "catia"
-          VFS objects and be sure to configure **all** CIFS shares
-          this way. Reboot the Mac client after making this change.
+.. table:: **Available VFS Modules**
 
-The following VFS objects do not appear in the drop-down menu as they
-are always enabled:
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | **Value**           | **Description**                                                                                                                            |
+   |                     |                                                                                                                                            |
+   +=====================+============================================================================================================================================+
+   | acl_tdb             | stores NTFS ACLs in a tdb file in order to enable full mapping of Windows ACLs                                                             |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | acl_xattr           | stores NTFS ACLs in Extended Attributes (EAs) in order to enable the full mapping of Windows ACLs                                          |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | aio_fork            | enables async I/O                                                                                                                          |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | aio_posix           | enables asynchronous I/O on systems running POSIX kernels                                                                                  |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | aio_pthread         | implements async I/O in Samba vfs using a pthread pool instead of the internal Posix AIO interface                                         |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | audit               | logs share access, connects/disconnects, directory opens/creates/removes, and file opens/closes/renames/unlinks/chmods to syslog           |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | cacheprime          | primes the kernel file data cache                                                                                                          |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | cap                 | translates filenames to and from the CAP encoding format, commonly used in Japanese language environments                                  |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | catia               | creates filenames that use characters that are illegal in CIFS filenames                                                                   |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | commit              | tracks the amount of data written to a file and synchronizes it to disk when a specified amount accumulates                                |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | crossrename         | allows server side rename operations even if source and target are on different physical devices                                           |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | default_quota       | stores the default quotas that are reported to a windows client in the quota record of a user                                              |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | dfs_samba4          | distributed file system for providing an alternative name space, load balancing, and automatic failover                                    |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | dirsort             | sorts directory entries alphabetically before sending them to the client                                                                   |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | expand_msdfs        | enables support for Microsoft Distributed File System (DFS)                                                                                |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | extd_audit          | sends "audit" logs to both syslog and the Samba log files                                                                                  |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | fake_acls           | stores file ownership and ACLs as extended attributes                                                                                      |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | fake_perms          | allows roaming profile files and directories to be set as read-only                                                                        |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | fruit               | enhances OS X support by providing the SMB2 AAPL extension and Netatalk interoperability (see NOTE below table)                            |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | full_audit          | records selected client operations to the system log                                                                                       |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | linux_xfs_sgid      | used to work around an old Linux XFS bug                                                                                                   |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | media_harmony       | allows Avid editorial workstations to share a network drive                                                                                |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | netatalk            | eases the co-existence of CIFS and AFP shares                                                                                              |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | posix_eadb          | provides Extended Attributes (EAs) support so they can be used on filesystems which do not provide native support for EAs                  |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | preopen             | useful for video streaming applications that want to read one file per frame                                                               |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | readahead           | useful for Windows Vista clients reading data using Windows Explorer                                                                       |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | readonly            | marks a share as read-only for all clients connecting within the configured time period                                                    |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | scannedonly         | ensures that only files that have been scanned for viruses are visible and accessible                                                      |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | shadow_copy         | allows Microsoft shadow copy clients to browse shadow copies on Windows shares                                                             |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | shadow_copy_test    | shadow copy testing                                                                                                                        |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | shell_snap          | provides shell-script callouts for snapshot creation and deletion operations issued by remote clients using the File Server Remote VSS     |
+   |                     | Protocol (FSRVP)                                                                                                                           |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | skel_opaque         | implements dummy versions of all VFS modules (useful to VFS module developers)                                                             |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | skel_transparent    | implements dummy passthrough functions of all VFS modules (useful to VFS module developers)                                                |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | smb_traffic_analyzer| logs Samba read and write operations through a socket to a helper application                                                              |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | snapper             | provides the ability for remote SMB clients to access shadow copies of FSRVP snapshots using Windows Explorer                              |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | streams_depot       | **experimental** module to store alternate data streams in a central directory                                                             |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | streams_xattr       | enables storing of NTFS alternate data streams in the file system                                                                          |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | syncops             | ensures metadata operations are performed synchronously                                                                                    |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | time_audit          | logs system calls that take longer than the number of defined milliseconds                                                                 |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | unityed_media       | allows multiple Avid clients to share a network drive                                                                                      |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | worm                | controls the writability of files and folders depending on their change time and an adjustable grace period                                |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | xattr_tdb           | stores Extended Attributes (EAs) in a tdb file so they can be used on filesystems which do not provide support for EAs                     |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+.. note:: When using "fruit", also add the "streams_xattr" and "catia"
+   VFS objects and be sure to configure **all** CIFS shares this way.
+   Reboot the Mac client after making this change.
+
+These VFS objects do not appear in the drop-down menu as they are
+always enabled:
 
 * **recycle:** moves deleted files to the recycle directory instead of
   deleting them
@@ -1168,6 +1277,7 @@ are always enabled:
   including any reservations or quotas
 
 * **zfsacl:**
+
 
 .. _Configuring Unauthenticated Access:
 
@@ -1187,7 +1297,8 @@ suited for small networks where quick and easy access to the share is
 more important than the security of the data on the share.
 
 To configure an unauthenticated CIFS share, click "Wizard", then click
-the "Next" button twice to display the screen shown in Figure %chapternum%.4b.
+the "Next" button twice to display the screen shown in
+:numref:`Figure %s <create_unauth_cifs_share_fig>`.
 Complete the following fields in this screen:
 
 #. **Share name:** input a name for the share that is useful to you.
@@ -1204,9 +1315,13 @@ Complete the following fields in this screen:
    not be created**. Clicking the "Add" button will add an entry to
    the "Name" frame with the name that you typed into "Share name".
 
-**Figure %chapternum%.4b: Creating an Unauthenticated CIFS Share**
 
-.. image:: images/cifs7.png
+.. _create_unauth_cifs_share_fig:
+
+.. figure:: images/cifs7.png
+
+   Creating an Unauthenticated CIFS Share
+
 
 Click the "Next" button twice, then the "Confirm" button to create the
 share. The Wizard will automatically create a dataset for the share
@@ -1220,6 +1335,7 @@ share from a Windows system, open Explorer and click on "Network". For
 this configuration example, a system named *FREENAS* should appear
 with a share named "insecure_cifs". The user should be able to copy
 data to and from the unauthenticated CIFS share.
+
 
 .. _Configuring Authenticated Access Without a Domain Controller:
 
@@ -1249,9 +1365,10 @@ require the creation of groups, adding the correct users to the
 groups, and ensuring that group permissions are set correctly.
 
 To use the Wizard to create an authenticated CIFS share, enter the
-following information, as seen in the example in Figure %chapternum%.4c.
+following information, as shown in the example in
+:numref:`Figure %s <create_auth_cifs_share_fig>`.
 
-#. **Share name:** input a name for the share that is useful to you.
+#. **Share name:** enter a name for the share that is useful to you.
    In this example, the share is named *cifs_user1*.
 
 #. Click the button for "Windows (CIFS)".
@@ -1264,10 +1381,12 @@ following information, as seen in the example in Figure %chapternum%.4c.
    and click the box "Create Group".
    **If, however, the share will be used by several users**,
    instead type in a group name and check the "Create Group" box. In
-   the example shown in Figure %chapternum%.4d, *user1* has been used for both
-   the user and group name, meaning that this share will only be used
-   by *user1*. When finished, click "Return" to return to the screen
-   shown in Figure %chapternum%.1d.
+   the example shown in
+   :numref:`Figure %s <create_cifs_user_group_fig>`,
+   *user1* has been used for both the user and group name, meaning
+   that this share will only be used by *user1*. When finished, click
+   "Return" to return to the screen shown in
+   :numref:`Figure %s <create_auth_cifs_share_fig>`.
 
 #. Click the "Add" button. **If you forget to do this, the share will
    not be created**. Clicking the "Add" button will add an entry to
@@ -1276,39 +1395,45 @@ following information, as seen in the example in Figure %chapternum%.4c.
 If you wish to configure multiple authenticated shares, repeat for
 each user, giving each user their own "Share name" and "Ownership".
 When finished, click the "Next" button twice, then the "Confirm"
-button to create the share(s). The Wizard will automatically create a
-dataset for each share that contains the correct ownership and start
-the CIFS service for you, so that the share(s) are immediately
-available. The new share(s) will also be added as entries to
+button to create the shares. The Wizard automatically creates a
+dataset with the correct ownership for each share and starts the CIFS
+service, so the shares are immediately available. The new shares will
+also be shown in
 :menuselection:`Sharing --> Windows (CIFS)`.
 
-**Figure %chapternum%.4c: Creating an Authenticated CIFS Share**
 
-.. image:: images/cifs3.png
+.. _create_auth_cifs_share_fig:
 
-**Figure %chapternum%.4d: Creating the User and Group**
+.. figure:: images/cifs3.png
 
-.. image:: images/cifs8.png
+   Creating an Authenticated CIFS Share
 
-You should now be able to test an authenticated share from any CIFS
-client. For example, to test an authenticated share from a Windows
-system, open Explorer and click on "Network". For this configuration
-example, a system named *FREENAS* should appear with a share named
-"cifs_user1". If you click on "cifs_user1", a Windows Security pop-up
-screen should prompt for that user's username and password. Input the
-values that were configured for that share, in this case it is for the
-user *user1*. Once authenticated, that user can copy data to and from
-the CIFS share.
+
+.. _create_cifs_user_group_fig:
+
+.. figure:: images/cifs8.png
+
+   Creating the User and Group
+
+
+Authenticated share can now be tested from any CIFS client. For
+example, to test an authenticated share from a Windows system, open
+Explorer and click on "Network". For this configuration example, a
+system named *FREENAS* appears with a share named "cifs_user1". If you
+click on "cifs_user1", a Windows Security pop-up screen will prompt
+for that user's username and password. Enter the values that were
+configured for that share, in this case user *user1*. After
+authentication, that user can copy data to and from the CIFS share.
 
 To prevent Windows Explorer from hanging when accessing the share, map
 the share as a network drive. To do this, right-click the share and
 select "Map network drive...". Choose a drive letter from the
 drop-down menu and click the "Finish" button.
 
-Note that Windows systems cache a user's credentials which can cause
+Note that Windows systems cache a user's credentials. This can cause
 issues when testing or accessing multiple authenticated shares as only
 one authentication is allowed at a time. If you are having problems
-authenticating to a share and are sure that you are inputting the
+authenticating to a share and are sure that you are entering the
 correct username and password, type **cmd** in the
 "Search programs and files" box and use the following command to see
 if you are already authenticated to a share. In this example, the user
@@ -1331,7 +1456,7 @@ To clear the cache::
 
  Do you want to continue this operation? <Y/N> [N]: y
 
-You will get an additional warning if the share is currently open in
+An additional warning is shown if the share is currently open in
 Explorer::
 
  There are open files and/or incomplete directory searches pending on the connection
@@ -1340,8 +1465,9 @@ Explorer::
  Is it OK to continue disconnecting and force them closed? <Y/N> [N]: y
  The command completed successfully.
 
-The next time you access a share using Explorer, you should be
+The next time you access a share using Explorer, you will be
 prompted to authenticate.
+
 
 .. index:: Shadow Copies
 .. _Configuring Shadow Copies:
@@ -1406,46 +1532,52 @@ second share is named *user2*. Then:
 
 #. Use
    :menuselection:`Storage --> Periodic Snapshot Tasks
-   --> Add Periodic Snapshot`, to create at least one periodic
-   snapshot task. You can either create a snapshot task for each
-   user's dataset, in this example the dataset names are
-   :file:`/mnt/volume1/user1` and :file:`/mnt/volume1/user2`, or you
-   can create one periodic snapshot task for the entire volume, in
-   this case :file:`/mnt/volume1`. **Before continuing to the next
-   step,** confirm that at least one snapshot for each defined task is
-   displayed in the :menuselection:`Storage --> Snapshots` tab. When
-   creating the schedule for the periodic snapshot tasks, keep in mind
-   how often your users need to access modified files and during which
-   days and time of day they are likely to make changes.
+   --> Add Periodic Snapshot`
+   to create at least one periodic snapshot task. You can either
+   create a snapshot task for each user's dataset, in this example the
+   datasets :file:`/mnt/volume1/user1` and :file:`/mnt/volume1/user2`,
+   or you can create one periodic snapshot task for the entire volume,
+   in this case :file:`/mnt/volume1`.
+   **Before continuing to the next step,** confirm that at least one
+   snapshot for each defined task is displayed in the
+   :menuselection:`Storage --> Snapshots`
+   tab. When creating the schedule for the periodic snapshot tasks,
+   keep in mind how often your users need to access modified files and
+   during which days and time of day they are likely to make changes.
 
-#. Go to :menuselection:`Sharing --> Windows (CIFS) Shares`. Highlight
-   a share and click its "Edit" button then its "Advanced Mode"
-   button. Click the "Periodic Snapshot Task" drop-down menu and
-   select the periodic snapshot task to use for that share. Repeat for
-   each share being configured as a shadow copy. For this example, the
-   share named "/mnt/volume1/user1" is configured to use a periodic
-   snapshot task that was configured to take snapshots of the
-   "/mnt/volume1/user1" dataset and the share named
-   "/mnt/volume1/user2" is configured to use a periodic snapshot task
-   that was configured to take snapshots of the "/mnt/volume1/user2"
-   dataset.
+#. Go to
+   :menuselection:`Sharing --> Windows (CIFS) Shares`.
+   Highlight a share and click its "Edit" button then its
+   "Advanced Mode" button. Click the "Periodic Snapshot Task"
+   drop-down menu and select the periodic snapshot task to use for
+   that share. Repeat for each share being configured as a shadow
+   copy. For this example, the share named "/mnt/volume1/user1" is
+   configured to use a periodic snapshot task that was configured to
+   take snapshots of the "/mnt/volume1/user1" dataset and the share
+   named "/mnt/volume1/user2" is configured to use a periodic snapshot
+   task that was configured to take snapshots of the
+   "/mnt/volume1/user2" dataset.
 
 #. Verify that the CIFS service is set to "ON" in
    :menuselection:`Services --> Control Services`.
 
-Figure %chapternum%.4e provides an example of using shadow copies while logged
-in as *user1* on the Windows system. In this example, the user
-right-clicked *modified file* and selected "Restore previous versions"
-from the menu. This particular file has three versions: the current
-version, plus two previous versions stored on the %brand% system. The
-user can choose to open one of the previous versions, copy a previous
-version to the current folder, or restore one of the previous
-versions, which will overwrite the existing file on the Windows
-system.
+:numref:`Figure %s <view_shadow_explorer_fig>`
+provides an example of using shadow copies while logged in as *user1*
+on the Windows system. In this example, the user right-clicked
+*modified file* and selected "Restore previous versions" from the
+menu. This particular file has three versions: the current version,
+plus two previous versions stored on the %brand% system. The user can
+choose to open one of the previous versions, copy a previous version
+to the current folder, or restore one of the previous versions, which
+will overwrite the existing file on the Windows system.
 
-**Figure %chapternum%.4e: Viewing Previous Versions within Explorer**
 
-.. image:: images/cifs6.png
+.. _view_shadow_explorer_fig:
+
+.. figure:: images/cifs6.png
+
+   Viewing Previous Versions within Explorer
+
 
 .. index:: iSCSI, Internet Small Computer System Interface
 .. _Block (iSCSI):
@@ -1536,11 +1668,13 @@ virtualization hardware to the storage array.
 
 * **threshold warning:** the system reports a warning when a
   configurable capacity is reached. In %brand%, this threshold can be
-  configured at the pool level when using zvols (see Table %chapternum%.5a) or
-  at the extent level (see Table %chapternum%.5f) for both file- and
-  device-based extents. Typically, the warning is set at the pool
-  level, unless file extents are used, in which case it must be set at
-  the extent level.
+  configured at the pool level when using zvols
+  (see :numref:`Table %s <iscsi_targ_global_config_tab>`)
+  or at the extent level
+  (see :numref:`Table %s <iscsi_extent_conf_tab>`)
+  for both file- and device-based extents. Typically, the warning is
+  set at the pool level, unless file extents are used, in which case
+  it must be set at the extent level.
 
 * **LUN reporting:** the LUN reports that it is thin provisioned.
 
@@ -1549,7 +1683,7 @@ instructions in :ref:`Create zvol` and use it to create a device
 extent, as described in
 :ref:`Extents`.
 
-In order to configure iSCSI:
+To configure iSCSI:
 
 #.  Review the target global configuration parameters.
 
@@ -1580,40 +1714,50 @@ The rest of this section describes these steps in more detail.
    details.
 #endif truenas
 
+
 .. _Target Global Configuration:
 
 Target Global Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 :menuselection:`Sharing --> Block (iSCSI)
---> Target Global Configuration`, shown in Figures %chapternum%.5a, contains
-settings that apply to all iSCSI shares. Table %chapternum%.5a summarizes the
-settings that can be configured in the Target Global Configuration
-screen.
+--> Target Global Configuration`, shown in
+:numref:`Figure %s <iscsi_targ_global_var_fig>`, contains
+settings that apply to all iSCSI shares.
+:numref:`Table %s <iscsi_targ_global_config_tab>`
+summarizes the settings that can be configured in the Target Global
+Configuration screen.
 
-**Figure %chapternum%.5a: iSCSI Target Global Configuration Variables**
 
-.. image:: images/global1b.png
+.. _iscsi_targ_global_var_fig:
 
-**Table %chapternum%.5a: Target Global Configuration Settings**
+.. figure:: images/global1b.png
 
-+---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-| **Setting**                     | **Value**                    | **Description**                                                                           |
-|                                 |                              |                                                                                           |
-|                                 |                              |                                                                                           |
-+=================================+==============================+===========================================================================================+
-| Base Name                       | string                       | see the "Constructing iSCSI names using the iqn. format" section of :rfc:`3721`           |
-|                                 |                              | if you are unfamiliar with this format                                                    |
-|                                 |                              |                                                                                           |
-+---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-| ISNS Servers                    | string                       | space delimited list of hostnames or IP addresses of ISNS server(s) to register the       |
-|                                 |                              | system's iSCSI targets and portals with                                                   |
-|                                 |                              |                                                                                           |
-+---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-| Pool Available Space Threshold  | integer                      | input the percentage of free space that should remain in the pool; when this percentage   |
-|                                 |                              | is reached, the system will issue an alert, but only if zvols are used                    |
-|                                 |                              |                                                                                           |
-+---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
+   iSCSI Target Global Configuration Variables
+
+
+.. _iscsi_targ_global_config_tab:
+
+.. table:: **Target Global Configuration Settings**
+
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
+   | **Setting**                     | **Value**                    | **Description**                                                                           |
+   |                                 |                              |                                                                                           |
+   |                                 |                              |                                                                                           |
+   +=================================+==============================+===========================================================================================+
+   | Base Name                       | string                       | see the "Constructing iSCSI names using the iqn. format" section of :rfc:`3721`           |
+   |                                 |                              | if you are unfamiliar with this format                                                    |
+   |                                 |                              |                                                                                           |
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
+   | ISNS Servers                    | string                       | space delimited list of hostnames or IP addresses of ISNS server(s) to register the       |
+   |                                 |                              | system's iSCSI targets and portals with                                                   |
+   |                                 |                              |                                                                                           |
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
+   | Pool Available Space Threshold  | integer                      | input the percentage of free space that should remain in the pool; when this percentage   |
+   |                                 |                              | is reached, the system will issue an alert, but only if zvols are used                    |
+   |                                 |                              |                                                                                           |
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
+
 
 .. _Portals:
 
@@ -1623,44 +1767,52 @@ Portals
 A portal specifies the IP address and port number to be used for iSCSI
 connections.
 :menuselection:`Sharing --> Block (iSCSI) --> Portals --> Add Portal`
-will bring up the screen shown in Figure %chapternum%.5b.
+brings up the screen shown in
+:numref:`Figure %s <iscsi_add_portal_fig>`.
 
-Table %chapternum%.5b summarizes the settings that can be configured when adding
-a portal. If you need to assign additional IP addresses to the portal,
-click the link "Add extra Portal IP".
+:numref:`Table %s <iscsi_add_portal_fig>`
+summarizes the settings that can be configured when adding a portal.
+If you need to assign additional IP addresses to the portal, click the
+link "Add extra Portal IP".
 
-**Figure %chapternum%.5b: Adding an iSCSI Portal**
 
-.. image:: images/portal1.png
+.. _iscsi_add_portal_fig:
 
-**Table %chapternum%.5b: Portal Configuration Settings**
+.. figure:: images/portal1.png
 
-+-----------------------+----------------+-----------------------------------------------------------------------------+
-| **Setting**           | **Value**      | **Description**                                                             |
-|                       |                |                                                                             |
-|                       |                |                                                                             |
-+=======================+================+=============================================================================+
-| Comment               | string         | optional description; portals are automatically assigned a numeric group ID |
-|                       |                |                                                                             |
-+-----------------------+----------------+-----------------------------------------------------------------------------+
-| Discovery Auth Method | drop-down menu | configures the authentication level required by the target for discovery of |
-|                       |                | valid devices, where *None* will allow anonymous discovery while            |
-|                       |                | *CHAP* and                                                                  |
-|                       |                | *Mutual CHAP* require authentication                                        |
-|                       |                |                                                                             |
-+-----------------------+----------------+-----------------------------------------------------------------------------+
-| Discovery Auth Group  | drop-down menu | select a user created in "Authorized Access" if the "Discovery Auth Method" |
-|                       |                | is set to *CHAP* or                                                         |
-|                       |                | *Mutual CHAP*                                                               |
-|                       |                |                                                                             |
-+-----------------------+----------------+-----------------------------------------------------------------------------+
-| IP address            | drop-down menu | select the IP address associated with an interface or the wildcard address  |
-|                       |                | of *0.0.0.0* (any interface)                                                |
-|                       |                |                                                                             |
-+-----------------------+----------------+-----------------------------------------------------------------------------+
-| Port                  | integer        | TCP port used to access the iSCSI target; default is *3260*                 |
-|                       |                |                                                                             |
-+-----------------------+----------------+-----------------------------------------------------------------------------+
+   Adding an iSCSI Portal
+
+
+.. _iscsi_portal_conf_tab:
+
+.. table:: **Portal Configuration Settings**
+
+   +-----------------------+----------------+-----------------------------------------------------------------------------+
+   | **Setting**           | **Value**      | **Description**                                                             |
+   |                       |                |                                                                             |
+   |                       |                |                                                                             |
+   +=======================+================+=============================================================================+
+   | Comment               | string         | optional description; portals are automatically assigned a numeric group ID |
+   |                       |                |                                                                             |
+   +-----------------------+----------------+-----------------------------------------------------------------------------+
+   | Discovery Auth Method | drop-down menu | configures the authentication level required by the target for discovery of |
+   |                       |                | valid devices, where *None* will allow anonymous discovery while            |
+   |                       |                | *CHAP* and                                                                  |
+   |                       |                | *Mutual CHAP* require authentication                                        |
+   |                       |                |                                                                             |
+   +-----------------------+----------------+-----------------------------------------------------------------------------+
+   | Discovery Auth Group  | drop-down menu | select a user created in "Authorized Access" if the "Discovery Auth Method" |
+   |                       |                | is set to *CHAP* or                                                         |
+   |                       |                | *Mutual CHAP*                                                               |
+   |                       |                |                                                                             |
+   +-----------------------+----------------+-----------------------------------------------------------------------------+
+   | IP address            | drop-down menu | select the IP address associated with an interface or the wildcard address  |
+   |                       |                | of *0.0.0.0* (any interface)                                                |
+   |                       |                |                                                                             |
+   +-----------------------+----------------+-----------------------------------------------------------------------------+
+   | Port                  | integer        | TCP port used to access the iSCSI target; default is *3260*                 |
+   |                       |                |                                                                             |
+   +-----------------------+----------------+-----------------------------------------------------------------------------+
 
 
 %brand% systems with multiple IP addresses or interfaces can use a
@@ -1701,45 +1853,60 @@ The next step is to configure authorized initiators, or the systems
 which are allowed to connect to the iSCSI targets on the %brand%
 system. To configure which systems can connect, use
 :menuselection:`Sharing --> Block (iSCSI) --> Initiators
---> Add Initiator`, shown in Figure %chapternum%.5c.
-
-**Figure %chapternum%.5c: Adding an iSCSI Initiator**
-
-.. image:: images/initiator1.png
-
-Table %chapternum%.5c summarizes the settings that can be configured when adding
-an initiator.
-
-**Table %chapternum%.5c: Initiator Configuration Settings**
-
-+--------------------+-----------+--------------------------------------------------------------------------------------+
-| **Setting**        | **Value** | **Description**                                                                      |
-|                    |           |                                                                                      |
-+====================+===========+======================================================================================+
-| Initiators         | string    | use *ALL* keyword or a list of initiator hostnames separated by spaces               |
-|                    |           |                                                                                      |
-+--------------------+-----------+--------------------------------------------------------------------------------------+
-| Authorized network | string    | use *ALL* keyword or a network address with CIDR mask such as                        |
-|                    |           | *192.168.2.0/24*                                                                     |
-|                    |           |                                                                                      |
-+--------------------+-----------+--------------------------------------------------------------------------------------+
-| Comment            | string    | optional description                                                                 |
-|                    |           |                                                                                      |
-+--------------------+-----------+--------------------------------------------------------------------------------------+
+--> Add Initiator`, shown in
+:numref:`Figure %s <iscsi_add_initiator_fig>`.
 
 
-In the example shown in Figure %chapternum%.5d, two groups have been created.
-Group 1 allows connections from any initiator on any network; Group 2
-allows connections from any initiator on the *10.10.1.0/24* network.
-Click an initiator's entry to display its "Edit" and "Delete" buttons.
+.. _iscsi_add_initiator_fig:
+
+.. figure:: images/initiator1.png
+
+   Adding an iSCSI Initiator
+
+
+:numref:`Table %s <iscsi_initiator_conf_tab>`
+summarizes the settings that can be configured when adding an
+initiator.
+
+
+.. _iscsi_initiator_conf_tab:
+
+.. table:: **Initiator Configuration Settings**
+
+   +--------------------+-----------+--------------------------------------------------------------------------------------+
+   | **Setting**        | **Value** | **Description**                                                                      |
+   |                    |           |                                                                                      |
+   +====================+===========+======================================================================================+
+   | Initiators         | string    | use *ALL* keyword or a list of initiator hostnames separated by spaces               |
+   |                    |           |                                                                                      |
+   +--------------------+-----------+--------------------------------------------------------------------------------------+
+   | Authorized network | string    | use *ALL* keyword or a network address with CIDR mask such as                        |
+   |                    |           | *192.168.2.0/24*                                                                     |
+   |                    |           |                                                                                      |
+   +--------------------+-----------+--------------------------------------------------------------------------------------+
+   | Comment            | string    | optional description                                                                 |
+   |                    |           |                                                                                      |
+   +--------------------+-----------+--------------------------------------------------------------------------------------+
+
+
+In the example shown in
+:numref:`Figure %s <iscsi_initiator_conf_sample_fig>`,
+two groups have been created. Group 1 allows connections from any
+initiator on any network. Group 2 allows connections from any
+initiator on the *10.10.1.0/24* network. Click an initiator's entry to
+display its "Edit" and "Delete" buttons.
 
 .. note:: if you delete an initiator, a warning will indicate if any
-          targets or target/extent mappings depend upon the initiator.
-          If you confirm the delete, these will be deleted as well.
+   targets or target/extent mappings depend upon the initiator. If you
+   confirm the delete, these will be deleted as well.
 
-**Figure %chapternum%.5d: Sample iSCSI Initiator Configuration**
 
-.. image:: images/initiator2.png
+.. _iscsi_initiator_conf_sample_fig:
+
+.. figure:: images/initiator2.png
+
+   Sample iSCSI Initiator Configuration
+
 
 .. _Authorized Accesses:
 
@@ -1749,60 +1916,72 @@ Authorized Accesses
 If you will be using CHAP or mutual CHAP to provide authentication,
 you must create an authorized access in
 :menuselection:`Sharing --> Block (iSCSI) --> Authorized Accesses
---> Add Authorized Access`. This screen is shown in Figure %chapternum%.5e.
+--> Add Authorized Access`. This screen is shown in
+:numref:`Figure %s <iscsi_add_auth_access_fig>`.
 
-.. note:: this screen sets login authentication. This is different
-          from discovery authentication which is set in
-          `Target Global Configuration`_.
+.. note:: This screen sets login authentication. This is different
+   from discovery authentication which is set in
+   `Target Global Configuration`_.
 
-**Figure %chapternum%.5e: Adding an iSCSI Authorized Access**
 
-.. image:: images/authorized1.png
+.. _iscsi_add_auth_access_fig:
 
-Table %chapternum%.5d summarizes the settings that can be configured when adding
-an authorized access:
+.. figure:: images/authorized1.png
 
-**Table %chapternum%.5d: Authorized Access Configuration Settings**
+   Adding an iSCSI Authorized Access
 
-+-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-| **Setting** | **Value** | **Description**                                                                                                                  |
-|             |           |                                                                                                                                  |
-+=============+===========+==================================================================================================================================+
-| Group ID    | integer   | allows different groups to be configured with different authentication profiles; for instance, all users with a Group ID of *1*  |
-|             |           | will inherit the authentication profile associated with Group *1*                                                                |
-|             |           |                                                                                                                                  |
-+-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-| User        | string    | name of user account to create for CHAP authentication with the user on the remote system; many initiators default to using the  |
-|             |           | initiator name as the user                                                                                                       |
-|             |           |                                                                                                                                  |
-+-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-| Secret      | string    | password to be associated with "User"; the iSCSI standard requires that this be between 12 and 16 characters                     |
-|             |           |                                                                                                                                  |
-+-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-| Peer User   | string    | only input when configuring mutual CHAP; in most cases it will need to be the same value as "User"                               |
-|             |           |                                                                                                                                  |
-+-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-| Peer Secret | string    | the mutual secret password which **must be different than the "Secret"**; required if the "Peer User" is set                     |
-|             |           |                                                                                                                                  |
-+-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+
+:numref:`Table %s <iscsi_auth_access_config_tab>`
+summarizes the settings that can be configured when adding an
+authorized access:
+
+
+.. _iscsi_auth_access_config_tab:
+
+.. table:: **Authorized Access Configuration Settings**
+
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+   | **Setting** | **Value** | **Description**                                                                                                                  |
+   |             |           |                                                                                                                                  |
+   +=============+===========+==================================================================================================================================+
+   | Group ID    | integer   | allows different groups to be configured with different authentication profiles; for instance, all users with a Group ID of *1*  |
+   |             |           | will inherit the authentication profile associated with Group *1*                                                                |
+   |             |           |                                                                                                                                  |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+   | User        | string    | name of user account to create for CHAP authentication with the user on the remote system; many initiators default to using the  |
+   |             |           | initiator name as the user                                                                                                       |
+   |             |           |                                                                                                                                  |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+   | Secret      | string    | password to be associated with "User"; the iSCSI standard requires that this be between 12 and 16 characters                     |
+   |             |           |                                                                                                                                  |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+   | Peer User   | string    | only input when configuring mutual CHAP; in most cases it will need to be the same value as "User"                               |
+   |             |           |                                                                                                                                  |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
+   | Peer Secret | string    | the mutual secret password which **must be different than the "Secret"**; required if the "Peer User" is set                     |
+   |             |           |                                                                                                                                  |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
 
 
 .. note:: CHAP does not work with GlobalSAN initiators on Mac OS X.
 
+
 As authorized accesses are added, they will be listed under
-View Authorized Accesses. In the example shown in Figure %chapternum%.5f, three
-users
-(*test1*,
-*test2*, and
-*test3*) and two groups (
-*1* and
-*2*) have been created, with group 1 consisting of one CHAP user and
-group 2 consisting of one mutual CHAP user and one CHAP user. Click an
-authorized access entry to display its "Edit" and "Delete" buttons.
+"View Authorized Accesses". In the example shown in
+:numref:`Figure %s <iscsi_view_auth_access_fig>`,
+three users (*test1*, *test2*, and *test3*) and two groups
+(*1* and *2*) have been created, with group 1 consisting of one CHAP
+user and group 2 consisting of one mutual CHAP user and one CHAP user.
+Click an authorized access entry to display its "Edit" and "Delete"
+buttons.
 
-**Figure %chapternum%.5f: Viewing Authorized Accesses**
 
-.. image:: images/authorized2.png
+.. _iscsi_view_auth_access_fig:
+
+.. figure:: images/authorized2.png
+
+   Viewing Authorized Accesses
+
 
 .. _Targets:
 
@@ -1811,55 +1990,64 @@ Targets
 
 Next, create a Target using
 :menuselection:`Sharing --> Block (iSCSI) --> Targets --> Add Target`,
-as shown in Figure %chapternum%.5g. A target combines a portal ID, allowed
-initiator ID, and an authentication method. Table %chapternum%.5e summarizes the
-settings that can be configured when creating a Target.
+as shown in
+:numref:`Figure %s <iscsi_add_target_fig>`.
+A target combines a portal ID, allowed initiator ID, and an
+authentication method.
+:numref:`Table %s <iscsi_target_settings_tab>`
+summarizes the settings that can be configured when creating a Target.
 
 .. note:: an iSCSI target creates a block device that may be
-          accessible to multiple initiators. A clustered filesystem is
-          required on the block device, such as VMFS used by VMware
-          ESX/ESXi, in order for multiple initiators to mount the
-          block device read/write. If a traditional filesystem such as
-          EXT, XFS, FAT, NTFS, UFS, or ZFS is placed on the block
-          device, care must be taken that only one initiator at a time
-          has read/write access or the result will be filesystem
-          corruption. If you need to support multiple clients to the
-          same data on a non-clustered filesystem, use CIFS or NFS
-          instead of iSCSI or create multiple iSCSI targets (one per
-          client).
+   accessible to multiple initiators. A clustered filesystem is
+   required on the block device, such as VMFS used by VMware ESX/ESXi,
+   in order for multiple initiators to mount the block device
+   read/write. If a traditional filesystem such as EXT, XFS, FAT,
+   NTFS, UFS, or ZFS is placed on the block device, care must be taken
+   that only one initiator at a time has read/write access or the
+   result will be filesystem corruption. If multiple clients need
+   access to the same data on a non-clustered filesystem, use CIFS or
+   NFS instead of iSCSI, or create multiple iSCSI targets (one per
+   client).
 
-**Figure %chapternum%.5g: Adding an iSCSI Target**
 
-.. image:: images/target1a.png
+.. _iscsi_add_target_fig:
 
-**Table %chapternum%.5e: Target Settings**
+.. figure:: images/target1a.png
 
-+-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-| **Setting**                 | **Value**      | **Description**                                                                                             |
-|                             |                |                                                                                                             |
-|                             |                |                                                                                                             |
-+=============================+================+=============================================================================================================+
-| Target Name                 | string         | required value; base name will be appended automatically if it does not start with *iqn*                    |
-|                             |                |                                                                                                             |
-+-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-| Target Alias                | string         | optional user-friendly name                                                                                 |
-|                             |                |                                                                                                             |
-+-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-| Portal Group ID             | drop-down menu | leave empty or select number of existing portal to use                                                      |
-|                             |                |                                                                                                             |
-+-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-| Initiator Group ID          | drop-down menu | select which existing initiator group has access to the target                                              |
-|                             |                |                                                                                                             |
-+-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-| Auth Method                 | drop-down menu | choices are *None*,                                                                                         |
-|                             |                | *Auto*,                                                                                                     |
-|                             |                | *CHAP*, or                                                                                                  |
-|                             |                | *Mutual CHAP*                                                                                               |
-|                             |                |                                                                                                             |
-+-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-| Authentication Group number | drop-down menu | *None* or integer representing number of existing authorized access                                         |
-|                             |                |                                                                                                             |
-+-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   Adding an iSCSI Target
+
+
+.. _iscsi_target_settings_tab:
+
+.. table:: **Target Settings**
+
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | **Setting**                 | **Value**      | **Description**                                                                                             |
+   |                             |                |                                                                                                             |
+   |                             |                |                                                                                                             |
+   +=============================+================+=============================================================================================================+
+   | Target Name                 | string         | required value; base name will be appended automatically if it does not start with *iqn*                    |
+   |                             |                |                                                                                                             |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Target Alias                | string         | optional user-friendly name                                                                                 |
+   |                             |                |                                                                                                             |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Portal Group ID             | drop-down menu | leave empty or select number of existing portal to use                                                      |
+   |                             |                |                                                                                                             |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Initiator Group ID          | drop-down menu | select which existing initiator group has access to the target                                              |
+   |                             |                |                                                                                                             |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Auth Method                 | drop-down menu | choices are *None*,                                                                                         |
+   |                             |                | *Auto*,                                                                                                     |
+   |                             |                | *CHAP*, or                                                                                                  |
+   |                             |                | *Mutual CHAP*                                                                                               |
+   |                             |                |                                                                                                             |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Authentication Group number | drop-down menu | *None* or integer representing number of existing authorized access                                         |
+   |                             |                |                                                                                                             |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+
 
 .. _Extents:
 
@@ -1871,24 +2059,25 @@ to the iSCSI client. That something can be a device extent or a file
 extent:
 
 **Device extent:** virtualizes an unformatted physical disk, RAID
-controller, zvol, zvol snapshot, or an existing `HAST device
+controller, zvol, zvol snapshot, or an existing
+`HAST device
 <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/disks-hast.html>`_.
 
-Virtualizing a single disk is slow as there is no caching but
+Virtualizing a single disk is slow as there is no caching, but
 virtualizing a hardware RAID controller has higher performance due to
 its cache. This type of virtualization does a pass-through to the disk
 or hardware RAID controller. None of the benefits of ZFS are provided
 and performance is limited to the capabilities of the disk or
 controller.
 
-Virtualizing a zvol adds the benefits of ZFS such as its read cache
+Virtualizing a zvol adds the benefits of ZFS, such as its read cache
 and write cache. Even if the client formats the device extent with a
 different filesystem, as far as %brand% is concerned, the data
 benefits from ZFS features such as block checksums and snapshots.
 
-When determining whether or not to use a file or a device extent, be
-aware that a zvol is required to take advantage of all VAAI primitives
-and is recommended when using virtualization software as the iSCSI
+When determining whether to use a file or a device extent, be aware
+that a zvol is required to take advantage of all VAAI primitives and
+is recommended when using virtualization software as the iSCSI
 initiator. The ATS, WRITE SAME, XCOPY and STUN, primitives are
 supported by both file and device extents. The UNMAP primitive is
 supported by zvols and raw SSDs. The threshold warnings primitive is
@@ -1898,87 +2087,96 @@ fully supported by zvols and partially supported by file extents.
 advantage of a file extent is that you can create multiple exports per
 volume.
 
-.. warning::  for performance reasons and to avoid excessive
-              fragmentation, it is recommended to keep the used space
-              of the pool below 50% when using iSCSI. As required, you
-              can increase the capacity of an existing extent using
-              the instructions in :ref:`Growing LUNs`.
+.. warning:: For performance reasons and to avoid excessive
+   fragmentation, it is recommended to keep the used space of the pool
+   below 50% when using iSCSI. As required, you can increase the
+   capacity of an existing extent using the instructions in
+   :ref:`Growing LUNs`.
 
 To add an extent, go to
-:menuselection:`Services --> ISCSI --> Extents --> Add Extent`. In the
-example shown in Figure %chapternum%.5h, the device extent is using the
-:file:`export` zvol that was previously created from the
-:file:`/mnt/volume1` volume.
+:menuselection:`Services --> ISCSI --> Extents --> Add Extent`.
+In the example shown in
+:numref:`Figure %s <iscsi_adding_extent_fig>`,
+the device extent is using the :file:`export` zvol that was previously
+created from the :file:`/mnt/volume1` volume.
 
-Table %chapternum%.5f summarizes the settings that can be configured when
-creating an extent. Note that
-**file extent creation will fail if you do not append the name of the
-file to be created to the volume/dataset name.**
+:numref:`Table %s <iscsi_extent_conf_tab>`
+summarizes the settings that can be configured when creating an
+extent. Note that **file extent creation will fail if you do not
+append the name of the file to be created to the volume/dataset
+name.**
 
-**Figure %chapternum%.5h: Adding an iSCSI Extent**
 
-.. image:: images/extent2b.png
+.. _iscsi_adding_extent_fig:
 
-**Table %chapternum%.5f: Extent Configuration Settings**
+.. figure:: images/extent2b.png
 
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| **Setting**        | **Value**      | **Description**                                                                                                      |
-|                    |                |                                                                                                                      |
-+====================+================+======================================================================================================================+
-| Extent Name        | string         | name of extent; if the "Extent size" is not *0*, it cannot be an existing file within the volume/dataset             |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Extent Type        | drop-down menu | select from *File* or                                                                                                |
-|                    |                | *Device*                                                                                                             |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Serial             | string         | unique LUN ID; the default is generated from the system's MAC address                                                |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Path to the extent | browse button  | only appears if *File* is selected; either browse to an existing file and use                                        |
-|                    |                | *0* as the "Extent size",                                                                                            |
-|                    |                | **or** browse to the volume or dataset, click the "Close" button, append the "Extent Name" to the path, and specify  |
-|                    |                | a value in "Extent size"                                                                                             |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Device             | drop-down menu | only appears if *Device* is selected; select the unformatted disk, controller, zvol, zvol snapshot, or HAST device   |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Extent size        | integer        | only appears if *File* is selected; if the size is specified as                                                      |
-|                    |                | *0*, the file must already exist and the actual file size will be used; otherwise, specify the size of the file to   |
-|                    |                | create                                                                                                               |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Logical Block Size | drop-down menu | only override the default if the initiator requires a different block size                                           |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Disable Physical   | checkbox       | if the initiator does not support physical block size values over 4K (MS SQL), check this box                        |
-| Block Size         |                |                                                                                                                      |
-| Reporting          |                |                                                                                                                      |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Available Space    | string         | only appears if *File* or a zvol is selected; when the specified percentage of free space is reached, the system     |
-| Threshold          |                | will issue an alert                                                                                                  |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Comment            | string         | optional                                                                                                             |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Enable TPC         | checkbox       | if checked, an initiator can bypass normal access control and access any scannable target; this allows               |
-|                    |                | :command:`xcopy` operations otherwise blocked by access control                                                      |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Xen initiator      | checkbox       | check this box when using Xen as the iSCSI initiator                                                                 |
-| compat mode        |                |                                                                                                                      |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| LUN RPM            | drop-down menu | do **NOT** change this setting when using Windows as the initiator; only needs to be changed in large environments   |
-|                    |                | where the number of systems using a specific RPM is needed for accurate reporting statistics                         |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-| Read-only          | checkbox       | check this box to prevent the initiator from initializing this LUN                                                   |
-|                    |                |                                                                                                                      |
-+--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   Adding an iSCSI Extent
+
+
+.. _iscsi_extent_conf_tab:
+
+.. table:: **Extent Configuration Settings**
+
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | **Setting**        | **Value**      | **Description**                                                                                                      |
+   |                    |                |                                                                                                                      |
+   +====================+================+======================================================================================================================+
+   | Extent Name        | string         | name of extent; if the "Extent size" is not *0*, it cannot be an existing file within the volume/dataset             |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Extent Type        | drop-down menu | select from *File* or                                                                                                |
+   |                    |                | *Device*                                                                                                             |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Serial             | string         | unique LUN ID; the default is generated from the system's MAC address                                                |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Path to the extent | browse button  | only appears if *File* is selected; either browse to an existing file and use                                        |
+   |                    |                | *0* as the "Extent size",                                                                                            |
+   |                    |                | **or** browse to the volume or dataset, click the "Close" button, append the "Extent Name" to the path, and specify  |
+   |                    |                | a value in "Extent size"                                                                                             |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Device             | drop-down menu | only appears if *Device* is selected; select the unformatted disk, controller, zvol, zvol snapshot, or HAST device   |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Extent size        | integer        | only appears if *File* is selected; if the size is specified as                                                      |
+   |                    |                | *0*, the file must already exist and the actual file size will be used; otherwise, specify the size of the file to   |
+   |                    |                | create                                                                                                               |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Logical Block Size | drop-down menu | only override the default if the initiator requires a different block size                                           |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Disable Physical   | checkbox       | if the initiator does not support physical block size values over 4K (MS SQL), check this box                        |
+   | Block Size         |                |                                                                                                                      |
+   | Reporting          |                |                                                                                                                      |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Available Space    | string         | only appears if *File* or a zvol is selected; when the specified percentage of free space is reached, the system     |
+   | Threshold          |                | will issue an alert                                                                                                  |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Comment            | string         | optional                                                                                                             |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Enable TPC         | checkbox       | if checked, an initiator can bypass normal access control and access any scannable target; this allows               |
+   |                    |                | :command:`xcopy` operations otherwise blocked by access control                                                      |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Xen initiator      | checkbox       | check this box when using Xen as the iSCSI initiator                                                                 |
+   | compat mode        |                |                                                                                                                      |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | LUN RPM            | drop-down menu | do **NOT** change this setting when using Windows as the initiator; only needs to be changed in large environments   |
+   |                    |                | where the number of systems using a specific RPM is needed for accurate reporting statistics                         |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Read-only          | checkbox       | check this box to prevent the initiator from initializing this LUN                                                   |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+
 
 .. _Targets/Extents:
 
@@ -1987,32 +2185,41 @@ Target/Extents
 
 The last step is associating an extent to a target within
 :menuselection:`Sharing --> Block (iSCSI) --> Target/Extents
---> Add Target/Extent`. This screen is shown in Figure %chapternum%.5i. Use the
-drop-down menus to select the existing target and extent.
+--> Add Target/Extent`. This screen is shown in
+:numref:`Figure %s <iscsi_target_extent_fig>`.
+Use the drop-down menus to select the existing target and extent.
 
-**Figure %chapternum%.5i: Associating a Target With an Extent**
 
-.. image:: images/target2a.png
+.. _iscsi_target_extent_fig:
 
-Table %chapternum%.5g summarizes the settings that can be configured when
-associating targets and extents.
+.. figure:: images/target2a.png
 
-**Table %chapternum%.5g: Target/Extents Configuration Settings**
+   Associating a Target With an Extent
 
-+-------------+----------------+--------------------------------------------------------------------------------------------------------+
-| **Setting** | **Value**      | **Description**                                                                                        |
-|             |                |                                                                                                        |
-+=============+================+========================================================================================================+
-| Target      | drop-down menu | select the pre-created target                                                                          |
-|             |                |                                                                                                        |
-+-------------+----------------+--------------------------------------------------------------------------------------------------------+
-| LUN ID      | drop-down menu | the default of *Auto* will use the next available LUN ID; alternately, select the value of the ID or   |
-|             |                | type in the desired value                                                                              |
-|             |                |                                                                                                        |
-+-------------+----------------+--------------------------------------------------------------------------------------------------------+
-| Extent      | drop-down menu | select the pre-created extent                                                                          |
-|             |                |                                                                                                        |
-+-------------+----------------+--------------------------------------------------------------------------------------------------------+
+
+:numref:`Table %s <iscsi_target_extent_config_tab>`
+summarizes the settings that can be configured when associating
+targets and extents.
+
+
+.. _iscsi_target_extent_config_tab:
+
+.. table:: **Target/Extents Configuration Settings**
+
+   +-------------+----------------+--------------------------------------------------------------------------------------------------------+
+   | **Setting** | **Value**      | **Description**                                                                                        |
+   |             |                |                                                                                                        |
+   +=============+================+========================================================================================================+
+   | Target      | drop-down menu | select the pre-created target                                                                          |
+   |             |                |                                                                                                        |
+   +-------------+----------------+--------------------------------------------------------------------------------------------------------+
+   | LUN ID      | drop-down menu | the default of *Auto* will use the next available LUN ID; alternately, select the value of the ID or   |
+   |             |                | type in the desired value                                                                              |
+   |             |                |                                                                                                        |
+   +-------------+----------------+--------------------------------------------------------------------------------------------------------+
+   | Extent      | drop-down menu | select the pre-created extent                                                                          |
+   |             |                |                                                                                                        |
+   +-------------+----------------+--------------------------------------------------------------------------------------------------------+
 
 
 It is recommended to always associate extents to targets in a 1:1
@@ -2020,9 +2227,10 @@ manner, even though the GUI will allow multiple extents to be
 associated with the same target.
 
 Once iSCSI has been configured, don't forget to start it in
-:menuselection:`Services --> Control Services`. Click the red "OFF"
-button next to iSCSI. After a second or so, it will change to a blue
-ON, indicating that the service has started.
+:menuselection:`Services --> Control Services`.
+Click the red "OFF" button next to iSCSI. After a second or so, it
+will change to a blue ON, indicating that the service has started.
+
 
 #ifdef truenas
 .. _Fibre Channel Ports:
@@ -2036,12 +2244,15 @@ will appear as
 :menuselection:`Sharing --> Block (iSCSI/FC)`
 and an extra "Fibre Channel Ports" tab will be added. An example is
 seen in
-::numref:`Figure %s: Block (iSCSI) Screen <tn_fibre1>`.
+::numref:`Figure %s <tn_fibre1>`.
 
 .. _tn_fibre1:
 
 .. figure:: images/tn_fibre1.png
 
+   Block (iSCSI) Screen
+
+  
 Otherwise, the "Target Global Configuration" screen is the same as
 described in :ref:`Target Global Configuration`.
 
@@ -2049,7 +2260,9 @@ Since the "Portals", "Initiators", and "Authorized Access" screens
 only apply to iSCSI, they are marked as such and can be ignored when
 configuring Fibre Channel.
 
-As seen in :numref:`Figure %s: Add Target Screen <tn_fibre2>`, the
+As seen in
+:numref:`Figure %s <tn_fibre2>`,
+the
 :menuselection:`Targets --> Add Target`
 screen has an extra "Target Mode" option for indicating whether the
 target to create is iSCSI, Fibre Channel, or both.
@@ -2058,25 +2271,34 @@ target to create is iSCSI, Fibre Channel, or both.
 
 .. figure:: images/tn_fibre2.png
 
+   Add Target Screen
+
+
 If you select "Fibre Channel", this screen will change so that only
 the "Target Name" and "Target Alias" fields remain as those are the
 only applicable fields for a Fibre Channel connection. An example is
-seen in :numref:`Figure %s: Configuring a Fibre Channel Target
-<tn_fibre3>`.
+seen in
+:numref:`Figure %s <tn_fibre3>`.
 
 .. _tn_fibre3:
 
 .. figure:: images/tn_fibre3.png
 
+   Configuring a Fibre Channel Target
+
+
 The screens for adding an extent and associating a target are the same
 as described in :ref:`Extents` and :ref:`Targets/Extents`.
 
 An example of the "Fibre Channel Ports" screen is shown in
-:numref:`Figure %s: Configuring a Fibre Channel Port <tn_fibre4b>`.
+:numref:`Figure %s <tn_fibre4b>`.
 
 .. _tn_fibre4b:
 
 .. figure:: images/tn_fibre4b.png
+
+   Configuring a Fibre Channel Port
+
 
 This screen shows the status of each attached fibre channel port,
 where:
@@ -2089,7 +2311,7 @@ where:
 
 * **Disabled:** indicates that this fibre channel port is not in use.
 
-.. note:: the "Target" tab of :ref:`Reporting` provides Fibre Channel
+.. note:: The "Target" tab of :ref:`Reporting` provides Fibre Channel
    port bandwidth graphs.
 
 This example has also been configured for NPIV
@@ -2108,7 +2330,7 @@ details on how to configure zoning of virtual ports.
 
 To create the virtual ports on the TrueNAS® system, go to
 :menuselection:`System --> Tunables --> Add Tunable`
-and input the following:
+and enter the following:
 
    * **Variable:** input *hint.isp.X.vports*, replacing X with the
      number of the physical interface.
@@ -2121,9 +2343,9 @@ and input the following:
    * **Type:** make sure *loader* is selected.
 
 In the example shown in
-:numref:`Figure %s: Adding Virtual Ports <tn_npiv>`, two physical
-interfaces were each assigned 4 virtual ports. Note that two
-tunables were required, one for each physical interface. Once the
+:numref:`Figure %s <tn_npiv>`,
+two physical interfaces were each assigned 4 virtual ports. Note that
+two tunables were required, one for each physical interface. Once the
 tunables are created, the configured number of virtual ports will
 appear in the "Fibre Channel Ports" screen so that they can be
 associated with targets. They will also be advertised to the
@@ -2135,7 +2357,10 @@ bandwidth usage.
 .. _tn_npiv:
 
 .. figure:: images/tn_npiv.png
+
+   Adding Virtual Ports
 #endif truenas
+
 
 .. _Connecting to iSCSI:
 
@@ -2146,11 +2371,13 @@ In order to access the iSCSI target, clients will need to use iSCSI
 initiator software.
 
 An iSCSI Initiator client is pre-installed with Windows 7. A detailed
-how-to for this client can be found `here
+how-to for this client can be found
+`here
 <http://www.windowsnetworking.com/articles-tutorials/windows-7/Connecting-Windows-7-iSCSI-SAN.html>`__.
 A client for Windows 2000, XP, and 2003 can be found `here
 <http://www.microsoft.com/en-us/download/details.aspx?id=18986>`__.
-This `how-to
+This
+`how-to
 <http://blog.pluralsight.com/freenas-8-iscsi-target-windows-7>`_
 shows how to create an iSCSI target for a Windows 7 system.
 
@@ -2178,11 +2405,9 @@ should the command not exist on your Linux system.
 
 If you add a LUN while :command:`iscsiadm` is already connected, it
 will not see the new LUN until you rescan using
-:command:`iscsiadm -m node -R`.
-Alternately, use
+:command:`iscsiadm -m node -R`. Alternately, use
 :command:`iscsiadm -m discovery -t st -p portal_IP`
-to find the new LUN and
-:command:`iscsiadm -m node -T LUN_Name -l`
+to find the new LUN and :command:`iscsiadm -m node -T LUN_Name -l`
 to log into the LUN.
 
 Instructions for connecting from a VMware ESXi Server can be found at
@@ -2192,7 +2417,8 @@ Note that the requirements for booting vSphere 4.x off iSCSI differ
 between ESX and ESXi. ESX requires a hardware iSCSI adapter while ESXi
 requires specific iSCSI boot firmware support. The magic is on the
 booting host side, meaning that there is no difference to the %brand%
-configuration. See the `iSCSI SAN Configuration Guide
+configuration. See the
+`iSCSI SAN Configuration Guide
 <http://www.vmware.com/pdf/vsphere4/r41/vsp_41_iscsi_san_cfg.pdf>`_
 for details.
 
@@ -2201,6 +2427,7 @@ If you can see the target but not connect to it, check the
 
 If the LUN is not discovered by ESXi, make sure that promiscuous mode
 is set to "Accept" in the vSwitch.
+
 
 .. _Growing LUNs:
 
@@ -2215,6 +2442,7 @@ After the LUN is expanded using one of the methods below, use the
 tools from the initiator software to grow the partitions and the
 filesystems it contains.
 
+
 .. _Zvol Based LUN:
 
 Zvol Based LUN
@@ -2223,27 +2451,34 @@ Zvol Based LUN
 To grow a zvol based LUN, go to
 :menuselection:`Storage --> Volumes --> View Volumes`,
 highlight the zvol to be grown, and click its "Edit zvol" button. In
-the example shown in Figure %chapternum%.5j, the current size of the zvol named
-*zvol1* is 4GB.
+the example shown in
+:numref:`Figure %s <iscsi_zvol_lun_fig>`,
+the current size of the zvol named *zvol1* is 4GB.
 
-**Figure %chapternum%.5j: Editing an Existing Zvol**
+
+.. _iscsi_zvol_lun_fig:
 
 #ifdef freenas
-.. image:: images/grow1.png
+.. figure:: images/grow1.png
+
+   Editing an Existing Zvol
 #endif freenas
 #ifdef truenas
-.. image:: images/tn_grow.png
+.. figure:: images/tn_grow.png
+
+   Editing an Existing Zvol
 #endif truenas
 
-Input the new size for the zvol in the "Size" field and click the
+
+Enter the new size for the zvol in the "Size" field and click the
 "Edit ZFS Volume" button. This menu will close and the new size for
 the zvol will immediately show in the "Used" column of the
 "View Volumes" screen.
 
-.. note:: the GUI will not let you reduce (shrink) the size of the
-          zvol as doing so could result in loss of data. It also will
-          not let you increase the size of the zvol past 80% of the
-          volume size.
+.. note:: The GUI will not let you reduce (shrink) the size of the
+   zvol as doing so could result in loss of data. It also will not let
+   you increase the size of the zvol past 80% of the volume size.
+
 
 .. _File Extent Based LUN:
 
