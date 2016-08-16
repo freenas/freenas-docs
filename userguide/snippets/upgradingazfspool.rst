@@ -33,18 +33,23 @@ first:
 To perform the ZFS pool upgrade, go to
 :menuselection:`Storage --> Volumes --> View Volumes`
 and highlight the volume (ZFS pool) to upgrade. Click the "Upgrade"
-button as shown in Figure %chapternum%.5f.
+button as shown in
+:numref:`Figure %s <upgrading_zfs_pool_fig>`.
 
 .. note:: If the "Upgrade" button does not appear, the pool is
    already at the latest feature flags and does not need to be
    upgraded.
 
-**Figure %chapternum%.5f: Upgrading a ZFS Pool**
 
-.. image:: /images/pool1.png
+.. _upgrading_zfs_pool_fig:
 
-The warning message reminds you that a pool upgrade is
-irreversible. Click "OK" to proceed with the upgrade.
+.. figure:: images/pool1.png
+
+   Upgrading a ZFS Pool
+
+
+The warning reminds you that a pool upgrade is irreversible. Click
+"OK" to proceed with the upgrade.
 
 The upgrade itself only takes a few seconds and is non-disruptive.
 It is not necessary to stop any sharing services to upgrade the

@@ -28,18 +28,21 @@ section describes the configuration steps which are available from the
 wizard.
 #endif truenas
 
-:numref:`Figure %s: Configuration Wizard <wizard7>` shows the first
+:numref:`Figure %s <wizard7>` shows the first
 wizard configuration screen.
 
 .. _wizard7:
 
 .. figure:: images/wizard.png
 
+   Configuration Wizard
+
 .. note:: You can exit the wizard at any time by clicking the "Exit"
    button. However, exiting the wizard will not save any selections.
-   You can always restart the wizard again by clicking the "Wizard"
-   icon. Alternately, you can use the %brand% GUI to configure the
-   system, as described in the rest of this Guide.
+   The Wizard can always be run again by clicking the "Wizard" icon.
+   Alternately, the %brand% GUI can be used to configure the system,
+   as described in the rest of this Guide.
+
 
 #ifdef freenas
 This screen can be used to change the default language, keyboard map,
@@ -51,22 +54,25 @@ formatted into a ZFS pool.
 This first screen can be used to change the default language, keyboard
 map, and timezone. After making your selections, click "Next".
 
-.. note:: typically, a %brand% system ships with pre-configured
+.. note:: Typically, a %brand% system ships with pre-configured
    volumes. The screens shown in
-   :numref:`Figure %s: Volume Creation Wizard <wizard1>`
+   :numref:`Figure %s <wizard1>`
    and
-   :numref:`Figure %s: Volume Import Screen <wizard2>`
+   :numref:`Figure %s <wizard2>`
    will only appear if unformatted disks are available or the system
    has been reinstalled.
 #endif truenas
 
-:numref:`Figure %s: Volume Creation Wizard <wizard1>` shows the
+:numref:`Figure %s <wizard1>` shows the
 configuration screen that appears if the storage disks have not yet
 been formatted.
 
 .. _wizard1:
 
 .. figure:: images/wizard1.png
+
+   Volume Creation Wizard
+
 
 .. note:: the wizard will not recognize an **encrypted** ZFS pool. If
    your ZFS pool is GELI-encrypted, cancel the wizard and use the
@@ -76,7 +82,7 @@ been formatted.
    the volume has been imported and will not prompt to reformat the
    disks.
 
-Input a name for the ZFS pool that conforms to these
+Enter a name for the ZFS pool that conforms to these
 `naming conventions
 <http://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`_.
 It is recommended to choose a name that will stick out in the logs
@@ -87,13 +93,12 @@ It is recommended to choose a name that will stick out in the logs
 (e.g. **not** :file:`data` or :file:`truenas`).
 #endif truenas
 
-Next, decide if the pool should provide disk redundancy, and if so,
-which type. The :ref:`ZFS Primer` discusses RAIDZ redundancy in more
-detail. If you prefer to make a more complex configuration, click the
-"Exit" button to close the "Wizard" and instead use
-:ref:`Volume Manager`.
+Decide if the pool should provide disk redundancy, and if so, which
+type. The :ref:`ZFS Primer` discusses RAIDZ redundancy in more detail.
+If you prefer to make a more complex configuration, click the "Exit"
+button to close the "Wizard" and instead use :ref:`Volume Manager`.
 
-The following redundancy types are available:
+These redundancy types are available:
 
 * **Automatic:** automatically creates a mirrored, RAIDZ1, or RAIDZ2
   pool, depending upon the number of disks. If you prefer to control
@@ -118,28 +123,34 @@ Once you have made your selection, click "Next" to continue.
 If the disks have already been formatted with ZFS and the disks have
 **not** been encrypted, the next screen will instead prompt to import
 the volume, as shown in
-:numref:`Figure %s: Volume Import Screen <wizard2>`.
+:numref:`Figure %s <wizard2>`.
 #endif freenas
 #ifdef truenas
 If the system has been reinstalled and the disks are formatted as an
 unencrypted ZFS pool, a screen to import the volume will appear. This
 screen is shown in
-:numref:`Figure %s: Volume Import Screen <wizard2>`.
+:numref:`Figure %s <wizard2>`.
 #endif truenas
 
 .. _wizard2:
 
 .. figure:: images/wizard2.png
 
+   Volume Import Screen
+
+
 Select the existing volume from the drop-down menu and click "Next" to
 continue.
 
 The next screen in the wizard is shown in
-:numref:`Figure %s: Directory Service Selection <wizard3>`.
+:numref:`Figure %s <wizard3>`.
 
 .. _wizard3:
 
 .. figure:: images/wizard3.png
+
+   Directory Service Selection
+
 
 If the %brand% system is on a network that does not contain an Active
 Directory, LDAP, NIS, or NT4 server, click "Next" to skip to the next
@@ -151,7 +162,7 @@ and groups from that server, select the type of directory service in
 the "Directory Service" drop-down menu. The rest of the fields in this
 screen will vary, depending upon which directory service is selected.
 available configuration options for each directory service are
-summarized in tables
+summarized in Tables
 :numref:`%s <ad_options>`
 through
 :numref:`%s <nt4_options>`.
@@ -259,14 +270,17 @@ network shares.
 
 .. figure:: images/wizard4.png
 
+   Network Shares
+
+
 %brand% supports several types of shares for providing storage data
 to the clients in a network. The initial wizard can be used to quickly
 make shares using default permissions which should "just work" for
-common scenarios. If you wish to configure more complex scenarios,
-refer to the section on :ref:`Sharing`.
+common scenarios. For more complex scenarios, refer to the section on
+:ref:`Sharing`.
 
-To create a share using the wizard, input a name, then select the
-"Purpose" of the share:
+To create a share using the wizard, enter a name for the share, then
+select the "Purpose" of the share:
 
 * **Windows (CIFS):** this type of share can be accessed by any
   operating system using a CIFS client. Check the box for
@@ -294,15 +308,18 @@ To create a share using the wizard, input a name, then select the
 
 After selecting the "Purpose", click the "Ownership" button to see the
 screen shown in
-:numref:Figure %s: Share Permissions <wizard5>`.
+:numref:Figure %s <wizard5>`.
 
 .. _wizard5:
 
 .. figure:: images/wizard5.png
 
-The default permissions for the share will be displayed. To create a
-user or group, input the desired name, then check the "Create User"
-box, to create that user, and the "Create Group" box, to create that
+   Share Permissions
+
+
+The default permissions for the share are displayed. To create a user
+or group, enter the desired name, then check the "Create User"
+box to create that user and the "Create Group" box to create the
 group. Check or uncheck the boxes in the "Mode" section to set the
 initial access permissions for the share. When finished, click the
 "Return" button to return to the share creation screen. Click the
@@ -315,13 +332,16 @@ change, then press the "Update" button.
 
 When you are finished making shares, click the "Next" button to
 advance to the screen shown in
-:numref:`Figure %s: Miscellaneous Settings <wizard6>`.
+:numref:`Figure %s <wizard6>`.
 
 .. _wizard6:
 
 .. figure:: images/wizard6.png
 
-This screen can be used to configure the following settings:
+   Miscellaneous Settings
+
+
+This screen can be used to configure these settings:
 
 * **Console messages:** check this box if you would like to view
   system messages at the bottom of the graphical administrative
@@ -373,7 +393,7 @@ also wish to save a backup of the configuration database to the system
 being used to access the administrative graphical interface, go to
 :menuselection:`System --> General`, click the "Save Config" button,
 and browse to the directory to save the configuration to. **It is
-recommended to always backup your configuration after making any
+recommended to always back up your configuration after making any
 configuration changes**.
 
 #ifdef freenas
