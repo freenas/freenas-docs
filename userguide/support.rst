@@ -27,6 +27,7 @@ available to %brand% users:
 
 * :ref:`Training`
 
+
 .. _Website and Social Media:
 
 Website and Social Media
@@ -55,14 +56,13 @@ Users are welcome to network on the %brand% social media sites:
 Forums
 ------
 
-Another information source is the %brand% Forums which contain
-user-contributed tips and guides which have been categorized, making
-it an ideal resource if you wish to learn more about a certain aspect
-of %brand%. A searchbar is included should you wish to search by
-keyword; alternately, you can click a category to browse through the
-threads that exist for that topic.
+The FreeNAS® Forums are another information source which contains
+categorized user-contributed tips and guides. This makes it an ideal
+resource for learning more about a certain aspect of FreeNAS® and
+TrueNAS®. A search bar is included for searching by keyword. Or click
+a category to browse through the threads that exist for that topic.
 
-The following categories are available under **Forum Information:**
+These categories are available under **Forum Information:**
 
 * `Forum Guidelines
   <https://forums.freenas.org/index.php?forums/forum-guidelines-read-before-posting.26/>`_:
@@ -71,14 +71,14 @@ The following categories are available under **Forum Information:**
 * `Announcements
   <https://forums.freenas.org/index.php?forums/announcements.27/>`_:
   subscribe to this forum if you wish to receive announcements about
-  new %brand% versions and features.
+  new FreeNAS® and TrueNAS® versions and features.
 
-The following categories are available under **Help and Support:**
+These categories are available under **Help and Support:**
 
 * `New to FreeNAS?
   <https://forums.freenas.org/index.php?forums/new-to-freenas.5/>`_:
-  post here if you are new to %brand% and are unsure which category
-  best matches your question.
+  post here if you are new to FreeNAS® or TrueNAS® and are unsure
+  which category best matches your question.
 
 * `Feature Requests
   <https://forums.freenas.org/index.php?forums/feature-requests.6/>`_:
@@ -86,8 +86,8 @@ The following categories are available under **Help and Support:**
 
 * `Bug Reporting
   <https://forums.freenas.org/index.php?forums/bug-reporting.7/>`_:
-  use this forum if you think you have found a bug in %brand% and
-  want to discuss it before creating a support ticket.
+  use this forum if you think you have found a bug in FreeNAS® or
+  TrueNAS® and want to discuss it before creating a support ticket.
 
 * `Hardware
   <https://forums.freenas.org/index.php?forums/hardware.18/>`__: for
@@ -119,7 +119,7 @@ The following categories are available under **Help and Support:**
   <https://forums.freenas.org/index.php?forums/plugins.34/>`_:
   provides a discussion area for creating and troubleshooting PBIs.
 
-The following categories are available under **Development:**
+These categories are available under **Development:**
 
 * `FreeNAS
   <https://forums.freenas.org/index.php?forums/freenas.9/>`_: general
@@ -127,23 +127,24 @@ The following categories are available under **Development:**
 
 * `nanobsd
   <https://forums.freenas.org/index.php?forums/nanobsd.10/>`_: the
-  embedded operating system %brand% is based upon.
+  embedded operating system on which FreeNAS® and TrueNAS® are based.
 
 * `Django
   <https://forums.freenas.org/index.php?forums/django.11/>`_: the web
-  framework used by the %brand% graphical administrative interface.
+  framework used by the FreeNAS® and TrueNAS® graphical administrative
+  interface.
 
 * `Dojo Toolkit
   <https://forums.freenas.org/index.php?forums/dojo-toolkit.12/>`_:
   the javascript toolkit used to create widgets and handle client side
   processing.
 
-The following categories are available under **How-To Guides:**
+These categories are available under **How-To Guides:**
 
 * `Hacking
   <https://forums.freenas.org/index.php?forums/hacking.14/>`_:
-  undocumented tricks for getting the most out of your %brand%
-  system.
+  undocumented tricks for getting the most out of your FreeNAS® or
+  TrueNAS® system.
 
 * `Installation
   <https://forums.freenas.org/index.php?forums/installation.15/>`__:
@@ -162,33 +163,34 @@ The following categories are available under **How-To Guides:**
   <https://forums.freenas.org/index.php?forums/useful-scripts.47/>`_:
   user-contributed scripts.
 
-If you are looking for tips on how to test and increase the
-performance of your system, check out the `Performance
+For tips on testing and increasing the performance of your system,
+check out the
+`Performance
 <https://forums.freenas.org/index.php?forums/performance.37/>`_
 forum.
 
-The following categories are available under **Community Forum:**
+These categories are available under **Community Forum:**
 
 * `Off-topic
   <https://forums.freenas.org/index.php?forums/off-topic.23/>`_: want
-  to discuss something of interest to %brand% users but which is not
-  necessarily related to %brand%? This is your place.
+  to discuss something of interest to FreeNAS® and TrueNAS®% users but
+  which is not necessarily related to FreeNAS® or TrueNAS®? This is
+  the place.
 
 * `Resources
   <https://forums.freenas.org/index.php?forums/resources.24/>`_:
-
-  blogs, reviews, and other sources of %brand% information not listed 
-  at
+  blogs, reviews, and other sources of FreeNAS® and TrueNAS®
+  information not listed at
   `freenas.org <http://www.freenas.org/>`_.
 
 * `Introductions
   <https://forums.freenas.org/index.php?forums/introductions.25/>`_:
-  %brand% Community meet 'n greet - introduce yourself and let us
-  know who we are chatting with.
+  FreeNAS® and TrueNAS® Community meet 'n greet - introduce yourself
+  and let us know who we are chatting with.
 
-The following language-specific categories are available under
-**International**, allowing %brand% users to interact with each other
-in their native language:
+These language-specific categories are available under
+**International**, allowing FreeNAS® and TrueNAS® users to interact
+with each other in their native language:
 
 * `Dutch - Nederlands
   <http://forums.freenas.org/forumdisplay.php?35-Dutch-Nederlands>`_
@@ -234,6 +236,7 @@ When asking a question on the forum, it is important that you:
   email, also check the "and receive email notifications" box. That
   way you will be notified whenever anyone answers your question.
 
+
 .. index:: IRC
 .. _IRC:
 
@@ -243,8 +246,8 @@ IRC
 If you wish to ask a question in real time, you can try the *#freenas*
 channel on IRC
 `Freenode <http://freenode.net/index.shtml>`_.
-Depending upon the time of day and your time zone, a %brand%
-developer or other %brand% users may be available to assist you. If
+Depending upon the time of day and your time zone, FreeNAS® and
+TrueNAS® developers or other users may be available to assist you. If
 you do not get an answer right away, remain on the channel as other
 users tend to read the channel history in order to answer questions as
 they are able to.
@@ -277,17 +280,18 @@ mind:
   `pastebin <http://www.pastebin.com/>`_
   and paste the resulting URL into the IRC discussion.
 
+
 .. index:: Mailing Lists
 .. _Mailing Lists:
 
 Mailing Lists
 -------------
 
-Several %brand% mailing lists are available which allow users and
-developers to ask and answer questions related to the topic of the
-mailing list. To post an email to a list, you will need to subscribe
-to it first. Each mailing list is archived, allowing you to browse for
-information by date, thread name, or author.
+Several FreeNAS® and TrueNAS® mailing lists are available which allow
+users and developers to ask and answer questions related to the topic
+of the mailing list. To post an email to a list, you will need to
+subscribe to it first. Each mailing list is archived, allowing you to
+browse for information by date, thread name, or author.
 
 The following mailing lists are available:
 
@@ -298,45 +302,47 @@ The following mailing lists are available:
 
 * `Freenas-commit
   <http://lists.freenas.org/mailman/listinfo/freenas-commit>`_:
-  this is a read-only list. As code changes in the %brand%
+  this is a read-only list. As code changes in the FreeNAS®
   repository, the commit message is automatically sent to this list.
 
 * `Freenas-devel
   <http://lists.freenas.org/mailman/listinfo/freenas-devel>`_:
-  %brand% developers are subscribed to this list. Technical questions
-  about the current %brand% release can be posted here.
+  FreeNAS® developers are subscribed to this list. Technical questions
+  about the current FreeNAS® release can be posted here.
 
 * `Freenas-docs
   <http://lists.freenas.org/mailman/listinfo/freenas-docs>`_:
   this list is for discussion regarding
-  `%brand% documentation <http://doc.freenas.org/>`_.
+  `FreeNAS® documentation <http://doc.freenas.org/>`_.
 
 * `Freenas-testing
   <http://lists.freenas.org/mailman/listinfo/freenas-testing>`_:
-  %brand% developers are subscribed to this list. Technical questions
-  about the upcoming %brand% release and feedback on testing
+  FreeNAS® developers are subscribed to this list. Technical questions
+  about the upcoming FreeNAS® release and feedback on testing
   snapshots can be posted here.
 
 * `Freenas-translations
   <http://lists.freenas.org/mailman/listinfo/freenas-translations>`_:
   this list is for discussion regarding
-  `%brand% localization <http://pootle.freenas.org/>`_
+  `FreeNAS® localization <http://pootle.freenas.org/>`_
   and translating %brand% documentation.
 
-.. note:: the mailing lists were migrated from SourceForge to Mailman
-          in December, 2013. Archives of the SourceForge mailing lists
-          are available at `Gmane
-          <http://dir.gmane.org/index.php?prefix=gmane.os.freenas>`_.
+.. note:: The mailing lists were migrated from SourceForge to Mailman
+   in December, 2013. Archives of the SourceForge mailing lists are
+   available at
+   `Gmane
+   <http://dir.gmane.org/index.php?prefix=gmane.os.freenas>`_.
+
 
 .. _Videos:
 
 Videos
 ------
 
-A series of instructional videos are available for %brand%. They
-include:
+A series of instructional videos are available for FreeNAS® and
+TrueNAS®. They include:
 
-* `Changes in %brand% 9.3
+* `Changes in FreeNAS® 9.3
   <https://www.youtube.com/watch?v=weKWqmbWdR4>`_
 
 * `FreeNAS 9.3 Updates <https://www.youtube.com/watch?v=lC7af_ahwSE>`_
@@ -350,7 +356,7 @@ include:
 * `%brand% 9.3 Shares Overview (AFP, NFS, CIFS, + New WebDAV)
   <https://www.youtube.com/watch?v=GVJQ0Vx_6i4>`_
 
-* `How to Replace HDD in %brand% 9.3
+* `How to Replace HDD in FreeNAS® 9.3
   <https://www.youtube.com/watch?v=c8bvtj-LQ_A>`_
 
 * `TrueNAS 9.3 Snapshots Setup
@@ -382,6 +388,7 @@ In addition to the freely available community resources, professional
 support may be available through iXsystem's network of third-party
 consultants. Submit a support inquiry using the form at
 `<https://www.ixsystems.com/freenas-commercial-support/>`_.
+
 
 .. index:: Training
 .. _Training:
