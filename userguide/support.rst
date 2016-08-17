@@ -377,6 +377,9 @@ TrueNAS®. They include:
 * `FreeNAS 9.10 - Certificate Authority & SSL Certificates
   <https://www.youtube.com/watch?v=OT1Le5VQIc0>`_
 
+* `How to Update FreeNAS® 9.10
+  <https://www.youtube.com/watch?v=2nvb90AhgL8>`_
+
 
 .. index:: Professional Support
 .. _Professional Support:
