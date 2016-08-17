@@ -84,7 +84,7 @@ settings by checking the box "Show advanced fields by default" in
 
 .. _ad_fig:
 
-.. figure:: images/ad1.png
+.. figure:: images/active-dir1.png
 
    Configuring Active Directory
 
