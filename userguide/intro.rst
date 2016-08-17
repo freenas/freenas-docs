@@ -301,10 +301,6 @@ be found in this
 `forum post
 <https://forums.freenas.org/index.php?threads/checking-new-hdds-in-raid.12082/>`__.
 
-`This article <http://technutz.com/purpose-built-nas-hard-drives/>`_
-provides a good overview of hard drives which are well suited for a
-NAS.
-
 If the budget allows optimization of the disk subsystem, consider the
 read/write needs and RAID requirements:
 
