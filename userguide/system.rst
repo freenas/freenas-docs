@@ -72,7 +72,7 @@ end of the hostname.
 .. _system_info_fig:
 
 #ifdef freenas
-.. figure:: images/system1b.png
+.. figure:: images/system1c.png
 
    System Information Tab
 #endif freenas
