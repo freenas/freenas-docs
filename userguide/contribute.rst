@@ -17,6 +17,7 @@ This section demonstrates how you can:
 
 * :ref:`Localize`
 
+
 .. index:: Localize, Translate
 .. _Localize:
 
@@ -35,11 +36,16 @@ to use a translation submission tool.
 
 To see the status of a localization, open
 `pootle.freenas.org <http://pootle.freenas.org/>`_
-in a browser, as shown in Figure 25.1a:
+in a browser, as shown in
+:numref:`Figure %s <contribute_translate1_fig>`.
 
-**Figure 25.1a: %brand% Localization System**
 
-.. image:: images/translate.png
+.. _contribute_translate1_fig:
+
+.. figure:: images/translate.png
+
+   %brand% Localization System
+
 
 The localizations %brand% users have requested are listed
 alphabetically on the left. If your language is missing and you would
@@ -70,16 +76,18 @@ a translation, click the link for the language, click the %brand%
 link for the project, click the link for "LC_MESSAGES", and click the
 link for "django.po". Every text line available in the GUI menu
 screens has been assigned a string number. If you click the number, an
-editor will open to translate the text. In the example shown in Figure
-25.1b, a user has selected string number 46 in the German translation.
+editor will open to translate the text. In the example shown in
+:numref:`Figure %s <contribute_translate2_fig>`,
+a user has selected string number 46 in the German translation.
 The other strings in the screenshot have already been translated:
 
-**Figure 25.1b: Using the Pootle Interface to Edit a Translation
-String**
 
-.. image:: images/translate2.png
+.. _contribute_translate2_fig:
+
+.. figure:: images/translate2.png
+
+   Using the Pootle Interface to Edit a Translation String
+
 
 Type in the translated text and click the "Submit" button to save the
 change.
-
-

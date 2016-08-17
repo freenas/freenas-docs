@@ -513,8 +513,8 @@ The configurable settings are summarized in
    | Setting                                 | Value                            | Description                                                                  |
    |                                         |                                  |                                                                              |
    +=========================================+==================================+==============================================================================+
-   | Enable Console Menu                     | checkbox                         | unchecking this box removes the console menu shown in Figure 3a              |
-   |                                         |                                  |                                                                              |
+   | Enable Console Menu                     | checkbox                         | unchecking this box removes the console menu shown in                        |
+   |                                         |                                  | :numref:`Figure %s <console_setup_menu_fig>`                                 |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Use Serial Console                      | checkbox                         | do **not** check this box if your serial port is disabled                    |
    |                                         |                                  |                                                                              |
@@ -1662,7 +1662,7 @@ status of or add additional information to the report.
 
 #ifdef truenas
 The %brand% "Support" tab, shown in
-:numref:`Figure %s: Support Tab <tn_support1>`,
+:numref:`Figure %s <tn_support1>`,
 is used to view or update the system's license information. It also
 provides a built-in ticketing system for generating support
 requests.

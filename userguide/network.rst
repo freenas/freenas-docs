@@ -28,6 +28,7 @@ components for viewing and configuring network settings on the
 
 Each of these is described in more detail in this section.
 
+
 .. _Global Configuration:
 
 Global Configuration
@@ -38,6 +39,7 @@ shown in
 :numref:`Figure %s <global_net_config_fig>`,
 is for general network settings that are not unique to any particular
 network interface.
+
 
 .. _global_net_config_fig:
 
@@ -51,6 +53,7 @@ summarizes the settings on the Global Configuration tab.
 Hostname and domain fields are pre-filled as shown in
 :numref:`Figure %s <global_net_config_fig>`,
 but can be changed to meet requirements of the local network.
+
 
 .. _global_net_config_tab:
 
@@ -97,6 +100,7 @@ but can be changed to meet requirements of the local network.
    |                        |            |                                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
 
+
 When Active Directory is being used, set the IP address of the
 realm's DNS server in the "Nameserver 1" field.
 
@@ -117,6 +121,7 @@ address of the %brand% system in the "Host name database" field.
    static IP addresses. When a gateway to the Internet is added, make
    sure that the %brand% system is protected by a properly configured
    firewall.
+
 
 .. _Interfaces:
 
@@ -142,6 +147,7 @@ this screen require a network restart, the screen will turn red when
 the "OK" button is clicked and a pop-up message will point out that
 network connectivity to the %brand% system will be interrupted while
 the changes are applied.
+
 
 .. _add_net_interface_fig:
 
@@ -218,6 +224,7 @@ to both be set as primary addresses.  An error is shown if both the
 only one of these address fields and create an alias for the other
 address.
 
+
 .. _IPMI:
 
 IPMI
@@ -267,6 +274,7 @@ already familiar with IPMI management tools can use them instead.
 summarizes the options available when configuring IPMI with the
 %brand% GUI.
 
+
 .. _ipmi_config_fig:
 
 .. figure:: images/ipmi1.png
@@ -306,6 +314,7 @@ summarizes the options available when configuring IPMI with the
    |                      |                |                                                                             |
    +----------------------+----------------+-----------------------------------------------------------------------------+
 
+
 #ifdef freenas
 After configuration, the IPMI interface is accessed using a web
 browser and the IP address specified in the configuration. The
@@ -328,13 +337,14 @@ After logging in to the management interface, the administrative
 username can be changed and additional users can be created.
 
 Refer to
-:numref:`Figure %s: Launching the Java KVM Client <tn_IPMIdownload>`
+:numref:`Figure %s <tn_IPMIdownload>`
 through
-:numref:`Figure %s: Continue Through this Screen <tn_IPMIcontinue>`
+:numref:`Figure %s <tn_IPMIcontinue>`
 in
 :ref:`Out-of-Band Management` for additional instructions on how to
 configure the Java KVM Client used by the IPMI management interface.
 #endif truenas
+
 
 .. index:: Link Aggregation, LAGG, LACP, EtherChannel
 .. _Link Aggregations:
@@ -411,6 +421,7 @@ lagg interface itself.
 .. note:: When using LACP, verify that the switch is configured for
    active LACP, as passive LACP is not supported.
 
+
 .. _LACP, MPIO, NFS, and ESXi:
 
 LACP, MPIO, NFS, and ESXi
@@ -454,6 +465,7 @@ NFS. LACP does not work well to increase the bandwidth for
 point-to-point NFS (one server and one client). LACP is a good
 solution for link redundancy or for one server and many clients.
 
+
 .. _Creating a Link Aggregation:
 
 Creating a Link Aggregation
@@ -470,6 +482,7 @@ If any manually-configured interfaces exist, delete them as
 shows the configuration options when adding a lagg interface using
 :menuselection:`Network --> Link Aggregations
 --> Create Link Aggregation`.
+
 
 .. _create_lagg_fig:
 
@@ -506,6 +519,7 @@ may also have to be changed to communicate through the new lagg
 interface.  If the IP address was set manually, it might also be
 necessary to manually enter a default gateway from the console setup
 menu option to get access into the GUI through the new lagg interface.
+
 
 .. _lagg_edit_fig:
 
@@ -563,6 +577,7 @@ click its "Edit" button to see the configuration screen shown in
 :numref:`Figure %s <lagg_member_edit_fig>`.
 The configurable options are summarized in
 :numref:`Table %s <lagg_config_member_tab>`.
+
 
 .. _lagg_member_edit_fig:
 
@@ -623,6 +638,7 @@ command from :ref:`Shell`
 More information about this command can be found at
 `systat(1) <http://www.freebsd.org/cgi/man.cgi?query=systat>`_.
 
+
 .. _Network Summary:
 
 Network Summary
@@ -632,6 +648,7 @@ Network Summary
 shows a quick summary of the addressing information of every
 configured interface. For each interface name, the configured IPv4 and
 IPv6 addresses, DNS servers, and default gateway are displayed.
+
 
 .. index:: Route, Static Route
 .. _Static Routes:
@@ -644,6 +661,7 @@ route is required to reach portions of the network, add the route with
 :menuselection:`Network --> Static Routes --> Add Static Route`,
 shown in
 :numref:`Figure %s <add_static_route_fig>`.
+
 
 .. _add_static_route_fig:
 
@@ -679,6 +697,7 @@ The available options are summarized in
 Added static routes are shown in "View Static Routes". Click a route's
 entry to access the "Edit" and "Delete" buttons.
 
+
 .. index:: VLAN, Trunking, 802.1Q
 .. _VLANs:
 
@@ -710,6 +729,7 @@ Click
 to see the screen shown in
 :numref:`Figure %s <adding_vlan_fig>`.
 
+
 .. _adding_vlan_fig:
 
 .. figure:: images/vlan.png
@@ -719,6 +739,7 @@ to see the screen shown in
 
 :numref:`Table %s <adding_vlan_tab>`
 summarizes the configurable fields.
+
 
 .. _adding_vlan_tab:
 

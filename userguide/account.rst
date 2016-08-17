@@ -299,8 +299,8 @@ created or modified.
    | **Shell**    | **Description**                                                                                                      |
    |              |                                                                                                                      |
    +==============+======================================================================================================================+
-   | netcli.sh    | user can access the Console Setup menu shown in Figure 3a, even if it is disabled in                                 |
-   |              | :menuselection:`System --> Advanced --> Enable Console Menu`                                                         |
+   | netcli.sh    | user can access the Console Setup menu shown in :numref:`Figure %s <console_setup_menu_fig>`, even if it is          |
+   |              | disabled in :menuselection:`System --> Advanced --> Enable Console Menu`                                             |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
    | csh          | `C shell <https://en.wikipedia.org/wiki/C_shell>`_                                                                   |

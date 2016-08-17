@@ -308,11 +308,11 @@ This configuration screen is really a front-end to
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Server minimum protocol          | drop-down menu | the minimum protocol version the server will support where the default sets automatic                 |
-   |                                  |                | negotiation; refer to Table %chapternum%.3b for descriptions                                          |
+   |                                  |                | negotiation; refer to :numref:`Table %s <smb_protocol_ver_tab>` for descriptions                      |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Server maximum protocol          | drop-down menu | the maximum protocol version the server will support; refer to Table %chapternum%.3b for              |
-   |                                  |                | descriptions                                                                                          |
+   | Server maximum protocol          | drop-down menu | the maximum protocol version the server will support; refer to                                        |
+   |                                  |                | :numref:`Table %s <smb_protocol_ver_tab>` for descriptions                                            |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Allow execute always             | checkbox       | if checked, Samba will allow the user to execute a file, even if that user's permissions are not set  |
    |                                  |                | to execute                                                                                            |

@@ -992,14 +992,19 @@ continue running in the background, then later reattached. Unlike
 prompt while still providing access to the graphical administration
 screens.
 
-To start a session, simply type :command:`tmux`. As seen in Figure
-24.8a, a new session with a single window will open with a status line
-at the bottom of the screen. This line shows information on the
-current session and is used to enter interactive commands.
+To start a session, simply type :command:`tmux`. As seen in
+:numref:`Figure %s <cli_tmux_fig>`,
+a new session with a single window opens with a status line at the
+bottom of the screen. This line shows information on the current
+session and is used to enter interactive commands.
 
-**Figure 24.8a: tmux Session**
 
-.. image:: images/tmux.png
+.. _cli_tmux_fig:
+
+.. figure:: images/tmux.png
+
+   tmux Session
+
 
 To create a second window, press :kbd:`Ctrl+b` then :kbd:`"`. To close
 a window, type :command:`exit` within the window.
