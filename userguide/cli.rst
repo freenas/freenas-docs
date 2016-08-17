@@ -36,6 +36,7 @@ This section also describes the following utilities:
 * :ref:`Dmidecode`: reports information about system hardware as
   described in the system's BIOS
 
+
 .. index:: Iperf
 .. _Iperf:
 
@@ -50,12 +51,14 @@ to determine which type best performs on your network.
 %brand% includes the Iperf server. To perform network testing, you
 will need to install an Iperf client on a desktop system that has
 network access to the %brand% system. This section will demonstrate
-how to use the `xjperf GUI client
+how to use the
+`xjperf GUI client
 <http://code.google.com/p/xjperf/downloads/detail?name=jperf-2.0.2.zip>`_
 as it works on Windows, Mac OS X, Linux, and BSD systems.
 
 Since this client is java based, you will also need to install the
-appropriate `JRE
+appropriate
+`JRE
 <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
 for the client operating system.
 
@@ -64,13 +67,11 @@ operating system's package management system.
 
 To start xjperf on Windows: unzip the downloaded file, start Command
 Prompt in Run as administrator mode, :command:`cd` to the unzipped
-folder, and run
-:command:`jperf.bat`.
+folder, and run :command:`jperf.bat`.
 
 To start xjperf on Mac OS X, Linux, or BSD, unzip the downloaded file,
 :command:`cd` to the unzipped directory, type
-:command:`chmod u+x jperf.sh`, and run
-:command:`./jperf.sh`.
+:command:`chmod u+x jperf.sh`, and run :command:`./jperf.sh`.
 
 Once the client is ready, you need to start the Iperf server on
 %brand%. To see the available server options, open Shell and type::
@@ -139,20 +140,26 @@ For example, to perform a TCP test and start the server in daemon mode
  The Iperf daemon process ID: 4842
 
 
-.. note:: if you close Shell, the daemon process will stop. Have your
-          environment setup (e.g. shares configured and started)
-          **before** starting the iperf process.
+.. note:: If you close Shell, the daemon process will stop. Have your
+   environment set up (e.g. shares configured and started) **before**
+   starting the iperf process.
 
-From your desktop, open the client. Input the IP of address of the
+From your desktop, open the client. Enter the IP of address of the
 %brand% system, specify the running time for the test under
-:menuselection:`Application layer options --> Transmit` (the default
-test time is 10 seconds), and click the "Run Iperf!" button. Figure
-24.1a shows an example of the client running on a Windows system while
-an SFTP transfer is occurring on the network.
+:menuselection:`Application layer options --> Transmit`
+(the default test time is 10 seconds), and click the "Run Iperf!"
+button.
+:numref:`Figure %s <cli_view_iperf>`
+shows an example of the client running on a
+Windows system while an SFTP transfer is occurring on the network.
 
-**Figure 24.1a: Viewing Bandwidth Statistics Using xjperf**
 
-.. image:: images/iperf.png
+.. _cli_view_iperf:
+
+.. figure:: images/iperf.png
+
+   Viewing Bandwidth Statistics Using xjperf
+
 
 Depending upon the traffic being tested (e.g. the type of share
 running on your network), you may need to test UDP instead of TCP. To
@@ -189,6 +196,7 @@ determine which services are running on the %brand% system::
 When you are finished testing, either type :command:`killall iperf` or
 close Shell to terminate the iperf server process.
 
+
 .. index:: Netperf
 .. _Netperf:
 
@@ -205,8 +213,8 @@ server process using this command::
  Starting netserver with host 'IN(6)ADDR_ANY' port '12865' and family AF_UNSPEC
 
 The following command will display the available options for
-performing tests with the :command:`netperf` command. The `Netperf
-Manual 
+performing tests with the :command:`netperf` command. The
+`Netperf Manual
 <http://www.netperf.org/svn/netperf2/tags/netperf-2.6.0/doc/netperf.html>`_
 describes each option in more detail and explains how to perform many
 types of tests. It is the best reference for understanding how each
@@ -265,6 +273,7 @@ will only set the first parms and will leave the second at the default
 value. To set the second value it must be preceded with a comma or be
 a comma-separated pair. This is to retain previous netperf behaviour.
 
+
 .. index:: IOzone
 .. _IOzone:
 
@@ -313,9 +322,9 @@ generate incompressible test data, include the options
 Alternatively, consider temporarily disabling compression on the ZFS
 pool or dataset when running IOzone benchmarks.
 
-.. note:: if you prefer to visualize the collected data, scripts are
-          available to render IOzone's output in
-          `Gnuplot <http://www.gnuplot.info/>`_.
+.. note:: If you prefer to visualize the collected data, scripts are
+   available to render IOzone's output in
+   `Gnuplot <http://www.gnuplot.info/>`_.
 
 ::
 
@@ -424,6 +433,7 @@ pool or dataset when running IOzone benchmarks.
 	  -+P Service  Service of the PIT server.
 	  -+z Enable latency histogram logging.
 
+
 .. index:: arcstat
 .. _arcstat:
 
@@ -513,47 +523,51 @@ This command will display every 1 second for a count of five.
  06:19:07	255	0	0	0	0	0	0	0	0	153M	6.6G
 
 
-Table 24.4a briefly describes the columns in the output.
+:numref:`Table %s <cli_arcstat_columns_tab>`
+briefly describes the columns in the output.
 
-**Table 24.4a: arcstat Column Descriptions**
 
-+---------------------+-------------------------------------------------------------------------+
-| **Column**          | **Description**                                                         |
-|                     |                                                                         |
-+=====================+=========================================================================+
-| read                | total ARC accesses/second                                               |
-|                     |                                                                         |
-+---------------------+-------------------------------------------------------------------------+
-| miss                | ARC misses/second                                                       |
-|                     |                                                                         |
-+---------------------+-------------------------------------------------------------------------+
-| miss%               | ARC miss percentage                                                     |
-|                     |                                                                         |
-+---------------------+-------------------------------------------------------------------------+
-| dmis                | demand data misses/second                                               |
-|                     |                                                                         |
-+---------------------+-------------------------------------------------------------------------+
-| dm%                 | demand data miss percentage                                             |
-|                     |                                                                         |
-+---------------------+-------------------------------------------------------------------------+
-| pmis                | prefetch misses per second                                              |
-|                     |                                                                         |
-+---------------------+-------------------------------------------------------------------------+
-| pm%                 | prefetch miss percentage                                                |
-|                     |                                                                         |
-+---------------------+-------------------------------------------------------------------------+
-| mmis                | metadata misses/second                                                  |
-|                     |                                                                         |
-+---------------------+-------------------------------------------------------------------------+
-| mm%                 | metadata miss percentage                                                |
-|                     |                                                                         |
-+---------------------+-------------------------------------------------------------------------+
-| arcsz               | arc size                                                                |
-|                     |                                                                         |
-+---------------------+-------------------------------------------------------------------------+
-| c                   | arc target size                                                         |
-|                     |                                                                         |
-+---------------------+-------------------------------------------------------------------------+
+.. _cli_arcstat_columns_tab:
+
+.. table:: **arcstat Column Descriptions**
+
+   +---------------------+------------------------------------------+
+   | **Column**          | **Description**                          |
+   |                     |                                          |
+   +=====================+==========================================+
+   | read                | total ARC accesses/second                |
+   |                     |                                          |
+   +---------------------+------------------------------------------+
+   | miss                | ARC misses/second                        |
+   |                     |                                          |
+   +---------------------+------------------------------------------+
+   | miss%               | ARC miss percentage                      |
+   |                     |                                          |
+   +---------------------+------------------------------------------+
+   | dmis                | demand data misses/second                |
+   |                     |                                          |
+   +---------------------+------------------------------------------+
+   | dm%                 | demand data miss percentage              |
+   |                     |                                          |
+   +---------------------+------------------------------------------+
+   | pmis                | prefetch misses per second               |
+   |                     |                                          |
+   +---------------------+------------------------------------------+
+   | pm%                 | prefetch miss percentage                 |
+   |                     |                                          |
+   +---------------------+------------------------------------------+
+   | mmis                | metadata misses/second                   |
+   |                     |                                          |
+   +---------------------+------------------------------------------+
+   | mm%                 | metadata miss percentage                 |
+   |                     |                                          |
+   +---------------------+------------------------------------------+
+   | arcsz               | arc size                                 |
+   |                     |                                          |
+   +---------------------+------------------------------------------+
+   | c                   | arc target size                          |
+   |                     |                                          |
+   +---------------------+------------------------------------------+
 
 
 To receive a summary of statistics, use::
@@ -792,6 +806,7 @@ the change is not beneficial, change it back to the original value. If
 the change turns out to be beneficial, you can make it permanent by
 creating a "sysctl" using the instructions in :ref:`Tunables`.
 
+
 .. index:: tw_cli
 .. _tw_cli:
 
@@ -891,6 +906,7 @@ This `forum post
 <https://forums.freenas.org/index.php?threads/3ware-drive-monitoring.13835/>`__
 contains a handy wrapper script that will notify you of errors.
 
+
 .. index:: MegaCli
 .. _MegaCli:
 
@@ -907,6 +923,7 @@ The :command:`MegaCli` command is quite complex with several dozen
 options. The commands demonstrated in the `Emergency Cheat Sheet
 <http://tools.rapidsoft.de/perc/perc-cheat-sheet.html>`_ can get you
 started.
+
 
 .. index:: freenas-debug
 .. _freenas-debug:
@@ -959,6 +976,7 @@ debug file::
 
  more /var/tmp/fndebug
 
+
 .. index:: tmux
 .. _tmux:
 
@@ -1005,6 +1023,7 @@ These resources provide more information about using :command:`tmux`:
 
 * `TMUX - The Terminal Multiplexer
   <http://blog.hawkhost.com/2010/06/28/tmux-the-terminal-multiplexer/>`_
+
 
 .. index:: Dmidecode
 .. _Dmidecode:
