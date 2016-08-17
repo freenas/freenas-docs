@@ -58,9 +58,9 @@ Forums
 
 The FreeNAS® Forums are another information source which contains
 categorized user-contributed tips and guides. This makes it an ideal
-resource for learning more about a certain aspect of FreeNAS® and
-TrueNAS®. A search bar is included for searching by keyword. Or click
-a category to browse through the threads that exist for that topic.
+resource for learning more about a certain aspect of %brand%. A search
+bar is included for searching by keyword. Or click a category to
+browse through the threads that exist for that topic.
 
 These categories are available under **Forum Information:**
 
@@ -71,14 +71,14 @@ These categories are available under **Forum Information:**
 * `Announcements
   <https://forums.freenas.org/index.php?forums/announcements.27/>`_:
   subscribe to this forum if you wish to receive announcements about
-  new FreeNAS® and TrueNAS® versions and features.
+  new %brand% versions and features.
 
 These categories are available under **Help and Support:**
 
 * `New to FreeNAS?
   <https://forums.freenas.org/index.php?forums/new-to-freenas.5/>`_:
-  post here if you are new to FreeNAS® or TrueNAS® and are unsure
-  which category best matches your question.
+  post here if you are new to %brand% and are unsure which category
+  best matches your question.
 
 * `Feature Requests
   <https://forums.freenas.org/index.php?forums/feature-requests.6/>`_:
@@ -86,8 +86,8 @@ These categories are available under **Help and Support:**
 
 * `Bug Reporting
   <https://forums.freenas.org/index.php?forums/bug-reporting.7/>`_:
-  use this forum if you think you have found a bug in FreeNAS® or
-  TrueNAS® and want to discuss it before creating a support ticket.
+  use this forum if you think you have found a bug in %brand% and want
+  to discuss it before creating a support ticket.
 
 * `Hardware
   <https://forums.freenas.org/index.php?forums/hardware.18/>`__: for
@@ -127,12 +127,11 @@ These categories are available under **Development:**
 
 * `nanobsd
   <https://forums.freenas.org/index.php?forums/nanobsd.10/>`_: the
-  embedded operating system on which FreeNAS® and TrueNAS® are based.
+  embedded operating system on which %brand% is based.
 
 * `Django
   <https://forums.freenas.org/index.php?forums/django.11/>`_: the web
-  framework used by the FreeNAS® and TrueNAS® graphical administrative
-  interface.
+  framework used by the %brand% graphical administrative interface.
 
 * `Dojo Toolkit
   <https://forums.freenas.org/index.php?forums/dojo-toolkit.12/>`_:
@@ -143,8 +142,7 @@ These categories are available under **How-To Guides:**
 
 * `Hacking
   <https://forums.freenas.org/index.php?forums/hacking.14/>`_:
-  undocumented tricks for getting the most out of your FreeNAS® or
-  TrueNAS® system.
+  undocumented tricks for getting the most out of your %brand% system.
 
 * `Installation
   <https://forums.freenas.org/index.php?forums/installation.15/>`__:
@@ -173,24 +171,23 @@ These categories are available under **Community Forum:**
 
 * `Off-topic
   <https://forums.freenas.org/index.php?forums/off-topic.23/>`_: want
-  to discuss something of interest to FreeNAS® and TrueNAS®% users but
-  which is not necessarily related to FreeNAS® or TrueNAS®? This is
-  the place.
+  to discuss something of interest to %brand% users but which is not
+  necessarily related to %brand%? This is the place.
 
 * `Resources
   <https://forums.freenas.org/index.php?forums/resources.24/>`_:
-  blogs, reviews, and other sources of FreeNAS® and TrueNAS®
-  information not listed at
+  blogs, reviews, and other sources of %brand% information not listed
+  at
   `freenas.org <http://www.freenas.org/>`_.
 
 * `Introductions
   <https://forums.freenas.org/index.php?forums/introductions.25/>`_:
-  FreeNAS® and TrueNAS® Community meet 'n greet - introduce yourself
-  and let us know who we are chatting with.
+  %brand% Community meet 'n greet - introduce yourself and let us know
+  who we are chatting with.
 
 These language-specific categories are available under
-**International**, allowing FreeNAS® and TrueNAS® users to interact
-with each other in their native language:
+**International**, allowing %brand% users to interact with each other
+in their native language:
 
 * `Dutch - Nederlands
   <http://forums.freenas.org/forumdisplay.php?35-Dutch-Nederlands>`_
@@ -218,23 +215,23 @@ with each other in their native language:
 * `Turkish - Türkçe
   <http://forums.freenas.org/forumdisplay.php?36-Turkish-T%FCrk%E7e>`_
 
-If you wish to ask a question on the forum, you will need to click the
-"Sign Up Now!" link to create an account and login using that account.
+If you wish to ask a question on the forum, click the "Sign Up Now!"
+link to create an account and log in using that account.
 
-When asking a question on the forum, it is important that you:
+When asking a question on the forum, it is important to:
 
-* First check to see if the question has already been asked. If you
-  find a similar question, do not create a new thread. Instead use the
+* First check to see if the question has already been asked. If a
+  similar question exists, do not create a new thread. Instead use the
   "Reply" link at the bottom of the post to add your comments to the
   existing thread.
 
 * Review the available categories to see which one is most closely
   related to your question. Click on that category and use the
   "Post New Thread" button to open the editor. After typing your post
-  and before you click the "Create Thread" button, make sure the
-  "Watch this thread..." box is checked. If you want to be notified by
-  email, also check the "and receive email notifications" box. That
-  way you will be notified whenever anyone answers your question.
+  and before clicking the "Create Thread" button, make sure the
+  "Watch this thread..." box is checked. To be notified by email, also
+  check the "and receive email notifications" box. You will be
+  notified whenever anyone answers your question.
 
 
 .. index:: IRC
@@ -243,34 +240,31 @@ When asking a question on the forum, it is important that you:
 IRC
 ---
 
-If you wish to ask a question in real time, you can try the *#freenas*
-channel on IRC
+To ask a question in real time, you can use the *#freenas* channel on
+IRC
 `Freenode <http://freenode.net/index.shtml>`_.
-Depending upon the time of day and your time zone, FreeNAS® and
-TrueNAS® developers or other users may be available to assist you. If
-you do not get an answer right away, remain on the channel as other
-users tend to read the channel history in order to answer questions as
-they are able to.
+Depending on the time of day and your time zone, %brand% developers or
+other users may be available to provide assistance. If no one answers
+right away, remain on the channel, as other users tend to read the
+channel history to answer questions as time permits.
 
 Typically, an IRC `client
 <http://en.wikipedia.org/wiki/Comparison_of_Internet_Relay_Chat_clients>`_
-is used to access the *#freenas* IRC channel. Alternately, you can
-access the
+is used to access the *#freenas* IRC channel. Alternately, use
 `webchat <http://webchat.freenode.net/?channels=freenas>`_
-version of the channel from a web browser.
+from a web browser.
 
-To get the most out of the IRC channel, keep the following points in
-mind:
+To get the most out of the IRC channel, keep these points in mind:
 
-* Do not ask "can anyone help me?"; instead, just ask your question.
-  If someone knows the answer, they will try to assist you.
+* Do not ask "can anyone help me?"; instead, just ask the question.
+  If someone knows the answer, they will try to help.
 
 * Do not ask a question and then leave. Users who know the answer
   cannot help you if you disappear.
 
 * Do not take it personally if no one answers or demand that someone
   answers your question. Maybe no one who knows the answer is
-  available, maybe your question is really hard, or maybe it is a
+  available, maybe your question is really difficult, or maybe it is a
   question that has already been answered many times in the other
   support resources. Try asking again in a few hours or research the
   other resources to see if you have missed anything.
@@ -287,11 +281,11 @@ mind:
 Mailing Lists
 -------------
 
-Several FreeNAS® and TrueNAS® mailing lists are available which allow
-users and developers to ask and answer questions related to the topic
-of the mailing list. To post an email to a list, you will need to
-subscribe to it first. Each mailing list is archived, allowing you to
-browse for information by date, thread name, or author.
+Several %brand% mailing lists are available which allow users and
+developers to ask and answer questions related to the topic of the
+mailing list. To post an email to a list, you will need to subscribe
+to it first. Each mailing list is archived, allowing you to browse for
+information by date, thread name, or author.
 
 The following mailing lists are available:
 
@@ -325,7 +319,7 @@ The following mailing lists are available:
   <http://lists.freenas.org/mailman/listinfo/freenas-translations>`_:
   this list is for discussion regarding
   `FreeNAS® localization <http://pootle.freenas.org/>`_
-  and translating %brand% documentation.
+  and translating FreeNAS® documentation.
 
 .. note:: The mailing lists were migrated from SourceForge to Mailman
    in December, 2013. Archives of the SourceForge mailing lists are
@@ -339,42 +333,41 @@ The following mailing lists are available:
 Videos
 ------
 
-A series of instructional videos are available for FreeNAS® and
-TrueNAS®. They include:
+A series of instructional videos are available for %brand%:
 
 * `Changes in FreeNAS® 9.3
   <https://www.youtube.com/watch?v=weKWqmbWdR4>`_
 
 * `FreeNAS 9.3 Updates <https://www.youtube.com/watch?v=lC7af_ahwSE>`_
 
-* `How to Upgrade FreeNAS 9.3
+* `How to Upgrade FreeNAS® 9.3
   <https://www.youtube.com/watch?v=L61IJF98eP8>`_
 
-* `How to Install FreeNAS 9.3
+* `How to Install FreeNAS® 9.3
   <https://www.youtube.com/watch?v=k-mRgeDS8rk>`_
 
-* `%brand% 9.3 Shares Overview (AFP, NFS, CIFS, + New WebDAV)
+* `FreeNAS® 9.3 Shares Overview (AFP, NFS, CIFS, + New WebDAV)
   <https://www.youtube.com/watch?v=GVJQ0Vx_6i4>`_
 
 * `How to Replace HDD in FreeNAS® 9.3
   <https://www.youtube.com/watch?v=c8bvtj-LQ_A>`_
 
-* `TrueNAS 9.3 Snapshots Setup
+* `TrueNAS® 9.3 Snapshots Setup
   <https://www.youtube.com/watch?v=R92wb_xN9k4>`_
 
 * `Install Murmur (Mumble server) on FreeNAS/FreeBSD
   <https://www.youtube.com/watch?v=aAeZRNfarJc>`_
 
-* `FreeNAS 9.3 - First Time Setup Wizard
+* `FreeNAS® 9.3 - First Time Setup Wizard
   <https://www.youtube.com/watch?v=isvHJ51YRBk>`_
 
-* `%brand% 9.3 Permissions Overview
+* `FreeNAS® 9.3 Permissions Overview
   <https://www.youtube.com/watch?v=RBszScnsRgY>`_
 
-* `FreeNAS 9.3 iSCSI Overview
+* `FreeNAS® 9.3 iSCSI Overview
   <https://www.youtube.com/watch?v=HvyOWlFISdo&>`_
 
-* `FreeNAS 9.10 - Certificate Authority & SSL Certificates
+* `FreeNAS® 9.10 - Certificate Authority & SSL Certificates
   <https://www.youtube.com/watch?v=OT1Le5VQIc0>`_
 
 * `How to Update FreeNAS® 9.10
@@ -404,6 +397,6 @@ designed to accelerate your %brand% learning curve and to save you
 hours of learning by trial and error. %brand% training classes are
 1-4 hours in length, topic-specific, and provide the information you
 need to quickly get up to speed in %brand% and ZFS. Refer to the
-`FreeNAS Training and Certification website
+`FreeNAS® Training and Certification website
 <http://www.freenas.org/freenas-zfs-training/>`_ for more information
 about the courses, pricing, and availability.
