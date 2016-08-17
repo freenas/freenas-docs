@@ -1580,8 +1580,8 @@ summarizes the fields in this screen.
    |                |                            |                                                                                                              |
    +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Recursive      | checkbox                   | select this box to take separate snapshots of the volume/dataset and each of its child datasets; if          |
-   |                |                            | unchecked, only one snapshot is taken of the specified Volume/Dataset                                        |
-   |                |                            |                                                                                                              |
+   |                |                            | unchecked, a single snapshot is taken of only the specified volume/dataset, but not any child                |
+   |                |                            | datasets                                                                                                     |
    +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Lifetime       | integer and drop-down menu | how long to keep the snapshot on this system; if the snapshot is replicated, it is not removed from the      |
    |                |                            | receiving system when the lifetime expires                                                                   |
