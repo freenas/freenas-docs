@@ -54,13 +54,17 @@ to view and modify that group's membership.
 .. index:: Add Group, New Group, Create Group
 
 The "Add Group" button opens the screen shown in
-:numref:`Figure %s: Creating a New Group <new_group_fig>`.
+:numref:`Figure %s <new_group_fig>`.
 :numref:`Table %s <new_group_tab>`
 summarizes the available options when creating a group.
+
 
 .. _new_group_fig:
 
 .. figure:: images/group2.png
+
+   Creating a New Group
+
 
 .. _new_group_tab:
 
@@ -97,21 +101,26 @@ to move that user to the right frame. The user accounts which appear
 in the right frame are added as members of that group.
 
 In the example shown in
-:numref:`Figure %s: Assigning a User to a Group <user_group_fig>`,
+:numref:`Figure %s <user_group_fig>`,
 the *data1* group has been created and the *user1* user account has
 been created with a primary group of *user1*. The "Members" button for
 the *data1* group has been selected and *user1* has been added as a
 member of that group.
 
+
 .. _user_group_fig:
 
 .. figure:: images/group3.png
+
+   Assigning a User to a Group
+
 
 .. index:: Delete Group, Remove Group
 
 To delete a group, click its "Delete Group" button. The pop-up message
 asks if you also want to delete all members of that group. Note that
 the built-in groups do not provide a "Delete Group" button.
+
 
 .. index:: Users
 .. _Users:
@@ -139,11 +148,15 @@ on %brand%. To assign permissions to shares,
 :menuselection:`Account --> Users --> View Users` provides a listing
 of all of the system accounts that were installed with the %brand%
 operating system, as shown in
-:numref:`Figure %s: Managing User Accounts <managing_user_fig>`.
+:numref:`Figure %s <managing_user_fig>`.
+
 
 .. _managing_user_fig:
 
 .. figure:: images/user1a.png
+
+   Managing User Accounts
+
 
 Each account entry indicates the user ID, username, primary group ID,
 home directory, default shell, full name, whether it is a
@@ -180,7 +193,7 @@ not modify the system accounts.
 
 To create a user account, click the "Add User" button to open the
 screen shown in
-:numref:`Figure %s: Adding or Editing a User Account <add_user_fig>`.
+:numref:`Figure %s <add_user_fig>`.
 Some settings are only available in "Advanced Mode". To see these
 settings, either click the "Advanced Mode" button or configure the
 system to always display these settings by checking the box
@@ -190,9 +203,13 @@ system to always display these settings by checking the box
 summarizes the options which are available when user accounts are
 created or modified.
 
+
 .. _add_user_fig:
 
 .. figure:: images/user2.png
+
+   Adding or Editing a User Account
+
 
 .. _user_account_conf_tab:
 
@@ -203,12 +220,12 @@ created or modified.
    |                            |                 |                                                                                                                                                       |
    |                            |                 |                                                                                                                                                       |
    +============================+=================+=======================================================================================================================================================+
-   | User ID                    | integer         | greyed out if user already created; when creating an account, the next numeric ID will be suggested; by                                               |
+   | User ID                    | integer         | grayed out if user already created; when creating an account, the next numeric ID will be suggested; by                                               |
    |                            |                 | convention, user accounts have an ID greater than 1000 and system accounts have an ID equal to the default                                            |
    |                            |                 | port number used by the service                                                                                                                       |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Username                   | string          | greyed out if user already created; maximum 16 characters though a maximum of 8 is recommended for interoperability; cannot begin with a hyphen, if   |
+   | Username                   | string          | grayed out if user already created; maximum 16 characters though a maximum of 8 is recommended for interoperability; cannot begin with a hyphen, if   |
    |                            |                 | a *$* is used it can only be the last character, and it cannot contain a space, tab, or the characters                                                |
    |                            |                 | *, : + & # % ^ \ & ( ) ! @ ~ * ? < > = "*                                                                                                             |
    |                            |                 |                                                                                                                                                       |
@@ -246,11 +263,11 @@ created or modified.
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Disable password login     | checkbox        | when checked, disables password logins and authentication to CIFS shares; to undo this                                                                |
    |                            |                 | setting, set a password for the user using the "Modify User" button for the user in "View Users";                                                     |
-   |                            |                 | checking this box will grey out "Lock user" and "Permit Sudo" which are mutually exclusive                                                            |
+   |                            |                 | checking this box will gray out "Lock user" and "Permit Sudo" which are mutually exclusive                                                            |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Lock user                  | checkbox        | a checked box prevents user from logging in until the account is unlocked (box is unchecked); checking this                                           |
-   |                            |                 | box will grey out "Disable password login" which is mutually exclusive                                                                                |
+   |                            |                 | box will gray out "Disable password login" which is mutually exclusive                                                                                |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Permit Sudo                | checkbox        | if checked, members of the group have permission to use `sudo <http://www.sudo.ws/>`_; when using sudo, a user will be prompted for their own         |
@@ -268,6 +285,10 @@ created or modified.
    |                            |                 | groups                                                                                                                                                |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+.. note:: Some fields cannot be changed for built-in users and will be
+   grayed out.
+
 
 .. _shells_tab:
 
