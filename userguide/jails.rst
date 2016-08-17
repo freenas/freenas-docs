@@ -67,6 +67,7 @@ The rest of this section describes:
 
 * :ref:`Managing Jail Templates`
 
+
 .. _Jails Configuration:
 
 Jails Configuration
@@ -84,6 +85,7 @@ set to :file:`/mnt/volume1/dataset1` and a jail named *jail1* is
 created, it will be installed into its own dataset named
 :file:`/mnt/volume1/dataset1/jail1`.
 
+
 .. _global_jail_config_fig:
 
 .. figure:: images/jails1.png
@@ -97,6 +99,7 @@ created, it will be installed into its own dataset named
    appropriate for the jails and do not conflict with addresses used
    by other systems on the network.
 
+
 :numref:`Table %s <global_jail_config_opts_tab>`
 summarizes the fields in this configuration screen. Refer to the text
 below the table for more details on how to properly configure the
@@ -105,6 +108,7 @@ below the table for more details on how to properly configure the
 "Advanced Mode" button or configure the system to always display these
 settings by checking the box "Show advanced fields by default" in
 :menuselection:`System --> Advanced`.
+
 
 .. _global_jail_config_opts_tab:
 
@@ -201,6 +205,7 @@ After clicking the "Save" button to save the configuration, the system
 is ready to create and manage jails as described in the rest of this
 chapter.
 
+
 .. index:: Add Jail, New Jail, Create Jail
 .. _Adding Jails:
 
@@ -213,13 +218,15 @@ to access the screen shown in
 :numref:`Figure %s <creating_jail_fig>`.
 
 .. note:: the "Add Jail" menu item will not appear until after you
-          configure :menuselection:`Jails --> Configuration`.
+   configure :menuselection:`Jails --> Configuration`.
+
 
 .. _creating_jail_fig:
 
 .. figure:: images/jails3a.png
 
    Creating a Jail
+
 
 By default, the only required value to create a jail is a name.
 FreeBSD jails are created by default.
@@ -231,6 +238,7 @@ FreeBSD jail. To see these settings, either click the "Advanced Mode"
 button or configure the system to always display these settings by
 checking the box "Show advanced fields by default" in
 :menuselection:`System --> Advanced`.
+
 
 .. _jail_config_opts_tab:
 
@@ -359,14 +367,22 @@ and added to the "Jails" tab as well as in the tree menu under
 "Autostart" box.
 
 The first time a jail is added or used as a template, the GUI
-automatically downloads the necessary components from the Internet. A
+automatically downloads the necessary components from the internet. A
 progress bar indicates the status of the download and provides an
 estimated time for the process to complete. If it is unable to connect
-to the Internet, jail creation fails.
+to the internet, jail creation fails.
+
+#ifdef freenas
+.. warning:: Failure to download is often caused by the default
+   gateway not being set, preventing internet access. See the Network
+   :ref:`Global Configuration` section for information on setting the
+   default gateway.
+#endif freenas
 
 After the first jail is created or a template has been used,
 subsequent jails will be added very quickly because the downloaded
 base for creating the jail has been saved to the "Jail Root".
+
 
 .. _Managing Jails:
 
@@ -382,11 +398,13 @@ IP address, whether it will start automatically at system boot, if it
 is currently running, and jail type: *standard* for a FreeBSD jail, or
 *pluginjail* if it was installed using :ref:`Plugins`.
 
+
 .. _view_added_jails_fig:
 
 .. figure:: images/jails4a.png
 
    Viewing Added Jails
+
 
 From left to right, these configuration icons are available:
 
@@ -418,6 +436,7 @@ applications are inaccessible until it is restarted.
 **Shell:** access a *root* command prompt to configure the selected
 jail from the command line. When finished, type :command:`exit` to
 close the shell.
+
 
 .. _Accessing a Jail Using SSH:
 
@@ -471,6 +490,7 @@ fingerprint of the host::
    configuration. These steps must be repeated for each jail that
    requires SSH access.
 
+
 .. _Add Storage:
 
 Add Storage
@@ -493,11 +513,13 @@ This screen can also be accessed by expanding the jail name in the
 tree view and clicking
 :menuselection:`Storage --> Add Storage`.
 
+
 .. _adding_storage_jail_fig:
 
 .. figure:: images/jails5.png
 
    Adding Storage to a Jail
+
 
 Browse to the "Source" and "Destination", where:
 
@@ -574,11 +596,13 @@ left as checked. The resulting storage was added to the *freenas1*
 entry in the tree as :file:`/usr/local/test`. The user has clicked
 this :file:`/usr/local/test` entry to access the "Edit" screen.
 
+
 .. _jail_example_storage_fig:
 
 .. figure:: images/jails6.png
 
    Example Storage
+
 
 Storage is normally mounted as it is created. To unmount the storage,
 uncheck the "Mounted?" box.
@@ -599,6 +623,7 @@ To delete the storage, click its "Delete" button.
    deleted from the "Source" directory on the FreeNAS® system.**
    However, removing the jail storage entry only removes the pointer,
    leaving the data intact but not accessible from the jail.
+
 
 .. _Installing FreeBSD Packages:
 
@@ -680,6 +705,7 @@ with the operating system. Binaries are almost always located in a
 subdirectory called :file:`bin` or :file:`sbin` and configuration
 files in a subdirectory called :file:`etc`.
 
+
 .. _Compiling FreeBSD Ports:
 
 Compiling FreeBSD Ports
@@ -718,11 +744,13 @@ listing shows whether a port has any configurable compile options.
 :numref:`Figure %s <config_opts_audiotag_fig>`
 shows the "Configuration Options" for audiotag.
 
+
 .. _config_opts_audiotag_fig:
 
 .. figure:: images/ports1.png
 
    Configuration Options for Audiotag
+
 
 This port has five configurable options (DOCS, FLAC, ID3, MP4,
 and VORBIS) and each option is enabled (on) by default.
@@ -755,11 +783,13 @@ is run, the configure screen shown in
 :numref:`Figure %s <config_set_audiotag_fig>`
 is displayed:
 
+
 .. _config_set_audiotag_fig:
 
 .. figure:: images/ports2.png
 
    Configuration Options for Audiotag Port
+
 
 Use the arrow keys to select an option and press :kbd:`spacebar`
 to toggle the value. When all the values are as desired, press
@@ -779,6 +809,7 @@ When the port is installed, it is registered in the same package
 database that manages packages. The same :command:`pkg info` command
 can be used to determine what was installed, as described in the
 previous section.
+
 
 .. _Starting Installed Software:
 
@@ -872,6 +903,7 @@ available::
  # NAME_dir="/usr/local/etc/openvpn"
  # --cd directory
 
+
 .. index:: phpVirtualBox Template, VirtualBox Template,
            VirtualBox Jail
 .. _Using the phpVirtualBox Template:
@@ -889,11 +921,13 @@ in use by another host or jail, and select *VirtualBox* from the
 "Template" drop-down menu. Press the "OK" button to begin the
 installation.
 
+
 .. _creating_phpvb_fig:
 
 .. figure:: images/jails7.png
 
    Creating a phpVirtualBox Instance
+
 
 After installation, enter the IP address of the VirtualBox jail into a
 web browser and enter the username and password *admin* into the login
@@ -901,11 +935,13 @@ screen. After authentication, the screen shown in
 :numref:`Figure %s <phpvb_interface_fig>`
 appears in the web browser.
 
+
 .. _phpvb_interface_fig:
 
 .. figure:: images/jails8.png
 
    phpVirtualBox Interface
+
 
 Click the "New" button to create virtual machines. The desired
 operating systems and software can then be installed into the new
@@ -916,6 +952,7 @@ virtual machines.
    `forum post
    <https://forums.freenas.org/index.php?threads/enabling-autostart-of-virtualbox-vms-on-freenas.26503/>`_.
 
+
 .. _Managing Jail Templates:
 
 Managing Jail Templates
@@ -925,17 +962,19 @@ FreeNAS® supports the ability to add custom templates to the
 "Templates" drop-down menu described in
 :numref:`Table %s <jail_config_opts_tab>`.
 
-By default, FreeNAS® provides the *VirtualBox* template. To view the
+By default, %brand% provides the *VirtualBox* template. To view the
 default and any customized templates, click
 :menuselection:`Jails --> Templates`.
 A listing showing the default template is seen in
 :numref:`Figure %s <default_jail_templates_fig>`.
+
 
 .. _default_jail_templates_fig:
 
 .. figure:: images/jails9.png
 
    Default Jail Templates
+
 
 The listing contains these columns:
 
@@ -979,14 +1018,17 @@ To add the template, click
 which opens the screen shown in
 :numref:`Figure %s <adding_custom_jail_template_fig>`.
 
+
 .. _adding_custom_jail_template_fig:
 
 .. figure:: images/jails11a.png
 
    Adding A Custom Jail Template
 
+
 :numref:`Table %s <jail_template_opts_tab>`
 summarizes the fields in this screen.
+
 
 .. _jail_template_opts_tab:
 
@@ -1019,6 +1061,7 @@ summarizes the fields in this screen.
    |              |                |                                                                                               |
    +--------------+----------------+-----------------------------------------------------------------------------------------------+
 
+
 After adding a template, click the entry for the template to access
 the "Edit" and "Delete" buttons. Clicking a template's "Edit" button
 opens the configuration screen shown in
@@ -1028,16 +1071,19 @@ opens the configuration screen shown in
    *VirtualBox* template and the "Edit" button opens it as
    read-only.
 
+
 .. _edit_jail_template_fig:
 
 .. figure:: images/jails10a.png
 
    Editing Template Options
 
+
 Clicking a template's "Delete" button shows a warning message that
 prompts for confirmation of the deletion. Note that once a template is
 deleted, it is removed from the "Templates" drop-down menu and will no
 longer be available for creating new jails.
+
 
 .. index:: bhyve, iohyve
 .. _Using iohve:
