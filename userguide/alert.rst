@@ -7,12 +7,17 @@ Alert
 The %brand% alert system provides a visual warning of any conditions
 that require attention. The "Alert" button in the far
 right corner will flash red when there is an outstanding alert. In the
-example alert shown in Figure 22a, the system is warning that the
-S.M.A.R.T. service is not running.
+example alert shown in
+:numref:`Figure %s <alert_example_message_fig>`,
+the system is warning that the S.M.A.R.T. service is not running.
 
-**Figure 22a: Example Alert Message**
 
-.. image:: images/alert2a.png
+.. _alert_example_message_fig:
+
+.. figure:: images/alert2a.png
+
+   Example Alert Message
+
 
 Informational messages have a green "OK", warning messages
 flash yellow, and messages requiring attention are shown with a red
@@ -62,6 +67,7 @@ that trigger an alert include:
 * the status of an Avago MegaRAID SAS controller has changed;
   `mfiutil(8) <http://www.freebsd.org/cgi/man.cgi?query=mfiutil>`_
   is included for managing these devices
+
 
 An alert is also generated when the Avago HBA firmware version
 does not match the driver version. To resolve this alert, download the
