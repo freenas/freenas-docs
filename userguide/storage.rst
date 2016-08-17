@@ -1432,6 +1432,12 @@ reboot, you may lose access to the pool permanently.**
 #.  Highlight the pool that contains the disk you just replaced and
     click the "Encryption Re-key" button in the GUI. You will need to
     enter the *root* password.
+    #ifdef truenas
+
+    .. note:: A re-key is not allowed if :ref:`Failovers`
+       (High Availability) has been enabled and the standby node is
+       down.
+    #endif truenas
 
 #.  Highlight the pool that contains the disk you just replaced and
     click the "Create Passphrase" button and enter the new passphrase.
