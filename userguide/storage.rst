@@ -1183,7 +1183,7 @@ action. The "Destroy Dataset" screen forces you to check the box
 "I'm aware this will destroy all child datasets and snapshots within
 this dataset" before it will perform this action.
 
-**Edit Options:** edit the volume's properties described in 
+**Edit Options:** edit the volume's properties described in
 :numref:`Table %s <zfs_create_dataset>`.
 Note that it will not allow changing the dataset's name.
 
@@ -1258,6 +1258,11 @@ inaccessible.**
 this is only performed when the administrator suspects that the
 current key may be compromised. This action also removes the current
 passphrase.
+#ifdef truenas
+
+.. note:: A re-key is not allowed if :ref:`Failovers`
+   (High Availability) has been enabled and the standby node is down.
+#endif truenas
 
 **Add recovery key:** generates a new recovery key. This screen
 prompts for entry of the password used to access the %brand%
