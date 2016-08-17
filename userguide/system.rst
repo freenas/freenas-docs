@@ -1076,7 +1076,7 @@ screen.
 .. _update_options_fig:
 
 #ifdef freenas
-.. figure:: images/update1c.png
+.. figure:: images/update1d.png
 
    Update Options
 #endif freenas
