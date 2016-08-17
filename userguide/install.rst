@@ -325,7 +325,8 @@ menu shown in
 :numref:`Figure %s <fresh_install_fig>`
 is displayed.  To overwrite an existing installation, use the arrows
 to move to "Fresh Install" and press :kbd:`Enter` twice to continue to
-the screen shown in Figure 2.3f.
+the screen shown in
+:numref:`Figure %s <set_root_pass_fig>`.
 
 
 .. _fresh_install_fig:
@@ -373,7 +374,8 @@ is shown after the installation is complete.
    Installation Complete
 
 
-Press :kbd:`Enter` to return to the first menu, shown in Figure 2.3a.
+Press :kbd:`Enter` to return to the first menu, shown in
+:numref:`Figure %s <grub_menu_fig>`.
 Highlight "3 Reboot System" and press :kbd:`Enter`. If booting from
 CD, remove the CDROM. As the system reboots, make sure that the device
 where %brand% was installed is listed as the first boot entry in the
@@ -639,7 +641,6 @@ If an update fails, an alert is issued and the details are written to
 To return to a previous version of the operating system, physical or
 IPMI access to the %brand% console is needed. Reboot the system and
 watch for the boot menu. In the example shown in
-Figure 2.5e,
 :numref:`Figure %s <boot_menu_fig>`,
 the first boot menu entry, *FreeNAS (default)*, refers to the initial
 installation, before the update was applied. The second boot entry,
@@ -950,9 +951,10 @@ The New Virtual Machine Wizard will launch as shown in
 
 
 Click "Next" and enter a name for the virtual machine. Click "Next"
-and highlight a datastore. An example is shown in Figure 2.6m. Click
-"Next". In the screen shown in
-:numref:`Figure %s <esxi_datastore_fig>`,
+and highlight a datastore. An example is shown in
+:numref:`Figure %s <esxi_datastore_fig>`.
+Click "Next". In the screen shown in
+:numref:`Figure %s <esxi_os_fig>`,
 click "Other", then select a FreeBSD 64-bit architecture.
 
 

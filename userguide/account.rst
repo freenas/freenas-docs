@@ -44,6 +44,7 @@ to see a screen like
 
    Group Management
 
+
 All groups that came with the operating system will be listed. Each
 group has an entry indicating the group ID, group name, whether or not
 it is a built-in group which was installed with %brand%, and whether
