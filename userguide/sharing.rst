@@ -1043,8 +1043,8 @@ details for each configurable option.
    |                              |               | in the root folder of the share                                                                             |
    |                              |               |                                                                                                             |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Show Hidden Files            | checkbox      | only available in "Advanced Mode"; if enabled, will display filenames that begin with a dot (Unix hidden    |
-   |                              |               | files)                                                                                                      |
+   | Show Hidden Files            | checkbox      | only available in "Advanced Mode"; if enabled, the Windows hidden attribute is not set when filenames       |
+   |                              |               | that begin with a dot (a Unix hidden file) are created; existing files are not affected                     |
    |                              |               |                                                                                                             |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
    | Allow Guest Access           | checkbox      | if checked, no password is required to connect to the share and all users share the permissions of the      |
@@ -1063,8 +1063,8 @@ details for each configurable option.
    |                              |               | "Hosts Allow"                                                                                               |
    |                              |               |                                                                                                             |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | VFS Objects                  | selection     | only available in "Advanced Mode" and adds virtual file system modules to enhance functionality; Table      |
-   |                              |               | %chapternum%.4b summarizes the available modules                                                            |
+   | VFS Objects                  | selection     | only available in "Advanced Mode" and adds virtual file system modules to enhance functionality;            |
+   |                              |               | :numref:`Table %s <avail_vfs_modules_tab>` summarizes the available modules                                 |
    |                              |               |                                                                                                             |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
    | Periodic Snapshot Task       | drop-down     | used to configure home directory shadow copies on a per-share basis; select the pre-configured periodic     |
@@ -1109,7 +1109,7 @@ To configure lanman authentication for pre-NT authentication, add
 these lines instead::
 
  client lanman auth = yes
-  client plaintext auth = yes
+ client plaintext auth = yes
 
 :numref:`Table %s <avail_vfs_modules_tab>`
 provides an overview of the available VFS modules. Be sure to research
