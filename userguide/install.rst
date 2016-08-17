@@ -100,6 +100,7 @@ After writing the :file:`.iso` file to the installation media, make
 sure that the boot order in the BIOS is set to boot from that device,
 then boot the system to start the installation.
 
+
 .. _On FreeBSD or Linux:
 
 On FreeBSD or Linux
@@ -107,10 +108,12 @@ On FreeBSD or Linux
 
 On a FreeBSD or Linux system, the :command:`dd` command can be used to
 write the :file:`.iso` file to an inserted USB thumb drive or compact
-flash device. Example 2.2a demonstrates writing the image to the first
-USB device (*/dev/da0*) on a FreeBSD system. Substitute the filename
-of the :file:`.iso` file and the device name representing the device
-to write to on your system.
+flash device.
+:ref:`Example: Writing the *.iso* file to a USB Thumb Drive
+<install_write_iso_topic>`
+demonstrates writing the image to the first USB device (*/dev/da0*) on
+a FreeBSD system. Substitute the filename of the :file:`.iso` file and
+the device name representing the device to write to on your system.
 
 .. warning:: The :command:`dd` command is very powerful and can
    destroy any existing data on the specified device. Make
@@ -119,14 +122,16 @@ to write to on your system.
    uncomfortable using this command, write the :file:`.iso` file to a
    CD instead.
 
-**Example 2.2a: Writing the .iso file to a USB Thumb Drive**
+.. topic:: Writing the *.iso* file to a USB Thumb Drive
+   :name: install_write_iso_topic
 
-::
+   ::
 
- dd if=FreeNAS-9.10-RELEASE-x64.iso of=/dev/da0 bs=64k
- 6117+0 records in
- 6117+0 records out
- 400883712 bytes transferred in 88.706398 secs (4519220 bytes/sec)
+    dd if=FreeNAS-9.10-RELEASE-x64.iso of=/dev/da0 bs=64k
+    6117+0 records in
+    6117+0 records out
+    400883712 bytes transferred in 88.706398 secs (4519220 bytes/sec)
+
 
 When using the :command:`dd` command:
 
@@ -146,6 +151,7 @@ When using the :command:`dd` command:
 * **bs=** refers to the block size, the amount of data to write at a
   time. The larger 64K block size shown here helps speed up writes to
   the USB drive.
+
 
 .. _On OS X:
 
@@ -183,19 +189,24 @@ is the correct one for the USB stick, remove the device, run the
 command again, and compare the difference. Once you are sure of the
 device name, navigate to the Desktop from TERMINAL, unmount the USB
 stick, and use the :command:`dd` command to write the image to the USB
-stick. In Example 2.2b, the USB thumb drive is :file:`/dev/disk1`,
+stick. In
+:ref:`Example: Using *dd* on an OS X System <install_dd_osx_topic>`,
+the USB thumb drive is :file:`/dev/disk1`,
 which is first unmounted. The :command:`dd` command uses
 :file:`/dev/rdisk1` (note the extra *r*) to write to the raw device,
 which is faster. When running these commands, substitute the name of
 the installation file and the correct path to the USB thumb drive.
 
-**Example 2.2b: Using dd on an OS X System**
-::
 
- diskutil unmountDisk /dev/disk1
- Unmount of all volumes on disk1 was successful
+.. topic:: Example: Using *dd* on an OS X System
+   :name: install_dd_osx_topic
 
- dd if=FreeNAS-9.10-RELEASE-x64.iso of=/dev/rdisk1 bs=64k
+   ::
+
+    diskutil unmountDisk /dev/disk1
+    Unmount of all volumes on disk1 was successful
+
+    dd if=FreeNAS-9.10-RELEASE-x64.iso of=/dev/rdisk1 bs=64k
 
 .. note:: If the error "Resource busy" is shown when the
    :command:`dd` command is run, go to
@@ -210,6 +221,7 @@ the installation file and the correct path to the USB thumb drive.
 The :command:`dd` command can take some minutes to complete. Wait
 until the prompt returns and a message is displayed with information
 about how long it took to write the image to the USB drive.
+
 
 .. _On Windows:
 
@@ -233,6 +245,7 @@ With the installation media inserted, boot the system from that media.
 The %brand% installer GRUB menu is displayed as is shown in
 :numref:`Figure %s <grub_menu_fig>`.
 
+
 .. _grub_menu_fig:
 
 .. figure:: images/install1.png
@@ -253,11 +266,13 @@ installer. After the media has finished booting, the console setup
 menu is displayed as shown in
 :numref:`Figure %s <console_setup_fig>`.
 
+
 .. _console_setup_fig:
 
 .. figure:: images/install2.png
 
    Console Setup
+
 
 Press :kbd:`Enter` to select the default option, "1 Install/Upgrade".
 The next menu, shown in
@@ -269,11 +284,13 @@ In this example, the user is performing a test installation using
 VirtualBox and has created an 8 GB virtual disk to hold the operating
 system.
 
+
 .. _select_drive_fig:
 
 .. figure:: images/install3.png
 
    Selecting the Install Drive
+
 
 Use the arrow keys to highlight the destination USB drive, compact
 flash device, or virtual disk. Press the :kbd:`spacebar` to select it.
@@ -286,11 +303,13 @@ meant for storage. Press :kbd:`Enter` to continue on to the screen
 shown in
 :numref:`Figure %s <set_root_pass_fig>`.
 
+
 .. _install_warning_fig:
 
 .. figure:: images/cdrom3.png
 
    Installation Warning
+
 
 .. note:: At this time, the installer does not check the size of the
    install media before attempting an installation. A minimum size of
@@ -308,6 +327,7 @@ is displayed.  To overwrite an existing installation, use the arrows
 to move to "Fresh Install" and press :kbd:`Enter` twice to continue to
 the screen shown in Figure 2.3f.
 
+
 .. _fresh_install_fig:
 
 .. figure:: images/upgrade1.png
@@ -319,11 +339,13 @@ The screen shown in
 prompts for the *root* password
 which is used to log in to the administrative graphical interface.
 
+
 .. _set_root_pass_fig:
 
 .. figure:: images/install4.png
 
    Set the Root Password
+
 
 Setting a password is mandatory and the password cannot be blank.
 Since this password provides access to the administrative GUI, it
@@ -343,11 +365,13 @@ The message in
 :numref:`Figure %s <install_complete_fig>`
 is shown after the installation is complete.
 
+
 .. _install_complete_fig:
 
 .. figure:: images/cdrom4.png
 
    Installation Complete
+
 
 Press :kbd:`Enter` to return to the first menu, shown in Figure 2.3a.
 Highlight "3 Reboot System" and press :kbd:`Enter`. If booting from
@@ -356,6 +380,7 @@ where %brand% was installed is listed as the first boot entry in the
 BIOS so the system will boot from it. %brand% boots into the
 "Console Setup" menu described in
 :ref:`Initial Configuration Wizard`.
+
 
 .. _Installation Troubleshooting:
 
@@ -395,6 +420,7 @@ understand the partition which was written from the image file. Be
 very careful to specify the correct USB stick when using a wipe
 utility!
 
+
 .. index:: Upgrade
 .. _Upgrading:
 
@@ -425,6 +451,7 @@ up-to-date:
 This section describes how to perform an upgrade from an earlier
 version of %brand% to |release|. After |release| has been installed,
 use the instructions in :ref:`Update` to keep the system updated.
+
 
 .. _Caveats:
 
@@ -492,6 +519,7 @@ Be aware of these caveats **before** attempting an upgrade to
   <https://forums.freenas.org/index.php?threads/faq-upgrading-from-9-3-to-9-10.42964/>`_
   first.
 
+
 .. _Initial Preparation:
 
 Initial Preparation
@@ -515,6 +543,7 @@ Before upgrading the operating system, perform the following steps:
 #.  Stop all services in
     :menuselection:`Services --> Control Services`.
 
+
 .. _Upgrading Using the ISO:
 
 Upgrading Using the ISO
@@ -537,11 +566,13 @@ The installer will recognize that an earlier version of %brand% is
 installed on the device and will present the message shown in
 :numref:`Figure %s <upgrade_install_fig>`.
 
+
 .. _upgrade_install_fig:
 
 .. figure:: images/upgrade1.png
 
    Upgrading a %brand% Installation
+
 
 .. note:: If you choose a "Fresh Install", the backup of your
    configuration data must be restored using
@@ -557,11 +588,13 @@ unpacks the new image and displays the menu shown in
 The database file that is preserved and migrated contains your %brand%
 configuration settings.
 
+
 .. _preserve_migrate_fig:
 
 .. figure:: images/upgrade2.png
 
    Preserve and Migrate Settings
+
 
 Press :kbd:`Enter` and %brand% will indicate that the upgrade is
 complete and that you should reboot. Press "OK", highlight
@@ -579,6 +612,7 @@ administrative interface is accessible, go to
 and use the "Upload Config" button to upload the configuration that
 you saved before starting the upgrade.
 
+
 .. _Upgrading From the GUI:
 
 Upgrading From the GUI
@@ -592,6 +626,7 @@ connection as the %brand% system reboots into the new version of the
 operating system. The %brand% system will normally receive the same
 IP address from the DHCP server. Refresh your browser after a moment
 to see if you can access the system.
+
 
 .. _If Something Goes Wrong:
 
@@ -615,11 +650,13 @@ system will boot unless another entry is manually selected. Both
 entries include a date and timestamp showing when that boot
 environment was created.
 
+
 .. _boot_menu_fig:
 
 .. figure:: images/boot1.png
 
    Boot Menu
+
 
 To boot into the previous version of the operating system, use the up
 or down arrow to select it and press :kbd:`Enter`.
@@ -644,6 +681,7 @@ saved configuration. You can always:
 #ifdef freenas
 #include snippets/upgradingazfspool.rst
 #endif freenas
+
 
 .. index:: Virtualization, VM
 .. _Virtualization:
@@ -677,6 +715,7 @@ virtual machine that meets these minimum requirements:
 This section demonstrates how to create and access a virtual machine
 within VirtualBox and VMware ESXi environments.
 
+
 .. _VirtualBox:
 
 VirtualBox
@@ -695,17 +734,20 @@ button, shown in
 :numref:`Figure %s <vb_initial_fig>`,
 to start the new virtual machine wizard.
 
+
 .. _vb_initial_fig:
 
 .. figure:: images/virtualbox1.png
 
    Initial VirtualBox Screen
 
+
 Click the "Next" button to see the screen in
 :numref:`Figure %s <vb_nameos_fig>`.
 Enter a name for the virtual machine, click the "Operating System"
 drop-down menu and select BSD, and select "FreeBSD (64-bit)" from the
 "Version" dropdown.
+
 
 .. _vb_nameos_fig:
 
@@ -714,11 +756,13 @@ drop-down menu and select BSD, and select "FreeBSD (64-bit)" from the
    Type in a Name and Select the Operating System for the New Virtual
    Machine
 
+
 Click "Next" to see the screen in
 :numref:`Figure %s <vb_mem_fig>`.
 The base memory size must be changed to **at least 8192 MB**. When
 finished, click "Next" to see the screen in
 :numref:`Figure %s <vb_hd_fig>`.
+
 
 .. _vb_mem_fig:
 
@@ -726,15 +770,18 @@ finished, click "Next" to see the screen in
 
    Select the Amount of Memory Reserved for the Virtual Machine
 
+
 .. _vb_hd_fig:
 
 .. figure:: images/virtualbox4.png
 
    Select Existing or Create a New Virtual Hard Drive
 
+
 Click "Create" to launch the "Create Virtual Hard Drive Wizard" shown
 in
 :numref:`Figure %s <vb_virt_drive_fig>`.
+
 
 .. _vb_virt_drive_fig:
 
@@ -742,14 +789,17 @@ in
 
    Create New Virtual Hard Drive Wizard
 
+
 Select "VDI" and click the "Next" button to see the screen in
 :numref:`Figure %s <vb_virt_type_fig>`.
+
 
 .. _vb_virt_type_fig:
 
 .. figure:: images/virtualbox6.png
 
    Select Storage Type for Virtual Disk
+
 
 Choose either "Dynamically allocated" or "Fixed-size" storage. The
 first option uses disk space as needed until it reaches the maximum
@@ -761,11 +811,13 @@ option as it allows VirtualBox to run slightly faster. After selecting
 :numref:`Figure %s <vb_virt_filename_fig>`
 is shown.
 
+
 .. _vb_virt_filename_fig:
 
 .. figure:: images/virtualbox7.png
 
    Select File Name and Size of Virtual Disk
+
 
 This screen is used to set the size (or upper limit) of the virtual
 disk. **Increase the default size to 8 GB**. Use the folder icon to
@@ -780,21 +832,25 @@ click "Finish" to complete the wizard. The new virtual machine is
 listed in the left frame, as shown in the example in
 :numref:`Figure %s <vb_new_vm_fig>`.
 
+
 .. _vb_new_vm_fig:
 
 .. figure:: images/virtualbox8.png
 
    The New Virtual Machine
 
+
 Create the virtual disks to be used for storage. Click the "Storage"
 hyperlink in the right frame to access the storage screen seen in
 :numref:`Figure %s <vb_storage_settings_fig>`.
+
 
 .. _vb_storage_settings_fig:
 
 .. figure:: images/virtualbox9.png
 
    Storage Settings of the Virtual Machine
+
 
 Click the "Add Attachment" button, select "Add Hard Disk" from the
 pop-up menu, then click the "Create New Disk" button. This launches
@@ -813,11 +869,13 @@ Create a device for the installation media. Highlight the word
 "Empty", then click the "CD" icon as shown in
 :numref:`Figure %s <vb_config_iso_fig>`.
 
+
 .. _vb_config_iso_fig:
 
 .. figure:: images/virtualbox10.png
 
    Configuring ISO Installation Media
+
 
 Click "Choose a virtual CD/DVD disk file..." to browse to the location
 of the :file:`.iso` file. If the :file:`.iso` was burned to CD, select
@@ -842,6 +900,7 @@ menu. In the example shown in
 the Intel Pro/1000 Ethernet card is attached to the network and has a
 device name of *em0*.
 
+
 .. _vb_bridged_fig:
 
 .. figure:: images/virtualbox11.png
@@ -855,6 +914,7 @@ boot menu and select the primary hard disk as the boot option. You can
 permanently boot from disk by removing the "CD/DVD" device in
 "Storage" or by unchecking "CD/DVD-ROM" in the "Boot Order" section of
 "System".
+
 
 .. _VMware ESXi:
 
@@ -881,11 +941,13 @@ ESXi server. To create a new virtual machine, click
 The New Virtual Machine Wizard will launch as shown in
 :numref:`Figure %s <esxi_new_vm_fig>`.
 
+
 .. _esxi_new_vm_fig:
 
 .. figure:: images/esxi1a.png
 
    New Virtual Machine Wizard
+
 
 Click "Next" and enter a name for the virtual machine. Click "Next"
 and highlight a datastore. An example is shown in Figure 2.6m. Click
@@ -893,11 +955,13 @@ and highlight a datastore. An example is shown in Figure 2.6m. Click
 :numref:`Figure %s <esxi_datastore_fig>`,
 click "Other", then select a FreeBSD 64-bit architecture.
 
+
 .. _esxi_datastore_fig:
 
 .. figure:: images/esxi2a.png
 
    Select Datastore
+
 
 .. _esxi_os_fig:
 
@@ -905,15 +969,18 @@ click "Other", then select a FreeBSD 64-bit architecture.
 
    Select Operating System
 
+
 Click "Next" and create a virtual disk file of **8 GB** to hold the
 %brand% operating system, as shown in
 :numref:`Figure %s <esxi_create_disk_fig>`.
+
 
 .. _esxi_create_disk_fig:
 
 .. figure:: images/esxi4a.png
 
    Create Disk for the Operating System
+
 
 Click "Next" then "Finish". The new virtual machine is listed in the
 left frame. Right-click the virtual machine and select "Edit Settings"
@@ -925,6 +992,7 @@ to access the screen shown in
 .. figure:: images/esxi5a.png
 
    Virtual Machine Settings
+
 
 Increase the "Memory Configuration" to **at least 8192 MB**.
 
@@ -943,11 +1011,13 @@ check the box
 "Next", then "Next", then "Finish" to create the disk. Repeat to
 create the amount of storage disks needed to meet your requirements.
 
+
 .. _esxi_create_storage_fig:
 
 .. figure:: images/esxi6a.png
 
    Creating a Storage Disk
+
 
 For ESX 5.0, Workstation 8.0, or Fusion 4.0 or higher, additional
 configuration is needed so that the virtual HPET setting does not

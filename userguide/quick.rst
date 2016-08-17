@@ -103,69 +103,86 @@ will be returned to the database configuration, ZFS layout, and
 optionally the data, at the point when the backup was created. The
 system will reboot once the restore is complete.
 
-.. warning:: the backup and restore options are meant for disaster
-             recovery. If you restore a system, it will be returned to
-             the point in time that the backup was created. If you
-             select the option to save the data, any data created
-             after the backup was made will be lost. If you do **not**
-             select the option to save the data, the system will be
-             recreated with the same ZFS layout, but with **no** data.
+.. warning:: The backup and restore options are meant for disaster
+   recovery. If you restore a system, it will be returned to the point
+   in time that the backup was created. If you select the option to
+   save the data, any data created after the backup was made will be
+   lost. If you do **not** select the option to save the data, the
+   system will be recreated with the same ZFS layout, but with **no**
+   data.
 
-.. warning:: the backup function **IGNORES ENCRYPTED POOLS**. Do not
-             use it to backup systems with encrypted pools.
+.. warning:: The backup function **IGNORES ENCRYPTED POOLS**. Do not
+   use it to backup systems with encrypted pools.
 
 **13) Reboot:** reboots the system.
 
 **14) Shutdown:** halts the system.
 
-During boot, %brand% will automatically try to connect to a DHCP
+During boot, %brand% will automatically tries to connect to a DHCP
 server from all live interfaces. If it successfully receives an IP
-address, it will display the IP address which can be used to access
-the graphical console. In the example seen in Figure 2.5b, the
-%brand% system is accessible from *http://10.2.1.115*.
+address, the address is displayed so it can be used to access the
+graphical console. In the example seen in
+:numref:`Figure %s <console_setup_menu_fig>`,
+the %brand% system is accessible from *http://192.168.1.119*.
 
 If your %brand% server is not connected to a network with a DHCP
-server, you can use the network configuration wizard to manually
-configure the interface as seen in Example 3a. In this example, the
-%brand% system has one network interface (*em0*).
+server, use the network configuration wizard to manually configure the
+interface as seen in
+:ref:`Example: Manually Setting an IP Address from the Console Menu
+<quick_manual_ip_topic>`.
+In this example, the %brand% system has one network interface (*em0*).
 
-**Example 3a: Manually Setting an IP Address from the Console Menu**
-::
 
- Enter an option from 1-14: 1
- 1) em0
- Select an interface (q to quit): 1
- Delete existing config? (y/n) n
- Configure interface for DHCP? (y/n) n
- Configure IPv4? (y/n) y
- Interface name: (press enter as can be blank)
- Several input formats are supported
- Example 1 CIDR Notation: 192.168.1.1/24
- Example 2 IP and Netmask separate:
- IP: 192.168.1.1
- Netmask: 255.255.255.0, or /24 or 24
- IPv4 Address: 192.168.1.108/24
- Saving interface configuration: Ok
- Configure IPv6? (y/n) n
- Restarting network: ok
- You may try the following URLs to access the web user interface:
- http://192.168.1.108
+.. topic:: Manually Setting an IP Address from the Console Menu
+   :name: quick_manual_ip_topic
+
+   ::
+
+    Enter an option from 1-14: 1
+    1) em0
+    Select an interface (q to quit): 1
+    Delete existing config? (y/n) n
+    Configure interface for DHCP? (y/n) n
+    Configure IPv4? (y/n) y
+    Interface name: (press enter as can be blank)
+    Several input formats are supported
+    Example 1 CIDR Notation: 192.168.1.1/24
+    Example 2 IP and Netmask separate:
+    IP: 192.168.1.1
+    Netmask: 255.255.255.0, or /24 or 24
+    IPv4 Address: 192.168.1.108/24
+    Saving interface configuration: Ok
+    Configure IPv6? (y/n) n
+    Restarting network: ok
+    You may try the following URLs to access the web user interface:
+    http://192.168.1.108
+
 
 Once the system has an IP address, input that address into a graphical
 web browser from a computer capable of accessing the network
 containing the %brand% system. You should be prompted to input the
-password for the root user, as seen in Figure 3b.
+password for the root user, as seen
+:numref:`Figure %s <quick_enter_root_pass_fig>`.
 
-**Figure 3b: Input the Root Password**
 
-.. image:: images/login1.png
+.. _quick_enter_root_pass_fig:
+
+.. figure:: images/login1.png
+
+   Enter the Root Password
+
 
 Enter the password created during the installation. You should then
-see the administrative GUI as shown in the example in Figure 3c.
+see the administrative GUI as shown in the example in
+:numref:`Figure %s <quick_graphic_config_menu_fig>`.
 
-**Figure 3c: %brand% Graphical Configuration Menu**
 
-.. image:: images/initial1.png
+.. _quick_graphic_config_menu_fig:
+
+.. figure:: images/initial1.png
+
+   %brand% Graphical Configuration Menu
+
 
 If you are unable to access the IP address from a browser, check the
 following:
