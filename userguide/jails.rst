@@ -13,13 +13,13 @@ installation and management. Any software installed using "Jails" must
 be managed from the command line of the jail. If you prefer to use a
 GUI to manage software, use :ref:`Plugins` instead.
 
-While FreeNAS® automatically creates a jail whenever a plugin is
+While %brand% automatically creates a jail whenever a plugin is
 installed, it does not let the user install multiple plugins into the
 same jail. In contrast, using "Jails" allows users to create as many
 jails as needed and to customize the operating system and installed
 software within each jail.
 
-In FreeNAS® 9.x, two types of jails are supported:
+In %brand% 9.x, two types of jails are supported:
 
 #. By default, a
    `FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`_
@@ -41,7 +41,7 @@ In FreeNAS® 9.x, two types of jails are supported:
 
 It is important to understand that any users, groups, installed
 software, and configurations within a jail are isolated from both the
-FreeNAS® operating system and any other jails running on that system.
+%brand% operating system and any other jails running on that system.
 During creation, the *VIMAGE* option can be selected which will also
 provide that jail with its own, independent networking stack. This
 allows that jail to do its own IP broadcasting, which is required by
@@ -189,10 +189,10 @@ not install or which are unavailable, double-check that the IP address
 being used by the jail is not also being used by another jail or
 system in the network.
 
-FreeNAS® will automatically detect and display the "IPv4 Network" that
+%brand% will automatically detect and display the "IPv4 Network" that
 the administrative interface is connected to. This setting is
 important. The IP addresses used by the jails must be pingable from
-the FreeNAS® system for the jails and any installed software to be
+the %brand% system for the jails and any installed software to be
 accessible. If the network topology requires changing the default
 value, a default gateway and possibly a static route need to be added
 to the specified network. After changing this value, ensure that the
@@ -347,8 +347,8 @@ checking the box "Show advanced fields by default" in
    correct.
 
    The only time an IP address and mask are required for the bridge is
-   when the jail will be on a different network than the FreeNAS®
-   system. For example, if the FreeNAS® system is on the *10.0.0.0/24*
+   when the jail will be on a different network than the %brand%
+   system. For example, if the %brand% system is on the *10.0.0.0/24*
    network and the jail will be on the *192.168.0.0/24* network, set
    the "IPv4 bridge address" and "IPv4 bridge netmask" fields for the
    jail.
@@ -497,9 +497,9 @@ Add Storage
 ^^^^^^^^^^^
 
 It is possible to give a FreeBSD jail access to an area of storage on
-the FreeNAS® system. This is useful for applications that store a
+the %brand% system. This is useful for applications that store a
 large amount of data or if an application in a jail needs access to
-the data stored on the FreeNAS® system. One example is transmission,
+the data stored on the %brand% system. One example is transmission,
 which stores torrents. The storage is added using the
 `mount_nullfs(8)
 <http://www.freebsd.org/cgi/man.cgi?query=mount_nullfs>`_
@@ -523,12 +523,12 @@ tree view and clicking
 
 Browse to the "Source" and "Destination", where:
 
-* **Source:** is the directory or dataset on the FreeNAS® system
+* **Source:** is the directory or dataset on the %brand% system
   which will be accessed by the jail. This directory **must** reside
   outside of the volume or dataset being used by the jail. This is why
   it is recommended to create a separate dataset to store jails, so
   the dataset holding the jails is always separate from any datasets
-  used for storage on the FreeNAS® system.
+  used for storage on the %brand% system.
 
 * **Destination:** select an **existing, empty** directory within the
   jail to link to the "Source" storage area. If that directory does
@@ -537,12 +537,12 @@ Browse to the "Source" and "Destination", where:
 
 Storage is typically added because the user and group account
 associated with an application installed inside of a jail needs to
-access data stored on the FreeNAS® system. Before selecting the
+access data stored on the %brand% system. Before selecting the
 "Source", it is important to first ensure that the permissions of the
 selected directory or dataset grant permission to the user/group
 account inside of the jail. This is not the default, as the users and
 groups created inside of a jail are totally separate from the users
-and groups of the FreeNAS® system.
+and groups of the %brand% system.
 
 So the workflow for adding storage usually goes like this:
 
@@ -556,7 +556,7 @@ So the workflow for adding storage usually goes like this:
     the application name. Also, the UID and GID are usually the same
     as the port number used by the service.
 
-#.  On the FreeNAS® system, create a user account and group account
+#.  On the %brand% system, create a user account and group account
     that match the user and group names used by the application in
     the jail.
 
@@ -587,7 +587,7 @@ After storage has been added or created, it appears in the tree
 under the specified jail. In the example shown in
 :numref:`Figure %s <jail_example_storage_fig>`,
 a dataset named :file:`volume1/data` has been chosen as the "Source"
-as it contains the files stored on the FreeNAS® system. When the
+as it contains the files stored on the %brand% system. When the
 storage was created, the user browsed to
 :file:`volume1/jails/freebsd1/usr/local` in the "Destination" field,
 then entered *test* as the directory. Since this directory did not
@@ -617,10 +617,10 @@ uncheck the "Mounted?" box.
 To delete the storage, click its "Delete" button.
 
 .. warning:: It is important to realize that added storage is really
-   just a pointer to the selected storage directory on the FreeNAS®
+   just a pointer to the selected storage directory on the %brand%
    system. It does **not** copy that data to the jail. **Files that
    are deleted from the "Destination" directory in the jail are really
-   deleted from the "Source" directory on the FreeNAS® system.**
+   deleted from the "Source" directory on the %brand% system.**
    However, removing the jail storage entry only removes the pointer,
    leaving the data intact but not accessible from the jail.
 
@@ -652,7 +652,7 @@ dependencies successfully download and install.
 
 .. warning:: Some older versions of FreeBSD used package systems
    which are now obsolete. Do not use commands from those obsolete
-   package systems in a FreeNAS® jail, as they will cause
+   package systems in a %brand% jail, as they will cause
    inconsistencies in the jail's package management database. Use the
    current FreeBSD package system as shown in these examples.
 
@@ -730,12 +730,12 @@ Compiling a port has these disadvantages:
 
 * It takes time. Depending upon the size of the application, the
   amount of dependencies, the speed of the CPU, the amount of RAM
-  available, and the current load on the FreeNAS® system, the time
+  available, and the current load on the %brand% system, the time
   needed can range from a few minutes to a few hours or even to a few
   days.
 
 .. note:: If the port does not provide any compile options, it saves
-   time and preserves the FreeNAS® system's resources to just use the
+   time and preserves the %brand% system's resources to just use the
    :command:`pkg install` command instead.
 
 The
@@ -948,7 +948,7 @@ operating systems and software can then be installed into the new
 virtual machines.
 
 .. note:: By default, virtual machines are not started when the
-   FreeNAS® system boots. To configure auto-start, refer to this
+   %brand% system boots. To configure auto-start, refer to this
    `forum post
    <https://forums.freenas.org/index.php?threads/enabling-autostart-of-virtualbox-vms-on-freenas.26503/>`_.
 
@@ -958,7 +958,7 @@ virtual machines.
 Managing Jail Templates
 -----------------------
 
-FreeNAS® supports the ability to add custom templates to the
+%brand% supports the ability to add custom templates to the
 "Templates" drop-down menu described in
 :numref:`Table %s <jail_config_opts_tab>`.
 
@@ -1091,7 +1091,7 @@ longer be available for creating new jails.
 Using iohyve
 ------------
 
-Beginning with version |version|, FreeNAS® includes the
+Beginning with version |version|, %brand% includes the
 `iohyve <https://github.com/pr1ntf/iohyve>`_
 command line utility for creating, managing, and launching
 `bhyve <https://en.wikipedia.org/wiki/Bhyve>`_ guests.
