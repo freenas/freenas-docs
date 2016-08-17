@@ -107,6 +107,7 @@ conventions:
 * *italic text:* used to represent device names or text that is input
   into a GUI field.
 
+
 .. _Introduction:
 
 Introduction
@@ -121,6 +122,7 @@ A NAS has an operating system optimized for file storage and sharing.
 The built-in networking protocols provide storage access to multiple
 operating systems. A plugin system is provided for extending the
 built-in features by installing additional software.
+
 
 .. _What's New in |release|:
 
@@ -147,6 +149,7 @@ changes that have occurred since |version| was released.
 
 * Duplicate MAC addresses are not allowed in jails.
 
+
 .. index:: Hardware Recommendations
 .. _Hardware Recommendations:
 
@@ -170,7 +173,7 @@ processors.
 Actual hardware requirements vary depending on the usage of the
 %brand% system. This section provides some starter guidelines. See
 the
-`%brand% Hardware
+`FreeNAS® Hardware
 Forum <https://forums.freenas.org/index.php?forums/hardware.18/>`_
 for performance tips from other %brand% users or to post questions
 regarding the hardware best suited to meet your requirements. This
@@ -178,9 +181,10 @@ regarding the hardware best suited to meet your requirements. This
 <https://forums.freenas.org/index.php?threads/hardware-recommendations-read-this-first.23069/>`__
 provides some specific recommendations for those planning on
 purchasing hardware. Refer to
-`Building, Burn-In, and Testing your FreeNAS system
+`Building, Burn-In, and Testing your FreeNAS® system
 <https://forums.freenas.org/index.php?threads/building-burn-in-and-testing-your-freenas-system.17750/>`_
 for detailed instructions on how to test new hardware.
+
 
 .. _RAM:
 
@@ -234,6 +238,7 @@ for help in the forums or IRC are sometimes ignored when the installed
 system does not have at least 8 GB of RAM because of the abundance of
 information that %brand% may not behave properly with less memory.
 
+
 .. _Compact or USB Flash:
 
 Compact or USB Flash
@@ -245,7 +250,7 @@ compact flash, or SSD. Technically, it can also be installed onto a
 hard drive, but this is discouraged as that drive will then become
 unavailable for data storage.
 
-.. note:: to write the installation file to a USB stick, **two** USB
+.. note:: To write the installation file to a USB stick, **two** USB
    ports are needed, each with an inserted USB device. One USB stick
    contains the installer.  The other USB stick is the destination for
    the %brand% installation. Take care to select the correct USB
@@ -276,6 +281,7 @@ will be installed, keep these points in mind:
 - for a more reliable boot disk, use two identical devices and select
   them both during the installation. This will create a mirrored boot
   device.
+
 
 .. _Storage Disks and Controllers:
 
@@ -348,6 +354,7 @@ disks will only be able to use 2 TB of space on each disk. In general,
 use disks that are the same size for the best space usage and
 performance.
 
+
 .. _Network Interfaces:
 
 Network Interfaces
@@ -402,6 +409,7 @@ interface::
 If you find that WOL support is indicated but not working for a
 particular interface, create a bug report using the instructions in
 :ref:`Support`.
+
 
 .. _Getting Started with ZFS:
 
