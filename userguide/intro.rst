@@ -30,55 +30,8 @@ that you have permission to copy, distribute, translate, and adapt the
 work as long as you attribute iXsystems as the original source of the
 Guide.
 
-%brand% and the %brand% logo are registered trademarks of iXsystems.
+#include snippets/trademarks.rst
 
-Active Directory® is a registered trademark or trademark of Microsoft
-Corporation in the United States and/or other countries.
-
-Apple, Mac and Mac OS are trademarks of Apple Inc., registered in the
-U.S. and other countries.
-
-Chelsio® is a registered trademark of Chelsio Communications.
-
-Cisco® is a registered trademark or trademark of Cisco Systems, Inc.
-and/or its affiliates in the United States and certain other
-countries.
-
-Django® is a registered trademark of Django Software Foundation.
-
-Facebook® is a registered trademark of Facebook Inc.
-
-FreeBSD and the FreeBSD logo are registered trademarks of the FreeBSD
-Foundation.
-
-Fusion-io is a trademark or registered trademark of Fusion-io, Inc.
-
-Intel, the Intel logo, Pentium Inside, and Pentium are trademarks of
-Intel Corporation in the U.S. and/or other countries.
-
-LinkedIn® is a registered trademark of LinkedIn Corporation.
-
-Linux® is a registered trademark of Linus Torvalds.
-
-Marvell® is a registered trademark of Marvell or its affiliates.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates.
-
-Twitter is a trademark of Twitter, Inc. in the United States and other
-countries.
-
-UNIX® is a registered trademark of The Open Group.
-
-VirtualBox® is a registered trademark of Oracle.
-
-VMware® is a registered trademark of VMware, Inc.
-
-Wikipedia® is a registered trademark of the Wikimedia Foundation,
-Inc., a non-profit organization.
-
-Windows® is a registered trademark of Microsoft Corporation in the
-United States and other countries.
 
 **Typographic Conventions**
 
@@ -140,6 +93,9 @@ changes that have occurred since |version| was released.
    |version|. If a screen on your system looks different than the
    documentation, make sure that the system is fully up-to-date. If is
    is not, apply any outstanding updates.
+
+* Added support for Avago/Broadcom Cutlass (12 Gbps- 16 port count)
+  controllers.
 
 * When security certificates or SSH keys are generated, the
   fingerprints are logged in :file:`/var/log/messages`,
