@@ -25,7 +25,9 @@ available to %brand% users:
 
 * :ref:`Professional Support`
 
+#ifdef commented
 * :ref:`Training`
+#endif commented
 
 
 .. _Website and Social Media:
@@ -386,6 +388,7 @@ consultants. Submit a support inquiry using the form at
 `<https://www.ixsystems.com/freenas-commercial-support/>`_.
 
 
+#ifdef commented
 .. index:: Training
 .. _Training:
 
@@ -400,3 +403,4 @@ need to quickly get up to speed in %brand% and ZFS. Refer to the
 `FreeNAS® Training and Certification website
 <http://www.freenas.org/freenas-zfs-training/>`_ for more information
 about the courses, pricing, and availability.
+#endif commented
