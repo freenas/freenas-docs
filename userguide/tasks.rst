@@ -21,6 +21,10 @@ the following repetitive tasks:
 
 Each of these tasks is described in more detail in this section.
 
+.. note:: By default, :ref:`Scrubs` are run once a month by an
+   automatically-created task. :ref:`S.M.A.R.T. Tests` and
+   :ref:`Periodic Snapshot Tasks` must be set up manually.
+
 
 .. index:: Cron Jobs
 .. _Cron Jobs:
