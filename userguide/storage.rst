@@ -794,9 +794,19 @@ The
 screen, shown in
 :numref:`Figure %s <zfs_import_disk_fig>`,
 is used to import a **single** disk that has been formatted with the
-UFS, NTFS, MSDOS, or EXT2/3 filesystem. The import is meant to be a
+UFS, NTFS, MSDOS, or EXT2 filesystem. The import is meant to be a
 temporary measure to copy the data from a disk to an existing ZFS
 dataset. Only one disk can be imported at a time.
+
+.. note:: Imports of EXT3 or EXT4 filesystems are possible in some
+   cases, although neither is fully supported.  EXT3 journaling is not
+   supported, so those filesystems must have an external *fsck*
+   utility, like the one provided by
+   `E2fsprogs utilities <http://e2fsprogs.sourceforge.net/>`__,
+   run on them before import.  EXT4 filesystems with extended
+   attributes or inodes greater than 128 bytes are not supported.
+   EXT4 filesystems with EXT3 journaling must have an *fsck* run on
+   them before import, as described above.
 
 
 .. _zfs_import_disk_fig:
