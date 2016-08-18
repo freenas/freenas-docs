@@ -1096,12 +1096,20 @@ Beginning with version |version|, %brand% includes the
 command line utility for creating, managing, and launching
 `bhyve <https://en.wikipedia.org/wiki/Bhyve>`_ guests.
 
-.. note:: This type of virtualization requires an Intel or AMD
-   processor that reports the "POPCNT" (POPulation Count) processor
-   feature. To verify that the processor has this feature, type
-   :command:`grep POPCNT /var/run/dmesg.boot` from :ref:`Shell`. If
-   the prompt just returns, the CPU is not capable of running virtual
-   guests with :command:`iohyve`.
+.. note:: This type of virtualization requires an Intel processor with
+   Extended Page Tables (EPT) or an AMD processor with Rapid
+   Virtualization Indexing (RVI) or Nested Page Tables (NPT).
+
+   To verify that an Intel processor has the required features, use
+   :ref:`Shell` to run :command:`grep VT-x /var/run/dmesg.boot`. If
+   the *EPT* and *UG* features are shown, this processor can be used
+   with *bhyve* and *iohyve*.
+
+   To verify that an AMD processor has the required features, use
+   :ref:`Shell` to run :command:`grep POPCNT /var/run/dmesg.boot`. If
+   the output shows the POPCNT feature, this processor can be used
+   with *bhyve* and *iohyve*.
+
 
 Run this command to initialize iohyve, substituting the name of
 the pool to hold the bhyve guests and the name of the network
