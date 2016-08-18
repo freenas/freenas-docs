@@ -74,16 +74,16 @@ summarizes the configurable options when creating a cron job.
    | Short description | string                      | optional                                                                                                |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Minute            | slider or minute selections | if use the slider, cron job occurs every N minutes; if use minute selections, cron job occurs at the    |
-   |                   |                             | highlighted minutes                                                                                     |
+   | Minute            | slider or minute selections | with the slider, the cron job occurs every N minutes;                                                   |
+   |                   |                             | with minute selections, the cron job occurs at the highlighted minutes                                  |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Hour              | slider or hour selections   | if use the slider, cron job occurs every N hours; if use hour selections, cron job occurs at the        |
-   |                   |                             | highlighted hours                                                                                       |
+   | Hour              | slider or hour selections   | with the slider, the cron job occurs every N hours;                                                     |
+   |                   |                             | with hour selections, the cron job occurs at the highlighted hours                                      |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of month      | slider or month selections  | if use the slider, cron job occurs every N days; if use day selections, cron job occurs on the          |
-   |                   |                             | highlighted days each month                                                                             |
+   | Day of month      | slider or month selections  | with the slider, cron job occurs every N days;                                                          |
+   |                   |                             | with day selections, cron job occurs on the highlighted days each month                                 |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Month             | checkboxes                  | cron job occurs on the selected months                                                                  |
@@ -98,7 +98,7 @@ summarizes the configurable options when creating a cron job.
    | Redirect Stderr   | checkbox                    | disables emailing errors to the *root* user account                                                     |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Enabled           | checkbox                    | uncheck if you would like to disable the cron job without deleting it                                   |
+   | Enabled           | checkbox                    | uncheck disable the cron job without deleting it                                                        |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
 
@@ -615,8 +615,8 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
    | Type              | drop-down menu            | select type of test to run; see                                                                            |
    |                   |                           | `smartctl(8) <http://smartmontools.sourceforge.net/man/smartctl.8.html>`_                                  |
-   |                   |                           | for a description of each type of test (note that some test types will degrade performance or take disk(s) |
-   |                   |                           | offline)                                                                                                   |
+   |                   |                           | for a description of each type of test (note that some test types will degrade performance or take disks   |
+   |                   |                           | offline; do not schedule S.M.A.R.T. tests at the same time as a scrub or during a resilver operation)      |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
    | Short description | string                    | optional                                                                                                   |
@@ -642,9 +642,10 @@ a performance impact, as the disks prioritize normal I/O over the
 tests. If a disk fails a test, even if the overall status is "Passed",
 start to think about replacing that disk.
 
-.. warning:: Take care when creating your test schedule as performance
-   issues can occur when S.M.A.R.T. tests are run at the same time as
-   scrub or resilver operations.
+.. warning:: some S.M.A.R.T. tests cause heavy disk activity and
+   can drastically reduce disk performance. Do not schedule S.M.A.R.T.
+   tests to run at the same time as scrub or resilver operations or
+   during other periods of intense disk activity.
 
 You can verify which tests will run and when by typing
 :command:`smartd -q showtests` within :ref:`Shell`.
