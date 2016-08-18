@@ -41,6 +41,7 @@ ship with the %brand% system are configured, started, or stopped.
 This section demonstrates starting a %brand% service and the available
 configuration options for each %brand% service.
 
+
 .. index:: Start Service, Stop Service
 .. _Control Services:
 
@@ -52,6 +53,7 @@ Control Services
 allows you to quickly determine which services are currently running,
 and to start, stop, or configure services. Only the S.M.A.R.T. service
 is enabled by default.  Other services default to off until started.
+
 
 .. _control_services_fig:
 
@@ -79,6 +81,7 @@ for errors when you stop and start the problematic service.
 To read the system logs for more information about a service failure,
 open :ref:`Shell` and type :command:`more /var/log/messages`.
 
+
 .. index:: AFP, Apple Filing Protocol
 .. _AFP:
 
@@ -95,6 +98,7 @@ settings which apply to all AFP shares are configured in
 shows the available global AFP configuration options
 which are described in
 :numref:`Table %s <global_afp_config_opts_tab>`.
+
 
 .. _global_afp_config_fig:
 
@@ -199,6 +203,7 @@ described in
 This configuration screen is really a front-end to
 `smb4.conf <http://www.sloop.net/smb.conf.html>`_.
 
+
 .. _global_cifs_config_fig:
 
 #ifdef freenas
@@ -239,8 +244,8 @@ This configuration screen is really a front-end to
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    #endif truenas
-   | Workgroup                        | string         | must match Windows workgroup name; this setting is ignored if the Active Directory or LDAP service is |
-   |                                  |                | running                                                                                               |
+   | Workgroup                        | string         | must match Windows workgroup name; this setting is ignored if the :ref:`Active Directory`             |
+   |                                  |                | or :ref:`LDAP` service is running                                                                     |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Description                      | string         | optional                                                                                              |
@@ -319,8 +324,8 @@ This configuration screen is really a front-end to
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Obey pam restrictions            | checkbox       | uncheck this box to allow cross-domain authentication, to allow users and groups to be managed on     |
-   |                                  |                | another forest, or to allow permissions to be delegated from active directory users and groups to     |
-   |                                  |                | domain admins on another forest                                                                       |
+   |                                  |                | another forest, or to allow permissions to be delegated from :ref:`Active Directory` users and        |
+   |                                  |                | groups to domain admins on another forest                                                             |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Bind IP Addresses                | checkboxes     | check the IP address(es) that CIFS should listen on                                                   |
@@ -388,6 +393,9 @@ Changes to CIFS settings and CIFS shares take effect immediately.
    "Auxiliary parameter". Due to differences in how Linux and BSD
    handle file descriptors, directory name caching is disabled on BSD
    systems to improve performance.
+
+.. note:: :ref:`CIFS` cannot be disabled while :ref:`Active Directory`
+   is enabled.
 
 
 .. _Troubleshooting CIFS:
@@ -478,18 +486,18 @@ Domain Controller
 -----------------
 
 %brand% can be configured to act either as the domain controller for
-a network or to join an existing Active Directory network as a domain
-controller.
+a network or to join an existing :ref:`Active Directory` network as a
+domain controller.
 
 .. note:: This section demonstrates how to configure the %brand%
    system to act as a domain controller. If your goal is to integrate
-   with an existing Active Directory network to access its
+   with an existing :ref:`Active Directory` network to access its
    authentication and authorization services, configure
    :ref:`Active Directory` instead.
 
 Be aware that configuring a domain controller is a complex process
-that requires a good understanding of how Active Directory works.
-While
+that requires a good understanding of how :ref:`Active Directory`
+works. While
 :menuselection:`Services --> Domain Controller`
 makes it easy to input the needed settings into the administrative
 graphical interface, it is up to you to understand what those settings
@@ -504,6 +512,7 @@ instructions for installing and configuring RSAT.
 shows the configuration screen for creating a domain controller and
 :numref:`Table %s <domain_controller_opts_tab>`
 summarizes the available options.
+
 
 .. _domain_controller_settings_fig:
 
@@ -541,7 +550,7 @@ summarizes the available options.
    |                        |                | for details                                                                                                                                                                               |
    |                        |                |                                                                                                                                                                                           |
    +------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Administrator password | string         | password to be used for the Active Directory administrator account                                                                                                                        |
+   | Administrator password | string         | password to be used for the :ref:`Active Directory` administrator account                                                                                                                 |
    |                        |                |                                                                                                                                                                                           |
    +------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Kerberos Realm         | drop-down menu | this drop-down menu will auto-populate using the information from "Realm" when the settings in this screen are saved                                                                      |
@@ -569,6 +578,7 @@ summarizes the configuration options. The values to enter will be
 provided by the DDNS provider. After configuring DDNS, remember to
 start the DDNS service in
 :menuselection:`Services --> Control Services`.
+
 
 .. _config_ddns_fig:
 
@@ -645,6 +655,7 @@ shows the configuration screen for
 Mode" button or configure the system to always display these settings
 by checking the box "Show advanced fields by default" in
 :menuselection:`System --> Advanced`.
+
 
 .. _configuring_ftp_fig:
 
@@ -913,12 +924,12 @@ FTP in chroot
 
 If you require your users to authenticate before accessing the data on
 the %brand% system, you will need to either create a user account for
-each user or import existing user accounts using Active Directory or
-LDAP. If you then create a ZFS dataset for each user, you can chroot
-each user so that they are limited to the contents of their own home
-directory. Datasets provide the added benefit of configuring a quota
-so that the size of the user's home directory is limited to the size
-of the quota.
+each user or import existing user accounts using
+:ref:`Active Directory` or LDAP. If you then create a ZFS dataset for
+:each user, you can chroot each user so that they are limited to the
+contents of their own home directory. Datasets provide the added
+benefit of configuring a quota so that the size of the user's home
+directory is limited to the size of the quota.
 
 To configure this scenario:
 
@@ -1070,6 +1081,7 @@ shows the LLDP configuration screen and
 :numref:`Table %s <lldP_config_opts_tab>`
 summarizes the configuration options for the LLDP service.
 
+
 .. _config_lldp_fig:
 
 .. figure:: images/lldp.png
@@ -1113,6 +1125,7 @@ settings which apply to all NFS shares are configured in
 shows the configuration screen and
 :numref:`Table %s <nfs_config_opts_tab>`
 summarizes the configuration options for the NFS service.
+
 
 .. _config_nfs_fig:
 
@@ -1207,6 +1220,7 @@ shows the rsyncd configuration screen which is accessed from
 :numref:`Table %s <rsyncd_config_opts_tab>`
 summarizes the options that can be configured for the rsync daemon:
 
+
 .. _rsyncd_config_opts_tab:
 
 .. table:: **Rsyncd Configuration Options**
@@ -1239,11 +1253,13 @@ shows the configuration screen that appears after clicking
 summarizes the options that can be configured when creating a rsync
 module.
 
+
 .. _add_rsync_module_fig:
 
 .. figure:: images/rsync3.png
 
    Adding an Rsync Module
+
 
 .. _rsync_module_opts_tab:
 
@@ -1322,6 +1338,7 @@ configure S.M.A.R.T. you need to:
 shows the configuration screen that appears after clicking
 :menuselection:`Services --> S.M.A.R.T.`
 
+
 .. _smart_config_opts_fig:
 
 .. figure:: images/smart2.png
@@ -1342,6 +1359,7 @@ shows the configuration screen that appears after clicking
 
 :numref:`Table %s <smart_config_opts_tab>`
 summarizes the options in the S.M.A.R.T configuration screen.
+
 
 .. _smart_config_opts_tab:
 
@@ -1400,6 +1418,7 @@ Available MIBS are located in :file:`/usr/local/share/snmp/mibs`.
 shows the SNMP configuration screen.
 :numref:`Table %s <snmp_config_opts_tab>`
 summarizes the configuration options.
+
 
 .. _config_snmp_fig:
 
@@ -1477,6 +1496,7 @@ shows the
 configuration screen. After configuring SSH, remember to start it in
 :menuselection:`Services --> Control Services`.
 
+
 .. _ssh_config_fig:
 
 .. figure:: images/ssh1.png
@@ -1490,6 +1510,7 @@ in "Advanced Mode". To see these settings, either click the
 "Advanced Mode" button or configure the system to always display these
 settings by checking the box "Show advanced fields by default" in
 :menuselection:`System --> Advanced`.
+
 
 .. _ssh_conf_opts_tab:
 
@@ -1637,7 +1658,7 @@ files for the network's devices, configure and start the TFTP service.
 Starting the TFTP service will open UDP port 69.
 
 :numref:`Figure %s <tftp_config_fig>`
-shows the TFTP configuration screen and 
+shows the TFTP configuration screen and
 :numref:`Table %s <tftp_config_opts_tab>`
 summarizes the available options:
 
@@ -1696,6 +1717,7 @@ connected to a UPS device, configure the UPS service then start it in
 
 :numref:`Figure %s <ups_config_fig>`
 shows the UPS configuration screen:
+
 
 .. _ups_config_fig:
 
