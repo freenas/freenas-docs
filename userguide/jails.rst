@@ -508,7 +508,7 @@ storage area within the jail.
 
 To add storage, click the "Add Storage" button for a highlighted
 jail's entry to open the screen shown in
-:numref`Figure %s <adding_storage_jail_fig>.`
+:numref:`Figure %s <adding_storage_jail_fig>`.
 This screen can also be accessed by expanding the jail name in the
 tree view and clicking
 :menuselection:`Storage --> Add Storage`.

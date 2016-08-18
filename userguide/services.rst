@@ -882,7 +882,7 @@ To configure anonymous FTP:
     `Filezilla <https://filezilla-project.org/>`_.
 
 In the example shown in
-:numref:Figure %s <ftp_filezilla_fig>`,
+:numref:`Figure %s <ftp_filezilla_fig>`,
 a user has input the following information into the Filezilla client:
 
 * IP address of the %brand% server: *192.168.1.113*

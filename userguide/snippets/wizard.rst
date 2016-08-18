@@ -1,6 +1,7 @@
 #ifdef freenas
 .. index:: Initial Configuration Wizard, Configuration Wizard, Wizard
 
+
 .. _Initial Configuration Wizard:
 
 Initial Configuration Wizard
@@ -308,7 +309,8 @@ select the "Purpose" of the share:
 
 After selecting the "Purpose", click the "Ownership" button to see the
 screen shown in
-:numref:Figure %s <wizard5>`.
+:numref:`Figure %s <wizard5>`.
+
 
 .. _wizard5:
 
@@ -333,6 +335,7 @@ change, then press the "Update" button.
 When you are finished making shares, click the "Next" button to
 advance to the screen shown in
 :numref:`Figure %s <wizard6>`.
+
 
 .. _wizard6:
 

@@ -16,6 +16,7 @@ inaccessible.
    "Enable Console Menu" in
    :menuselection:`System --> Advanced`.
 
+
 .. _console_setup_menu_fig:
 
 .. figure:: images/console1a.png
