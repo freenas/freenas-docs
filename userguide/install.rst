@@ -269,7 +269,7 @@ menu is displayed as shown in
 
 .. _console_setup_fig:
 
-.. figure:: images/install2.png
+.. figure:: images/install2a.png
 
    Console Setup
 
