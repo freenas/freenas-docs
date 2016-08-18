@@ -94,7 +94,7 @@ changes that have occurred since |version| was released.
    documentation, make sure that the system is fully up-to-date. If is
    is not, apply any outstanding updates.
 
-* Added support for Avago/Broadcom Cutlass (12 Gbps- 16 port count)
+* Added support for Avago/Broadcom Cutlass 12 Gbps 16-port
   controllers.
 
 * When security certificates or SSH keys are generated, the
