@@ -69,6 +69,7 @@ new hostname, and click "OK". The hostname must include the domain
 name. If the network does not use a domain name add *.local* to the
 end of the hostname.
 
+
 .. _system_info_fig:
 
 #ifdef freenas
@@ -81,6 +82,7 @@ end of the hostname.
 
    System Information Tab
 #endif truenas
+
 
 .. _General:
 
@@ -104,8 +106,10 @@ is shown in
    General Screen
 #endif truenas
 
+
 :numref:`Table %s <system_general_tab>` summarizes the settings that
 can be configured using the General tab:
+
 
 .. _system_general_tab:
 
@@ -213,11 +217,13 @@ summarizes the options available when adding an NTP server.
 `ntp.conf(5) <http://www.freebsd.org/cgi/man.cgi?query=ntp.conf>`_
 explains these options in more detail.
 
+
 .. _ntp_server_fig:
 
 .. figure:: images/ntp1.png
 
    Add an NTP Server
+
 
 .. _ntp_server_conf_opts_tab:
 
@@ -252,6 +258,7 @@ explains these options in more detail.
    | Force       | checkbox  | forces the addition of the NTP server, even if it is currently unreachable                                            |
    |             |           |                                                                                                                       |
    +-------------+-----------+-----------------------------------------------------------------------------------------------------------------------+
+
 
 .. index:: Boot Environments, Multiple Boot Environments
 .. _Boot:
@@ -312,6 +319,7 @@ indicating the date and time the wizard was run.
 
    Viewing Boot Environments
 #endif truenas
+
 
 Each boot environment entry contains the following information:
 
@@ -375,6 +383,7 @@ The buttons above the boot entries can be used to:
   :numref:`Figure %s <status_boot_dev_fig>`,
   there is only one boot device and it is *ONLINE*.
 
+
 .. _status_boot_dev_fig:
 
 #ifdef freenas
@@ -387,6 +396,7 @@ The buttons above the boot entries can be used to:
 
    Viewing the Status of the Boot Device
 #endif truenas
+
 
 #ifdef freenas
 If this system has a mirrored boot device and one of the boot devices
@@ -408,6 +418,7 @@ as it contains the operating system itself.
 :numref:`Figure %s <be_in_menu_fig>`
 shows a sample boot menu.
 
+
 .. _be_in_menu_fig:
 
 #ifdef freenas
@@ -421,6 +432,7 @@ shows a sample boot menu.
    Boot Environments in Boot Menu
 #endif truenas
 
+
 The first entry is the active boot environment, or the one that the
 system has been configured to boot into. To boot into a different boot
 environment, press the :kbd:`spacebar` to pause this screen, use the
@@ -431,6 +443,7 @@ environment and press :kbd:`Enter` to boot into it. If you wish to
 always boot into that boot environment, go to
 :menuselection:`System --> Boot`,
 highlight that entry, and click the "Activate" button.
+
 
 #ifdef freenas
 .. index:: Mirroring the Boot Device
@@ -463,11 +476,13 @@ button. If another device is available, it will appear in the
 "Member disk" drop-down menu. Select the desired device, then click
 "Attach Disk".
 
+
 .. _mirror_boot_dev_fig:
 
 .. figure:: images/mirror1.png
 
    Mirroring a Boot Device
+
 
 Once the mirror is created, the "Status" screen will indicate that it
 is now a *mirror* and the number of devices in the mirror will be
@@ -481,6 +496,7 @@ shown, as seen in the example in
    Viewing the Status of a Mirrored Boot Device
 #endif freenas
 
+
 .. _Advanced:
 
 Advanced
@@ -491,6 +507,7 @@ is shown in
 :numref:`Figure %s <system_adv_fig>`.
 The configurable settings are summarized in
 :numref:`Table %s <adv_config_tab>`.
+
 
 .. _system_adv_fig:
 
@@ -504,6 +521,7 @@ The configurable settings are summarized in
 
    Advanced Screen
 #endif truenas
+
 
 .. _adv_config_tab:
 
@@ -531,13 +549,13 @@ The configurable settings are summarized in
    | Enable powerd (Power Saving Daemon)     | checkbox                         | `powerd(8) <http://www.freebsd.org/cgi/man.cgi?query=powerd>`_               |
    |                                         |                                  | monitors the system state and sets the CPU frequency accordingly             |
    |                                         |                                  |                                                                              |
-#ifdef freenas
+   #ifdef freenas
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Swap size                               | non-zero integer representing GB | by default, all data disks are created with this amount of swap; this        |
    |                                         |                                  | setting does not affect log or cache devices as they are created without     |
    |                                         |                                  | swap                                                                         |
    |                                         |                                  |                                                                              |
-#endif freenas
+   #endif freenas
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Show console messages in the footer     | checkbox                         | will display console messages in real time at bottom of browser; click the   |
    |                                         |                                  | console to bring up a scrollable screen; check the "Stop refresh" box in the |
@@ -576,6 +594,7 @@ The configurable settings are summarized in
    |                                         |                                  |                                                                              |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
 
+
 If you make any changes, click the "Save" button.
 
 This tab also contains the following buttons:
@@ -586,11 +605,11 @@ connection. Click this button to open the configuration screen shown
 in
 :numref:`Figure %s <backup_conf_fig>`.
 :numref:`Table %s <backup_conf_tab>`
-summarizes the configuration options. The only requirement for the 
-remote system is that it has sufficient space to hold the backup and 
-it is running an SSH server on port 22. The remote system does not 
-have to be formatted with ZFS as the backup will be saved as a binary 
-file. To restore a saved backup, use the "12) Restore from a backup" 
+summarizes the configuration options. The only requirement for the
+remote system is that it has sufficient space to hold the backup and
+it is running an SSH server on port 22. The remote system does not
+have to be formatted with ZFS as the backup will be saved as a binary
+file. To restore a saved backup, use the "12) Restore from a backup"
 option of the %brand% console menu shown in
 :numref:`Figure %s <console_setup_menu_fig>`.
 
@@ -609,11 +628,13 @@ option of the %brand% console menu shown in
 information. Once the debug is created, it will prompt for the
 location to save the generated ASCII text file.
 
+
 .. _backup_conf_fig:
 
 .. figure:: images/backup1.png
 
    Backup Configuration Screen
+
 
 .. _backup_conf_tab:
 
@@ -651,6 +672,7 @@ location to save the generated ASCII text file.
    |                                         |                | a key pair                                                                                     |
    |                                         |                |                                                                                                |
    +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
+
 
 .. index:: Autotune
 .. _Autotune:
@@ -710,6 +732,7 @@ If you wish to read the script to see which checks are performed, the
 script is located in :file:`/usr/local/bin/autotune`.
 #endif truenas
 
+
 .. index:: Email
 .. _Email:
 
@@ -730,6 +753,7 @@ summarizes the settings that can be configured using the Email tab.
    the health of the disks. :ref:`Alert` events are also emailed to
    the *root* user account.
 
+
 .. _email_conf_fig:
 
 #ifdef freenas
@@ -742,6 +766,7 @@ summarizes the settings that can be configured using the Email tab.
 
    Email Screen
 #endif truenas
+
 
 .. _email_conf_tab:
 
@@ -779,11 +804,15 @@ summarizes the settings that can be configured using the Email tab.
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
+
 Click the "Send Test Mail" button to verify that the configured email
 settings are working. If the test email fails, double-check the email
 address to send emails to by clicking the "Change E-mail" button for
 the *root* account in
 :menuselection:`Account --> Users --> View Users`.
+The test mail cannot be sent unless the *root* email address has been
+set.
+
 
 .. index:: System Dataset
 
@@ -801,6 +830,7 @@ metadata such as the user/group cache and share level permissions. If
 the %brand% system is configured to be a Domain Controller, all of
 the domain controller state is stored there as well, including domain
 controller users and groups.
+
 
 .. _system_dataset_fig:
 
@@ -844,6 +874,7 @@ If you make any changes, click the "Save" button to save them.
 If you change the pool storing the system dataset at a later time,
 %brand% will automatically migrate the existing data in the system
 dataset to the new location.
+
 
 .. index:: Tunables
 .. _Tunables:
@@ -891,6 +922,7 @@ To add a loader, sysctl, or rc.conf option, go to
 to access the screen shown in seen in
 :numref:`Figure %s <add_tunable_fig>`.
 
+
 .. _add_tunable_fig:
 
 .. figure:: images/tunable.png
@@ -899,6 +931,7 @@ to access the screen shown in seen in
 
 :numref:`Table %s <add_tunable_tab>`
 summarizes the options when adding a tunable.
+
 
 .. _add_tunable_tab:
 
@@ -927,6 +960,7 @@ summarizes the options when adding a tunable.
    | Enabled     | checkbox          | uncheck if you would like to disable the tunable without deleting it                |
    |             |                   |                                                                                     |
    +-------------+-------------------+-------------------------------------------------------------------------------------+
+
 
 .. note:: as soon as you add or edit a *Sysctl*, the running kernel
    will change that variable to the value you specify. However, when
@@ -1051,6 +1085,7 @@ If you upgrade from an earlier version of %brand% where these
 tunables are set, they will automatically be deleted for you. You
 should not try to add these tunables back.
 
+
 .. _Update:
 
 Update
@@ -1085,6 +1120,7 @@ screen.
 
    Update Options
 #endif truenas
+
 
 By default, the system will automatically check for updates and will
 issue an alert when a new update becomes available. To disable this
@@ -1168,11 +1204,14 @@ the "ChangeLog" hyperlink to open the log of changes in your web
 browser. Click the "ReleaseNotes" hyperlink to open the Release Notes
 in your web browser.
 
+
 .. _review_updates_fig:
 
 .. figure:: images/update2.png
 
    Reviewing Updates
+
+
 #endif freenas
 #ifdef truenas
 To see if any updates are available, click the "Check Now" button. If
@@ -1281,6 +1320,7 @@ shows the initial screen if you click
    Initial CA Screen
 #endif truenas
 
+
 If your organization already has a CA, you can import the CA's
 certificate and key. Click the "Import CA" button to open the
 configuration screen shown in
@@ -1288,11 +1328,13 @@ configuration screen shown in
 The configurable options are summarized in
 :numref:`Table %s <import_ca_opts_tab>`.
 
+
 .. _import_ca_fig:
 
 .. figure:: images/ca2a.png
 
    Importing a CA
+
 
 .. _import_ca_opts_tab:
 
@@ -1319,6 +1361,7 @@ The configurable options are summarized in
    |                      |                      |                                                                                                   |
    +----------------------+----------------------+---------------------------------------------------------------------------------------------------+
 
+
 To instead create a new CA, first decide if it will be the only CA
 which will sign certificates for internal use or if the CA will be
 part of a
@@ -1328,16 +1371,19 @@ To create a CA for internal use only, click the "Create Internal CA"
 button which will open the screen shown in
 :numref:`Figure %s <create_ca_fig>`.
 
+
 .. _create_ca_fig:
 
 .. figure:: images/ca3.png
 
    Creating an Internal CA
 
+
 The configurable options are described in
 :numref:`Table %s <internal_ca_opts_tab>`.
 When completing the fields for the certificate authority, use the
 information for your organization.
+
 
 .. _internal_ca_opts_tab:
 
@@ -1378,6 +1424,7 @@ information for your organization.
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
+
 To instead create an intermediate CA which is part of a certificate
 chain, click the "Create Intermediate CA" button. This screen adds one
 more option to the screen shown in
@@ -1409,6 +1456,7 @@ available:
 
 * **Delete:** will prompt to confirm before deleting the CA.
 
+
 .. index:: Certificates
 .. _Certificates:
 
@@ -1437,17 +1485,20 @@ shows the initial screen if you click
    Initial Certificates Screen
 #endif truenas
 
+
 To import an existing certificate, click the "Import Certificate"
 button to open the configuration screen shown in
 :numref:`Figure %s <import_cert_fig>`.
 The configurable options are summarized in
 :numref:`Table %s <cert_import_opt_tab>`.
 
+
 .. _import_cert_fig:
 
 .. figure:: images/cert2a.png
 
    Importing a Certificate
+
 
 .. _cert_import_opt_tab:
 
@@ -1471,6 +1522,7 @@ The configurable options are summarized in
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
+
 To instead create a new self-signed certificate, click the
 "Create Internal Certificate" button to see the screen shown in
 :numref:`Figure %s <create_new_cert_fig>`.
@@ -1481,11 +1533,13 @@ information for your organization. Since this is a self-signed
 certificate, use the CA that you imported or created using :ref:`CAs`
 as the signing authority.
 
+
 .. _create_new_cert_fig:
 
 .. figure:: images/cert3a.png
 
    Creating a New Certificate
+
 
 .. _cert_create_opts_tab:
 
@@ -1529,6 +1583,7 @@ as the signing authority.
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
+
 If you need to use a certificate that is signed by an external CA,
 such as Verisign, instead create a certificate signing request. To do
 so, click the "Create Certificate Signing Request" button. This will
@@ -1550,11 +1605,13 @@ and returned by the external CA, it should be imported using the
 "Import Certificate" button so that is available as a configurable
 option for encrypting connections.
 
+
 .. _manage_cert_fig:
 
 .. figure:: images/cert4.png
 
    Managing Certificates
+
 
 If you click an entry, it will activate the following configuration
 buttons:
@@ -1577,6 +1634,7 @@ buttons:
 * **Delete:** used to delete a certificate or certificate signing
   request.
 
+
 .. index:: Support
 .. _Support:
 
@@ -1594,6 +1652,7 @@ feature requests.
 .. figure:: images/support1a.png
 
    Support Tab
+
 
 This screen provides a built-in interface to the %brand% bug
 tracker located at
@@ -1667,11 +1726,13 @@ is used to view or update the system's license information. It also
 provides a built-in ticketing system for generating support
 requests.
 
+
 .. _tn_support1:
 
 .. figure:: images/tn_support1.png
 
    Support Tab
+
 
 In this example, the system has a valid license which indicates the
 hardware model, system serial number, support contract type,
@@ -1728,6 +1789,7 @@ status of or add additional information to that support ticket.
 Clicking this URL will prompt you to login, or register a new
 login, if you are not already logged into the
 `iXsystems Support page <https://support.ixsystems.com/>`_.
+
 
 .. index:: Failovers
 
@@ -1841,6 +1903,7 @@ are shown in
 and described in
 :numref:`Table %s <failover_opts_tab>`.
 
+
 .. _failover_fig:
 
 .. figure:: images/failover1b.png
@@ -1906,6 +1969,7 @@ for failover::
 
 :numref:`Table %s <hactl_opts_tab>`
 summarizes the available options for this command.
+
 
 .. _hactl_opts_tab:
 
