@@ -31,8 +31,20 @@ Behind the scenes, an alert daemon checks for various alert
 conditions, such as volume and disk status, and writes the current
 conditions to :file:`/var/tmp/alert`. The daemon retrieves the current
 alert status every minute and will change the solid green alert icon
-to flashing red if a new alert is detected. Some of the conditions
-that trigger an alert include:
+to flashing red if a new alert is detected.
+
+Current alerts can also be viewed from the Shell option of the Console
+Setup Menu
+(:numref:`Figure %s <console_setup_menu_fig>`)
+or from the Web Shell
+(:numref:`Figure %s <web_shell_fig>`)
+by running :command:`alertcli.py`.
+#ifdef truenas
+This can be useful when the alert originates from the standby node of
+a :ref:`High Availability (HA) <Failovers>` system.
+#endif truenas
+
+Some of the conditions that trigger an alert include:
 
 * used space on a volume goes over 80%
 

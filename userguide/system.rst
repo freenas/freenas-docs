@@ -43,7 +43,7 @@ entries:
 * :ref:`Support`: used to view licensing information or create a
   support ticket.
 
-* :ref:`Failovers`: used to manage high availability.
+* :ref:`Failovers`: used to manage High Availability.
 #endif truenas
 
 
