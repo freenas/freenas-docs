@@ -12,32 +12,28 @@ Cisco® is a registered trademark or trademark of Cisco Systems, Inc.
 and/or its affiliates in the United States and certain other
 countries.
 
+#ifdef freenas
 Django® is a registered trademark of Django Software Foundation.
 
-#ifdef freenas
 Facebook® is a registered trademark of Facebook Inc.
 #endif freenas
 
 FreeBSD and the FreeBSD logo are registered trademarks of the FreeBSD
 Foundation.
 
+#ifdef freenas
 Fusion-io is a trademark or registered trademark of Fusion-io, Inc.
 
 Intel, the Intel logo, Pentium Inside, and Pentium are trademarks of
 Intel Corporation in the U.S. and/or other countries.
 
-#ifdef freenas
 LinkedIn® is a registered trademark of LinkedIn Corporation.
 #endif freenas
 
 Linux® is a registered trademark of Linus Torvalds.
 
-Marvell® is a registered trademark of Marvell or its affiliates.
-
-#ifdef freenas
 Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates.
-#endif freenas
 
 #ifdef freenas
 Twitter is a trademark of Twitter, Inc. in the United States and other
