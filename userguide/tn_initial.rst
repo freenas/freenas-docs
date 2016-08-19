@@ -1087,6 +1087,13 @@ as shown in the example in
 
    %brand% Graphical Configuration Menu
 
+.. note:: If the storage devices have been encrypted, you will be
+   prompted for, and must succesfully enter, the passphrase in order
+   for the data on the disks to be accessible. If the system has also
+   been licensed for High Availability (HA), the passphrase will be
+   remembered as long as either node in the HA unit remains up.
+   However, if both nodes are powered off, you will need to reinput
+   the passphrase when the first node powers back up.
 
 If you are unable to access the IP address from a browser, check
 the following:
