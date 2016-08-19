@@ -1056,11 +1056,11 @@ Once the system has an IP address, input that address into a
 graphical web browser from a computer capable of accessing the
 network containing the %brand% system. You should be prompted to
 enter the password for the *root* user, as seen in
-:numref:`Figure %s <tn_login>`.
+:numref:`Figure %s <tn_login1>`.
 
-.. _tn_login:
+.. _tn_login1:
 
-.. figure:: images/tn_login.png
+.. figure:: images/tn_login1.png
 
    Enter the Root Password
 
