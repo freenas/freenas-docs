@@ -913,10 +913,14 @@ become inaccessible.
 This menu provides the following options:
 
 **1) Configure Network Interfaces:** provides a configuration
-wizard to configure the system's network interfaces.
+wizard to configure the system's network interfaces. If the system has
+been licensed for for High Availability (HA), the wizard will prompt
+to set the IP address for both "(This Node)" and "(Node B)".
 
 **2) Configure Link Aggregation:** allows you to either create a
-new link aggregation or to delete an existing link aggregation.
+new link aggregation or to delete an existing link aggregation. If the
+system has been licensed for for High Availability (HA), you will be
+prompted to set the VHID when creating the link aggregation.
 
 **3) Configure VLAN Interface:** used to create or delete a VLAN
 interface.
