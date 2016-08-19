@@ -504,7 +504,7 @@ Be aware of these caveats **before** attempting an upgrade to
   you will not be able to boot into a previous version that does not
   support the newer feature flags.
 
-* The *mps* driver for 6 G Avago SAS HBAs is version 20, which
+* The *mps* driver for 6 G Avago SAS HBAs is version 21, which
   requires phase 20 firmware on the controller and the *mpr* driver
   for 12 G Avago SAS HBAs is version 13 which requires P12 firmware.
   It is recommended to upgrade the firmware before installing %brand%

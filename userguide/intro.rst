@@ -82,18 +82,6 @@ built-in features by installing additional software.
 What's New in |version|
 -----------------------
 
-%brand% uses a "rolling release" model instead of point releases. The
-:ref:`Update` mechanism makes it easy to keep up-to-date with the
-latest security fixes, bug fixes, and new features. Some updates
-affect the user interface, so this section lists any functional
-changes that have occurred since |version| was released.
-
-.. note:: The screenshots in this documentation assume that your
-   system is fully updated to the latest STABLE version of %brand%
-   |version|. If a screen on your system looks different than the
-   documentation, make sure that the system is fully up-to-date. If is
-   is not, apply any outstanding updates.
-
 * Added support for Avago/Broadcom Cutlass 12 Gbps 16-port
   controllers.
 
@@ -105,6 +93,25 @@ changes that have occurred since |version| was released.
 
 * Duplicate MAC addresses are not allowed in jails.
 
+.. _What's Changed Since |release|:
+
+What's Changed Since |version|
+------------------------------
+
+%brand% uses a "rolling release" model instead of point releases. The
+:ref:`Update` mechanism makes it easy to keep up-to-date with the
+latest security fixes, bug fixes, and new features. Some updates
+affect the user interface, so this section lists any functional
+changes that have occurred since |version| was released.
+
+.. note:: The screenshots in this documentation assume that your
+   system is fully updated to the latest STABLE version of %brand%
+   |version|. If a screen on your system looks different than the
+   documentation, make sure that the system is fully up-to-date. If is
+   is not, apply any outstanding updates.
+   
+* The mps driver for 6 G Avago SAS HBAs is version 21, which requires
+  phase 20 firmware on the controller.   
 
 .. index:: Hardware Recommendations
 .. _Hardware Recommendations:
