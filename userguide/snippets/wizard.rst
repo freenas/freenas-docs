@@ -12,7 +12,7 @@ A configuration wizard automatically starts the first time the
 needed to quickly configure %brand% to start serving data over a
 network. This section describes these configuration steps. If you wish
 to use the wizard again after the initial configuration, click the
-"Wizard" icon.
+:guilabel:`Wizard` icon.
 #endif freenas
 
 #ifdef truenas
@@ -38,22 +38,23 @@ wizard configuration screen.
 
    Configuration Wizard
 
-.. note:: You can exit the wizard at any time by clicking the "Exit"
-   button. However, exiting the wizard will not save any selections.
-   The Wizard can always be run again by clicking the "Wizard" icon.
-   Alternately, the %brand% GUI can be used to configure the system,
-   as described in the rest of this Guide.
+.. note:: You can exit the wizard at any time by clicking the
+   :guilabel:`Exit` button. However, exiting the wizard will not save
+   any selections. The Wizard can always be run again by clicking the
+   :guilabel:`Wizard` icon. Alternately, the %brand% GUI can be used
+   to configure the system, as described in the rest of this Guide.
 
 
 #ifdef freenas
 This screen can be used to change the default language, keyboard map,
-and timezone. After making your selections, click "Next". The next
-screen depends on whether or not the storage disks have already been
-formatted into a ZFS pool.
+and timezone. After making your selections, click :guilabel:`Next`.
+The next screen depends on whether or not the storage disks have
+already been formatted into a ZFS pool.
 #endif freenas
 #ifdef truenas
 This first screen can be used to change the default language, keyboard
-map, and timezone. After making your selections, click "Next".
+map, and timezone. After making your selections, click
+:guilabel:`Next`.
 
 .. note:: Typically, a %brand% system ships with pre-configured
    volumes. The screens shown in
@@ -67,6 +68,7 @@ map, and timezone. After making your selections, click "Next".
 :numref:`Figure %s <wizard1>` shows the
 configuration screen that appears if the storage disks have not yet
 been formatted.
+
 
 .. _wizard1:
 
@@ -96,8 +98,9 @@ It is recommended to choose a name that will stick out in the logs
 
 Decide if the pool should provide disk redundancy, and if so, which
 type. The :ref:`ZFS Primer` discusses RAIDZ redundancy in more detail.
-If you prefer to make a more complex configuration, click the "Exit"
-button to close the "Wizard" and instead use :ref:`Volume Manager`.
+If you prefer to make a more complex configuration, click the
+:guilabel:`Exit` button to close the wizard and instead use
+:ref:`Volume Manager`.
 
 These redundancy types are available:
 
@@ -118,7 +121,7 @@ These redundancy types are available:
   redundancy, meaning if any of the disks in the stripe fails, all
   data in the stripe is lost.
 
-Once you have made your selection, click "Next" to continue.
+Once you have made your selection, click :guilabel:`Next` to continue.
 
 #ifdef freenas
 If the disks have already been formatted with ZFS and the disks have
@@ -133,6 +136,7 @@ screen is shown in
 :numref:`Figure %s <wizard2>`.
 #endif truenas
 
+
 .. _wizard2:
 
 .. figure:: images/wizard2.png
@@ -140,11 +144,12 @@ screen is shown in
    Volume Import Screen
 
 
-Select the existing volume from the drop-down menu and click "Next" to
-continue.
+Select the existing volume from the drop-down menu and click
+:guilabel:`Next` to continue.
 
 The next screen in the wizard is shown in
 :numref:`Figure %s <wizard3>`.
+
 
 .. _wizard3:
 
@@ -154,16 +159,16 @@ The next screen in the wizard is shown in
 
 
 If the %brand% system is on a network that does not contain an Active
-Directory, LDAP, NIS, or NT4 server, click "Next" to skip to the next
-screen.
+Directory, LDAP, NIS, or NT4 server, click :guilabel:`Next` to skip to
+the next screen.
 
 However, if the %brand% system is on a network containing an Active
 Directory, LDAP, NIS, or NT4 server and you wish to import the users
 and groups from that server, select the type of directory service in
-the "Directory Service" drop-down menu. The rest of the fields in this
-screen will vary, depending upon which directory service is selected.
-available configuration options for each directory service are
-summarized in Tables
+the :guilabel:`Directory Service` drop-down menu. The rest of the
+fields in this screen will vary, depending upon which directory
+service is selected. Available configuration options for each
+directory service are summarized in Tables
 :numref:`%s <ad_options>`
 through
 :numref:`%s <nt4_options>`.
@@ -174,9 +179,10 @@ through
    the other available options in :ref:`Directory Service` to
    determine if additional configuration is required.
 
+
 .. _ad_options:
 
-.. table:: **Active Directory Options**
+.. table:: Active Directory Options
 
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------+
    | **Setting**              | **Value**     | **Description**                                                                                       |
@@ -193,9 +199,10 @@ through
    |                          |               |                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------+
 
+
 .. _ldap_options:
 
-.. table:: **LDAP Options**
+.. table:: LDAP Options
 
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | **Setting**             | **Value**      | **Description**                                                                                       |
@@ -215,9 +222,10 @@ through
    |                         |                |                                                                                                       |
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
 
+
 .. _nis_options:
 
-.. table:: **NIS Options**
+.. table:: NIS Options
 
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | **Setting**             | **Value**      | **Description**                                                                                       |
@@ -239,9 +247,10 @@ through
    |                         |                |                                                                                                       |
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
 
+
 .. _nt4_options:
 
-.. table:: **NT4 Options**
+.. table:: NT4 Options
 
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | **Setting**             | **Value**      | **Description**                                                                                       |
@@ -250,8 +259,8 @@ through
    | Domain Controller       | string         | hostname of domain controller                                                                         |
    |                         |                |                                                                                                       |
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name            | string         | hostname of FreeNAS system; cannot be greater than 15 characters or the same as the "Workgroup "Name" |
-   |                         |                |                                                                                                       |
+   | NetBIOS Name            | string         | hostname of %brand% system; cannot be greater than 15 characters or the same as the                   |
+   |                         |                | :guilabel:`Workgroup Name`                                                                            |
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Workgroup Name          | string         | name of Windows server's workgroup                                                                    |
    |                         |                |                                                                                                       |
@@ -263,9 +272,11 @@ through
    |                         |                |                                                                                                       |
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
 
+
 The next configuration screen, shown in
-:numref:`Figure %s <wiz_share_creation>`, can be used to create the
-network shares.
+:numref:`Figure %s <wiz_share_creation>`, is used to create network
+shares.
+
 
 .. _wiz_share_creation:
 
@@ -281,34 +292,32 @@ common scenarios. For more complex scenarios, refer to the section on
 :ref:`Sharing`.
 
 To create a share using the wizard, enter a name for the share, then
-select the "Purpose" of the share:
+select the :guilabel:`Purpose` of the share:
 
 * **Windows (CIFS):** this type of share can be accessed by any
   operating system using a CIFS client. Check the box for
-  "Allow Guest" if users should not be prompted for a password in
-  order to access the share. If you make any CIFS shares using the
-  wizard, you can fine-tune them afterwards using
-  :ref:`Windows (CIFS) Shares`.
+  :guilabel:`Allow Guest` to allow users to access the share without a
+  password. CIFS shares created with the wizard can be fine-tuned
+  afterward with :ref:`Windows (CIFS) Shares`.
 
 * **Mac OS X (AFP):** this type of share can be accessed by Mac OS X
-  users. Check the box for "Time Machine" if Mac users will be using
-  the %brand% system as a backup device. If you make any AFP shares
-  using the wizard, you can fine-tune them afterwards using
+  users. Check the box for :guilabel:`Time Machine` if Mac users will
+  be using the %brand% system as a backup device. AFP shares created
+  with the wizard can be fine-tuned afterward with
   :ref:`Apple (AFP) Shares`.
 
 * **Generic Unix (NFS):** this type of share can be accessed by any
-  operating system using a NFS client. If you make any NFS shares
-  using the wizard, you can fine-tune them afterwards using
-  :ref:`Unix (NFS) Shares`.
+  operating system using a NFS client. NFS shares created using the
+  wizard can be fine-tuned afterward with :ref:`Unix (NFS) Shares`.
 
 * **Block Storage (iSCSI):** this type of share can be accessed by any
-  operating system using iSCSI initiator software. Input the size of
-  the block storage to create in the format *20G* (for 20 GB). If you
-  make any iSCSI shares using the wizard, you can fine-tune them
-  afterwards using :ref:`iSCSI`.
+  operating system using iSCSI initiator software. Enter the size of
+  the block storage to create in the format *20G* (for 20 GB). iSCSI
+  shares created with the wizard can be fine-tuned afterward with
+  :ref:`iSCSI`.
 
-After selecting the "Purpose", click the "Ownership" button to see the
-screen shown in
+After selecting the :guilabel:`Purpose`, click the
+:guilabel:`Ownership` button to see the screen shown in
 :numref:`Figure %s <wizard5>`.
 
 
@@ -320,19 +329,20 @@ screen shown in
 
 
 The default permissions for the share are displayed. To create a user
-or group, enter the desired name, then check the "Create User"
-box to create that user and the "Create Group" box to create the
-group. Check or uncheck the boxes in the "Mode" section to set the
-initial access permissions for the share. When finished, click the
-"Return" button to return to the share creation screen. Click the
-"Add" button to finish creating that share, which will then appear in
-the "Name" frame.
+or group, enter the desired name, then check the
+:guilabel:`Create User` box to create that user and the
+:guilabel:`Create Group` box to create the group. Check or uncheck the
+boxes in the :guilabel:`Mode` section to set the initial access
+permissions for the share. When finished, click the :guilabel:`Return`
+button to return to the share creation screen. Click the
+:guilabel:`Add` button to finish creating that share, which will then
+appear in the :guilabel:`Name` frame.
 
-You can use the "Delete" button to remove the highlighted share in the
-"Name" frame. If you need to edit a share, highlight it, make the
-change, then press the "Update" button.
+The :guilabel:`Delete` button can be used to remove the share
+highlighted in the :guilabel:`Name` frame. To edit a share, highlight
+it, make the change, then press the :guilabel:`Update` button.
 
-When you are finished making shares, click the "Next" button to
+When finished making shares, click the :guilabel:`Next` button to
 advance to the screen shown in
 :numref:`Figure %s <wizard6>`.
 
@@ -357,7 +367,7 @@ This screen can be used to configure these settings:
   right corner to provide a visual indication of events that warrant
   administrative attention. The alert system automatically emails the
   *root* user account whenever an alert is issued. **It is important**
-  to input the email address of the person to receive these alerts and
+  to enter the email address of the person to receive these alerts and
   other administrative emails. The rest of the email settings in this
   screen should also be reviewed and edited as necessary. Before
   leaving this screen, click the "Send Test Mail" button to ensure
@@ -375,29 +385,29 @@ This screen can be used to configure these settings:
 * **Use SMTP Authentication:** check this box if the SMTP server
   requires authentication.
 
-* **Username:** input the username if the SMTP server requires
+* **Username:** enter the username if the SMTP server requires
   authentication.
 
-* **Password:** input the password if the SMTP server requires
+* **Password:** enter the password if the SMTP server requires
   authentication.
 
-When finished, click "Next". A message will indicate that the wizard
-is now ready to perform all of the saved actions. If you wish to make
-any changes, click the "Return to Wizard" button to review your edits.
-If you click the "Exit without saving" button, none of your selections
-will be saved. To save your edits, click the "Confirm" button. A
-status bar will indicate when the wizard has completed applying your
-settings.
+When finished, click :guilabel:`Next`. A message will indicate that
+the wizard is ready to perform all of the saved actions. To make
+changes, click the :guilabel:`Return to Wizard` button to review your
+edits. If you click the :guilabel:`Exit without saving` button, none
+of your selections will be saved. To save your edits, click the
+:guilabel:`Confirm` button. A status bar will indicate when the wizard
+has completed applying the new settings.
 
 In addition to the settings that you specify, the wizard will
 automatically enable :ref:`S.M.A.R.T. Tests`, create a boot
 environment, and add the new boot environment to the boot menu. If you
 also wish to save a backup of the configuration database to the system
 being used to access the administrative graphical interface, go to
-:menuselection:`System --> General`, click the "Save Config" button,
-and browse to the directory to save the configuration to. **It is
-recommended to always back up your configuration after making any
-configuration changes**.
+:menuselection:`System --> General`, click the
+:guilabel:`Save Config` button, and browse to the directory where the
+configuration will be saved. **It is recommended to always back up
+your configuration after making any configuration changes**.
 
 #ifdef freenas
 The rest of this Guide describes the %brand% graphical interface in

@@ -6,9 +6,9 @@ Alert
 -----
 
 %brand% provides an alert system to provide a visual warning of any
-conditions that require administrative attention. The "Alert" button
-in the far right corner flashes red when there is an outstanding
-alert. In the example alert shown in
+conditions that require administrative attention. The
+:guilabel:`Alert` button in the far right corner flashes red when
+there is an outstanding alert. In the example alert shown in
 :numref:`Figure %s <alert2a>`,
 the system is warning that the S.M.A.R.T. service is not running.
 
@@ -20,12 +20,12 @@ the system is warning that the S.M.A.R.T. service is not running.
    Example Alert Message
 
 
-Informational messages have a green "OK", warning messages flash
-yellow, and messages requiring attention are listed as a red
-"CRITICAL". CRITICAL messages are also emailed to the root user
-account. If you are aware of a critical condition but wish to remove
-the flashing alert until you deal with it, uncheck the box next to
-that message.
+Informational messages have a green :guilabel:`OK`, warning messages
+flash yellow, and messages requiring attention are listed as a red
+:guilabel:`CRITICAL`. CRITICAL messages are also emailed to the root
+user account. If you are aware of a critical condition but wish to
+remove the flashing alert until you deal with it, uncheck the box next
+to that message.
 
 Behind the scenes, an alert daemon checks for various alert
 conditions, such as volume and disk status, and writes the current
@@ -55,13 +55,14 @@ Some of the conditions that trigger an alert include:
 
 * non-optimal multipath states detected
 
-* ZFS pool status changes from "HEALTHY"
+* ZFS pool status changes from :guilabel:`HEALTHY`
 
 * a S.M.A.R.T. error occurs
 
 * the system dataset does not reside on the boot pool
 
-* the system is unable to bind to the "WebGUI IPv4 Address" set in
+* the system is unable to bind to the :guilabel:`WebGUI IPv4 Address`
+  set in
   :menuselection:`System --> General`
 
 * the system can not find an IP address configured on an iSCSI portal

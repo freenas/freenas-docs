@@ -5,7 +5,7 @@
 Support Icon
 ------------
 
-The "Support" icon, the third icon from the left in the top
+The :guilabel:`Support` icon, the third icon from the left in the top
 menubar, provides a shortcut to
 :menuselection:`System --> Support`.
 This screen can be used to create a support ticket. Refer to
@@ -18,6 +18,6 @@ This screen can be used to create a support ticket. Refer to
 Guide
 -----
 
-The "Documentation" icon, the second icon from the left in the top
-menubar, provides a built-in browser to the %brand% User Guide (this
-documentation).
+The :guilabel:`Documentation` icon, the second icon from the left in
+the top menubar, provides a built-in browser to the %brand% User Guide
+(this documentation).

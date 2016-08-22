@@ -47,7 +47,8 @@ A %brand% system running at least version 9.2.0 is required when
 creating a customized script based on this example. To test the
 scripts directly on the %brand% system, create a user account and
 select an existing volume or dataset for the user's
-"Home Directory". After creating the user, start the SSH service using
+:guilabel:`Home Directory`. After creating the user, start the SSH
+service using
 :menuselection:`Services --> Control Services`.
 That user will now be able to :command:`ssh` to the IP address of the
 %brand% system to create and run scripts. Alternately, scripts can be
@@ -93,7 +94,8 @@ Where:
 **Lines 1-2:** import the Python modules used to make HTTP requests
 and handle data in JSON format.
 
-**Line 4:** replace *freenas.mydomain* with the "Hostname" value in
+**Line 4:** replace *freenas.mydomain* with the :guilabel:`Hostname`
+value in
 :menuselection:`System --> System Information`.
 Note that the script will fail if the machine running it is not able
 to resolve that hostname. Change *https* to *http* to use HTTP rather
@@ -106,11 +108,12 @@ the %brand% system.
 SSL certificate, change *False* to *True*.
 
 **Lines 8-16:** set the values for the user being created. The
-`"Users" resource
+`:guilabel:`Users` resource
 <http://api.freenas.org/resources/account.html#users>`_ describes this
-in more detail. Allowed parameters are listed in the "JSON Parameters"
-section of that resource. Since this resource creates a FreeBSD user,
-the values entered must be valid for a FreeBSD user account.
+in more detail. Allowed parameters are listed in the
+:guilabel:`JSON Parameters` section of that resource. Since this
+resource creates a FreeBSD user, the values entered must be valid for
+a FreeBSD user account.
 :numref:`Table %s <api_json_parms_tab>`
 summarizes acceptable values. This resource uses JSON, so the boolean
 values are *True* or *False*.
@@ -137,10 +140,10 @@ values are *True* or *False*.
    | bsdusr_uid               | integer  | by convention, user accounts have an ID greater than 1000 with a maximum allowable value of 65,535                   |
    |                          |          |                                                                                                                      |
    +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-   | bsdusr_group             | integer  | if "bsdusr_creategroup" is set to *False*, specify the numeric ID of the group to create                             |
+   | bsdusr_group             | integer  | if :guilabel:`bsdusr_creategroup` is set to *False*, specify the numeric ID of the group to create                   |
    |                          |          |                                                                                                                      |
    +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-   | bsdusr_creategroup       | boolean  | if set to *True*, a primary group with the same numeric ID as "bsdusr_uid" will be automatically created             |
+   | bsdusr_creategroup       | boolean  | if set to *True*, a primary group with the same numeric ID as :guilabel:`bsdusr_uid` will be created automatically   |
    |                          |          |                                                                                                                      |
    +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
    | bsdusr_mode              | string   | sets default numeric UNIX permissions of user's home directory                                                       |

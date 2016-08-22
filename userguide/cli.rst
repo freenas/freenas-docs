@@ -147,8 +147,8 @@ For example, to perform a TCP test and start the server in daemon mode
 From your desktop, open the client. Enter the IP of address of the
 %brand% system, specify the running time for the test under
 :menuselection:`Application layer options --> Transmit`
-(the default test time is 10 seconds), and click the "Run Iperf!"
-button.
+(the default test time is 10 seconds), and click the
+:guilabel:`Run Iperf!` button.
 :numref:`Figure %s <cli_view_iperf>`
 shows an example of the client running on a
 Windows system while an SFTP transfer is occurring on the network.
@@ -529,7 +529,7 @@ briefly describes the columns in the output.
 
 .. _cli_arcstat_columns_tab:
 
-.. table:: **arcstat Column Descriptions**
+.. table:: arcstat Column Descriptions
 
    +---------------------+------------------------------------------+
    | **Column**          | **Description**                          |

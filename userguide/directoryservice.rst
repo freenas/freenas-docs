@@ -19,6 +19,7 @@ the ability to add additional parameters to :ref:`Kerberos Settings`.
 This section summarizes each of these services and their available
 configurations within the %brand% GUI.
 
+
 .. _Active Directory:
 
 Active Directory
@@ -78,9 +79,11 @@ is chosen.
 :numref:`Table %s <ad_tab>`
 describes the configurable options. Some settings are only available
 in Advanced Mode. To see these settings, either click the
-"Advanced Mode" button or configure the system to always display these
-settings by checking the box "Show advanced fields by default" in
+:guilabel:`Advanced Mode` button or configure the system to always
+display these settings by checking the box
+:guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
+
 
 .. _ad_fig:
 
@@ -88,9 +91,10 @@ settings by checking the box "Show advanced fields by default" in
 
    Configuring Active Directory
 
+
 .. _ad_tab:
 
-.. table:: **Active Directory Configuration Options**
+.. table:: Active Directory Configuration Options
 
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | **Setting**              | **Value**     | **Description**                                                                                                                                       |
@@ -110,37 +114,37 @@ settings by checking the box "Show advanced fields by default" in
    |                          |               |                                                                                                                                                       |
    #ifdef freenas
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name             | string        | only available in "Advanced Mode"; automatically populated with the original hostname of the system; **use caution when changing this setting**       |
-   |                          |               | as setting an                                                                                                                                         |
+   | NetBIOS Name             | string        | only available in :guilabel:`Advanced Mode`; automatically populated with the original hostname of the system;                                        |
+   |                          |               | **use caution when changing this setting**, as setting an                                                                                             |
    |                          |               | `incorrect value can corrupt an AD installation <https://forums.freenas.org/index.php?threads/before-you-setup-ad-authentication-please-read.2447/>`_ |
    |                          |               |                                                                                                                                                       |
    #endif freenas
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Encryption Mode          | drop-down     | only available in "Advanced Mode"; choices are *Off*,                                                                                                 |
+   | Encryption Mode          | drop-down     | only available in :guilabel:`Advanced Mode`; choices are *Off*,                                                                                       |
    |                          | menu          | *SSL*, or                                                                                                                                             |
    |                          |               | *TLS*                                                                                                                                                 |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Certificate              | drop-down menu| only available in "Advanced Mode"; select the certificate of the LDAP server if  SSL connections                                                      |
+   | Certificate              | drop-down menu| only available in :guilabel:`Advanced Mode`; select the certificate of the LDAP server if  SSL connections                                            |
    |                          |               | are used; if you do not have a certificate, first create a CA (in :ref:`CAs`) then the certificate (in :ref:`Certificates`)                           |                                                                                                                                    
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Verbose logging          | checkbox      | only available in "Advanced Mode"; if checked, logs attempts to join the domain to :file:`/var/log/messages`                                          |
+   | Verbose logging          | checkbox      | only available in :guilabel:`Advanced Mode`; if checked, logs attempts to join the domain to :file:`/var/log/messages`                                |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | UNIX extensions          | checkbox      | only available in "Advanced Mode"; **only** check this box if the AD server has been explicitly configured to map                                     |
+   | UNIX extensions          | checkbox      | only available in :guilabel:`Advanced Mode`; **only** check this box if the AD server has been explicitly configured to map                           |
    |                          |               | permissions for UNIX users; checking this box provides persistent UIDs and GUIDs, otherwise, users/groups get                                         |
    |                          |               | mapped to the UID/GUID range configured in Samba                                                                                                      |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Allow Trusted Domains    | checkbox      | only available in "Advanced Mode"; should only be enabled if network has active                                                                       |
+   | Allow Trusted Domains    | checkbox      | only available in :guilabel:`Advanced Mode`; should only be enabled if network has active                                                             |
    |                          |               | `domain/forest trusts <https://technet.microsoft.com/en-us/library/cc757352(WS.10).aspx>`_                                                            |
    |                          |               | and you need to manage files on multiple domains; use with caution as it will generate more winbindd traffic,                                         |
    |                          |               | slowing down the ability to filter through user/group information                                                                                     |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Use Default Domain       | checkbox      | only available in "Advanced Mode"; when unchecked, the domain name is prepended to the username; if                                                   |
-   |                          |               | "Allow Trusted Domains" is checked and multiple domains use the same usernames, uncheck this box to prevent name                                      |
+   | Use Default Domain       | checkbox      | only available in :guilabel:`Advanced Mode`; when unchecked, the domain name is prepended to the username; if                                         |
+   |                          |               | :guilabel:`Allow Trusted Domains` is checked and multiple domains use the same usernames, uncheck this box to prevent name                            |
    |                          |               | collisions                                                                                                                                            |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -151,39 +155,39 @@ settings by checking the box "Show advanced fields by default" in
    | user/group cache         |               |                                                                                                                                                       |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Site Name                | string        | only available in "Advanced Mode"; the relative distinguished name of the site object in Active Directory                                             |
+   | Site Name                | string        | only available in :guilabel:`Advanced Mode`; the relative distinguished name of the site object in Active Directory                                   |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Domain Controller        | string        | only available in "Advanced Mode"; will automatically be added to the SRV record for the domain and, when multiple controllers are specified,         |
-   |                          |               | FreeNAS will select the closest DC which responds                                                                                                     |
+   | Domain Controller        | string        | only available in :guilabel:`Advanced Mode`; will automatically be added to the SRV record for the domain and, when multiple controllers are          |
+   |                          |               | specified, %brand% selects the closest DC which responds                                                                                              |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Global Catalog Server    | string        | only available in "Advanced Mode"; if the hostname of the global catalog server to use is specified, make sure it is resolvable                       |
+   | Global Catalog Server    | string        | only available in :guilabel:`Advanced Mode`; if the hostname of the global catalog server to use is specified, make sure it is resolvable             |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Kerberos Realm           | drop-down     | only available in "Advanced Mode";  select the realm created using the instructions in :ref:`Kerberos Realms`                                         |
+   | Kerberos Realm           | drop-down     | only available in :guilabel:`Advanced Mode`;  select the realm created using the instructions in :ref:`Kerberos Realms`                               |
    |                          | menu          |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Kerberos Principal       | drop-down     | only available in "Advanced Mode"; browse to the location of the keytab created using the instructions in :ref:`Kerberos Keytabs`                     |
+   | Kerberos Principal       | drop-down     | only available in :guilabel:`Advanced Mode`; browse to the location of the keytab created using the instructions in :ref:`Kerberos Keytabs`           |
    |                          | menu          |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   |AD timeout                | integer       | only available in "Advanced Mode"; in seconds, increase if the AD service does not start after connecting to the                                      |
+   |AD timeout                | integer       | only available in :guilabel:`Advanced Mode`; in seconds, increase if the AD service does not start after connecting to the                            |
    |                          |               | domain                                                                                                                                                |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | DNS timeout              | integer       | only available in "Advanced Mode"; in seconds, increase if AD DNS queries timeout                                                                     |
+   | DNS timeout              | integer       | only available in :guilabel:`Advanced Mode`; in seconds, increase if AD DNS queries timeout                                                           |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Idmap backend            | drop-down     | only available in "Advanced Mode"; select the backend to use to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs; see                    |
-   |                          | menu and Edit | :numref:`Table %s <id_map_backends_tab>` for a summary of the available backends; click the "Edit" link to configure that backend's editable          |
-   |                          |               | options                                                                                                                                               |
+   | Idmap backend            | drop-down     | only available in :guilabel:`Advanced Mode`; select the backend to use to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs; see          |
+   |                          | menu and Edit | :numref:`Table %s <id_map_backends_tab>` for a summary of the available backends; click the :guilabel:`Edit` link to configure that backend's         |
+   |                          |               | editable options                                                                                                                                      |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Windbind NSS Info        | drop-down     | only available in "Advanced Mode" and defines the schema to use when querying AD for user/group info; *rfc2307* uses the RFC2307 schema               |
+   | Windbind NSS Info        | drop-down     | only available in :guilabel:`Advanced Mode` and defines the schema to use when querying AD for user/group info; *rfc2307* uses the RFC2307 schema     |
    |                          | menu          | support included in Windows 2003 R2, *sfu20* is for Services For Unix 3.0 or 3.5, and                                                                 |
    |                          |               | *sfu* is for Services For Unix 2.0                                                                                                                    |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | SASL wrapping            | drop-down     | only available in "Advanced Mode" and defines how LDAP traffic is transmitted; choices are *plain* (plain text),                                      |
+   | SASL wrapping            | drop-down     | only available in :guilabel:`Advanced Mode` and defines how LDAP traffic is transmitted; choices are *plain* (plain text),                            |
    |                          | menu          | *sign* (signed only),                                                                                                                                 |
    |                          |               | or *seal* (signed and encrypted); Windows 2000 SP3 and higher can be configured to enforce signed LDAP connections                                    |
    |                          |               |                                                                                                                                                       |
@@ -192,30 +196,31 @@ settings by checking the box "Show advanced fields by default" in
    |                          |               |                                                                                                                                                       |
    #ifdef truenas
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (This Node) | string        | only available in "Advanced Mode"; automatically populated with the system's original hostname; it **must**  be different from the                    |
+   | NetBIOS Name (This Node) | string        | only available in :guilabel:`Advanced Mode`; automatically populated with the system's original hostname; it **must**  be different from the          |
    |                          |               | *Workgroup* name                                                                                                                                      |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (Node B)    | string        | only available in "Advanced Mode"; when using :ref:`Failovers`, set a unique NetBIOS name for the standby node                                        |
+   | NetBIOS Name (Node B)    | string        | only available in :guilabel:`Advanced Mode`; when using :ref:`Failovers`, set a unique NetBIOS name for the standby node                              |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias            | string        | only available in "Advanced Mode"; when using :ref:`Failovers`, this is the NetBIOS name that resolves to either node                                 |
+   | NetBIOS Alias            | string        | only available in :guilabel:`Advanced Mode`; when using :ref:`Failovers`, this is the NetBIOS name that resolves to either node                       |
    |                          |               |                                                                                                                                                       |
    #endif truenas
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 :numref:`Table %s <id_map_backends_tab>`
-summarizes the backends which are available in the "Idmap backend"
-drop-down menu. Each backend has its own
+summarizes the backends which are available in the
+:guilabel:`Idmap backend` drop-down menu. Each backend has its own
 `man page <https://www.samba.org/samba/docs/man/manpages/>`_
 which gives implementation details. Since selecting the wrong backend
 will break Active Directory integration, a pop-up menu will appear
 whenever changes are made to this setting.
 
+
 .. _id_map_backends_tab:
 
-.. table:: **ID Mapping Backends**
+.. table:: ID Mapping Backends
 
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | **Value**      | **Description**                                                                                                                          |
@@ -226,19 +231,19 @@ whenever changes are made to this setting.
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | adex           | AD server uses RFC2307 schema extensions and supports domain trusts as well as two-way cross-forest trusts; mappings must be provided in |
-   |                | advance by adding the POSIX attribute information to the users and groups objects in AD using a tool such as "Identity Services for      |
-   |                | Unix" on Windows 2003 R2 and later                                                                                                       |
+   |                | advance by adding the POSIX attribute information to the users and groups objects in AD using a tool such as                             |
+   |                | "Identity Services for Unix" on Windows 2003 R2 and later                                                                                |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | autorid        | similar to "rid", but automatically configures the range to be used for each domain, so there is no need to specify a specific range for |
-   |                | each domain in the forest; the only needed configuration is the range of UID/GIDs to use for user/group mappings and an optional size    |
-   |                | for the ranges                                                                                                                           |
+   | autorid        | similar to :guilabel:`rid`, but automatically configures the range to be used for each domain, so there is no need to specify a          |
+   |                | specific range for each domain in the forest; the only needed configuration is the range of UID/GIDs to use for user/group mappings      |
+   |                | and an optional size for the ranges                                                                                                      |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | hash           | uses a hashing algorithm for mapping and can be used to support local name mapping files                                                 |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | ldap           | stores and retrieves mapping tables in an LDAP directory service; default for "LDAP" directory service                                   |
+   | ldap           | stores and retrieves mapping tables in an LDAP directory service; default for LDAP directory service                                     |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | nss            | provides a simple means of ensuring that the SID for a Unix user is reported as the one assigned to the corresponding domain user        |
@@ -248,20 +253,20 @@ whenever changes are made to this setting.
    |                | the name and the UID/GID                                                                                                                 |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | rid            | default for "AD" and "NT4" directory services; requires an explicit idmap configuration for each domain, using disjoint ranges where a   |
-   |                | writeable default idmap range should be defined, using a backend like "tdb" or "ldap"                                                    |
+   | rid            | default for AD and NT4 directory services; requires an explicit idmap configuration for each domain, using disjoint ranges where a       |
+   |                | writeable default idmap range should be defined, using a backend like tdb or ldap                                                        |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | tdb            | default backend used by winbindd for storing mapping tables                                                                              |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | tdb2           | substitute for "tdb" used by winbindd in clustered environments                                                                          |
+   | tdb2           | substitute for tdb used by winbindd in clustered environments                                                                            |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
 
-Click the "Rebuild Directory Service Cache" button if a new Active
-Directory user needs immediate access to %brand%; otherwise this
-occurs automatically once a day as a cron job.
+Click the :guilabel:`Rebuild Directory Service Cache` button if a new
+Active Directory user needs immediate access to %brand%; otherwise
+this occurs automatically once a day as a cron job.
 
 .. note:: Active Directory places restrictions on which characters are
    allowed in Domain and NetBIOS names. If there are problems
@@ -277,10 +282,10 @@ occurs automatically once a day as a cron job.
 It can take a few minutes after configuring the Active Directory
 service for the AD information to be populated to the %brand% system.
 Once populated, the AD users and groups will be available in the
-drop-down menus of the "Permissions" screen of a volume/dataset. For
-performance reasons, every available user may not show in the listing.
-However, it will autocomplete all applicable users when typing in a
-username.
+drop-down menus of the :guilabel:`Permissions` screen of a
+volume/dataset. For performance reasons, every available user may not
+show in the listing. However, it will autocomplete all applicable
+users when typing in a username.
 
 The Active Directory users and groups that have been imported to the
 %brand% system can be shown by using these commands from the %brand%
@@ -309,10 +314,11 @@ provide more troubleshooting information::
  getent group
 
 If the :command:`wbinfo` commands display the network users, but they
-do not show up in the drop-down menu of a "Permissions" screen, it may
-be because it is taking longer than the default 10 seconds for the
-%brand% system to join Active Directory. Try bumping up the value of
-"AD timeout" to 60 seconds.
+do not show up in the drop-down menu of a :guilabel:`Permissions`
+screen, it may be because it is taking longer than the default ten
+seconds for the %brand% system to join Active Directory. Try bumping
+up the value of :guilabel:`AD timeout` to 60 seconds.
+
 
 .. _Troubleshooting Tips:
 
@@ -352,16 +358,17 @@ that the password on the AD account being used does not include any
 spaces or special symbols, and is not unusually long.
 
 If the Windows server version is lower than 2008 R2, try creating a
-"Computer" entry on the Windows server's OU. When creating this entry,
-enter the %brand% hostname in the "name" field. Make sure that it is
-under 15 characters and that it is the same name as the one set in the
-"Hostname" field in
+:guilabel:`Computer` entry on the Windows server's OU. When creating
+this entry, enter the %brand% hostname in the :guilabel:`name` field.
+Make sure that it is under 15 characters and that it is the same name
+as the one set in the :guilabel:`Hostname` field in
 :menuselection:`Network --> Global Configuration`
-and the "NetBIOS Name" in
+and the :guilabel:`NetBIOS Name` in
 :menuselection:`Directory Service --> Active Directory`
 settings. Make sure the hostname of the domain controller is set in
-the "Domain Controller" field of
+the :guilabel:`Domain Controller` field of
 :menuselection:`Directory Service --> Active Directory`.
+
 
 .. _If the System Will not Join the Domain:
 
@@ -388,8 +395,9 @@ Kerberos ticket::
  echo $?
  klist
 
-Next, only run these two commands **if** the "Unix extensions" box is
-checked in "Advanced Mode" and a keytab has been uploaded using
+Next, only run these two commands **if** the
+:guilabel:`Unix extensions` box is checked in
+:guilabel:`Advanced Mode` and a keytab has been uploaded using
 :ref:`Kerberos Keytabs`::
 
  service ix-sssd start
@@ -447,17 +455,19 @@ shows the LDAP Configuration screen that is seen after clicking
 :numref:`Table %s <ldap_config_tab>`
 summarizes the available configuration options. Some settings are only
 available in Advanced Mode. To see these settings, either click the
-"Advanced Mode" button or configure the system to always display these
-settings by checking the box "Show advanced fields by default" in
+:guilabel:`Advanced Mode` button or configure the system to always
+display these settings by checking the box
+:guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
 
 Those who are new to LDAP terminology should skim through the
 `OpenLDAP Software 2.4 Administrator's Guide
 <http://www.openldap.org/doc/admin24/>`_.
 
+
 .. _ldap_config_tab:
 
-.. table:: **LDAP Configuration Options**
+.. table:: LDAP Configuration Options
 
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
    | **Setting**             | **Value**      | **Description**                                                                                                |
@@ -473,50 +483,50 @@ Those who are new to LDAP terminology should skim through the
    | Bind DN                 | string         | name of administrative account on LDAP server (e.g. *cn=Manager,dc=test,dc=org*)                               |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | Bind password           | string         | password for "Root bind DN"                                                                                    |
+   | Bind password           | string         | password for :guilabel:`oot bind DN`                                                                           |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | Allow Anonymous         | checkbox       | only available in "Advanced Mode"; instructs LDAP server to not provide authentication and to allow            |
-   | Binding                 |                | read and write access to any client                                                                            |
+   | Allow Anonymous         | checkbox       | only available in :guilabel:`Advanced Mode`; instructs LDAP server to not provide authentication and           |
+   | Binding                 |                | to allow read and write access to any client                                                                   |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | User Suffix             | string         | only available in "Advanced Mode" and optional; can be added to name when user account added to LDAP           |
+   | User Suffix             | string         | only available in :guilabel:`Advanced Mode` and optional; can be added to name when user account               |
+   |                         |                | added to LDAP directory (e.g. dept. or company name)                                                           |
+   |                         |                |                                                                                                                |
+   +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
+   | Group Suffix            | string         | only available in :guilabel:`Advanced Mode` and optional; can be added to name when group added to LDAP        |
    |                         |                | directory (e.g. dept. or company name)                                                                         |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | Group Suffix            | string         | only available in "Advanced Mode" and optional; can be added to name when group added to LDAP                  |
-   |                         |                | directory (e.g. dept. or company name)                                                                         |
+   | Password Suffix         | string         | only available in :guilabel:`Advanced Mode` and optional; can be added to password when password added         |
+   |                         |                | to LDAP directory                                                                                              |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | Password Suffix         | string         | only available in "Advanced Mode" and optional; can be added to password when password added to                |
-   |                         |                | LDAP directory                                                                                                 |
+   | Machine Suffix          | string         | only available in :guilabel:`Advanced Mode` and optional; can be added to name when system added to            |
+   |                         |                | LDAP directory (e.g. server, accounting)                                                                       |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | Machine Suffix          | string         | only available in "Advanced Mode" and optional; can be added to name when system added to LDAP                 |
-   |                         |                | directory (e.g. server, accounting)                                                                            |
+   | SUDO Suffix             | string         | only available in :guilabel:`Advanced Mode`; use if LDAP-based users need superuser access                     |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | SUDO Suffix             | string         | only available in "Advanced Mode"; use if LDAP-based users need superuser access                               |
+   | Kerberos Realm          | drop-down menu | only available in :guilabel:`Advanced Mode`;  select the realm created using the instructions                  |
+   |                         |                | in :ref:`Kerberos Realms`                                                                                      |
+   +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
+   | Kerberos Keytab         | drop-down menu | only available in :guilabel:`Advanced Mode`;  browse to the location of the keytab created using               |
+   |                         |                | the instructions in :ref:`Kerberos Keytabs`                                                                    |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | Kerberos Realm          | drop-down menu | only available in "Advanced Mode";  select the realm created using the instructions in :ref:`Kerberos Realms`  |
-   |                         |                |                                                                                                                |
-   +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | Kerberos Keytab         | drop-down menu | only available in "Advanced Mode";  browse to the location of the keytab created using the instructions in     |
-   |                         |                | :ref:`Kerberos Keytabs`                                                                                        |
-   |                         |                |                                                                                                                |
-   +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | Encryption Mode         | drop-down menu | only available in "Advanced Mode"; choices are *Off*,                                                          |
+   | Encryption Mode         | drop-down menu | only available in :guilabel:`Advanced Mode`; choices are *Off*,                                                |
    |                         |                | *SSL*, or                                                                                                      |
    |                         |                | *TLS*; note that either                                                                                        |
    |                         |                | *SSL* or                                                                                                       |
-   |                         |                | *TLS* and a "Certificate" must be selected in order for authentication to work                                 |
+   |                         |                | *TLS* and a :guilabel:`Certificate` must be selected in order for authentication to work                       |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | Certificate             | drop-down menu | only available in "Advanced Mode"; select the certificate of the LDAP server or the CA that signed that        |
-   |                         |                | certificate (required if authentication is used); iIf your LDAP server does not already have a certificate,    |
-   |                         |                | create a CA using :ref:`CAs`, then the certificate using :ref:`Certificates` and install the certificate on    |
-   |                         |                | the LDAP server                                                                                                |
+   | Certificate             | drop-down menu | only available in :guilabel:`Advanced Mode`; select the certificate of the LDAP server or the CA that          |
+   |                         |                | signed that certificate (required if authentication is used); iIf your LDAP server does not already            |
+   |                         |                | have a certificate, create a CA using :ref:`CAs`, then the certificate using :ref:`Certificates` and           |
+   |                         |                | install the certificate on the LDAP server                                                                     |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
    | LDAP timeout            | integer        | increase this value (in seconds) if obtaining a Kerberos ticket times out                                      |
@@ -525,19 +535,19 @@ Those who are new to LDAP terminology should skim through the
    | DNS timeout             | integer        | increase this value (in seconds) if DNS queries timeout                                                        |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | Idmap backend           | drop-down menu | only available in "Advanced Mode";  select the backend to use to map Windows security identifiers (SIDs) to    |
-   |                         | and Edit       | UNIX UIDs and GIDs; see :numref:`Table %s <id_map_backends_tab>` for a summary of the available backends;      |
-   |                         |                | click the "Edit" link to configure that backend's editable options                                             |
+   | Idmap backend           | drop-down menu | only available in :guilabel:`Advanced Mode`;  select the backend to use to map Windows security                |
+   |                         | and Edit       | identifiers (SIDs) to UNIX UIDs and GIDs; see :numref:`Table %s <id_map_backends_tab>` for a summary           |
+   |                         |                | of the available backends; click the :guilabel:`Edit` link to configure that backend's editable options        |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | Samba Schema            | checkbox       | only available in "Advanced Mode"; only check this box if you need LDAP authentication for CIFS shares **and** |
-   |                         |                | you have **already** configured the LDAP server with Samba attributes                                          |
+   | Samba Schema            | checkbox       | only available in :guilabel:`Advanced Mode`; only check this box if you need LDAP authentication               |
+   |                         |                | for CIFS shares **and** have **already** configured the LDAP server with Samba attributes                      |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters    | string         | additional options for `sssd.conf(5) <https://jhrozek.fedorapeople.org/sssd/1.11.6/man/sssd.conf.5.html>`_     |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | Schema                  | drop-down menu | if "Samba Schema" is checked, select the schema to use; choices are *rfc2307* and                              |
+   | Schema                  | drop-down menu | if :guilabel:`Samba Schema` is checked, select the schema to use; choices are *rfc2307* and                    |
    |                         |                | *rfc2307bis*                                                                                                   |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
@@ -545,38 +555,39 @@ Those who are new to LDAP terminology should skim through the
    |                         |                |                                                                                                                |
    #ifdef truenas
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name            | string         | only available in "Advanced Mode"; automatically populated with the system's original hostname; it **must**    |
-   | (This Node)             |                | be different from the *Workgroup* name                                                                         |
+   | NetBIOS Name            | string         | only available in :guilabel:`Advanced Mode`; automatically populated with the system's original                |
+   | (This Node)             |                | hostname; it **must** be different from the *Workgroup* name                                                   |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (Node B)   | string         | only available in "Advanced Mode"; when using :ref:`Failovers`, set a unique NetBIOS name for the standby node |
-   |                         |                |                                                                                                                |
+   | NetBIOS Name (Node B)   | string         | only available in :guilabel:`Advanced Mode`; when using :ref:`Failovers`, set a unique NetBIOS name            |
+   |                         |                | for the standby node                                                                                           |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias           | string         | only available in "Advanced Mode"; when using :ref:`Failovers`, this is the NetBIOS name that resolves to      |
-   |                         |                | either node                                                                                                    |
+   | NetBIOS Alias           | string         | only available in :guilabel:`Advanced Mode`; when using :ref:`Failovers`, this is the NetBIOS name             |
+   |                         |                | that resolves to either node                                                                                   |
    |                         |                |                                                                                                                |
    #endif truenas
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
 
-Click the "Rebuild Directory Service Cache" button after adding a user
-to LDAP who needs immediate access to %brand%. Otherwise this occurs
-automatically once a day as a cron job.
+Click the :guilabel:`Rebuild Directory Service Cache` button after
+adding a user to LDAP who needs immediate access to %brand%. Otherwise
+this occurs automatically once a day as a cron job.
 
 .. note:: %brand% automatically appends the root DN. This means that
    the scope and root DN should not be included when configuring the
    user, group, password, and machine suffixes.
 
 LDAP users and groups appear in the drop-down menus of the
-"Permissions" screen of a volume/dataset after configuring the LDAP
-service. Type :command:`getent passwd` from :ref:`Shell` to verify
-that the users have been imported. Type :command:`getent group` to
-verify that the groups have been imported.
+:guilabel:`Permissions` screen of a volume/dataset after configuring
+the LDAP service. Type :command:`getent passwd` from :ref:`Shell` to
+verify that the users have been imported. Type :command:`getent group`
+to verify that the groups have been imported.
 
 If the users and groups are not listed, refer to
 `Common errors encountered when using OpenLDAP Software
 <http://www.openldap.org/doc/admin24/appendix-common-errors.html>`_
 for common errors and how to fix them. When troubleshooting LDAP, open
 :ref:`Shell` and look for error messages in :file:`/var/log/auth.log`.
+
 
 .. _NIS:
 
@@ -629,9 +640,10 @@ summarizes the configuration options.
    |             |           |                                                                                                                            |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------+
 
-Click the "Rebuild Directory Service Cache" button after adding a user
-to NIS who needs immediate access to %brand%. Otherwise this occurs
-automatically once a day as a cron job.
+Click the :guilabel:`Rebuild Directory Service Cache` button after
+adding a user to NIS who needs immediate access to %brand%. Otherwise
+this occurs automatically once a day as a cron job.
+
 
 .. _NT4:
 
@@ -649,10 +661,11 @@ shows the configuration screen that appears when
 is clicked. These options are summarized in
 :numref:`Table %s <nt_config_tab>`.
 Some settings are only available in Advanced Mode. To see these
-settings, either click the "Advanced Mode" button or configure the
-system to always display these settings by checking the box
-"Show advanced fields by default" in
+settings, either click the :guilabel:`Advanced Mode` button or
+configure the system to always display these settings by checking the
+box :guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
+
 
 .. _nt_fig:
 
@@ -660,9 +673,10 @@ system to always display these settings by checking the box
 
    NT4 Configuration Options
 
+
 .. _nt_config_tab:
 
-.. table:: **NT4 Configuration Options**
+.. table:: NT4 Configuration Options
 
    +------------------------+-----------+-------------------------------------------------------------------------------------------------------+
    | **Setting**            | **Value** | **Description**                                                                                       |
@@ -672,8 +686,8 @@ system to always display these settings by checking the box
    | Domain Controller      | string    | hostname of domain controller                                                                         |
    |                        |           |                                                                                                       |
    +------------------------+-----------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name           | string    | hostname of FreeNAS system ; cannot be greater than 15 characters or the same as the "Workgroup Name" |
-   |                        |           |                                                                                                       |
+   | NetBIOS Name           | string    | hostname of FreeNAS system ; cannot be greater than 15 characters or the same as the                  |
+   |                        |           | :guilabel:`Workgroup Name`                                                                            |
    +------------------------+-----------+-------------------------------------------------------------------------------------------------------+
    | Workgroup Name         | string    | name of Windows server's workgroup                                                                    |
    |                        |           |                                                                                                       |
@@ -684,21 +698,22 @@ system to always display these settings by checking the box
    | Administrator Password | string    | input and confirm the password for the domain administrator account                                   |
    |                        |           |                                                                                                       |
    +------------------------+-----------+-------------------------------------------------------------------------------------------------------+
-   | Use default domain     | checkbox  | only available in "Advanced Mode"; when unchecked, the domain name is prepended to the username       |
-   |                        |           |                                                                                                       |
+   | Use default domain     | checkbox  | only available in :guilabel:`Advanced Mode`; when unchecked, the domain name is prepended             |
+   |                        |           | to the username                                                                                       |
    +------------------------+-----------+-------------------------------------------------------------------------------------------------------+
-   | Idmap backend          | drop-down | only available in "Advanced Mode"; select the backend to use to map Windows security identifiers      |
-   |                        | and Edit  | (SIDs) to UNIX UIDs and GIDs; see :numref:`Table %s <id_map_backends_tab>` for a summary of the       |
-   |                        | menu      | available backends; click the "Edit" link to configure that backend's editable options                |
-   |                        |           |                                                                                                       |
+   | Idmap backend          | drop-down | only available in :guilabel:`Advanced Mode`; select the backend to use to map Windows security        |
+   |                        | and Edit  | identifiers (SIDs) to UNIX UIDs and GIDs; see :numref:`Table %s <id_map_backends_tab>` for a          |
+   |                        | menu      | summary of the available backends; click the :guilabel:`Edit` link to configure that backend's        |
+   |                        |           | editable options                                                                                      |
    +------------------------+-----------+-------------------------------------------------------------------------------------------------------+
    | Enable                 | checkbox  | uncheck to disable the configuration without deleting it                                              |
    |                        |           |                                                                                                       |
    +------------------------+-----------+-------------------------------------------------------------------------------------------------------+
 
-Click the "Rebuild Directory Service Cache" button after adding a user
-to Active Directory who needs immediate access to %brand%. Otherwise
-this occurs automatically once a day as a cron job.
+Click the :guilabel:`Rebuild Directory Service Cache` button after
+adding a user to Active Directory who needs immediate access to
+%brand%. Otherwise this occurs automatically once a day as a cron job.
+
 
 .. _Kerberos Realms:
 
@@ -708,9 +723,10 @@ Kerberos Realms
 A default Kerberos realm is created for the local system in %brand%.
 :menuselection:`Directory Service --> Kerberos Realms`
 can be used to view and add Kerberos realms.  If the network contains
-a KDC, click the "Add kerberose realm" button to add the Kerberos
-realm. This configuration screen is shown in
+a KDC, click the :guilabel:`Add kerberose realm` button to add the
+Kerberos realm. This configuration screen is shown in
 :numref:`Figure %s <ker_realm_fig>`.
+
 
 .. _ker_realm_fig:
 
@@ -718,16 +734,19 @@ realm. This configuration screen is shown in
 
    Adding a Kerberos Realm
 
+
 :numref:`Table %s <ker_realm_config_tab>`
 summarizes the configurable options. Some settings are only available
 in Advanced Mode. To see these settings, either click the
-"Advanced Mode" button or configure the system to always display these
-settings by checking the box "Show advanced fields by default" in
+:guilabel:`Advanced Mode` button or configure the system to always
+display these settings by checking the box
+:guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
+
 
 .. _ker_realm_config_tab:
 
-.. table:: **Kerberos Realm Options**
+.. table:: Kerberos Realm Options
 
    +------------------------+-----------+------------------------------------------------------------------------------------------------------------------+
    | **Setting**            | **Value** | **Description**                                                                                                  |
@@ -736,15 +755,16 @@ settings by checking the box "Show advanced fields by default" in
    | Realm                  | string    | mandatory; name of the realm                                                                                     |
    |                        |           |                                                                                                                  |
    +------------------------+-----------+------------------------------------------------------------------------------------------------------------------+
-   | KDC                    | string    | only available in "Advanced Mode"; name of the Key Distribution Center                                           |
+   | KDC                    | string    | only available in :guilabel:`Advanced Mode`; name of the Key Distribution Center                                 |
    |                        |           |                                                                                                                  |
    +------------------------+-----------+------------------------------------------------------------------------------------------------------------------+
-   | Admin Server           | string    | only available in "Advanced Mode"; server where all changes to the database are performed                        |
+   | Admin Server           | string    | only available in :guilabel:`Advanced Mode`; server where all changes to the database are performed              |
    |                        |           |                                                                                                                  |
    +------------------------+-----------+------------------------------------------------------------------------------------------------------------------+
-   | Password Server        | string    | only available in "Advanced Mode"; server where all password changes are performed                               |
+   | Password Server        | string    | only available in :guilabel:`Advanced Mode`; server where all password changes are performed                     |
    |                        |           |                                                                                                                  |
    +------------------------+-----------+------------------------------------------------------------------------------------------------------------------+
+
 
 .. _Kerberos Keytabs:
 
@@ -787,7 +807,8 @@ Once the keytab is generated, use
 to add it to the %brand% system.
 
 To instruct the Active Directory service to use the keytab, select the
-installed keytab using the drop-down "Kerberos keytab" menu in
+installed keytab using the drop-down :guilabel:`Kerberos keytab` menu
+in
 :menuselection:`Directory Service --> Active Directory`.
 When using a keytab with Active Directory, make sure that the
 "username" and "userpass" in the keytab matches the
@@ -797,6 +818,7 @@ When using a keytab with Active Directory, make sure that the
 To instruct LDAP to use the keytab, select the installed keytab using
 the drop-down "Kerberos keytab" menu in
 :menuselection:`Directory Service --> LDAP`.
+
 
 .. _Kerberos Settings:
 

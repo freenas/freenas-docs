@@ -1,10 +1,10 @@
 .. centered:: %brand% is © 2011-2016 iXsystems
 
 .. centered:: %brand% and the %brand% logo are registered trademarks
-              of iXsystems.
+   of iXsystems.
 
 .. centered:: FreeBSD® is a registered trademark of the FreeBSD
-              Foundation
+   Foundation
 
 Written by users of the %brand% network-attached storage operating
 system.
@@ -24,11 +24,12 @@ IRC Freenode users are welcome to join the *#freenas* channel
 where you will find other %brand% users.
 
 The %brand% Users Guide is freely available for sharing and
-redistribution under the terms of the `Creative Commons Attribution
-License <https://creativecommons.org/licenses/by/3.0/>`_. This means
-that you have permission to copy, distribute, translate, and adapt the
-work as long as you attribute iXsystems as the original source of the
-Guide.
+redistribution under the terms of the
+`Creative Commons Attribution
+License <https://creativecommons.org/licenses/by/3.0/>`_.
+This means that you have permission to copy, distribute, translate,
+and adapt the work as long as you attribute iXsystems as the original
+source of the Guide.
 
 #include snippets/trademarks.rst
 
@@ -39,8 +40,8 @@ The %brand% |release| Users Guide uses the following typographic
 conventions:
 
 * Names of graphical elements such as buttons, icons, fields, columns,
-  and boxes are enclosed within quotes. For example: click the "Import
-  CA" button.
+  and boxes are in highlighted. For example: click the
+  :guilabel:`Import CA` button.
 
 * Menu selections are italicized and separated by arrows. For example:
   :menuselection:`System --> Information`.
@@ -93,6 +94,7 @@ What's New in |version|
 
 * Duplicate MAC addresses are not allowed in jails.
 
+
 .. _What's Changed Since |release|:
 
 What's Changed Since |version|
@@ -112,6 +114,7 @@ changes that have occurred since |version| was released.
    
 * The mps driver for 6 G Avago SAS HBAs is version 21, which requires
   phase 20 firmware on the controller.   
+
 
 .. index:: Hardware Recommendations
 .. _Hardware Recommendations:

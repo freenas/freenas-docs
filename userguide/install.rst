@@ -25,6 +25,7 @@ This section describes:
 
 * :ref:`Virtualization`
 
+
 .. index:: Getting %brand%, Download
 .. _Getting %brand%:
 
@@ -163,8 +164,8 @@ Insert the USB thumb drive. In the Finder, go to
 Unmount any mounted partitions on the USB thumb drive. Check that the
 USB thumb drive has only one partition, or partition table errors will
 be shown on boot. If needed, use Disk Utility to set up one partition
-on the USB drive. Selecting "free space" when creating the partition
-works fine.
+on the USB drive. Selecting :guilabel:`Free space` when creating the
+partition works fine.
 
 Determine the device name of the inserted USB thumb drive. From
 TERMINAL, navigate to the Desktop, then type this command::
@@ -233,7 +234,8 @@ image from an :file:`.iso` file. Follow
 `these instructions
 <https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool>`_,
 but enter the name of the downloaded :file:`.iso` into the
-"SOURCE FILE" box.
+:guilabel:`SOURCE FILE` box.
+
 
 .. index:: Install
 .. _Performing the Installation:
@@ -274,8 +276,8 @@ menu is displayed as shown in
    Console Setup
 
 
-Press :kbd:`Enter` to select the default option, "1 Install/Upgrade".
-The next menu, shown in
+Press :kbd:`Enter` to select the default option,
+:guilabel:`1 Install/Upgrade`. The next menu, shown in
 :numref:`Figure %s <select_drive_fig>`,
 lists all available drives. This includes any inserted USB thumb
 drives, which have names beginning with *da*.
@@ -324,8 +326,8 @@ of %brand% 8.x or 9.x. When an existing installation is present, the
 menu shown in
 :numref:`Figure %s <fresh_install_fig>`
 is displayed.  To overwrite an existing installation, use the arrows
-to move to "Fresh Install" and press :kbd:`Enter` twice to continue to
-the screen shown in
+to move to :guilabel:`Fresh Install` and press :kbd:`Enter` twice to
+continue to the screen shown in
 :numref:`Figure %s <set_root_pass_fig>`.
 
 
@@ -376,11 +378,11 @@ is shown after the installation is complete.
 
 Press :kbd:`Enter` to return to the first menu, shown in
 :numref:`Figure %s <grub_menu_fig>`.
-Highlight "3 Reboot System" and press :kbd:`Enter`. If booting from
-CD, remove the CDROM. As the system reboots, make sure that the device
-where %brand% was installed is listed as the first boot entry in the
-BIOS so the system will boot from it. %brand% boots into the
-"Console Setup" menu described in
+Highlight :guilabel:`3 Reboot System` and press :kbd:`Enter`. If
+booting from CD, remove the CDROM. As the system reboots, make sure
+that the device where %brand% was installed is listed as the first
+boot entry in the BIOS so the system will boot from it. %brand% boots
+into the :guilabel:`Console Setup` menu described in
 :ref:`Initial Configuration Wizard`.
 
 
@@ -560,9 +562,10 @@ USB thumb drive using the instructions in
 
 Insert the prepared media into the system and boot from it. Once the
 media has finished booting into the installation menu, press
-:kbd:`Enter` to select the default option of "1 Install/Upgrade." The
-installer will present a screen showing all available drives; select
-the device %brand% is installed into and press :kbd:`Enter`.
+:kbd:`Enter` to select the default option of
+:guilabel:`1 Install/Upgrade.` The installer presents a screen showing
+all available drives; select the device %brand% is installed into and
+press :kbd:`Enter`.
 
 The installer will recognize that an earlier version of %brand% is
 installed on the device and will present the message shown in
@@ -576,15 +579,15 @@ installed on the device and will present the message shown in
    Upgrading a %brand% Installation
 
 
-.. note:: If you choose a "Fresh Install", the backup of your
-   configuration data must be restored using
+.. note:: If you choose a :guilabel:`Fresh Install`, the backup of
+   your configuration data must be restored using
    :menuselection:`System --> General --> Upload Config`
    after booting into the new operating system.
 
 To perform an upgrade, press :kbd:`Enter` to accept the default of
-"Upgrade Install". Again, the installer will remind you that the
-operating system should be installed on a disk that is not used for
-storage. Press :kbd:`Enter` to start the upgrade. The installer
+:guilabel:`Upgrade Install`. Again, the installer will remind you that
+the operating system should be installed on a disk that is not used
+for storage. Press :kbd:`Enter` to start the upgrade. The installer
 unpacks the new image and displays the menu shown in
 :numref:`Figure %s <preserve_migrate_fig>`.
 The database file that is preserved and migrated contains your %brand%
@@ -599,9 +602,9 @@ configuration settings.
 
 
 Press :kbd:`Enter` and %brand% will indicate that the upgrade is
-complete and that you should reboot. Press "OK", highlight
-"3 Reboot System", and press :kbd:`Enter` to reboot the system. If
-the upgrade installer was booted from CD, remove the CDROM.
+complete and that you should reboot. Press :guilabel:`OK`, highlight
+:guilabel:`3 Reboot System`, and press :kbd:`Enter` to reboot the
+system. If the upgrade installer was booted from CD, remove the CDROM.
 
 During the reboot there may be a conversion of the previous
 configuration database to the new version of the database. This
@@ -611,8 +614,8 @@ sometimes fifteen minutes or more, so be patient and the boot will
 complete normally. If database errors are shown but the graphical
 administrative interface is accessible, go to
 :menuselection:`Settings --> General`
-and use the "Upload Config" button to upload the configuration that
-you saved before starting the upgrade.
+and use the :guilabel:`Upload Config` button to upload the
+configuration that you saved before starting the upgrade.
 
 
 .. _Upgrading From the GUI:
@@ -730,8 +733,8 @@ OpenSolaris. It can be configured to use a downloaded %brand%
 configurations or learning how to use the features provided by
 %brand%.
 
-To create the virtual machine, start VirtualBox and click the "New"
-button, shown in
+To create the virtual machine, start VirtualBox and click the
+:guilabel:`New` button, shown in
 :numref:`Figure %s <vb_initial_fig>`,
 to start the new virtual machine wizard.
 
@@ -743,11 +746,11 @@ to start the new virtual machine wizard.
    Initial VirtualBox Screen
 
 
-Click the "Next" button to see the screen in
+Click the :guilabel:`Next` button to see the screen in
 :numref:`Figure %s <vb_nameos_fig>`.
-Enter a name for the virtual machine, click the "Operating System"
-drop-down menu and select BSD, and select "FreeBSD (64-bit)" from the
-"Version" dropdown.
+Enter a name for the virtual machine, click the
+:guilabel:`Operating System` drop-down menu and select BSD, and select
+:guilabel:`FreeBSD (64-bit)` from the :guilabel:`Version` dropdown.
 
 
 .. _vb_nameos_fig:
@@ -758,10 +761,10 @@ drop-down menu and select BSD, and select "FreeBSD (64-bit)" from the
    Machine
 
 
-Click "Next" to see the screen in
+Click :guilabel:`Next` to see the screen in
 :numref:`Figure %s <vb_mem_fig>`.
 The base memory size must be changed to **at least 8192 MB**. When
-finished, click "Next" to see the screen in
+finished, click :guilabel:`Next` to see the screen in
 :numref:`Figure %s <vb_hd_fig>`.
 
 
@@ -779,8 +782,8 @@ finished, click "Next" to see the screen in
    Select Existing or Create a New Virtual Hard Drive
 
 
-Click "Create" to launch the "Create Virtual Hard Drive Wizard" shown
-in
+Click :guilabel:`Create` to launch the
+:guilabel:`Create Virtual Hard Drive Wizard` shown in
 :numref:`Figure %s <vb_virt_drive_fig>`.
 
 
@@ -791,7 +794,8 @@ in
    Create New Virtual Hard Drive Wizard
 
 
-Select "VDI" and click the "Next" button to see the screen in
+Select :guilabel:`VDI` and click the :guilabel:`Next` button to see
+the screen in
 :numref:`Figure %s <vb_virt_type_fig>`.
 
 
@@ -802,13 +806,14 @@ Select "VDI" and click the "Next" button to see the screen in
    Select Storage Type for Virtual Disk
 
 
-Choose either "Dynamically allocated" or "Fixed-size" storage. The
-first option uses disk space as needed until it reaches the maximum
-size that is set in the next screen. The second option creates a disk
-the full amount of disk space, whether it is used or not. Choose the
-first option to conserve disk space; otherwise, choose the second
-option as it allows VirtualBox to run slightly faster. After selecting
-"Next", the screen in
+Choose either :guilabel:`Dynamically allocated` or
+:guilabel:`Fixed-size` storage. The first option uses disk space as
+needed until it reaches the maximum size that is set in the next
+screen. The second option creates a disk the full amount of disk
+space, whether it is used or not. Choose the first option to conserve
+disk space; otherwise, choose the second option, as it allows
+VirtualBox to run slightly faster. After selecting :guilabel:`Next`,
+the screen in
 :numref:`Figure %s <vb_virt_filename_fig>`
 is shown.
 
@@ -826,11 +831,12 @@ browse to a directory on disk with sufficient space to hold the
 virtual disk files.  Remember that there will be a system disk of
 at least 8 GB and at least one data storage disk of at least 4 GB.
 
-After making a selection and pressing "Next", a summary of the
-configuration options chosen is shown. Use the "Back" button to return
-to a previous screen if any values need to be modified. Otherwise,
-click "Finish" to complete the wizard. The new virtual machine is
-listed in the left frame, as shown in the example in
+After making a selection and pressing :guilabel:`Next`, a summary of
+the configuration options chosen is shown. Use the :guilabel:`Back`
+button to return to a previous screen if any values need to be
+modified. Otherwise, click :guilabel:`Finish` to complete the wizard.
+The new virtual machine is listed in the left frame, as shown in the
+example in
 :numref:`Figure %s <vb_new_vm_fig>`.
 
 
@@ -841,8 +847,9 @@ listed in the left frame, as shown in the example in
    The New Virtual Machine
 
 
-Create the virtual disks to be used for storage. Click the "Storage"
-hyperlink in the right frame to access the storage screen seen in
+Create the virtual disks to be used for storage. Click the
+:guilabel:`Storage` hyperlink in the right frame to access the storage
+screen seen in
 :numref:`Figure %s <vb_storage_settings_fig>`.
 
 
@@ -853,9 +860,10 @@ hyperlink in the right frame to access the storage screen seen in
    Storage Settings of the Virtual Machine
 
 
-Click the "Add Attachment" button, select "Add Hard Disk" from the
-pop-up menu, then click the "Create New Disk" button. This launches
-the Create New Virtual Hard Drive Wizard (seen in
+Click the :guilabel:`Add Attachment` button, select
+:guilabel:`Add Hard Disk` from the pop-up menu, then click the
+:guilabel:`Create New Disk` button. This launches the Create New
+Virtual Hard Drive Wizard (seen in
 :numref:`Figure %s <vb_virt_drive_fig>`
 and
 :numref:`%s <vb_virt_type_fig>`).
@@ -863,11 +871,11 @@ This disk will be used for storage, so create a size
 appropriate to your needs, making sure that it is **at least 4 GB**.
 To practice with RAID configurations, create as many virtual disks as
 needed. Two disks can be created on each IDE controller. For
-additional disks, click the "Add Controller" button to create another
-controller for attaching additional disks.
+additional disks, click the :guilabel:`Add Controller` button to
+create another controller for attaching additional disks.
 
 Create a device for the installation media. Highlight the word
-"Empty", then click the "CD" icon as shown in
+"Empty", then click the :guilabel:`CD` icon as shown in
 :numref:`Figure %s <vb_config_iso_fig>`.
 
 
@@ -878,9 +886,9 @@ Create a device for the installation media. Highlight the word
    Configuring ISO Installation Media
 
 
-Click "Choose a virtual CD/DVD disk file..." to browse to the location
-of the :file:`.iso` file. If the :file:`.iso` was burned to CD, select
-the detected "Host Drive".
+Click :guilabel:`Choose a virtual CD/DVD disk file...` to browse to
+the location of the :file:`.iso` file. If the :file:`.iso` was burned
+to CD, select the detected :guilabel:`Host Drive`.
 
 Depending on the extensions available in the host CPU, it might not be
 possible to boot the VM from :file:`.iso`. If
@@ -889,14 +897,15 @@ the :file:`.iso`, the host CPU either does not have the required
 extension or AMD-V/VT-x is disabled in the system BIOS.
 
 .. note:: If you receive a kernel panic when booting into the ISO,
-   stop the virtual machine. Then, go to "System" and check the box
-   "Enable IO APIC".
+   stop the virtual machine. Then, go to :guilabel:`System` and check
+   the box :guilabel:`Enable IO APIC`.
 
 To configure the network adapter, go to
 :menuselection:`Settings --> Network`.
-In the "Attached to" drop-down menu select "Bridged Adapter", then
-choose the name of the physical interface from the "Name" drop-down
-menu. In the example shown in
+In the :guilabel:`Attached to` drop-down menu select
+:guilabel:`Bridged Adapter`, then choose the name of the physical
+interface from the :guilabel:`Name` drop-down menu. In the example
+shown in
 :numref:`Figure %s <vb_bridged_fig>`,
 the Intel Pro/1000 Ethernet card is attached to the network and has a
 device name of *em0*.
@@ -908,13 +917,13 @@ device name of *em0*.
 
    Configuring a Bridged Adapter in VirtualBox
 
-After configuration is complete, click the "Start" arrow and install
-%brand% as described in `Performing the Installation`_. Once %brand%
-is installed, press "F12" when the VM starts to boot to access the
-boot menu and select the primary hard disk as the boot option. You can
-permanently boot from disk by removing the "CD/DVD" device in
-"Storage" or by unchecking "CD/DVD-ROM" in the "Boot Order" section of
-"System".
+After configuration is complete, click the :guilabel:`Start` arrow and
+install %brand% as described in `Performing the Installation`_. Once
+%brand% is installed, press :kbd:`F12` when the VM starts to boot to
+access the boot menu. Select the primary hard disk as the boot option.
+You can permanently boot from disk by removing the :guilabel:`CD/DVD`
+device in :guilabel:`Storage` or by unchecking :guilabel:`CD/DVD-ROM`
+in the :guilabel:`Boot Order` section of :guilabel:`System`.
 
 
 .. _VMware ESXi:
@@ -950,12 +959,12 @@ The New Virtual Machine Wizard will launch as shown in
    New Virtual Machine Wizard
 
 
-Click "Next" and enter a name for the virtual machine. Click "Next"
-and highlight a datastore. An example is shown in
+Click :guilabel:`Next` and enter a name for the virtual machine. Click
+:guilabel:`Next` and highlight a datastore. An example is shown in
 :numref:`Figure %s <esxi_datastore_fig>`.
-Click "Next". In the screen shown in
+Click :guilabel:`Next`. In the screen shown in
 :numref:`Figure %s <esxi_os_fig>`,
-click "Other", then select a FreeBSD 64-bit architecture.
+click :guilabel:`Other`, then select a FreeBSD 64-bit architecture.
 
 
 .. _esxi_datastore_fig:
@@ -972,8 +981,8 @@ click "Other", then select a FreeBSD 64-bit architecture.
    Select Operating System
 
 
-Click "Next" and create a virtual disk file of **8 GB** to hold the
-%brand% operating system, as shown in
+Click :guilabel:`Next` and create a virtual disk file of **8 GB** to
+hold the %brand% operating system, as shown in
 :numref:`Figure %s <esxi_create_disk_fig>`.
 
 
@@ -984,10 +993,11 @@ Click "Next" and create a virtual disk file of **8 GB** to hold the
    Create Disk for the Operating System
 
 
-Click "Next" then "Finish". The new virtual machine is listed in the
-left frame. Right-click the virtual machine and select "Edit Settings"
-to access the screen shown in
+Click :guilabel:`Next` and :guilabel:`Finish`. The new virtual machine
+is listed in the left frame. Right-click the virtual machine and
+select :guilabel:`Edit Settings` to access the screen shown in
 :numref:`Figure %s <esxi_vm_settings_fig>`.
+
 
 .. _esxi_vm_settings_fig:
 
@@ -996,22 +1006,25 @@ to access the screen shown in
    Virtual Machine Settings
 
 
-Increase the "Memory Configuration" to **at least 8192 MB**.
+Increase the :guilabel:`Memory Configuration` to **at least 8192 MB**.
 
-Under "CPUs", make sure that only one virtual processor is listed,
-otherwise it will not be possible to start any %brand% services.
+Under :guilabel:`CPUs`, make sure that only one virtual processor is
+listed, otherwise it will not be possible to start any %brand%
+services.
 
 To create a storage disk,
 click :menuselection:`Hard disk 1 --> Add`.
-In the "Device Type" menu, highlight "Hard Disk" and click "Next".
-Select "Create a new virtual disk" and click "Next". In the screen
-shown in
+In the :guilabel:`Device Type` menu, highlight :guilabel:`Hard Disk`
+and click :guilabel:`Next`. Select
+:guilabel:`Create a new virtual disk` and click :guilabel:`Next`. In
+the screen shown in
 :numref:`Figure %s <esxi_create_storage_fig>`,
 select the size of the disk. To dynamically allocate space as needed,
 check the box
-"Allocate and commit space on demand (Thin Provisioning)". Click
-"Next", then "Next", then "Finish" to create the disk. Repeat to
-create the amount of storage disks needed to meet your requirements.
+:guilabel:`Allocate and commit space on demand (Thin Provisioning)`.
+Click :guilabel:`Next`, then :guilabel:`Next`, then :guilabel:`Finish`
+to create the disk. Repeat to create the amount of storage disks
+needed to meet your requirements.
 
 
 .. _esxi_create_storage_fig:
@@ -1025,14 +1038,14 @@ For ESX 5.0, Workstation 8.0, or Fusion 4.0 or higher, additional
 configuration is needed so that the virtual HPET setting does not
 prevent the virtual machine from booting.
 
-If you are running ESX, while in "Edit Settings", click
+If you are running ESX, while in :guilabel:`Edit Settings`, click
 :menuselection:`Options --> Advanced --> General
 --> Configuration Parameters`.
-Change "hpet0.present" from *true* to *false*, then click "OK" twice
-to save the setting.
+Change :guilabel:`hpet0.present` from *true* to *false*, then click
+:guilabel:`OK` twice to save the setting.
 
-For Workstation or Player, while in "Edit Settings",
+For Workstation or Player, while in :guilabel:`Edit Settings`,
 click :menuselection:`Options --> Advanced --> File Locations`.
 Locate the path for the Configuration file named :file:`filename.vmx`.
-Open that file in a text editor, change "hpet0.present" from *true* to
-*false*, and save the change.
+Open that file in a text editor, change :guilabel:`hpet0.present` from
+*true* to *false*, and save the change.

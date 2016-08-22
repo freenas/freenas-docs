@@ -15,6 +15,7 @@ contains these entries:
 
 Each entry is described in more detail in this section.
 
+
 .. index:: Groups
 .. _Groups:
 
@@ -38,6 +39,7 @@ Click
 to see a screen like
 :numref:`Figure %s <group_man_fig>`.
 
+
 .. _group_man_fig:
 
 .. figure:: images/group1.png
@@ -49,12 +51,12 @@ All groups that came with the operating system will be listed. Each
 group has an entry indicating the group ID, group name, whether or not
 it is a built-in group which was installed with %brand%, and whether
 or not the group members are allowed to use :command:`sudo`. Clicking
-a group entry causes a "Members" button to appear. Click this button
-to view and modify that group's membership.
+a group entry causes a :guilabel:`Members` button to appear. Click the
+button to view and modify the group membership.
 
 .. index:: Add Group, New Group, Create Group
 
-The "Add Group" button opens the screen shown in
+The :guilabel:`Add Group` button opens the screen shown in
 :numref:`Figure %s <new_group_fig>`.
 :numref:`Table %s <new_group_tab>`
 summarizes the available options when creating a group.
@@ -69,7 +71,7 @@ summarizes the available options when creating a group.
 
 .. _new_group_tab:
 
-.. table:: **Options When Creating a Group**
+.. table:: Options When Creating a Group
 
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
    | **Setting**         | **Value** | **Description**                                                                                                          |
@@ -96,17 +98,18 @@ summarizes the available options when creating a group.
 
 After a group and users are created, users can be made members
 of a group. Highlight the group where users will be assigned, then
-click the "Members" button. Highlight the user in the "Member users"
-list (which shows all user accounts on the system) and click the ">>"
-to move that user to the right frame. The user accounts which appear
-in the right frame are added as members of that group.
+click the :guilabel:`Members` button. Highlight the user in the
+:guilabel:`Member users` list (which shows all user accounts on the
+system) and click :guilabel:`>>` to move that user to the right frame.
+The user accounts which appear in the right frame are added as members
+of the group.
 
 In the example shown in
 :numref:`Figure %s <user_group_fig>`,
 the *data1* group has been created and the *user1* user account has
-been created with a primary group of *user1*. The "Members" button for
-the *data1* group has been selected and *user1* has been added as a
-member of that group.
+been created with a primary group of *user1*. The :guilabel:`Members`
+button for the *data1* group has been selected and *user1* has been
+added as a member of the group.
 
 
 .. _user_group_fig:
@@ -118,9 +121,10 @@ member of that group.
 
 .. index:: Delete Group, Remove Group
 
-To delete a group, click its "Delete Group" button. The pop-up message
-asks if you also want to delete all members of that group. Note that
-the built-in groups do not provide a "Delete Group" button.
+The :guilabel:`Delete Group` button deletes a group. The pop-up
+message asks if you also want to delete all members of that group.
+Note that the built-in groups do not provide a
+:guilabel:`Delete Group` button.
 
 
 .. index:: Users
@@ -192,13 +196,12 @@ not modify the system accounts.
 
 .. index:: Add User, Create User, New User
 
-To create a user account, click the "Add User" button to open the
-screen shown in
+The :guilabel:`Add User` button opens the screen shown in
 :numref:`Figure %s <add_user_fig>`.
-Some settings are only available in "Advanced Mode". To see these
-settings, either click the "Advanced Mode" button or configure the
-system to always display these settings by checking the box
-"Show advanced fields by default" in
+Some settings are only available in :guilabel:`Advanced Mode`. To see
+these settings, either click the :guilabel:`Advanced Mode` button or
+configure the system to always display these settings by checking the
+box :guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
 :numref:`Table %s <user_account_conf_tab>`
 summarizes the options which are available when user accounts are
@@ -214,7 +217,7 @@ created or modified.
 
 .. _user_account_conf_tab:
 
-.. table:: **User Account Configuration**
+.. table:: User Account Configuration
 
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | **Setting**                | **Value**       | **Description**                                                                                                                                       |
@@ -235,15 +238,15 @@ created or modified.
    |                            |                 | different primary group name                                                                                                                          |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Primary Group              | drop-down menu  | must uncheck "Create a new primary group" in order to access this menu; for security reasons, FreeBSD will                                            |
+   | Primary Group              | drop-down menu  | must uncheck :guilabel:`Create a new primary group` to access this menu; for security reasons, FreeBSD will                                           |
    |                            |                 | not give a user :command:`su` permissions if *wheel* is their primary group; to give a user :command:`su` access, add them to the                     |
-   |                            |                 | *wheel* group in "Auxiliary groups"                                                                                                                   |
+   |                            |                 | *wheel* group in :guilabel:`Auxiliary groups`                                                                                                         |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Create Home Directory In   | browse button   | browse to the name of an **existing** volume or dataset that the user will be assigned permission to access                                           |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Home Directory Mode        | checkboxes      | only available in "Advanced Mode" and will be read-only for built-in users; sets default Unix permissions of user's                                   |
+   | Home Directory Mode        | checkboxes      | only available in :guilabel:`Advanced Mode` and will be read-only for built-in users; sets default Unix permissions of user's                         |
    |                            |                 | home directory                                                                                                                                        |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -256,19 +259,19 @@ created or modified.
    | E-mail                     | string          | email address associated with the account                                                                                                             |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Password                   | string          | mandatory unless check box "Disable password login"; cannot contain a *?*                                                                             |
+   | Password                   | string          | mandatory unless check box :guilabel:`Disable password login`; cannot contain a *?*                                                                   |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Password confirmation      | string          | must match the value of "Password"                                                                                                                    |
+   | Password confirmation      | string          | must match the value of :guilabel:`Password`                                                                                                          |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Disable password login     | checkbox        | when checked, disables password logins and authentication to CIFS shares; to undo this                                                                |
-   |                            |                 | setting, set a password for the user using the "Modify User" button for the user in "View Users";                                                     |
-   |                            |                 | checking this box will gray out "Lock user" and "Permit Sudo" which are mutually exclusive                                                            |
+   |                            |                 | setting, set a password for the user using the :guilabel:`Modify User` button for the user in :guilabel:`View Users`;                                 |
+   |                            |                 | checking this box will gray out :guilabel:`Lock user` and :guilabel:`Permit Sudo`, which are mutually exclusive                                       |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Lock user                  | checkbox        | a checked box prevents user from logging in until the account is unlocked (box is unchecked); checking this                                           |
-   |                            |                 | box will gray out "Disable password login" which is mutually exclusive                                                                                |
+   |                            |                 | box will gray out :guilabel:`Disable password login` which is mutually exclusive                                                                      |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Permit Sudo                | checkbox        | if checked, members of the group have permission to use `sudo <http://www.sudo.ws/>`_; when using sudo, a user will be prompted for their own         |
@@ -282,7 +285,7 @@ created or modified.
    |                            |                 | (**do not paste the private key!**)                                                                                                                   |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Auxiliary groups           | mouse selection | highlight the group(s) you wish to add the user to and use the >> button to add the user to the highlighted                                           |
+   | Auxiliary groups           | mouse selection | highlight the group(s) you wish to add the user to and use the :guilabel:`>>` button to add the user to the highlighted                               |
    |                            |                 | groups                                                                                                                                                |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -293,7 +296,7 @@ created or modified.
 
 .. _shells_tab:
 
-.. table:: **Available Shells**
+.. table:: Available Shells
 
    +--------------+----------------------------------------------------------------------------------------------------------------------+
    | **Shell**    | **Description**                                                                                                      |

@@ -65,18 +65,19 @@ To help localize your language, join the
 introduce yourself, and point out which languages you can help
 translate. This will allow you to meet other volunteers as well as
 keep abreast of any notices or updates that may affect the
-translations. You will also need to click on the "Register" link to
-create a Pootle login account.
+translations. You will also need to click on the :guilabel:`Register`
+link to create a Pootle login account.
 
 On the first login to the %brand% Pootle interface, there is a
 prompt to select your language so that you can access that
 language's translation whenever you log in. Alternately, you can click
-the "Home" link to see the status of all of the languages. To work on
-a translation, click the link for the language, click the %brand%
-link for the project, click the link for "LC_MESSAGES", and click the
-link for "django.po". Every text line available in the GUI menu
-screens has been assigned a string number. If you click the number, an
-editor will open to translate the text. In the example shown in
+the :guilabel:`Home` link to see the status of all of the languages.
+To work on a translation, click the link for the language, click the
+:guilabel:`%brand%` link for the project, click the link for
+:guilabel:`LC_MESSAGES`, and click the link for :guilabel:`django.po`.
+Every text line available in the GUI menu screens has been assigned a
+string number. If you click the number, an editor will open to
+translate the text. In the example shown in
 :numref:`Figure %s <contribute_translate2_fig>`,
 a user has selected string number 46 in the German translation.
 The other strings in the screenshot have already been translated:
@@ -89,5 +90,5 @@ The other strings in the screenshot have already been translated:
    Using the Pootle Interface to Edit a Translation String
 
 
-Type in the translated text and click the "Submit" button to save the
-change.
+Type in the translated text and click the :guilabel:`Submit` button to
+save the change.
