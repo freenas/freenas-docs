@@ -13,7 +13,7 @@ inaccessible.
 .. note:: you can access the Console Setup menu from within the
    %brand% GUI by typing :command:`/etc/netcli` from Shell.
    You can disable the Console Setup menu by unchecking the
-   "Enable Console Menu" in
+   :guilabel:`Enable Console Menu` in
    :menuselection:`System --> Advanced`.
 
 
@@ -78,28 +78,28 @@ the remote system, the name of a user account on the remote system,
 the password for that user account, the full path to a directory on
 the remote system to save the backup, whether or not to also backup
 all of the data, whether or not to compress the data, and a
-confirmation to save the values, where "y" will start the backup, "n"
-will repeat the configuration, and "q" will quit the backup wizard. If
-you leave the password empty, key-based authentication will be used
-instead. This requires that the public key of the *root* user is
-stored in :file:`~root/.ssh/authorized_keys` on the remote system and
-that key should **not** be protected by a passphrase. Refer to
+confirmation to save the values, where *y* will start the backup, *n*
+will repeat the configuration, and *q* will quit the backup wizard. If
+the password is left empty, key-based authentication is used instead.
+This requires that the public key of the *root* user is stored in
+:file:`~root/.ssh/authorized_keys` on the remote system and that key
+should **not** be protected by a passphrase. Refer to
 :ref:`Rsync over SSH Mode` for instructions on how to generate a key
 pair.
 
 **12) Restore from a backup:** if a backup has already been created
-using "11) Create backup" or
+using :guilabel:`11) Create backup` or
 :menuselection:`System --> Advanced --> Backup`, it can be restored
 using this option. Once selected, it will prompt for the hostname or
 IP address of the remote system holding the backup, the username that
 was used, the password (leave empty if key-based authentication was
 used), the full path of the remote directory storing the backup, and a
-confirmation that the values are correct, where "y" will start the
-restore, "n" will repeat the configuration, and "q" will quit the
+confirmation that the values are correct, where *y* will start the
+restore, *n* will repeat the configuration, and *q* will quit the
 restore wizard. The restore will indicate if it could log into the
 remote system, find the backup, and indicate whether or not the backup
 contains data. It will then prompt to restore %brand% from that
-backup. Note that if you press "y" to perform the restore, the system
+backup. Note that if you press *y* to perform the restore, the system
 will be returned to the database configuration, ZFS layout, and
 optionally the data, at the point when the backup was created. The
 system will reboot once the restore is complete.
@@ -203,9 +203,9 @@ following:
   the GUI using Internet Explorer, use
   `Firefox <https://www.mozilla.org/en-US/firefox/all/>`_ instead.
 
-* If you receive "An error occurred!" messages when attempting to
-  configure an item in the GUI, make sure that the browser is set to
-  allow cookies from the %brand% system.
+* If you receive :guilabel:`An error occurred!` messages when
+  attempting to configure an item in the GUI, make sure that the
+  browser is set to allow cookies from the %brand% system.
 
 This `blog post
 <http://fortysomethinggeek.blogspot.com/2012/10/ipad-iphone-connect-with-freenas-or-any.html>`_

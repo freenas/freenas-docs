@@ -57,7 +57,7 @@ advantages:
   the %brand% GUI so that these options can be configured from the
   GUI
 
-To install a plugin, click "Plugins". As seen in
+To install a plugin, click :guilabel:`Plugins`. As seen in
 :numref:`Figure %s <view_list_plugins_fig>`,
 the list of available plugins will be displayed.
 
@@ -75,8 +75,9 @@ the list of available plugins will be displayed.
    default gateway address and/or DNS server address in
    :menuselection:`Network --> Global Configuration`.
 
-Highlight the plugin you would like to install, click its "Install"
-button, then click "OK". In the example shown in
+Highlight the plugin you would like to install, click its
+:guilabel:`Install` button, then click :guilabel:`OK`. In the example
+shown in
 :numref:`Figure %s <installing_plugin_fig>`,
 SABnzbd is selected for installation.
 
@@ -90,8 +91,8 @@ SABnzbd is selected for installation.
 
 The installation will take a few minutes as the system will first
 download and configure a jail to contain the installed software. It
-will then install the plugin and add it to the "Installed" tab as
-shown in
+will then install the plugin and add it to the :guilabel:`Installed`
+tab as shown in
 :numref:`Figure %s <view_installed_plugins_fig>`.
 
 .. warning:: Be patient and wait for the installation to finish.
@@ -110,50 +111,52 @@ As seen in the example shown in
 :numref:`Figure %s <view_installed_plugins_fig>`,
 entries for the installed PBI will appear in the following locations:
 
-* the "Installed" tab of "Plugins"
+* the :guilabel:`Installed` tab of :guilabel:`Plugins`
 
-* the "Plugins" section of the tree
+* the :guilabel:`Plugins` section of the tree
 
-* the "Jails" section of the tree
+* the :guilabel:`Jails` section of the tree
 
-The entry in the "Installed" tab of Plugins will display the plugin
-name and version, the name of the PBI that was installed, the name of
-the jail that was created, whether the application status is "ON" or
-"OFF", and a button to delete the application and its associated jail.
-If a newer version of the application is available as a plugin, a
-button to update the application will also appear.
+The entry in the :guilabel:`Installed` tab of Plugins will display the
+plugin name and version, the name of the PBI that was installed, the
+name of the jail that was created, whether the application status is
+:guilabel:`ON` or :guilabel:`OFF`, and a button to delete the
+application and its associated jail. If a newer version of the
+application is available as a plugin, a button to update the
+application will also appear.
 
-.. note:: The "Service status" of a plugin must be turned to "ON"
-   before the installed application is available. Before starting the
-   service, check to see if it has a configuration menu by clicking
-   its entry in the "Plugins" section of the tree. If the application
-   is configurable, this will open a graphical screen that contains
-   the available configuration options. Plugins which are not
-   configurable will instead display a message with a hyperlink for
-   accessing the software. However, that hyperlink will **not work**
-   until the plugin is started.
+.. note:: The :guilabel:`Service status` of a plugin must be turned to
+   :guilabel:`ON` before the installed application is available.
+   Before starting the service, check to see if it has a configuration
+   menu by clicking its entry in the :guilabel:`Plugins` section of
+   the tree. If the application is configurable, this will open a
+   screen that contains the available configuration options. Plugins
+   which are not configurable will instead display a message with a
+   hyperlink for accessing the software. However, that hyperlink does
+   **not** work until the plugin is started.
 
-You should always review a plugin's configuration options before
-attempting to start it. some plugins have options that need to be set
-before their service will successfully start. If you have never
-configured that application before, check the application's website to
-see what documentation is available. A link to the website for each
-available plugin can be found in :ref:`Available Plugins`.
+Always review a plugin's configuration options before attempting to
+start it. some plugins have options that need to be set before their
+service will successfully start. If you have never configured that
+application before, check the application's website to see what
+documentation is available. A link to the website for each available
+plugin can be found in :ref:`Available Plugins`.
 
 If the application requires access to the data stored on the %brand%
-system, click the entry for the associated jail in the "Jails" section
-of the tree and add a storage as described in :ref:`Add Storage`.
+system, click the entry for the associated jail in the
+:guilabel:`Jails` section of the tree and add a storage as described
+in :ref:`Add Storage`.
 
 If you need to access the shell of the jail containing the application
 to complete or test your configuration, click the entry for the
-associated jail in the "Jails" section of the tree. You can then click
-its "shell" icon as described in :ref:`Managing Jails`.
+associated jail in the :guilabel:`Jails` section of the tree. You can
+then click its "shell" icon as described in :ref:`Managing Jails`.
 
-Once the configuration is complete, click the red "OFF" button for the
-entry for the plugin. If the service successfully starts, it will
-change to a blue "ON". If it fails to start, click the jail's "shell"
-icon and type :command:`tail /var/log/messages` to see if any errors
-were logged.
+Once the configuration is complete, click the red :guilabel:`OFF`
+button for the entry for the plugin. If the service starts
+successfully, it will change to a blue :guilabel:`ON`. If it fails to
+start, click the jail's :guilabel:`Shell` icon and type
+:command:`tail /var/log/messages` to see if any errors were logged.
 
 
 .. _Updating Plugins:
@@ -162,8 +165,8 @@ Updating Plugins
 ----------------
 
 When a newer version of a plugin becomes available in the official
-repository, an "Update" button is added to the entry for the plugin in
-the "Installed" tab. In the example shown in
+repository, an :guilabel:`Update` button is added to the entry for the
+plugin in the :guilabel:`Installed` tab. In the example shown in
 :numref:`Figure %s <updating_installed_plugin_fig>`,
 a newer version of Transmission is available.
 
@@ -175,10 +178,10 @@ a newer version of Transmission is available.
    Updating an Installed Plugin
 
 
-Click the "OK" button to start the download and installation of the
-latest version of the plugin. Once the update is complete, the entry
-for the plugin will be refreshed to show the new version number and
-the "Update" button will disappear.
+Click the :guilabel:`OK` button to start the download and installation
+of the latest version of the plugin. Once the update is complete, the
+entry for the plugin will be refreshed to show the new version number
+and the :guilabel:`Update` button will disappear.
 
 
 .. _Uploading Plugins:
@@ -186,19 +189,19 @@ the "Update" button will disappear.
 Uploading Plugins
 -----------------
 
-The "Available" tab of "Plugins" contains an "Upload" button. This
-button allows you to install plugins that are not yet available in the
-official repository or which are still being tested. These plugins
-must be manually downloaded and should end in a :file:`.pbi`
-extension. When downloading a plugin, make sure that it is 64-bit and
-that it was developed for 9.x. as 8.x and 10.x applications will not
-work on a 9.x %brand% system.
+The :guilabel:`Available` tab of :guilabel:`Plugins` contains an
+:guilabel:`Upload` button. This button allows installation of plugins
+that are not yet available in the official repository or which are
+still being tested. These plugins must be manually downloaded and
+should end in a :file:`.pbi` extension. When downloading a plugin,
+make sure that it is 64-bit and that it was developed for 9.x. as 8.x
+and 10.x applications will not work on a 9.x %brand% system.
 
-Once you have downloaded the plugin, click the "Upload" button. As
-seen in the example in
+Upload the new plugin with the :guilabel:`Upload` button. As seen in
+the example in
 :numref:`Figure %s <install_pbi_plugin_fig>`,
-this will prompt you to browse to the location of the downloaded file.
-Once selected, click the "Upload" button to begin the installation.
+this prompts you to browse to the location of the plugin file. Select
+the file and click :guilabel:`Upload` to begin the installation.
 
 
 .. _install_pbi_plugin_fig:
@@ -209,10 +212,10 @@ Once selected, click the "Upload" button to begin the installation.
 
 
 When the installation is complete, an entry for the plugin will be
-added to the "Installed" tab and its associated jail will be listed
-under "Jails". However, if it is not a %brand% plugin, it will not be
-added to "Plugins" in the tree. In this case, if the application
-requires any configuration, you will have to perform it from the
+added to the :guilabel:`Installed` tab and its associated jail is
+listed under :guilabel:`Jails`. However, if it is not a %brand%
+plugin, it will not be added to :guilabel:`Plugins` in the tree. In
+this case, any required jail configuration must be done from the
 command line of the jail's shell instead of from the GUI.
 
 
@@ -230,10 +233,11 @@ plugin.
 
 In the example shown in
 :numref:`Figure %s <deleting_installed_plugin_fig>`,
-Sabnzbd has been installed and the user has clicked its "Delete"
-button. A pop-up message asks the user if they are sure that they want
-to delete. **This is the one and only warning.** If the user clicks
-"Yes", the plugin and the associated jail will be permanently deleted.
+Sabnzbd has been installed and the user has clicked its
+:guilabel:`Delete` button. A pop-up message asks the user if they are
+sure that they want to delete. **This is the one and only warning.**
+If the user clicks :guilabel:`Yes`, the plugin and the associated jail
+are permanently deleted.
 
 
 .. _deleting_installed_plugin_fig:
@@ -248,7 +252,7 @@ to delete. **This is the one and only warning.** If the user clicks
 Available Plugins
 -----------------
 
-The following plugins are available for %brand% |release|:
+These plugins are available for %brand% |release|:
 
 * `bacula-sd (storage daemon) <http://bacula.org/>`_
 

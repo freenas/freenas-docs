@@ -5,17 +5,17 @@ Jails
 =====
 
 The previous section described how to find, install, and configure
-software using "Plugins".
+software using :ref:`Plugins`.
 
-This section describes how to use "Jails", which allow users who are
+This section describes how to use Jails, which allow users who are
 comfortable with the command line to have more control over software
-installation and management. Any software installed using "Jails" must
+installation and management. Any software installed using Jails must
 be managed from the command line of the jail. If you prefer to use a
 GUI to manage software, use :ref:`Plugins` instead.
 
-While %brand% automatically creates a jail whenever a plugin is
-installed, it does not let the user install multiple plugins into the
-same jail. In contrast, using "Jails" allows users to create as many
+%brand% automatically creates a jail whenever a plugin is
+installed, but does not let the user install multiple plugins into the
+same jail. In contrast, using Jails allows users to create as many
 jails as needed and to customize the operating system and installed
 software within each jail.
 
@@ -78,11 +78,12 @@ hold the jails. Click
 :menuselection:`Jails --> Configuration`
 to access the screen shown in
 :numref:`Figure %s <global_jail_config_fig>`.
-**It is recommended to create a dataset to use for the "Jail Root"**.
-As jails are created, they are automatically installed into their own
-dataset under the specified path. For example, if the "Jail Root" is
-set to :file:`/mnt/volume1/dataset1` and a jail named *jail1* is
-created, it will be installed into its own dataset named
+**It is recommended to create a dataset to use for the
+:guilabel:`Jail Root`**. As jails are created, they are automatically
+installed into their own dataset under the specified path. For
+example, if the :guilabel:`Jail Root` is set to
+:file:`/mnt/volume1/dataset1` and a jail named *jail1* is created, it
+will be installed into its own dataset named
 :file:`/mnt/volume1/dataset1/jail1`.
 
 
@@ -93,8 +94,9 @@ created, it will be installed into its own dataset named
    Global Jail Configuration
 
 .. warning:: If any :ref:`Plugins` have already been installed, the
-   "Jail Root", "IPv4 Network", "IPv4 Network Start Address", and
-   "IPv4 Network End Address" are automatically filled in.
+   :guilabel:`Jail Root`, :guilabel:`IPv4 Network`,
+   :guilabel:`IPv4 Network Start Address`, and
+   :guilabel:`IPv4 Network End Address` are automatically filled.
    Double-check that the pre-configured IP address values are
    appropriate for the jails and do not conflict with addresses used
    by other systems on the network.
@@ -103,16 +105,17 @@ created, it will be installed into its own dataset named
 :numref:`Table %s <global_jail_config_opts_tab>`
 summarizes the fields in this configuration screen. Refer to the text
 below the table for more details on how to properly configure the
-"Jail Root" and network settings.  Some settings are only available in
-"Advanced Mode". To see these settings, either click the
-"Advanced Mode" button or configure the system to always display these
-settings by checking the box "Show advanced fields by default" in
+:guilabel:`Jail Root` and network settings.  Some settings are only
+available in :guilabel:`Advanced Mode`. To see these settings, either
+click the :guilabel:`Advanced Mode` button or configure the system to
+always display these settings by checking the box
+:guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
 
 
 .. _global_jail_config_opts_tab:
 
-.. table:: **Jail Configuration Options**
+.. table:: Jail Configuration Options
 
    +----------------------------+---------------+--------------------------------------------------------------------------------+
    | **Setting**                | **Value**     | **Description**                                                                |
@@ -125,40 +128,40 @@ settings by checking the box "Show advanced fields by default" in
    | IPv4 DHCP                  | checkbox      | check this box if the network has a DHCP server                                |
    |                            |               |                                                                                |
    +----------------------------+---------------+--------------------------------------------------------------------------------+
-   | IPv4 Network               | string        | only available in "Advanced Mode"; format is IP address of *network/CIDR mask* |
+   | IPv4 Network               | string        | only available in :guilabel:`Advanced Mode`; format is IP address              |
+   |                            |               | of *network/CIDR mask*                                                         |
+   +----------------------------+---------------+--------------------------------------------------------------------------------+
+   | IPv4 Network Start Address | string        | only available in :guilabel:`Advanced Mode`; enter the first IP                |
+   |                            |               | address in the reserved range in the format *host/CIDR mask*                   |
    |                            |               |                                                                                |
    +----------------------------+---------------+--------------------------------------------------------------------------------+
-   | IPv4 Network Start Address | string        | only available in "Advanced Mode"; enter the first IP address in the           |
-   |                            |               | reserved range in the format *host/CIDR mask*                                  |
-   |                            |               |                                                                                |
-   +----------------------------+---------------+--------------------------------------------------------------------------------+
-   | IPv4 Network End Address   | string        | only available in "Advanced Mode"; enter the last IP address in the reserved   |
-   |                            |               | range in the format *host/CIDR mask*                                           |
+   | IPv4 Network End Address   | string        | only available in :guilabel:`Advanced Mode`; enter the last IP                 |
+   |                            |               | address in the reserved range in the format *host/CIDR mask*                   |
    |                            |               |                                                                                |
    +----------------------------+---------------+--------------------------------------------------------------------------------+
    | IPv6 Autoconfigure         | checkbox      | check this box if the network has a DHCPv6 server and IPv6 will be used        |
    |                            |               | to access jails                                                                |
    |                            |               |                                                                                |
    +----------------------------+---------------+--------------------------------------------------------------------------------+
-   | IPv6 Network               | string        | only available in "Advanced Mode"; enter the network address                   |
+   | IPv6 Network               | string        | only available in :guilabel:`Advanced Mode`; enter the network address         |
    |                            |               | for a properly configured IPv6 network                                         |
    +----------------------------+---------------+--------------------------------------------------------------------------------+
-   | IPv6 Network Start Address | string        | only available in "Advanced Mode"; enter the first IP address in the reserved  |
-   |                            |               | range for a properly configured IPv6 network                                   |
+   | IPv6 Network Start Address | string        | only available in :guilabel:`Advanced Mode`; enter the first IP address        |
+   |                            |               | in the reserved range for a properly configured IPv6 network                   |
    +----------------------------+---------------+--------------------------------------------------------------------------------+
-   | IPv6 Network End Address   | string        | only available in "Advanced Mode"; enter the last IP address in the reserved   |
-   |                            |               | range for a properly configured IPv6 network                                   |
+   | IPv6 Network End Address   | string        | only available in :guilabel:`Advanced Mode`; enter the last IP address         |
+   |                            |               | in the reserved range for a properly configured IPv6 network                   |
    +----------------------------+---------------+--------------------------------------------------------------------------------+
-   | Collection URL             | string        | only available in "Advanced Mode"; changing the default may break the          |
-   |                            |               | ability to install jails                                                       |
+   | Collection URL             | string        | only available in :guilabel:`Advanced Mode`; changing the default              |
+   |                            |               | may break the ability to install jails                                         |
    +----------------------------+---------------+--------------------------------------------------------------------------------+
 
 
-When selecting the "Jail Root", ensure that the size of the selected
-volume or dataset is sufficient to hold the number of jails to be
-installed as well as any software, log files, and data to be stored
-within each jail. At a bare minimum, budget at least 2GB per jail and
-do not select a dataset that is less than 2GB in size.
+When selecting the :guilabel:`Jail Root`, ensure that the size of the
+selected volume or dataset is sufficient to hold the number of jails
+to be installed as well as any software, log files, and data to be
+stored within each jail. At a bare minimum, budget at least 2 GB per
+jail and do not select a dataset that is less than 2 GB in size.
 
 .. note:: If you plan to add storage to a jail, be aware that the path
    size is limited to 88 characters. Make sure that the length of the
@@ -166,18 +169,18 @@ do not select a dataset that is less than 2GB in size.
    exceed this limit.
 
 If the network contains a DHCP server, it is recommended to check the
-box "IPv4 DHCP" (or "IPv6 Autoconfigure, for a properly configured
-IPv6 network). This will prevent IP address conflicts on the network
-as the DHCP server will automatically assign the jail the next
-available lease and record the lease as in use.
+box :guilabel:`IPv4 DHCP` (or :guilabel:`IPv6 Autoconfigure`, for a
+properly configured IPv6 network). This will prevent IP address
+conflicts on the network as the DHCP server will automatically assign
+the jail the next available lease and record the lease as in use.
 
 If a static IP address is needed so that users always know the IP
 address of the jail, enter the start and end address for the IPv4
 and/or IPv6 network. The range defined by the start and end addresses
 will be automatically assigned as jails are created. For example, if
-you plan to create 5 jails on the 192.168.1.0 network, enter a "IPv4
-Network Start Address" of *192.168.1.100* and a
-"IPv4 Network End Address" of *192.168.1.104*.
+you plan to create 5 jails on the 192.168.1.0 network, enter a
+:guilabel:`IPv4 Network Start Address` of *192.168.1.100* and a
+:guilabel:`IPv4 Network End Address` of *192.168.1.104*.
 
 **If you create a start and end range on a network that contains a
 DHCP server, it is very important that you also reserve those
@@ -189,21 +192,21 @@ not install or which are unavailable, double-check that the IP address
 being used by the jail is not also being used by another jail or
 system in the network.
 
-%brand% will automatically detect and display the "IPv4 Network" that
-the administrative interface is connected to. This setting is
-important. The IP addresses used by the jails must be pingable from
-the %brand% system for the jails and any installed software to be
-accessible. If the network topology requires changing the default
-value, a default gateway and possibly a static route need to be added
-to the specified network. After changing this value, ensure that the
-subnet mask value is correct, as an incorrect mask can make the IP
-network unreachable. When in doubt, keep the default setting for
-"IPv4 Network". With VMware, make sure that the vswitch is set to
-"promiscuous mode".
+%brand% will automatically detect and display the
+:guilabel:`IPv4 Network` to which the administrative interface is
+connected. This setting is important. The IP addresses used by the
+jails must be pingable from the %brand% system for the jails and any
+installed software to be accessible. If the network topology requires
+changing the default value, a default gateway and possibly a static
+route need to be added to the specified network. After changing this
+value, ensure that the subnet mask value is correct, as an incorrect
+mask can make the IP network unreachable. When in doubt, keep the
+default setting for :guilabel:`IPv4 Network`. With VMware, make sure
+that the vswitch is set to "promiscuous mode".
 
-After clicking the "Save" button to save the configuration, the system
-is ready to create and manage jails as described in the rest of this
-chapter.
+After clicking the :guilabel:`Save` button to save the configuration,
+the system is ready to create and manage jails as described in the
+rest of this chapter.
 
 
 .. index:: Add Jail, New Jail, Create Jail
@@ -217,8 +220,9 @@ To create a jail, click
 to access the screen shown in
 :numref:`Figure %s <creating_jail_fig>`.
 
-.. note:: the "Add Jail" menu item will not appear until after you
-   configure :menuselection:`Jails --> Configuration`.
+.. note:: the :guilabel:`Add Jail` menu item will not appear until
+   after you configure
+   :menuselection:`Jails --> Configuration`.
 
 
 .. _creating_jail_fig:
@@ -233,16 +237,17 @@ FreeBSD jails are created by default.
 
 :numref:`Table %s <jail_config_opts_tab>`
 summarizes the available options. Most settings are only available in
-"Advanced Mode" and are not needed if the intent is to create a
-FreeBSD jail. To see these settings, either click the "Advanced Mode"
-button or configure the system to always display these settings by
-checking the box "Show advanced fields by default" in
+:guilabel:`Advanced Mode` and are not needed if the intent is to
+create a FreeBSD jail. To see these settings, either click the
+:guilabel:`Advanced Mode` button or configure the system to always
+display these settings by checking the box
+:guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
 
 
 .. _jail_config_opts_tab:
 
-.. table:: **Jail Configuration Options**
+.. table:: Jail Configuration Options
 
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | **Setting**               | **Value**      | **Description**                                                                                              |
@@ -252,78 +257,78 @@ checking the box "Show advanced fields by default" in
    | Jail Name                 | string         | mandatory; can only contain letters, numbers, dashes, or the underscore character                            |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Template                  | drop-down menu | only available in "Advanced Mode"; contains the *VirtualBox* template for creating an instance of            |
-   |                           |                | phpVirtualBox; advanced users can create and install custom templates as described in                        |
+   | Template                  | drop-down menu | only available in :guilabel:`Advanced Mode`; contains the *VirtualBox* template for creating an instance     |
+   |                           |                | of phpVirtualBox; advanced users can create and install custom templates as described in                     |
    |                           |                | `Managing Jail Templates`_                                                                                   |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv4 DHCP                 | checkbox       | only available in "Advanced Mode"; if unchecked, make sure that the defined address does not conflict with   |
-   |                           |                | the DHCP server's pool of available addresses                                                                |
+   | IPv4 DHCP                 | checkbox       | only available in :guilabel:`Advanced Mode`; if unchecked, make sure that the defined address does           |
+   |                           |                | not conflict with the DHCP server's pool of available addresses                                              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv4 address              | integer        | only available in "Advanced Mode"; this and the other IPv4 settings will be greyed out if "IPv4 DHCP" is     |
-   |                           |                | checked; input IP address that is reachable within the local network and is not in use by any other host in  |
-   |                           |                | the network                                                                                                  |
+   | IPv4 address              | integer        | only available in :guilabel:`Advanced Mode`; this and the other IPv4 settings will be greyed out             |
+   |                           |                | if :guilabel:`IPv4 DHCP` is checked; input IP address that is reachable within the local network             |
+   |                           |                | and is not in use by any other host in the network                                                           |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv4 netmask              | drop-down menu | only available in "Advanced Mode"; select the subnet mask associated with "IPv4 address"                     |
-   |                           |                |                                                                                                              |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv4 bridge address       | integer        | only available in "Advanced Mode" and will be grayed out if "VIMAGE" is unchecked; see NOTE below            |
+   | IPv4 netmask              | drop-down menu | only available in :guilabel:`Advanced Mode`; select the subnet mask associated with                          |
+   |                           |                | :guilabel:`IPv4 address`                                                                                     |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv4 bridge netmask       | drop-down menu | only available in "Advanced Mode"; select the subnet mask associated with "IPv4 bridge address"; will be     |
-   |                           |                | grayed out if "VIMAGE" is unchecked                                                                          |
+   | IPv4 bridge address       | integer        | only available in :guilabel:`Advanced Mode` and will be grayed out if :guilabel:`VIMAGE`                     |
+   |                           |                | is unchecked; see NOTE below                                                                                 |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | IPv4 bridge netmask       | drop-down menu | only available in :guilabel:`Advanced Mode`; select the subnet mask associated with                          |
+   |                           |                | :guilabel:`IPv4 bridge address`; will begrayed out if :guilabel:`VIMAGE` is unchecked                        |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv4 default gateway      | string         | only available in "Advanced Mode"; will be grayed out if "VIMAGE" is unchecked                               |
+   | IPv4 default gateway      | string         | only available in :guilabel:`Advanced Mode`; will be grayed out if :guilabel:`VIMAGE` is unchecked           |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv6 Autoconfigure        | checkbox       | only available in "Advanced Mode"; if unchecked, make sure that the defined address does not conflict with   |
-   |                           |                | the DHCP server's pool of available addresses                                                                |
+   | IPv6 Autoconfigure        | checkbox       | only available in :guilabel:`Advanced Mode`; if unchecked, make sure that the defined address                |
+   |                           |                | does not conflict with the DHCP server's pool of available addresses                                         |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv6 address              | integer        | only available in "Advanced Mode"; this and the other IPv6 settings will be grayed out if "IPv6              |
-   |                           |                | Autoconfigure" is checked; input IPv6 address that is reachable within the local network and is not in use   |
-   |                           |                | by any other host in the network                                                                             |
+   | IPv6 address              | integer        | only available in :guilabel:`Advanced Mode`; this and the other IPv6 settings will be grayed out if          |
+   |                           |                | :guilabel:`IPv6 Autoconfigure` is checked; input IPv6 address that is reachable within the local             |
+   |                           |                | network and is not in use by any other host in the network                                                   |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv6 prefix length        | drop-down menu | only available in "Advanced Mode"; select the prefix length associated with "IPv6 address"                   |
+   | IPv6 prefix length        | drop-down menu | only available in :guilabel:`Advanced Mode`; select the prefix length associated with                        |
+   |                           |                | :guilabel:`IPv6 address`                                                                                     |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | IPv6 bridge address       | integer        | only available in :guilabel:`Advanced Mode` and will be grayed out if :guilabel:`VIMAGE`                     |
+   |                           |                | is unchecked; see NOTE below                                                                                 |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | IPv6 bridge prefix length | drop-down menu | only available in :guilabel:`Advanced Mode` and will be grayed out if :guilabel:`VIMAGE` is unchecked;       |
+   |                           |                | select the prefix length associated with :guilabel:`IPv6 address`                                            |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv6 bridge address       | integer        | only available in "Advanced Mode" and will be grayed out if "VIMAGE" is unchecked; see NOTE below            |
+   | IPv6 default gateway      | string         | only available in :guilabel:`Advanced Mode` and will be grayed out if :guilabel:`VIMAGE` is unchecked;       |
+   |                           |                | used to set the jail's default gateway IPv6 address                                                          |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv6 bridge prefix length | drop-down menu | only available in "Advanced Mode" and will be grayed out if "VIMAGE" is unchecked; select the prefix length  |
-   |                           |                | associated with "IPv6 address"                                                                               |
+   | MAC                       | string         | only available in :guilabel:`Advanced Mode` and will be grayed out if :guilabel:`VIMAGE` is unchecked;       |
+   |                           |                | if a static MAC address is entered, unique static MAC addresses must be entered for every jail created       |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv6 default gateway      | string         | only available in "Advanced Mode" and will be grayed out if "VIMAGE" is unchecked; used to set the jail's    |
-   |                           |                | default gateway IPv6 address                                                                                 |
+   | NIC                       | drop-down menu | only available in :guilabel:`Advanced Mode` and will be grayed out if :guilabel:`VIMAGE` is checked;         |
+   |                           |                | can be used to specify the interface to use for jail connections                                             |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | MAC                       | string         | only available in "Advanced Mode" and will be grayed out if "VIMAGE" is unchecked; if you choose to input a  |
-   |                           |                | static MAC address, you must do so for every jail you create                                                 |
+   | Sysctls                   | string         | only available in :guilabel:`Advanced Mode`; comma-delimited list of sysctls to set inside jail              |
+   |                           |                | (e.g. *allow.sysvipc=1,allow.raw_sockets=1*)                                                                 |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | NIC                       | drop-down menu | only available in "Advanced Mode" and will be grayed out if "VIMAGE" is checked; can be used to specify      |
-   |                           |                | the interface to use for jail connections                                                                    |
+   | Autostart                 | checkbox       | only available in :guilabel:`Advanced Mode`; uncheck if the jail will be started manually                    |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Sysctls                   | string         | only available in "Advanced Mode"; comma-delimited list of sysctls to set inside jail (e.g.                  |
-   |                           |                | *allow.sysvipc=1,allow.raw_sockets=1*)                                                                       |
+   | VIMAGE                    | checkbox       | only available in :guilabel:`Advanced Mode`; gives a jail its own virtualized network stack;                 |
+   |                           |                | requires promiscuous mode to be enabled on the interface                                                     |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Autostart                 | checkbox       | only available in "Advanced Mode"; uncheck if the jail will be started manually                              |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | VIMAGE                    | checkbox       | only available in "Advanced Mode"; gives a jail its own virtualized network stack; requires promiscuous mode |
-   |                           |                | to be enabled on the interface                                                                               |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | NAT                       | checkbox       | only available in "Advanced Mode" and will be grayed out for Linux jails or if "VIMAGE" is unchecked;        |
-   |                           |                | enables Network Address Translation for the jail                                                             |
+   | NAT                       | checkbox       | only available in :guilabel:`Advanced Mode` and will be grayed out for Linux jails or if                     |
+   |                           |                | :guilabel:`VIMAGE` is unchecked; enables Network Address Translation for the jail                            |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
 
@@ -350,21 +355,21 @@ checking the box "Show advanced fields by default" in
    when the jail will be on a different network than the %brand%
    system. For example, if the %brand% system is on the *10.0.0.0/24*
    network and the jail will be on the *192.168.0.0/24* network, set
-   the "IPv4 bridge address" and "IPv4 bridge netmask" fields for the
-   jail.
+   the :guilabel:`IPv4 bridge address` and
+   :guilabel:`IPv4 bridge netmask` fields for the jail.
 
-If both the "VIMAGE" and "NAT" boxes are unchecked, the jail must be
-configured with an IP address within the same network as the interface
-it is bound to, and that address will be assigned as an alias on that
-interface. To use a "VIMAGE" jail on the same subnet, uncheck "NAT"
-and configure an IP address within the same network. In both of these
-cases, configure only an IP address and do not configure a bridge
-or a gateway address.
+If both the :guilabel:`VIMAGE` and :guilabel:`NAT` boxes are
+unchecked, the jail must be configured with an IP address within the
+same network as the interface it is bound to, and that address will be
+assigned as an alias on that interface. To use a :guilabel:`VIMAGE`
+jail on the same subnet, uncheck :guilabel:`NAT` and configure an IP
+address within the same network. In both of these cases, configure
+only an IP address and do not configure a bridge or a gateway address.
 
-After making selections, click the "OK" button. The jail is created
-and added to the "Jails" tab as well as in the tree menu under
-"Jails". Jails start automatically.  To prevent this, uncheck the
-"Autostart" box.
+After making selections, click the :guilabel:`OK` button. The jail is
+created and added to the :guilabel:`Jails` tab as well as in the tree
+menu under :guilabel:`Jails`. Jails start automatically.  To prevent
+this, uncheck the :guilabel:`Autostart` box.
 
 The first time a jail is added or used as a template, the GUI
 automatically downloads the necessary components from the internet. A
@@ -381,7 +386,8 @@ to the internet, jail creation fails.
 
 After the first jail is created or a template has been used,
 subsequent jails will be added very quickly because the downloaded
-base for creating the jail has been saved to the "Jail Root".
+base for creating the jail has been saved to the
+:guilabel:`Jail Root`.
 
 
 .. _Managing Jails:
@@ -389,8 +395,8 @@ base for creating the jail has been saved to the "Jail Root".
 Managing Jails
 ~~~~~~~~~~~~~~
 
-Click "Jails" to view and configure the added jails. In the example
-shown in
+Click :guilabel:`Jails` to view and configure the added jails. In the
+example shown in
 :numref:`Figure %s <view_added_jails_fig>`,
 the list entry for the jail named *xdm_1* has been clicked to enable
 that jail's configuration options. The entry indicates the jail name,
@@ -415,8 +421,8 @@ After a jail has been created, the jail name and type cannot be
 changed, so these fields will be grayed out.
 
 .. note:: To modify the IP address information for a jail, use the
-   "Edit Jail" button instead of the associated networking commands
-   from the command line of the jail.
+   :guilabel:`Edit Jail` button instead of the associated networking
+   commands from the command line of the jail.
 
 **Add Storage:** configure the jail to access an area of
 storage as described in :ref:`Add Storage`.
@@ -426,10 +432,10 @@ the
 `plugins repository <http://download.freenas.org/plugins/9/x64/>`_.
 
 **Start/Stop:** this icon changes appearance depending on the current
-"Status" of the jail. When the jail is not running, the icon is green
-and clicking it starts the jail. When the jail is already running, the
-icon is red and clicking it stops the jail. A stopped jail and its
-applications are inaccessible until it is restarted.
+:guilabel:`Status` of the jail. When the jail is not running, the icon
+is green and clicking it starts the jail. When the jail is already
+running, the icon is red and clicking it stops the jail. A stopped
+jail and its applications are inaccessible until it is restarted.
 
 **Restart:** restart the jail.
 
@@ -444,9 +450,9 @@ Accessing a Jail Using SSH
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :command:`ssh` can be used to access a jail instead of the jail's
-"Shell" icon. This requires starting the :command:`ssh` service and
-creating a user account for :command:`ssh` access. Start by clicking
-the "Shell" icon for the desired jail.
+:guilabel:`Shell` icon. This requires starting the :command:`ssh`
+service and creating a user account for :command:`ssh` access. Start
+by clicking the :guilabel:`Shell` icon for the desired jail.
 
 To start the SSH service, look for this line in the jail's
 :file:`/etc/rc.conf`::
@@ -506,8 +512,8 @@ which stores torrents. The storage is added using the
 mechanism, which links data that resides outside of the jail as a
 storage area within the jail.
 
-To add storage, click the "Add Storage" button for a highlighted
-jail's entry to open the screen shown in
+To add storage, click the :guilabel:`Add Storage` button for a
+highlighted jail's entry to open the screen shown in
 :numref:`Figure %s <adding_storage_jail_fig>`.
 This screen can also be accessed by expanding the jail name in the
 tree view and clicking
@@ -521,7 +527,7 @@ tree view and clicking
    Adding Storage to a Jail
 
 
-Browse to the "Source" and "Destination", where:
+Browse to the :guilabel:`Source` and :guilabel:`Destination`, where:
 
 * **Source:** is the directory or dataset on the %brand% system
   which will be accessed by the jail. This directory **must** reside
@@ -531,18 +537,18 @@ Browse to the "Source" and "Destination", where:
   used for storage on the %brand% system.
 
 * **Destination:** select an **existing, empty** directory within the
-  jail to link to the "Source" storage area. If that directory does
-  not exist yet, enter the desired directory name and check the
-  "Create directory" box.
+  jail to link to the :guilabel:`Source` storage area. If that
+  directory does not exist yet, enter the desired directory name and
+  check the :guilabel:`Create directory` box.
 
 Storage is typically added because the user and group account
 associated with an application installed inside of a jail needs to
 access data stored on the %brand% system. Before selecting the
-"Source", it is important to first ensure that the permissions of the
-selected directory or dataset grant permission to the user/group
-account inside of the jail. This is not the default, as the users and
-groups created inside of a jail are totally separate from the users
-and groups of the %brand% system.
+:guilabel:`Source`, it is important to first ensure that the
+permissions of the selected directory or dataset grant permission to
+the user/group account inside of the jail. This is not the default, as
+the users and groups created inside of a jail are totally separate
+from the users and groups of the %brand% system.
 
 So the workflow for adding storage usually goes like this:
 
@@ -574,27 +580,29 @@ So the workflow for adding storage usually goes like this:
     that dataset so the user and group account has the desired read
     and write access.
 
-#.  Use the "Add Storage" button of the jail and select the configured
-    volume/dataset as the "Source".
+#.  Use the :guilabel:`Add Storage` button of the jail and select the
+    configured volume/dataset as the :guilabel:`Source`.
 
-To prevent writes to the storage, check the box "Read-Only".
+To prevent writes to the storage, check the box :guilabel:`Read-Only`.
 
-By default, the "Create directory" box is checked. This means that the
-directory will automatically be created under the specified
-"Destination" path if the directory does not already exist.
+By default, the :guilabel:`Create directory` box is checked. This
+means that the directory will automatically be created under the
+specified :guilabel:`Destination` path if the directory does not
+already exist.
 
 After storage has been added or created, it appears in the tree
 under the specified jail. In the example shown in
 :numref:`Figure %s <jail_example_storage_fig>`,
-a dataset named :file:`volume1/data` has been chosen as the "Source"
-as it contains the files stored on the %brand% system. When the
-storage was created, the user browsed to
-:file:`volume1/jails/freebsd1/usr/local` in the "Destination" field,
-then entered *test* as the directory. Since this directory did not
-already exist, it was created, because the "Create directory" box was
-left as checked. The resulting storage was added to the *freenas1*
-entry in the tree as :file:`/usr/local/test`. The user has clicked
-this :file:`/usr/local/test` entry to access the "Edit" screen.
+a dataset named :file:`volume1/data` has been chosen as the
+:guilabel:`Source` as it contains the files stored on the %brand%
+system. When the storage was created, the user browsed to
+:file:`volume1/jails/freebsd1/usr/local` in the
+:guilabel:`Destination` field, then entered *test* as the directory.
+Since this directory did not already exist, it was created, because
+the :guilabel:`Create directory` box was left checked. The resulting
+storage was added to the *freenas1* entry in the tree as
+:file:`/usr/local/test`. The user has clicked this
+:file:`/usr/local/test` entry to access the :guilabel:`Edit` screen.
 
 
 .. _jail_example_storage_fig:
@@ -605,7 +613,7 @@ this :file:`/usr/local/test` entry to access the "Edit" screen.
 
 
 Storage is normally mounted as it is created. To unmount the storage,
-uncheck the "Mounted?" box.
+uncheck the :guilabel:`Mounted?` box.
 
 .. note:: A mounted dataset will not automatically mount any of its
    child datasets. While the child datasets may appear to be browsable
@@ -614,15 +622,16 @@ uncheck the "Mounted?" box.
    must have its own mount point, so separate storage must be created
    for any child datasets which need to be mounted.
 
-To delete the storage, click its "Delete" button.
+To delete the storage, click its :guilabel:`Delete` button.
 
 .. warning:: It is important to realize that added storage is really
    just a pointer to the selected storage directory on the %brand%
    system. It does **not** copy that data to the jail. **Files that
-   are deleted from the "Destination" directory in the jail are really
-   deleted from the "Source" directory on the %brand% system.**
-   However, removing the jail storage entry only removes the pointer,
-   leaving the data intact but not accessible from the jail.
+   are deleted from the :guilabel:`Destination` directory in the jail
+   are really deleted from the :guilabel:`Source` directory on the
+   %brand% system.** However, removing the jail storage entry only
+   removes the pointer, leaving the data intact but not accessible
+   from the jail.
 
 
 .. _Installing FreeBSD Packages:
@@ -742,7 +751,7 @@ The
 `FreshPorts.org <http://www.freshports.org/>`_
 listing shows whether a port has any configurable compile options.
 :numref:`Figure %s <config_opts_audiotag_fig>`
-shows the "Configuration Options" for audiotag.
+shows the :guilabel:`Configuration Options` for audiotag.
 
 
 .. _config_opts_audiotag_fig:
@@ -913,13 +922,14 @@ Using the phpVirtualBox Template
 
 If software requires a different operating system or a non-FreeBSD
 operating system is needed to manage software, use the VirtualBox
-template to create an instance of phpVirtualBox. In the "Add Jail"
-screen, click the "Advanced Mode" button. As shown in the example in
+template to create an instance of phpVirtualBox. In the
+:guilabel:`Add Jail` screen, click the :guilabel:`Advanced Mode`
+button. As shown in the example in
 :numref:`Figure %s <creating_phpvb_fig>`,
-enter a "Jail Name", verify that the "IPv4 address" is valid and not
-in use by another host or jail, and select *VirtualBox* from the
-"Template" drop-down menu. Press the "OK" button to begin the
-installation.
+enter a :guilabel:`Jail Name`, verify that the
+:guilabel:`IPv4 address` is valid and not in use by another host or
+jail, and select *VirtualBox* from the :guilabel:`Template` drop-down
+menu. Press the :guilabel:`OK` button to begin the installation.
 
 
 .. _creating_phpvb_fig:
@@ -943,9 +953,9 @@ appears in the web browser.
    phpVirtualBox Interface
 
 
-Click the "New" button to create virtual machines. The desired
-operating systems and software can then be installed into the new
-virtual machines.
+Click the :guilabel:`New` button to create virtual machines. The
+desired operating systems and software can then be installed into the
+new virtual machines.
 
 .. note:: By default, virtual machines are not started when the
    %brand% system boots. To configure auto-start, refer to this
@@ -959,7 +969,7 @@ Managing Jail Templates
 -----------------------
 
 %brand% supports the ability to add custom templates to the
-"Templates" drop-down menu described in
+:guilabel:`Templates` drop-down menu described in
 :numref:`Table %s <jail_config_opts_tab>`.
 
 By default, %brand% provides the *VirtualBox* template. To view the
@@ -978,15 +988,15 @@ A listing showing the default template is seen in
 
 The listing contains these columns:
 
-* **Name:** appears in the "Template" drop-down menu when adding a
-  new jail.
+* **Name:** appears in the :guilabel:`Template` drop-down menu when
+  adding a new jail.
 
 * **URL:** when adding a new jail using this template, the template
   is downloaded from this location.
 
 * **Instances:** indicates if the template has been used to create a
   jail. In this example, the template has not yet been used so its
-  "Instances" shows *0*.
+  :guilabel:`Instances` shows *0*.
 
 To create a custom template, first install the desired operating
 system and configure it as needed. The installation can be either to
@@ -1032,13 +1042,13 @@ summarizes the fields in this screen.
 
 .. _jail_template_opts_tab:
 
-.. table:: **Jail Template Options**
+.. table:: Jail Template Options
 
    +--------------+----------------+-----------------------------------------------------------------------------------------------+
    | **Setting**  | **Value**      | **Description**                                                                               |
    |              |                |                                                                                               |
    +==============+================+===============================================================================================+
-   | Name         | string         | value appears in the "Name" column of "View Jail Templates"                                   |
+   | Name         | string         | value appears in the :guilabel:`Name` column of :guilabel:`View Jail Templates`               |
    |              |                |                                                                                               |
    +--------------+----------------+-----------------------------------------------------------------------------------------------+
    | OS           | drop-down menu | choices are  *FreeBSD* or                                                                     |
@@ -1057,19 +1067,20 @@ summarizes the fields in this screen.
    | Mtree        | string         | paste the mtree specification for the template                                                |
    |              |                |                                                                                               |
    +--------------+----------------+-----------------------------------------------------------------------------------------------+
-   | Read-only    | checkbox       | when checked, the "Name" and "URL" of the template cannot be changed after creation           |
-   |              |                |                                                                                               |
+   | Read-only    | checkbox       | when checked, the :guilabel:`Name` and :guilabel:`URL` of the template cannot be changed      |
+   |              |                | after creation                                                                                |
    +--------------+----------------+-----------------------------------------------------------------------------------------------+
 
 
 After adding a template, click the entry for the template to access
-the "Edit" and "Delete" buttons. Clicking a template's "Edit" button
-opens the configuration screen shown in
+the :guilabel:`Edit` and :guilabel:`Delete` buttons. Clicking a
+template's :guilabel:`Edit` button opens the configuration screen
+shown in
 :numref:`Figure %s <edit_jail_template_fig>`.
 
-.. note:: The "Delete" button is not available for the built-in
-   *VirtualBox* template and the "Edit" button opens it as
-   read-only.
+.. note:: The :guilabel:`Delete` button is not available for the
+   built-in *VirtualBox* template and the :guilabel:`Edit` button
+   opens it as read-only.
 
 
 .. _edit_jail_template_fig:
@@ -1079,10 +1090,10 @@ opens the configuration screen shown in
    Editing Template Options
 
 
-Clicking a template's "Delete" button shows a warning message that
-prompts for confirmation of the deletion. Note that once a template is
-deleted, it is removed from the "Templates" drop-down menu and will no
-longer be available for creating new jails.
+Clicking a template's :guilabel:`Delete` button shows a warning
+message that prompts for confirmation of the deletion. Note that once
+a template is deleted, it is removed from the :guilabel:`Templates`
+drop-down menu and will no longer be available for creating new jails.
 
 
 .. index:: bhyve, iohyve

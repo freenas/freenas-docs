@@ -68,13 +68,13 @@ Reporting data is saved, allowing you to view and monitor usage trends
 over time. By default, reporting data is saved to
 :file:`/data/rrd_dir.tar.bz2` and should be preserved across system
 upgrades and at shutdown. To instead save this data to the system
-dataset, check the "Reporting database" box in
+dataset, check the :guilabel:`Reporting database` box in
 :menuselection:`System --> System Dataset`.
 
 Use the magnifier buttons next to each graph to increase or decrease
 the displayed time increment from 10 minutes, hourly, daily, weekly,
-or monthly. You can also use the "<<" and ">>" buttons to scroll
-through the output.
+or monthly. You can also use the :guilabel:`<<` and :guilabel:`>>`
+buttons to scroll through the output.
 
 `Update on using Graphite with FreeNAS
 <http://cmhramblings.blogspot.com/2015/12/update-on-using-graphite-with-freenas.html>`_

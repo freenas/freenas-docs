@@ -57,7 +57,7 @@ but can be changed to meet requirements of the local network.
 
 .. _global_net_config_tab:
 
-.. table:: **Global Configuration Settings**
+.. table:: Global Configuration Settings
 
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
    | **Setting**            | **Value**  | **Description**                                                                                                      |
@@ -89,11 +89,11 @@ but can be changed to meet requirements of the local network.
    |                        |            |                                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
    | Enable netwait feature | checkbox   | if enabled, network services are not started at boot until the interface is able to ping the addresses               |
-   |                        |            | listed in "Netwait IP list"                                                                                          |
+   |                        |            | listed in :guilabel:`Netwait IP list`                                                                                |
    |                        |            |                                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-   | Netwait IP list        | string     | if "Enable netwait feature" is checked, list of IP addresses to ping; otherwise, ping the default gateway            |
-   |                        |            |                                                                                                                      |
+   | Netwait IP list        | string     | if :guilabel:`Enable netwait feature` is checked, list of IP addresses to ping; otherwise, ping the                  |
+   |                        |            | default gateway                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
    | Host name database     | string     | used to add one entry per line which will be appended to :file:`/etc/hosts`; use the format                          |
    |                        |            | *IP_address space hostname* where multiple hostnames can be used if separated by a space                             |
@@ -102,11 +102,12 @@ but can be changed to meet requirements of the local network.
 
 
 When Active Directory is being used, set the IP address of the
-realm's DNS server in the "Nameserver 1" field.
+realm's DNS server in the :guilabel:`Nameserver 1` field.
 
 If your network does not have a DNS server, or NFS, SSH, or FTP users
 are receiving "reverse DNS" or timeout errors, add an entry for the IP
-address of the %brand% system in the "Host name database" field.
+address of the %brand% system in the :guilabel:`Host name database`
+field.
 
 .. note:: In many cases, a %brand% configuration does not include
    default gateway information as a way to make it more difficult for
@@ -144,9 +145,9 @@ shows the screen that opens on clicking
 summarizes the configuration options shown when adding an interface or
 editing an already configured interface. Note that if any changes to
 this screen require a network restart, the screen will turn red when
-the "OK" button is clicked and a pop-up message will point out that
-network connectivity to the %brand% system will be interrupted while
-the changes are applied.
+the :guilabel:`OK` button is clicked and a pop-up message will point
+out that network connectivity to the %brand% system will be
+interrupted while the changes are applied.
 
 
 .. _add_net_interface_fig:
@@ -158,7 +159,7 @@ the changes are applied.
 
 .. _net_interface_config_tab:
 
-.. table:: **Interface Configuration Settings**
+.. table:: Interface Configuration Settings
 
    +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
    | **Setting**         | **Value**      | **Description**                                                                                                     |
@@ -173,10 +174,10 @@ the changes are applied.
    | DHCP                | checkbox       | requires static IPv4 or IPv6 configuration if unchecked; note that only one interface can be configured for DHCP    |
    |                     |                |                                                                                                                     |
    +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-   | IPv4 Address        | IP address     | set if "DHCP" is unchecked                                                                                          |
+   | IPv4 Address        | IP address     | enter a static IP address if :guilabel:`DHCP` is unchecked                                                          |
    |                     |                |                                                                                                                     |
    +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-   | IPv4 Netmask        | drop-down menu | set if "DHCP" is unchecked                                                                                          |
+   | IPv4 Netmask        | drop-down menu | enter a netmask if :guilabel:`DHCP` is unchecked                                                                    |
    |                     |                |                                                                                                                     |
    +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
    | Auto configure IPv6 | checkbox       | only one interface can be configured for this option; if unchecked, manual configuration is                         |
@@ -199,15 +200,15 @@ the changes are applied.
 
 This screen also provides for the configuration of IP aliases, making
 it possible for a single interface to have multiple IP addresses. To
-set multiple aliases, click the "Add extra alias" link for each alias.
-Aliases are deleted by clicking the interface in the tree, clicking
-the "Edit" button, checking the "Delete" checkbox below the alias,
-then clicking the "OK" button.
+set multiple aliases, click the :guilabel:`Add extra alias` link for
+each alias. Aliases are deleted by clicking the interface in the tree,
+clicking the :guilabel:`Edit` button, checking the :guilabel:`Delete`
+checkbox below the alias, then clicking the :guilabel:`OK` button.
 
-.. warning:: Aliases are deleted by checking the "Delete" checkbox in
-   the alias area, then clicking "OK" for the interface.
-   **Do not** click the "Delete" button at the bottom of this screen,
-   which deletes the entire interface.
+.. warning:: Aliases are deleted by checking the :guilabel:`Delete`
+   checkbox in the alias area, then clicking :guilabel:`OK` for the
+   interface. **Do not** click the :guilabel:`Delete` button at the
+   bottom of this screen, which deletes the entire interface.
 
 #ifdef truenas
 .. note:: the ability to delete interfaces is disabled if
@@ -220,9 +221,9 @@ multiple interfaces.
 
 This screen will not allow an interface's IPv4 and IPv6 addresses
 to both be set as primary addresses.  An error is shown if both the
-"IPv4 address" and "IPv6 address" fields are filled in. Instead, set
-only one of these address fields and create an alias for the other
-address.
+:guilabel:`IPv4 address` and :guilabel:`IPv6 address` fields are
+filled in. Instead, set only one of these address fields and create an
+alias for the other address.
 
 
 .. _IPMI:
@@ -284,7 +285,7 @@ summarizes the options available when configuring IPMI with the
 
 .. _ipmi_options_tab:
 
-.. table:: **IPMI Options**
+.. table:: IPMI Options
 
    +----------------------+----------------+-----------------------------------------------------------------------------+
    | **Setting**          | **Value**      | **Description**                                                             |
@@ -381,9 +382,10 @@ port is used. The first interface added is the master port; any
 interfaces added after that are used as failover devices. By default,
 received traffic is only accepted when received through the active
 port. This constraint can be relaxed, which is useful for certain
-bridged network setups, by creating a a tunable with a "Variable" of
-*net.link.lagg.failover_rx_all*, a "Value" of a non-zero integer, and
-a "Type" of *Sysctl* in
+bridged network setups, by creating a a tunable with a
+:guilabel:`Variable` of *net.link.lagg.failover_rx_all*, a
+:guilabel:`Value` of a non-zero integer, and a :guilabel:`Type` of
+*Sysctl* in
 :menuselection:`System --> Tunables --> Add Tunable`.
 
 **FEC:** supports Cisco EtherChannel on older Cisco switches. This is
@@ -493,21 +495,22 @@ shows the configuration options when adding a lagg interface using
 
 #ifdef freenas
 .. note:: If interfaces are installed but do not appear in the
-   "Physical NICs" list, check that a FreeBSD driver for the
+   :guilabel:`Physical NICs` list, check that a FreeBSD driver for the
    interface exists
    `here
    <http://www.freebsd.org/releases/10.3R/hardware.html#ETHERNET>`_.
 #endif freenas
 
-To create a link aggregation, select the desired "Protocol Type",
-highlight the interfaces to associate with the lagg device, and
-click the "OK" button.
+To create a link aggregation, select the desired
+:guilabel:`Protocol Type`, highlight the interfaces to associate with
+the lagg device, and click the :guilabel:`OK` button.
 
 Once the lagg device has been created, click its entry to enable its
-"Edit", "Delete", and "Edit Members" buttons.
+:guilabel:`Edit`, :guilabel:`Delete`, and :guilabel:`Edit Members`
+buttons.
 
-Clicking the "Edit" button for a lagg opens the configuration screen
-shown in
+Clicking the :guilabel:`Edit` button for a lagg opens the
+configuration screen shown in
 :numref:`Figure %s <lagg_edit_fig>`.
 :numref:`Table %s <lagg_opts_tab>`
 describes the options in this screen.
@@ -530,7 +533,7 @@ menu option to get access into the GUI through the new lagg interface.
 
 .. _lagg_opts_tab:
 
-.. table:: **Configurable Options for a lagg**
+.. table:: Configurable Options for a lagg
 
    +---------------------+----------------+----------------------------------------------------------------------------------+
    | **Setting**         | **Value**      | **Description**                                                                  |
@@ -546,10 +549,10 @@ menu option to get access into the GUI through the new lagg interface.
    | DHCP                | checkbox       | check if the lagg device will get IP address info from DHCP server               |
    |                     |                |                                                                                  |
    +---------------------+----------------+----------------------------------------------------------------------------------+
-   | IPv4 Address        | string         | mandatory if "DHCP" is left unchecked                                            |
+   | IPv4 Address        | string         | enter a static IP address if :guilabel:`DHCP` is left unchecked                  |
    |                     |                |                                                                                  |
    +---------------------+----------------+----------------------------------------------------------------------------------+
-   | IPv4 Netmask        | drop-down menu | mandatory if "DHCP" is left unchecked                                            |
+   | IPv4 Netmask        | drop-down menu | enter a netmask if :guilabel:`DHCP` is left unchecked                            |
    |                     |                |                                                                                  |
    +---------------------+----------------+----------------------------------------------------------------------------------+
    | Auto configure IPv6 | checkbox       | check only if DHCP server available to provide IPv6 address info                 |
@@ -569,11 +572,12 @@ menu option to get access into the GUI through the new lagg interface.
 
 
 This screen also allows the configuration of an alias for the lagg
-interface. Multiple aliases can be added with the "Add extra Alias"
-link.
+interface. Multiple aliases can be added with the
+:guilabel:`Add extra Alias` link.
 
-Click the "Edit Members" button, click the entry for a member, then
-click its "Edit" button to see the configuration screen shown in
+Click the :guilabel:`Edit Members` button, click the entry for a
+member, then click its :guilabel:`Edit` button to see the
+configuration screen shown in
 :numref:`Figure %s <lagg_member_edit_fig>`.
 The configurable options are summarized in
 :numref:`Table %s <lagg_config_member_tab>`.
@@ -588,7 +592,7 @@ The configurable options are summarized in
 
 .. _lagg_config_member_tab:
 
-.. table:: **Configuring a Member Interface**
+.. table:: Configuring a Member Interface
 
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
    | **Setting**          | **Value**      | **Description**                                                                                |
@@ -613,9 +617,10 @@ The configurable options are summarized in
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
 
 
-Options can be set at the lagg level using the "Edit" button, or at
-the individual parent interface level using the "Edit Members" button.
-Changes are typically made at the lagg level
+Options can be set at the lagg level using the :guilabel:`Edit`
+button, or at the individual parent interface level using the
+:guilabel:`Edit Members` button. Changes are typically made at the
+lagg level
 (:numref:`Figure %s <lagg_edit_fig>`)
 as each interface member will inherit from the lagg. To configure at
 the interface level
@@ -675,7 +680,7 @@ The available options are summarized in
 
 .. _static_route_opts_tab:
 
-.. table:: **Static Route Options**
+.. table:: Static Route Options
 
    +---------------------+-----------+-------------------------------------+
    | **Setting**         | **Value** | **Description**                     |
@@ -694,8 +699,9 @@ The available options are summarized in
    +---------------------+-----------+-------------------------------------+
 
 
-Added static routes are shown in "View Static Routes". Click a route's
-entry to access the "Edit" and "Delete" buttons.
+Added static routes are shown in :guilabel:`View Static Routes`. Click
+a route's entry to access the :guilabel:`Edit` and :guilabel:`Delete`
+buttons.
 
 
 .. index:: VLAN, Trunking, 802.1Q
@@ -743,7 +749,7 @@ summarizes the configurable fields.
 
 .. _adding_vlan_tab:
 
-.. table:: **Adding a VLAN**
+.. table:: Adding a VLAN
 
    +-------------------+----------------+---------------------------------------------------------------------------------------------------+
    | **Setting**       | **Value**      | **Description**                                                                                   |
@@ -771,10 +777,11 @@ the VLAN configuration. This makes it difficult for the GUI to do the
 right thing without trampling the configuration. To remedy this, after
 adding the VLAN, go to
 :menuselection:`Network --> Interfaces --> Add Interface`.
-Select the parent interface from the "NIC" drop-down menu and in the
-"Options" field, type :command:`up`. This will bring up the parent
-interface. If an IP address is required, it can be configured using
-the rest of the options in the "Add Interface" screen.
+Select the parent interface from the :guilabel:`NIC` drop-down menu
+and in the :guilabel:`Options` field, type :command:`up`. This will
+bring up the parent interface. If an IP address is required, it can be
+configured using the rest of the options in the
+:guilabel:`Add Interface` screen.
 
 #ifdef freenas
 .. warning:: Creating a vlan will cause network connectivity to be

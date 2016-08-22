@@ -3,7 +3,7 @@
 Display System Processes
 ========================
 
-If you click "Display System Processes", a screen will open showing
+Clicking :guilabel:`Display System Processes` opens a screen showing
 the output of
 `top(1) <http://www.freebsd.org/cgi/man.cgi?query=top>`_.
 An example is shown in
@@ -16,7 +16,7 @@ An example is shown in
    System Processes Running on %brand%
 
 
-The display will automatically refresh itself. Click the "X" in the
-upper right corner to close the display when you are finished. Note
-that the display is read-only, meaning that you won't be able to issue
-a :command:`kill` command within it.
+The display will automatically refresh itself. Click the :guilabel:`X`
+in the upper right corner to close the display. Note that the display
+is read-only, meaning that you will not be able to issue a
+:command:`kill` command within it.
