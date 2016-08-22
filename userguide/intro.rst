@@ -111,9 +111,9 @@ changes that have occurred since |version| was released.
    |version|. If a screen on your system looks different than the
    documentation, make sure that the system is fully up-to-date. If is
    is not, apply any outstanding updates.
-   
+
 * The mps driver for 6 G Avago SAS HBAs is version 21, which requires
-  phase 20 firmware on the controller.   
+  phase 20 firmware on the controller.
 
 
 .. index:: Hardware Recommendations
@@ -369,12 +369,11 @@ interface::
 
  ifconfig -m re0
  re0: flags=8943<UP,BROADCAST,RUNNING,PROMISC,SIMPLEX,MULTICAST> metric 0 mtu 1500
- options=42098<VLAN_MTU,VLAN_HWTAGGING,VLAN_HWCSUM,WOL_MAGIC,VLAN_HWTSO>
- capabilities=5399b<RXCSUM,TXCSUM,VLAN_MTU,VLAN_HWTAGGING,VLAN_HWCSUM,TSO4,WOL_UCAST,WOL_MCAST, WOL_MAGIC,VLAN_HWFILTER,VLAN_H WTSO>
+         options=42098<VLAN_MTU,VLAN_HWTAGGING,VLAN_HWCSUM,WOL_MAGIC,VLAN_HWTSO>
+         capabilities=5399b<RXCSUM,TXCSUM,VLAN_MTU,VLAN_HWTAGGING,VLAN_HWCSUM,TSO4,WOL_UCAST,WOL_MCAST, WOL_MAGIC,VLAN_HWFILTER,VLAN_H WTSO>
 
-If you find that WOL support is indicated but not working for a
-particular interface, create a bug report using the instructions in
-:ref:`Support`.
+If WOL support is shown but not working for a particular interface,
+create a bug report using the instructions in :ref:`Support`.
 
 
 .. _Getting Started with ZFS:
