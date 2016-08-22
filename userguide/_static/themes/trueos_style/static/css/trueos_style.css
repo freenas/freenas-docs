@@ -3697,13 +3697,14 @@ code.guilabel, .guilabel {
 	border:1px solid #7fbbe3;
 	background:#e7f2fa;
 	font-size:80%;
-	font-weight:700;
+	font-weight:600;
 	border-radius:4px;
 	padding:2.4px 3px;
 	margin:auto 2px;
-	font-family: 'Inconsolata', monospace
+	font-family: 'Inconsolata', monospace;
+	text-transform: none
 }
-code
+
 th {
     background-color: #ede;
 }
