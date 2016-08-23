@@ -64,10 +64,10 @@ The information includes the hostname, the build version, type of CPU
 (platform), the amount of memory, the current system time, the
 system's uptime, and the current load average.
 
-To change the system's hostname, click its "Edit" button, type in the
-new hostname, and click "OK". The hostname must include the domain
-name. If the network does not use a domain name add *.local* to the
-end of the hostname.
+To change the system's hostname, click its :guilabel:`Edit` button,
+type in the new hostname, and click "OK". The hostname must include
+the domain name. If the network does not use a domain name add
+*.local* to the end of the hostname.
 
 
 .. _system_info_fig:
@@ -113,7 +113,7 @@ can be configured using the General tab:
 
 .. _system_general_tab:
 
-.. table:: ** General Configuration Settings**
+.. table:: General Configuration Settings
 
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
    | Setting              | Value          | Description                                                                                                                    |
@@ -121,8 +121,8 @@ can be configured using the General tab:
    +======================+================+================================================================================================================================+
    | Protocol             | drop-down menu | protocol to use when connecting to the administrative GUI from a browser; if you change the default of *HTTP* to               |
    |                      |                | *HTTPS* or to                                                                                                                  |
-   |                      |                | *HTTP+HTTPS*, select the certificate to use in "Certificate"; if you do not have a certificate, first create a CA (in `CAs`_)  |
-   |                      |                | then the certificate (in `Certificates`_)                                                                                      |
+   |                      |                | *HTTP+HTTPS*, select the certificate to use in :guilabel:`Certificate`; if you do not have a certificate, first                |
+   |                      |                | create a CA (in `CAs`_), then the certificate itself (in `Certificates`_)                                                      |
    |                      |                |                                                                                                                                |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
    | Certificate          | drop-down menu | required for *HTTPS*; browse to the location of the certificate to use for encrypted connections                               |
@@ -148,11 +148,11 @@ can be configured using the General tab:
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTPS -->     | checkbox       | when this box is checked, *HTTP* connections will be automatically redirected to                                               |
    | HTTPS Redirect       |                | *HTTPS* if                                                                                                                     |
-   |                      |                | *HTTPS* is selected in "Protocol", otherwise such connections will fail                                                        |
+   |                      |                | *HTTPS* is selected in :guilabel:`Protocol`, otherwise such connections will fail                                              |
    |                      |                |                                                                                                                                |
    |                      |                |                                                                                                                                |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | Language             | drop-down menu | select the localization from the drop-down menu and reload the browser; you can view the status of localization at             |
+   | Language             | drop-down menu | select the localization from the drop-down menu and reload the browser; view the status of localization at                     |
    |                      |                | `pootle.freenas.org <http://pootle.freenas.org/>`_                                                                             |
    |                      |                |                                                                                                                                |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
@@ -162,7 +162,7 @@ can be configured using the General tab:
    | Timezone             | drop-down menu | select the timezone from the drop-down menu                                                                                    |
    |                      |                |                                                                                                                                |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | Syslog level         | drop-down menu | when "Syslog server" is defined, only logs matching this level are sent                                                        |
+   | Syslog level         | drop-down menu | when :guilabel:`Syslog server` is defined, only logs matching this level are sent                                              |
    |                      |                |                                                                                                                                |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
    | Syslog server        | string         | *IP address_or_hostname:optional_port_number* of remote syslog server to send logs to; once set, log entries will be written   |
@@ -171,7 +171,7 @@ can be configured using the General tab:
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
 
 
-If you make any changes, click the "Save" button.
+If you make any changes, click the :guilabel:`Save` button.
 
 This screen also contains the following buttons:
 
@@ -227,7 +227,7 @@ explains these options in more detail.
 
 .. _ntp_server_conf_opts_tab:
 
-.. table:: ** NTP Servers Configuration Options**
+.. table:: NTP Servers Configuration Options
 
    +-------------+-----------+-----------------------------------------------------------------------------------------------------------------------+
    | **Setting** | **Value** | **Description**                                                                                                       |
@@ -237,7 +237,7 @@ explains these options in more detail.
    | Address     | string    | name of NTP server                                                                                                    |
    |             |           |                                                                                                                       |
    +-------------+-----------+-----------------------------------------------------------------------------------------------------------------------+
-   | Burst       | checkbox  | recommended when "Max. Poll" is greater than *10*; only use on your own servers i.e.                                  |
+   | Burst       | checkbox  | recommended when :guilabel:`Max. Poll` is greater than *10*; only use on your own servers i.e.                        |
    |             |           | **do not** use with a public NTP server                                                                               |
    |             |           |                                                                                                                       |
    +-------------+-----------+-----------------------------------------------------------------------------------------------------------------------+
@@ -248,11 +248,11 @@ explains these options in more detail.
    |             |           |                                                                                                                       |
    +-------------+-----------+-----------------------------------------------------------------------------------------------------------------------+
    | Min. Poll   | integer   | power of 2 in seconds; cannot be lower than                                                                           |
-   |             |           | *4* or higher than "Max. Poll"                                                                                        |
+   |             |           | *4* or higher than :guilabel:`Max. Poll`                                                                              |
    |             |           |                                                                                                                       |
    +-------------+-----------+-----------------------------------------------------------------------------------------------------------------------+
    | Max. Poll   | integer   | power of 2 in seconds; cannot be higher than                                                                          |
-   |             |           | *17* or lower than "Min. Poll"                                                                                        |
+   |             |           | *17* or lower than :guilabel:`Min. Poll`                                                                              |
    |             |           |                                                                                                                       |
    +-------------+-----------+-----------------------------------------------------------------------------------------------------------------------+
    | Force       | checkbox  | forces the addition of the NTP server, even if it is currently unreachable                                            |
@@ -333,8 +333,8 @@ Each boot environment entry contains the following information:
 
 * **Keep:** indicates whether or not this boot environment can be
   pruned if an update does not have enough space to proceed. Click the
-  entry's "Keep" button if that boot environment should not be
-  automatically pruned.
+  entry's :guilabel:`Keep` button if that boot environment should not
+  be automatically pruned.
 
 Highlight an entry to view its configuration buttons.  The following
 configuration buttons are available:
@@ -354,32 +354,32 @@ configuration buttons are available:
   environment. If you need to delete an entry that  is currently
   activated, first activate another entry, which will clear the
   *On reboot* field of the currently activated entry. Note that this
-  button will not be displayed for the "default" boot environment as
+  button will not be displayed for the *default* boot environment as
   this entry is needed in order to return the system to the original
   installation state.
 
-* **Activate:** will only appear on entries which are not currently
-  set to "Active". Changes the selected entry to the default boot
-  entry on next boot. Its status will change to "On Reboot" and the
-  current "Active" entry will change from "On Reboot, Now" to "Now",
-  indicating that it was used on the last boot but won't be used on
-  the next boot.
+* **Activate:** only appears on entries which are not currently set to
+  :guilabel:`Active`. Changes the selected entry to the default boot
+  entry on next boot. Its status changes to :guilabel:`On Reboot` and
+  the current :guilabel:`Active` entry changes from
+  :guilabel:`On Reboot, Now` to :guilabel:`Now`, indicating that it
+  was used on the last boot but will not be used on the next boot.
 
 The buttons above the boot entries can be used to:
 
 * **Create:** a manual boot environment. A pop-up menu will prompt you
-  to input a "Name" for the boot environment. When inputting the name,
-  only alphanumeric, underscores, and dashes are allowed.
+  to input a "Name" for the boot environment. When entering the name,
+  only alphanumeric characters, underscores, and dashes are allowed.
 
 * **Scrub Boot:** can be used to perform a manual scrub of the boot
   devices. By default, the boot device is scrubbed every 35 days. To
   change the default interval, input a different number in the
-  "Automatic scrub interval (in days)" field. The date and results of
-  the last scrub are also listed in this screen. The condition of the
-  boot device should be listed as *HEALTHY*.
+  :guilabel:`Automatic scrub interval (in days)` field. The date and
+  results of the last scrub are also listed in this screen. The
+  condition of the boot device should be listed as *HEALTHY*.
 
-* **Status:** click this button to see the status of the boot
-  devices. In the example shown in
+* **Status:** click this button to see the status of the boot devices.
+  In the example shown in
   :numref:`Figure %s <status_boot_dev_fig>`,
   there is only one boot device and it is *ONLINE*.
 
@@ -400,13 +400,13 @@ The buttons above the boot entries can be used to:
 
 #ifdef freenas
 If this system has a mirrored boot device and one of the boot devices
-has a "Status" of *OFFLINE*, click the device to replace, then click
-its "Replace" button to rebuild the boot mirror.
+has a :guilabel:`Status` of *OFFLINE*, click the device to replace,
+then click its :guilabel:`Replace` button to rebuild the boot mirror.
 #endif freenas
 #ifdef truenas
-If one of the boot devices has a "Status" of *OFFLINE*, click the
-device to replace, select the new replacement device, and click
-“Replace Disk” to rebuild the boot mirror.
+If one of the boot devices has a :guilabel:`Status` of *OFFLINE*,
+click the device to replace, select the new replacement device, and
+click :guilabel:`Replace Disk` to rebuild the boot mirror.
 #endif truenas
 
 #ifdef freenas
@@ -436,13 +436,12 @@ shows a sample boot menu.
 The first entry is the active boot environment, or the one that the
 system has been configured to boot into. To boot into a different boot
 environment, press the :kbd:`spacebar` to pause this screen, use the
-down arrow to select "Boot Environment Menu", and press :kbd:`Enter`.
-This will present a menu that displays the other available boot
-environments. Use your up/down arrows to select the desired boot
-environment and press :kbd:`Enter` to boot into it. If you wish to
-always boot into that boot environment, go to
-:menuselection:`System --> Boot`,
-highlight that entry, and click the "Activate" button.
+down arrow to select :guilabel:`Boot Environment Menu`, and press
+:kbd:`Enter`. A menu displays the other available boot environments.
+Use the up/down arrows to select the desired boot environment and
+press :kbd:`Enter` to boot into it. To always boot into that boot
+environment, go to :menuselection:`System --> Boot`, highlight that
+entry, and click the :guilabel:`Activate` button.
 
 
 #ifdef freenas
@@ -469,12 +468,12 @@ the user has clicked
 :menuselection:`System --> Boot --> Status`
 to display the current status of the boot device. The example
 indicates that there is currently one device, *ada0p2*, its status is
-"ONLINE", and it is currently the only boot device as indicated by the
+*ONLINE*, and it is currently the only boot device as indicated by the
 word *stripe*. To create a mirrored boot device, click either the
-entry called *freenas-boot* or *stripe*, then click the "Attach"
-button. If another device is available, it will appear in the
-"Member disk" drop-down menu. Select the desired device, then click
-"Attach Disk".
+entry called *freenas-boot* or *stripe*, then click the
+:guilabel:`Attach` button. If another device is available, it appears
+in the :guilabel:`Member disk` drop-down menu. Select the desired
+device, then click :guilabel:`Attach Disk`.
 
 
 .. _mirror_boot_dev_fig:
@@ -484,8 +483,8 @@ button. If another device is available, it will appear in the
    Mirroring a Boot Device
 
 
-Once the mirror is created, the "Status" screen will indicate that it
-is now a *mirror* and the number of devices in the mirror will be
+Once the mirror is created, the :guilabel:`Status` screen indicates
+that it is now a *mirror*. The number of devices in the mirror are
 shown, as seen in the example in
 :numref:`Figure %s <mirror_boot_status_fig>`.
 
@@ -525,7 +524,7 @@ The configurable settings are summarized in
 
 .. _adv_config_tab:
 
-.. table:: **Advanced Configuration Settings**
+.. table:: Advanced Configuration Settings
 
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Setting                                 | Value                            | Description                                                                  |
@@ -558,16 +557,16 @@ The configurable settings are summarized in
    #endif freenas
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Show console messages in the footer     | checkbox                         | will display console messages in real time at bottom of browser; click the   |
-   |                                         |                                  | console to bring up a scrollable screen; check the "Stop refresh" box in the |
-   |                                         |                                  | scrollable screen to pause updating and uncheck the box to continue to watch |
-   |                                         |                                  | the messages as they occur                                                   |
+   |                                         |                                  | console to bring up a scrollable screen; check the :guilabel:`Stop refresh`  |
+   |                                         |                                  | box in the scrollable screen to pause updating and uncheck the box           |
+   |                                         |                                  | to continue to watch the messages as they occur                              |
    |                                         |                                  |                                                                              |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Show tracebacks in case of fatal errors | checkbox                         | provides a pop-up of diagnostic information when a fatal error occurs        |
    |                                         |                                  |                                                                              |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Show advanced fields by default         | checkbox                         | several GUI menus provide an "Advanced Mode" button to access additional     |
-   |                                         |                                  | features; enabling this shows these features by default                      |
+   | Show advanced fields by default         | checkbox                         | several GUI menus provide an :guilabel:`Advanced Mode` button to access      |
+   |                                         |                                  | additional features; enabling this shows these features by default           |
    |                                         |                                  |                                                                              |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Enable autotune                         | checkbox                         | enables :ref:`autotune` which attempts to optimize the system depending      |
@@ -595,7 +594,7 @@ The configurable settings are summarized in
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
 
 
-If you make any changes, click the "Save" button.
+If you make any changes, click the :guilabel:`Save` button.
 
 This tab also contains the following buttons:
 
@@ -609,11 +608,12 @@ summarizes the configuration options. The only requirement for the
 remote system is that it has sufficient space to hold the backup and
 it is running an SSH server on port 22. The remote system does not
 have to be formatted with ZFS as the backup will be saved as a binary
-file. To restore a saved backup, use the "12) Restore from a backup"
-option of the %brand% console menu shown in
+file. To restore a saved backup, use the
+:guilabel:`12) Restore from a backup` option of the %brand% console
+menu shown in
 :numref:`Figure %s <console_setup_menu_fig>`.
 
-.. warning:: the backup and restore options are meant for disaster
+.. warning:: The backup and restore options are meant for disaster
    recovery. If you restore a system, it will be returned to the point
    in time that the backup was created. If you select the option to
    save the data, any data created after the backup was made will be
@@ -621,7 +621,7 @@ option of the %brand% console menu shown in
    system will be recreated with the same ZFS layout, but with **no**
    data.
 
-.. warning:: the backup function **IGNORES ENCRYPTED POOLS**. Do not
+.. warning:: The backup function **IGNORES ENCRYPTED POOLS**. Do not
    use it to backup systems with encrypted pools.
 
 **Save Debug:** used to generate a text file of diagnostic
@@ -638,7 +638,7 @@ location to save the generated ASCII text file.
 
 .. _backup_conf_tab:
 
-.. table:: **Backup Configuration Settings**
+.. table:: Backup Configuration Settings
 
    +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
    | Setting                                 | Value          | Description                                                                                    |
@@ -647,8 +647,8 @@ location to save the generated ASCII text file.
    | Hostname or IP address                  | string         | input the IP address of the remote system, or the hostname if DNS is properly configured       |
    |                                         |                |                                                                                                |
    +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
-   | User name                               | string         | the user account must exist on the remote system and have permissions to write to the "Remote  |
-   |                                         |                | directory"                                                                                     |
+   | User name                               | string         | the user account must exist on the remote system and have permissions to write to              |
+   |                                         |                | the :guilabel:`Remote directory`                                                               |
    |                                         |                |                                                                                                |
    +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
    | Password                                | string         | input and confirm the password associated with the user account                                |
@@ -662,8 +662,8 @@ location to save the generated ASCII text file.
    |                                         |                | depending upon the size of the pool and speed of the network)                                  |
    |                                         |                |                                                                                                |
    +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
-   | Compress backup                         | checkbox       | if checked, gzip will be used to compress the backup which reduces the transmission size when  |
-   |                                         |                | "Backup data" is checked                                                                       |
+   | Compress backup                         | checkbox       | if checked, gzip will be used to compress the backup which reduces the transmission size       |
+   |                                         |                | when :guilabel:`Backup data` is checked                                                        |
    |                                         |                |                                                                                                |
    +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
    | Use key authentication                  | checkbox       | if checked, the public key of the *root* user must be stored in                                |
@@ -690,11 +690,11 @@ temporary measure on a system that hangs until the underlying hardware
 issue is addressed by adding more RAM. Autotune will always slow the
 system down as it caps the ARC.
 
-The "Enable autotune" checkbox in
+The :guilabel:`Enable autotune` checkbox in
 :menuselection:`System --> Advanced`
-is unchecked by default. Check this box if you would like the
-autotuner to run at boot time. If you would like the script to run
-immediately, you will need to reboot the system.
+is unchecked by default. Check this box to run the autotuner at boot
+time. If you would like the script to run immediately, the system must
+be rebooted.
 
 If the autotune script finds any settings that need adjusting, the
 changed values will appear in
@@ -714,7 +714,7 @@ script is located in :file:`/usr/local/bin/autotune`.
 #endif freenas
 #ifdef truenas
 %brand% provides an autotune script which attempts to optimize the
-system. The "Enable autotune" checkbox in
+system. The :guilabel:`Enable autotune` checkbox in
 :menuselection:`System --> Advanced` is checked by default, meaning
 that this script runs automatically. It is recommended to not disable
 this setting unless you are advised to do so by an iXsystems support
@@ -770,7 +770,7 @@ summarizes the settings that can be configured using the Email tab.
 
 .. _email_conf_tab:
 
-.. table:: **Email Configuration Settings**
+.. table:: Email Configuration Settings
 
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | **Setting**          | **Value**            | **Description**                                                                                 |
@@ -794,24 +794,23 @@ summarizes the settings that can be configured using the Email tab.
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Use                  | checkbox             | enables/disables                                                                                |
    | SMTP                 |                      | `SMTP AUTH <http://en.wikipedia.org/wiki/SMTP_Authentication>`_                                 |
-   | Authentication       |                      | using PLAIN SASL; if checked, input the required "Username" and "Password"                      |
+   | Authentication       |                      | using PLAIN SASL; if checked, enter the required :guilabel:`Username` and                       |
+   |                      |                      | :guilabel:`Password`                                                                            |
+   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Username             | string               | enter the username if the SMTP server requires authentication                                   |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Username             | string               | input the username if the SMTP server requires authentication                                   |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Password             | string               | input the password if the SMTP server requires authentication                                   |
+   | Password             | string               | enter the password if the SMTP server requires authentication                                   |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
 
-Click the "Send Test Mail" button to verify that the configured email
-settings are working. If the test email fails, double-check the email
-address to send emails to by clicking the "Change E-mail" button for
-the *root* account in
+Click the :guilabel:`Send Test Mail` button to verify that the
+configured email settings are working. If the test email fails,
+double-check the destination email address by clicking the
+:guilabel:`Change E-mail` button for the *root* account in
 :menuselection:`Account --> Users --> View Users`.
-The test mail cannot be sent unless the *root* email address has been
-set.
+Test mail cannot be sent unless the *root* email address has been set.
 
 
 .. index:: System Dataset
@@ -846,7 +845,7 @@ controller users and groups.
 #endif truenas
 
 .. note:: encrypted volumes will not be displayed in the
-   "System dataset pool" drop-down menu.
+   :guilabel:`System dataset pool` drop-down menu.
 
 The system dataset can optionally be configured to also store the
 system log and :ref:`Reporting` information. If there are lots of log
@@ -864,12 +863,14 @@ system dataset.
    use another pool.
 #endif truenas
 
-To store the system log on the system dataset, check the "Syslog" box.
+To store the system log on the system dataset, check the
+:guilabel:`Syslog` box.
 
 To store the reporting information on the system dataset, check the
-"Reporting Database" box.
+:guilabel:`Reporting Database` box.
 
-If you make any changes, click the "Save" button to save them.
+If you make any changes, click the :guilabel:`Save` button to save
+them.
 
 If you change the pool storing the system dataset at a later time,
 %brand% will automatically migrate the existing data in the system
@@ -935,7 +936,7 @@ summarizes the options when adding a tunable.
 
 .. _add_tunable_tab:
 
-.. table:: **Adding a Tunable**
+.. table:: Adding a Tunable
 
    +-------------+-------------------+-------------------------------------------------------------------------------------+
    | **Setting** | **Value**         | **Description**                                                                     |
@@ -945,7 +946,7 @@ summarizes the options when adding a tunable.
    | Variable    | string            | typically the name of the sysctl or driver to load, as indicated by its man page    |
    |             |                   |                                                                                     |
    +-------------+-------------------+-------------------------------------------------------------------------------------+
-   | Value       | integer or string | value to associate with "Variable"; typically this is set to *YES*                  |
+   | Value       | integer or string | value to associate with :guilabel:`Variable`; typically this is set to *YES*        |
    |             |                   | to enable the sysctl or driver specified by the "Variable"                          |
    |             |                   |                                                                                     |
    +-------------+-------------------+-------------------------------------------------------------------------------------+
@@ -967,13 +968,13 @@ summarizes the options when adding a tunable.
    you add a *Loader* or *rc.conf*, the changes you make will not take
    effect until the system is rebooted. Regardless of the type of
    tunable, your changes will persist at each boot and across upgrades
-   unless the tunable is deleted or its "Enabled" checkbox is
-   unchecked.
+   unless the tunable is deleted or its :guilabel:`Enabled` checkbox
+   is unchecked.
 
 Any tunables that you add will be listed in
 :menuselection:`System --> Tunables`.
-To change the value of an existing tunable, click its "Edit" button.
-To remove a tunable, click its "Delete" button.
+To change the value of an existing tunable, click its :guilabel:`Edit`
+button. To remove a tunable, click its :guilabel:`Delete` button.
 
 Some sysctls are read-only, meaning that they require a reboot in
 order to enable their setting. You can determine if a sysctl is
@@ -1124,7 +1125,7 @@ screen.
 
 By default, the system will automatically check for updates and will
 issue an alert when a new update becomes available. To disable this
-default, uncheck the box "Automatically check for updates".
+default, uncheck the box :guilabel:`Automatically check for updates`.
 
 #ifdef freenas
 This screen also shows which software branch, or train, the system is
@@ -1147,7 +1148,7 @@ currently tracking updates for. The following trains are available:
 
 * **FreeNAS-9.3-STABLE:** this is the maintenance-only mode for an
   older version of %brand%. It is recommended to upgrade to
-  "FreeNAS-9.10-STABLE", by selecting that train, to ensure that
+  *FreeNAS-9.10-STABLE*, by selecting that train, to ensure that
   the system receives bug fixes and new features.
 
 To change the train, use the drop-down menu to make a different
@@ -1181,28 +1182,28 @@ available:
 
 * **TrueNAS-9.3-STABLE:** this is the maintenance-only mode for an
   older version of %brand%. Unless an iX support engineer indicates
-  otherwise, it is recommended to upgrade to "TrueNAS-9.10-STABLE", by
+  otherwise, it is recommended to upgrade to *TrueNAS-9.10-STABLE*, by
   selecting that train, to ensure that the system receives bug fixes
   and new features.
 #endif truenas
 
-The "Verify Install" button will go through the operating system files
-in the current installation, looking for any inconsistencies. When
-finished, a pop-up menu will list any files with checksum mismatches
-or permission errors.
+The :guilabel:`Verify Install` button goes through the operating
+system files in the current installation, looking for any
+inconsistencies. When finished, a pop-up menu lists any files with
+checksum mismatches or permission errors.
 
 #ifdef freenas
 To see if any updates are available, make sure the desired train is
-selected and click the "Check Now" button. If there are any updates
-available, they will be listed. In the example shown in
+selected and click the :guilabel:`Check Now` button. Any available
+updates are listed. In the example shown in
 :numref:`Figure %s <review_updates_fig>`,
 the numbers which begin with a *#* represent the bug report number
 from
 `bugs.freenas.org <https://bugs.freenas.org>`__.
 Numbers which do not begin with a *#* represent a git commit. Click
-the "ChangeLog" hyperlink to open the log of changes in your web
-browser. Click the "ReleaseNotes" hyperlink to open the Release Notes
-in your web browser.
+the :guilabel:`ChangeLog` hyperlink to open the log of changes in a
+web browser. Click the :guilabel:`ReleaseNotes` hyperlink to open the
+Release Notes in the browser.
 
 
 .. _review_updates_fig:
@@ -1214,33 +1215,33 @@ in your web browser.
 
 #endif freenas
 #ifdef truenas
-To see if any updates are available, click the "Check Now" button. If
-there are any updates available, they will be listed.
+To see if any updates are available, click the :guilabel:`Check Now`
+button. Any available updates are listed.
 #endif truenas
 
-To apply the updates now, make sure that there aren't any clients
+To apply updates immediately, make sure that there aren't any clients
 currently connected to the %brand% system and that a scrub is not
-running. Click the "OK" button to download and apply the updates. Note
-that some updates will automatically reboot the system once they are
-applied.
+running. Click the :guilabel:`OK` button to download and apply the
+updates. Note that some updates will automatically reboot the system
+after they are applied.
 
-.. warning:: each update creates a boot environment and if the boot
+.. warning:: Each update creates a boot environment. If the boot
    device does not have sufficient space to hold another boot
    environment, the upgrade will fail. If you need to create more
    space on the boot device, use
    :menuselection:`System --> Boot`
-   to review your current boot environments and to delete the ones you
-   no longer plan to boot into.
+   to review the current boot environments and delete any that are no
+   longer needed.
 
-Alternately, you can download the updates now and apply them later. To
-do so, uncheck the "Apply updates after downloading" box before
-pressing "OK". In this case, this screen will close once the updates
-are downloaded and the downloaded updates will be listed in the
-"Pending Updates" section of the screen shown in
+Alternately, you can download the updates and apply them later. To
+do so, uncheck the :guilabel:`Apply updates after downloading` box
+before pressing :guilabel:`OK`. In this case, this screen closes after
+updates are downloaded. Downloaded updates are listed in the
+:guilabel:`Pending Updates` section of the screen shown in
 :numref:`Figure %s <update_options_fig>`.
-When you are ready to apply the previously downloaded updates, click
-the "Apply Pending Updates" button and be aware that the system may
-reboot after the updates are applied.
+When ready to apply the previously downloaded updates, click the
+:guilabel:`Apply Pending Updates` button and be aware that the system
+may reboot after the updates are applied.
 
 
 #ifdef truenas
@@ -1322,8 +1323,8 @@ shows the initial screen if you click
 
 
 If your organization already has a CA, you can import the CA's
-certificate and key. Click the "Import CA" button to open the
-configuration screen shown in
+certificate and key. Click the :guilabel:`Import CA` button to open
+the configuration screen shown in
 :numref:`Figure %s <import_ca_fig>`.
 The configurable options are summarized in
 :numref:`Table %s <import_ca_opts_tab>`.
@@ -1338,26 +1339,26 @@ The configurable options are summarized in
 
 .. _import_ca_opts_tab:
 
-.. table:: **Importing a CA Options**
+.. table:: Importing a CA Options
 
    +----------------------+----------------------+---------------------------------------------------------------------------------------------------+
    | **Setting**          | **Value**            | **Description**                                                                                   |
    |                      |                      |                                                                                                   |
    +======================+======================+===================================================================================================+
-   | Name                 | string               | mandatory; input a descriptive name for the CA                                                    |
+   | Name                 | string               | mandatory; enter a descriptive name for the CA                                                    |
    |                      |                      |                                                                                                   |
    +----------------------+----------------------+---------------------------------------------------------------------------------------------------+
    | Certificate          | string               | mandatory; paste in the certificate for the CA                                                    |
    |                      |                      |                                                                                                   |
    +----------------------+----------------------+---------------------------------------------------------------------------------------------------+
-   | Private Key          | string               | if there is a private key associated with the "Certificate", paste it here                        |
+   | Private Key          | string               | if there is a private key associated with the :guilabel:`Certificate`, paste it here              |
    |                      |                      |                                                                                                   |
    +----------------------+----------------------+---------------------------------------------------------------------------------------------------+
-   | Passphrase           | string               | if the "Private Key" is protected by a passphrase, enter it here and repeat it in the "Confirm    |
-   |                      |                      | Passphrase" field                                                                                 |
+   | Passphrase           | string               | if the :guilabel:`Private Key` is protected by a passphrase, enter it here and repeat             |
+   |                      |                      | it in the "Confirm Passphrase" field                                                              |
    |                      |                      |                                                                                                   |
    +----------------------+----------------------+---------------------------------------------------------------------------------------------------+
-   | Serial               | string               | mandatory; input the serial number for the certificate                                            |
+   | Serial               | string               | mandatory; enter the serial number for the certificate                                            |
    |                      |                      |                                                                                                   |
    +----------------------+----------------------+---------------------------------------------------------------------------------------------------+
 
@@ -1367,8 +1368,9 @@ which will sign certificates for internal use or if the CA will be
 part of a
 `certificate chain <https://en.wikipedia.org/wiki/Root_certificate>`_.
 
-To create a CA for internal use only, click the "Create Internal CA"
-button which will open the screen shown in
+To create a CA for internal use only, click the
+:guilabel:`Create Internal CA` button which will open the screen shown
+in
 :numref:`Figure %s <create_ca_fig>`.
 
 
@@ -1387,7 +1389,7 @@ information for your organization.
 
 .. _internal_ca_opts_tab:
 
-.. table:: **Internal CA Options**
+.. table:: Internal CA Options
 
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | **Setting**          | **Value**            | **Description**                                                                                 |
@@ -1426,8 +1428,8 @@ information for your organization.
 
 
 To instead create an intermediate CA which is part of a certificate
-chain, click the "Create Intermediate CA" button. This screen adds one
-more option to the screen shown in
+chain, click the :guilabel:`Create Intermediate CA` button. This
+screen adds one more option to the screen shown in
 :numref:`Figure %s <create_ca_fig>`:
 
 * **Signing Certificate Authority:** this drop-down menu is used to
@@ -1486,8 +1488,9 @@ shows the initial screen if you click
 #endif truenas
 
 
-To import an existing certificate, click the "Import Certificate"
-button to open the configuration screen shown in
+To import an existing certificate, click the
+:guilabel:`Import Certificate` button to open the configuration screen
+shown in
 :numref:`Figure %s <import_cert_fig>`.
 The configurable options are summarized in
 :numref:`Table %s <cert_import_opt_tab>`.
@@ -1502,7 +1505,7 @@ The configurable options are summarized in
 
 .. _cert_import_opt_tab:
 
-.. table:: **Certificate Import Options**
+.. table:: Certificate Import Options
 
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | **Setting**          | **Value**            | **Description**                                                                                 |
@@ -1517,14 +1520,15 @@ The configurable options are summarized in
    | Private Key          | string               | mandatory; paste the private key associated with the certificate                                |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Passphrase           | string               | if the private key is protected by a passphrase, enter it here and repeat it in the "Confirm    |
-   |                      |                      | Passphrase" field                                                                               |
+   | Passphrase           | string               | if the private key is protected by a passphrase, enter it here and repeat it in                 |
+   |                      |                      | the :guilabel:`Confirm Passphrase` field                                                        |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
 
 To instead create a new self-signed certificate, click the
-"Create Internal Certificate" button to see the screen shown in
+:guilabel:`Create Internal Certificate` button to see the screen shown
+in
 :numref:`Figure %s <create_new_cert_fig>`.
 The configurable options are summarized in
 :numref:`Table %s <cert_create_opts_tab>`.
@@ -1543,7 +1547,7 @@ as the signing authority.
 
 .. _cert_create_opts_tab:
 
-.. table:: **Certificate Creation Options**
+.. table:: Certificate Creation Options
 
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | **Setting**          | **Value**            | **Description**                                                                                 |
@@ -1586,10 +1590,10 @@ as the signing authority.
 
 If you need to use a certificate that is signed by an external CA,
 such as Verisign, instead create a certificate signing request. To do
-so, click the "Create Certificate Signing Request" button. This will
-open a screen similar to
-:numref:`Figure %s <create_new_cert_fig>`,
-but without the "Signing Certificate Authority" field.
+so, click the :guilabel:`Create Certificate Signing Request` button.
+A screen like the one in
+:numref:`Figure %s <create_new_cert_fig>` opens,
+but without the :guilabel:`Signing Certificate Authority` field.
 
 All certificates that you import, self-sign, or make a certificate
 signing request for will be added as entries to
@@ -1602,8 +1606,8 @@ certificate was issued by the internal CA named *My Company* and the
 administrator has not yet sent the certificate signing request to
 Verisign so that it can be signed. Once that certificate is signed
 and returned by the external CA, it should be imported using the
-"Import Certificate" button so that is available as a configurable
-option for encrypting connections.
+:guilabel:`mport Certificate` button so that is available as a
+configurable option for encrypting connections.
 
 
 .. _manage_cert_fig:
@@ -1616,10 +1620,10 @@ option for encrypting connections.
 If you click an entry, it will activate the following configuration
 buttons:
 
-* **View:** once a certificate is created, it cannot be edited. You
-  can, however, view its "Name", "Certificate", and "Private Key". If
-  you need to change a certificate, you will need to "Delete" it then
-  recreate it.
+* **View:** once a certificate is created, it cannot be edited. The
+  :guilabel:`Name`, :guilabel:`Certificate`, and
+  :guilabel:`Private Key` fields can be viewed. If a certificate must
+  be changed, :guilabel:`Delete` and recreate it.
 
 * **Export Certificate:** used to save a copy of the certificate or
   certificate signing request to the system being used to access the
@@ -1642,7 +1646,7 @@ Support
 -------
 
 #ifdef freenas
-The %brand% "Support" tab, shown in
+The %brand% :guilabel:`Support` tab, shown in
 :numref:`Figure %s <support_fig>`,
 provides a built-in ticketing system for generating bug reports and
 feature requests.
@@ -1658,42 +1662,41 @@ This screen provides a built-in interface to the %brand% bug
 tracker located at
 `bugs.freenas.org <https://bugs.freenas.org>`_.
 If you have not yet used the %brand% bug tracker, you must first go
-to that website, click the "Register" link, fill out the form, and
-reply to the register email. You will then have a username and
-password which can be used to create bug reports and receive
-notifications as your reports are actioned.
+to that website, click the :guilabel:`Register` link, fill out the
+form, and reply to the registration email. This will create a username
+and password which can be used to create bug reports and receive
+notifications as the reports are actioned.
 
 Before creating a bug report or feature request, ensure that an
 existing report does not already exist at
 `bugs.freenas.org <https://bugs.freenas.org>`__.
-If you find a similar issue that is not yet marked as "closed" or
-"resolved", add a comment to that issue if you have new information
+If you find a similar issue that is not yet marked as *closed* or
+*resolved*, add a comment to that issue if you have new information
 to provide that can assist in resolving the issue. If you find a
-similar issue that is marked as "closed" or "resolved", you can
+similar issue that is marked as *closed* or *resolved*, you can
 create a new issue and refer to the earlier issue number.
 
-.. note:: if you are not updated to the latest version of STABLE,
+.. note:: If you are not updated to the latest version of STABLE,
    do that first to see if it resolves your issue.
 
-To generate a report using the built-in "Support" screen, complete
-the following fields:
+To generate a report using the built-in :guilabel:`Support` screen,
+complete the following fields:
 
-* **Username:** input the login name you created when registering
-  at
+* **Username:** enter the login name created when registering at
   `bugs.freenas.org <https://bugs.freenas.org>`__.
 
-* **Password:** input the password associated with the registered
+* **Password:** enter the password associated with the registered
   login name.
 
-* **Type:** select "Bug" when reporting an issue or "Feature" when
+* **Type:** select *Bug* when reporting an issue or *Feature* when
   requesting a new feature.
 
-* **Category:** this drop-down menu will be empty until you input a
-  registered "Username" and "Password" and an error message will
-  display if either value is incorrect. Once the "Username" and
-  "Password" are validated, the possible categories will be
-  populated to the drop-down menu. Select the one that best
-  describes the bug or feature that you are reporting.
+* **Category:** this drop-down menu is empty a registered "Username"
+  and "Password" are entered. An error message is displayed if either
+  value is incorrect. After the *Username* and *Password* are
+  validated, possible categories are populated to the drop-down menu.
+  Select the one that best describes the bug or feature being
+  reported.
 
 * **Attach Debug Info:** it is recommended to leave this box
   checked so that an overview of the system's hardware, build
@@ -1701,7 +1704,7 @@ the following fields:
   with the ticket.
 
 * **Subject:** input a descriptive title for the ticket. A good
-  "Subject" makes it easy for you and other users to find similar
+  *Subject* makes it easy for you and other users to find similar
   reports.
 
 * **Description:** input a 1 to 3 paragraph summary of the issue
@@ -1712,15 +1715,16 @@ the following fields:
   for including configuration files or screenshots of any errors or
   tracebacks.
 
-Once you have finished completing the fields, click the "Submit"
-button to automatically generate and upload the report to
+Once you have finished completing the fields, click the
+:guilabel:`Submit` button to automatically generate and upload the
+report to
 `bugs.freenas.org <https://bugs.freenas.org>`__.
-A pop-up menu will provide a clickable URL so that you can view the
-status of or add additional information to the report.
+A pop-up menu provides a clickable URL so to view status or add
+additional information to the report.
 #endif freenas
 
 #ifdef truenas
-The %brand% "Support" tab, shown in
+The %brand% :guilabel:`Support` tab, shown in
 :numref:`Figure %s <tn_support1>`,
 is used to view or update the system's license information. It also
 provides a built-in ticketing system for generating support
@@ -1742,8 +1746,8 @@ supported hardware.
 If the license expires or additional hardware, features, or
 contract type are required, contact your iXsystems support
 engineer. Once you have the new license string, click the
-"Update License" button, paste in the new license, and click "OK".
-The new details should be displayed.
+:guilabel:`Update License` button, paste in the new license, and click
+:guilabel:`OK`. The new details will be displayed.
 
 To generate a support ticket, complete the following fields:
 
@@ -1760,33 +1764,33 @@ To generate a support ticket, complete the following fields:
   request assistance in diagnosing a performance bottleneck.
 
 * **Environment:** use the drop-down menu to indicate the role of
-  the affected system. Choices are "Production", "Staging", "Test",
-  "Prototyping", or "Initial Deployment/Setup".
+  the affected system. Choices are *Production*, *Staging*, *Test*,
+  *Prototyping*, or *Initial Deployment/Setup*.
 
 * **Criticality:** use the drop-down menu to indicate the critical
-  level. Choices are "Inquiry", "Loss of Functionality", or
-  "Total Down".
+  level. Choices are *Inquiry*, *Loss of Functionality*, or
+  *Total Down*.
 
 * **Attach Debug Info:** it is recommended to leave this box
   checked so that an overview of the system's hardware and
   configuration is automatically generated and included with the
   ticket.
 
-* **Subject:** input a descriptive title for the ticket.
+* **Subject:** enter a descriptive title for the ticket.
 
-* **Description:** input a 1 to 3 paragraph summary of the issue
-  that describes the problem, and if applicable, what steps one can
-  do to reproduce it.
+* **Description:** enter a one- to three-paragraph summary of the
+  issue that describes the problem, and if applicable, what steps can
+  be taken to reproduce it.
 
 * **Attachments:** this is the only optional field. It is useful
   for including configuration files or screenshots of any errors or
   tracebacks.
 
-Once you have finished completing the fields, click the "Submit"
-button to generate and send the support ticket to iXsystems. A
-pop-up menu will provide a clickable URL so that you can view the
-status of or add additional information to that support ticket.
-Clicking this URL will prompt you to login, or register a new
+Once you have finished completing the fields, click the
+:guilabel:`Submit` button to generate and send the support ticket to
+iXsystems. A pop-up menu will provide a clickable URL so that you can
+view the status of or add additional information to that support
+ticket. Clicking this URL will prompt you to login, or register a new
 login, if you are not already logged into the
 `iXsystems Support page <https://support.ixsystems.com/>`_.
 
@@ -1799,8 +1803,8 @@ Failovers
 ---------
 
 If the %brand% array has been licensed for High Availability (HA),
-a "Failover" tab will be added to "System". HA-licensed arrays use
-the Common Address Redundancy Protocol
+a :guilabel:`Failover` tab is added to :guilabel:`System`. HA-licensed
+arrays use the Common Address Redundancy Protocol
 (`CARP <http://www.openbsd.org/faq/pf/carp.html>`_)
 to provide high availability and failover. CARP was originally
 developed by the OpenBSD project and provides an open source, non
@@ -1819,31 +1823,32 @@ To configure HA, turn on both units in the array. Use the
 instructions in the :ref:`Console Setup Menu` to log into the
 graphical interface for one of the units, it doesn't matter which
 one. If this is the first login, it will automatically display the
-"Upload License" screen. Otherwise, click
+:guilabel:`Upload License` screen. Otherwise, click
 :menuselection:`System --> Support --> Upload License`.
 
-Paste the HA license you received from iXsystems and press "OK" to
-activate it. The license contains the serial numbers for both units
-in the chassis. Once the license is activated, the "Failovers" tab
-is added to "System" and some fields are modified in "Network" so
-that the peer IP address, peer hostname, and virtual IP can be
-configured. An extra "IPMI (Node A/B)" tab will also be added so
-that :ref:`IPMI` can be configured for the other unit.
+Paste the HA license you received from iXsystems and press
+:guilabel:`OK` to activate it. The license contains the serial numbers
+for both units in the chassis. After the license is activated, the
+:guilabel:`Failovers` tab is added to :guilabel:`System` and some
+fields are modified in :guilabel:`Network` so that the peer IP
+address, peer hostname, and virtual IP can be configured. An extra
+:guilabel:`IPMI (Node A/B)` tab will also be added so that
+:ref:`IPMI` can be configured for the other unit.
 
-.. note:: the modified fields will refer to this node as
-   *This Node* and the other node as either *A* or *B*. The node
-   value is hard-coded into each unit and the value that appears is
-   automatically generated. For example, if you are on node *A*,
-   the fields will refer to node *B*, and vice versa.
+.. note:: The modified fields refer to this node as *This Node* and
+   the other node as either *A* or *B*. The node value is hard-coded
+   into each unit and the value that appears is automatically
+   generated. For example, on node *A*, the fields refer to node *B*,
+   and vice versa.
 
 To configure HA networking, go to
 :menuselection:`Network --> Global Configuration`.
-The "Hostname" field will be replaced by two fields:
+The :guilabel:`Hostname` field is replaced by two fields:
 
-* **Hostname (Node A/B):** input the hostname to use for the other
+* **Hostname (Node A/B):** enter the hostname to use for the other
   node.
 
-* **Hostname (This Node):** input the hostname to use for this
+* **Hostname (This Node):** enter the hostname to use for this
   node.
 
 Next, go to
@@ -1867,34 +1872,34 @@ screen:
 * **Critical for Failover:** check this box if a failover should
   occur when this interface becomes unavailable. How many seconds
   it takes for that failover to occur depends upon the value of the
-  "Timeout", as described in
+  :guilabel:`Timeout`, as described in
   :numref:`Table %s <failover_opts_tab>`.
   This checkbox is interface-specific, allowing you to have different
   settings for a management network and a data network. Note that
   checking this box requires the *Virtual IP* to be set and that at
-  least one interface needs to be set as "Critical for Failover" in
-  order to configure failover.
+  least one interface needs to be set as
+  :guilabel:`Critical for Failover` to configure failover.
 
-* **Group:** this drop-down menu is greyed out unless the
-  "Critical for Failover" checkbox is checked. This box allows you
-  to group multiple, critical for failover interfaces. In this
+* **Group:** this drop-down menu is grayed out unless the
+  :guilabel:`Critical for Failover` checkbox is checked. This box
+  allows grouping multiple, critical-for-failover interfaces. In this
   case, all of the interfaces in a group must go down before
   failover occurs. This can be a useful configuration in a
   multipath scenario.
 
 Once the network configuration is complete, logout and log back in,
-this time using the "Virtual IP" address. You can now configure
-volumes and shares as usual and the configurations will
+this time using the :guilabel:`Virtual IP` address. You can now
+configure volumes and shares as usual and the configurations will
 automatically synchronize between the active and the standby node.
-A "HA Enabled" icon will be added after the "Alert" icon on the
-active node and the passive node will indicate the virtual IP
-address that is used for configuration management. The standby node
-will also have a red "Standby" icon and will no longer accept
-logins as all configuration changes need to occur on the active
-node.
+A :guilabel:`HA Enabled` icon will be added after the
+:guilabel:`Alert` icon on the active node and the passive node will
+indicate the virtual IP address that is used for configuration
+management. The standby node will also have a red :guilabel:`Standby`
+icon and will no longer accept logins as all configuration changes
+must occur on the active node.
 
-.. note:: once the "Virtual IP" address is configured, all
-   subsequent logins should occur using this address.
+.. note:: After the :guilabel:`Virtual IP` address is configured, all
+   subsequent logins should use that address.
 
 The options available in
 :menuselection:`System --> Failovers`
@@ -1913,18 +1918,18 @@ and described in
 
 .. _failover_opts_tab:
 
-.. table:: **Failover Options**
+.. table:: Failover Options
 
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | **Setting**    | **Value**      | **Description**                                                                                                                                       |
    |                |                |                                                                                                                                                       |
    +================+================+=======================================================================================================================================================+
-   | Disabled       | checkbox       | when checked, administratively disables failover which changes the "HA Enabled" icon to "HA Disabled" and activates the "Master" field; this will     |
-   |                |                | generate an error message if the standby node is not responding or failover has not been configured                                                   |
-   |                |                |                                                                                                                                                       |
+   | Disabled       | checkbox       | when checked, administratively disables failover which changes the :guilabel:`HA Enabled` icon to :guilabel:`HA Disabled` and                         |
+   |                |                | activates the :guilabel:`Master` field; an error message is generated if the standby node is not responding or failover has not been                  |
+   |                |                | configured                                                                                                                                            |
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Master         | checkbox       | greyed out unless "Disabled" is checked; in that case, this box is automatically checked on the master system, allowing the master to automatically   |
-   |                |                | takeover when the "Disabled" box is unchecked                                                                                                         |
+   | Master         | checkbox       | grayed out unless :guilabel:`Disabled` is checked; in that case, this box is automatically checked on the master system, allowing the                 |
+   |                |                | master to automatically take over when the :guilabel:`Disabled` box is unchecked                                                                      |
    |                |                |                                                                                                                                                       |
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Timeout        | integer        | specifies, in seconds, how quickly failover occurs after a network failure; the default of *0* indicates that failover either occurs immediately or,  |
@@ -1973,7 +1978,7 @@ summarizes the available options for this command.
 
 .. _hactl_opts_tab:
 
-.. table:: **hactl Options**
+.. table:: hactl Options
 
    +--------------------+---------------------------------------------------------------------------------------------+
    | **Option**         | **Description**                                                                             |

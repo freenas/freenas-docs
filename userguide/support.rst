@@ -217,22 +217,23 @@ in their native language:
 * `Turkish - Türkçe
   <http://forums.freenas.org/forumdisplay.php?36-Turkish-T%FCrk%E7e>`_
 
-If you wish to ask a question on the forum, click the "Sign Up Now!"
+To ask a question on the forum, click the :guilabel:`Sign Up Now!`
 link to create an account and log in using that account.
 
 When asking a question on the forum, it is important to:
 
 * First check to see if the question has already been asked. If a
   similar question exists, do not create a new thread. Instead use the
-  "Reply" link at the bottom of the post to add your comments to the
-  existing thread.
+  :guilabel:`Reply` link at the bottom of the post to add your
+  comments to the existing thread.
 
 * Review the available categories to see which one is most closely
   related to your question. Click on that category and use the
-  "Post New Thread" button to open the editor. After typing your post
-  and before clicking the "Create Thread" button, make sure the
-  "Watch this thread..." box is checked. To be notified by email, also
-  check the "and receive email notifications" box. You will be
+  :guilabel:`Post New Thread` button to open the editor. After typing
+  your post but before clicking the :guilabel:`Create Thread` button,
+  make sure the :guilabel:`Watch this thread...` box is checked. To be
+  notified by email, also check the
+  :guilabel:`and receive email notifications` box. You will be
   notified whenever anyone answers your question.
 
 
