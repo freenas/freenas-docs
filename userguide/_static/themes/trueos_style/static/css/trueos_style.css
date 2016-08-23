@@ -3679,21 +3679,19 @@ code.menuselection,
 .guilabel,
 .menuselection{
     background-color: #D5DDE2; /* saturate from ecf0f3 to be more visible/blue on screen. */
-    display: inline-block;
+    display: inline;
 	font-family:'Inconsolata', monospace;
     font-size: 95%;
     padding-right: 3px;
     padding-left: 3px;
     padding-top: 3px;
-    padding-bottom: 2px;
-    border-radius: 5px;
-    line-height: 80%;
-	overflow: hidden;
+    padding-bottom: 3px;
+    border-radius: 3px;
+    overflow: hidden;
 }
 code.kbd, .kbd {
     border: thin solid #000;
-    border-radius: 2px;
-	font-weight: bold
+    font-weight: bold
 }
 code.file, .file {
     border: hidden/*thin solid #999*/
