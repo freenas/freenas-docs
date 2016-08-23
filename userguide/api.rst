@@ -29,6 +29,7 @@ an online version of the API is available at
 The rest of this section shows code examples to illustrate the use of
 the API.
 
+
 .. _A Simple API Example:
 
 A Simple API Example
@@ -36,6 +37,7 @@ A Simple API Example
 
 .. highlight:: python
    :linenothreshold: 4
+
 
 The `api directory of the FreeNAS® github repository
 <https://github.com/freenas/freenas/tree/master/examples/api>`_
@@ -101,22 +103,23 @@ Note that the script will fail if the machine running it is not able
 to resolve that hostname. Change *https* to *http* to use HTTP rather
 than HTTPS to access the %brand% system.
 
-**Line 5:** replace *freenas* with the password that you use to access
-the %brand% system.
+**Line 5:** replace *freenas* with the password used to access the
+%brand% system.
 
 **Line 7:** if you are using HTTPS and want to force validation of the
 SSL certificate, change *False* to *True*.
 
 **Lines 8-16:** set the values for the user being created. The
-`:guilabel:`Users` resource
-<http://api.freenas.org/resources/account.html#users>`_ describes this
-in more detail. Allowed parameters are listed in the
-:guilabel:`JSON Parameters` section of that resource. Since this
-resource creates a FreeBSD user, the values entered must be valid for
-a FreeBSD user account.
+`Users
+resource <http://api.freenas.org/resources/account.html#users>`_
+describes this in more detail. Allowed parameters are listed in the
+JSON Parameters section of that resource. Since this resource creates
+a FreeBSD user, the values entered must be valid for a FreeBSD user
+account.
 :numref:`Table %s <api_json_parms_tab>`
 summarizes acceptable values. This resource uses JSON, so the boolean
 values are *True* or *False*.
+
 
 .. _api_json_parms_tab:
 
@@ -170,6 +173,7 @@ values are *True* or *False*.
    but Python uses uppercase values. So use *True* or *False* in
    Python scripts even though the example JSON responses in the API
    documentation are displayed as *true* or *false*.
+
 
 .. _A More Complex Example:
 

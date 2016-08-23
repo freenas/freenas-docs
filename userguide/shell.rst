@@ -27,9 +27,10 @@ To change the size of the shell, click the *80x25* drop-down menu and
 select a different size.
 
 To copy text from shell, highlight the text, right-click, and select
-"Copy" from the right-click menu. To paste into the shell, click the
-"Paste" button, paste the text into the box that opens, and click the
-"OK" button to complete the paste operation.
+:guilabel:`Copy` from the right-click menu. To paste into the shell,
+click the :guilabel:`Paste` button, paste the text into the box that
+opens, and click the :guilabel:`OK` button to complete the paste
+operation.
 
 Shell provides history (use your up arrow to see previously entered
 commands and press :kbd:`Enter` to repeat the currently displayed

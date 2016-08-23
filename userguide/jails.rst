@@ -78,8 +78,8 @@ hold the jails. Click
 :menuselection:`Jails --> Configuration`
 to access the screen shown in
 :numref:`Figure %s <global_jail_config_fig>`.
-**It is recommended to create a dataset to use for the
-:guilabel:`Jail Root`**. As jails are created, they are automatically
+**It is recommended to create a dataset to use for the**
+:guilabel:`Jail Root`. As jails are created, they are automatically
 installed into their own dataset under the specified path. For
 example, if the :guilabel:`Jail Root` is set to
 :file:`/mnt/volume1/dataset1` and a jail named *jail1* is created, it
@@ -626,12 +626,14 @@ To delete the storage, click its :guilabel:`Delete` button.
 
 .. warning:: It is important to realize that added storage is really
    just a pointer to the selected storage directory on the %brand%
-   system. It does **not** copy that data to the jail. **Files that
-   are deleted from the :guilabel:`Destination` directory in the jail
-   are really deleted from the :guilabel:`Source` directory on the
-   %brand% system.** However, removing the jail storage entry only
-   removes the pointer, leaving the data intact but not accessible
-   from the jail.
+   system. It does **not** copy that data to the jail.
+   **Files that are deleted from the**
+   :guilabel:`Destination`
+   **directory in the jail are really deleted from the**
+   :guilabel:`Source`
+   **directory on the %brand% system.**
+   However, removing the jail storage entry only removes the pointer,
+   leaving the data intact but not accessible from the jail.
 
 
 .. _Installing FreeBSD Packages:
