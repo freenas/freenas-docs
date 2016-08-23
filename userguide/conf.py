@@ -55,6 +55,41 @@ if tags.has('truenas'):
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
+# -- Option to change :menuselection: arrow -----------------------------
+
+from docutils import nodes, utils
+from docutils.parsers.rst import roles
+from sphinx.roles import _amp_re
+
+def patched_menusel_role(typ, rawtext, text, lineno, inliner, options={}, content=[]):
+    text = utils.unescape(text)
+    if typ == 'menuselection':
+        text = text.replace('-->', u'\N{HEAVY WIDE-HEADED RIGHTWARDS ARROW}') # Here is the patch 
+
+    spans = _amp_re.split(text)  
+
+    node = nodes.literal(rawtext=rawtext)
+    for i, span in enumerate(spans):
+        span = span.replace('&&', '&')
+        if i == 0:
+            if len(span) > 0:
+                textnode = nodes.Text(span)
+                node += textnode
+            continue
+        accel_node = nodes.inline()
+        letter_node = nodes.Text(span[0])
+        accel_node += letter_node
+        accel_node['classes'].append('accelerator')
+        node += accel_node
+        textnode = nodes.Text(span[1:])
+        node += textnode
+
+    node['classes'].append(typ)
+    return [node], []
+
+# Use 'patched_menusel_role' function for processing the 'menuselection' role
+roles.register_local_role("menuselection", patched_menusel_role)
+
 # -- Options for HTML output ---------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
