@@ -13,9 +13,10 @@ plugin to manage their %brand% array from vCenter Server.
 .. note:: At this time, the vCenter plugin only supports the creation
    of iSCSI and NFS datastores from vCenter Server.
 
-To configure the vCenter plugin, click "vCenter". This will open the
-screen shown in
+To configure the vCenter plugin, click :guilabel:`vCenter`. This opens
+the screen shown in
 :numref:`Figure %s <vcenter1>`.
+
 
 .. _vcenter1:
 
@@ -30,7 +31,7 @@ summarizes the options in this screen.
 
 .. _vcenter_options_tab:
 
-.. table:: **vCenter Plugin Options**
+.. table:: vCenter Plugin Options
 
    +-------------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------------------+
    | **Setting**                   | **Value**      | **Description**                                                                                                                       |
@@ -53,32 +54,34 @@ summarizes the options in this screen.
    +-------------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------------------+
 
 
-After entering this information, click the "Install" button to add the
-%brand% system as an object in vCenter Server. From vCenter Server,
-click the object to create its datastores.
+After entering this information, click the :guilabel:`Install` button
+to add the %brand% system as an object in vCenter Server. From vCenter
+Server, click the object to create its datastores.
 
-In addition to the "Install" button, these buttons are available:
+In addition to the :guilabel:`Install` button, these buttons are
+available:
 
 **Uninstall:** click to remove the %brand% object from vCenter Server.
 
 **Upgrade:** as more features are added to the vCenter plugin, the
-"Available Plugin Version" number will be incremented. Click this
-button to upgrade to the newer version and access its features.
+:guilabel:`Available Plugin Version` number will be incremented. Click
+this button to upgrade to the newer version and access its features.
 
 **Repair:** click this button if your iXsystems support engineer asks
 you to do so. This will reinstall the %brand% object in order to
 repair a corrupted object.
 
-.. note:: In a HA-configured scenario, the "Upgrade" button can only
-   be used from the system that originally installed the plugin. This
-   means that the "Upgrade" button will be grayed out on the other
-   system in the HA pair.
+.. note:: In a HA-configured scenario, the :guilabel:`Upgrade` button
+   can only be used from the system that originally installed the
+   plugin. This means that the :guilabel:`Upgrade` button will be
+   grayed out on the other system in the HA pair.
 
 To configure the vCenter plugin to use a secure connection, click
 :menuselection:`vCenter --> vCenter Auxiliary Settings`
 in the left tree. In the screen shown in
 :numref:`Figure %s <vcenter2>`, check the
-"Enable vCenter Plugin over https" box.
+:guilabel:`Enable vCenter Plugin over https` box.
+
 
 .. _vcenter2:
 

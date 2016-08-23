@@ -20,6 +20,7 @@ output of
 An example is shown in
 :numref:`Figure %s <process>`.
 
+
 .. _process:
 
 .. figure:: images/process.png
@@ -63,8 +64,8 @@ select a different size.
 
 To copy text from shell, highlight the text, right-click, and select
 Copy from the right-click menu. To paste into the shell, click the
-"Paste" button, paste the text into the box that opens, and click the
-OK button to complete the paste operation.
+:guilabel:`Paste` button, paste the text into the box that opens, and
+click the :guilabel:`OK` button to complete the paste operation.
 
 While you are in Shell, you will not have access to any of the other
 GUI menus. If you need to have access to a prompt while using the GUI
@@ -90,11 +91,11 @@ Most FreeBSD command line utilities are available in Shell.
 Log Out
 -------
 
-To log out of the %brand% GUI, click the "Log Out" entry in the tree.
-You will immediately be logged out. An informational message will
-indicate that you are logged out and will provide a hyperlink which
-you can click on to log back in. When logging back in, you will be
-prompted for the *root* password.
+To log out of the %brand% GUI, click the :guilabel:`Log Out` entry in
+the tree. You will immediately be logged out. An informational message
+will indicate that you are logged out and will provide a hyperlink
+which you can click on to log back in. When logging back in, you will
+be prompted for the *root* password.
 
 
 .. index:: Reboot
@@ -104,7 +105,8 @@ prompted for the *root* password.
 Reboot
 ------
 
-If you click "Reboot", you will receive the warning message shown in
+If you click :guilabel:`Reboot`, you will receive the warning message
+shown in
 :numref:`Figure %s <reboot1>`
 and your browser window color will change to red to indicate that you
 have selected an option that will negatively impact users of the
@@ -119,21 +121,21 @@ have selected an option that will negatively impact users of the
 
 If a scrub or resilver is in progress when a reboot is requested, an
 additional warning will ask you to make sure that you wish to proceed.
-In this case, it is recommended to "Cancel" the reboot request and to
-periodically run :command:`zpool status` from `Shell`_ until it is
-verified that the scrub or resilver process is complete. Once
-complete, the reboot request can be re-issued.
+In this case, it is recommended to :guilabel:`Cancel` the reboot
+request and to periodically run :command:`zpool status` from `Shell`_
+until it is verified that the scrub or resilver process is complete.
+Once complete, the reboot request can be re-issued.
 
-Click the "Cancel" button if you wish to cancel the reboot request.
-Otherwise, click the Reboot button to reboot the system. Rebooting the
-system will disconnect all clients, including the web administration
-GUI. The URL in your web browser will change to add */system/reboot/*
-to the end of the IP address. Wait a few minutes for the system to
-boot, then use your browser's back button to return to the %brand%
-system's IP address. If all went well, you should receive the GUI
-login screen. If the login screen does not appear, access the system
-using IPMI in order to determine what problem is preventing the system
-from resuming normal operation.
+Click the :guilabel:`Cancel` button if you wish to cancel the reboot
+request. Otherwise, click the :guilabel:`Reboot` button to reboot the
+system. Rebooting the system will disconnect all clients, including
+the web administration GUI. The URL in your web browser will change to
+add */system/reboot/* to the end of the IP address. Wait a few minutes
+for the system to boot, then use the browser's Back button to return
+to the %brand% system's IP address. If all goes well, the GUI login
+screen is displayed. If the login screen does not appear, access the
+system using IPMI in order to determine what problem is preventing the
+system from resuming normal operation.
 
 
 .. index:: Shutdown
@@ -143,7 +145,8 @@ from resuming normal operation.
 Shutdown
 --------
 
-If you click "Shutdown", you will receive the warning message shown in
+If you click :guilabel:`Shutdown`, you will receive the warning
+message shown in
 :numref:`Figure %s <shutdown1>`
 and your browser color will change to red to indicate that you have
 selected an option that will negatively impact users of the %brand%
@@ -159,15 +162,15 @@ system.
 
 If a scrub or resilver is in progress when a shutdown is requested, an
 additional warning will ask you to make sure that you wish to proceed.
-In this case, it is recommended to "Cancel" the shutdown request and
-to periodically run :command:`zpool status` from `Shell`_ until it is
-verified that the scrub or resilver process is complete. Once
-complete, the shutdown request can be re-issued.
+In this case, it is recommended to :guilabel:`Cancel` the shutdown
+request and to periodically run :command:`zpool status` from `Shell`_
+until it is verified that the scrub or resilver process is complete.
+Once complete, the shutdown request can be re-issued.
 
-Click the "Cancel" button if you wish to cancel the shutdown request.
-Otherwise, click the "Shutdown" button to halt the system. Shutting
-down the system will disconnect all clients, including the web
-administration GUI, and will power off the %brand% system.
+Click the :guilabel:`Cancel` button to cancel the shutdown request.
+Otherwise, click the :guilabel:`Shutdown` button to halt the system.
+Shutting down the system will disconnect all clients, including the
+web administration GUI, and will power off the %brand% system.
 
 
 .. index:: Support
@@ -177,8 +180,9 @@ administration GUI, and will power off the %brand% system.
 Support Icon
 ------------
 
-The "Support" icon, located as the third icon from the left in the top
-menubar, provides a shortcut to :menuselection:`System --> Support`.
+The :guilabel:`Support` icon, located as the third icon from the left
+in the top menubar, provides a shortcut to
+:menuselection:`System --> Support`.
 This screen can be used to verify the system license or to create a
 support ticket. Refer to :ref:`Support` for detailed usage
 instructions.
@@ -191,9 +195,9 @@ instructions.
 Guide
 -----
 
-The "Guide" icon, located as the second icon from the left in the top
-menubar, provides a built-in browser to the %brand% Administrator
-Guide (this documentation).
+The :guilabel:`Guide` icon, located as the second icon from the left
+in the top menubar, provides a built-in browser to the %brand%
+Administrator Guide (this documentation).
 
 
 #include snippets/alertevents.rst

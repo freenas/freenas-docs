@@ -92,6 +92,7 @@ The layout of the storage controller will vary by configuration.
 :numref:`Figure %s <appliance1>` provides an example of
 the front view of the %brand% Storage Array.
 
+
 .. _appliance1:
 
 .. figure:: images/tn_appliance_front_view.jpg
@@ -107,6 +108,7 @@ in High Availability models.
 :numref:`Figure %s <appliance2>`
 shows the layout of the front panel buttons and indicators.
 
+
 .. _appliance2:
 
 .. figure:: images/tn_appliance_front_panel.jpg
@@ -120,6 +122,7 @@ configured for High Availability, both storage controller slots
 will be populated. In a single-controller model, the bottom
 controller slot will contain a controller slot cover panel.
 
+
 .. _appliance3:
 
 .. figure:: images/tn_appliance_rear_view.jpg
@@ -129,6 +132,7 @@ controller slot will contain a controller slot cover panel.
 
 :numref:`Figure %s <appliance4>`
 shows a drive tray and the meanings for the LED colors.
+
 
 .. _appliance4:
 
@@ -152,6 +156,7 @@ on the mounting bracket and rotating them in place, as shown in
 The square rack style brackets are the default. The circular hole
 style is the one with a flat surface and screw holes.
 
+
 .. _appliance5:
 
 .. figure:: images/tn_rotate_bracket.png
@@ -163,15 +168,16 @@ style is the one with a flat surface and screw holes.
 
 Before installing the %brand% Storage Array, confirm that the rails
 included with your %brand% Storage Array are long enough for your
-rack. Examine each rail to find the sides labeled "Front" and
-"Rear".
+rack. Examine each rail to find the sides labeled *Front* and
+*Rear*.
 
 For racks with square holes, snap the mounting brackets into the
 holes at either end of the rail into the mouting holes. Make sure
-to install the rails with the end labeled "Front" toward the front
+to install the rails with the end labeled *Front* toward the front
 of the rack. Refer to
 :numref:`Figure %s <appliance6>`
 for a detailed view.
+
 
 .. _appliance6:
 
@@ -182,10 +188,11 @@ for a detailed view.
 
 For racks with round holes, secure the rails into the rack at the
 desired position using the eight thumbscrews included with the
-rails. Make sure to install the rails with the end labeled "Front"
+rails. Make sure to install the rails with the end labeled *Front*
 toward the front of the rack. Refer to
 :numref:`Figure %s <appliance7>`
 for a detailed view.
+
 
 .. _appliance7:
 
@@ -210,6 +217,7 @@ into the rack. Refer to
 :numref:`Figure %s <appliance8>`
 for a detailed view.
 
+
 .. _appliance8:
 
 .. figure:: images/tn_rack_and_release_locks.png
@@ -226,6 +234,7 @@ for a detailed view.
 
 .. note:: to avoid personal injury, do not install drives into the
    %brand% Storage Array before racking.
+
 
 .. _appliance9:
 
@@ -248,6 +257,7 @@ must connect the out-of-band management port before turning on the
 :numref:`Figure %s <appliance11>`
 or the sticker on the storage controller handle for the location of
 the out-of-band management port.
+
 
 .. _appliance11:
 
@@ -347,6 +357,7 @@ maintain proper airflow.
 :numref:`Figure %s <appliance12>` shows the front view
 of the %brand% E16 expansion shelf.
 
+
 .. _appliance12:
 
 .. figure:: images/tn_e16_front_view.jpg
@@ -356,6 +367,7 @@ of the %brand% E16 expansion shelf.
 
 :numref:`Figure %s <appliance13>`
 shows the rear view of the %brand% E16 expansion shelf.
+
 
 .. _appliance13:
 
@@ -367,6 +379,7 @@ shows the rear view of the %brand% E16 expansion shelf.
 :numref:`Figure %s <appliance14>`
 provides a detailed view of a drive tray and the possible statuses
 for the LED.
+
 
 .. _appliance14:
 
@@ -383,6 +396,7 @@ apart, and then push the pin-lock latch outward to allow the rails
 to separate completely, as shown in
 :numref:`Figure %s <appliance15>`.
 
+
 .. _appliance15:
 
 .. figure:: images/tn_separate_rails.jpg
@@ -393,6 +407,7 @@ to separate completely, as shown in
 Align the inner rail keyholes to the two hooks near the front of
 the chassis, then slide the rails forward into place as shown in
 :numref:`Figure %s <appliance16>`.
+
 
 .. _appliance16:
 
@@ -405,6 +420,7 @@ Secure the inner rail in place with a small screw from the rail
 kit. Refer to
 :numref:`Figure %s <appliance17>`
 for a detailed view.
+
 
 .. _appliance17:
 
@@ -421,6 +437,7 @@ mounting bracket and rotating them in place, as shown in
 The square rack style brackets are the default. The circular hole
 style is the one with a flat surface and screw holes.
 
+
 .. _appliance18:
 
 .. figure:: images/tn_rotate_bracket.png
@@ -430,13 +447,14 @@ style is the one with a flat surface and screw holes.
 
 Before installing, confirm that the rails included with the %brand%
 E16 expansion shelf are long enough for your rack. Examine each
-rail to find the sides labeled "Front" and "Rear".
+rail to find the sides labeled *Front* and *Rear*.
 
 For racks with square holes, snap the mounting brackets into the
 holes at either end of the rail into the mouting holes. Make sure
-to install the rails with the end labeled "Front" toward the front
+to install the rails with the end labeled *Front* toward the front
 of the rack. Refer to
 :numref:`Figure %s <appliance19>` for a detailed view.
+
 
 .. _appliance19:
 
@@ -447,10 +465,11 @@ of the rack. Refer to
 
 For racks with round holes, secure the rails into the rack at the
 desired position using the eight thumbscrews included with the
-rails. Make sure to install the rails with the end labeled "Front"
+rails. Make sure to install the rails with the end labeled *Front*
 toward the front of the rack. Refer to
 :numref:`Figure %s <appliance20>`
 for a detailed view.
+
 
 .. _appliance20:
 
@@ -472,6 +491,7 @@ into the rack. Refer to
 :numref:`Figure %s <appliance21>`
 for a detailed view.
 
+
 .. _appliance21:
 
 .. figure:: images/tn_rack_and_release_locks.png
@@ -486,6 +506,7 @@ expansion shelf as shown in
 .. note:: to avoid personal injury, do not install drives into the
    E16 expansion shelf before racking.
 
+
 .. _appliance22:
 
 .. figure:: images/tn_install_drive_tray.jpg
@@ -497,14 +518,15 @@ expansion shelf as shown in
 
 Note the labels on the SAS ports on the back of the %brand% Storage
 Array and the letter label on the back of the expansion shelf.
-Using the included SAS cables, connect the "In" SAS port of the top
+Using the included SAS cables, connect the *In* SAS port of the top
 expander on the E16 expansion shelf to the SAS port with the same
 letter on the %brand% Storage Array's primary storage controller
 (the one in the top slot). If you have a secondary storage
-controller, connect the "In" SAS port of the bottom expander to the
+controller, connect the *In* SAS port of the bottom expander to the
 port with the same letter on the secondary storage controller.
 Refer to
 :numref:`Figure %s <appliance24>` for a detailed view.
+
 
 .. _appliance24:
 
@@ -524,6 +546,7 @@ control panel.
 If you are setting up a %brand% Storage Array for the first time,
 wait two minutes after powering on all expansion shelves before
 turning on the %brand% Storage Array.
+
 
 .. index:: E24 Expansion Shelf
 
@@ -576,6 +599,7 @@ maintain proper airflow.
 :numref:`Figure %s <appliance25>`
 shows the front of the %brand% E24 expansion shelf.
 
+
 .. _appliance25:
 
 .. figure:: images/tn_e24_front_view.png
@@ -586,6 +610,7 @@ shows the front of the %brand% E24 expansion shelf.
 :numref:`Figure %s <appliance26>`
 shows the rear view of the %brand% E24 expansion shelf.
 
+
 .. _appliance26:
 
 .. figure:: images/tn_e24_rear_view.jpg
@@ -595,6 +620,7 @@ shows the rear view of the %brand% E24 expansion shelf.
 
 :numref:`Figure %s <appliance27>`
 provides a detailed view of a 3.5" drive tray.
+
 
 .. _appliance27:
 
@@ -616,6 +642,7 @@ rack.
 :numref:`Figure %s <appliance28>`
 shows the front left attachments for an L-type rack.
 
+
 .. _appliance28:
 
 .. figure:: images/tn_e24_front_left_rail.png
@@ -625,6 +652,7 @@ shows the front left attachments for an L-type rack.
 
 :numref:`Figure %s <appliance29>`
 shows the rear right attachments for an L-type rack.
+
 
 .. _appliance29:
 
@@ -648,6 +676,7 @@ Secure the expansion shelf to the rack by pushing down and
 tightening the two built-in thumbscrews as indicated in
 :numref:`Figure %s <appliance30>`.
 
+
 .. _appliance30:
 
 .. figure:: images/tn_attach_e24_expansion_shelf.png
@@ -668,15 +697,16 @@ of the way forward to secure the drive in place.
 To connect the E24 expansion shelf to the %brand% Storage Array,
 note the labels on the SAS ports on the back of the %brand% Storage
 Array and the letter label on the back of the expansion shelf.
-Using the included SAS cables, connect the left "In" SAS port of
+Using the included SAS cables, connect the left *In* SAS port of
 the left side expander on the E24 expansion shelf to the SAS port
 with the same letter on the %brand% Storage Array's primary storage
 controller (the one in the top slot). If you have a secondary
-storage controller, connect the left "In" SAS port of the right
+storage controller, connect the left *In* SAS port of the right
 side expander to the port with the same letter on the secondary
 storage controller. Refer to
 :numref:`Figure %s <appliance32>`
 for a detailed view.
+
 
 .. _appliance32:
 
@@ -699,6 +729,7 @@ the power switches on both power supplies are set to the Off
 Using the power cables provided, connect both power supplies to
 appropriate power sources. Secure the power cables in place with
 the plastic locks.
+
 
 .. _appliance33:
 
@@ -739,9 +770,10 @@ already have access to the %brand% administrative graphical
 interface, the same settings can be configured using the
 instructions in :ref:`IPMI`.
 
-To access the system BIOS, press "F2" at the splash screen when
-booting the %brand% Storage Array. This will open the menu shown in
+To access the system BIOS, press :kbd:`F2` at the splash screen when
+booting the %brand% Storage Array. This opens the menu shown in
 :numref:`Figure %s <appliance34>`.
+
 
 .. _appliance34:
 
@@ -750,9 +782,10 @@ booting the %brand% Storage Array. This will open the menu shown in
    Initial BIOS Screen
 
 
-Navigate to the "Server Mgmt" menu and then
-"BMC LAN Configuration", as shown in
+Navigate to the :guilabel:`Server Mgmt` menu and then
+:guilabel:`BMC LAN Configuration`, as shown in
 :numref:`Figure %s <appliance35>`.
+
 
 .. _appliance35:
 
@@ -762,10 +795,11 @@ Navigate to the "Server Mgmt" menu and then
 
 
 If you will be using DCHP to assign the out-of-band management IP
-address, leave the "Configuration Source" set to "Dynamic" in the
-screen shown in
+address, leave the :guilabel:`Configuration Source` set to
+:guilabel:`Dynamic` in the screen shown in
 :numref:`Figure %s <appliance36>`.
 If an IP has been assigned by DHCP, it will be displayed.
+
 
 .. _appliance36:
 
@@ -775,11 +809,12 @@ If an IP has been assigned by DHCP, it will be displayed.
 
 
 To instead assign a static IP address for out-of-band management,
-set the "Configuration Source" to "Static", as seen in the example
-shown in
+set the :guilabel:`Configuration Source` to *Static*, as seen in the
+example shown in
 :numref:`Figure %s <appliance37>`.
-Enter the desired IP Address into the "IP Address" setting, filling
-out all four octets completely.
+Enter the desired IP Address into the :guilabel:`IP Address` setting,
+filling out all four octets completely.
+
 
 .. _appliance37:
 
@@ -788,9 +823,10 @@ out all four octets completely.
    Configuring a Static IP Address
 
 
-Next, enter the "Subnet Mask" of the subnet within which you wish
-to have access to out-of-band management. An example is seen in
+Next, enter the :guilabel:`Subnet Mask` of the subnet within which you
+wish to have access to out-of-band management. An example is seen in
 :numref:`Figure %s <appliance38>`.
+
 
 .. _appliance38:
 
@@ -799,9 +835,11 @@ to have access to out-of-band management. An example is seen in
    Entering the Subnet Mask
 
 
-Finally, set the "Default Gateway Address" for the network to which
-the out-of-band management port is connected. An example is seen in
+Finally, set the :guilabel:`Default Gateway Address` for the network
+to which the out-of-band management port is connected. An example is
+seen in
 :numref:`Figure %s <appliance39>`.
+
 
 .. _appliance39:
 
@@ -820,6 +858,7 @@ directly wired to the array. As seen in
 :numref:`Figure %s <appliance40>`,
 a login prompt will appear.
 
+
 .. _appliance40:
 
 .. figure:: images/tn_IPMIlogin.png
@@ -827,16 +866,17 @@ a login prompt will appear.
    Connecting to the IPMI Graphical Interface
 
 
-Login using the default "Username" of *admin* and the default
-"Password" of *password*.
+Login using the default :guilabel:`Username` of *admin* and the
+default :guilabel:`Password` of *password*.
 
 You can change the default administrative password using the
 instructions in :ref:`IPMI`.
 
-Once logged in, click the "vKVM and Media" button at the top right
-to download the Java KVM Client. Run the client by clicking the
-"Launch Java KVM Client" button shown in
+Once logged in, click the :guilabel:`vKVM and Media` button at the top
+right to download the Java KVM Client. Run the client by clicking the
+:guilabel:`Launch Java KVM Client` button shown in
 :numref:`Figure %s <tn_IPMIdownload>`.
+
 
 .. _tn_IPMIdownload:
 
@@ -849,6 +889,7 @@ When prompted for a program to open the file with, select the Java
 Web Start Launcher shown in
 :numref:`Figure %s <appliance41>`.
 
+
 .. _appliance41:
 
 .. figure:: images/tn_IPMIjava.png
@@ -858,8 +899,9 @@ Web Start Launcher shown in
 
 When asked if you want to run a program by an unknown publisher,
 check the box indicating that you understand the risks and press
-"Run". An example is seen in
+:guilabel:`Run`. An example is seen in
 :numref:`Figure %s <appliance42>`.
+
 
 .. _appliance42:
 
@@ -870,7 +912,8 @@ check the box indicating that you understand the risks and press
 
 When prompted that the connection is untrusted, as seen in
 :numref:`Figure %s <tn_IPMIcontinue>`,
-press "Continue".
+press :guilabel:`Continue`.
+
 
 .. _tn_IPMIcontinue:
 
@@ -882,6 +925,7 @@ press "Continue".
 Once the out-of-band console opens, you can control the %brand%
 Storage Array as if you were using a directly-connected keyboard
 and monitor.
+
 
 .. index:: Console Setup Menu
 .. _Console Setup Menu:
@@ -900,8 +944,9 @@ become inaccessible.
 .. note:: You can access the Console Setup menu from within the
    %brand% GUI by typing :command:`/etc/netcli` from :ref:`Shell`.
    You can disable the Console Setup menu by unchecking the
-   "Enable Console Menu" in
+   :guilabel:`Enable Console Menu` in
    :menuselection:`System --> Settings --> Advanced`.
+
 
 .. _console_setup_menu_fig:
 
@@ -915,7 +960,8 @@ This menu provides the following options:
 **1) Configure Network Interfaces:** provides a configuration
 wizard to configure the system's network interfaces. If the system has
 been licensed for for High Availability (HA), the wizard will prompt
-to set the IP address for both "(This Node)" and "(Node B)".
+to set the IP address for both :guilabel:`(This Node)` and
+:guilabel:`(Node B)`.
 
 **2) Configure Link Aggregation:** allows you to either create a
 new link aggregation or to delete an existing link aggregation. If the
@@ -968,8 +1014,8 @@ address of the remote system, the name of a user account on the
 remote system, the password for that user account, the full path to
 a directory on the remote system to save the backup, whether or not
 to also backup all of the data, whether or not to compress the
-data, and a confirmation to save the values, where "y" will start
-the backup, "n" will repeat the configuration, and "q" will quit
+data, and a confirmation to save the values, where *y* will start
+the backup, *n* will repeat the configuration, and *q* will quit
 the backup wizard. If you leave the password empty, key-based
 authentication will be used instead. This requires that the public
 key of the *root* user is stored in
@@ -979,19 +1025,19 @@ key should **not** be protected by a passphrase. Refer to
 key pair.
 
 **12) Restore from a backup:** if a backup has already been created
-using "11) Create backup" or
+using :guilabel:`11) Create backup` or
 :menuselection:`System --> Advanced --> Backup`,
 it can be restored using this option. Once selected, it will prompt
 for the hostname or IP address of the remote system holding the
 backup, the username that was used, the password (leave empty if
 key-based authentication was used), the full path of the remote
 directory storing the backup, and a confirmation that the values
-are correct, where "y" will start the restore, "n" will repeat the
-configuration, and "q" will quit the restore wizard. The restore
+are correct, where *y* will start the restore, *n* will repeat the
+configuration, and *q* will quit the restore wizard. The restore
 will indicate if it could log into the remote system, find the
 backup, and indicate whether or not the backup contains data. It
 will then prompt to restore %brand% from that backup. Note that if
-you press "y" to perform the restore, the system will be returned
+you press *y* to perform the restore, the system will be returned
 to the database configuration, ZFS layout, and optionally the data,
 at the point when the backup was created. The system will reboot
 once the restore is complete.
@@ -1058,34 +1104,38 @@ network containing the %brand% system. You should be prompted to
 enter the password for the *root* user, as seen in
 :numref:`Figure %s <tn_login1>`.
 
+
 .. _tn_login1:
 
 .. figure:: images/tn_login1.png
 
    Enter the Root Password
 
+
 Enter the default password of *abcd1234*.
 
 .. note:: You can change the default *root* password to a more
    secure value by going to
    :menuselection:`Account --> Users --> View Users`.
-   Highlight the entry for *root*, click the "Modify User" button,
-   enter the new password in the "Password" and
-   "Password confirmation" fields, and click "OK" to save the new
-   password to use on subsequent logins.
+   Highlight the entry for *root*, click the :guilabel:`Modify User`
+   button, enter the new password in the :guilabel:`Password` and
+   :guilabel:`Password confirmation` fields, and click :guilabel:`OK`
+   to save the new password to use on subsequent logins.
 
 The first time you log in, the EULA, found in :ref:`Appendix A`,
 will be displayed along with a box where you can paste the license
 for the %brand% array. Once you have read the EULA and pasted in
-the license, click "OK". You should then see the administrative GUI
-as shown in the example in
+the license, click :guilabel:`OK`. You should then see the
+administrative GUI as shown in the example in
 :numref:`Figure %s <tn_initial>`.
+
 
 .. _tn_initial:
 
 .. figure:: images/tn_initial.png
 
    %brand% Graphical Configuration Menu
+
 
 .. note:: If the storage devices have been encrypted, you will be
    prompted for, and must succesfully enter, the passphrase in order

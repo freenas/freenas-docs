@@ -25,7 +25,7 @@ conventions:
 
 * Names of graphical elements such as buttons, icons, fields, columns,
   and boxes are enclosed within quotes. For example: click the
-  "Import Ca" button.
+  :guilabel:`Import Ca` button.
 
 * Menu selections are italicized and separated by arrows. For example:
   :menuselection:`System --> Information`.

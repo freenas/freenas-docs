@@ -906,11 +906,12 @@ can be used to manage the following:
    rc.conf options are stored in
    :file:`/tmp/rc.conf.freenas`.
 
-.. warning:: adding a sysctl, loader, or rc.conf option is an advanced
-   feature. A sysctl immediately affects the kernel running the
-   %brand% system and a loader could adversely affect the ability of
-   the %brand% system to successfully boot.
-   **Do not create a tunable on a production system unless you understand and have tested the ramifications of that change.**
+.. warning:: Adding a sysctl, loader, or :file:`rc.conf` option is an
+   advanced feature. A sysctl immediately affects the kernel running
+   the %brand% system and a loader could adversely affect the ability
+   of the %brand% system to successfully boot.
+   **Do not create a tunable on a production system unless you
+   understand and have tested the ramifications of that change.**
 
 Since sysctl, loader, and rc.conf values are specific to the kernel
 parameter to be tuned, the driver to be loaded, or the service to
@@ -918,7 +919,7 @@ configure, descriptions and suggested values can be found in the man
 page for the specific driver and in many sections of the
 `FreeBSD Handbook <http://www.freebsd.org/handbook>`_.
 
-To add a loader, sysctl, or rc.conf option, go to
+To add a loader, sysctl, or :file:`rc.conf` option, go to
 :menuselection:`System --> Tunables --> Add Tunable`,
 to access the screen shown in seen in
 :numref:`Figure %s <add_tunable_fig>`.

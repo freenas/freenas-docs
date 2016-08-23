@@ -58,7 +58,7 @@ summarizes the configurable options when creating a cron job.
 
 .. _tasks_cron_job_opts_tab:
 
-.. table:: **Cron Job Options**
+.. table:: Cron Job Options
 
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | **Setting**       | **Value**                   | **Description**                                                                                         |
@@ -103,9 +103,9 @@ summarizes the configurable options when creating a cron job.
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
 
 
-Created cron jobs will be listed in "View Cron Jobs". If you highlight
-the entry for a cron job, buttons will be displayed to "Edit",
-"Delete", or "Run Now".
+Created cron jobs will be listed in :guilabel:`View Cron Jobs`.
+Highlight a cron job entry to display buttons to :guilabel:`Edit`,
+:guilabel:`Delete`, or :guilabel:`Run Now`.
 
 
 .. _Init/Shutdown Scripts:
@@ -141,7 +141,7 @@ has been fully tested to ensure that it achieves the desired results.
 
 .. _tasks_init_opt_tab:
 
-.. table:: **Options When Adding an Init/Shutdown Script**
+.. table:: Options When Adding an Init/Shutdown Script
 
    +-------------+----------------+-----------------------------------------------------------------------------------+
    | **Setting** | **Value**      | **Description**                                                                   |
@@ -230,7 +230,7 @@ task.
 
 .. _tasks_rsync_opts_tab:
 
-.. table:: **Rsync Configuration Options**
+.. table:: Rsync Configuration Options
 
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | **Setting**                      | **Value**                   | **Description**                                                                           |
@@ -260,16 +260,16 @@ task.
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Remote Module Name               | string                      | only appears when using *Rsync module* mode, at least one module must be defined in       |
    |                                  |                             | `rsyncd.conf(5) <http://www.samba.org/ftp/rsync/rsyncd.conf.html>`_                       |
-   |                                  |                             | of rsync server or in the "Rsync Modules" of another                                      |
+   |                                  |                             | of rsync server or in the :guilabel:`Rsync Modules` of another                            |
    |                                  |                             | system                                                                                    |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote Path                      | string                      | only appears when using *Rsync over SSH* mode, input the **existing** path on the remote  |
+   | Remote Path                      | string                      | only appears when using *Rsync over SSH* mode, enter the **existing** path on the remote  |
    |                                  |                             | host to sync with (e.g. */mnt/volume*); note that maximum path length is 255 characters   |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Validate Remote Path             | checkbox                    | if the "Remote Path" does not yet exist, check this box to have it automatically created  |
-   |                                  |                             |                                                                                           |
+   | Validate Remote Path             | checkbox                    | if the :guilabel:`Remote Path` does not yet exist, check this box to have it              |
+   |                                  |                             | automatically created                                                                     |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Direction                        | drop-down menu              | choices are *Push* or                                                                     |
    |                                  |                             | *Pull*; default is to push to a remote host                                               |
@@ -341,13 +341,13 @@ task.
 
 
 If the rysnc server requires password authentication, input
-*--password-file=/PATHTO/FILENAME* in the "Extra options" box,
-replacing */PATHTO/FILENAME* with the appropriate path to the file
-containing the value of the password.
+*--password-file=/PATHTO/FILENAME* in the :guilabel:`Extra options`
+box, replacing */PATHTO/FILENAME* with the appropriate path to the
+file containing the value of the password.
 
-Created rsync tasks will be listed in "View Rsync Tasks". If you
-highlight the entry for an rsync task, buttons will be displayed to
-"Edit", "Delete", or "Run Now".
+Created rsync tasks will be listed in :guilabel:`View Rsync Tasks`.
+Highlight the entry for an rsync task to display buttons for
+:guilabel:`Edit`, :guilabel:`Delete`, or :guilabel:`Run Now`.
 
 
 .. _Rsync Module Mode:
@@ -355,7 +355,7 @@ highlight the entry for an rsync task, buttons will be displayed to
 Rsync Module Mode
 ~~~~~~~~~~~~~~~~~
 
-This configuration example will configure rsync module mode between
+This configuration example configures rsync module mode between
 the two following %brand% systems:
 
 * *192.168.2.2* has existing data in :file:`/mnt/local/images`. It
@@ -372,40 +372,43 @@ On *PUSH*, an rsync task is defined in
 :menuselection:`Tasks --> Rsync Tasks --> Add Rsync Task`.
 In this example:
 
-* the "Path" points to :file:`/usr/local/images`, the directory to be
-  copied
+* the :guilabel:`Path` points to :file:`/usr/local/images`, the
+  directory to be copied
 
-* the "Remote Host" points to *192.168.2.6*, the IP address of the
-  rsync server
+* the :guilabel:`Remote Host` points to *192.168.2.6*, the IP address
+  of the rsync server
 
-* the "Rsync Mode" is *Rsync module*
+* the :guilabel:`Rsync Mode` is *Rsync module*
 
-* the "Remote Module Name" is *backups*; this will need to be defined
-  on the rsync server
+* the :guilabel:`Remote Module Name` is *backups*; this will need to
+  be defined on the rsync server
 
-* the "Direction" is *Push*
+* the :guilabel:`Direction` is *Push*
 
 * the rsync is scheduled to occur every 15 minutes
 
-* the "User" is set to *root* so it has permission to write anywhere
+* the :guilabel:`User` is set to *root* so it has permission to write
+  anywhere
 
-* the "Preserve Permissions" checkbox is checked so that the original
-  permissions are not overwritten by the *root* user
+* the :guilabel:`Preserve Permissions` checkbox is checked so that the
+  original permissions are not overwritten by the *root* user
 
 On *PULL*, an rsync module is defined in
 :menuselection:`Services --> Rsync Modules --> Add Rsync Module`.
 In this example:
 
-* the "Module Name" is *backups*; this needs to match the setting on
+* the :guilabel:`Module Name` is *backups*; this needs to match the
+  setting on the rsync client
+
+* the :guilabel:`Path` is :file:`/mnt/remote`; a directory called
+  :file:`images` will be created to hold the contents of
+  :file:`/usr/local/images`
+
+* the :guilabel:`User` is set to *root* so it has permission to write
+  anywhere
+
+* :guilabel:`Hosts allow` is set to *192.168.2.2*, the IP address of
   the rsync client
-
-* the "Path" is :file:`/mnt/remote`; a directory called :file:`images`
-  will be created to hold the contents of :file:`/usr/local/images`
-
-* the "User" is set to *root* so it has permission to write anywhere
-
-* "Hosts allow" is set to *192.168.2.2*, the IP address of the rsync
-  client
 
 Descriptions of the configurable options can be found in
 `Rsync Modules`.
@@ -490,8 +493,8 @@ Next, view and copy the contents of the generated public key::
  DmNfwrRSxLjDvUzfywnjFHlKk/+TQIT1gg1QQaj21PJD9pnDVF0AiJrWyWnR root@freenas.local
 
 
-Go to *PULL* and paste (or append) the copied key into the "SSH Public
-Key" field of
+Go to *PULL* and paste (or append) the copied key into the
+:guilabel:`SSH Public Key` field of
 :menuselection:`Account --> Users --> View Users --> root
 --> Modify User`,
 or the username of the specified rsync user account. The paste for the
@@ -531,22 +534,22 @@ You are now ready to create the rsync task on *PUSH*. To configure
 rsync SSH mode using the systems in our previous example, the
 configuration would be as follows:
 
-* the "Path" points to :file:`/mnt/local/images`, the directory to be
-  copied
+* the :guilabel:`Path` points to :file:`/mnt/local/images`, the
+  directory to be copied
 
-* the "Remote Host" points to *192.168.2.6*, the IP address of the
-  rsync server
+* the :guilabel:`Remote Host` points to *192.168.2.6*, the IP address
+  of the rsync server
 
-* the "Rsync Mode" is *Rsync over SSH*
+* the :guilabel:`Rsync Mode` is *Rsync over SSH*
 
 * the rsync is scheduled to occur every 15 minutes
 
-* the "User" is set to *root* so it has permission to write anywhere;
-  the public key for this user must be generated on *PUSH* and copied
-  to *PULL*
+* the :guilabel:`User` is set to *root* so it has permission to write
+  anywhere; the public key for this user must be generated on *PUSH*
+  and copied to *PULL*
 
-* the "Preserve Permissions" checkbox is checked so that the original
-  permissions are not overwritten by the *root* user
+* the :guilabel:`Preserve Permissions` checkbox is checked so that the
+  original permissions are not overwritten by the *root* user
 
 Save the rsync task and the rsync will automatically occur according
 to the schedule. In this example, the contents of
@@ -576,15 +579,15 @@ documentation if you are unsure.
 shows the configuration screen that appears when you click
 :menuselection:`Tasks --> S.M.A.R.T. Tests --> Add S.M.A.R.T. Test`.
 The tests that you create will be listed under
-"View S.M.A.R.T. Tests". After creating your tests, check the
-configuration in
+:guilabel:`View S.M.A.R.T. Tests`. After creating your tests, check
+the configuration in
 :menuselection:`Services --> S.M.A.R.T.`,
-then click the slider to "ON" for the S.M.A.R.T. service in
+then click the slider to :guilabel:`ON` for the S.M.A.R.T. service in
 :menuselection:`Services --> Control Services`.
 The S.M.A.R.T. service will not start if you have not created any
 volumes.
 
-.. note:: to prevent problems, do not enable the S.M.A.R.T. service if
+.. note:: To prevent problems, do not enable the S.M.A.R.T. service if
    your disks are controlled by a RAID controller as it is the job of
    the controller to monitor S.M.A.R.T. and mark drives as Predictive
    Failure when they trip.
@@ -603,7 +606,7 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
 
 .. _tasks_smart_opts_tab:
 
-.. table:: **S.M.A.R.T. Test Options**
+.. table:: S.M.A.R.T. Test Options
 
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
    | **Setting**       | **Value**                 | **Description**                                                                                            |
@@ -636,18 +639,18 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
 
 
-An example configuration is to schedule a "Short Self-Test" once a
-week and a "Long Self-Test" once a month. These tests should not have
-a performance impact, as the disks prioritize normal I/O over the
-tests. If a disk fails a test, even if the overall status is "Passed",
-start to think about replacing that disk.
+An example configuration is to schedule a :guilabel:`Short Self-Test`
+once a week and a :guilabel:`Long Self-Test` once a month. These tests
+should not have a performance impact, as the disks prioritize normal
+I/O over the tests. If a disk fails a test, even if the overall status
+is *Passed*, start to think about replacing that disk.
 
-.. warning:: some S.M.A.R.T. tests cause heavy disk activity and
+.. warning:: Some S.M.A.R.T. tests cause heavy disk activity and
    can drastically reduce disk performance. Do not schedule S.M.A.R.T.
    tests to run at the same time as scrub or resilver operations or
    during other periods of intense disk activity.
 
-You can verify which tests will run and when by typing
+Which tests will run and when can be verified by typing
 :command:`smartd -q showtests` within :ref:`Shell`.
 
 The results of a test can be checked from :ref:`Shell` by specifying
@@ -656,6 +659,7 @@ the name of the drive. For example, to see the results for disk
 
  smartctl -l selftest /dev/ada0
 
-If you enter an email address in the "Email to report" field of
+If you enter an email address in the :guilabel:`Email to report` field
+of
 :menuselection:`Services --> S.M.A.R.T.`,
 the system will email the specified address when a test fails.
