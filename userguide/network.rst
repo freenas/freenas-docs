@@ -211,7 +211,7 @@ checkbox below the alias, then clicking the :guilabel:`OK` button.
    bottom of this screen, which deletes the entire interface.
 
 #ifdef truenas
-.. note:: the ability to delete interfaces is disabled if
+.. note:: The ability to delete interfaces is disabled if
    :ref:`Failovers` has been configured and enabled.
 #endif truenas
 
@@ -635,10 +635,12 @@ interfaces to the same MTU **before** creating the lagg.
    is required.
 
 To see if the link aggregation is load balancing properly, run this
-command from :ref:`Shell`
-::
+command from :ref:`Shell`:
+
+.. code-block:: none
 
  systat -ifstat
+
 
 More information about this command can be found at
 `systat(1) <http://www.freebsd.org/cgi/man.cgi?query=systat>`_.

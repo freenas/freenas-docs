@@ -186,10 +186,10 @@ Click a user account to cause these buttons to appear:
    *root* user. For security reasons, password logins are disabled for
    the *root* account and changing this setting is highly discouraged.
 
-Every account that came with the %brand% operating system, except for
-the *root* user, is a system account. Each system account is used by a
-service and should not be used as a login account. For this reason,
-the default shell is
+Except for the *root* user, the accounts that come with %brand%
+are system accounts. Each system account is used by a service and
+should not be used as a login account. For this reason, the default
+shell on system accounts is
 `nologin(8) <http://www.freebsd.org/cgi/man.cgi?query=nologin>`_.
 For security reasons, and to prevent breakage of system services, do
 not modify the system accounts.

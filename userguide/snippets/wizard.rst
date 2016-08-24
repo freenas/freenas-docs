@@ -406,8 +406,8 @@ also wish to save a backup of the configuration database to the system
 being used to access the administrative graphical interface, go to
 :menuselection:`System --> General`, click the
 :guilabel:`Save Config` button, and browse to the directory where the
-configuration will be saved. **It is recommended to always back up
-your configuration after making any configuration changes**.
+configuration will be saved. **Always back up your configuration after
+making any configuration changes**.
 
 #ifdef freenas
 The rest of this Guide describes the %brand% graphical interface in

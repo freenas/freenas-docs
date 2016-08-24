@@ -365,11 +365,12 @@ layout. For example, you can:
 When adding disks to increase the capacity of a volume, ZFS supports
 the addition of virtual devices, known as vdevs, to an existing ZFS
 pool. A vdev can be a single disk, a stripe, a mirror, a RAIDZ1,
-RAIDZ2, or a RAIDZ3. **Once a vdev is created, you cannot add more
-drives to that vdev**; however, you can stripe a new vdev (and its
-disks) with the **same type of existing vdev** to increase the overall
-size of ZFS the pool. In other words, when you extend a ZFS volume,
-you are really striping similar vdevs. Here are some examples:
+RAIDZ2, or a RAIDZ3. **After a vdev is created, more drives cannot be
+added to that vdev**; however, you can stripe a new vdev (and its
+disks) with another of the **same type of existing vdev** to increase
+the overall size of ZFS the pool. In other words, when you extend a
+ZFS volume, you are really striping similar vdevs. Here are some
+examples:
 
 * to extend a ZFS stripe, add one or more disks. Since there is no
   redundancy, you do not have to add the same amount of disks as the
@@ -1665,8 +1666,8 @@ you to create an off-site backup of a ZFS dataset or pool.
 This section will refer to the system generating the ZFS snapshots as
 *PUSH* and the system receiving a copy of the ZFS snapshots as *PULL*.
 
-Before you can configure a replication task, the following
-pre-requisites must be met:
+These prerequisites must be met before replication tasks can be
+configured:
 
 * a ZFS pool must exist on both *PUSH* and *PULL*.
 
@@ -1687,8 +1688,8 @@ A replication task uses the following keys:
   man-in-the-middle attack. This key needs to be copied to the
   replication task on *PUSH*.
 
-This section will demonstrate how to configure a replication task
-between the following two %brand% systems:
+This section demonstrates how to configure a replication task between
+these two %brand% systems:
 
 * *192.168.2.2* will be referred to as *PUSH*. This system has a
   periodic snapshot task for the ZFS dataset :file:`/mnt/local/data`.
@@ -1910,9 +1911,12 @@ on the *local/data* dataset of *PUSH* is named
 :file:`auto-20110922.1753-2h`, the IP address of *PULL* is
 *192.168.2.6*, and the ZFS volume on *PULL* is :file:`remote`. Note
 that the **@** is used to separate the volume/dataset name from the
-snapshot name::
+snapshot name:
 
- zfs send local/data@auto-20110922.1753-2h | ssh -i /data/ssh/replication 192.168.2.6 zfs receive local/data@auto-20110922.1753-2h
+.. code-block:: none
+
+   zfs send local/data@auto-20110922.1753-2h | ssh -i /data/ssh/replication 192.168.2.6 zfs receive local/data@auto-20110922.1753-2h
+
 
 .. note:: If the :command:`zfs send` fails, open :ref:`Shell` on
    *PULL* and use the
@@ -1924,9 +1928,11 @@ snapshot name::
 After successfully transmitting the snapshot, check again after the
 time period between snapshots lapses to see if the next snapshot
 successfully transmitted. If it is still not working, you can manually
-send the specified snapshot with this command::
+send the specified snapshot with this command:
 
- zfs send local/data@auto-20110922.1753-2h | ssh -i /data/ssh/replication 192.168.2.6 zfs receive local/data@auto-20110922.1753-2h
+.. code-block:: none
+
+   zfs send local/data@auto-20110922.1753-2h | ssh -i /data/ssh/replication 192.168.2.6 zfs receive local/data@auto-20110922.1753-2h
 
 
 .. index:: Scrub
@@ -1936,7 +1942,7 @@ Scrubs
 ----------
 
 :menuselection:`Storage --> Scrubs`
-allows you to schedule and manage scrubs on a ZFS volume. Performing a
+allows scheduling and managing scrubs on a ZFS volume. Performing a
 ZFS scrub on a regular basis helps to identify data integrity
 problems, detects silent data corruptions caused by transient hardware
 issues, and provides early alerts to disk failures. If you have

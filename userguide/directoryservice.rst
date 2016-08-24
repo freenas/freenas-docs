@@ -289,29 +289,44 @@ users when typing in a username.
 
 The Active Directory users and groups that have been imported to the
 %brand% system can be shown by using these commands from the %brand%
-:ref:`Shell`. To view users::
+:ref:`Shell`. To view users:
 
- wbinfo -u
+.. code-block:: none
 
-To view groups::
+   wbinfo -u
 
- wbinfo -g
+
+To view groups:
+
+.. code-block:: none
+
+   wbinfo -g
+
 
 In addition, :command:`wbinfo -t` will test the connection and, if
-successful, will show a message similar to::
+successful, will show a message similar to:
 
- checking the trust secret for domain YOURDOMAIN via RPC calls succeeded
+.. code-block:: none
 
-To manually check that a specified user can authenticate::
+   checking the trust secret for domain YOURDOMAIN via RPC calls succeeded
 
- net ads join -S dcname -U username
+
+To manually check that a specified user can authenticate:
+
+.. code-block:: none
+
+   net ads join -S dcname -U username
+
 
 If no users or groups are listed in the output, these commands can
-provide more troubleshooting information::
+provide more troubleshooting information:
 
- getent passwd
+.. code-block:: none
 
- getent group
+   getent passwd
+
+   getent group
+
 
 If the :command:`wbinfo` commands display the network users, but they
 do not show up in the drop-down menu of a :guilabel:`Permissions`
@@ -384,35 +399,42 @@ exact wording of the error message or traceback.
 
 Start with these commands, where the :command:`echo` commands should
 return a value of *0* and the :command:`klist` command should show a
-Kerberos ticket::
+Kerberos ticket:
 
- sqlite3 /data/freenas-v1.db "update directoryservice_activedirectory set ad_enable=1;"
- echo $?
- service ix-kerberos start
- service ix-nsswitch start
- service ix-kinit start
- service ix-kinit status
- echo $?
- klist
+.. code-block:: none
+
+   sqlite3 /data/freenas-v1.db "update directoryservice_activedirectory set ad_enable=1;"
+   echo $?
+   service ix-kerberos start
+   service ix-nsswitch start
+   service ix-kinit start
+   service ix-kinit status
+   echo $?
+   klist
 
 Next, only run these two commands **if** the
 :guilabel:`Unix extensions` box is checked in
 :guilabel:`Advanced Mode` and a keytab has been uploaded using
-:ref:`Kerberos Keytabs`::
+:ref:`Kerberos Keytabs`:
+
+.. code-block:: none
 
  service ix-sssd start
  service sssd start
 
-Finally, run these commands. Again, the :command:`echo` command should
-return a *0*::
 
- python /usr/local/www/freenasUI/middleware/notifier.py start cifs
- service ix-activedirectory start
- service ix-activedirectory status
- echo $?
- python /usr/local/www/freenasUI/middleware/notifier.py restart cifs
- service ix-pam start
- service ix-cache start &
+Finally, run these commands. Again, the :command:`echo` command should
+return a *0*:
+
+.. code-block:: none
+
+   python /usr/local/www/freenasUI/middleware/notifier.py start cifs
+   service ix-activedirectory start
+   service ix-activedirectory status
+   echo $?
+   python /usr/local/www/freenasUI/middleware/notifier.py restart cifs
+   service ix-pam start
+   service ix-cache start &
 
 
 .. _LDAP:
@@ -483,7 +505,7 @@ Those who are new to LDAP terminology should skim through the
    | Bind DN                 | string         | name of administrative account on LDAP server (e.g. *cn=Manager,dc=test,dc=org*)                               |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | Bind password           | string         | password for :guilabel:`oot bind DN`                                                                           |
+   | Bind password           | string         | password for :guilabel:`Root bind DN`                                                                          |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
    | Allow Anonymous         | checkbox       | only available in :guilabel:`Advanced Mode`; instructs LDAP server to not provide authentication and           |

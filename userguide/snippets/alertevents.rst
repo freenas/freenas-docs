@@ -114,9 +114,12 @@ An alert is also generated when the Avago HBA firmware version does
 not match the driver version. To resolve this alert, download the
 IT (integrated target) firmware, not the IR (integrated RAID)
 firmware, from the Avago website. Specify the name of the firmware
-image and BIOS as well as the controller to flash::
+image and BIOS as well as the controller to flash:
 
- sas2flash -o -f firmwareimagename -b biosname -c controllernumber
+.. code-block:: none
+
+   sas2flash -o -f firmwareimagename -b biosname -c controllernumber
+
 
 When finished, reboot the system. The new firmware version will
 appear in the system messages and the alert will be cleared.

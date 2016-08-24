@@ -246,7 +246,7 @@ AFP supports guest logins, meaning that all of your Mac OS X users can
 access the AFP share without requiring their user accounts to first be
 created on or imported into the %brand% system.
 
-.. note:: if you create a guest share as well a share that requires
+.. note:: If you create a guest share as well a share that requires
    authentication, AFP will only map users who login as guest to the
    guest share. This means that if a user logs in to the share that
    requires authentication, the permissions on the guest share may
@@ -266,7 +266,7 @@ the :guilabel:`Next` button twice to display the screen shown in
 :numref:`Figure %s <creating_guest_afp_share_fig>`.
 Complete these fields in this screen:
 
-#. **Share name:** input a name for the share that is useful to you
+#. **Share name:** enter a name for the share that is useful to you
    but which is under 27 characters and does not contain a period. In
    this example, the share is named *afp_guest*.
 
@@ -630,7 +630,7 @@ Instead, you should set a :guilabel:`Path` of
 :guilabel:`All directories` box.
 
 However, you could restrict that directory to one of the networks by
-creating two shares as follows.
+creating two shares instead:
 
 First NFS share:
 
@@ -645,7 +645,7 @@ Second NFS share:
 * :guilabel:`Path` set to :file:`/mnt/volume1/dataset1/directory1`
 
 Note that this requires the creation of two shares as it cannot be
-accomplished in one share.
+done with only one share.
 
 
 .. _Example Configuration:
@@ -710,11 +710,14 @@ From BSD or Linux
 To make this share accessible on a BSD or a Linux system, run the
 following command as the superuser (or with :command:`sudo`) from the
 client system. Repeat on each client that needs access to the NFS
-share::
+share:
 
- mount -t nfs 192.168.2.2:/mnt/data /mnt
+.. code-block:: none
 
-The :command:`mount` command uses the following options:
+   mount -t nfs 192.168.2.2:/mnt/data /mnt
+
+
+The :command:`mount` command uses these:
 
 * **-t nfs:** specifies the type of share.
 
@@ -730,7 +733,7 @@ The :command:`mount` command should return to the command prompt
 without any error messages, indicating that the share was successfully
 mounted.
 
-.. note:: if this command fails on a Linux system, make sure that the
+.. note:: If this command fails on a Linux system, make sure that the
    `nfs-utils
    <http://sourceforge.net/projects/nfs/files/nfs-utils/>`_
    package is installed.
@@ -743,9 +746,11 @@ saved to the %brand% system's :file:`/mnt/data` volume.
 
 Should you wish to make any changes to the NFS share's settings or
 wish to make the share inaccessible, first unmount the share on the
-client as the superuser::
+client as the superuser:
 
- umount /mnt
+.. code-block:: none
+
+   umount /mnt
 
 
 .. _From Microsoft:
@@ -780,7 +785,7 @@ the user has connected to the example :file:`/mnt/data` share of the
 
 .. note:: Nekodrive does not support Explorer drive mapping via NFS.
    If you need this functionality,
-   `try this utility 
+   `try this utility
    <http://www.citi.umich.edu/projects/nfsv4/windows/readme.html>`_
    instead.
 
@@ -880,9 +885,12 @@ Configuring WebDAV shares is a two step process. First, create the
 WebDAV share(s) to specify which data can be accessed. Then, configure
 the WebDAV service by specifying the port, authentication type, and
 authentication password. Once the configuration is complete, the share
-can be accessed using a URL in the format::
+can be accessed using a URL in the format:
 
- protocol://IP_address:port_number/share_name
+.. code-block:: none
+
+   protocol://IP_address:port_number/share_name
+
 
 where:
 
@@ -1111,15 +1119,21 @@ settings:
   `here <http://www.sloop.net/smb.conf.html>`__.
 
 To configure support for OS/2 clients, add this line to
-:guilabel:`Auxiliary Parameters`::
+:guilabel:`Auxiliary Parameters`:
 
- lanman auth = yes
+.. code-block:: none
+
+   lanman auth = yes
+
 
 To configure lanman authentication for pre-NT authentication, add
-these lines instead::
+these lines instead:
+
+.. code-block:: none
 
  client lanman auth = yes
  client plaintext auth = yes
+
 
 :numref:`Table %s <avail_vfs_modules_tab>`
 provides an overview of the available VFS modules. Be sure to research
@@ -1453,35 +1467,44 @@ correct username and password, type **cmd** in the
 :guilabel:`Search programs and files` box and use the following
 command to see if you have already authenticated to a share. In this
 example, the user has already authenticated to the *cifs_user1*
-share::
+share:
 
- net use
- New connections will be remembered.
+.. code-block:: none
 
- Status		Local	Remote			Network
- ------------------------------------------------------------------------
- OK                     \\FREENAS\cifs_user1	Microsoft Windows Network
- The command completed successfully.
+   net use
+   New connections will be remembered.
 
-To clear the cache::
+   Status         Local   Remote                  Network
+   ------------------------------------------------------------------------
+   OK                     \\FREENAS\cifs_user1 Microsoft Windows Network
+   The command completed successfully.
 
- net use * /DELETE
- You have these remote connections:
-		\\FREENAS\cifs_user1
- Continuing will cancel the connections.
 
- Do you want to continue this operation? <Y/N> [N]: y
+To clear the cache:
+
+.. code-block:: none
+
+   net use * /DELETE
+   You have these remote connections:
+                  \\FREENAS\cifs_user1
+   Continuing will cancel the connections.
+
+   Do you want to continue this operation? <Y/N> [N]: y
+
 
 An additional warning is shown if the share is currently open in
-Explorer::
+Explorer:
 
- There are open files and/or incomplete directory searches pending on the connection
- to \\FREENAS|cifs_user1.
+.. code-block:: none
 
- Is it OK to continue disconnecting and force them closed? <Y/N> [N]: y
- The command completed successfully.
+   There are open files and/or incomplete directory searches pending on the connection
+   to \\FREENAS|cifs_user1.
 
-The next time you access a share using Explorer, you will be
+   Is it OK to continue disconnecting and force them closed? <Y/N> [N]: y
+   The command completed successfully.
+
+
+The next time a share is accessed with Explorer, you will be
 prompted to authenticate.
 
 
@@ -1725,7 +1748,7 @@ To configure iSCSI:
 The rest of this section describes these steps in more detail.
 
 #ifdef truenas
-.. note:: if the system has been licensed for Fibre Channel, the
+.. note:: If the system has been licensed for Fibre Channel, the
    screens will vary slightly than those found in the rest of this
    section. Refer to the section on :ref:`Fibre Channel Ports` for
    details.
@@ -2014,7 +2037,7 @@ authentication method.
 :numref:`Table %s <iscsi_target_settings_tab>`
 summarizes the settings that can be configured when creating a Target.
 
-.. note:: an iSCSI target creates a block device that may be
+.. note:: An iSCSI target creates a block device that may be
    accessible to multiple initiators. A clustered filesystem is
    required on the block device, such as VMFS used by VMware ESX/ESXi,
    in order for multiple initiators to mount the block device
@@ -2512,9 +2535,12 @@ To grow a file extent based LUN, go to
 :menuselection:`Services --> iSCSI --> File Extents
 --> View File Extents` to determine the path of the file extent to
 grow. Open Shell to grow the extent. This example
-grows :file:`/mnt/volume1/data` by 2G::
+grows :file:`/mnt/volume1/data` by 2 G:
 
- truncate -s +2g /mnt/volume1/data
+.. code-block:: none
+
+   truncate -s +2g /mnt/volume1/data
+
 
 Go back to
 :menuselection:`Services --> iSCSI --> File Extents

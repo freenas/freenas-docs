@@ -266,7 +266,7 @@ display these settings by checking the box
    |                           |                | not conflict with the DHCP server's pool of available addresses                                              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv4 address              | integer        | only available in :guilabel:`Advanced Mode`; this and the other IPv4 settings will be greyed out             |
+   | IPv4 address              | integer        | only available in :guilabel:`Advanced Mode`; this and the other IPv4 settings will be grayed out             |
    |                           |                | if :guilabel:`IPv4 DHCP` is checked; input IP address that is reachable within the local network             |
    |                           |                | and is not in use by any other host in the network                                                           |
    |                           |                |                                                                                                              |

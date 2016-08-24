@@ -13,8 +13,8 @@ Introduction
 
 Welcome to the %brand% Administrator Guide. This Guide provides
 information about configuring and managing the %brand% Unified Storage
-Array. Your iXsystems support engineer will assist with the array's
-initial setup and configuration. Once you are familiar with the
+Array. Your iXsystems support engineer will assist with the initial
+setup and configuration of the array. Once you are familiar with the
 configuration workflow, this document can be used as a reference guide
 to the many features provided by %brand%.
 

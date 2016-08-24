@@ -415,7 +415,7 @@ loads such as ZFS will also require CPU resources and may cause Samba
 performance to be less than optimal.
 
 Samba's *write cache* parameter has been reported to improve write
-performance in some configurations and can be added to the 
+performance in some configurations and can be added to the
 :guilabel:`Auxiliary parameters` field. Use an integer value which is
 a multiple of _SC_PAGESIZE (typically *4096*) to avoid memory
 fragmentation. This will increase Samba's memory requirements and
@@ -454,9 +454,12 @@ If permissions work for Windows users but not for OS X users, try
 disabling :guilabel:`Unix Extensions` and restarting the CIFS service.
 
 If the CIFS service will not start, run this command from :ref:`Shell`
-to see if there is an error in the configuration::
+to see if there is an error in the configuration:
 
- testparm /usr/local/etc/smb4.conf
+.. code-block:: none
+
+   testparm /usr/local/etc/smb4.conf
+
 
 If clients have problems connecting to the CIFS share, go to
 :menuselection:`Services --> CIFS` and verify that
@@ -839,11 +842,13 @@ summarizes the available options when configuring the FTP server.
 
 
 This example demonstrates the auxiliary parameters that prevent all
-users from performing the FTP DELETE command::
+users from performing the FTP DELETE command:
 
- <Limit DELE>
- DenyAll
- </Limit>
+.. code-block:: none
+
+   <Limit DELE>
+   DenyAll
+   </Limit>
 
 
 .. _Anonymous FTP:
@@ -1037,9 +1042,12 @@ Troubleshooting FTP
 
 The FTP service will not start if it cannot resolve the system's
 hostname to an IP address using DNS. To see if the FTP service is
-running, open :ref:`Shell` and issue the command::
+running, open :ref:`Shell` and issue the command:
 
- sockstat -4p 21
+.. code-block:: none
+
+   sockstat -4p 21
+
 
 If there is nothing listening on port 21, the FTP service isn't
 running. To see the error message that occurs when %brand% tries to
@@ -1167,7 +1175,7 @@ summarizes the configuration options for the NFS service.
    | Enable NFSv4           | checkbox   | the default is to use NFSv3, check this box to switch to NFSv4                                                      |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | NFSv3 ownership model  | checkbox   | greyed out unless :guilabel:`Enable NFSv4` is checked and, in turn, will gray out :guilabel:`Support>16 groups`     |
+   | NFSv3 ownership model  | checkbox   | grayed out unless :guilabel:`Enable NFSv4` is checked and, in turn, will gray out :guilabel:`Support>16 groups`     |
    | for NFSv4              |            | which is incompatible; check this box if NFSv4 ACL support is needed without requiring the client and               |
    |                        |            | the server to sync users and groups                                                                                 |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
@@ -1827,9 +1835,12 @@ summarizes the options in the UPS Configuration screen.
 `upsc(8) <http://www.networkupstools.org/docs/man/upsc.html>`_
 can be used to get status variables from the UPS daemon such as the
 current charge and input voltage. It can be run from Shell using the
-following syntax. The man page gives some other usage examples.::
+following syntax. The man page gives some other usage examples.
 
- upsc ups@localhost
+.. code-block:: none
+
+   upsc ups@localhost
+
 
 `upscmd(8) <http://www.networkupstools.org/docs/man/upscmd.html>`_
 can be used to send commands directly to the UPS, assuming that the

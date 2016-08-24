@@ -1071,7 +1071,7 @@ the %brand% system has one network interface (*em0*).
 
 **Example: Manually Setting an IP Address from the Console Menu**
 
-::
+.. code-block:: none
 
  Enter an option from 1-14: 1
  1) em0

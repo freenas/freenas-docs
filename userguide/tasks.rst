@@ -442,7 +442,9 @@ To create the public/private key pair for the rsync user account, open
 :ref:`Shell` on *PUSH* and run :command:`ssh-keygen`. The following
 example generates an RSA type public/private key pair for the *root*
 user. When creating the key pair, do not enter the passphrase as the
-key is meant to be used for an automated task.::
+key is meant to be used for an automated task.
+
+.. code-block:: none
 
  ssh-keygen -t rsa
  Generating public/private rsa key pair.
@@ -479,11 +481,16 @@ the key generation software supports.
    the :command:`su -` command after mounting the filesystem but
    before generating the key. For example, if the rsync task is
    configured to use the *user1* user account, use this command to
-   become that user::
+   become that user:
+
+   .. code-block:: none
 
     su - user1
 
-Next, view and copy the contents of the generated public key::
+
+Next, view and copy the contents of the generated public key:
+
+.. code-block:: none
 
  more .ssh/id_rsa.pub
  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC1lBEXRgw1W8y8k+lXPlVR3xsmVSjtsoyIzV/PlQPo
@@ -519,16 +526,20 @@ Next, copy the host key of *PULL* using Shell on *PUSH*. The following
 command copies the RSA host key of the *PULL* server used in our
 previous example. Be sure to include the double bracket *>>* to
 prevent overwriting any existing entries in the :file:`known_hosts`
-file::
+file:
+
+.. code-block:: none
 
  ssh-keyscan -t rsa 192.168.2.6 >> /root/.ssh/known_hosts
 
-.. note:: if *PUSH* is a Linux system, use the following command to
+
+.. note:: If *PUSH* is a Linux system, use the following command to
    copy the RSA key to the Linux system:
 
-   ::
+   .. code-block:: none
 
       cat ~/.ssh/id_rsa.pub | ssh user@192.168.2.6 'cat >> .ssh/authorized_keys'
+
 
 You are now ready to create the rsync task on *PUSH*. To configure
 rsync SSH mode using the systems in our previous example, the

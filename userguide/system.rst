@@ -171,9 +171,9 @@ can be configured using the General tab:
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
 
 
-If you make any changes, click the :guilabel:`Save` button.
+After making any changes, click the :guilabel:`Save` button.
 
-This screen also contains the following buttons:
+This screen also contains these buttons:
 
 **Factory Restore:** resets the configuration database to the default
 base version. However, it does not delete user SSH keys or any other
@@ -275,7 +275,7 @@ fails, simply reboot the system and select the previous boot
 environment from the boot menu to instruct the system to go back to
 that system state.
 
-.. note:: do not confuse boot environments with the configuration
+.. note:: Do not confuse boot environments with the configuration
    database. Boot environments are a snapshot of the
    *operating system* at a specified time. When a %brand% system
    boots, it loads the specified boot environment, or operating
@@ -456,7 +456,7 @@ another device to create a mirrored boot device. This way, if one
 device fails, the system still has a copy of the boot file system and
 can be configured to boot from the remaining device in the mirror.
 
-.. note:: when adding another boot device, it must be the same size
+.. note:: When adding another boot device, it must be the same size
    (or larger) as the existing boot device. Different models of USB
    devices which advertise the same size may not necessarily be the
    same size. For this reason, it is recommended to use the same model
@@ -747,7 +747,7 @@ is used to configure the email settings on the
 :numref:`Table %s <email_conf_tab>`
 summarizes the settings that can be configured using the Email tab.
 
-.. note:: it is important to configure the system so that it can
+.. note:: It is important to configure the system so that it can
    successfully send emails. An automatic script sends a nightly email
    to the *root* user account containing important information such as
    the health of the disks. :ref:`Alert` events are also emailed to
@@ -844,7 +844,7 @@ controller users and groups.
    System Dataset Screen
 #endif truenas
 
-.. note:: encrypted volumes will not be displayed in the
+.. note:: Encrypted volumes are not displayed in the
    :guilabel:`System dataset pool` drop-down menu.
 
 The system dataset can optionally be configured to also store the
@@ -857,7 +857,7 @@ Use the drop-down menu to select the ZFS volume (pool) to contain the
 system dataset.
 
 #ifdef truenas
-.. note:: it is recommended to store the system dataset on the
+.. note:: It is recommended to store the system dataset on the
    :file:`freenas-boot` pool. For this reason, a yellow system alert
    will be generated when the system dataset is configured to
    use another pool.
@@ -964,13 +964,12 @@ summarizes the options when adding a tunable.
    +-------------+-------------------+-------------------------------------------------------------------------------------+
 
 
-.. note:: as soon as you add or edit a *Sysctl*, the running kernel
-   will change that variable to the value you specify. However, when
-   you add a *Loader* or *rc.conf*, the changes you make will not take
-   effect until the system is rebooted. Regardless of the type of
-   tunable, your changes will persist at each boot and across upgrades
-   unless the tunable is deleted or its :guilabel:`Enabled` checkbox
-   is unchecked.
+.. note:: As soon as a *Sysctl* is added or edited, the running kernel
+   changes that variable to the value specified. However, when a
+   *Loader* or *rc.conf* value is changed, it does not take effect
+   until the system is rebooted. Regardless of the type of tunable,
+   changes persist at each boot and across upgrades unless the tunable
+   is deleted or its :guilabel:`Enabled` checkbox is unchecked.
 
 Any tunables that you add will be listed in
 :menuselection:`System --> Tunables`.
@@ -989,99 +988,109 @@ added in
 :menuselection:`System --> Tunables`.
 
 The GUI does not display the sysctls that are pre-set when %brand% is
-installed. %brand% |release| ships with the following sysctls set::
+installed. %brand% |release| ships with the following sysctls set:
 
 #ifdef freenas
- kern.metadelay=3
- kern.dirdelay=4
- kern.filedelay=5
- kern.coredump=1
- kern.sugid_coredump=1
- net.inet.tcp.delayed_ack=0
- vfs.timestamp_precision=3
+.. code-block:: none
+
+   kern.metadelay=3
+   kern.dirdelay=4
+   kern.filedelay=5
+   kern.coredump=1
+   kern.sugid_coredump=1
+   net.inet.tcp.delayed_ack=0
+   vfs.timestamp_precision=3
 #endif freenas
 #ifdef truenas
- kern.metadelay=3
- kern.dirdelay=4
- kern.filedelay=5
- kern.coredump=0
- net.inet.carp.preempt=1
- debug.ddb.textdump.pending=1
- vfs.nfsd.tcpcachetimeo=300
- vfs.nfsd.tcphighwater=150000
- vfs.zfs.vdev.larger_ashift_minimal=0
- net.inet.carp.senderr_demotion_factor=0
- net.inet.carp.ifdown_demotion_factor=0
+.. code-block:: none
+
+   kern.metadelay=3
+   kern.dirdelay=4
+   kern.filedelay=5
+   kern.coredump=0
+   net.inet.carp.preempt=1
+   debug.ddb.textdump.pending=1
+   vfs.nfsd.tcpcachetimeo=300
+   vfs.nfsd.tcphighwater=150000
+   vfs.zfs.vdev.larger_ashift_minimal=0
+   net.inet.carp.senderr_demotion_factor=0
+   net.inet.carp.ifdown_demotion_factor=0
 #endif truenas
 
 **Do not add or edit these default sysctls** as doing so may render
 the system unusable.
 
 The GUI does not display the loaders that are pre-set when %brand% is
-installed. %brand% |release| ships with the following loaders set::
+installed. %brand% |release| ships with these loaders set:
 
 #ifdef freenas
- autoboot_delay="2"
- loader_logo="freenas"
- loader_menu_title="Welcome to FreeNAS"
- loader_brand="freenas-brand"
- loader_version=" "
- kern.cam.boot_delay="30000"
- debug.debugger_on_panic=1
- debug.ddb.textdump.pending=1
- hw.hptrr.attach_generic=0
- vfs.mountroot.timeout="30"
- ispfw_load="YES"
- hint.isp.0.role=2
- hint.isp.1.role=2
- hint.isp.2.role=2
- hint.isp.3.role=2
- module_path="/boot/kernel;/boot/modules;/usr/local/modules"
- net.inet6.ip6.auto_linklocal="0"
- vfs.zfs.vol.mode=2
- kern.geom.label.disk_ident.enable="0"
- hint.ahciem.0.disabled="1"
- hint.ahciem.1.disabled="1"
- kern.msgbufsize="524288"
- hw.usb.no_shutdown_wait=1
+.. code-block:: none
+
+   autoboot_delay="2"
+   loader_logo="freenas"
+   loader_menu_title="Welcome to FreeNAS"
+   loader_brand="freenas-brand"
+   loader_version=" "
+   kern.cam.boot_delay="30000"
+   debug.debugger_on_panic=1
+   debug.ddb.textdump.pending=1
+   hw.hptrr.attach_generic=0
+   vfs.mountroot.timeout="30"
+   ispfw_load="YES"
+   hint.isp.0.role=2
+   hint.isp.1.role=2
+   hint.isp.2.role=2
+   hint.isp.3.role=2
+   module_path="/boot/kernel;/boot/modules;/usr/local/modules"
+   net.inet6.ip6.auto_linklocal="0"
+   vfs.zfs.vol.mode=2
+   kern.geom.label.disk_ident.enable="0"
+   hint.ahciem.0.disabled="1"
+   hint.ahciem.1.disabled="1"
+   kern.msgbufsize="524288"
+   hw.usb.no_shutdown_wait=1
 #endif freenas
 #ifdef truenas
- autoboot_delay="2"
- loader_logo="truenas-logo"
- loader_menu_title="Welcome to TrueNAS"
- loader_brand="truenas-brand"
- loader_version=" "
- kern.cam.boot_delay="10000"
- debug.debugger_on_panic=1
- debug.ddb.textdump.pending=1
- hw.hptrr.attach_generic=0
- ispfw_load="YES"
- module_path="/boot/kernel;/boot/modules;/usr/local/modules"
- net.inet6.ip6.auto_linklocal="0"
- vfs.zfs.vol.mode=2
- kern.geom.label.disk_ident.enable="0"
- hint.ahciem.0.disabled="1"
- hint.ahciem.1.disabled="1"
- kern.msgbufsize="524288"
- kern.ipc.nmbclusters="262144"
- kern.hwpmc.nbuffers="4096"
- kern.hwpmc.nsamples="4096"
- hw.memtest.tests="0"
- vfs.zfs.trim.enabled="0"
- kern.cam.ctl.ha_mode=2
+.. code-block:: none
+
+   autoboot_delay="2"
+   loader_logo="truenas-logo"
+   loader_menu_title="Welcome to TrueNAS"
+   loader_brand="truenas-brand"
+   loader_version=" "
+   kern.cam.boot_delay="10000"
+   debug.debugger_on_panic=1
+   debug.ddb.textdump.pending=1
+   hw.hptrr.attach_generic=0
+   ispfw_load="YES"
+   module_path="/boot/kernel;/boot/modules;/usr/local/modules"
+   net.inet6.ip6.auto_linklocal="0"
+   vfs.zfs.vol.mode=2
+   kern.geom.label.disk_ident.enable="0"
+   hint.ahciem.0.disabled="1"
+   hint.ahciem.1.disabled="1"
+   kern.msgbufsize="524288"
+   kern.ipc.nmbclusters="262144"
+   kern.hwpmc.nbuffers="4096"
+   kern.hwpmc.nsamples="4096"
+   hw.memtest.tests="0"
+   vfs.zfs.trim.enabled="0"
+   kern.cam.ctl.ha_mode=2
 #endif truenas
 
 **Do not add or edit the default tunables** as doing so may render the
 system unusable.
 
-The ZFS version used in |release| deprecates the following tunables::
+The ZFS version used in |release| deprecates these tunables:
 
- vfs.zfs.write_limit_override
- vfs.zfs.write_limit_inflated
- vfs.zfs.write_limit_max
- vfs.zfs.write_limit_min
- vfs.zfs.write_limit_shift
- vfs.zfs.no_write_throttle
+.. code-block:: none
+
+   vfs.zfs.write_limit_override
+   vfs.zfs.write_limit_inflated
+   vfs.zfs.write_limit_max
+   vfs.zfs.write_limit_min
+   vfs.zfs.write_limit_shift
+   vfs.zfs.no_write_throttle
 
 If you upgrade from an earlier version of %brand% where these
 tunables are set, they will automatically be deleted for you. You
@@ -1155,14 +1164,14 @@ currently tracking updates for. The following trains are available:
 To change the train, use the drop-down menu to make a different
 selection.
 
-.. note:: the train selector will not allow you to do a downgrade. For
-   example, you cannot select a STABLE train while booted into a
-   Nightly boot environment or select a 9.3 train while booted into a
-   9.10 boot environment. If you have been testing or running a more
-   recent version and wish to go back to an earlier version, reboot
-   and select a boot environment for that earlier version. You can
-   then use this screen to see if any updates are available for that
-   train.
+.. note:: The train selector does not allow downgrades. For example,
+   the STABLE train cannot be selected while booted into a Nightly
+   boot environment, or a 9.3 train cannot be selected while booted
+   into a 9.10 boot environment. If you have been testing or running a
+   more recent version and wish to go back to an earlier version,
+   reboot and select a boot environment for that earlier version. You
+   can then use this screen to see if any updates are available for
+   that train.
 
 This screen also lists the URL of the official update server should
 that information be needed in a network with outbound firewall
@@ -1816,7 +1825,7 @@ active node, synchronize any configuration changes between the
 active and the standby node, and failover to the standby node
 should the active node become unavailable.
 
-.. warning:: seamless failover is only available with iSCSI or NFS.
+.. warning:: Seamless failover is only available with iSCSI or NFS.
    Other protocols will failover, but connections will be disrupted
    by the failover event.
 
@@ -1961,17 +1970,23 @@ changes made using
 will restart networking.
 
 If you type this command without any options, it will indicate the
-status of the failover. This example was run on an active node::
+status of the failover. This example was run on an active node:
 
- hactl
- Node status: Active
- Failover status: Enabled
+.. code-block:: none
+
+   hactl
+   Node status: Active
+   Failover status: Enabled
+
 
 And this example was run on a system that has not been configured
-for failover::
+for failover
 
- hactl
- Node status: Not an HA node
+.. code-block:: none
+
+   hactl
+   Node status: Not an HA node
+
 
 :numref:`Table %s <hactl_opts_tab>`
 summarizes the available options for this command.
