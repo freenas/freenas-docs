@@ -455,14 +455,20 @@ service and creating a user account for :command:`ssh` access. Start
 by clicking the :guilabel:`Shell` icon for the desired jail.
 
 To start the SSH service, look for this line in the jail's
-:file:`/etc/rc.conf`::
+:file:`/etc/rc.conf`:
 
- sshd_enable="NO"
+.. code-block:: none
+
+   sshd_enable="NO"
+
 
 Change the *NO* to *YES* and save the file. Then start the SSH
-daemon::
+daemon:
 
- service sshd start
+.. code-block:: none
+
+   service sshd start
+
 
 The jail's RSA key pair will be generated and the key fingerprint
 and random art image displayed.
@@ -482,14 +488,16 @@ Finally, test from another system that the user can successfully
 :command:`ssh` in and become the superuser. In this example, a user
 named *user1* uses :command:`ssh` to access the jail at 192.168.2.3.
 The first time the user logs in, they will be asked to verify the
-fingerprint of the host::
+fingerprint of the host:
 
- ssh user1@192.168.2.3
- The authenticity of host '192.168.2.3 (192.168.2.3)' can't be established.
- RSA key fingerprint is 6f:93:e5:36:4f:54:ed:4b:9c:c8:c2:71:89:c1:58:f0.
- Are you sure you want to continue connecting (yes/no)? yes
- Warning: Permanently added '192.168.2.3' (RSA) to the list of known hosts.
- Password: type_password_here
+.. code-block:: none
+
+   ssh user1@192.168.2.3
+   The authenticity of host '192.168.2.3 (192.168.2.3)' can't be established.
+   RSA key fingerprint is 6f:93:e5:36:4f:54:ed:4b:9c:c8:c2:71:89:c1:58:f0.
+   Are you sure you want to continue connecting (yes/no)? yes
+   Warning: Permanently added '192.168.2.3' (RSA) to the list of known hosts.
+   Password: type_password_here
 
 
 .. note:: Each jail has its own user accounts and service
@@ -653,9 +661,12 @@ package. One way to find FreeBSD software is to use the search bar at
 
 After finding the name of the desired package, use the
 :command:`pkg install` command to install it. For example, to install
-the audiotag package, use this command::
+the audiotag package, use this command:
 
- pkg install audiotag
+.. code-block:: none
+
+   pkg install audiotag
+
 
 When prompted, type **y** to complete the installation. The
 installation messages will indicate if the package and its
@@ -668,7 +679,9 @@ dependencies successfully download and install.
    current FreeBSD package system as shown in these examples.
 
 A successful installation can be confirmed by querying the package
-database::
+database:
+
+.. code-block:: none
 
  pkg info -f audiotag
  audiotag-0.19_1
@@ -698,17 +711,19 @@ database::
  WWW:		http://github.com/Daenyth/audiotag
 
 
-To show what was installed by the package::
+To show what was installed by the package:
 
- pkg info -l audiotag
- audiotag-0.19_1:
- /usr/local/bin/audiotag
- /usr/local/share/doc/audiotag/COPYING
- /usr/local/share/doc/audiotag/ChangeLog
- /usr/local/share/doc/audiotag/README
- /usr/local/share/licenses/audiotag-0.19_1/GPLv2
- /usr/local/share/licenses/audiotag-0.19_1/LICENSE
- /usr/local/share/licenses/audiotag-0.19_1/catalog.mk
+.. code-block:: none
+
+   pkg info -l audiotag
+   audiotag-0.19_1:
+   /usr/local/bin/audiotag
+   /usr/local/share/doc/audiotag/COPYING
+   /usr/local/share/doc/audiotag/ChangeLog
+   /usr/local/share/doc/audiotag/README
+   /usr/local/share/licenses/audiotag-0.19_1/GPLv2
+   /usr/local/share/licenses/audiotag-0.19_1/LICENSE
+   /usr/local/share/licenses/audiotag-0.19_1/catalog.mk
 
 In FreeBSD, third-party software is always stored in
 :file:`/usr/local` to differentiate it from the software that came
@@ -773,9 +788,12 @@ allowing the default values to be changed.
 The Ports Collection must be installed in a jail before ports can be
 compiled. Inside the jail, use the :command:`portsnap`
 utility. This command downloads the ports collection and extracts
-it to the jail's :file:`/usr/ports/` directory::
+it to the jail's :file:`/usr/ports/` directory:
 
- portsnap fetch extract
+.. code-block:: none
+
+   portsnap fetch extract
+
 
 .. note:: To install additional software at a later date, make sure
    the ports collection is updated with
@@ -784,10 +802,13 @@ it to the jail's :file:`/usr/ports/` directory::
 To compile a port, :command:`cd` into a subdirectory of
 :file:`/usr/ports/`. The entry for the port at FreshPorts provides the
 location to :command:`cd` into and the :command:`make` command to run.
-This example compiles and installs the audiotag port::
+This example compiles and installs the audiotag port:
 
- cd /usr/ports/audio/audiotag
- make install clean
+.. code-block:: none
+
+   cd /usr/ports/audio/audiotag
+   make install clean
+
 
 Since this port has configurable options, the first time this command
 is run, the configure screen shown in
@@ -841,23 +862,27 @@ startup script which is automatically installed to
 starting of the service can be tested by running the script with the
 :command:`onestart` option. As an example, if openvpn is installed
 into the jail, these commands run its startup script and verify that
-the service started::
+the service started:
 
- /usr/local/etc/rc.d/openvpn onestart
- Starting openvpn.
+.. code-block:: none
 
- /usr/local/etc/rc.d/openvpn onestatus
- openvpn is running as pid 45560.
+   /usr/local/etc/rc.d/openvpn onestart
+   Starting openvpn.
+  
+   /usr/local/etc/rc.d/openvpn onestatus
+   openvpn is running as pid 45560.
+  
+   sockstat -4
+   USER	COMMAND		PID	FD	PROTO	LOCAL ADDRESS	FOREIGN ADDRESS
+   root	openvpn		48386 	4	udp4	*:54789		*:*
 
- sockstat -4
- USER	COMMAND		PID	FD	PROTO	LOCAL ADDRESS	FOREIGN ADDRESS
- root	openvpn		48386 	4	udp4	*:54789		*:*
+If it produces an error:
 
-If it produces an error::
+.. code-block:: none
 
- /usr/local/etc/rc.d/openvpn onestart
- Starting openvpn.
- /usr/local/etc/rc.d/openvpn: WARNING: failed to start openvpn
+   /usr/local/etc/rc.d/openvpn onestart
+   Starting openvpn.
+   /usr/local/etc/rc.d/openvpn: WARNING: failed to start openvpn
 
 Run :command:`tail /var/log/messages` to see if any error messages
 hint at the problem. Most startup failures are related to a
@@ -869,50 +894,55 @@ add a line to :file:`/etc/rc.conf` to start the
 service automatically when the jail is started. The line to
 start a service always ends in *_enable="YES"* and typically starts
 with the name of the software. For example, this is the entry for the
-openvpn service::
+openvpn service:
 
- openvpn_enable="YES"
+.. code-block:: none
+
+   openvpn_enable="YES"
+
 
 When in doubt, the startup script shows the line to put in
 :file:`/etc/rc.conf`. This is the description in
 :file:`/usr/local/etc/rc.d/openvpn`:
 
-::
+.. code-block:: none
 
- # This script supports running multiple instances of openvpn.
- # To run additional instances link this script to something like
- # % ln -s openvpn openvpn_foo
-
- # and define additional openvpn_foo_* variables in one of
- # /etc/rc.conf, /etc/rc.conf.local or /etc/rc.conf.d /openvpn_foo
-
- #
- # Below NAME should be substituted with the name of this script. By default
- # it is openvpn, so read as openvpn_enable. If you linked the script to
- # openvpn_foo, then read as openvpn_foo_enable etc.
- #
- # The following variables are supported (defaults are shown).
- # You can place them in any of
- # /etc/rc.conf, /etc/rc.conf.local or /etc/rc.conf.d/NAME
- #
- # NAME_enable="NO"
- # set to YES to enable openvpn
+   # This script supports running multiple instances of openvpn.
+   # To run additional instances link this script to something like
+   # % ln -s openvpn openvpn_foo
+  
+   # and define additional openvpn_foo_* variables in one of
+   # /etc/rc.conf, /etc/rc.conf.local or /etc/rc.conf.d /openvpn_foo
+  
+   #
+   # Below NAME should be substituted with the name of this script. By default
+   # it is openvpn, so read as openvpn_enable. If you linked the script to
+   # openvpn_foo, then read as openvpn_foo_enable etc.
+   #
+   # The following variables are supported (defaults are shown).
+   # You can place them in any of
+   # /etc/rc.conf, /etc/rc.conf.local or /etc/rc.conf.d/NAME
+   #
+   # NAME_enable="NO"
+   # set to YES to enable openvpn
 
 The startup script also indicates if any additional parameters are
-available::
+available:
 
- # NAME_if=
- # driver(s) to load, set to "tun", "tap" or "tun tap"
- #
- # it is OK to specify the if_ prefix.
- #
- # # optional:
- # NAME_flags=
- # additional command line arguments
- # NAME_configfile="/usr/local/etc/openvpn/NAME.conf"
- # --config file
- # NAME_dir="/usr/local/etc/openvpn"
- # --cd directory
+.. code-block:: none
+
+   # NAME_if=
+   # driver(s) to load, set to "tun", "tap" or "tun tap"
+   #
+   # it is OK to specify the if_ prefix.
+   #
+   # # optional:
+   # NAME_flags=
+   # additional command line arguments
+   # NAME_configfile="/usr/local/etc/openvpn/NAME.conf"
+   # --config file
+   # NAME_dir="/usr/local/etc/openvpn"
+   # --cd directory
 
 
 .. index:: phpVirtualBox Template, VirtualBox Template,
@@ -1005,9 +1035,12 @@ system and configure it as needed. The installation can be either to
 an existing jail or on another system.
 
 Next, create an mtree specification using this command, replacing
-*/path/to/jail* with the actual path to the jail::
+*/path/to/jail* with the actual path to the jail:
 
- mtree -c -p /path/to/jail -k sha256digest > file.mtree
+.. code-block:: none
+
+   mtree -c -p /path/to/jail -k sha256digest > file.mtree
+
 
 After configuration is complete, create a tarball of the entire
 operating system to be used as a template. This tarball needs to be
@@ -1126,30 +1159,37 @@ command line utility for creating, managing, and launching
 
 Run this command to initialize iohyve, substituting the name of
 the pool to hold the bhyve guests and the name of the network
-interface::
+interface:
 
- iohyve setup pool=volume1 kmod=1 net=em0
- Setting up iohyve pool...
- Loading kernel modules...
- Setting up bridge0 on em0...
- net.link.tap.up_onopen: 0 -> 1
+.. code-block:: none
 
- ln -s /mnt/iohyve /iohyve
+   iohyve setup pool=volume1 kmod=1 net=em0
+   Setting up iohyve pool...
+   Loading kernel modules...
+   Setting up bridge0 on em0...
+   net.link.tap.up_onopen: 0 -> 1
+  
+   ln -s /mnt/iohyve /iohyve
+
 
 The next step is to tell :command:`iohyve` which installation ISO to
 download. This example shows fetching the 64-bit version of FreeBSD
-10.3, then verify that the fetch was successful::
+10.3, then verify that the fetch was successful:
 
- iohyve fetch ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/10.3/FreeBSD-10.3-RELEASE-amd64-bootonly.iso
- Fetching ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/10.3/FreeBSD-10.3-RELEASE-amd64-bootonly.iso...
- /iohyve/ISO/FreeBSD-10.3-RELEASE-amd64-bootonly.iso 100% of 232 MB 2443 kBps 01m38s
+.. code-block:: none
 
- iohyve isolist
- Listing ISO's...
- FreeBSD-10.3-RELEASE-amd64-bootonly.iso
+   iohyve fetch ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/10.3/FreeBSD-10.3-RELEASE-amd64-bootonly.iso
+   Fetching ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/10.3/FreeBSD-10.3-RELEASE-amd64-bootonly.iso...
+   /iohyve/ISO/FreeBSD-10.3-RELEASE-amd64-bootonly.iso 100% of 232 MB 2443 kBps 01m38s
+  
+   iohyve isolist
+   Listing ISO's...
+   FreeBSD-10.3-RELEASE-amd64-bootonly.iso
 
 Specify the name and size of the guest to create it and verify its
-status::
+status:
+
+.. code-block:: none
 
  iohyve create freebsd10.3 8G
  Creating freebsd10.3...
@@ -1158,10 +1198,13 @@ status::
  Guest		VMM?	Running?	rcboot?		Description
  freebsd10.3    NO      NO              NO              Thu_Mar_24_09:37:30_PDT_2016
 
+
 The newly created guest is not yet running, nor is it set to
 automatically start (rcboot) when :command:`iohyve` starts.
 
-Install a guest using a specified ISO::
+Install a guest using a specified ISO:
 
- iohyve install freebsd10.3 FreeBSD-10.3-RELEASE-amd64-bootonly.iso
- Installing freebsd10.3...
+.. code-block:: none
+
+   iohyve install freebsd10.3 FreeBSD-10.3-RELEASE-amd64-bootonly.iso
+   Installing freebsd10.3...

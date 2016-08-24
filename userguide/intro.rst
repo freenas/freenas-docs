@@ -365,12 +365,15 @@ interface. If the driver supports WOL, it can be enabled using
 determine if WOL is supported on a particular interface, use the
 interface name with the following command. In this example, the
 capabilities line indicates that WOL is supported for the *re0*
-interface::
+interface:
+
+.. code-block:: none
 
  ifconfig -m re0
  re0: flags=8943<UP,BROADCAST,RUNNING,PROMISC,SIMPLEX,MULTICAST> metric 0 mtu 1500
          options=42098<VLAN_MTU,VLAN_HWTAGGING,VLAN_HWCSUM,WOL_MAGIC,VLAN_HWTSO>
          capabilities=5399b<RXCSUM,TXCSUM,VLAN_MTU,VLAN_HWTAGGING,VLAN_HWCSUM,TSO4,WOL_UCAST,WOL_MCAST, WOL_MAGIC,VLAN_HWFILTER,VLAN_H WTSO>
+
 
 If WOL support is shown but not working for a particular interface,
 create a bug report using the instructions in :ref:`Support`.

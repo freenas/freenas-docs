@@ -1882,9 +1882,12 @@ Troubleshooting Replication
 If you have followed all of the steps above and *PUSH* snapshots
 are not replicating to *PULL*, check to see if SSH is working
 properly. On *PUSH*, open Shell and try to :command:`ssh` into *PULL*.
-Replace **hostname_or_ip** with the value for *PULL*::
+Replace **hostname_or_ip** with the value for *PULL*:
 
- ssh -vv -i /data/ssh/replication hostname_or_ip
+.. code-block:: none
+
+   ssh -vv -i /data/ssh/replication hostname_or_ip
+
 
 This command should not ask for a password. If it asks for a password,
 SSH authentication is not working. Go to

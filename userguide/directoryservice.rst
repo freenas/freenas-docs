@@ -412,6 +412,7 @@ Kerberos ticket:
    echo $?
    klist
 
+
 Next, only run these two commands **if** the
 :guilabel:`Unix extensions` box is checked in
 :guilabel:`Advanced Mode` and a keytab has been uploaded using
@@ -802,11 +803,14 @@ When using a keytab, it is recommended to create and use a less
 privileged account for performing the required queries as the password
 for that account will be stored in the %brand% configuration
 database.  To create the keytab on a Windows system, use these
-commands::
+commands:
 
- ktpass.exe -out hostname.keytab host/ hostname@DOMAINNAME -ptype KRB5_NT_PRINCIPAL -mapuser DOMAIN\username -pass userpass
+.. code-block:: none
 
- setspn -A host/ hostname@DOMAINNAME DOMAIN\username
+   ktpass.exe -out hostname.keytab host/ hostname@DOMAINNAME -ptype KRB5_NT_PRINCIPAL -mapuser DOMAIN\username -pass userpass
+
+   setspn -A host/ hostname@DOMAINNAME DOMAIN\username
+
 
 where:
 

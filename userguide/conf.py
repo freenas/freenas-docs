@@ -64,9 +64,9 @@ from sphinx.roles import _amp_re
 def patched_menusel_role(typ, rawtext, text, lineno, inliner, options={}, content=[]):
     text = utils.unescape(text)
     if typ == 'menuselection':
-        text = text.replace('-->', u'\u2192') # Here is the patch 
+        text = text.replace('-->', u'\u2192') # Here is the patch
 
-    spans = _amp_re.split(text)  
+    spans = _amp_re.split(text)
 
     node = nodes.literal(rawtext=rawtext)
     for i, span in enumerate(spans):

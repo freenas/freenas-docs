@@ -666,9 +666,12 @@ Which tests will run and when can be verified by typing
 
 The results of a test can be checked from :ref:`Shell` by specifying
 the name of the drive. For example, to see the results for disk
-*ada0*, type::
+*ada0*, type:
 
- smartctl -l selftest /dev/ada0
+.. code-block:: none
+
+   smartctl -l selftest /dev/ada0
+
 
 If you enter an email address in the :guilabel:`Email to report` field
 of

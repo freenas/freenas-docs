@@ -2284,7 +2284,7 @@ will appear as
 :menuselection:`Sharing --> Block (iSCSI/FC)`
 and an extra :guilabel:`Fibre Channel Ports` tab is added. An example
 is shown in
-::numref:`Figure %s <tn_fibre1>`.
+:numref:`Figure %s <tn_fibre1>`.
 
 
 .. _tn_fibre1:

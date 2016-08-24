@@ -72,6 +72,7 @@ The value produced by running the command must match the value shown
 in the :file:`sha256.txt` file.  Checksum values that do not match
 indicate a corrupted installer file that should not be used.
 
+
 .. index:: Burn ISO, ISO, USB Stick
 .. _Preparing the Media:
 
@@ -87,7 +88,7 @@ The command which is used to burn the :file:`.iso` file to a compact
 flash card or USB thumb drive depends on the operating system. This
 section demonstrates utilities for several operating systems.
 
-.. note:: to write the installation file to a USB stick, **two** USB
+.. note:: To write the installation file to a USB stick, **two** USB
    ports are needed, each with an inserted USB device. One USB stick
    contains the installer.  The other USB stick is the destination for
    the %brand% installation. Take care to select the correct USB
@@ -126,7 +127,7 @@ the device name representing the device to write to on your system.
 .. topic:: Writing the *.iso* file to a USB Thumb Drive
    :name: install_write_iso_topic
 
-   ::
+   .. code-block:: none
 
     dd if=FreeNAS-9.10-RELEASE-x64.iso of=/dev/da0 bs=64k
     6117+0 records in
@@ -168,7 +169,9 @@ on the USB drive. Selecting :guilabel:`Free space` when creating the
 partition works fine.
 
 Determine the device name of the inserted USB thumb drive. From
-TERMINAL, navigate to the Desktop, then type this command::
+TERMINAL, navigate to the Desktop, then type this command:
+
+.. code-block:: none
 
  diskutil list
  /dev/disk0
@@ -183,6 +186,7 @@ TERMINAL, navigate to the Desktop, then type this command::
  #:	TYPE NAME		SIZE		IDENTIFIER
  0:	FDisk_partition_scheme	*8.0 GB		disk1
  1:	DOS_FAT_32 UNTITLED	8.0 GB		disk1s1
+
 
 This shows which devices are available to the system. Locate the
 target USB stick and record the path. If you are not sure which path
@@ -202,12 +206,13 @@ the installation file and the correct path to the USB thumb drive.
 .. topic:: Example: Using *dd* on an OS X System
    :name: install_dd_osx_topic
 
-   ::
+   .. code-block:: none
 
     diskutil unmountDisk /dev/disk1
     Unmount of all volumes on disk1 was successful
 
     dd if=FreeNAS-9.10-RELEASE-x64.iso of=/dev/rdisk1 bs=64k
+
 
 .. note:: If the error "Resource busy" is shown when the
    :command:`dd` command is run, go to
@@ -402,9 +407,12 @@ If the system BIOS does not support EFI with BIOS emulation, see if it
 has an option to boot using legacy BIOS mode.
 
 When the system starts to boot but hangs with this repeated error
-message::
+message:
 
- run_interrupt_driven_hooks: still waiting after 60 seconds for xpt_config
+.. code-block:: none
+
+   run_interrupt_driven_hooks: still waiting after 60 seconds for xpt_config
+
 
 go into the system BIOS and look for an onboard device configuration
 for a 1394 Controller. If present, disable that device and try booting
@@ -916,6 +924,7 @@ device name of *em0*.
 .. figure:: images/virtualbox11.png
 
    Configuring a Bridged Adapter in VirtualBox
+
 
 After configuration is complete, click the :guilabel:`Start` arrow and
 install %brand% as described in `Performing the Installation`_. Once

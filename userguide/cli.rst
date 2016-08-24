@@ -74,75 +74,79 @@ To start xjperf on Mac OS X, Linux, or BSD, unzip the downloaded file,
 :command:`chmod u+x jperf.sh`, and run :command:`./jperf.sh`.
 
 Once the client is ready, you need to start the Iperf server on
-%brand%. To see the available server options, open Shell and type::
+%brand%. To see the available server options, open Shell and type:
 
- iperf --help | more
- Usage: iperf [-s|-c host] [options]
- iperf [-h|--help] [-v|--version]
+.. code-block:: none
 
- Client/Server:
- -f, --format	[kmKM]	format to report: Kbits, Mbits, KBytes, MBytes
- -i, --interval	#	seconds between periodic bandwidth reports
- -l, --len	#[KM]	length of buffer to read or write (default 8 KB)
- -m, --print_mss	print TCP maximum segment size (MTU - TCP/IP header)
- -o, --output	<filename> output the report or error message to this specified file
- -p, --port	#	server port to listen on/connect to
- -u, --udp		use UDP rather than TCP
- -w, --window	#[KM]	TCP window size (socket buffer size)
- -B, --bind	<host>	bind to <host>, an interface or multicast address
- -C, --compatibility	for use with older versions does not sent extra msgs
- -M, --mss	#	set TCP maximum segment size (MTU - 40 bytes)
- -N, --nodelay		set TCP no delay, disabling Nagle's Algorithm
- -V, --IPv6Version	Set the domain to IPv6
-
- Server specific:
- -s, --server		run in server mode
- -U, --single_udp	run in single threaded UDP mode
- -D, --daemon		run the server as a daemon
-
- Client specific:
- -b, --bandwidth #[KM]	for UDP, bandwidth to send at in bits/sec
-			(default 1 Mbit/sec, implies -u)
- -c, --client	<host>	run in client mode, connecting to <host>
- -d, --dualtest		Do a bidirectional test simultaneously
- -n, --num	#[KM]	number of bytes to transmit (instead of -t)
- -r, --tradeoff		Do a bidirectional test individually
- -t, --time	#	time in seconds to transmit for (default 10 secs)
- -F, --fileinput <name>	input the data to be transmitted from a file
- -I, --stdin		input the data to be transmitted from stdin
- -L, --listenport #	port to receive bidirectional tests back on
- -P, --parallel	#	number of parallel client threads to run
- -T, --ttl	#	time-to-live, for multicast (default 1)
- -Z, --linux-congestion <algo> set TCP congestion control algorithm (Linux only)
-
- Miscellaneous:
- -x, --reportexclude [CDMSV]	exclude C(connection) D(data) M(multicast) S(settings) V(server) reports
- -y, --reportstyle C		report as a Comma-Separated Values
- -h, --help			print this message and quit
- -v, --version			print version information and quit
-
- [KM] Indicates options that support a K or M suffix for kilo- or mega-
-
- The TCP window size option can be set by the environment variable
-
- TCP_WINDOW_SIZE. Most other options can be set by an environment variable
- IPERF_<long option name>, such as IPERF_BANDWIDTH.
-
+   iperf --help | more
+   Usage: iperf [-s|-c host] [options]
+   iperf [-h|--help] [-v|--version]
+  
+   Client/Server:
+   -f, --format	[kmKM]	format to report: Kbits, Mbits, KBytes, MBytes
+   -i, --interval	#	seconds between periodic bandwidth reports
+   -l, --len	#[KM]	length of buffer to read or write (default 8 KB)
+   -m, --print_mss	print TCP maximum segment size (MTU - TCP/IP header)
+   -o, --output	<filename> output the report or error message to this specified file
+   -p, --port	#	server port to listen on/connect to
+   -u, --udp		use UDP rather than TCP
+   -w, --window	#[KM]	TCP window size (socket buffer size)
+   -B, --bind	<host>	bind to <host>, an interface or multicast address
+   -C, --compatibility	for use with older versions does not sent extra msgs
+   -M, --mss	#	set TCP maximum segment size (MTU - 40 bytes)
+   -N, --nodelay		set TCP no delay, disabling Nagle's Algorithm
+   -V, --IPv6Version	Set the domain to IPv6
+  
+   Server specific:
+   -s, --server		run in server mode
+   -U, --single_udp	run in single threaded UDP mode
+   -D, --daemon		run the server as a daemon
+  
+   Client specific:
+   -b, --bandwidth #[KM]	for UDP, bandwidth to send at in bits/sec
+			  (default 1 Mbit/sec, implies -u)
+   -c, --client	<host>	run in client mode, connecting to <host>
+   -d, --dualtest		Do a bidirectional test simultaneously
+   -n, --num	#[KM]	number of bytes to transmit (instead of -t)
+   -r, --tradeoff		Do a bidirectional test individually
+   -t, --time	#	time in seconds to transmit for (default 10 secs)
+   -F, --fileinput <name>	input the data to be transmitted from a file
+   -I, --stdin		input the data to be transmitted from stdin
+   -L, --listenport #	port to receive bidirectional tests back on
+   -P, --parallel	#	number of parallel client threads to run
+   -T, --ttl	#	time-to-live, for multicast (default 1)
+   -Z, --linux-congestion <algo> set TCP congestion control algorithm (Linux only)
+  
+   Miscellaneous:
+   -x, --reportexclude [CDMSV]	exclude C(connection) D(data) M(multicast) S(settings) V(server) reports
+   -y, --reportstyle C		report as a Comma-Separated Values
+   -h, --help			print this message and quit
+   -v, --version			print version information and quit
+  
+   [KM] Indicates options that support a K or M suffix for kilo- or mega-
+  
+   The TCP window size option can be set by the environment variable
+  
+   TCP_WINDOW_SIZE. Most other options can be set by an environment variable
+   IPERF_<long option name>, such as IPERF_BANDWIDTH.
+  
 For example, to perform a TCP test and start the server in daemon mode
-(so that you get your prompt back), type::
+(so that you get your prompt back), type:
 
- iperf -sD
- ------------------------------------------------------------
- Server listening on TCP port 5001
- TCP window size: 64.0 KByte (default)
- ------------------------------------------------------------
- Running Iperf Server as a daemon
- The Iperf daemon process ID: 4842
+.. code-block:: none
+  
+   iperf -sD
+   ------------------------------------------------------------
+   Server listening on TCP port 5001
+   TCP window size: 64.0 KByte (default)
+   ------------------------------------------------------------
+   Running Iperf Server as a daemon
+   The Iperf daemon process ID: 4842
 
 
-.. note:: If you close Shell, the daemon process will stop. Have your
-   environment set up (e.g. shares configured and started) **before**
-   starting the iperf process.
+.. note:: If you close :ref:`Shell`, the daemon process will stop.
+   Have your environment set up (e.g. shares configured and started)
+   **before** starting the iperf process.
 
 From your desktop, open the client. Enter the IP of address of the
 %brand% system, specify the running time for the test under
@@ -167,30 +171,32 @@ start the iperf server in UDP mode, use :command:`iperf -sDu` as the
 **u** specifies UDP; the startup message should indicate that the
 server is listening for UDP datagrams. If you are not sure if the
 traffic that you wish to test is UDP or TCP, run this command to
-determine which services are running on the %brand% system::
+determine which services are running on the %brand% system:
 
- sockstat -4 | more
- USER	COMMAND	PID	FD PROTO	LOCAL ADDRESS	FOREIGN ADDRESS
- root	iperf	4870	6  udp4		*:5001		*:*
- root	iperf	4842	6  tcp4		*:5001		*:*
- www	nginx	4827	3  tcp4		127.0.0.1:15956 127.0.0.1:9042
- www	nginx	4827	5  tcp4		192.168.2.11:80 192.168.2.26:56964
- www	nginx	4827	7  tcp4		*:80		*:*
- root	sshd	3852	5  tcp4		*:22		*:*
- root	python	2503	5  udp4		*:*		*:*
- root	mountd	2363	7  udp4		*:812		*:*
- root	mountd	2363	8  tcp4		*:812		*:*
- root	rpcbind	2359	9  udp4		*:111		*:*
- root	rpcbind	2359	10 udp4		*:886		*:*
- root	rpcbind	2359	11 tcp4		*:111		*:*
- root	nginx	2044	7  tcp4		*:80		*:*
- root	python	2029	3  udp4		*:*		*:*
- root	python	2029	4  tcp4		127.0.0.1:9042	*:*
- root	python	2029	7  tcp4		127.0.0.1:9042	127.0.0.1:15956
- root	ntpd	1548	20 udp4		*:123		*:*
- root	ntpd	1548	22 udp4		192.168.2.11:123*:*
- root	ntpd	1548	25 udp4		127.0.0.1:123	*:*
- root	syslogd	1089	6  udp4		127.0.0.1:514	*:*
+.. code-block:: none
+
+   sockstat -4 | more
+   USER     COMMAND PID     FD PROTO        LOCAL ADDRESS   FOREIGN ADDRESS
+   root     iperf   4870    6  udp4         *:5001          *:*
+   root     iperf   4842    6  tcp4         *:5001          *:*
+   www      nginx   4827    3  tcp4         127.0.0.1:15956 127.0.0.1:9042
+   www      nginx   4827    5  tcp4         192.168.2.11:80 192.168.2.26:56964
+   www      nginx   4827    7  tcp4         *:80            *:*
+   root     sshd    3852    5  tcp4         *:22            *:*
+   root     python  2503    5  udp4         *:*             *:*
+   root     mountd  2363    7  udp4         *:812           *:*
+   root     mountd  2363    8  tcp4         *:812           *:*
+   root     rpcbind 2359    9  udp4         *:111           *:*
+   root     rpcbind 2359    10 udp4         *:886           *:*
+   root     rpcbind 2359    11 tcp4         *:111           *:*
+   root     nginx   2044    7  tcp4         *:80            *:*
+   root     python  2029    3  udp4         *:*             *:*
+   root     python  2029    4  tcp4         127.0.0.1:9042  *:*
+   root     python  2029    7  tcp4         127.0.0.1:9042  127.0.0.1:15956
+   root     ntpd    1548    20 udp4         *:123           *:*
+   root     ntpd    1548    22 udp4         192.168.2.11:123*:*
+   root     ntpd    1548    25 udp4         127.0.0.1:123   *:*
+   root     syslogd 1089    6  udp4         127.0.0.1:514   *:*
 
 
 When you are finished testing, either type :command:`killall iperf` or
@@ -207,10 +213,12 @@ Netperf is a benchmarking utility that can be used to measure the
 performance of unidirectional throughput and end-to-end latency.
 
 Before you can use the :command:`netperf` command, you must start its
-server process using this command::
+server process using this command:
 
- netserver
- Starting netserver with host 'IN(6)ADDR_ANY' port '12865' and family AF_UNSPEC
+.. code-block:: none
+
+   netserver
+   Starting netserver with host 'IN(6)ADDR_ANY' port '12865' and family AF_UNSPEC
 
 The following command will display the available options for
 performing tests with the :command:`netperf` command. The
@@ -221,7 +229,8 @@ types of tests. It is the best reference for understanding how each
 test works and how to interpret your results. When you are finished
 with your tests, type :command:`killall netserver` to stop the server
 process.
-::
+
+.. code-block:: none
 
  netperf -h |more
  Usage: netperf [global options] -- [test options]
@@ -493,34 +502,37 @@ This `forum post
 demonstrates some examples of using these scripts with hints on how to
 interpret the results.
 
-To view the help for arcstat.py::
+To view the help for arcstat.py:
 
- arcstat.py -h
- Usage: arcstat [-hvx] [-f fields] [-o file] [-s string] [interval [count]]
- -h: Print this help message
- -v: List all possible field headers and definitions
- -x: Print extended stats
- -f: Specify specific fields to print (see -v)
- -o: Redirect output to the specified file
- -s: Override default field separator with custom character or string
+.. code-block:: none
 
- Examples:
- arcstat -o /tmp/a.log 2 10
- arcstat -s "," -o /tmp/a.log 2 10
- arcstat -v
- arcstat -f time,hit%,dh%,ph%,mh% 1
+    arcstat.py -h
+    Usage: arcstat [-hvx] [-f fields] [-o file] [-s string] [interval [count]]
+    -h: Print this help message
+    -v: List all possible field headers and definitions
+    -x: Print extended stats
+    -f: Specify specific fields to print (see -v)
+    -o: Redirect output to the specified file
+    -s: Override default field separator with custom character or string
+   
+    Examples:
+    arcstat -o /tmp/a.log 2 10
+    arcstat -s "," -o /tmp/a.log 2 10
+    arcstat -v
+    arcstat -f time,hit%,dh%,ph%,mh% 1
 
 To view ARC statistics in real time, specify an interval and a count.
 This command will display every 1 second for a count of five.
-::
 
- arcstat.py 1 5
- time		read	miss	miss%	dmis	dm%	pmis	pm%	mmis	mm%	arcsz	c
- 06:19:03	  7	0	0	0	0	0	0	0	0	153M	6.6G
- 06:19:04	257	0	0	0	0	0	0	0	0	153M	6.6G
- 06:19:05	193	0	0	0	0	0	0	0	0	153M	6.6G
- 06:19:06	193	0	0	0	0	0	0	0	0	153M	6.6G
- 06:19:07	255	0	0	0	0	0	0	0	0	153M	6.6G
+.. code-block:: none
+
+   arcstat.py 1 5
+       time  read  miss  miss%  dmis  dm%  pmis  pm%  mmis  mm%  arcsz     c
+   06:19:03     7     0      0     0    0     0    0     0    0   153M  6.6G
+   06:19:04   257     0      0     0    0     0    0     0    0   153M  6.6G
+   06:19:05   193     0      0     0    0     0    0     0    0   153M  6.6G
+   06:19:06   193     0      0     0    0     0    0     0    0   153M  6.6G
+   06:19:07   255     0      0     0    0     0    0     0    0   153M  6.6G
 
 
 :numref:`Table %s <cli_arcstat_columns_tab>`
@@ -570,7 +582,9 @@ briefly describes the columns in the output.
    +---------------------+------------------------------------------+
 
 
-To receive a summary of statistics, use::
+To receive a summary of statistics, use:
+
+.. code-block:: none
 
  arcsummary.py
  System Memory:
@@ -776,13 +790,17 @@ To receive a summary of statistics, use::
         vfs.zfs.arc_min                         383454208
         vfs.zfs.arc_max                         3067633664
 
+
 When reading the tunable values, 0 means no, 1 typically means yes,
 and any other number represents a value. To receive a brief
 description of a "sysctl" value, use :command:`sysctl -d`. For
-example::
+example:
 
- sysctl -d vfs.zfs.zio.use_uma
- vfs.zfs.zio.use_uma: Use uma(9) for ZIO allocations
+.. code-block:: none
+
+   sysctl -d vfs.zfs.zio.use_uma
+   vfs.zfs.zio.use_uma: Use uma(9) for ZIO allocations
+
 
 The ZFS tunables require a fair understanding of how ZFS works,
 meaning that you will be reading man pages and searching for the
@@ -796,15 +814,18 @@ If you decide to change any of the ZFS tunables, continue to monitor
 the system to determine the effect of the change. It is recommended
 that you test your changes first at the command line using
 :command:`sysctl`. For example, to disable pre-fetch (i.e. change
-disable to *1* or yes)::
+disable to *1* or yes):
 
- sysctl vfs.zfs.prefetch_disable=1
- vfs.zfs.prefetch_disable: 0 -> 1
+.. code-block:: none
+
+   sysctl vfs.zfs.prefetch_disable=1
+   vfs.zfs.prefetch_disable: 0 -> 1
+
 
 The output will indicate the old value followed by the new value. If
 the change is not beneficial, change it back to the original value. If
 the change turns out to be beneficial, you can make it permanent by
-creating a "sysctl" using the instructions in :ref:`Tunables`.
+creating a *sysctl* using the instructions in :ref:`Tunables`.
 
 
 .. index:: tw_cli
@@ -831,7 +852,9 @@ indicating that you have entered interactive mode where you can run
 all sorts of maintenance commands on the controller and its arrays.
 
 Alternately, you can specify one command to run. For example, to view
-the disks in the array::
+the disks in the array:
+
+.. code-block:: none
 
  tw_cli /c0 show
  Unit	UnitType	Status	%RCmpl	%V/I/M	Stripe	Size(GB)	Cache   AVrfy
@@ -860,7 +883,10 @@ the disks in the array::
  ---------------------------------------------------------------------------
  bbu	On		Yes		OK	OK	OK	212	03-Jan-2012
 
-Or, to review the event log::
+
+Or, to review the event log:
+
+.. code-block:: none
 
  tw_cli /c0 show events
  Ctl	Date				Severity	AEN Message
@@ -894,9 +920,11 @@ Or, to review the event log::
 
 
 If you add some disks to the array and they are not showing up in the
-GUI, try running the following command::
+GUI, try running this command:
 
- tw_cli /c0 rescan
+.. code-block:: none
+
+   tw_cli /c0 rescan
 
 Use the drives to create units and export them to the operating
 system. When finished, run :command:`camcontrol rescan all` and they
@@ -939,7 +967,9 @@ command line utility and a copy of the information is saved to
 
 Using Shell, you can run this command manually to gather the specific
 debugging information that you need. To see the available options,
-type::
+type:
+
+.. code-block:: none
 
  freenas-debug
  usage: /usr/local/bin/freenas-debug <options>
@@ -970,11 +1000,13 @@ type::
 
 For example, if you are troubleshooting your Active Directory
 configuration, try the following commands to generate and view the
-debug file::
+debug file:
 
- freenas-debug -a
+.. code-block:: none
 
- more /var/tmp/fndebug
+   freenas-debug -a
+
+   more /var/tmp/fndebug
 
 
 .. index:: tmux
@@ -1041,9 +1073,12 @@ Dmidecode does not scan the hardware, it only reports what the BIOS
 told it to. A sample output can be seen
 `here <http://www.nongnu.org/dmidecode/sample/dmidecode.txt>`_.
 
-To view the BIOS report, type the command with no arguments::
+To view the BIOS report, type the command with no arguments:
 
- dmidecode | more
+.. code-block:: none
+
+   dmidecode | more
+
 
 `dmidecode(8) <http://linux.die.net/man/8/dmidecode>`_
 describes the supported strings and types.

@@ -170,9 +170,12 @@ You can determine which users are connected to an AFP share by typing
 
 If :guilabel:`Something wrong with the volume's CNID DB` is shown,
 run this command from :ref:`Shell`, replacing the path to the
-problematic AFP share::
+problematic AFP share:
 
- dbd -rf /path/to/share
+.. code-block:: none
+
+   dbd -rf /path/to/share
+
 
 This command may take a while, depending upon the size of the volume
 or dataset being shared. This command will wipe the CNID database and
@@ -1657,9 +1660,11 @@ and that they have permission to transfer files within the intended
 directories. If the user account is experiencing problems, the SSH
 error messages are usually pretty specific to what the problem is.
 Type the following command within :ref:`Shell` to read these messages
-as they occur::
+as they occur:
 
- tail -f /var/log/messages
+.. code-block:: none
+
+   tail -f /var/log/messages
 
 Additional messages regarding authentication errors may be found in
 :file:`/var/log/auth.log`.
