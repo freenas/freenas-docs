@@ -58,7 +58,8 @@ Check that your shipment includes the following items:
 
 * Eight thumbscrews
 
-.. image:: images/tn_thumbscrews.png
+.. image:: images/tn_thumbscrews1.png
+   :width: 5%
 
 * Two screws
 

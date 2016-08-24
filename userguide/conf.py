@@ -271,6 +271,12 @@ latex_documents = [
    u'iXsystems', 'manual'),
 ]
 
+if tags.has('truenas'):
+    latex_documents = [
+      ('truenas', 'TrueNAS.tex', u'TrueNAS Documentation',
+       u'iXsystems', 'manual'),
+    ]
+
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
 #latex_logo = None
