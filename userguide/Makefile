@@ -45,7 +45,7 @@ clean:
 	rm -rf "$(PREPROCDIR)"
 
 preproc::
-	$(PREPROC) -t $(TAG) -o $(PREPROCDIR)
+	$(PREPROC) -t $(TAG) -o $(PREPROCDIR) -q
 
 html:	preproc
 	cd $(PREPROCDIR) && \

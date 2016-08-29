@@ -2,7 +2,7 @@
 # ts=4
 
 # preproc: preprocess .rst files
-# Warren Block, 2016-08-11
+# Warren Block, 2016-08-29
 
 use strict;
 use warnings;
@@ -13,28 +13,28 @@ use Getopt::Std;
 use File::Basename;
 use File::Copy 'cp';
 use File::Path qw(make_path remove_tree);
-#use POSIX qw/strftime/;
 
 my $cp = "/bin/cp";
 
 my $prog    = basename($0);
-my $version = "1.11";
+my $version = "1.12";
 
 my $defaultoutdir = "processed";
 
 our $verbose = 0;
+our $quiet = 0;
 our $tag;
 our $outdir;
 our @copyfiles;
 
 
-our($opt_c, $opt_h, $opt_o, $opt_s, $opt_t, $opt_v);
+our($opt_c, $opt_h, $opt_o, $opt_q, $opt_s, $opt_t, $opt_v);
 
 sub usage {
 	print <<USAGE;
 $prog $version
 usage: $prog -h
-       $prog -t tag [-c files_and_dirs_to_copy] [-o output_dir] [-v]
+       $prog -t tag [-c files_and_dirs_to_copy] [-o output_dir] [-v] [-q]
 
     DESCRIPTION
 
@@ -76,6 +76,8 @@ usage: $prog -h
        -t  tag name to build (typically freenas or truenas)
 
        -v  verbose output
+
+       -q  do not show instructions after build
 
     PROCESSING
 
@@ -503,6 +505,7 @@ sub processfiles {
 }
 
 sub instructions {
+    return if $quiet;
     print "output in $outdir, build with\n";
     print "  cd $outdir && sphinx-build -t $tag -b singlehtml . _build/singlehtml\n";
     print "    or\n";
@@ -511,8 +514,9 @@ sub instructions {
 
 
 # main
-usage() unless getopts('c:ho:s:t:v');
+usage() unless getopts('c:ho:qs:t:v');
 usage() if $opt_h;
+$quiet   = 1 if $opt_q;
 $verbose = 1 if $opt_v;
 parseinput();
 checkinput();
