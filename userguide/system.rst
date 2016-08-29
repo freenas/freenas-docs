@@ -65,8 +65,8 @@ The information includes the hostname, the build version, type of CPU
 system's uptime, and the current load average.
 
 To change the system's hostname, click its :guilabel:`Edit` button,
-type in the new hostname, and click "OK". The hostname must include
-the domain name. If the network does not use a domain name add
+type in the new hostname, and click :guilabel:`OK`. The hostname must
+include the domain name. If the network does not use a domain name add
 *.local* to the end of the hostname.
 
 
@@ -78,7 +78,7 @@ the domain name. If the network does not use a domain name add
    System Information Tab
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system1a.png
+.. figure:: images/tn_system1b.png
 
    System Information Tab
 #endif truenas
