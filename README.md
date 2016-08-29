@@ -1,24 +1,23 @@
-FreeNAS documentation is stored as ASCII text files, that end in a .rst
-extension, within the FreeNAS source repository. The FreeNAS Project
-uses the Sphinx Python documentation generator to generate documentation
-in HTML format. Anyone can download the documentation source and
-generate their own copy of the documentation in HTML or PDF formats.
-Users with a github account can also edit the documentation and generate
-git pull requests so that the edits can be reviewed and committed. This
-README contains instructions for getting the source, generating a copy
-of the documentation, and issuing a git pull request. It assumes that
-the reader is using these instructions on either a FreeBSD/PC-BSD system
-or a FreeBSD jail.
+FreeNAS documentation is stored as ASCII text files with a .rst
+extensions in the FreeNAS source repository. The FreeNAS Project uses
+the Sphinx Python documentation generator to generate documentation in
+HTML format. Anyone can download the documentation source and generate
+their own copy of the documentation in HTML or PDF formats. Users with a
+github account can also edit the documentation and generate git pull
+requests for their edits to be reviewed and committed. This README
+contains instructions for getting the source, generating a copy of the
+documentation, and issuing a git pull request. It assumes that the
+reader is using these instructions on either a FreeBSD/PC-BSD system or
+a FreeBSD jail.
 
 ##Requirements:
 
 Perl must be installed on the system.
 
-At a minimum, the following software needs to be installed as the
-root/superuser. If this is the first time you have used pkg on the
-system, it may prompt you to fetch and install it. Say yes to the
-prompts to do so. Once it is finished, you can then finish installing
-the needed software.
+The following software must be installed at minimum. If this is the
+first time pkg has been used on the system, it fetch and install itself.
+Say yes to the prompts to do so. Once it has completed, finish
+installing the needed software.
 
 Instructions are given for both the port and the package as some
 software may not have a package. Try the pkg command first as it is
@@ -47,9 +46,9 @@ pkg install print/tex-dvipsk (cd /usr/ports/print/tex-dvipsk/ && make install)
 pkg install devel/gmake (/usr/ports/devel/gmake/ && make install)
 ```
 
-Next, determine where you want to store the source code and change to
-that directory (we'll refer to it as /path/to/your-build-directory).
-Then, check out the source code from git:
+Choose a place to store the source code and change to that directory
+(we'll refer to it as /path/to/your-build-directory). Then check out the
+source code from git:
 
 ```
 cd /path/to/your-build-directory
@@ -59,7 +58,7 @@ cd freenas-docs/userguide
 
 ##Building the Documentation
 
-All of the following commands need to be run from
+All of the following commands to be run from
 /path/to/your-build-directory/freenas/docs/userguide. These formats are
 currently available: HTML, single HTML, PDF, and EPUB. The output of
 either HTML form is in
