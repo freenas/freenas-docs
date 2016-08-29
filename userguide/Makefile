@@ -44,7 +44,7 @@ help:
 clean:
 	rm -rf "$(PREPROCDIR)"
 
-preproc:
+preproc::
 	$(PREPROC) -t $(TAG) -o $(PREPROCDIR)
 
 html:	preproc
@@ -57,7 +57,7 @@ dirhtml:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
 	@echo
-	@echo "Build finished. The HTML pages are in $(PREPROCDIR)/$(BUILDDIR)/dirhtml."
+	@echo "Build finished. The HTML pages are in $(PREPROCDIR)/$(BUILDDIR)/dirhtml"
 
 singlehtml:	preproc
 	cd $(PREPROCDIR) && \
@@ -82,7 +82,7 @@ htmlhelp:	preproc
 	$(SPHINXBUILD) -b htmlhelp $(ALLSPHINXOPTS) $(BUILDDIR)/htmlhelp
 	@echo
 	@echo "Build finished; now you can run HTML Help Workshop with the" \
-	      ".hhp project file in $(PREPROCDIR)/$(BUILDDIR)/htmlhelp."
+	      ".hhp project file in $(PREPROCDIR)/$(BUILDDIR)/htmlhelp"
 
 qthelp:	preproc
 	cd $(PREPROCDIR) && \
@@ -108,13 +108,13 @@ epub:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b epub $(ALLSPHINXOPTS) $(BUILDDIR)/epub
 	@echo
-	@echo "Build finished. The epub file is in $(PREPROCDIR)/$(BUILDDIR)/epub."
+	@echo "Build finished. The epub file is in $(PREPROCDIR)/$(BUILDDIR)/epub"
 
 latex:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo
-	@echo "Build finished; the LaTeX files are in $(PREPROCDIR)/$(BUILDDIR)/latex."
+	@echo "Build finished; the LaTeX files are in $(PREPROCDIR)/$(BUILDDIR)/latex"
 	@echo "Run \`gmake' in that directory to run these through (pdf)latex" \
 	      "(use \`gmake latexpdf' here to do that automatically)."
 
@@ -124,25 +124,25 @@ latexpdf pdf:	preproc
 	@echo "Running LaTeX files through pdflatex..."
 	# gmake is required here
 	gmake -C $(PREPROCDIR)/$(BUILDDIR)/latex all-pdf
-	@echo "pdflatex finished; the PDF files are in $(PREPROCDIR)/$(BUILDDIR)/latex/."
+	@echo "pdflatex finished; the PDF files are in $(PREPROCDIR)/$(BUILDDIR)/latex"
 
 text:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(BUILDDIR)/text
 	@echo
-	@echo "Build finished. The text files are in $(PREPROCDIR)/$(BUILDDIR)/text."
+	@echo "Build finished. The text files are in $(PREPROCDIR)/$(BUILDDIR)/text"
 
 man:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b man $(ALLSPHINXOPTS) $(BUILDDIR)/man
 	@echo
-	@echo "Build finished. The manual pages are in $(PREPROCDIR)/$(BUILDDIR)/man."
+	@echo "Build finished. The manual pages are in $(PREPROCDIR)/$(BUILDDIR)/man"
 
 texinfo:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b texinfo $(ALLSPHINXOPTS) $(BUILDDIR)/texinfo
 	@echo
-	@echo "Build finished. The Texinfo files are in $(PREPROCDIR)/$(BUILDDIR)/texinfo."
+	@echo "Build finished. The Texinfo files are in $(PREPROCDIR)/$(BUILDDIR)/texinfo"
 	@echo "Run \`make' in that directory to run these through makeinfo" \
 	      "(use \`make info' here to do that automatically)."
 
@@ -151,19 +151,19 @@ info:	preproc
 	$(SPHINXBUILD) -b texinfo $(ALLSPHINXOPTS) $(BUILDDIR)/texinfo
 	@echo "Running Texinfo files through makeinfo..."
 	make -C $(BUILDDIR)/texinfo info
-	@echo "makeinfo finished; the Info files are in $(PREPROCDIR)/$(BUILDDIR)/texinfo."
+	@echo "makeinfo finished; the Info files are in $(PREPROCDIR)/$(BUILDDIR)/texinfo"
 
 gettext:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b gettext $(I18NSPHINXOPTS) $(BUILDDIR)/locale
 	@echo
-	@echo "Build finished. The message catalogs are in $(PREPROCDIR)/$(BUILDDIR)/locale."
+	@echo "Build finished. The message catalogs are in $(PREPROCDIR)/$(BUILDDIR)/locale"
 
 changes:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b changes $(ALLSPHINXOPTS) $(BUILDDIR)/changes
 	@echo
-	@echo "The overview file is in $(PREPROCDIR)/$(BUILDDIR)/changes."
+	@echo "The overview file is in $(PREPROCDIR)/$(BUILDDIR)/changes"
 
 linkcheck:	preproc
 	cd $(PREPROCDIR) && \
@@ -176,4 +176,4 @@ doctest:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b doctest $(ALLSPHINXOPTS) $(BUILDDIR)/doctest
 	@echo "Testing of doctests in the sources finished, look at the " \
-	      "results in $(PREPROCDIR)/$(BUILDDIR)/doctest/output.txt."
+	      "results in $(PREPROCDIR)/$(BUILDDIR)/doctest/output.txt"
