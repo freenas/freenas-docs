@@ -1138,8 +1138,8 @@ issue an alert when a new update becomes available. To disable this
 default, uncheck the box :guilabel:`Automatically check for updates`.
 
 #ifdef freenas
-This screen also shows which software branch, or train, the system is
-currently tracking updates for. The following trains are available:
+This screen also shows which software branch, or *train*, is being
+tracked for updates. These trains are available:
 
 * **FreeNAS-10-Nightlies:** this train should
   **not be used in production**. It represents the experimental branch
@@ -1180,9 +1180,8 @@ restrictions.
 #ifdef truenas
 This screen lists the URL of the official update server, should that
 information be needed in a network with outbound firewall
-restrictions. It also indicates which software branch, or train, the
-system is currently tracking updates for. The following trains are
-available:
+restrictions. It also indicates which software branch, or *train*,
+is being tracked for updates. These trains are available:
 
 * **TrueNAS-9.10-STABLE:**  this is the
   **recommended train for production use**. Once new fixes and
