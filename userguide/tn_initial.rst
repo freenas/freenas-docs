@@ -250,8 +250,8 @@ for a detailed view.
    Drive Installation Instructions
 
 
-Both network and storage cabling should be connected **before**
-turning on the %brand% Storage Array for the first time.
+Connect both network and storage cabling **before** turning on the
+%brand% Storage Array for the first time.
 
 Network cabling is highly dependent on the exact %brand% model and
 environment. If you need assistance connecting your %brand% Storage
@@ -949,12 +949,12 @@ Storage Array, boot the system. The Console Setup menu, shown in
 :numref:`Figure %s <console_setup_menu_fig>`,
 will appear at the end of the boot process. If you have access to
 the %brand% system's keyboard and monitor, this Console Setup menu
-can be used to administer the system should the administrative GUI
-become inaccessible.
+can be used to administer the system if the administrative GUI is
+not accessible.
 
-.. note:: You can access the Console Setup menu from within the
+.. note:: The Console Setup menu can be accessed from within the
    %brand% GUI by typing :command:`/etc/netcli` from :ref:`Shell`.
-   You can disable the Console Setup menu by unchecking the
+   The Console Setup menu can be disabled by unchecking the
    :guilabel:`Enable Console Menu` in
    :menuselection:`System --> Settings --> Advanced`.
 
@@ -1109,10 +1109,10 @@ the %brand% system has one network interface (*em0*).
 Accessing the Administrative GUI
 --------------------------------
 
-Once the system has an IP address, input that address into a
-graphical web browser from a computer capable of accessing the
-network containing the %brand% system. You should be prompted to
-enter the password for the *root* user, as seen in
+Once the system has an IP address, enter that address into a graphical
+web browser from a computer capable of accessing the network
+containing the %brand% system. A prompt appears to enter the password
+for the *root* user, as shown in
 :numref:`Figure %s <tn_login1>`.
 
 
@@ -1125,7 +1125,7 @@ enter the password for the *root* user, as seen in
 
 Enter the default password of *abcd1234*.
 
-.. note:: You can change the default *root* password to a more
+.. note:: The default *root* password can be changed to a more
    secure value by going to
    :menuselection:`Account --> Users --> View Users`.
    Highlight the entry for *root*, click the :guilabel:`Modify User`
@@ -1133,17 +1133,17 @@ Enter the default password of *abcd1234*.
    :guilabel:`Password confirmation` fields, and click :guilabel:`OK`
    to save the new password to use on subsequent logins.
 
-The first time you log in, the EULA, found in :ref:`Appendix A`,
-will be displayed along with a box where you can paste the license
-for the %brand% array. Once you have read the EULA and pasted in
-the license, click :guilabel:`OK`. You should then see the
-administrative GUI as shown in the example in
+On the first login, the EULA found in :ref:`Appendix A` is displayed,
+along with a box where the license key for the %brand% array can be
+pasted. Read the EULA, paste in the license key, then click
+:guilabel:`OK`. The administrative GUI appears, as shown in the
+example in
 :numref:`Figure %s <tn_initial>`.
 
 
 .. _tn_initial:
 
-.. figure:: images/tn_initial.png
+.. figure:: images/tn_initial1a.png
 
    %brand% Graphical Configuration Menu
 
