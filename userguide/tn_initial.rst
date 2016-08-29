@@ -61,9 +61,15 @@ Check that your shipment includes the following items:
 .. image:: images/tn_thumbscrews1.png
    :width: 5%
 
-* Two screws
+* Two short screws
 
-.. image:: images/tn_screws.jpg
+.. image:: images/tn_shortscrew.png
+   :width: 5%
+
+* Two long screws
+
+.. image:: images/tn_longscrew.png
+   :width: 7%
 
 * Two power cables
 
@@ -86,7 +92,7 @@ Since network cables are highly configuration-dependent, contact
 your iXsystems Sales Representative if you have any questions
 regarding the included cables.
 
-Any unused drive bays will be populated with drive tray blanks to
+Any unused drive bays are populated with drive tray blanks to
 maintain proper airflow.
 
 The layout of the storage controller will vary by configuration.
@@ -120,8 +126,8 @@ shows the layout of the front panel buttons and indicators.
 :numref:`Figure %s <appliance3>`
 shows the rear view of the array. If the %brand% Storage Array is
 configured for High Availability, both storage controller slots
-will be populated. In a single-controller model, the bottom
-controller slot will contain a controller slot cover panel.
+are populated. In a single-controller model, the bottom
+controller slot contains a controller slot cover panel.
 
 
 .. _appliance3:
@@ -292,7 +298,7 @@ Power on the %brand% Storage Array by pressing the top left button
 on the control panel for each storage controller. Wait thirty
 seconds after turning on the first storage controller before
 powering on the second storage controller. This will make it clear
-which controller will be the active controller in High Availability
+which controller is the active controller in High Availability
 configurations.
 
 Once the %brand% Storage Array is fully operational, the %brand%
@@ -344,13 +350,17 @@ and contact iXsystems support.
 
 * Two sets of screws
 
-.. image:: images/tn_screws.jpg
+.. image:: images/tn_shortscrew.png
+   :width: 5%
+
+.. image:: images/tn_longscrew.png
+   :width: 7%
 
 * One printed guide
 
 .. image:: images/tn_e16_guide.png
 
-Unused drive bays will be populated with drive tray blanks to
+Unused drive bays are populated with drive tray blanks to
 maintain proper airflow.
 
 .. index:: E16 Expansion Shelf Layout
@@ -592,7 +602,7 @@ and contact iXsystems support.
 
 .. image:: images/tn_e24_guide.png
 
-Unused drive bays will be populated with drive tray blanks to
+Unused drive bays are populated with drive tray blanks to
 maintain proper airflow.
 
 .. index:: TrueNAS E24 Expansion Shelf Layout
