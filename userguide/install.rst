@@ -288,13 +288,13 @@ lists all available drives. This includes any inserted USB thumb
 drives, which have names beginning with *da*.
 
 In this example, the user is performing a test installation using
-VirtualBox and has created an 8 GB virtual disk to hold the operating
+VirtualBox and has created a 16 GB virtual disk to hold the operating
 system.
 
 
 .. _select_drive_fig:
 
-.. figure:: images/install3.png
+.. figure:: images/install3a.png
 
    Selecting the Install Drive
 
