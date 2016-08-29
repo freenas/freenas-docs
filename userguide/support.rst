@@ -376,6 +376,9 @@ A series of instructional videos are available for %brand%:
 * `How to Update FreeNAS® 9.10
   <https://www.youtube.com/watch?v=2nvb90AhgL8>`_
 
+* `FreeNAS® 9.10 LAGG & VLAN Overview
+  <https://www.youtube.com/watch?v=wqSH_uQSArQ>`_
+
 
 .. index:: Professional Support
 .. _Professional Support:
