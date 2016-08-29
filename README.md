@@ -7,7 +7,7 @@ github account can also edit the documentation and generate git pull
 requests for their edits to be reviewed and committed. This README
 contains instructions for getting the source, generating a copy of the
 documentation, and issuing a git pull request. It assumes that the
-reader is using these instructions on either a FreeBSD/PC-BSD system or
+reader is using these instructions on either a FreeBSD/TrueOS system or
 a FreeBSD jail.
 
 ##Requirements:
