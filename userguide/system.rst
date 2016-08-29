@@ -1217,7 +1217,7 @@ Release Notes in the browser.
 
 .. _review_updates_fig:
 
-.. figure:: images/update2.png
+.. figure:: images/update2a.png
 
    Reviewing Updates
 
