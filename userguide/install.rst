@@ -269,14 +269,14 @@ The %brand% installer GRUB menu is displayed as is shown in
    write the file to a different USB stick.
 
 Wait for the menu to time out or press :kbd:`Enter` to boot into the
-installer. After the media has finished booting, the console setup
-menu is displayed as shown in
+installer. After the media boots, the console setup menu is displayed
+as shown in
 :numref:`Figure %s <console_setup_fig>`.
 
 
 .. _console_setup_fig:
 
-.. figure:: images/install2a.png
+.. figure:: images/install2b.png
 
    Console Setup
 
