@@ -36,8 +36,7 @@ The latest STABLE version of %brand% |release| can be downloaded
 from
 `http://download.freenas.org/ <http://download.freenas.org/latest/>`_.
 
-.. note:: %brand% will only install to 64-bit hardware and the
-   installer will not work on 32-bit hardware.
+.. note:: %brand% can only be installed on 64-bit hardware.
 
 The download page contains these types of files:
 
@@ -313,18 +312,16 @@ shown in
 
 .. _install_warning_fig:
 
-.. figure:: images/cdrom3.png
+.. figure:: images/cdrom3a.png
 
    Installation Warning
 
 
-.. note:: At this time, the installer does not check the size of the
-   install media before attempting an installation. A minimum size of
-   8 GB is required, but the install will appear to complete
-   successfully on smaller devices, only to fail at boot. When using
-   mirrored boot devices, it is recommended to use devices of the same
-   size. If the device sizes are different, the mirror is limited to
-   the size of the smallest device.
+.. note:: A minimum of 8 GB of space on the boot device is required.
+   However, 32 GB is recommended to provide room for future additions
+   and boot environments. When using mirrored boot devices, it is best
+   to use devices of the same size. If the device sizes are different,
+   the mirror is limited to the size of the smaller device.
 
 The installer recognizes existing installations of previous versions
 of %brand% 8.x or 9.x. When an existing installation is present, the
@@ -338,9 +335,10 @@ continue to the screen shown in
 
 .. _fresh_install_fig:
 
-.. figure:: images/upgrade1.png
+.. figure:: images/upgrade1a.png
 
    Performing a Fresh Install
+
 
 The screen shown in
 :numref:`Figure %s <set_root_pass_fig>`
@@ -350,7 +348,7 @@ which is used to log in to the administrative graphical interface.
 
 .. _set_root_pass_fig:
 
-.. figure:: images/install4.png
+.. figure:: images/install4a.png
 
    Set the Root Password
 
@@ -376,7 +374,7 @@ is shown after the installation is complete.
 
 .. _install_complete_fig:
 
-.. figure:: images/cdrom4.png
+.. figure:: images/cdrom4a.png
 
    Installation Complete
 
@@ -582,7 +580,7 @@ installed on the device and will present the message shown in
 
 .. _upgrade_install_fig:
 
-.. figure:: images/upgrade1.png
+.. figure:: images/upgrade1a.png
 
    Upgrading a %brand% Installation
 
@@ -604,7 +602,7 @@ configuration settings.
 
 .. _preserve_migrate_fig:
 
-.. figure:: images/upgrade2.png
+.. figure:: images/upgrade2a.png
 
    Preserve and Migrate Settings
 
