@@ -544,7 +544,7 @@ briefly describes the columns in the output.
 .. table:: arcstat Column Descriptions
 
    +---------------------+------------------------------------------+
-   | **Column**          | **Description**                          |
+   | Column              | Description                              |
    |                     |                                          |
    +=====================+==========================================+
    | read                | total ARC accesses/second                |

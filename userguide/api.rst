@@ -123,10 +123,10 @@ values are *True* or *False*.
 
 .. _api_json_parms_tab:
 
-.. table:: **JSON Parameters for Users Create Resource**
+.. table:: JSON Parameters for Users Create Resource
 
    +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
-   | **JSON Parameter**       | **Type** | **Description**                                                                                                      |
+   | JSON Parameter           | Type     | Description                                                                                                          |
    |                          |          |                                                                                                                      |
    |                          |          |                                                                                                                      |
    +==========================+==========+======================================================================================================================+

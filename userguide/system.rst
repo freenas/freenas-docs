@@ -230,7 +230,7 @@ explains these options in more detail.
 .. table:: NTP Servers Configuration Options
 
    +-------------+-----------+-----------------------------------------------------------------------------------------------------------------------+
-   | **Setting** | **Value** | **Description**                                                                                                       |
+   | Setting     | Value     | Description                                                                                                           |
    |             |           |                                                                                                                       |
    |             |           |                                                                                                                       |
    +=============+===========+=======================================================================================================================+
@@ -773,7 +773,7 @@ summarizes the settings that can be configured using the Email tab.
 .. table:: Email Configuration Settings
 
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | **Setting**          | **Value**            | **Description**                                                                                 |
+   | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
    | From email           | string               | the **from** email address to be used when sending email notifications                          |
@@ -940,7 +940,7 @@ summarizes the options when adding a tunable.
 .. table:: Adding a Tunable
 
    +-------------+-------------------+-------------------------------------------------------------------------------------+
-   | **Setting** | **Value**         | **Description**                                                                     |
+   | Setting     | Value             | Description                                                                         |
    |             |                   |                                                                                     |
    |             |                   |                                                                                     |
    +=============+===================+=====================================================================================+
@@ -1351,7 +1351,7 @@ The configurable options are summarized in
 .. table:: Importing a CA Options
 
    +----------------------+----------------------+---------------------------------------------------------------------------------------------------+
-   | **Setting**          | **Value**            | **Description**                                                                                   |
+   | Setting              | Value                | Description                                                                                       |
    |                      |                      |                                                                                                   |
    +======================+======================+===================================================================================================+
    | Name                 | string               | mandatory; enter a descriptive name for the CA                                                    |
@@ -1401,7 +1401,7 @@ information for your organization.
 .. table:: Internal CA Options
 
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | **Setting**          | **Value**            | **Description**                                                                                 |
+   | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
    | Name                 | string               | mandatory; input a descriptive name for the CA                                                  |
@@ -1517,7 +1517,7 @@ The configurable options are summarized in
 .. table:: Certificate Import Options
 
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | **Setting**          | **Value**            | **Description**                                                                                 |
+   | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
    | Name                 | string               | mandatory; input a descriptive name for the certificate; cannot contain the *"* character       |
@@ -1559,7 +1559,7 @@ as the signing authority.
 .. table:: Certificate Creation Options
 
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | **Setting**          | **Value**            | **Description**                                                                                 |
+   | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
    | Signing Certificate  | drop-down menu       | mandatory; select the CA which was previously imported or created using :ref:`CAs`              |
@@ -1930,7 +1930,7 @@ and described in
 .. table:: Failover Options
 
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | **Setting**    | **Value**      | **Description**                                                                                                                                       |
+   | Setting        | Value          | Description                                                                                                                                           |
    |                |                |                                                                                                                                                       |
    +================+================+=======================================================================================================================================================+
    | Disabled       | checkbox       | when checked, administratively disables failover which changes the :guilabel:`HA Enabled` icon to :guilabel:`HA Disabled` and                         |
@@ -1996,7 +1996,7 @@ summarizes the available options for this command.
 .. table:: hactl Options
 
    +--------------------+---------------------------------------------------------------------------------------------+
-   | **Option**         | **Description**                                                                             |
+   | Option             | Description                                                                                 |
    |                    |                                                                                             |
    +====================+=============================================================================================+
    | **enable**         | administratively enables failover                                                           |

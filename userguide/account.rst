@@ -71,27 +71,27 @@ summarizes the available options when creating a group.
 
 .. _new_group_tab:
 
-.. table:: Options When Creating a Group
+.. table:: Group Creation Options
 
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | **Setting**         | **Value** | **Description**                                                                                                          |
+   | Setting             | Value     | Description                                                                                                              |
    |                     |           |                                                                                                                          |
    |                     |           |                                                                                                                          |
    +=====================+===========+==========================================================================================================================+
-   | Group ID            | string    | the next available group ID will be suggested for you; by convention, UNIX groups containing user accounts have an ID    |
-   |                     |           | greater than 1000 and groups required by a service have an ID equal to the default port number used by the service (e.g. |
-   |                     |           | the sshd group has an ID of 22)                                                                                          |
+   | Group ID            | string    | the next available group ID will be suggested for you; by convention, UNIX groups containing user accounts have          |
+   |                     |           | an ID greater than 1000 and groups required by a service have an ID equal to the default port number used by the         |
+   |                     |           | service (e.g. the sshd group has an ID of 22)                                                                            |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
    | Group Name          | string    | mandatory                                                                                                                |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Permit Sudo         | checkbox  | if checked, members of the group have permission to use `sudo <http://www.sudo.ws/>`_; when using sudo, a user will be   |
-   |                     |           | prompted for their own password                                                                                          |
+   | Permit Sudo         | checkbox  | if checked, members of the group have permission to use `sudo <http://www.sudo.ws/>`_; when using sudo, a user will      |
+   |                     |           | be prompted for their own password                                                                                       |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Allow repeated GIDs | checkbox  | allows multiple groups to share the same group id (GID); this is useful when a GID is already associated with the UNIX   |
-   |                     |           | permissions for existing data                                                                                            |
+   | Allow repeated GIDs | checkbox  | allows multiple groups to share the same group id (GID); this is useful when a GID is already associated with the        |
+   |                     |           | UNIX permissions for existing data                                                                                       |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
 
@@ -220,7 +220,7 @@ created or modified.
 .. table:: User Account Configuration
 
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | **Setting**                | **Value**       | **Description**                                                                                                                                       |
+   | Setting                    | Value           | Description                                                                                                                                           |
    |                            |                 |                                                                                                                                                       |
    |                            |                 |                                                                                                                                                       |
    +============================+=================+=======================================================================================================================================================+
@@ -299,7 +299,7 @@ created or modified.
 .. table:: Available Shells
 
    +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | **Shell**    | **Description**                                                                                                      |
+   | Shell        | Description                                                                                                          |
    |              |                                                                                                                      |
    +==============+======================================================================================================================+
    | netcli.sh    | user can access the Console Setup menu shown in :numref:`Figure %s <console_setup_menu_fig>`, even if it is          |

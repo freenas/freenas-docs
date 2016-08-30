@@ -171,7 +171,7 @@ information given when the share was created.
 .. table:: AFP Share Configuration Options
 
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | **Setting**                  | **Value**     | **Description**                                                                                             |
+   | Setting                      | Value         | Description                                                                                                 |
    |                              |               |                                                                                                             |
    +==============================+===============+=============================================================================================================+
    | Path                         | browse button | browse to the volume/dataset to share; do not nest additional volumes, datasets, or symbolic links beneath  |
@@ -534,7 +534,7 @@ button.
 .. table:: NFS Share Options
 
    +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | **Setting**         | **Value**      | **Description**                                                                                                    |
+   | Setting             | Value          | Description                                                                                                        |
    |                     |                |                                                                                                                    |
    +=====================+================+====================================================================================================================+
    | Path                | browse button  | the path that clients will use when mounting the share; click :guilabel:`Add extra path` to select                 |
@@ -944,7 +944,7 @@ summarizes the available options.
 .. table:: WebDAV Share Options
 
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | **Setting**                  | **Value**     | **Description**                                                                                             |
+   | Setting                      | Value         | Description                                                                                                 |
    |                              |               |                                                                                                             |
    +==============================+===============+=============================================================================================================+
    | Share Path Name              | string        | input a name for the share                                                                                  |
@@ -1029,7 +1029,7 @@ details for each configurable option.
 .. table:: Options for a CIFS Share
 
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | **Setting**                  | **Value**     | **Description**                                                                                             |
+   | Setting                      | Value         | Description                                                                                                 |
    |                              |               |                                                                                                             |
    +==============================+===============+=============================================================================================================+
    | Path                         | browse button | select volume/dataset/directory to share                                                                    |
@@ -1153,7 +1153,7 @@ for more details.
 .. table:: Available VFS Modules
 
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | **Value**           | **Description**                                                                                                                            |
+   | Value               | Description                                                                                                                                |
    |                     |                                                                                                                                            |
    +=====================+============================================================================================================================================+
    | acl_tdb             | stores NTFS ACLs in a tdb file in order to enable full mapping of Windows ACLs                                                             |
@@ -1781,7 +1781,7 @@ Configuration screen.
 .. table:: Target Global Configuration Settings
 
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-   | **Setting**                     | **Value**                    | **Description**                                                                           |
+   | Setting                         | Value                        | Description                                                                               |
    |                                 |                              |                                                                                           |
    |                                 |                              |                                                                                           |
    +=================================+==============================+===========================================================================================+
@@ -1828,7 +1828,7 @@ link :guilabel:`Add extra Portal IP`.
 .. table:: Portal Configuration Settings
 
    +-----------------------+----------------+-----------------------------------------------------------------------------+
-   | **Setting**           | **Value**      | **Description**                                                             |
+   | Setting               | Value          | Description                                                                 |
    |                       |                |                                                                             |
    |                       |                |                                                                             |
    +=======================+================+=============================================================================+
@@ -1914,7 +1914,7 @@ initiator.
 .. table:: Initiator Configuration Settings
 
    +--------------------+-----------+--------------------------------------------------------------------------------------+
-   | **Setting**        | **Value** | **Description**                                                                      |
+   | Setting            | Value     | Description                                                                          |
    |                    |           |                                                                                      |
    +====================+===========+======================================================================================+
    | Initiators         | string    | use *ALL* keyword or a list of initiator hostnames separated by spaces               |
@@ -1981,7 +1981,7 @@ authorized access:
 .. table:: Authorized Access Configuration Settings
 
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | **Setting** | **Value** | **Description**                                                                                                                  |
+   | Setting     | Value     | Description                                                                                                                      |
    |             |           |                                                                                                                                  |
    +=============+===========+==================================================================================================================================+
    | Group ID    | integer   | allows different groups to be configured with different authentication profiles; for instance, all users with a Group ID of *1*  |
@@ -2062,7 +2062,7 @@ summarizes the settings that can be configured when creating a Target.
 .. table:: Target Settings
 
    +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-   | **Setting**                 | **Value**      | **Description**                                                                                             |
+   | Setting                     | Value          | Description                                                                                                 |
    |                             |                |                                                                                                             |
    |                             |                |                                                                                                             |
    +=============================+================+=============================================================================================================+
@@ -2159,7 +2159,7 @@ name.**
 .. table:: Extent Configuration Settings
 
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | **Setting**        | **Value**      | **Description**                                                                                                      |
+   | Setting            | Value          | Description                                                                                                          |
    |                    |                |                                                                                                                      |
    +====================+================+======================================================================================================================+
    | Extent Name        | string         | name of extent; if the :guilabel:`Extent size` is not *0*, it cannot be an existing file within the                  |
@@ -2246,7 +2246,7 @@ targets and extents.
 .. table:: Target/Extents Configuration Settings
 
    +-------------+----------------+--------------------------------------------------------------------------------------------------------+
-   | **Setting** | **Value**      | **Description**                                                                                        |
+   | Setting     | Value          | Description                                                                                            |
    |             |                |                                                                                                        |
    +=============+================+========================================================================================================+
    | Target      | drop-down menu | select the pre-created target                                                                          |

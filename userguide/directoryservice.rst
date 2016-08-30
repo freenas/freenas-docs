@@ -97,7 +97,7 @@ display these settings by checking the box
 .. table:: Active Directory Configuration Options
 
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | **Setting**              | **Value**     | **Description**                                                                                                                                       |
+   | Setting                  | Value         | Description                                                                                                                                           |
    |                          |               |                                                                                                                                                       |
    +==========================+===============+=======================================================================================================================================================+
    | Domain Name              | string        | name of Active Directory domain (e.g. *example.com*) or child domain (e.g.                                                                            |
@@ -223,7 +223,7 @@ whenever changes are made to this setting.
 .. table:: ID Mapping Backends
 
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | **Value**      | **Description**                                                                                                                          |
+   | Value          | Description                                                                                                                              |
    |                |                                                                                                                                          |
    +================+==========================================================================================================================================+
    | ad             | AD server uses RFC2307 or Services For Unix schema extensions; mappings must be provided in advance by adding the uidNumber attributes   |
@@ -493,7 +493,7 @@ Those who are new to LDAP terminology should skim through the
 .. table:: LDAP Configuration Options
 
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | **Setting**             | **Value**      | **Description**                                                                                                |
+   | Setting                 | Value          | Description                                                                                                    |
    |                         |                |                                                                                                                |
    +=========================+================+================================================================================================================+
    | Hostname                | string         | hostname or IP address of LDAP server                                                                          |
@@ -637,10 +637,10 @@ summarizes the configuration options.
 
 .. _nis_config_tab:
 
-.. table:: **NIS Configuration Options**
+.. table:: NIS Configuration Options
 
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------+
-   | **Setting** | **Value** | **Description**                                                                                                            |
+   | Setting     | Value     | Description                                                                                                                |
    |             |           |                                                                                                                            |
    |             |           |                                                                                                                            |
    +=============+===========+============================================================================================================================+
@@ -702,7 +702,7 @@ box :guilabel:`Show advanced fields by default` in
 .. table:: NT4 Configuration Options
 
    +------------------------+-----------+-------------------------------------------------------------------------------------------------------+
-   | **Setting**            | **Value** | **Description**                                                                                       |
+   | Setting                | Value     | Description                                                                                           |
    |                        |           |                                                                                                       |
    |                        |           |                                                                                                       |
    +========================+===========+=======================================================================================================+
@@ -772,7 +772,7 @@ display these settings by checking the box
 .. table:: Kerberos Realm Options
 
    +------------------------+-----------+------------------------------------------------------------------------------------------------------------------+
-   | **Setting**            | **Value** | **Description**                                                                                                  |
+   | Setting                | Value     | Description                                                                                                      |
    |                        |           |                                                                                                                  |
    +========================+===========+==================================================================================================================+
    | Realm                  | string    | mandatory; name of the realm                                                                                     |

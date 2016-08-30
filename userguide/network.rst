@@ -60,7 +60,7 @@ but can be changed to meet requirements of the local network.
 .. table:: Global Configuration Settings
 
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-   | **Setting**            | **Value**  | **Description**                                                                                                      |
+   | Setting                | Value      | Description                                                                                                          |
    |                        |            |                                                                                                                      |
    +========================+============+======================================================================================================================+
    | Hostname               | string     | system host name                                                                                                     |
@@ -162,7 +162,7 @@ interrupted while the changes are applied.
 .. table:: Interface Configuration Settings
 
    +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-   | **Setting**         | **Value**      | **Description**                                                                                                     |
+   | Setting             | Value          | Description                                                                                                         |
    |                     |                |                                                                                                                     |
    +=====================+================+=====================================================================================================================+
    | NIC                 | drop-down menu | select the FreeBSD device name; is a read-only field when editing an interface                                      |
@@ -288,7 +288,7 @@ summarizes the options available when configuring IPMI with the
 .. table:: IPMI Options
 
    +----------------------+----------------+-----------------------------------------------------------------------------+
-   | **Setting**          | **Value**      | **Description**                                                             |
+   | Setting              | Value          | Description                                                                 |
    |                      |                |                                                                             |
    |                      |                |                                                                             |
    +======================+================+=============================================================================+
@@ -536,7 +536,7 @@ menu option to get access into the GUI through the new lagg interface.
 .. table:: Configurable Options for a lagg
 
    +---------------------+----------------+----------------------------------------------------------------------------------+
-   | **Setting**         | **Value**      | **Description**                                                                  |
+   | Setting             | Value          | Description                                                                      |
    |                     |                |                                                                                  |
    |                     |                |                                                                                  |
    +=====================+================+==================================================================================+
@@ -595,7 +595,7 @@ The configurable options are summarized in
 .. table:: Configuring a Member Interface
 
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
-   | **Setting**          | **Value**      | **Description**                                                                                |
+   | Setting              | Value          | Description                                                                                    |
    |                      |                |                                                                                                |
    |                      |                |                                                                                                |
    +======================+================+================================================================================================+
@@ -685,7 +685,7 @@ The available options are summarized in
 .. table:: Static Route Options
 
    +---------------------+-----------+-------------------------------------+
-   | **Setting**         | **Value** | **Description**                     |
+   | Setting             | Value     | Description                         |
    |                     |           |                                     |
    |                     |           |                                     |
    +=====================+===========+=====================================+
@@ -754,7 +754,7 @@ summarizes the configurable fields.
 .. table:: Adding a VLAN
 
    +-------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | **Setting**       | **Value**      | **Description**                                                                                   |
+   | Setting           | Value          | Description                                                                                       |
    |                   |                |                                                                                                   |
    +===================+================+===================================================================================================+
    | Virtual Interface | string         | use the format *vlanX* where                                                                      |

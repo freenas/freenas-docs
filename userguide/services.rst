@@ -112,7 +112,7 @@ which are described in
 .. table:: Global AFP Configuration Options
 
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | **Setting**             | **Value**      | **Description**                                                                                                 |
+   | Setting                 | Value          | Description                                                                                                     |
    |                         |                |                                                                                                                 |
    +=========================+================+=================================================================================================================+
    | Guest Access            | checkbox       | if checked, clients will not be prompted to authenticate before accessing AFP shares                            |
@@ -228,7 +228,7 @@ This configuration screen is really a front-end to
 .. table:: Global CIFS Configuration Options
 
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | **Setting**                      | **Value**      | **Description**                                                                                       |
+   | Setting                          | Value          | Description                                                                                           |
    |                                  |                |                                                                                                       |
    +==================================+================+=======================================================================================================+
    #ifdef freenas
@@ -351,7 +351,7 @@ This configuration screen is really a front-end to
 .. table:: SMB Protocol Versions
 
    +----------------+------------------------------------------------------------+
-   | **Value**      | **Description**                                            |
+   | Value          | Description                                                |
    |                |                                                            |
    +================+============================================================+
    | CORE           | used by DOS                                                |
@@ -534,7 +534,7 @@ summarizes the available options.
 .. table:: Domain Controller Configuration Options
 
    +------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | **Setting**            | **Value**      | **Description**                                                                                                                                                                           |
+   | Setting                | Value          | Description                                                                                                                                                                               |
    |                        |                |                                                                                                                                                                                           |
    |                        |                |                                                                                                                                                                                           |
    +========================+================+===========================================================================================================================================================================================+
@@ -600,7 +600,7 @@ start the DDNS service in
 .. table:: DDNS Configuration Options
 
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | **Setting**          | **Value**      | **Description**                                                                                                    |
+   | Setting              | Value          | Description                                                                                                        |
    |                      |                |                                                                                                                    |
    +======================+================+====================================================================================================================+
    | Provider             | drop-down menu | several providers are supported; if your provider is not listed, leave this field blank and specify the custom     |
@@ -681,7 +681,7 @@ summarizes the available options when configuring the FTP server.
 .. table:: FTP Configuration Options
 
    +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | **Setting**                                                   | **Value**      | **Description**                                                                     |
+   | Setting                                                       | Value          | Description                                                                         |
    |                                                               |                |                                                                                     |
    +===============================================================+================+=====================================================================================+
    | Port                                                          | integer        | port the FTP service listens on                                                     |
@@ -1114,7 +1114,7 @@ summarizes the configuration options for the LLDP service.
 .. table:: LLDP Configuration Options
 
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | **Setting**            | **Value**  | **Description**                                                                                                     |
+   | Setting                | Value      | Description                                                                                                         |
    |                        |            |                                                                                                                     |
    +========================+============+=====================================================================================================================+
    | Interface Description  | checkbox   | when checked, receive mode is enabled and received peer information is saved in interface descriptions              |
@@ -1159,7 +1159,7 @@ summarizes the configuration options for the NFS service.
 .. table:: NFS Configuration Options
 
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | **Setting**            | **Value**  | **Description**                                                                                                     |
+   | Setting                | Value      | Description                                                                                                         |
    |                        |            |                                                                                                                     |
    +========================+============+=====================================================================================================================+
    | Number of servers      | integer    | run :command:`sysctl -n kern.smp.cpus` from Shell to determine the number; do not exceed the number listed in the   |
@@ -1246,7 +1246,7 @@ summarizes the options that can be configured for the rsync daemon:
 .. table:: Rsyncd Configuration Options
 
    +----------------------+-----------+----------------------------------------------------------------------+
-   | **Setting**          | **Value** | **Description**                                                      |
+   | Setting              | Value     | Description                                                          |
    |                      |           |                                                                      |
    |                      |           |                                                                      |
    +======================+===========+======================================================================+
@@ -1286,7 +1286,7 @@ module.
 .. table:: Rsync Module Configuration Options
 
    +----------------------+----------------+-------------------------------------------------------------------------------+
-   | **Setting**          | **Value**      | **Description**                                                               |
+   | Setting              | Value          | Description                                                                   |
    |                      |                |                                                                               |
    |                      |                |                                                                               |
    +======================+================+===============================================================================+
@@ -1387,7 +1387,7 @@ summarizes the options in the S.M.A.R.T configuration screen.
 .. table:: S.M.A.R.T Configuration Options
 
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | **Setting**     | **Value**                  | **Description**                                                                                             |
+   | Setting         | Value                      | Description                                                                                                 |
    |                 |                            |                                                                                                             |
    |                 |                            |                                                                                                             |
    +=================+============================+=============================================================================================================+
@@ -1453,7 +1453,7 @@ summarizes the configuration options.
 .. table:: SNMP Configuration Options
 
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | **Setting**          | **Value**      | **Description**                                                                                  |
+   | Setting              | Value          | Description                                                                                      |
    |                      |                |                                                                                                  |
    +======================+================+==================================================================================================+
    | Location             | string         | optional description of system's location                                                        |
@@ -1540,7 +1540,7 @@ display these settings by checking the box
 .. table:: SSH Configuration Options
 
    +-------------------------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | **Setting**                   | **Value**      | **Description**                                                                                          |
+   | Setting                       | Value          | Description                                                                                              |
    |                               |                |                                                                                                          |
    +===============================+================+==========================================================================================================+
    | Bind Interfaces               | selection      | only available in :guilabel:`Advanced Mode`; by default, SSH listens on all interfaces unless            |
@@ -1702,7 +1702,7 @@ summarizes the available options:
 .. table:: TFTP Configuration Options
 
    +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | **Setting**     | **Value**     | **Description**                                                                                                          |
+   | Setting         | Value         | Description                                                                                                              |
    |                 |               |                                                                                                                          |
    +=================+===============+==========================================================================================================================+
    | Directory       | browse button | browse to an **existing** directory to be used for storage; some devices require a specific directory name, refer to the |
@@ -1763,7 +1763,7 @@ summarizes the options in the UPS Configuration screen.
 .. table:: UPS Configuration Options
 
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | **Setting**               | **Value**      | **Description**                                                                                       |
+   | Setting                   | Value          | Description                                                                                           |
    |                           |                |                                                                                                       |
    |                           |                |                                                                                                       |
    +===========================+================+=======================================================================================================+
@@ -1887,7 +1887,7 @@ summarizes the available options.
 .. table:: WebDAV Configuration Options
 
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | **Setting**               | **Value**      | **Description**                                                                                       |
+   | Setting                   | Value          | Description                                                                                           |
    |                           |                |                                                                                                       |
    |                           |                |                                                                                                       |
    +===========================+================+=======================================================================================================+
