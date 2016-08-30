@@ -184,16 +184,16 @@ system does not have at least 8 GB of RAM because of the abundance of
 information that %brand% may not behave properly with less memory.
 
 
-.. _Compact or USB Flash:
+.. _The Operating System Device:
 
-Compact or USB Flash
-~~~~~~~~~~~~~~~~~~~~
+The Operating System Device
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The %brand% operating system is installed to at least one device that
 is separate from the storage disks. The device can be a USB stick,
-compact flash, or SSD. Technically, it can also be installed onto a
-hard drive, but this is discouraged as that drive will then become
-unavailable for data storage.
+SSD, compact flash, or DOM (Disk on Module). Installation to a hard
+drive is discouraged as that drive is then not available for data
+storage.
 
 .. note:: To write the installation file to a USB stick, **two** USB
    ports are needed, each with an inserted USB device. One USB stick
@@ -210,7 +210,7 @@ will be installed, keep these points in mind:
 
 - the *bare minimum* size is 8 GB. This provides room for the
   operating system and several boot environments. Since each update
-  creates a boot environment, this is the *recommended* minimum. 16 GB
+  creates a boot environment, this is the *recommended* minimum. 32 GB
   provides room for more boot environments.
 
 - if you plan to make your own boot environments, budget about 1 GB of
@@ -219,9 +219,8 @@ will be installed, keep these points in mind:
   environments can be created and deleted using
   :menuselection:`System --> Boot`.
 
-- when using a USB stick, it is recommended to use a quality, name
-  brand USB stick as ZFS will quickly reveal errors on cheap, poorly
-  made sticks.
+- use quality, name-brand USB sticks, as ZFS will quickly reveal
+  errors on cheap, poorly-made sticks.
 
 - for a more reliable boot disk, use two identical devices and select
   them both during the installation. This will create a mirrored boot

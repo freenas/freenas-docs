@@ -78,28 +78,28 @@ indicate a corrupted installer file that should not be used.
 Preparing the Media
 -------------------
 
-The %brand% installer can run from either a CD or a USB thumb
-drive.
+The %brand% installer can run from either a CD or a USB memory
+stick.
 
-To burn the :file:`.iso` file to CD, use a CD burning utility.
+Writing the :file:`.iso` file to a CD requires CD burning utility.
 
-The command which is used to burn the :file:`.iso` file to a compact
-flash card or USB thumb drive depends on the operating system. This
+The command used to burn the :file:`.iso` file to a USB memory
+stick or Compact Flash card depends on the operating system. This
 section demonstrates utilities for several operating systems.
 
-.. note:: To write the installation file to a USB stick, **two** USB
-   ports are needed, each with an inserted USB device. One USB stick
-   contains the installer.  The other USB stick is the destination for
-   the %brand% installation. Take care to select the correct USB
-   device for the %brand% installation. It is **not** possible to
-   install %brand% onto the same USB stick containing the installer.
-   After installation, remove the installer USB stick. It might also
-   be necessary to adjust the BIOS configuration to boot from the new
-   %brand% USB stick.
+.. note:: To install from a USB stick to another USB stick, **two**
+   USB ports are needed, each with an inserted USB device. One USB
+   stick contains the installer.  The other USB stick is the
+   destination for the %brand% installation. Take care to select the
+   correct USB device for the %brand% installation. It is **not**
+   possible to install %brand% onto the same USB stick containing the
+   installer. After installation, remove the installer USB stick. It
+   might also be necessary to adjust the BIOS configuration to boot
+   from the new %brand% USB stick.
 
-After writing the :file:`.iso` file to the installation media, make
-sure that the boot order in the BIOS is set to boot from that device,
-then boot the system to start the installation.
+Make sure that the boot device order in the BIOS is set to boot from
+the device containing the %brand% installer media, then boot the
+system to start the installation.
 
 
 .. _On FreeBSD or Linux:
@@ -108,8 +108,8 @@ On FreeBSD or Linux
 ~~~~~~~~~~~~~~~~~~~
 
 On a FreeBSD or Linux system, the :command:`dd` command can be used to
-write the :file:`.iso` file to an inserted USB thumb drive or compact
-flash device.
+write the :file:`.iso` file to an inserted USB thumb drive or Compact
+Flash device.
 :ref:`Example: Writing the *.iso* file to a USB Thumb Drive
 <install_write_iso_topic>`
 demonstrates writing the image to the first USB device (*/dev/da0*) on
@@ -298,15 +298,15 @@ system.
    Selecting the Install Drive
 
 
-Use the arrow keys to highlight the destination USB drive, compact
-flash device, or virtual disk. Press the :kbd:`spacebar` to select it.
-To mirror the boot device, move to the second device and press
-:kbd:`spacebar` to select it as well. After making these selections,
-press :kbd:`Enter`. %brand% displays the warning shown in
-:numref:`Figure %s <install_warning_fig>`,
-a reminder not to install the operating system on a drive that is
-meant for storage. Press :kbd:`Enter` to continue on to the screen
-shown in
+Use the arrow keys to highlight the destination USB drive, SSD,
+DOM (Disk on Module), Compact Flash device, or virtual disk. Press the
+:kbd:`spacebar` to select it. To mirror the boot device, move to the
+second device and press :kbd:`spacebar` to select it also. After
+making these selections, press :kbd:`Enter`. The warning shown in
+:numref:`Figure %s <install_warning_fig>`
+is displayed, a reminder not to install the operating system on a
+drive that is meant for storage. Press :kbd:`Enter` to continue on to
+the screen shown in
 :numref:`Figure %s <set_root_pass_fig>`.
 
 
