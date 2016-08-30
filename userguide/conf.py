@@ -210,7 +210,7 @@ epub_scheme = 'URL'
 epub_identifier = 'freenas.org'
 
 # A unique identification for the text.
-epub_uid = '9.10.1'
+epub_uid = release
 
 # A tuple containing the cover image and cover page html template filenames.
 #epub_cover = ()
