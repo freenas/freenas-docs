@@ -57,10 +57,10 @@ operating systems. A plugin system is provided for extending the
 built-in features by installing additional software.
 
 
-.. _What's New in |release|:
+.. _What Is New in |version|:
 
-What's New in |version|
------------------------
+What Is New in |version|
+------------------------
 
 * Added support for Avago/Broadcom Cutlass 12 Gbps 16-port
   controllers.
@@ -74,10 +74,10 @@ What's New in |version|
 * Duplicate MAC addresses are not allowed in jails.
 
 
-.. _What's Changed Since |release|:
+.. _What Has Changed Since |version|:
 
-What's Changed Since |version|
-------------------------------
+What Has Changed Since |version|
+--------------------------------
 
 %brand% uses a "rolling release" model instead of point releases. The
 :ref:`Update` mechanism makes it easy to keep up-to-date with the
@@ -93,6 +93,8 @@ changes that have occurred since |version| was released.
 
 * The mps driver for 6 G Avago SAS HBAs is version 21, which requires
   phase 20 firmware on the controller.
+
+* Samba has been updated to version 4.4.5.
 
 
 .. index:: Hardware Recommendations
