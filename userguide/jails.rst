@@ -1137,9 +1137,9 @@ drop-down menu and will no longer be available for creating new jails.
 Using iohyve
 ------------
 
-Beginning with version |version|, %brand% includes the
+Beginning with %brand% 9.3.1, the
 `iohyve <https://github.com/pr1ntf/iohyve>`_
-command line utility for creating, managing, and launching
+command line utility is included for creating, managing, and launching
 `bhyve <https://en.wikipedia.org/wiki/Bhyve>`_ guests.
 
 .. note:: This type of virtualization requires an Intel processor with
