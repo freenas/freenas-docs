@@ -1168,7 +1168,7 @@ interface:
    Loading kernel modules...
    Setting up bridge0 on em0...
    net.link.tap.up_onopen: 0 -> 1
-  
+
    ln -s /mnt/iohyve /iohyve
 
 
@@ -1181,7 +1181,7 @@ download. This example shows fetching the 64-bit version of FreeBSD
    iohyve fetch ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/10.3/FreeBSD-10.3-RELEASE-amd64-bootonly.iso
    Fetching ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/10.3/FreeBSD-10.3-RELEASE-amd64-bootonly.iso...
    /iohyve/ISO/FreeBSD-10.3-RELEASE-amd64-bootonly.iso 100% of 232 MB 2443 kBps 01m38s
-  
+
    iohyve isolist
    Listing ISO's...
    FreeBSD-10.3-RELEASE-amd64-bootonly.iso
@@ -1208,3 +1208,11 @@ Install a guest using a specified ISO:
 
    iohyve install freebsd10.3 FreeBSD-10.3-RELEASE-amd64-bootonly.iso
    Installing freebsd10.3...
+
+More information on iohyve:
+
+  * `Forum post on iohyve
+    <https://forums.freenas.org/index.php?threads/virtualbox-vs-iohyve-bhyve-for-crashplan.45067/#post-304017>`_
+
+  * `Running virtual machines using iohyve on FreeNAS® 9.10
+    <https://www.youtube.com/watch?v=rCDh9K16Q5Q>`_
