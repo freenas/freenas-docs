@@ -94,7 +94,13 @@ changes that have occurred since |version| was released.
 * The mps driver for 6 G Avago SAS HBAs is version 21, which requires
   phase 20 firmware on the controller.
 
-* Samba has been updated to version 4.4.5.
+* Deletion of in-use LUNs is not allowed.
+
+* Samba has been updated to version 4.4.5
+  `(changelog)
+  <https://www.samba.org/samba/history/samba-4.4.5.html>`_.
+
+* Allow customization of UPS shutdown command.
 
 
 .. index:: Hardware Recommendations
