@@ -863,7 +863,7 @@ Anonymous FTP may be appropriate for a small network where the
 %brand% system is not accessible from the Internet and everyone in
 your internal network needs easy access to the stored data. Anonymous
 FTP does not require you to create a user account for every user. In
-addition, passwords are not required so you don't have to manage
+addition, passwords are not required so it is not necessary to manage
 changed passwords on the %brand% system.
 
 To configure anonymous FTP:
@@ -1052,7 +1052,7 @@ running, open :ref:`Shell` and issue the command:
    sockstat -4p 21
 
 
-If there is nothing listening on port 21, the FTP service isn't
+If there is nothing listening on port 21, the FTP service is not
 running. To see the error message that occurs when %brand% tries to
 start the FTP service, go to
 :menuselection:`System --> Advanced`,
@@ -1149,7 +1149,7 @@ summarizes the configuration options for the NFS service.
 
 .. _config_nfs_fig:
 
-.. figure:: images/nfs1c.png
+.. figure:: images/nfs1d.png
 
    Configuring NFS
 
@@ -1201,9 +1201,16 @@ summarizes the configuration options for the NFS service.
    |                        |            | to bind to                                                                                                          |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Support>16 groups      |            | check this box if any users are members of more than 16 groups (useful in AD environments); note that this assumes  |
+   | Support>16 groups      | checkbox   | check this box if any users are members of more than 16 groups (useful in AD environments); note that this assumes  |
    |                        |            | that group membership has been configured correctly on the NFS server                                               |
    |                        |            |                                                                                                                     |
+   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
+   | Log mountd(8) requests | checkbox   | enable logging of `mountd(8) <http://www.freebsd.org/cgi/man.cgi?query=mountd>`_ mount requests with                |
+   |                        |            | `syslog(3) <http://www.freebsd.org/cgi/man.cgi?query=syslog>`_                                                      |
+   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
+   | Log rpcstatd(8) and    | checkbox   | enable logging of `rpc.statd(8) <http://www.freebsd.org/cgi/man.cgi?query=rpc.statd>`_ and                          |
+   | rpclockd(8)            |            | `rpc.lockd(8) <http://www.freebsd.org/cgi/man.cgi?query=rpc.lockd>`_ with                                           |
+   |                        |            | `syslog(3) <http://www.freebsd.org/cgi/man.cgi?query=syslog>`_                                                      |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
 
 
@@ -1395,8 +1402,8 @@ summarizes the options in the S.M.A.R.T configuration screen.
    |                 |                            |                                                                                                             |
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Power mode      | drop-down menu             | the configured test is not performed if the system enters the specified power mode; choices are:            |
-   |                 |                            | *Never*,                                                                                                    |                                                       
-   |                 |                            | *Sleep*,                                                                                                    |                                      
+   |                 |                            | *Never*,                                                                                                    |
+   |                 |                            | *Sleep*,                                                                                                    |
    |                 |                            | *Standby*, or                                                                                               |
    |                 |                            | *Idle*                                                                                                      |
    |                 |                            |                                                                                                             |
@@ -1582,7 +1589,7 @@ display these settings by checking the box
    +-------------------------------+----------------+----------------------------------------------------------------------------------------------------------+
    | Extra Options                 | string         | only available in :guilabel:`Advanced Mode`; additional                                                  |
    |                               |                | `sshd_config(5) <http://www.freebsd.org/cgi/man.cgi?query=sshd_config>`_                                 |
-   |                               |                | options not covered in this screen, one per line; these options are case-sensitive and mis-spellings may |
+   |                               |                | options not covered in this screen, one per line; these options are case-sensitive and misspellings may  |
    |                               |                | prevent the SSH service from starting                                                                    |
    |                               |                |                                                                                                          |
    +-------------------------------+----------------+----------------------------------------------------------------------------------------------------------+
@@ -1827,7 +1834,7 @@ summarizes the options in the UPS Configuration screen.
    |                           |                | separate multiple email addresses with a semicolon                                                    |
    |                           |                |                                                                                                       |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Email Subject             | string         | Subject line to be used in the email                                                                  |
+   | Email Subject             | string         | subject line to be used in the email                                                                  |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Power Off UPS             | checkbox       | if checked, the UPS will also power off after shutting down the FreeNAS system                        |
    |                           |                |                                                                                                       |
@@ -1914,7 +1921,7 @@ summarizes the available options.
    |                           |                |                                                                                                       |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Webdav SSL Certificate    | drop-down menu | only appears if the selected :guilabel:`Protocol` is *HTTPS* or                                       |
-   |                           |                | *HTTP+HTTPS*; select the the SSL certificate to be used for encrypted connections; to create a        |
+   |                           |                | *HTTP+HTTPS*; select the SSL certificate to be used for encrypted connections; to create a            |
    |                           |                | certificate, use :menuselection:`System --> Certificates`                                             |
    |                           |                |                                                                                                       |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
