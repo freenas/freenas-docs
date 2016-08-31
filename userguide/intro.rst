@@ -102,6 +102,10 @@ changes that have occurred since |version| was released.
 
 * Allow customization of UPS shutdown command.
 
+* `Midnight Commander
+  <http://www.midnight-commander.org/>`_ is now included in the base
+  operating system.
+
 
 .. index:: Hardware Recommendations
 .. _Hardware Recommendations:
