@@ -102,6 +102,10 @@ changes that have occurred since |version| was released.
 
 * Allow customization of UPS shutdown command.
 
+* `cmdwatch
+  <https://www.freebsd.org/cgi/man.cgi?query=watch&manpath=FreeBSD+10.3-RELEASE+and+Ports&arch=default&format=html>`_
+  is now included in the base operating system.
+
 * `Midnight Commander
   <http://www.midnight-commander.org/>`_ is now included in the base
   operating system.
