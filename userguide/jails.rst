@@ -73,18 +73,24 @@ The rest of this section describes:
 Jails Configuration
 -------------------
 
-Before creating any jails, a volume or dataset must be selected to
-hold the jails. Click
+Jails are stored in a volume or dataset.
+**Using a separate dataset for the**
+:guilabel:`Jail Root` **is strongly recommended**. The volume
+or dataset to be used must already exist or can be created with
+:ref:`Volume Manager`.
+
+.. note:: The :guilabel:`Jail Root` volume or dataset cannot be
+   created on a :ref:`Share <Sharing>`.
+
+Begin global jail configuration by choosing
 :menuselection:`Jails --> Configuration`
-to access the screen shown in
+to open the screen shown in
 :numref:`Figure %s <global_jail_config_fig>`.
-**It is recommended to create a dataset to use for the**
-:guilabel:`Jail Root`. As jails are created, they are automatically
-installed into their own dataset under the specified path. For
-example, if the :guilabel:`Jail Root` is set to
-:file:`/mnt/volume1/dataset1` and a jail named *jail1* is created, it
-will be installed into its own dataset named
-:file:`/mnt/volume1/dataset1/jail1`.
+Jails are automatically installed into their own dataset under the
+specified path as they are created. For example, if the
+:guilabel:`Jail Root` is set to :file:`/mnt/volume1/dataset1` and a
+jail named *jail1* is created, it is installed into its own dataset
+named :file:`/mnt/volume1/dataset1/jail1`.
 
 
 .. _global_jail_config_fig:
@@ -92,6 +98,7 @@ will be installed into its own dataset named
 .. figure:: images/jails1.png
 
    Global Jail Configuration
+
 
 .. warning:: If any :ref:`Plugins` have already been installed, the
    :guilabel:`Jail Root`, :guilabel:`IPv4 Network`,
