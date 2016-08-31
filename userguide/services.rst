@@ -1801,6 +1801,9 @@ summarizes the options in the UPS Configuration screen.
    |                           |                | unless power is restored                                                                              |
    |                           |                |                                                                                                       |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Shutdown Command          | string         | the command to run to shut down the computer when battery power is low or shutdown timer runs out     |
+   |                           |                |                                                                                                       |
+   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Monitor User              | string         | default is *upsmon*                                                                                   |
    |                           |                |                                                                                                       |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
@@ -1823,6 +1826,8 @@ summarizes the options in the UPS Configuration screen.
    | To email                  | email address  | if :guilabel:`Send Email` box checked, email address to receive status updates;                       |
    |                           |                | separate multiple email addresses with a semicolon                                                    |
    |                           |                |                                                                                                       |
+   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Email Subject             | string         | Subject line to be used in the email                                                                  |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Power Off UPS             | checkbox       | if checked, the UPS will also power off after shutting down the FreeNAS system                        |
    |                           |                |                                                                                                       |
