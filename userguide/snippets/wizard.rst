@@ -40,7 +40,7 @@ wizard configuration screen.
 
 .. note:: You can exit the wizard at any time by clicking the
    :guilabel:`Exit` button. However, exiting the wizard will not save
-   any selections. The Wizard can always be run again by clicking the
+   any selections. The wizard can always be run again by clicking the
    :guilabel:`Wizard` icon. Alternately, the %brand% GUI can be used
    to configure the system, as described in the rest of this Guide.
 
