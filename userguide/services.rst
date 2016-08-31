@@ -1749,7 +1749,7 @@ shows the UPS configuration screen:
 
 .. _ups_config_fig:
 
-.. figure:: images/ups1.png
+.. figure:: images/ups1a.png
 
    UPS Configuration Screen
 
