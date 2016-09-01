@@ -414,9 +414,9 @@ is currently running, and jail type: *standard* for a FreeBSD jail, or
 
 .. _view_added_jails_fig:
 
-.. figure:: images/jails4a.png
+.. figure:: images/jails4b.png
 
-   Viewing Added Jails
+   Viewing Jails
 
 
 From left to right, these configuration icons are available:
@@ -449,6 +449,13 @@ jail and its applications are inaccessible until it is restarted.
 **Shell:** access a *root* command prompt to configure the selected
 jail from the command line. When finished, type :command:`exit` to
 close the shell.
+
+**Delete:** delete the jail and any periodic snapshots of it. The
+contents of the jail are entirely removed.
+
+  .. warning:: Back up data and programs in the jail before deleting
+     it. There is no way to recover the contents of a jail after
+     deletion.
 
 
 .. _Accessing a Jail Using SSH:
