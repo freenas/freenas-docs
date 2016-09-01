@@ -77,7 +77,7 @@ been formatted.
    Volume Creation Wizard
 
 
-.. note:: the wizard will not recognize an **encrypted** ZFS pool. If
+.. note:: The wizard will not recognize an **encrypted** ZFS pool. If
    your ZFS pool is GELI-encrypted, cancel the wizard and use the
    instructions in :ref:`Importing an Encrypted Pool` to import the
    encrypted volume. You can then rerun the wizard afterwards, if you
@@ -415,7 +415,7 @@ more detail. The layout of this Guide follows the order of the menu
 items in the tree located in the left frame of the graphical
 interface.
 
-.. note:: it is important to use the GUI (or the Console Setup menu)
+.. note:: It is important to use the GUI (or the Console Setup menu)
    for all configuration changes. %brand% uses a configuration
    database to store its settings. While it is possible to use the
    command line to modify your configuration, changes made at the
