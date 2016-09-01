@@ -24,8 +24,8 @@ Django® is a registered trademark of Django Software Foundation.
 Facebook® is a registered trademark of Facebook Inc.
 #endif freenas
 
-FreeBSD and the FreeBSD logo are registered trademarks of the FreeBSD
-Foundation.
+FreeBSD® and the FreeBSD® logo are registered trademarks of the
+FreeBSD Foundation®.
 
 #ifdef freenas
 Fusion-io is a trademark or registered trademark of Fusion-io, Inc.
