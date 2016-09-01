@@ -6,6 +6,12 @@ Corporation in the United States and/or other countries.
 Apple, Mac and Mac OS are trademarks of Apple Inc., registered in the
 U.S. and other countries.
 
+Avago is a trademark of Avago Technologies.
+
+#ifdef freenas
+Broadcom is a trademark of Broadcom Corporation.
+#endif freenas
+
 Chelsio® is a registered trademark of Chelsio Communications.
 
 Cisco® is a registered trademark or trademark of Cisco Systems, Inc.
