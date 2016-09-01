@@ -102,7 +102,7 @@ which are described in
 
 .. _global_afp_config_fig:
 
-.. figure:: images/afp1a.png
+.. figure:: images/afp1b.png
 
    Global AFP Configuration
 
@@ -118,12 +118,8 @@ which are described in
    | Guest Access            | checkbox       | if checked, clients will not be prompted to authenticate before accessing AFP shares                            |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Guest account           | drop-down menu | select account to use for guest access; the selected account must have permissions to the volume/dataset being  |
-   |                         |                | shared                                                                                                          |
-   |                         |                |                                                                                                                 |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Bind IP Addresses       | selection      | used to specify the IP address(es) to listen for FTP connections; highlight the desired IP address(es) in the   |
-   |                         |                | :guilabel:`Available` list and use the :guilabel:`>>` button to add to the :guilabel:`Selected` list            |
+   | Guest account           | drop-down menu | select account to use for guest access; the selected account must have permissions to the volume or dataset     |
+   |                         |                | being shared                                                                                                    |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Max Connections         | integer        | maximum number of simultaneous connections                                                                      |
@@ -143,6 +139,14 @@ which are described in
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Global auxiliary        | string         | additional `afp.conf(5) <http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html>`_                        |
    | parameters              |                | parameters not covered elsewhere in this screen                                                                 |
+   |                         |                |                                                                                                                 |
+   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Map ACLs                | drop-down menu | choose mapping of effective permissions for authenticated users; *Rights* (default, Unix-style permissions),    |
+   |                         |                | *Mode* (ACLs), or *None*                                                                                        |
+   |                         |                |                                                                                                                 |
+   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Bind IP Addresses       | selection      | specify the IP addresses to listen for FTP connections; highlight the desired IP addresses in the               |
+   |                         |                | :guilabel:`Available` list and use the :guilabel:`>>` button to add to the :guilabel:`Selected` list            |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
 
