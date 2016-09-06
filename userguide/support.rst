@@ -245,7 +245,7 @@ IRC
 
 To ask a question in real time, you can use the *#freenas* channel on
 IRC
-`Freenode <http://freenode.net/index.shtml>`_.
+`Freenode <http://freenode.net/>`_.
 Depending on the time of day and your time zone, %brand% developers or
 other users may be available to provide assistance. If no one answers
 right away, remain on the channel, as other users tend to read the
@@ -259,8 +259,8 @@ from a web browser.
 
 To get the most out of the IRC channel, keep these points in mind:
 
-* Do not ask "can anyone help me?"; instead, just ask the question.
-  If someone knows the answer, they will try to help.
+* Do not ask "can anyone help me?". Just ask the question. If someone
+  knows the answer, they will try to help.
 
 * Do not ask a question and then leave. Users who know the answer
   cannot help you if you disappear.
