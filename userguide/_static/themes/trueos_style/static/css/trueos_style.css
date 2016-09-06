@@ -1938,15 +1938,18 @@ input[type="checkbox"][disabled] {
     border-spacing: 0;
     empty-cells: show;
     margin-bottom: 24px;
-line-height: 19px;
+    line-height: 19px;
 }
 .wy-table caption,
 .rst-content table.docutils caption,
 .rst-content table.field-list caption {
-    color: #000;
-    font: italic 85%/1 arial, sans-serif;
-    padding: 1em 0;
-    text-align: center
+    color: #404040;
+    font-family: "Roboto Slab", "ff-tisa-web-pro", "Georgia", Arial, sans-serif;
+	font-size: 100%;
+	font-weight: 700;
+    padding: .2em;
+    text-align: left;
+	caption-side: bottom
 }
 .wy-table td,
 .rst-content table.docutils td,
@@ -1957,7 +1960,7 @@ line-height: 19px;
     font-size: 90%;
     margin: 0;
     overflow: visible;
-    padding: 8px 16px
+    padding: 8px 16px;
 }
 .wy-table td:first-child,
 .rst-content table.docutils td:first-child,
@@ -2021,9 +2024,23 @@ line-height: 19px;
     font-size: 80%
 }
 .wy-table-odd td,
-.wy-table-striped tr:nth-child(2n-1) td,
-.rst-content table.docutils:not(.field-list) tr:nth-child(2n-1) td {
-    background-color: #f3f6f6
+.wy-table-striped tr:nth-child(odd) td,
+.rst-content table.docutils:not(.field-list) tr:nth-child(odd) td {
+    background-color: #f3f6f6;
+}
+.wy-table-odd td,
+.wy-table-striped tr:nth-child(odd):hover td,
+.rst-content table.docutils:not(.field-list) tr:nth-child(odd):hover td {
+    background-color: #f2d8bb
+}
+.wy-table-even td,
+.wy-table-striped tr:nth-child(even):hover td,
+.rst-content table.docutils:not(.field-list) tr:nth-child(even):hover td {
+    background-color: #f2d8bb
+}
+.wy-table tr,
+.rst-content table.docutils th:hover{
+	background-color: #f2d8bb
 }
 .wy-table-backed {
     background-color: #f3f6f6
@@ -2074,15 +2091,16 @@ line-height: 19px;
     white-space: inherit
 }
 a {
-    color: #2980B9;
+    color: #2c3fbd;
     text-decoration: none;
     cursor: pointer
 }
 a:hover {
-    color: #3091d1
+    color: #4653a3;
+	text-decoration: underline
 }
 a:visited {
-    color: #9B59B6
+    color: #c73030
 }
 html {
     height: 100%;
@@ -2167,17 +2185,17 @@ p {
     margin-bottom: 24px
 }
 h1 {
-    font-size: 175%
+    font-size: 100%
 }
 h2,
 .rst-content p.caption {
-    font-size: 150%
+    font-size: 100%
 }
 h3 {
-    font-size: 125%
+    font-size: 100%
 }
 h4 {
-    font-size: 115%
+    font-size: 100%
 }
 h5 {
     font-size: 110%
@@ -3678,15 +3696,15 @@ code.menuselection,
 .file,
 .guilabel,
 .menuselection{
-    background-color: #D5DDE2; /* saturate from ecf0f3 to be more visible/blue on screen. */
+    background-color: #e6ede9; /* saturate from ecf0f3 to be more visible/blue on screen. */
     display: inline;
 	font-family:'Inconsolata', monospace;
     font-size: 95%;
-    padding-right: 3px;
-    padding-left: 3px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    border-radius: 3px;
+    padding-right: 1px;
+    padding-left: 1px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-radius: 4px;
     overflow: hidden;
 }
 code.kbd, .kbd {
@@ -3703,9 +3721,8 @@ code.guilabel, .guilabel {
 	text-transform: none
 }
 code.menuselection, .menuselection {
-    background-color: #e6e6ed;
+    background-color: #e8ede6;
     color: inherit;
-    font-weight: 600;
     border: hidden;
 	font-size: 98%
 }
@@ -3791,7 +3808,7 @@ th.spiffy_span {
 }
 .docutils th,
 .spiffy_table th {
-    background-color: LemonChiffon;
+    background-color: #bbeaf2;
     font-weight: 700;
     text-align: center;
     border-color: darkgray;
@@ -3838,7 +3855,6 @@ th {
 table.docutils {
     border-collapse: collapse;
 }
-
 /*"""""""""""""""""""""""""""""""""""""""""""""""*
  | spiffy_table adjusted for rst/RtD      (END)  | 
  *"""""""""""""""""""""""""""""""""""""""""""""""*/
@@ -3848,24 +3864,34 @@ table.docutils {
  | textboxes adjusted for rst/RtD   (BEGIN)  | 
  *"""""""""""""""""""""""""""""""""""""""""""*/
 .rst-content .danger, .rdangerbox {
-border:solid #bababa;
-background: #edbeb6
+border: 2px solid #8a8988;
+border-radius: 5px;
+background: #edbeb6;
+color: #030303
 }
 
 .rst-content .warning, .rwarningbox {
-border:solid #bababa;
+border: 2px solid #8a8988;
+border-radius: 5px;
+color: #030303
 }
 
 .rst-content .note, .rnotebox {
-border:solid #BABABA;
+border: 2px solid #8a8988;
+border-radius: 5px;
+color: #030303
 }
 
 .rst-content .important, .rimportantbox{
-border:solid #bababa;
+border: 2px solid #8a8988;
+border-radius: 5px;
+color: #030303
 }
 
 .rst-content .tip, .rtipbox{
-border:solid #bababa;
+border: 2px solid #8a8988;
+border-radius: 5px;
+color: #030303
 }
 
 .rversionbox {
