@@ -566,15 +566,27 @@ installation media. Burn the downloaded :file:`.iso` file to a CD or
 USB thumb drive using the instructions in
 :ref:`Preparing the Media`.
 
-Insert the prepared media into the system and boot from it. Once the
-media has finished booting into the installation menu, press
-:kbd:`Enter` to select the default option of
-:guilabel:`1 Install/Upgrade.` The installer presents a screen showing
-all available drives; select the device %brand% is installed into and
-press :kbd:`Enter`.
+Insert the prepared media into the system and boot from it. After the
+media finishes booting into the installation menu, press :kbd:`Enter`
+to select the default option of :guilabel:`1 Install/Upgrade.` The
+installer presents a screen showing all available drives.
 
-The installer will recognize that an earlier version of %brand% is
-installed on the device and will present the message shown in
+.. warning:: *All* drives are shown, including boot drives and storage
+   drives. Only choose boot drives when upgrading. Choosing the wrong
+   drives to upgrade or install will cause loss of data. If unsure
+   about which drives contain the %brand% operating system, reboot and
+   remove the install media. In the %brand% GUI, use
+   :menuselection:`System --> Boot`
+   to identify the boot drives. More than one drive is shown when a
+   mirror has been used.
+
+Move to the drive where %brand% is installed and press the
+:kbd:`Spacebar` to mark it with a star. If a mirror has been used for
+the operating system, mark all of the drives where the %brand%
+operating system is installed. Press :kbd:`Enter` when done.
+
+The installer recognizes earlier version of %brand% installed on the
+boot drive or drives and presents the message shown in
 :numref:`Figure %s <upgrade_install_fig>`.
 
 
