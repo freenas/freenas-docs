@@ -3,8 +3,7 @@
 System
 ======
 
-The System section of the administrative GUI contains the following
-entries:
+The System section of the administrative GUI contains these entries:
 
 * :ref:`Information`: provides general %brand% system information
   such as hostname, operating system version, platform, and uptime
@@ -321,7 +320,7 @@ indicating the date and time the wizard was run.
 #endif truenas
 
 
-Each boot environment entry contains the following information:
+Each boot environment entry contains this information:
 
 * **Name:** the name of the boot entry as it will appear in the boot
   menu.
@@ -336,8 +335,8 @@ Each boot environment entry contains the following information:
   entry's :guilabel:`Keep` button if that boot environment should not
   be automatically pruned.
 
-Highlight an entry to view its configuration buttons.  The following
-configuration buttons are available:
+Highlight an entry to view its configuration buttons.  These
+configuration buttons are shown:
 
 * **Rename:** used to change the name of the boot environment.
 
@@ -596,7 +595,7 @@ The configurable settings are summarized in
 
 If you make any changes, click the :guilabel:`Save` button.
 
-This tab also contains the following buttons:
+This tab also contains these buttons:
 
 **Backup:** used to backup the %brand% configuration and ZFS layout,
 and, optionally, the data, to a remote system over an encrypted
@@ -1234,13 +1233,15 @@ running. Click the :guilabel:`OK` button to download and apply the
 updates. Note that some updates will automatically reboot the system
 after they are applied.
 
-.. warning:: Each update creates a boot environment. If the boot
-   device does not have sufficient space to hold another boot
-   environment, the upgrade will fail. If you need to create more
-   space on the boot device, use
-   :menuselection:`System --> Boot`
-   to review the current boot environments and delete any that are no
-   longer needed.
+.. warning:: Each update creates a boot environment. If the update
+   process needs more space, it attempts to remove old boot
+   environments. Boot environments marked with the *Keep* attribute as
+   shown in :ref:`Boot` will not be removed. If space for a new boot
+   environment is not available, the upgrade fails. Space on the boot
+   device can be manually freed using
+   :menuselection:`System --> Boot`.
+   Review the boot environments and remove the *Keep* attribute or
+   delete any boot environments that are no longer needed.
 
 Alternately, you can download the updates and apply them later. To
 do so, uncheck the :guilabel:`Apply updates after downloading` box
