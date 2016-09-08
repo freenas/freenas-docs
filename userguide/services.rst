@@ -1153,7 +1153,7 @@ summarizes the configuration options for the NFS service.
 
 .. _config_nfs_fig:
 
-.. figure:: images/nfs1d.png
+.. figure:: images/nfs1c.png
 
    Configuring NFS
 
@@ -1208,13 +1208,6 @@ summarizes the configuration options for the NFS service.
    | Support>16 groups      | checkbox   | check this box if any users are members of more than 16 groups (useful in AD environments); note that this assumes  |
    |                        |            | that group membership has been configured correctly on the NFS server                                               |
    |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Log mountd(8) requests | checkbox   | enable logging of `mountd(8) <http://www.freebsd.org/cgi/man.cgi?query=mountd>`_ mount requests with                |
-   |                        |            | `syslog(3) <http://www.freebsd.org/cgi/man.cgi?query=syslog>`_                                                      |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Log rpcstatd(8) and    | checkbox   | enable logging of `rpc.statd(8) <http://www.freebsd.org/cgi/man.cgi?query=rpc.statd>`_ and                          |
-   | rpclockd(8)            |            | `rpc.lockd(8) <http://www.freebsd.org/cgi/man.cgi?query=rpc.lockd>`_ with                                           |
-   |                        |            | `syslog(3) <http://www.freebsd.org/cgi/man.cgi?query=syslog>`_                                                      |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
 
 
