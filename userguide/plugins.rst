@@ -102,7 +102,7 @@ tab as shown in
 
 .. _view_installed_plugins_fig:
 
-.. figure:: images/plugins3.png
+.. figure:: images/plugins3a.png
 
    Viewing Installed PBIs
 

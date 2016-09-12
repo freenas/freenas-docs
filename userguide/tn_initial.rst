@@ -1118,7 +1118,7 @@ for the *root* user, as shown in
 
 .. _tn_login1:
 
-.. figure:: images/tn_login1.png
+.. figure:: images/tn_login1a.png
 
    Enter the Root Password
 

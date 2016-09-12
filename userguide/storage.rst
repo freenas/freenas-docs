@@ -534,14 +534,14 @@ Selecting an existing ZFS volume in the tree and clicking
 .. _zfs_create_dataset:
 
 #ifdef freenas
-.. figure:: images/dataset.png
+.. figure:: images/dataset1a.png
 
    Creating a ZFS Dataset
 #endif freenas
 #ifdef truenas
 .. _tn_dataset1:
 
-.. figure:: images/tn_dataset1.png
+.. figure:: images/tn_dataset1a.png
 
    Creating a ZFS Dataset
 #endif truenas
@@ -1017,7 +1017,7 @@ example is shown in
 
 .. _tn_enclosure1:
 
-.. figure:: images/tn_enclosure1.png
+.. figure:: images/tn_enclosure1a.png
 
    View Enclosure
 

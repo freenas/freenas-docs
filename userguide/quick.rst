@@ -168,7 +168,7 @@ password for the root user, as seen
 
 .. _quick_enter_root_pass_fig:
 
-.. figure:: images/login1.png
+.. figure:: images/login1a.png
 
    Enter the Root Password
 

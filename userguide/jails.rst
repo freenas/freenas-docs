@@ -544,7 +544,7 @@ tree view and clicking
 
 .. _adding_storage_jail_fig:
 
-.. figure:: images/jails5.png
+.. figure:: images/jails5a.png
 
    Adding Storage to a Jail
 
@@ -629,7 +629,7 @@ storage was added to the *freenas1* entry in the tree as
 
 .. _jail_example_storage_fig:
 
-.. figure:: images/jails6.png
+.. figure:: images/jails6a.png
 
    Example Storage
 
