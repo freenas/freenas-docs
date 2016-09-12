@@ -2133,7 +2133,7 @@ volume.
    :ref:`Growing LUNs`.
 
 To add an extent, go to
-:menuselection:`Services --> ISCSI --> Extents --> Add Extent`.
+:menuselection:`Sharing --> Block (iSCSI) --> Extents --> Add Extent`.
 In the example shown in
 :numref:`Figure %s <iscsi_adding_extent_fig>`,
 the device extent is using the :file:`export` zvol that was previously
@@ -2222,7 +2222,7 @@ Target/Extents
 ~~~~~~~~~~~~~~
 
 The last step is associating an extent to a target within
-:menuselection:`Sharing --> Block (iSCSI) --> Target/Extents
+:menuselection:`Sharing --> Block (iSCSI) --> Associated Targets
 --> Add Target/Extent`. This screen is shown in
 :numref:`Figure %s <iscsi_target_extent_fig>`.
 Use the drop-down menus to select the existing target and extent.
