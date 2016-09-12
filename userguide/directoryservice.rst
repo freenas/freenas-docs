@@ -34,10 +34,10 @@ Since AD provides authentication and authorization services for the
 users in a network, it is not necessary to recreate these user
 accounts on the %brand% system. Instead, configure the Active
 Directory service so that it can import the account information and
-imported users can be authorized to access the CIFS shares on the
+imported users can be authorized to access the SMB shares on the
 %brand% system.
 
-.. note:: If your network contains an NT4 domain controller, or any
+.. note:: If the network contains an NT4 domain controller, or any
    domain controller containing a version which is earlier than
    Windows 2000, configure :ref:`NT4` instead.
 
@@ -454,7 +454,7 @@ server is running on your network, configure the %brand% LDAP service
 so network users can authenticate to the LDAP server and have
 authorized access to the data stored on the %brand% system.
 
-.. note:: LDAP authentication for CIFS shares will be disabled unless
+.. note:: LDAP authentication for SMB shares will be disabled unless
    the LDAP directory has been configured for and populated with Samba
    attributes. The most popular script for performing this task is
    `smbldap-tools <http://download.gna.org/smbldap-tools/>`_
@@ -564,7 +564,7 @@ Those who are new to LDAP terminology should skim through the
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
    | Samba Schema            | checkbox       | only available in :guilabel:`Advanced Mode`; only check this box if you need LDAP authentication               |
-   |                         |                | for CIFS shares **and** have **already** configured the LDAP server with Samba attributes                      |
+   |                         |                | for SMB shares **and** have **already** configured the LDAP server with Samba attributes                       |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters    | string         | additional options for `sssd.conf(5) <https://jhrozek.fedorapeople.org/sssd/1.11.6/man/sssd.conf.5.html>`_     |

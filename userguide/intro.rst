@@ -348,10 +348,10 @@ for more information.
    FibreChannel over Ethernet, or wireless interfaces.
 
 Both hardware and the type of shares can affect network performance.
-On the same hardware, CIFS is slower than FTP or NFS because Samba is
+On the same hardware, SMB is slower than FTP or NFS because Samba is
 `single-threaded
 <https://www.samba.org/samba/docs/man/Samba-Developers-Guide/architecture.html>`_.
-So a fast CPU can help with CIFS performance.
+So a fast CPU can help with SMB performance.
 
 Wake on LAN (WOL) support depends on the FreeBSD driver for the
 interface. If the driver supports WOL, it can be enabled using

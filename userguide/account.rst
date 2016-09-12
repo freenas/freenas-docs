@@ -265,7 +265,7 @@ created or modified.
    | Password confirmation      | string          | must match the value of :guilabel:`Password`                                                                                                          |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Disable password login     | checkbox        | when checked, disables password logins and authentication to CIFS shares; to undo this                                                                |
+   | Disable password login     | checkbox        | when checked, disables password logins and authentication to SMB shares; to undo this                                                                 |
    |                            |                 | setting, set a password for the user using the :guilabel:`Modify User` button for the user in :guilabel:`View Users`;                                 |
    |                            |                 | checking this box will gray out :guilabel:`Lock user` and :guilabel:`Permit Sudo`, which are mutually exclusive                                       |
    |                            |                 |                                                                                                                                                       |

@@ -10,8 +10,6 @@ ship with the %brand% system are configured, started, or stopped.
 
 * :ref:`AFP`
 
-* :ref:`CIFS`
-
 * :ref:`Domain Controller`
 
 * :ref:`Dynamic DNS`
@@ -27,6 +25,8 @@ ship with the %brand% system are configured, started, or stopped.
 * :ref:`Rsync`
 
 * :ref:`S.M.A.R.T.`
+
+* :ref:`SMB`
 
 * :ref:`SNMP`
 
@@ -57,7 +57,7 @@ is enabled by default.  Other services default to off until started.
 
 .. _control_services_fig:
 
-.. figure:: images/services.png
+.. figure:: images/services1a.png
 
    Control Services
 
@@ -184,311 +184,6 @@ problematic AFP share:
 This command may take a while, depending upon the size of the volume
 or dataset being shared. This command will wipe the CNID database and
 rebuild it from the CNIDs stored in the AppleDouble files.
-
-
-.. index:: CIFS, Samba, Windows File Share, SMB
-.. _CIFS:
-
-CIFS
-----
-
-The settings that are configured when creating CIFS Shares in
-:menuselection:`Sharing --> Windows (CIFS) Shares
---> Add Windows (CIFS) Share`
-are specific to each configured CIFS Share. In contrast, global
-settings which apply to all CIFS shares are configured in
-:menuselection:`Services --> CIFS`.
-
-.. note:: After starting the CIFS service, it may take several minutes
-   for the `master browser election
-   <http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/NetworkBrowsing.html#id2581357>`_
-   to occur and for the %brand% system to become available in
-   Windows Explorer.
-
-:numref:`Figure %s <global_cifs_config_fig>`
-shows the global CIFS configuration options which are
-described in
-:numref:`Table %s <global_cifs_config_opts_tab>`.
-This configuration screen is really a front-end to
-`smb4.conf <http://www.sloop.net/smb.conf.html>`_.
-
-
-.. _global_cifs_config_fig:
-
-#ifdef freenas
-.. figure:: images/cifs1a.png
-
-   Global CIFS Configuration
-#endif freenas
-#ifdef truenas
-.. figure:: images/tn_cifs1a.png
-
-   Global CIFS Configuration
-#endif truenas
-
-
-.. _global_cifs_config_opts_tab:
-
-.. table:: Global CIFS Configuration Options
-
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Setting                          | Value          | Description                                                                                           |
-   |                                  |                |                                                                                                       |
-   +==================================+================+=======================================================================================================+
-   #ifdef freenas
-   | NetBIOS Name                     | string         | automatically populated with the system's original hostname; it **must**  be different from the       |
-   |                                  |                | *Workgroup* name                                                                                      |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   #endif freenas
-   #ifdef truenas
-   | NetBIOS Name (This Node)         | string         | automatically populated with the system's original hostname; it **must**  be different from the       |
-   |                                  |                | *Workgroup* name                                                                                      |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (Node B)            | string         | when using :ref:`Failovers`, set a unique NetBIOS name for the standby node                           |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias                    | string         | when using :ref:`Failovers`, this is the NetBIOS name that resolves to either node                    |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   #endif truenas
-   | Workgroup                        | string         | must match Windows workgroup name; this setting is ignored if the :ref:`Active Directory`             |
-   |                                  |                | or :ref:`LDAP` service is running                                                                     |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Description                      | string         | optional                                                                                              |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | DOS charset                      | drop-down menu | the character set Samba uses when communicating with DOS and Windows 9x/ME clients; default is        |
-   |                                  |                | *CP437*                                                                                               |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | UNIX charset                     | drop-down menu | default is *UTF-8* which supports all characters in all languages                                     |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Log level                        | drop-down menu | choices are *Minimum*,                                                                                |
-   |                                  |                | *Normal*, or                                                                                          |
-   |                                  |                | *Debug*                                                                                               |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Use syslog only                  | checkbox       | when checked, authentication failures are logged to :file:`/var/log/messages` instead of the default  |
-   |                                  |                | of :file:`/var/log/samba4/log.smbd`                                                                   |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Local Master                     | checkbox       | determines whether or not the system participates in a browser election; should be disabled           |
-   |                                  |                | when network contains an AD or LDAP server and is not necessary if Vista or Windows 7 machines are    |
-   |                                  |                | present                                                                                               |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Domain logons                    | checkbox       | only check if need to provide the netlogin service for older Windows clients                          |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Time Server for Domain           | checkbox       | determines whether or not the system advertises itself as a time server to Windows clients;           |
-   |                                  |                | should be disabled when network contains an AD or LDAP server                                         |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Guest Account                    | drop-down menu | account to be used for guest access; that account must have permission to access the shared           |
-   |                                  |                | volume/dataset                                                                                        |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | File mask                        | integer        | overrides default file creation mask of 0666 which creates files with read and write access for       |
-   |                                  |                | everybody                                                                                             |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Directory mask                   | integer        | overrides default directory creation mask of 0777 which grants directory read, write and execute      |
-   |                                  |                | access for everybody                                                                                  |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   |                                  |                |                                                                                                       |
-   | Allow Empty Password             | checkbox       | if checked, users can just press :kbd:`Enter` when prompted for a password; requires that the         |
-   |                                  |                | username/password be the same as the Windows user account                                             |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Auxiliary parameters             | string         | :file:`smb.conf` options not covered elsewhere in this screen; see                                    |
-   |                                  |                | `the Samba Guide <http://www.oreilly.com/openbook/samba/book/appb_02.html>`_                          |
-   |                                  |                | for additional settings                                                                               |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Unix Extensions                  | checkbox       | allows non-Windows CIFS clients to access symbolic links and hard links, has no effect on Windows     |
-   |                                  |                | clients                                                                                               |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Zeroconf share discovery         | checkbox       | enable if Mac clients will be connecting to the CIFS share                                            |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Hostnames lookups                | checkbox       | allows you to specify hostnames rather than IP addresses in the :guilabel:`Hosts Allow` or            |
-   |                                  |                | :guilabel:`Hosts Deny` fields of a CIFS share; uncheck if IP addresses are used to avoid the          |
-   |                                  |                | delay of a host lookup                                                                                |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Server minimum protocol          | drop-down menu | the minimum protocol version the server will support where the default sets automatic                 |
-   |                                  |                | negotiation; refer to :numref:`Table %s <smb_protocol_ver_tab>` for descriptions                      |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Server maximum protocol          | drop-down menu | the maximum protocol version the server will support; refer to                                        |
-   |                                  |                | :numref:`Table %s <smb_protocol_ver_tab>` for descriptions                                            |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Allow execute always             | checkbox       | if checked, Samba will allow the user to execute a file, even if that user's permissions are not set  |
-   |                                  |                | to execute                                                                                            |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Obey pam restrictions            | checkbox       | uncheck this box to allow cross-domain authentication, to allow users and groups to be managed on     |
-   |                                  |                | another forest, or to allow permissions to be delegated from :ref:`Active Directory` users and        |
-   |                                  |                | groups to domain admins on another forest                                                             |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Bind IP Addresses                | checkboxes     | check the IP address(es) that CIFS should listen on                                                   |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Idmap Range Low                  | integer        | defines the beginning UID/GID this system is authoritative for; any UID/GID lower than this value is  |
-   |                                  |                | ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely defined IDs  |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Idmap Range High                 | integer        | defines the ending UID/GID this system is authoritative for; any UID/GID higher than this value is    |
-   |                                  |                | ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely defined IDs  |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-
-
-.. _smb_protocol_ver_tab:
-
-.. table:: SMB Protocol Versions
-
-   +----------------+------------------------------------------------------------+
-   | Value          | Description                                                |
-   |                |                                                            |
-   +================+============================================================+
-   | CORE           | used by DOS                                                |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | COREPLUS       | used by DOS                                                |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | LANMAN1        | used by Windows for Workgroups, OS/2, and Windows 9x       |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | LANMAN2        | used by Windows for Workgroups, OS/2, and Windows 9x       |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | NT1            | used by Windows NT                                         |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | SMB2           | used by Windows 7; same as SMB2_10                         |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | SMB2_02        | used by Windows Vista                                      |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | SMB2_10        | used by Windows 7                                          |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | SMB3           | used by Windows 8                                          |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | SMB3_00        | used by Windows 8                                          |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | SMB3_02        | used by Windows 8.1 and Windows Server 2012                |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | SMB3_11        | used by Windows 10                                         |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-
-
-Changes to CIFS settings and CIFS shares take effect immediately.
-
-.. note:: Do not set the *directory name cache size* as an
-   :guilabel:`Auxiliary parameter`. Due to differences in how Linux
-   and BSD handle file descriptors, directory name caching is disabled
-   on BSD systems to improve performance.
-
-.. note:: :ref:`CIFS` cannot be disabled while :ref:`Active Directory`
-   is enabled.
-
-
-.. _Troubleshooting CIFS:
-
-Troubleshooting CIFS
-~~~~~~~~~~~~~~~~~~~~
-
-#ifdef freenas
-Samba is single threaded, so CPU speed makes a big difference in CIFS
-performance. A typical 2.5Ghz Intel quad core or greater should be
-capable of handling speeds in excess of Gb LAN while low power CPUs
-such as Intel Atoms and AMD C-30s\E-350\E-450 will not be able to
-achieve more than about 30-40MB/sec typically. Remember that other
-loads such as ZFS will also require CPU resources and may cause Samba
-performance to be less than optimal.
-
-Samba's *write cache* parameter has been reported to improve write
-performance in some configurations and can be added to the
-:guilabel:`Auxiliary parameters` field. Use an integer value which is
-a multiple of _SC_PAGESIZE (typically *4096*) to avoid memory
-fragmentation. This will increase Samba's memory requirements and
-should not be used on systems with limited RAM.
-
-If you wish to increase network performance, read the Samba section on
-`socket options
-<http://samba.org/samba/docs/man/manpages-3/smb.conf.5.html#SOCKETOPTIONS>`_.
-It indicates which options are available and recommends that you
-experiment to see which are supported by your clients and improve your
-network's performance.
-#endif freenas
-
-Windows automatically caches file sharing information. If you make
-changes to a CIFS share or to the permissions of a volume/dataset
-being shared by CIFS and are no longer able to access the share, try
-logging out and back into the Windows system. Alternately, users can
-type :command:`net use /delete` from the command line to clear their
-SMB sessions.
-
-Windows also automatically caches login information. If you want users
-to be prompted to log in every time access is required, reduce the
-cache settings on the client computers.
-
-Where possible, avoid using a mix of case in filenames as this can
-cause confusion for Windows users. `Representing and resolving
-filenames with Samba
-<http://www.oreilly.com/openbook/samba/book/ch05_04.html>`_ explains
-in more detail.
-
-If a particular user cannot connect to a CIFS share, make sure that
-their password does not contain the *?* character. If it does, have
-the user change the password and try again.
-
-If permissions work for Windows users but not for OS X users, try
-disabling :guilabel:`Unix Extensions` and restarting the CIFS service.
-
-If the CIFS service will not start, run this command from :ref:`Shell`
-to see if there is an error in the configuration:
-
-.. code-block:: none
-
-   testparm /usr/local/etc/smb4.conf
-
-
-If clients have problems connecting to the CIFS share, go to
-:menuselection:`Services --> CIFS` and verify that
-:guilabel:`Server maximum protocol` is set to :guilabel:`SMB2`.
-
-It is recommended to use a dataset for CIFS sharing. When creating the
-dataset, make sure that the :guilabel:`Share type` is set to Windows.
-
-**Do not** use :command:`chmod` to attempt to fix the permissions on a
-CIFS share as it destroys the Windows ACLs. The correct way to manage
-permissions on a CIFS share is to manage the share security from a
-Windows system as either the owner of the share or a member of the
-group that owns the share. To do so, right-click on the share, click
-:guilabel:`Properties` and navigate to the :guilabel:`Security` tab.
-If you already destroyed the ACLs using :command:`chmod`,
-:command:`winacl` can be used to fix them. Type :command:`winacl` from
-:ref:`Shell` for usage instructions.
-
-The `Common Errors
-<http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/domain-member.html#id2573692>`_
-section of the Samba documentation contains additional troubleshooting
-tips.
 
 
 .. index:: Domain Controller, DC
@@ -1420,6 +1115,311 @@ summarizes the options in the S.M.A.R.T configuration screen.
    | Email to report | string                     | email address of person or alias to receive S.M.A.R.T. alerts                                               |
    |                 |                            |                                                                                                             |
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
+
+
+.. index:: CIFS, Samba, Windows File Share, SMB
+.. _SMB:
+
+SMB
+---
+
+The settings that are configured when creating SMB Shares in
+:menuselection:`Sharing --> Windows (SMB) Shares
+--> Add Windows (SMB) Share`
+are specific to each configured SMB Share. In contrast, global
+settings which apply to all SMB shares are configured in
+:menuselection:`Services --> SMB`.
+
+.. note:: After starting the SMB service, it may take several minutes
+   for the `master browser election
+   <http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/NetworkBrowsing.html#id2581357>`_
+   to occur and for the %brand% system to become available in
+   Windows Explorer.
+
+:numref:`Figure %s <global_smb_config_fig>`
+shows the global SMB configuration options which are
+described in
+:numref:`Table %s <global_smb_config_opts_tab>`.
+This configuration screen is really a front-end to
+`smb4.conf <http://www.sloop.net/smb.conf.html>`_.
+
+
+.. _global_smb_config_fig:
+
+#ifdef freenas
+.. figure:: images/cifs1a.png
+
+   Global SMB Configuration
+#endif freenas
+#ifdef truenas
+.. figure:: images/tn_cifs1a.png
+
+   Global SMB Configuration
+#endif truenas
+
+
+.. _global_smb_config_opts_tab:
+
+.. table:: Global SMB Configuration Options
+
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Setting                          | Value          | Description                                                                                           |
+   |                                  |                |                                                                                                       |
+   +==================================+================+=======================================================================================================+
+   #ifdef freenas
+   | NetBIOS Name                     | string         | automatically populated with the system's original hostname; it **must**  be different from the       |
+   |                                  |                | *Workgroup* name                                                                                      |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   #endif freenas
+   #ifdef truenas
+   | NetBIOS Name (This Node)         | string         | automatically populated with the system's original hostname; it **must**  be different from the       |
+   |                                  |                | *Workgroup* name                                                                                      |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | NetBIOS Name (Node B)            | string         | when using :ref:`Failovers`, set a unique NetBIOS name for the standby node                           |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | NetBIOS Alias                    | string         | when using :ref:`Failovers`, this is the NetBIOS name that resolves to either node                    |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   #endif truenas
+   | Workgroup                        | string         | must match Windows workgroup name; this setting is ignored if the :ref:`Active Directory`             |
+   |                                  |                | or :ref:`LDAP` service is running                                                                     |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Description                      | string         | optional                                                                                              |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | DOS charset                      | drop-down menu | the character set Samba uses when communicating with DOS and Windows 9x/ME clients; default is        |
+   |                                  |                | *CP437*                                                                                               |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | UNIX charset                     | drop-down menu | default is *UTF-8* which supports all characters in all languages                                     |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Log level                        | drop-down menu | choices are *Minimum*,                                                                                |
+   |                                  |                | *Normal*, or                                                                                          |
+   |                                  |                | *Debug*                                                                                               |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Use syslog only                  | checkbox       | when checked, authentication failures are logged to :file:`/var/log/messages` instead of the default  |
+   |                                  |                | of :file:`/var/log/samba4/log.smbd`                                                                   |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Local Master                     | checkbox       | determines whether or not the system participates in a browser election; should be disabled           |
+   |                                  |                | when network contains an AD or LDAP server and is not necessary if Vista or Windows 7 machines are    |
+   |                                  |                | present                                                                                               |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Domain logons                    | checkbox       | only check if need to provide the netlogin service for older Windows clients                          |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Time Server for Domain           | checkbox       | determines whether or not the system advertises itself as a time server to Windows clients;           |
+   |                                  |                | should be disabled when network contains an AD or LDAP server                                         |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Guest Account                    | drop-down menu | account to be used for guest access; that account must have permission to access the shared           |
+   |                                  |                | volume/dataset                                                                                        |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | File mask                        | integer        | overrides default file creation mask of 0666 which creates files with read and write access for       |
+   |                                  |                | everybody                                                                                             |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Directory mask                   | integer        | overrides default directory creation mask of 0777 which grants directory read, write and execute      |
+   |                                  |                | access for everybody                                                                                  |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   |                                  |                |                                                                                                       |
+   | Allow Empty Password             | checkbox       | if checked, users can just press :kbd:`Enter` when prompted for a password; requires that the         |
+   |                                  |                | username/password be the same as the Windows user account                                             |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Auxiliary parameters             | string         | :file:`smb.conf` options not covered elsewhere in this screen; see                                    |
+   |                                  |                | `the Samba Guide <http://www.oreilly.com/openbook/samba/book/appb_02.html>`_                          |
+   |                                  |                | for additional settings                                                                               |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Unix Extensions                  | checkbox       | allows non-Windows SMB clients to access symbolic links and hard links, has no effect on Windows      |
+   |                                  |                | clients                                                                                               |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Zeroconf share discovery         | checkbox       | enable if Mac clients will be connecting to the SMB share                                             |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Hostnames lookups                | checkbox       | allows you to specify hostnames rather than IP addresses in the :guilabel:`Hosts Allow` or            |
+   |                                  |                | :guilabel:`Hosts Deny` fields of a SMB share; uncheck if IP addresses are used to avoid the           |
+   |                                  |                | delay of a host lookup                                                                                |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Server minimum protocol          | drop-down menu | the minimum protocol version the server will support where the default sets automatic                 |
+   |                                  |                | negotiation; refer to :numref:`Table %s <smb_protocol_ver_tab>` for descriptions                      |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Server maximum protocol          | drop-down menu | the maximum protocol version the server will support; refer to                                        |
+   |                                  |                | :numref:`Table %s <smb_protocol_ver_tab>` for descriptions                                            |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Allow execute always             | checkbox       | if checked, Samba will allow the user to execute a file, even if that user's permissions are not set  |
+   |                                  |                | to execute                                                                                            |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Obey pam restrictions            | checkbox       | uncheck this box to allow cross-domain authentication, to allow users and groups to be managed on     |
+   |                                  |                | another forest, or to allow permissions to be delegated from :ref:`Active Directory` users and        |
+   |                                  |                | groups to domain admins on another forest                                                             |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Bind IP Addresses                | checkboxes     | check the IP addresses on which SMB should listen                                                     |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Idmap Range Low                  | integer        | defines the beginning UID/GID this system is authoritative for; any UID/GID lower than this value is  |
+   |                                  |                | ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely defined IDs  |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Idmap Range High                 | integer        | defines the ending UID/GID this system is authoritative for; any UID/GID higher than this value is    |
+   |                                  |                | ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely defined IDs  |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+
+
+.. _smb_protocol_ver_tab:
+
+.. table:: SMB Protocol Versions
+
+   +----------------+------------------------------------------------------------+
+   | Value          | Description                                                |
+   |                |                                                            |
+   +================+============================================================+
+   | CORE           | used by DOS                                                |
+   |                |                                                            |
+   +----------------+------------------------------------------------------------+
+   | COREPLUS       | used by DOS                                                |
+   |                |                                                            |
+   +----------------+------------------------------------------------------------+
+   | LANMAN1        | used by Windows for Workgroups, OS/2, and Windows 9x       |
+   |                |                                                            |
+   +----------------+------------------------------------------------------------+
+   | LANMAN2        | used by Windows for Workgroups, OS/2, and Windows 9x       |
+   |                |                                                            |
+   +----------------+------------------------------------------------------------+
+   | NT1            | used by Windows NT                                         |
+   |                |                                                            |
+   +----------------+------------------------------------------------------------+
+   | SMB2           | used by Windows 7; same as SMB2_10                         |
+   |                |                                                            |
+   +----------------+------------------------------------------------------------+
+   | SMB2_02        | used by Windows Vista                                      |
+   |                |                                                            |
+   +----------------+------------------------------------------------------------+
+   | SMB2_10        | used by Windows 7                                          |
+   |                |                                                            |
+   +----------------+------------------------------------------------------------+
+   | SMB3           | used by Windows 8                                          |
+   |                |                                                            |
+   +----------------+------------------------------------------------------------+
+   | SMB3_00        | used by Windows 8                                          |
+   |                |                                                            |
+   +----------------+------------------------------------------------------------+
+   | SMB3_02        | used by Windows 8.1 and Windows Server 2012                |
+   |                |                                                            |
+   +----------------+------------------------------------------------------------+
+   | SMB3_11        | used by Windows 10                                         |
+   |                |                                                            |
+   +----------------+------------------------------------------------------------+
+
+
+Changes to SMB settings and SMB shares take effect immediately.
+
+.. note:: Do not set the *directory name cache size* as an
+   :guilabel:`Auxiliary parameter`. Due to differences in how Linux
+   and BSD handle file descriptors, directory name caching is disabled
+   on BSD systems to improve performance.
+
+.. note:: :ref:`SMB` cannot be disabled while :ref:`Active Directory`
+   is enabled.
+
+
+.. _Troubleshooting SMB:
+
+Troubleshooting SMB
+~~~~~~~~~~~~~~~~~~~
+
+#ifdef freenas
+Samba is single threaded, so CPU speed makes a big difference in SMB
+performance. A typical 2.5Ghz Intel quad core or greater should be
+capable of handling speeds in excess of Gb LAN while low power CPUs
+such as Intel Atoms and AMD C-30s\E-350\E-450 will not be able to
+achieve more than about 30-40MB/sec typically. Remember that other
+loads such as ZFS will also require CPU resources and may cause Samba
+performance to be less than optimal.
+
+Samba's *write cache* parameter has been reported to improve write
+performance in some configurations and can be added to the
+:guilabel:`Auxiliary parameters` field. Use an integer value which is
+a multiple of _SC_PAGESIZE (typically *4096*) to avoid memory
+fragmentation. This will increase Samba's memory requirements and
+should not be used on systems with limited RAM.
+
+If you wish to increase network performance, read the Samba section on
+`socket options
+<http://samba.org/samba/docs/man/manpages-3/smb.conf.5.html#SOCKETOPTIONS>`_.
+It indicates which options are available and recommends that you
+experiment to see which are supported by your clients and improve your
+network's performance.
+#endif freenas
+
+Windows automatically caches file sharing information. If you make
+changes to a SMB share or to the permissions of a volume/dataset
+being shared by SMB and are no longer able to access the share, try
+logging out and back into the Windows system. Alternately, users can
+type :command:`net use /delete` from the command line to clear their
+SMB sessions.
+
+Windows also automatically caches login information. If you want users
+to be prompted to log in every time access is required, reduce the
+cache settings on the client computers.
+
+Where possible, avoid using a mix of case in filenames as this can
+cause confusion for Windows users. `Representing and resolving
+filenames with Samba
+<http://www.oreilly.com/openbook/samba/book/ch05_04.html>`_ explains
+in more detail.
+
+If a particular user cannot connect to a SMB share, make sure that
+their password does not contain the *?* character. If it does, have
+the user change the password and try again.
+
+If permissions work for Windows users but not for OS X users, try
+disabling :guilabel:`Unix Extensions` and restarting the SMB service.
+
+If the SMB service will not start, run this command from :ref:`Shell`
+to see if there is an error in the configuration:
+
+.. code-block:: none
+
+   testparm /usr/local/etc/smb4.conf
+
+
+If clients have problems connecting to the SMB share, go to
+:menuselection:`Services --> SMB` and verify that
+:guilabel:`Server maximum protocol` is set to :guilabel:`SMB2`.
+
+It is recommended to use a dataset for SMB sharing. When creating the
+dataset, make sure that the :guilabel:`Share type` is set to Windows.
+
+**Do not** use :command:`chmod` to attempt to fix the permissions on a
+SMB share as it destroys the Windows ACLs. The correct way to manage
+permissions on a SMB share is to manage the share security from a
+Windows system as either the owner of the share or a member of the
+group that owns the share. To do so, right-click on the share, click
+:guilabel:`Properties` and navigate to the :guilabel:`Security` tab.
+If you already destroyed the ACLs using :command:`chmod`,
+:command:`winacl` can be used to fix them. Type :command:`winacl` from
+:ref:`Shell` for usage instructions.
+
+The `Common Errors
+<http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/domain-member.html#id2573692>`_
+section of the Samba documentation contains additional troubleshooting
+tips.
 
 
 .. index:: SNMP, Simple Network Management Protocol

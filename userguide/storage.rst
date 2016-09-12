@@ -490,12 +490,12 @@ summarizes the options in this screen.
 
 
 If a mix of operating systems or clients will be accessing the
-volume/dataset using a non-CIFS share, select the *Unix*
+volume/dataset using a non-SMB share, select the *Unix*
 :guilabel:`Permission Type`, as all clients understand them.
 
 The *Windows* :guilabel:`Permission Type` augments traditional *Unix*
 permissions with ACLs. Use the *Windows* :guilabel:`Permission Type`
-for CIFS shares or when the %brand% system is a member of an Active
+for SMB shares or when the %brand% system is a member of an Active
 Directory domain.
 
 If you change your mind about the :guilabel:`Permission Type`, it is
@@ -577,7 +577,7 @@ clicking its :guilabel:`Edit Options` button in
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    | Share type               | drop-down menu      | select the type of share that will be used on the dataset; choices are *UNIX* for an NFS share,           |
-   |                          |                     | *Windows* for a CIFS share, or                                                                            |
+   |                          |                     | *Windows* for a SMB share, or                                                                             |
    |                          |                     | *Mac* for an AFP share                                                                                    |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+

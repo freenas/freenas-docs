@@ -62,14 +62,14 @@ These types of shares and services are available:
   `WebDAV client <https://en.wikipedia.org/wiki/WebDAV#Clients>`_
   running on any operating system.
 
-* :ref:`Windows (CIFS) Shares`: the Common Internet File System (CIFS)
-  type of share is accessible by Windows, Mac OS X, Linux, and BSD
-  computers, but it is slower than an NFS share due to the
-  single-threaded design of Samba. It provides more configuration
-  options than NFS and is a good choice on a network containing any
-  Windows systems. However, it is a poor choice if the CPU on the
-  %brand% system is limited; if your CPU is maxed out, you need to
-  upgrade the CPU or consider another type of share.
+* :ref:`Windows (SMB) Shares`: the Server Message Block
+  type of share, also known as Common Internet File System (SMB), is
+  accessible by Windows, Mac OS X, Linux, and BSD computers, but it is
+  slower than an NFS share due to the single-threaded design of Samba.
+  It provides more configuration options than NFS and is a good choice
+  on a network containing any Windows systems. However, it is a poor
+  choice if the CPU on the %brand% system is limited; if the CPU is
+  maxed out, upgrade the CPU or consider another type of share.
 
 * :ref:`Block (iSCSI)` shares: this type of share appears as an
   unformatted disk to clients running iSCSI initiator software or a
@@ -96,7 +96,7 @@ encrypted.
    NFS and FTP, NFS will lock a file for editing by an NFS user, but a
    FTP user can simultaneously edit or delete that file. This will
    result in lost edits and confused users. Another example: if a
-   volume is configured for both AFP and CIFS, Windows users may be
+   volume is configured for both AFP and SMB, Windows users may be
    confused by the extra filenames used by Mac files and delete the
    ones they don't understand; this will corrupt the files on the AFP
    share. Pick the one type of share or service that makes the most
@@ -106,7 +106,7 @@ encrypted.
    datasets and use one dataset per share.
 
 This section will demonstrate how to fine-tune the configuration of
-AFP, NFS, CIFS, WebDAV, and iSCSI shares. FTP and SSH configurations
+AFP, NFS, SMB, WebDAV, and iSCSI shares. FTP and SSH configurations
 are described in :ref:`Services Configuration`.
 
 
@@ -285,7 +285,7 @@ Complete these fields in this screen:
 
 .. _creating_guest_afp_share_fig:
 
-.. figure:: images/afp6.png
+.. figure:: images/afp6a.png
 
    Creating a Guest AFP Share
 
@@ -386,7 +386,7 @@ immediately available. The new shares are also added to
 
 .. _create_time_machine_share_fig:
 
-.. figure:: images/afp7.png
+.. figure:: images/afp7a.png
 
    Creating a Time Machine Share
 
@@ -503,7 +503,7 @@ permissions of the mounted share.
 
 .. _nfs_share_wiz_fig:
 
-.. figure:: images/nfs6.png
+.. figure:: images/nfs6a.png
 
    NFS Share Wizard
 
@@ -973,49 +973,48 @@ share. These settings are described in :ref:`WebDAV`.
 
 
 .. index:: CIFS, Samba, Windows Shares, SMB
-.. _Windows (CIFS) Shares:
+.. _Windows (SMB) Shares:
 
-Windows (CIFS) Shares
+Windows (SMB) Shares
 ---------------------
 
 %brand% uses `Samba <https://www.samba.org/>`_ to share volumes using
-Microsoft's CIFS protocol. CIFS is built into the Windows and Mac OS X
+Microsoft's SMB protocol. SMB is built into the Windows and Mac OS X
 operating systems and most Linux and BSD systems pre-install the Samba
-client in order to provide support for CIFS. If your distro did not,
-install the Samba client using your distro's software repository.
+client in order to provide support for SMB. If your distro did not,
+install the Samba client using the distro's software repository.
 
-The CIFS protocol supports many different types of configuration
+The SMB protocol supports many different types of configuration
 scenarios, ranging from the very simple to quite complex. The
-complexity of your scenario depends upon the types and versions of the
-client operating systems that will connect to the share, whether or
-not the network has a Windows server, and whether or not Active
-Directory is running in the Windows network. Depending upon your
-authentication requirements, you may need to create or import users
-and groups.
+complexity of the scenario depends upon the types and versions of the
+client operating systems that will connect to the share, whether the
+network has a Windows server, and whether Active Directory is being
+used. Depending on the authentication requirements, it might be
+necessary to create or import users and groups.
 
 This chapter starts by summarizing the available configuration
 options. It will then demonstrate some common configuration scenarios
 as well as offer some troubleshooting tips. It is recommended to first
-read through this entire chapter before creating any CIFS shares so
+read through this entire chapter before creating any SMB shares so
 that you have a good idea of the best configuration scenario to meet
 your network's needs.
 
-:numref:`Figure %s <adding_cifs_share_fig>`
-shows the configuration screen that appears when you click
-:menuselection:`Sharing --> Windows (CIFS Shares)
---> Add Windows (CIFS) Share`.
+:numref:`Figure %s <adding_smb_share_fig>`
+shows the configuration screen that appears after clicking
+:menuselection:`Sharing --> Windows (SMB Shares)
+--> Add Windows (SMB) Share`.
 
 
-.. _adding_cifs_share_fig:
+.. _adding_smb_share_fig:
 
-.. figure:: images/cifs2.png
+.. figure:: images/cifs2a.png
 
-   Adding a CIFS Share
+   Adding an SMB Share
 
 
-:numref:`Table %s <cifs_share_opts_tab>`
-summarizes the options when creating a CIFS share. Some settings are
-only available when you click the :guilabel:`Advanced Mode` button.
+:numref:`Table %s <smb_share_opts_tab>`
+summarizes the options when creating a SMB share. Some settings are
+only available after clicking the :guilabel:`Advanced Mode` button.
 For simple sharing scenarios, :guilabel:`Advanced Mode` options are
 not needed. For more complex sharing scenarios, only change an
 :guilabel:`Advanced Mode` option after fully understanding the
@@ -1024,9 +1023,9 @@ function of that option.
 details for each configurable option.
 
 
-.. _cifs_share_opts_tab:
+.. _smb_share_opts_tab:
 
-.. table:: Options for a CIFS Share
+.. table:: Options for a SMB Share
 
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
    | Setting                      | Value         | Description                                                                                                 |
@@ -1064,7 +1063,7 @@ details for each configurable option.
    |                              |               | not affected                                                                                                |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
    | Allow Guest Access           | checkbox      | if checked, no password is required to connect to the share and all users share the permissions of the      |
-   |                              |               | guest user defined in the CIFS service                                                                      |
+   |                              |               | guest user defined in the SMB service                                                                       |
    |                              |               |                                                                                                             |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
    | Only Allow Guest Access      | checkbox      | only available in :guilabel:`Advanced Mode`; requires :guilabel:`Allow guest access` to also be             |
@@ -1096,10 +1095,10 @@ details for each configurable option.
 Note the following regarding some of the :guilabel:`Advanced Mode`
 settings:
 
-* Hostname lookups add some time to accessing the CIFS share. If you
+* Hostname lookups add some time to accessing the SMB share. If you
   only use IP addresses, uncheck the :guilabel:`Hostnames lookups` box
   in
-  :menuselection:`Services --> CIFS`.
+  :menuselection:`Services --> SMB`.
 
 * Be careful about unchecking the
   :guilabel:`Browsable to Network Clients` box. When this box is
@@ -1180,7 +1179,7 @@ for more details.
    | cap                 | translates filenames to and from the CAP encoding format, commonly used in Japanese language environments                                  |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | catia               | creates filenames that use characters that are illegal in CIFS filenames                                                                   |
+   | catia               | creates filenames that use characters that are illegal in SMB filenames                                                                    |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | commit              | tracks the amount of data written to a file and synchronizes it to disk when a specified amount accumulates                                |
@@ -1222,7 +1221,7 @@ for more details.
    | media_harmony       | allows Avid editorial workstations to share a network drive                                                                                |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | netatalk            | eases the co-existence of CIFS and AFP shares                                                                                              |
+   | netatalk            | eases the co-existence of SMB and AFP shares                                                                                               |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | posix_eadb          | provides Extended Attributes (EAs) support so they can be used on filesystems which do not provide native support for EAs                  |
@@ -1287,7 +1286,7 @@ for more details.
 
 .. note:: When using :guilabel:`fruit`, also add the
    :guilabel:`streams_xattr` and :guilabel:`catia` VFS objects and be
-   sure to configure **all** CIFS shares this way. Reboot the Mac
+   sure to configure **all** SMB shares this way. Reboot the Mac
    client after making this change.
 
 These VFS objects do not appear in the drop-down menu as they are
@@ -1310,7 +1309,7 @@ always enabled:
 Configuring Unauthenticated Access
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-CIFS supports guest logins, meaning that users can access the CIFS
+SMB supports guest logins, meaning that users can access the SMB
 share without needing to provide a username or password. This type of
 share is convenient as it is easy to configure, easy to access, and
 does not require any users to be configured on the %brand% system.
@@ -1322,16 +1321,16 @@ modified the data on the share. This type of configuration is best
 suited for small networks where quick and easy access to the share is
 more important than the security of the data on the share.
 
-To configure an unauthenticated CIFS share, click :guilabel:`Wizard`,
+To configure an unauthenticated SMB share, click :guilabel:`Wizard`,
 then click the :guilabel:`Next` button twice to display the screen
 shown in
-:numref:`Figure %s <create_unauth_cifs_share_fig>`.
+:numref:`Figure %s <create_unauth_smb_share_fig>`.
 Complete the following fields in this screen:
 
 #. **Share name:** enter a name for the share that is useful to you.
-   In this example, the share is named *cifs_insecure*.
+   In this example, the share is named *smb_insecure*.
 
-#. Click the button for :guilabel:`Windows (CIFS)` and check the box
+#. Click the button for :guilabel:`Windows (SMB)` and check the box
    for :guilabel:`Allow Guest`.
 
 #. Click the :guilabel:`Ownership` button. Click the drop-down
@@ -1344,25 +1343,25 @@ Complete the following fields in this screen:
    entered in :guilabel:`Share name`.
 
 
-.. _create_unauth_cifs_share_fig:
+.. _create_unauth_smb_share_fig:
 
-.. figure:: images/cifs7.png
+.. figure:: images/cifs7a.png
 
-   Creating an Unauthenticated CIFS Share
+   Creating an Unauthenticated SMB Share
 
 
 Click the :guilabel:`Next` button twice, then the :guilabel:`Confirm`
 button to create the share. The Wizard automatically creates a dataset
-for the share and starts the CIFS service so the share is immediately
+for the share and starts the SMB service so the share is immediately
 available. The new share is also be added to
-:menuselection:`Sharing --> Windows (CIFS)`.
+:menuselection:`Sharing --> Windows (SMB)`.
 
-Users can now access the share from any CIFS client and will not be
+Users can now access the share from any SMB client and will not be
 prompted for their username or password. For example, to access the
 share from a Windows system, open Explorer and click on
 :guilabel:`Network`. For this configuration example, a system named
-*FREENAS* appears with a share named :guilabel:`insecure_cifs`. The
-user can copy data to and from the unauthenticated CIFS share.
+*FREENAS* appears with a share named :guilabel:`insecure_smb`. The
+user can copy data to and from the unauthenticated SMB share.
 
 
 .. _Configuring Authenticated Access Without a Domain Controller:
@@ -1375,7 +1374,7 @@ account and to authenticate before accessing the share. This allows
 the administrator to control access to data, provide appropriate
 permissions to that data, and to determine who accesses and modifies
 stored data. A Windows domain controller is not needed for
-authenticated CIFS shares, which means that additional licensing costs
+authenticated SMB shares, which means that additional licensing costs
 are not required. However, since there is no domain controller to
 provide authentication for the network, each user account needs to be
 created on the %brand% system. This type of configuration scenario is
@@ -1392,14 +1391,14 @@ The simpler configuration is to make one share per user as it does not
 require the creation of groups, adding the correct users to the
 groups, and ensuring that group permissions are set correctly.
 
-To use the Wizard to create an authenticated CIFS share, enter the
+To use the Wizard to create an authenticated SMB share, enter the
 following information, as shown in the example in
-:numref:`Figure %s <create_auth_cifs_share_fig>`.
+:numref:`Figure %s <create_auth_smb_share_fig>`.
 
 #. **Share name:** enter a name for the share that is useful to you.
-   In this example, the share is named *cifs_user1*.
+   In this example, the share is named *smb_user1*.
 
-#. Click the button for :guilabel:`Windows (CIFS)`.
+#. Click the button for :guilabel:`Windows (SMB)`.
 
 #. Click the :guilabel:`Ownership` button. To create the user account
    on the %brand% system, type their name into the :guilabel:`User`
@@ -1410,11 +1409,11 @@ following information, as shown in the example in
    **If, however, the share will be used by several users**,
    instead type in a group name and check the :guilabel:`Create Group`
    box. In the example shown in
-   :numref:`Figure %s <create_cifs_user_group_fig>`,
+   :numref:`Figure %s <create_smb_user_group_fig>`,
    *user1* has been used for both the user and group name, meaning
    that this share will only be used by *user1*. When finished, click
    :guilabel:`Return` to return to the screen shown in
-   :numref:`Figure %s <create_auth_cifs_share_fig>`.
+   :numref:`Figure %s <create_auth_smb_share_fig>`.
 
 #. Click the :guilabel:`Add` button. **If you forget to do this, the
    share will not be created**. Clicking the :guilabel:`Add` button
@@ -1426,33 +1425,33 @@ each user, giving each user their own :guilabel:`Share name` and
 :guilabel:`Ownership`. When finished, click :guilabel:`Next` twice,
 then :guilabel:`Confirm` to create the shares. The Wizard
 automatically creates a dataset with the correct ownership for each
-share and starts the CIFS service so the shares are available
+share and starts the SMB service so the shares are available
 immediately. The new shares are also added to
-:menuselection:`Sharing --> Windows (CIFS)`.
+:menuselection:`Sharing --> Windows (SMB)`.
 
 
-.. _create_auth_cifs_share_fig:
+.. _create_auth_smb_share_fig:
 
-.. figure:: images/cifs3.png
+.. figure:: images/cifs3a.png
 
-   Creating an Authenticated CIFS Share
+   Creating an Authenticated SMB Share
 
 
-.. _create_cifs_user_group_fig:
+.. _create_smb_user_group_fig:
 
 .. figure:: images/cifs8.png
 
    Creating the User and Group
 
 
-Authenticated share can now be tested from any CIFS client. For
+Authenticated share can now be tested from any SMB client. For
 example, to test an authenticated share from a Windows system, open
 Explorer and click on :guilabel:`Network`. For this configuration
 example, a system named *FREENAS* appears with a share named
-*cifs_user1*. If you click on *cifs_user1*, a Windows Security pop-up
+*smb_user1*. If you click on *smb_user1*, a Windows Security pop-up
 screen prompts for that user's username and password. Enter the values
 that were configured for that share, in this case user *user1*. After
-authentication, the user can copy data to and from the CIFS share.
+authentication, the user can copy data to and from the SMB share.
 
 To prevent Windows Explorer from hanging when accessing the share, map
 the share as a network drive. To do this, right-click the share and
@@ -1466,7 +1465,7 @@ authenticating to a share and are sure that you are entering the
 correct username and password, type **cmd** in the
 :guilabel:`Search programs and files` box and use the following
 command to see if you have already authenticated to a share. In this
-example, the user has already authenticated to the *cifs_user1*
+example, the user has already authenticated to the *smb_user1*
 share:
 
 .. code-block:: none
@@ -1476,7 +1475,7 @@ share:
 
    Status         Local   Remote                  Network
    ------------------------------------------------------------------------
-   OK                     \\FREENAS\cifs_user1 Microsoft Windows Network
+   OK                     \\FREENAS\smb_user1 Microsoft Windows Network
    The command completed successfully.
 
 
@@ -1486,7 +1485,7 @@ To clear the cache:
 
    net use * /DELETE
    You have these remote connections:
-                  \\FREENAS\cifs_user1
+                  \\FREENAS\smb_user1
    Continuing will cancel the connections.
 
    Do you want to continue this operation? <Y/N> [N]: y
@@ -1498,7 +1497,7 @@ Explorer:
 .. code-block:: none
 
    There are open files and/or incomplete directory searches pending on the connection
-   to \\FREENAS|cifs_user1.
+   to \\FREENAS|smb_user1.
 
    Is it OK to continue disconnecting and force them closed? <Y/N> [N]: y
    The command completed successfully.
@@ -1524,7 +1523,7 @@ Windows 7. Windows XP or 2000 users need to install the
 <http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=16220>`_.
 
 When you create a periodic snapshot task on a ZFS volume that is
-configured as a CIFS share in %brand%, it is automatically configured
+configured as a SMB share in %brand%, it is automatically configured
 to support shadow copies.
 
 Before using shadow copies with %brand%, be aware of the following
@@ -1536,7 +1535,7 @@ caveats:
   sure that the system is fully up-to-date.
 
 * Shadow copy support only works for ZFS pools or datasets. This means
-  that the CIFS share must be configured on a volume or dataset, not
+  that the SMB share must be configured on a volume or dataset, not
   on a directory.
 
 * Datasets are filesystems and shadow copies cannot traverse
@@ -1545,21 +1544,21 @@ caveats:
 
 * Shadow copies will not work with a manual snapshot, you must create
   a periodic snapshot task for the pool or dataset being shared by
-  CIFS or a recursive task for a parent dataset.
+  SMB or a recursive task for a parent dataset.
 
 * The periodic snapshot task should be created and at least one
-  snapshot should exist **before** creating the CIFS share. If you
-  created the CIFS share first, restart the CIFS service in
+  snapshot should exist **before** creating the SMB share. If the
+  SMB share was created first, restart the SMB service in
   :menuselection:`Services --> Control Services`.
 
 * Appropriate permissions must be configured on the volume/dataset
-  being shared by CIFS.
+  being shared by SMB.
 
 * Users cannot delete shadow copies on the Windows system due to the
   way Samba works. Instead, the administrator can remove snapshots
   from the %brand% administrative GUI. The only way to disable shadow
   copies completely is to remove the periodic snapshot task and delete
-  all snapshots associated with the CIFS share.
+  all snapshots associated with the SMB share.
 
 To configure shadow copy support, use the instructions in
 :ref:`Configuring Authenticated Access Without a Domain Controller`
@@ -1585,7 +1584,7 @@ second share is named *user2*. Then:
    during which days and time of day they are likely to make changes.
 
 #. Go to
-   :menuselection:`Sharing --> Windows (CIFS) Shares`.
+   :menuselection:`Sharing --> Windows (SMB) Shares`.
    Highlight a share and click :guilabel:`Edit`, then
    :guilabel:`Advanced Mode`. Click the
    :guilabel:`Periodic Snapshot Task` drop-down menu and select the
@@ -1598,7 +1597,7 @@ second share is named *user2*. Then:
    task that was configured to take snapshots of the
    :file:`/mnt/volume1/user2` dataset.
 
-#. Verify that the CIFS service is set to :guilabel:`ON` in
+#. Verify that the SMB service is set to :guilabel:`ON` in
    :menuselection:`Services --> Control Services`.
 
 :numref:`Figure %s <view_shadow_explorer_fig>`
@@ -1771,7 +1770,7 @@ Configuration screen.
 
 .. _iscsi_targ_global_var_fig:
 
-.. figure:: images/global1b.png
+.. figure:: images/global1c.png
 
    iSCSI Target Global Configuration Variables
 
@@ -1818,7 +1817,7 @@ link :guilabel:`Add extra Portal IP`.
 
 .. _iscsi_add_portal_fig:
 
-.. figure:: images/portal1.png
+.. figure:: images/portal1a.png
 
    Adding an iSCSI Portal
 
@@ -1943,7 +1942,7 @@ display its :guilabel:`Edit` and :guilabel:`Delete` buttons.
 
 .. _iscsi_initiator_conf_sample_fig:
 
-.. figure:: images/initiator2.png
+.. figure:: images/initiator2a.png
 
    Sample iSCSI Initiator Configuration
 
@@ -2018,7 +2017,7 @@ Click an authorized access entry to display its :guilabel:`Edit` and
 
 .. _iscsi_view_auth_access_fig:
 
-.. figure:: images/authorized2.png
+.. figure:: images/authorized2a.png
 
    Viewing Authorized Accesses
 
@@ -2045,7 +2044,7 @@ summarizes the settings that can be configured when creating a Target.
    NTFS, UFS, or ZFS is placed on the block device, care must be taken
    that only one initiator at a time has read/write access or the
    result will be filesystem corruption. If multiple clients need
-   access to the same data on a non-clustered filesystem, use CIFS or
+   access to the same data on a non-clustered filesystem, use SMB or
    NFS instead of iSCSI, or create multiple iSCSI targets (one per
    client).
 

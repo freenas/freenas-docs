@@ -280,7 +280,7 @@ shares.
 
 .. _wiz_share_creation:
 
-.. figure:: images/wizard4.png
+.. figure:: images/wizard4a.png
 
    Network Shares
 
@@ -294,11 +294,11 @@ common scenarios. For more complex scenarios, refer to the section on
 To create a share using the wizard, enter a name for the share, then
 select the :guilabel:`Purpose` of the share:
 
-* **Windows (CIFS):** this type of share can be accessed by any
-  operating system using a CIFS client. Check the box for
+* **Windows (SMB):** this type of share can be accessed by any
+  operating system using a SMB client. Check the box for
   :guilabel:`Allow Guest` to allow users to access the share without a
-  password. CIFS shares created with the wizard can be fine-tuned
-  afterward with :ref:`Windows (CIFS) Shares`.
+  password. SMB shares created with the wizard can be fine-tuned
+  afterward with :ref:`Windows (SMB) Shares`.
 
 * **Mac OS X (AFP):** this type of share can be accessed by Mac OS X
   users. Check the box for :guilabel:`Time Machine` if Mac users will

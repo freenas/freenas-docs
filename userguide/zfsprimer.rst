@@ -130,7 +130,7 @@ found in this
 and in this
 `blog post
 <http://nex7.blogspot.com/2013/04/zfs-intent-log.html>`_.
-A dedicated log device will have no effect on CIFS, AFP, or iSCSI as
+A dedicated log device will have no effect on SMB, AFP, or iSCSI as
 these protocols rarely use synchronous writes. When creating a
 dedicated log device, it is recommended to use a fast SSD with a
 supercapacitor or a bank of capacitors that can handle writing the
