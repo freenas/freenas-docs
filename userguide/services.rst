@@ -1167,21 +1167,21 @@ This configuration screen is really a front-end to
    |                                  |                |                                                                                                       |
    +==================================+================+=======================================================================================================+
    #ifdef freenas
-   | NetBIOS Name                     | string         | automatically populated with the system's original hostname; it **must**  be different from the       |
-   |                                  |                | *Workgroup* name                                                                                      |
+   | NetBIOS Name                     | string         | automatically populated with the system's original hostname; limited to 15 characters; it **must**    |
+   |                                  |                | be different from the *Workgroup* name                                                                |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    #endif freenas
    #ifdef truenas
-   | NetBIOS Name (This Node)         | string         | automatically populated with the system's original hostname; it **must**  be different from the       |
-   |                                  |                | *Workgroup* name                                                                                      |
+   | NetBIOS Name (This Node)         | string         | automatically populated with the system's original hostname; limited to 15 characters; it **must**    |
+   |                                  |                | be different from the *Workgroup* name                                                                |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (Node B)            | string         | when using :ref:`Failovers`, set a unique NetBIOS name for the standby node                           |
-   |                                  |                |                                                                                                       |
+   | NetBIOS Name (Node B)            | string         | limited to 15 characters; when using :ref:`Failovers`, set a unique NetBIOS name for the              |
+   |                                  |                | standby node                                                                                          |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias                    | string         | when using :ref:`Failovers`, this is the NetBIOS name that resolves to either node                    |
-   |                                  |                |                                                                                                       |
+   | NetBIOS Alias                    | string         | limited to 15 characters; when using :ref:`Failovers`, this is the NetBIOS name that resolves         |
+   |                                  |                | to either node                                                                                        |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    #endif truenas
    | Workgroup                        | string         | must match Windows workgroup name; this setting is ignored if the :ref:`Active Directory`             |

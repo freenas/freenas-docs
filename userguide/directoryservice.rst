@@ -114,7 +114,7 @@ display these settings by checking the box
    |                          |               |                                                                                                                                                       |
    #ifdef freenas
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name             | string        | only available in :guilabel:`Advanced Mode`; automatically populated with the original hostname of the system;                                        |
+   | NetBIOS Name             | string        | only available in :guilabel:`Advanced Mode`; limited to 15 characters; automatically populated with the original hostname of the system;              |
    |                          |               | **use caution when changing this setting**, as setting an                                                                                             |
    |                          |               | `incorrect value can corrupt an AD installation <https://forums.freenas.org/index.php?threads/before-you-setup-ad-authentication-please-read.2447/>`_ |
    |                          |               |                                                                                                                                                       |
@@ -196,15 +196,15 @@ display these settings by checking the box
    |                          |               |                                                                                                                                                       |
    #ifdef truenas
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (This Node) | string        | only available in :guilabel:`Advanced Mode`; automatically populated with the system's original hostname; it **must**  be different from the          |
-   |                          |               | *Workgroup* name                                                                                                                                      |
+   | NetBIOS Name (This Node) | string        | only available in :guilabel:`Advanced Mode`; limited to 15 characters; automatically populated with the system's original hostname; it **must**       |
+   |                          |               | be different from the *Workgroup* name                                                                                                                |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (Node B)    | string        | only available in :guilabel:`Advanced Mode`; when using :ref:`Failovers`, set a unique NetBIOS name for the standby node                              |
+   | NetBIOS Name (Node B)    | string        | only available in :guilabel:`Advanced Mode`; limited to 15 characters; when using :ref:`Failovers`, set a unique NetBIOS name for the standby node    |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias            | string        | only available in :guilabel:`Advanced Mode`; when using :ref:`Failovers`, this is the NetBIOS name that resolves to either node                       |
-   |                          |               |                                                                                                                                                       |
+   | NetBIOS Alias            | string        | only available in :guilabel:`Advanced Mode`; limited to 15 characters; when using :ref:`Failovers`, this is the NetBIOS name that resolves            |
+   |                          |               | to either node                                                                                                                                        |
    #endif truenas
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -269,8 +269,9 @@ Active Directory user needs immediate access to %brand%; otherwise
 this occurs automatically once a day as a cron job.
 
 .. note:: Active Directory places restrictions on which characters are
-   allowed in Domain and NetBIOS names. If there are problems
-   connecting to the realm,
+   allowed in Domain and NetBIOS names, a limits the length of those
+   names to 15 characters. If there are problems connecting to the
+   realm,
    `verify <https://support.microsoft.com/en-us/kb/909264>`_
    that your settings do not include any disallowed characters. Also,
    the Administrator account password cannot contain the *$*
@@ -578,15 +579,15 @@ Those who are new to LDAP terminology should skim through the
    |                         |                |                                                                                                                |
    #ifdef truenas
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name            | string         | only available in :guilabel:`Advanced Mode`; automatically populated with the system's original                |
-   | (This Node)             |                | hostname; it **must** be different from the *Workgroup* name                                                   |
+   | NetBIOS Name            | string         | only available in :guilabel:`Advanced Mode`; limited to 15 characters; automatically populated with the        |
+   | (This Node)             |                | system's original hostname; it **must** be different from the *Workgroup* name                                 |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (Node B)   | string         | only available in :guilabel:`Advanced Mode`; when using :ref:`Failovers`, set a unique NetBIOS name            |
-   |                         |                | for the standby node                                                                                           |
+   | NetBIOS Name (Node B)   | string         | only available in :guilabel:`Advanced Mode`; limited to 15 characters; when using :ref:`Failovers`, set a      |
+   |                         |                | unique NetBIOS name for the standby node                                                                       |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias           | string         | only available in :guilabel:`Advanced Mode`; when using :ref:`Failovers`, this is the NetBIOS name             |
-   |                         |                | that resolves to either node                                                                                   |
+   | NetBIOS Alias           | string         | only available in :guilabel:`Advanced Mode`; limited to 15 characters; when using :ref:`Failovers`,            |
+   |                         |                | this is the NetBIOS name that resolves to either node                                                          |
    |                         |                |                                                                                                                |
    #endif truenas
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
@@ -709,7 +710,7 @@ box :guilabel:`Show advanced fields by default` in
    | Domain Controller      | string    | hostname of domain controller                                                                         |
    |                        |           |                                                                                                       |
    +------------------------+-----------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name           | string    | hostname of FreeNAS system ; cannot be greater than 15 characters or the same as the                  |
+   | NetBIOS Name           | string    | hostname of FreeNAS system ; cannot be longer than 15 characters; cannot be the same as the           |
    |                        |           | :guilabel:`Workgroup Name`                                                                            |
    +------------------------+-----------+-------------------------------------------------------------------------------------------------------+
    | Workgroup Name         | string    | name of Windows server's workgroup                                                                    |
