@@ -2443,7 +2443,7 @@ comes with NetBSD, and
 comes with OpenBSD.
 
 Some Linux distros provide the command line utility
-:command:`iscsiadm` from `Open-iSCSI <http://www.open-iscsi.org/>`_.
+:command:`iscsiadm` from `Open-iSCSI <http://www.open-iscsi.com/>`_.
 Use a web search to see if a package exists for your distribution
 should the command not exist on your Linux system.
 
