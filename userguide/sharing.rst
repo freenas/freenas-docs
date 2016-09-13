@@ -2226,6 +2226,7 @@ The last step is associating an extent to a target within
 --> Add Target/Extent`. This screen is shown in
 :numref:`Figure %s <iscsi_target_extent_fig>`.
 Use the drop-down menus to select the existing target and extent.
+Click :guilabel:`OK` to add an entry for the LUN.
 
 
 .. _iscsi_target_extent_fig:
@@ -2260,15 +2261,24 @@ targets and extents.
    +-------------+----------------+--------------------------------------------------------------------------------------------------------+
 
 
-It is recommended to always associate extents to targets in a 1:1
-manner, even though the GUI will allow multiple extents to be
-associated with the same target.
+It is recommended to always associate extents to targets in a
+one-to-one manner, even though the GUI will allow multiple extents to
+be associated with the same target.
 
-Once iSCSI has been configured, don't forget to start it in
+.. note:: Each LUN entry has :guilabel:`Edit` and :guilabel:`Delete`
+   buttons for modifying the settings or deleting the LUN entirely.
+   A verification popup appears when the :guilabel:`Delete` button is
+   clicked. If an initiator has an active connection to the LUN, it is
+   indicated in red text. It is recommended to clear initiator
+   connections to a LUN before deleting it.
+
+After iSCSI has been configured, remember to start it in
 :menuselection:`Services --> Control Services`.
 Click the red :guilabel:`OFF` button next to iSCSI. After a second or
 so, it will change to a blue :guilabel:`ON`, indicating that the
 service has started.
+
+.. note: Entries can be deleted here.
 
 
 #ifdef truenas
@@ -2292,7 +2302,7 @@ is shown in
 
    Block (iSCSI) Screen
 
-  
+
 Otherwise, the :guilabel:`Target Global Configuration` screen is the
 same as described in :ref:`Target Global Configuration`.
 
