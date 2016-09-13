@@ -91,6 +91,10 @@ changes that have occurred since |version| was released.
    documentation, make sure that the system is fully up-to-date. If is
    is not, apply any outstanding updates.
 
+* `Broadcom bge
+  <https://www.freebsd.org/cgi/man.cgi?query=bge&sektion=4>`_
+  revision 5717 C0 Ethernet cards are now supported.
+
 * The mps driver for 6 G Avago SAS HBAs is version 21, which requires
   phase 20 firmware on the controller.
 
