@@ -185,13 +185,25 @@ system to the original configuration.
 configuration database in the format *hostname-version-architecture*
 to the system being used to access the administrative interface. It is
 recommended to always save the configuration after making any
-configuration changes. Note that while %brand% automatically backs up
-the configuration database to the system dataset every morning at
-3:45, this backup will not occur if the system is shutdown at that
-time and the backup will not be available if the system dataset is
-stored on the boot pool and the boot pool becomes unavailable. You can
-determine and change the location of the system dataset using
+configuration changes. %brand% automatically backs up the
+configuration database to the system dataset every morning at
+3:45. However, this backup will not occur if the system is shut down
+at that time. If the system dataset is stored on the boot pool and the
+boot pool becomes unavailable, the backup will not be available. The
+location of the system dataset can be viewed or set using
 :menuselection:`System --> System Dataset`.
+
+.. warning:: Passwords are backed up with the system configuration.
+   There are two types of passwords. User account passwords for the
+   base operating system are stored as hashed values, do not need to
+   be encrypted to be secure, and are saved in the system
+   configuration backup. Other passwords, like iSCSI CHAP passwords or
+   Active Directory bind credentials, must be stored in an encrypted
+   form to prevent them from being visible as plain text in the saved
+   system configuration. The key for this encryption is stored on the
+   boot device. If the system configuration is moved to a different
+   boot device, that key is not present and these other passwords must
+   be re-entered.
 
 **Upload Config:** allows you to browse to the location of a
 previously saved configuration file in order to restore that
