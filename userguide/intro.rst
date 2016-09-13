@@ -100,9 +100,9 @@ changes that have occurred since |version| was released.
 
 * Deletion of in-use LUNs is not allowed.
 
-* Samba has been updated to version 4.4.5
+* Samba has been updated to version 4.3.11
   `(changelog)
-  <https://www.samba.org/samba/history/samba-4.4.5.html>`_.
+  <https://www.samba.org/samba/history/samba-4.3.11.html>`_.
 
 * Allow customization of UPS shutdown command.
 
