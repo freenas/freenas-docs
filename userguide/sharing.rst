@@ -2231,7 +2231,7 @@ Click :guilabel:`OK` to add an entry for the LUN.
 
 .. _iscsi_target_extent_fig:
 
-.. figure:: images/target2a.png
+.. figure:: images/target2b.png
 
    Associating a Target With an Extent
 
@@ -2252,8 +2252,8 @@ targets and extents.
    | Target      | drop-down menu | select the pre-created target                                                                          |
    |             |                |                                                                                                        |
    +-------------+----------------+--------------------------------------------------------------------------------------------------------+
-   | LUN ID      | drop-down menu | the default of *Auto* will use the next available LUN ID; alternately, select the value of the ID or   |
-   |             |                | type in the desired value                                                                              |
+   | LUN ID      | drop-down menu | select the value of the ID or type in the desired value                                                |
+   |             |                |                                                                                                        |
    |             |                |                                                                                                        |
    +-------------+----------------+--------------------------------------------------------------------------------------------------------+
    | Extent      | drop-down menu | select the pre-created extent                                                                          |
@@ -2277,8 +2277,6 @@ After iSCSI has been configured, remember to start it in
 Click the red :guilabel:`OFF` button next to iSCSI. After a second or
 so, it will change to a blue :guilabel:`ON`, indicating that the
 service has started.
-
-.. note: Entries can be deleted here.
 
 
 #ifdef truenas
