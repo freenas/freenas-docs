@@ -348,7 +348,7 @@ becoming corrupt.
 
 Active Directory uses DNS to determine the location of the domain
 controllers and global catalog servers in the network. Use the
-:command:`host -t srv _ldap._tcp.domainname.com` command to determine
+:samp:`host -t srv _ldap._tcp.{domainname.com}` command to determine
 the network's SRV records and, if necessary, change the weight and/or
 priority of the SRV record to reflect the fastest server. More
 information about SRV records can be found in the Technet article
