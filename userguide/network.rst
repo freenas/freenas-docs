@@ -104,7 +104,7 @@ but can be changed to meet requirements of the local network.
 When Active Directory is being used, set the IP address of the
 realm's DNS server in the :guilabel:`Nameserver 1` field.
 
-If your network does not have a DNS server, or NFS, SSH, or FTP users
+If the network does not have a DNS server, or NFS, SSH, or FTP users
 are receiving "reverse DNS" or timeout errors, add an entry for the IP
 address of the %brand% system in the :guilabel:`Host name database`
 field.
@@ -370,8 +370,8 @@ links. The LACP, FEC, and load-balance modes select the output
 interface using a hash that includes the Ethernet source and
 destination address, VLAN tag (if available), IP source and
 destination address, and flow label (IPv6 only). The benefit can only
-be observed when multiple clients are transferring files **from** the
-NAS. The flow entering **into** the NAS depends on the Ethernet
+be observed when multiple clients are transferring files *from* the
+NAS. The flow entering *into* the NAS depends on the Ethernet
 switch load-balance algorithm.
 
 The lagg driver currently supports these aggregation protocols:
