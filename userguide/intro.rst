@@ -16,14 +16,14 @@ Copyright © 2011-2016
 
 This Guide covers the installation and use of %brand% |release|.
 
-The %brand% Users Guide is a work in progress and relies on the
+The %brand% User Guide is a work in progress and relies on the
 contributions of many individuals. If you are interested in helping us
 to improve the Guide, read the instructions in the `README
 <https://github.com/freenas/freenas/blob/master/docs/userguide/README.md>`_.
 IRC Freenode users are welcome to join the *#freenas* channel
 where you will find other %brand% users.
 
-The %brand% Users Guide is freely available for sharing and
+The %brand% User Guide is freely available for sharing and
 redistribution under the terms of the
 `Creative Commons Attribution
 License <https://creativecommons.org/licenses/by/3.0/>`_.
@@ -36,7 +36,7 @@ source of the Guide.
 
 **Typographic Conventions**
 
-The %brand% |release| Users Guide uses these typographic conventions:
+The %brand% |release| User Guide uses these typographic conventions:
 
 #include snippets/typography.rst
 
@@ -69,6 +69,10 @@ What Is New in |version|
   fingerprints are logged in :file:`/var/log/messages`,
   :file:`var/log/debug.log`, and the console.
 
+* Samba has been updated to version 4.3.11
+  `(changelog)
+  <https://www.samba.org/samba/history/samba-4.3.11.html>`_.
+
 * Dashes have been added to the characters allowed in jail names.
 
 * Duplicate MAC addresses are not allowed in jails.
@@ -85,11 +89,10 @@ latest security fixes, bug fixes, and new features. Some updates
 affect the user interface, so this section lists any functional
 changes that have occurred since |version| was released.
 
-.. note:: The screenshots in this documentation assume that your
-   system is fully updated to the latest STABLE version of %brand%
-   |version|. If a screen on your system looks different than the
-   documentation, make sure that the system is fully up-to-date. If is
-   is not, apply any outstanding updates.
+.. note:: The screenshots in this documentation assume that the system
+   has been fully updated to the latest STABLE version of %brand%
+   |version|. If a screen on your system is not the same as shown in
+   this guide, make sure that all outstanding updates are applied.
 
 * `Broadcom bge
   <https://www.freebsd.org/cgi/man.cgi?query=bge&sektion=4>`_
@@ -99,10 +102,6 @@ changes that have occurred since |version| was released.
   phase 20 firmware on the controller.
 
 * Deletion of in-use LUNs is not allowed.
-
-* Samba has been updated to version 4.3.11
-  `(changelog)
-  <https://www.samba.org/samba/history/samba-4.3.11.html>`_.
 
 * Allow customization of UPS shutdown command.
 
