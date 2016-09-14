@@ -181,16 +181,16 @@ changes stored in the configuration database will be erased, this
 option is handy if you mess up your system or wish to return a test
 system to the original configuration.
 
-**Save Config:** used to save a backup copy of the current
-configuration database in the format *hostname-version-architecture*
-to the system being used to access the administrative interface. It is
-recommended to always save the configuration after making any
-configuration changes. %brand% automatically backs up the
-configuration database to the system dataset every morning at
-3:45. However, this backup will not occur if the system is shut down
-at that time. If the system dataset is stored on the boot pool and the
-boot pool becomes unavailable, the backup will not be available. The
-location of the system dataset can be viewed or set using
+**Save Config:** saves a backup copy of the current configuration
+database in the format *hostname-version-architecture* to the system
+being used to access the administrative interface. It is recommended
+to always save the configuration after making any configuration
+changes. %brand% automatically backs up the configuration database to
+the system dataset every morning at 3:45. However, this backup will
+not occur if the system is shut down at that time. If the system
+dataset is stored on the boot pool and the boot pool becomes
+unavailable, the backup will not be available. The location of the
+system dataset can be viewed or set using
 :menuselection:`System --> System Dataset`.
 
 .. warning:: Passwords are backed up with the system configuration.
@@ -201,9 +201,9 @@ location of the system dataset can be viewed or set using
    Active Directory bind credentials, must be stored in an encrypted
    form to prevent them from being visible as plain text in the saved
    system configuration. The key for this encryption is stored on the
-   boot device. If the system configuration is moved to a different
-   boot device, that key is not present and these other passwords must
-   be re-entered.
+   boot device. If %brand% is installed on a new boot device and a
+   backup system configuration is moved to that new boot device, the
+   key is not present and these other passwords must be re-entered.
 
 **Upload Config:** allows you to browse to the location of a
 previously saved configuration file in order to restore that
