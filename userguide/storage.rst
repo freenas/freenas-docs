@@ -1479,34 +1479,15 @@ reboot, you may lose access to the pool permanently.**
 Removing a Log or Cache Device
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you have added any log or cache devices, these devices will also
-appear in
+Added log or cache devices appear in
 :menuselection:`Storage --> Volumes --> View Volumes
 --> Volume Status`.
-If you click the device, you can either use its :guilabel:`Replace`
-button to replace the device as described above, or click its
-:guilabel:`Remove` button to remove the device.
+Clicking the device enables its :guilabel:`Replace` and
+:guilabel:`Remove` buttons.
 
-#ifdef freenas
-Before performing either of these operations, verify the version of
-ZFS running on the system by running :command:`zpool upgrade -v|more`
-from Shell.
-
-If the pool is running ZFSv15, and a non-mirrored log device fails, is
-replaced, or removed, the pool is unrecoverable and the pool must be
-recreated and the data restored from a backup. For other ZFS versions,
-removing or replacing the log device will lose any data in the device
-which had not yet been written. This is typically the last few seconds
-of writes.
-#endif freenas
-
-Removing or replacing the log device will lose any data in the device
-which had not yet been written. This is typically the last few seconds
-of writes.
-
-Removing or replacing a cache device will not result in any data loss,
-but may have an impact on read performance until the device is
-replaced.
+Log and cache devices can be safely removed or replaced with these
+buttons. Both types of devices improve performance, and throughput can
+be impacted by their removal.
 
 
 .. _Replacing Drives to Grow a ZFS Pool:
