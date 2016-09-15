@@ -101,6 +101,9 @@ changes that have occurred since |version| was released.
 * The mps driver for 6 G Avago SAS HBAs is version 21, which requires
   phase 20 firmware on the controller.
 
+* Support for many old and obsolete 10/100 Ethernet cards has been
+  removed.
+
 * Deletion of in-use LUNs is not allowed.
 
 * Allow customization of UPS shutdown command.
