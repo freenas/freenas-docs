@@ -31,7 +31,7 @@ original blocks. Once the write is complete, all block pointers are
 changed to point to the new copy. This means that ZFS always writes
 to free space and most writes will be sequential. When ZFS has direct
 access to disks, it will bundle multiple read and write requests into
-transactions; most filesystems can not do this as they only have
+transactions; most filesystems cannot do this as they only have
 access to disk blocks. A transaction either completes or fails,
 meaning there will never be a
 `write-hole <https://blogs.oracle.com/bonwick/entry/raid_z>`_
@@ -91,12 +91,12 @@ snapshots are not added to the free list until all referencing
 snapshots are removed. This means that snapshots provide a clever way
 of keeping a history of files, should you need to recover an older
 copy of a file or a deleted file. For this reason, many
-administrators take snapshots often (e.g. every 15 minutes), store
-them for a period of time (e.g. for a month), and store them on
+administrators take snapshots often (e.g., every 15 minutes), store
+them for a period of time (e.g., for a month), and store them on
 another system. Such a strategy allows the administrator to roll the
 system back to a specific time or, if there is a catastrophic loss,
 an off-site snapshot can restore the system up to the last snapshot
-interval (e.g. within 15 minutes of the data loss). Snapshots are
+interval (e.g., within 15 minutes of the data loss). Snapshots are
 stored locally but can also be replicated to a remote ZFS pool.
 During replication, ZFS does not do a byte-for-byte copy but instead
 converts a snapshot into a stream of data. This design means that the
@@ -148,7 +148,7 @@ the data in the device which had not been written to the pool will be
 lost (typically the last few seconds of writes). You can replace the
 lost log device in the
 :menuselection:`View Volumes --> Volume Status`
-screen. Note that a dedicated log device can not be shared between ZFS
+screen. Note that a dedicated log device cannot be shared between ZFS
 pools and that the same device cannot hold both a log and a cache
 device.
 
@@ -185,7 +185,7 @@ L2ARC, not mirror it, as the contents of L2ARC are recreated at boot.
 Losing an L2ARC device will not affect the integrity of the pool, but
 may have an impact on read performance, depending upon the workload
 and the ratio of dataset size to cache size. Note that a dedicated
-L2ARC device can not be shared between ZFS pools.
+L2ARC device cannot be shared between ZFS pools.
 
 **ZFS was designed to provide redundancy while addressing some of the
 inherent limitations of hardware RAID** such as the write-hole and

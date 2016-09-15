@@ -54,13 +54,13 @@ used to verify the integrity of the downloaded file. The command to
 verify the checksum varies by operating system:
 
 * on a BSD system use the command
-  :command:`sha256 name_of_file`
+  :samp:`sha256 {name_of_file}`
 
 * on a Linux system use the command
-  :command:`sha256sum name_of_file`
+  :samp:`sha256sum {name_of_file}`
 
 * on a Mac system use the command
-  :command:`shasum -a 256 name_of_file`
+  :samp:`shasum -a 256 {name_of_file}`
 
 * Windows or Mac users can install additional utilities like
   `HashCalc <http://www.slavasoft.com/hashcalc/>`_
@@ -194,7 +194,7 @@ command again, and compare the difference. Once you are sure of the
 device name, navigate to the Desktop from TERMINAL, unmount the USB
 stick, and use the :command:`dd` command to write the image to the USB
 stick. In
-:ref:`Example: Using *dd* on an OS X System <install_dd_osx_topic>`,
+:ref:`Example: Using dd on an OS X System <install_dd_osx_topic>`,
 the USB thumb drive is :file:`/dev/disk1`,
 which is first unmounted. The :command:`dd` command uses
 :file:`/dev/rdisk1` (note the extra *r*) to write to the raw device,
