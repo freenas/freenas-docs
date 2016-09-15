@@ -45,31 +45,31 @@ exabytes.
 **ZFS was designed to be a self-healing filesystem**. As ZFS writes
 data, it creates a checksum for each disk block it writes. As ZFS
 reads data, it validates the checksum for each disk block it reads.
-If ZFS identifies a disk block checksum error on a pool that is
-mirrored or uses RAIDZ*, ZFS will fix the corrupted data with the
-correct data. Since some disk blocks are rarely read, regular scrubs
-should be scheduled so that ZFS can read all of the data blocks in
-order to validate their checksums and correct any corrupted blocks.
-While multiple disks are required in order to provide redundancy and
-data correction, ZFS will still provide  data corruption detection to
-a system with one disk. %brand% automatically schedules a monthly
-scrub for each ZFS pool and the results of the scrub will be
-displayed in :ref:`View Volumes`. Reading the scrub results can
-provide an early indication of possible disk failure.
+Media errors or "bit rot" can cause data to change, and the checksum
+no longer matches. When ZFS identifies a disk block checksum error on
+a pool that is mirrored or uses RAIDZ*, it replaces the corrupted data
+with the correct data. Since some disk blocks are rarely read, regular
+scrubs should be scheduled so that ZFS can read all of the data blocks
+to validate their checksums and correct any corrupted blocks. While
+multiple disks are required in order to provide redundancy and data
+correction, ZFS will still provide data corruption detection to a
+system with one disk. %brand% automatically schedules a monthly scrub
+for each ZFS pool and the results of the scrub are displayed in
+:ref:`View Volumes`. Reading scrub results can provide an early
+indication of possible disk failure.
 
-Unlike traditional UNIX filesystems, **you do not need to define
-partition sizes at filesystem creation time**. Instead, you feed a
-certain number of disks at a time (known as a vdev) to a ZFS pool and
-create filesystems from the pool as needed. As more capacity is
-needed, identical vdevs can be striped into the pool. In %brand%,
-:ref:`Volume Manager` can be used to create or extend ZFS pools. Once
-a pool is created, it can be divided into dynamically-sized datasets
-or fixed-size zvols as needed. Datasets can be used to optimize
-storage for the type of data being stored as permissions and
-properties such as quotas and compression can be set on a per-dataset
-level. A zvol is essentially a raw, virtual block device which can be
-used for applications that need raw-device semantics such as iSCSI
-device extents.
+Unlike traditional UNIX filesystems, **it is not necessary to define
+partition sizes at filesystem creation time**. Instead, a group of
+disks (known as a vdev) are built into a ZFS pool. Filesystems are
+created from the pool as needed. As more capacity is needed, identical
+vdevs can be striped into the pool. In %brand%, :ref:`Volume Manager`
+can be used to create or extend ZFS pools. After a pool is created, it
+can be divided into dynamically-sized datasets or fixed-size zvols as
+needed. Datasets can be used to optimize storage for the type of data
+being stored as permissions and properties such as quotas and
+compression can be set on a per-dataset level. A zvol is essentially a
+raw, virtual block device which can be used for applications that need
+raw-device semantics such as iSCSI device extents.
 
 **ZFS supports real-time data compression**. Compression happens when
 a block is written to disk, but only if the written data will benefit
