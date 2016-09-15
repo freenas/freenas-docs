@@ -1417,13 +1417,13 @@ information for your organization.
    | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
-   | Name                 | string               | mandatory; input a descriptive name for the CA                                                  |
+   | Name                 | string               | required; enter a descriptive name for the CA                                                   |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Key Length           | drop-down menu       | for security reasons, a minimum of *2048* is recommended                                        |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Digest Algorithm     | drop-down menu       | the default should be fine unless your organization requires a different algorithm              |
+   | Digest Algorithm     | drop-down menu       | the default is acceptable unless your organization requires a different algorithm               |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Lifetime             | integer              | in days                                                                                         |
@@ -1432,19 +1432,19 @@ information for your organization.
    | Country              | drop-down menu       | select the country for the organization                                                         |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | State                | string               | mandatory; input the state or province for the organization                                     |
+   | State                | string               | required; enter the state or province of the organization                                       |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Locality             | string               | mandatory; input the location of the organization                                               |
+   | Locality             | string               | required; enter the location of the organization                                                |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Organization         | string               | mandatory; input the name of the company or organization                                        |
+   | Organization         | string               | required; enter the name of the company or organization                                         |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Email Address        | string               | mandatory; input the email address for the person responsible for the CA                        |
+   | Email Address        | string               | required; enter the email address for the person responsible for the CA                         |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Common Name          | string               | mandatory; input the FQDN of FreeNAS system                                                     |
+   | Common Name          | string               | required; enter the fully-qualified hostname (FQDN) of the %brand% system                       |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
@@ -1533,13 +1533,13 @@ The configurable options are summarized in
    | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
-   | Name                 | string               | mandatory; input a descriptive name for the certificate; cannot contain the *"* character       |
+   | Name                 | string               | required; enter a descriptive name for the certificate; cannot contain                          |
+   |                      |                      | the *"* (quote) character                                                                       |
+   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Certificate          | string               | required; paste the contents of the certificate                                                 |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Certificate          | string               | mandatory; paste the contents of the certificate                                                |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Private Key          | string               | mandatory; paste the private key associated with the certificate                                |
+   | Private Key          | string               | required; paste the private key associated with the certificate                                 |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Passphrase           | string               | if the private key is protected by a passphrase, enter it here and repeat it in                 |
@@ -1575,16 +1575,16 @@ as the signing authority.
    | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
-   | Signing Certificate  | drop-down menu       | mandatory; select the CA which was previously imported or created using :ref:`CAs`              |
+   | Signing Certificate  | drop-down menu       | required; select the CA which was previously imported or created using :ref:`CAs`               |
    | Authority            |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Name                 | string               | mandatory; input a descriptive name for the certificate; cannot contain the *"* character       |
-   |                      |                      |                                                                                                 |
+   | Name                 | string               | required; enter a descriptive name for the certificate; cannot contain                          |
+   |                      |                      | the *"* (quote) character                                                                       |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Key Length           | drop-down menu       | for security reasons, a minimum of *2048* is recommended                                        |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Digest Algorithm     | drop-down menu       | the default should be fine unless your organization requires a different algorithm              |
+   | Digest Algorithm     | drop-down menu       | the default is acceptable unless your organization requires a different algorithm               |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Lifetime             | integer              | in days                                                                                         |
@@ -1593,19 +1593,19 @@ as the signing authority.
    | Country              | drop-down menu       | select the country for the organization                                                         |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | State                | string               | mandatory; input the state or province for the organization                                     |
+   | State                | string               | required; enter the state or province for the organization                                      |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Locality             | string               | mandatory; input the location for the organization                                              |
+   | Locality             | string               | required; enter the location for the organization                                               |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Organization         | string               | mandatory; input the name of the company or organization                                        |
+   | Organization         | string               | required; enter the name of the company or organization                                         |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Email Address        | string               | mandatory; input the email address for the person responsible for the CA                        |
+   | Email Address        | string               | required; enter the email address for the person responsible for the CA                         |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Common Name          | string               | mandatory; input the FQDN of FreeNAS system                                                     |
+   | Common Name          | string               | required; enter the fully-qualified hostname (FQDN) of the %brand% system                       |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
