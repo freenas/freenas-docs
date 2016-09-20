@@ -57,7 +57,7 @@ is enabled by default.  Other services default to off until started.
 
 .. _control_services_fig:
 
-.. figure:: images/services1a.png
+.. figure:: images/services1b.png
 
    Control Services
 
