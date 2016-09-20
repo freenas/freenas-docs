@@ -4,9 +4,9 @@
 Services Configuration
 ======================
 
-The Services section of the GUI is where the various services that
-ship with the %brand% system are configured, started, or stopped.
-%brand% includes these built-in services:
+The Services section of the GUI is where various services that ship with
+the %brand% system are configured, started, or stopped. %brand% includes
+these built-in services:
 
 * :ref:`AFP`
 
@@ -50,9 +50,10 @@ Control Services
 
 :menuselection:`Services --> Control Services`, shown in
 :numref:`Figure %s <control_services_fig>`,
-allows you to quickly determine which services are currently running,
-and to start, stop, or configure services. Only the S.M.A.R.T. service
-is enabled by default.  Other services default to off until started.
+shows which services are currently running and can start, stop, or
+configure them. The S.M.A.R.T. service is enabled by default, but only
+runs if the storage devices support S.M.A.R.T. data. Other services
+default to off until started.
 
 
 .. _control_services_fig:
