@@ -143,10 +143,8 @@ for usage information. If you decide to create a dedicated log device
 to speed up NFS writes, the SSD can be half the size of system RAM as
 anything larger than that is unused capacity. The log device does not
 need to be mirrored on a pool running ZFSv28 or feature flags as the
-system will revert to using the ZIL if the log device fails and only
-the data in the device which had not been written to the pool will be
-lost (typically the last few seconds of writes). You can replace the
-lost log device in the
+system will revert to using the ZIL if the log device fails. You can
+replace the lost log device in the
 :menuselection:`View Volumes --> Volume Status`
 screen. Note that a dedicated log device cannot be shared between ZFS
 pools and that the same device cannot hold both a log and a cache
