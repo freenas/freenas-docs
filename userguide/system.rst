@@ -865,13 +865,16 @@ will prevent :file:`/var/` on the device holding the operating system
 from filling up as :file:`/var/` has limited space.
 
 Use the drop-down menu to select the ZFS volume (pool) to contain the
-system dataset.
+system dataset. Whenever the location of the system dataset is
+changed, a pop-up warning will indicate that the SMB service needs to
+be restarted, which will result in a temporary outage of any active
+SMB connections.
 
 #ifdef truenas
 .. note:: It is recommended to store the system dataset on the
    :file:`freenas-boot` pool. For this reason, a yellow system alert
    will be generated when the system dataset is configured to
-   use another pool.
+   use another pool. 
 #endif truenas
 
 To store the system log on the system dataset, check the
