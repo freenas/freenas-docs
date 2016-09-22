@@ -1513,7 +1513,11 @@ shows the initial screen if you click
 To import an existing certificate, click the
 :guilabel:`Import Certificate` button to open the configuration screen
 shown in
-:numref:`Figure %s <import_cert_fig>`.
+:numref:`Figure %s <import_cert_fig>`. 
+When importing a certificate chain, paste the primary certificate,
+followed by any intermediate certificates, followed by the root CA
+certificate.
+
 The configurable options are summarized in
 :numref:`Table %s <cert_import_opt_tab>`.
 
