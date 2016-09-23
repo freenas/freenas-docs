@@ -965,9 +965,8 @@ This debugging information is created by the :command:`freenas-debug`
 command line utility and a copy of the information is saved to
 :file:`/var/tmp/fndebug`.
 
-Using Shell, you can run this command manually to gather the specific
-debugging information that you need. To see the available options,
-type:
+This command can be run manually from :ref:`Shell` to gather specific
+debugging information. To see the available options, type:
 
 .. code-block:: none
 
@@ -995,18 +994,13 @@ type:
      -t		Dump System Information
      -v		Dump Boot System File Verification Status and Inconsistencies (if any)
      -z		Dump ZFS configuration
- Output will be saved to /var/tmp/fndebug
 
-
-For example, if you are troubleshooting your Active Directory
-configuration, try the following commands to generate and view the
-debug file:
+For example, when troubleshooting an Active Directory configuration,
+use:
 
 .. code-block:: none
 
    freenas-debug -a
-
-   more /var/tmp/fndebug
 
 
 .. index:: tmux
