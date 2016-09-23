@@ -1473,8 +1473,9 @@ summarizes the configuration options.
    | SNMP v3 Support      | checkbox       | check this box to enable support for SNMP version 3                                              |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Community            | string         | password used on the SNMP network, default is *public* and                                       |
-   |                      |                | **should be changed for security reasons**; this value can be empty for SNMPv3 networks          |
+   | Community            | string         | default is *public* and **should be changed for security reasons**; can only contain             |
+   |                      |                | alphanumeric characters, underscores, dashes, periods, and spaces; this value can be empty for   |
+   |                      |                | SNMPv3 networks                                                                                  |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
    | Username             | string         | only applies if :guilabel:`SNMP v3 Support` is checked; specify the username to register         |
