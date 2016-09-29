@@ -94,9 +94,14 @@ changes that have occurred since |version| was released.
    |version|. If a screen on your system is not the same as shown in
    this guide, make sure that all outstanding updates are applied.
 
+
+* OpenSSL has been updated to
+  `version 1.1.0b <https://www.openssl.org/news/secadv/20160926.txt>`_
+  which addresses a use-after-free security issue.
+
 * Netatalk has been updated to
   `version 3.1.10 <http://netatalk.sourceforge.net/3.1/ReleaseNotes3.1.10.html>`_. 
-   
+
 * `Broadcom bge
   <https://www.freebsd.org/cgi/man.cgi?query=bge&sektion=4>`_
   revision 5717 C0 Ethernet cards are now supported.
