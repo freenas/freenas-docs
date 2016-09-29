@@ -111,6 +111,9 @@ changes that have occurred since |version| was released.
 
 * Support for many old and obsolete 10/100 Ethernet cards has been
   removed.
+  
+* The *Auto* option has been removed from the :guilabel:`LUN ID` menu
+  of :menuselection:`Sharing --> Block (iSCSI) --> Associated Targets --> Add Target/Extent`.
 
 * Deletion of in-use LUNs is not allowed.
 
