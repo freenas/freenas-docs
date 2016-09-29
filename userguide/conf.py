@@ -26,7 +26,7 @@ copyright = u'2011-2016, iXsystems'
 # The short X.Y version.
 version = '9.10.1'
 # The full version, including alpha/beta/rc tags.
-release = '9.10.1-U1'
+release = '9.10.1-U2'
 
 # exclude_patterns is a list of patterns relative to the source directory
 # that match files and directories to ignore when looking for source files.
