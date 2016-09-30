@@ -486,8 +486,8 @@ memory and the type of workload, as seen in these two examples:
 * `ZFS prefetch algorithm can cause performance drawbacks
   <http://southbrain.com/south/2008/04/the-nightmare-comes-slowly-zfs.html>`_
 
-%brand% provides two command line scripts which an be manually run
-from Shell:
+%brand% provides two command line scripts which can be manually run
+from :ref:`Shell`:
 
 * :command:`arc_summary.py`: provides a summary of the statistics
 
