@@ -3,8 +3,8 @@
 Storage
 =======
 
-The Storage section of the graphical interface allows you to configure
-the following:
+The Storage section of the graphical interface allows configuration of
+these options:
 
 * :ref:`Volumes`: used to create and manage storage volumes.
 
@@ -49,10 +49,10 @@ create ZFS datasets and zvols and to manage their permissions.
    term volume to refer to a ZFS pool.
 
 Proper storage design is important for any NAS.
-**It is recommended that you read through this entire chapter first,
-before configuring your storage disks, so that you are aware of all of
-the possible features, know which ones will benefit your setup most,
-and are aware of any caveats or hardware restrictions.**
+**Please read through this entire chapter before configuring storage
+disks. All of the features are described to help make it clear which
+will be the most benefit for your uses, and caveats or caveats or
+hardware restrictions which could limit their use.**
 
 
 .. _Volume Manager:
@@ -1499,15 +1499,14 @@ The recommended method for expanding the size of a ZFS pool is to
 pre-plan the number of disks in a vdev and to stripe additional vdevs
 using :ref:`Volume Manager` as additional capacity is needed.
 
-However, this is not an option if you do not have open drive ports or
-the ability to add a SAS/SATA HBA card. In this case, you can replace
-one disk at a time with a larger disk, wait for the resilvering
-process to incorporate the new disk into the pool completes, then
-repeat with another disk until all of the disks have been replaced.
+However, this is not an option if there are no open drive ports and a
+SAS/SATA HBA card cannot be added. In this case, one disk at a time
+can be replaced with a larger disk, waiting for the resilvering
+process to incorporate the new disk into the pool, then repeating with
+another disk until all of the original disks have been replaced.
 
 The safest way to perform this is to use a spare drive port or an
-eSATA port and a hard drive dock. In this case, you can perform the
-following steps:
+eSATA port and a hard drive dock. The process follows these steps:
 
 #. Shut down the system.
 
@@ -1523,19 +1522,19 @@ following steps:
 
 #. The status of the resilver process can be viewed by running
    :command:`zpool status`. When the new disk has resilvered, the old
-   one will be automatically offlined. The system can then be shut
-   down to physically remove the replaced disk. One advantage of this
-   approach is that there is no loss of redundancy during the resilver.
+   one will be automatically offlined. The system is then shut down to
+   physically remove the replaced disk. One advantage of this approach
+   is that there is no loss of redundancy during the resilver.
 
-If you do not have a spare drive port, you will need to replace one
-drive with a larger drive using the instructions in
-:ref:`Replacing a Failed Drive`. This process is slow and places the
-:system in a degraded state. Since a failure at this point could be
-disastrous, **do not attempt this method unless the system has a
-reliable backup.** Replace one drive at a time and wait for the
-resilver process to complete on the replaced drive before replacing
-the next drive. Once all the drives are replaced and the resilver
-completes, you will see the added space in the pool.
+If a spare drive port is not available, a drive can be replaced with a
+larger one using the instructions in :ref:`Replacing a Failed Drive`.
+This process is slow and places the :system in a degraded state. Since
+a failure at this point could be disastrous, **do not attempt this
+method unless the system has a reliable backup.** Replace one drive at
+a time and wait for the resilver process to complete on the replaced
+drive before replacing the next drive. After all the drives are
+replaced and the final resilver completes, the added space will appear
+in the pool.
 
 
 .. index:: Periodic Snapshot, Snapshot
