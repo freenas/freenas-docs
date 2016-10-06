@@ -1547,17 +1547,18 @@ A periodic snapshot task allows scheduling the creation of read-only
 versions of ZFS volumes and datasets at a given point in time.
 Snapshots can be created quickly and, if little data changes, new
 snapshots take up very little space. For example, a snapshot where no
-files have changed takes 0 MB of storage, but as you make changes to
+files have changed takes 0 MB of storage, but as changes are made to
 files, the snapshot size changes to reflect the size of the changes.
 
-Snapshots provide a clever way of keeping a history of files, should
-you need to recover an older copy or even a deleted file. For this
-reason, many administrators take snapshots often (e.g. every 15
-minutes), store them for a period of time (e.g. for a month), and
-store them on another system (e.g. using Replication Tasks). Such a
-strategy allows the administrator to roll the system back to a
-specific time or, if there is a catastrophic loss, an off-site
-snapshot can restore the system up to the last snapshot interval.
+Snapshots provide a clever way of keeping a history of files,
+providing a way to recover an older copy or even a deleted file. For
+this reason, many administrators take snapshots often (perhas every 15
+minutes), store them for a period of time (possibly a
+month), and store them on another system (typically using Replication
+Tasks). Such a strategy allows the administrator to roll the system
+back to a specific time or, if there is a catastrophic loss, an
+off-site snapshot can restore the system up to the last snapshot
+interval.
 
 An existing ZFS volume is required before creating a snapshot.
 Creating a volume is described in :ref:`Volume Manager`.
@@ -1570,7 +1571,7 @@ which opens the screen shown in
 :numref:`Table %s <zfs_periodic_snapshot_opts_tab>`
 summarizes the fields in this screen.
 
-.. note:: If you just need a one-time snapshot, instead use
+.. note:: If only a one-time snapshot is needed, instead use
    :menuselection:`Storage --> Volumes --> View Volumes`
    and click the :guilabel:`Create Snapshot` button for the volume or
    dataset to snapshot.
