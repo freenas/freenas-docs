@@ -46,7 +46,7 @@ create ZFS datasets and zvols and to manage their permissions.
 
 .. note:: In ZFS terminology, the storage that is managed by ZFS is
    referred to as a pool. The %brand% graphical interface uses the
-   term volume to refer to a ZFS pool.
+   term *volume* to refer to a ZFS pool.
 
 Proper storage design is important for any NAS.
 **Please read through this entire chapter before configuring storage
@@ -60,11 +60,12 @@ hardware restrictions which could limit their use.**
 Volume Manager
 ~~~~~~~~~~~~~~
 
-If you have unformatted disks or wish to overwrite the current
-filesystem and data on your disks, use :guilabel:`Volume Manager` to
-format the disks into a ZFS pool. If you have multiple disks and are
-new to how ZFS handles redundancy, please see the :ref:`ZFS Primer`
-before using :guilabel:`Volume Manager`.
+
+:guilabel:`Volume Manager` is used to add disks to a ZFS pool. Any
+old data on added disks is overwritten, so save it elsewhere before
+reusing a disk. Please see the :ref:`ZFS Primer` for information on
+ZFS redundancy with multiple disks before using
+:guilabel:`Volume Manager`.
 
 Selecting
 :menuselection:`Storage --> Volumes --> Volume Manager` opens
@@ -153,26 +154,26 @@ layouts are supported:
 * **cache device:** requires at least one dedicated device,
   SSD is recommended
 
-If you have more than five disks and are using ZFS, consider the
-number of disks to use for best performance and scalability. An
+When more than five disks are being used, consideration must be give
+to the optimal layout for the best performance and scalability. An
 overview of the recommended disk group sizes as well as more
 information about log and cache devices can be found in the
 :ref:`ZFS Primer`.
 
 The :guilabel:`Add Volume` button warns that
 **existing data will be cleared**. In other words, creating a new
-volume reformats the selected disks. If your intent is to **not**
-overwrite the data on an existing volume, click the :guilabel:`Cancel`
-button and refer to :ref:`Import Disk` and :ref:`Import Volume` to see
-if the existing format is supported. If so, perform that supported
-action instead. If the current storage format is not supported, it is
-necessary to back up the data to external media, format the disks,
-then restore the data to the new volume.
+volume reformats the selected disks. If the existing data is meant to
+be preserved, click the :guilabel:`Cancel` button and refer to
+:ref:`Import Disk` and :ref:`Import Volume` to see if the existing
+format is supported. If so, perform that supported action instead. If
+the current storage format is not supported, it is necessary to back
+up the data to external media, format the disks, then restore the data
+to the new volume.
 
 Depending upon the size and number of disks, the type of controller,
 and whether encryption is selected, creating the volume may take some
 time. After the volume is created, the screen will refresh and the new
-volume will be listed in the tree under
+volume is listed in the tree under
 :menuselection:`Storage --> Volumes`.
 Click the *+* next to the volume name to access its
 :ref:`Change Permissions`, :ref:`Create Dataset`, and
