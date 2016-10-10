@@ -12,20 +12,19 @@ a FreeBSD jail.
 
 ##Requirements:
 
-Perl must be installed on the system.
+Perl must be installed.
 
 The following software must be installed at minimum. If this is the
-first time pkg has been used on the system, it fetch and install itself.
+first time pkg has been used on the system, it fetches and installs itself.
 Say yes to the prompts to do so. Once it has completed, finish
 installing the needed software.
 
-Instructions are given for both the port and the package as some
-software may not have a package. Try the pkg command first as it is
-faster. If the pkg command succeeds, you do not need to run the make
-command as the software is already installed; however if it fails, use
-the make command to install the software. If the software is already
-installed, the pkg command will indicate that the most recent version is
-already installed.
+Instructions are given for both ports and packages, as some software might
+not have a package. Try the pkg command first, as it is faster. If the
+pkg command succeeds, it is not necessary to run the make command as the
+software is already installed; however if it fails, use the make command
+to install the software. If the software is already installed, the pkg
+command will indicate that the most recent version is already installed.
 
 ```
 portsnap fetch extract
@@ -36,8 +35,8 @@ install)
 rehash
 ```
 
-To generate a PDF version of the documentation, this software also needs
-to be installed:
+To generate a PDF version of the documentation, this software also must be
+installed:
 
 ```
 pkg install print/tex-formats (cd /usr/ports/print/tex-formats/ && make install)
@@ -57,9 +56,9 @@ cd freenas-docs/userguide
 
 ##Building the Documentation
 
-All of the following commands to be run from
-/path/to/your-build-directory/freenas/docs/userguide. These formats are
-currently available: HTML, single HTML, PDF, and EPUB. The output of
+All of the following commands are run from
+/path/to/your-build-directory/freenas/docs/userguide. The formats
+available are HTML, single HTML, PDF, and EPUB. The output of
 either HTML form is in
 /path/to/your-build-directory/freenas-docs/userguide/processed/_build/
 and can be viewed in a web browser. The PDF output is in
@@ -98,8 +97,8 @@ make epub
 
 ##Editing the Documentation
 
-To edit the User Guide, make changes to the *.rst file for the chapter
-to edit using any ASCII text editor. Refer to
+To edit the User Guide, make changes to the *.rst files using any ASCII
+text editor. Refer to
 http://docutils.sourceforge.net/docs/user/rst/quickref.html for help
 with formatting syntax. Refer to
 http://wiki.typo3.org/Editors_%28reST%29 for a list of reST editors.
@@ -107,5 +106,5 @@ http://wiki.typo3.org/Editors_%28reST%29 for a list of reST editors.
 Need help getting started or want to discuss edits? Join the
 http://lists.freenas.org/mailman/listinfo/freenas-docs mailing list.
 
-To issue a git pull request containing your edits, use the instructions
-at https://help.github.com/articles/using-pull-requests.
+To issue a git pull request for your edits, use the instructions at
+https://help.github.com/articles/using-pull-requests.
