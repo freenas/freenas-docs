@@ -1268,6 +1268,10 @@ When ready to apply the previously downloaded updates, click the
 :guilabel:`Apply Pending Updates` button and be aware that the system
 may reboot after the updates are applied.
 
+.. warning:: After updates have completed, reboot the system.
+   Configuration changes made after an update but before that final
+   reboot will not be saved.
+
 
 #ifdef truenas
 .. _Updating an HA System:
