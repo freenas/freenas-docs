@@ -33,7 +33,6 @@ pkg install devel/git (cd /usr/ports/devel/git/ && make install)
 pkg install textproc/py-sphinx (cd /usr/ports/textproc/py-sphinx/ && make install)
 pkg install textproc/py-sphinxcontrib-httpdomain (cd /usr/ports/textproc/py-sphinxcontrib-httpdomain && make
 install)
-pkg install textproc/py-sphinx_numfig (cd /usr/ports/textproc/py-sphinx_numfig && make install)
 rehash
 ```
 
