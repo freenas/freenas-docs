@@ -1118,7 +1118,7 @@ for the *root* user, as shown in
 
 .. _tn_login1:
 
-.. figure:: images/tn_login1a.png
+.. figure:: images/tn_login1b.png
 
    Enter the Root Password
 
@@ -1143,7 +1143,7 @@ example in
 
 .. _tn_initial:
 
-.. figure:: images/tn_initial1a.png
+.. figure:: images/tn_initial1b.png
 
    %brand% Graphical Configuration Menu
 
