@@ -41,7 +41,7 @@ or from the Web Shell
 by running :command:`alertcli.py`.
 #ifdef truenas
 This can be useful when the alert originates from the standby node of
-a :ref:`High Availability (HA) <Failovers>` system.
+a :ref:`High Availability (HA) <Failover>` system.
 #endif truenas
 
 Some of the conditions that trigger an alert include:

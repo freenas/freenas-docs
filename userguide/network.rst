@@ -212,7 +212,7 @@ checkbox below the alias, then clicking the :guilabel:`OK` button.
 
 #ifdef truenas
 .. note:: The ability to delete interfaces is disabled if
-   :ref:`Failovers` has been configured and enabled.
+   :ref:`Failover` has been configured and enabled.
 #endif truenas
 
 Multiple interfaces **cannot** be members of the same subnet. Check
@@ -792,7 +792,7 @@ configured using the rest of the options in the
 #endif freenas
 #ifdef truenas
 .. warning:: Creating a vlan will cause network connectivity to be
-   interrupted and, if :ref:`Failovers` has been configured, a
+   interrupted and, if :ref:`Failover` has been configured, a
    failover event. Accordingly, the GUI will provide a warning
    and an opportunity to cancel the vlan creation.
 #endif truenas

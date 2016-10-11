@@ -200,10 +200,10 @@ display these settings by checking the box
    |                          |               | be different from the *Workgroup* name                                                                                                                |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (Node B)    | string        | only available in :guilabel:`Advanced Mode`; limited to 15 characters; when using :ref:`Failovers`, set a unique NetBIOS name for the standby node    |
+   | NetBIOS Name (Node B)    | string        | only available in :guilabel:`Advanced Mode`; limited to 15 characters; when using :ref:`Failover`, set a unique NetBIOS name for the standby node     |
    |                          |               |                                                                                                                                                       |
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias            | string        | only available in :guilabel:`Advanced Mode`; limited to 15 characters; when using :ref:`Failovers`, this is the NetBIOS name that resolves            |
+   | NetBIOS Alias            | string        | only available in :guilabel:`Advanced Mode`; limited to 15 characters; when using :ref:`Failover`, this is the NetBIOS name that resolves             |
    |                          |               | to either node                                                                                                                                        |
    #endif truenas
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -583,10 +583,10 @@ Those who are new to LDAP terminology should skim through the
    | (This Node)             |                | system's original hostname; it **must** be different from the *Workgroup* name                                 |
    |                         |                |                                                                                                                |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (Node B)   | string         | only available in :guilabel:`Advanced Mode`; limited to 15 characters; when using :ref:`Failovers`, set a      |
+   | NetBIOS Name (Node B)   | string         | only available in :guilabel:`Advanced Mode`; limited to 15 characters; when using :ref:`Failover`, set a       |
    |                         |                | unique NetBIOS name for the standby node                                                                       |
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias           | string         | only available in :guilabel:`Advanced Mode`; limited to 15 characters; when using :ref:`Failovers`,            |
+   | NetBIOS Alias           | string         | only available in :guilabel:`Advanced Mode`; limited to 15 characters; when using :ref:`Failover`,             |
    |                         |                | this is the NetBIOS name that resolves to either node                                                          |
    |                         |                |                                                                                                                |
    #endif truenas

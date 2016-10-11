@@ -42,7 +42,7 @@ The System section of the administrative GUI contains these entries:
 * :ref:`Support`: used to view licensing information or create a
   support ticket.
 
-* :ref:`Failovers`: used to manage High Availability.
+* :ref:`Failover`: used to manage High Availability.
 #endif truenas
 
 
@@ -1828,12 +1828,12 @@ login, if you are not already logged into the
 `iXsystems Support page <https://support.ixsystems.com/>`_.
 
 
-.. index:: Failovers
+.. index:: Failover
 
-.. _Failovers:
+.. _Failover:
 
-Failovers
----------
+Failover
+--------
 
 If the %brand% array has been licensed for High Availability (HA),
 a :guilabel:`Failover` tab is added to :guilabel:`System`. HA-licensed
@@ -1862,7 +1862,7 @@ one. If this is the first login, it will automatically display the
 Paste the HA license you received from iXsystems and press
 :guilabel:`OK` to activate it. The license contains the serial numbers
 for both units in the chassis. After the license is activated, the
-:guilabel:`Failovers` tab is added to :guilabel:`System` and some
+:guilabel:`Failover` tab is added to :guilabel:`System` and some
 fields are modified in :guilabel:`Network` so that the peer IP
 address, peer hostname, and virtual IP can be configured. An extra
 :guilabel:`IPMI (Node A/B)` tab will also be added so that
@@ -1935,7 +1935,7 @@ must occur on the active node.
    subsequent logins should use that address.
 
 The options available in
-:menuselection:`System --> Failovers`
+:menuselection:`System --> Failover`
 are shown in
 :numref:`Figure %s: <failover_fig>`
 and described in
@@ -1946,7 +1946,7 @@ and described in
 
 .. figure:: images/failover1b.png
 
-   Example Failovers Screen
+   Example Failover Screen
 
 
 .. _failover_opts_tab:
@@ -1978,7 +1978,7 @@ and described in
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-.. index:: Failovers
+.. index:: Failover
 
 .. _Failover Management:
 
@@ -1989,7 +1989,7 @@ The :command:`hactl` command line utility is included for managing
 existing failovers. Once a failover has been configured, it is
 recommended to use :command:`hactl` instead of the GUI as any
 changes made using
-:menuselection:`System --> Failovers`
+:menuselection:`System --> Failover`
 will restart networking.
 
 If you type this command without any options, it will indicate the

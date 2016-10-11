@@ -1275,7 +1275,7 @@ current key may be compromised. This action also removes the current
 passphrase.
 #ifdef truenas
 
-.. note:: A re-key is not allowed if :ref:`Failovers`
+.. note:: A re-key is not allowed if :ref:`Failover`
    (High Availability) has been enabled and the standby node is down.
 #endif truenas
 
@@ -1455,7 +1455,7 @@ reboot, you may lose access to the pool permanently.**
     will need to enter the *root* password.
     #ifdef truenas
 
-    .. note:: A re-key is not allowed if :ref:`Failovers`
+    .. note:: A re-key is not allowed if :ref:`Failover`
        (High Availability) has been enabled and the standby node is
        down.
     #endif truenas
