@@ -1957,7 +1957,7 @@ input[type="checkbox"][disabled] {
 .wy-table th,
 .rst-content table.docutils th,
 .rst-content table.field-list th {
-    font-size: 90%;
+    font-size: 100%;
     margin: 0;
     overflow: visible;
     padding: 8px 16px;
@@ -2026,21 +2026,21 @@ input[type="checkbox"][disabled] {
 .wy-table-odd td,
 .wy-table-striped tr:nth-child(odd) td,
 .rst-content table.docutils:not(.field-list) tr:nth-child(odd) td {
-    background-color: #f3f6f6;
+    background-color: #e1e1d0;
 }
 .wy-table-odd td,
 .wy-table-striped tr:nth-child(odd):hover td,
 .rst-content table.docutils:not(.field-list) tr:nth-child(odd):hover td {
-    background-color: #f2d8bb
+    background-color: #85adad
 }
 .wy-table-even td,
 .wy-table-striped tr:nth-child(even):hover td,
 .rst-content table.docutils:not(.field-list) tr:nth-child(even):hover td {
-    background-color: #f2d8bb
+    background-color: #85adad
 }
 .wy-table tr,
 .rst-content table.docutils th:hover{
-	background-color: #f2d8bb
+	background-color: #85adad
 }
 .wy-table-backed {
     background-color: #f3f6f6
@@ -2091,16 +2091,16 @@ input[type="checkbox"][disabled] {
     white-space: inherit
 }
 a {
-    color: #2c3fbd;
+    color: #0707ff;
     text-decoration: none;
     cursor: pointer
 }
 a:hover {
-    color: #4653a3;
+    color: #0707ff;
 	text-decoration: underline
 }
 a:visited {
-    color: #c73030
+    color: #8b0000
 }
 html {
     height: 100%;
@@ -2181,7 +2181,7 @@ legend {
 p {
     line-height: 26px;
     margin: 0;
-    font-size: 16px;
+    font-size: 100%;
     margin-bottom: 24px
 }
 h1 {
@@ -2214,7 +2214,7 @@ hr {
 code,
 .rst-content tt,
 .rst-content code {
-    white-space: nowrap;
+    /*white-space: nowrap;
     max-width: 100%;
     background: #fff;
     border: solid 1px #e1e4e5;
@@ -2222,7 +2222,7 @@ code,
     padding: 0 5px;
     font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
     color: #E74C3C;
-    overflow-x: auto
+    overflow-x: auto*/
 }
 code.code-large,
 .rst-content tt.code-large {
@@ -2363,8 +2363,8 @@ div[class^='highlight'] pre {
     white-space: pre;
     margin: 0;
     padding: 10px 10px;
-    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
-    font-size: 12px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 100%;
     line-height: 1.5;
     display: block;
     overflow: auto;
@@ -2869,7 +2869,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#730000', end
 }
 .wy-side-nav-search input[type=text] {
     width: 90%;
-    border-radius: 50px;
     padding: 6px 12px;
     border-color: #2472a4
 }
@@ -3699,7 +3698,7 @@ code.menuselection,
     background-color: #e6ede9; /* saturate from ecf0f3 to be more visible/blue on screen. */
     display: inline;
 	font-family:'Inconsolata', monospace;
-    font-size: 95%;
+    font-size: 100%;
     padding-right: 1px;
     padding-left: 1px;
     padding-top: 1px;
@@ -3724,7 +3723,12 @@ code.menuselection, .menuselection {
     background-color: #e8ede6;
     color: inherit;
     border: hidden;
-	font-size: 98%
+	font-size: 100%
+}
+code.samp, .samp {
+	font-family: 'Inconsolata', monospace;
+	font-weight: bold;
+	font-size: 100%;
 }
 code.command, .command {
 	font-family:'Inconsolata', monospace;
@@ -3808,9 +3812,9 @@ th.spiffy_span {
 }
 .docutils th,
 .spiffy_table th {
-    background-color: #bbeaf2;
+    background-color: #6699cc;
     font-weight: 700;
-    text-align: center;
+    text-align: left;
     border-color: darkgray;
     border-style: solid;
     border-width: 1px 1px 2px;
