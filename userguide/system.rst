@@ -1274,6 +1274,17 @@ may reboot after the updates are applied.
 
 
 #ifdef truenas
+.. _Updating from the CLI:
+
+Updating from the Shell
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Updates can also be performed from the :ref:`Shell` with an update
+file. Make the update file available by copying it to the %brand%
+system, then run the update program, giving it the path to the file:
+:samp:`freenas-update {update_file}`.
+
+
 .. _Updating an HA System:
 
 Updating an HA System
@@ -1285,14 +1296,14 @@ the update is complete, the standby node will automatically reboot.
 Wait for it to come back up by monitoring the remote console or the
 graphical administrative interface of the standby node.
 
-At this point, the active mode may issue an alert indicating that
+At this point, the active node may issue an alert indicating that
 there is a firmware version mismatch. This is expected when an
 update also updates the HBA version.
 
-Once the standby node has finished booting up, it is important to
-perform a failover by rebooting the current active node. This
-action tells the standby node to import the current configuration
-and restart its services.
+After the standby node has finished booting, it is important to
+perform a failover by rebooting the current active node. This action
+tells the standby node to import the current configuration and restart
+services.
 
 Once the previously active node comes back up as a standby node, use
 :menuselection:`System --> Update`
@@ -1306,15 +1317,15 @@ will reboot a second time.
 If Something Goes Wrong
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-If an update fails, an alert will be issued and the details will be
-written to :file:`/data/update.failed`.
+If an update fails, an alert is issued and the details are written to
+:file:`/data/update.failed`.
 
-To return to a previous version of the operating system, you will
-need physical or IPMI access to the %brand% console. Reboot the
-system and press any key (except :kbd:`Enter`) when the boot menu
-appears to pause the boot. Select an entry with a date prior to the
-update then press :kbd:`Enter` in order to boot into that version
-of the operating system, before the update was applied.
+To return to a previous version of the operating system, physical or
+IPMI access to the %brand% console is required. Reboot the system and
+press the space bar when the boot menu appears, pausing the boot.
+Select an entry with a date prior to the update, then press
+:kbd:`Enter` to boot into that version of the operating system before
+the update was applied.
 
 #include snippets/upgradingazfspool.rst
 #endif truenas
