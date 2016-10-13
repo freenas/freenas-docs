@@ -874,7 +874,7 @@ SMB connections.
 .. note:: It is recommended to store the system dataset on the
    :file:`freenas-boot` pool. For this reason, a yellow system alert
    will be generated when the system dataset is configured to
-   use another pool. 
+   use another pool.
 #endif truenas
 
 To store the system log on the system dataset, check the
@@ -1092,7 +1092,7 @@ installed. %brand% |release| ships with these loaders set:
    kern.cam.ctl.ha_mode=2
 #endif truenas
 
-**Do not add or edit the default tunables** as doing so may render the
+**Do not add or edit the default tunables** as doing so might make the
 system unusable.
 
 The ZFS version used in |release| deprecates these tunables:
@@ -1116,17 +1116,76 @@ should not try to add these tunables back.
 Update
 ------
 
-%brand% uses signed updates rather than point releases. This provides
-the %brand% administrator more flexibility in deciding when to
-upgrade the system in order to apply system patches or to add new
-drivers or features. It also allows the administrator to "test drive"
-an upcoming release. Combined with boot environments, an administrator
-can try new features or apply system patches with the knowledge that
-they can revert to a previous version of the operating system, using
-the instructions in :ref:`If Something Goes Wrong`. Signed patches
-also mean that the administrator no longer has to manually download
-the GUI upgrade file and its associated checksum in order to perform
-an upgrade.
+%brand% has an integrated update system to make it easy to keep up to
+date.
+
+
+.. _Preparing for Updates:
+
+Preparing for Updates
+~~~~~~~~~~~~~~~~~~~~~
+
+#ifdef freenas
+It is best to perform updates at times the %brand% system is idle,
+with no clients connected and no scrubs or other disk activity going
+on. A reboot is required after most updates, so they are often planned
+for scheduled maintenance times to avoid disrupting user activities.
+#endif freenas
+#ifdef truenas
+An update usually takes between thirty minutes and an hour. A reboot
+is required after the update, so it is recommended to schedule updates
+during a maintenance window, allowing two to three hours to update,
+test, and possibly roll back if difficulties are encountered. On very
+large systems, a proportionally longer maintenance window is
+recommended.
+
+For individual support during an upgrade, please open a ticket at
+`https://support.ixsystems.com`, or call 408-943-4100 to schedule
+one. Scheduling at least two days in advance of a planned upgrade
+gives time to make sure a specialist is available for assistance.
+
+Updates from older versions of %brand% before 9.3 must be scheduled
+with support.
+
+Operating system updates only modify the boot devices and do not
+affect end-user data on storage drives.
+
+Available ZFS version upgrades are indicated by an :ref:`Alert` in the
+graphical user interface. However, upgrading the ZFS version on
+storage drives is not recommended until after verifying that rolling
+back to previous versions of the operating system will not be
+necessary, and that interchanging the devices with some other system
+using an older ZFS version is not needed. After a ZFS version upgrade,
+the storage devices will not be accessible by older versions of
+%brand%.
+
+
+.. _HA Updates:
+
+HA Updates
+~~~~~~~~~~
+
+In HA (High Availability) systems, online upgrades usually cause a
+single failover event in each node. As the master node is updated, it
+fails over to the secondary node. Then the secondary node is updated,
+causing a failover back to the original master. These failovers cause
+short disruptions, usually less than 30 seconds for each.
+#endif truenas
+
+
+.. _Updates and Trains:
+
+Updates and Trains
+~~~~~~~~~~~~~~~~~~
+
+%brand% is updated with signed update files. This provides flexibility
+in deciding when to upgrade the system with patches, new drivers, or
+new features. It also allows "test driving" an upcoming release.
+Combined with boot environments, new features or system patches can be
+tested while still being able to revert to a previous version of the
+operating system (see :ref:`If Something Goes Wrong`). Digital signing
+of update files eliminates the need to manually download both an
+upgrade file and the associated checksum to verify file integrity.
 
 :numref:`Figure %s <update_options_fig>`
 shows an example of the
@@ -1147,9 +1206,9 @@ screen.
 #endif truenas
 
 
-By default, the system will automatically check for updates and will
-issue an alert when a new update becomes available. To disable this
-default, uncheck the box :guilabel:`Automatically check for updates`.
+By default, the system automatically checks for updates and issues an
+alert when a new update becomes available. The automatic check can be
+disabled by unchecking :guilabel:`Automatically check for updates`.
 
 #ifdef freenas
 This screen also shows which software branch, or *train*, is being
@@ -1192,7 +1251,7 @@ that information be needed in a network with outbound firewall
 restrictions.
 #endif freenas
 #ifdef truenas
-This screen lists the URL of the official update server, should that
+This screen lists the URL of the official update server in case that
 information be needed in a network with outbound firewall
 restrictions. It also indicates which software branch, or *train*,
 is being tracked for updates. These trains are available:
@@ -1214,6 +1273,12 @@ The :guilabel:`Verify Install` button goes through the operating
 system files in the current installation, looking for any
 inconsistencies. When finished, a pop-up menu lists any files with
 checksum mismatches or permission errors.
+
+
+.. Checking for Updates:
+
+Checking for Updates
+~~~~~~~~~~~~~~~~~~~~
 
 #ifdef freenas
 To see if any updates are available, make sure the desired train is
@@ -1242,11 +1307,16 @@ To see if any updates are available, click the :guilabel:`Check Now`
 button. Any available updates are listed.
 #endif truenas
 
-To apply updates immediately, make sure that there aren't any clients
-currently connected to the %brand% system and that a scrub is not
-running. Click the :guilabel:`OK` button to download and apply the
-updates. Note that some updates will automatically reboot the system
-after they are applied.
+
+Applying Updates
+~~~~~~~~~~~~~~~~
+
+Make sure the system is in a low-usage state as described above in
+:ref:`Preparing for Updates`.
+
+Click the :guilabel:`OK` button to download and apply the updates. Be
+aware that some updates automatically reboot the system after they are
+applied.
 
 .. warning:: Each update creates a boot environment. If the update
    process needs more space, it attempts to remove old boot
@@ -1258,15 +1328,15 @@ after they are applied.
    Review the boot environments and remove the *Keep* attribute or
    delete any boot environments that are no longer needed.
 
-Alternately, you can download the updates and apply them later. To
-do so, uncheck the :guilabel:`Apply updates after downloading` box
-before pressing :guilabel:`OK`. In this case, this screen closes after
-updates are downloaded. Downloaded updates are listed in the
+Updates can also be downloaded and applied later. To do so, uncheck
+the :guilabel:`Apply updates after downloading` box before pressing
+:guilabel:`OK`. In this case, this screen closes after updates are
+downloaded. Downloaded updates are listed in the
 :guilabel:`Pending Updates` section of the screen shown in
 :numref:`Figure %s <update_options_fig>`.
 When ready to apply the previously downloaded updates, click the
-:guilabel:`Apply Pending Updates` button and be aware that the system
-may reboot after the updates are applied.
+:guilabel:`Apply Pending Updates` button. Remember that the system
+might reboot after the updates are applied.
 
 .. warning:: After updates have completed, reboot the system.
    Configuration changes made after an update but before that final
