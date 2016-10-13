@@ -1140,7 +1140,7 @@ large systems, a proportionally longer maintenance window is
 recommended.
 
 For individual support during an upgrade, please open a ticket at
-`https://support.ixsystems.com`, or call 408-943-4100 to schedule
+https://support.ixsystems.com, or call 408-943-4100 to schedule
 one. Scheduling at least two days in advance of a planned upgrade
 gives time to make sure a specialist is available for assistance.
 
