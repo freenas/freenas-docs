@@ -574,7 +574,7 @@ the user/group account inside of the jail. This is not the default, as
 the users and groups created inside of a jail are totally separate
 from the users and groups of the %brand% system.
 
-So the workflow for adding storage usually goes like this:
+The workflow for adding storage usually goes like this:
 
 #.  Determine the name of the user and group account used by the
     application. For example, the installation of the transmission
@@ -585,6 +585,12 @@ So the workflow for adding storage usually goes like this:
     the jail. Typically, the user and group names are similar to
     the application name. Also, the UID and GID are usually the same
     as the port number used by the service.
+
+    A *media* user and group (GID 8675309) are part of the base
+    system. Having applications run as this group or user makes it
+    possible to share storage between multiple applications in a
+    single jail, between multiple jails, or even between the host and
+    jails.
 
 #.  On the %brand% system, create a user account and group account
     that match the user and group names used by the application in
