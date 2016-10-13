@@ -115,40 +115,47 @@ configuration changes. This way, the system can be rebooted into a
 snapshot of the system that did not include the new configuration
 changes.
 
-**ZFS provides a write cache** in RAM as well as a
-`ZFS Intent Log
-<https://blogs.oracle.com/realneel/entry/the_zfs_intent_log>`_ (ZIL).
-The ZIL is a temporary storage area for **synchronous** writes until
-they are written asynchronously to the ZFS pool. If the system has
-many synchronous writes where the integrity of the write matters,
-such as from a database server or when using NFS over ESXi,
-performance can be increased by adding a dedicated log device, or
-slog, using :ref:`Volume Manager`.  More detailed explanations can be
-found in this
-`forum post
-<https://forums.freenas.org/index.php?threads/some-insights-into-slog-zil-with-zfs-on-freenas.13633/>`_
-and in this
-`blog post
-<http://nex7.blogspot.com/2013/04/zfs-intent-log.html>`_.
-A dedicated log device will have no effect on SMB, AFP, or iSCSI as
-these protocols rarely use synchronous writes. When creating a
-dedicated log device, it is recommended to use a fast SSD with a
-supercapacitor or a bank of capacitors that can handle writing the
-contents of the SSD's RAM to the SSD. The :command:`zilstat` utility
-can be run from Shell to help determine if the system would benefit
-from a dedicated ZIL device. See
+**ZFS provides a write cache** in RAM as well as a ZFS Intent Log
+(`ZIL
+<https://blogs.oracle.com/realneel/entry/the_zfs_intent_log>`_).
+The ZIL is a storage area that temporarily holds *synchronous*
+writes until they are written to the ZFS pool. Adding a fast
+(low-latency), power-protected SSD as a SLOG (*Separate Log*)
+device permits much higher performance. This is a necessity for NFS
+over ESXi, and highly recommended for database servers or other
+applications that depend on synchronous writes. More detail on SLOG
+benefits and usage is available in these blog and forum posts:
+
+* `The ZFS ZIL and SLOG Demystified
+  <http://www.freenas.org/blog/zfs-zil-and-slog-demystified/>`_
+
+* `Some insights into SLOG/ZIL with ZFS on FreeNAS®
+  <https://forums.freenas.org/index.php?threads/some-insights-into-slog-zil-with-zfs-on-freenas.13633/>`_
+
+* `ZFS Intent Log
+  <http://nex7.blogspot.com/2013/04/zfs-intent-log.html>`_
+
+Synchronous writes are relatively rare with SMB, AFP, and iSCSI, and
+adding a SLOG to improve performance of these protocols only makes
+sense in special cases. The :command:`zilstat` utility can be run from 
+:ref:`Shell` to determine if the system will benefit from a SLOG. See
 `this website
 <http://www.richardelling.com/Home/scripts-and-programs-1/zilstat>`_
-for usage information. If you decide to create a dedicated log device
-to speed up NFS writes, the SSD can be half the size of system RAM as
-anything larger than that is unused capacity. The log device does not
-need to be mirrored on a pool running ZFSv28 or feature flags as the
-system will revert to using the ZIL if the log device fails. You can
-replace the lost log device in the
-:menuselection:`View Volumes --> Volume Status`
-screen. Note that a dedicated log device cannot be shared between ZFS
-pools and that the same device cannot hold both a log and a cache
-device.
+for usage information.
+
+ZFS currently uses 16 GB of space for SLOG. Larger SSDs can be
+installed, but the extra space will not be used. SLOG devices cannot
+be shared between pools. Each pool requires a separate SLOG device.
+Bandwidth and throughput limitations require that a SLOG device must
+only be used for this single purpose. Do not attempt to add other
+caching functions on the same SSD, or performance will suffer.
+
+In mission-critical systems, a mirrored SLOG device is highly
+recommended. Mirrored SLOG devices are *required* for ZFS pools at
+ZFS version 19 or earlier. ZFS pool version can be checked from the
+:ref:`Shell` with :samp:`zpool get version {poolname}`. A version
+value of *-* means the ZFS pool is version 5000 (also known as
+*Feature Flags*) or later.
 
 **ZFS provides a read cache** in RAM, known as the ARC, to reduce
 read latency. %brand% adds ARC stats to
@@ -222,7 +229,7 @@ whether your goal is to maximize disk space or performance:
   <http://blog.delphix.com/matt/2014/06/06/zfs-stripe-width/>`_
   for details.
 
-These esources can also help you determine the RAID configuration
+These resources can also help you determine the RAID configuration
 best suited to your storage needs:
 
 * `Getting the Most out of ZFS Pools
