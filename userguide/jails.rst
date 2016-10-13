@@ -468,30 +468,32 @@ Accessing a Jail Using SSH
 service and creating a user account for :command:`ssh` access. Start
 by clicking the :guilabel:`Shell` icon for the desired jail.
 
-To start the SSH service, look for this line in the jail's
-:file:`/etc/rc.conf`:
+Find the :samp:`sshd_enable=` line in the jail's
+:file:`/etc/rc.conf` and set it to *"YES"*:
 
 .. code-block:: none
 
-   sshd_enable="NO"
+   sshd_enable="YES"
 
 
-Change the *NO* to *YES* and save the file. Then start the SSH
-daemon:
+Then start the SSH daemon:
 
 .. code-block:: none
 
    service sshd start
 
 
-The jail's RSA key pair will be generated and the key fingerprint
-and random art image displayed.
+The first time the service runs, the jail's RSA key pair is generated
+and the key fingerprint and random art image displayed.
 
 Add a user account by typing :command:`adduser` and following the
 prompts. If the user needs superuser privileges, they must be added to
 the *wheel* group. For those users, enter *wheel* at this prompt:
 
- Login group is user1. Invite user1 into other groups? []: wheel
+.. code-block:: none
+
+   Login group is user1. Invite user1 into other groups? []: wheel
+
 
 After creating the user, set the *root* password so that the new user
 will be able to use the :command:`su` command to gain superuser
@@ -787,7 +789,7 @@ shows the :guilabel:`Configuration Options` for audiotag.
 
 .. _config_opts_audiotag_fig:
 
-.. figure:: images/ports1.png
+.. figure:: images/ports1a.png
 
    Configuration Options for Audiotag
 
