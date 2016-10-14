@@ -45,7 +45,7 @@ if tags.has('truenas'):
     brand = u'TrueNAS®'
     tags.remove('freenas')
     project = brand + u' User Guide'
-    release = '9.10.1-STABLE'
+    release = '9.10.1-U2'
     master_doc = 'truenas'
 
 # |brand| will be replaced with FreeNAS® or TrueNAS®
