@@ -1159,7 +1159,7 @@ drop-down menu and will no longer be available for creating new jails.
 Using iohyve
 ------------
 
-Beginning with %brand% 9.3.1, the
+Beginning with %brand% 9.10, the
 `iohyve <https://github.com/pr1ntf/iohyve>`_
 command line utility is included for creating, managing, and launching
 `bhyve <https://en.wikipedia.org/wiki/Bhyve>`_ guests.
