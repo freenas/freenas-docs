@@ -374,7 +374,9 @@ be observed when multiple clients are transferring files *from* the
 NAS. The flow entering *into* the NAS depends on the Ethernet
 switch load-balance algorithm.
 
-The lagg driver currently supports these aggregation protocols:
+The lagg driver currently supports several aggregation protocols,
+although only *Failover* is recommended on network switches that do
+not support LACP:
 
 **Failover:** the default protocol. Sends traffic only through the
 active port. If the master port becomes unavailable, the next active
@@ -393,14 +395,18 @@ a static setup and does not negotiate aggregation with the peer or
 exchange frames to monitor the link.
 
 **LACP:** supports the IEEE 802.3ad Link Aggregation Control Protocol
-(LACP) and the Marker Protocol. LACP will negotiate a set of
+(LACP) and the Marker Protocol. LACP negotiates a set of
 aggregable links with the peer into one or more link aggregated groups
 (LAGs). Each LAG is composed of ports of the same speed, set to
 full-duplex operation. Traffic is balanced across the ports
 in the LAG with the greatest total speed; in most cases there will
 only be one LAG which contains all ports. In the event of changes in
 physical connectivity, link aggregation will quickly converge to a new
-configuration. LACP must be configured on the switch as well.
+configuration. LACP must be configured on the switch, and LACP does
+not support mixing interfaces of different speeds. Only interfaces
+that use the same driver, like two *igb* ports, are recommended for
+LACP. Using LACP for iSCSI is not recommended, as iSCSI has built-in
+multipath features which are more efficient.
 
 **Load Balance:** balances outgoing traffic across the active ports
 based on hashed protocol header information and accepts incoming
