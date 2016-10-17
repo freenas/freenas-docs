@@ -136,34 +136,36 @@ changes that have occurred since |version| was released.
 Hardware Recommendations
 ------------------------
 
-Since %brand% |release| is based on FreeBSD 10.3, it supports the
-same hardware found in the
+%brand% |release| is based on FreeBSD 10.3 and supports the same
+hardware found in the
 `FreeBSD Hardware Compatibility List
 <http://www.freebsd.org/releases/10.3R/hardware.html>`__.
 Supported processors are listed in section
 `2.1 amd64
 <https://www.freebsd.org/releases/10.3R/hardware.html#proc>`_.
-%brand% is only available for 64-bit (also known as amd64)
-processors.
+%brand% is only available for 64-bit processors. These are also called 
+*amd64* by AMD
 
 .. note:: %brand% boots from a GPT partition. This means that the
    system BIOS must be able to boot using either the legacy BIOS
    firmware interface or EFI.
 
 Actual hardware requirements vary depending on the usage of the
-%brand% system. This section provides some starter guidelines. See
-the
-`FreeNAS® Hardware
-Forum <https://forums.freenas.org/index.php?forums/hardware.18/>`_
-for performance tips from other %brand% users or to post questions
-regarding the hardware best suited to meet your requirements. This
-`forum post
+%brand% system. This section provides some starter guidelines. The
+`FreeNAS® Hardware Forum
+<https://forums.freenas.org/index.php?forums/hardware.18/>`_
+has performance tips from %brand% users and is a place to post
+questions regarding the hardware best suited to meet specific
+requirements.
+`Hardware Recommendations
 <https://forums.freenas.org/index.php?threads/hardware-recommendations-read-this-first.23069/>`__
-provides some specific recommendations for those planning on
-purchasing hardware. Refer to
+gives detailed recommendations for system components, with the
+`FreeNAS® Quick Hardware Guide
+<https://forums.freenas.org/index.php?resources/freenas-quick-hardware-guide.7>`__
+providing short lists of components for various configurations.
 `Building, Burn-In, and Testing your FreeNAS® system
 <https://forums.freenas.org/index.php?threads/building-burn-in-and-testing-your-freenas-system.17750/>`_
-for detailed instructions on how to test new hardware.
+has detailed instructions on testing new hardware.
 
 
 .. _RAM:
@@ -181,9 +183,6 @@ gained by adding more RAM.
 Depending upon the use case, your system may require more RAM. Here
 are some general rules of thumb:
 
-* To use ZFS deduplication, ensure the system has at least 5 GB of RAM
-  per TB of storage to be deduplicated.
-
 * To use Active Directory with many users, add an additional 2 GB of
   RAM for winbind's internal cache.
 
@@ -193,12 +192,16 @@ are some general rules of thumb:
   machines, each with 4 GB of virtual memory, the system needs at
   least 16 GB of RAM.
 
-* To use iSCSI, install at least 16 GB of RAM if performance is not
+* For iSCSI, install at least 16 GB of RAM if performance is not
   critical, or at least 32 GB of RAM if good performance is a
   requirement.
 
 * When installing %brand% on a headless system, disable the shared
   memory settings for the video card in the BIOS.
+
+* To use ZFS deduplication, ensure the system has at least 5 GB of RAM
+  per TB of storage to be deduplicated.
+
 
 If the hardware supports it and the budget allows for it, install ECC
 RAM. While more expensive, ECC RAM is highly recommended as it
