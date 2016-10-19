@@ -137,7 +137,7 @@ benefits and usage is available in these blog and forum posts:
 
 Synchronous writes are relatively rare with SMB, AFP, and iSCSI, and
 adding a SLOG to improve performance of these protocols only makes
-sense in special cases. The :command:`zilstat` utility can be run from 
+sense in special cases. The :command:`zilstat` utility can be run from
 :ref:`Shell` to determine if the system will benefit from a SLOG. See
 `this website
 <http://www.richardelling.com/Home/scripts-and-programs-1/zilstat>`_

@@ -5,7 +5,7 @@
 Appendix A
 ==========
 
-TrueNAS® EULA:
+TrueNAS\ :sup:`®` EULA:
 
 BY PURCHASING, DOWNLOADING, INSTALLING, OR OTHERWISE USING THE SOFTWARE, YOU AGREE TO BE BOUND BY THE TERMS OF THIS END-USER LICENSE AGREEMENT (EULA). IF YOU DO NOT AGREE TO THE TERMS OF
 THIS EULA, YOU MAY NOT INSTALL OR USE THE SOFTWARE.
@@ -14,7 +14,7 @@ THIS EULA, YOU MAY NOT INSTALL OR USE THE SOFTWARE.
 
 "Company" means iXsystems, Inc.
 
-"Product" means iXsystems Storage Array software (TrueNAS®).
+"Product" means iXsystems Storage Array software (TrueNAS\ :sup:`®`).
 
 "EULA" means this End User License Agreement
 
@@ -23,7 +23,7 @@ THIS EULA, YOU MAY NOT INSTALL OR USE THE SOFTWARE.
 "Open Source Software" means various open source software components licensed under the terms of applicable open source license agreements included in the materials relating to such
 software. Open Source Software is composed of individual software components, each of which has its own copyright and its own applicable license conditions.
 
-"FreeNAS®" means a complete open source operating system available at http://www.iXsystems.org
+"FreeNAS\ :sup:`®`" means a complete open source operating system available at http://www.iXsystems.org
 
 "Site" means iXsystems, Inc. website: http://www.iXsystems.com
 
@@ -42,9 +42,9 @@ RESULTING FROM USE (OR ATTEMPTED USE) OF THE PRODUCT.
 (b) remove any titles, trademarks or trade names, copyright notices, legends, or other proprietary markings on the software in the Product;
 (c)  except to the extent expressly permitted by applicable law, and to the extent that the Company is not permitted by that applicable law to exclude or limit the following rights, You will not decompile, disassemble, reverse engineer, or otherwise attempt to derive source code from the Product, in whole or in part.
 
-2.4. FreeNAS® software. The Product contains part of FreeNAS® software, which in turn contains a variety of Open Source Software components. You can redistribute and/or modify the Open
+2.4. FreeNAS\ :sup:`®` software. The Product contains part of FreeNAS\ :sup:`®` software, which in turn contains a variety of Open Source Software components. You can redistribute and/or modify the Open
 Source Software under the terms and conditions of the corresponding open source licenses. You may obtain a copy of the source code corresponding to the binaries for the Open Source Software
-from the FreeNAS® home page at http://www.FreeNAS.org. You agree to comply with the applicable licenses and additional terms and notices of such Open Source Software components. Company
+from the FreeNAS\ :sup:`®` home page at http://www.FreeNAS.org. You agree to comply with the applicable licenses and additional terms and notices of such Open Source Software components. Company
 makes no warranties or representations of any kind to You regarding Open Source Software components, or that the corresponding open source licenses may not change or be altered at any time.
 
 2.5. Third party software. The Product may contain Third Party software that must be separately licensed. Any separately licensed software is licensed exclusively by that license and the

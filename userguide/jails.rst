@@ -661,7 +661,7 @@ To delete the storage, click its :guilabel:`Delete` button.
    :guilabel:`Destination`
    **directory in the jail are really deleted from the**
    :guilabel:`Source`
-   **directory on the %brand% system.**
+   **directory on the** %brand% **system.**
    However, removing the jail storage entry only removes the pointer,
    leaving the data intact but not accessible from the jail.
 
@@ -890,10 +890,10 @@ the service started:
 
    /usr/local/etc/rc.d/openvpn onestart
    Starting openvpn.
-  
+
    /usr/local/etc/rc.d/openvpn onestatus
    openvpn is running as pid 45560.
-  
+
    sockstat -4
    USER	COMMAND		PID	FD	PROTO	LOCAL ADDRESS	FOREIGN ADDRESS
    root	openvpn		48386 	4	udp4	*:54789		*:*
@@ -932,10 +932,10 @@ When in doubt, the startup script shows the line to put in
    # This script supports running multiple instances of openvpn.
    # To run additional instances link this script to something like
    # % ln -s openvpn openvpn_foo
-  
+
    # and define additional openvpn_foo_* variables in one of
    # /etc/rc.conf, /etc/rc.conf.local or /etc/rc.conf.d /openvpn_foo
-  
+
    #
    # Below NAME should be substituted with the name of this script. By default
    # it is openvpn, so read as openvpn_enable. If you linked the script to

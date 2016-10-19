@@ -1,7 +1,7 @@
 .. _Contributing to %brand%:
 
 Contributing to %brand%
-=========================
+=================================
 
 %brand% is an open source community, relying on the input and
 expertise of its users to help grow and improve %brand%. When you
@@ -11,7 +11,7 @@ who uses %brand%.
 This section describes some areas of participation to get you started.
 It is by no means an exhaustive list. If you have an idea that you
 think would benefit the %brand% community, bring it up on one of the
-resources mentioned in :ref:`%brand% Support Resources`.
+resources mentioned in :ref:`Support Resources`.
 
 This section demonstrates how you can:
 
@@ -73,7 +73,7 @@ prompt to select your language so that you can access that
 language's translation whenever you log in. Alternately, you can click
 the :guilabel:`Home` link to see the status of all of the languages.
 To work on a translation, click the link for the language, click the
-:guilabel:`%brand%` link for the project, click the link for
+%brand% link for the project, click the link for
 :guilabel:`LC_MESSAGES`, and click the link for :guilabel:`django.po`.
 Every text line available in the GUI menu screens has been assigned a
 string number. If you click the number, an editor will open to

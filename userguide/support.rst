@@ -1,7 +1,7 @@
-.. _%brand% Support Resources:
+.. _Support Resources:
 
-%brand% Support Resources
-===========================
+Support Resources
+=================
 
 %brand% has a large installation base and an active user community.
 This means that many usage questions have already been answered and
@@ -36,7 +36,7 @@ Website and Social Media
 ------------------------
 
 The
-`%brand% website <http://www.freenas.org/>`_
+`FreeNAS® website <http://www.freenas.org/>`_
 contains links to all of the available documentation, support, and
 social media resources. Major announcements are also posted to the
 main page.
@@ -58,11 +58,11 @@ Users are welcome to network on the %brand% social media sites:
 Forums
 ------
 
-The FreeNAS® Forums are another information source which contains
-categorized user-contributed tips and guides. This makes it an ideal
-resource for learning more about a certain aspect of %brand%. A search
-bar is included for searching by keyword. Or click a category to
-browse through the threads that exist for that topic.
+The FreeNAS\ :sup:`®` Forums are another information source which
+contains categorized user-contributed tips and guides. This makes it
+an ideal resource for learning more about a certain aspect of %brand%.
+A search bar is included for searching by keyword. Or click a category
+to browse through the threads that exist for that topic.
 
 These categories are available under **Forum Information:**
 
@@ -77,7 +77,7 @@ These categories are available under **Forum Information:**
 
 These categories are available under **Help and Support:**
 
-* `New to FreeNAS?
+* `New to FreeNAS®?
   <https://forums.freenas.org/index.php?forums/new-to-freenas.5/>`_:
   post here if you are new to %brand% and are unsure which category
   best matches your question.
@@ -290,7 +290,7 @@ mailing list. To post an email to a list, you will need to subscribe
 to it first. Each mailing list is archived, allowing you to browse for
 information by date, thread name, or author.
 
-The following mailing lists are available:
+These mailing lists are available:
 
 * `Freenas-announce
   <http://lists.freenas.org/mailman/listinfo/freenas-announce>`_:
@@ -299,30 +299,31 @@ The following mailing lists are available:
 
 * `Freenas-commit
   <http://lists.freenas.org/mailman/listinfo/freenas-commit>`_:
-  this is a read-only list. As code changes in the FreeNAS®
+  this is a read-only list. As code changes in the FreeNAS\ :sup:`®`
   repository, the commit message is automatically sent to this list.
 
 * `Freenas-devel
   <http://lists.freenas.org/mailman/listinfo/freenas-devel>`_:
-  FreeNAS® developers are subscribed to this list. Technical questions
-  about the current FreeNAS® release can be posted here.
+  FreeNAS\ :sup:`®` developers are subscribed to this list. Technical
+  questions about the current FreeNAS\ :sup:`®` release can be posted
+  here.
 
 * `Freenas-docs
   <http://lists.freenas.org/mailman/listinfo/freenas-docs>`_:
   this list is for discussion regarding
-  `FreeNAS® documentation <http://doc.freenas.org/>`_.
+  `FreeNAS®` documentation <http://doc.freenas.org/>`_.
 
 * `Freenas-testing
   <http://lists.freenas.org/mailman/listinfo/freenas-testing>`_:
-  FreeNAS® developers are subscribed to this list. Technical questions
-  about the upcoming FreeNAS® release and feedback on testing
-  snapshots can be posted here.
+  FreeNAS\ :sup:`®` developers are subscribed to this list. Technical
+  questions about the upcoming FreeNAS\ :sup:`®` release and feedback
+  on testing snapshots can be posted here.
 
 * `Freenas-translations
   <http://lists.freenas.org/mailman/listinfo/freenas-translations>`_:
   this list is for discussion regarding
-  `FreeNAS® localization <http://pootle.freenas.org/>`_
-  and translating FreeNAS® documentation.
+  `FreeNAS®` localization <http://pootle.freenas.org/>`_
+  and translating FreeNAS\ :sup:`®` documentation.
 
 .. note:: The mailing lists were migrated from SourceForge to Mailman
    in December, 2013. Archives of the SourceForge mailing lists are

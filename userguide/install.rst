@@ -1,7 +1,7 @@
 .. _Installing and Upgrading %brand%:
 
 Installing and Upgrading %brand%
-==================================
+==========================================
 
 Please note that the %brand% operating system must be installed on a
 separate device from the drives which hold the storage data. In other
@@ -30,7 +30,7 @@ This section describes:
 .. _Getting %brand%:
 
 Getting %brand%
------------------
+-------------------------
 
 The latest STABLE version of %brand% |release| can be downloaded
 from
@@ -471,10 +471,11 @@ Caveats:
 Be aware of these caveats **before** attempting an upgrade to
 |release|:
 
-* **Upgrades from %brand% 0.7x are not supported.** The system has no
-  way to import configuration settings from 0.7x versions of %brand%.
-  The configuration must be manually recreated.  If supported, the
-  %brand% 0.7x volumes or disks must be manually imported.
+* **Upgrades from** %brand% **0.7x are not supported.** The system
+  has no way to import configuration settings from 0.7x versions of
+  %brand%. The configuration must be manually recreated.  If
+  supported, the %brand% 0.7x volumes or disks must be manually
+  imported.
 
 * **Upgrades on 32-bit hardware are not supported.** However, if the
   system is currently running a 32-bit version of %brand% **and** the
@@ -537,7 +538,7 @@ Initial Preparation
 
 Before upgrading the operating system, perform the following steps:
 
-#.  **Back up the %brand% configuration** in
+#.  **Back up the** %brand% **configuration** in
     :menuselection:`System --> General --> Save Config`.
 
 #.  If any volumes are encrypted, **make sure** that you have set the

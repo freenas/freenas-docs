@@ -170,71 +170,71 @@ information given when the share was created.
 
 .. table:: AFP Share Configuration Options
 
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Setting                      | Value         | Description                                                                                                 |
-   |                              |               |                                                                                                             |
-   +==============================+===============+=============================================================================================================+
-   | Path                         | browse button | browse to the volume/dataset to share; do not nest additional volumes, datasets, or symbolic links beneath  |
-   |                              |               | this path because Netatalk lacks complete support                                                           |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Name                         | string        | volume name that will appear in the Mac computer's :guilabel:`connect to server` dialog; limited to         |
-   |                              |               | 27 characters and cannot contain a period                                                                   |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Share Comment                | string        | only available in :guilabel:`Advanced Mode`; optional                                                       |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Allow List                   | string        | only available in :guilabel:`Advanced Mode`; comma delimited list of allowed users and/or groups            |
-   |                              |               | where groupname begins with a *@*; note that adding an entry will deny any user/group that is               |
-   |                              |               | not specified                                                                                               |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Deny List                    | string        | only available in :guilabel:`Advanced Mode`; comma delimited list of denied users and/or groups             |
-   |                              |               | where groupname begins with a *@*; note that adding an entry will allow all users/groups that               |
-   |                              |               | are not specified                                                                                           |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Read-only Access             | string        | only available in :guilabel:`Advanced Mode`; comma delimited list of users and/or groups who                |
-   |                              |               | only have read access where groupname begins with a *@*                                                     |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Read-write Access            | string        | only available in :guilabel:`Advanced Mode`; comma delimited list of users and/or groups who                |
-   |                              |               | have read and write access where groupname begins with a *@*                                                |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Time Machine                 | checkbox      | when checked, %brand% advertises itself as a Time Machine disk so it can be found by Macs; due to a         |
-   |                              |               | limitation in how the Mac deals with low-diskspace issues when multiple Macs share the same volume,         |
-   |                              |               | checking :guilabel:`Time Machine` on multiple shares could result in intermittent failed backups            |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Zero Device Numbers          | checkbox      | only available in :guilabel:`Advanced Mode`; enable when the device number is not constant                  |
-   |                              |               | across a reboot                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | No Stat                      | checkbox      | only available in :guilabel:`Advanced Mode`; if checked, AFP won't stat the volume path when                |
-   |                              |               | enumerating the volumes list; useful for automounting or volumes created by a preexec script                |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | AFP3 UNIX Privs              | checkbox      | only available in :guilabel:`Advanced Mode`; enables Unix privileges supported by OSX 10.5 and              |
-   |                              |               | higher; do not enable if the network contains Mac OS X 10.4 clients or lower as they do not                 |
-   |                              |               | support these                                                                                               |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Default file permission      | checkboxes    | only available in :guilabel:`Advanced Mode`; only works with Unix ACLs; new files created on the            |
-   |                              |               | share are set with the selected permissions                                                                 |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Default directory permission | checkboxes    | only available in :guilabel:`Advanced Mode`; only works with Unix ACLs; new directories created on          |
-   |                              |               | the share are set with the selected permissions                                                             |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Default umask                | integer       | only available in :guilabel:`Advanced Mode`; umask for newly created files, default is *000*                |
-   |                              |               | (anyone can read, write, and execute)                                                                       |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Hosts Allow                  | string        | only available in :guilabel:`Advanced Mode`; comma, space, or tab-delimited list of allowed                 |
-   |                              |               | hostnames or IP addresses                                                                                   |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Hosts Deny                   | string        | only available in :guilabel:`Advanced Mode`; comma, space, or tab-delimited list of denied                  |
-   |                              |               | hostnames or IP addresses                                                                                   |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | Setting                      | Value         | Description                                                                                                   |
+   |                              |               |                                                                                                               |
+   +==============================+===============+===============================================================================================================+
+   | Path                         | browse button | browse to the volume/dataset to share; do not nest additional volumes, datasets, or symbolic links beneath    |
+   |                              |               | this path because Netatalk lacks complete support                                                             |
+   |                              |               |                                                                                                               |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | Name                         | string        | volume name that will appear in the Mac computer's :guilabel:`connect to server` dialog; limited to           |
+   |                              |               | 27 characters and cannot contain a period                                                                     |
+   |                              |               |                                                                                                               |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | Share Comment                | string        | only available in :guilabel:`Advanced Mode`; optional                                                         |
+   |                              |               |                                                                                                               |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | Allow List                   | string        | only available in :guilabel:`Advanced Mode`; comma delimited list of allowed users and/or groups              |
+   |                              |               | where groupname begins with a *@*; note that adding an entry will deny any user/group that is                 |
+   |                              |               | not specified                                                                                                 |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | Deny List                    | string        | only available in :guilabel:`Advanced Mode`; comma delimited list of denied users and/or groups               |
+   |                              |               | where groupname begins with a *@*; note that adding an entry will allow all users/groups that                 |
+   |                              |               | are not specified                                                                                             |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | Read-only Access             | string        | only available in :guilabel:`Advanced Mode`; comma delimited list of users and/or groups who                  |
+   |                              |               | only have read access where groupname begins with a *@*                                                       |
+   |                              |               |                                                                                                               |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | Read-write Access            | string        | only available in :guilabel:`Advanced Mode`; comma delimited list of users and/or groups who                  |
+   |                              |               | have read and write access where groupname begins with a *@*                                                  |
+   |                              |               |                                                                                                               |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | Time Machine                 | checkbox      | when checked, %brand% advertises itself as a Time Machine disk so it can be found by Macs; due to a           |
+   |                              |               | limitation in how the Mac deals with low-diskspace issues when multiple Macs share the same volume,           |
+   |                              |               | checking :guilabel:`Time Machine` on multiple shares could result in intermittent failed backups              |
+   |                              |               |                                                                                                               |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | Zero Device Numbers          | checkbox      | only available in :guilabel:`Advanced Mode`; enable when the device number is not constant                    |
+   |                              |               | across a reboot                                                                                               |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | No Stat                      | checkbox      | only available in :guilabel:`Advanced Mode`; if checked, AFP won't stat the volume path when                  |
+   |                              |               | enumerating the volumes list; useful for automounting or volumes created by a preexec script                  |
+   |                              |               |                                                                                                               |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | AFP3 UNIX Privs              | checkbox      | only available in :guilabel:`Advanced Mode`; enables Unix privileges supported by OSX 10.5 and                |
+   |                              |               | higher; do not enable if the network contains Mac OS X 10.4 clients or lower as they do not                   |
+   |                              |               | support these                                                                                                 |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | Default file permission      | checkboxes    | only available in :guilabel:`Advanced Mode`; only works with Unix ACLs; new files created on the              |
+   |                              |               | share are set with the selected permissions                                                                   |
+   |                              |               |                                                                                                               |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | Default directory permission | checkboxes    | only available in :guilabel:`Advanced Mode`; only works with Unix ACLs; new directories created on            |
+   |                              |               | the share are set with the selected permissions                                                               |
+   |                              |               |                                                                                                               |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | Default umask                | integer       | only available in :guilabel:`Advanced Mode`; umask for newly created files, default is *000*                  |
+   |                              |               | (anyone can read, write, and execute)                                                                         |
+   |                              |               |                                                                                                               |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | Hosts Allow                  | string        | only available in :guilabel:`Advanced Mode`; comma, space, or tab-delimited list of allowed                   |
+   |                              |               | hostnames or IP addresses                                                                                     |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | Hosts Deny                   | string        | only available in :guilabel:`Advanced Mode`; comma, space, or tab-delimited list of denied                    |
+   |                              |               | hostnames or IP addresses                                                                                     |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
 
 
 .. _Creating AFP Guest Shares:

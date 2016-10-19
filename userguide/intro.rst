@@ -3,8 +3,8 @@
 .. centered:: %brand% and the %brand% logo are registered trademarks
    of iXsystems.
 
-.. centered:: FreeBSD® is a registered trademark of the FreeBSD
-   Foundation
+.. centered:: FreeBSD\ :sup:`®` is a registered trademark of the
+   FreeBSD Foundation
 
 Written by users of the %brand% network-attached storage operating
 system.
@@ -143,8 +143,8 @@ hardware found in the
 Supported processors are listed in section
 `2.1 amd64
 <https://www.freebsd.org/releases/10.3R/hardware.html#proc>`_.
-%brand% is only available for 64-bit processors. These are also called 
-*amd64* by AMD
+%brand% is only available for 64-bit processors. This architecture is
+called *amd64* by AMD and *Intel 64* by Intel.
 
 .. note:: %brand% boots from a GPT partition. This means that the
    system BIOS must be able to boot using either the legacy BIOS
@@ -176,7 +176,7 @@ RAM
 The best way to get the most out of a %brand% system is to install
 as much RAM as possible. The recommended minimum is 8 GB of RAM. The
 more RAM, the better the performance, and the
-`%brand% Forums <https://forums.freenas.org/index.php>`_
+`FreeNAS® Forums <https://forums.freenas.org/index.php>`_
 provide anecdotal evidence from users on how much performance is
 gained by adding more RAM.
 
