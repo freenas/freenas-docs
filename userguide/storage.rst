@@ -1335,11 +1335,11 @@ Replacing a Failed Drive
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 #ifdef freenas
-With any form of redundant RAID, failed drives must be replaces as
+With any form of redundant RAID, failed drives must be replaced as
 soon as possible to repair the degraded state of the RAID. Depending
 on the hardware's capabilities, it might be necessary to reboot to
-replace the failed drive. AHCI capable hardware does not require a
-reboot.
+replace the failed drive. Hardware that supports AHCI does not require
+a reboot.
 #endif freenas
 #ifdef truenas
 Replace failed drives as soon as possible to repair the degraded

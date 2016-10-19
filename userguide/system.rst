@@ -1415,7 +1415,7 @@ the certificate will appear in the drop-down menus for all the
 services that support SSL or TLS.
 
 :numref:`Figure %s <cas_fig>`
-shows the initial screen if you click
+shows the screen after clicking
 :menuselection:`System --> CAs`.
 
 .. _cas_fig:
@@ -1432,9 +1432,9 @@ shows the initial screen if you click
 #endif truenas
 
 
-If your organization already has a CA, you can import the CA's
-certificate and key. Click the :guilabel:`Import CA` button to open
-the configuration screen shown in
+If your organization already has a CA, the CA's certificate and key
+can be imported. Click the :guilabel:`Import CA` button to open the
+configuration screen shown in
 :numref:`Figure %s <import_ca_fig>`.
 The configurable options are summarized in
 :numref:`Table %s <import_ca_opts_tab>`.
@@ -1493,7 +1493,7 @@ in
 
 The configurable options are described in
 :numref:`Table %s <internal_ca_opts_tab>`.
-When completing the fields for the certificate authority, use the
+When completing the fields for the certificate authority, supply the
 information for your organization.
 
 
