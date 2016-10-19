@@ -2,7 +2,7 @@
 # ts=4
 
 # preproc: preprocess .rst files
-# Warren Block, 2016-08-29
+# Warren Block, 2016-10-19
 
 use strict;
 use warnings;
@@ -138,7 +138,8 @@ usage: $prog -h
 
          String         Replacement
          ------         -----------
-         %brand%        FreeNAS® or TrueNAS®, depending on -t setting
+         %brand%        FreeNAS\\ :sup:`®` or
+                        TrueNAS\\ :sup:`®`, depending on -t setting
          %chapternum%   The current chapter number
 
        For example, when building with '-t truenas', this literal text
@@ -148,21 +149,21 @@ usage: $prog -h
 
        becomes
 
-           This chapter, Chapter 2, describes TrueNAS®.
+           This chapter, Chapter 2, describes TrueNAS\\ :sup:`®`.
 
        Special care is taken when replacing text inside tables to
        preserve aligment of the vertical bar column separators.  If a
        replacement string is not the same length as the string being
        replaced, spaces are added or removed at the end of the column to
        make up for the difference.  For example, with '-t freenas'
-       substituting the eight-character 'FreeNAS®' for the
+       substituting the seventeen-character 'FreeNAS\\ :sup:`®`' for the
        seven-character '%brand%':
 
-           | %brand% is a famous NAS system.  |
+           | %brand% is a famous NAS system.            |
 
        becomes
 
-           | FreeNAS® is a famous NAS system. |
+           | FreeNAS\\ :sup:`®` is a famous NAS system.  |
 
        Processing stops with an error if there are not enough spaces to
        make up for the difference at the end of the column:
@@ -404,9 +405,9 @@ sub do_substitutes {
     # could load a list of keys and replacements from a file
 
     if ( $tag eq 'freenas' ) {
-        $replist{'%brand%'} = "FreeNAS®";
+        $replist{'%brand%'} = "FreeNAS\\ :sup:`®`";
     } elsif ( $tag eq 'truenas' ) {
-        $replist{'%brand%'} = "TrueNAS®";
+        $replist{'%brand%'} = "TrueNAS\\ :sup:`®`";
     }
 
     $replist{'%chapternum%'} = $chapnum;
