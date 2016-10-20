@@ -999,6 +999,11 @@ read through this entire chapter before creating any SMB shares so
 that you have a good idea of the best configuration scenario to meet
 your network's needs.
 
+.. tip:: `SMB Tips and Tricks
+   <https://forums.freenas.org/index.php?resources/smb-tips-and-tricks.15/>`__
+   shows helpful hints for configuring and managing SMB networking.
+
+
 :numref:`Figure %s <adding_smb_share_fig>`
 shows the configuration screen that appears after clicking
 :menuselection:`Sharing --> Windows (SMB Shares)
