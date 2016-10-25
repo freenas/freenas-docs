@@ -1407,12 +1407,15 @@ the update was applied.
 CAs
 ---
 
-%brand% can act as a Certificate Authority (CA). If you plan to use
-SSL or TLS to encrypt any of the connections to the %brand% system,
-you will need to first create a CA, then either create or import the
-certificate to be used for encrypted connections. Once you do this,
-the certificate will appear in the drop-down menus for all the
+%brand% can act as a Certificate Authority (CA). When encrypting SSL
+or TLS connections to the %brand% system, either import an existing
+certificate, or create a CA on the %brand% system, then create a
+certificate. This certificate will appear in the drop-down menus for
 services that support SSL or TLS.
+
+For secure LDAP, the public key of an existing CA can be imported with
+:guilabel:`Import CA`, or a new CA created on the %brand% system and
+used on the LDAP server also.
 
 :numref:`Figure %s <cas_fig>`
 shows the screen after clicking
