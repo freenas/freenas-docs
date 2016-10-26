@@ -5,18 +5,18 @@ Tasks
 =====
 
 The Tasks section of the administrative GUI can be used to configure
-the following repetitive tasks:
+these repetitive tasks:
 
-* :ref:`Cron Jobs`: allows you to schedule a command or script to
+* :ref:`Cron Jobs`: allows scheduling a command or script to
   automatically execute at a specified time
 
-* :ref:`Init/Shutdown Scripts`: used to configure a command or script
-  to automatically execute during system startup or shutdown
+* :ref:`Init/Shutdown Scripts`: is used to configure a command or
+  script to automatically execute during system startup or shutdown
 
-* :ref:`Rsync Tasks`: allows you to schedule data synchronization to
+* :ref:`Rsync Tasks`: allows scheduling data synchronization to
   another system
 
-* :ref:`S.M.A.R.T. Tests`: allows you to schedule how often disk tests
+* :ref:`S.M.A.R.T. Tests`: allows scheduling how often disk tests
   occur
 
 Each of these tasks is described in more detail in this section.
@@ -38,10 +38,10 @@ specified user. Typically, the user who wishes to schedule a task
 manually creates a `crontab(5)
 <http://www.freebsd.org/cgi/man.cgi?query=crontab&sektion=5>`_ using
 syntax that can be perplexing to new Unix users. The %brand% GUI
-makes it easy to schedule when you would like the task to occur.
+makes it easy to schedule when the task will occur.
 
 :numref:`Figure %s <tasks_create_cron_job_fig>`
-shows the screen that opens when you click
+shows the screen that opens after clicking
 :menuselection:`Tasks --> Cron Jobs --> Add Cron Job`.
 
 
@@ -55,10 +55,12 @@ shows the screen that opens when you click
 :numref:`Table %s <tasks_cron_job_opts_tab>`
 summarizes the configurable options when creating a cron job.
 
+.. tabularcolumns:: |p{1.0in}|p{1.2in}|p{3.8in}|
 
 .. _tasks_cron_job_opts_tab:
 
 .. table:: Cron Job Options
+   :class: longtable
 
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Setting           | Value                       | Description                                                                                             |
@@ -117,7 +119,7 @@ Init/Shutdown Scripts
 at system startup or shutdown.
 
 :numref:`Figure %s <tasks_init_script_fig>`
-shows the screen that opens when you click
+shows the screen that opens after clicking
 :menuselection:`Tasks --> Init/Shutdown Scripts --> Add Init/Shutdown
 Script`.
 :numref:`Table %s <tasks_init_opt_tab>`
@@ -139,9 +141,12 @@ has been fully tested to ensure that it achieves the desired results.
    Add an Init/Shutdown Script
 
 
+.. tabularcolumns:: |p{1.0in}|p{1.2in}|p{3.8in}|
+
 .. _tasks_init_opt_tab:
 
 .. table:: Options When Adding an Init/Shutdown Script
+   :class: longtable
 
    +-------------+----------------+-----------------------------------------------------------------------------------+
    | Setting     | Value          | Description                                                                       |
@@ -177,7 +182,7 @@ differences between the source and destination files. Rsync can be
 used for backups, mirroring data on multiple systems, or for copying
 files between systems.
 
-To configure rsync, you need to configure both ends of the connection:
+Both ends of an rsync connection must be configured:
 
 * **the rsync server:** this system pulls (receives) the data. This
   system is referred to as *PULL* in the configuration examples.
@@ -189,8 +194,8 @@ To configure rsync, you need to configure both ends of the connection:
 server. The opposite end of the connection can be another %brand%
 system or any other system running rsync. In %brand% terminology, an
 rysnc task defines which data is synchronized between the two systems.
-If you are synchronizing data between two %brand% systems, create the
-rsync task on the rsync client.
+To synchronize data between two %brand% systems, create the rsync task
+on the rsync client.
 
 %brand% supports two modes of rsync operation:
 
@@ -214,7 +219,7 @@ each mode of rsync operation.
    is allowed.
 
 :numref:`Figure %s <tasks_add_rsync_fig>`
-shows the screen that appears when you click
+shows the screen that appears after selecting
 :menuselection:`Tasks --> Rsync Tasks --> Add Rsync Task`.
 :numref:`Table %s <tasks_rsync_opts_tab>`
 summarizes the options that can be configured when creating an rsync
@@ -228,16 +233,19 @@ task.
    Adding an Rsync Task
 
 
+.. tabularcolumns:: |p{1.0in}|p{1.2in}|p{3.8in}|
+
 .. _tasks_rsync_opts_tab:
 
 .. table:: Rsync Configuration Options
+   :class: longtable
 
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Setting                          | Value                       | Description                                                                               |
    |                                  |                             |                                                                                           |
    |                                  |                             |                                                                                           |
    +==================================+=============================+===========================================================================================+
-   | Path                             | browse button               | browse to the path that you wish to copy; note that a path length greater than 255        |
+   | Path                             | browse button               | browse to the path that to be copied; note that a path length greater than 255            |
    |                                  |                             | characters will fail                                                                      |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
@@ -250,7 +258,7 @@ task.
    |                                  |                             | *username@remote_host* if the username differs on the remote host                         |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote SSH Port                  | integer                     | only available in  *Rsync over SSH* mode; allows you to specify an alternate SSH port     |
+   | Remote SSH Port                  | integer                     | only available in  *Rsync over SSH* mode; allows specifying an SSH port                   |
    |                                  |                             | other than the default of *22*                                                            |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
@@ -333,9 +341,9 @@ task.
    |                                  |                             | escaped between single quotes (e.g. '\*.txt')                                             |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Enabled                          | checkbox                    | uncheck if you would like to disable the rsync task without deleting it; note that when   |
-   |                                  |                             | the :ref:`Rsync` service is OFF, the rsync task will continue to look for the server      |
-   |                                  |                             | unless this checkbox is unchecked                                                         |
+   | Enabled                          | checkbox                    | uncheck to disable the rsync task without deleting it; note that when the :ref:`Rsync`    |
+   |                                  |                             | service is OFF, the rsync task will continue to look for the server unless this           |
+   |                                  |                             | checkbox is unchecked                                                                     |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
 
@@ -472,10 +480,10 @@ key is meant to be used for an automated task.
  |-----------------|
 
 
-%brand% supports the following types of SSH keys: DSA, and RSA. When
-creating the key, specify the type you wish to use or, if you are
-generating the key on another operating system, select a type of key
-the key generation software supports.
+%brand% supports these types of SSH keys: DSA, and RSA. When creating
+the key, specify the type of key to use. If the key is being generated
+on another operating system, select a type of key that the key
+generation software supports.
 
 .. note:: If a different user account is used for the rsync task, use
    the :command:`su -` command after mounting the filesystem but
@@ -533,17 +541,17 @@ file:
  ssh-keyscan -t rsa 192.168.2.6 >> /root/.ssh/known_hosts
 
 
-.. note:: If *PUSH* is a Linux system, use the following command to
-   copy the RSA key to the Linux system:
+.. note:: If *PUSH* is a Linux system, use this command to copy the
+   RSA key to the Linux system:
 
    .. code-block:: none
 
       cat ~/.ssh/id_rsa.pub | ssh user@192.168.2.6 'cat >> .ssh/authorized_keys'
 
 
-You are now ready to create the rsync task on *PUSH*. To configure
-rsync SSH mode using the systems in our previous example, the
-configuration would be as follows:
+The rsync task can now be created on *PUSH*. To configure rsync SSH
+mode using the systems in our previous example, the configuration is
+as follows:
 
 * the :guilabel:`Path` points to :file:`/mnt/local/images`, the
   directory to be copied
@@ -583,24 +591,23 @@ S.M.A.R.T. Tests
 system for computer hard disk drives to detect and report on various
 indicators of reliability. When a failure is anticipated by
 S.M.A.R.T., the drive should be replaced. Most modern ATA, IDE, and
-SCSI-3 hard drives support S.M.A.R.T.--refer to your drive's
-documentation if you are unsure.
+SCSI-3 hard drives support S.M.A.R.T.--refer to the drive
+documentation for confirmation.
 
 :numref:`Figure %s <tasks_add_smart_test_fig>`
-shows the configuration screen that appears when you click
+shows the configuration screen that appears after selecting
 :menuselection:`Tasks --> S.M.A.R.T. Tests --> Add S.M.A.R.T. Test`.
-The tests that you create will be listed under
-:guilabel:`View S.M.A.R.T. Tests`. After creating your tests, check
-the configuration in
+Tests are listed under
+:guilabel:`View S.M.A.R.T. Tests`. After creating tests, check the
+configuration in
 :menuselection:`Services --> S.M.A.R.T.`,
 then click the slider to :guilabel:`ON` for the S.M.A.R.T. service in
 :menuselection:`Services --> Control Services`.
-The S.M.A.R.T. service will not start if you have not created any
-volumes.
+The S.M.A.R.T. service will not start if there are no volumes.
 
 .. note:: To prevent problems, do not enable the S.M.A.R.T. service if
-   your disks are controlled by a RAID controller as it is the job of
-   the controller to monitor S.M.A.R.T. and mark drives as Predictive
+   the disks are controlled by a RAID controller. It is the job of the
+   controller to monitor S.M.A.R.T. and mark drives as Predictive
    Failure when they trip.
 
 
@@ -615,9 +622,12 @@ volumes.
 summarizes the configurable options when creating a S.M.A.R.T. test.
 
 
+.. tabularcolumns:: |p{1.0in}|p{1.2in}|p{3.8in}|
+
 .. _tasks_smart_opts_tab:
 
 .. table:: S.M.A.R.T. Test Options
+   :class: longtable
 
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
    | Setting           | Value                     | Description                                                                                                |
@@ -641,10 +651,10 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
    | Day of month      | slider or day selections  | if use the slider, test occurs every N days; if use day selections, test occurs on the highlighted days    |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Month             | checkboxes                | select the months when you wish the test to occur                                                          |
+   | Month             | checkboxes                | select the months for the test to occur                                                                    |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Day of week       | checkboxes                | select the days of the week when you wish the test to occur                                                |
+   | Day of week       | checkboxes                | select the days of the week for the test to occur                                                          |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
 
@@ -672,7 +682,7 @@ the name of the drive. For example, to see the results for disk
    smartctl -l selftest /dev/ada0
 
 
-If you enter an email address in the :guilabel:`Email to report` field
-of
+If an email address is entered in the :guilabel:`Email to report`
+field of
 :menuselection:`Services --> S.M.A.R.T.`,
-the system will email the specified address when a test fails.
+the system will send email to that address when a test fails.
