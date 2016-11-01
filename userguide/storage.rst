@@ -84,9 +84,14 @@ a screen like the example shown in
 summarizes the configuration options of this screen.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _zfs_vol_opts_tab:
 
 .. table:: Options When Creating a ZFS Volume
+   :class: longtable
 
    +------------------+----------------+--------------------------------------------------------------------------------------------+
    | Setting          | Value          | Description                                                                                |
@@ -133,6 +138,10 @@ be clicked if a different level of redundancy is required.
    situation by using the :guilabel:`Manual setup` button and
    following the instructions in :ref:`Manual Setup`.
 
+
+.. raw:: latex
+
+   \newpage
 
 :guilabel:`Volume Manager` only allows choosing a configuration if
 enough disks have been selected to create that configuration. These
@@ -293,9 +302,14 @@ summarizes the available options.
    Creating a Non-Optimal ZFS Volume
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _zfs_manual_opts_tab:
 
 .. table:: Manual Setup Options
+   :class: longtable
 
    +---------------+------------------+------------------------------------------------------------------------------------------------+
    | Setting       | Value            | Description                                                                                    |
@@ -438,9 +452,14 @@ summarizes the options in this screen.
    Changing Permissions on a Volume or Dataset
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _zfs_opts_permissions_tab:
 
 .. table:: Options When Changing Permissions
+   :class: longtable
 
    +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
    | Setting                    | Value            | Description                                                                                                |
@@ -563,9 +582,14 @@ clicking its :guilabel:`Edit Options` button in
 :menuselection:`Storage --> Volumes --> View Volumes`.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _zfs_dataset_opts_tab:
 
 .. table:: ZFS Dataset Options
+   :class: longtable
 
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    | Setting                  | Value               | Description                                                                                               |
@@ -759,9 +783,14 @@ configure the system to always display these settings by checking
 :menuselection:`System --> Advanced`.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _zfs_zvol_config_opts_tab:
 
 .. table:: zvol Configuration Options
+   :class: longtable
 
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Setting            | Value          | Description                                                                                                          |
@@ -791,6 +820,10 @@ configure the system to always display these settings by checking
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
 
+
+.. raw:: latex
+
+   \newpage
 
 .. _Import Disk:
 
@@ -957,9 +990,14 @@ configuration. The configurable options are described in
 :numref:`Table %s <zfs_disk_opts_tab>`.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _zfs_disk_opts_tab:
 
 .. table:: Disk Options
+   :class: longtable
 
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Setting                            | Value          | Description                                                                                                              |
@@ -1585,9 +1623,14 @@ summarizes the fields in this screen.
    Creating a Periodic Snapshot
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _zfs_periodic_snapshot_opts_tab:
 
 .. table:: Options When Creating a Periodic Snapshot
+   :class: longtable
 
    +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Setting        | Value                      | Description                                                                                                  |
@@ -1760,9 +1803,14 @@ summarizes the available options in the :guilabel:`Add Replication`
 screen.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _zfs_add_replication_task_opts_tab:
 
 .. table:: Adding a Replication Task
+   :class: longtable
 
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | Setting                   | Value          | Description                                                                                                  |
@@ -1963,9 +2011,14 @@ summarizes the options in this screen.
    Viewing a Volume's Default Scrub Settings
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.66\linewidth-2\tabcolsep}|
+
 .. _zfs_scrub_opts_tab:
 
 .. table:: ZFS Scrub Options
+   :class: longtable
 
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Setting        | Value                       | Description                                                                                                 |
@@ -2016,6 +2069,10 @@ find that a scrub is too intensive for your hardware, consider
 unchecking the :guilabel:`Enabled` button for the scrub as a temporary
 measure until the hardware can be upgraded.
 
+
+.. raw:: latex
+
+   \newpage
 
 .. index:: Snapshots
 .. _Snapshots:
@@ -2172,9 +2229,14 @@ summarizes the available options.
    Adding a VMware Snapshot
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _zfs_vmware_snapshot_opts_tab:
 
 .. table:: VMware Snapshot Options
+   :class: longtable
 
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Setting        | Value                       | Description                                                                                                 |

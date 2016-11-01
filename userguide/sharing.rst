@@ -166,9 +166,14 @@ information given when the share was created.
    for a more detailed explanation of the available options.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
 .. _afp_share_config_opts_tab:
 
 .. table:: AFP Share Configuration Options
+   :class: longtable
 
    +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
    | Setting                      | Value         | Description                                                                                                   |
@@ -529,9 +534,14 @@ settings are only available by clicking the :guilabel:`Advanced Mode`
 button.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
 .. _nfs_share_opts_tab:
 
 .. table:: NFS Share Options
+   :class: longtable
 
    +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
    | Setting             | Value          | Description                                                                                                        |
@@ -939,9 +949,14 @@ which will open the screen shown in
 summarizes the available options.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
 .. _webdav_share_opts_tab:
 
 .. table:: WebDAV Share Options
+   :class: longtable
 
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
    | Setting                      | Value         | Description                                                                                                 |
@@ -1028,9 +1043,14 @@ function of that option.
 details for each configurable option.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _smb_share_opts_tab:
 
 .. table:: Options for a SMB Share
+   :class: longtable
 
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
    | Setting                      | Value         | Description                                                                                                 |
@@ -1152,6 +1172,9 @@ and the
 for more details.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.47\linewidth-2\tabcolsep}|
+
 .. _avail_vfs_modules_tab:
 
 .. table:: Available VFS Modules
@@ -1160,10 +1183,10 @@ for more details.
    | Value               | Description                                                                                                                                |
    |                     |                                                                                                                                            |
    +=====================+============================================================================================================================================+
-   | acl_tdb             | stores NTFS ACLs in a tdb file in order to enable full mapping of Windows ACLs                                                             |
+   | acl_tdb             | stores NTFS ACLs in a tdb file to enable full mapping of Windows ACLs                                                                      |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | acl_xattr           | stores NTFS ACLs in Extended Attributes (EAs) in order to enable the full mapping of Windows ACLs                                          |
+   | acl_xattr           | stores NTFS ACLs in Extended Attributes (EAs) to enable the full mapping of Windows ACLs                                                   |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | aio_fork            | enables async I/O                                                                                                                          |
@@ -1780,9 +1803,14 @@ Configuration screen.
    iSCSI Target Global Configuration Variables
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _iscsi_targ_global_config_tab:
 
 .. table:: Target Global Configuration Settings
+   :class: longtable
 
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
    | Setting                         | Value                        | Description                                                                               |
@@ -1827,9 +1855,14 @@ link :guilabel:`Add extra Portal IP`.
    Adding an iSCSI Portal
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _iscsi_portal_conf_tab:
 
 .. table:: Portal Configuration Settings
+   :class: longtable
 
    +-----------------------+----------------+-----------------------------------------------------------------------------+
    | Setting               | Value          | Description                                                                 |
@@ -1913,9 +1946,14 @@ summarizes the settings that can be configured when adding an
 initiator.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _iscsi_initiator_conf_tab:
 
 .. table:: Initiator Configuration Settings
+   :class: longtable
 
    +--------------------+-----------+--------------------------------------------------------------------------------------+
    | Setting            | Value     | Description                                                                          |
@@ -1952,6 +1990,10 @@ display its :guilabel:`Edit` and :guilabel:`Delete` buttons.
    Sample iSCSI Initiator Configuration
 
 
+.. raw:: latex
+
+   \newpage
+
 .. _Authorized Accesses:
 
 Authorized Accesses
@@ -1980,9 +2022,14 @@ summarizes the settings that can be configured when adding an
 authorized access:
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _iscsi_auth_access_config_tab:
 
 .. table:: Authorized Access Configuration Settings
+   :class: longtable
 
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
    | Setting     | Value     | Description                                                                                                                      |
@@ -2061,9 +2108,14 @@ summarizes the settings that can be configured when creating a Target.
    Adding an iSCSI Target
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _iscsi_target_settings_tab:
 
 .. table:: Target Settings
+   :class: longtable
 
    +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
    | Setting                     | Value          | Description                                                                                                 |
@@ -2158,9 +2210,14 @@ name.**
    Adding an iSCSI Extent
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _iscsi_extent_conf_tab:
 
 .. table:: Extent Configuration Settings
+   :class: longtable
 
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Setting            | Value          | Description                                                                                                          |
@@ -2246,9 +2303,14 @@ summarizes the settings that can be configured when associating
 targets and extents.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _iscsi_target_extent_config_tab:
 
 .. table:: Target/Extents Configuration Settings
+   :class: longtable
 
    +-------------+----------------+--------------------------------------------------------------------------------------------------------+
    | Setting     | Value          | Description                                                                                            |

@@ -1,6 +1,7 @@
 .. _text_format_examples_tab:
 
 .. table:: Text Format Examples
+   :class: longtable
 
    +----------------------------------------------------------------+---------------------------------------------------+
    | Item                                                           | Visual Example                                    |

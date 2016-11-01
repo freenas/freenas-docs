@@ -110,64 +110,69 @@ is shown in
 can be configured using the General tab:
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _system_general_tab:
 
 .. table:: General Configuration Settings
+   :class: longtable
 
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | Setting              | Value          | Description                                                                                                                    |
-   |                      |                |                                                                                                                                |
-   +======================+================+================================================================================================================================+
-   | Protocol             | drop-down menu | protocol to use when connecting to the administrative GUI from a browser; if you change the default of *HTTP* to               |
-   |                      |                | *HTTPS* or to                                                                                                                  |
-   |                      |                | *HTTP+HTTPS*, select the certificate to use in :guilabel:`Certificate`; if you do not have a certificate, first                |
-   |                      |                | create a CA (in `CAs`_), then the certificate itself (in `Certificates`_)                                                      |
-   |                      |                |                                                                                                                                |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | Certificate          | drop-down menu | required for *HTTPS*; browse to the location of the certificate to use for encrypted connections                               |
-   |                      |                |                                                                                                                                |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv4 Address  | drop-down menu | choose from a list of recent IP addresses to limit the one to use when accessing the administrative GUI; the                   |
-   |                      |                | built-in HTTP server will automatically bind to the wildcard address of *0.0.0.0* (any address) and will issue an              | 
-   |                      |                | alert if the specified address becomes unavailable                                                                             |
-   |                      |                |                                                                                                                                |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv6 Address  | drop-down menu | choose from a list of recent IPv6 addresses to limit the one to use when accessing the administrative GUI; the                 |
-   |                      |                | built-in HTTP server will automatically bind to any address and will issue an alert                                            |
-   |                      |                | if the specified address becomes unavailable                                                                                   |
-   |                      |                |                                                                                                                                |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTP Port     | integer        | allows you to configure a non-standard port for accessing the administrative GUI over HTTP; changing this setting              |
-   |                      |                | may require you to                                                                                                             |
-   |                      |                | `change a firefox configuration setting <http://www.redbrick.dcu.ie/%7Ed_fens/articles/Firefox:_This_Address_is_Restricted>`_  |
-   |                      |                |                                                                                                                                |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTPS Port    | integer        | allows you to configure a non-standard port for accessing the administrative GUI over HTTPS                                    |
-   |                      |                |                                                                                                                                |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTPS -->     | checkbox       | when this box is checked, *HTTP* connections will be automatically redirected to                                               |
-   | HTTPS Redirect       |                | *HTTPS* if                                                                                                                     |
-   |                      |                | *HTTPS* is selected in :guilabel:`Protocol`, otherwise such connections will fail                                              |
-   |                      |                |                                                                                                                                |
-   |                      |                |                                                                                                                                |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | Language             | drop-down menu | select the localization from the drop-down menu and reload the browser; view the status of localization at                     |
-   |                      |                | `pootle.freenas.org <http://pootle.freenas.org/>`_                                                                             |
-   |                      |                |                                                                                                                                |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | Console Keyboard Map | drop-down menu | select the keyboard layout                                                                                                     |
-   |                      |                |                                                                                                                                |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | Timezone             | drop-down menu | select the timezone from the drop-down menu                                                                                    |
-   |                      |                |                                                                                                                                |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | Syslog level         | drop-down menu | when :guilabel:`Syslog server` is defined, only logs matching this level are sent                                              |
-   |                      |                |                                                                                                                                |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | Syslog server        | string         | *IP address_or_hostname:optional_port_number* of remote syslog server to send logs to; once set, log entries will be written   |
-   |                      |                | to both the console and the remote server                                                                                      |
-   |                      |                |                                                                                                                                |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------------+
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Setting              | Value          | Description                                                                                                              |
+   |                      |                |                                                                                                                          |
+   +======================+================+==========================================================================================================================+
+   | Protocol             | drop-down menu | protocol to use when connecting to the administrative GUI from a browser; if modified from the default of *HTTP* to      |
+   |                      |                | *HTTPS* or to                                                                                                            |
+   |                      |                | *HTTP+HTTPS*, select the certificate to use in :guilabel:`Certificate`; if you do not have a certificate, first          |
+   |                      |                | create a CA (in `CAs`_), then the certificate itself (in `Certificates`_)                                                |
+   |                      |                |                                                                                                                          |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Certificate          | drop-down menu | required for *HTTPS*; browse to the location of the certificate to use for encrypted connections                         |
+   |                      |                |                                                                                                                          |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | WebGUI IPv4 Address  | drop-down menu | choose from a list of recent IP addresses to limit the one to use when accessing the administrative GUI; the             |
+   |                      |                | built-in HTTP server will automatically bind to the wildcard address of *0.0.0.0* (any address) and will issue an        |
+   |                      |                | alert if the specified address becomes unavailable                                                                       |
+   |                      |                |                                                                                                                          |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | WebGUI IPv6 Address  | drop-down menu | choose from a list of recent IPv6 addresses to limit the one to use when accessing the administrative GUI; the           |
+   |                      |                | built-in HTTP server will automatically bind to any address and will issue an alert                                      |
+   |                      |                | if the specified address becomes unavailable                                                                             |
+   |                      |                |                                                                                                                          |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | WebGUI HTTP Port     | integer        | allows configuring a non-standard port for accessing the administrative GUI over HTTP; changing this setting             |
+   |                      |                | might also require                                                                                                       |
+   |                      |                | `changing a Firefox configuration setting                                                                                |
+   |                      |                | <http://www.redbrick.dcu.ie/%7Ed_fens/articles/Firefox:_This_Address_is_Restricted>`_                                    |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | WebGUI HTTPS Port    | integer        | allows configuring a non-standard port for accessing the administrative GUI over HTTPS                                   |
+   |                      |                |                                                                                                                          |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | WebGUI HTTPS -->     | checkbox       | when this box is checked, *HTTP* connections are automatically redirected to                                             |
+   | HTTPS Redirect       |                | *HTTPS* if                                                                                                               |
+   |                      |                | *HTTPS* is selected in :guilabel:`Protocol`, otherwise such connections will fail                                        |
+   |                      |                |                                                                                                                          |
+   |                      |                |                                                                                                                          |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Language             | drop-down menu | select the localization from the drop-down menu and reload the browser; view the status of localization at               |
+   |                      |                | `pootle.freenas.org <http://pootle.freenas.org/>`_                                                                       |
+   |                      |                |                                                                                                                          |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Console Keyboard Map | drop-down menu | select the keyboard layout                                                                                               |
+   |                      |                |                                                                                                                          |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Timezone             | drop-down menu | select the timezone from the drop-down menu                                                                              |
+   |                      |                |                                                                                                                          |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Syslog level         | drop-down menu | when :guilabel:`Syslog server` is defined, only logs matching this level are sent                                        |
+   |                      |                |                                                                                                                          |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Syslog server        | string         | *IP address_or_hostname:optional_port_number* of remote syslog server to send logs to; once set, log entries             |
+   |                      |                | are written to both the console and the remote server                                                                    |
+   |                      |                |                                                                                                                          |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
 After making any changes, click the :guilabel:`Save` button.
@@ -178,8 +183,8 @@ This screen also contains these buttons:
 base version. However, it does not delete user SSH keys or any other
 data stored in a user's home directory. Since any configuration
 changes stored in the configuration database will be erased, this
-option is handy if you mess up your system or wish to return a test
-system to the original configuration.
+option is handy if a mistake has been made or to return a test system
+to the original configuration.
 
 **Save Config:** saves a backup copy of the current configuration
 database in the format *hostname-version-architecture* to the system
@@ -205,11 +210,10 @@ system dataset can be viewed or set using
    backup system configuration is moved to that new boot device, the
    key is not present and these other passwords must be re-entered.
 
-**Upload Config:** allows you to browse to the location of a
-previously saved configuration file in order to restore that
-configuration. The screen will turn red as an indication that the
-system will need to reboot in order to load the restored
-configuration.
+**Upload Config:** allows browsing to the location of a previously
+saved configuration file to restore that configuration. The screen
+turns red as an indication that the system will need to reboot to load
+the restored configuration.
 
 **NTP Servers:** The network time protocol (NTP) is used to
 synchronize the time on the computers in a network. Accurate time is
@@ -236,39 +240,44 @@ explains these options in more detail.
    Add an NTP Server
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _ntp_server_conf_opts_tab:
 
 .. table:: NTP Servers Configuration Options
+   :class: longtable
 
-   +-------------+-----------+-----------------------------------------------------------------------------------------------------------------------+
-   | Setting     | Value     | Description                                                                                                           |
-   |             |           |                                                                                                                       |
-   |             |           |                                                                                                                       |
-   +=============+===========+=======================================================================================================================+
-   | Address     | string    | name of NTP server                                                                                                    |
-   |             |           |                                                                                                                       |
-   +-------------+-----------+-----------------------------------------------------------------------------------------------------------------------+
-   | Burst       | checkbox  | recommended when :guilabel:`Max. Poll` is greater than *10*; only use on your own servers i.e.                        |
-   |             |           | **do not** use with a public NTP server                                                                               |
-   |             |           |                                                                                                                       |
-   +-------------+-----------+-----------------------------------------------------------------------------------------------------------------------+
-   | IBurst      | checkbox  | speeds the initial synchronization (seconds instead of minutes)                                                       |
-   |             |           |                                                                                                                       |
-   +-------------+-----------+-----------------------------------------------------------------------------------------------------------------------+
-   | Prefer      | checkbox  | should only be used for NTP servers that are known to be highly accurate, such as those with time monitoring hardware |
-   |             |           |                                                                                                                       |
-   +-------------+-----------+-----------------------------------------------------------------------------------------------------------------------+
-   | Min. Poll   | integer   | power of 2 in seconds; cannot be lower than                                                                           |
-   |             |           | *4* or higher than :guilabel:`Max. Poll`                                                                              |
-   |             |           |                                                                                                                       |
-   +-------------+-----------+-----------------------------------------------------------------------------------------------------------------------+
-   | Max. Poll   | integer   | power of 2 in seconds; cannot be higher than                                                                          |
-   |             |           | *17* or lower than :guilabel:`Min. Poll`                                                                              |
-   |             |           |                                                                                                                       |
-   +-------------+-----------+-----------------------------------------------------------------------------------------------------------------------+
-   | Force       | checkbox  | forces the addition of the NTP server, even if it is currently unreachable                                            |
-   |             |           |                                                                                                                       |
-   +-------------+-----------+-----------------------------------------------------------------------------------------------------------------------+
+   +-------------+-----------+----------------------------------------------------------------------------------------------------+
+   | Setting     | Value     | Description                                                                                        |
+   |             |           |                                                                                                    |
+   |             |           |                                                                                                    |
+   +=============+===========+====================================================================================================+
+   | Address     | string    | name of NTP server                                                                                 |
+   |             |           |                                                                                                    |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------+
+   | Burst       | checkbox  | recommended when :guilabel:`Max. Poll` is greater than *10*; only use on your own servers i.e.     |
+   |             |           | **do not** use with a public NTP server                                                            |
+   |             |           |                                                                                                    |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------+
+   | IBurst      | checkbox  | speeds the initial synchronization (seconds instead of minutes)                                    |
+   |             |           |                                                                                                    |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------+
+   | Prefer      | checkbox  | should only be used for NTP servers that are known to be highly accurate, such as those with       |
+   |             |           | time monitoring hardware                                                                           |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------+
+   | Min. Poll   | integer   | power of 2 in seconds; cannot be lower than                                                        |
+   |             |           | *4* or higher than :guilabel:`Max. Poll`                                                           |
+   |             |           |                                                                                                    |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------+
+   | Max. Poll   | integer   | power of 2 in seconds; cannot be higher than                                                       |
+   |             |           | *17* or lower than :guilabel:`Min. Poll`                                                           |
+   |             |           |                                                                                                    |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------+
+   | Force       | checkbox  | forces the addition of the NTP server, even if it is currently unreachable                         |
+   |             |           |                                                                                                    |
+   +-------------+-----------+----------------------------------------------------------------------------------------------------+
 
 
 .. index:: Boot Environments, Multiple Boot Environments
@@ -291,8 +300,8 @@ that system state.
    *operating system* at a specified time. When a %brand% system
    boots, it loads the specified boot environment, or operating
    system, then reads the configuration database in order to load the
-   current configuration values. If your intent is to make
-   configuration changes, rather than operating system changes, make a
+   current configuration values. If the intent is to make
+   configuration changes rather than operating system changes, make a
    backup of the configuration database first using
    :menuselection:`System --> General` --> Save Config.
 
@@ -533,9 +542,14 @@ The configurable settings are summarized in
 #endif truenas
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _adv_config_tab:
 
 .. table:: Advanced Configuration Settings
+   :class: longtable
 
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Setting                                 | Value                            | Description                                                                  |
@@ -646,10 +660,14 @@ location to save the generated ASCII text file.
 
    Backup Configuration Screen
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
 .. _backup_conf_tab:
 
 .. table:: Backup Configuration Settings
+   :class: longtable
 
    +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
    | Setting                                 | Value          | Description                                                                                    |
@@ -684,6 +702,10 @@ location to save the generated ASCII text file.
    |                                         |                |                                                                                                |
    +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
 
+
+.. raw:: latex
+
+   \newpage
 
 .. index:: Autotune
 .. _Autotune:
@@ -779,9 +801,15 @@ summarizes the settings that can be configured using the Email tab.
 #endif truenas
 
 
+.. tabularcolumns:: |p{1.2in}|p{1.2in}|p{3.6in}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.60\linewidth-2\tabcolsep}|
+
 .. _email_conf_tab:
 
 .. table:: Email Configuration Settings
+   :class: longtable
 
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Setting              | Value                | Description                                                                                     |
@@ -949,9 +977,14 @@ to access the screen shown in seen in
 summarizes the options when adding a tunable.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
 .. _add_tunable_tab:
 
 .. table:: Adding a Tunable
+   :class: longtable
 
    +-------------+-------------------+-------------------------------------------------------------------------------------+
    | Setting     | Value             | Description                                                                         |
@@ -1450,9 +1483,14 @@ The configurable options are summarized in
    Importing a CA
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
 .. _import_ca_opts_tab:
 
 .. table:: Importing a CA Options
+   :class: longtable
 
    +----------------------+----------------------+---------------------------------------------------------------------------------------------------+
    | Setting              | Value                | Description                                                                                       |
@@ -1500,9 +1538,14 @@ When completing the fields for the certificate authority, supply the
 information for your organization.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
 .. _internal_ca_opts_tab:
 
 .. table:: Internal CA Options
+   :class: longtable
 
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Setting              | Value                | Description                                                                                     |
@@ -1604,7 +1647,7 @@ shows the initial screen if you click
 To import an existing certificate, click the
 :guilabel:`Import Certificate` button to open the configuration screen
 shown in
-:numref:`Figure %s <import_cert_fig>`. 
+:numref:`Figure %s <import_cert_fig>`.
 When importing a certificate chain, paste the primary certificate,
 followed by any intermediate certificates, followed by the root CA
 certificate.
@@ -1620,9 +1663,14 @@ The configurable options are summarized in
    Importing a Certificate
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
 .. _cert_import_opt_tab:
 
 .. table:: Certificate Import Options
+   :class: longtable
 
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Setting              | Value                | Description                                                                                     |
@@ -1654,6 +1702,10 @@ information for your organization. Since this is a self-signed
 certificate, use the CA that you imported or created using :ref:`CAs`
 as the signing authority.
 
+.. raw:: latex
+
+   \newpage
+
 
 .. _create_new_cert_fig:
 
@@ -1662,9 +1714,14 @@ as the signing authority.
    Creating a New Certificate
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.60\linewidth-2\tabcolsep}|
+
 .. _cert_create_opts_tab:
 
 .. table:: Certificate Creation Options
+   :class: longtable
 
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Setting              | Value                | Description                                                                                     |
@@ -2033,9 +2090,14 @@ and described in
    Example Failover Screen
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
 .. _failover_opts_tab:
 
 .. table:: Failover Options
+   :class: longtable
 
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Setting        | Value          | Description                                                                                                                                           |
@@ -2099,6 +2161,9 @@ for failover
 summarizes the available options for this command.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
 .. _hactl_opts_tab:
 
 .. table:: hactl Options
@@ -2107,25 +2172,25 @@ summarizes the available options for this command.
    | Option             | Description                                                                                 |
    |                    |                                                                                             |
    +====================+=============================================================================================+
-   | **enable**         | administratively enables failover                                                           |
+   | *enable*           | administratively enables failover                                                           |
    |                    |                                                                                             |
    +--------------------+---------------------------------------------------------------------------------------------+
-   | **disable**        | administratively disables failover                                                          |
+   | *disable*          | administratively disables failover                                                          |
    |                    |                                                                                             |
    +--------------------+---------------------------------------------------------------------------------------------+
-   | **status**         | indicates whether the node is active, passive, or non-HA                                    |
+   | *status*           | indicates whether the node is active, passive, or non-HA                                    |
    |                    |                                                                                             |
    +--------------------+---------------------------------------------------------------------------------------------+
-   | **takeover**       | can only be run from the passive node; will give a warning message that the current active  |
+   | *takeover*         | can only be run from the passive node; will give a warning message that the current active  |
    |                    | node will reboot                                                                            |
    +--------------------+---------------------------------------------------------------------------------------------+
-   | **giveback**       | cannot be run from the active node; will give a warning message that this node will reboot  |
+   | *giveback*         | cannot be run from the active node; will give a warning message that this node will reboot  |
    |                    |                                                                                             |
    +--------------------+---------------------------------------------------------------------------------------------+
-   | **-h** or **help** | shows the help message (options) for this command                                           |
+   | *-h* or *help*     | shows the help message (options) for this command                                           |
    |                    |                                                                                             |
    +--------------------+---------------------------------------------------------------------------------------------+
-   | **-q**             | will not display the current status if this is a non-HA node                                |
+   | *-q*               | will not display the current status if this is a non-HA node                                |
    |                    |                                                                                             |
    +--------------------+---------------------------------------------------------------------------------------------+
 #endif truenas

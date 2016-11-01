@@ -180,9 +180,14 @@ through
    determine if additional configuration is required.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _ad_options:
 
 .. table:: Active Directory Options
+   :class: longtable
 
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------+
    | Setting                  | Value         | Description                                                                                           |
@@ -200,9 +205,14 @@ through
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------+
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _ldap_options:
 
 .. table:: LDAP Options
+   :class: longtable
 
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Setting                 | Value          | Description                                                                                           |
@@ -223,9 +233,18 @@ through
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
 
 
+.. raw:: latex
+
+   \newpage
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _nis_options:
 
 .. table:: NIS Options
+   :class: longtable
 
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Setting                 | Value          | Description                                                                                           |
@@ -248,9 +267,14 @@ through
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _nt4_options:
 
 .. table:: NT4 Options
+   :class: longtable
 
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Setting                 | Value          | Description                                                                                           |

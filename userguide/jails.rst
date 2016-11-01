@@ -120,9 +120,14 @@ always display these settings by checking the box
 :menuselection:`System --> Advanced`.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _global_jail_config_opts_tab:
 
 .. table:: Jail Configuration Options
+   :class: longtable
 
    +----------------------------+---------------+--------------------------------------------------------------------------------+
    | Setting                    | Value         | Description                                                                    |
@@ -252,9 +257,14 @@ display these settings by checking the box
 :menuselection:`System --> Advanced`.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _jail_config_opts_tab:
 
 .. table:: Jail Configuration Options
+   :class: longtable
 
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | Setting                   | Value          | Description                                                                                                  |
@@ -1097,9 +1107,14 @@ which opens the screen shown in
 summarizes the fields in this screen.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _jail_template_opts_tab:
 
 .. table:: Jail Template Options
+   :class: longtable
 
    +--------------+----------------+-----------------------------------------------------------------------------------------------+
    | Setting      | Value          | Description                                                                                   |

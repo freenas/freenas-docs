@@ -514,7 +514,7 @@ To view the help for arcstat.py:
     -f: Specify specific fields to print (see -v)
     -o: Redirect output to the specified file
     -s: Override default field separator with custom character or string
-   
+
     Examples:
     arcstat -o /tmp/a.log 2 10
     arcstat -s "," -o /tmp/a.log 2 10
@@ -539,9 +539,13 @@ This command will display every 1 second for a count of five.
 briefly describes the columns in the output.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.33\linewidth-2\tabcolsep}|
+
 .. _cli_arcstat_columns_tab:
 
 .. table:: arcstat Column Descriptions
+   :class: longtable
 
    +---------------------+------------------------------------------+
    | Column              | Description                              |

@@ -92,9 +92,14 @@ display these settings by checking the box
    Configuring Active Directory
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _ad_tab:
 
 .. table:: Active Directory Configuration Options
+   :class: longtable
 
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Setting                  | Value         | Description                                                                                                                                           |
@@ -218,9 +223,13 @@ will break Active Directory integration, a pop-up menu will appear
 whenever changes are made to this setting.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.66\linewidth-2\tabcolsep}|
+
 .. _id_map_backends_tab:
 
 .. table:: ID Mapping Backends
+   :class: longtable
 
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | Value          | Description                                                                                                                              |
@@ -489,9 +498,14 @@ Those who are new to LDAP terminology should skim through the
 <http://www.openldap.org/doc/admin24/>`_.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _ldap_config_tab:
 
 .. table:: LDAP Configuration Options
+   :class: longtable
 
    +-------------------------+----------------+----------------------------------------------------------------------------------------------------------------+
    | Setting                 | Value          | Description                                                                                                    |
@@ -613,6 +627,10 @@ for common errors and how to fix them. When troubleshooting LDAP, open
 :ref:`Shell` and look for error messages in :file:`/var/log/auth.log`.
 
 
+.. raw:: latex
+
+   \newpage
+
 .. _NIS:
 
 NIS
@@ -636,9 +654,15 @@ summarizes the configuration options.
 
    NIS Configuration
 
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _nis_config_tab:
 
 .. table:: NIS Configuration Options
+   :class: longtable
 
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------+
    | Setting     | Value     | Description                                                                                                                |
@@ -698,9 +722,14 @@ box :guilabel:`Show advanced fields by default` in
    NT4 Configuration Options
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _nt_config_tab:
 
 .. table:: NT4 Configuration Options
+   :class: longtable
 
    +------------------------+-----------+-------------------------------------------------------------------------------------------------------+
    | Setting                | Value     | Description                                                                                           |
@@ -739,6 +768,10 @@ adding a user to Active Directory who needs immediate access to
 %brand%. Otherwise this occurs automatically once a day as a cron job.
 
 
+.. raw:: latex
+
+   \newpage
+
 .. _Kerberos Realms:
 
 Kerberos Realms
@@ -768,9 +801,14 @@ display these settings by checking the box
 :menuselection:`System --> Advanced`.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _ker_realm_config_tab:
 
 .. table:: Kerberos Realm Options
+   :class: longtable
 
    +------------------------+-----------+------------------------------------------------------------------------------------------------------------------+
    | Setting                | Value     | Description                                                                                                      |

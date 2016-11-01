@@ -55,9 +55,14 @@ Hostname and domain fields are pre-filled as shown in
 but can be changed to meet requirements of the local network.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _global_net_config_tab:
 
 .. table:: Global Configuration Settings
+   :class: longtable
 
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
    | Setting                | Value      | Description                                                                                                          |
@@ -157,9 +162,14 @@ interrupted while the changes are applied.
    Adding or Editing an Interface
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _net_interface_config_tab:
 
 .. table:: Interface Configuration Settings
+   :class: longtable
 
    +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
    | Setting             | Value          | Description                                                                                                         |
@@ -283,9 +293,14 @@ summarizes the options available when configuring IPMI with the
    IPMI Configuration
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _ipmi_options_tab:
 
 .. table:: IPMI Options
+   :class: longtable
 
    +----------------------+----------------+-----------------------------------------------------------------------------+
    | Setting              | Value          | Description                                                                 |
@@ -346,6 +361,10 @@ in
 configure the Java KVM Client used by the IPMI management interface.
 #endif truenas
 
+
+.. raw:: latex
+
+   \newpage
 
 .. index:: Link Aggregation, LAGG, LACP, EtherChannel
 .. _Link Aggregations:
@@ -537,9 +556,14 @@ menu option to get access into the GUI through the new lagg interface.
    Editing a lagg
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _lagg_opts_tab:
 
 .. table:: Configurable Options for a lagg
+   :class: longtable
 
    +---------------------+----------------+----------------------------------------------------------------------------------+
    | Setting             | Value          | Description                                                                      |
@@ -596,9 +620,14 @@ The configurable options are summarized in
    Editing a Member Interface
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _lagg_config_member_tab:
 
 .. table:: Configuring a Member Interface
+   :class: longtable
 
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
    | Setting              | Value          | Description                                                                                    |
@@ -686,9 +715,15 @@ shown in
 The available options are summarized in
 :numref:`Table %s <static_route_opts_tab>`.
 
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _static_route_opts_tab:
 
 .. table:: Static Route Options
+   :class: longtable
 
    +---------------------+-----------+-------------------------------------+
    | Setting             | Value     | Description                         |
@@ -755,9 +790,14 @@ to see the screen shown in
 summarizes the configurable fields.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _adding_vlan_tab:
 
 .. table:: Adding a VLAN
+   :class: longtable
 
    +-------------------+----------------+---------------------------------------------------------------------------------------------------+
    | Setting           | Value          | Description                                                                                       |

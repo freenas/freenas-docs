@@ -55,7 +55,9 @@ shows the screen that opens after clicking
 :numref:`Table %s <tasks_cron_job_opts_tab>`
 summarizes the configurable options when creating a cron job.
 
-.. tabularcolumns:: |p{1.0in}|p{1.2in}|p{3.8in}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
 .. _tasks_cron_job_opts_tab:
 
@@ -141,7 +143,9 @@ has been fully tested to ensure that it achieves the desired results.
    Add an Init/Shutdown Script
 
 
-.. tabularcolumns:: |p{1.0in}|p{1.2in}|p{3.8in}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
 .. _tasks_init_opt_tab:
 
@@ -233,7 +237,9 @@ task.
    Adding an Rsync Task
 
 
-.. tabularcolumns:: |p{1.0in}|p{1.2in}|p{3.8in}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
 .. _tasks_rsync_opts_tab:
 
@@ -622,7 +628,9 @@ The S.M.A.R.T. service will not start if there are no volumes.
 summarizes the configurable options when creating a S.M.A.R.T. test.
 
 
-.. tabularcolumns:: |p{1.0in}|p{1.2in}|p{3.8in}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
 .. _tasks_smart_opts_tab:
 

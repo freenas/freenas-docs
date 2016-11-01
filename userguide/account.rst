@@ -69,9 +69,14 @@ summarizes the available options when creating a group.
    Creating a New Group
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _new_group_tab:
 
 .. table:: Group Creation Options
+   :class: longtable
 
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
    | Setting             | Value     | Description                                                                                                              |
@@ -215,9 +220,14 @@ created or modified.
    Adding or Editing a User Account
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _user_account_conf_tab:
 
 .. table:: User Account Configuration
+   :class: longtable
 
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Setting                    | Value           | Description                                                                                                                                           |
@@ -294,9 +304,13 @@ created or modified.
    grayed out.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.66\linewidth-2\tabcolsep}|
+
 .. _shells_tab:
 
 .. table:: Available Shells
+   :class: longtable
 
    +--------------+----------------------------------------------------------------------------------------------------------------------+
    | Shell        | Description                                                                                                          |

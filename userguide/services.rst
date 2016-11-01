@@ -4,9 +4,9 @@
 Services Configuration
 ======================
 
-The Services section of the GUI is where various services that ship with
-the %brand% system are configured, started, or stopped. %brand% includes
-these built-in services:
+The Services section of the GUI is where various services that ship
+with the %brand% system are configured, started, or stopped. %brand%
+includes these built-in services:
 
 * :ref:`AFP`
 
@@ -108,9 +108,14 @@ which are described in
    Global AFP Configuration
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _global_afp_config_opts_tab:
 
 .. table:: Global AFP Configuration Options
+   :class: longtable
 
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Setting                 | Value          | Description                                                                                                     |
@@ -229,9 +234,14 @@ summarizes the available options.
    Domain Controller Settings
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _domain_controller_opts_tab:
 
 .. table:: Domain Controller Configuration Options
+   :class: longtable
 
    +------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Setting                | Value          | Description                                                                                                                                                                               |
@@ -295,9 +305,14 @@ start the DDNS service in
    Configuring DDNS
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _ddns_config_opts_tab:
 
 .. table:: DDNS Configuration Options
+   :class: longtable
 
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
    | Setting              | Value          | Description                                                                                                        |
@@ -379,9 +394,15 @@ display these settings by checking the box
 :numref:`Table %s <ftp_config_opts_tab>`
 summarizes the available options when configuring the FTP server.
 
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _ftp_config_opts_tab:
 
 .. table:: FTP Configuration Options
+   :class: longtable
 
    +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
    | Setting                                                       | Value          | Description                                                                         |
@@ -812,9 +833,14 @@ summarizes the configuration options for the LLDP service.
    Configuring LLDP
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _lldp_config_opts_tab:
 
 .. table:: LLDP Configuration Options
+   :class: longtable
 
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
    | Setting                | Value      | Description                                                                                                         |
@@ -857,9 +883,14 @@ summarizes the configuration options for the NFS service.
    Configuring NFS
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _nfs_config_opts_tab:
 
 .. table:: NFS Configuration Options
+   :class: longtable
 
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
    | Setting                | Value      | Description                                                                                                         |
@@ -944,9 +975,14 @@ shows the rsyncd configuration screen which is accessed from
 summarizes the options that can be configured for the rsync daemon:
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _rsyncd_config_opts_tab:
 
 .. table:: Rsyncd Configuration Options
+   :class: longtable
 
    +----------------------+-----------+----------------------------------------------------------------------+
    | Setting              | Value     | Description                                                          |
@@ -984,9 +1020,14 @@ module.
    Adding an Rsync Module
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _rsync_module_opts_tab:
 
 .. table:: Rsync Module Configuration Options
+   :class: longtable
 
    +----------------------+----------------+-------------------------------------------------------------------------------+
    | Setting              | Value          | Description                                                                   |
@@ -1085,9 +1126,14 @@ shows the configuration screen that appears after clicking
 summarizes the options in the S.M.A.R.T configuration screen.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _smart_config_opts_tab:
 
 .. table:: S.M.A.R.T Configuration Options
+   :class: longtable
 
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Setting         | Value                      | Description                                                                                                 |
@@ -1152,6 +1198,7 @@ This configuration screen is really a front-end to
 
 #ifdef freenas
 .. figure:: images/cifs1b.png
+   :width: 75%
 
    Global SMB Configuration
 #endif freenas
@@ -1162,9 +1209,14 @@ This configuration screen is really a front-end to
 #endif truenas
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _global_smb_config_opts_tab:
 
 .. table:: Global SMB Configuration Options
+   :class: longtable
 
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Setting                          | Value          | Description                                                                                           |
@@ -1285,9 +1337,14 @@ This configuration screen is really a front-end to
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _smb_protocol_ver_tab:
 
 .. table:: SMB Protocol Versions
+   :class: longtable
 
    +----------------+------------------------------------------------------------+
    | Value          | Description                                                |
@@ -1456,9 +1513,14 @@ summarizes the configuration options.
    Configuring SNMP
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _snmp_config_opts_tab:
 
 .. table:: SNMP Configuration Options
+   :class: longtable
 
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
    | Setting              | Value          | Description                                                                                      |
@@ -1544,9 +1606,14 @@ display these settings by checking the box
 :menuselection:`System --> Advanced`.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _ssh_conf_opts_tab:
 
 .. table:: SSH Configuration Options
+   :class: longtable
 
    +-------------------------------+----------------+----------------------------------------------------------------------------------------------------------+
    | Setting                       | Value          | Description                                                                                              |
@@ -1706,9 +1773,14 @@ summarizes the available options:
    TFTP Configuration
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _tftp_config_opts_tab:
 
 .. table:: TFTP Configuration Options
+   :class: longtable
 
    +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
    | Setting         | Value         | Description                                                                                                              |
@@ -1740,6 +1812,10 @@ summarizes the available options:
    +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
+.. raw:: latex
+
+   \newpage
+
 .. index:: UPS, Uninterruptible Power Supply
 .. _UPS:
 
@@ -1759,6 +1835,7 @@ shows the UPS configuration screen:
 .. _ups_config_fig:
 
 .. figure:: images/ups1a.png
+   :width: 75%
 
    UPS Configuration Screen
 
@@ -1767,9 +1844,14 @@ shows the UPS configuration screen:
 summarizes the options in the UPS Configuration screen.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _ups_config_opts_tab:
 
 .. table:: UPS Configuration Options
+   :class: longtable
 
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Setting                   | Value          | Description                                                                                           |
@@ -1896,9 +1978,14 @@ summarizes the available options.
    WebDAV Configuration Screen
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _webdav_config_opts_tab:
 
 .. table:: WebDAV Configuration Options
+   :class: longtable
 
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Setting                   | Value          | Description                                                                                           |

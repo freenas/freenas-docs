@@ -29,9 +29,14 @@ the screen shown in
 summarizes the options in this screen.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 .. _vcenter_options_tab:
 
 .. table:: vCenter Plugin Options
+   :class: longtable
 
    +-------------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------------------+
    | Setting                       | Value          | Description                                                                                                                           |

@@ -121,9 +121,14 @@ summarizes acceptable values. This resource uses JSON, so the boolean
 values are *True* or *False*.
 
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
 .. _api_json_parms_tab:
 
 .. table:: JSON Parameters for Users Create Resource
+   :class: longtable
 
    +--------------------------+----------+----------------------------------------------------------------------------------------------------------------------+
    | JSON Parameter           | Type     | Description                                                                                                          |
