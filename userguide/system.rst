@@ -286,16 +286,15 @@ explains these options in more detail.
 Boot
 ----
 
-%brand% supports a feature of ZFS known as multiple boot
-environments. With multiple boot environments, the process of updating
-the operating system becomes a low-risk operation as the updater
-automatically creates a snapshot of your current boot environment and
-adds it to the boot menu before applying the update. If the update
-fails, simply reboot the system and select the previous boot
-environment from the boot menu to instruct the system to go back to
-that system state.
+%brand% supports a ZFS feature known as multiple boot environments.
+With multiple boot environments, the process of updating the operating
+system becomes a low-risk operation. The updater automatically creates
+a snapshot of the current boot environment and adds it to the boot
+menu before applying the update. If the update fails, reboot the
+system and select the previous boot environment from the boot menu to
+instruct the system to go back to that system state.
 
-.. note:: Do not confuse boot environments with the configuration
+.. note:: Boot environments are separate from the configuration
    database. Boot environments are a snapshot of the
    *operating system* at a specified time. When a %brand% system
    boots, it loads the specified boot environment, or operating
@@ -1163,7 +1162,12 @@ It is best to perform updates at times the %brand% system is idle,
 with no clients connected and no scrubs or other disk activity going
 on. A reboot is required after most updates, so they are often planned
 for scheduled maintenance times to avoid disrupting user activities.
+
+The update process will not proceed unless there is enough free space
+in the boot pool for the new update files. If a space warning is
+shown, use :ref:`Boot` to remove unneeded boot environments.
 #endif freenas
+
 #ifdef truenas
 An update usually takes between thirty minutes and an hour. A reboot
 is required after the update, so it is recommended to schedule updates
@@ -1179,6 +1183,10 @@ gives time to make sure a specialist is available for assistance.
 
 Updates from older versions of %brand% before 9.3 must be scheduled
 with support.
+
+The update process will not proceed unless there is enough free space
+in the boot pool for the new update files. If a space warning is
+shown, use :ref:`Boot` to remove unneeded boot environments.
 
 Operating system updates only modify the boot devices and do not
 affect end-user data on storage drives.
