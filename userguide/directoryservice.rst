@@ -627,10 +627,6 @@ for common errors and how to fix them. When troubleshooting LDAP, open
 :ref:`Shell` and look for error messages in :file:`/var/log/auth.log`.
 
 
-.. raw:: latex
-
-   \newpage
-
 .. _NIS:
 
 NIS
@@ -692,6 +688,10 @@ Click the :guilabel:`Rebuild Directory Service Cache` button after
 adding a user to NIS who needs immediate access to %brand%. Otherwise
 this occurs automatically once a day as a cron job.
 
+
+.. raw:: latex
+
+   \newpage
 
 .. _NT4:
 

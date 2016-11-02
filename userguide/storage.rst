@@ -365,17 +365,8 @@ drop-down menu will be empty if no ZFS volume exists.
 
 After an existing volume has been selected from the drop-down menu,
 drag and drop the desired disks and select the desired volume
-layout. For example, you can:
-
-* select an SSD with a volume layout of :guilabel:`Log (ZIL)` to add a
-  log device to the ZFS pool. Selecting 2 SSDs will create a mirrored
-  log device.
-
-* select an SSD with a volume layout of :guilabel:`Cache (L2ARC)` to
-  add a cache device to the ZFS pool.
-
-* add additional disks to increase the capacity of the ZFS pool. The
-  caveats to doing this are described below.
+layout. For example, disks can be added to increase the capacity of
+the ZFS pool. See :ref:
 
 When adding disks to increase the capacity of a volume, ZFS supports
 the addition of virtual devices, known as vdevs, to an existing ZFS
@@ -407,6 +398,26 @@ If you try to add an incorrect number of disks to the existing vdev,
 an error message will appear, indicating the number of disks that are
 needed. You will need to select the correct number of disks in order
 to continue.
+
+
+.. _Adding L2ARC or ZIL Devices:
+
+Adding L2ARC or ZIL Devices
+"""""""""""""""""""""""""""
+
+:menuselection:`Storage --> Volumes --> Volume Manager` (see
+:numref:`Figure %s <create_zfs_pool_volman_fig>`)
+is also used to add L2ARC or ZIL SSDs to improve specific types of
+volume performance. This is described in more detail in the
+:ref:`ZFS Primer`.
+
+After the SSDs have been physically installed, click the
+:guilabel:`Volume Manager` button and choose the volume from the
+:guilabel:`Volume to extend` drop-down menu. Click the
+:guilabel:`+` next to the SSD in the :guilabel:`Available disks` list.
+In the :guilabel:`Volume layout` drop-down menu, select
+*Cache (L2ARC)* to add a cache device, or *Log (ZIL)* to add a
+log device. Finally, click :guilabel:`Extend Volume` to add the SSD.
 
 
 .. _Change Permissions:
@@ -1083,6 +1094,10 @@ and the disk chassis.
 and VCC.
 #endif truenas
 
+
+.. raw:: latex
+
+   \newpage
 
 .. _View Volumes:
 

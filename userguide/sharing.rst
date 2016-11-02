@@ -2081,6 +2081,10 @@ Click an authorized access entry to display its :guilabel:`Edit` and
    Viewing Authorized Accesses
 
 
+.. raw:: latex
+
+   \newpage
+
 .. _Targets:
 
 Targets
@@ -2151,6 +2155,10 @@ summarizes the settings that can be configured when creating a Target.
    |                             |                |                                                                                                             |
    +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
 
+
+.. raw:: latex
+
+   \newpage
 
 .. _Extents:
 
