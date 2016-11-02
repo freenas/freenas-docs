@@ -114,6 +114,10 @@ changes that have occurred since |version| was released.
 
 * Updated to the latest Chelsio T5 firmware.
 
+* mDNSResponder messages are now logged to
+  :file:`/var/log/mdnsresponder.log` to prevent spamming the console and
+  :file:`/var/log/messages` with spurious message events.
+
 * The *Auto* option has been removed from the :guilabel:`LUN ID` menu
   of :menuselection:`Sharing --> Block (iSCSI) --> Associated Targets --> Add Target/Extent`.
 
@@ -131,6 +135,8 @@ changes that have occurred since |version| was released.
   <http://www.midnight-commander.org/>`_ is now included in the base
   operating system.
 
+* `mcelog
+  <http://mcelog.org/>`_ is now included in the base operating system.
 
 .. index:: Hardware Recommendations
 .. _Hardware Recommendations:
