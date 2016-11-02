@@ -1241,7 +1241,8 @@ for more details.
    | fruit               | enhances OS X support by providing the SMB2 AAPL extension and Netatalk interoperability (see NOTE below table)                            |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | full_audit          | records selected client operations to the system log                                                                                       |
+   | full_audit          | records selected client operations to the system log; if selected, a warning will indicate that Windows 10 clients may experince issues    |
+   |                     | when transferring files to the NAS system when this module is enabled                                                                      |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | linux_xfs_sgid      | used to work around an old Linux XFS bug                                                                                                   |
