@@ -433,6 +433,11 @@ Time Machine share is restricted to 200 GB.
    Setting a Quota
 
 
+.. note:: An alternative is to create a global quota using the
+   instructions in
+   `Setup Time Machine for multiple machines with OSX Server-Style Quotas
+   <https://forums.freenas.org/index.php?threads/how-to-setup-time-machine-for-multiple-machines-with-osx-server-style-quotas.47173/>`_.
+   
 To configure Time Machine on the Mac OS X client, go to
 :menuselection:`System Preferences --> Time Machine`
 which opens the screen shown in
@@ -547,8 +552,8 @@ button.
    | Setting             | Value          | Description                                                                                                        |
    |                     |                |                                                                                                                    |
    +=====================+================+====================================================================================================================+
-   | Path                | browse button  | the path that clients will use when mounting the share; click :guilabel:`Add extra path` to select                 |
-   |                     |                | multiple paths                                                                                                     |
+   | Path                | browse button  | browse to the volume or dataset to be shared; click :guilabel:`Add extra path` to select multiple paths            |
+   |                     |                |                                                                                                                    |
    +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
    | Comment             | string         | used to set the share name; if left empty, share name is the list of selected :guilabel:`Path` entries             |
    |                     |                |                                                                                                                    |
@@ -598,6 +603,7 @@ button.
 
 When creating NFS shares, keep the following points in mind:
 
+#. Clients will specify the :guilabel:`Path` when mounting the share.
 
 #.  The :guilabel:`Maproot` and :guilabel:`Mapall` options are
     exclusive, meaning only one can be used--the GUI does not allow
@@ -1240,7 +1246,8 @@ for more details.
    | fruit               | enhances OS X support by providing the SMB2 AAPL extension and Netatalk interoperability (see NOTE below table)                            |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | full_audit          | records selected client operations to the system log                                                                                       |
+   | full_audit          | records selected client operations to the system log; if selected, a warning will indicate that Windows 10 clients may experince issues    |
+   |                     | when transferring files to the NAS system when this module is enabled                                                                      |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | linux_xfs_sgid      | used to work around an old Linux XFS bug                                                                                                   |
