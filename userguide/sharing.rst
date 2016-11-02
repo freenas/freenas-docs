@@ -433,6 +433,11 @@ Time Machine share is restricted to 200 GB.
    Setting a Quota
 
 
+.. note:: An alternative is to create a global quota using the
+   instructions in
+   `Setup Time Machine for multiple machines with OSX Server-Style Quotas
+   <https://forums.freenas.org/index.php?threads/how-to-setup-time-machine-for-multiple-machines-with-osx-server-style-quotas.47173/>`_.
+   
 To configure Time Machine on the Mac OS X client, go to
 :menuselection:`System Preferences --> Time Machine`
 which opens the screen shown in
