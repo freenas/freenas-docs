@@ -295,7 +295,9 @@ be obtained by using an HBA such as an Avago MegaRAID controller or a
 Suggestions for testing disks before adding them to a RAID array can
 be found in this
 `forum post
-<https://forums.freenas.org/index.php?threads/checking-new-hdds-in-raid.12082/>`__.
+<https://forums.freenas.org/index.php?threads/checking-new-hdds-in-raid.12082/#post-55936>`__.
+Additionally, `badblocks <https://linux.die.net/man/8/badblocks>`_ is
+installed with %brand% for testing disks. 
 
 If the budget allows optimization of the disk subsystem, consider the
 read/write needs and RAID requirements:
