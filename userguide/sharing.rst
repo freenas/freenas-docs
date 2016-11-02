@@ -547,8 +547,8 @@ button.
    | Setting             | Value          | Description                                                                                                        |
    |                     |                |                                                                                                                    |
    +=====================+================+====================================================================================================================+
-   | Path                | browse button  | the path that clients will use when mounting the share; click :guilabel:`Add extra path` to select                 |
-   |                     |                | multiple paths                                                                                                     |
+   | Path                | browse button  | browse to the volume or dataset to be shared; click :guilabel:`Add extra path` to select multiple paths            |
+   |                     |                |                                                                                                                    |
    +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
    | Comment             | string         | used to set the share name; if left empty, share name is the list of selected :guilabel:`Path` entries             |
    |                     |                |                                                                                                                    |
@@ -598,6 +598,7 @@ button.
 
 When creating NFS shares, keep the following points in mind:
 
+#. Clients will specify the :guilabel:`Path` when mounting the share.
 
 #.  The :guilabel:`Maproot` and :guilabel:`Mapall` options are
     exclusive, meaning only one can be used--the GUI does not allow
