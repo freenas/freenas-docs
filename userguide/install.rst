@@ -1,7 +1,7 @@
-.. _Installing and Upgrading %brand%:
+.. _Installing and Upgrading:
 
-Installing and Upgrading %brand%
-==========================================
+Installing and Upgrading
+========================
 
 Please note that the %brand% operating system must be installed on a
 separate device from the drives which hold the storage data. In other
@@ -110,7 +110,7 @@ On FreeBSD or Linux
 On a FreeBSD or Linux system, the :command:`dd` command can be used to
 write the :file:`.iso` file to an inserted USB thumb drive or Compact
 Flash device.
-:ref:`Example: Writing the *.iso* file to a USB Thumb Drive
+:ref:`Example: Writing the .iso file to a USB Thumb Drive
 <install_write_iso_topic>`
 demonstrates writing the image to the first USB device (*/dev/da0*) on
 a FreeBSD system. Substitute the filename of the :file:`.iso` file and

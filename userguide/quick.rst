@@ -1,7 +1,7 @@
-.. _Booting Into %brand%:
+.. _Booting:
 
-Booting Into %brand%
-------------------------------
+Booting
+-------
 
 The Console Setup menu, shown in
 :numref:`Figure %s <console_setup_menu_fig>`,
