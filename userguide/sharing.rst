@@ -494,21 +494,19 @@ application.
    <http://blog.laspina.ca/ubiquitous/running-zfs-over-nfs-as-a-vmware-store>`_.
 #endif freenas
 
-To create an NFS share using the Wizard, click the :guilabel:`Next`
-button twice to display the screen shown in
+To create an NFS share using the :ref:`Initial Configuration Wizard`,
+click the :guilabel:`Next` button twice to display the screen shown in
 :numref:`Figure %s <nfs_share_wiz_fig>`.
-Enter a :guilabel:`Share name` which makes sense to you, but does not
-contain a space. Click the button for :guilabel:`Generic Unix (NFS)`,
-then click :guilabel:`Add` so the share's name appears in the
-:guilabel:`Name` frame. When finished, click the :guilabel:`Next`
-button twice, then the :guilabel:`Confirm` button to create the share.
-Creating an NFS share using the wizard automatically creates a new
-dataset for the share, starts the services required for NFS, and adds
-an entry in
+Enter a :guilabel:`Share name`. Spaces are not allowed in these names.
+Click the button for :guilabel:`Generic Unix (NFS)`, then click
+:guilabel:`Add` so the share name appears in the :guilabel:`Name`
+frame. When finished, click the :guilabel:`Next` button twice, then
+the :guilabel:`Confirm` button to create the share. Creating an NFS
+share using the wizard automatically creates a new dataset for the
+share, starts the services required for NFS, and adds an entry in
 :menuselection:`Sharing --> Unix (NFS) Shares`.
-Depending on your requirements, you may wish to fine-tune which IP
-addresses are allowed to access the NFS share or to restrict the
-permissions of the mounted share.
+Depending on your requirements, the IP addresses that are allowed to
+access the NFS share can be restricted, or the permissions adjusted.
 
 
 .. _nfs_share_wiz_fig:
@@ -518,10 +516,10 @@ permissions of the mounted share.
    NFS Share Wizard
 
 
-To edit the NFS share, click
+NFS shares are edited by clicking
 :menuselection:`Sharing --> Unix (NFS)`,
-highlight the entry for the share, and click its :guilabel:`Edit`
-button. In the example shown in
+highlighting the entry for the share, and clicking its
+:guilabel:`Edit` button. In the example shown in
 :numref:`Figure %s <nfs_share_settings_fig>`,
 the configuration screen is open for the *nfs_share1* share.
 
@@ -700,22 +698,25 @@ connect, it will not gain *root* access to the share.
 Connecting to the Share
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-In the following examples, an NFS share on a %brand% system with the
-IP address of *192.168.2.2* has been configured as follows:
+The following examples share this configuration:
 
-#.  A ZFS volume named :file:`/mnt/data` has its permissions set to
-    the *nobody* user account and the *nobody* group.
+#.  The %brand% system is at IP address *192.168.2.2*.
 
-#.  A NFS share has been created with these attributes:
+#.  A dataset named :file:`/mnt/volume1/nfs_share1` is created and the
+    permissions set to the *nobody* user account and the *nobody*
+    group.
 
-    * :guilabel:`Path`: :file:`/mnt/data`
+#.  An NFS share is created with these attributes:
 
-    * :guilabel:`Authorized Network`: *192.168.2.0/24*
+    * :guilabel:`Path`: :file:`/mnt/volume1/nfs_share1`
 
-    * :guilabel:`MapAll User` and :guilabel:`MapAll Group` are both
-      set to *nobody*
+    * :guilabel:`Authorized Networks`: *192.168.2.0/24*
 
-    * the :guilabel:`All Directories` checkbox has been checked
+    * :guilabel:`All Directories` checkbox is checked
+
+    * :guilabel:`MapAll User` is set to *nobody*
+
+    * :guilabel:`MapAll Group` is set to *nobody*
 
 
 .. _From BSD or Linux:
@@ -723,46 +724,43 @@ IP address of *192.168.2.2* has been configured as follows:
 From BSD or Linux
 ^^^^^^^^^^^^^^^^^
 
-To make this share accessible on a BSD or a Linux system, run the
-following command as the superuser (or with :command:`sudo`) from the
-client system. Repeat on each client that needs access to the NFS
-share:
+The NFS share is mounted on BSD or Linux systems needing access with
+this command executed as the superuser or with :command:`sudo`:
 
 .. code-block:: none
 
-   mount -t nfs 192.168.2.2:/mnt/data /mnt
+   mount -t nfs 192.168.2.2:/mnt/volume1/nfs_share1 /mnt
 
 
-The :command:`mount` command uses these:
+* **-t nfs** specifies the filesystem type of the share
 
-* **-t nfs:** specifies the type of share.
+* **192.168.2.2** is the IP address of the %brand% system
 
-* **192.168.2.2:** replace with the IP address of the %brand% system
+* **/mnt/volume/nfs_share1** is the name of the directory to be
+  shared, a dataset in this case
 
-* **/mnt/data:** replace with the name of the NFS share
+* **/mnt** is the mountpoint on the client system. This must be an
+  existing, *empty* directory. The data in the NFS share appears
+  in this directory on the client computer.
 
-* **/mnt:** a mount point on the client system. This must be an
-  existing, **empty** directory. The data in the NFS share will be
-  made available to the client in this directory.
-
-The :command:`mount` command should return to the command prompt
-without any error messages, indicating that the share was successfully
-mounted.
+A successful mounting of the share returns to the command prompt
+without any status or error messages.
 
 .. note:: If this command fails on a Linux system, make sure that the
-   `nfs-utils
-   <http://sourceforge.net/projects/nfs/files/nfs-utils/>`_
+   `nfs-utils <http://sourceforge.net/projects/nfs/files/nfs-utils/>`_
    package is installed.
 
 
-Once mounted, this configuration allows users on the client system to
-copy files to and from :file:`/mnt` (the mount point) and all files
-will be owned by *nobody:nobody*. Any changes to :file:`/mnt` will be
-saved to the %brand% system's :file:`/mnt/data` volume.
+This configuration allows users on the client system to copy files to
+and from :file:`/mnt` (the mount point). All files are owned by
+*nobody:nobody*. Changes to any files or directories in :file:`/mnt`
+are written to the %brand% system's :file:`/mnt/volume1/nfs_share1`
+dataset.
 
-Should you wish to make any changes to the NFS share's settings or
-wish to make the share inaccessible, first unmount the share on the
-client as the superuser:
+Settings cannot be changed on the NFS share if it is mounted on any
+client computers. The :command:`umount` command is used to unmount
+the share on BSD and Linux clients. Run it as the superuser or with
+:command:`sudo` on each client computer:
 
 .. code-block:: none
 
@@ -774,43 +772,8 @@ client as the superuser:
 From Microsoft
 ^^^^^^^^^^^^^^
 
-Windows systems can connect to NFS shares using Services for NFS
-(refer to the documentation for your version of Windows for
-instructions on how to find, activate, and use this service) or a
-third-party NFS client.
-
-`Nekodrive <http://code.google.com/p/nekodrive/downloads/list>`_
-provides an open source graphical NFS client. To use this client, you
-will need to install the following on the Windows system:
-
-* `7zip <http://www.7-zip.org/>`_
-  to extract the Nekodrive download files
-
-* NFSClient and NFSLibrary from the Nekodrive download page; once
-  downloaded, extract these files using 7zip
-
-* `.NET Framework 4.0
-  <http://www.microsoft.com/en-us/download/details.aspx?id=17851>`_
-
-After everything is installed, run the NFSClient executable to start
-the GUI client. In the example shown in
-:numref:`Figure %s <nekodrive_fig>`,
-the user has connected to the example :file:`/mnt/data` share of the
-%brand% system at *192.168.2.2*.
-
-
-.. note:: Nekodrive does not support Explorer drive mapping via NFS.
-   If you need this functionality,
-   `try this utility
-   <http://www.citi.umich.edu/projects/nfsv4/windows/readme.html>`_
-   instead.
-
-
-.. _nekodrive_fig:
-
-.. figure:: images/nfs5.jpg
-
-   Using the Nekodrive NFSClient from Windows 7 Home Edition
+Windows NFS client support varies with versions and releases. For
+best results, use :ref:`Windows (SMB) Shares`.
 
 
 .. _From Mac OS X:
@@ -824,9 +787,9 @@ In the :guilabel:`Server Address` field, enter *nfs://* followed by
 the IP address of the %brand% system and the name of the
 volume/dataset being shared by NFS. The example shown in
 :numref:`Figure %s <mount_nfs_osx_fig>`
-continues with our example of *192.168.2.2:/mnt/data*.
+continues with our example of *192.168.2.2:/mnt/volume1/nfs_share1*.
 
-Once connected, Finder opens automatically. The IP address of the
+Finder opens automatically after connecting. The IP address of the
 %brand% system is displayed in the SHARED section in the left frame
 and the contents of the share are displayed in the right frame. In the
 example shown in
@@ -837,14 +800,14 @@ now copy files to and from the share.
 
 .. _mount_nfs_osx_fig:
 
-.. figure:: images/nfs3.png
+.. figure:: images/nfs3a.png
 
    Mounting the NFS Share from Mac OS X
 
 
 .. _view_nfs_finder_fig:
 
-.. figure:: images/nfs4.png
+.. figure:: images/nfs4a.png
 
    Viewing the NFS Share in Finder
 
