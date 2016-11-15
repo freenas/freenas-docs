@@ -1,10 +1,8 @@
-.. centered:: %brand% is © 2011-2016 iXsystems
+%brand% is © 2011-2016 iXsystems
 
-.. centered:: %brand% and the %brand% logo are registered trademarks
-   of iXsystems.
+%brand% and the %brand% logo are registered trademarks of iXsystems
 
-.. centered:: FreeBSD\ :sup:`®` is a registered trademark of the
-   FreeBSD Foundation
+FreeBSD\ :sup:`®` is a registered trademark of the FreeBSD Foundation
 
 Written by users of the %brand% network-attached storage operating
 system.
