@@ -81,11 +81,13 @@ Preparing the Media
 The %brand% installer can run from either a CD or a USB memory
 stick.
 
-Writing the :file:`.iso` file to a CD requires CD burning utility.
+A CD burning utility is needed to write the :file:`.iso` file to a
+CD.
 
-The command used to burn the :file:`.iso` file to a USB memory
-stick or Compact Flash card depends on the operating system. This
-section demonstrates utilities for several operating systems.
+The :file:`.iso` file can also be written to a USB memory stick or
+Compact Flash card. The method used to write the file depends on the
+operating system. Examples for several common operating systems are
+shown below.
 
 .. note:: To install from a USB stick to another USB stick, **two**
    USB ports are needed, each with an inserted USB device. One USB
@@ -146,12 +148,31 @@ When using the :command:`dd` command:
   attaching the target USB drive, use :command:`ls /dev/da*`.  Then
   attach the target USB drive, wait ten seconds, and run :command:`ls
   /dev/da*` again to see the new device name and number of the target
-  USB drive. On Linux, use :file:`/dev/sdX`, where *X* refers to the
+  USB drive. On Linux, use :samp:`/dev/sd{X}`, where *X* refers to the
   letter of the USB device.
 
 * **bs=** refers to the block size, the amount of data to write at a
   time. The larger 64K block size shown here helps speed up writes to
   the USB drive.
+
+
+.. _On Windows:
+
+On Windows
+~~~~~~~~~~
+
+Microsoft provides the USB/DVD Download Tool to create a USB bootable
+image from an :file:`.iso` file. Follow
+`these instructions
+<https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool>`_,
+but enter the name of the downloaded :file:`.iso` into the
+:guilabel:`SOURCE FILE` box.
+
+`Image Writer <https://launchpad.net/win32-image-writer/>`_
+and
+`Rufus <http://rufus.akeo.ie/>`_
+are alternate programs for writing images to USB sticks on a computer
+running Windows.
 
 
 .. _On OS X:
@@ -226,19 +247,6 @@ the installation file and the correct path to the USB thumb drive.
 The :command:`dd` command can take some minutes to complete. Wait
 until the prompt returns and a message is displayed with information
 about how long it took to write the image to the USB drive.
-
-
-.. _On Windows:
-
-On Windows
-~~~~~~~~~~
-
-Windows provides the USB/DVD Download Tool to create a USB bootable
-image from an :file:`.iso` file. Follow
-`these instructions
-<https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool>`_,
-but enter the name of the downloaded :file:`.iso` into the
-:guilabel:`SOURCE FILE` box.
 
 
 .. index:: Install
