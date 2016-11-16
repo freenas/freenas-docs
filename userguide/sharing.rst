@@ -3,111 +3,110 @@
 Sharing
 =======
 
-Once you have a volume, create at least one share so that the storage
-is accessible by the other computers in your network. The type of
-share you create depends upon the operating system(s) running in your
-network, your security requirements, and expectations for network
+*Shares* are created to make part or all of a volume accessible to
+other computers on the network. The type of share to create depends
+on factors like which operating systems are being used by computers
+on the network, security requirements, and expectations for network
 transfer speeds.
 
 #ifdef freenas
 %brand% provides an :ref:`Initial Configuration Wizard` for creating
-shares. The Wizard will automatically create the correct
-type of dataset and permissions for the type of share, set the default
-permissions for the share type, and start the service needed by the
-share. It is recommended to use the Wizard to create shares, fine-tune
-the share settings using the instructions in the rest of this chapter
-if needed, then to fine-tune the default permissions from the client
-operating system to meet the requirements of the network.
+shares. The Wizard automatically creates the correct type of dataset
+and permissions for the type of share, sets the default permissions
+for the share type, and starts the service needed by the share. It is
+recommended to use the Wizard to create shares, fine-tune the share
+settings using the instructions in the rest of this chapter if needed,
+then fine-tune the default permissions from the client operating
+system to meet the requirements of the network.
 #endif freenas
 
 #ifdef truenas
-%brand% provides a :ref:`Wizard` for creating shares. The Wizard will
-automatically create the correct type of dataset and permissions for
-the type of share, set the default permissions for the share type, and
-start the service needed by the share. It is recommended to use the
-Wizard to create shares, fine-tune the share settings using the
-instructions in the rest of this chapter if needed, then to fine-tune
+%brand% provides a :ref:`Wizard` for creating shares. The Wizard
+automatically creates the correct type of dataset and permissions for
+the type of share, sets the default permissions for the share type,
+and starts the service needed by the share. It is recommended to use
+the Wizard to create shares, fine-tune the share settings using the
+instructions in the rest of this chapter if needed, then fine-tune
 the default permissions from the client operating system to meet the
 requirements of the network.
 #endif truenas
 
 .. note:: Shares are created to provide and control access to an area
-   of storage. Before creating your shares, it is recommended to make
-   a list of the users that will need access to storage data, which
-   operating systems these users are using, whether or not all users
-   should have the same permissions to the stored data, and whether or
-   not these users should authenticate before accessing the data. This
-   information can help you determine which type of share(s) you need
-   to create, whether or not you need to create multiple datasets in
-   order to divide up the storage into areas with differing access and
-   permission requirements, and how complex it will be to setup your
-   permission requirements. It should be noted that a share is used to
-   provide access to data. If you delete a share, it removes access to
-   data but does not delete the data itself.
+   of storage. Before creating shares, it is recommended to make a
+   list of the users that need access to storage data, which operating
+   systems these users are using, whether all users should have the
+   same permissions to the stored data, and whether these users should
+   authenticate before accessing the data. This information can help
+   determine which type of shares are needed, whether multiple
+   datasets are needed to divide the storage into areas with different
+   access and permissions, and how complex it will be to set up those
+   permission requirements. Note that shares are used to provide
+   access to data. When a share is deleted, it removes access to data
+   but does not delete the data itself.
 
 These types of shares and services are available:
 
-* :ref:`Apple (AFP) Shares`: the Apple File Protocol (AFP) type of
-  share is a good choice if all of your computers run Mac OS X.
+* :ref:`AFP <Apple (AFP) Shares>`: Apple File Protocol shares are
+  often used when the client computers all run Mac OS X. Apple has
+  slowly shifted to preferring :ref:`SMB <Windows (SMB) Shares>` for
+  modern networks, although Time Machine still requires AFP.
 
-* :ref:`Unix (NFS) Shares`: the Network File System (NFS) type of
-  share is accessible by Mac OS X, Linux, BSD, and the professional
-  and enterprise versions (not the home editions) of Windows. It is a
-  good choice if there are many different operating systems in your
-  network. Depending upon the operating system, it may require the
-  installation or configuration of client software on the desktop.
+* :ref:`Unix (NFS) <Unix (NFS) Shares>`: Network File System shares
+  are accessible from Mac OS X, Linux, BSD, and the professional and
+  enterprise versions (but not the home editions) of Windows. This can
+  be are a good choice when the client computers do not all run the
+  same operating system but NFS client software is available for all
+  of them.
 
-* :ref:`WebDAV Shares`: this type of share is accessible using an
+* :ref:`WebDAV <WebDAV Shares>`: WebDAV shares are accessible using an
   authenticated web browser (read-only) or
   `WebDAV client <https://en.wikipedia.org/wiki/WebDAV#Clients>`_
   running on any operating system.
 
-* :ref:`Windows (SMB) Shares`: the Server Message Block
-  type of share, also known as Common Internet File System (SMB), is
-  accessible by Windows, Mac OS X, Linux, and BSD computers, but it is
-  slower than an NFS share due to the single-threaded design of Samba.
-  It provides more configuration options than NFS and is a good choice
-  on a network containing any Windows systems. However, it is a poor
-  choice if the CPU on the %brand% system is limited; if the CPU is
-  maxed out, upgrade the CPU or consider another type of share.
+* :ref:`SMB <Windows (SMB) Shares>`: Server Message Block shares, also
+  known as Common Internet File System (CIFS) shares, are accessible
+  by Windows, Mac OS X, Linux, and BSD computers. Access is slower
+  than an NFS share due to the single-threaded design of Samba. SMB
+  provides more configuration options than NFS and is a good choice
+  on a network for Windows systems. However, it is a poor choice if
+  the CPU on the %brand% system is limited; if the CPU is maxed out,
+  upgrade the CPU or consider another type of share.
 
-* :ref:`Block (iSCSI)` shares: this type of share appears as an
-  unformatted disk to clients running iSCSI initiator software or a
-  virtualization solution such as VMware.
+* :ref:`Block (iSCSI)`: block or iSCSI shares appear as an unformatted
+  disk to clients running iSCSI initiator software or a virtualization
+  solution such as VMware. These are usually used as virtual drives.
 
-If you are looking for a solution that allows fast access from any
-operating system, consider configuring the :ref:`FTP` service instead
-of a share and use a cross-platform FTP and file manager client
-application such as `Filezilla <https://filezilla-project.org/>`_.
+Fast access from any operating system can be obtained by configuring
+the :ref:`FTP` service instead of a share and using a cross-platform
+FTP file manager application such as
+`Filezilla <https://filezilla-project.org/>`_.
 Secure FTP can be configured if the data needs to be encrypted.
 
-If data security is a concern and your network's users are familiar
+When data security is a concern and the network users are familiar
 with SSH command line utilities or
 `WinSCP <http://winscp.net/eng/index.php>`_,
-consider configuring the :ref:`SSH` service instead of a share. It
-will be slower than unencrypted FTP due to the overhead of
-encryption, but the data passing through the network will be
-encrypted.
+consider using the :ref:`SSH` service instead of a share. It is slower
+than unencrypted FTP due to the encryption overhead, but the data
+passing through the network is encrypted.
 
-.. note:: While the GUI will let you do it, it is a bad idea to share
-   the same volume or dataset using multiple types of access methods.
-   Different types of shares and services use different file locking
-   methods. For example, if the same volume is configured to use both
-   NFS and FTP, NFS will lock a file for editing by an NFS user, but a
-   FTP user can simultaneously edit or delete that file. This will
-   result in lost edits and confused users. Another example: if a
-   volume is configured for both AFP and SMB, Windows users may be
-   confused by the extra filenames used by Mac files and delete the
-   ones they don't understand; this will corrupt the files on the AFP
-   share. Pick the one type of share or service that makes the most
-   sense for the types of clients that will access that volume, and
-   configure that volume for that one type of share or service. If you
-   need to support multiple types of shares, divide the volume into
-   datasets and use one dataset per share.
+.. note:: It is generally a mistake to share a volume or dataset with
+   more than one share type or access method. Different types of
+   shares and services use different file locking methods. For
+   example, if the same volume is configured to use both NFS and FTP,
+   NFS will lock a file for editing by an NFS user, but a FTP user can
+   simultaneously edit or delete that file. This results in lost edits
+   and confused users. Another example: if a volume is configured for
+   both AFP and SMB, Windows users can be confused by the "extra"
+   filenames used by Mac files and delete them. This corrupts the
+   files on the AFP share. Pick the one type of share or service that
+   makes the most sense for the types of clients accessing that
+   volume, and use that single type of share or service. To support
+   multiple types of shares, divide the volume into datasets and use
+   one dataset per share.
 
-This section will demonstrate how to fine-tune the configuration of
-AFP, NFS, SMB, WebDAV, and iSCSI shares. FTP and SSH configurations
-are described in :ref:`Services Configuration`.
+This section demonstrates configuration and fine-tuning of AFP, NFS,
+SMB, WebDAV, and iSCSI shares. FTP and SSH configurations are
+described in :ref:`Services Configuration`.
 
 
 .. index:: AFP, Apple Filing Protocol
@@ -986,6 +985,12 @@ your network's needs.
 .. tip:: `SMB Tips and Tricks
    <https://forums.freenas.org/index.php?resources/smb-tips-and-tricks.15/>`__
    shows helpful hints for configuring and managing SMB networking.
+   The `FreeNAS and Samba (CIFS) permissions
+   <https://www.youtube.com/watch?v=RxggaE935PM>`_
+   and
+   `Advanced Samba (CIFS) permissions on FreeNAS
+   <https://www.youtube.com/watch?v=QhwOyLtArw0>`_
+   videos clarify setting up permissions on SMB shares.
 
 
 :numref:`Figure %s <adding_smb_share_fig>`
