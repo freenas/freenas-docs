@@ -302,7 +302,7 @@ instruct the system to go back to that system state.
    current configuration values. If the intent is to make
    configuration changes rather than operating system changes, make a
    backup of the configuration database first using
-   :menuselection:`System --> General` --> Save Config.
+   :menuselection:`System --> General --> Save Config`.
 
 As seen in
 :numref:`Figure %s <view_boot_env_fig>`,

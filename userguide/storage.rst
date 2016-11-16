@@ -366,7 +366,7 @@ drop-down menu will be empty if no ZFS volume exists.
 After an existing volume has been selected from the drop-down menu,
 drag and drop the desired disks and select the desired volume
 layout. For example, disks can be added to increase the capacity of
-the ZFS pool. See :ref:
+the ZFS pool.
 
 When adding disks to increase the capacity of a volume, ZFS supports
 the addition of virtual devices, known as vdevs, to an existing ZFS
