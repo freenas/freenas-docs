@@ -65,6 +65,8 @@ What Is New in |version|
 
 * The UPS shutdown command can now be customized.
 
+* :ref:`freenas-debug` can now include GRUB configuration information.
+
 
 #ifdef commented
 .. _What Has Changed Since |version|:

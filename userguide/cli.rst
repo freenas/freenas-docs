@@ -56,11 +56,10 @@ how to use the
 <http://code.google.com/p/xjperf/downloads/detail?name=jperf-2.0.2.zip>`_
 as it works on Windows, Mac OS X, Linux, and BSD systems.
 
-Since this client is java based, you will also need to install the
-appropriate
+Since this client is Java-based, the appropriate
 `JRE
 <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
-for the client operating system.
+must be installed on the client computer.
 
 Linux and BSD users will need to install the iperf package using their
 operating system's package management system.
@@ -984,6 +983,7 @@ debugging information. To see the available options, type:
      -D		Dump Domain Controller Configuration
      -d		Dump dtrace scripts
      -g		Dump GEOM configuration
+     -G         Dump Grub Configuration
      -h		Dump Hardware Configuration
      -I		Dump IPMI Configuration
      -i		Dump iSCSI Configuration
