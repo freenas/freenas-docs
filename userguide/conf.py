@@ -24,9 +24,9 @@ copyright = u'2011-2016, iXsystems'
 # built documents.
 #
 # The short X.Y version.
-version = '9.10.1'
+version = '9.10.2'
 # The full version, including alpha/beta/rc tags.
-release = '9.10.1-U4'
+release = '9.10.2'
 
 # exclude_patterns is a list of patterns relative to the source directory
 # that match files and directories to ignore when looking for source files.

@@ -60,22 +60,14 @@ built-in features by installing additional software.
 What Is New in |version|
 ------------------------
 
-* Added support for Avago/Broadcom Cutlass 12 Gbps 16-port
-  controllers.
+* Modifications to network settings now only reset the affected
+  components rather than stopping and rebuilding the entire network
+  stack.
 
-* When security certificates or SSH keys are generated, the
-  fingerprints are logged in :file:`/var/log/messages`,
-  :file:`var/log/debug.log`, and the console.
-
-* Samba has been updated to version 4.3.11
-  `(changelog)
-  <https://www.samba.org/samba/history/samba-4.3.11.html>`_.
-
-* Dashes have been added to the characters allowed in jail names.
-
-* Duplicate MAC addresses are not allowed in jails.
+* The UPS shut down command can now be customized.
 
 
+#ifdef commented
 .. _What Has Changed Since |version|:
 
 What Has Changed Since |version|
@@ -91,50 +83,8 @@ changes that have occurred since |version| was released.
    has been fully updated to the latest STABLE version of %brand%
    |version|. If a screen on your system is not the same as shown in
    this guide, make sure that all outstanding updates are applied.
+#endif commented
 
-
-* OpenSSL has been updated to
-  `version 1.1.0b <https://www.openssl.org/news/secadv/20160926.txt>`_
-  which addresses a use-after-free security issue.
-
-* Netatalk has been updated to
-  `version 3.1.10 <http://netatalk.sourceforge.net/3.1/ReleaseNotes3.1.10.html>`_. 
-
-* `Broadcom bge
-  <https://www.freebsd.org/cgi/man.cgi?query=bge&sektion=4>`_
-  revision 5717 C0 Ethernet cards are now supported.
-
-* The mps driver for 6 G Avago SAS HBAs is version 21, which requires
-  phase 20 firmware on the controller.
-
-* Support for many old and obsolete 10/100 Ethernet cards has been
-  removed.
-
-* Updated to the latest Chelsio T5 firmware.
-
-* mDNSResponder messages are now logged to
-  :file:`/var/log/mdnsresponder.log` to prevent spamming the console and
-  :file:`/var/log/messages` with spurious message events.
-
-* The *Auto* option has been removed from the :guilabel:`LUN ID` menu
-  of :menuselection:`Sharing --> Block (iSCSI) --> Associated Targets --> Add Target/Extent`.
-
-* Deletion of in-use LUNs is not allowed.
-
-* The CIFS service has been renamed to :ref:`SMB`.
-
-* Allow customization of UPS shutdown command.
-
-* `cmdwatch
-  <https://www.freebsd.org/cgi/man.cgi?query=watch&manpath=FreeBSD+10.3-RELEASE+and+Ports&arch=default&format=html>`_
-  is now included in the base operating system.
-
-* `Midnight Commander
-  <http://www.midnight-commander.org/>`_ is now included in the base
-  operating system.
-
-* `mcelog
-  <http://mcelog.org/>`_ is now included in the base operating system.
 
 .. index:: Hardware Recommendations
 .. _Hardware Recommendations:
@@ -296,7 +246,7 @@ be found in this
 `forum post
 <https://forums.freenas.org/index.php?threads/checking-new-hdds-in-raid.12082/#post-55936>`__.
 Additionally, `badblocks <https://linux.die.net/man/8/badblocks>`_ is
-installed with %brand% for testing disks. 
+installed with %brand% for testing disks.
 
 If the budget allows optimization of the disk subsystem, consider the
 read/write needs and RAID requirements:
