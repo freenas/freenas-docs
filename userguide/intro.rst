@@ -60,11 +60,10 @@ built-in features by installing additional software.
 What Is New in |version|
 ------------------------
 
-* Modifications to network settings now only reset the affected
-  components rather than stopping and rebuilding the entire network
-  stack.
+* Modifying network settings only affects the changed network
+  components, avoiding the disruption of restarting all networking.
 
-* The UPS shut down command can now be customized.
+* The UPS shutdown command can now be customized.
 
 
 #ifdef commented
