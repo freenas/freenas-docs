@@ -9,27 +9,14 @@ on factors like which operating systems are being used by computers
 on the network, security requirements, and expectations for network
 transfer speeds.
 
-#ifdef freenas
-%brand% provides an :ref:`Initial Configuration Wizard` for creating
-shares. The Wizard automatically creates the correct type of dataset
+%brand% provides a :ref:`Wizard` for creating shares. The
+:ref:`Wizard` automatically creates the correct type of dataset
 and permissions for the type of share, sets the default permissions
 for the share type, and starts the service needed by the share. It is
 recommended to use the Wizard to create shares, fine-tune the share
 settings using the instructions in the rest of this chapter if needed,
 then fine-tune the default permissions from the client operating
 system to meet the requirements of the network.
-#endif freenas
-
-#ifdef truenas
-%brand% provides a :ref:`Wizard` for creating shares. The Wizard
-automatically creates the correct type of dataset and permissions for
-the type of share, sets the default permissions for the share type,
-and starts the service needed by the share. It is recommended to use
-the Wizard to create shares, fine-tune the share settings using the
-instructions in the rest of this chapter if needed, then fine-tune
-the default permissions from the client operating system to meet the
-requirements of the network.
-#endif truenas
 
 .. note:: Shares are created to provide and control access to an area
    of storage. Before creating shares, it is recommended to make a
@@ -115,26 +102,14 @@ described in :ref:`Services`.
 Apple (AFP) Shares
 ------------------
 
-#ifdef freenas
-%brand% uses the
-`Netatalk <http://netatalk.sourceforge.net/>`_
-AFP server to share data with Apple systems. This section describes
-the configuration screen for fine-tuning AFP shares created using the
-:ref:`Initial Configuration Wizard`. It then provides configuration
-examples for using the Wizard to create a guest share, configuring
-Time Machine to backup to a dataset on the %brand% system, and for
-connecting to the share from a Mac OS X client.
-#endif freenas
-#ifdef truenas
 %brand% uses the
 `Netatalk <http://netatalk.sourceforge.net/>`_
 AFP server to share data with Apple systems. This section describes
 the configuration screen for fine-tuning AFP shares created using the
 :ref:`Wizard`. It then provides configuration examples for using the
-Wizard to create a guest share, configuring Time Machine to backup to
-a dataset on the %brand% system, and for connecting to the share from
-a Mac OS X client.
-#endif truenas
+:ref:`Wizard` to create a guest share, configuring Time Machine to
+back up to a dataset on the %brand% system, and for connecting to the
+share from a Mac OS X client.
 
 To view the AFP share created by the Wizard, click
 :menuselection:`Sharing --> Apple (AFP)`
@@ -493,14 +468,8 @@ application.
    <http://blog.laspina.ca/ubiquitous/running-zfs-over-nfs-as-a-vmware-store>`_.
 #endif freenas
 
-To create an NFS share using the
-#ifdef freenas
-:ref:`Initial Configuration Wizard`,
-#endif freenas
-#ifdef truenas
-:ref:`Wizard`,
-#endif truenas
-click the :guilabel:`Next` button twice to display the screen shown in
+To create an NFS share using the :ref:`Wizard`, click the
+:guilabel:`Next` button twice to display the screen shown in
 :numref:`Figure %s <nfs_share_wiz_fig>`.
 Enter a :guilabel:`Share name`. Spaces are not allowed in these names.
 Click the button for :guilabel:`Generic Unix (NFS)`, then click

@@ -17,7 +17,7 @@
    services
    tn_vcenter
    reporting
-   tn_wizard
+   wizard
    tn_options
    zfsprimer
    api

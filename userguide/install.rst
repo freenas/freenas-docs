@@ -394,7 +394,7 @@ booting from CD, remove the CDROM. As the system reboots, make sure
 that the device where %brand% was installed is listed as the first
 boot entry in the BIOS so the system will boot from it. %brand% boots
 into the :guilabel:`Console Setup` menu described in
-:ref:`Initial Configuration Wizard`.
+:ref:`Booting`.
 
 
 .. _Installation Troubleshooting:
@@ -502,12 +502,11 @@ Be aware of these caveats **before** attempting an upgrade to
   upgrade, create a ZFS volume after the upgrade, then restore the
   data from backup.
 
-* The initial configuration wizard will not recognize an encrypted ZFS
-  pool. If your ZFS pool is GELI-encrypted and the
-  :ref:`Initial  Configuration Wizard` starts after the upgrade,
-  cancel the wizard and use the instructions in
+* The :ref:`Wizard` will not recognize an encrypted ZFS pool. If the
+  ZFS pool is GELI-encrypted and the :ref:`Wizard` starts after the
+  upgrade, cancel the :ref:`Wizard` and use the instructions in
   :ref:`Importing an Encrypted Pool` to import the encrypted volume.
-  You can then rerun the wizard afterwards if you wish to use it for
+  The :ref:`Wizard` can be run afterwards to use it for
   post-configuration, and it will recognize that the volume has been
   imported and will not prompt to reformat the disks.
 

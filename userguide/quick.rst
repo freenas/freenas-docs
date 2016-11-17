@@ -210,6 +210,9 @@ This `blog post
 describes some applications which can be used to access the %brand%
 system from an iPad or iPhone.
 
-#ifdef freenas
-#include snippets/wizard.rst
-#endif freenas
+
+Initial Configuration
+^^^^^^^^^^^^^^^^^^^^^
+
+The first time the %brand% GUI is accessed, the :ref:`Wizard` starts
+automatically to help configure the %brand% device quickly and easily.

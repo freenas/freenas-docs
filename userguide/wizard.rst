@@ -1,21 +1,3 @@
-#ifdef freenas
-.. index:: Initial Configuration Wizard, Configuration Wizard, Wizard
-
-
-.. _Initial Configuration Wizard:
-
-Initial Configuration Wizard
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-A configuration wizard automatically starts the first time the
-%brand% GUI is accessed. This wizard walks you through the steps
-needed to quickly configure %brand% to start serving data over a
-network. This section describes these configuration steps. If you wish
-to use the wizard again after the initial configuration, click the
-:guilabel:`Wizard` icon.
-#endif freenas
-
-#ifdef truenas
 .. index:: Wizard
 
 .. _Wizard:
@@ -23,11 +5,9 @@ to use the wizard again after the initial configuration, click the
 Wizard
 ======
 
-%brand% provides a wizard which walks you through the steps needed to
-quickly configure %brand% to start serving data over a network. This
-section describes the configuration steps which are available from the
-wizard.
-#endif truenas
+%brand% provides a wizard which helps complete the steps needed to
+quickly configure %brand% for serving data over a network. The wizard
+can be run at any time by clicking the :guilabel:`Wizard` icon.
 
 :numref:`Figure %s <wizard7>` shows the first
 wizard configuration screen.

@@ -19,6 +19,7 @@
    plugins
    jails
    reporting
+   wizard
    processes
    shell
    logout

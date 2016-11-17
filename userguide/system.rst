@@ -313,18 +313,9 @@ environment, named *Initial-Install* can be booted into if the system
 needs to be returned to a pristine, non-configured version of the
 installation.
 
-#ifdef freenas
-If you used the
-:ref:`Initial Configuration Wizard`,
-a third boot environment called *Wizard-date* is also created
-indicating the date and time the wizard was run.
-#endif freenas
-#ifdef truenas
-If you used the
-:ref:`Wizard`,
-a third boot environment called *Wizard-date* is also created
-indicating the date and time the wizard was run.
-#endif truenas
+If the :ref:`Wizard` was used, a third boot environment called
+:samp:`Wizard-{date}` is also created, indicating the date and time
+the :ref:`Wizard` was run.
 
 .. _view_boot_env_fig:
 
