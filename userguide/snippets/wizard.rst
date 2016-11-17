@@ -176,7 +176,7 @@ through
 .. note:: Additional configuration options are available for each
    directory service. The wizard can be used to set the initial values
    required to connect to that directory service. You can then review
-   the other available options in :ref:`Directory Service` to
+   the other available options in :ref:`Directory Services` to
    determine if additional configuration is required.
 
 

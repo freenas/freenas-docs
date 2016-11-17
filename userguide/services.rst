@@ -1,8 +1,8 @@
 .. index:: Services
-.. _Services Configuration:
+.. _Services:
 
-Services Configuration
-======================
+Services
+========
 
 The Services section of the GUI is where various services that ship
 with the %brand% system are configured, started, or stopped. %brand%

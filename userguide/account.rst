@@ -28,7 +28,7 @@ The Groups interface provides management of UNIX-style groups on the
 .. note:: If a directory service is running on the network, it is not
    necessary to recreate the network's users or groups. Instead,
    import the existing account information into %brand%. Refer to
-   :ref:`Directory Service` for details.
+   :ref:`Directory Services` for details.
 
 This section describes how to create a group and assign user
 accounts to it. The next section, :ref:`Users`, describes creating
@@ -153,7 +153,7 @@ on %brand%. To assign permissions to shares,
 
 #.  If your network uses a directory service, import the existing
     account information using the instructions in
-    :ref:`Directory Service`.
+    :ref:`Directory Services`.
 
 :menuselection:`Account --> Users --> View Users` provides a listing
 of all of the system accounts that were installed with the %brand%

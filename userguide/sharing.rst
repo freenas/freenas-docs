@@ -106,7 +106,7 @@ passing through the network is encrypted.
 
 This section demonstrates configuration and fine-tuning of AFP, NFS,
 SMB, WebDAV, and iSCSI shares. FTP and SSH configurations are
-described in :ref:`Services Configuration`.
+described in :ref:`Services`.
 
 
 .. index:: AFP, Apple Filing Protocol

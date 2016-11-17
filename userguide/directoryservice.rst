@@ -1,7 +1,7 @@
-.. _Directory Service:
+.. _Directory Services:
 
-Directory Service
-=================
+Directory Services
+==================
 
 %brand% supports integration with these directory services:
 
@@ -37,9 +37,9 @@ Directory service so that it can import the account information and
 imported users can be authorized to access the SMB shares on the
 %brand% system.
 
-.. note:: If the network contains an NT4 domain controller, or any
-   domain controller containing a version which is earlier than
-   Windows 2000, configure :ref:`NT4` instead.
+.. note:: If the network has an NT4 domain controller, or any domain
+   controller with a version earlier than Windows 2000, configure
+   :ref:`NT4` instead.
 
 Many changes and improvements have been made to Active Directory
 support within %brand%.  It is strongly recommended to update the

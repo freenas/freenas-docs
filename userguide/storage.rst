@@ -439,7 +439,7 @@ overview of the screen that is used to set permissions.
 .. note:: For users and groups to be available, they must either be
    first created using the instructions in :ref:`Account` or imported
    from a directory service using the instructions in
-   :ref:`Directory Service`. If more than 50 users or groups are
+   :ref:`Directory Services`. If more than 50 users or groups are
    available, the drop-down menus described in this section will
    automatically truncate their display to 50 for performance reasons.
    In this case, start to type in the desired user or group name so
