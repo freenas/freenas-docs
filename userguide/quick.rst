@@ -166,7 +166,7 @@ requested as shown in
 
 .. _quick_enter_root_pass_fig:
 
-.. figure:: images/login1a.png
+.. figure:: images/login1b.png
 
    Enter the Root Password
 
