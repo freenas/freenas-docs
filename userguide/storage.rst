@@ -565,14 +565,14 @@ Selecting an existing ZFS volume in the tree and clicking
 .. _zfs_create_dataset:
 
 #ifdef freenas
-.. figure:: images/dataset1a.png
+.. figure:: images/dataset1b.png
 
    Creating a ZFS Dataset
 #endif freenas
 #ifdef truenas
 .. _tn_dataset1:
 
-.. figure:: images/tn_dataset1a.png
+.. figure:: images/tn_dataset1b.png
 
    Creating a ZFS Dataset
 #endif truenas
@@ -607,6 +607,9 @@ clicking its :guilabel:`Edit Options` button in
    |                          |                     |                                                                                                           |
    +==========================+=====================+===========================================================================================================+
    | Dataset Name             | string              | mandatory; input a unique name for the dataset                                                            |
+   |                          |                     |                                                                                                           |
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+   | Comments                 | string              | short comments or user notes about this dataset                                                           |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    | Compression Level        | drop-down menu      | see the section on :ref:`Compression` for a description of the available algorithms                       |
@@ -780,7 +783,7 @@ tree then click :guilabel:`Create zvol` to open the screen shown in
 
 .. _zfs_create_zvol_fig:
 
-.. figure:: images/zvol1.png
+.. figure:: images/zvol1a.png
 
    Creating a zvol
 
@@ -809,6 +812,9 @@ configure the system to always display these settings by checking
    |                    |                |                                                                                                                      |
    +====================+================+======================================================================================================================+
    | zvol Name          | string         | mandatory; input a name for the zvol                                                                                 |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Comments           | string         | short comments or user notes about this zvol                                                                         |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Size for this zvol | integer        | specify size and value such as *10Gib*; if the size is more than 80% of the available capacity, the creation will    |
@@ -1126,12 +1132,13 @@ an extra button will be added, :guilabel:`View Multipaths`. For each
 entry, the columns indicate the :guilabel:`Name`, how much disk space
 is :guilabel:`Used`, how much disk space is :guilabel:`Available`, the
 type of :guilabel:`Compression`, the :guilabel:`Compression Ratio`,
-the :guilabel:`Status`, and whether it is mounted as read-only.
+the :guilabel:`Status`, whether it is mounted as read-only, and any
+:guilabel:`Comments` entered for the volume.
 
 
 .. _zfs_view_vol_fig:
 
-.. figure:: images/volume1b.png
+.. figure:: images/volume1c.png
 
    Viewing Volumes
 

@@ -494,8 +494,13 @@ application.
 #endif freenas
 
 To create an NFS share using the
-:ref:`Initial Configuration Wizard <Wizard>`, click the
-:guilabel:`Next` button twice to display the screen shown in
+#ifdef freenas
+:ref:`Initial Configuration Wizard`,
+#endif freenas
+#ifdef truenas
+:ref:`Wizard`,
+#endif truenas
+click the :guilabel:`Next` button twice to display the screen shown in
 :numref:`Figure %s <nfs_share_wiz_fig>`.
 Enter a :guilabel:`Share name`. Spaces are not allowed in these names.
 Click the button for :guilabel:`Generic Unix (NFS)`, then click
