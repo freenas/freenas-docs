@@ -493,8 +493,9 @@ application.
    <http://blog.laspina.ca/ubiquitous/running-zfs-over-nfs-as-a-vmware-store>`_.
 #endif freenas
 
-To create an NFS share using the :ref:`Initial Configuration Wizard`,
-click the :guilabel:`Next` button twice to display the screen shown in
+To create an NFS share using the
+:ref:`Initial Configuration Wizard <Wizard>`, click the
+:guilabel:`Next` button twice to display the screen shown in
 :numref:`Figure %s <nfs_share_wiz_fig>`.
 Enter a :guilabel:`Share name`. Spaces are not allowed in these names.
 Click the button for :guilabel:`Generic Unix (NFS)`, then click

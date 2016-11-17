@@ -205,6 +205,12 @@ through
    +--------------------------+---------------+-------------------------------------------------------------------------------------------------------+
 
 
+#ifdef freenas
+.. raw:: latex
+
+   \newpage
+#endif freenas
+
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
@@ -233,9 +239,11 @@ through
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
 
 
+#ifdef truenas
 .. raw:: latex
 
    \newpage
+#endif truenas
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
