@@ -60,6 +60,9 @@ built-in features by installing additional software.
 What Is New in |version|
 ------------------------
 
+* Samba has been updated to
+  `4.4.5 <https://www.samba.org/samba/history/samba-4.4.5.html>`_.
+
 * Modifying network settings only affects the changed network
   components, avoiding the disruption of restarting all networking.
 
