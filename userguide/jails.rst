@@ -19,25 +19,14 @@ same jail. In contrast, using Jails allows users to create as many
 jails as needed and to customize the operating system and installed
 software within each jail.
 
-In %brand% 9.x, two types of jails are supported:
-
-#. By default, a
-   `FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`_
-   is created. This provides a very light-weight, operating
-   system-level virtualization. Consider it as another independent
-   instance of FreeBSD running on the same hardware, without all of
-   the overhead usually associated with virtualization.  The jail will
-   install the FreeBSD software management utilities so FreeBSD ports
-   can be compiled and FreeBSD packages can be installed from the
-   command line of the jail.
-
-#. A Virtualbox template is also provided. This template installs
-   an instance of
-   `phpVirtualBox <http://sourceforge.net/projects/phpvirtualbox/>`_,
-   a web-based front-end to
-   `VirtualBox <https://www.virtualbox.org/>`_
-   This can then be used to install any operating system and to use
-   the software management tools provided by that operating system.
+By default, a
+`FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`_
+is created. This provides a very light-weight, operating system-level
+virtualization. Consider it as another independent instance of FreeBSD
+running on the same hardware, without all of the overhead usually
+associated with virtualization.  The jail will install the FreeBSD
+software management utilities so FreeBSD ports can be compiled and
+FreeBSD packages can be installed from the command line of the jail.
 
 It is important to understand that any users, groups, installed
 software, and configurations within a jail are isolated from both the
@@ -62,8 +51,6 @@ The rest of this section describes:
 * :ref:`Jails Configuration`
 
 * :ref:`Adding Jails`
-
-* :ref:`Using the phpVirtualBox Template`
 
 * :ref:`Managing Jail Templates`
 
@@ -274,8 +261,7 @@ display these settings by checking the box
    | Jail Name                 | string         | mandatory; can only contain letters, numbers, dashes, or the underscore character                            |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Template                  | drop-down menu | only available in :guilabel:`Advanced Mode`; contains the *VirtualBox* template for creating an instance     |
-   |                           |                | of phpVirtualBox; advanced users can create and install custom templates as described in                     |
+   | Template                  | drop-down menu | only available in :guilabel:`Advanced Mode`; contains any created custom templates as described in           |
    |                           |                | `Managing Jail Templates`_                                                                                   |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
@@ -977,56 +963,6 @@ available:
    # --cd directory
 
 
-.. index:: phpVirtualBox Template, VirtualBox Template,
-           VirtualBox Jail
-.. _Using the phpVirtualBox Template:
-
-Using the phpVirtualBox Template
---------------------------------
-
-If software requires a different operating system or a non-FreeBSD
-operating system is needed to manage software, use the VirtualBox
-template to create an instance of phpVirtualBox. In the
-:guilabel:`Add Jail` screen, click the :guilabel:`Advanced Mode`
-button. As shown in the example in
-:numref:`Figure %s <creating_phpvb_fig>`,
-enter a :guilabel:`Jail Name`, verify that the
-:guilabel:`IPv4 address` is valid and not in use by another host or
-jail, and select *VirtualBox* from the :guilabel:`Template` drop-down
-menu. Press the :guilabel:`OK` button to begin the installation.
-
-
-.. _creating_phpvb_fig:
-
-.. figure:: images/jails7.png
-
-   Creating a phpVirtualBox Instance
-
-
-After installation, enter the IP address of the VirtualBox jail into a
-web browser and enter the username and password *admin* into the login
-screen. After authentication, the screen shown in
-:numref:`Figure %s <phpvb_interface_fig>`
-appears in the web browser.
-
-
-.. _phpvb_interface_fig:
-
-.. figure:: images/jails8.png
-
-   phpVirtualBox Interface
-
-
-Click the :guilabel:`New` button to create virtual machines. The
-desired operating systems and software can then be installed into the
-new virtual machines.
-
-.. note:: By default, virtual machines are not started when the
-   %brand% system boots. To configure auto-start, refer to this
-   `forum post
-   <https://forums.freenas.org/index.php?threads/enabling-autostart-of-virtualbox-vms-on-freenas.26503/>`_.
-
-
 .. _Managing Jail Templates:
 
 Managing Jail Templates
@@ -1035,32 +971,6 @@ Managing Jail Templates
 %brand% supports the ability to add custom templates to the
 :guilabel:`Templates` drop-down menu described in
 :numref:`Table %s <jail_config_opts_tab>`.
-
-By default, %brand% provides the *VirtualBox* template. To view the
-default and any customized templates, click
-:menuselection:`Jails --> Templates`.
-A listing showing the default template is seen in
-:numref:`Figure %s <default_jail_templates_fig>`.
-
-
-.. _default_jail_templates_fig:
-
-.. figure:: images/jails9.png
-
-   Default Jail Templates
-
-
-The listing contains these columns:
-
-* **Name:** appears in the :guilabel:`Template` drop-down menu when
-  adding a new jail.
-
-* **URL:** when adding a new jail using this template, the template
-  is downloaded from this location.
-
-* **Instances:** indicates if the template has been used to create a
-  jail. In this example, the template has not yet been used so its
-  :guilabel:`Instances` shows *0*.
 
 To create a custom template, first install the desired operating
 system and configure it as needed. The installation can be either to
@@ -1143,21 +1053,39 @@ summarizes the fields in this screen.
    |              |                | after creation                                                                                |
    +--------------+----------------+-----------------------------------------------------------------------------------------------+
 
+Once added, the template will appear in
+:menuselection:`Jails --> Templates`.
+An example is seen in
+:numref:`Figure %s <default_jail_templates_fig>`.
 
-After adding a template, click the entry for the template to access
-the :guilabel:`Edit` and :guilabel:`Delete` buttons. Clicking a
-template's :guilabel:`Edit` button opens the configuration screen
-shown in
+
+.. _default_jail_templates_fig:
+
+.. figure:: images/jails9a.png
+
+   Viewing Available Templates
+
+
+The listing contains these columns:
+
+* **Name:** appears in the :guilabel:`Template` drop-down menu when
+  adding a new jail.
+
+* **URL:** when adding a new jail using this template, the template
+  is downloaded from this location.
+
+* **Instances:** indicates if the template has been used to create a
+  jail. In this example, the template has not yet been used so its
+  :guilabel:`Instances` shows *0*.   
+
+Click the entry for a template to access its :guilabel:`Edit` and
+:guilabel:`Delete` buttons. Clicking a template's :guilabel:`Edit`
+button opens the configuration screen shown in
 :numref:`Figure %s <edit_jail_template_fig>`.
-
-.. note:: The :guilabel:`Delete` button is not available for the
-   built-in *VirtualBox* template and the :guilabel:`Edit` button
-   opens it as read-only.
-
 
 .. _edit_jail_template_fig:
 
-.. figure:: images/jails10a.png
+.. figure:: images/jails10b.png
 
    Editing Template Options
 

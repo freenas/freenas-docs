@@ -67,6 +67,8 @@ What Is New in |version|
 
 * :ref:`freenas-debug` can now include GRUB configuration information.
 
+* The php-virtualbox jail template has been removed.
+
 
 #ifdef commented
 .. _What Has Changed Since |version|:
