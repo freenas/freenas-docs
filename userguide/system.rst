@@ -521,7 +521,7 @@ The configurable settings are summarized in
 .. _system_adv_fig:
 
 #ifdef freenas
-.. figure:: images/system3a.png
+.. figure:: images/system3b.png
 
    Advanced Screen
 #endif freenas
@@ -548,16 +548,16 @@ The configurable settings are summarized in
    | Enable Console Menu                     | checkbox                         | unchecking this box removes the console menu shown in                        |
    |                                         |                                  | :numref:`Figure %s <console_setup_menu_fig>`                                 |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Use Serial Console                      | checkbox                         | do **not** check this box if your serial port is disabled                    |
+   | Use Serial Console                      | checkbox                         | **do not** check this box if the serial port is disabled                     |
    |                                         |                                  |                                                                              |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Serial Port Address                     | string                           | serial port address written in hex                                           |
+   | Serial Port Address                     | string                           | serial port address in hex                                                   |
    |                                         |                                  |                                                                              |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Serial Port Speed                       | drop-down menu                   | select the speed used by the serial port                                     |
    |                                         |                                  |                                                                              |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable screen saver                     | checkbox                         | enables/disables the console screen saver                                    |
+   | Enable screen saver                     | checkbox                         | enable/disable the console screen saver                                      |
    |                                         |                                  |                                                                              |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Enable powerd (Power Saving Daemon)     | checkbox                         | `powerd(8) <http://www.freebsd.org/cgi/man.cgi?query=powerd>`_               |
@@ -571,7 +571,7 @@ The configurable settings are summarized in
    |                                         |                                  |                                                                              |
    #endif freenas
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Show console messages in the footer     | checkbox                         | will display console messages in real time at bottom of browser; click the   |
+   | Show console messages in the footer     | checkbox                         | display console messages in real time at bottom of browser; click the        |
    |                                         |                                  | console to bring up a scrollable screen; check the :guilabel:`Stop refresh`  |
    |                                         |                                  | box in the scrollable screen to pause updating and uncheck the box           |
    |                                         |                                  | to continue to watch the messages as they occur                              |
@@ -588,28 +588,31 @@ The configurable settings are summarized in
    |                                         |                                  | upon the hardware which is installed                                         |
    |                                         |                                  |                                                                              |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable debug kernel                     | checkbox                         | if checked, next boot will boot into a debug version of the kernel           |
+   | Enable debug kernel                     | checkbox                         | when checked, next boot uses a debug version of the kernel                   |
    |                                         |                                  |                                                                              |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable automatic upload of kernel       | checkbox                         | if checked, kernel crash dumps and telemetry (some system stats, collectd    |
-   | crash dumps and daily telemetry         |                                  | RRDs, and select syslog messages) are automatically sent to the  development |
+   | Enable automatic upload of kernel       | checkbox                         | when checked, kernel crash dumps and telemetry (some system stats, collectd  |
+   | crash dumps and daily telemetry         |                                  | RRDs, and select syslog messages) are automatically sent to the development  |
    |                                         |                                  | team for diagnosis                                                           |
    |                                         |                                  |                                                                              |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | MOTD banner                             | string                           | input the message to be seen when a user logs in via SSH                     |
+   | MOTD banner                             | string                           | message to be shown when a user logs in with SSH                             |
    |                                         |                                  |                                                                              |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Periodic Notification User              | drop-down menu                   | select the user to receive security output emails; this output runs nightly  |
+   | Periodic Notification User              | drop-down menu                   | user to receive security output emails; this output runs nightly             |
    |                                         |                                  | but only sends an email when the system reboots or encounters an error       |
    |                                         |                                  |                                                                              |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Remote Graphite Server hostname         | string                           | input the IP address or hostname of a remote server that is running          |
-   |                                         |                                  | a `Graphite <http://graphite.wikidot.com/>`_ server                          |
+   | Remote Graphite Server hostname         | string                           | IP address or hostname of a remote server running                            |
+   |                                         |                                  | `Graphite <http://graphite.wikidot.com/>`_                                   |
    |                                         |                                  |                                                                              |
+   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Use FQDN for logging                    | checkbox                         | when checked, include the Fully-Qualified Domain Name in logs to precisely   |
+   |                                         |                                  | identify systems with similar hostnames                                      |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
 
 
-If you make any changes, click the :guilabel:`Save` button.
+Click the :guilabel:`Save` button after making any changes.
 
 This tab also contains these buttons:
 
@@ -637,7 +640,7 @@ menu shown in
    data.
 
 .. warning:: The backup function **IGNORES ENCRYPTED POOLS**. Do not
-   use it to backup systems with encrypted pools.
+   use it to back up systems with encrypted pools.
 
 **Save Debug:** used to generate a text file of diagnostic
 information. Once the debug is created, it will prompt for the
