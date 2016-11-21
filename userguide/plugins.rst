@@ -64,7 +64,7 @@ the list of available plugins will be displayed.
 
 .. _view_list_plugins_fig:
 
-.. figure:: images/plugins1.png
+.. figure:: images/plugins1a.png
 
    Viewing the List of Available Plugins
 
