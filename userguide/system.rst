@@ -72,7 +72,7 @@ include the domain name. If the network does not use a domain name add
 .. _system_info_fig:
 
 #ifdef freenas
-.. figure:: images/system1c.png
+.. figure:: images/system1d.png
 
    System Information Tab
 #endif freenas

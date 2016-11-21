@@ -36,7 +36,7 @@ The latest STABLE version of %brand% |release| can be downloaded
 from
 `http://download.freenas.org/ <http://download.freenas.org/latest/>`_.
 
-.. note:: %brand% can only be installed on 64-bit hardware.
+.. note:: %brand% requires 64-bit hardware.
 
 The download page contains these types of files:
 

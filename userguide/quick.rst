@@ -178,7 +178,7 @@ see the administrative GUI as shown in the example in
 
 .. _quick_graphic_config_menu_fig:
 
-.. figure:: images/initial1b.png
+.. figure:: images/initial1c.png
 
    %brand% Graphical Configuration Menu
 
