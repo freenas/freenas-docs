@@ -593,7 +593,7 @@ Move to the drive where %brand% is installed and press the
 the operating system, mark all of the drives where the %brand%
 operating system is installed. Press :kbd:`Enter` when done.
 
-The installer recognizes earlier version of %brand% installed on the
+The installer recognizes earlier versions of %brand% installed on the
 boot drive or drives and presents the message shown in
 :numref:`Figure %s <upgrade_install_fig>`.
 
