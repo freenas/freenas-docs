@@ -17,64 +17,77 @@ Click the tab for a device type to see its graphs.
 
 %brand% uses
 `collectd <https://collectd.org/>`_
-to provide reporting statistics. The following collectd plugins are
-enabled in :file:`/conf/base/etc/local/collectd.conf`, and thus
-provide reporting graphs:
+to provide reporting statistics. collectd plugins are enabled in
+:file:`/conf/base/etc/local/collectd.conf` to provide reporting
+graphs. These graphs are grouped into several tabs on the Reporting
+page:
 
-*   `CPU usage <https://collectd.org/wiki/index.php/Plugin:CPU>`_
-    : collects the amount of time spent by the CPU in various states
+* :guilabel:`CPU`
+
+  * `CPU <https://collectd.org/wiki/index.php/Plugin:CPU>`_
+    shows the amount of time spent by the CPU in various states
     such as executing user code, executing system code, and being
     idle.
 
-*   `system load <https://collectd.org/wiki/index.php/Plugin:Load>`_
-    : provides a rough overview of system utilization over a one,
-    five, and fifteen minute average.
+* :guilabel:`Disk`
 
-*   `disk <https://collectd.org/wiki/index.php/Plugin:Disk>`_
-    : shows the average time a disk I/O operation took to complete.
+  * `Disk <https://collectd.org/wiki/index.php/Plugin:Disk>`_
+    shows statistics on I/O, percent busy, latency, operations per
+    second, and pending I/O requests.
 
-*   `physical memory
-    <https://collectd.org/wiki/index.php/Plugin:Memory>`_
-    : displays physical memory usage.
+* :guilabel:`Memory`
 
-*   `swap utilization
-    <https://collectd.org/wiki/index.php/Plugin:Swap>`_
-    : displays the amount of free and used swap space.
+  * `Memory <https://collectd.org/wiki/index.php/Plugin:Memory>`_
+    displays memory usage.
 
-*   `interface
+  * `Swap <https://collectd.org/wiki/index.php/Plugin:Swap>`_
+    displays the amount of free and used swap space.
+
+* :guilabel:`Network`
+
+  * `Interface
     <https://collectd.org/wiki/index.php/Plugin:Interface>`_
-    : shows received and transmitted traffic in bits per second for
+    shows received and transmitted traffic in bits per second for
     each configured interface.
 
-*   `disk space <https://collectd.org/wiki/index.php/Plugin:DF>`_
-    : displays free and used space for each volume and dataset.
+* :guilabel:`Partition`
+
+  * `Disk space
+    <https://collectd.org/wiki/index.php/Plugin:DF>`_
+    displays free and used space for each volume and dataset.
     However, the disk space used by an individual zvol is not
     displayed as it is a block device.
 
-*   `processes
-    <https://collectd.org/wiki/index.php/Plugin:Processes>`_
-    : displays the number of processes, grouped by state.
+* :guilabel:`System`
 
-*   `uptime <https://collectd.org/wiki/index.php/Plugin:Uptime>`_
-    : keeps track of the system uptime, the average running time, and
+  * `Processes and Uptime
+    <https://collectd.org/wiki/index.php/Plugin:Processes>`_
+    displays the number of processes, grouped by state.
+
+  * `Uptime <https://collectd.org/wiki/index.php/Plugin:Uptime>`_
+    keeps track of the system uptime, the average running time, and
     the maximum reached uptime.
 
-*   target: contains bandwidth statistics for iSCSI ports.
+* :guilabel:`Target`
 
-*   `zfs <https://collectd.org/wiki/index.php/Plugin:ZFS_ARC>`_
-    : shows ARC size, hit ratio, and requests.
+  * Target shows bandwidth statistics for iSCSI ports.
 
-Reporting data is saved, allowing you to view and monitor usage trends
-over time. By default, reporting data is saved to
-:file:`/data/rrd_dir.tar.bz2` and should be preserved across system
+* :guilabel:`ZFS`
+
+  * `ZFS <https://collectd.org/wiki/index.php/Plugin:ZFS_ARC>`_
+    shows ARC size, hit ratio, and requests.
+
+Reporting data is saved, making it possible to view and monitor usage
+trends over time. By default, reporting data is saved to
+:file:`/data/rrd_dir.tar.bz2` and is preserved across system
 upgrades and at shutdown. To instead save this data to the system
 dataset, check the :guilabel:`Reporting database` box in
 :menuselection:`System --> System Dataset`.
 
 Use the magnifier buttons next to each graph to increase or decrease
 the displayed time increment from 10 minutes, hourly, daily, weekly,
-or monthly. You can also use the :guilabel:`<<` and :guilabel:`>>`
-buttons to scroll through the output.
+or monthly. The :guilabel:`<<` and :guilabel:`>>` buttons can be
+used to scroll through the output.
 
 `Update on using Graphite with FreeNAS
 <http://cmhramblings.blogspot.com/2015/12/update-on-using-graphite-with-freenas.html>`_

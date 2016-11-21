@@ -72,6 +72,10 @@ What Is New in |version|
 
 * The php-virtualbox jail template has been removed.
 
+* Additional disks statistics  for percent busy, latency, operations
+  per second, and pending I/O requests have been added to
+  :ref:`Reporting`.
+
 
 #ifdef commented
 .. _What Has Changed Since |version|:
@@ -147,13 +151,6 @@ are some general rules of thumb:
 
 * To use Active Directory with many users, add an additional 2 GB of
   RAM for winbind's internal cache.
-
-* When
-  :ref:`using the phpVirtualBox template <Using the phpVirtualBox Template>`,
-  increase the minimum RAM size by the amount of virtual memory
-  configured for use in virtual machines. For example, if there will
-  be two virtual machines, each with 4 GB of virtual memory, the
-  system needs at least 16 GB of RAM.
 
 * For iSCSI, install at least 16 GB of RAM if performance is not
   critical, or at least 32 GB of RAM if good performance is a
