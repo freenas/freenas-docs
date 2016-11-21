@@ -60,6 +60,11 @@ built-in features by installing additional software.
 What Is New in |version|
 ------------------------
 
+* A new FQDN checkbox has been added to the :guilabel:`Advanced`
+  :ref:`System` settings. Checking this causes fully-qualified domain
+  names to be included in syslogd output, making it easier to identify
+  individual systems when groups of computers have similar hostnames.
+
 * Samba has been updated to
   `4.4.5 <https://www.samba.org/samba/history/samba-4.4.5.html>`_.
 
