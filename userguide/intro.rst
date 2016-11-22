@@ -71,13 +71,17 @@ What Is New in |version|
 * Modifying network settings only affects the changed network
   components, avoiding the disruption of restarting all networking.
 
+* Chelsio T3/T4/T5 network cards can now take advantage of TCP Offload
+  Engine (TOE) for improved network performance. Add *toe* to the
+  Options field of the interface to enable the feature.
+
 * The UPS shutdown command can now be customized.
 
 * :ref:`freenas-debug` can now include GRUB configuration information.
 
 * The php-virtualbox jail template has been removed.
 
-* Additional disks statistics  for percent busy, latency, operations
+* Additional disks statistics for percent busy, latency, operations
   per second, and pending I/O requests have been added to
   :ref:`Reporting`.
 

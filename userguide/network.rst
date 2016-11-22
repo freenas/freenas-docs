@@ -171,41 +171,41 @@ interrupted while the changes are applied.
 .. table:: Interface Configuration Settings
    :class: longtable
 
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-   | Setting             | Value          | Description                                                                                                         |
-   |                     |                |                                                                                                                     |
-   +=====================+================+=====================================================================================================================+
-   | NIC                 | drop-down menu | select the FreeBSD device name; is a read-only field when editing an interface                                      |
-   |                     |                |                                                                                                                     |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-   | Interface Name      | string         | description of interface                                                                                            |
-   |                     |                |                                                                                                                     |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-   | DHCP                | checkbox       | requires static IPv4 or IPv6 configuration if unchecked; note that only one interface can be configured for DHCP    |
-   |                     |                |                                                                                                                     |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-   | IPv4 Address        | IP address     | enter a static IP address if :guilabel:`DHCP` is unchecked                                                          |
-   |                     |                |                                                                                                                     |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-   | IPv4 Netmask        | drop-down menu | enter a netmask if :guilabel:`DHCP` is unchecked                                                                    |
-   |                     |                |                                                                                                                     |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-   | Auto configure IPv6 | checkbox       | only one interface can be configured for this option; if unchecked, manual configuration is                         |
-   |                     |                | required to use IPv6                                                                                                |
-   |                     |                |                                                                                                                     |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-   | IPv6 Address        | IPv6 address   | must be unique on network                                                                                           |
-   |                     |                |                                                                                                                     |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-   | IPv6 Prefix Length  | drop-down menu | match the prefix used on network                                                                                    |
-   |                     |                |                                                                                                                     |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
-   | Options             | string         | additional parameters from                                                                                          |
-   |                     |                | `ifconfig(8) <http://www.freebsd.org/cgi/man.cgi?query=ifconfig>`_,                                                 |
-   |                     |                | separate multiple parameters with a space; for example: *mtu 9000* will increase the MTU for interfaces that        |
-   |                     |                | support jumbo frames                                                                                                |
-   |                     |                |                                                                                                                     |
-   +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------+
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   | Setting             | Value          | Description                                                                                               |
+   |                     |                |                                                                                                           |
+   +=====================+================+===========================================================================================================+
+   | NIC                 | drop-down menu | the FreeBSD device name of the interface; a read-only field when editing an interface                     |
+   |                     |                |                                                                                                           |
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   | Interface Name      | string         | description of interface                                                                                  |
+   |                     |                |                                                                                                           |
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   | DHCP                | checkbox       | requires static IPv4 or IPv6 configuration if unchecked; only one interface can be configured for DHCP    |
+   |                     |                |                                                                                                           |
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   | IPv4 Address        | IP address     | enter a static IP address if :guilabel:`DHCP` is unchecked                                                |
+   |                     |                |                                                                                                           |
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   | IPv4 Netmask        | drop-down menu | enter a netmask if :guilabel:`DHCP` is unchecked                                                          |
+   |                     |                |                                                                                                           |
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   | Auto configure IPv6 | checkbox       | only one interface can be configured for this option; if unchecked, manual configuration is               |
+   |                     |                | required to use IPv6                                                                                      |
+   |                     |                |                                                                                                           |
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   | IPv6 Address        | IPv6 address   | must be unique on network                                                                                 |
+   |                     |                |                                                                                                           |
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   | IPv6 Prefix Length  | drop-down menu | match the prefix used on network                                                                          |
+   |                     |                |                                                                                                           |
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
+   | Options             | string         | additional parameters from                                                                                |
+   |                     |                | `ifconfig(8) <http://www.freebsd.org/cgi/man.cgi?query=ifconfig>`_,                                       |
+   |                     |                | separate multiple parameters with a space; for example: *mtu 9000* increases the MTU for interfaces       |
+   |                     |                | which support jumbo frames                                                                                |
+   |                     |                |                                                                                                           |
+   +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
 
 
 This screen also provides for the configuration of IP aliases, making
