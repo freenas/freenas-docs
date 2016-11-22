@@ -1132,9 +1132,8 @@ The ZFS version used in |release| deprecates these tunables:
    vfs.zfs.write_limit_shift
    vfs.zfs.no_write_throttle
 
-If you upgrade from an earlier version of %brand% where these
-tunables are set, they will automatically be deleted for you. You
-should not try to add these tunables back.
+After upgrading from an earlier version of %brand%, these tunables are
+automatically deleted. Please do not manually add them back.
 
 
 .. _Update:
@@ -1230,7 +1229,7 @@ screen.
 .. _update_options_fig:
 
 #ifdef freenas
-.. figure:: images/update1d.png
+.. figure:: images/update1e.png
 
    Update Options
 #endif freenas
@@ -1249,25 +1248,24 @@ disabled by unchecking :guilabel:`Automatically check for updates`.
 This screen also shows which software branch, or *train*, is being
 tracked for updates. These trains are available:
 
-* **FreeNAS-10-Nightlies:** this train should
-  **not be used in production**. It represents the experimental branch
-  for the future 10 version and is meant only for bleeding edge
-  testers and developers.
+* **FreeNAS-10-Nightlies:** **do not use this train in production**.
+  It represents the experimental branch for the future 10 version and
+  is meant only for bleeding edge testers and developers.
 
-* **FreeNAS-9.10-Nightlies:** this train has the latest, but still
-  being tested, fixes and features. Unless you are testing a new
-  feature, you do not want to run this train in production.
+* **FreeNAS-9.10-Nightlies:** this train has the latest fixes and
+  features, but they are still being tested. Do not select this train
+  for   production, it is only for testing.
 
 * **FreeNAS-9.10-STABLE:**  this is the
-  **recommended train for production use**. Once new fixes and
+  **recommended train for production use**. After new fixes and
   features have been tested, they are added to this train. It is
   recommended to follow this train and to apply any of its pending
   updates.
 
 * **FreeNAS-9.3-STABLE:** this is the maintenance-only mode for an
   older version of %brand%. It is recommended to upgrade to
-  *FreeNAS-9.10-STABLE*, by selecting that train, to ensure that
-  the system receives bug fixes and new features.
+  *FreeNAS-9.10-STABLE* to ensure that the system receives bug fixes
+  and new features.
 
 To change the train, use the drop-down menu to make a different
 selection.
@@ -1281,13 +1279,13 @@ selection.
    can then use this screen to see if any updates are available for
    that train.
 
-This screen also lists the URL of the official update server should
-that information be needed in a network with outbound firewall
+This screen also lists the URL of the official update server in case
+that information is needed in a network with outbound firewall
 restrictions.
 #endif freenas
 #ifdef truenas
 This screen lists the URL of the official update server in case that
-information be needed in a network with outbound firewall
+information is needed in a network with outbound firewall
 restrictions. It also indicates which software branch, or *train*,
 is being tracked for updates. These trains are available:
 
@@ -1376,6 +1374,18 @@ might reboot after the updates are applied.
 .. warning:: After updates have completed, reboot the system.
    Configuration changes made after an update but before that final
    reboot will not be saved.
+
+
+Manual Updates
+~~~~~~~~~~~~~~
+
+Updates can be manually downloaded as a file. These updates are then
+applied with the :guilabel:`Manual Update` button. After obtaining the
+update file, click :guilabel:`Manual Update` and choose a location to
+temporarily store the file on the %brand% system. Use the file browser
+to locate the update file, then enter the SHA256 checksum to verify
+that the file has not been corrupted. Finally, click
+:guilabel:`Apply Update` to apply.
 
 
 #ifdef truenas

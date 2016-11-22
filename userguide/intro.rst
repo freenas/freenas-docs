@@ -65,6 +65,10 @@ What Is New in |version|
   names to be included in syslogd output, making it easier to identify
   individual systems when groups of computers have similar hostnames.
 
+* A :guilabel:`Manual Update` button has been added to the
+  :guilabel:`Update` screen in :ref:`System`. Update files can be
+  applied manually with this method.
+
 * Samba has been updated to
   `4.4.5 <https://www.samba.org/samba/history/samba-4.4.5.html>`_.
 
