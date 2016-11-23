@@ -256,8 +256,6 @@ These plugins are available for %brand% |release|:
 
 * `bacula-sd (storage daemon) <http://bacula.org/>`_
 
-* `BTSync <https://www.getsync.com/>`_
-
 * `CloneDeploy <https://sourceforge.net/projects/clonedeploy/>`_
 
 * `CouchPotato <https://couchpota.to/>`_
@@ -274,15 +272,23 @@ These plugins are available for %brand% |release|:
 
 * `LazyLibrarian <https://github.com/lazylibrarian/LazyLibrarian>`_
 
+* `Madsonic <http://madsonic.org/>`_
+
 * `Maraschino <http://www.maraschinoproject.com/>`_
 
 * `MineOS <http://minecraft.codeemo.com/>`_
 
 * `Mylar <https://github.com/evilhero/mylar>`_
 
+* `Nextcloud <https://nextcloud.com/>`_
+
+* `NZBHydra <https://github.com/theotherp/nzbhydra>`_
+
 * `owncloud <https://owncloud.org/>`_
 
 * `PlexMediaServer <https://plex.tv/>`_
+
+* `Resilio <https://www.resilio.com/>`_
 
 * `s3cmd <http://s3tools.org/s3cmd>`_
 
