@@ -975,19 +975,19 @@ debugging information. To see the available options, type:
 
  freenas-debug
  usage: /usr/local/bin/freenas-debug <options>
- Where options is:
-     -e		A list of comma delimited list of email addresses to email the debug log to.
+ Where options are:
+     -e		Email debug log to this comma-delimited list of email addresses
      -a		Dump Active Directory Configuration
      -c		Dump (AD|LDAP) Cache
      -C		Dump CIFS Configuration
      -D		Dump Domain Controller Configuration
-     -d		Dump dtrace scripts
-     -g		Dump GEOM configuration
+     -d		Dump DTrace Scripts
+     -g		Dump GEOM Configuration
      -G         Dump Grub Configuration
      -h		Dump Hardware Configuration
      -I		Dump IPMI Configuration
      -i		Dump iSCSI Configuration
-     -j		Dump jails Information
+     -j		Dump Jail Information
      -l		Dump LDAP Configuration
      -T		Loader Configuration Information
      -n		Dump Network Configuration
@@ -997,7 +997,7 @@ debugging information. To see the available options, type:
      -y		Dump Sysctl Configuration
      -t		Dump System Information
      -v		Dump Boot System File Verification Status and Inconsistencies (if any)
-     -z		Dump ZFS configuration
+     -z		Dump ZFS Configuration
 
 For example, when troubleshooting an Active Directory configuration,
 use:
