@@ -269,53 +269,53 @@ display these settings by checking the box
    |                           |                | not conflict with the DHCP server's pool of available addresses                                              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv4 address              | integer        | only available in :guilabel:`Advanced Mode`; this and the other IPv4 settings will be grayed out             |
-   |                           |                | if :guilabel:`IPv4 DHCP` is checked; input IP address that is reachable within the local network             |
-   |                           |                | and is not in use by any other host in the network                                                           |
+   | IPv4 address              | integer        | only available in :guilabel:`Advanced Mode`; this and the other IPv4 settings are grayed out                 |
+   |                           |                | if :guilabel:`IPv4 DHCP` is checked; enter a unique IP address that is in the local network                  |
+   |                           |                | and not already used by any other computer                                                                   |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | IPv4 netmask              | drop-down menu | only available in :guilabel:`Advanced Mode`; select the subnet mask associated with                          |
    |                           |                | :guilabel:`IPv4 address`                                                                                     |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv4 bridge address       | integer        | only available in :guilabel:`Advanced Mode` and will be grayed out if :guilabel:`VIMAGE`                     |
-   |                           |                | is unchecked; see NOTE below                                                                                 |
+   | IPv4 bridge address       | integer        | only available in :guilabel:`Advanced Mode`, grayed out unless :guilabel:`VIMAGE`                            |
+   |                           |                | is checked; see NOTE below                                                                                   |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | IPv4 bridge netmask       | drop-down menu | only available in :guilabel:`Advanced Mode`; select the subnet mask associated with                          |
-   |                           |                | :guilabel:`IPv4 bridge address`; will begrayed out if :guilabel:`VIMAGE` is unchecked                        |
+   |                           |                | :guilabel:`IPv4 bridge address`; grayed out unless :guilabel:`VIMAGE` is checked                             |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv4 default gateway      | string         | only available in :guilabel:`Advanced Mode`; will be grayed out if :guilabel:`VIMAGE` is unchecked           |
+   | IPv4 default gateway      | string         | only available in :guilabel:`Advanced Mode`; grayed out unless :guilabel:`VIMAGE` is checked                 |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | IPv6 Autoconfigure        | checkbox       | only available in :guilabel:`Advanced Mode`; if unchecked, make sure that the defined address                |
    |                           |                | does not conflict with the DHCP server's pool of available addresses                                         |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv6 address              | integer        | only available in :guilabel:`Advanced Mode`; this and the other IPv6 settings will be grayed out if          |
-   |                           |                | :guilabel:`IPv6 Autoconfigure` is checked; input IPv6 address that is reachable within the local             |
-   |                           |                | network and is not in use by any other host in the network                                                   |
+   | IPv6 address              | integer        | only available in :guilabel:`Advanced Mode`; this and other IPv6 settings are grayed out if                  |
+   |                           |                | :guilabel:`IPv6 Autoconfigure` is checked; enter a unique IPv6 address that is in the local                  |
+   |                           |                | network and not already used by any other computer                                                           |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | IPv6 prefix length        | drop-down menu | only available in :guilabel:`Advanced Mode`; select the prefix length associated with                        |
    |                           |                | :guilabel:`IPv6 address`                                                                                     |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv6 bridge address       | integer        | only available in :guilabel:`Advanced Mode` and will be grayed out if :guilabel:`VIMAGE`                     |
-   |                           |                | is unchecked; see NOTE below                                                                                 |
+   | IPv6 bridge address       | integer        | only available in :guilabel:`Advanced Mode`, grayed out unless :guilabel:`VIMAGE`                            |
+   |                           |                | is checked; see NOTE below                                                                                   |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv6 bridge prefix length | drop-down menu | only available in :guilabel:`Advanced Mode` and will be grayed out if :guilabel:`VIMAGE` is unchecked;       |
+   | IPv6 bridge prefix length | drop-down menu | only available in :guilabel:`Advanced Mode`, grayed out unless :guilabel:`VIMAGE` is checked;                |
    |                           |                | select the prefix length associated with :guilabel:`IPv6 address`                                            |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | IPv6 default gateway      | string         | only available in :guilabel:`Advanced Mode` and will be grayed out if :guilabel:`VIMAGE` is unchecked;       |
+   | IPv6 default gateway      | string         | only available in :guilabel:`Advanced Mode`, grayed out unless :guilabel:`VIMAGE` is checked;                |
    |                           |                | used to set the jail's default gateway IPv6 address                                                          |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | MAC                       | string         | only available in :guilabel:`Advanced Mode` and will be grayed out if :guilabel:`VIMAGE` is unchecked;       |
+   | MAC                       | string         | only available in :guilabel:`Advanced Mode`, grayed out unless :guilabel:`VIMAGE` is checked;                |
    |                           |                | if a static MAC address is entered, unique static MAC addresses must be entered for every jail created       |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | NIC                       | drop-down menu | only available in :guilabel:`Advanced Mode` and will be grayed out if :guilabel:`VIMAGE` is checked;         |
+   | NIC                       | drop-down menu | only available in :guilabel:`Advanced Mode`, grayed out if :guilabel:`VIMAGE` is checked;                    |
    |                           |                | can be used to specify the interface to use for jail connections                                             |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
@@ -330,7 +330,7 @@ display these settings by checking the box
    |                           |                | requires promiscuous mode to be enabled on the interface                                                     |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | NAT                       | checkbox       | only available in :guilabel:`Advanced Mode` and will be grayed out for Linux jails or if                     |
+   | NAT                       | checkbox       | only available in :guilabel:`Advanced Mode`, grayed out for Linux jails or if                                |
    |                           |                | :guilabel:`VIMAGE` is unchecked; enables Network Address Translation for the jail                            |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
