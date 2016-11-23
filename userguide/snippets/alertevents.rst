@@ -80,6 +80,8 @@ Some of the conditions that trigger an alert include:
 
 * a re-key operation fails on an encrypted pool
 
+* if LDAP failed to bind to the domain
+
 #ifdef freenas
 * the status of an Avago MegaRAID SAS controller has changed;
   `mfiutil(8) <http://www.freebsd.org/cgi/man.cgi?query=mfiutil>`_
