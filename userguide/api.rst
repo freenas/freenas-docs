@@ -29,6 +29,13 @@ an online version of the API is available at
 The rest of this section shows code examples to illustrate the use of
 the API.
 
+.. note:: Beginning with %brand% 9.10.2, a new API has been added. The
+   old API is still present for compatibility. Documentation for the
+   new API is available on the %brand% system at the */api/docs/* URL.
+   For example, if the %brand% system is at IP address 192.168.1.119,
+   enter *http://192.168.1.119/api/docs/* in a browser to see the API
+   documentation.
+
 
 .. _A Simple API Example:
 

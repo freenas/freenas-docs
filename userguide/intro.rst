@@ -91,6 +91,9 @@ What Is New in |version|
   per second, and pending I/O requests have been added to
   :ref:`Reporting`.
 
+* A new :ref:`API <Using the API>` has been added. The old API is
+  still present for compatibility.
+
 
 #ifdef commented
 .. _What Has Changed Since |version|:
