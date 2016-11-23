@@ -638,6 +638,13 @@ hostnames, email aliases, and other text-based tables of information.
 If a NIS server is running on your network, the %brand% system can be
 configured to import the users and groups from the NIS directory.
 
+.. note:: In Windows Server 2016, Microsoft removed the Identity
+   Management for Unix (IDMU) and NIS Server Role. See
+   `Clarification regarding the status of Identity Management for Unix
+   (IDMU) & NIS Server Role in Windows Server 2016 Technical Preview
+   and beyond
+   <https://blogs.technet.microsoft.com/activedirectoryua/2016/02/09/identity-management-for-unix-idmu-is-deprecated-in-windows-server/>`_.
+
 :numref:`Figure %s <nis_fig>`
 shows the configuration screen which opens when you click
 :menuselection:`Directory Service --> NIS`.
