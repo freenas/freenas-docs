@@ -1068,39 +1068,48 @@ once the restore is complete.
 
 **14) Shutdown:** halts the system.
 
-During boot, %brand% will automatically try to connect to a DHCP
+During boot, %brand% automatically attempts to connect to a DHCP
 server from all live interfaces. If it successfully receives an IP
-address, it will display the IP address which can be used to access
-the graphical console. In the example seen in
+address, the address is displayed so it can be used to access the
+graphical user interface. In the example seen in
 :numref:`Figure %s <console_setup_menu_fig>`,
-the %brand% system is accessible from *http://192.168.1.119*.
+the %brand% system is accessible at *http://192.168.1.119*.
 
-If your %brand% server is not connected to a network with a DHCP
-server, you can use the network configuration wizard to manually
-configure the interface as seen in Example 3.6a. In this example,
-the %brand% system has one network interface (*em0*).
+Some %brand% systems are set up without a monitor, making it
+challenging to determine which IP address has been assigned. On
+networks that support Multicast DNS (mDNS), the hostname and domain
+can be entered into the address bar of a browser. By default, this
+value is *truenas.local*.
 
-**Example: Manually Setting an IP Address from the Console Menu**
+If the %brand% server is not connected to a network with a DHCP
+server, the console network menu can be used to manually
+configure the interface as seen in
+:ref:`Example: Manually Setting an IP Address from the Console Menu
+<quick_manual_ip_topic>`.
+In this example, the %brand% system has one network interface, *em0*.
 
-.. code-block:: none
+.. topic:: Manually Setting an IP Address from the Console Menu
+   :name: quick_manual_ip_topic
 
- Enter an option from 1-14: 1
- 1) em0
- Select an interface (q to quit): 1
- Delete existing config? (y/n) n
- Configure interface for DHCP? (y/n) n
- Configure IPv4? (y/n) y
- Interface name: (press enter as can be blank)
- Several input formats are supported
- Example 1 CIDR Notation: 192.168.1.1/24
- Example 2 IP and Netmask separate: IP: 192.168.1.1
- Netmask: 255.255.255.0, or /24 or 24
- IPv4 Address: 192.168.1.108/24
- Saving interface configuration: Ok
- Configure IPv6? (y/n) n
- Restarting network: ok
- You may try the following URLs to access the web user interface:
- http://192.168.1.108
+   .. code-block:: none
+
+      Enter an option from 1-14: 1
+      1) em0
+      Select an interface (q to quit): 1
+      Reset network configuration? (y/n) n
+      Configure interface for DHCP? (y/n) n
+      Configure IPv4? (y/n) y
+      Interface name: (press enter as can be blank)
+      Several input formats are supported
+      Example 1 CIDR Notation: 192.168.1.1/24
+      Example 2 IP and Netmask separate: IP: 192.168.1.1
+      Netmask: 255.255.255.0, or /24 or 24
+      IPv4 Address: 192.168.1.108/24
+      Saving interface configuration: Ok
+      Configure IPv6? (y/n) n
+      Restarting network: ok
+      You may try the following URLs to access the web user interface:
+      http://192.168.1.108
 
 
 .. index:: GUI Access
@@ -1109,10 +1118,10 @@ the %brand% system has one network interface (*em0*).
 Accessing the Administrative GUI
 --------------------------------
 
-Once the system has an IP address, enter that address into a graphical
-web browser from a computer capable of accessing the network
-containing the %brand% system. A prompt appears to enter the password
-for the *root* user, as shown in
+After the system has an IP address, enter that address into a
+graphical web browser from a computer on the same network as the
+%brand% system. A prompt appears to enter the password for the *root*
+user, as shown in
 :numref:`Figure %s <tn_login1>`.
 
 

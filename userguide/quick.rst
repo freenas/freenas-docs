@@ -5,10 +5,9 @@ Booting
 
 The Console Setup menu, shown in
 :numref:`Figure %s <console_setup_menu_fig>`,
-appears at the end of the boot process. If access to the %brand%
-system's keyboard and monitor is available, this Console Setup menu
-can be used to administer the system if the administrative GUI is
-not available.
+appears at the end of the boot process. If the %brand% system has a
+keyboard and monitor, this Console Setup menu can be used to
+administer the system.
 
 .. note:: The Console Setup menu can be accessed from within the
    %brand% GUI by typing :command:`/etc/netcli` from :ref:`Shell`.
@@ -117,19 +116,31 @@ the restore completes.
 
 **14) Shutdown:** halts the system.
 
+
+.. _Obtaining_an_IP_Address:
+
+Obtaining an IP Address
+^^^^^^^^^^^^^^^^^^^^^^^
+
 During boot, %brand% automatically attempts to connect to a DHCP
-server from all live interfaces. If it successfully receives an IP
-address, the address is displayed so it can be used to access the
-graphical console. In the example seen in
-:numref:`Figure %s <console_setup_menu_fig>`,
-the %brand% system is accessible from *http://192.168.1.119*.
+server from all live network interfaces. If it successfully receives
+an IP address, the address is displayed so it can be used to access
+the graphical user interface. The example in
+:numref:`Figure %s <console_setup_menu_fig>` shows a
+%brand% system that is accessible at *http://192.168.1.119*.
+
+Some %brand% systems are set up without a monitor, making it
+challenging to determine which IP address has been assigned. On
+networks that support Multicast DNS (mDNS), the hostname and domain
+can be entered into the address bar of a browser. By default, this
+value is *freenas.local*.
 
 If the %brand% server is not connected to a network with a DHCP
-server, use the network configuration wizard to manually configure the
-interface as seen in
+server, use the console network configuration menu to manually
+configure the interface as seen in
 :ref:`Example: Manually Setting an IP Address from the Console Menu
 <quick_manual_ip_topic>`.
-In this example, the %brand% system has one network interface (*em0*).
+In this example, the %brand% system has one network interface, *em0*.
 
 
 .. topic:: Manually Setting an IP Address from the Console Menu
@@ -140,7 +151,7 @@ In this example, the %brand% system has one network interface (*em0*).
       Enter an option from 1-14: 1
       1) em0
       Select an interface (q to quit): 1
-      Delete existing config? (y/n) n
+      Reset network configuration (y/n) n
       Configure interface for DHCP? (y/n) n
       Configure IPv4? (y/n) y
       Interface name: (press enter as can be blank)
@@ -157,10 +168,16 @@ In this example, the %brand% system has one network interface (*em0*).
       http://192.168.1.108
 
 
-Once the system has an IP address, enter that address into a graphical
-web browser from a computer capable of accessing the network
-containing the %brand% system. The password for the root user is
-requested as shown in
+After the system has an IP address, enter that address into a
+graphical web browser from a computer connected to the same network as
+the %brand% system.
+
+.. _Logging_In:
+
+Logging In
+^^^^^^^^^^
+
+The password for the root user is requested as shown in
 :numref:`Figure %s <quick_enter_root_pass_fig>`.
 
 
@@ -171,8 +188,8 @@ requested as shown in
    Enter the Root Password
 
 
-Enter the password created during the installation. You should then
-see the administrative GUI as shown in the example in
+Enter the password chosen during the installation. The administrative
+GUI is displayed as shown in
 :numref:`Figure %s <quick_graphic_config_menu_fig>`.
 
 
@@ -183,27 +200,27 @@ see the administrative GUI as shown in the example in
    %brand% Graphical Configuration Menu
 
 
-If you are unable to access the IP address from a browser, check the
-following:
+If the %brand% system does not respond to the IP address or mDNS name
+entered in a browser:
 
-* Are proxy settings enabled in the browser configuration? If so,
-  disable the settings and try connecting again.
+* If proxy settings are enabled in the browser configuration, disable
+  them and try connecting again.
 
-* If the page does not load, make sure that you can :command:`ping`
-  the %brand% system's IP address. If the address is in a private IP
-  address range, you will only be able to access the system from
-  within the private network.
+* If the page does not load, check whether the %brand% system's IP
+  address responds to a :command:`ping` from another computer on the
+  same network. If the %brand% IP address is in a private IP address
+  range, it can only be accessed from within that private network.
 
 * If the user interface loads but is unresponsive or seems to be
-  missing menu items, try using a different web browser. IE9 has known
-  issues and will not display the graphical administrative interface
-  correctly if compatibility mode is turned on. If you can't access
-  the GUI using Internet Explorer, use
-  `Firefox <https://www.mozilla.org/en-US/firefox/all/>`_ instead.
+  missing menu items, try a different web browser. IE9 has known
+  issues and does not display the graphical administrative interface
+  correctly if compatibility mode is turned on.
+  `Firefox <https://www.mozilla.org/en-US/firefox/all/>`_ is
+  recommended.
 
-* If you receive :guilabel:`An error occurred!` messages when
-  attempting to configure an item in the GUI, make sure that the
-  browser is set to allow cookies from the %brand% system.
+* If :guilabel:`An error occurred!` messages are shown when attempting
+  to configure an item in the GUI, make sure that the browser is set
+  to allow cookies from the %brand% system.
 
 This `blog post
 <http://fortysomethinggeek.blogspot.com/2012/10/ipad-iphone-connect-with-freenas-or-any.html>`_
