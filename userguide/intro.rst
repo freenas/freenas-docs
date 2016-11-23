@@ -87,6 +87,9 @@ What Is New in |version|
 
 * The php-virtualbox jail template has been removed.
 
+* `iohyve <https://github.com/pr1ntf/iohyve>`_ has been updated to
+  version 0.7.7.
+
 * Additional disks statistics for percent busy, latency, operations
   per second, and pending I/O requests have been added to
   :ref:`Reporting`.
