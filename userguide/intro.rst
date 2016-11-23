@@ -79,6 +79,8 @@ What Is New in |version|
   Engine (TOE) for improved network performance. Add *toe* to the
   Options field of the interface to enable the feature.
 
+* LDAP failing to bind on startup causes an alert.
+
 * The UPS shutdown command can now be customized.
 
 * :ref:`freenas-debug` can now include GRUB configuration information.
