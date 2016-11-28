@@ -961,7 +961,7 @@ not accessible.
 
 .. _console_setup_menu_fig:
 
-.. figure:: images/console1a.png
+.. figure:: images/console1b.png
 
    Console Setup Menu
 
@@ -1014,29 +1014,28 @@ will automatically be downloaded and applied. The functionality is
 the same as described in :ref:`Update`, except that the updates
 will be applied immediately and access to the GUI is not required.
 
-**11) Create backup:** used to backup the %brand% configuration and
-ZFS layout, and, optionally, the data, to a remote system over an
-encrypted connection. The only requirement for the remote system is
-that it has sufficient space to hold the backup and it is running
-an SSH server on port 22. The remote system does not have to be
-formatted with ZFS as the backup will be saved as a binary file.
-When this option is selected, it will prompt for the hostname or IP
-address of the remote system, the name of a user account on the
-remote system, the password for that user account, the full path to
-a directory on the remote system to save the backup, whether or not
-to also backup all of the data, whether or not to compress the
-data, and a confirmation to save the values, where *y* will start
-the backup, *n* will repeat the configuration, and *q* will quit
-the backup wizard. If you leave the password empty, key-based
-authentication will be used instead. This requires that the public
-key of the *root* user is stored in
+**11) Create volume backup:** used to backup the %brand% configuration
+and ZFS layout, and, optionally, the data, to a remote system over an
+encrypted connection. The only requirement for the remote system is that
+it has sufficient space to hold the backup and it is running an SSH
+server on port 22. The remote system does not have to be formatted with
+ZFS as the backup will be saved as a binary file. When this option is
+selected, it will prompt for the hostname or IP address of the remote
+system, the name of a user account on the remote system, the password
+for that user account, the full path to a directory on the remote system
+to save the backup, whether or not to also backup all of the data,
+whether or not to compress the data, and a confirmation to save the
+values, where *y* will start the backup, *n* will repeat the
+configuration, and *q* will quit the backup wizard. If you leave the
+password empty, key-based authentication will be used instead. This
+requires that the public key of the *root* user is stored in
 :file:`~root/.ssh/authorized_keys` on the remote system and that
 key should **not** be protected by a passphrase. Refer to
 :ref:`Rsync over SSH Mode` for instructions on how to generate a
 key pair.
 
-**12) Restore from a backup:** if a backup has already been created
-using :guilabel:`11) Create backup` or
+**12) Restore volume from a backup:** if a backup has already been
+created using :guilabel:`11) Create volume backup` or
 :menuselection:`System --> Advanced --> Backup`,
 it can be restored using this option. Once selected, it will prompt
 for the hostname or IP address of the remote system holding the

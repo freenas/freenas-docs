@@ -18,7 +18,7 @@ administer the system.
 
 .. _console_setup_menu_fig:
 
-.. figure:: images/console1a.png
+.. figure:: images/console1b.png
 
    Console Setup Menu
 
@@ -67,7 +67,7 @@ web interface. Updates are applied immediately for the currently
 selected train and access to the GUI is not required. For more
 advanced update options like switching trains, use :ref:`Update`.
 
-**11) Create backup:** backs up the %brand% configuration and ZFS
+**11) Create volume backup:** backs up the %brand% configuration and ZFS
 layout, and, optionally, the data, to a remote system over an
 encrypted connection. The remote system must have sufficient space to
 hold the backup and be running an SSH server on port 22. The remote
@@ -85,8 +85,8 @@ that the public key of the *root* user has been stored in
 they key is **not** protected by a passphrase. Refer to
 :ref:`Rsync over SSH Mode` for instructions on generating a key pair.
 
-**12) Restore from a backup:** restores from an existing backup
-created with :guilabel:`11) Create backup` or
+**12) Restore volume from a backup:** restores from an existing backup
+created with :guilabel:`11) Create volume backup` or
 :menuselection:`System --> Advanced --> Backup`. It prompts for the
 hostname or IP address of the remote system holding the backup, the
 username that was used, the password (leave empty if key-based
