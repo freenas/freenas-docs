@@ -6,23 +6,22 @@ Storage
 The Storage section of the graphical interface allows configuration of
 these options:
 
-* :ref:`Volumes`: used to create and manage storage volumes.
+* :ref:`Volumes` is used to create and manage storage volumes.
 
-* :ref:`Periodic Snapshot Tasks`: used to schedule the automatic
+* :ref:`Periodic Snapshot Tasks` is for scheduling the automatic
   creation of filesystem snapshots.
 
-* :ref:`Replication Tasks`: used to schedule the replication of
-  snapshots to a remote system.
+* :ref:`Replication Tasks` automates the replication of snapshots to
+  a remote system.
 
-* :ref:`Scrubs`: used to schedule scrubs as part of ongoing disk
+* :ref:`Scrubs` is used to schedule scrubs as part of ongoing disk
   maintenance.
 
-* :ref:`Snapshots`: used to manage local snapshots.
+* :ref:`Snapshots` is used to manage local snapshots.
 
-* :ref:`VMware-Snapshot`: is used to coordinate ZFS snapshots with a
+* :ref:`VMware-Snapshot` is for coordinating ZFS snapshots with a
   VWware datastore.
 
-These configurations are described in more detail in this section.
 
 #ifdef truenas
 .. note:: if the %brand% system has been configured as the passive
@@ -606,7 +605,7 @@ clicking its :guilabel:`Edit Options` button in
    | Setting                  | Value               | Description                                                                                               |
    |                          |                     |                                                                                                           |
    +==========================+=====================+===========================================================================================================+
-   | Dataset Name             | string              | mandatory; input a unique name for the dataset                                                            |
+   | Dataset Name             | string              | mandatory; enter a unique name for the dataset                                                            |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    | Comments                 | string              | short comments or user notes about this dataset                                                           |
@@ -1613,13 +1612,13 @@ files, the snapshot size changes to reflect the size of the changes.
 
 Snapshots provide a clever way of keeping a history of files,
 providing a way to recover an older copy or even a deleted file. For
-this reason, many administrators take snapshots often (perhas every 15
-minutes), store them for a period of time (possibly a
-month), and store them on another system (typically using Replication
-Tasks). Such a strategy allows the administrator to roll the system
-back to a specific time or, if there is a catastrophic loss, an
-off-site snapshot can restore the system up to the last snapshot
-interval.
+this reason, many administrators take snapshots often (perhaps every
+fifteen minutes), store them for a period of time (possibly a month),
+and store them on another system (typically using
+:ref:`Replication Tasks`). Such a strategy allows the administrator to
+roll the system back to a specific point in time. If there is a
+catastrophic loss, an off-site snapshot can be used to restore the
+system up to the time of the last snapshot.
 
 An existing ZFS volume is required before creating a snapshot.
 Creating a volume is described in :ref:`Volume Manager`.
@@ -1706,132 +1705,147 @@ buttons.
 Replication Tasks
 -----------------
 
-A replication task makes it possible to automate the copy of ZFS
-snapshots to another system over an encrypted connection. This allows
-you to create an off-site backup of a ZFS dataset or pool.
-
-This section will refer to the system generating the ZFS snapshots as
-*PUSH* and the system receiving a copy of the ZFS snapshots as *PULL*.
-
-These prerequisites must be met before replication tasks can be
-configured:
-
-* a ZFS pool must exist on both *PUSH* and *PULL*.
-
-* a periodic snapshot task must be created on *PUSH*. You will not be
-  able to create a replication task before the first snapshot exists.
-
-* the SSH service must be enabled on *PULL*. The first time the
-  service is enabled, it will generate the required SSH keys.
-
-A replication task uses the following keys:
-
-* :file:`/data/ssh/replication.pub`: the RSA public key used for
-  authenticating the *PUSH* replication user. This key needs to be
-  copied to the replication user account on *PULL*.
-
-* :file:`/etc/ssh/ssh_host_rsa_key.pub`: the RSA host public key of
-  *PULL* used to authenticate the receiving side in order to prevent a
-  man-in-the-middle attack. This key needs to be copied to the
-  replication task on *PUSH*.
-
-This section demonstrates how to configure a replication task between
-these two %brand% systems:
-
-* *192.168.2.2* will be referred to as *PUSH*. This system has a
-  periodic snapshot task for the ZFS dataset :file:`/mnt/local/data`.
-
-* *192.168.2.6* will be referred to as *PULL*. This system has an
-  existing ZFS volume named :file:`/mnt/remote` which will store the
-  pushed snapshots.
+*Replication* is the duplication of snapshots from one %brand% system
+to another. When a new snapshot is created on the source computer, it
+is automatically replicated to the target computer. Replication is
+typically used to keep a copy of files on a separate %brand% system,
+with that system sometimes being at a different physical location. For
+security, replicated data is encrypted before being sent over the
+network.
 
 
-.. _Configure PULL:
+Replication Overview
+~~~~~~~~~~~~~~~~~~~~
 
-Configure PULL
-~~~~~~~~~~~~~~
+The basic configuration requires a source system with the original
+data and a target system where the data is replicated.
+The target system is prepared to receive replicated data, a
+:ref:`periodic snapshot <Periodic Snapshot Tasks>` of the data on the
+source system is created, and then a replication task is created. As
+snapshot are created automatically on the source system, they are
+replicated to the target system.
 
-A copy of the public key for the replication user on *PUSH* needs to
-be pasted to the public key of the replication user on the *PULL*
-system.
 
-To obtain a copy of the replication key: on *PUSH* go to
-:menuselection:`Storage --> Replication Tasks
---> View Replication Tasks`.
-Click the :guilabel:`View Public Key` button and copy its contents. An
-example is shown in
+Replication Example
+~~~~~~~~~~~~~~~~~~~
+
+This example shows two %brand% systems. *Alpha* is the source system
+with data stored on volume *alphavol* in a dataset called *alphadata*,
+and *Beta* is the target system where snapshots will be replicated.
+Both systems are connected to the same network, *10.0.0.0/24* in this
+example.
+
+
+*Alpha* (Source)
+~~~~~~~~~~~~~~~~
+
+*Alpha* is at IP address *10.0.0.102*. A :ref:`volume <Volumes>` named
+*alphavol* has already been created, and a
+:ref:`dataset <Create Dataset>` named *alphadata* has
+been created on that volume. This dataset contains the files which
+will be snapshotted and replicated onto *Beta*. A new dataset is
+not required. Most users will already have datasets containing the
+data they wish to replicate.
+
+
+*Beta* (Target)
+~~~~~~~~~~~~~~~
+
+*Beta* is at IP address *10.0.0.118*. A :ref:`volume <Volumes>` named
+*betavol* has already been created.
+
+
+Replication Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:ref:`SSH` is used to transfer snapshots, so it is enabled on *Beta*.
+The service is not needed for outgoing connections, and so does not
+need to be enabled on *Alpha*.
+
+A public encryption key must be copied from *Alpha* to *Beta* to
+allow a secure connection without a password prompt. On *Alpha*,
+select
+:menuselection:`Storage --> Replication Tasks --> View Public Key`,
+producing the window shown in
 :numref:`Figure %s <zfs_copy_replication_key_fig>`.
+Use the mouse to highlight the key data shown in the window, then copy
+it.
 
 
 .. _zfs_copy_replication_key_fig:
 
-.. figure:: images/replication1a.png
+.. figure:: images/replication1b.png
 
    Copy the Replication Key
 
 
-Go to *PULL* and click
-:menuselection:`Account --> Users --> View Users`.
-Click the :guilabel:`Modify User` button for the user account you will
-be using for replication (by default this is the *root* user). Paste
-the copied key into the :guilabel:`SSH Public Key` field and click
-:guilabel:`OK`. If a key already exists, append the new text after the
-existing key.
-
-On *PULL*, ensure that the SSH service is enabled in
-:menuselection:`Services --> Control Services`.
-Start it if it is not already running.
+On *Beta*, select
+:menuselection:`Account --> Users --> View Users`. Click the *root*
+account to select it, then click :guilabel:`Modify User`. Paste the
+copied key into the :guilabel:`SSH Public Key` field and click
+:guilabel:`OK` as shown in
+:numref:`Figure %s <zfs_paste_replication_key_fig>`.
 
 
-.. _Configure PUSH:
+.. _zfs_paste_replication_key_fig:
 
-Configure PUSH
-~~~~~~~~~~~~~~
+.. figure:: images/replication4.png
 
-On *PUSH*, verify that a periodic snapshot task has been created and
-that at least one snapshot is listed in
-:menuselection:`Storage --> Snapshots`.
-
-To create the replication task, click
-:menuselection:`Storage --> Replication Tasks --> Add Replication`
-which opens the screen shown in
-:numref:`Figure %s <zfs_add_replication_task_fig>`.
-For this example, the required configuration is as follows:
-
-* the Volume/Dataset is :file:`local/data`
-
-* the Remote ZFS Volume/Dataset is :file:`remote`
-
-* the Remote hostname is *192.168.2.6*
-
-* the Begin and End times are at their default values, meaning that
-  replication will occur whenever a snapshot is created
-
-* once the Remote hostname is input, click the
-  :guilabel:`SSH Key Scan` button; if the address is reachable and the
-  SSH service is running on *PULL*, its key will automatically be
-  populated to the :guilabel:`Remote hostkey` box
+   Paste the Replication Key
 
 
-.. _zfs_add_replication_task_fig:
+On *Alpha*, go to
+:menuselection:`Storage --> Volumes`,
+click the *alphavol/alphadata* dataset to select it. Create a
+:ref:`periodic snapshot <Periodic Snapshot Tasks>` of it by clicking
+:guilabel:`Periodic Snapshot Tasks`, then
+:guilabel:`Add Periodic Snapshot` as shown in
+:numref:`Figure %s <zfs_create_periodic_replication_fig>`.
 
-.. figure:: images/replication2c.png
+This example creates a snapshot of the *alphavol/alphadata* dataset
+every two hours from Monday through Friday between the hours of 9:00
+and 18:00 (6:00 PM). Snapshots are automatically deleted after their
+chosen lifetime of two weeks expires.
 
-  Adding a Replication Task
+
+.. _zfs_create_periodic_replication_fig:
+
+.. figure:: images/replication3.png
+
+   Create a Periodic Snapshot for Replication
 
 
-:numref:`Table %s <zfs_add_replication_task_opts_tab>`
-summarizes the available options in the :guilabel:`Add Replication`
-screen.
+Still on *Alpha*, create the replication task with by clicking
+:guilabel:`Replication Tasks` and :guilabel:`Add Replication`.
+*alphavol/alphadata* is selected as the dataset to replicate.
+*betavol* is the destination volume. The *alphadata* dataset and
+snapshots are replicated there. The IP address of *Beta* is entered in
+the :guilabel:`Remote hostname` field as shown in
+:numref:`Figure %s <zfs_create_repl1_fig>`.
+A hostname can be entered here if local DNS resolves for that
+hostname. Click the :guilabel:`SSH Key Scan` button to retrieve the
+SSH host keys from *Beta* and fill the :guilabel:`Remote hostkey`
+field. Finally, click :guilabel:`OK` to create the replication task.
 
+
+.. _zfs_create_repl1_fig:
+
+.. figure:: images/replication5.png
+
+   Add Replication Dialog
+
+
+:numref:`Table %s <zfs_add_replication_task_opts_tab>` describes the
+options in the replication task dialog.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
+
 .. _zfs_add_replication_task_opts_tab:
 
-.. table:: Adding a Replication Task
+.. table:: Replication Task Options
    :class: longtable
 
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
@@ -1839,20 +1853,20 @@ screen.
    |                           |                |                                                                                                              |
    |                           |                |                                                                                                              |
    +===========================+================+==============================================================================================================+
-   | Volume/Dataset            | drop-down menu | the ZFS volume or dataset on *PUSH* containing the snapshots to be replicated; the drop-down menu will be    |
-   |                           |                | empty if a snapshot does not already exist                                                                   |
+   | Volume/Dataset            | drop-down menu | ZFS volume or dataset on the source computer containing the snapshots to be replicated; the                  |
+   |                           |                | drop-down menu is empty if a snapshot does not already exist                                                 |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote ZFS Volume/Dataset | string         | the ZFS volume on *PULL* that will store the snapshots;                                                      |
-   |                           |                | :file:`/mnt/` is assumed and should not be included in the path                                              |
+   | Remote ZFS Volume/Dataset | string         | ZFS volume on the remote or target computer which will store the snapshots; if the destination dataset is    |
+   |                           |                | not present, it will be created; :file:`/mnt/` is assumed, do not include it in the path                     |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Recursively replicate     | checkbox       | if checked will also replicate child datasets                                                                |
+   | Recursively replicate     | checkbox       | when checked, also replicate child datasets of the main dataset                                              |
    |                           |                |                                                                                                              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Delete stale snapshots    | checkbox       | if checked, will delete any previous snapshots on *PULL* which are no longer stored on                       |
-   |                           |                | *PUSH*                                                                                                       |
+   | Delete stale snapshots    | checkbox       | when checked, delete previous snapshots on the remote or target computer which are no longer present         |
+   |                           |                | on the source computer                                                                                       |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | Replication Stream        | drop-down menu | choices are *lz4 (fastest)*,                                                                                 |
@@ -1861,69 +1875,83 @@ screen.
    |                           |                | *Off* (no compression); selecting a compression algorithm can reduce the size of the data being replicated   |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Limit (kB/s)              | integer        | limits replication speed to specified value in kilobytes/second; default of *0* is unlimited                 |
+   | Limit (kB/s)              | integer        | limit replication speed to the specified value in kilobytes/second; default of *0* is unlimited              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Begin                     | drop-down menu | the replication cannot start before this time; the times selected in the :guilabel:`Begin` and               |
-   |                           |                | :guilabel:`End` fields set the replication window for when replication can occur                             |
+   | Begin                     | drop-down menu | replication is not allowed to start before this time; times entered in the :guilabel:`Begin` and             |
+   |                           |                | :guilabel:`End` fields set when replication can occur                                                        |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | End                       | drop-down menu | the replication must start by this time; once started, replication will occur until it is finished (see NOTE |
-   |                           |                | below)                                                                                                       |
+   | End                       | drop-down menu | replication must start by this time; once started, replication will continue until it is finished            |
+   |                           |                |                                                                                                              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | Enabled                   | checkbox       | uncheck to disable the scheduled replication task without deleting it                                        |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote hostname           | string         | IP address or DNS name of *PULL*                                                                             |
+   | Remote hostname           | string         | IP address or DNS name of remote computer where replication is sent                                          |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote port               | string         | must match port being used by SSH service on *PULL*                                                          |
+   | Remote port               | string         | the port used by the SSH server on the remote or target computer                                             |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Dedicated User Enabled    | checkbox       | allows a user account other than root to be used for replication                                             |
+   | Dedicated User Enabled    | checkbox       | allow a user account other than root to be used for replication                                              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | Dedicated User            | drop-down menu | only available if :guilabel:`Dedicated User Enabled` is checked; select the user account                     |
    |                           |                | to be used for replication                                                                                   |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Encryption Cipher         | drop-down menu | choices are *Standard* or                                                                                    |
+   | Encryption Cipher         | drop-down menu | *Standard* or                                                                                                |
    |                           |                | *Fast*                                                                                                       |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote hostkey            | string         | use the :guilabel:`SSH Key Scan` button to retrieve the public key of *PULL*                                 |
-   |                           |                |                                                                                                              |
+   | Remote hostkey            | string         | use the :guilabel:`SSH Key Scan` button to retrieve the public host key of the remote or target              |
+   |                           |                | computer and populate this field with that key                                                               |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
 
 
-By default, replication occurs when snapshots occur. For example, if
-snapshots are scheduled for every 2 hours, replication occurs every 2
-hours. The initial replication can take a significant period of time,
-from many hours to possibly days, as the structure of the entire ZFS
-pool needs to be recreated on the remote system. The actual time will
-depend upon the size of the pool and the speed of the network.
-Subsequent replications will take far less time, as only the modified
-data will be replicated.
+The replication task runs after a new periodic snapshot is created.
+The periodic snapshot and any new manual snapshots of the same dataset
+are replicated onto the target computer.
 
-The :guilabel:`Begin` and :guilabel:`End` times can be used to create
-a window of time where replication occurs. The default times allow
-replication to occur at any time of the day a snapshot occurs. Change
-these times if snapshot tasks are scheduled during office hours but
-the replication itself should occur after office hours. For the
-:guilabel:`End` time, consider how long replication will take so that
-it finishes before the next day's office hours begin.
+When multiple replications have been created, replication tasks run
+serially, one after another. How long they take to complete depends on
+the number and size of snapshots and the bandwidth available between
+the source and target computers.
 
-After the replication task is saved, *PUSH* will immediately attempt
-to replicate its latest snapshot to *PULL*. If the replication is
-successful, the snapshot appears in the
-:menuselection:`Storage --> Snapshots`
-tab of *PULL*. Also, the :guilabel:`Last snapshot sent to remote side`
-and :guilabel:`Status` fields of
-:menuselection:`Storage --> Snapshots`
-on *PUSH* indicate when the last snapshot was successfully sent
-to that :guilabel:`Remote Hostname`. If the snapshot is not
-replicated, refer to
-:ref:`Troubleshooting Replication` for troubleshooting tips.
+The first time a replication runs, it must duplicate data structures
+from the source to the target computer. This can take much longer to
+complete than subsequent replications, which only send differences in
+data.
+
+On
+:menuselection:`Storage --> Replication Tasks`,
+:guilabel:`Last snapshot sent to remote side` shows the name of the
+last snapshot that was successfully replicated, and :guilabel:`Status`
+shows the current status of the replication task.
+
+
+.. note:: The encryption key that was copied from the source computer
+   (*Alpha*) to the target computer (*Beta*) is an RSA public
+   key located in the :file:`/data/ssh/replication.pub` file on the
+   source computer. The host public key used to identify the target
+   (*Beta*) computer is from the :file:`/etc/ssh/ssh_host_rsa_key.pub`
+   file on the target computer.
+
+
+Setting Replication Times
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The :guilabel:`Begin` and :guilabel:`End` times in a replication task
+make it possible to restrict when replication is allowed. These times
+can be set to only allow replication after business hours, or at other
+times when disk or network activity will not slow down other
+operations like snapshots or :ref:`Scrubs`. The default settings allow
+replication to occur at any time.
+
+These times control when replication task are allowed to start, but
+will not stop a replication task that is already running. Once a
+replication task has begun, it will run until finished.
 
 
 .. _Troubleshooting Replication:
@@ -1931,63 +1959,74 @@ replicated, refer to
 Troubleshooting Replication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you have followed all of the steps above and *PUSH* snapshots
-are not replicating to *PULL*, check to see if SSH is working
-properly. On *PUSH*, open Shell and try to :command:`ssh` into *PULL*.
-Replace **hostname_or_ip** with the value for *PULL*:
+Replication depends on disks, network, and encryption to work. A
+failure or misconfiguration of any of these can prevent successful
+replication.
+
+:ref:`SSH` must be able to connect from the source system to the
+target system with an encryption key. This can be tested from
+:ref:`Shell` by making an :ref:`SSH` connection from the source
+system to the target system. From the previous example, this is a
+connection from *Alpha* to *Beta* at *10.0.0.118*.
+Start the :ref:`Shell` on the source machine (*Alpha*), then enter
+this command:
 
 .. code-block:: none
 
-   ssh -vv -i /data/ssh/replication hostname_or_ip
+   ssh -vv -i /data/ssh/replication 10.0.0.118
 
 
-This command should not ask for a password. If it asks for a password,
-SSH authentication is not working. Go to
-:menuselection:`Storage --> Replication Tasks`
-and click the :guilabel:`View Public Key` button. Make sure that it
-matches one of the values in :file:`/~/.ssh/authorized_keys` on
-*PULL*, where :file:`~` represents the home directory of the
-replication user.
-
-Also check :file:`/var/log/auth.log` on *PULL* and
-:file:`/var/log/messages` on *PUSH* to see if either log gives an
-indication of the error.
-
-If the key is correct and replication is still not working, try
-deleting all snapshots on *PULL* except for the most recent one. In
-:menuselection:`Storage --> Snapshots`
-check the box next to every snapshot except for the last one (the one
-with 3 icons instead of 2), then click the global :guilabel:`Destroy`
-button at the bottom of the screen.
-
-Once you have only one snapshot, open Shell on *PUSH* and use the
-:command:`zfs send` command. To continue our example, the ZFS snapshot
-on the *local/data* dataset of *PUSH* is named
-:file:`auto-20110922.1753-2h`, the IP address of *PULL* is
-*192.168.2.6*, and the ZFS volume on *PULL* is :file:`remote`. Note
-that the **@** is used to separate the volume/dataset name from the
-snapshot name:
+On the first connection, the system might say
 
 .. code-block:: none
 
-   zfs send local/data@auto-20110922.1753-2h | ssh -i /data/ssh/replication 192.168.2.6 zfs receive local/data@auto-20110922.1753-2h
+   No matching host key fingerprint found in DNS.
+   Are you sure you want to continue connecting (yes/no)?
 
 
-.. note:: If the :command:`zfs send` fails, open :ref:`Shell` on
-   *PULL* and use the
-   :command:`zfs destroy -R volume_name@snapshot_name`
-   command to delete the stuck snapshot. You can then use the
-   :command:`zfs list -t snapshot` on *PULL* to confirm if the
-   snapshot successfully replicated.
+Verify that this is the correct target computer and type
+:literal:`yes`. At this point, an :ref:`SSH` shell connection is open
+to the target system, *Beta*.
 
-After successfully transmitting the snapshot, check again after the
-time period between snapshots lapses to see if the next snapshot
-successfully transmitted. If it is still not working, you can manually
-send the specified snapshot with this command:
+If a password is requested, SSH authentication is not working. See
+:numref:`Figure %s <zfs_copy_replication_key_fig>` above. This key
+value must be present in the :file:`/root/.ssh/authorized_keys` file
+on *Beta*, the target machine. The :file:`/var/log/auth.log` file can
+show diagnostic errors for login problems on the target machine also.
+
+On *Alpha*, the source machine, the :file:`/var/log/messages` file can
+also show helpful messages to locate the problem.
+
+On the source machine (*Alpha*), open a :ref:`Shell` and manually send
+a single snapshot to the target machine, *Beta*. The snapshot used in
+this example is named :file:`auto-20161206.1110-2w`. As before, it is
+located in the *alphavol/alphadata* dataset. A :literal:`@` symbol
+separates the name of the dataset from the name of the snapshot in the
+command.
+
 
 .. code-block:: none
 
-   zfs send local/data@auto-20110922.1753-2h | ssh -i /data/ssh/replication 192.168.2.6 zfs receive local/data@auto-20110922.1753-2h
+   zfs send alphavol/alphadata@auto-20161206.1110-2w | ssh -i /data/ssh/replication 10.0.0.118 zfs recv betavol
+
+
+If a snapshot of that name already exists on the target system, the
+system will refuse to overwrite it with the new snapshot. The existing
+snapshot on the target system can be deleted by opening a :ref:`Shell`
+on *Beta* and running this command:
+
+
+.. code-block:: none
+
+   zfs destroy -R betavol/alphadata@auto-20161206.1110-2w
+
+
+Then send the snapshot manually again. Snapshots on the target system
+(*Beta*) can be listed from the :ref:`Shell` with
+:samp:`zfs list -t snapshot` or by going to
+:menuselection:`Storage --> Snapshots`.
+
+Error messages here can indicate any remaining problems.
 
 
 .. index:: Scrub
