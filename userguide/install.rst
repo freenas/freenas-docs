@@ -211,16 +211,15 @@ TERMINAL, navigate to the Desktop, then type this command:
 This shows which devices are available to the system. Locate the
 target USB stick and record the path. If you are not sure which path
 is the correct one for the USB stick, remove the device, run the
-command again, and compare the difference. Once you are sure of the
-device name, navigate to the Desktop from TERMINAL, unmount the USB
-stick, and use the :command:`dd` command to write the image to the USB
-stick. In
-:ref:`Example: Using dd on an OS X System <install_dd_osx_topic>`,
-the USB thumb drive is :file:`/dev/disk1`,
-which is first unmounted. The :command:`dd` command uses
-:file:`/dev/rdisk1` (note the extra *r*) to write to the raw device,
-which is faster. When running these commands, substitute the name of
-the installation file and the correct path to the USB thumb drive.
+command again, and compare the difference. Once sure of the device
+name, navigate to the Desktop from TERMINAL, unmount the USB stick,
+and use the :command:`dd` command to write the image to the USB stick.
+In :ref:`Example: Using dd on an OS X System <install_dd_osx_topic>`,
+the USB thumb drive is :file:`/dev/disk1`, which is first unmounted.
+The :command:`dd` command uses :file:`/dev/rdisk1` (note the extra
+*r*) to write to the raw device, which is faster. When running these
+commands, substitute the name of the installation file and the correct
+path to the USB thumb drive.
 
 
 .. topic:: Example: Using *dd* on an OS X System
@@ -496,7 +495,7 @@ Be aware of these caveats **before** attempting an upgrade to
   in :ref:`Import Disk` to mount the UFS-formatted disk to copy the
   data to the ZFS volume. With only one disk, back up its data to
   another system or media before the upgrade, format the disk as ZFS
-  after the upgrade, then restore the backup. If your data currently
+  after the upgrade, then restore the backup. If the data currently
   resides on a UFS RAID of disks, you will not be able to import that
   data to the ZFS volume. Instead, back up that data before the
   upgrade, create a ZFS volume after the upgrade, then restore the
@@ -532,9 +531,9 @@ Be aware of these caveats **before** attempting an upgrade to
   there are no guarantees as that driver and firmware combination is
   untested.
 
-* If you are upgrading from 9.3.x, read the
+* If upgrading from 9.3.x, please read the
   `FAQ: Upgrading from 9.3 to 9.10
-  <https://forums.freenas.org/index.php?threads/faq-upgrading-from-9-3-to-9-10.42964/>`_
+  <https://wiki.freenas.org/index.php/Frequently_Asked_Questions_(FAQ)#Upgrading_from_9.3_to_9.10>`_
   first.
 
 
