@@ -1861,8 +1861,8 @@ options in the replication task dialog.
    |                           |                | not present, it will be created; :file:`/mnt/` is assumed, do not include it in the path                     |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Recursively replicate     | checkbox       | when checked, also replicate child datasets of the main dataset                                              |
-   |                           |                |                                                                                                              |
+   | Recursively replicate     | checkbox       | when checked, also replicate snapshots of datasets that are children of the main dataset                     |
+   | child dataset's snapshots |                |                                                                                                              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | Delete stale snapshots    | checkbox       | when checked, delete previous snapshots on the remote or target computer which are no longer present         |
