@@ -1813,7 +1813,7 @@ chosen lifetime of two weeks expires.
    Create a Periodic Snapshot for Replication
 
 
-Still on *Alpha*, create the replication task with by clicking
+Still on *Alpha*, create the replication task by clicking
 :guilabel:`Replication Tasks` and :guilabel:`Add Replication`.
 *alphavol/alphadata* is selected as the dataset to replicate.
 *betavol* is the destination volume. The *alphadata* dataset and
@@ -2171,8 +2171,8 @@ The listing will include the name of the volume or dataset, the name
 of each snapshot, and the amount of used and referenced data, where:
 
 **Used:** indicates the amount of space consumed by this dataset and
-all its descendents. This value is checked against this dataset's
-quota and reservation. The space used does not include this dataset's
+all of its descendants. This value is checked against the dataset's
+quota and reservation. The space used does not include the dataset's
 reservation, but does take into account the reservations of any
 descendent datasets. The amount of space that a dataset consumes from
 its parent, as well as the amount of space that are freed if this
