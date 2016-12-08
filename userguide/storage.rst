@@ -1720,7 +1720,7 @@ data and a target system where the data is replicated.
 The target system is prepared to receive replicated data, a
 :ref:`periodic snapshot <Periodic Snapshot Tasks>` of the data on the
 source system is created, and then a replication task is created. As
-snapshot are created automatically on the source system, they are
+snapshots are created automatically on the source system, they are
 replicated to the target system.
 
 
