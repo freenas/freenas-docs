@@ -60,6 +60,11 @@ built-in features by installing additional software.
 What Is New in |version|
 ------------------------
 
+* The installer now provides an option to install the updated system
+  into a new boot environment instead of formatting the boot device.
+  This makes updates safer and testing different versions more
+  convenient.
+
 * A new FQDN checkbox has been added to the :guilabel:`Advanced`
   :ref:`System` settings. Checking this causes fully-qualified domain
   names to be included in syslogd output, making it easier to identify
