@@ -612,8 +612,26 @@ boot drive or drives and presents the message shown in
 To perform an upgrade, press :kbd:`Enter` to accept the default of
 :guilabel:`Upgrade Install`. Again, the installer will remind you that
 the operating system should be installed on a disk that is not used
-for storage. Press :kbd:`Enter` to start the upgrade. The installer
-unpacks the new image and displays the menu shown in
+for storage.
+
+
+.. _install_new_boot_environment_fig:
+
+.. figure:: images/upgrade5.png
+
+   Install in New Boot Environment or Format
+
+
+The updated system can be installed in a new boot environment,
+or the entire boot device can be formatted to start fresh. Installing
+into a new boot environment preserves the old code, allowing a
+roll-back to previous versions if necessary. Formatting the boot
+device is usually not necessary but can reclaim space. User data and
+settings are preserved when installing to a new boot environment and
+also when formatting the boot device. Move the highlight to one of the
+options and press :kbd:`Enter` to start the upgrade.
+
+The installer unpacks the new image and displays the menu shown in
 :numref:`Figure %s <preserve_migrate_fig>`.
 The database file that is preserved and migrated contains your %brand%
 configuration settings.
@@ -626,17 +644,18 @@ configuration settings.
    Preserve and Migrate Settings
 
 
-Press :kbd:`Enter` and %brand% will indicate that the upgrade is
-complete and that you should reboot. Press :guilabel:`OK`, highlight
-:guilabel:`3 Reboot System`, and press :kbd:`Enter` to reboot the
-system. If the upgrade installer was booted from CD, remove the CDROM.
+Press :kbd:`Enter`. %brand% indicates that the upgrade is complete and
+a reboot is required. Press :guilabel:`OK`, highlight
+:guilabel:`3 Reboot System`, then press :kbd:`Enter` to reboot the
+system. If the upgrade installer was booted from CD, remove the CD.
 
 During the reboot there may be a conversion of the previous
 configuration database to the new version of the database. This
 happens during the "Applying database schema changes" line in the
 reboot cycle. This conversion can take a long time to finish,
-sometimes fifteen minutes or more, so be patient and the boot will
-complete normally. If database errors are shown but the graphical
+sometimes fifteen minutes or more, and might have to reboot the system
+again afterwards. Please be patient and the system will start
+normally. If database errors are shown but the graphical
 administrative interface is accessible, go to
 :menuselection:`Settings --> General`
 and use the :guilabel:`Upload Config` button to upload the
