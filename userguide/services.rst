@@ -203,7 +203,7 @@ a network or to join an existing :ref:`Active Directory` network as a
 domain controller.
 
 .. note:: This section demonstrates how to configure the %brand%
-   system to act as a domain controller. If your goal is to integrate
+   system to act as a domain controller. If the goal is to integrate
    with an existing :ref:`Active Directory` network to access its
    authentication and authorization services, configure
    :ref:`Active Directory` instead.
@@ -213,8 +213,8 @@ that requires a good understanding of how :ref:`Active Directory`
 works. While
 :menuselection:`Services --> Domain Controller`
 makes it easy to input the needed settings into the administrative
-graphical interface, it is up to you to understand what those settings
-should be. Before beginning your configuration, read through the
+graphical interface, it is important to understand what those settings
+should be. Before beginning configuration, read through the
 `Samba AD DC HOWTO
 <https://wiki.samba.org/index.php/Samba_AD_DC_HOWTO>`_.
 After %brand% is configured, use the RSAT utility from a Windows
@@ -271,9 +271,19 @@ summarizes the available options.
    | Administrator password | string         | password to be used for the :ref:`Active Directory` administrator account                                                                                                                 |
    |                        |                |                                                                                                                                                                                           |
    +------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Kerberos Realm         | drop-down menu | this drop-down menu will auto-populate using the information from :guilabel:`Realm` when the settings in this screen are saved                                                            |
+   | Kerberos Realm         | drop-down menu | auto-populates with information from the :guilabel:`Realm` when the settings in this screen are saved                                                                                     |
    |                        |                |                                                                                                                                                                                           |
    +------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+.. _Samba Domain Controller Backup:
+
+Samba Domain Controller Backup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A :command:`samba_backup` script is available to back up Samba4 domain
+controller settings is available. From the :ref:`Shell`, run
+:samp:`/usr/local/bin/samba_backup --usage` to show the input options.
 
 
 .. index:: Dynamic DNS, DDNS
@@ -282,7 +292,7 @@ summarizes the available options.
 Dynamic DNS
 -----------
 
-Dynamic DNS (DDNS) is useful if your %brand% system is connected to
+Dynamic DNS (DDNS) is useful if the %brand% system is connected to
 an ISP that periodically changes the IP address of the system. With
 dynamic DNS, the system can automatically associate its current IP
 address with a domain name, allowing you to access the %brand% system

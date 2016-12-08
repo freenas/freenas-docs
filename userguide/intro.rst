@@ -81,6 +81,9 @@ What Is New in |version|
 
 * LDAP failing to bind to the domain on startup causes an alert.
 
+* A new script for backing up Samba4 domain controller settings has
+  been added. See :ref:`Samba Domain Controller Backup`.
+
 * The UPS shutdown command can now be customized.
 
 * :ref:`freenas-debug` can now include GRUB configuration information.
