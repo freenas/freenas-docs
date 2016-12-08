@@ -1984,9 +1984,9 @@ On the first connection, the system might say
    Are you sure you want to continue connecting (yes/no)?
 
 
-Verify that this is the correct target computer and type
-:literal:`yes`. At this point, an :ref:`SSH` shell connection is open
-to the target system, *Beta*.
+Verify that this is the correct target computer from the proceeding
+information on the screen and type :literal:`yes`. At this point, an
+:ref:`SSH` shell connection is open to the target system, *Beta*.
 
 If a password is requested, SSH authentication is not working. See
 :numref:`Figure %s <zfs_copy_replication_key_fig>` above. This key
