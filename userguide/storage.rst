@@ -1709,9 +1709,7 @@ Replication Tasks
 to another. When a new snapshot is created on the source computer, it
 is automatically replicated to the target computer. Replication is
 typically used to keep a copy of files on a separate %brand% system,
-with that system sometimes being at a different physical location. For
-security, replicated data is encrypted before being sent over the
-network.
+with that system sometimes being at a different physical location.
 
 
 Replication Overview
@@ -1823,7 +1821,16 @@ snapshots are replicated there. The IP address of *Beta* is entered in
 the :guilabel:`Remote hostname` field as shown in
 :numref:`Figure %s <zfs_create_repl1_fig>`.
 A hostname can be entered here if local DNS resolves for that
-hostname. Click the :guilabel:`SSH Key Scan` button to retrieve the
+hostname.
+
+:guilabel:`Encryption Cipher` is left at the default *Standard*
+setting to provide good security. *Fast* is less secure than
+*Standard* but can provide reasonable transfer rates for devices with
+limited cryptographic speed. For networks where the entire path
+between source and target computers is trusted, the *Disabled* option
+can be chosen to send replicated data without encryption.
+
+Click the :guilabel:`SSH Key Scan` button to retrieve the
 SSH host keys from *Beta* and fill the :guilabel:`Remote hostkey`
 field. Finally, click :guilabel:`OK` to create the replication task.
 
