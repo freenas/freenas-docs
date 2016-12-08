@@ -282,7 +282,7 @@ as shown in
 
 .. _console_setup_fig:
 
-.. figure:: images/install2b.png
+.. figure:: images/install2c.png
 
    Console Setup
 
