@@ -6,25 +6,24 @@ Storage
 The Storage section of the graphical interface allows configuration of
 these options:
 
-* :ref:`Volumes` is used to create and manage storage volumes.
+* :ref:`Volumes` creates and manages storage volumes.
 
-* :ref:`Periodic Snapshot Tasks` is for scheduling the automatic
-  creation of filesystem snapshots.
+* :ref:`Periodic Snapshot Tasks` schedules automatic creation of
+  filesystem snapshots.
 
 * :ref:`Replication Tasks` automates the replication of snapshots to
   a remote system.
 
-* :ref:`Scrubs` is used to schedule scrubs as part of ongoing disk
-  maintenance.
+* :ref:`Scrubs` schedules scrubs as part of ongoing disk maintenance.
 
-* :ref:`Snapshots` is used to manage local snapshots.
+* :ref:`Snapshots` manages local snapshots.
 
-* :ref:`VMware-Snapshot` is for coordinating ZFS snapshots with a
-  VWware datastore.
+* :ref:`VMware-Snapshot` coordinates ZFS snapshots with a
+  VMware datastore.
 
 
 #ifdef truenas
-.. note:: if the %brand% system has been configured as the passive
+.. note:: If the %brand% system has been configured as the passive
    node in a failover configuration, the screens shown in this chapter
    will be replaced by a message indicating that this node is passive.
    All of the options discussed in this chapter can only be configured
