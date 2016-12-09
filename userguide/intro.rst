@@ -64,6 +64,9 @@ What Is New in |version|
   into a new boot environment instead of formatting the boot device.
   This makes updates safer and testing different versions more
   convenient.
+  
+* A new :guilabel:`Setup mode` drop-down menu has been added to
+  :menuselection:`Storage --> Replication Tasks --> Add Replication`.
 
 * A new FQDN checkbox has been added to the :guilabel:`Advanced`
   :ref:`System` settings. Checking this causes fully-qualified domain
