@@ -214,6 +214,10 @@ information given when the share was created.
    | Hosts Deny                   | string        | only available in :guilabel:`Advanced Mode`; comma, space, or tab-delimited list of denied                    |
    |                              |               | hostnames or IP addresses                                                                                     |
    +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   | Auxiliary Parameters         | string        | additional `afp.conf <http://netatalk.sourceforge.net/3.1/htmldocs/afp.conf.5.html>`_ parameters not covered  |
+   |                              |               | by other option fields                                                                                        |
+   |                              |               |                                                                                                               |
+   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
 
 
 .. _Creating AFP Guest Shares:

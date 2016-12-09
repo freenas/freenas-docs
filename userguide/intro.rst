@@ -76,6 +76,9 @@ What Is New in |version|
 * A :guilabel:`Manual Update` button has been added to the
   :guilabel:`Update` screen in :ref:`System`. Update files can be
   applied manually with this method.
+  
+* An :guilabel:`Auxiliary Parameters` field has been added to
+  :menuselection:`Sharing --> Apple (AFP) --> Add Apple (AFP) Share`.
 
 * Samba has been updated to
   `4.4.5 <https://www.samba.org/samba/history/samba-4.4.5.html>`_.
