@@ -1383,9 +1383,7 @@ Updates can be manually downloaded as a file. These updates are then
 applied with the :guilabel:`Manual Update` button. After obtaining the
 update file, click :guilabel:`Manual Update` and choose a location to
 temporarily store the file on the %brand% system. Use the file browser
-to locate the update file, then enter the SHA256 checksum to verify
-that the file has not been corrupted. Finally, click
-:guilabel:`Apply Update` to apply.
+to locate the update file, then click :guilabel:`Apply Update` to apply.
 
 
 #ifdef truenas
