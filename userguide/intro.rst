@@ -68,6 +68,9 @@ What Is New in |version|
 * The installer warns the user if the computer has less than the
   minimum recommended amount of memory.
 
+* The installer offers an option to set up either UEFI or traditional
+  BIOS/MBR booting.
+
 * A new :guilabel:`Setup mode` drop-down menu has been added to
   :menuselection:`Storage --> Replication Tasks --> Add Replication`.
 

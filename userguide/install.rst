@@ -374,6 +374,25 @@ installation.
    that the administrative GUI should be behind a properly configured
    firewall and protected by a secure password.
 
+
+%brand% can be configured to boot with the standard BIOS boot
+mechanism or UEFI booting as shown
+:numref:`Figure %s <uefi_or_bios_fig>`.
+BIOS booting is recommended for legacy and enterprise hardware. UEFI
+is used on newer consumer motherboards.
+
+
+.. _uefi_or_bios_fig:
+
+.. figure:: images/install5.png
+
+   Choose UEFI or BIOS Booting
+
+
+.. note:: Most UEFI systems can also boot in BIOS mode if CSM
+   (Compatibility Support Module) is enabled in the UEFI setup
+   screens.
+
 The message in
 :numref:`Figure %s <install_complete_fig>`
 is shown after the installation is complete.
