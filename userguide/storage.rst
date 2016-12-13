@@ -1724,8 +1724,8 @@ automatically replicated to the destination computer.
 Examples: Common Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The examples shown here both start with the same setup of source and
-destination computers.
+The examples shown here use the same setup of source and destination
+computers.
 
 
 *Alpha* (Source)
@@ -1889,10 +1889,10 @@ copied key into the :guilabel:`SSH Public Key` field and click
 
 Back on *Alpha*, create the replication task by clicking
 :guilabel:`Replication Tasks` and :guilabel:`Add Replication`.
-*alphavol/alphadata* is selected as the dataset to replicate.
-*betavol* is the destination volume. The *alphadata* dataset and
-snapshots are replicated there. The IP address of *Beta* is entered in
-the :guilabel:`Remote hostname` field as shown in
+*alphavol/alphadata* is selected as the dataset to replicate. The
+destination volume is *betavol*. The *alphadata* dataset and snapshots
+are replicated there. The IP address of *Beta* is entered in the
+:guilabel:`Remote hostname` field as shown in
 :numref:`Figure %s <zfs_create_repl1_fig>`.
 A hostname can be entered here if local DNS resolves for that
 hostname.
@@ -1937,15 +1937,15 @@ options in the replication task dialog.
    |                           |                | drop-down menu is empty if a snapshot does not already exist                                                 |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote ZFS Volume/Dataset | string         | ZFS volume on the remote or target computer which will store the snapshots; if the destination dataset is    |
-   |                           |                | not present, it will be created; :file:`/mnt/` is assumed, do not include it in the path                     |
+   | Remote ZFS Volume/Dataset | string         | ZFS volume on the remote or destination computer which will store the snapshots; if the destination dataset  |
+   |                           |                | is not present, it will be created; :file:`/mnt/` is assumed, do not include it in the path                  |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | Recursively replicate     | checkbox       | when checked, also replicate snapshots of datasets that are children of the main dataset                     |
    | child dataset's snapshots |                |                                                                                                              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Delete stale snapshots    | checkbox       | when checked, delete previous snapshots on the remote or target computer which are no longer present         |
+   | Delete stale snapshots    | checkbox       | when checked, delete previous snapshots on the remote or destination computer which are no longer present    |
    |                           |                | on the source computer                                                                                       |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
@@ -1976,7 +1976,7 @@ options in the replication task dialog.
    | Remote hostname           | string         | IP address or DNS name of remote computer where replication is sent                                          |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote port               | string         | the port used by the SSH server on the remote or target computer                                             |
+   | Remote port               | string         | the port used by the SSH server on the remote or destination computer                                        |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | Dedicated User Enabled    | checkbox       | allow a user account other than root to be used for replication                                              |
@@ -1989,24 +1989,24 @@ options in the replication task dialog.
    |                           |                | *Fast*                                                                                                       |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote hostkey            | string         | use the :guilabel:`SSH Key Scan` button to retrieve the public host key of the remote or target              |
+   | Remote hostkey            | string         | use the :guilabel:`SSH Key Scan` button to retrieve the public host key of the remote or destination         |
    |                           |                | computer and populate this field with that key                                                               |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
 
 
 The replication task runs after a new periodic snapshot is created.
 The periodic snapshot and any new manual snapshots of the same dataset
-are replicated onto the target computer.
+are replicated onto the destination computer.
 
 When multiple replications have been created, replication tasks run
 serially, one after another. How long they take to complete depends on
 the number and size of snapshots and the bandwidth available between
-the source and target computers.
+the source and destination computers.
 
 The first time a replication runs, it must duplicate data structures
-from the source to the target computer. This can take much longer to
-complete than subsequent replications, which only send differences in
-data.
+from the source to the destination computer. This can take much longer
+to complete than subsequent replications, which only send differences
+in data.
 
 On
 :menuselection:`Storage --> Replication Tasks`,
@@ -2016,11 +2016,12 @@ shows the current status of the replication task.
 
 
 .. note:: The encryption key that was copied from the source computer
-   (*Alpha*) to the target computer (*Beta*) is an RSA public
+   (*Alpha*) to the destination computer (*Beta*) is an RSA public
    key located in the :file:`/data/ssh/replication.pub` file on the
-   source computer. The host public key used to identify the target
-   (*Beta*) computer is from the :file:`/etc/ssh/ssh_host_rsa_key.pub`
-   file on the target computer.
+   source computer. The host public key used to identify the
+   destination computer (*Beta*) is from the
+   :file:`/etc/ssh/ssh_host_rsa_key.pub` file on the destination
+   computer.
 
 
 .. _Replication Encryption:
@@ -2031,9 +2032,9 @@ Replication Encryption
 The default :guilabel:`Encryption Cipher` *Standard* setting provides
 good security. *Fast* is less secure than *Standard* but can give
 reasonable transfer rates for devices with limited cryptographic
-speed. For networks where the entire path between source and target
-computers is trusted, the *Disabled* option can be chosen to send
-replicated data without encryption.
+speed. For networks where the entire path between source and
+destination computers is trusted, the *Disabled* option can be chosen
+to send replicated data without encryption.
 
 
 .. _Limiting Replication Times:
@@ -2063,9 +2064,9 @@ failure or misconfiguration of any of these can prevent successful
 replication.
 
 :ref:`SSH` must be able to connect from the source system to the
-target system with an encryption key. This can be tested from
+destination system with an encryption key. This can be tested from
 :ref:`Shell` by making an :ref:`SSH` connection from the source
-system to the target system. From the previous example, this is a
+system to the destination system. From the previous example, this is a
 connection from *Alpha* to *Beta* at *10.0.0.118*.
 Start the :ref:`Shell` on the source machine (*Alpha*), then enter
 this command:
@@ -2083,25 +2084,27 @@ On the first connection, the system might say
    Are you sure you want to continue connecting (yes/no)?
 
 
-Verify that this is the correct target computer from the proceeding
-information on the screen and type :literal:`yes`. At this point, an
-:ref:`SSH` shell connection is open to the target system, *Beta*.
+Verify that this is the correct destination computer from the
+preceeding information on the screen and type :literal:`yes`. At this
+point, an :ref:`SSH` shell connection is open to the destination
+system, *Beta*.
 
 If a password is requested, SSH authentication is not working. See
 :numref:`Figure %s <zfs_copy_replication_key_fig>` above. This key
 value must be present in the :file:`/root/.ssh/authorized_keys` file
-on *Beta*, the target machine. The :file:`/var/log/auth.log` file can
-show diagnostic errors for login problems on the target machine also.
+on *Beta*, the destination computer. The :file:`/var/log/auth.log`
+file can show diagnostic errors for login problems on the destination
+computer also.
 
-On *Alpha*, the source machine, the :file:`/var/log/messages` file can
-also show helpful messages to locate the problem.
+On *Alpha*, the source computer, the :file:`/var/log/messages` file
+can also show helpful messages to locate the problem.
 
-On the source machine (*Alpha*), open a :ref:`Shell` and manually send
-a single snapshot to the target machine, *Beta*. The snapshot used in
-this example is named :file:`auto-20161206.1110-2w`. As before, it is
-located in the *alphavol/alphadata* dataset. A :literal:`@` symbol
-separates the name of the dataset from the name of the snapshot in the
-command.
+On the source computer, *Alpha*, open a :ref:`Shell` and manually send
+a single snapshot to the destination computer, *Beta*. The snapshot
+used in this example is named :file:`auto-20161206.1110-2w`. As
+before, it is located in the *alphavol/alphadata* dataset. A
+:literal:`@` symbol separates the name of the dataset from the name of
+the snapshot in the command.
 
 
 .. code-block:: none
@@ -2109,10 +2112,10 @@ command.
    zfs send alphavol/alphadata@auto-20161206.1110-2w | ssh -i /data/ssh/replication 10.0.0.118 zfs recv betavol
 
 
-If a snapshot of that name already exists on the target system, the
-system will refuse to overwrite it with the new snapshot. The existing
-snapshot on the target system can be deleted by opening a :ref:`Shell`
-on *Beta* and running this command:
+If a snapshot of that name already exists on the destination computer,
+the system will refuse to overwrite it with the new snapshot. The
+existing snapshot on the destination computer can be deleted by
+opening a :ref:`Shell` on *Beta* and running this command:
 
 
 .. code-block:: none
@@ -2120,8 +2123,8 @@ on *Beta* and running this command:
    zfs destroy -R betavol/alphadata@auto-20161206.1110-2w
 
 
-Then send the snapshot manually again. Snapshots on the target system
-(*Beta*) can be listed from the :ref:`Shell` with
+Then send the snapshot manually again. Snapshots on the destination
+system, *Beta*, can be listed from the :ref:`Shell` with
 :samp:`zfs list -t snapshot` or by going to
 :menuselection:`Storage --> Snapshots`.
 
