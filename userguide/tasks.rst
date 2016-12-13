@@ -34,11 +34,7 @@ Cron Jobs
 
 `cron(8) <http://www.freebsd.org/cgi/man.cgi?query=cron>`_
 is a daemon that runs a command or script on a regular schedule as a
-specified user. Typically, the user who wishes to schedule a task
-manually creates a `crontab(5)
-<http://www.freebsd.org/cgi/man.cgi?query=crontab&sektion=5>`_ using
-syntax that can be perplexing to new Unix users. The %brand% GUI
-makes it easy to schedule when the task will occur.
+specified user.
 
 :numref:`Figure %s <tasks_create_cron_job_fig>`
 shows the screen that opens after clicking
