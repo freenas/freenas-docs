@@ -1705,59 +1705,155 @@ Replication Tasks
 -----------------
 
 *Replication* is the duplication of snapshots from one %brand% system
-to another. When a new snapshot is created on the source computer, it
-is automatically replicated to the target computer. Replication is
-typically used to keep a copy of files on a separate %brand% system,
-with that system sometimes being at a different physical location.
+to another computer. When a new snapshot is created on the source
+computer, it is automatically replicated to the destination computer.
+Replication is typically used to keep a copy of files on a separate
+system, with that system sometimes being at a different physical
+location.
 
-
-Replication Overview
-~~~~~~~~~~~~~~~~~~~~
 
 The basic configuration requires a source system with the original
-data and a target system where the data is replicated.
-The target system is prepared to receive replicated data, a
+data and a destination system where the data will be replicated.
+The destination system is prepared to receive replicated data, a
 :ref:`periodic snapshot <Periodic Snapshot Tasks>` of the data on the
 source system is created, and then a replication task is created. As
-snapshots are created automatically on the source system, they are
-replicated to the target system.
+snapshots are automatically created on the source computer, they are
+automatically replicated to the destination computer.
 
 
-Replication Example
-~~~~~~~~~~~~~~~~~~~
+Examples: Common Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This example shows two %brand% systems. *Alpha* is the source system
-with data stored on volume *alphavol* in a dataset called *alphadata*,
-and *Beta* is the target system where snapshots will be replicated.
-Both systems are connected to the same network, *10.0.0.0/24* in this
-example.
+The examples shown here both start with the same setup of source and
+destination computers.
 
 
 *Alpha* (Source)
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^
 
-*Alpha* is at IP address *10.0.0.102*. A :ref:`volume <Volumes>` named
-*alphavol* has already been created, and a
-:ref:`dataset <Create Dataset>` named *alphadata* has
-been created on that volume. This dataset contains the files which
-will be snapshotted and replicated onto *Beta*. A new dataset is
-not required. Most users will already have datasets containing the
+*Alpha* is the source computer with the data to be replicated. It is
+at IP address *10.0.0.102*. A :ref:`volume <Volumes>` named *alphavol*
+has already been created, and a :ref:`dataset <Create Dataset>` named
+*alphadata* has been created on that volume. This dataset contains the
+files which will be snapshotted and replicated onto *Beta*.
+
+This new dataset has been created for this example, but a new dataset
+is not required. Most users will already have datasets containing the
 data they wish to replicate.
 
+Create a periodic snapshot of the source dataset by selecting
+:menuselection:`Storage --> Volumes`.
+Click the *alphavol/alphadata* dataset to highlight it. Create a
+:ref:`periodic snapshot <Periodic Snapshot Tasks>` of it by clicking
+:guilabel:`Periodic Snapshot Tasks`, then
+:guilabel:`Add Periodic Snapshot` as shown in
+:numref:`Figure %s <zfs_create_periodic_replication_fig>`.
 
-*Beta* (Target)
-~~~~~~~~~~~~~~~
+This example creates a snapshot of the *alphavol/alphadata* dataset
+every two hours from Monday through Friday between the hours of 9:00
+and 18:00 (6:00 PM). Snapshots are automatically deleted after their
+chosen lifetime of two weeks expires.
 
-*Beta* is at IP address *10.0.0.118*. A :ref:`volume <Volumes>` named
-*betavol* has already been created.
+
+.. _zfs_create_periodic_replication_fig:
+
+.. figure:: images/replication3.png
+
+   Create a Periodic Snapshot for Replication
 
 
-Replication Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~
+*Beta* (Destination)
+^^^^^^^^^^^^^^^^^^^^
 
-:ref:`SSH` is used to transfer snapshots, so it is enabled on *Beta*.
-The service is not needed for outgoing connections, and so does not
-need to be enabled on *Alpha*.
+*Beta* is the destination computer where the replicated data will be
+copied.  It is at IP address *10.0.0.118*. A :ref:`volume <Volumes>`
+named *betavol* has already been created.
+
+Snapshots are transferred with :ref:`SSH`. To allow incoming
+connections, this service is enabled on *Beta*. The service is not
+required for outgoing connections, and so does not need to be enabled
+on *Alpha*.
+
+
+Example: %brand% to %brand% Semi-Automatic Setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+%brand% offers a special semi-automatic setup mode that simplifies
+setting up replication.  Create the replication task on *Alpha* by
+clicking :guilabel:`Replication Tasks` and
+:guilabel:`Add Replication`. *alphavol/alphadata* is selected as the
+dataset to replicate. *betavol* is the destination volume where
+*alphadata* snapshots are replicated. The :guilabel:`Setup mode`
+dropdown is set to *Semi-automatic* as shown in
+:numref:`Figure %s <zfs_create_repl2_fig>`.
+The IP address of *Beta* is entered in the :guilabel:`Remote hostname`
+field. A hostname can be entered here if local DNS resolves for that
+hostname.
+
+
+.. _zfs_create_repl2_fig:
+
+.. figure:: images/replication6.png
+
+   Add Replication Dialog, Semi-Automatic
+
+
+The :guilabel:`Remote Auth Token` field expects a special token from
+the *Beta* computer. On *Beta*, choose
+:menuselection:`Storage --> Replication Tasks`,
+then click :guilabel:`Temporary Auth Token`. A dialog showing the
+temporary authorization token is shown as in
+:numref:`Figure %s <zfs_auth_token_fig>`.
+
+Highlight the temporary authorization token string with the mouse and
+copy it.
+
+
+.. _zfs_auth_token_fig:
+
+.. figure:: images/replication7.png
+
+   Temporary Authentication Token on Destination
+
+
+On the *Alpha* system, paste the copied temporary authorization token
+string into the :guilabel:`Remote Auth Token` field as shown in
+:numref:`Figure %s <zfs_auth_token_paste_fig>`.
+
+
+.. _zfs_auth_token_paste_fig:
+
+.. figure:: images/replication8.png
+
+   Temporary Authentication Token Pasted to Source
+
+
+Finally, click the :guilabel:`OK` button to create the replication
+task. After each periodic snapshot is created, a replication task will
+copy it to the destination system. See
+:ref:`Limiting Replication Times` for information about restricting
+when replication is allowed to run.
+
+.. note::  The temporary authorization token is only valid for a few
+   minutes. If a *Token is invalid* message is shown, get a new
+   temporary authorization token from the destination system, clear
+   the :guilabel:`Remote Auth Token` field, and paste in the new one.
+
+
+Example: %brand% to %brand% or Other Systems, Manual Setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This example uses the same basic configuration of source and
+destination computers shown above, but the destination computer is not
+required to be a %brand% system. Other operating systems can receive
+the replication if they support SSH, ZFS, and the same features that
+are in use on the source system. The details of creating volumes and
+datasets, enabling SSH, and copying encryption keys will vary when the
+destination computer is not a %brand% system.
+
+
+Encryption Keys
+^^^^^^^^^^^^^^^
 
 A public encryption key must be copied from *Alpha* to *Beta* to
 allow a secure connection without a password prompt. On *Alpha*,
@@ -1791,28 +1887,7 @@ copied key into the :guilabel:`SSH Public Key` field and click
    Paste the Replication Key
 
 
-On *Alpha*, go to
-:menuselection:`Storage --> Volumes`,
-click the *alphavol/alphadata* dataset to select it. Create a
-:ref:`periodic snapshot <Periodic Snapshot Tasks>` of it by clicking
-:guilabel:`Periodic Snapshot Tasks`, then
-:guilabel:`Add Periodic Snapshot` as shown in
-:numref:`Figure %s <zfs_create_periodic_replication_fig>`.
-
-This example creates a snapshot of the *alphavol/alphadata* dataset
-every two hours from Monday through Friday between the hours of 9:00
-and 18:00 (6:00 PM). Snapshots are automatically deleted after their
-chosen lifetime of two weeks expires.
-
-
-.. _zfs_create_periodic_replication_fig:
-
-.. figure:: images/replication3.png
-
-   Create a Periodic Snapshot for Replication
-
-
-Still on *Alpha*, create the replication task by clicking
+Back on *Alpha*, create the replication task by clicking
 :guilabel:`Replication Tasks` and :guilabel:`Add Replication`.
 *alphavol/alphadata* is selected as the dataset to replicate.
 *betavol* is the destination volume. The *alphadata* dataset and
@@ -1822,16 +1897,12 @@ the :guilabel:`Remote hostname` field as shown in
 A hostname can be entered here if local DNS resolves for that
 hostname.
 
-:guilabel:`Encryption Cipher` is left at the default *Standard*
-setting to provide good security. *Fast* is less secure than
-*Standard* but can provide reasonable transfer rates for devices with
-limited cryptographic speed. For networks where the entire path
-between source and target computers is trusted, the *Disabled* option
-can be chosen to send replicated data without encryption.
-
 Click the :guilabel:`SSH Key Scan` button to retrieve the
 SSH host keys from *Beta* and fill the :guilabel:`Remote hostkey`
 field. Finally, click :guilabel:`OK` to create the replication task.
+After each periodic snapshot is created, a replication task will copy
+it to the destination system. See :ref:`Limiting Replication Times`
+for information about restricting when replication is allowed to run.
 
 
 .. _zfs_create_repl1_fig:
@@ -1840,6 +1911,9 @@ field. Finally, click :guilabel:`OK` to create the replication task.
 
    Add Replication Dialog
 
+
+Replication Options
+~~~~~~~~~~~~~~~~~~~
 
 :numref:`Table %s <zfs_add_replication_task_opts_tab>` describes the
 options in the replication task dialog.
@@ -1949,8 +2023,23 @@ shows the current status of the replication task.
    file on the target computer.
 
 
-Setting Replication Times
-~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _Replication Encryption:
+
+Replication Encryption
+~~~~~~~~~~~~~~~~~~~~~~
+
+The default :guilabel:`Encryption Cipher` *Standard* setting provides
+good security. *Fast* is less secure than *Standard* but can give
+reasonable transfer rates for devices with limited cryptographic
+speed. For networks where the entire path between source and target
+computers is trusted, the *Disabled* option can be chosen to send
+replicated data without encryption.
+
+
+.. _Limiting Replication Times:
+
+Limiting Replication Times
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The :guilabel:`Begin` and :guilabel:`End` times in a replication task
 make it possible to restrict when replication is allowed. These times
