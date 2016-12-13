@@ -991,8 +991,9 @@ For simple sharing scenarios, :guilabel:`Advanced Mode` options are
 not needed. For more complex sharing scenarios, only change an
 :guilabel:`Advanced Mode` option after fully understanding the
 function of that option.
-`smb.conf(5) <http://www.sloop.net/smb.conf.html>`_ provides more
-details for each configurable option.
+`smb.conf(5)
+<https://www.samba.org/samba/docs/man/manpages/smb.conf.5.html>`_
+provides more details for each configurable option.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -1092,7 +1093,8 @@ settings:
   to users, put a *veto files=* line in the
   :guilabel:`Auxiliary Parameters` field. The syntax for the
   :guilabel:`veto files` option and some examples can be found
-  `here <http://www.sloop.net/smb.conf.html>`__.
+  `here
+  <https://www.samba.org/samba/docs/man/manpages/smb.conf.5.html>`__.
 
 To configure support for OS/2 clients, add this line to
 :guilabel:`Auxiliary Parameters`:

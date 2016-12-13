@@ -1201,7 +1201,8 @@ shows the global SMB configuration options which are
 described in
 :numref:`Table %s <global_smb_config_opts_tab>`.
 This configuration screen is really a front-end to
-`smb4.conf <http://www.sloop.net/smb.conf.html>`_.
+`smb4.conf
+<https://www.samba.org/samba/docs/man/manpages/smb.conf.5.html>`_.
 
 
 .. _global_smb_config_fig:
