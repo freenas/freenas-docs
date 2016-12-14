@@ -503,7 +503,12 @@ interfaces have been manually configured in
 :menuselection:`Network --> Interfaces --> View Interfaces`.
 
 If any manually-configured interfaces exist, delete them as
-**lagg creation will fail if any interfaces are manually configured**.
+**lagg creation fails if any interfaces are manually configured**.
+
+.. note:: Creating or editing link aggregations can disconnect clients
+   using the %brand% computer. Please verify that clients have saved
+   their work and are not connected through the affected networks
+   before making changes.
 
 :numref:`Figure %s <create_lagg_fig>`
 shows the configuration options when adding a lagg interface using
@@ -540,13 +545,15 @@ configuration screen shown in
 :numref:`Table %s <lagg_opts_tab>`
 describes the options in this screen.
 
-After creating the lagg interface, set the IP address manually or with
-DHCP. The connection to the web interface may be temporarily
-lost at this point as the network is restarted. The switch settings
-may also have to be changed to communicate through the new lagg
-interface.  If the IP address was set manually, it might also be
-necessary to manually enter a default gateway from the console setup
-menu option to get access into the GUI through the new lagg interface.
+If the network interface used to connect to the %brand% web GUI is a
+member of the lagg, the network connection will be lost when the new
+lagg is created. The switch settings might also require changes to
+communicate through the new lagg interface.
+
+The IP address of the new lagg can be set with DHCP or manually from
+the console setup menu. If the IP address is set manually, it might
+also be necessary to enter a default gateway to allow access to the
+GUI from the new lagg interface.
 
 
 .. _lagg_edit_fig:
