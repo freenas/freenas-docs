@@ -2185,20 +2185,20 @@ p {
     margin-bottom: 24px
 }
 h1 {
-    font-size: 100%
+    font-size: 2em
 }
-h2,
-.rst-content p.caption {
-    font-size: 100%
+h2 {
+    font-size: 1.75em
 }
 h3 {
-    font-size: 100%
+    font-size: 1.5em
 }
-h4 {
-    font-size: 100%
+h4,
+.rst-content p.caption {
+    font-size: 1.25em
 }
 h5 {
-    font-size: 110%
+    font-size: 1.1em
 }
 h6 {
     font-size: 100%
@@ -2890,6 +2890,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#730000', end
     padding: 4px 6px;
     margin-bottom: 0.809em
 }
+#wy-menu\ rst-imagebox2 {
+	margin-top: 15px;
+	margin-left: 20px;
+	margin-right: 20px;
+	border: 3px solid gray;
+	border-radius: 8px;
+	background: gray; 
+	font-size: 75%;
+	margin-left: auto;
+    margin-right: auto;
+   }
+
+   
+#wy-menu\ rst-imagebox2 > a:nth-child(4) > img:nth-child(1) {
+	width: 75%;
+	margin: 0 auto;
+	display: block;
+}
+   
 .wy-side-nav-search>a:hover,
 .wy-side-nav-search .wy-dropdown>a:hover {
     background: rgba(255,255,255,0.1) none repeat scroll 0 0;
@@ -3682,10 +3701,9 @@ span[id*='MathJax-Span'] {
 .wy-nav-side,
 div.related {
     background: #28343b;
-background: -moz-linear-gradient(top, #28343b 0%, #28343b 100%);
-background: -webkit-linear-gradient(top, #28343b 0%,#28343b 100%);
-background: linear-gradient(to bottom, #28343b 0%,#28343b 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#28343b', endColorstr='#28343b',GradientType=0 );
+	/*background-image:url("../transparentfireball.png");
+	background-position: center center;
+	background-repeat: no-repeat;*/
 }
 code.kbd,
 code.file,
