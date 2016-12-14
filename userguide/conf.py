@@ -269,7 +269,10 @@ latex_elements = {
 
 # remove blank pages
 'classoptions': ',openany',
-'babel': '\\usepackage[english]{babel}'
+'babel': '\\usepackage[english]{babel}',
+
+# strict positioning of figures
+'figure_align': 'H'
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
@@ -296,8 +299,8 @@ if tags.has('truenas'):
 # If true, show page references after internal links.
 #latex_show_pagerefs = False
 
-# If true, show URL addresses after external links.
-#latex_show_urls = False
+# Show URLs: 'no', 'footnote', or 'inline'
+latex_show_urls = 'inline'
 
 # Documents to append as an appendix to all manuals.
 #latex_appendices = []

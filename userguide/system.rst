@@ -696,10 +696,6 @@ location to save the generated ASCII text file.
    +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
 
 
-.. raw:: latex
-
-   \newpage
-
 .. index:: Autotune
 .. _Autotune:
 
@@ -1529,6 +1525,7 @@ which will sign certificates for internal use or if the CA will be
 part of a
 `certificate chain <https://en.wikipedia.org/wiki/Root_certificate>`_.
 
+
 To create a CA for internal use only, click the
 :guilabel:`Create Internal CA` button which will open the screen shown
 in
@@ -1711,10 +1708,6 @@ When completing the fields for the certificate authority, use the
 information for your organization. Since this is a self-signed
 certificate, use the CA that you imported or created using :ref:`CAs`
 as the signing authority.
-
-.. raw:: latex
-
-   \newpage
 
 
 .. _create_new_cert_fig:

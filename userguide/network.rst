@@ -362,10 +362,6 @@ configure the Java KVM Client used by the IPMI management interface.
 #endif truenas
 
 
-.. raw:: latex
-
-   \newpage
-
 .. index:: Link Aggregation, LAGG, LACP, EtherChannel
 .. _Link Aggregations:
 
@@ -611,6 +607,7 @@ GUI from the new lagg interface.
 This screen also allows the configuration of an alias for the lagg
 interface. Multiple aliases can be added with the
 :guilabel:`Add extra Alias` link.
+
 
 Click the :guilabel:`Edit Members` button, click the entry for a
 member, then click its :guilabel:`Edit` button to see the

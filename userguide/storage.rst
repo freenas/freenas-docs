@@ -137,10 +137,6 @@ be clicked if a different level of redundancy is required.
    following the instructions in :ref:`Manual Setup`.
 
 
-.. raw:: latex
-
-   \newpage
-
 :guilabel:`Volume Manager` only allows choosing a configuration if
 enough disks have been selected to create that configuration. These
 layouts are supported:
@@ -836,10 +832,6 @@ configure the system to always display these settings by checking
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
 
 
-.. raw:: latex
-
-   \newpage
-
 .. _Import Disk:
 
 Import Disk
@@ -1098,10 +1090,6 @@ and the disk chassis.
 and VCC.
 #endif truenas
 
-
-.. raw:: latex
-
-   \newpage
 
 .. _View Volumes:
 
@@ -1908,6 +1896,7 @@ for information about restricting when replication is allowed to run.
 .. _zfs_create_repl1_fig:
 
 .. figure:: images/replication5.png
+   :width: 90%
 
    Add Replication Dialog
 
@@ -2232,10 +2221,6 @@ find that a scrub is too intensive for your hardware, consider
 unchecking the :guilabel:`Enabled` button for the scrub as a temporary
 measure until the hardware can be upgraded.
 
-
-.. raw:: latex
-
-   \newpage
 
 .. index:: Snapshots
 .. _Snapshots:

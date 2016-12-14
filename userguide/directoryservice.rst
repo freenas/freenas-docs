@@ -696,10 +696,6 @@ adding a user to NIS who needs immediate access to %brand%. Otherwise
 this occurs automatically once a day as a cron job.
 
 
-.. raw:: latex
-
-   \newpage
-
 .. _NT4:
 
 NT4
@@ -774,10 +770,6 @@ Click the :guilabel:`Rebuild Directory Service Cache` button after
 adding a user to Active Directory who needs immediate access to
 %brand%. Otherwise this occurs automatically once a day as a cron job.
 
-
-.. raw:: latex
-
-   \newpage
 
 .. _Kerberos Realms:
 
