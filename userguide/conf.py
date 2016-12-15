@@ -265,11 +265,12 @@ latex_elements = {
 #'pointsize': '10pt',
 
 # Additional stuff for the LaTeX preamble.
-'preamble': '\usepackage{array,ragged2e}',
+# Add table formatting package.
+'preamble': r'''\usepackage{array,ragged2e}''',
 
 # remove blank pages
 'classoptions': ',openany',
-'babel': '\\usepackage[english]{babel}',
+'babel': r'''\usepackage[english]{babel}''',
 
 # strict positioning of figures
 'figure_align': 'H'
@@ -297,7 +298,7 @@ if tags.has('truenas'):
 #latex_use_parts = False
 
 # If true, show page references after internal links.
-#latex_show_pagerefs = False
+latex_show_pagerefs = True
 
 # Show URLs: 'no', 'footnote', or 'inline'
 latex_show_urls = 'inline'
