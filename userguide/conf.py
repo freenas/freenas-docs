@@ -6,7 +6,10 @@
 # textproc/py-sphinx_rtd_theme
 # textproc/py-sphinxcontrib-httpdomain
 
-import sys, os
+import os
+import string
+import sys
+import time
 
 templates_path = ['_templates']
 
@@ -35,7 +38,6 @@ brand = u'FreeNAS®'
 project = brand + u' User Guide'
 master_doc = 'freenas'
 extensions = [
-    'sphinx.ext.ifconfig',
     'sphinxcontrib.httpdomain'
 ]
 numfig = True
@@ -257,6 +259,57 @@ epub_show_urls = 'no'
 
 # -- Options for LaTeX output --------------------------------------------------
 
+texproject = string.replace(project, u'®', r'''\textsuperscript{\textregistered}''')
+
+PREAMBLE = r'''\def\docname{''' + texproject + '}'
+
+PREAMBLE = (PREAMBLE
+            + r'''\def\docdate{'''
+            + time.strftime("%B %Y")
+            + ' Edition}')
+
+# define custom title page
+PREAMBLE = PREAMBLE + r'''
+% FreeNAS/TrueNAS LaTeX preamble
+\usepackage[default,scale=0.95]{opensans}
+\usepackage[T1]{fontenc}
+\usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+%for ragged right tables
+\usepackage{array,ragged2e}
+\definecolor{ixblue}{cmyk}{0.85,0.24,0,0}
+\newenvironment{widemargins}{%
+\begin{list}{}{%
+  \setlength{\leftmargin}{-0.5in}%
+  \setlength{\rightmargin}{-0.5in}%
+  }\item}%
+  {\end{list}%
+}
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begin{titlepage}%
+    \newlength{\thistitlewidth}%
+    \begin{widemargins}%
+      \usefont{T1}{fos}{l}{n}%
+      \vspace*{-6mm}%
+      \fontsize{32}{36}\selectfont%
+      \docname\par%
+      \vspace*{-4.5mm}%
+      \settowidth{\thistitlewidth}{\docname}%
+      {\color{ixblue}\rule{\thistitlewidth}{1.5pt}}\par%
+      \vspace*{4.5mm}%
+      \fontsize{18}{22}\fontseries{sbc}\selectfont%
+      \docdate\par%
+    \end{widemargins}%
+    \begin{tikzpicture}[remember picture,overlay]
+      \fill [ixblue] (current page.south west) rectangle ($(current page.south east) + (0, 2in)$);
+    \end{tikzpicture}
+  \end{titlepage}
+}
+\makeatother
+'''
+
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
 #'papersize': 'letterpaper',
@@ -265,8 +318,7 @@ latex_elements = {
 #'pointsize': '10pt',
 
 # Additional stuff for the LaTeX preamble.
-# Add table formatting package.
-'preamble': r'''\usepackage{array,ragged2e}''',
+'preamble': PREAMBLE,
 
 # remove blank pages
 'classoptions': ',openany',
@@ -279,13 +331,13 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('freenas', 'FreeNAS.tex', u'FreeNAS Documentation',
+  ('freenas', 'FreeNAS.tex', texproject,
    u'iXsystems', 'manual'),
 ]
 
 if tags.has('truenas'):
     latex_documents = [
-      ('truenas', 'TrueNAS.tex', u'TrueNAS Documentation',
+      ('truenas', 'TrueNAS.tex', texproject,
        u'iXsystems', 'manual'),
     ]
 
@@ -308,37 +360,3 @@ latex_show_urls = 'inline'
 
 # If false, no module index is generated.
 #latex_domain_indices = True
-
-
-# -- Options for manual page output --------------------------------------------
-
-# One entry per manual page. List of tuples
-# (source start file, name, description, authors, manual section).
-man_pages = [
-    ('index', 'freenas', u'FreeNAS Documentation',
-     [u'iXsystems'], 1)
-]
-
-# If true, show URL addresses after external links.
-#man_show_urls = False
-
-
-# -- Options for Texinfo output ------------------------------------------------
-
-# Grouping the document tree into Texinfo files. List of tuples
-# (source start file, target name, title, author,
-#  dir menu entry, description, category)
-texinfo_documents = [
-  ('index', 'FreeNAS', u'FreeNAS Documentation',
-   u'iXsystems', 'FreeNAS', 'One line description of project.',
-   'Miscellaneous'),
-]
-
-# Documents to append as an appendix to all manuals.
-#texinfo_appendices = []
-
-# If false, no module index is generated.
-#texinfo_domain_indices = True
-
-# How to display URL addresses: 'footnote', 'no', or 'inline'.
-#texinfo_show_urls = 'footnote'
