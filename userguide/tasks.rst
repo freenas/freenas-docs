@@ -339,8 +339,9 @@ task.
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Extra options                    | string                      | `rsync(1) <http://rsync.samba.org/ftp/rsync/rsync.html>`_                                 |
-   |                                  |                             | options not covered by the GUI; note that if the "*" character is used, it must be        |
-   |                                  |                             | escaped between single quotes (e.g. '\*.txt')                                             |
+   |                                  |                             | options not covered by the GUI; if the :literal:`*` character is used, it                 |
+   |                                  |                             | must be escaped with a backslash (:literal:`\\*.txt`)                                     |
+   |                                  |                             | or used inside single quotes (:literal:`'*.txt'`)                                         |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Enabled                          | checkbox                    | uncheck to disable the rsync task without deleting it; note that when the :ref:`Rsync`    |
