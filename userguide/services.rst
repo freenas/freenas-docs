@@ -1202,7 +1202,7 @@ described in
 :numref:`Table %s <global_smb_config_opts_tab>`.
 This configuration screen is really a front-end to
 `smb4.conf
-<https://www.samba.org/samba/docs/man/manpages/smb.conf.5.html>`_.
+<https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+10.3-RELEASE+and+Ports>`_.
 
 
 .. _global_smb_config_fig:
@@ -1431,9 +1431,10 @@ a multiple of _SC_PAGESIZE (typically *4096*) to avoid memory
 fragmentation. This will increase Samba's memory requirements and
 should not be used on systems with limited RAM.
 
-If you wish to increase network performance, read the Samba section on
-`socket options
-<http://samba.org/samba/docs/man/manpages-3/smb.conf.5.html#SOCKETOPTIONS>`_.
+To increase network performance, read the Samba section on socket
+options in the
+`smb.conf manual page
+<https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+10.3-RELEASE+and+Ports>`_.
 It indicates which options are available and recommends that you
 experiment to see which are supported by your clients and improve your
 network's performance.
