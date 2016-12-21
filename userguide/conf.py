@@ -308,6 +308,13 @@ PREAMBLE = PREAMBLE + r'''
   \end{titlepage}
 }
 \makeatother
+% a plain page style for front matter
+\fancypagestyle{frontmatter}{%
+  \fancyhf{}
+  \fancyhf[FCO,FCE]{}
+  \fancyhf[FLE,FRO]{\textbf{\thepage}}
+  \fancyhf[FLO,FRE]{}
+}
 '''
 
 latex_elements = {

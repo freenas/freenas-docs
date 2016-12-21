@@ -12,6 +12,14 @@ Version |release|
 Copyright © 2011-2016
 `iXsystems <https://www.ixsystems.com/>`_
 
+
+.. raw:: latex
+
+   \par--TABLEOFCONTENTS--\par
+   \pagestyle{frontmatter}
+   \section*{Welcome}\addcontentsline{toc}{section}{Welcome}
+
+
 This Guide covers the installation and use of %brand% |release|.
 
 The %brand% User Guide is a work in progress and relies on the
@@ -29,20 +37,38 @@ This means that you have permission to copy, distribute, translate,
 and adapt the work as long as you attribute iXsystems as the original
 source of the Guide.
 
+
 #include snippets/trademarks.rst
+
+
+.. raw:: latex
+
+   \pagebreak
+   \section*{Typographic Conventions}%WB
+   \addcontentsline{toc}{section}{Typographic Conventions}
 
 
 **Typographic Conventions**
 
 The %brand% |release| User Guide uses these typographic conventions:
 
+
 #include snippets/typography.rst
+
+
+.. raw:: latex
+
+   \pagestyle{frontmatter}
 
 
 .. _Introduction:
 
 Introduction
 ============
+
+.. raw:: latex
+
+   \pagestyle{normal}
 
 %brand% is an embedded open source network-attached storage (NAS)
 operating system based on FreeBSD and released under a

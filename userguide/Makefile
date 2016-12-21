@@ -122,9 +122,12 @@ latexpdf pdf:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo "Running LaTeX files through pdflatex..."
+	# move the table of contents to a different spot
+	@sed -i '' -e '/\\tableofcontents/d' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's/\\par--TABLEOFCONTENTS--\\par/\\tableofcontents/' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	# gmake is required here
 	gmake -C $(PREPROCDIR)/$(BUILDDIR)/latex all-pdf
-	@echo "pdflatex finished; the PDF files are in $(PREPROCDIR)/$(BUILDDIR)/latex"
+	@echo "pdflatex finished; the PDF file is" $(PREPROCDIR)/$(BUILDDIR)/latex/*.pdf
 
 text:	preproc
 	cd $(PREPROCDIR) && \
