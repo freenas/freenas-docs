@@ -19,7 +19,7 @@ Welcome to the %brand% Administrator Guide.
 .. raw:: latex
 
    \pagebreak
-   \section*{Typographic Conventions}%WB
+   \section*{Typographic Conventions}
    \addcontentsline{toc}{section}{Typographic Conventions}
 
 

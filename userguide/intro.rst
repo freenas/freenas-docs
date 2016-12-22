@@ -44,7 +44,7 @@ source of the Guide.
 .. raw:: latex
 
    \pagebreak
-   \section*{Typographic Conventions}%WB
+   \section*{Typographic Conventions}
    \addcontentsline{toc}{section}{Typographic Conventions}
 
 
