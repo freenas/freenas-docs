@@ -1626,7 +1626,7 @@ summarizes the fields in this screen.
 
 .. _zfs_periodic_snapshot_fig:
 
-.. figure:: images/periodic1a.png
+.. figure:: images/periodic1b.png
 
    Creating a Periodic Snapshot
 
