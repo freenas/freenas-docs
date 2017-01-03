@@ -26,7 +26,7 @@ The following utilities are specific to RAID controllers:
 * :ref:`MegaCli`: used to configure and manage Avago MegaRAID SAS
   family of RAID controllers
 
-This section also describes the following utilities:
+This section also describes these utilities:
 
 * :ref:`freenas-debug`: the backend used to dump %brand% debugging
   information
@@ -1005,6 +1005,13 @@ use:
 .. code-block:: none
 
    freenas-debug -a
+
+
+To collect the output of every module, use :samp:`-A`:
+
+.. code-block:: none
+
+   freenas-debug -A
 
 
 .. index:: tmux
