@@ -1,4 +1,4 @@
-Copyright iXsystems 2011-2016
+Copyright iXsystems 2011-2017
 
 %brand% and the %brand% logo are registered trademarks of iXsystems.
 
