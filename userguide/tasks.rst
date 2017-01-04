@@ -450,10 +450,10 @@ require SSH to be configured before creating the rsync task:
 * the SSH service must be running on *PULL*
 
 To create the public/private key pair for the rsync user account, open
-:ref:`Shell` on *PUSH* and run :command:`ssh-keygen`. The following
-example generates an RSA type public/private key pair for the *root*
-user. When creating the key pair, do not enter the passphrase as the
-key is meant to be used for an automated task.
+:ref:`Shell` on *PUSH* and run :command:`ssh-keygen`. This example
+generates an RSA type public/private key pair for the *root* user.
+When creating the key pair, do not enter the passphrase as the key is
+meant to be used for an automated task.
 
 .. code-block:: none
 
@@ -483,10 +483,8 @@ key is meant to be used for an automated task.
  |-----------------|
 
 
-%brand% supports these types of SSH keys: DSA, and RSA. When creating
-the key, specify the type of key to use. If the key is being generated
-on another operating system, select a type of key that the key
-generation software supports.
+%brand% supports RSA keys for SSH. When creating the key, use
+:samp:`-t rsa` to specify this type of key.
 
 .. note:: If a different user account is used for the rsync task, use
    the :command:`su -` command after mounting the filesystem but
