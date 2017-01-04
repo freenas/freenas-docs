@@ -761,19 +761,27 @@ script is located in :file:`/usr/local/bin/autotune`.
 Email
 -----
 
+An automatic script sends a nightly email to the *root* user account
+containing important information such as the health of the disks.
+:ref:`Alert` events are also emailed to the *root* user account.
+However, the administrator typically does not read email directly on
+the %brand% system. Instead, these emails are usually sent to an
+external email address where they can be read more conveniently. It is
+important to configure the system so that it can send these emails to
+the administrator's remote email account so they are aware of problems
+or status changes.
+
+The first step is to set the remote address where email will be sent.
+Select
+:menuselection:`Users --> View Users`, click on *root* to highlight
+that user, then click :guilabel:`Change E-mail`. Enter the email
+address on the remote system where email is to be sent, like
+*admin@example.com*.
+
+Additional configuration is performed with
 :menuselection:`System --> Email`,
 shown in
-:numref:`Figure %s <email_conf_fig>`,
-is used to configure the email settings on the
-%brand% system.
-:numref:`Table %s <email_conf_tab>`
-summarizes the settings that can be configured using the Email tab.
-
-.. note:: It is important to configure the system so that it can
-   successfully send emails. An automatic script sends a nightly email
-   to the *root* user account containing important information such as
-   the health of the disks. :ref:`Alert` events are also emailed to
-   the *root* user account.
+:numref:`Figure %s <email_conf_fig>`.
 
 
 .. _email_conf_fig:
@@ -804,10 +812,10 @@ summarizes the settings that can be configured using the Email tab.
    | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
-   | From email           | string               | the **from** email address to be used when sending email notifications                          |
-   |                      |                      |                                                                                                 |
+   | From email           | string               | the envelope **From** address shown in the email; this can be set to assist with filtering      |
+   |                      |                      | mail on the receiving system                                                                    |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Outgoing mail server | string or IP address | hostname or IP address of SMTP server                                                           |
+   | Outgoing mail server | string or IP address | hostname or IP address of SMTP server to use for sending this email                             |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Port to connect to   | integer              | SMTP port number, typically *25*,                                                               |
@@ -820,7 +828,7 @@ summarizes the settings that can be configured using the Email tab.
    |                      |                      | *TLS*                                                                                           |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Use                  | checkbox             | enables/disables                                                                                |
+   | Use                  | checkbox             | enable/disable                                                                                  |
    | SMTP                 |                      | `SMTP AUTH <http://en.wikipedia.org/wiki/SMTP_Authentication>`_                                 |
    | Authentication       |                      | using PLAIN SASL; if checked, enter the required :guilabel:`Username` and                       |
    |                      |                      | :guilabel:`Password`                                                                            |
@@ -839,6 +847,12 @@ double-check the destination email address by clicking the
 :guilabel:`Change E-mail` button for the *root* account in
 :menuselection:`Account --> Users --> View Users`.
 Test mail cannot be sent unless the *root* email address has been set.
+
+
+.. note: The %brand% user who receives periodic email can be set with
+   :menuselection:`System --> Advanced` in the
+   :guilabel:`Periodic Notification User` field.
+
 
 
 .. index:: System Dataset
