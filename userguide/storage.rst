@@ -1640,42 +1640,42 @@ summarizes the fields in this screen.
 .. table:: Options When Creating a Periodic Snapshot
    :class: longtable
 
-   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Setting        | Value                      | Description                                                                                                  |
-   |                |                            |                                                                                                              |
-   +================+============================+==============================================================================================================+
-   | Volume/Dataset | drop-down menu             | select an existing ZFS volume, dataset, or zvol                                                              |
-   |                |                            |                                                                                                              |
-   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Recursive      | checkbox                   | select this box to take separate snapshots of the volume/dataset and each of its child datasets; if          |
-   |                |                            | unchecked, a single snapshot is taken of only the specified volume/dataset, but not any child                |
-   |                |                            | datasets                                                                                                     |
-   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Lifetime       | integer and drop-down menu | how long to keep the snapshot on this system; if the snapshot is replicated, it is not removed from the      |
-   |                |                            | receiving system when the lifetime expires                                                                   |
-   |                |                            |                                                                                                              |
-   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Begin          | drop-down menu             | do not create snapshots before this time of day                                                              |
-   |                |                            |                                                                                                              |
-   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | End            | drop-down menu             | do not create snapshots after this time of day                                                               |
-   |                |                            |                                                                                                              |
-   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Interval       | drop-down menu             | how often to take snapshot between :guilabel:`Begin` and                                                     |
-   |                |                            | :guilabel:`End` times                                                                                        |
-   |                |                            |                                                                                                              |
-   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Weekday        | checkboxes                 | which days of the week to take snapshots                                                                     |
-   |                |                            |                                                                                                              |
-   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Enabled        | checkbox                   | uncheck to disable the scheduled snapshot task without deleting it                                           |
-   |                |                            |                                                                                                              |
-   +----------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Setting            | Value                      | Description                                                                                                  |
+   |                    |                            |                                                                                                              |
+   +====================+============================+==============================================================================================================+
+   | Volume/Dataset     | drop-down menu             | select an existing ZFS volume, dataset, or zvol                                                              |
+   |                    |                            |                                                                                                              |
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Recursive          | checkbox                   | select this box to take separate snapshots of the volume/dataset and each of its child datasets; if          |
+   |                    |                            | unchecked, a single snapshot is taken of only the specified volume/dataset, but not any child                |
+   |                    |                            | datasets                                                                                                     |
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Snapshot Lifetime  | integer and drop-down menu | length of time to retain the snapshot on this system; if the snapshot is replicated, it is not removed       |
+   |                    |                            | from the receiving system when the lifetime expires                                                          |
+   |                    |                            |                                                                                                              |
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Begin              | drop-down menu             | do not create snapshots before this time of day                                                              |
+   |                    |                            |                                                                                                              |
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | End                | drop-down menu             | do not create snapshots after this time of day                                                               |
+   |                    |                            |                                                                                                              |
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Interval           | drop-down menu             | how often to take snapshot between :guilabel:`Begin` and                                                     |
+   |                    |                            | :guilabel:`End` times                                                                                        |
+   |                    |                            |                                                                                                              |
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Weekday            | checkboxes                 | which days of the week to take snapshots                                                                     |
+   |                    |                            |                                                                                                              |
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Enabled            | checkbox                   | uncheck to disable the scheduled snapshot task without deleting it                                           |
+   |                    |                            |                                                                                                              |
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
 
-If the :guilabel:`Recursive` box is checked, you do not need to create
-snapshots for every dataset individually as they are included in the
-snapshot. The downside is that there is no way to exclude certain
-datasets from being included in a recursive snapshot.
+If the :guilabel:`Recursive` box is checked, child datasets of this
+dataset are included in the snapshot and there is no need to create
+snapshots for each child dataset. The downside is that there is no way
+to exclude particular child  datasets from a recursive snapshot.
 
 When the :guilabel:`OK` button is clicked, a snapshot is taken and the
 task will be repeated according to your settings.
