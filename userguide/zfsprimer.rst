@@ -11,7 +11,7 @@ was originally developed at Sun with the intent to open source the
 filesystem so that it could be ported to other operating systems.
 After the Oracle acquisition of Sun, some of the original ZFS
 engineers founded `OpenZFS <http://open-zfs.org/wiki/Main_Page>`_
-to provided continued, collaborative development of the open
+to provide continued, collaborative development of the open
 source version. To differentiate itself from Oracle ZFS version
 numbers, OpenZFS uses feature flags. Feature flags are used to tag
 features with unique names in order to provide portability between
@@ -157,38 +157,39 @@ ZFS version 19 or earlier. ZFS pool version can be checked from the
 value of *-* means the ZFS pool is version 5000 (also known as
 *Feature Flags*) or later.
 
-**ZFS provides a read cache** in RAM, known as the ARC, to reduce read
-latency. %brand% adds ARC stats to
+**ZFS provides a read cache** in RAM, known as the ARC, which reduces
+read latency. %brand% adds ARC stats to
 `top(1) <http://www.freebsd.org/cgi/man.cgi?query=top>`_
 and includes the :command:`arc_summary.py` and :command:`arcstat.py`
 tools for monitoring the efficiency of the ARC. If an SSD is dedicated
 as a cache device, it is known as an
-`L2ARC <https://blogs.oracle.com/brendan/entry/test>`_
-and ZFS uses it to store more reads which can increase random read
-performance. L2ARC does not reduce the need for sufficient RAM. In
+`L2ARC <https://blogs.oracle.com/brendan/entry/test>`_.
+Additional read data is cached here, which can increase random read
+performance. L2ARC does *not* reduce the need for sufficient RAM. In
 fact, L2ARC needs RAM to function. If there is not enough RAM for a
-good sized ARC, performance will not increase, and in most cases will
-actually decrease, potentially causing system instability. RAM is
-always faster than disks, so always add as much RAM as possible before
-considering whether the system would benefit from a L2ARC device. With
-applications that do large amounts of *random* reads on a dataset
+adequately-sized ARC, adding an L2ARC will not increase performance.
+Performance actually decreases in most cases, potentially causing
+system instability. RAM is always faster than disks, so always add as
+much RAM as possible before considering whether the system can benefit
+from an L2ARC device.
+
+When applications perform large amounts of *random* reads on a dataset
 small enough to fit into L2ARC, read performance can be increased by
-adding a dedicated cache device using :ref:`Volume Manager`. SSD cache
-devices only help if the active data is larger than system RAM but
-small enough that a significant percentage fits on the SSD. As a
-general rule, L2ARC should not be added to a system with less than 64
-GB of RAM and the size of an L2ARC should not exceed five times the
-amount of RAM. In some cases, it may be more efficient to have two
-separate pools: one on SSDs for active data, and another on hard
-drives for rarely used content. After adding an L2ARC device, monitor
-its effectiveness using tools such as :command:`arcstat`. To increase
-the size of an existing L2ARC, stripe another cache device using
-:ref:`Volume Manager`. The GUI will always stripe L2ARC, not mirror
-it, as the contents of L2ARC are recreated at boot. Losing an L2ARC
-device will not affect the integrity of the pool, but may have an
-impact on read performance, depending upon the workload and the ratio
-of dataset size to cache size. Note that dedicated L2ARC devices
-cannot be shared between ZFS pools.
+adding a dedicated cache device. SSD cache devices only help if the
+active data is larger than system RAM but small enough that a
+significant percentage fits on the SSD. As a general rule, L2ARC
+should not be added to a system with less than 64 GB of RAM, and the
+size of an L2ARC should not exceed five times the amount of RAM. In
+some cases, it may be more efficient to have two separate pools: one
+on SSDs for active data, and another on hard drives for rarely used
+content. After adding an L2ARC device, monitor its effectiveness using
+tools such as :command:`arcstat`. To increase the size of an existing
+L2ARC, stripe another cache device with it. The GUI will always stripe
+L2ARC, not mirror it, as the contents of L2ARC are recreated at boot.
+Failure of an individual SSD from an L2ARC pool will not affect the
+integrity of the pool, but may have an impact on read performance,
+depending on the workload and the ratio of dataset size to cache size.
+Note that dedicated L2ARC devices cannot be shared between ZFS pools.
 
 **ZFS was designed to provide redundancy while addressing some of the
 inherent limitations of hardware RAID** such as the write-hole and
