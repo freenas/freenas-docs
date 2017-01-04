@@ -665,15 +665,15 @@ as each interface member will inherit from the lagg. To configure at
 the interface level
 (:numref:`Figure %s <lagg_member_edit_fig>`)
 instead, the configuration must be repeated for each interface within
-the lagg. However, some lagg options can only be set by editing the
-interface. For instance, the MTU of a lagg is inherited from the
-interface, so setting the MTU on a lagg requires setting all of the
-interfaces to the same MTU **before** creating the lagg.
+the lagg. Some options can only be set on the parent interfaces and
+are inherited by the lagg interface. For example, to set the MTU on a
+lagg, use :guilabel:`Edit Members` to set the MTU for each parent
+interface.
 
-.. note:: When changing the MTU to create a jumbo frame lagg, a reboot
-   is required.
+.. note:: A reboot is required after changing the MTU to create a
+   jumbo frame lagg.
 
-To see if the link aggregation is load balancing properly, run this
+To see if the link aggregation is properly load balancing, run this
 command from :ref:`Shell`:
 
 .. code-block:: none
