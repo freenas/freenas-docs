@@ -1286,8 +1286,8 @@ This configuration screen is really a front-end to
    |                                  |                | should be disabled when network contains an AD or LDAP server                                         |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Guest Account                    | drop-down menu | account to be used for guest access; that account must have permission to access the shared           |
-   |                                  |                | volume/dataset                                                                                        |
+   | Guest Account                    | drop-down menu | account to be used for guest access; default is *nobody*; account must have permission to access      |
+   |                                  |                | the shared volume/dataset; if Guest Account user is deleted, resets to *nobody*                       |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | File mask                        | integer        | overrides default file creation mask of 0666 which creates files with read and write access for       |
