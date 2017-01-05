@@ -925,6 +925,12 @@ If you change the pool storing the system dataset at a later time,
 dataset to the new location.
 
 
+.. note:: Depending on configuration, the system dataset can occupy a
+   large amount of space and receive frequent writes. Do not put the
+   system dataset on a flash drive or other media with limited space
+   or write life.
+
+
 .. index:: Tunables
 .. _Tunables:
 
