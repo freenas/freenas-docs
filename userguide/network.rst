@@ -225,9 +225,11 @@ checkbox below the alias, then clicking the :guilabel:`OK` button.
    :ref:`Failover` has been configured and enabled.
 #endif truenas
 
-Multiple interfaces **cannot** be members of the same subnet. Check
-the subnet mask if an error is shown when setting the IP addresses on
-multiple interfaces.
+Multiple interfaces **cannot** be members of the same subnet. See
+`Multiple network interfaces on a single subnet
+<https://forums.freenas.org/index.php?threads/multiple-network-interfaces-on-a-single-subnet.20204/>`_
+for more information. Check the subnet mask if an error is shown when
+setting the IP addresses on multiple interfaces.
 
 This screen will not allow an interface's IPv4 and IPv6 addresses
 to both be set as primary addresses.  An error is shown if both the
