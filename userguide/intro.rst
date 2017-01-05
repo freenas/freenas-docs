@@ -360,10 +360,16 @@ first.
 ZFS *vdevs*, groups of disks that act like a single device, can be
 created using disks of different sizes.  However, the capacity
 available on each disk is limited to the same capacity as the smallest
-disk in the group. For example, a *vdev* with one 2 TB and two 4 TB
+disk in the group. For example, a vdev with one 2 TB and two 4 TB
 disks will only be able to use 2 TB of space on each disk. In general,
 use disks that are the same size for the best space usage and
 performance.
+
+The
+`ZFS Drive Size and Cost Comparison spreadsheet
+<https://forums.freenas.org/index.php?threads/zfs-drive-size-and-cost-comparison-spreadsheet.38092/>`_
+is available to compare usable space provided by different quantities
+and sizes of disks.
 
 
 .. _Network Interfaces:
