@@ -951,6 +951,10 @@ summarizes the configuration options for the NFS service.
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
 
 
+.. note:: NFSv4 sets all ownership to *nobody:nobody* if user and
+   group do not match on client and server.
+
+
 .. index:: Rsync
 .. _Rsync:
 
