@@ -848,11 +848,14 @@ double-check the destination email address by clicking the
 :menuselection:`Account --> Users --> View Users`.
 Test mail cannot be sent unless the *root* email address has been set.
 
+Configuring email for TLS/SSL email providers is described in
+`Are you having trouble getting FreeNAS to email you in Gmail?
+<https://forums.freenas.org/index.php?threads/are-you-having-trouble-getting-freenas-to-email-you-in-gmail.22517/>`_.
+
 
 .. note: The %brand% user who receives periodic email can be set with
    :menuselection:`System --> Advanced` in the
    :guilabel:`Periodic Notification User` field.
-
 
 
 .. index:: System Dataset
