@@ -900,9 +900,8 @@ from filling up as :file:`/var/` has limited space.
 
 Use the drop-down menu to select the ZFS volume (pool) to contain the
 system dataset. Whenever the location of the system dataset is
-changed, a pop-up warning will indicate that the SMB service needs to
-be restarted, which will result in a temporary outage of any active
-SMB connections.
+changed, a pop-up warning indicates that the SMB service must be
+restarted, causing a temporary outage of any active SMB connections.
 
 #ifdef truenas
 .. note:: It is recommended to store the system dataset on the
@@ -1040,9 +1039,9 @@ order to enable their setting. You can determine if a sysctl is
 read-only by first attempting to change it from :ref:`Shell`. For
 example, to change the value of *net.inet.tcp.delay_ack* to *1*, use
 the command :command:`sysctl net.inet.tcp.delay_ack=1`. If the sysctl
-value is read-only, an error message will indicate that the setting is
-read-only. If you do not get an error, the setting is now applied. For
-the setting to be persistent across reboots, the sysctl must still be
+value is read-only, an error message indicates that the setting is
+read-only. If no error is shown, the setting is now applied. For the
+setting to be persistent across reboots, the sysctl must still be
 added in
 :menuselection:`System --> Tunables`.
 
@@ -1624,25 +1623,24 @@ screen adds one more option to the screen shown in
 
 Any CAs that you import or create will be added as entries in
 :menuselection:`System --> CAs`.
-The columns in this screen will indicate the name of the CA, whether
-or not it is an internal CA, whether or not the issuer is self-signed,
-the number of certificates that have been issued by the CA, the
-distinguished name of the CA, the date and time the CA was created,
-and the date and time the CA expires.
+The columns in this screen indicate the name of the CA, whether it is
+an internal CA, whether the issuer is self-signed, the number of
+certificates that have been issued by the CA, the distinguished name
+of the CA, the date and time the CA was created, and the date and time
+the CA expires.
 
-If you click the entry for a CA, the following buttons become
-available:
+Clicking the entry for a CA causes these buttons to become available:
 
-* **Export Certificate:** will prompt to browse to the location, on
-  the system being used to access the %brand% system, to save a copy
-  of the CA's X.509 certificate.
+* **Export Certificate:** prompts to browse to the location to save a
+  copy of the CA's X.509 certificate on the computer being used to
+  access the %brand% system.
 
-* **Export Private Key:** will prompt to browse to the location, on
-  the system being used to access the %brand% system, to save a copy
-  of the CA's private key. Note that this option only appears if the
-  CA has a private key.
+* **Export Private Key:** prompts to browse to the location to save a
+  copy of the CA's private key on the computer being used to access
+  the %brand% system. This option only appears if the CA has a private
+  key.
 
-* **Delete:** will prompt to confirm before deleting the CA.
+* **Delete:** prompts for confirmation before deleting the CA.
 
 
 .. index:: Certificates
@@ -2129,7 +2127,7 @@ and described in
    | Setting        | Value          | Description                                                                                                                                           |
    |                |                |                                                                                                                                                       |
    +================+================+=======================================================================================================================================================+
-   | Disabled       | checkbox       | when checked, administratively disables failover which changes the :guilabel:`HA Enabled` icon to :guilabel:`HA Disabled` and                         |
+   | Disabled       | checkbox       | when checked, administratively disable failover which changes the :guilabel:`HA Enabled` icon to :guilabel:`HA Disabled` and                          |
    |                |                | activates the :guilabel:`Master` field; an error message is generated if the standby node is not responding or failover has not been                  |
    |                |                | configured                                                                                                                                            |
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2137,16 +2135,16 @@ and described in
    |                |                | master to automatically take over when the :guilabel:`Disabled` box is unchecked                                                                      |
    |                |                |                                                                                                                                                       |
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Timeout        | integer        | specifies, in seconds, how quickly failover occurs after a network failure; the default of *0* indicates that failover either occurs immediately or,  |
+   | Timeout        | integer        | specify, in seconds, how quickly failover occurs after a network failure; the default of *0* indicates that failover either occurs immediately or,    |
    |                |                | if the system is using a link aggregation, after 2 seconds                                                                                            |
    |                |                |                                                                                                                                                       |
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync to Peer   | button         | forces a configuration change on the active node to sync to the standby node; since the HA daemon does this automatically, you should never need to   |
-   |                |                | do this unless instructed to do so by your iX support engineer                                                                                        |
+   | Sync to Peer   | button         | force configuration sync from the active node to the standby node; the standby node must be rebooted after the sync; the HA daemon does this          |
+   |                |                | automatically, do not use this unless requested by an iX support engineer                                                                             |
    |                |                |                                                                                                                                                       |
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync From Peer | button         | forces a configuration change on the standby node to sync to the active node; since the HA daemon does this automatically, you should never need to   |
-   |                |                | do this unless instructed to do so by your iX support engineer                                                                                        |
+   | Sync From Peer | button         | force configuration sync from the standby node to the active node; the HA daemon does this                                                            |
+   |                |                | automatically, do not use this unless requested by an iX support engineer                                                                             |
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -2164,8 +2162,9 @@ changes made using
 :menuselection:`System --> Failover`
 will restart networking.
 
-If you type this command without any options, it will indicate the
-status of the failover. This example was run on an active node:
+When this command is given without options, it indicates the failover
+status. This example was run on an active node:
+
 
 .. code-block:: none
 
@@ -2175,7 +2174,7 @@ status of the failover. This example was run on an active node:
 
 
 And this example was run on a system that has not been configured
-for failover
+for failover:
 
 .. code-block:: none
 
@@ -2198,25 +2197,25 @@ summarizes the available options for this command.
    | Option             | Description                                                                                 |
    |                    |                                                                                             |
    +====================+=============================================================================================+
-   | *enable*           | administratively enables failover                                                           |
+   | *enable*           | administratively enable failover                                                            |
    |                    |                                                                                             |
    +--------------------+---------------------------------------------------------------------------------------------+
-   | *disable*          | administratively disables failover                                                          |
+   | *disable*          | administratively disable failover                                                           |
    |                    |                                                                                             |
    +--------------------+---------------------------------------------------------------------------------------------+
-   | *status*           | indicates whether the node is active, passive, or non-HA                                    |
+   | *status*           | node type indicator: active, passive, or non-HA                                             |
    |                    |                                                                                             |
    +--------------------+---------------------------------------------------------------------------------------------+
-   | *takeover*         | can only be run from the passive node; will give a warning message that the current active  |
+   | *takeover*         | can only be run from the passive node; gives a warning message that the current active      |
    |                    | node will reboot                                                                            |
    +--------------------+---------------------------------------------------------------------------------------------+
-   | *giveback*         | cannot be run from the active node; will give a warning message that this node will reboot  |
+   | *giveback*         | cannot be run from the active node; gives a warning message that this node will reboot      |
    |                    |                                                                                             |
    +--------------------+---------------------------------------------------------------------------------------------+
-   | *-h* or *help*     | shows the help message (options) for this command                                           |
+   | *-h* or *help*     | show the help message (options) for this command                                            |
    |                    |                                                                                             |
    +--------------------+---------------------------------------------------------------------------------------------+
-   | *-q*               | will not display the current status if this is a non-HA node                                |
+   | *-q*               | prevent status display if this is a non-HA node                                             |
    |                    |                                                                                             |
    +--------------------+---------------------------------------------------------------------------------------------+
 #endif truenas
