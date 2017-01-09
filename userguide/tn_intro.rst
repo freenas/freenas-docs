@@ -10,7 +10,7 @@ Copyright iXsystems 2011-2017
    \section*{Welcome}\addcontentsline{toc}{section}{Welcome}
 
 
-Welcome to the %brand% Administrator Guide.
+Welcome to the %brand% User Guide.
 
 
 #include snippets/trademarks.rst
