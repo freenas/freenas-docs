@@ -1032,16 +1032,16 @@ provides more details for each configurable option.
    |                              |               | (including other home directories of other users) and when unchecked, users see only their own              |
    |                              |               | home directory                                                                                              |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Export Recycle Bin           | checkbox      | only available in :guilabel:`Advanced Mode`; deleted files are instead moved to a hidden                    |
-   |                              |               | :file:`.recycle` directory in the root folder of the share                                                  |
-   |                              |               |                                                                                                             |
+   | Export Recycle Bin           | checkbox      | only available in :guilabel:`Advanced Mode`; deleted files are moved to a hidden :file:`.recycle`           |
+   |                              |               | in the root folder of the share; the :file:`.recycle` directory can be deleted to reclaim space and is      |
+   |                              |               | automatically recreated when a file is deleted                                                              |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
    | Show Hidden Files            | checkbox      | only available in :guilabel:`Advanced Mode`; if enabled, the Windows hidden attribute is not                |
    |                              |               | set when filenames that begin with a dot (a Unix hidden file) are created; existing files are               |
    |                              |               | not affected                                                                                                |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
    | Allow Guest Access           | checkbox      | if checked, no password is required to connect to the share and all users share the permissions of the      |
-   |                              |               | guest user defined in the SMB service                                                                       |
+   |                              |               | guest user defined in the :ref:`SMB` service                                                                |
    |                              |               |                                                                                                             |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
    | Only Allow Guest Access      | checkbox      | only available in :guilabel:`Advanced Mode`; requires :guilabel:`Allow guest access` to also be             |
