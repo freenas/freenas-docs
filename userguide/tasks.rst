@@ -182,6 +182,15 @@ differences between the source and destination files. Rsync can be
 used for backups, mirroring data on multiple systems, or for copying
 files between systems.
 
+Rsync is most effective when only a relatively small amount of the
+data has changed. For large amounts of data or data that has many
+changes from the previous copy, :ref:`Replication Tasks` are usually
+the faster and better solution.
+
+Rsync is single-threaded, so gains little from multiple processor
+cores. To see whether rsync is currently running, use
+:samp:`pgrep rsync` from the :ref:`Shell`.
+
 Both ends of an rsync connection must be configured:
 
 * **the rsync server:** this system pulls (receives) the data. This
