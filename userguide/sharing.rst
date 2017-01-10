@@ -838,7 +838,7 @@ can browse the contents of the specified volume, dataset, or directory
 from a web browser.
 
 Configuring WebDAV shares is a two step process. First, create the
-WebDAV share(s) to specify which data can be accessed. Then, configure
+WebDAV shares to specify which data can be accessed. Then, configure
 the WebDAV service by specifying the port, authentication type, and
 authentication password. Once the configuration is complete, the share
 can be accessed using a URL in the format:
@@ -953,12 +953,19 @@ network has a Windows server, and whether Active Directory is being
 used. Depending on the authentication requirements, it might be
 necessary to create or import users and groups.
 
+Samba supports server-side copy of files on the same share with
+clients from Windows 8 and higher. Copying between two different
+shares is not server-side. Windows 7 clients support server-side
+copying with
+`Robocopy
+<https://technet.microsoft.com/en-us/library/cc733145>`_.
+
 This chapter starts by summarizing the available configuration
-options. It will then demonstrate some common configuration scenarios
-as well as offer some troubleshooting tips. It is recommended to first
-read through this entire chapter before creating any SMB shares so
-that you have a good idea of the best configuration scenario to meet
-your network's needs.
+options. It demonstrates some common configuration scenarios as well
+as offering some troubleshooting tips. It is recommended to first read
+through this entire chapter before creating any SMB shares to get a
+better idea of the configuration scenario that best meets your
+network's needs.
 
 .. tip:: `SMB Tips and Tricks
    <https://forums.freenas.org/index.php?resources/smb-tips-and-tricks.15/>`__
@@ -1645,7 +1652,7 @@ discovery of iSCSI devices on a TCP/IP network.
 **Extent:** the storage unit to be shared. It can either be a file or
 a device.
 
-**Portal:** indicates which IP(s) and port(s) to listen on for
+**Portal:** indicates which IP addresses and ports to listen on for
 connection requests.
 
 **LUN:** stands for Logical Unit Number and represents a logical SCSI
@@ -1660,11 +1667,13 @@ LUNs over the same TCP connection, you will experience contention from
 TCP if there is more than one target per LUN.
 
 In %brand%, iSCSI is built into the kernel. This version of iSCSI
-supports Microsoft Offloaded Data Transfer (ODX), meaning that file
-copies happen locally, rather than over the network. It also supports
-the following VAAI (vStorage APIs for Array Integration) primitives,
-where VAAI is VMware's API framework that enables certain storage
-tasks, such as large data moves, to be offloaded from the
+supports
+`Microsoft Offloaded Data Transfer (ODX),
+<https://technet.microsoft.com/en-us/library/hh831628>`_,
+meaning that file copies happen locally, rather than over the network.
+It also supports these VAAI (vStorage APIs for Array Integration)
+primitives, where VAAI is VMware's API framework that enables certain
+storage tasks, such as large data moves, to be offloaded from the
 virtualization hardware to the storage array.
 
 * **unmap:** tells ZFS that the space occupied by deleted files should
@@ -1681,8 +1690,10 @@ virtualization hardware to the storage array.
   provisioning, the necessary write of zeroes is done locally, rather
   than over the network, so virtual machine creation is much quicker.
 
-* **xcopy:** similar to Microsoft ODX, copies happen locally rather
-  than over the network.
+* **xcopy:** similar to
+  `Microsoft ODX
+  <https://technet.microsoft.com/en-us/library/hh831628>`_, copies
+  happen locally rather than over the network.
 
 * **stun:** if a volume runs out of space, this feature pauses any
   running virtual machines so that the space issue can be fixed,
