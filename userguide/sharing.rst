@@ -224,9 +224,9 @@ information given when the share was created.
 Creating AFP Guest Shares
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-AFP supports guest logins, meaning that all of your Mac OS X users can
-access the AFP share without requiring their user accounts to first be
-created on or imported into the %brand% system.
+AFP supports guest logins, meaning that Mac OS X users can access the
+AFP share without requiring their user accounts to first be created on
+or imported into the %brand% system.
 
 .. note:: When a guest share is created along with a share that
    requires authentication, AFP only maps users who log in as *guest*
@@ -248,8 +248,8 @@ the :guilabel:`Next` button twice to display the screen shown in
 :numref:`Figure %s <creating_guest_afp_share_fig>`.
 Complete these fields in this screen:
 
-#. **Share name:** enter a name for the share that is useful to you
-   but which is under 27 characters and does not contain a period. In
+#. **Share name:** enter a name for the share that is identifiable but
+   less than 27 characters long. This name cannot contain a period. In
    this example, the share is named *afp_guest*.
 
 #. Click the button for :guilabel:`Mac OS X (AFP)`.
@@ -321,8 +321,8 @@ To use the Wizard to create an authenticated or Time Machine share,
 enter the following information, as seen in the example in
 :numref:`Figure %s <create_time_machine_share_fig>`.
 
-#. **Share name:** input a name for the share that is useful to you
-   but which is under 27 characters and does not contain a period. In
+#. **Share name:** enter a name for the share that is identifiable but
+   less than 27 characters long. The name cannot contain a period. In
    this example, the share is named *backup_user1*.
 
 #. Click the button for :guilabel:`Mac OS X (AFP)` and check the box
@@ -350,7 +350,7 @@ enter the following information, as seen in the example in
    :numref:`Figure %s <create_time_machine_share_fig>`.
 
 #. Click the :guilabel:`Add` button.
-   **If you forget to do this, the share will not be created**.
+   **Remember to do this or the share will not be created**.
    Clicking the :guilabel:`Add` button adds an entry to the
    :guilabel:`Name` frame with the name that was entered in
    :guilabel:`Share name`.
@@ -387,8 +387,8 @@ backup, it will create a full backup after waiting two minutes. It
 will then create a one hour incremental backup for the next 24 hours,
 and then one backup each day, each week and each month.
 **Since the oldest backups are deleted when a Time Machine share
-becomes full, make sure that the quota size you set is sufficient to
-hold the desired number of backups.**
+becomes full, make sure that the quota size is sufficient to hold the
+desired number of backups.**
 Note that a default installation of Mac OS X is ~21 GB in size.
 
 To configure a quota, go to
@@ -443,10 +443,10 @@ image must be created using
 
 If :guilabel:`Time Machine completed a verification of
 your backups. To improve reliability, Time Machine must create a new
-backup for you.` is shown, and you do not want to perform another
-complete backup or lose past backups, follow the instructions in
+backup for you.` is shown, follow the instructions in
 `this post
-<http://www.garth.org/archives/2011,08,27,169,fix-time-machine-sparsebundle-nas-based-backup-errors.html>`_.
+<http://www.garth.org/archives/2011,08,27,169,fix-time-machine-sparsebundle-nas-based-backup-errors.html>`_
+to avoid making another backup or losing past backups.
 
 
 .. index:: NFS, Network File System
@@ -465,8 +465,8 @@ application.
 
 #ifdef freenas
 .. note:: For performance reasons, iSCSI is preferred to NFS shares
-   when %brand% is installed on ESXi. If you are considering creating
-   NFS shares on ESXi, read through the performance analysis at
+   when %brand% is installed on ESXi. When considering creating NFS
+   shares on ESXi, read through the performance analysis at
    `Running ZFS over NFS as a VMware Store
    <http://blog.laspina.ca/ubiquitous/running-zfs-over-nfs-as-a-vmware-store>`_.
 #endif freenas
@@ -608,7 +608,7 @@ scenario where there are:
 
 * :file:`dataset1` has a directory named :file:`directory1`
 
-Because of restriction #3, an error is shown if you try to create one
+Because of restriction #3, an error is shown when trying to create one
 NFS share like this:
 
 * :guilabel:`Authorized networks` set to *10.0.0.0/8 20.0.0.0/8*
@@ -616,11 +616,10 @@ NFS share like this:
 * :guilabel:`Path` set to :file:`/mnt/volume1/dataset1` and
   :file:`/mnt/volume1/dataset1/directory1`
 
-Instead, you should set a :guilabel:`Path` of
-:file:`/mnt/volume1/dataset1` and check the
-:guilabel:`All directories` box.
+Instead, set a :guilabel:`Path` of :file:`/mnt/volume1/dataset1` and
+check the :guilabel:`All directories` box.
 
-However, you could restrict that directory to one of the networks by
+That directory could also be restricted to one of the networks by
 creating two shares instead:
 
 First NFS share:
@@ -635,7 +634,7 @@ Second NFS share:
 
 * :guilabel:`Path` set to :file:`/mnt/volume1/dataset1/directory1`
 
-Note that this requires the creation of two shares as it cannot be
+Note that this requires the creation of two shares. It cannot be
 done with only one share.
 
 
@@ -795,11 +794,11 @@ Troubleshooting NFS
 ~~~~~~~~~~~~~~~~~~~
 
 Some NFS clients do not support the NLM (Network Lock Manager)
-protocol used by NFS. You will know that this is the case if the
-client receives an error that all or part of the file may be locked
-when a file transfer is attempted. To resolve this error, add the
-option **-o nolock** when running the :command:`mount` command on the
-client in order to allow write access to the NFS share.
+protocol used by NFS. This is the case if the client receives an error
+that all or part of the file may be locked when a file transfer is
+attempted. To resolve this error, add the option **-o nolock** when
+running the :command:`mount` command on the client to allow write
+access to the NFS share.
 
 If a "time out giving up" error is shown when trying to mount the
 share from a Linux system, make sure that the portmapper service is
