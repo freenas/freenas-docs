@@ -978,6 +978,10 @@ network's needs.
    videos clarify setting up permissions on SMB shares.
 
 
+.. tip:: Run :command:`smbstatus` from the :ref:`Shell` for a list of
+   active connections and users.
+
+
 :numref:`Figure %s <adding_smb_share_fig>`
 shows the configuration screen that appears after clicking
 :menuselection:`Sharing --> Windows (SMB Shares)
@@ -1291,7 +1295,7 @@ always enabled:
 * **zfs_space:** correctly calculates ZFS space used by share,
   including any reservations or quotas
 
-* **zfsacl:**
+* **zfsacl:** provide ACL extensions for proper integration with ZFS.
 
 
 .. _Configuring Unauthenticated Access:
@@ -1434,7 +1438,7 @@ immediately. The new shares are also added to
    Creating the User and Group
 
 
-Authenticated share can now be tested from any SMB client. For
+The authenticated share can now be tested from any SMB client. For
 example, to test an authenticated share from a Windows system, open
 Explorer and click on :guilabel:`Network`. For this configuration
 example, a system named *FREENAS* appears with a share named
