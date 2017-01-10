@@ -313,8 +313,13 @@ about the error condition.
 
 .. _E16 Expansion Shelf:
 
-E16 Expansion Shelf
--------------------
+E16/E16F Expansion Shelf
+------------------------
+
+
+.. note:: This product is End Of Life (EOL). Support ends January 31,
+   2020.
+
 
 The %brand% E16 expansion shelf is a 3U, 16-bay storage expansion
 unit designed specifically to work with the %brand% Storage Array.
