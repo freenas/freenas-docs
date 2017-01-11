@@ -228,8 +228,8 @@ whether your goal is to maximize disk space or performance:
   <http://blog.delphix.com/matt/2014/06/06/zfs-stripe-width/>`_
   for details.
 
-These resources can also help you determine the RAID configuration
-best suited to your storage needs:
+These resources can also help determine the RAID configuration best
+suited to your storage needs:
 
 * `Getting the Most out of ZFS Pools
   <https://forums.freenas.org/index.php?threads/getting-the-most-out-of-zfs-pools.16/>`_
