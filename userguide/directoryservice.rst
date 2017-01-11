@@ -464,7 +464,7 @@ server is running on your network, configure the %brand% LDAP service
 so network users can authenticate to the LDAP server and have
 authorized access to the data stored on the %brand% system.
 
-.. note:: LDAP authentication for SMB shares will be disabled unless
+.. note:: LDAP authentication for SMB shares is disabled unless
    the LDAP directory has been configured for and populated with Samba
    attributes. The most popular script for performing this task is
    `smbldap-tools <http://download.gna.org/smbldap-tools/>`_
@@ -474,6 +474,15 @@ authorized access to the data stored on the %brand% system.
    In addition, the LDAP server must support SSL/TLS and the
    certificate for the LDAP server must be imported with
    :menuselection:`System --> Certificates --> Import Certificate`.
+
+.. tip:: Apple's
+   `Open Directory
+   <https://manuals.info.apple.com/en_US/Open_Directory_Admin_v10.5_3rd_Ed.pdf>`_
+   is an LDAP-compatible directory service into which %brand% can be
+   integrated. See
+   `FreeNAS with Open Directory in Mac OS X environments
+   <https://forums.freenas.org/index.php?threads/howto-freenas-with-open-directory-in-mac-os-x-environments.46493/>`_.
+
 
 :numref:`Figure %s <ldap_config_fig>`
 shows the LDAP Configuration screen that is seen after clicking
