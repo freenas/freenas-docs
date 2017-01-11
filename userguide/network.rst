@@ -530,8 +530,9 @@ shows the configuration options when adding a lagg interface using
 #endif freenas
 
 To create a link aggregation, select the desired
-:guilabel:`Protocol Type`, highlight the interfaces to associate with
-the lagg device, and click the :guilabel:`OK` button.
+:guilabel:`Protocol Type`. *LACP* is preferred. If the network switch
+does not support LACP, choose *Failover*. Highlight the interfaces to
+associate with the lagg device, and click the :guilabel:`OK` button.
 
 Once the lagg device has been created, click its entry to enable its
 :guilabel:`Edit`, :guilabel:`Delete`, and :guilabel:`Edit Members`
