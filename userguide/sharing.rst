@@ -1643,8 +1643,8 @@ has not been hijacked by another system. In iSCSI, the initiator
 communication authenticate to each other.
 
 **Initiator:** a client which has authorized access to the storage
-data on the %brand% system. The client requires initiator software in
-order to initiate the connection to the iSCSI share.
+data on the %brand% system. The client requires initiator software to
+initiate the connection to the iSCSI share.
 
 **Target:** a storage resource on the %brand% system. Every target
 has a unique name known as an iSCSI Qualified Name (IQN).
@@ -2451,8 +2451,7 @@ its bandwidth usage.
 Connecting to iSCSI
 ~~~~~~~~~~~~~~~~~~~
 
-In order to access the iSCSI target, clients will need to use iSCSI
-initiator software.
+To access the iSCSI target, clients must use iSCSI initiator software.
 
 An iSCSI Initiator client is pre-installed with Windows 7. A detailed
 how-to for this client can be found
@@ -2487,8 +2486,8 @@ Some Linux distros provide the command line utility
 Use a web search to see if a package exists for your distribution
 should the command not exist on your Linux system.
 
-If you add a LUN while :command:`iscsiadm` is already connected, it
-will not see the new LUN until you rescan using
+If a LUN is added while :command:`iscsiadm` is already connected, it
+will not see the new LUN until rescanned with
 :command:`iscsiadm -m node -R`. Alternately, use
 :command:`iscsiadm -m discovery -t st -p portal_IP`
 to find the new LUN and :command:`iscsiadm -m node -T LUN_Name -l`
@@ -2506,7 +2505,12 @@ configuration. See the
 <http://www.vmware.com/pdf/vsphere4/r41/vsp_41_iscsi_san_cfg.pdf>`_
 for details.
 
-If you can see the target but not connect to it, check the
+The VMware firewall only allows iSCSI connections on port 3260 by
+default. If a different port has been selected, outgoing connections
+to that port must be manually added to the firewall before those
+connections will work.
+
+If the target can be seen but does not connect, check the
 :guilabel:`Discovery Auth` settings in
 :guilabel:`Target Global Configuration`.
 
