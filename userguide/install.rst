@@ -1072,10 +1072,6 @@ select :guilabel:`Edit Settings` to access the screen shown in
 
 Increase the :guilabel:`Memory Configuration` to **at least 8192 MB**.
 
-Under :guilabel:`CPUs`, make sure that only one virtual processor is
-listed, otherwise it will not be possible to start any %brand%
-services.
-
 To create a storage disk,
 click :menuselection:`Hard disk 1 --> Add`.
 In the :guilabel:`Device Type` menu, highlight :guilabel:`Hard Disk`
