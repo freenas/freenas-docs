@@ -118,13 +118,16 @@ changes.
 **ZFS provides a write cache** in RAM as well as a ZFS Intent Log
 (`ZIL
 <https://blogs.oracle.com/realneel/entry/the_zfs_intent_log>`_).
-The ZIL is a storage area that temporarily holds *synchronous*
-writes until they are written to the ZFS pool. Adding a fast
-(low-latency), power-protected SSD as a SLOG (*Separate Log*)
-device permits much higher performance. This is a necessity for NFS
-over ESXi, and highly recommended for database servers or other
-applications that depend on synchronous writes. More detail on SLOG
-benefits and usage is available in these blog and forum posts:
+The ZIL is a storage area that
+`temporarily holds *synchronous* writes until they are written to the
+ZFS pool
+<https://pthree.org/2013/04/19/zfs-administration-appendix-a-visualizing-the-zfs-intent-log/>`_.
+Adding a fast (low-latency), power-protected SSD as a SLOG
+(*Separate Log*) device permits much higher performance. This is a
+necessity for NFS over ESXi, and highly recommended for database
+servers or other applications that depend on synchronous writes. More
+detail on SLOG benefits and usage is available in these blog and forum
+posts:
 
 * `The ZFS ZIL and SLOG Demystified
   <http://www.freenas.org/blog/zfs-zil-and-slog-demystified/>`_
