@@ -1153,6 +1153,10 @@ pasted. Read the EULA, paste in the license key, then click
 example in
 :numref:`Figure %s <tn_initial>`.
 
+.. note:: Entering the license key for a High Availability pair is
+   not allowed unless both the active and standby computers are up.
+   The key is entered on the active computer.
+
 
 .. _tn_initial:
 
