@@ -1984,13 +1984,13 @@ To generate a support ticket, complete the following fields:
   for including configuration files or screenshots of any errors or
   tracebacks.
 
-Once you have finished completing the fields, click the
-:guilabel:`Submit` button to generate and send the support ticket to
-iXsystems. A pop-up menu will provide a clickable URL so that you can
-view the status of or add additional information to that support
-ticket. Clicking this URL will prompt you to login, or register a new
-login, if you are not already logged into the
-`iXsystems Support page <https://support.ixsystems.com/>`_.
+After completing the fields, click the :guilabel:`Submit` button to
+generate and send the support ticket to iXsystems. A pop-up menu
+provides a clickable URL to view the status of or add additional
+information to that support ticket.
+When not already logged into the
+`iXsystems Support page <https://support.ixsystems.com/>`_, clicking
+this URL prompts for a login, or to register a new login.
 
 
 .. index:: Failover
@@ -2085,16 +2085,15 @@ screen:
   failover occurs. This can be a useful configuration in a
   multipath scenario.
 
-Once the network configuration is complete, logout and log back in,
-this time using the :guilabel:`Virtual IP` address. You can now
-configure volumes and shares as usual and the configurations will
-automatically synchronize between the active and the standby node.
-A :guilabel:`HA Enabled` icon will be added after the
-:guilabel:`Alert` icon on the active node and the passive node will
-indicate the virtual IP address that is used for configuration
-management. The standby node will also have a red :guilabel:`Standby`
-icon and will no longer accept logins as all configuration changes
-must occur on the active node.
+After the network configuration is complete, log out and log back in,
+this time using the :guilabel:`Virtual IP` address. Volumes and shares 
+can now be configured as usual and configuration automatically
+synchronizes between the active and the standby node. A
+:guilabel:`HA Enabled` icon is added after the :guilabel:`Alert` icon
+on the active node. The passive or standby node indicates the virtual
+IP address that is used for configuration management. The standby node
+also has a red :guilabel:`Standby` icon and no longer accepts logins
+as all configuration changes must occur on the active node.
 
 .. note:: After the :guilabel:`Virtual IP` address is configured, all
    subsequent logins should use that address.
@@ -2146,6 +2145,12 @@ and described in
    | Sync From Peer | button         | force configuration sync from the standby node to the active node; the HA daemon does this                                                            |
    |                |                | automatically, do not use this unless requested by an iX support engineer                                                                             |
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+.. warning:: Booting an HA pair with failover disabled causes both
+   nodes to come up in standby mode. The GUI shows an additional
+   :guilabel:`Force Takeover` button which can be used to force that
+   node to take control.
 
 
 .. index:: Failover
