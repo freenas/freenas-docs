@@ -312,7 +312,7 @@ be obtained by using an HBA such as an Avago MegaRAID controller or a
 3Ware twa-compatible controller.
 
 Some Highpoint RAID controllers do not support pass-through of
-S.M.A.R.T data or other disk information, potentially including disk
+S.M.A.R.T. data or other disk information, potentially including disk
 serial numbers. It is best to use a different disk controller with
 %brand%.
 
