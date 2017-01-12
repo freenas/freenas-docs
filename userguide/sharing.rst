@@ -1743,7 +1743,7 @@ The rest of this section describes these steps in more detail.
 
 #ifdef truenas
 .. note:: If the system has been licensed for Fibre Channel, the
-   screens will vary slightly than those found in the rest of this
+   screens will vary slightly from those found in the rest of this
    section. Refer to the section on :ref:`Fibre Channel Ports` for
    details.
 #endif truenas
@@ -1761,6 +1761,17 @@ settings that apply to all iSCSI shares.
 :numref:`Table %s <iscsi_targ_global_config_tab>`
 summarizes the settings that can be configured in the Target Global
 Configuration screen.
+
+Some built-in values affect iSNS usage. Fetching of allowed initiators
+from iSNS is not implemented, so target ACLs must be configured
+manually. To make iSNS registration useful, iSCSI targets should have
+explicitly configured port IP addresses. This avoids initiators
+attempting to discover unconfigured target portal addresses like
+*0.0.0.0*.
+
+The iSNS registration period is 900 seconds. Registered Network
+Entities not updated during this period are unregistered. The timeout
+for iSNS requests is 5 seconds.
 
 
 .. _iscsi_targ_global_var_fig:
