@@ -311,6 +311,11 @@ Reliable disk alerting and immediate reporting of a failed drive can
 be obtained by using an HBA such as an Avago MegaRAID controller or a
 3Ware twa-compatible controller.
 
+Some Highpoint RAID controllers do not support pass-through of
+S.M.A.R.T data or other disk information, potentially including disk
+serial numbers. It is best to use a different disk controller with
+%brand%.
+
 Suggestions for testing disks before adding them to a RAID array can
 be found in this
 `forum post
