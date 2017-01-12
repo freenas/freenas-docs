@@ -881,6 +881,11 @@ the %brand% system is configured to be a Domain Controller, all of
 the domain controller state is stored there as well, including domain
 controller users and groups.
 
+.. note:: When the system dataset is moved, a new dataset is created
+   and set active. The old dataset is intentionally not deleted by
+   the system because the move might be transient or the information
+   in the old dataset might be useful for later recovery.
+
 
 .. _system_dataset_fig:
 
