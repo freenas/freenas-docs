@@ -2247,17 +2247,17 @@ available snapshots. An example is shown in
    Viewing Available Snapshots
 
 
-The listing will include the name of the volume or dataset, the name
-of each snapshot, and the amount of used and referenced data, where:
+The listing includes the name of the volume or dataset, the name
+of each snapshot, and the amount of used and referenced data.
 
-**Used:** indicates the amount of space consumed by this dataset and
-all of its descendants. This value is checked against the dataset's
-quota and reservation. The space used does not include the dataset's
+**Used** is the amount of space consumed by this dataset and all of
+its descendants. This value is checked against the dataset's quota and
+reservation. The space used does not include the dataset's
 reservation, but does take into account the reservations of any
 descendent datasets. The amount of space that a dataset consumes from
 its parent, as well as the amount of space that are freed if this
 dataset is recursively destroyed, is the greater of its space used and
-its reservation. When a snapshot is created, its space is initially
+its reservation. When a snapshot is created, the space is initially
 shared between the snapshot and the filesystem, and possibly with
 previous snapshots. As the filesystem changes, space that was
 previously shared becomes unique to the snapshot, and is counted in
@@ -2268,54 +2268,60 @@ account pending changes. While pending changes are generally accounted
 for within a few seconds, disk changes do not necessarily guarantee
 that the space usage information is updated immediately.
 
-**Refer:** indicates the amount of data that is accessible by this
-dataset, which may or may not be shared with other datasets in the
-pool. When a snapshot or clone is created, it initially references the
-same amount of space as the file system or snapshot it was created
-from, since its contents are identical.
+**Refer** indicates the amount of data accessible by this dataset,
+which may or may not be shared with other datasets in the pool. When a
+snapshot or clone is created, it initially references the same amount
+of space as the file system or snapshot it was created from, since its
+contents are identical.
 
-It will also indicate if the snapshot has been replicated to a remote
-system.
+**Replication** shows whether the snapshot has been replicated to a
+remote system.
 
-The most recent snapshot shows icons that allow:
+Snapshots have icons on the right side for several actions.
 
-**Clone Snapshot:** prompt for the name of the clone to create.
-The clone will be a writable copy of the snapshot. Since a clone is
-really a dataset which can be mounted, the clone will appear in the
+**Clone Snapshot** prompts for the name of the clone to create.
+A clone is a writable copy of the snapshot. Since a clone is
+really a dataset which can be mounted, the clone appears in the
 :guilabel:`Active Volumes` tab, instead of the
-:guilabel:`Periodic Snapshots` tab, and will have the word *clone* in
+:guilabel:`Periodic Snapshots` tab, and has the word *clone* in
 its name.
 
-**Destroy Snapshot:** a pop-up message will ask you to confirm this
-action. Child clones must be destroyed before their parent snapshot
-can be destroyed. While creating a snapshot is instantaneous, deleting
-a snapshot can be I/O intensive and can take a long time, especially
+**Destroy Snapshot** a pop-up message asks for confirmation. Child
+clones must be destroyed before their parent snapshot can be
+destroyed. While creating a snapshot is instantaneous, deleting a
+snapshot can be I/O intensive and can take a long time, especially
 when deduplication is enabled. In order to delete a block in a
 snapshot, ZFS has to walk all the allocated blocks to see if that
 block is used anywhere else; if it is not, it can be freed.
 
-**Rollback Snapshot:** a pop-up message will ask if you are sure that
-you want to rollback to this snapshot state. If you click
-:guilabel:`Yes`, any files that have changed since the snapshot was
-taken will be reverted back to their state at the time of the
-snapshot.
+The most recent snapshot also has a **Rollback Snapshot** icon.
+Clicking the icon asks for confirmation before rolling back to this
+snapshot state. Confirming by clicking :guilabel:`Yes` causes any
+files that have changed since the snapshot was taken to be reverted
+back to their state at the time of the snapshot.
 
-.. note:: Rollback is a potentially dangerous operation and will cause
+.. note:: Rollback is a potentially dangerous operation and causes
    any configured replication tasks to fail as the replication system
-   uses the existing snapshot when doing an incremental backup. If you
-   do need to restore the data within a snapshot, the recommended
-   steps are:
+   uses the existing snapshot when doing an incremental backup. To
+   restore the data within a snapshot, the recommended steps are:
 
    #.  Clone the desired snapshot.
 
    #.  Share the clone with the share type or service running on the
        %brand% system.
 
-   #.  Once users have recovered the needed data, destroy the clone in
-       the Active Volumes tab.
+   #.  After users have recovered the needed data, destroy the clone
+       in the :guilabel:`Active Volumes` tab.
 
-   This approach will never destroy any on-disk data and has no impact
+   This approach does not destroy any on-disk data and has no impact
    on replication.
+
+A range of snapshots can be selected with the mouse. Click on the
+checkbox in the left column of the first snapshot, then press and hold
+:kbd:`Shift` and click on the checkbox for the end snapshot. This can
+be used to select a range of obsolete snapshots to be deleted with the
+:guilabel:`Destroy` icon at the bottom. Be cautious and careful when
+deleting ranges of snapshots.
 
 Periodic snapshots can be configured to appear as shadow copies in
 newer versions of Windows Explorer, as described in
