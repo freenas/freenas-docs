@@ -222,8 +222,14 @@ such as Active Directory or other directory services. By default,
 %brand% is pre-configured to use three public NTP servers. If your
 network is using a directory service, ensure that the %brand% system
 and the server running the directory service have been configured to
-use the same NTP servers. To add a NTP server on the %brand% system,
-click
+use the same NTP servers.
+
+Available NTP servers can be found at
+`<https://support.ntp.org/bin/view/Servers/NTPPoolServers>`_.
+For time accuracy, choose NTP servers that are geographically close to
+the %brand% system's physical location.
+
+NTP servers are added by clicking on
 :menuselection:`NTP Servers --> Add NTP Server`
 to open the screen shown in
 :numref:`Figure %s <ntp_server_fig>`.
