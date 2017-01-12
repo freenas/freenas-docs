@@ -515,65 +515,63 @@ button.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
+                    |>{\Centering}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.54\linewidth-2\tabcolsep}|
 
 .. _nfs_share_opts_tab:
 
 .. table:: NFS Share Options
    :class: longtable
 
-   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Setting             | Value          | Description                                                                                                        |
-   |                     |                |                                                                                                                    |
-   +=====================+================+====================================================================================================================+
-   | Path                | browse button  | browse to the volume or dataset to be shared; click :guilabel:`Add extra path` to select multiple paths            |
-   |                     |                |                                                                                                                    |
-   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Comment             | string         | used to set the share name; if left empty, share name is the list of selected :guilabel:`Path` entries             |
-   |                     |                |                                                                                                                    |
-   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Authorized networks | string         | only available in :guilabel:`Advanced Mode`; space delimited list of allowed network addresses in the              |
-   |                     |                | form *1.2.3.0/24* where the number after the slash is a CIDR mask                                                  |
-   |                     |                |                                                                                                                    |
-   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Authorized  IP      | string         | only available in :guilabel:`Advanced Mode`; space delimited list of allowed IP addresses or hostnames             |
-   | addresses or hosts  |                |                                                                                                                    |
-   |                     |                |                                                                                                                    |
-   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | All directories     | checkbox       | if checked, the client can mount any subdirectory within the :guilabel:`Path`                                      |
-   |                     |                |                                                                                                                    |
-   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Read only           | checkbox       | prohibit writing to the share                                                                                      |
-   |                     |                |                                                                                                                    |
-   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Quiet               | checkbox       | only available in :guilabel:`Advanced Mode`; inhibits some syslog diagnostics which can be useful to               |
-   |                     |                | avoid some annoying error messages; see                                                                            |
-   |                     |                | `exports(5) <http://www.freebsd.org/cgi/man.cgi?query=exports>`_                                                   |
-   |                     |                | for examples                                                                                                       |
-   |                     |                |                                                                                                                    |
-   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Maproot User        | drop-down menu | only available in :guilabel:`Advanced Mode`; if a user is selected, the *root* user is limited to that             |
-   |                     |                | user's permissions                                                                                                 |
-   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Maproot Group       | drop-down menu | only available in :guilabel:`Advanced Mode`; if a group is selected, the *root* user will also be limited          |
-   |                     |                | to that group's permissions                                                                                        |
-   |                     |                |                                                                                                                    |
-   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Mapall User         | drop-down menu | only available in :guilabel:`Advanced Mode`; the specified user's permissions are used by all clients              |
-   |                     |                |                                                                                                                    |
-   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Mapall Group        | drop-down menu | only available in :guilabel:`Advanced Mode`; the specified group's permission are used by all clients              |
-   |                     |                |                                                                                                                    |
-   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Security            | selection      | only available in :guilabel:`Advanced Mode` and only appears if :guilabel:`Enable NFSv4` is checked in             |
-   |                     |                | :menuselection:`Services --> NFS`; choices are *sys* or these Kerberos options:                                    |
-   |                     |                | *krb5* (authentication only),                                                                                      |
-   |                     |                | *krb5i* (authentication and integrity), or                                                                         |
-   |                     |                | *krb5p* (authentication and privacy); if multiple security mechanisms are added to the                             |
-   |                     |                | :guilabel:`Selected` column using the arrows, use the :guilabel:`Up` or :guilabel:`Down` buttons                   |
-   |                     |                | to list in order of preference                                                                                     |
-   +---------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Setting             | Value          | Advanced | Description                                                                                                |
+   |                     |                | Mode     |                                                                                                            |
+   +=====================+================+==========+============================================================================================================+
+   | Path                | browse button  |          | browse to the volume or dataset to be shared; click :guilabel:`Add extra path` to select multiple paths    |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Comment             | string         |          | set the share name; if left empty, share name is the list of selected :guilabel:`Path` entries             |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Authorized networks | string         | ✓        | list of allowed networks in network/mask CIDR notation, like *1.2.3.0/24*, space-delimited;                |
+   |                     |                |          | leave empty to allow all                                                                                   |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Authorized IP       | string         | ✓        | list of allowed IP addresses or hostnames, space-delimited; leave empty to allow all                       |
+   | addresses or hosts  |                |          |                                                                                                            |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | All directories     | checkbox       |          | when checked, allow the client to mount any subdirectory within the :guilabel:`Path`                       |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Read only           | checkbox       |          | prohibit writing to the share                                                                              |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Quiet               | checkbox       | ✓        | inhibit otherwise-useful syslog diagnostics to avoid some annoying error messages; see                     |
+   |                     |                |          | `exports(5) <http://www.freebsd.org/cgi/man.cgi?query=exports>`_ for examples                              |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Maproot User        | drop-down menu | ✓        | when a user is selected, the *root* user is limited to that user's permissions                             |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Maproot Group       | drop-down menu | ✓        | when a group is selected, the *root* user is also limited to that group's permissions                      |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Mapall User         | drop-down menu | ✓        | the specified user's permissions are used by all clients                                                   |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Mapall Group        | drop-down menu | ✓        | the specified group's permissions are used by all clients                                                  |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Security            | selection      | ✓        | only appears if :guilabel:`Enable NFSv4` is checked in                                                     |
+   |                     |                |          | :menuselection:`Services --> NFS`; choices are *sys* or these Kerberos options:                            |
+   |                     |                |          | *krb5* (authentication only),                                                                              |
+   |                     |                |          | *krb5i* (authentication and integrity), or                                                                 |
+   |                     |                |          | *krb5p* (authentication and privacy); if multiple security mechanisms are added to the                     |
+   |                     |                |          | :guilabel:`Selected` column using the arrows, use the :guilabel:`Up` or :guilabel:`Down` buttons           |
+   |                     |                |          | to list in order of preference                                                                             |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
 
 
 When creating NFS shares, keep the following points in mind:
