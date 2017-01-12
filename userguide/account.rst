@@ -212,6 +212,9 @@ box :guilabel:`Show advanced fields by default` in
 summarizes the options which are available when user accounts are
 created or modified.
 
+.. warning:: When using :ref:`Active Directory`, Windows user
+   passwords must be set from within Windows.
+
 
 .. _add_user_fig:
 
