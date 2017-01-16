@@ -1319,7 +1319,7 @@ This configuration screen is really a front-end to
    | Zeroconf share discovery         | checkbox       | enable if Mac clients will be connecting to the SMB share                                             |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Hostnames lookups                | checkbox       | allows you to specify hostnames rather than IP addresses in the :guilabel:`Hosts Allow` or            |
+   | Hostnames lookups                | checkbox       | allows using hostnames rather than IP addresses in the :guilabel:`Hosts Allow` or                     |
    |                                  |                | :guilabel:`Hosts Deny` fields of a SMB share; uncheck if IP addresses are used to avoid the           |
    |                                  |                | delay of a host lookup                                                                                |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
@@ -1960,6 +1960,23 @@ can be used to send commands directly to the UPS, assuming that the
 hardware supports the command being sent. Only users with
 administrative rights can use this command. These users are created in
 the :guilabel:`Extra users` field.
+
+
+.. _Multiple Computers with One UPS:
+
+Multiple Computers with One UPS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A UPS with adequate capacity can be used to power multiple computers.
+One computer is connected to the UPS data port with a serial or USB
+cable. This *master* makes UPS status available on the network for
+other computers. These *slave* computers are powered by the UPS, but
+receive UPS status data from the master computer. See the
+`NUT User Manual
+<http://networkupstools.org/docs/user-manual.chunked/index.html>`_
+and
+`NUT User Manual Pages
+<http://networkupstools.org/docs/man/index.html#User_man>`_.
 
 
 .. index:: WebDAV
