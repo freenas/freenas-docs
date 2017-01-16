@@ -1997,11 +1997,21 @@ from the source to the destination computer. This can take much longer
 to complete than subsequent replications, which only send differences
 in data.
 
-On
-:menuselection:`Storage --> Replication Tasks`,
-:guilabel:`Last snapshot sent to remote side` shows the name of the
-last snapshot that was successfully replicated, and :guilabel:`Status`
-shows the current status of the replication task.
+Selecting
+:menuselection:`Storage --> Replication Tasks` displays
+:numref:`Figure %s <zfs_repl_task_list_fig>`, the list of
+replication tasks. The :guilabel:`Last snapshot sent to remote side`
+column shows the name of the last snapshot that was successfully
+replicated, and :guilabel:`Status` shows the current status of each
+replication task.
+
+
+.. _zfs_repl_task_list_fig:
+
+.. figure:: images/replication9.png
+   :width: 90%
+
+   Replication Task List
 
 
 .. note:: The encryption key that was copied from the source computer
