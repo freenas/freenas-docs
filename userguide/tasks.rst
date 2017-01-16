@@ -645,11 +645,11 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
    | Setting           | Value                     | Description                                                                                                |
    |                   |                           |                                                                                                            |
    +===================+===========================+============================================================================================================+
-   | Disks             | list                      | highlight disk(s) to monitor                                                                               |
+   | Disks             | list                      | highlight disks to monitor                                                                                 |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
    | Type              | drop-down menu            | select type of test to run; see                                                                            |
-   |                   |                           | `smartctl(8) <http://smartmontools.sourceforge.net/man/smartctl.8.html>`_                                  |
+   |                   |                           | `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`_                   |
    |                   |                           | for a description of each type of test (note that some test types will degrade performance or take disks   |
    |                   |                           | offline; do not schedule S.M.A.R.T. tests at the same time as a scrub or during a resilver operation)      |
    |                   |                           |                                                                                                            |

@@ -1035,7 +1035,7 @@ configuration. The configurable options are described in
    |                                    |                | :ref:`S.M.A.R.T. Tests` for the disk                                                                                     |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | S.M.A.R.T. extra options           | string         | additional `smartctl(8) <http://linux.die.net/man/8/smartctl>`_  options                                                 |
+   | S.M.A.R.T. extra options           | string         | additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`_  options             |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
