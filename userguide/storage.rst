@@ -2003,7 +2003,8 @@ Selecting
 replication tasks. The :guilabel:`Last snapshot sent to remote side`
 column shows the name of the last snapshot that was successfully
 replicated, and :guilabel:`Status` shows the current status of each
-replication task.
+replication task. The display is updated every five seconds, always
+showing the latest status.
 
 
 .. _zfs_repl_task_list_fig:
