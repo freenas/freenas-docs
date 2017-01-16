@@ -294,11 +294,11 @@ created or modified.
    | Microsoft Account          | checkbox        | check this box if the user will be connecting from a Windows 8 or higher system                                                                       |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | SSH Public Key             | string          | paste the user's **public** key to be used for SSH key authentication                                                                                 |
+   | SSH Public Key             | string          | paste the user's **public** SSH key to be used for key-based authentication                                                                           |
    |                            |                 | (**do not paste the private key!**)                                                                                                                   |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Auxiliary groups           | mouse selection | highlight the group(s) you wish to add the user to and use the :guilabel:`>>` button to add the user to the highlighted                               |
+   | Auxiliary groups           | mouse selection | highlight the groups to which the user is to be added; click the :guilabel:`>>` button to add the user to the highlighted                             |
    |                            |                 | groups                                                                                                                                                |
    |                            |                 |                                                                                                                                                       |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+

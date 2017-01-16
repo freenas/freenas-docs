@@ -260,10 +260,10 @@ right for your %brand% system:
 To create an encrypted volume, check the :guilabel:`Encryption` box
 shown in
 :numref:`Figure %s <create_zfs_pool_volman_fig>`.
-A pop-up message will remind you that **it is extremely important**
-to make a backup of the key as without it the data on the disks is
-inaccessible. Refer to :ref:`Managing Encrypted Volumes` for
-instructions.
+A pop-up message reminds you that
+**it is extremely important to make a backup of the key**, as without
+it the data on the disks is inaccessible. Refer to
+:ref:`Managing Encrypted Volumes` for instructions.
 
 
 .. _Manual Setup:
@@ -1494,11 +1494,11 @@ button. Wait until the resilvering is complete.
 
 Next, restore the encryption keys to the pool.
 **If the following additional steps are not performed before the next
-reboot, you may lose access to the pool permanently.**
+reboot, access to the pool might be permanently lost.**
 
-#.  Highlight the pool that contains the disk you just replaced and
-    click the :guilabel:`Encryption Re-key` button in the GUI. You
-    will need to enter the *root* password.
+#.  Highlight the pool that contains the disk that was just replaced
+    and click the :guilabel:`Encryption Re-key` button in the GUI.
+    Entry of the *root* password will be required.
     #ifdef truenas
 
     .. note:: A re-key is not allowed if :ref:`Failover`
@@ -1511,14 +1511,14 @@ reboot, you may lose access to the pool permanently.**
     The old passphrase can be reused if desired.
 
 #.  Highlight the pool that contains the disk you just replaced and
-    click the :guilabel:`Download Key` button in order to save the new
+    click the :guilabel:`Download Key` button to save the new
     encryption key. Since the old key will no longer function, any old
     keys can be safely discarded.
 
-#.  Highlight the pool that contains the disk you just replaced and
-    click the :guilabel:`Add Recovery Key` button in order to save the
-    new recovery key. The old recovery key will no longer function, so
-    it can be safely discarded.
+#.  Highlight the pool that contains the disk that was just replaced
+    and click the :guilabel:`Add Recovery Key` button to save the new
+    recovery key. The old recovery key will no longer function, so it
+    can be safely discarded.
 
 
 .. _Removing a Log or Cache Device:

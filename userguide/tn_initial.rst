@@ -938,9 +938,9 @@ press :guilabel:`Continue`.
    Continue Through this Screen
 
 
-Once the out-of-band console opens, you can control the %brand%
-Storage Array as if you were using a directly-connected keyboard
-and monitor.
+When the out-of-band console opens, the %brand% Storage Array can be
+controlled as if you were using a directly-connected keyboard and
+monitor.
 
 
 .. index:: Console Setup Menu
@@ -949,11 +949,11 @@ and monitor.
 Console Setup Menu
 ------------------
 
-Once you have completed setting up the hardware for the %brand%
-Storage Array, boot the system. The Console Setup menu, shown in
+After setting up the hardware for the %brand% Storage Array, boot the
+system. The Console Setup menu, shown in
 :numref:`Figure %s <console_setup_menu_fig>`,
-will appear at the end of the boot process. If you have access to
-the %brand% system's keyboard and monitor, this Console Setup menu
+appears at the end of the boot process. If access to the %brand%
+system's keyboard and monitor is available, this Console Setup menu
 can be used to administer the system if the administrative GUI is
 not accessible.
 
@@ -1021,23 +1021,22 @@ will be applied immediately and access to the GUI is not required.
 
 **11) Create volume backup:** used to backup the %brand% configuration
 and ZFS layout, and, optionally, the data, to a remote system over an
-encrypted connection. The only requirement for the remote system is that
-it has sufficient space to hold the backup and it is running an SSH
-server on port 22. The remote system does not have to be formatted with
-ZFS as the backup will be saved as a binary file. When this option is
-selected, it will prompt for the hostname or IP address of the remote
-system, the name of a user account on the remote system, the password
-for that user account, the full path to a directory on the remote system
-to save the backup, whether or not to also backup all of the data,
-whether or not to compress the data, and a confirmation to save the
+encrypted connection. The only requirement for the remote system is
+that it has sufficient space to hold the backup and it is running an
+SSH server on port 22. The remote system does not have to be formatted
+with ZFS as the backup will be saved as a binary file. When this
+option is selected, it will prompt for the hostname or IP address of
+the remote system, the name of a user account on the remote system,
+the password for that user account, the full path to a directory on
+the remote system to save the backup, whether to also back up all of
+the data, whether to compress the data, and a confirmation to save the
 values, where *y* will start the backup, *n* will repeat the
-configuration, and *q* will quit the backup wizard. If you leave the
-password empty, key-based authentication will be used instead. This
+configuration, and *q* will quit the backup wizard. If the password
+field is left empty, key-based authentication is used instead. This
 requires that the public key of the *root* user is stored in
-:file:`~root/.ssh/authorized_keys` on the remote system and that
-key should **not** be protected by a passphrase. Refer to
-:ref:`Rsync over SSH Mode` for instructions on how to generate a
-key pair.
+:file:`~root/.ssh/authorized_keys` on the remote system. That key
+should **not** be protected by a passphrase. Refer to
+:ref:`Rsync over SSH Mode` for instructions on generating a key pair.
 
 **12) Restore volume from a backup:** if a backup has already been
 created using :guilabel:`11) Create volume backup` or

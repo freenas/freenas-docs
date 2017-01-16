@@ -67,8 +67,8 @@ web interface. Updates are applied immediately for the currently
 selected train and access to the GUI is not required. For more
 advanced update options like switching trains, use :ref:`Update`.
 
-**11) Create volume backup:** backs up the %brand% configuration and ZFS
-layout, and, optionally, the data, to a remote system over an
+**11) Create volume backup:** backs up the %brand% configuration and
+ZFS layout, and, optionally, the data, to a remote system over an
 encrypted connection. The remote system must have sufficient space to
 hold the backup and be running an SSH server on port 22. The remote
 system does not have to be formatted with ZFS, as the backup will be

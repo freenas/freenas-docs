@@ -874,7 +874,7 @@ where:
 
 This will create a keytab with sufficient privileges to grant tickets.
 
-Once the keytab is generated, use
+After the keytab is generated, use
 :menuselection:`Directory Service --> Kerberos Keytabs
 --> Add kerberos keytab`
 to add it to the %brand% system.

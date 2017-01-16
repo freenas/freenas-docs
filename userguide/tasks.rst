@@ -586,7 +586,7 @@ to the schedule. In this example, the contents of
 :file:`/mnt/remote/images/` after 15 minutes. If the content does not
 appear, use Shell on *PULL* to read :file:`/var/log/messages`. If the
 message indicates a *\n* (newline character) in the key, remove the
-space in your pasted key--it will be after the character that appears
+space in the pasted key--it will be after the character that appears
 just before the *\n* in the error message.
 
 

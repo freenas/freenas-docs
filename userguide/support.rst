@@ -7,8 +7,8 @@ Support Resources
 This means that many usage questions have already been answered and
 the details are available on the Internet. If you get stuck using
 %brand%, spend a few moments searching the Internet for the word
-*FreeNAS* with some key words that describe your error message or the
-function that you are trying to implement.
+*FreeNAS* with some keywords that describe the error message or the
+function you are trying to implement.
 
 The rest of this section discusses the following resources which are
 available to %brand% users:

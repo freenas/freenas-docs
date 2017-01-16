@@ -355,12 +355,12 @@ start the DDNS service in
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
 
 
-If you are using "freedns.afraid.org", see `this forum post
+When using "freedns.afraid.org", see `this forum post
 <https://forums.freenas.org/index.php?threads/dynamic-dns-and-freeedns-afraid-org.24455/#post-151746>`_
-for an example working configuration.
+for an example configuration.
 
-If you are using "he.net", input the domain name for
-:guilabel:`Username` and input the DDNS key generated for that
+When using "he.net", enter the domain name for
+:guilabel:`Username` and enter the DDNS key generated for that
 domain's A entry at the `<he.net>`_ website for :guilabel:`Password`.
 
 .. index:: FTP, File Transfer Protocol
@@ -1646,7 +1646,7 @@ display these settings by checking the box
    |                               |                | be set for *root* user in :guilabel:`View Users`                                                         |
    |                               |                |                                                                                                          |
    +-------------------------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Allow Password Authentication | checkbox       | if unchecked, key based authentication for all users is required; requires                               |
+   | Allow Password Authentication | checkbox       | if unchecked, key-based authentication for all users is required; requires                               |
    |                               |                | `additional setup <http://the.earth.li/%7Esgtatham/putty/0.55/htmldoc/Chapter8.html>`_                   |
    |                               |                | on both the SSH client and server                                                                        |
    |                               |                |                                                                                                          |
