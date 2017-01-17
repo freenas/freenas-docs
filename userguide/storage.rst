@@ -2146,10 +2146,11 @@ corruptions caused by transient hardware issues, and provide early
 alerts of impending disk failures. %brand% makes it easy to schedule
 periodic automatic scrubs.
 
-Each volume should be scrubbed at least once a month.
-
-The amount of time needed for a scrub is proportional to the quantity
-of data on the volume. Typical scrubs take several hours or longer.
+Each volume should be scrubbed at least once a month. Bit errors in
+critical data can be detected by ZFS, but only when that data is read.
+Scheduled scrubs can find bit errors in rarely-read data. The amount
+of time needed for a scrub is proportional to the quantity of data on
+the volume. Typical scrubs take several hours or longer.
 
 The scrub process is I/O intensive and can negatively impact
 performance. Schedule scrubs for evenings or weekends to minimize
