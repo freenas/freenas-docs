@@ -1091,25 +1091,45 @@ module.
 S.M.A.R.T.
 ----------
 
+S.M.A.R.T. (Self-Monitoring, Analysis and Reporting Technology) is an
+industry standard for disk monitoring and testing. Drives can be
+monitored for status and problems, and several types of self-tests can
+be run to check the drive health.
+
+Tests run internally on the drive. Most tests can run at the same time
+as normal disk usage. However, a running test can greatly reduce drive
+performance, so they should be scheduled at times when the system is
+not busy or in normal use. It is very important to avoid scheduling
+disk-intensive tests at the same time. For example, do not schedule
+S.M.A.R.T. tests to run at the same time, or preferably, even on the
+same days as :ref:`Scrubs`.
+
+Of particular interest in a NAS environment are the *Short* and *Long*
+S.M.A.R.T. tests. Details vary between drive manufacturers, but a
+Short test generally does some basic tests of a drive that takes a few
+minutes. The Long test scans the entire disk surface, and can take
+several hours on larger drives.
+
 %brand% uses the
 `smartd(8)
 <http://www.smartmontools.org/browser/trunk/smartmontools/smartd.8.in>`_
-service to monitor disk S.M.A.R.T. data for disk health. To fully
-configure S.M.A.R.T. you need to:
+service to monitor S.M.A.R.T. information. A complete configuration
+consists of:
 
-#.  Schedule when to run the S.M.A.R.T. tests in
+#.  Scheduling when S.M.A.R.T. tests are run in
     :menuselection:`Tasks --> S.M.A.R.T. Tests
     --> Add S.M.A.R.T. Test`.
 
-#.  Enable or disable S.M.A.R.T. for each disk member of a volume in
+#.  Enabling or disabling S.M.A.R.T. for each disk member of a volume
+    in
     :menuselection:`Volumes --> View Volumes`.
-    By default, this is already enabled on all disks that support
+    This setting is enabled by default for disks that support
     S.M.A.R.T.
 
-#.  Check the configuration of the S.M.A.R.T. service as described in
-    this section.
+#.  Checking the configuration of the S.M.A.R.T. service as described
+    in this section.
 
-#.  Start the S.M.A.R.T. service in
+#.  Starting the S.M.A.R.T. service with
     :menuselection:`Services --> Control Services`.
 
 :numref:`Figure %s <smart_config_opts_fig>`
@@ -1124,16 +1144,16 @@ shows the configuration screen that appears after clicking
    S.M.A.R.T Configuration Options
 
 
-.. note:: :command:`smartd` wakes up at every configured
+.. note:: :command:`smartd` wakes up at the configured
    :guilabel:`Check Interval`. It checks the times configured in
    :menuselection:`Tasks --> S.M.A.R.T. Tests`
-   to see if any tests should be run. Since the smallest time
+   to see whether tests should be run. Since the smallest time
    increment for a test is an hour (60 minutes), it does not make
    sense to set a :guilabel:`Check Interval` value higher than 60
    minutes. For example, if the :guilabel:`Check Interval` is set to
    *120* minutes and the smart test to every hour, the test will only
-   be run every two hours because the daemon only wakes up every two
-   hours.
+   be run every two hours because :command:`smartd` only wakes up
+   every two hours.
 
 
 :numref:`Table %s <smart_config_opts_tab>`
@@ -1154,10 +1174,10 @@ summarizes the options in the S.M.A.R.T configuration screen.
    |                 |                            |                                                                                                             |
    |                 |                            |                                                                                                             |
    +=================+============================+=============================================================================================================+
-   | Check interval  | integer                    | in minutes, how often to wake up :command:`smartd` to check to see if any tests have been configured to run |
+   | Check interval  | integer                    | in minutes, how often :command:`smartd` wakes up to check if any tests have been configured to run          |
    |                 |                            |                                                                                                             |
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Power mode      | drop-down menu             | the configured test is not performed if the system enters the specified power mode; choices are:            |
+   | Power mode      | drop-down menu             | tests are not performed if the system enters the specified power mode; choices are:                         |
    |                 |                            | *Never*,                                                                                                    |
    |                 |                            | *Sleep*,                                                                                                    |
    |                 |                            | *Standby*, or                                                                                               |

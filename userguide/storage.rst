@@ -1162,15 +1162,18 @@ state.**
      Detach or Delete a Volume
 
 
-**Scrub Volume:** scrubs and how to schedule them are described in
-more detail in :ref:`Scrubs`. This button allows you to manually
-initiate a scrub. Since a scrub is I/O intensive and can negatively
-impact performance, you should not initiate one while the system is
-busy. A :guilabel:`Cancel` button is provided to cancel a scrub.
-If a scrub is cancelled, the next scrub will start over from the
-beginning, not where the cancelled scrub left off. To view the current
-status of a running scrub or the statistics from the last completed
-scrub, click the :guilabel:`Volume Status` button.
+**Scrub Volume:** scrubs and scheduling them are described in more
+detail in :ref:`Scrubs`. This button allows manually initiating a
+scrub. Scrubs are I/O intensive and can negatively impact performance.
+Avoid initiating a scrub when the system is busy.
+
+A :guilabel:`Cancel` button is provided to cancel a scrub. When a
+scrub is cancelled, it is abandoned. The next scrub to run starts
+from the beginning, not where the cancelled scrub left off.
+
+The status of a running scrub or the statistics from the last
+completed scrub can be seen by clicking the :guilabel:`Volume Status`
+button.
 
 **Volume Status:** as shown in the example in
 :numref:`Figure %s <volume_status_fig>`,
@@ -1183,8 +1186,8 @@ offline or online the device, or replace the device (as described in
 :ref:`Replacing a Failed Drive`).
 
 **Upgrade:** used to upgrade the pool to the latest ZFS features, as
-described in :ref:`Upgrading a ZFS Pool`. This button will not appear
-if the pool is running the latest versions of feature flags.
+described in :ref:`Upgrading a ZFS Pool`. This button does not appear
+if the pool is running the latest version of feature flags.
 
 
 .. _volume_status_fig:
@@ -2137,27 +2140,35 @@ Error messages here can indicate any remaining problems.
 Scrubs
 ----------
 
-:menuselection:`Storage --> Scrubs`
-allows scheduling and managing scrubs on a ZFS volume. Performing a
-ZFS scrub on a regular basis helps to identify data integrity
-problems, detects silent data corruptions caused by transient hardware
-issues, and provides early alerts to disk failures. If you have
-consumer-quality drives, consider a weekly scrubbing schedule. If you
-have datacenter-quality drives, consider a monthly scrubbing schedule.
+A scrub is the process of ZFS scanning through the data on a volume.
+Scrubs help to identify data integrity problems, detect silent data
+corruptions caused by transient hardware issues, and provide early
+alerts of impending disk failures. %brand% makes it easy to schedule
+periodic automatic scrubs.
 
-Depending upon the amount of data, a scrub can take a long time.
-Scrubs are I/O intensive and can negatively impact performance. They
-should be scheduled for evenings or weekends to minimize the impact to
-users.
+Each volume should be scrubbed at least once a month.
 
-A ZFS scrub only checks used disk space. To check unused disk space,
-schedule :ref:`S.M.A.R.T. Tests` of :guilabel:`Type` of
-*Long Self-Test* to run once or twice a month.
+The amount of time needed for a scrub is proportional to the quantity
+of data on the volume. Typical scrubs take several hours or longer.
 
-When you create a volume that is formatted with ZFS, a ZFS scrub is
-automatically scheduled. An entry of the same volume name is added to
-:menuselection:`Storage --> Scrubs`
-and a summary of this entry can be viewed in
+The scrub process is I/O intensive and can negatively impact
+performance. Schedule scrubs for evenings or weekends to minimize
+impact to users. Make certain that scrubs and other disk-intensive
+activity like :ref:`S.M.A.R.T. Tests` are scheduled to run on
+different days to avoid disk contention and extreme performance
+impacts.
+
+Scrubs only check used disk space. To check unused disk space,
+schedule :ref:`S.M.A.R.T. Tests` of :guilabel:`Type` *Long Self-Test*
+to run once or twice a month.
+
+Scrubs are scheduled and managed with
+:menuselection:`Storage --> Scrubs`.
+
+When a volume is created, a ZFS scrub is automatically scheduled. An
+entry with the same volume name is added to
+:menuselection:`Storage --> Scrubs`.
+A summary of this entry can be viewed with
 :menuselection:`Storage --> Scrubs --> View Scrubs`.
 :numref:`Figure %s <zfs_view_volume_scrub_fig>`
 displays the default settings for the volume named :file:`volume1`. In
@@ -2223,14 +2234,14 @@ summarizes the options in this screen.
 
 
 Review the default selections and, if necessary, modify them to meet
-the needs of your environment.
+the needs of the environment.
 
-While a :guilabel:`Delete` button is provided,
+Scrubs can be deleted with the :guilabel:`Delete` button, but
 **deleting a scrub is not recommended as a scrub provides an early
-indication of disk issues that could lead to a disk failure.** If you
-find that a scrub is too intensive for your hardware, consider
-unchecking the :guilabel:`Enabled` button for the scrub as a temporary
-measure until the hardware can be upgraded.
+indication of disk issues that could lead to a disk failure.**
+If a scrub is too intensive for the hardware, consider unchecking the
+:guilabel:`Enabled` button for the scrub as a temporary measure until
+the hardware can be upgraded.
 
 
 .. index:: Snapshots
