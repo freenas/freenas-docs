@@ -1734,6 +1734,9 @@ source system is created, and then a replication task is created. As
 snapshots are automatically created on the source computer, they are
 automatically replicated to the destination computer.
 
+.. note:: Replicated data is not visible on the receiving system until
+   the replication task completes.
+
 
 Examples: Common Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
