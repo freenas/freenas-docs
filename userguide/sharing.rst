@@ -2536,9 +2536,20 @@ The method used to grow the size of an existing iSCSI LUN depends on
 whether the LUN is backed by a file extent or a zvol. Both methods are
 described in this section.
 
-After the LUN is expanded using one of the methods below, use the
-tools from the initiator software to grow the partitions and the
-filesystems it contains.
+Enlarging a LUN with one of the methods below gives it more
+unallocated space, but does not automatically resize filesystems or
+other data on the LUN. This is the same as binary-copying a smaller
+disk onto a larger one. More space is available on the new disk, but
+the partitions and filesystems on it must be expanded to use this new
+space. Resizing virtual disk images is usually done from virtual
+machine management software. Application software to resize
+filesystems is dependent on the type of filesystem and client, but is
+often run from within the virtual machine. For instance, consider a
+Windows VM with the last partition on the disk holding an NTFS
+filesystem. The LUN is expanded and the partition table edited to add
+the new space to the last partition. The Windows disk manager must
+still be used to resize the NTFS filesystem on that last partition to
+use the new space.
 
 
 .. _Zvol Based LUN:
