@@ -2274,7 +2274,7 @@ the hardware can be upgraded.
 Snapshots
 -------------
 
-The :guilabel:`Snapshots` tab can be used to review the listing of
+The :guilabel:`Snapshots` tab is used to review the listing of
 available snapshots. An example is shown in
 :numref:`Figure %s <zfs_view_avail_snapshots_fig>`.
 
@@ -2313,6 +2313,11 @@ The amount of space used, available, or referenced does not take into
 account pending changes. While pending changes are generally accounted
 for within a few seconds, disk changes do not necessarily guarantee
 that the space usage information is updated immediately.
+
+
+.. tip:: Space used by individual snapshots can be seen by running
+   :samp:`zfs list -t snapshot` from :ref:`Shell`.
+
 
 **Refer** indicates the amount of data accessible by this dataset,
 which may or may not be shared with other datasets in the pool. When a
