@@ -709,14 +709,14 @@ Autotune
 ~~~~~~~~
 
 #ifdef freenas
-%brand% provides an autotune script which attempts to optimize the
-system depending upon the hardware which is installed. For example, if
-a ZFS volume exists on a system with limited RAM, the autotune script
-will automatically adjust some ZFS sysctl values in an attempt to
-minimize ZFS memory starvation issues. It should only be used as a
-temporary measure on a system that hangs until the underlying hardware
-issue is addressed by adding more RAM. Autotune will always slow the
-system down as it caps the ARC.
+%brand% provides an autotune script which optimizes the system
+depending on the installed hardware. For example, if a ZFS volume
+exists on a system with limited RAM, the autotune script automatically
+adjusts some ZFS sysctl values in an attempt to minimize ZFS memory
+starvation issues. It should only be used as a temporary measure on a
+system that hangs until the underlying hardware issue is addressed by
+adding more RAM. Autotune will always slow such a system, as it caps
+the ARC.
 
 The :guilabel:`Enable autotune` checkbox in
 :menuselection:`System --> Advanced`
@@ -724,39 +724,37 @@ is unchecked by default. Check this box to run the autotuner at boot
 time. If you would like the script to run immediately, the system must
 be rebooted.
 
-If the autotune script finds any settings that need adjusting, the
-changed values will appear in
+If the autotune script adjusts any settings, the changed values appear
+in
 :menuselection:`System --> Tunables`.
-If you do not like the changes, you can modify the values that are
-displayed in the GUI and your changes will override the values that
-were created by the autotune script. However, if you delete a tunable
-that was created by autotune, it will be recreated at next boot. This
-is because autotune only creates values that do not already exist.
+These values can be modified and overridden. Note that deleting
+tunables that were created by autotune only affects the current
+session, as autotune-set tunables are recreated at boot.
 
-If you are trying to increase the performance of your %brand% system
-and suspect that the current hardware may be limiting performance, try
-enabling autotune.
+When attempting to increase the performance of the %brand% system, and
+particularly when the current hardware may be limiting performance,
+try enabling autotune.
 
-If you wish to read the script to see which checks are performed, the
+For those who wish to see which checks are performed, the autotune
 script is located in :file:`/usr/local/bin/autotune`.
 #endif freenas
 #ifdef truenas
-%brand% provides an autotune script which attempts to optimize the
-system. The :guilabel:`Enable autotune` checkbox in
-:menuselection:`System --> Advanced` is checked by default, meaning
-that this script runs automatically. It is recommended to not disable
-this setting unless you are advised to do so by an iXsystems support
-engineer.
+%brand% provides an autotune script which optimizes the system. The
+:guilabel:`Enable autotune` checkbox in
+:menuselection:`System --> Advanced` is checked by default, so this
+script runs automatically. It is recommended to leave autotune enabled
+unless advised otherwise by an iXsystems support engineer.
 
-If the autotune script adjusts any settings, the changed values will
-appear in
+If the autotune script adjusts any settings, the changed values appear
+in
 :menuselection:`System --> Tunables`.
-While you can modify, which will override, these values, speak to your
-support engineer before doing so as this may have a negative impact on
-system performance. Note that if you delete a tunable that was created
-by autotune, it will be recreated at next boot.
+While these values can be modified and overridden, speak to your
+support engineer beforehand as manual changes can have a negative
+impact on system performance. Note that deleting tunables that
+were created by autotune only affects the current session, as
+autotune-set tunables are recreated at boot.
 
-If you wish to read the script to see which checks are performed, the
+For those who wish to see which checks are performed, the autotune
 script is located in :file:`/usr/local/bin/autotune`.
 #endif truenas
 
@@ -770,12 +768,20 @@ Email
 An automatic script sends a nightly email to the *root* user account
 containing important information such as the health of the disks.
 :ref:`Alert` events are also emailed to the *root* user account.
-However, the administrator typically does not read email directly on
+Problems with :ref:`Scrubs` are reported separately in an email sent
+at 03:00AM.
+
+
+.. note:: :ref:`S.M.A.R.T.` reports are mailed separately to the
+   address configured in that service.
+
+
+The administrator typically does not read email directly on
 the %brand% system. Instead, these emails are usually sent to an
 external email address where they can be read more conveniently. It is
-important to configure the system so that it can send these emails to
-the administrator's remote email account so they are aware of problems
-or status changes.
+important to configure the system so it can send these emails to the
+administrator's remote email account so they are aware of problems or
+status changes.
 
 The first step is to set the remote address where email will be sent.
 Select
