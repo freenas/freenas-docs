@@ -991,9 +991,9 @@ shown in
 #endif truenas
 
 
-The current configuration of each device is displayed. Click a disk's
-entry and then its :guilabel:`Edit` button to change its
-configuration. The configurable options are described in
+The current configuration of each device is displayed. Click a disk
+entry and the :guilabel:`Edit` button to change its configuration. The
+configurable options are described in
 :numref:`Table %s <zfs_disk_opts_tab>`.
 
 
@@ -1040,14 +1040,30 @@ configuration. The configurable options are described in
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
-Clicking a disk's entry will also display its :guilabel:`Wipe` button
-which can be used to blank a disk while providing a progress bar of
-the wipe's status. Use this option before discarding a disk.
-
 .. note:: If a disk's serial number is not displayed in this screen,
    use the :command:`smartctl` command from :ref:`Shell`. For example,
    to determine the serial number of disk *ada0*, type
    :command:`smartctl -a /dev/ada0 | grep Serial`.
+
+The :guilabel:`Wipe` function is provided for when an unused disk is
+to be discarded.
+
+.. warning:: Make certain that all data has been backed up and that
+   the disk is no longer in use. Triple-check that the correct disk is
+   being selected to be wiped, as recovering data from a wiped disk is
+   usually impossible. If there is any doubt, physically remove the
+   disk, verify that all data is still present on the %brand% system,
+   and wipe the disk in a separate computer.
+
+Clicking :guilabel:`Wipe` offers several choices. *Quick* erases only
+the partitioning information on a disk, making it easy to reuse but
+without clearing other old data. For more security, *Full with zeros*
+overwrites the entire disk with zeros, while *Full with random data*
+overwrites the entire disk with random binary data.
+
+Quick wipes take only a few seconds. A *Full with zeros* wipe of a
+large disk can take several hours, and a *Full with random data* takes
+longer. A progress bar is displayed during the wipe to track status.
 
 
 #ifdef truenas
