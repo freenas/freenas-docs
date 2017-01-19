@@ -2382,12 +2382,12 @@ The screens for adding an extent and associating a target are the same
 as described in :ref:`Extents` and :ref:`Targets/Extents`.
 
 An example of the :guilabel:`Fibre Channel Ports` screen is shown in
-:numref:`Figure %s <tn_fibre4b>`.
+:numref:`Figure %s <tn_fibre_port_fig>`.
 
 
-.. _tn_fibre4b:
+.. _tn_fibre_port_fig:
 
-.. figure:: images/tn_fibre4b.png
+.. figure:: images/tn_fibre4c.png
 
    Configuring a Fibre Channel Port
 
