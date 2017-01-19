@@ -175,16 +175,19 @@ Rsync Tasks
 -----------
 
 `Rsync <http://www.samba.org/ftp/rsync/rsync.html>`_
-is a utility that automatically copies specified data from one system
-to another over a network. Once the initial data is copied, rsync
-reduces the amount of data sent over the network by sending only the
-differences between the source and destination files. Rsync can be
-used for backups, mirroring data on multiple systems, or for copying
-files between systems.
+is a utility that copies specified data from one system to another
+over a network. Once the initial data is copied, rsync reduces the
+amount of data sent over the network by sending only the differences
+between the source and destination files. Rsync can be used for
+backups, mirroring data on multiple systems, or for copying files
+between systems.
 
 Rsync is most effective when only a relatively small amount of the
-data has changed. For large amounts of data or data that has many
-changes from the previous copy, :ref:`Replication Tasks` are usually
+data has changed. There are also
+`some limitations when using Rsync with Windows files
+<https://forums.freenas.org/index.php?threads/impaired-rsync-permissions-support-for-windows-datasets.43973/>`_.
+For large amounts of data, data that has many changes from the
+previous copy, or Windows files, :ref:`Replication Tasks` are often
 the faster and better solution.
 
 Rsync is single-threaded, so gains little from multiple processor
