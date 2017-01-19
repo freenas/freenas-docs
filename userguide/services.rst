@@ -1362,11 +1362,11 @@ This configuration screen is really a front-end to
    | Bind IP Addresses                | checkboxes     | check the IP addresses on which SMB should listen                                                     |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Idmap Range Low                  | integer        | defines the beginning UID/GID this system is authoritative for; any UID/GID lower than this value is  |
+   | Idmap Range Low                  | integer        | the beginning UID/GID for which this system is authoritative; any UID/GID lower than this value is    |
    |                                  |                | ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely defined IDs  |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Idmap Range High                 | integer        | defines the ending UID/GID this system is authoritative for; any UID/GID higher than this value is    |
+   | Idmap Range High                 | integer        | the ending UID/GID for which this system is authoritative; any UID/GID higher than this value is      |
    |                                  |                | ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely defined IDs  |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
