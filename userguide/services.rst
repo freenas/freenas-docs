@@ -906,20 +906,20 @@ summarizes the configuration options for the NFS service.
    | Setting                | Value      | Description                                                                                                         |
    |                        |            |                                                                                                                     |
    +========================+============+=====================================================================================================================+
-   | Number of servers      | integer    | run :command:`sysctl -n kern.smp.cpus` from Shell to determine the number; do not exceed the number listed in the   |
-   |                        |            | output of that command                                                                                              |
+   | Number of servers      | integer    | the number of servers can be increased if NFS client responses are slow; to limit CPU context switching, keep       |
+   |                        |            | this number less than or equal to the number of CPUs reported by :samp:`sysctl -n kern.smp.cpus`.                   |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Serve UDP NFS clients  | checkbox   | check if NFS client needs to use UDP                                                                                |
+   | Serve UDP NFS clients  | checkbox   | check if NFS clients need to use UDP                                                                                |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Bind IP Addresses      | checkboxes | select the IP address(es) to listen for NFS requests; if left unchecked, NFS will listen on all available addresses |
+   | Bind IP Addresses      | checkboxes | IP addresses to listen on for NFS requests; when unchecked, NFS listens on all available addresses                  |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
    | Allow non-root mount   | checkbox   | check this box only if the NFS client requires it                                                                   |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Enable NFSv4           | checkbox   | the default is to use NFSv3, check this box to switch to NFSv4                                                      |
+   | Enable NFSv4           | checkbox   | NFSv3 is the default, check this box to switch to NFSv4                                                             |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
    | NFSv3 ownership model  | checkbox   | grayed out unless :guilabel:`Enable NFSv4` is checked and, in turn, will gray out :guilabel:`Support>16 groups`     |
@@ -930,19 +930,19 @@ summarizes the configuration options for the NFS service.
    | NFSv4                  |            |                                                                                                                     |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | mountd(8) bind port    | integer    | optional; specify port for                                                                                          |
+   | mountd(8) bind port    | integer    | optional; specify port that                                                                                         |
    |                        |            | `mountd(8) <http://www.freebsd.org/cgi/man.cgi?query=mountd>`_                                                      |
-   |                        |            | to bind to                                                                                                          |
+   |                        |            | binds to                                                                                                            |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | rpc.statd(8) bind port | integer    | optional; specify port for                                                                                          |
+   | rpc.statd(8) bind port | integer    | optional; specify port that                                                                                         |
    |                        |            | `rpc.statd(8) <http://www.freebsd.org/cgi/man.cgi?query=rpc.statd>`_                                                |
-   |                        |            | to bind to                                                                                                          |
+   |                        |            | binds to                                                                                                            |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | rpc.lockd(8) bind port | integer    | optional; specify port for                                                                                          |
+   | rpc.lockd(8) bind port | integer    | optional; specify port that                                                                                         |
    |                        |            | `rpc.lockd(8) <http://www.freebsd.org/cgi/man.cgi?query=rpc.lockd>`_                                                |
-   |                        |            | to bind to                                                                                                          |
+   |                        |            | binds to                                                                                                            |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
    | Support>16 groups      | checkbox   | check this box if any users are members of more than 16 groups (useful in AD environments); note that this assumes  |
