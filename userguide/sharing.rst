@@ -2409,7 +2409,7 @@ where:
 This example has also been configured for NPIV
 (N_Port ID Virtualization). Note that the physical interface *isp0*
 has two virtual ports (*isp0/1* and *isp0/2*) displayed in
-:numref:`Figure %s: <tn_fibre4b>`.
+:numref:`Figure %s: <tn_fibre_port_fig>`.
 NPIV allows the administrator to use switch zoning to configure
 each virtual port as if it was a physical port in order to provide
 access control. This is important in an environment with a mix of
