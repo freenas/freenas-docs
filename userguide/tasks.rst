@@ -4,20 +4,22 @@
 Tasks
 =====
 
-The Tasks section of the administrative GUI can be used to configure
-these repetitive tasks:
+The Tasks section of the administrative GUI is used to configure
+repetitive tasks:
 
-* :ref:`Cron Jobs`: allows scheduling a command or script to
-  automatically execute at a specified time
+#ifdef truenas
+* :ref:`Cloud Sync` schedules data synchronization to cloud providers
+#endif truenas
 
-* :ref:`Init/Shutdown Scripts`: is used to configure a command or
-  script to automatically execute during system startup or shutdown
+* :ref:`Cron Jobs` schedules a command or script to automatically
+  execute at a specified time
 
-* :ref:`Rsync Tasks`: allows scheduling data synchronization to
-  another system
+* :ref:`Init/Shutdown Scripts` configures a command or script to
+  automatically execute during system startup or shutdown
 
-* :ref:`S.M.A.R.T. Tests`: allows scheduling how often disk tests
-  occur
+* :ref:`Rsync Tasks` schedules data synchronization to another system
+
+* :ref:`S.M.A.R.T. Tests` schedules disk tests
 
 Each of these tasks is described in more detail in this section.
 
@@ -25,6 +27,125 @@ Each of these tasks is described in more detail in this section.
    automatically-created task. :ref:`S.M.A.R.T. Tests` and
    :ref:`Periodic Snapshot Tasks` must be set up manually.
 
+
+#ifdef truenas
+.. index:: Cloud Sync
+.. _Cloud Sync:
+
+Cloud Sync
+----------
+
+Files or directories can be syncronized to remote cloud storage
+providers with the :guilabel:`Cloud Sync` feature.
+
+Cloud login credentials must be defined before a cloud sync job can be
+created. Credentials are entered with
+:menuselection:`System --> Cloud Credentials
+--> Add Cloud Credential`.
+Enter a *Name* to identify the cloud account, choose a provider from
+the :guilabel:`Provider` drop-down menu, then enter the account
+credentials from the cloud provider. For example, the Amazon S3
+*Access Key* and *Secret Key* can be found by clicking on the account
+name. Click on :guilabel:`My Security Credentials`,
+:guilabel:`Access Keys (Access Key ID and Secret Access Key)`. Copy
+the *Access Key* to the %brand% Cloud Credential *Access Key* field,
+then enter the *Secret Key* from when the key pair was created. If the
+*Secret Key* value is not known, a new key pair can be created on AWS.
+
+An area to store data must also exist. With Amazon AWS, these are
+called *buckets*. The bucket must be created before a sync task can be
+created.
+
+After the credentials and receiving bucket have been created, a cloud
+sync task is created with
+menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+The :guilabel:`Description` is a name to identify this particular
+task.
+
+Take care when choosing a :guilabel:`Direction`. Most of the time,
+*Push* will be used to send data to the cloud storage. *Pull*
+retrieves data from the cloud storage, but be careful: files retrieved
+from the cloud storage will overwrite local files with the same names
+in the destination directory.
+
+:guilabel:`Provider` is the name of the cloud storage provider. These
+providers are defined by entering credentials in
+:menuselection:`System --> Cloud Credentials`.
+
+After the :guilabel:`Provider` is chosen, a list of available cloud
+storage areas from that provider is shown. With Amazon AWS, this is a
+drop-down with names of existing buckets. Choose a bucket, and a
+folder inside that bucket if desired.
+
+:guilabel:`Path` is the path to the directories or files on the
+%brand% system. On *Push* jobs, this is the source location for files
+sent to cloud storage. On *Pull* jobs, the :guilabel:`Path` is where
+the retrieved files are written. Again, be cautious about the
+destination of *Pull* jobs to avoid overwriting existing files.
+
+The :guilabel:`Minute`, :guilabel:`Hour`, :guilabel:`Day of month`,
+guilabel:`Month`, and :guilabel:`Day of week` fields permit creating a
+flexible schedule of when the cloud synchronization takes place.
+
+Finally, the :guilabel:`Enabled` field makes it possible temporarily
+disable a cloud sync job without deleting it.
+
+
+.. _Cloud Sync Example:
+
+Cloud Sync Example
+~~~~~~~~~~~~~~~~~~
+
+This example shows a *Push* cloud sync job, writing an accounting
+depart backup file from the %brand% system to Amazon AWS storage.
+
+On the Amazon AWS web site, a bucket called *cloudsync-bucket* is
+created for storing data from the %brand% system.
+
+:menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
+is used to enter the credentials for storage on an Amazon AWS account.
+The credential is given the name *S3 Storage*, as shown in
+:numref:`Figure %s <tasks_cloudsync_cred_fig>`:
+
+
+.. _tasks_cloudsync_cred_fig:
+
+.. figure:: images/cloudsync-cred.png
+
+   Adding Cloud Credentials
+
+
+The local data to be sent to the cloud is a single file called
+:file:`accounting-backup.bin` on the :file:`smb-storage` dataset. A
+cloud sync job is created with
+:menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+The :guilabel:`Description` is set to *backup-acctg* to describe the
+job. This data is being sent to cloud storage, so this is a *Push*.
+The provider comes from the cloud credentials defined in the previous
+step, and the destination bucket *cloudsync-bucket* has been chosen.
+
+The :guilabel:`Path` to the data file is selected.
+
+The remaining fields are for setting a schedule. The default is to
+send the data to cloud storage once an hour, every day. The options
+for great variety in configuring when a cloud sync runs, anywhere from
+once a minute to once a year.
+
+The :guilabel:`Enabled` field is checked by default, so this cloud
+sync will run at the next appropriate time.
+
+The completed dialog is shown in
+:numref:`Figure %s <tasks_cloudsync_example_fig>`:
+
+
+.. _tasks_cloudsync_example_fig:
+
+.. figure:: images/cloudsync-example-cropped.png
+
+   Adding a Cloud Sync
+
+
+#endif truenas
 
 .. index:: Cron Jobs
 .. _Cron Jobs:
@@ -332,7 +453,7 @@ task.
    |                                  |                             | only), and preserve device files (super-user only) and special files)                     |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Delete                           | checkbox                    | delete files in destination directory that don't exist in sending directory               |
+   | Delete                           | checkbox                    | delete files in destination directory that do not exist in sending directory              |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Quiet                            | checkbox                    | suppresses informational messages from the remote server                                  |
