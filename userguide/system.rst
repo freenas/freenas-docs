@@ -2114,9 +2114,9 @@ one. If this is the first login, it will automatically display the
 :guilabel:`Upload License` screen. Otherwise, click
 :menuselection:`System --> Support --> Upload License`.
 
-Paste the HA license you received from iXsystems and press
-:guilabel:`OK` to activate it. The license contains the serial numbers
-for both units in the chassis. After the license is activated, the
+Paste the HA license received from iXsystems and press :guilabel:`OK`
+to activate it. The license contains the serial numbers for both units
+in the chassis. After the license is activated, the
 :guilabel:`Failover` tab is added to :guilabel:`System` and some
 fields are modified in :guilabel:`Network` so that the peer IP
 address, peer hostname, and virtual IP can be configured. An extra
@@ -2176,7 +2176,7 @@ screen:
   multipath scenario.
 
 After the network configuration is complete, log out and log back in,
-this time using the :guilabel:`Virtual IP` address. Volumes and shares 
+this time using the :guilabel:`Virtual IP` address. Volumes and shares
 can now be configured as usual and configuration automatically
 synchronizes between the active and the standby node. A
 :guilabel:`HA Enabled` icon is added after the :guilabel:`Alert` icon
@@ -2188,6 +2188,12 @@ as all configuration changes must occur on the active node.
 .. note:: After the :guilabel:`Virtual IP` address is configured, all
    subsequent logins should use that address.
 
+When HA has been disabled by the system administrator, the status icon
+changes to :guilabel:`HA Disabled`. If the standby node is not
+available because it is powered off, still starting up, or is
+disconnected from the network, or if failover has not been configured,
+the status icon changes to :guilabel:`HA Unavailable`.
+
 The options available in
 :menuselection:`System --> Failover`
 are shown in
@@ -2198,7 +2204,7 @@ and described in
 
 .. _failover_fig:
 
-.. figure:: images/failover1b.png
+.. figure:: images/failover1c.png
 
    Example Failover Screen
 
