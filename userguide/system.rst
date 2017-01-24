@@ -2268,7 +2268,7 @@ status. This example was run on an active node:
    Failover status: Enabled
 
 
-And this example was run on a system that has not been configured
+And this example is from a system that has not been configured
 for failover:
 
 .. code-block:: none
@@ -2278,7 +2278,7 @@ for failover:
 
 
 :numref:`Table %s <hactl_opts_tab>`
-summarizes the available options for this command.
+summarizes the options for this command.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -2288,29 +2288,29 @@ summarizes the available options for this command.
 
 .. table:: hactl Options
 
-   +--------------------+---------------------------------------------------------------------------------------------+
-   | Option             | Description                                                                                 |
-   |                    |                                                                                             |
-   +====================+=============================================================================================+
-   | *enable*           | administratively enable failover                                                            |
-   |                    |                                                                                             |
-   +--------------------+---------------------------------------------------------------------------------------------+
-   | *disable*          | administratively disable failover                                                           |
-   |                    |                                                                                             |
-   +--------------------+---------------------------------------------------------------------------------------------+
-   | *status*           | node type indicator: active, passive, or non-HA                                             |
-   |                    |                                                                                             |
-   +--------------------+---------------------------------------------------------------------------------------------+
-   | *takeover*         | can only be run from the passive node; gives a warning message that the current active      |
-   |                    | node will reboot                                                                            |
-   +--------------------+---------------------------------------------------------------------------------------------+
-   | *giveback*         | cannot be run from the active node; gives a warning message that this node will reboot      |
-   |                    |                                                                                             |
-   +--------------------+---------------------------------------------------------------------------------------------+
-   | *-h* or *help*     | show the help message (options) for this command                                            |
-   |                    |                                                                                             |
-   +--------------------+---------------------------------------------------------------------------------------------+
-   | *-q*               | prevent status display if this is a non-HA node                                             |
-   |                    |                                                                                             |
-   +--------------------+---------------------------------------------------------------------------------------------+
+   +---------------------+---------------------------------------------------------------------------------------------+
+   | Option              | Description                                                                                 |
+   |                     |                                                                                             |
+   +=====================+=============================================================================================+
+   | :literal:`enable`   | administratively enable failover                                                            |
+   |                     |                                                                                             |
+   +---------------------+---------------------------------------------------------------------------------------------+
+   | :literal:`disable`  | administratively disable failover                                                           |
+   |                     |                                                                                             |
+   +---------------------+---------------------------------------------------------------------------------------------+
+   | :literal:`status`   | node type indicator: active, passive, or non-HA                                             |
+   |                     |                                                                                             |
+   +---------------------+---------------------------------------------------------------------------------------------+
+   | :literal:`takeover` | can only be run from the passive node; gives a warning message that the current active      |
+   |                     | node will reboot                                                                            |
+   +---------------------+---------------------------------------------------------------------------------------------+
+   | :literal:`giveback` | cannot be run from the active node; gives a warning message that this node will reboot      |
+   |                     |                                                                                             |
+   +---------------------+---------------------------------------------------------------------------------------------+
+   | :literal:`-h` or    | show the help message (options) for this command                                            |
+   | :literal:`--help`   |                                                                                             |
+   +---------------------+---------------------------------------------------------------------------------------------+
+   | :literal:`-q`       | prevent status display if this is a non-HA node                                             |
+   |                     |                                                                                             |
+   +---------------------+---------------------------------------------------------------------------------------------+
 #endif truenas
