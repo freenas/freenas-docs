@@ -35,42 +35,87 @@ Each of these tasks is described in more detail in this section.
 Cloud Sync
 ----------
 
-Files or directories can be syncronized to remote cloud storage
+Files or directories can be synchronized to remote cloud storage
 providers with the :guilabel:`Cloud Sync` feature.
 
 Cloud login credentials must be defined before a cloud sync job can be
-created. Credentials are entered with
-:menuselection:`System --> Cloud Credentials
---> Add Cloud Credential`.
-Enter a *Name* to identify the cloud account, choose a provider from
-the :guilabel:`Provider` drop-down menu, then enter the account
-credentials from the cloud provider. For example, the Amazon S3
-*Access Key* and *Secret Key* can be found by clicking on the account
-name. Click on :guilabel:`My Security Credentials`,
-:guilabel:`Access Keys (Access Key ID and Secret Access Key)`. Copy
-the *Access Key* to the %brand% Cloud Credential *Access Key* field,
-then enter the *Secret Key* from when the key pair was created. If the
-*Secret Key* value is not known, a new key pair can be created on AWS.
+created. See :ref:`Cloud Credentials` for more information.
 
-An area to store data must also exist. With Amazon AWS, these are
+An area to store data must also exist. With Amazon S3, these are
 called *buckets*. The bucket must be created before a sync task can be
 created.
 
 After the credentials and receiving bucket have been created, a cloud
 sync task is created with
-menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
-The :guilabel:`Description` is a name to identify this particular
-task.
+:menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+The :guilabel:`Add Cloud Sync` dialog is shown in
+:numref:`Figure %s <tasks_cloudsync_add_fig>`.
+
+
+.. _tasks_cloudsync_add_fig:
+
+.. figure:: images/cloudsync.png
+
+   Adding a Cloud Sync
+
+
+:numref:`Table %s <tasks_cloudsync_opts_tab>`
+shows the configuration options for Cloud Syncs.
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _tasks_cloudsync_opts_tab:
+
+.. table:: Cloud Sync Options
+   :class: longtable
+
+   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Setting           | Value Type          | Description                                                                                             |
+   |                   |                     |                                                                                                         |
+   +===================+=====================+=========================================================================================================+
+   | Description       | string              | a descriptive name for this Cloud Sync                                                                  |
+   |                   |                     |                                                                                                         |
+   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Direction         | string              | *Push* to send data to cloud storage, or *Pull* to pull data from the cloud storage                     |
+   |                   |                     |                                                                                                         |
+   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Provider          | drop-down menu      | select the cloud storage provider; the list of providers is defined by :ref:`Cloud Credentials`         |
+   |                   |                     |                                                                                                         |
+   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Path              | browse button       | select the directories or files to be sent for *Push* syncs or the destinations for *Pull* syncs        |
+   |                   |                     |                                                                                                         |
+   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Minute            | slider or minute    | select :guilabel:`Every N minutes` and use the slider to choose a value, or select                      |
+   |                   | selections          | :guilabel:`Each selected minute` and choose specific minutes                                            |
+   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Hour              | slider or hour      | select :guilabel:`Every N hours` and use the slider to choose a value, or select                        |
+   |                   | selections          | :guilabel:`Each selected hour` and choose specific hours                                                |
+   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Days of month     | slider or day of    | select :guilabel:`Every N days of month` and use the slider to choose a value, or select                |
+   |                   | month selections    | :guilabel:`Each selected day of month` and choose specific days                                         |
+   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Months            | checkboxes          | months when the Cloud Sync runs                                                                         |
+   |                   |                     |                                                                                                         |
+   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Days of week      | checkboxes          | days of the week when the Cloud Sync runs                                                               |
+   |                   |                     |                                                                                                         |
+   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Enabled           | checkbox            | uncheck to temporarily disable this Cloud Sync                                                          |
+   |                   |                     |                                                                                                         |
+   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+
 
 Take care when choosing a :guilabel:`Direction`. Most of the time,
 *Push* will be used to send data to the cloud storage. *Pull*
-retrieves data from the cloud storage, but be careful: files retrieved
-from the cloud storage will overwrite local files with the same names
-in the destination directory.
+retrieves data from cloud storage, but be careful: files retrieved
+from cloud storage will overwrite local files with the same names in
+the destination directory.
 
 :guilabel:`Provider` is the name of the cloud storage provider. These
 providers are defined by entering credentials in
-:menuselection:`System --> Cloud Credentials`.
+:ref:`Cloud Credentials`.
 
 After the :guilabel:`Provider` is chosen, a list of available cloud
 storage areas from that provider is shown. With Amazon AWS, this is a
@@ -83,9 +128,9 @@ sent to cloud storage. On *Pull* jobs, the :guilabel:`Path` is where
 the retrieved files are written. Again, be cautious about the
 destination of *Pull* jobs to avoid overwriting existing files.
 
-The :guilabel:`Minute`, :guilabel:`Hour`, :guilabel:`Day of month`,
-guilabel:`Month`, and :guilabel:`Day of week` fields permit creating a
-flexible schedule of when the cloud synchronization takes place.
+The :guilabel:`Minute`, :guilabel:`Hour`, :guilabel:`Days of month`,
+guilabel:`Months`, and :guilabel:`Days of week` fields permit creating
+a flexible schedule of when the cloud synchronization takes place.
 
 Finally, the :guilabel:`Enabled` field makes it possible temporarily
 disable a cloud sync job without deleting it.
@@ -96,23 +141,24 @@ disable a cloud sync job without deleting it.
 Cloud Sync Example
 ~~~~~~~~~~~~~~~~~~
 
-This example shows a *Push* cloud sync job, writing an accounting
-depart backup file from the %brand% system to Amazon AWS storage.
+This example shows a *Push* cloud sync which writes an accounting
+department backup file from the %brand% system to Amazon S3 storage.
 
-On the Amazon AWS web site, a bucket called *cloudsync-bucket* is
-created for storing data from the %brand% system.
+Before the new cloud sync was added, a bucket called
+*cloudsync-bucket* was created with the Amazon S3 web console for
+storing data from the %brand% system.
 
 :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
 is used to enter the credentials for storage on an Amazon AWS account.
 The credential is given the name *S3 Storage*, as shown in
-:numref:`Figure %s <tasks_cloudsync_cred_fig>`:
+:numref:`Figure %s <tasks_cloudsync_example_cred_fig>`:
 
 
-.. _tasks_cloudsync_cred_fig:
+.. _tasks_cloudsync_example_cred_fig:
 
-.. figure:: images/cloudsync-cred.png
+.. figure:: images/cloudsync-example-cred.png
 
-   Adding Cloud Credentials
+   Example: Adding Cloud Credentials
 
 
 The local data to be sent to the cloud is a single file called
@@ -128,11 +174,11 @@ The :guilabel:`Path` to the data file is selected.
 
 The remaining fields are for setting a schedule. The default is to
 send the data to cloud storage once an hour, every day. The options
-for great variety in configuring when a cloud sync runs, anywhere from
-once a minute to once a year.
+provide great versatility in configuring when a cloud sync runs,
+anywhere from once a minute to once a year.
 
 The :guilabel:`Enabled` field is checked by default, so this cloud
-sync will run at the next appropriate time.
+sync will run at the next scheduled time.
 
 The completed dialog is shown in
 :numref:`Figure %s <tasks_cloudsync_example_fig>`:
@@ -142,7 +188,7 @@ The completed dialog is shown in
 
 .. figure:: images/cloudsync-example-cropped.png
 
-   Adding a Cloud Sync
+   Example: Adding a Cloud Sync
 
 
 #endif truenas

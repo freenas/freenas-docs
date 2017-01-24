@@ -5,28 +5,32 @@ System
 
 The System section of the administrative GUI contains these entries:
 
-* :ref:`Information`: provides general %brand% system information
+* :ref:`Information` provides general %brand% system information
   such as hostname, operating system version, platform, and uptime
 
-* :ref:`General`: used to configure general settings such as HTTPS
-  access, the language, and the timezone
+* :ref:`General` configures general settings such as HTTPS access, the
+  language, and the timezone
 
-* :ref:`Boot`: used to create, rename, and delete boot environments
+* :ref:`Boot` creates, renames, and deletes boot environments
 
-* :ref:`Advanced`: used to configure advanced settings such as the
-  serial console, swap, and console messages
+* :ref:`Advanced` configures advanced settings such as the serial
+  console, swap space, and console messages
 
-* :ref:`Email`: used to configure the email address to receive
-  notifications
+* :ref:`Email` configures the email address to receive notifications
 
-* :ref:`System Dataset`: used to configure the location where logs
-  and reporting graphs are stored
+* :ref:`System Dataset` configures the location where logs and
+  reporting graphs are stored
 
-* :ref:`Tunables`: provides a front-end for tuning in real-time and
-  to load additional kernel modules at boot time
+* :ref:`Tunables` provides a front-end for tuning in real-time and to
+  load additional kernel modules at boot time
 
-* :ref:`Update`: used to perform upgrades and to check for system
+* :ref:`Update` performs upgrades and checks for system
   updates
+
+#ifdef truenas
+* :ref:`Cloud Credentials` is used to enter connection credentials for
+  remote cloud service providers
+#endif truenas
 
 * :ref:`CAs`: used to import or create an internal or intermediate
   CA (Certificate Authority)
@@ -1481,6 +1485,70 @@ Select an entry with a date prior to the update, then press
 the update was applied.
 
 #include snippets/upgradingazfspool.rst
+#endif truenas
+
+#ifdef truenas
+.. index:: Cloud Credentials
+.. _Cloud Credentials:
+
+Cloud Credentials
+-----------------
+
+%brand% can use cloud services for features like :ref:`Cloud Sync`.
+The credentials to provide secure connections with cloud services
+are entered here. Select
+:menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
+to display the dialog shown in
+:numref:`Figure %s <cloud_cred_fig>`.
+
+
+.. _cloud_cred_fig:
+
+.. figure:: images/cloud-cred.png
+
+   Adding Cloud Credentials
+
+
+The options are shown in
+:numref:`Table %s <cloud_cred_tab>`.
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
+.. _cloud_cred_tab:
+
+.. table:: Cloud Credential Options
+   :class: longtable
+
+   +----------------------+----------------------+------------------------------------------------------------------------------------------+
+   | Setting              | Value                | Description                                                                              |
+   |                      |                      |                                                                                          |
+   +======================+======================+==========================================================================================+
+   | Account Name         | string               | required; enter a descriptive name for the cloud credential                              |
+   |                      |                      |                                                                                          |
+   +----------------------+----------------------+------------------------------------------------------------------------------------------+
+   | Provider             | drop-down menu       | required; select a cloud service provider                                                |
+   |                      |                      |                                                                                          |
+   +----------------------+----------------------+------------------------------------------------------------------------------------------+
+   | Access Key           | string               | shown when Amazon S3 is the :guilabel:`Provider`; paste the Amazon account Access Key    |
+   |                      |                      |                                                                                          |
+   +----------------------+----------------------+------------------------------------------------------------------------------------------+
+   | Private Key          | string               | shown when Amazon S3 is the :guilabel:`Provider`; paste the Amazon account Secret Key    |
+   |                      |                      |                                                                                          |
+   +----------------------+----------------------+------------------------------------------------------------------------------------------+
+
+
+Additional fields are displayed after :guilabel:`Provider` is
+selected. For Amazon S3, :guilabel:`Access Key` and
+:guilabel:`Secret Key` are shown. These values can be can be found on
+the Amazon AWS website by clicking on the account name, then
+:guilabel:`My Security Credentials` and
+:guilabel:`Access Keys (Access Key ID and Secret Access Key)`.
+Copy the Access Key value to the %brand% Cloud Credential
+:guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
+value saved when the key pair was created. If the Secret Key value is
+not known, a new key pair can be created on the same Amazon screen.
 #endif truenas
 
 
