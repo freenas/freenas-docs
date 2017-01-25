@@ -64,7 +64,8 @@ VAAI for NAS
 ------------
 
 `VAAI for NAS <https://code.vmware.com/programs/vaai-nas>`_
-with :ref:`NFS` supports these operations:
+is automatically enabled on %brand% when the :ref:`NFS` service is
+running. These operations are supported:
 
 * *Extended Statistics* provides extended statistics on NFS shares.
 

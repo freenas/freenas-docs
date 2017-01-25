@@ -881,8 +881,8 @@ settings which apply to all NFS shares are configured in
 :menuselection:`Services --> NFS`.
 
 #ifdef truenas
-%brand% supports *VAAI for NAS* when the NFS service is enabled and
-started. See :ref:`VAAI_for_NAS` for more details.
+*VAAI for NAS* is supported through the NFS service. See
+:ref:`VAAI_for_NAS` for more details.
 #endif truenas
 
 :numref:`Figure %s <config_nfs_fig>`
