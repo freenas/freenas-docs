@@ -1273,7 +1273,7 @@ screen.
    Update Options
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_update1a.png
+.. figure:: images/tn_update1b.png
 
    Update Options
 #endif truenas
@@ -1580,7 +1580,7 @@ shows the screen after clicking
    Initial CA Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_ca1.png
+.. figure:: images/tn_ca1b.png
 
    Initial CA Screen
 #endif truenas
@@ -1756,7 +1756,7 @@ shows the initial screen if you click
    Initial Certificates Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_cert.png
+.. figure:: images/tn_cert1.png
 
    Initial Certificates Screen
 #endif truenas
