@@ -1669,53 +1669,14 @@ TCP if there is more than one target per LUN.
 
 In %brand%, iSCSI is built into the kernel. This version of iSCSI
 supports
-`Microsoft Offloaded Data Transfer (ODX),
+`Microsoft Offloaded Data Transfer (ODX)
 <https://technet.microsoft.com/en-us/library/hh831628>`_,
 meaning that file copies happen locally, rather than over the network.
-It also supports these VAAI (vStorage APIs for Array Integration)
-primitives, where VAAI is VMware's API framework that enables certain
-storage tasks, such as large data moves, to be offloaded from the
-virtualization hardware to the storage array.
-
-* **unmap:** tells ZFS that the space occupied by deleted files should
-  be freed. Without unmap, ZFS is unaware of freed space made when the
-  initiator deletes files. For this feature to work, the initiator
-  must support the unmap command.
-
-* **atomic test and set:** allows multiple initiators to synchronize
-  LUN access in a fine-grained manner rather than locking the whole
-  LUN, which would prevent other hosts from accessing the same LUN
-  simultaneously.
-
-* **write same:** when allocating virtual machines with thick
-  provisioning, the necessary write of zeroes is done locally, rather
-  than over the network, so virtual machine creation is much quicker.
-
-* **xcopy:** similar to
-  `Microsoft ODX
-  <https://technet.microsoft.com/en-us/library/hh831628>`_, copies
-  happen locally rather than over the network.
-
-* **stun:** if a volume runs out of space, this feature pauses any
-  running virtual machines so that the space issue can be fixed,
-  instead of reporting write errors.
-
-* **threshold warning:** the system reports a warning when a
-  configurable capacity is reached. In %brand%, this threshold can be
-  configured at the pool level when using zvols
-  (see :numref:`Table %s <iscsi_targ_global_config_tab>`)
-  or at the extent level
-  (see :numref:`Table %s <iscsi_extent_conf_tab>`)
-  for both file- and device-based extents. Typically, the warning is
-  set at the pool level, unless file extents are used, in which case
-  it must be set at the extent level.
-
-* **LUN reporting:** the LUN reports that it is thin provisioned.
-
-To take advantage of these VAAI primitives, create a zvol using the
+It also supports the :ref:`VAAI` (vStorage APIs for Array Integration)
+primitives for efficient operation of storage tasks directly on the
+NAS. To take advantage of the VAAI primitives, create a zvol using the
 instructions in :ref:`Create zvol` and use it to create a device
-extent, as described in
-:ref:`Extents`.
+extent, as described in :ref:`Extents`.
 
 To configure iSCSI:
 
@@ -1726,7 +1687,7 @@ To configure iSCSI:
 #.  Determine which hosts are allowed to connect using iSCSI and
     create an initiator.
 
-#.  Decide if you will use authentication, and if so, whether it will
+#.  Decide if authentication will be used, and if so, whether it will
     be CHAP or mutual CHAP. If using authentication, create an
     authorized access.
 
@@ -1804,8 +1765,8 @@ for iSNS requests is 5 seconds.
    |                                 |                              |                                                                                           |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
    | Pool Available Space Threshold  | integer                      | enter the percentage of free space that should remain in the pool; when this percentage   |
-   |                                 |                              | is reached, the system will issue an alert, but only if zvols are used                    |
-   |                                 |                              |                                                                                           |
+   |                                 |                              | is reached, the system issues an alert, but only if zvols are used; see :ref:`VAAI`       |
+   |                                 |                              | Threshold Warning                                                                         |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
 
 
@@ -2229,7 +2190,7 @@ name.**
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Available Space    | string         | only appears if *File* or a zvol is selected; when the specified percentage of free space is reached, the system     |
-   | Threshold          |                | will issue an alert                                                                                                  |
+   | Threshold          |                | issues an alert; see :ref:`VAAI` Threshold Warning                                                                   |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Comment            | string         | optional                                                                                                             |

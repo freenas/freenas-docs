@@ -880,6 +880,11 @@ are specific to each configured NFS Share. In contrast, global
 settings which apply to all NFS shares are configured in
 :menuselection:`Services --> NFS`.
 
+#ifdef truenas
+%brand% supports *VAAI for NAS* when the NFS service is enabled and
+started. See :ref:`VAAI_for_NAS` for more details.
+#endif truenas
+
 :numref:`Figure %s <config_nfs_fig>`
 shows the configuration screen and
 :numref:`Table %s <nfs_config_opts_tab>`

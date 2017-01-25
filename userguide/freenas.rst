@@ -31,6 +31,7 @@
    cli
    contribute
    zfsprimer
+   vaai
    api
 
 .. only:: html
