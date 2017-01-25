@@ -905,7 +905,7 @@ controller users and groups.
    System Dataset Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system5.png
+.. figure:: images/tn_system-system-dataset.png
 
    System Dataset Screen
 #endif truenas
