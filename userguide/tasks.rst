@@ -38,11 +38,34 @@ Cloud Sync
 Files or directories can be synchronized to remote cloud storage
 providers with the :guilabel:`Cloud Sync` feature.
 
-Cloud login credentials must be defined before a cloud sync job can be
-created. See :ref:`Cloud Credentials` for more information.
+Selecting
+:menuselection:`Tasks --> Cloud Sync`
+shows the screen in
+:numref:`Figure %s <tasks_cloudsync_status_fig>`.
+This screen shows a single cloud sync called *backup-acctg* that
+"pushes" a file to cloud storage. The last run finished with a status
+of *SUCCESS*.
 
-An area to store data must also exist. With Amazon S3, these are
-called *buckets*. The bucket must be created before a sync task can be
+Existing cloud syncs can be run manually, edited, or deleted with the
+buttons that appear when a single cloud sync line is selected by
+clicking with the mouse.
+
+
+.. _tasks_cloudsync_status_fig:
+
+.. figure:: images/cloudsync-status.png
+
+   Cloud Sync Status
+
+
+:ref:`Cloud Credentials` must be defined before a cloud sync is
+created. One set of credentials can be used for more than one cloud
+sync. For example, a single set of credentials for Amazon S3 can be
+used for separate cloud syncs that push different sets of files or
+directories.
+
+A cloud storage area must also exist. With Amazon S3, these are called
+*buckets*. The bucket must be created before a sync task can be
 created.
 
 After the credentials and receiving bucket have been created, a cloud
