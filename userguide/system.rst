@@ -104,7 +104,7 @@ is shown in
    General Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system2a.png
+.. figure:: images/tn_system-general.png
 
    General Screen
 #endif truenas
