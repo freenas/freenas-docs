@@ -2083,6 +2083,99 @@ will not stop a replication task that is already running. Once a
 replication task has begun, it will run until finished.
 
 
+#ifdef truenas
+.. _Replication Topolgies and Scenarios:
+
+Replication Topologies and Scenarios
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The replication examples shown above are known as *simple* or *A to B*
+replication, where one machine replicates data to one other machine.
+Replication can also be set up in more sophisticated topologies to
+suit various purposes and needs.
+
+
+.. _Star Replication:
+
+Star Replication
+^^^^^^^^^^^^^^^^
+
+In a *star* topology, a single %brand% computer replicates data to
+multiple destination computers. This can provide data redundancy with
+the multiple copies of data, and geographical redundancy if the
+destination computers are located at different sites.
+
+An *Alpha* computer with three separate replication tasks to replicate
+data to *Beta*, then *Gamma*, and finally *Delta* computers
+demonstrates this arrangement. *A to B* replication is really just a
+star arrangement with only one target computer.
+
+The star topology is simple to configure and manage, but it can place
+relatively high I/O and network loads on the source computer, which
+must run an individual replication task for each target computer.
+
+
+Tiered Replication
+^^^^^^^^^^^^^^^^^^
+
+In *tiered* replication, the data is replicated from the source
+computer onto one or a few destination computers. The destination
+computers then replicate the same data onto other computers. This
+allows much of the network and I/O load to be shifted away from the
+source computer.
+
+For example, consider both *Alpha* and *Beta* computers to be located
+inside the same data center. Replicating data from *Alpha* to *Beta*
+does not protect that data from events that would involve the whole
+data center, like flood, fire, or earthquake. Two more computers,
+called *Gamma* and *Delta*, are set up. To provide geographic
+redundancy, *Gamma* is in a data center on the other side of the
+country, and *Delta* is in a data center on another continent. A
+single periodic snapshot replicates data from *Alpha* to *Beta*.
+*Beta* then replicates the data onto *Gamma*, and again onto *Delta*.
+
+Tiered replication shifts most of the network and I/O overhead of
+repeated replication off the source computer onto the target
+computers. The source computer only replicates to the second-tier
+computers, which then handle replication to the third tier, and so on.
+In this example, *Alpha* only replicates data onto *Beta*. The I/O and
+network load of repeated replications is shifted onto *Beta*.
+
+
+N-way Replication
+^^^^^^^^^^^^^^^^^
+
+*N-way* replication topologies recognize that hardware is sometimes
+idle, and computers can be used for more than a single dedicated
+purpose. An individual computer can be used as both a source and
+destination for replication. For example, the *Alpha* system can
+replicate a dataset to *Beta*, while *Beta* can replicate datasets to
+both *Alpha* and *Gamma*.
+
+With careful setup, this topology can efficiently use I/O, network
+bandwidth, and computers, but can quickly become complex to manage.
+
+
+Disaster Recovery
+^^^^^^^^^^^^^^^^^
+
+*Disaster recovery* is the ability to recover complete datasets from a
+replication destination computer. The replicated dataset is replicated
+back to new hardware after an incident caused the source computer to
+fail.
+
+Recovering data onto a replacement computer can be done manually with
+the :command:`zfs send` and :command:`zfs recv` commands, or a
+replication task can be defined on the target computer containing the
+backup data. This replication task would normally be disabled.
+If a disaster damages the source computer, the target computer's
+replication task is temporarily enabled, replicating the data onto the
+replacement source computer. After the disaster recovery replication
+completes, the replication task on the target computer is disabled
+again.
+#endif truenas
+
+
 .. _Troubleshooting Replication:
 
 Troubleshooting Replication
