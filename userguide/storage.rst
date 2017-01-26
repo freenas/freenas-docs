@@ -1495,6 +1495,17 @@ After the resilver is complete, :guilabel:`Volume Status` shows a
 :numref:`Figure %s <zfs_disk_replacement_fig>`
 indicates that the disk replacement was successful in this example.
 
+.. note:: A disk that is failing but has not completely failed can be
+   replaced in place, without first removing it. Whether this is a
+   good idea depends on the overall condition of the failing disk. A
+   disk with a few newly-bad blocks that is otherwise functional can
+   be left in place during the replacement to provide data redundancy.
+   A drive that is experiencing continuous errors can actually slow
+   down the replacement. In extreme cases, a disk with serious
+   problems might spend so much time retrying failures that it could
+   prevent the replacement resilvering from completing before another
+   drive fails.
+
 
 .. _zfs_disk_replacement_fig:
 
