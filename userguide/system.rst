@@ -1155,6 +1155,11 @@ installed. %brand% |release| ships with these loaders set:
    hw.memtest.tests="0"
    vfs.zfs.trim.enabled="0"
    kern.cam.ctl.ha_mode=2
+   kern.geom.label.ufs.enable=0
+   kern.geom.label.ufsid.enable=0
+   hint.ntb_hw.0.config="ntb_nvdimm:1:4:0,ntb_transport"
+   hint.ntb_transport.0.config=":3"
+   hw.ntb.msix_mw_idx="-1"
 #endif truenas
 
 **Do not add or edit the default tunables** as doing so might make the
