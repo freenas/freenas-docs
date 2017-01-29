@@ -1612,7 +1612,7 @@ eSATA port and a hard drive dock. The process follows these steps:
 
 If a spare drive port is not available, a drive can be replaced with a
 larger one using the instructions in :ref:`Replacing a Failed Drive`.
-This process is slow and places the :system in a degraded state. Since
+This process is slow and places the system in a degraded state. Since
 a failure at this point could be disastrous, **do not attempt this
 method unless the system has a reliable backup.** Replace one drive at
 a time and wait for the resilver process to complete on the replaced
