@@ -42,7 +42,7 @@ accessories. If anything is missing or your %brand% Storage Array
 arrived in less than pristine condition, immediately take pictures
 and contact iXsystems support.
 
-Check that your shipment includes the following items:
+Check that your shipment includes these items:
 
 * %brand% Storage Array
 
@@ -966,12 +966,12 @@ not accessible.
 
 .. _console_setup_menu_fig:
 
-.. figure:: images/console1b.png
+.. figure:: images/tn_console.png
 
    Console Setup Menu
 
 
-This menu provides the following options:
+This menu provides these options:
 
 **1) Configure Network Interfaces:** provides a configuration
 wizard to configure the system's network interfaces. If the system has
@@ -991,12 +991,12 @@ interface.
 default gateway. When prompted, input the IP address of the default
 gateway.
 
-**5) Configure Static Routes:** will prompt for the destination
+**5) Configure Static Routes:** prompts for the destination
 network and the gateway IP address. Re-enter this option for each
-route you need to add.
+route to be added.
 
 **6) Configure DNS:** will prompt for the name of the DNS domain
-then the IP address of the first DNS server. To input multiple DNS
+then the IP address of the first DNS server. To enter multiple DNS
 servers, press :kbd:`Enter` to input the next one. When finished,
 press :kbd:`Enter` twice to leave this option.
 
@@ -1004,15 +1004,15 @@ press :kbd:`Enter` twice to leave this option.
 graphical administrative interface, select this option and follow
 the prompts to set the *root* password.
 
-**8) Reset to factory defaults:** if you wish to delete **all** of
-the configuration changes made in the administrative GUI, select
-this option. Once the configuration is reset, the system will
-reboot. You will need to go to
+**8) Reset to factory defaults:** to delete **all** of the
+configuration changes made in the administrative GUI, select this
+option. Once the configuration is reset, the system will reboot. It
+will be necessary to go to
 :menuselection:`Storage --> Volumes --> Import Volume`
-to re-import your volume.
+to re-import volumes.
 
-**9) Shell:** enters a shell in order to run FreeBSD commands. To
-leave the shell, type :command:`exit`.
+**9) Shell:** starts a shell to run FreeBSD commands. To leave the
+shell, type :command:`exit`.
 
 **10) System Update:** if any system updates are available, they
 will automatically be downloaded and applied. The functionality is
@@ -1067,9 +1067,14 @@ once the restore is complete.
 .. warning:: The backup function **IGNORES ENCRYPTED POOLS**. Do
    not use it to backup systems with encrypted pools.
 
-**13) Reboot:** reboots the system.
+**13) Toggle automatic support alerts to iXsystems:** controls whether
+emails are sent to iXsystems support when a problem is detected. When
+selected, the current setting is shown and an opportunity to change it
+is provided.
 
-**14) Shutdown:** halts the system.
+**14) Reboot:** reboots the system.
+
+**15) Shutdown:** halts the system.
 
 During boot, %brand% automatically attempts to connect to a DHCP
 server from all live interfaces. If it successfully receives an IP
@@ -1173,7 +1178,7 @@ example in
    the passphrase when the first node powers back up.
 
 If you are unable to access the IP address from a browser, check
-the following:
+these things:
 
 * Are proxy settings enabled in the browser configuration? If so,
   disable the settings and try connecting again.

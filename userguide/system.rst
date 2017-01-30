@@ -536,7 +536,7 @@ The configurable settings are summarized in
    Advanced Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system3.png
+.. figure:: images/tn_system-advanced.png
 
    Advanced Screen
 #endif truenas
@@ -567,7 +567,7 @@ The configurable settings are summarized in
    | Serial Port Speed                       | drop-down menu                   | select the speed used by the serial port                                     |
    |                                         |                                  |                                                                              |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable screen saver                     | checkbox                         | enable/disable the console screen saver                                      |
+   | Enable screen saver                     | checkbox                         | enable or disable the console screen saver                                   |
    |                                         |                                  |                                                                              |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Enable powerd (Power Saving Daemon)     | checkbox                         | `powerd(8) <http://www.freebsd.org/cgi/man.cgi?query=powerd>`_               |
@@ -620,7 +620,16 @@ The configurable settings are summarized in
    | Use FQDN for logging                    | checkbox                         | when checked, include the Fully-Qualified Domain Name in logs to precisely   |
    |                                         |                                  | identify systems with similar hostnames                                      |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-
+   #ifdef truenas
+   | Enable automatic support alerts to      | checkbox                         | when checked, allow emails to be sent to iXsystems when an alert occurs      |
+   | iXsystems                               |                                  |                                                                              |
+   |                                         |                                  |                                                                              |
+   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Failsafe Support Contact                | string                           | enter an always-monitored email address to be contacted by iXsystems in      |
+   |                                         |                                  | case of failure                                                              |
+   |                                         |                                  |                                                                              |
+   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   #endif truenas
 
 Click the :guilabel:`Save` button after making any changes.
 
@@ -642,12 +651,11 @@ menu shown in
 :numref:`Figure %s <console_setup_menu_fig>`.
 
 .. warning:: The backup and restore options are meant for disaster
-   recovery. If you restore a system, it will be returned to the point
-   in time that the backup was created. If you select the option to
-   save the data, any data created after the backup was made will be
-   lost. If you do **not** select the option to save the data, the
-   system will be recreated with the same ZFS layout, but with **no**
-   data.
+   recovery. A restored system is returned to the point in time that
+   the backup was created. If the option to save the data is selected,
+   any data created after the backup was made will be lost. If the
+   the option to save the data is **not** selected, the system is
+   recreated with the same ZFS layout, but with **no** data.
 
 .. warning:: The backup function **IGNORES ENCRYPTED POOLS**. Do not
    use it to back up systems with encrypted pools.
