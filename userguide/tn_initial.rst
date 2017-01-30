@@ -1135,7 +1135,7 @@ user, as shown in
 
 .. _tn_login1:
 
-.. figure:: images/tn_login1b.png
+.. figure:: images/tn_login1c.png
 
    Enter the Root Password
 
