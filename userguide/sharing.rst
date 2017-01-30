@@ -2398,19 +2398,18 @@ and enter the following:
 In the example shown in
 :numref:`Figure %s <tn_npiv>`,
 two physical interfaces were each assigned 4 virtual ports. Note that
-two tunables were required, one for each physical interface. Once the
-tunables are created, the configured number of virtual ports will
-appear in the :guilabel:`Fibre Channel Ports` screen so that they can
-be associated with targets. They will also be advertised to the
-switch so that you can configure zoning on the switch. Once a
-virtual port has been associated with a target, it will be added
-to the :guilabel:`Target` tab of :ref:`Reporting` so that you can view
-its bandwidth usage.
+two tunables were required, one for each physical interface. After the
+tunables are created, the configured number of virtual ports appears
+in the :guilabel:`Fibre Channel Ports` screen so they can be
+associated with targets. They will also be advertised to the switch so
+zoning can be configured on the switch. After a virtual port has been
+associated with a target, it is added to the :guilabel:`Target` tab of
+:ref:`Reporting` where its bandwidth usage can be viewed.
 
 
 .. _tn_npiv:
 
-.. figure:: images/tn_npiv.png
+.. figure:: images/tn_system-tunables-npiv.png
 
    Adding Virtual Ports
 #endif truenas
