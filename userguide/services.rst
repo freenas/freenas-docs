@@ -405,177 +405,166 @@ display these settings by checking the box
 summarizes the available options when configuring the FTP server.
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
+                    |>{\Centering}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.54\linewidth-2\tabcolsep}|
 
 .. _ftp_config_opts_tab:
 
 .. table:: FTP Configuration Options
    :class: longtable
 
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Setting                                                       | Value          | Description                                                                         |
-   |                                                               |                |                                                                                     |
-   +===============================================================+================+=====================================================================================+
-   | Port                                                          | integer        | port the FTP service listens on                                                     |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Clients                                                       | integer        | maximum number of simultaneous clients                                              |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Connections                                                   | integer        | maximum number of connections per IP address where *0* means unlimited              |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Login Attempts                                                | integer        | maximum number of attempts before client is disconnected; increase this if          |
-   |                                                               |                | users are prone to typos                                                            |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Timeout                                                       | integer        | maximum client idle time in seconds before client is disconnected                   |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Allow Root Login                                              | checkbox       | discouraged as increases security risk                                              |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Allow Anonymous Login                                         | checkbox       | enables anonymous FTP logins with access to the directory specified in              |
-   |                                                               |                | :guilabel:`Path`                                                                    |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Path                                                          | browse button  | root directory for anonymous FTP connections                                        |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Allow Local User Login                                        | checkbox       | required if :guilabel:`Anonymous Login` is disabled                                 |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Display Login                                                 | string         | message displayed to local login users after authentication; not displayed          |
-   |                                                               |                | to anonymous login users                                                            |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | File Permission                                               | checkboxes     | only available in :guilabel:`Advanced Mode`; sets default permissions               |
-   |                                                               |                | for newly created files                                                             |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Directory Permission                                          | checkboxes     | only available in :guilabel:`Advanced Mode`; sets default permissions               |
-   |                                                               |                | for newly created directories                                                       |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Enable                                                        | checkbox       | only available in :guilabel:`Advanced Mode`; enables File eXchange                  |
-   | `FXP <https://en.wikipedia.org/wiki/File_eXchange_Protocol>`_ |                | Protocol which is discouraged as it makes the server vulnerable to                  |
-   |                                                               |                | FTP bounce attacks                                                                  |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Allow Transfer Resumption                                     | checkbox       | allows FTP clients to resume interrupted transfers                                  |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Always Chroot                                                 | checkbox       | a local user is only allowed access to their home directory unless the user         |
-   |                                                               |                | is a member of group *wheel*                                                        |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Require IDENT Authentication                                  | checkbox       | only available in :guilabel:`Advanced Mode`; will result in timeouts if             |
-   |                                                               |                | :command:`identd` is not running on the client                                      |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Perform Reverse DNS Lookups                                   | checkbox       | perform reverse DNS lookups on client IPs; can cause long delays if reverse         |
-   |                                                               |                | DNS is not configured                                                               |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Masquerade address                                            | string         | public IP address or hostname; set if FTP clients cannot connect through a          |
-   |                                                               |                | NAT device                                                                          |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Minimum passive port                                          | integer        | only available in :guilabel:`Advanced Mode`; used by clients in PASV                |
-   |                                                               |                | mode, default of *0* means any port above 1023                                      |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Maximum passive port                                          | integer        | only available in :guilabel:`Advanced Mode`; used by clients in PASV mode,          |
-   |                                                               |                | default of *0* means any port above 1023                                            |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Local user upload bandwidth                                   | integer        | only available in :guilabel:`Advanced Mode`; in KB/s, default of *0*                |
-   |                                                               |                | means unlimited                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Local user download bandwidth                                 | integer        | only available in :guilabel:`Advanced Mode`; in KB/s, default of *0*                |
-   |                                                               |                | means unlimited                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Anonymous user upload bandwidth                               | integer        | only available in :guilabel:`Advanced Mode`; in KB/s, default of *0*                |
-   |                                                               |                | means unlimited                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Anonymous user download bandwidth                             | integer        | only available in :guilabel:`Advanced Mode`; in KB/s, default of *0*                |
-   |                                                               |                | means unlimited                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Enable TLS                                                    | checkbox       | only available in :guilabel:`Advanced Mode`; enables encrypted connections and      |
-   |                                                               |                | requires a certificate to be created or imported using :ref:`Certificates`          |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | TLS policy                                                    | drop-down menu | only available in :guilabel:`Advanced Mode`; the selected policy defines whether    |
-   |                                                               |                | the control channel, data channel, both channels, or neither channel of an FTP      |
-   |                                                               |                | session must occur over SSL/TLS; the policies are described                         |
-   |                                                               |                | `here <http://www.proftpd.org/docs/directives/linked/config_ref_TLSRequired.html>`_ |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | TLS allow client renegotiations                               | checkbox       | only available in :guilabel:`Advanced Mode`; checking this box is **not**           |
-   |                                                               |                | recommended as it breaks several security measures; for this and the rest           |
-   |                                                               |                | of the TLS fields, refer to                                                         |
-   |                                                               |                | `mod_tls <http://www.proftpd.org/docs/contrib/mod_tls.html>`_                       |
-   |                                                               |                | for more details                                                                    |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | TLS allow dot login                                           | checkbox       | only available in :guilabel:`Advanced Mode`; if checked, the user's home            |
-   |                                                               |                | directory is checked for a :file:`.tlslogin` file which contains one or             |
-   |                                                               |                | more PEM-encoded certificates; if not found, the user will be prompted              |
-   |                                                               |                | for password authentication                                                         |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | TLS allow per user                                            | checkbox       | only available in :guilabel:`Advanced Mode`; if checked, the user's password        |
-   |                                                               |                | may be sent unencrypted                                                             |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | TLS common name required                                      | checkbox       | only available in :guilabel:`Advanced Mode`; if checked, the common name in         |
-   |                                                               |                | the certificate must match the FQDN of the host                                     |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | TLS enable diagnostics                                        | checkbox       | only available in :guilabel:`Advanced Mode`; if checked when troubleshooting        |
-   |                                                               |                | a connection, will log more verbosely                                               |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | TLS export certificate data                                   | checkbox       | only available in :guilabel:`Advanced Mode`; if checked, exports the                |
-   |                                                               |                | certificate environment variables                                                   |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | TLS no certificate request                                    | checkbox       | only available in :guilabel:`Advanced Mode`; try checking this box if the           |
-   |                                                               |                | client cannot connect and you suspect that the client software is not               |
-   |                                                               |                | properly handling the server's certificate request                                  |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | TLS no empty fragments                                        | checkbox       | only available in :guilabel:`Advanced Mode`; checking this box is **not**           |
-   |                                                               |                | recommended as it bypasses a security mechanism                                     |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | TLS no session reuse required                                 | checkbox       | only available in :guilabel:`Advanced Mode`; checking this box reduces the          |
-   |                                                               |                | security of the connection so only do so if the client does not understand          |
-   |                                                               |                | reused SSL sessions                                                                 |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | TLS export standard vars                                      | checkbox       | only available in :guilabel:`Advanced Mode`; if checked, sets several               |
-   |                                                               |                | environment variables                                                               |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | TLS DNS name required                                         | checkbox       | only available in :guilabel:`Advanced Mode`; if checked, the client's DNS name      |
-   |                                                               |                | must resolve to its IP address and the cert must contain the same DNS name          |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | TLS IP address required                                       | checkbox       | only available in :guilabel:`Advanced Mode`; if checked, the client's certificate   |
-   |                                                               |                | must contain the IP address that matches the IP address of the client               |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Certificate                                                   | drop-down menu | the SSL certificate to be used for TLS FTP connections; to create a certificate,    |
-   |                                                               |                | use :menuselection:`System --> Certificates`                                        |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
-   | Auxiliary parameters                                          | string         | only available in :guilabel:`Advanced Mode`; used to add                            |
-   |                                                               |                | `proftpd(8) <http://linux.die.net/man/8/proftpd>`_                                  |
-   |                                                               |                | parameters not covered elsewhere in this screen                                     |
-   |                                                               |                |                                                                                     |
-   +---------------------------------------------------------------+----------------+-------------------------------------------------------------------------------------+
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Setting                                                       | Value          | Advanced | Description                                                                         |
+   |                                                               |                | Mode     |                                                                                     |
+   +===============================================================+================+==========+=====================================================================================+
+   | Port                                                          | integer        |          | port the FTP service listens on                                                     |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Clients                                                       | integer        |          | maximum number of simultaneous clients                                              |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Connections                                                   | integer        |          | maximum number of connections per IP address where *0* means unlimited              |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Login Attempts                                                | integer        |          | maximum number of attempts before client is disconnected; increase this if          |
+   |                                                               |                |          | users are prone to typos                                                            |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Timeout                                                       | integer        |          | maximum client idle time in seconds before client is disconnected                   |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Allow Root Login                                              | checkbox       |          | discouraged as increases security risk                                              |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Allow Anonymous Login                                         | checkbox       |          | enables anonymous FTP logins with access to the directory specified in              |
+   |                                                               |                |          | :guilabel:`Path`                                                                    |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Path                                                          | browse button  |          | root directory for anonymous FTP connections                                        |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Allow Local User Login                                        | checkbox       |          | required if :guilabel:`Anonymous Login` is disabled                                 |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Display Login                                                 | string         |          | message displayed to local login users after authentication; not displayed          |
+   |                                                               |                |          | to anonymous login users                                                            |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | File Permission                                               | checkboxes     | ✓        | sets default permissions for newly created files                                    |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Directory Permission                                          | checkboxes     | ✓        | sets default permissions for newly created directories                              |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Enable                                                        | checkbox       | ✓        | enables File eXchange Protocol which is discouraged as it makes the server          |
+   | `FXP <https://en.wikipedia.org/wiki/File_eXchange_Protocol>`_ |                |          | vulnerable to FTP bounce attacks                                                    |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Allow Transfer Resumption                                     | checkbox       |          | allows FTP clients to resume interrupted transfers                                  |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Always Chroot                                                 | checkbox       |          | a local user is only allowed access to their home directory unless the user         |
+   |                                                               |                |          | is a member of group *wheel*                                                        |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Require IDENT Authentication                                  | checkbox       | ✓        | will result in timeouts if :command:`identd` is not running on the client           |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Perform Reverse DNS Lookups                                   | checkbox       |          | perform reverse DNS lookups on client IPs; can cause long delays if reverse         |
+   |                                                               |                |          | DNS is not configured                                                               |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Masquerade address                                            | string         |          | public IP address or hostname; set if FTP clients cannot connect through a          |
+   |                                                               |                |          | NAT device                                                                          |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Minimum passive port                                          | integer        | ✓        | used by clients in PASV mode, default of *0* means any port above 1023              |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Maximum passive port                                          | integer        | ✓        | used by clients in PASV mode, default of *0* means any port above 1023              |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Local user upload bandwidth                                   | integer        | ✓        | in KB/s, default of *0* means unlimited                                             |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Local user download bandwidth                                 | integer        | ✓        | in KB/s, default of *0* means unlimited                                             |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Anonymous user upload bandwidth                               | integer        | ✓        | in KB/s, default of *0* means unlimited                                             |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Anonymous user download bandwidth                             | integer        | ✓        | in KB/s, default of *0* means unlimited                                             |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Enable TLS                                                    | checkbox       | ✓        | enables encrypted connections and requires a certificate to be created or           |
+   |                                                               |                |          | imported using :ref:`Certificates`                                                  |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | TLS policy                                                    | drop-down menu | ✓        | the selected policy defines whether the control channel, data channel,              |
+   |                                                               |                |          | both channels, or neither channel of an FTP session must occur over SSL/TLS;        |
+   |                                                               |                |          | the policies are described                                                          |
+   |                                                               |                |          | `here <http://www.proftpd.org/docs/directives/linked/config_ref_TLSRequired.html>`_ |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | TLS allow client renegotiations                               | checkbox       | ✓        | checking this box is **not** recommended as it breaks several                       |
+   |                                                               |                |          | security measures; for this and the rest of the TLS fields, refer to                |
+   |                                                               |                |          | `mod_tls <http://www.proftpd.org/docs/contrib/mod_tls.html>`_                       |
+   |                                                               |                |          | for more details                                                                    |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | TLS allow dot login                                           | checkbox       | ✓        | if checked, the user's home directory is checked for a                              |
+   |                                                               |                |          | :file:`.tlslogin` file which contains one or more PEM-encoded                       |
+   |                                                               |                |          | certificates; if not found, the user is prompted for password                       |
+   |                                                               |                |          | authentication                                                                      |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | TLS allow per user                                            | checkbox       | ✓        | if checked, the user's password may be sent unencrypted                             |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | TLS common name required                                      | checkbox       | ✓        | if checked, the common name in the certificate must match the FQDN                  |
+   |                                                               |                |          | of the host                                                                         |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | TLS enable diagnostics                                        | checkbox       | ✓        | if checked when troubleshooting a connection, logs more verbosely                   |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | TLS export certificate data                                   | checkbox       | ✓        | if checked, exports the certificate environment variables                           |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | TLS no certificate request                                    | checkbox       | ✓        | try checking this box if the client cannot connect and it is suspected              |
+   |                                                               |                |          | that the client software is not properly handling the server's                      |
+   |                                                               |                |          | certificate request                                                                 |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | TLS no empty fragments                                        | checkbox       | ✓        | checking this box is **not** recommended as it bypasses a security mechanism        |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | TLS no session reuse required                                 | checkbox       | ✓        | checking this box reduces the security of the connection, so only                   |
+   |                                                               |                |          | use it if the client does not understand reused SSL sessions                        |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | TLS export standard vars                                      | checkbox       | ✓        | if checked, sets several environment variables                                      |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | TLS DNS name required                                         | checkbox       | ✓        | if checked, the client's DNS name must resolve to its IP address and                |
+   |                                                               |                |          | the cert must contain the same DNS name                                             |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | TLS IP address required                                       | checkbox       | ✓        | if checked, the client's certificate must contain the IP address that               |
+   |                                                               |                |          | matches the IP address of the client                                                |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Certificate                                                   | drop-down menu |          | the SSL certificate to be used for TLS FTP connections; to create a                 |
+   |                                                               |                |          | certificate, use :menuselection:`System --> Certificates`                           |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | Auxiliary parameters                                          | string         | ✓        | used to add                                                                         |
+   |                                                               |                |          | `proftpd(8) <http://linux.die.net/man/8/proftpd>`_                                  |
+   |                                                               |                |          | parameters not covered elsewhere in this screen                                     |
+   |                                                               |                |          |                                                                                     |
+   +---------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
 
 
 This example demonstrates the auxiliary parameters that prevent all
@@ -1647,62 +1636,63 @@ display these settings by checking the box
 :menuselection:`System --> Advanced`.
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
+                    |>{\Centering}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.54\linewidth-2\tabcolsep}|
 
 .. _ssh_conf_opts_tab:
 
 .. table:: SSH Configuration Options
    :class: longtable
 
-   +-------------------------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Setting                       | Value          | Description                                                                                              |
-   |                               |                |                                                                                                          |
-   +===============================+================+==========================================================================================================+
-   | Bind Interfaces               | selection      | only available in :guilabel:`Advanced Mode`; by default, SSH listens on all interfaces unless            |
-   |                               |                | specific interfaces are highlighted in the :guilabel:`Available` field and added to the                  |
-   |                               |                | :guilabel:`Selected` field                                                                               |
-   +-------------------------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | TCP Port                      | integer        | port to open for SSH connection requests; *22* by default                                                |
-   |                               |                |                                                                                                          |
-   +-------------------------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Login as Root with password   | checkbox       | **for security reasons, root logins are discouraged and disabled by default** if enabled, password must  |
-   |                               |                | be set for *root* user in :guilabel:`View Users`                                                         |
-   |                               |                |                                                                                                          |
-   +-------------------------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Allow Password Authentication | checkbox       | if unchecked, key-based authentication for all users is required; requires                               |
-   |                               |                | `additional setup <http://the.earth.li/%7Esgtatham/putty/0.55/htmldoc/Chapter8.html>`_                   |
-   |                               |                | on both the SSH client and server                                                                        |
-   |                               |                |                                                                                                          |
-   +-------------------------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Allow Kerberos Authentication | checkbox       | before checking this box, ensure that :ref:`Kerberos Realms` and :ref:`Kerberos Keytabs` have been       |
-   |                               |                | configured and that the FreeNAS system can communicate with the KDC                                      |
-   |                               |                |                                                                                                          |
-   +-------------------------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Allow TCP Port Forwarding     | checkbox       | allows users to bypass firewall restrictions using SSH's                                                 |
-   |                               |                | `port forwarding feature <http://www.symantec.com/connect/articles/ssh-port-forwarding>`_                |
-   |                               |                |                                                                                                          |
-   +-------------------------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Compress Connections          | checkbox       | may reduce latency over slow networks                                                                    |
-   |                               |                |                                                                                                          |
-   +-------------------------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | SFTP Log Level                | drop-down menu | only available in :guilabel:`Advanced Mode`; select the                                                  |
-   |                               |                | `syslog(3) <http://www.freebsd.org/cgi/man.cgi?query=syslog>`_                                           |
-   |                               |                | level of the SFTP server                                                                                 |
-   |                               |                |                                                                                                          |
-   +-------------------------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | SFTP Log Facility             | drop-down menu | only available in :guilabel:`Advanced Mode`; select the                                                  |
-   |                               |                | `syslog(3) <http://www.freebsd.org/cgi/man.cgi?query=syslog>`_                                           |
-   |                               |                | facility of the SFTP server                                                                              |
-   |                               |                |                                                                                                          |
-   +-------------------------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Extra Options                 | string         | only available in :guilabel:`Advanced Mode`; additional                                                  |
-   |                               |                | `sshd_config(5) <http://www.freebsd.org/cgi/man.cgi?query=sshd_config>`_                                 |
-   |                               |                | options not covered in this screen, one per line; these options are case-sensitive and misspellings may  |
-   |                               |                | prevent the SSH service from starting                                                                    |
-   |                               |                |                                                                                                          |
-   +-------------------------------+----------------+----------------------------------------------------------------------------------------------------------+
+   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
+   | Setting                       | Value          | Advanced | Description                                                                                         |
+   |                               |                | Mode     |                                                                                                     |
+   +===============================+================+==========+=====================================================================================================+
+   | Bind Interfaces               | selection      | ✓        | by default, SSH listens on all interfaces unless specific interfaces are highlighted in the         |
+   |                               |                |          | :guilabel:`Available` field and added to the :guilabel:`Selected` field                             |
+   |                               |                |          |                                                                                                     |
+   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
+   | TCP Port                      | integer        |          | port to open for SSH connection requests; *22* by default                                           |
+   |                               |                |          |                                                                                                     |
+   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
+   | Login as Root with password   | checkbox       |          | **for security reasons, root logins are discouraged and disabled by default** if enabled,           |
+   |                               |                |          | password must be set for *root* user in :guilabel:`View Users`                                      |
+   |                               |                |          |                                                                                                     |
+   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
+   | Allow Password Authentication | checkbox       |          | if unchecked, key-based authentication for all users is required; requires                          |
+   |                               |                |          | `additional setup <http://the.earth.li/%7Esgtatham/putty/0.55/htmldoc/Chapter8.html>`_              |
+   |                               |                |          | on both the SSH client and server                                                                   |
+   |                               |                |          |                                                                                                     |
+   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
+   | Allow Kerberos Authentication | checkbox       |          | before checking this box, ensure that :ref:`Kerberos Realms` and :ref:`Kerberos Keytabs`            |
+   |                               |                |          | have been configured and that the %brand% system can communicate with the KDC                       |
+   |                               |                |          |                                                                                                     |
+   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
+   | Allow TCP Port Forwarding     | checkbox       |          | allows users to bypass firewall restrictions using SSH's                                            |
+   |                               |                |          | `port forwarding feature <http://www.symantec.com/connect/articles/ssh-port-forwarding>`_           |
+   |                               |                |          |                                                                                                     |
+   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
+   | Compress Connections          | checkbox       |          | may reduce latency over slow networks                                                               |
+   |                               |                |          |                                                                                                     |
+   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
+   | SFTP Log Level                | drop-down menu | ✓        | select the                                                                                          |
+   |                               |                |          | `syslog(3) <http://www.freebsd.org/cgi/man.cgi?query=syslog>`_                                      |
+   |                               |                |          | level of the SFTP server                                                                            |
+   |                               |                |          |                                                                                                     |
+   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
+   | SFTP Log Facility             | drop-down menu | ✓        | select the                                                                                          |
+   |                               |                |          | `syslog(3) <http://www.freebsd.org/cgi/man.cgi?query=syslog>`_                                      |
+   |                               |                |          | facility of the SFTP server                                                                         |
+   |                               |                |          |                                                                                                     |
+   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
+   | Extra Options                 | string         | ✓        | additional                                                                                          |
+   |                               |                |          | `sshd_config(5) <http://www.freebsd.org/cgi/man.cgi?query=sshd_config>`_                            |
+   |                               |                |          | options not covered in this screen, one per line; these options are case-sensitive                  |
+   |                               |                |          | and misspellings may prevent the SSH service from starting                                          |
+   |                               |                |          |                                                                                                     |
+   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
 
 
 A few `sshd_config(5)
