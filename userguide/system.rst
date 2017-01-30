@@ -816,7 +816,7 @@ shown in
    Email Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system4.png
+.. figure:: images/tn_system-email.png
 
    Email Screen
 #endif truenas
@@ -862,6 +862,9 @@ shown in
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Password             | string               | enter the password if the SMTP server requires authentication                                   |
    |                      |                      |                                                                                                 |
+   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Password             | string               | enter the same password again for confirmation                                                  |
+   | Confirmation         |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
 
