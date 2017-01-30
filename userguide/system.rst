@@ -654,7 +654,7 @@ menu shown in
    recovery. A restored system is returned to the point in time that
    the backup was created. If the option to save the data is selected,
    any data created after the backup was made will be lost. If the
-   the option to save the data is **not** selected, the system is
+   option to save the data is **not** selected, the system is
    recreated with the same ZFS layout, but with **no** data.
 
 .. warning:: The backup function **IGNORES ENCRYPTED POOLS**. Do not

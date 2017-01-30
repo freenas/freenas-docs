@@ -1057,15 +1057,14 @@ at the point when the backup was created. The system will reboot
 once the restore is complete.
 
 .. warning:: The backup and restore options are meant for disaster
-   recovery. If you restore a system, it will be returned to the
-   point in time that the backup was created. If you select the
-   option to save the data, any data created after the backup was
-   made will be lost. If you do **not** select the option to save
-   the data, the system will be recreated with the same ZFS layout,
-   but with **no** data.
+   recovery. A restored system is returned to the point in time that
+   the backup was created. If the option to save the data is selected,
+   any data created after the backup was made will be lost. If the
+   option to save the data is **not** selected, the system is
+   recreated with the same ZFS layout, but with **no** data.
 
 .. warning:: The backup function **IGNORES ENCRYPTED POOLS**. Do
-   not use it to backup systems with encrypted pools.
+   not use it to back up systems with encrypted pools.
 
 **13) Toggle automatic support alerts to iXsystems:** controls whether
 emails are sent to iXsystems support when a problem is detected. When
@@ -1169,34 +1168,35 @@ example in
    %brand% Graphical Configuration Menu
 
 
-.. note:: If the storage devices have been encrypted, you will be
-   prompted for, and must succesfully enter, the passphrase in order
-   for the data on the disks to be accessible. If the system has also
-   been licensed for High Availability (HA), the passphrase will be
-   remembered as long as either node in the HA unit remains up.
-   However, if both nodes are powered off, you will need to reinput
-   the passphrase when the first node powers back up.
+.. note:: If the storage devices have been encrypted, a prompt appears
+   for the passphrase. It must be correctly entered for the data on
+   the disks to be accessible. If the system has also been licensed
+   for High Availability (HA), the passphrase will be remembered as
+   long as either node in the HA unit remains up. If both nodes are
+   powered off, the passphrase must be re-entered when the first node
+   powers back up.
 
-If you are unable to access the IP address from a browser, check
-these things:
+
+If the user interface is not accessible by IP address from a browser,
+check these things:
 
 * Are proxy settings enabled in the browser configuration? If so,
   disable the settings and try connecting again.
 
-* If the page does not load, make sure that you can :command:`ping`
+* If the page does not load, make sure that a :command:`ping` reaches
   the %brand% system's IP address. If the address is in a private
-  IP address range, you will only be able to access the system from
-  within the private network.
+  IP address range, it is only accessible from within that private
+  network.
 
 * If the user interface loads but is unresponsive or seems to be
-  missing menu items, try using a different web browser. IE9 has
-  known issues and will not display the graphical administrative
-  interface correctly if compatibility mode is turned on. If you
-  can't access the GUI using Internet Explorer, use
+  missing menu items, try a different web browser. IE9 has known
+  issues and will not display the graphical administrative interface
+  correctly if compatibility mode is turned on. If the GUI cannot
+  be accessed with Internet Explorer, use
   `Firefox <https://www.mozilla.org/en-US/firefox/all/>`_
   instead.
 
-* If you receive "An error occurred!" messages when attempting to
+* If "An error occurred!" messages are shown when attempting to
   configure an item in the GUI, make sure that the browser is set
   to allow cookies from the %brand% system.
 
@@ -1214,7 +1214,7 @@ tree, or the left frame of the graphical interface.
    Support Representative for initial setup and configuration
    assistance.
 
-Once your system has been configured and you are familiar with the
+Once the system has been configured and you are familiar with the
 configuration workflow, the rest of this document can be used as a
 reference guide to the features built into the %brand% Storage
 Array.
@@ -1222,7 +1222,7 @@ Array.
 .. note:: It is important to use the graphical interface (or the
    console setup menu) for all non-ZFS configuration changes.
    %brand% uses a configuration database to store its settings. If
-   you make changes at the command line, they will not be written
+   changes are made at the command line, they will not be written
    to the configuration database. This means that these changes
    will not persist after a reboot and will be overwritten by the
    values in the configuration database during an upgrade.
