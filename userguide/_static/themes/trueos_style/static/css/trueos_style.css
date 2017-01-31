@@ -4103,5 +4103,46 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', end
 
 /*"""""""""""""""""""""""""""""""""""""""""""""""*
  |    Allow for printing from browser            | 
- |    with reasonable appearance         (END)   | 
+ |    with reasonable appearance                 | 
+ *"""""""""""""""""""""""""""""""""""""""""""""""*/
+#gsc-iw-id1 {
+	background: #bbbbbb !important;
+	border: solid 1px #A8A8A8 !important;
+	margin-top: 2px;
+	border-radius: 1px;
+}
+
+#gsc-i-id1 {
+	border: solid 1px #A8A8A8 !important;
+	background: white !important;
+}
+
+.gsc-search-box-tools .gsc-search-box .gsc-input {
+	padding-left: 4px !important;
+}
+
+input.gsc-search-button {
+	background-color: #bbbbbb !important;
+}
+
+ input.gsc-search-button:hover, input.gsc-search-button:focus {
+	 background-color: gray !important;
+}
+
+.gsc-search-box .gsc-input > input:focus, .gsc-input-box-focus, .gsc-search-box {
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.gsib_a {
+	padding: 2px 2px !important;
+	padding-right: 4px !important;
+}
+
+.gsst_a .gscb_a {
+	color: #5785e9 !important;
+}
+
+/*"""""""""""""""""""""""""""""""""""""""""""""""*
+ |   ^^  Google Search Appearance CSS ^^ (END)
  *"""""""""""""""""""""""""""""""""""""""""""""""*/

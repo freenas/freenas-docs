@@ -1,9 +1,16 @@
 {%- if builder != 'singlehtml' %}
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="{{ pathto('search') }}" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+<script>
+  (function() {
+    var cx = '013099353444728555705:8gdcrhjc36q';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox-only resultsUrl="https://www.freenas.org/handbook/searchresults.html" placeholder="hello it's me" enableAutoComplete="true"></gcse:searchbox-only>
 </div>
 {%- endif %}
