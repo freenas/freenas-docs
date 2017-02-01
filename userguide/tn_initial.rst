@@ -1163,7 +1163,7 @@ example in
 
 .. _tn_initial:
 
-.. figure:: images/tn_initial1b.png
+.. figure:: images/tn_initial1c.png
 
    %brand% Graphical Configuration Menu
 

@@ -81,7 +81,7 @@ include the domain name. If the network does not use a domain name add
    System Information Tab
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system1b.png
+.. figure:: images/tn_system-information.png
 
    System Information Tab
 #endif truenas
