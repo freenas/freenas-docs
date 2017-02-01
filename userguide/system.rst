@@ -2037,7 +2037,7 @@ requests.
 
 .. _tn_support1:
 
-.. figure:: images/tn_support1.png
+.. figure:: images/tn_system-support.png
 
    Support Tab
 
