@@ -7,6 +7,7 @@
 # textproc/py-sphinxcontrib-httpdomain
 
 import os
+import six
 import string
 import sys
 import time
@@ -20,7 +21,7 @@ source_suffix = '.rst'
 #source_encoding = 'utf-8-sig'
 
 # General information about the project.
-copyright = u'2011-2017, iXsystems'
+copyright = '2011-2017, iXsystems'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -34,8 +35,8 @@ release = '9.10.2'
 # exclude_patterns is a list of patterns relative to the source directory
 # that match files and directories to ignore when looking for source files.
 tags.add('freenas')
-brand = u'FreeNAS®'
-project = brand + u' User Guide'
+brand = six.u('FreeNAS®')
+project = brand + sx.u(' User Guide')
 master_doc = 'freenas'
 extensions = [
     'sphinxcontrib.httpdomain'
@@ -44,9 +45,9 @@ numfig = True
 numfig_secnum_depth = (2)
 
 if tags.has('truenas'):
-    brand = u'TrueNAS®'
+    brand = six.u('TrueNAS®')
     tags.remove('freenas')
-    project = brand + u' User Guide'
+    project = brand + six.u(' User Guide')
     master_doc = 'truenas'
 
 # |brand| will be replaced with FreeNAS® or TrueNAS®
@@ -257,7 +258,7 @@ epub_show_urls = 'no'
 
 # -- Options for LaTeX output --------------------------------------------------
 
-texproject = string.replace(project, u'®', r'''\textsuperscript{\textregistered}''')
+texproject = project.replace(six.u('®'), r'''\textsuperscript{\textregistered}''')
 
 PREAMBLE = r'''\def\docname{''' + texproject + '}'
 
@@ -337,13 +338,13 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('freenas', 'FreeNAS.tex', texproject,
-   u'iXsystems', 'manual'),
+   'iXsystems', 'manual'),
 ]
 
 if tags.has('truenas'):
     latex_documents = [
       ('truenas', 'TrueNAS.tex', texproject,
-       u'iXsystems', 'manual'),
+       'iXsystems', 'manual'),
     ]
 
 # The name of an image file (relative to this directory) to place at the top of
