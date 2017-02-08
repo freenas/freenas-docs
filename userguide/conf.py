@@ -36,7 +36,7 @@ release = '9.10.2'
 # that match files and directories to ignore when looking for source files.
 tags.add('freenas')
 brand = six.u('FreeNAS®')
-project = brand + sx.u(' User Guide')
+project = brand + six.u(' User Guide')
 master_doc = 'freenas'
 extensions = [
     'sphinxcontrib.httpdomain'
