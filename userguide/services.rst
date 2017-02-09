@@ -52,8 +52,9 @@ Control Services
 :numref:`Figure %s <control_services_fig>`,
 shows which services are currently running and can start, stop, or
 configure them. The S.M.A.R.T. service is enabled by default, but only
-runs if the storage devices support S.M.A.R.T. data. Other services
-default to off until started.
+runs if the storage devices support
+`S.M.A.R.T. data <http://en.wikipedia.org/wiki/S.M.A.R.T.>`_
+Other services default to off until started.
 
 
 .. _control_services_fig:
@@ -1085,8 +1086,9 @@ module.
 S.M.A.R.T.
 ----------
 
-S.M.A.R.T. (Self-Monitoring, Analysis and Reporting Technology) is an
-industry standard for disk monitoring and testing. Drives can be
+`S.M.A.R.T., or Self-Monitoring, Analysis, and Reporting Technology
+<http://en.wikipedia.org/wiki/S.M.A.R.T.>`_,
+is an industry standard for disk monitoring and testing. Drives can be
 monitored for status and problems, and several types of self-tests can
 be run to check the drive health.
 
