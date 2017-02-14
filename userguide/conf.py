@@ -145,7 +145,7 @@ html_static_path = ['_static']
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
-#html_additional_pages = {}
+html_additional_pages = {'searchresults' : 'searchresults.html',}
 
 # If false, no module index is generated.
 #html_domain_indices = True
@@ -231,7 +231,7 @@ epub_uid = release
 #epub_post_files = []
 
 # A list of files that should not be packed into the epub file.
-epub_exclude_files = ['search.html']
+epub_exclude_files = ['search.html', 'searchresults.html']
 
 # The depth of the table of contents in toc.ncx.
 #epub_tocdepth = 3
