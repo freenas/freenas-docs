@@ -162,6 +162,10 @@ changes that have occurred since |version| was released.
    |version|. If a screen on your system is not the same as shown in
    this guide, make sure that all outstanding updates are applied.
 
+* Patches have been applied to fix the
+  `FreeBSD-SA-17:01.openssh Security Advisory
+  <https://www.freebsd.org/security/advisories/FreeBSD-SA-17:01.openssh.asc>`_.
+
 * Samba has been updated to
   `4.5.5 <https://www.samba.org/samba/history/samba-4.5.5.html>`_.
 
