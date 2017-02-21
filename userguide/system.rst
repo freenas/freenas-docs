@@ -1090,6 +1090,8 @@ installed. %brand% |release| ships with the following sysctls set:
    kern.sugid_coredump=1
    net.inet.tcp.delayed_ack=0
    vfs.timestamp_precision=3
+   ne.link.lagg.lacp.default_strict_mode=0
+   vfs.zfs.min_auto_ashift=12
 #endif freenas
 #ifdef truenas
 .. code-block:: none
