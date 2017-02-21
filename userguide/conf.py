@@ -26,10 +26,10 @@ copyright = u'2011-2017, iXsystems'
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
-# The short X.Y version.
-version = '9.10.2-U1'
-# The full version, including alpha/beta/rc tags.
-release = '9.10.2-U1'
+# The full version number, like "9.10.2-U2"
+version = '9.10.2-U2'
+# The shorter feature branch version number, like "9.10.2"
+release = '9.10.2'
 
 # exclude_patterns is a list of patterns relative to the source directory
 # that match files and directories to ignore when looking for source files.

@@ -81,10 +81,10 @@ operating systems. A plugin system is provided for extending the
 built-in features by installing additional software.
 
 
-.. _What Is New in |version|:
+.. _New Features in |release|:
 
-What Is New in |version|
-------------------------
+New Features in |release|
+-------------------------
 
 * The installer now provides an option to install the updated system
   into a new boot environment instead of formatting the boot device.
@@ -112,9 +112,6 @@ What Is New in |version|
 * An :guilabel:`Auxiliary Parameters` field has been added to
   :menuselection:`Sharing --> Apple (AFP) --> Add Apple (AFP) Share`.
 
-* Samba has been updated to
-  `4.4.5 <https://www.samba.org/samba/history/samba-4.4.5.html>`_.
-
 * Modifying network settings only affects the changed network
   components, avoiding the disruption of restarting all networking.
 
@@ -126,6 +123,11 @@ What Is New in |version|
 
 * A new script for backing up Samba4 domain controller settings has
   been added. See :ref:`Samba Domain Controller Backup`.
+
+* The *winmsa* VFS module has been added to Samba. This module emulates
+  Microsoft’s MoveSecurityAttributes=0 registry option, setting the ACL
+  for file and directory hierarchies to inherit from the parent directory
+  into which they are moved.
 
 * The UPS shutdown command can now be customized.
 
@@ -144,11 +146,10 @@ What Is New in |version|
   still present for compatibility.
 
 
-#ifdef commented
-.. _What Has Changed Since |version|:
+.. _Changes in |version|:
 
-What Has Changed Since |version|
---------------------------------
+Changes in |version|
+--------------------
 
 %brand% uses a "rolling release" model instead of point releases. The
 :ref:`Update` mechanism makes it easy to keep up-to-date with the
@@ -160,7 +161,10 @@ changes that have occurred since |version| was released.
    has been fully updated to the latest STABLE version of %brand%
    |version|. If a screen on your system is not the same as shown in
    this guide, make sure that all outstanding updates are applied.
-#endif commented
+
+* Samba has been updated to
+  `4.5.5 <https://www.samba.org/samba/history/samba-4.5.5.html>`_.
+
 
 
 .. index:: Hardware Recommendations
