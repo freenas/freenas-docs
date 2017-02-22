@@ -162,6 +162,11 @@ changes that have occurred since |version| was released.
    |version|. If a screen on your system is not the same as shown in
    this guide, make sure that all outstanding updates are applied.
 
+* An alert is shown when running on certain models of ASrock Rack
+  motherboards with flawed BMC firmware that require an update. See
+  `ASrock Rack BMC Issue
+  <https://support.ixsystems.com/index.php?/Knowledgebase/Article/View/287>`_.
+
 * Patches have been applied to fix the
   `FreeBSD-SA-17:01.openssh Security Advisory
   <https://www.freebsd.org/security/advisories/FreeBSD-SA-17:01.openssh.asc>`_.
