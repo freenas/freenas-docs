@@ -166,6 +166,9 @@ changes that have occurred since |version| was released.
   `FreeBSD-SA-17:01.openssh Security Advisory
   <https://www.freebsd.org/security/advisories/FreeBSD-SA-17:01.openssh.asc>`_.
 
+* During user creation, non-ASCII characters are prevented from being
+  entered in the username.
+
 * When moving the system dataset, a new message notifies the user that
   the dataset is only moved after clicking :guilabel:`Save`.
 
