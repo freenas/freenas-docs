@@ -166,6 +166,9 @@ changes that have occurred since |version| was released.
   `FreeBSD-SA-17:01.openssh Security Advisory
   <https://www.freebsd.org/security/advisories/FreeBSD-SA-17:01.openssh.asc>`_.
 
+* When moving the system dataset, a new message notifies the user that
+  the dataset is only moved after clicking :guilabel:`Save`.
+
 * Samba has been updated to
   `4.5.5 <https://www.samba.org/samba/history/samba-4.5.5.html>`_.
 
