@@ -785,7 +785,7 @@ Kerberos Realms
 A default Kerberos realm is created for the local system in %brand%.
 :menuselection:`Directory Service --> Kerberos Realms`
 can be used to view and add Kerberos realms.  If the network contains
-a KDC, click the :guilabel:`Add kerberose realm` button to add the
+a KDC, click the :guilabel:`Add kerberos realm` button to add the
 Kerberos realm. This configuration screen is shown in
 :numref:`Figure %s <ker_realm_fig>`.
 
