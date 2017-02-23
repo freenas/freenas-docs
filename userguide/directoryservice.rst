@@ -723,6 +723,13 @@ box :guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
 
 
+#ifdef freenas
+.. raw:: latex
+
+   \newpage
+#endif freenas
+
+
 .. _nt_fig:
 
 .. figure:: images/nt1.png
