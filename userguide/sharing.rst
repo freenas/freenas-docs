@@ -1267,6 +1267,9 @@ for more details.
    | unityed_media       | allows multiple Avid clients to share a network drive                                                                                      |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | winmsa              | emulate Microsoft's MoveSecurityAttributes=0 registry option, setting the ACL for file and directory hierarchies to inherit from the       |
+   |                     | parent directory into which they are moved                                                                                                 |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | worm                | controls the writability of files and folders depending on their change time and an adjustable grace period                                |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
