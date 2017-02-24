@@ -183,6 +183,7 @@ changes that have occurred since |version| was released.
 * Samba has been updated to
   `4.5.5 <https://www.samba.org/samba/history/samba-4.5.5.html>`_.
 
+* Extents are not allowed to be created inside the jail root directory.
 
 
 .. index:: Hardware Recommendations

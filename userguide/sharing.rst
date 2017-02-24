@@ -2171,9 +2171,9 @@ name.**
    | Serial             | string         | unique LUN ID; the default is generated from the system's MAC address                                                |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Path to the extent | browse button  | only appears if *File* is selected; either browse to an existing file and use *0* as the                             |
-   |                    |                | :guilabel:`Extent size`, **or** browse to the volume or dataset, click :guilabel:`Close`,                            |
-   |                    |                | append the :guilabel:`Extent Name` to the path, and specify a value in :guilabel:`Extent size`                       |
+   | Path to the extent | browse button  | only appears if *File* is selected; browse to an existing file and use *0* as the :guilabel:`Extent size`,           |
+   |                    |                | **or** browse to the volume or dataset, click :guilabel:`Close`, append the :guilabel:`Extent Name` to the path,     |
+   |                    |                | and specify a value in :guilabel:`Extent size`; extents cannot be created inside the jail root directory             |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Device             | drop-down menu | only appears if *Device* is selected; select the unformatted disk, controller, zvol, zvol snapshot, or HAST device   |
