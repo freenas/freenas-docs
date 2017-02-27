@@ -1818,6 +1818,14 @@ The IP address of *Beta* is entered in the :guilabel:`Remote hostname`
 field. A hostname can be entered here if local DNS resolves for that
 hostname.
 
+.. note:: If :guilabel:`WebGUI HTTP --> HTTPS Redirect` has been
+   enabled in
+   :menuselection:`System --> General`
+   on the destination computer,
+   :guilabel:`Remote HTTP/HTTPS Port` must be set to the HTTPS port
+   (usually *443*) and :guilabel:`Remote HTTPS` must be enabled when
+   creating the replication on the source computer.
+
 
 .. _zfs_create_repl2_fig:
 

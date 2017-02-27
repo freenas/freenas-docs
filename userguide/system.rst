@@ -154,7 +154,7 @@ can be configured using the General tab:
    | WebGUI HTTPS Port    | integer        | allows configuring a non-standard port for accessing the administrative GUI over HTTPS                                   |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTPS -->     | checkbox       | when this box is checked, *HTTP* connections are automatically redirected to                                             |
+   | WebGUI HTTP -->      | checkbox       | when this box is checked, *HTTP* connections are automatically redirected to                                             |
    | HTTPS Redirect       |                | *HTTPS* if                                                                                                               |
    |                      |                | *HTTPS* is selected in :guilabel:`Protocol`, otherwise such connections will fail                                        |
    |                      |                |                                                                                                                          |
