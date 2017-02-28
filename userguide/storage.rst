@@ -2036,9 +2036,9 @@ The periodic snapshot and any new manual snapshots of the same dataset
 are replicated onto the destination computer.
 
 When multiple replications have been created, replication tasks run
-serially, one after another. How long they take to complete depends on
-the number and size of snapshots and the bandwidth available between
-the source and destination computers.
+serially, one after another. Completion time depends on the number and
+size of snapshots and the bandwidth available between the source and
+destination computers.
 
 The first time a replication runs, it must duplicate data structures
 from the source to the destination computer. This can take much longer
@@ -2200,9 +2200,13 @@ again.
 Troubleshooting Replication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Replication depends on disks, network, and encryption to work. A
-failure or misconfiguration of any of these can prevent successful
-replication.
+Replication depends on SSH, disks, network, compression, and
+encryption to work. A failure or misconfiguration of any of these can
+prevent successful replication.
+
+
+SSH
+^^^
 
 :ref:`SSH` must be able to connect from the source system to the
 destination system with an encryption key. This can be tested from
@@ -2236,6 +2240,23 @@ value must be present in the :file:`/root/.ssh/authorized_keys` file
 on *Beta*, the destination computer. The :file:`/var/log/auth.log`
 file can show diagnostic errors for login problems on the destination
 computer also.
+
+
+Compression
+^^^^^^^^^^^
+
+Matching compression and decompression programs must be available on
+both the source and destination computers. This is not a problem when
+both computers are running %brand%, but other operating systems might
+not have *lz4*, *pigz*, or *plzip* compression programs installed by
+default. An easy way to diagnose the problem is to set
+:guilabel:`Replication Stream Compression` to *Off*. If the
+replication runs, select the preferred compression method and check
+:file:`/var/log/debug.log` on the %brand% system for errors.
+
+
+Manual Testing
+^^^^^^^^^^^^^^
 
 On *Alpha*, the source computer, the :file:`/var/log/messages` file
 can also show helpful messages to locate the problem.
