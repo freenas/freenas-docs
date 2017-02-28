@@ -127,7 +127,7 @@ added as a member of the group.
 .. index:: Delete Group, Remove Group
 
 The :guilabel:`Delete Group` button deletes a group. The pop-up
-message asks if you also want to delete all members of that group.
+message asks whether all members of that group should also be deleted.
 Note that the built-in groups do not provide a
 :guilabel:`Delete Group` button.
 
@@ -280,7 +280,7 @@ created or modified.
    +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | Disable password login     | checkbox        |          | when checked, disables password logins and authentication to SMB shares; to undo this                                                      |
    |                            |                 |          | setting, set a password for the user using the :guilabel:`Modify User` button for the user in :guilabel:`View Users`;                      |
-   |                            |                 |          | checking this box will gray out :guilabel:`Lock user` and :guilabel:`Permit Sudo`, which are mutually exclusive                            |
+   |                            |                 |          | checking this box grays out :guilabel:`Lock user` and :guilabel:`Permit Sudo`, which are mutually exclusive                                |
    |                            |                 |          |                                                                                                                                            |
    +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | Lock user                  | checkbox        |          | a checked box prevents user from logging in until the account is unlocked (box is unchecked); checking this                                |
@@ -361,3 +361,12 @@ created or modified.
    | git-shell    | `restricted git shell <http://git-scm.com/docs/git-shell>`_                                                          |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
+
+
+.. index:: Remove User, Delete User
+
+Built-in user accounts needed by the system cannot be removed. A
+:guilabel:`Remove User` button appears for custom users that have been
+added by the system administrator. If the user to be removed is the
+last user in a custom group, an option is presented to delete the
+group as well.
