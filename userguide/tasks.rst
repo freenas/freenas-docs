@@ -297,6 +297,11 @@ Created cron jobs will be listed in :guilabel:`View Cron Jobs`.
 Highlight a cron job entry to display buttons to :guilabel:`Edit`,
 :guilabel:`Delete`, or :guilabel:`Run Now`.
 
+.. note:: :literal:`%` symbols are automatically escaped and should
+   not be prefixed with backslashes. For example, use
+   :samp:`date '+%Y-%m-%d'` in a cron job to generate a filename based
+   on the date.
+
 
 .. _Init/Shutdown Scripts:
 
@@ -311,9 +316,9 @@ shows the screen that opens after clicking
 :menuselection:`Tasks --> Init/Shutdown Scripts --> Add Init/Shutdown
 Script`.
 :numref:`Table %s <tasks_init_opt_tab>`
-summarizes the available options.
+summarizes the options.
 
-When scheduling a command, make sure that the command is in your path
+When scheduling a command, make sure that the command is in the path
 or give the full path to the command. One way to test the path is to
 type :command:`which command_name`. If the command is not found, it is
 not in your path.
