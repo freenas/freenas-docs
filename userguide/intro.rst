@@ -346,7 +346,9 @@ serial numbers. It is best to use a different disk controller with
 
 .. note:: Dell PERC H730 disk controllers can be problematic. For best
    results, set the controller to HBA mode and add a loader
-   :ref:`tunable <Tunables>` of :literal:`hw.mfi.mrsas_enable="1"`.
+   :ref:`tunable <Tunables>` with a :guilabel:`Variable` of
+   *hw.mfi.mrsas_enable*, a :guilabel:`Value` of *1*, and a
+   :guilabel:`Type` of *Loader*.
 
 
 Suggestions for testing disks before adding them to a RAID array can
