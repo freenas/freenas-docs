@@ -177,9 +177,6 @@ changes that have occurred since |version| was released.
 * When moving the system dataset, a new message notifies the user that
   the dataset is only moved after clicking :guilabel:`Save`.
 
-* With Active Directory, temporary loss of communications with the AD
-  server no longer stops the Active Directory service.
-
 * Samba has been updated to
   `4.5.5 <https://www.samba.org/samba/history/samba-4.5.5.html>`_.
 
