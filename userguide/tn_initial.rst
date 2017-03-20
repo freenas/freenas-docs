@@ -1,6 +1,10 @@
 Initial Setup
 =============
 
+Before beginning software configuration, please see the
+:ref:`Hardware Setup` section for specific racking and connection
+information.
+
 Depending on the degree of pre-configuration you requested from
 iXsystems, much of the initial %brand% setup may already be
 complete.
@@ -10,757 +14,6 @@ complete.
    iXsystems Support at truenas-support@ixsystems.com. Be sure to
    have all of your %brand% hardware serial numbers on hand, which
    are located on the back of the chassis.
-
-This section covers these initial setup steps:
-
-* :ref:`Packing List`: provides an overview of the hardware
-  components.
-
-* :ref:`Hardware Setup`: how to install the %brand% hardware into a
-  rack and connect all necessary expansion shelves.
-
-* :ref:`Out-of-Band Management`: connect and configure the %brand%
-  out-of-band management port.
-
-* :ref:`Console Setup Menu`: access the %brand% console setup menu
-  to configure network interfaces.
-
-
-.. index:: Packing List
-
-.. _Packing List:
-
-Packing List
-------------
-
-The %brand% Storage Array supports two expansion shelf models: the
-:ref:`E16 Expansion Shelf` and the :ref:`E24 Expansion Shelf`. Each
-is designed to be straightforward to set up.
-
-The %brand% Storage Array comes with a number of necessary
-accessories. If anything is missing or your %brand% Storage Array
-arrived in less than pristine condition, immediately take pictures
-and contact iXsystems support.
-
-Check that your shipment includes these items:
-
-* %brand% Storage Array
-
-.. image:: images/truenas_appliance.png
-
-* Up to 16 Populated 3.5" drive trays
-
-.. image:: images/tn_drive_trays.jpg
-
-* One pair of outer rails, left and right
-
-.. image:: images/tn_rails.jpg
-
-* Eight thumbscrews
-
-.. image:: images/tn_thumbscrews1.png
-   :width: 5%
-
-* Two short screws
-
-.. image:: images/tn_shortscrew.png
-   :width: 5%
-
-* Two long screws
-
-.. image:: images/tn_longscrew.png
-   :width: 7%
-
-* Two power cables
-
-.. image:: images/tn_power_cable.jpg
-
-* One serial to 3.5mm cable
-
-.. image:: images/tn_serialcable.png
-
-* One faceplate
-
-.. image:: images/tn_bezel.png
-
-* One printed guide
-
-.. image:: images/tn_setupguide.png
-
-
-Since network cables are highly configuration-dependent, contact
-your iXsystems Sales Representative if you have any questions
-regarding the included cables.
-
-Any unused drive bays are populated with drive tray blanks to
-maintain proper airflow.
-
-The layout of the storage controller will vary by configuration.
-:numref:`Figure %s <appliance1>` provides an example of
-the front view of the %brand% Storage Array.
-
-
-.. _appliance1:
-
-.. figure:: images/tn_appliance_front_view.jpg
-
-   Front View
-
-
-Note the two control panels on either side of the front of the
-array. The one on the left controls the primary storage controller,
-and the one on the right controls the secondary storage controller
-in High Availability models.
-
-:numref:`Figure %s <appliance2>`
-shows the layout of the front panel buttons and indicators.
-
-
-.. _appliance2:
-
-.. figure:: images/tn_appliance_front_panel.jpg
-
-   Front Panel Buttons and Indicators
-
-
-:numref:`Figure %s <appliance3>`
-shows the rear view of the array. If the %brand% Storage Array is
-configured for High Availability, both storage controller slots
-are populated. In a single-controller model, the bottom
-controller slot contains a controller slot cover panel.
-
-
-.. _appliance3:
-
-.. figure:: images/tn_appliance_rear_view.jpg
-
-   Rear View
-
-
-:numref:`Figure %s <appliance4>`
-shows a drive tray and the meanings for the LED colors.
-
-
-.. _appliance4:
-
-.. figure:: images/tn_drive_tray.jpg
-
-   Drive Tray
-
-
-.. index:: Hardware Setup
-
-.. _Hardware Setup:
-
-Hardware Setup
---------------
-
-%brand% Storage Array slide rails support racks with both square
-and circular hole types. Set the mounting brackets into the
-correct position for your rack type by pressing the button
-on the mounting bracket and rotating them in place, as shown in
-:numref:`Figure %s <appliance5>`.
-The square rack style brackets are the default. The circular hole
-style is the one with a flat surface and screw holes.
-
-
-.. _appliance5:
-
-.. figure:: images/tn_rotate_bracket.png
-
-   Rotate Rackmount Bracket
-
-
-.. index:: Install TrueNAS Outer Rail in Rack
-
-Before installing the %brand% Storage Array, confirm that the rails
-included with your %brand% Storage Array are long enough for your
-rack. Examine each rail to find the sides labeled *Front* and
-*Rear*.
-
-For racks with square holes, snap the mounting brackets into the
-holes at either end of the rail into the mouting holes. Make sure
-to install the rails with the end labeled *Front* toward the front
-of the rack. Refer to
-:numref:`Figure %s <appliance6>`
-for a detailed view.
-
-
-.. _appliance6:
-
-.. figure:: images/tn_rack_square_holes.png
-
-   Installing Rails in Racks with Square Holes
-
-
-For racks with round holes, secure the rails into the rack at the
-desired position using the eight thumbscrews included with the
-rails. Make sure to install the rails with the end labeled *Front*
-toward the front of the rack. Refer to
-:numref:`Figure %s <appliance7>`
-for a detailed view.
-
-
-.. _appliance7:
-
-.. figure:: images/tn_rack_round_holes.png
-
-   Installing Rails in Racks with Round Holes
-
-
-.. index:: Install Array into Rack
-
-You are now ready to install the %brand% Storage Array into the
-rack.
-
-.. warning:: Two people are required to lift a %brand% Storage
-   Array.
-
-Carefully align the %brand% Storage Array inner rail with the
-notches in the outer rail. Once the rails are aligned, slide the
-array toward the rack. When the array stops moving, move the
-pin-lock laches to allow the array to slide the rest of the way
-into the rack. Refer to
-:numref:`Figure %s <appliance8>`
-for a detailed view.
-
-
-.. _appliance8:
-
-.. figure:: images/tn_rack_and_release_locks.png
-
-   Push Array into Rack and Release pin-lock Latches
-
-
-.. index:: Install Drive Trays into a TrueNAS Array
-
-Next, install all of the populated drive trays into the front of
-the array. Refer to
-:numref:`Figure %s <appliance9>`
-for a detailed view.
-
-.. note:: to avoid personal injury, do not install drives into the
-   %brand% Storage Array before racking.
-
-
-.. _appliance9:
-
-.. figure:: images/tn_install_drive_tray.jpg
-
-   Drive Installation Instructions
-
-
-Connect both network and storage cabling **before** turning on the
-%brand% Storage Array for the first time.
-
-Network cabling is highly dependent on the exact %brand% model and
-environment. If you need assistance connecting your %brand% Storage
-Array to the network, contact your iXsystems Support
-Representative.
-
-In order to configure and use :ref:`Out-of-Band Management`, you
-must connect the out-of-band management port before turning on the
-%brand% Storage Array. Refer to
-:numref:`Figure %s <appliance11>`
-or the sticker on the storage controller handle for the location of
-the out-of-band management port.
-
-
-.. _appliance11:
-
-.. figure:: images/tn_appliance_back_panel_left.jpg
-
-   Back Panel Layout
-
-
-For storage cabling instructions, refer to the instructions in
-:ref:`E16 Expansion Shelf` or :ref:`E24 Expansion Shelf`, depending
-upon the %brand% expansion shelf.
-
-.. index:: Attach the TrueNAS Faceplate
-
-Finally, each %brand% Storage Array includes an optional faceplate.
-To attach the faceplate to the %brand% Storage Array, insert the
-two tabs on the right side of the faceplate into the holes in the
-right side handle section. Push the left side of the faceplate down
-until it clicks into place.
-
-.. index:: Plug in and Power on your TrueNAS array
-
-Once all of the other hardware setup steps are complete, plug the
-power cords into the AC receptacles on the back of the %brand%
-Storage Array and secure them in place with the wire locks.
-
-.. note:: Be sure to power on all %brand% storage expansion shelves
-   before powering on the %brand% Storage Array.
-
-Power on the %brand% Storage Array by pressing the top left button
-on the control panel for each storage controller. Wait thirty
-seconds after turning on the first storage controller before
-powering on the second storage controller. This will make it clear
-which controller is the active controller in High Availability
-configurations.
-
-Once the %brand% Storage Array is fully operational, the %brand%
-logo will act as a global fault light. By default, it is backlit in
-white. If there are any issues that need to be addressed, the light
-will turn red. In this case, refer to the :ref:`Alert` section of
-the %brand% administrative graphical interface for more details
-about the error condition.
-
-
-.. index:: E16 Expansion Shelf
-
-.. _E16 Expansion Shelf:
-
-E16/E16F Expansion Shelf
-------------------------
-
-
-.. note:: This product is End Of Life (EOL). Support ends January 31,
-   2020.
-
-
-The %brand% E16 expansion shelf is a 3U, 16-bay storage expansion
-unit designed specifically to work with the %brand% Storage Array.
-This section will cover setting up an E16 expansion shelf and
-connecting it to a %brand% Storage Array.
-
-.. index:: E16 Expansion Shelf Contents
-
-The E16 expansion shelf comes with a number of necessary
-accessories. If anything is missing or your E16 expansion shelf
-arrived in less than pristine condition, immediately take pictures
-and contact iXsystems support.
-
-* %brand% E16 expansion shelf
-
-.. image:: images/tn_e16shelf.jpg
-
-* Up to 16 populated 3.5" drive trays
-
-.. image:: images/tn_drive_trays.jpg
-
-* Two power cables
-
-.. image:: images/tn_power_cable.jpg
-
-* Two host expansion cables (SAS 8088)
-
-.. image:: images/tn_host_expansion_cable.jpg
-
-* Inner and outer rails, left and right
-
-.. image:: /images/tn_rails.jpg
-
-* Two sets of screws
-
-.. image:: images/tn_shortscrew.png
-   :width: 5%
-
-.. image:: images/tn_longscrew.png
-   :width: 7%
-
-* One printed guide
-
-.. image:: images/tn_e16_guide.png
-
-Unused drive bays are populated with drive tray blanks to
-maintain proper airflow.
-
-.. index:: E16 Expansion Shelf Layout
-
-:numref:`Figure %s <appliance12>` shows the front view
-of the %brand% E16 expansion shelf.
-
-
-.. _appliance12:
-
-.. figure:: images/tn_e16_front_view.jpg
-
-   Front View
-
-
-:numref:`Figure %s <appliance13>`
-shows the rear view of the %brand% E16 expansion shelf.
-
-
-.. _appliance13:
-
-.. figure:: images/tn_e16_rear_view.jpg
-
-   Rear View
-
-
-:numref:`Figure %s <appliance14>`
-provides a detailed view of a drive tray and the possible statuses
-for the LED.
-
-
-.. _appliance14:
-
-.. figure:: images/tn_drive_tray.jpg
-
-   Drive Tray
-
-
-.. index:: Attach E16 Expansion Shelf Inner Rail to Chassis
-
-To attach the E16 expansion shelf inner rail to the chassis, remove
-the inner rail from both rails. Slide the inner and outer rails
-apart, and then push the pin-lock latch outward to allow the rails
-to separate completely, as shown in
-:numref:`Figure %s <appliance15>`.
-
-
-.. _appliance15:
-
-.. figure:: images/tn_separate_rails.jpg
-
-   Separate Inner and Outer Rails
-
-
-Align the inner rail keyholes to the two hooks near the front of
-the chassis, then slide the rails forward into place as shown in
-:numref:`Figure %s <appliance16>`.
-
-
-.. _appliance16:
-
-.. figure:: images/tn_attach_inner_rail.jpg
-
-   Attach Inner Rail to Chassis
-
-
-Secure the inner rail in place with a small screw from the rail
-kit. Refer to
-:numref:`Figure %s <appliance17>`
-for a detailed view.
-
-
-.. _appliance17:
-
-.. figure:: images/tn_secure_inner_rail.jpg
-
-   Secure Inner Rail in Place
-
-
-The %brand% E16 expansion shelf slide rails support racks with both
-square and circular hole types. Set the mounting brackets into the
-correct position for your rack type by pressing the button on the
-mounting bracket and rotating them in place, as shown in
-:numref:`Figure %s <appliance18>`.
-The square rack style brackets are the default. The circular hole
-style is the one with a flat surface and screw holes.
-
-
-.. _appliance18:
-
-.. figure:: images/tn_rotate_bracket.png
-
-   Rotate Rackmount Bracket
-
-
-Before installing, confirm that the rails included with the %brand%
-E16 expansion shelf are long enough for your rack. Examine each
-rail to find the sides labeled *Front* and *Rear*.
-
-For racks with square holes, snap the mounting brackets into the
-holes at either end of the rail into the mouting holes. Make sure
-to install the rails with the end labeled *Front* toward the front
-of the rack. Refer to
-:numref:`Figure %s <appliance19>` for a detailed view.
-
-
-.. _appliance19:
-
-.. figure:: images/tn_rack_square_holes.png
-
-   Installing Rails in Racks with Square Holes
-
-
-For racks with round holes, secure the rails into the rack at the
-desired position using the eight thumbscrews included with the
-rails. Make sure to install the rails with the end labeled *Front*
-toward the front of the rack. Refer to
-:numref:`Figure %s <appliance20>`
-for a detailed view.
-
-
-.. _appliance20:
-
-.. figure:: images/tn_rack_round_holes.png
-
-   Installing Rails in Racks with Round Holes
-
-
-You are now ready to install the E16 expansion shelf into the rack.
-
-.. warning:: Two people are required to lift a %brand% E16
-   expansion shelf.
-
-Carefully align the %brand% E16 expansion shelf inner rail with the
-notches in the outer rail. Once the rails are aligned, slide the
-array toward the rack. When the array stops moving, move the
-pin-lock laches to allow the array to slide the rest of the way
-into the rack. Refer to
-:numref:`Figure %s <appliance21>`
-for a detailed view.
-
-
-.. _appliance21:
-
-.. figure:: images/tn_rack_and_release_locks.png
-
-   Push Expansion Shelf into Rack and Release pin-lock Latches
-
-
-Next, install all populated drive trays into the front of the
-expansion shelf as shown in
-:numref:`Figure %s <appliance22>`.
-
-.. note:: to avoid personal injury, do not install drives into the
-   E16 expansion shelf before racking.
-
-
-.. _appliance22:
-
-.. figure:: images/tn_install_drive_tray.jpg
-
-   Drive Installation Instructions
-
-
-.. index:: Connect E16 Expansion Shelf to TrueNAS Array
-
-Note the labels on the SAS ports on the back of the %brand% Storage
-Array and the letter label on the back of the expansion shelf.
-Using the included SAS cables, connect the *In* SAS port of the top
-expander on the E16 expansion shelf to the SAS port with the same
-letter on the %brand% Storage Array's primary storage controller
-(the one in the top slot). If you have a secondary storage
-controller, connect the *In* SAS port of the bottom expander to the
-port with the same letter on the secondary storage controller.
-Refer to
-:numref:`Figure %s <appliance24>` for a detailed view.
-
-
-.. _appliance24:
-
-.. figure:: images/tn_e16_connect_storage.png
-
-   Connecting an E16 Expansion Shelf to a %brand% Storage Array
-
-
-.. index:: Plug in and Power on E16 Expansion Shelf
-
-Once all the other hardware setup steps are complete, plug the
-power cords into the AC receptacles on the back of the E16
-expansion shelf and secure them in place with the wire locks. Power
-on the E16 expansion shelf by pressing the top left button on the
-control panel.
-
-If you are setting up a %brand% Storage Array for the first time,
-wait two minutes after powering on all expansion shelves before
-turning on the %brand% Storage Array.
-
-
-.. index:: E24 Expansion Shelf
-
-.. _E24 Expansion Shelf:
-
-E24 Expansion Shelf
--------------------
-
-The %brand% E24 expansion shelf is a 4U, 24-bay storage expansion
-unit designed specifically for use with the %brand% Storage Array.
-This section will cover setting up an E24 expansion shelf and
-connecting it to a %brand% Storage Array.
-
-.. index:: TrueNAS E24 Expansion Shelf Contents
-
-The E24 expansion shelf comes with a number of necessary
-accessories. If anything is missing or your E24 expansion shelf
-arrived in less than pristine condition, immediately take pictures
-and contact iXsystems support.
-
-* %brand% E24 expansion shelf
-
-.. image:: images/tn_e24shelf.jpg
-
-* Up to 24 populated drive trays
-
-.. image:: images/tn_drive_trays.jpg
-
-* Two power cables
-
-.. image:: images/tn_power_cable.jpg
-
-* Two host expansion cables (SAS 8088)
-
-.. image:: images/tn_host_expansion_cable.jpg
-
-* One rail kit
-
-.. image:: images/tn_e24_rail_kit.jpg
-
-* One printed guide
-
-.. image:: images/tn_e24_guide.png
-
-Unused drive bays are populated with drive tray blanks to
-maintain proper airflow.
-
-.. index:: TrueNAS E24 Expansion Shelf Layout
-
-:numref:`Figure %s <appliance25>`
-shows the front of the %brand% E24 expansion shelf.
-
-
-.. _appliance25:
-
-.. figure:: images/tn_e24_front_view.png
-
-   Front View
-
-
-:numref:`Figure %s <appliance26>`
-shows the rear view of the %brand% E24 expansion shelf.
-
-
-.. _appliance26:
-
-.. figure:: images/tn_e24_rear_view.jpg
-
-   Rear View
-
-
-:numref:`Figure %s <appliance27>`
-provides a detailed view of a 3.5" drive tray.
-
-
-.. _appliance27:
-
-.. figure:: images/tn_e24_drive_tray.png
-
-   Drive Tray
-
-
-.. index:: Install E24 Expansion Shelf Rails
-
-Two rails and three sets of screws are included in the rail kit.
-Use only the screws labeled for use in the type of rack you have.
-Take note of the engraved rails at either end of each rail
-specifying whether they are for the Left (L) or Right (R) and which
-end is the front and which is the back. With two people, attach
-each rail to the rack using the topmost and bottommost screw holes.
-The folded ends of the rails should be inside the corners of the
-rack.
-:numref:`Figure %s <appliance28>`
-shows the front left attachments for an L-type rack.
-
-
-.. _appliance28:
-
-.. figure:: images/tn_e24_front_left_rail.png
-
-   Front Left Rail
-
-
-:numref:`Figure %s <appliance29>`
-shows the rear right attachments for an L-type rack.
-
-
-.. _appliance29:
-
-.. figure:: images/tn_e24_right_rear_rail.png
-
-   Rear Right Rail
-
-
-.. index:: Install E24 Expansion Shelf into Rack
-
-Next, install the E24 expansion shelf into the rack.
-
-.. note:: To avoid personal injury, do not install drives into the
-   E24 expansion shelf before racking.
-
-With two people, place the back of the expansion shelf on the rack.
-Gently push it backwards until the front panels of the expansion
-shelf are pressed against the front of the rack.
-
-Secure the expansion shelf to the rack by pushing down and
-tightening the two built-in thumbscrews as indicated in
-:numref:`Figure %s <appliance30>`.
-
-
-.. _appliance30:
-
-.. figure:: images/tn_attach_e24_expansion_shelf.png
-
-   Secure E24 Expansion Shelf to the Rack
-
-
-.. index:: Install Drives into the E24 Expansion Shelf
-
-Once the E24 expansion shelf is secured into the rack, insert the
-included hard drives. To insert a drive, release the handle with
-the tab on the right side, push it into the drive bay until the
-handle starts to be pulled back, and then push the handle the rest
-of the way forward to secure the drive in place.
-
-.. index:: Connect E24 Expansion Shelf to TrueNAS Array
-
-To connect the E24 expansion shelf to the %brand% Storage Array,
-note the labels on the SAS ports on the back of the %brand% Storage
-Array and the letter label on the back of the expansion shelf.
-Using the included SAS cables, connect the left *In* SAS port of
-the left side expander on the E24 expansion shelf to the SAS port
-with the same letter on the %brand% Storage Array's primary storage
-controller (the one in the top slot). If you have a secondary
-storage controller, connect the left *In* SAS port of the right
-side expander to the port with the same letter on the secondary
-storage controller. Refer to
-:numref:`Figure %s <appliance32>`
-for a detailed view.
-
-
-.. _appliance32:
-
-.. figure:: images/tn_e24_connect_storage.jpg
-
-   Example connection between E24 Expansion Shelf and %brand% Storage Array
-
-
-.. note:: If you only have one storage controller, retain your
-   second SAS cable. If you later upgrade %brand% with a second
-   storage controller, you will need it to connect to the E24
-   expansion shelf.
-
-.. index:: Plug in and Power on E24 Expansion Shelf
-
-Before you plug in and power on the E24 expansion shelf, make sure
-the power switches on both power supplies are set to the Off
-(Circle) position shown in
-:numref:`Figure %s <appliance33>`.
-Using the power cables provided, connect both power supplies to
-appropriate power sources. Secure the power cables in place with
-the plastic locks.
-
-
-.. _appliance33:
-
-.. figure:: images/tn_e24_power_supply.jpg
-
-   E24 Power Supply
-
-
-Once all the power and storage connections are set up, turn on the
-expansion shelf by moving the power switches on both power supplies
-to the On (line) position.
-
-If you are setting up a %brand% Storage Array for the first time,
-wait two minutes after powering on all expansion shelves before
-turning on the %brand% Storage Array.
 
 
 .. index:: Out-of-Band Management
@@ -772,22 +25,20 @@ Out-of-Band Management
 
 Before attempting to configure %brand% for out-of-band management,
 ensure that the out-of-band management port is connected to an
-appropriate network. Refer to the guide included with your %brand%
+appropriate network. Refer to the guide included with the %brand%
 Storage Array for detailed instructions on how to connect to a
 network.
 
-Make sure to connect the out-of-band management port **before**
-powering on the %brand% Storage Array.
+Connect the out-of-band management port **before** powering on the
+%brand% Storage Array.
 
 In most cases, the out-of-band management interface will have been
 pre-configured by iXsystems. This section contains instructions for
-configuring it from the BIOS if needed. Alternately, if you have
-already have access to the %brand% administrative graphical
-interface, the same settings can be configured using the
-instructions in :ref:`IPMI`.
+configuring it from the BIOS if needed. The same settings can be
+configured using the instructions in :ref:`IPMI`.
 
-To access the system BIOS, press :kbd:`F2` at the splash screen when
-booting the %brand% Storage Array. This opens the menu shown in
+Press :kbd:`F2` at the splash screen while the %brand% Storage Array
+is booting to access the system BIOS. This opens the menu shown in
 :numref:`Figure %s <appliance34>`.
 
 
@@ -810,11 +61,11 @@ Navigate to the :guilabel:`Server Mgmt` menu and then
    Navigate to BMC LAN Configuration
 
 
-If you will be using DCHP to assign the out-of-band management IP
-address, leave the :guilabel:`Configuration Source` set to
+When using DCHP to assign the out-of-band management IP address, leave
+the :guilabel:`Configuration Source` set to
 :guilabel:`Dynamic` in the screen shown in
 :numref:`Figure %s <appliance36>`.
-If an IP has been assigned by DHCP, it will be displayed.
+If an IP has been assigned by DHCP, it is displayed.
 
 
 .. _appliance36:
@@ -824,9 +75,8 @@ If an IP has been assigned by DHCP, it will be displayed.
    Configuring a Dynamic IP Address
 
 
-To instead assign a static IP address for out-of-band management,
-set the :guilabel:`Configuration Source` to *Static*, as seen in the
-example shown in
+To assign a static IP address for out-of-band management, set the
+:guilabel:`Configuration Source` to *Static*, as shown in
 :numref:`Figure %s <appliance37>`.
 Enter the desired IP Address into the :guilabel:`IP Address` setting,
 filling out all four octets completely.
@@ -839,8 +89,8 @@ filling out all four octets completely.
    Configuring a Static IP Address
 
 
-Next, enter the :guilabel:`Subnet Mask` of the subnet within which you
-wish to have access to out-of-band management. An example is seen in
+Next, enter the :guilabel:`Subnet Mask` of the out-of-band management
+network subnet. An example is shown in
 :numref:`Figure %s <appliance38>`.
 
 
@@ -853,7 +103,7 @@ wish to have access to out-of-band management. An example is seen in
 
 Finally, set the :guilabel:`Default Gateway Address` for the network
 to which the out-of-band management port is connected. An example is
-seen in
+shown in
 :numref:`Figure %s <appliance39>`.
 
 
@@ -864,15 +114,14 @@ seen in
    Entering the Default Gateway Address
 
 
-Save the changes you have made, exit the BIOS, and allow the system
-to boot.
+Save the changes, exit the BIOS, and allow the system to boot.
 
-To connect to the %brand% Storage Array using the out-of-band
-management port, input the configured IP address into a web browser
-from a computer that is either within the same network or which is
-directly wired to the array. As seen in
+To connect to the %brand% Storage Array's out-of-band management port,
+enter the IP address into a web browser from a computer that is either
+within the same network or which is directly wired to the array. As
+shown in
 :numref:`Figure %s <appliance40>`,
-a login prompt will appear.
+a login prompt appears.
 
 
 .. _appliance40:
@@ -882,15 +131,15 @@ a login prompt will appear.
    Connecting to the IPMI Graphical Interface
 
 
-Login using the default :guilabel:`Username` of *admin* and the
+Log in using the default :guilabel:`Username` of *admin* and the
 default :guilabel:`Password` of *password*.
 
-You can change the default administrative password using the
-instructions in :ref:`IPMI`.
+The administrative password can be changed using the instructions in
+:ref:`IPMI`.
 
-Once logged in, click the :guilabel:`vKVM and Media` button at the top
-right to download the Java KVM Client. Run the client by clicking the
-:guilabel:`Launch Java KVM Client` button shown in
+After logging in, click the :guilabel:`vKVM and Media` button at the
+top right to download the Java KVM Client. Run the client by clicking
+the :guilabel:`Launch Java KVM Client` button shown in
 :numref:`Figure %s <tn_IPMIdownload>`.
 
 
@@ -913,9 +162,9 @@ Web Start Launcher shown in
    Configure the Launch Program
 
 
-When asked if you want to run a program by an unknown publisher,
-check the box indicating that you understand the risks and press
-:guilabel:`Run`. An example is seen in
+If asked to verify running a program from an unknown publisher, check
+the box indicating that you understand the risks and press
+:guilabel:`Run`. An example is shown in
 :numref:`Figure %s <appliance42>`.
 
 
@@ -926,7 +175,7 @@ check the box indicating that you understand the risks and press
    Respond to Warning
 
 
-When prompted that the connection is untrusted, as seen in
+When prompted that the connection is untrusted, as shown in
 :numref:`Figure %s <tn_IPMIcontinue>`,
 press :guilabel:`Continue`.
 
@@ -938,9 +187,8 @@ press :guilabel:`Continue`.
    Continue Through this Screen
 
 
-When the out-of-band console opens, the %brand% Storage Array can be
-controlled as if you were using a directly-connected keyboard and
-monitor.
+With the out-of-band console open, the %brand% Storage Array can be
+controlled as if using a directly-connected keyboard and monitor.
 
 
 .. index:: Console Setup Menu
@@ -949,12 +197,11 @@ monitor.
 Console Setup Menu
 ------------------
 
-After setting up the hardware for the %brand% Storage Array, boot the
-system. The Console Setup menu, shown in
+The Console Setup menu, shown in
 :numref:`Figure %s <console_setup_menu_fig>`,
 appears at the end of the boot process. If access to the %brand%
 system's keyboard and monitor is available, this Console Setup menu
-can be used to administer the system if the administrative GUI is
+can be used to administer the system even if the administrative GUI is
 not accessible.
 
 .. note:: The Console Setup menu can be accessed from within the

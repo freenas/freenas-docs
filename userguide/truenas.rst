@@ -20,6 +20,7 @@
    wizard
    tn_options
    zfsprimer
+   tn_hardware
    vaai
    api
    tn_eula
