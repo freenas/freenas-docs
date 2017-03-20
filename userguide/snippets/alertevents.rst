@@ -105,6 +105,9 @@ Some of the conditions that trigger an alert include:
 * an IPMI query to a standby node fails, indicating the standby node
   is down
 
+* the failsafe email contact address is empty (see :ref:`Advanced`
+  settings)
+
 .. note:: Alerts which could be related to a hardware issue
    automatically create a support ticket if the system is connected to
    the internet. These include a ZFS pool status change, a multipath
