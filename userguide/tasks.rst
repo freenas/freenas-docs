@@ -38,6 +38,14 @@ Cloud Sync
 Files or directories can be synchronized to remote cloud storage
 providers with the :guilabel:`Cloud Sync` feature.
 
+.. warning:: This Cloud Sync task might go to a third party
+   commercial vendor not directly affiliated with iXsystems. Please
+   investigate and fully understand that vendor's pricing policies and
+   services before creating any Cloud Sync task. iXsystems is not
+   responsible for any charges incurred from the use of third party
+   vendors with the Cloud Sync feature.
+
+
 Selecting
 :menuselection:`Tasks --> Cloud Sync`
 shows the screen in
@@ -77,7 +85,7 @@ The :guilabel:`Add Cloud Sync` dialog is shown in
 
 .. _tasks_cloudsync_add_fig:
 
-.. figure:: images/cloudsync.png
+.. figure:: images/cloudsync1.png
 
    Adding a Cloud Sync
 
