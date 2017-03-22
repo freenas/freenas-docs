@@ -212,7 +212,7 @@ not accessible.
 
 .. _console_setup_menu_fig:
 
-.. figure:: images/tn_console.png
+.. figure:: images/tn_console1.png
 
    Console Setup Menu
 
@@ -225,10 +225,10 @@ been licensed for for High Availability (HA), the wizard will prompt
 to set the IP address for both :guilabel:`(This Node)` and
 :guilabel:`(Node B)`.
 
-**2) Configure Link Aggregation:** allows you to either create a
-new link aggregation or to delete an existing link aggregation. If the
-system has been licensed for for High Availability (HA), you will be
-prompted to set the VHID when creating the link aggregation.
+**2) Configure Link Aggregation:** allows creating a new link
+aggregation or deleting an existing link aggregation. If the system
+has been licensed for for High Availability (HA), this option prompts
+for the VHID when creating the link aggregation.
 
 **3) Configure VLAN Interface:** used to create or delete a VLAN
 interface.
@@ -246,9 +246,9 @@ then the IP address of the first DNS server. To enter multiple DNS
 servers, press :kbd:`Enter` to input the next one. When finished,
 press :kbd:`Enter` twice to leave this option.
 
-**7) Reset Root Password:** if you are unable to login to the
-graphical administrative interface, select this option and follow
-the prompts to set the *root* password.
+**7) Reset Root Password:** if logging in to the
+graphical administrative interface fails, select this option and
+follow the prompts to set the *root* password.
 
 **8) Reset to factory defaults:** to delete **all** of the
 configuration changes made in the administrative GUI, select this
@@ -265,68 +265,22 @@ will automatically be downloaded and applied. The functionality is
 the same as described in :ref:`Update`, except that the updates
 will be applied immediately and access to the GUI is not required.
 
-**11) Create volume backup:** used to backup the %brand% configuration
-and ZFS layout, and, optionally, the data, to a remote system over an
-encrypted connection. The only requirement for the remote system is
-that it has sufficient space to hold the backup and it is running an
-SSH server on port 22. The remote system does not have to be formatted
-with ZFS as the backup will be saved as a binary file. When this
-option is selected, it will prompt for the hostname or IP address of
-the remote system, the name of a user account on the remote system,
-the password for that user account, the full path to a directory on
-the remote system to save the backup, whether to also back up all of
-the data, whether to compress the data, and a confirmation to save the
-values, where *y* will start the backup, *n* will repeat the
-configuration, and *q* will quit the backup wizard. If the password
-field is left empty, key-based authentication is used instead. This
-requires that the public key of the *root* user is stored in
-:file:`~root/.ssh/authorized_keys` on the remote system. That key
-should **not** be protected by a passphrase. Refer to
-:ref:`Rsync over SSH Mode` for instructions on generating a key pair.
+**11) Reboot:** reboot the system.
 
-**12) Restore volume from a backup:** if a backup has already been
-created using :guilabel:`11) Create volume backup` or
-:menuselection:`System --> Advanced --> Backup`,
-it can be restored using this option. Once selected, it will prompt
-for the hostname or IP address of the remote system holding the
-backup, the username that was used, the password (leave empty if
-key-based authentication was used), the full path of the remote
-directory storing the backup, and a confirmation that the values
-are correct, where *y* will start the restore, *n* will repeat the
-configuration, and *q* will quit the restore wizard. The restore
-will indicate if it could log into the remote system, find the
-backup, and indicate whether or not the backup contains data. It
-will then prompt to restore %brand% from that backup. Note that if
-you press *y* to perform the restore, the system will be returned
-to the database configuration, ZFS layout, and optionally the data,
-at the point when the backup was created. The system will reboot
-once the restore is complete.
+**12) Shutdown:** shut down the system.
 
-.. warning:: The backup and restore options are meant for disaster
-   recovery. A restored system is returned to the point in time that
-   the backup was created. If the option to save the data is selected,
-   any data created after the backup was made will be lost. If the
-   option to save the data is **not** selected, the system is
-   recreated with the same ZFS layout, but with **no** data.
+.. note:: The numbering and quantity of options on this menu can
+   change due to software updates, service agreements, or other
+   factors. Please carefully check the menu before selecting an
+   option, and keep this in mind when writing local procedures.
 
-.. warning:: The backup function **IGNORES ENCRYPTED POOLS**. Do
-   not use it to back up systems with encrypted pools.
-
-**13) Toggle automatic support alerts to iXsystems:** controls whether
-emails are sent to iXsystems support when a problem is detected. When
-selected, the current setting is shown and an opportunity to change it
-is provided.
-
-**14) Reboot:** reboots the system.
-
-**15) Shutdown:** halts the system.
 
 During boot, %brand% automatically attempts to connect to a DHCP
 server from all live interfaces. If it successfully receives an IP
 address, the address is displayed so it can be used to access the
 graphical user interface. In the example seen in
 :numref:`Figure %s <console_setup_menu_fig>`,
-the %brand% system is accessible at *http://192.168.1.119*.
+the %brand% system is accessible at *http://10.0.0.142*.
 
 Some %brand% systems are set up without a monitor, making it
 challenging to determine which IP address has been assigned. On
@@ -346,7 +300,7 @@ In this example, the %brand% system has one network interface, *em0*.
 
    .. code-block:: none
 
-      Enter an option from 1-14: 1
+      Enter an option from 1-12: 1
       1) em0
       Select an interface (q to quit): 1
       Reset network configuration? (y/n) n

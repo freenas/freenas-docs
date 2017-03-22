@@ -1823,7 +1823,7 @@ summarizes the available options:
    |                 |               | device's documentation for details                                                                                       |
    |                 |               |                                                                                                                          |
    +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Allow New Files | checkbox      | enable if network devices need to send files to the system (e.g. backup their config)                                    |
+   | Allow New Files | checkbox      | enable if network devices need to send files to the system (for example, to back up their configuration)                 |
    |                 |               |                                                                                                                          |
    +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
    | Port            | integer       | UDP port to listen for TFTP requests, *69* by default                                                                    |

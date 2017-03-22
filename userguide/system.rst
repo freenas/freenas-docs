@@ -536,7 +536,7 @@ The configurable settings are summarized in
    Advanced Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-advanced.png
+.. figure:: images/tn_system-advanced1.png
 
    Advanced Screen
 #endif truenas
@@ -633,85 +633,11 @@ The configurable settings are summarized in
 
 Click the :guilabel:`Save` button after making any changes.
 
-This tab also contains these buttons:
-
-**Backup:** used to backup the %brand% configuration and ZFS layout,
-and, optionally, the data, to a remote system over an encrypted
-connection. Click this button to open the configuration screen shown
-in
-:numref:`Figure %s <backup_conf_fig>`.
-:numref:`Table %s <backup_conf_tab>`
-summarizes the configuration options. The only requirement for the
-remote system is that it has sufficient space to hold the backup and
-it is running an SSH server on port 22. The remote system does not
-have to be formatted with ZFS as the backup will be saved as a binary
-file. To restore a saved backup, use the
-:guilabel:`12) Restore from a backup` option of the %brand% console
-menu shown in
-:numref:`Figure %s <console_setup_menu_fig>`.
-
-.. warning:: The backup and restore options are meant for disaster
-   recovery. A restored system is returned to the point in time that
-   the backup was created. If the option to save the data is selected,
-   any data created after the backup was made will be lost. If the
-   option to save the data is **not** selected, the system is
-   recreated with the same ZFS layout, but with **no** data.
-
-.. warning:: The backup function **IGNORES ENCRYPTED POOLS**. Do not
-   use it to back up systems with encrypted pools.
+This tab also contains this button:
 
 **Save Debug:** used to generate a text file of diagnostic
-information. Once the debug is created, it will prompt for the
-location to save the generated ASCII text file.
-
-
-.. _backup_conf_fig:
-
-.. figure:: images/backup1.png
-
-   Backup Configuration Screen
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _backup_conf_tab:
-
-.. table:: Backup Configuration Settings
-   :class: longtable
-
-   +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
-   | Setting                                 | Value          | Description                                                                                    |
-   |                                         |                |                                                                                                |
-   +=========================================+================+================================================================================================+
-   | Hostname or IP address                  | string         | input the IP address of the remote system, or the hostname if DNS is properly configured       |
-   |                                         |                |                                                                                                |
-   +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
-   | User name                               | string         | the user account must exist on the remote system and have permissions to write to              |
-   |                                         |                | the :guilabel:`Remote directory`                                                               |
-   |                                         |                |                                                                                                |
-   +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
-   | Password                                | string         | input and confirm the password associated with the user account                                |
-   |                                         |                |                                                                                                |
-   +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
-   | Remote directory                        | string         | the full path to the directory to save the backup to                                           |
-   |                                         |                |                                                                                                |
-   +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
-   | Backup data                             | checkbox       | by default, the backup is very quick as only the configuration database and the ZFS pool and   |
-   |                                         |                | database layout are saved; check this box to also save the data (which may take some time,     |
-   |                                         |                | depending upon the size of the pool and speed of the network)                                  |
-   |                                         |                |                                                                                                |
-   +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
-   | Compress backup                         | checkbox       | if checked, gzip will be used to compress the backup which reduces the transmission size       |
-   |                                         |                | when :guilabel:`Backup data` is checked                                                        |
-   |                                         |                |                                                                                                |
-   +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
-   | Use key authentication                  | checkbox       | if checked, the public key of the *root* user must be stored in                                |
-   |                                         |                | :file:`~root/.ssh/authorized_keys` on the remote system and that key should **not** be         |
-   |                                         |                | protected by a passphrase; see :ref:`Rsync over SSH Mode` for instructions on how to generate  |
-   |                                         |                | a key pair                                                                                     |
-   |                                         |                |                                                                                                |
-   +-----------------------------------------+----------------+------------------------------------------------------------------------------------------------+
+information. After the debug data is collected, the system prompts for
+a location to save the generated ASCII text file.
 
 
 .. index:: Autotune
