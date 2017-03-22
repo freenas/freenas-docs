@@ -5,15 +5,14 @@ Before beginning software configuration, please see the
 :ref:`Hardware Setup` section for specific racking and connection
 information.
 
-Depending on the degree of pre-configuration you requested from
-iXsystems, much of the initial %brand% setup may already be
-complete.
+Depending on the degree of pre-configuration requested from iXsystems,
+most of the initial %brand% setup might already be complete.
 
 .. note:: Always perform the initial %brand% setup in consultation
-   with your iXsystems Support Representative. You can contact
-   iXsystems Support at truenas-support@ixsystems.com. Be sure to
-   have all of your %brand% hardware serial numbers on hand, which
-   are located on the back of the chassis.
+   with your iXsystems Support Representative. iXsystems Support can
+   be contacted at :literal:`truenas-support@ixsystems.com`. Be sure
+   to have all %brand% hardware serial numbers on hand. They are
+   located on the back of each chassis.
 
 
 .. index:: Out-of-Band Management
