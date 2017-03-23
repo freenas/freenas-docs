@@ -2022,8 +2022,7 @@ options in the replication task dialog.
    | Dedicated User            | drop-down menu | only available if :guilabel:`Dedicated User Enabled` is checked; select the user account                     |
    |                           |                | to be used for replication                                                                                   |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Encryption Cipher         | drop-down menu | *Standard* or                                                                                                |
-   |                           |                | *Fast*                                                                                                       |
+   | Encryption Cipher         | drop-down menu | *Standard*, *Fast*, or *Disabled*                                                                            |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | Remote hostkey            | string         | use the :guilabel:`SSH Key Scan` button to retrieve the public host key of the remote or destination         |
