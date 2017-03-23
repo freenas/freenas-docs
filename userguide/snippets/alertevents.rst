@@ -105,8 +105,8 @@ Some of the conditions that trigger an alert include:
 * an IPMI query to a standby node fails, indicating the standby node
   is down
 
-* the failsafe email contact address is empty (see :ref:`Advanced`
-  settings)
+* :ref:`Proactive Support` is enabled but any of the configuration
+  fields are empty
 
 * if VMware failed to log in (usually preceding a VMware snapshot)
 

@@ -623,16 +623,6 @@ The configurable settings are summarized in
    | Use FQDN for logging                    | checkbox                         | when checked, include the Fully-Qualified Domain Name in logs to precisely   |
    |                                         |                                  | identify systems with similar hostnames                                      |
    +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   #ifdef truenas
-   | Enable automatic support alerts to      | checkbox                         | when checked, allow emails to be sent to iXsystems when an alert occurs      |
-   | iXsystems                               |                                  |                                                                              |
-   |                                         |                                  |                                                                              |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Failsafe Support Contact                | string                           | enter an always-monitored email address to be contacted by iXsystems in      |
-   |                                         |                                  | case of failure                                                              |
-   |                                         |                                  |                                                                              |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   #endif truenas
 
 Click the :guilabel:`Save` button after making any changes.
 
