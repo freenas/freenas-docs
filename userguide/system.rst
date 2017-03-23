@@ -32,21 +32,24 @@ The System section of the administrative GUI contains these entries:
   remote cloud service providers
 #endif truenas
 
-* :ref:`CAs`: used to import or create an internal or intermediate
-  CA (Certificate Authority)
+* :ref:`CAs`: import or create internal or intermediate CAs
+  (Certificate Authorities)
 
-* :ref:`Certificates`: used to import existing certificates or to
-  create self-signed certificates
+* :ref:`Certificates`: import existing certificates or create
+  self-signed certificates
 
 #ifdef freenas
-* :ref:`Support`: used to report a bug or request a new feature.
+* :ref:`Support`: report a bug or request a new feature.
 #endif freenas
 
 #ifdef truenas
-* :ref:`Support`: used to view licensing information or create a
-  support ticket.
+* :ref:`Support`: view licensing information or create a support
+  ticket.
 
-* :ref:`Failover`: used to manage High Availability.
+* :ref:`Proactive Support`: enable and configure automatic proactive
+  support (Silver or Gold support coverage only).
+
+* :ref:`Failover`: manage High Availability.
 #endif truenas
 
 
@@ -1981,42 +1984,40 @@ engineer. Once you have the new license string, click the
 :guilabel:`Update License` button, paste in the new license, and click
 :guilabel:`OK`. The new details will be displayed.
 
-To generate a support ticket, complete the following fields:
+To generate a support ticket, fill in the fields:
 
-* **Name:** input the name of the person the iXsystems Support
+* **Name** is the name of the person the iXsystems Support
   Representative should contact to assist with the issue.
 
-* **E-mail:** input the email address of the person to contact.
+* **E-mail** is the email address of the person to contact.
 
-* **Phone:** input the phone number of the person to contact.
+* **Phone** is the phone number of the person to contact.
 
-* **Category:** use the drop-down menu to indicate whether the
-  ticket is to report a software bug, report a hardware failure,
-  ask for assistance in installing or configuring the system, or
-  request assistance in diagnosing a performance bottleneck.
+* **Category** is a drop-down menu to select whether the ticket is to
+  report a software bug, report a hardware failure, ask for assistance
+  in installing or configuring the system, or request assistance in
+  diagnosing a performance bottleneck.
 
-* **Environment:** use the drop-down menu to indicate the role of
-  the affected system. Choices are *Production*, *Staging*, *Test*,
+* **Environment** is a drop-down menu to indicate the role of the
+  affected system. Choices are *Production*, *Staging*, *Test*,
   *Prototyping*, or *Initial Deployment/Setup*.
 
-* **Criticality:** use the drop-down menu to indicate the critical
+* **Criticality** is a drop-down menu to indicate the criticality
   level. Choices are *Inquiry*, *Loss of Functionality*, or
   *Total Down*.
 
-* **Attach Debug Info:** it is recommended to leave this box
-  checked so that an overview of the system's hardware and
-  configuration is automatically generated and included with the
-  ticket.
+* **Attach Debug Info** allows an overview of the system hardware
+  and configuration to be automatically generated and included with
+  the ticket. It is recommended to leave this box checked.
 
-* **Subject:** enter a descriptive title for the ticket.
+* **Subject** is a descriptive title for the ticket.
 
-* **Description:** enter a one- to three-paragraph summary of the
-  issue that describes the problem, and if applicable, what steps can
-  be taken to reproduce it.
+* **Description** is a one- to three-paragraph summary of the issue
+  that describes the problem, and if applicable, steps to reproduce
+  it.
 
-* **Attachments:** this is the only optional field. It is useful
-  for including configuration files or screenshots of any errors or
-  tracebacks.
+* **Attachments** is an optional field where configuration files or
+  screenshots of any errors or tracebacks can be included.
 
 After completing the fields, click the :guilabel:`Submit` button to
 generate and send the support ticket to iXsystems. A pop-up menu
@@ -2025,6 +2026,56 @@ information to that support ticket.
 When not already logged into the
 `iXsystems Support page <https://support.ixsystems.com/>`_, clicking
 this URL prompts for a login, or to register a new login.
+
+
+.. index:: Proactive Support
+.. _Proactive Support:
+
+Proactive Support
+-----------------
+
+.. _tn_proactive_support:
+
+.. figure:: images/tn_system-proactive-support.png
+
+   Proactive Support Tab
+
+
+An addtional Proactive Support tab appears for Silver and Gold support
+coverage level customers. If enabled on the %brand% system, this
+feature can notify iXsystems by email when conditions on the system
+warrant attention.
+
+To generate a support ticket, fill in the fields:
+
+* **Enable automatic support alerts to iXsystems** allows enabling or
+  disabling Proactive Support emails to iXsystems. It is recommended
+  to enable this automatic reporting.
+
+* **Name of Primary Contact** is the name of the first person to be
+  contacted by iXsystems Support to assist with issues.
+
+* **Title** is the title of the primary contact person.
+
+* **E-mail** is the email address of the primary contact person.
+
+* **Phone** is the phone number of the primary contact person.
+
+* **Name of Secondary Contact** is the name of the person to be
+  contacted when the primary contact person is not available.
+
+* **Secondary Title** is the title of the secondary contact person.
+
+* **SecondaryE-mail** is the email address of the secondary contact
+  person.
+
+* **Secondary Phone** is the phone number of the secondary contact
+  person.
+
+
+To enable Proactive Support, complete the fields, make sure the
+:guilabel:`Enable automatic support alerts to iXsystems` box is
+checked, then click :guilabel:`Save`.
 
 
 .. index:: Failover
