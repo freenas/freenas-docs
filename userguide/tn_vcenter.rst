@@ -20,7 +20,7 @@ the screen shown in
 
 .. _vcenter1:
 
-.. figure:: images/vcenter1.png
+.. figure:: images/vcenter1a.png
 
    Configuring the vCenter Plugin
 
@@ -59,8 +59,8 @@ summarizes the options in this screen.
    +-------------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------------------+
 
 
-After entering this information, click the :guilabel:`Install` button
-to add the %brand% system as an object in vCenter Server. From vCenter
+Enter the information, then click the :guilabel:`Install` button to
+add the %brand% system as an object in vCenter Server. From vCenter
 Server, click the object to create its datastores.
 
 In addition to the :guilabel:`Install` button, these buttons are
@@ -72,16 +72,17 @@ available:
 :guilabel:`Available Plugin Version` number will be incremented. Click
 this button to upgrade to the newer version and access its features.
 
-**Repair:** click this button if your iXsystems support engineer asks
-you to do so. This will reinstall the %brand% object in order to
-repair a corrupted object.
+**Repair:** click this button if your iXsystems support engineer
+requests it. This reinstalls the %brand% object to repair a corrupted
+object.
 
 .. note:: In a HA-configured scenario, the :guilabel:`Upgrade` button
    can only be used from the system that originally installed the
-   plugin. This means that the :guilabel:`Upgrade` button will be
-   grayed out on the other system in the HA pair.
+   plugin. The :guilabel:`Upgrade` button is grayed out on the other
+   system in the HA pair.
 
-To configure the vCenter plugin to use a secure connection, click
+
+To configure the vCenter plugin for a secure connection, click
 :menuselection:`vCenter --> vCenter Auxiliary Settings`
 in the left tree. In the screen shown in
 :numref:`Figure %s <vcenter2>`, check the
