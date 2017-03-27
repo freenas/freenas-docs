@@ -35,7 +35,10 @@ release = '9.10.2'
 # exclude_patterns is a list of patterns relative to the source directory
 # that match files and directories to ignore when looking for source files.
 tags.add('freenas')
-brand = six.u('FreeNAS®')
+if six.PY3:
+    brand = 'FreeNAS®'
+else:
+    brand = u'FreeNAS®'
 project = brand + six.u(' User Guide')
 master_doc = 'freenas'
 extensions = [
@@ -45,7 +48,10 @@ numfig = True
 numfig_secnum_depth = (2)
 
 if tags.has('truenas'):
-    brand = six.u('TrueNAS®')
+    if six.PY3:
+        brand = 'TrueNAS®'
+    else:
+        brand = u'TrueNAS®'
     tags.remove('freenas')
     project = brand + six.u(' User Guide')
     master_doc = 'truenas'
