@@ -140,83 +140,84 @@ information given when the share was created.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
+                    |>{\Centering}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.54\linewidth-2\tabcolsep}|
 
 .. _afp_share_config_opts_tab:
 
 .. table:: AFP Share Configuration Options
    :class: longtable
 
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | Setting                      | Value         | Description                                                                                                   |
-   |                              |               |                                                                                                               |
-   +==============================+===============+===============================================================================================================+
-   | Path                         | browse button | browse to the volume/dataset to share; do not nest additional volumes, datasets, or symbolic links beneath    |
-   |                              |               | this path because Netatalk does not fully support that                                                        |
-   |                              |               |                                                                                                               |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | Name                         | string        | volume name which appears in the Mac computer's :guilabel:`connect to server` dialog; limited to              |
-   |                              |               | 27 characters and cannot contain a period                                                                     |
-   |                              |               |                                                                                                               |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | Share Comment                | string        | optional comment, only available in :guilabel:`Advanced Mode`                                                 |
-   |                              |               |                                                                                                               |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | Allow List                   | string        | only available in :guilabel:`Advanced Mode`; comma-delimited list of allowed users and/or groups              |
-   |                              |               | where groupname begins with a :literal:`@`; note that adding an entry will deny any user/group that is        |
-   |                              |               | not specified                                                                                                 |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | Deny List                    | string        | only available in :guilabel:`Advanced Mode`; comma-delimited list of denied users and/or groups               |
-   |                              |               | where groupname begins with a :literal:`@`; note that adding an entry will allow all users/groups that        |
-   |                              |               | are not specified                                                                                             |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | Read-only Access             | string        | only available in :guilabel:`Advanced Mode`; comma-delimited list of users and/or groups who                  |
-   |                              |               | only have read access where groupname begins with a :literal:`@`                                              |
-   |                              |               |                                                                                                               |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | Read-write Access            | string        | only available in :guilabel:`Advanced Mode`; comma-delimited list of users and/or groups who                  |
-   |                              |               | have read and write access where groupname begins with a :literal:`@`                                         |
-   |                              |               |                                                                                                               |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | Time Machine                 | checkbox      | when checked, %brand% advertises itself as a Time Machine disk so it can be found by Macs; due to a           |
-   |                              |               | limitation in how the Mac deals with low-diskspace issues when multiple Macs share the same volume,           |
-   |                              |               | checking :guilabel:`Time Machine` on multiple shares could result in intermittent failed backups              |
-   |                              |               |                                                                                                               |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | Zero Device Numbers          | checkbox      | only available in :guilabel:`Advanced Mode`; enable when the device number is not constant                    |
-   |                              |               | across a reboot                                                                                               |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | No Stat                      | checkbox      | only available in :guilabel:`Advanced Mode`; if checked, AFP does not stat the volume path when               |
-   |                              |               | enumerating the volumes list; useful for automounting or volumes created by a preexec script                  |
-   |                              |               |                                                                                                               |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | AFP3 UNIX Privs              | checkbox      | only available in :guilabel:`Advanced Mode`; enable Unix privileges supported by OSX 10.5 and                 |
-   |                              |               | higher; do not enable this if the network contains Mac OS X 10.4 clients or lower as they do not              |
-   |                              |               | support this feature                                                                                          |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | Default file permission      | checkboxes    | only available in :guilabel:`Advanced Mode`; only works with Unix ACLs; new files created on the              |
-   |                              |               | share are set with the selected permissions                                                                   |
-   |                              |               |                                                                                                               |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | Default directory permission | checkboxes    | only available in :guilabel:`Advanced Mode`; only works with Unix ACLs; new directories created on            |
-   |                              |               | the share are set with the selected permissions                                                               |
-   |                              |               |                                                                                                               |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | Default umask                | integer       | only available in :guilabel:`Advanced Mode`; umask used for newly created files, default is *000*             |
-   |                              |               | (anyone can read, write, and execute)                                                                         |
-   |                              |               |                                                                                                               |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | Hosts Allow                  | string        | only available in :guilabel:`Advanced Mode`; comma-, space-, or tab-delimited list of allowed                 |
-   |                              |               | hostnames or IP addresses                                                                                     |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | Hosts Deny                   | string        | only available in :guilabel:`Advanced Mode`; comma-, space-, or tab-delimited list of denied                  |
-   |                              |               | hostnames or IP addresses                                                                                     |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters         | string        | additional `afp.conf <http://netatalk.sourceforge.net/3.1/htmldocs/afp.conf.5.html>`_ parameters              |
-   |                              |               | not covered by other option fields                                                                            |
-   |                              |               |                                                                                                               |
-   +------------------------------+---------------+---------------------------------------------------------------------------------------------------------------+
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Setting                      | Value         | Advanced | Description                                                                                                   |
+   |                              |               | Mode     |                                                                                                               |
+   +==============================+===============+==========+===============================================================================================================+
+   | Path                         | browse button |          | browse to the volume/dataset to share; do not nest additional volumes, datasets, or symbolic links beneath    |
+   |                              |               |          | this path because Netatalk does not fully support that                                                        |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Name                         | string        |          | volume name which appears in the Mac computer's :guilabel:`connect to server` dialog; limited to              |
+   |                              |               |          | 27 characters and cannot contain a period                                                                     |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Share Comment                | string        | ✓        | optional comment                                                                                              |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Allow List                   | string        | ✓        | comma-delimited list of allowed users and/or groups where groupname begins with a :literal:`@`; note          |
+   |                              |               |          | that adding an entry will deny any user/group that is not specified                                           |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Deny List                    | string        | ✓        | comma-delimited list of denied users and/or groups where groupname begins with a :literal:`@`; note           |
+   |                              |               |          | that adding an entry will allow all users/groups that are not specified                                       |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Read-only Access             | string        | ✓        | comma-delimited list of users and/or groups who only have read access where groupname begins with a           |
+   |                              |               |          | :literal:`@`                                                                                                  |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Read-write Access            | string        | ✓        | comma-delimited list of users and/or groups who have read and write access where groupname begins with a      |
+   |                              |               |          | :literal:`@`                                                                                                  |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Time Machine                 | checkbox      |          | when checked, %brand% advertises itself as a Time Machine disk so it can be found by Macs; due to a           |
+   |                              |               |          | limitation in how the Mac deals with low-diskspace issues when multiple Macs share the same volume,           |
+   |                              |               |          | checking :guilabel:`Time Machine` on multiple shares could result in intermittent failed backups              |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Zero Device Numbers          | checkbox      | ✓        | enable when the device number is not constant across a reboot                                                 |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | No Stat                      | checkbox      | ✓        | if checked, AFP does not stat the volume path when enumerating the volumes list; useful for                   |
+   |                              |               |          | automounting or volumes created by a preexec script                                                           |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | AFP3 UNIX Privs              | checkbox      | ✓        | enable Unix privileges supported by OSX 10.5 and higher; do not enable this if the network contains           |
+   |                              |               |          | Mac OS X 10.4 clients or lower as they do not support this feature                                            |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Default file permission      | checkboxes    | ✓        | only works with Unix ACLs; new files created on the share are set with the selected permissions               |
+   |                              |               |          |                                                                                                               |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Default directory permission | checkboxes    | ✓        | only works with Unix ACLs; new directories created on the share are set with the selected permissions         |
+   |                              |               |          |                                                                                                               |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Default umask                | integer       |  ✓       | umask used for newly created files, default is *000* (anyone can read, write, and execute)                    |
+   |                              |               |          |                                                                                                               |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Hosts Allow                  | string        |  ✓       | comma-, space-, or tab-delimited list of allowed hostnames or IP addresses                                    |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Hosts Deny                   | string        |  ✓       | comma-, space-, or tab-delimited list of denied hostnames or IP addresses                                     |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Auxiliary Parameters         | string        |          | additional `afp.conf <http://netatalk.sourceforge.net/3.1/htmldocs/afp.conf.5.html>`_ parameters              |
+   |                              |               |          | not covered by other option fields                                                                            |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
 
 
 .. _Creating AFP Guest Shares:
@@ -1004,78 +1005,76 @@ function of that option.
 provides more details for each configurable option.
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
+                    |>{\Centering}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.54\linewidth-2\tabcolsep}|
 
 .. _smb_share_opts_tab:
 
 .. table:: Options for a SMB Share
    :class: longtable
 
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Setting                      | Value         | Description                                                                                                 |
-   |                              |               |                                                                                                             |
-   +==============================+===============+=============================================================================================================+
-   | Path                         | browse button | select volume/dataset/directory to share                                                                    |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Use as home share            | checkbox      | check this box if the share is meant to hold user home directories; only one share can be the homes share   |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Name                         | string        | mandatory; name of share                                                                                    |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Comment                      | string        | only available in :guilabel:`Advanced Mode`; optional description                                           |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Apply Default Permissions    | checkbox      | sets the ACLs to allow read/write for owner/group and read-only for others; should only be unchecked when   |
-   |                              |               | creating a share on a system that already has custom ACLs set                                               |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Export Read Only             | checkbox      | only available in :guilabel:`Advanced Mode`; prohibits write access to the share                            |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Browsable to Network Clients | checkbox      | only available in :guilabel:`Advanced Mode`; when checked, users see the contents of */homes*               |
-   |                              |               | (including other home directories of other users) and when unchecked, users see only their own              |
-   |                              |               | home directory                                                                                              |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Export Recycle Bin           | checkbox      | only available in :guilabel:`Advanced Mode`; deleted files are moved to a hidden :file:`.recycle`           |
-   |                              |               | in the root folder of the share; the :file:`.recycle` directory can be deleted to reclaim space and is      |
-   |                              |               | automatically recreated when a file is deleted                                                              |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Show Hidden Files            | checkbox      | only available in :guilabel:`Advanced Mode`; if enabled, the Windows hidden attribute is not                |
-   |                              |               | set when filenames that begin with a dot (a Unix hidden file) are created; existing files are               |
-   |                              |               | not affected                                                                                                |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Allow Guest Access           | checkbox      | if checked, no password is required to connect to the share and all users share the permissions of the      |
-   |                              |               | guest user defined in the :ref:`SMB` service                                                                |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Only Allow Guest Access      | checkbox      | only available in :guilabel:`Advanced Mode`; requires :guilabel:`Allow guest access` to also be             |
-   |                              |               | checked; forces guest access for all connections                                                            |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Hosts Allow                  | string        | only available in :guilabel:`Advanced Mode`; comma-, space-, or tab-delimited list of allowed               |
-   |                              |               | hostnames or IP addresses                                                                                   |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Hosts Deny                   | string        | only available in :guilabel:`Advanced Mode`; comma-, space-, or tab-delimited list of denied                |
-   |                              |               | hostnames or IP addresses; allowed hosts take precedence so can use *ALL* in this field                     |
-   |                              |               | and specify allowed hosts in :guilabel:`Hosts Allow`                                                        |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | VFS Objects                  | selection     | only available in :guilabel:`Advanced Mode`; adds virtual file system modules to enhance functionality;     |
-   |                              |               | :numref:`Table %s <avail_vfs_modules_tab>` summarizes the available modules                                 |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Periodic Snapshot Task       | drop-down     | used to configure home directory shadow copies on a per-share basis; select the pre-configured periodic     |
-   |                              | menu          | snapshot task to use for the share's shadow copies                                                          |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters         | string        | only available in :guilabel:`Advanced Mode`; additional :file:`smb4.conf` parameters not covered            |
-   |                              |               | by other option fields                                                                                      |
-   |                              |               |                                                                                                             |
-   +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Setting                      | Value         | Advanced | Description                                                                                                 |
+   |                              |               | Mode     |                                                                                                             |
+   +==============================+===============+==========+=============================================================================================================+
+   | Path                         | browse button |          | select volume/dataset/directory to share                                                                    |
+   |                              |               |          |                                                                                                             |
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Use as home share            | checkbox      |          | check this box if the share is meant to hold user home directories; only one share can be the homes share   |
+   |                              |               |          |                                                                                                             |
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Name                         | string        |          | mandatory; name of share                                                                                    |
+   |                              |               |          |                                                                                                             |
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Comment                      | string        | ✓        | optional description                                                                                        |
+   |                              |               |          |                                                                                                             |
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Apply Default Permissions    | checkbox      |          | sets the ACLs to allow read/write for owner/group and read-only for others; should only be unchecked when   |
+   |                              |               |          | creating a share on a system that already has custom ACLs set                                               |
+   |                              |               |          |                                                                                                             |
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Export Read Only             | checkbox      | ✓        | prohibits write access to the share                                                                         |
+   |                              |               |          |                                                                                                             |
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Browsable to Network Clients | checkbox      | ✓        | when checked, users see the contents of */homes* (including other home directories of other users)          |
+   |                              |               |          | and when unchecked, users see only their own home directory                                                 |
+   |                              |               |          |                                                                                                             |
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Export Recycle Bin           | checkbox      | ✓        | deleted files are moved to a hidden :file:`.recycle` in the root folder of the share; the                   |
+   |                              |               |          | :file:`.recycle` directory can be deleted to reclaim space and is automatically recreated when a file       |
+   |                              |               |          | is deleted                                                                                                  |
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Show Hidden Files            | checkbox      | ✓        | if enabled, the Windows hidden attribute is not set when filenames that begin with a dot (a Unix hidden     |
+   |                              |               |          | file) are created; existing files are not affected                                                          |
+   |                              |               |          |                                                                                                             |
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Allow Guest Access           | checkbox      |          | if checked, no password is required to connect to the share and all users share the permissions of the      |
+   |                              |               |          | guest user defined in the :ref:`SMB` service                                                                |
+   |                              |               |          |                                                                                                             |
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Only Allow Guest Access      | checkbox      | ✓        | requires :guilabel:`Allow guest access` to also be checked; forces guest access for all connections         |
+   |                              |               |          |                                                                                                             |
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Hosts Allow                  | string        | ✓        | comma-, space-, or tab-delimited list of allowed hostnames or IP addresses                                  |
+   |                              |               |          |                                                                                                             |
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Hosts Deny                   | string        | ✓        | comma-, space-, or tab-delimited list of denied hostnames or IP addresses; allowed hosts take               |
+   |                              |               |          | precedence so can use *ALL* in this field and specify allowed hosts in :guilabel:`Hosts Allow`              |
+   |                              |               |          |                                                                                                             |
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | VFS Objects                  | selection     | ✓        | adds virtual file system modules to enhance functionality;                                                  |
+   |                              |               |          | :numref:`Table %s <avail_vfs_modules_tab>` summarizes the available modules                                 |
+   |                              |               |          |                                                                                                             |
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Periodic Snapshot Task       | drop-down     |          | used to configure home directory shadow copies on a per-share basis; select the pre-configured periodic     |
+   |                              | menu          |          | snapshot task to use for the share's shadow copies                                                          |
+   |                              |               |          |                                                                                                             |
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Auxiliary Parameters         | string        | ✓        | additional :file:`smb4.conf` parameters not covered by other option fields                                  |
+   |                              |               |          |                                                                                                             |
+   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
 
 
 Note the following regarding some of the :guilabel:`Advanced Mode`
@@ -1119,6 +1118,21 @@ these lines instead:
 
  client lanman auth = yes
  client plaintext auth = yes
+
+
+Samba disables NTLMv1 authentication by default for security. Standard
+configurations of Windows XP and some configurations of later clients
+like Windows 7 will not be able to connect with NTLMv1 disabled.
+`Security guidance for NTLMv1 and LM network authentication
+<https://support.microsoft.com/en-us/help/2793313/security-guidance-for-ntlmv1-and-lm-network-authentication>`_
+has information about the security implications and ways to enable
+NTLMv2. If changing the client configuration is not possible, NTLMv1
+authentication can be enabled by adding this entry to
+:guilabel:`Auxiliary Parameters`:
+
+.. code-block:: none
+
+   ntlm auth = yes
 
 
 :numref:`Table %s <avail_vfs_modules_tab>`
