@@ -2031,10 +2031,10 @@ Proactive Support
    Proactive Support Tab
 
 
-An addtional Proactive Support tab appears for Silver and Gold support
-coverage level customers. If enabled on the %brand% system, this
-feature can notify iXsystems by email when conditions on the system
-warrant attention.
+An additional Proactive Support tab appears for Silver and Gold
+support coverage level customers. If enabled on the %brand% system,
+this feature can notify iXsystems by email when conditions on the
+system warrant attention.
 
 To generate a support ticket, fill in the fields:
 
@@ -2094,9 +2094,9 @@ should the active node become unavailable.
 
 To configure HA, turn on both units in the array. Use the
 instructions in the :ref:`Console Setup Menu` to log into the
-graphical interface for one of the units, it doesn't matter which
-one. If this is the first login, it will automatically display the
-:guilabel:`Upload License` screen. Otherwise, click
+graphical interface for one of the units (it does not matter which
+one). If this is the first login, the :guilabel:`Upload License`
+screen is automatically displayed. Otherwise, click
 :menuselection:`System --> Support --> Upload License`.
 
 Paste the HA license received from iXsystems and press :guilabel:`OK`
