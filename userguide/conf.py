@@ -264,7 +264,10 @@ epub_show_urls = 'no'
 
 # -- Options for LaTeX output --------------------------------------------------
 
-texproject = project.replace(six.u('®'), r'''\textsuperscript{\textregistered}''')
+if six.PY3:
+    texproject = project.replace('®', r'''\textsuperscript{\textregistered}''')
+else:
+    texproject = project.replace(u'®', r'''\textsuperscript{\textregistered}''')
 
 PREAMBLE = r'''\def\docname{''' + texproject + '}'
 
