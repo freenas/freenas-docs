@@ -824,6 +824,10 @@ support UDP connections, go to
 :menuselection:`Services --> NFS`
 and check the box :guilabel:`Serve UDP NFS clients`.
 
+The :samp:`nfsstat -c` or :samp:`nfsstat -s` commands can be helpful
+to detect problems from the :ref:`Shell`. A high proportion of retries
+and timeouts compared to reads usually indicates network problems.
+
 
 .. index:: WebDAV
 .. _WebDAV Shares:
@@ -973,7 +977,10 @@ network's needs.
    and
    `Advanced Samba (CIFS) permissions on FreeNAS
    <https://www.youtube.com/watch?v=QhwOyLtArw0>`_
-   videos clarify setting up permissions on SMB shares.
+   videos clarify setting up permissions on SMB shares. Another
+   helpful reference is
+   `Methods For Fine-Tuning Samba Permissions
+   <https://forums.freenas.org/index.php?threads/methods-for-fine-tuning-samba-permissions.50739/>`_.
 
 
 .. tip:: Run :command:`smbstatus` from the :ref:`Shell` for a list of
