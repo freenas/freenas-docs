@@ -2279,7 +2279,7 @@ targets and extents.
    |             |                |                                                                                                        |
    +-------------+----------------+--------------------------------------------------------------------------------------------------------+
    | LUN ID      | drop-down menu | select the value of the ID or type in the desired value; %brand% supports up to                        |
-   |             |                | 1024 LUNs.                                                                                             |
+   |             |                | 1024 LUNs                                                                                              |
    |             |                |                                                                                                        |
    +-------------+----------------+--------------------------------------------------------------------------------------------------------+
    | Extent      | drop-down menu | select the pre-created extent                                                                          |
