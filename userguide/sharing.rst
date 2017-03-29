@@ -1680,16 +1680,16 @@ a device.
 **Portal:** indicates which IP addresses and ports to listen on for
 connection requests.
 
-**LUN:** stands for Logical Unit Number and represents a logical SCSI
-device. An initiator negotiates with a target to establish
-connectivity to a LUN; the result is an iSCSI connection that emulates
-a connection to a SCSI hard disk. Initiators treat iSCSI LUNs the same
-way as they would a raw SCSI or IDE hard drive; rather than mounting
-remote directories, initiators format and directly manage filesystems
-on iSCSI LUNs. When configuring multiple iSCSI LUNs, create a new
-target for each LUN. Since iSCSI multiplexes a target with multiple
-LUNs over the same TCP connection, you will experience contention from
-TCP if there is more than one target per LUN.
+**LUN:** *Logical Unit Number* representing a logical SCSI device. An
+initiator negotiates with a target to establish connectivity to a LUN.
+The result is an iSCSI connection that emulates a connection to a SCSI
+hard disk. Initiators treat iSCSI LUNs as if they were a raw SCSI or
+SATA hard drive. Rather than mounting remote directories, initiators
+format and directly manage filesystems on iSCSI LUNs. When configuring
+multiple iSCSI LUNs, create a new target for each LUN. Since iSCSI
+multiplexes a target with multiple LUNs over the same TCP connection,
+there can be TCP contention when more than one target accesses the
+same LUN. %brand% supports up to 1024 LUNs.
 
 In %brand%, iSCSI is built into the kernel. This version of iSCSI
 supports
@@ -2278,8 +2278,8 @@ targets and extents.
    | Target      | drop-down menu | select the pre-created target                                                                          |
    |             |                |                                                                                                        |
    +-------------+----------------+--------------------------------------------------------------------------------------------------------+
-   | LUN ID      | drop-down menu | select the value of the ID or type in the desired value                                                |
-   |             |                |                                                                                                        |
+   | LUN ID      | drop-down menu | select the value of the ID or type in the desired value; %brand% supports up to                        |
+   |             |                | 1024 LUNs.                                                                                             |
    |             |                |                                                                                                        |
    +-------------+----------------+--------------------------------------------------------------------------------------------------------+
    | Extent      | drop-down menu | select the pre-created extent                                                                          |
