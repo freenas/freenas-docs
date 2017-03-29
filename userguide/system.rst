@@ -35,10 +35,10 @@ The System section of the administrative GUI contains these entries:
 * :ref:`CAs`: import or create internal or intermediate CAs
   (Certificate Authorities)
 
+#ifdef freenas
 * :ref:`Certificates`: import existing certificates or create
   self-signed certificates
 
-#ifdef freenas
 * :ref:`Support`: report a bug or request a new feature.
 #endif freenas
 
@@ -48,6 +48,9 @@ The System section of the administrative GUI contains these entries:
 
 * :ref:`Proactive Support`: enable and configure automatic proactive
   support (Silver or Gold support coverage only).
+
+* :ref:`Certificates`: import existing certificates or create
+  self-signed certificates
 
 * :ref:`Failover`: manage High Availability.
 #endif truenas
@@ -84,7 +87,7 @@ include the domain name. If the network does not use a domain name add
    System Information Tab
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-information.png
+.. figure:: images/tn_system-information1.png
 
    System Information Tab
 #endif truenas
@@ -107,7 +110,7 @@ is shown in
    General Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-general.png
+.. figure:: images/tn_system-general1.png
 
    General Screen
 #endif truenas
@@ -338,7 +341,7 @@ the :ref:`Wizard` was run.
    Viewing Boot Environments
 #endif freenas
 #ifdef truenas
-.. figure:: images/be1b.png
+.. figure:: images/tn_system-bootenv1.png
 
    Viewing Boot Environments
 #endif truenas
@@ -450,7 +453,7 @@ shows a sample boot menu.
    Boot Environments in Boot Menu
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_be3a.png
+.. figure:: images/tn_be3b.png
 
    Boot Environments in Boot Menu
 #endif truenas
@@ -539,7 +542,7 @@ The configurable settings are summarized in
    Advanced Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-advanced1.png
+.. figure:: images/tn_system-advanced1a.png
 
    Advanced Screen
 #endif truenas
@@ -735,7 +738,7 @@ shown in
    Email Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-email.png
+.. figure:: images/tn_system-email1.png
 
    Email Screen
 #endif truenas
@@ -835,7 +838,7 @@ controller users and groups.
    System Dataset Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-system-dataset.png
+.. figure:: images/tn_system-system-dataset1.png
 
    System Dataset Screen
 #endif truenas
@@ -1210,7 +1213,7 @@ screen.
    Update Options
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_update1b.png
+.. figure:: images/tn_update1c.png
 
    Update Options
 #endif truenas
@@ -1517,7 +1520,7 @@ shows the screen after clicking
    Initial CA Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_ca1b.png
+.. figure:: images/tn_ca1c.png
 
    Initial CA Screen
 #endif truenas
@@ -1693,7 +1696,7 @@ shows the initial screen if you click
    Initial Certificates Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_cert1.png
+.. figure:: images/tn_cert1a.png
 
    Initial Certificates Screen
 #endif truenas
@@ -1958,7 +1961,7 @@ requests.
 
 .. _tn_support1:
 
-.. figure:: images/tn_system-support.png
+.. figure:: images/tn_system-support1.png
 
    Support Tab
 
@@ -2031,12 +2034,11 @@ Proactive Support
    Proactive Support Tab
 
 
-An additional Proactive Support tab appears for Silver and Gold
-support coverage level customers. If enabled on the %brand% system,
-this feature can notify iXsystems by email when conditions on the
-system warrant attention.
+Silver and Gold support coverage level customers can enable Proactive
+Support. This feature can notify iXsystems by email when conditions on
+the system warrant attention.
 
-To generate a support ticket, fill in the fields:
+The Proactive Support fields are:
 
 * **Enable automatic support alerts to iXsystems** allows enabling or
   disabling Proactive Support emails to iXsystems. It is recommended
@@ -2189,7 +2191,7 @@ and described in
 
 .. _failover_fig:
 
-.. figure:: images/failover1c.png
+.. figure:: images/failover1d.png
 
    Example Failover Screen
 
