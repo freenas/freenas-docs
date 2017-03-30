@@ -124,8 +124,8 @@ summarizes the configuration options of this screen.
    +------------------+----------------+--------------------------------------------------------------------------------------------+
 
 Drag the slider to select the desired number of disks.
-:guilabel:`Volume Manager` will display the resulting storage
-capacity, taking swap space into account. To change the layout or the
+:guilabel:`Volume Manager` displays the resulting storage capacity,
+including taking swap space into account. To change the layout or the
 number of disks, use the mouse to drag the slider to the desired
 volume layout. The :guilabel:`Volume layout` drop-down menu can also
 be clicked if a different level of redundancy is required.
@@ -152,12 +152,12 @@ layouts are supported:
 * **RAIDZ3:** requires at least five disks
 
 * **log device:** requires at least one dedicated device,
-  SSD is recommended
+  a fast, low-latency, power-protected SSD is recommended
 
 * **cache device:** requires at least one dedicated device,
   SSD is recommended
 
-When more than five disks are being used, consideration must be give
+When more than five disks are used, consideration must be given
 to the optimal layout for the best performance and scalability. An
 overview of the recommended disk group sizes as well as more
 information about log and cache devices can be found in the
@@ -168,13 +168,13 @@ The :guilabel:`Add Volume` button warns that
 volume reformats the selected disks. If the existing data is meant to
 be preserved, click the :guilabel:`Cancel` button and refer to
 :ref:`Import Disk` and :ref:`Import Volume` to see if the existing
-format is supported. If so, perform that supported action instead. If
-the current storage format is not supported, it is necessary to back
+format is supported. If so, perform that action instead. If the
+current storage format is not supported, it is necessary to back
 up the data to external media, format the disks, then restore the data
 to the new volume.
 
-Depending upon the size and number of disks, the type of controller,
-and whether encryption is selected, creating the volume may take some
+Depending on the size and number of disks, the type of controller, and
+whether encryption is selected, creating the volume may take some
 time. After the volume is created, the screen will refresh and the new
 volume is listed in the tree under
 :menuselection:`Storage --> Volumes`.
@@ -189,15 +189,14 @@ Click the *+* next to the volume name to access its
 Encryption
 ^^^^^^^^^^
 
-Beginning with 8.3.1, %brand% supports
+%brand% supports
 `GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`_
-full disk encryption when creating ZFS volumes. It is important to
-understand the following when considering whether or not encryption is
-right for your %brand% system:
+full disk encryption for ZFS volumes. It is important to understand
+the details when considering whether encryption is right for your
+%brand% system:
 
 * This is **not** the encryption method used by Oracle's version of
-  ZFS as that version is not open source and is the property of
-  Oracle.
+  ZFS. That version is not open source and is the property of Oracle.
 
 * This is full disk encryption and **not** per-filesystem encryption.
   The underlying drives are first encrypted, then the pool is created
@@ -216,20 +215,20 @@ right for your %brand% system:
 * On the other hand, if the key is lost, the data on the disks is
   inaccessible. Always back up the key!
 
-* The encryption key is per ZFS volume (pool). If you create multiple
-  pools, each pool has its own encryption key.
+* The encryption key is per ZFS volume (pool). Multiple pools each
+  have their own encryption key.
 
 #ifdef freenas
-* If the system has a lot of disks, there will be a performance hit if
-  the CPU does not support
+* If the system has a lot of disks, performance will suffer if the CPU
+  does not support
   `AES-NI <https://en.wikipedia.org/wiki/AES-NI#Supporting_CPUs>`_
   or if no crypto hardware is installed. Without hardware
-  acceleration, there will be about a 20% performance hit for a single
-  disk. Performance degradation will continue to increase with more
-  disks. As data is written, it is automatically encrypted and as data
-  is read, it is decrypted on the fly. If the processor does support
-  the AES-NI instruction set, there should be very little, if any,
-  degradation in performance when using encryption. This
+  acceleration, there will be about a 20% performance decrease for a
+  single disk. Performance degradation increases with more disks. As
+  data is written, it is automatically encrypted. As data is read, it
+  is decrypted on the fly. If the processor supports the AES-NI
+  instruction set, there is very little, if any, degradation in
+  performance when using encryption. This
   `forum post
   <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__
   compares the performance of various CPUs.
@@ -240,14 +239,13 @@ right for your %brand% system:
 * Swap is always encrypted, even on unencrypted volumes.
 
 * There is no way to convert an existing, unencrypted volume. Instead,
-  the data must be backed up, the existing pool must be destroyed, a
-  new encrypted volume must be created, and the backup restored to the
-  new volume.
+  the data must be backed up, the existing pool destroyed, a new
+  encrypted volume created, and the backup restored to the new volume.
 
 * Hybrid pools are not supported. In other words, newly created vdevs
   must match the existing encryption scheme. When extending a volume,
-  Volume Manager will automatically encrypt the new vdev being added
-  to the existing encrypted pool.
+  Volume Manager automatically encrypts the new vdev being added to
+  the existing encrypted pool.
 
 .. note:: The encryption facility used by %brand% is designed to
    protect against physical theft of the disks. It is not designed to
@@ -1292,7 +1290,7 @@ Managing Encrypted Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If the :guilabel:`Encryption` box is checked during the creation of a
-pool, additional buttons appear in the entry for the pool in
+pool, additional buttons appear in the entry for the volume in
 :menuselection:`Storage --> Volumes --> View Volumes`.
 An example is shown in
 :numref:`Figure %s <zfs_encrypt_pool_icons_fig>`.
@@ -1302,44 +1300,86 @@ An example is shown in
 
 .. figure:: images/encrypt1.png
 
-   Encryption Icons Associated with an Encrypted Pool
+   Encryption Icons Associated with an Encrypted Volume
 
 
 These additional encryption buttons are used to:
 
-**Create/Change Passphrase:** click this button to set and confirm the
-passphrase associated with the GELI encryption key. You will be
-prompted to enter and repeat the desired passphrase and a red warning
-reminds you to
+**Create/Change Passphrase:** sets and confirms the passphrase
+associated with the GELI encryption key. The desired passphrase is
+entered and repeated for verification. A red warning is a reminder to
 :guilabel:`Remember to add a new recovery key as this action
 invalidates the previous recovery key`. Unlike a password, a
 passphrase can contain spaces and is typically a series of words. A
 good passphrase is easy to remember (like the line to a song or piece
 of literature) but hard to guess (people who know you should not be
-able to guess the passphrase). **Remember this passphrase as you
-cannot re-import an encrypted volume without it.** In other words, if
-you forget the passphrase, the data on the volume can become
-inaccessible if you need to re-import the pool. Protect this
-passphrase as anyone who knows it could re-import your encrypted
+able to guess the passphrase). **Remember this passphrase. An
+encrypted volume cannot be reimported without it.** In other words,
+if the passphrase is forgotten, the data on the volume can become
+inaccessible if it becomes necessary to reimport the pool. Protect
+this passphrase, as anyone who knows it could reimport the encrypted
 volume, thwarting the reason for encrypting the disks in the first
 place.
 
-Once the passphrase is set, the name of this button will change to
+
+.. _zfs_encrypt_passphrase_fig:
+
+.. figure:: images/encrypt-passphrase.png
+
+   Add or Change a Passphrase to an Encrypted Volume
+
+
+After the passphrase is set, the name of this button changes to
 :guilabel:`Change Passphrase`. After setting or changing the
-passphrase, it is important to immediately create a new recovery key
+passphrase, it is important to *immediately* create a new recovery key
 by clicking the :guilabel:`Add recovery key` button. This way, if the
 passphrase is forgotten, the associated recovery key can be used
 instead.
 
-**Download Key:** click this icon to download a backup copy of the
-GELI encryption key. The encryption key is saved to the client system,
-not on the %brand% system. You will be prompted to input the password
-used to access the %brand% administrative GUI before the selecting
-the directory in which to store the key. Since the GELI encryption key
-is separate from the %brand% configuration database, **it is highly
-recommended to make a backup of the key. If the key is every lost or
-destroyed and there is no backup key, the data on the disks is
-inaccessible.**
+Encrypted volumes with a passphrase display an additional lock button:
+
+.. _zfs_encrypt_lock_fig:
+
+.. figure:: images/encrypt-lock.png
+
+   Lock Button
+
+These encrypted volumes can be *locked*. The data is not accessible
+until the volume is unlocked by suppying the passphrase or encryption
+key, and the button changes to an unlock button:
+
+.. _zfs_encrypt_unlock_fig:
+
+.. figure:: images/encrypt-unlock.png
+
+   Unlock Button
+
+To unlock the volume, click the unlock button to display the Unlock
+dialog:
+
+.. zfs_encrypt_unlock_dialog_fig:
+
+.. figure:: images/encrypt-unlock-dialog.png
+
+   Unlock Locked Volume
+
+Unlock the volume by entering a passphrase *or* using the
+:guilabel:`Browse` button to load the recovery key. If both a
+passphrase and a recovery key are entered, only the passphrase is
+used.  By default, the services listed will restart when the volume is
+unlocked. This allows them to see the new volume and share or access
+data on it. Individual services can be prevented from restarting by
+unchecking them. However, a service that is not restarted might not be
+able to access the unlocked volume.
+
+**Download Key:** downloads a backup copy of the GELI encryption key.
+The encryption key is saved to the client system, not on the %brand%
+system. You will be prompted to input the password used to access the
+%brand% administrative GUI before the selecting the directory in which
+to store the key. Since the GELI encryption key is separate from the
+%brand% configuration database, **it is highly recommended to make a
+backup of the key. If the key is every lost or destroyed and there is
+no backup key, the data on the disks is inaccessible.**
 
 **Encryption Re-key:** generates a new GELI encryption key. Typically
 this is only performed when the administrator suspects that the
@@ -1359,7 +1399,7 @@ on the %brand% system. This recovery key can be used if the
 passphrase is forgotten. **Always immediately** add a recovery key
 whenever the passphrase is changed.
 
-**Remove recover key:** Typically this is only performed when the
+**Remove recovery key:** Typically this is only performed when the
 administrator suspects that the current recovery key may be
 compromised. **Immediately** create a new passphrase and recovery key.
 
