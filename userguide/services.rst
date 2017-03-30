@@ -1210,7 +1210,7 @@ are specific to each configured SMB Share. In contrast, global
 settings which apply to all SMB shares are configured in
 :menuselection:`Services --> SMB`.
 
-.. note:: After starting the SMB service, it may take several minutes
+.. note:: After starting the SMB service, it can take several minutes
    for the `master browser election
    <http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/NetworkBrowsing.html#id2581357>`_
    to occur and for the %brand% system to become available in
@@ -1335,7 +1335,7 @@ This configuration screen is really a front-end to
    | Zeroconf share discovery         | checkbox       | enable if Mac clients will be connecting to the SMB share                                             |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Hostnames lookups                | checkbox       | allows using hostnames rather than IP addresses in the :guilabel:`Hosts Allow` or                     |
+   | Hostname lookups                 | checkbox       | allows using hostnames rather than IP addresses in the :guilabel:`Hosts Allow` or                     |
    |                                  |                | :guilabel:`Hosts Deny` fields of a SMB share; uncheck if IP addresses are used to avoid the           |
    |                                  |                | delay of a host lookup                                                                                |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
@@ -1460,16 +1460,16 @@ experiment to see which are supported by your clients and improve your
 network's performance.
 #endif freenas
 
-Windows automatically caches file sharing information. If you make
-changes to a SMB share or to the permissions of a volume/dataset
-being shared by SMB and are no longer able to access the share, try
-logging out and back into the Windows system. Alternately, users can
-type :command:`net use /delete` from the command line to clear their
+Windows automatically caches file sharing information. If changes are
+made to an SMB share or to the permissions of a volume/dataset being
+shared by SMB and the share becomes inaccessible, try logging out and
+back into the Windows system. Alternately, users can type
+:command:`net use /delete` from the command line to clear their
 SMB sessions.
 
-Windows also automatically caches login information. If you want users
-to be prompted to log in every time access is required, reduce the
-cache settings on the client computers.
+Windows also automatically caches login information. To require users
+to log in every time access is required, reduce the cache settings on
+the client computers.
 
 Where possible, avoid using a mix of case in filenames as this can
 cause confusion for Windows users. `Representing and resolving
@@ -1478,8 +1478,8 @@ filenames with Samba
 in more detail.
 
 If a particular user cannot connect to a SMB share, make sure that
-their password does not contain the *?* character. If it does, have
-the user change the password and try again.
+their password does not contain the :literal:`?` character. If it
+does, have the user change the password and try again.
 
 If permissions work for Windows users but not for OS X users, try
 disabling :guilabel:`Unix Extensions` and restarting the SMB service.
@@ -1513,6 +1513,53 @@ The `Common Errors
 <http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/domain-member.html#id2573692>`_
 section of the Samba documentation contains additional troubleshooting
 tips.
+
+The Samba
+`Performance Tuning
+<https://wiki.samba.org/index.php/Performance_Tuning>`_
+page describes options to improve performance.
+
+Directory listing speed in folders with a large number of files is
+sometimes a problem.  A few specific changes can help improve the
+performance. However, changing these settings can affect other usage.
+In general, the defaults are adequate. **Do not change these settings
+unless there is a specific need.**
+
+* Use at least the *SMB2* version of the protocol when possible.
+  Enable this on the client if possible. The default settings for
+  :guilabel:`Server minimum protocol` (*----*) and
+  :guilabel:`Server maximum protocol` (*SMB3*) in the
+  :ref:`global SMB service options <global_smb_config_opts_tab>`
+  allow clients to connect and negotiate higher and faster levels of
+  the protocol. If these have been changed from the default, they
+  might reduce performance. Note that Windows XP does not support
+  SMB2, so it is particularly important to leave
+  :guilabel:`Server minimum protocol` at the default on networks
+  with XP clients.
+
+* :guilabel:`Hostname Lookups` and :guilabel:`Log Level` can also have
+  a performance penalty. When not needed, they can be disabled or
+  reduced in the
+  :ref:`global SMB service options <global_smb_config_opts_tab>`.
+
+* Make Samba datasets case insensitive by setting
+  :guilabel:`Case Sensitivity` to *Insensitive* when creating them.
+  This ZFS property is only available when creating a dataset. It
+  cannot be changed on an existing dataset. To convert such datasets,
+  back up the data, create a new case-insensitive dataset, create an
+  SMB share on it, then copy the data from the old one onto it. After
+  the data has been checked and verified on the new share, the old one
+  can be deleted.
+
+* If present, remove options for extended attributes and DOS
+  attributes in the share's
+  :ref:`Auxiliary Parameters <smb_share_opts_tab>`.
+
+* Disable as many :guilabel:`VFS Objects` as possible in the
+  :ref:`share settings <smb_share_opts_tab>`. Many have performance
+  overhead.
+
+
 
 
 .. index:: SNMP, Simple Network Management Protocol
