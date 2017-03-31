@@ -2027,16 +2027,20 @@ this URL prompts for a login, or to register a new login.
 Proactive Support
 -----------------
 
+The Proactive Support feature can notify iXsystems by email when
+conditions on the system warrant attention.
+
+.. note:: The fields on this tab are only enabled for Silver and Gold
+   support coverage level customers. Please contact iXsystems for
+   information on upgrading from other support levels.
+
+
 .. _tn_proactive_support:
 
-.. figure:: images/tn_system-proactive-support.png
+.. figure:: images/tn_system-proactive-support1.png
 
    Proactive Support Tab
 
-
-Silver and Gold support coverage level customers can enable Proactive
-Support. This feature can notify iXsystems by email when conditions on
-the system warrant attention.
 
 The Proactive Support fields are:
 
