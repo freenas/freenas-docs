@@ -1375,10 +1375,10 @@ able to access the unlocked volume.
 **Download Key:** downloads a backup copy of the GELI encryption key.
 The encryption key is saved to the client system, not on the %brand%
 system. You will be prompted to input the password used to access the
-%brand% administrative GUI before the selecting the directory in which
+%brand% administrative GUI before selecting the directory in which
 to store the key. Since the GELI encryption key is separate from the
 %brand% configuration database, **it is highly recommended to make a
-backup of the key. If the key is every lost or destroyed and there is
+backup of the key. If the key is ever lost or destroyed and there is
 no backup key, the data on the disks is inaccessible.**
 
 **Encryption Re-key:** generates a new GELI encryption key. Typically
