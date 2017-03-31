@@ -2028,7 +2028,7 @@ Proactive Support
 -----------------
 
 The Proactive Support feature can notify iXsystems by email when
-conditions on the system warrant attention.
+hardware conditions on the system require attention.
 
 .. note:: The fields on this tab are only enabled for Silver and Gold
    support coverage level customers. Please contact iXsystems for
