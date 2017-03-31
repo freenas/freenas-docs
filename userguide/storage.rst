@@ -1305,7 +1305,7 @@ An example is shown in
 
 These additional encryption buttons are used to:
 
-**Create/Change Passphrase:** sets and confirms the passphrase
+**Create/Change Passphrase:** set and confirm a passphrase
 associated with the GELI encryption key. The desired passphrase is
 entered and repeated for verification. A red warning is a reminder to
 :guilabel:`Remember to add a new recovery key as this action
@@ -1372,16 +1372,16 @@ data on it. Individual services can be prevented from restarting by
 unchecking them. However, a service that is not restarted might not be
 able to access the unlocked volume.
 
-**Download Key:** downloads a backup copy of the GELI encryption key.
+**Download Key:** download a backup copy of the GELI encryption key.
 The encryption key is saved to the client system, not on the %brand%
-system. You will be prompted to input the password used to access the
-%brand% administrative GUI before selecting the directory in which
-to store the key. Since the GELI encryption key is separate from the
-%brand% configuration database, **it is highly recommended to make a
-backup of the key. If the key is ever lost or destroyed and there is
-no backup key, the data on the disks is inaccessible.**
+system. The %brand% administrative password must be entered,
+then the directory in which to store the key is chosen. Since the GELI
+encryption key is separate from the %brand% configuration database,
+**it is highly recommended to make a backup of the key. If the key is
+ever lost or destroyed and there is no backup key, the data on the
+disks is inaccessible.**
 
-**Encryption Re-key:** generates a new GELI encryption key. Typically
+**Encryption Re-key:** generate a new GELI encryption key. Typically
 this is only performed when the administrator suspects that the
 current key may be compromised. This action also removes the current
 passphrase.
@@ -1391,13 +1391,12 @@ passphrase.
    (High Availability) has been enabled and the standby node is down.
 #endif truenas
 
-**Add recovery key:** generates a new recovery key. This screen
-prompts for entry of the password used to access the %brand%
-administrative GUI and then to select the directory in which to save
-the key. Note that the recovery key is saved to the client system, not
-on the %brand% system. This recovery key can be used if the
-passphrase is forgotten. **Always immediately** add a recovery key
-whenever the passphrase is changed.
+**Add recovery key:** generate a new recovery key. This screen
+prompts for the %brand% administrative password and then the directory
+in which to save the key. Note that the recovery key is saved to the
+client system, not on the %brand% system. This recovery key can be
+used if the passphrase is forgotten. **Always immediately add a
+recovery key whenever the passphrase is changed.**
 
 **Remove recovery key:** Typically this is only performed when the
 administrator suspects that the current recovery key may be
