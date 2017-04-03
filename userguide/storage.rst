@@ -512,24 +512,24 @@ summarizes the options in this screen.
    boxes :guilabel:`Apply Owner (user)` and :guilabel:`Apply Mode`.
 
 
-If a mix of operating systems or clients will be accessing the
-volume/dataset using a non-SMB share, select the *Unix*
-:guilabel:`Permission Type`, as all clients understand them.
+The *Windows* :guilabel:`Permission Type` is used for SMB shares or when
+the %brand% system is a member of an Active Directory domain. This adds
+ACLs to traditional *Unix* permissions. When the *Windows*
+:guilabel:`Permission Type` is set, ACLs are set to Windows defaults
+for new files and directories. A Windows client can be used to further
+fine-tune permissions as needed.
 
-The *Windows* :guilabel:`Permission Type` augments traditional *Unix*
-permissions with ACLs. Use the *Windows* :guilabel:`Permission Type`
-for SMB shares or when the %brand% system is a member of an Active
-Directory domain.
+The *Unix* :guilabel:`Permission Type` is usually used with NFS shares.
+These permissions are compatible with most network clients and generally
+work well with a mix of operating systems or clients. However, *Unix*
+permissions do not support Windows ACLs and should not be used with SMB
+shares.
 
-If you change your mind about the :guilabel:`Permission Type`, it is
-not necessary to recreate the volume/dataset, as existing data is not
-lost. However, changing from *Windows* to *Unix* or *Mac* will remove
-the extended permissions provided by ACLs from existing files.
+The *Mac* :guilabel:`Permission Type` is used with AFP shares.
 
-When the *Windows* :guilabel:`Permission Type` is set, the ACLs are
-set to what Windows sets on new files and directories by default. The
-Windows client should then be used to fine-tune the permissions as
-required.
+After a volume or dataset has been set to *Windows*, it cannot be
+changed to *Unix* permissions because that would remove extended
+permissions provided by *Windows* ACLs.
 
 
 .. index:: Create Dataset
