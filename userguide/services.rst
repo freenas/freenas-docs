@@ -1355,6 +1355,9 @@ This configuration screen is really a front-end to
    |                                  |                | groups to domain admins on another forest                                                             |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | NTLMv1 auth                      | checkbox       | when checked, allow NTLMv1 authentication, required by Windows XP clients and sometimes by clients    |
+   |                                  |                | in later versions of Windows                                                                          |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Bind IP Addresses                | checkboxes     | check the IP addresses on which SMB should listen                                                     |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
