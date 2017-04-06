@@ -10,8 +10,14 @@ Administrators who use
 to administer their vSphere environments can use the %brand% vCenter
 plugin to manage their %brand% array from vCenter Server.
 
+
 .. note:: At this time, the vCenter plugin only supports the creation
    of iSCSI and NFS datastores from vCenter Server.
+
+
+.. note:: The current vCenter plugin works with versions of vCenter up
+   to vCenter 6.
+
 
 To configure the vCenter plugin, click :guilabel:`vCenter`. This opens
 the screen shown in
