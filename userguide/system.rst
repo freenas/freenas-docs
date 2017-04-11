@@ -189,23 +189,23 @@ After making any changes, click the :guilabel:`Save` button.
 
 This screen also contains these buttons:
 
-**Factory Restore:** resets the configuration database to the default
-base version. However, it does not delete user SSH keys or any other
+**Factory Restore:** reset the configuration database to the default
+base version. However, this does not delete user SSH keys or any other
 data stored in a user's home directory. Since any configuration
 changes stored in the configuration database will be erased, this
-option is handy if a mistake has been made or to return a test system
-to the original configuration.
+option is useful when a mistake has been made or to return a test
+system to the original configuration.
 
-**Save Config:** saves a backup copy of the current configuration
-database in the format *hostname-version-architecture* to the system
-being used to access the administrative interface. It is recommended
-to always save the configuration after making any configuration
-changes. %brand% automatically backs up the configuration database to
-the system dataset every morning at 3:45. However, this backup will
-not occur if the system is shut down at that time. If the system
-dataset is stored on the boot pool and the boot pool becomes
-unavailable, the backup will not be available. The location of the
-system dataset can be viewed or set using
+**Save Config:** save a backup copy of the current configuration
+database in the format *hostname-version-architecture* to the computer
+accessing the administrative interface. Saving the configuration after
+making any configuration changes is highly recommended. %brand%
+automatically backs up the configuration database to the system
+dataset every morning at 3:45. However, this backup does not occur if
+the system is shut down at that time. If the system dataset is stored
+on the boot pool and the boot pool becomes unavailable, the backup
+will also not be available. The location of the system dataset can be
+viewed or set using
 :menuselection:`System --> System Dataset`.
 
 .. warning:: Passwords are backed up with the system configuration.
