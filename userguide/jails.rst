@@ -1139,7 +1139,7 @@ interface:
 
 The next step is to tell :command:`iohyve` which installation ISO to
 download. This example shows fetching the 64-bit version of FreeBSD
-10.3, then verify that the fetch was successful:
+10.3, then verifying that the fetch was successful:
 
 .. code-block:: none
 

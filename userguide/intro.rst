@@ -86,66 +86,16 @@ built-in features by installing additional software.
 New Features in |release|
 -------------------------
 
-* The installer now provides an option to install the updated system
-  into a new boot environment instead of formatting the boot device.
-  This makes updates safer and testing different versions more
-  convenient.
+* The base operating system has been updated to FreeBSD 11/Stable,
+  including significant speed improvements for 40/100GigE networking.
 
-* The installer warns the user if the computer has less than the
-  minimum recommended amount of memory.
+* Python has been updated to version 3.6.
 
-* The installer offers an option to set up either UEFI or traditional
-  BIOS/MBR booting.
-
-* A new :guilabel:`Setup mode` drop-down menu has been added to
-  :menuselection:`Storage --> Replication Tasks --> Add Replication`.
-
-* A new FQDN checkbox has been added to the :guilabel:`Advanced`
-  :ref:`System` settings. Checking this causes fully-qualified domain
-  names to be included in syslogd output, making it easier to identify
-  individual systems when groups of computers have similar hostnames.
-
-* A :guilabel:`Manual Update` button has been added to the
-  :guilabel:`Update` screen in :ref:`System`. Update files can be
-  applied manually with this method.
-
-* An :guilabel:`Auxiliary Parameters` field has been added to
-  :menuselection:`Sharing --> Apple (AFP) --> Add Apple (AFP) Share`.
-
-* Modifying network settings only affects the changed network
-  components, avoiding the disruption of restarting all networking.
-
-* Chelsio T3/T4/T5 network cards can now take advantage of TCP Offload
-  Engine (TOE) for improved network performance. Add *toe* to the
-  Options field of the interface to enable the feature.
-
-* LDAP failing to bind to the domain on startup causes an alert.
-
-* A new script for backing up Samba4 domain controller settings has
-  been added. See :ref:`Samba Domain Controller Backup`.
-
-* The *winmsa* VFS module has been added to Samba. This module
-  emulates the Microsoft :literal:`MoveSecurityAttributes=0` registry
-  option, setting ACLs for file and directory hierarchies to inherit
-  from the parent directory into which they are moved.
-
-* The UPS shutdown command can now be customized.
-
-* :ref:`freenas-debug` can now include GRUB configuration information.
-
-* The php-virtualbox jail template has been removed.
-
-* `iohyve <https://github.com/pr1ntf/iohyve>`_ has been updated to
-  version 0.7.7.
-
-* Additional disk statistics for percent busy, latency, operations
-  per second, and pending I/O requests have been added to
-  :ref:`Reporting`.
-
-* A new :ref:`API <Using the API>` has been added. The old API is
-  still present for compatibility.
+* An option to save the encryption seed has been added to the
+  :ref:`System` :guilabel:`Save Config` button.
 
 
+#ifdef comment
 .. _Changes in |version|:
 
 Changes in |version|
@@ -159,28 +109,9 @@ changes that have occurred since |version| was released.
 
 .. note:: The screenshots in this documentation assume that the system
    has been fully updated to the latest STABLE version of %brand%
-   |version|. If a screen on your system is not the same as shown in
-   this guide, make sure that all outstanding updates are applied.
-
-* An alert is shown when running on certain models of ASrock Rack
-  motherboards with flawed BMC firmware that require an update. See
-  `ASrock Rack BMC Issue
-  <https://support.ixsystems.com/index.php?/Knowledgebase/Article/View/287>`_.
-
-* Patches have been applied to fix the
-  `FreeBSD-SA-17:01.openssh Security Advisory
-  <https://www.freebsd.org/security/advisories/FreeBSD-SA-17:01.openssh.asc>`_.
-
-* During user creation, non-ASCII characters are prevented from being
-  entered in the username.
-
-* When moving the system dataset, a new message notifies the user that
-  the dataset is only moved after clicking :guilabel:`Save`.
-
-* Samba has been updated to
-  `4.5.5 <https://www.samba.org/samba/history/samba-4.5.5.html>`_.
-
-* Extents are not allowed to be created inside the jail root directory.
+   |version|. If a screen on the system is not the same as shown in
+   this guide, make sure that all updates have been applied.
+#endif comment
 
 
 .. index:: Hardware Recommendations
@@ -189,13 +120,13 @@ changes that have occurred since |version| was released.
 Hardware Recommendations
 ------------------------
 
-%brand% |release| is based on FreeBSD 10.3 and supports the same
+%brand% |release| is based on FreeBSD 11 and supports the same
 hardware found in the
 `FreeBSD Hardware Compatibility List
-<http://www.freebsd.org/releases/10.3R/hardware.html>`__.
+<http://www.freebsd.org/releases/11.0R/hardware.html>`__.
 Supported processors are listed in section
 `2.1 amd64
-<https://www.freebsd.org/releases/10.3R/hardware.html#proc>`_.
+<https://www.freebsd.org/releases/11.0R/hardware.html#proc>`_.
 %brand% is only available for 64-bit processors. This architecture is
 called *amd64* by AMD and *Intel 64* by Intel.
 
@@ -318,7 +249,7 @@ Storage Disks and Controllers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The `Disk section
-<http://www.freebsd.org/releases/10.3R/hardware.html#DISK>`_
+<http://www.freebsd.org/releases/11.0R/hardware.html#DISK>`_
 of the FreeBSD Hardware List lists the supported disk controllers. In
 addition, support for 3ware 6 Gbps RAID controllers has been added
 along with the CLI utility :command:`tw_cli` for managing 3ware RAID
@@ -415,7 +346,7 @@ Network Interfaces
 ~~~~~~~~~~~~~~~~~~
 
 The `Ethernet section
-<http://www.freebsd.org/releases/10.3R/hardware.html#ethernet>`_
+<http://www.freebsd.org/releases/11.0R/hardware.html#ethernet>`_
 of the FreeBSD Hardware Notes indicates which interfaces are supported
 by each driver. While many interfaces are supported, %brand% users
 have seen the best performance from Intel and Chelsio interfaces, so

@@ -526,7 +526,7 @@ shows the configuration options when adding a lagg interface using
    :guilabel:`Physical NICs` list, check that a FreeBSD driver for the
    interface exists
    `here
-   <http://www.freebsd.org/releases/10.3R/hardware.html#ETHERNET>`_.
+   <http://www.freebsd.org/releases/11.0R/hardware.html#ETHERNET>`_.
 #endif freenas
 
 To create a link aggregation, select the desired

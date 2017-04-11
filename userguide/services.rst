@@ -1222,7 +1222,7 @@ described in
 :numref:`Table %s <global_smb_config_opts_tab>`.
 This configuration screen is really a front-end to
 `smb4.conf
-<https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+10.3-RELEASE+and+Ports>`_.
+<https://www.freebsd.org/cgi/man.cgi?query=smb4.conf&manpath=FreeBSD+11.0-RELEASE+and+Ports>`_.
 
 
 .. _global_smb_config_fig:
@@ -1457,7 +1457,7 @@ should not be used on systems with limited RAM.
 To increase network performance, read the Samba section on socket
 options in the
 `smb.conf manual page
-<https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+10.3-RELEASE+and+Ports>`_.
+<https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+11.0-RELEASE+and+Ports>`_.
 It indicates which options are available and recommends that you
 experiment to see which are supported by your clients and improve your
 network's performance.

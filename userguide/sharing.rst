@@ -1008,7 +1008,7 @@ not needed. For more complex sharing scenarios, only change an
 :guilabel:`Advanced Mode` option after fully understanding the
 function of that option.
 `smb.conf(5)
-<https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+10.3-RELEASE+and+Ports>`_
+<https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+11.0-RELEASE+and+Ports>`_
 provides more details for each configurable option.
 
 
@@ -1108,7 +1108,7 @@ settings:
   :guilabel:`Auxiliary Parameters` field. The syntax for the
   :guilabel:`veto files` option and some examples can be found in the
   `smb.conf manual page
-  <https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+10.3-RELEASE+and+Ports>`__.
+  <https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+11.0-RELEASE+and+Ports>`__.
 
 To configure support for OS/2 clients, add this line to
 :guilabel:`Auxiliary Parameters`:

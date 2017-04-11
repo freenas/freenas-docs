@@ -913,7 +913,7 @@ can be used to manage the following:
 
 #. **FreeBSD rc.conf options:**
    `rc.conf(5)
-   <https://www.freebsd.org/cgi/man.cgi?query=rc.conf&apropos=0&sektion=0&manpath=FreeBSD+10.3-RELEASE>`_
+   <https://www.freebsd.org/cgi/man.cgi?query=rc.conf&manpath=FreeBSD+11.0-RELEASE>`_
    is used to pass system configuration options to the system startup
    scripts as the system boots. Since %brand% has been optimized for
    storage, not all of the services mentioned in rc.conf(5) are
