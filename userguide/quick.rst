@@ -18,7 +18,7 @@ administer the system.
 
 .. _console_setup_menu_fig:
 
-.. figure:: images/console1b.png
+.. figure:: images/console-menu.png
 
    Console Setup Menu
 
@@ -67,54 +67,9 @@ web interface. Updates are applied immediately for the currently
 selected train and access to the GUI is not required. For more
 advanced update options like switching trains, use :ref:`Update`.
 
-**11) Create volume backup:** backs up the %brand% configuration and
-ZFS layout, and, optionally, the data, to a remote system over an
-encrypted connection. The remote system must have sufficient space to
-hold the backup and be running an SSH server on port 22. The remote
-system does not have to be formatted with ZFS, as the backup will be
-saved as a binary file. When this option is selected, it prompts for
-the hostname or IP address of the remote system, the name of a user
-account on that system, the user account password, the full path to a
-directory on the remote system to save the backup, whether to also
-back up all of the data, whether to compress the data, and a
-confirmation to save the values. *y* starts the backup, *n* repeats
-the configuration, and *q* quits the backup wizard. If the password is
-left empty, key-based authentication is used instead. This requires
-that the public key of the *root* user has been stored in
-:file:`~root/.ssh/authorized_keys` on the remote system and that
-they key is **not** protected by a passphrase. Refer to
-:ref:`Rsync over SSH Mode` for instructions on generating a key pair.
+**11) Reboot:** reboots the system.
 
-**12) Restore volume from a backup:** restores from an existing backup
-created with :guilabel:`11) Create volume backup` or
-:menuselection:`System --> Advanced --> Backup`. It prompts for the
-hostname or IP address of the remote system holding the backup, the
-username that was used, the password (leave empty if key-based
-authentication was used), the full path of the remote directory
-storing the backup, and a confirmation that the values are correct.
-*y* starts the restore, *n* repeats the configuration, and *q* quits
-the restore wizard. The restore indicates if it can log into the
-remote system, find the backup, and whether the backup contains data.
-It then prompts to restore %brand% from that backup. Note that if *y*
-is pressed to perform the restore, the system will be returned to the
-database configuration, ZFS layout, and optionally the data, at the
-point in time when the backup was created. The system reboots after
-the restore completes.
-
-.. warning:: The backup and restore options are meant for disaster
-   recovery. If you restore a system, it is returned to the point
-   in time that the backup was created. If you select the option to
-   save the data, any data created after the backup was made will be
-   lost. If you do **not** select the option to save the data, the
-   system will be recreated with the same ZFS layout, but with **no**
-   data.
-
-.. warning:: The backup function **IGNORES ENCRYPTED POOLS**. Do not
-   use it to back up systems with encrypted pools.
-
-**13) Reboot:** reboots the system.
-
-**14) Shutdown:** halts the system.
+**12) Shutdown:** halts the system.
 
 
 .. _Obtaining_an_IP_Address:
