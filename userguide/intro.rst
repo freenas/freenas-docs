@@ -124,10 +124,10 @@ New Features in |release|
 * A new script for backing up Samba4 domain controller settings has
   been added. See :ref:`Samba Domain Controller Backup`.
 
-* The *winmsa* VFS module has been added to Samba. This module emulates
-  Microsoft’s MoveSecurityAttributes=0 registry option, setting the ACL
-  for file and directory hierarchies to inherit from the parent directory
-  into which they are moved.
+* The *winmsa* VFS module has been added to Samba. This module
+  emulates the Microsoft :literal:`MoveSecurityAttributes=0` registry
+  option, setting ACLs for file and directory hierarchies to inherit
+  from the parent directory into which they are moved.
 
 * The UPS shutdown command can now be customized.
 
@@ -138,7 +138,7 @@ New Features in |release|
 * `iohyve <https://github.com/pr1ntf/iohyve>`_ has been updated to
   version 0.7.7.
 
-* Additional disks statistics for percent busy, latency, operations
+* Additional disk statistics for percent busy, latency, operations
   per second, and pending I/O requests have been added to
   :ref:`Reporting`.
 
