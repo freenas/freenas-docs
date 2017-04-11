@@ -86,10 +86,13 @@ built-in features by installing additional software.
 New Features in |release|
 -------------------------
 
-* The base operating system has been updated to FreeBSD 11/Stable,
-  including significant speed improvements for 40/100GigE networking.
+* The base operating system has been updated to FreeBSD 11-STABLE.
+  This brings in many
+  `significant features
+  <https://www.freebsd.org/releases/11.0R/relnotes.html>`_,
+  including important speed improvements for 40/100GigE networking.
 
-* Python has been updated to version 3.6.
+* Python has been updated to version 3.6.1.
 
 * An option to save the encryption seed has been added to the
   :ref:`System` :guilabel:`Save Config` button.
