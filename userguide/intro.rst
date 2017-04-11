@@ -97,6 +97,12 @@ New Features in |release|
 * An option to save the encryption seed has been added to the
   :ref:`System` :guilabel:`Save Config` button.
 
+* Pipe Viewer, a
+  `utility for monitoring the progress of data through a pipeline
+  <http://www.ivarch.com/programs/pv.shtml>`_,
+  has been added. This can be useful for monitoring
+  :command:`zfs send | zfs recv` commands.
+
 
 #ifdef comment
 .. _Changes in |version|:
