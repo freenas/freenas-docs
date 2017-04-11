@@ -208,17 +208,25 @@ will also not be available. The location of the system dataset can be
 viewed or set using
 :menuselection:`System --> System Dataset`.
 
-.. warning:: Passwords are backed up with the system configuration.
-   There are two types of passwords. User account passwords for the
-   base operating system are stored as hashed values, do not need to
-   be encrypted to be secure, and are saved in the system
-   configuration backup. Other passwords, like iSCSI CHAP passwords or
-   Active Directory bind credentials, must be stored in an encrypted
-   form to prevent them from being visible as plain text in the saved
-   system configuration. The key for this encryption is stored on the
-   boot device. If %brand% is installed on a new boot device and a
-   backup system configuration is moved to that new boot device, the
-   key is not present and these other passwords must be re-entered.
+There are two types of passwords. User account passwords for the base
+operating system are stored as hashed values, do not need to be
+encrypted to be secure, and are saved in the system configuration
+backup. Other passwords, like iSCSI CHAP passwords or Active Directory
+bind credentials, are stored in an encrypted form to prevent them from
+being visible as plain text in the saved system configuration. The key
+or *seed* for this encryption is normally stored only on the boot
+device. When :guilabel:`Save Config` is chosen, a dialog gives the
+option to :guilabel:`Export Password Secret Seed` with the saved
+configuration, allowing the configuration file to be restored to
+a different boot device where the decryption seed is not already
+present. Configuration backups containing the seed must be physically
+secured to prevent decryption of passwords and unauthorized access.
+
+.. warning:: The :guilabel:`Export Password Secret Seed` option is off
+   by default and should only be used when making a configuration
+   backup that will be stored securely. After moving a configuration
+   to new hardware, media containing a configuration backup with a
+   decryption seed should be securely erased before reuse.
 
 **Upload Config:** allows browsing to the location of a previously
 saved configuration file to restore that configuration. The screen
