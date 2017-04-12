@@ -98,6 +98,10 @@ New Features in |release|
   LSI/Avago/Broadcom 9305-8i, 9305-16i, and 9305-24i host adapters has
   been updated to the latest version.
 
+* Drivers for PMC Adaptec host bus adapters have been added with the
+  `pmspcv(4) driver
+  <https://www.freebsd.org/cgi/man.cgi?query=pmspcv&manpath=FreeBSD+11.0-RELEASE+and+Ports>`_.
+
 * An option to save the encryption seed has been added to the
   :ref:`System` :guilabel:`Save Config` button.
 
