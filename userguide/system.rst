@@ -991,21 +991,15 @@ summarizes the options when adding a tunable.
    changes persist at each boot and across upgrades unless the tunable
    is deleted or its :guilabel:`Enabled` checkbox is unchecked.
 
-Any tunables that you add will be listed in
+Any added tunables are listed in
 :menuselection:`System --> Tunables`.
 To change the value of an existing tunable, click its :guilabel:`Edit`
 button. To remove a tunable, click its :guilabel:`Delete` button.
 
-Some sysctls are read-only, meaning that they require a reboot in
-order to enable their setting. You can determine if a sysctl is
-read-only by first attempting to change it from :ref:`Shell`. For
-example, to change the value of *net.inet.tcp.delay_ack* to *1*, use
-the command :command:`sysctl net.inet.tcp.delay_ack=1`. If the sysctl
-value is read-only, an error message indicates that the setting is
-read-only. If no error is shown, the setting is now applied. For the
-setting to be persistent across reboots, the sysctl must still be
-added in
-:menuselection:`System --> Tunables`.
+Restarting the %brand% system after making sysctl changes is
+recommended. Some sysctls only take effect at system startup, and
+restarting the system guarantees that the setting values correspond
+with what is being used by the running system.
 
 The GUI does not display the sysctls that are pre-set when %brand% is
 installed. %brand% |release| ships with the following sysctls set:
@@ -1018,7 +1012,6 @@ installed. %brand% |release| ships with the following sysctls set:
    kern.filedelay=5
    kern.coredump=1
    kern.sugid_coredump=1
-   net.inet.tcp.delayed_ack=0
    vfs.timestamp_precision=3
    net.link.lagg.lacp.default_strict_mode=0
    vfs.zfs.min_auto_ashift=12
