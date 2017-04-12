@@ -509,16 +509,16 @@ Be aware of these caveats **before** attempting an upgrade to
   archived reporting graphs will be lost during the upgrade.
 
 * **UFS is no longer supported.** If your data currently resides on
-  **one** UFS-formatted disk, you will need to create a ZFS volume
-  using **other** disks after the upgrade, then use the instructions
-  in :ref:`Import Disk` to mount the UFS-formatted disk to copy the
-  data to the ZFS volume. With only one disk, back up its data to
-  another system or media before the upgrade, format the disk as ZFS
-  after the upgrade, then restore the backup. If the data currently
-  resides on a UFS RAID of disks, you will not be able to import that
-  data to the ZFS volume. Instead, back up that data before the
-  upgrade, create a ZFS volume after the upgrade, then restore the
-  data from backup.
+  **one** UFS-formatted disk, create a ZFS volume using **other**
+  disks after the upgrade, then use the instructions in
+  :ref:`Import Disk` to mount the UFS-formatted disk and copy the data
+  to the ZFS volume. With only one disk, back up its data to another
+  system or media before the upgrade, format the disk as ZFS after the
+  upgrade, then restore the backup. If the data currently resides on a
+  UFS RAID of disks, it is not possible to directly import that data
+  to the ZFS volume. Instead, back up the data before the upgrade,
+  create a ZFS volume after the upgrade, then restore the data from
+  the backup.
 
 * The :ref:`Wizard` will not recognize an encrypted ZFS pool. If the
   ZFS pool is GELI-encrypted and the :ref:`Wizard` starts after the
@@ -528,8 +528,8 @@ Be aware of these caveats **before** attempting an upgrade to
   post-configuration, and it will recognize that the volume has been
   imported and will not prompt to reformat the disks.
 
-* **DO NOT upgrade the ZFS pool unless you are absolutely sure that
-  you will never want to go back to the previous version.**
+* **DO NOT upgrade the ZFS pool unless absolutely sure that you will
+  never want to go back to the previous version.**
   For this reason, the update process will not automatically upgrade
   the ZFS pool, though the :ref:`Alert` system shows when newer
   feature flags are available for the pool. Unless you need a new
@@ -539,16 +539,16 @@ Be aware of these caveats **before** attempting an upgrade to
   support the newer feature flags.
 
 * The *mps* driver for 6 G Avago SAS HBAs is version 21, which
-  requires phase 20 firmware on the controller and the *mpr* driver
+  requires phase 20 firmware on the host adapter. The *mpr* driver
   for 12 G Avago SAS HBAs is version 13 which requires P12 firmware.
   It is recommended to upgrade the firmware before installing %brand%
-  or immediately after upgrading %brand%, using the instructions in
-  :ref:`Alert`. Running older firmware can cause many woes, including
-  the failure to probe all of the attached disks, which can lead to
-  degraded or unavailable arrays. While you can mismatch your firmware
-  version with a higher version and things will "probably still work",
-  there are no guarantees as that driver and firmware combination is
-  untested.
+  or immediately after upgrading %brand%. Follow the instructions
+  shown in :ref:`Alert`. Running older firmware can cause many
+  problems, including failure to probe all attached disks, which can
+  lead to degraded or unavailable arrays. While firmware can be
+  mismatched with a higher version and things will "probably still
+  work", there are no guarantees due to the driver and firmware
+  combination being untested.
 
 * If upgrading from 9.3.x, please read the
   `FAQ: Upgrading from 9.3 to 9.10

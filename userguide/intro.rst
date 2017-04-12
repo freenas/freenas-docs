@@ -94,6 +94,10 @@ New Features in |release|
 
 * Python has been updated to version 3.6.1.
 
+* The :command:`sas3flash` firmware upgrade tool for
+  LSI/Avago/Broadcom 9305-8i, 9305-16i, and 9305-24i host adapters has
+  been updated to the latest version.
+
 * An option to save the encryption seed has been added to the
   :ref:`System` :guilabel:`Save Config` button.
 
