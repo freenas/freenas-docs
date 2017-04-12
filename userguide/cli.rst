@@ -80,7 +80,7 @@ Once the client is ready, you need to start the Iperf server on
    iperf --help | more
    Usage: iperf [-s|-c host] [options]
    iperf [-h|--help] [-v|--version]
-  
+
    Client/Server:
    -f, --format	[kmKM]	format to report: Kbits, Mbits, KBytes, MBytes
    -i, --interval	#	seconds between periodic bandwidth reports
@@ -95,12 +95,12 @@ Once the client is ready, you need to start the Iperf server on
    -M, --mss	#	set TCP maximum segment size (MTU - 40 bytes)
    -N, --nodelay		set TCP no delay, disabling Nagle's Algorithm
    -V, --IPv6Version	Set the domain to IPv6
-  
+
    Server specific:
    -s, --server		run in server mode
    -U, --single_udp	run in single threaded UDP mode
    -D, --daemon		run the server as a daemon
-  
+
    Client specific:
    -b, --bandwidth #[KM]	for UDP, bandwidth to send at in bits/sec
 			  (default 1 Mbit/sec, implies -u)
@@ -115,25 +115,25 @@ Once the client is ready, you need to start the Iperf server on
    -P, --parallel	#	number of parallel client threads to run
    -T, --ttl	#	time-to-live, for multicast (default 1)
    -Z, --linux-congestion <algo> set TCP congestion control algorithm (Linux only)
-  
+
    Miscellaneous:
    -x, --reportexclude [CDMSV]	exclude C(connection) D(data) M(multicast) S(settings) V(server) reports
    -y, --reportstyle C		report as a Comma-Separated Values
    -h, --help			print this message and quit
    -v, --version			print version information and quit
-  
+
    [KM] Indicates options that support a K or M suffix for kilo- or mega-
-  
+
    The TCP window size option can be set by the environment variable
-  
+
    TCP_WINDOW_SIZE. Most other options can be set by an environment variable
    IPERF_<long option name>, such as IPERF_BANDWIDTH.
-  
+
 For example, to perform a TCP test and start the server in daemon mode
 (so that you get your prompt back), type:
 
 .. code-block:: none
-  
+
    iperf -sD
    ------------------------------------------------------------
    Server listening on TCP port 5001
@@ -969,41 +969,44 @@ command line utility and a copy of the information is saved to
 :file:`/var/tmp/fndebug`.
 
 This command can be run manually from :ref:`Shell` to gather specific
-debugging information. To see the available options, type:
+debugging information. To see a usage explanation listing all options,
+run the command without any options:
+
 
 .. code-block:: none
 
    freenas-debug
    Usage: /usr/local/bin/freenas-debug <options>
    Where options are:
-       -e          Email debug log to this comma-delimited list of email addresses
-       -A          Dump all debug information
+       -e  Email debug log to this comma-delimited list of email addresses
+       -A  Dump all debug information
 
-       -a          Dump Active Directory Configuration
-       -c          Dump (AD|LDAP) Cache
-       -C          Dump CIFS Configuration
-       -D          Dump Domain Controller Configuration
-       -d          Dump DTrace Scripts
-       -g          Dump GEOM Configuration
-       -G          Dump Grub Configuration
-       -h          Dump Hardware Configuration
-       -I          Dump IPMI Configuration
-       -i          Dump iSCSI Configuration
-       -j          Dump Jail Information
-       -l          Dump LDAP Configuration
-       -T          Loader Configuration Information
-       -n          Dump Network Configuration
-       -N          Dump NFS Configuration
-       -S          Dump SMART Information
-       -s          Dump SSL Configuration
-       -y          Dump Sysctl Configuration
-       -t          Dump System Information
-       -v          Dump Boot System File Verification Status and Inconsistencies (if any)
-       -z          Dump ZFS Configuration
+       -a  Dump Active Directory Configuration
+       -f  Dump AFP Configuration
+       -c  Dump (AD|LDAP) Cache
+       -D  Dump Domain Controller Configuration
+       -d  Dump DTrace Scripts
+       -g  Dump GEOM Configuration
+       -G  Dump Grub Configuration
+       -h  Dump Hardware Configuration
+       -I  Dump IPMI Configuration
+       -i  Dump iSCSI Configuration
+       -j  Dump Jail Information
+       -l  Dump LDAP Configuration
+       -T  Loader Configuration Information
+       -n  Dump Network Configuration
+       -N  Dump NFS Configuration
+       -S  Dump SMART Information
+       -C  Dump SMB Configuration
+       -s  Dump SSL Configuration
+       -y  Dump Sysctl Configuration
+       -t  Dump System Information
+       -v  Dump Boot System File Verification Status and Inconsistencies
+       -z  Dump ZFS Configuration
 
 
-For example, when troubleshooting an Active Directory configuration,
-use:
+Individual tests can be run alone. For example, when troubleshooting
+an Active Directory configuration, use:
 
 .. code-block:: none
 
