@@ -540,14 +540,14 @@ Be aware of these caveats **before** attempting an upgrade to
 
 * The *mps* driver for 6 G Avago SAS HBAs is version 21, which
   requires phase 20 firmware on the host adapter. The *mpr* driver
-  for 12 G Avago SAS HBAs is version 13 which requires P12 firmware.
-  It is recommended to upgrade the firmware before installing %brand%
-  or immediately after upgrading %brand%. Follow the instructions
-  shown in :ref:`Alert`. Running older firmware can cause many
-  problems, including failure to probe all attached disks, which can
-  lead to degraded or unavailable arrays. While firmware can be
-  mismatched with a higher version and things will "probably still
-  work", there are no guarantees due to the driver and firmware
+  for 12 G Avago SAS HBAs is version 15 which requires phase 14
+  firmware. It is recommended to upgrade the firmware before
+  installing %brand% or immediately after upgrading %brand%. Follow
+  the instructions shown in :ref:`Alert`. Running older firmware can
+  cause many problems, including failure to probe all attached disks,
+  which can lead to degraded or unavailable arrays. While firmware
+  can be mismatched with a higher version and things will "probably
+  still work", there are no guarantees due to the driver and firmware
   combination being untested.
 
 * If upgrading from 9.3.x, please read the
