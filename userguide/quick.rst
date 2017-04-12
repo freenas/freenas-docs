@@ -9,11 +9,8 @@ appears at the end of the boot process. If the %brand% system has a
 keyboard and monitor, this Console Setup menu can be used to
 administer the system.
 
-.. note:: The Console Setup menu can be accessed from within the
-   %brand% GUI by typing :command:`/etc/netcli` from :ref:`Shell`.
-   The Console Setup menu can be disabled by unchecking the
-   :guilabel:`Enable Console Menu` in
-   :menuselection:`System --> Settings --> Advanced`.
+
+#include snippets/consolesetupnote.rst
 
 
 .. _console_setup_menu_fig:

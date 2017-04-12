@@ -319,8 +319,9 @@ created or modified.
    | Shell        | Description                                                                                                          |
    |              |                                                                                                                      |
    +==============+======================================================================================================================+
-   | netcli.sh    | user can access the Console Setup menu shown in :numref:`Figure %s <console_setup_menu_fig>`, even if it is          |
-   |              | disabled in :menuselection:`System --> Advanced --> Enable Console Menu`                                             |
+   | netcli.sh    | user is shown the Console Setup menu (:numref:`Figure %s <console_setup_menu_fig>`) on connection, even if it is     |
+   |              | disabled in :menuselection:`System --> Advanced --> Enable Console Menu`; the user must be *root* or have            |
+   |              | root permissions (EUID 0, like *toor*)                                                                               |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
    | csh          | `C shell <https://en.wikipedia.org/wiki/C_shell>`_                                                                   |

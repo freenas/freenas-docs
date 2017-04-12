@@ -203,11 +203,8 @@ system's keyboard and monitor is available, this Console Setup menu
 can be used to administer the system even if the administrative GUI is
 not accessible.
 
-.. note:: The Console Setup menu can be accessed from within the
-   %brand% GUI by typing :command:`/etc/netcli` from :ref:`Shell`.
-   The Console Setup menu can be disabled by unchecking the
-   :guilabel:`Enable Console Menu` in
-   :menuselection:`System --> Settings --> Advanced`.
+
+#include snippets/consolesetupnote.rst
 
 
 .. _console_setup_menu_fig:
