@@ -24,6 +24,8 @@ includes these built-in services:
 
 * :ref:`Rsync`
 
+* :ref:`S3`
+
 * :ref:`S.M.A.R.T.`
 
 * :ref:`SMB`
@@ -59,7 +61,7 @@ Other services default to off until started.
 
 .. _control_services_fig:
 
-.. figure:: images/services1b.png
+.. figure:: images/services1c.png
 
    Control Services
 
@@ -948,6 +950,75 @@ summarizes the configuration options for the NFS service.
 
 .. note:: NFSv4 sets all ownership to *nobody:nobody* if user and
    group do not match on client and server.
+
+
+.. index:: S3, Minio
+.. _S3:
+
+S3 (Minio)
+----------
+
+S3 or
+`Minio <https://minio.io/>`_
+is an object storage server compatible with Amazon S3
+cloud storage, but running on the %brand% system. This makes it
+possible to provide S3 storage hosted on the %brand% system itself.
+
+:numref:`Figure %s <config_s3_fig>`
+shows the S3 service configuration screen and
+:numref:`Table %s <s3_config_opts_tab>`
+summarizes the configuration options.
+After configuring the S3 service, start it in
+:menuselection:`Services --> Control Services`.
+
+
+.. _config_s3_fig:
+
+.. figure:: images/s3.png
+
+   Configuring S3
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _s3_config_opts_tab:
+
+.. table:: S3 Configuration Options
+   :class: longtable
+
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   | Setting         | Value          | Description                                                                                              |
+   |                 |                |                                                                                                          |
+   +=================+================+==========================================================================================================+
+   | IP Address      | drop-down menu | the IP address on which to run the S3 service; *0.0.0.0* sets the server to run on all interfaces        |
+   |                 |                |                                                                                                          |
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   | Port            | string         | the numeric port number on which to provide the S3 service                                               |
+   |                 |                |                                                                                                          |
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   | Access Key      | string         | the S3 user name                                                                                         |
+   |                 |                |                                                                                                          |
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   | Secret Key      | string         | the password to be used by connecting S3 systems                                                         |
+   |                 |                |                                                                                                          |
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   | Confirm S3 Key  | string         | re-enter the S3 password to confirm                                                                      |
+   |                 |                |                                                                                                          |
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   | Disks           | string         | S3 filesystem disks                                                                                      |
+   |                 |                |                                                                                                          |
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   | Mode            | drop-down menu | *local* or *distributed*                                                                                 |
+   |                 |                |                                                                                                          |
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   | Enable Browser  | checkbox       | Enable the web user interface for the S3 service                                                         |
+   |                 |                |                                                                                                          |
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+
+
+
 
 
 .. index:: Rsync
