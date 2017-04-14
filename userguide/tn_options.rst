@@ -28,10 +28,10 @@ An example is shown in
    System Processes Running on %brand%
 
 
-The display will automatically refresh itself. Simply click the X in
-the upper right corner to close the display when you are finished.
-Note that the display is read-only, meaning that you won't be able to
-issue a :command:`kill` command within it.
+The display automatically refreshes itself. Click the :guilabel:`X` in
+the upper right corner to close the display when finished. This
+display is read-only, so it is not possible to give a :command:`kill`
+command in it.
 
 
 .. index:: Shell

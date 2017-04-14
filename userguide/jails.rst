@@ -892,7 +892,7 @@ the service started:
 
    sockstat -4
    USER	COMMAND		PID	FD	PROTO	LOCAL ADDRESS	FOREIGN ADDRESS
-   root	openvpn		48386 	4	udp4	*:54789		*:*
+   root	openvpn		48386   4	udp4	*:54789		*:*
 
 If it produces an error:
 
@@ -1075,13 +1075,14 @@ The listing contains these columns:
   is downloaded from this location.
 
 * **Instances:** indicates if the template has been used to create a
-  jail. In this example, the template has not yet been used so its
-  :guilabel:`Instances` shows *0*.   
+  jail. In this example, the template has not yet been used, so
+  :guilabel:`Instances` shows as *0*.
 
 Click the entry for a template to access its :guilabel:`Edit` and
 :guilabel:`Delete` buttons. Clicking a template's :guilabel:`Edit`
 button opens the configuration screen shown in
 :numref:`Figure %s <edit_jail_template_fig>`.
+
 
 .. _edit_jail_template_fig:
 

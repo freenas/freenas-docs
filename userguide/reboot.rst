@@ -30,7 +30,7 @@ Rebooting the system disconnects all clients, including the web
 administration GUI. The URL in the web browser changes to add
 */system/reboot/* to the end of the IP address. Wait a few minutes for
 the system to boot, then use your browser's "back" button to return to
-the %brand% system's IP address. If all went well, the the GUI login
+the %brand% system's IP address. If all went well, the GUI login
 screen will appear. If the login screen does not appear, physical
 access to the %brand% system's monitor and keyboard is needed to
 determine what problem is preventing the system from resuming normal

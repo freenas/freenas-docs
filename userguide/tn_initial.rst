@@ -218,13 +218,13 @@ This menu provides these options:
 
 **1) Configure Network Interfaces:** provides a configuration
 wizard to configure the system's network interfaces. If the system has
-been licensed for for High Availability (HA), the wizard will prompt
-to set the IP address for both :guilabel:`(This Node)` and
+been licensed for High Availability (HA), the wizard prompts for
+IP addresses for both :guilabel:`(This Node)` and
 :guilabel:`(Node B)`.
 
 **2) Configure Link Aggregation:** allows creating a new link
 aggregation or deleting an existing link aggregation. If the system
-has been licensed for for High Availability (HA), this option prompts
+has been licensed for High Availability (HA), this option prompts
 for the VHID when creating the link aggregation.
 
 **3) Configure VLAN Interface:** used to create or delete a VLAN

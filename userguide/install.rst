@@ -734,21 +734,21 @@ To boot into the previous version of the operating system, use the up
 or down arrow to select it and press :kbd:`Enter`.
 
 If a boot device fails and the system no longer boots, don't panic.
-The data is still on your disks and you still have a copy of your
-saved configuration. You can always:
+The data is still on the disks and there is still a copy of the saved
+configuration. The system can be recovered with a few steps:
 
 #.  Perform a fresh installation on a new boot device.
 
-#.  Import your volumes in
+#.  Import the volumes in
     :menuselection:`Storage --> Auto Import Volume`.
 
 #.  Restore the configuration in
     :menuselection:`System --> General --> Upload Config`.
 
-.. note:: You cannot restore a saved configuration which is newer than
-   the installed version. For example, if you reboot into an older
-   version of the operating system, you cannot restore a configuration
-   that was created in a later version.
+.. note:: It is not possible to restore a saved configuration that is
+   newer than the installed version. For example, if you reboot into
+   an older version of the operating system, you cannot restore a
+   configuration that was created in a later version.
 
 #ifdef freenas
 #include snippets/upgradingazfspool.rst
@@ -1004,7 +1004,7 @@ Before using ESXi, read `this post
 <https://forums.freenas.org/index.php?threads/sync-writes-or-why-is-my-esxi-nfs-so-slow-and-why-is-iscsi-faster.12506/>`_
 for an explanation of why iSCSI will be faster than NFS.
 
-ESXi is is a bare-metal hypervisor architecture created by VMware Inc.
+ESXi is a bare-metal hypervisor architecture created by VMware Inc.
 Commercial and free versions of the VMware vSphere Hypervisor
 operating system (ESXi) are available from the
 `VMware website

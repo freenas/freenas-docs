@@ -2268,7 +2268,7 @@ On the first connection, the system might say
 
 
 Verify that this is the correct destination computer from the
-preceeding information on the screen and type :literal:`yes`. At this
+preceding information on the screen and type :literal:`yes`. At this
 point, an :ref:`SSH` shell connection is open to the destination
 system, *Beta*.
 
