@@ -261,9 +261,13 @@ The %brand% installer GRUB menu is displayed as is shown in
 
 .. _grub_menu_fig:
 
-.. figure:: images/install1.png
+.. figure:: images/grubmenu.png
 
    Grub Menu
+
+.. tip:: The Serial Enabled option is useful on systems which do not
+   have a keyboard or monitor, but are accessed through a serial port,
+   *Serial over LAN*, or :ref:`IPMI`.
 
 .. note:: If the installer does not boot, verify that the installation
    device is listed first in the boot order in the BIOS. When booting
@@ -274,9 +278,10 @@ The %brand% installer GRUB menu is displayed as is shown in
    file. If the hash is correct, burn the CD again at a lower speed or
    write the file to a different USB stick.
 
-Wait for the menu to time out or press :kbd:`Enter` to boot into the
-installer. After the media boots, the console setup menu is displayed
-as shown in
+The installer will start automatically after a few seconds, or an
+option can be chosen by moving the highlight bar to it with the up and
+down arrow keys and pressing :kbd:`Enter`. After booting, the console
+setup menu is displayed as shown in
 :numref:`Figure %s <console_setup_fig>`.
 
 

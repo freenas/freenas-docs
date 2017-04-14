@@ -102,6 +102,10 @@ New Features in |release|
   `pmspcv(4) driver
   <https://www.freebsd.org/cgi/man.cgi?query=pmspcv&manpath=FreeBSD+11.0-RELEASE+and+Ports>`_.
 
+* The :ref:`installer <Performing the Installation>` can now be run
+  through a serial port for systems without directly-connected
+  keyboards or monitors.
+
 * An option to save the encryption seed has been added to the
   :ref:`System` :guilabel:`Save Config` button.
 
