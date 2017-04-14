@@ -109,6 +109,10 @@ New Features in |release|
 * An option to save the encryption seed has been added to the
   :ref:`System` :guilabel:`Save Config` button.
 
+* Samba has been updated to version
+  `4.6.2
+  <https://www.samba.org/samba/history/samba-4.6.2.html>`_.
+
 * Pipe Viewer, a
   `utility for monitoring the progress of data through a pipeline
   <http://www.ivarch.com/programs/pv.shtml>`_,
