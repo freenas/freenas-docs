@@ -960,9 +960,11 @@ S3 (Minio)
 
 S3 or
 `Minio <https://minio.io/>`_
-is an object storage server compatible with Amazon S3
-cloud storage, but running on the %brand% system. This makes it
+is a distributed or clustered filesystem server compatible with Amazon
+S3 cloud storage, but running on the %brand% system. This makes it
 possible to provide S3 storage hosted on the %brand% system itself.
+Minio also provides features beyond the limits of the basic Amazon S3
+specifications.
 
 :numref:`Figure %s <config_s3_fig>`
 shows the S3 service configuration screen and
