@@ -15,80 +15,96 @@ resources mentioned in :ref:`Support Resources`.
 
 This section demonstrates how you can:
 
-* :ref:`Localize`
+* :ref:`Help with <Translation>`
 
 
-.. index:: Localize, Translate
-.. _Localize:
+.. index:: Translation, Translate, Localize
+.. _Translation:
 
-Localize
----------
+Translation
+-----------
 
-%brand% uses the open source application
-`Pootle <https://en.wikipedia.org/wiki/Pootle>`_
-to manage the localization of the menu screens used by the %brand%
-graphical administrative interface. Pootle makes it easy to find out
-the localization status of your native language and to translate the
-text for any menus that have not yet been localized. By providing a
-web editor and commenting system, Pootle allows translators to spend
-their time making and reviewing translations rather than learning how
-to use a translation submission tool.
+Not everyone speaks English, and having a complete translation of the
+user interface into native languages can make %brand% much more useful
+to communities around the world.
 
-To see the status of a localization, open
-`pootle.freenas.org <http://pootle.freenas.org/>`_
-in a browser, as shown in
-:numref:`Figure %s <contribute_translate1_fig>`.
+%brand% uses
+`Weblate <https://weblate.org/>`_
+to manage the translation of text shown in the %brand% graphical
+administrative interface. Weblate provides an easy-to-use web-based
+editor and commenting system, making it possible for individuals to
+assist with translation or comment on existing translations.
 
-
-.. _contribute_translate1_fig:
-
-.. figure:: images/translate.png
-
-   %brand% Localization System
+To see the status of translations, open
+`<http://weblate.trueos.org/projects/freenas/>`_, as shown in
+:numref:`Figure %s <contribute_weblate_fig>`.
 
 
-The localizations %brand% users have requested are listed
-alphabetically on the left. If your language is missing and you would
-like to help in its translation, send an email to the
-`translations mailing list
-<http://lists.freenas.org/mailman/listinfo/freenas-translations>`_
-so it can be added.
+.. _contribute_weblate_fig:
 
-The green bar in the Overall Completion column indicates the
-percentage of %brand% menus that have been localized. If a language
-is not at 100%, it means that the menus that currently are not
-translated will appear in English instead of in that language.
+.. figure:: images/contribute-weblate.png
 
-To help localize your language, join the
-`translations mailing list
-<http://lists.freenas.org/mailman/listinfo/freenas-translations>`_,
-introduce yourself, and point out which languages you can help
-translate. This will allow you to meet other volunteers as well as
-keep abreast of any notices or updates that may affect the
-translations. You will also need to click on the :guilabel:`Register`
-link to create a Pootle login account.
-
-On the first login to the %brand% Pootle interface, there is a
-prompt to select your language so that you can access that
-language's translation whenever you log in. Alternately, you can click
-the :guilabel:`Home` link to see the status of all of the languages.
-To work on a translation, click the link for the language, click the
-%brand% link for the project, click the link for
-:guilabel:`LC_MESSAGES`, and click the link for :guilabel:`django.po`.
-Every text line available in the GUI menu screens has been assigned a
-string number. If you click the number, an editor will open to
-translate the text. In the example shown in
-:numref:`Figure %s <contribute_translate2_fig>`,
-a user has selected string number 46 in the German translation.
-The other strings in the screenshot have already been translated:
+   %brand% Translation System
 
 
-.. _contribute_translate2_fig:
+To assist with translating %brand%, create an account by clicking the
+:guilabel:`Register` button. Enter the information requested, then a
+confirmation email will be sent. Follow the link in the email to set a
+password and complete the account creation. The Dashboard screen is
+shown after logging in:
 
-.. figure:: images/translate2.png
 
-   Using the Pootle Interface to Edit a Translation String
+.. _contribute_weblate_dashboard:
+
+.. figure:: images/contribute-weblate-dashboard.png
+
+   Weblate Dashboard
 
 
-Type in the translated text and click the :guilabel:`Submit` button to
-save the change.
+Click :guilabel:`Manage your languages` to choose languages for
+translation. Select languages, then click :guilabel:`Save`. Click the
+:guilabel:`Dashboard` link at the top of the screen to go back to the
+dashboard, then choose :guilabel:`Your languages` from the drop-down
+menu:
+
+
+.. _contribute_weblate_languages:
+
+.. figure:: images/contribute-weblate-languages.png
+
+   Selected Languages
+
+
+*Projects* are a collection of text to be translated. In this example,
+the Django and DjangoJS projects have both been partially translated
+into Spanish. Click one of the entries under :guilabel:`Project` to
+help translate that project.
+
+The :guilabel:`Overview` screen shows the current translation status
+along with categories of translatable strings:
+
+.. _contribute_weblate_overview:
+
+.. figure:: images/contribute-weblate-overview.png
+
+   Translation Overview
+
+
+Click on a category of string, like
+:guilabel:`Strings needing action`, to see the translation screen:
+
+.. _contribute_weblate_translation:
+
+.. figure:: images/contribute-weblate-translation.png
+
+   Translate Strings
+
+
+Enter translations here, clicking :guilabel:`Save` to save the work.
+The controls at the top of the screen can be used to skip forward and
+back in the list of strings to be translated. Click
+:guilabel:`Dashboard` at the top of the screen to return to the
+Dashboard.
+
+All assistance with translations helps to benefit the %brand%
+community. Thank you!
