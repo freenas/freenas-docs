@@ -15,7 +15,7 @@ resources mentioned in :ref:`Support Resources`.
 
 This section demonstrates how you can:
 
-* :ref:`Help with <Translation>`
+* :ref:`Help with Translation <Translation>`
 
 
 .. index:: Translation, Translate, Localize
