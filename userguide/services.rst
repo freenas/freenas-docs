@@ -1,4 +1,4 @@
-.. index:: Services
+\.. index:: Services
 .. _Services:
 
 Services
@@ -955,16 +955,14 @@ summarizes the configuration options for the NFS service.
 .. index:: S3, Minio
 .. _S3:
 
-S3 (Minio)
-----------
+S3
+--
 
-S3 or
-`Minio <https://minio.io/>`_
-is a distributed or clustered filesystem server compatible with Amazon
-S3 cloud storage, but running on the %brand% system. This makes it
-possible to provide S3 storage hosted on the %brand% system itself.
-Minio also provides features beyond the limits of the basic Amazon S3
-specifications.
+S3 is a distributed or clustered filesystem protocol compatible with
+Amazon S3 cloud storage. The %brand% S3 service uses
+`Minio <https://minio.io/>`_. This makes it possible to provide S3
+storage hosted on the %brand% system itself. Minio also provides
+features beyond the limits of the basic Amazon S3 specifications.
 
 :numref:`Figure %s <config_s3_fig>`
 shows the S3 service configuration screen and
@@ -1009,10 +1007,7 @@ After configuring the S3 service, start it in
    | Confirm S3 Key  | string         | re-enter the S3 password to confirm                                                                      |
    |                 |                |                                                                                                          |
    +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Disks           | string         | S3 filesystem disks                                                                                      |
-   |                 |                |                                                                                                          |
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Mode            | drop-down menu | *local* or *distributed*                                                                                 |
+   | Disks           | string         | S3 filesystem directory                                                                                  |
    |                 |                |                                                                                                          |
    +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
    | Enable Browser  | checkbox       | Enable the web user interface for the S3 service                                                         |
