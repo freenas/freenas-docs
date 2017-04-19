@@ -1,4 +1,4 @@
-\.. index:: Services
+.. index:: Services
 .. _Services:
 
 Services
@@ -974,7 +974,7 @@ After configuring the S3 service, start it in
 
 .. _config_s3_fig:
 
-.. figure:: images/s3.png
+.. figure:: images/s3dialog.png
 
    Configuring S3
 
@@ -992,10 +992,10 @@ After configuring the S3 service, start it in
    | Setting         | Value          | Description                                                                                              |
    |                 |                |                                                                                                          |
    +=================+================+==========================================================================================================+
-   | IP Address      | drop-down menu | the IP address on which to run the S3 service; *0.0.0.0* sets the server to run on all interfaces        |
+   | IP Address      | drop-down menu | the IP address on which to run the S3 service; *0.0.0.0* sets the server to listen on all addresses      |
    |                 |                |                                                                                                          |
    +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Port            | string         | the numeric port number on which to provide the S3 service                                               |
+   | Port            | string         | TCP port on which to provide the S3 service (default 9000)                                               |
    |                 |                |                                                                                                          |
    +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
    | Access Key      | string         | the S3 user name                                                                                         |
@@ -1013,9 +1013,6 @@ After configuring the S3 service, start it in
    | Enable Browser  | checkbox       | Enable the web user interface for the S3 service                                                         |
    |                 |                |                                                                                                          |
    +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-
-
-
 
 
 .. index:: Rsync
