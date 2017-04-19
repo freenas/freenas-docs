@@ -2092,13 +2092,18 @@ replicated, and :guilabel:`Status` shows the current status of each
 replication task. The display is updated every five seconds, always
 showing the latest status.
 
-
 .. _zfs_repl_task_list_fig:
 
 .. figure:: images/replication9.png
    :width: 90%
 
    Replication Task List
+
+
+After a snapshot has been successfully replicated to another system, an
+:literal:`OK` is shown in the :guilabel:`Replication` column of the
+snapshot list at
+:menuselection:`Storage --> Snapshots`.
 
 
 .. note:: The encryption key that was copied from the source computer
