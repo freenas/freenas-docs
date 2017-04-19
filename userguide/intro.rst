@@ -113,6 +113,9 @@ New Features in |release|
   `4.6.2
   <https://www.samba.org/samba/history/samba-4.6.2.html>`_.
 
+* The new :ref:`S3` service has been added, allowing a %brand% system to
+  provide S3 file sharing.
+
 * Pipe Viewer, a
   `utility for monitoring the progress of data through a pipeline
   <http://www.ivarch.com/programs/pv.shtml>`_,
