@@ -31,10 +31,9 @@ FreeBSD packages can be installed from the command line of the jail.
 It is important to understand that any users, groups, installed
 software, and configurations within a jail are isolated from both the
 %brand% operating system and any other jails running on that system.
-During creation, the *VIMAGE* option can be selected which will also
-provide that jail with its own, independent networking stack. This
-allows that jail to do its own IP broadcasting, which is required by
-some applications.
+During creation, the *VIMAGE* option can be selected to provide the
+jail with an independent networking stack. The jail can then do its
+own IP broadcasting, which is required by some applications.
 
 Advanced users can also create custom templates to automate the
 creation of pre-installed and customized operating systems.
@@ -53,6 +52,8 @@ The rest of this section describes:
 * :ref:`Adding Jails`
 
 * :ref:`Managing Jail Templates`
+
+* :ref:`Using iocage`
 
 
 .. _Jails Configuration:
@@ -1097,88 +1098,52 @@ a template is deleted, it is removed from the :guilabel:`Templates`
 drop-down menu and will no longer be available for creating new jails.
 
 
-.. index:: bhyve, iohyve
-.. _Using iohve:
+.. index:: iocage
+.. _Using iocage:
 
-Using iohyve
+Using iocage
 ------------
 
-Beginning with %brand% 9.10, the
-`iohyve <https://github.com/pr1ntf/iohyve>`_
-command line utility is included for creating, managing, and launching
-`bhyve <https://en.wikipedia.org/wiki/Bhyve>`_ guests.
+Beginning with %brand% 9.10.1, the
+`iocage <https://github.com/iocage/iocage>`_
+command line utility is included for creating, and managing jails.
 
-.. note:: This type of virtualization requires an Intel processor with
-   Extended Page Tables (EPT) or an AMD processor with Rapid
-   Virtualization Indexing (RVI) or Nested Page Tables (NPT).
-
-   To verify that an Intel processor has the required features, use
-   :ref:`Shell` to run :command:`grep VT-x /var/run/dmesg.boot`. If
-   the *EPT* and *UG* features are shown, this processor can be used
-   with *bhyve* and *iohyve*.
-
-   To verify that an AMD processor has the required features, use
-   :ref:`Shell` to run :command:`grep POPCNT /var/run/dmesg.boot`. If
-   the output shows the POPCNT feature, this processor can be used
-   with *bhyve* and *iohyve*.
+The built-in help can be displayed with
+:samp:`iocage --help | more`. Each subcommand also has help, which is
+displayed by giving the subcommand name followed by the
+:literal:`--help` flag. For example, help on the :command:`activate`
+subcommand is displayed with :samp:`iocage activate --help`.
 
 
-Run this command to initialize iohyve, substituting the name of
-the pool to hold the bhyve guests and the name of the network
-interface:
+Managing iocage Jails
+~~~~~~~~~~~~~~~~~~~~~
+
+Create a jail named *examplejail* that uses IP address *192.168.1.10*
+with a netmask of */24* on the *em0* interface. Install FreeBSD
+11.0-RELEASE in the jail.
+
 
 .. code-block:: none
 
-   iohyve setup pool=volume1 kmod=1 net=em0
-   Setting up iohyve pool...
-   Loading kernel modules...
-   Setting up bridge0 on em0...
-   net.link.tap.up_onopen: 0 -> 1
-
-   ln -s /mnt/iohyve /iohyve
+   iocage create tag=examplejail ip4_addr="em0|192.168.1.10/24" -r 11.0-RELEASE
 
 
-The next step is to tell :command:`iohyve` which installation ISO to
-download. This example shows fetching the 64-bit version of FreeBSD
-10.3, then verifying that the fetch was successful:
+Start the new jail:
 
 .. code-block:: none
 
-   iohyve fetch ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/10.3/FreeBSD-10.3-RELEASE-amd64-bootonly.iso
-   Fetching ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/10.3/FreeBSD-10.3-RELEASE-amd64-bootonly.iso...
-   /iohyve/ISO/FreeBSD-10.3-RELEASE-amd64-bootonly.iso 100% of 232 MB 2443 kBps 01m38s
+   iocage start examplejail
 
-   iohyve isolist
-   Listing ISO's...
-   FreeBSD-10.3-RELEASE-amd64-bootonly.iso
 
-Specify the name and size of the guest to create it and verify its
-status:
+Get a console on the jail:
 
 .. code-block:: none
 
- iohyve create freebsd10.3 8G
- Creating freebsd10.3...
-
- iohyve list
- Guest		VMM?	Running?	rcboot?		Description
- freebsd10.3    NO      NO              NO              Thu_Mar_24_09:37:30_PDT_2016
+   iocage console examplejail
 
 
-The newly created guest is not yet running, nor is it set to
-automatically start (rcboot) when :command:`iohyve` starts.
-
-Install a guest using a specified ISO:
+Shut down the jail after use:
 
 .. code-block:: none
 
-   iohyve install freebsd10.3 FreeBSD-10.3-RELEASE-amd64-bootonly.iso
-   Installing freebsd10.3...
-
-More information on iohyve:
-
-  * `Forum post on iohyve
-    <https://forums.freenas.org/index.php?threads/virtualbox-vs-iohyve-bhyve-for-crashplan.45067/#post-304017>`_
-
-  * `Running virtual machines using iohyve on FreeNAS® 9.10
-    <https://www.youtube.com/watch?v=rCDh9K16Q5Q>`_
+   iocage stop examplejail
