@@ -27,6 +27,9 @@ The System section of the administrative GUI contains these entries:
 * :ref:`Update` performs upgrades and checks for system
   updates
 
+* :ref:`Alert Services` configures services used to notify the
+  administrator about system events.
+
 #ifdef truenas
 * :ref:`Cloud Credentials` is used to enter connection credentials for
   remote cloud service providers
@@ -1427,6 +1430,22 @@ the update was applied.
 
 #include snippets/upgradingazfspool.rst
 #endif truenas
+
+
+.. index:: Alert Services
+.. _Alert Services:
+
+Alert Services
+--------------
+
+%brand% can use a number of systems to notify the administrator of
+system events the require attention. These events are system
+:ref:`Alerts` marked *WARN* or *CRITICAL*.
+
+Clicking
+:menuselection:`System --> Alert Services`,
+then :guilabel:`Add Service`
+
 
 #ifdef truenas
 .. index:: Cloud Credentials
