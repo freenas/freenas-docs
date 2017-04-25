@@ -1440,7 +1440,7 @@ Alert Services
 
 %brand% can use a number of systems to notify the administrator of
 system events the require attention. These events are system
-:ref:`Alerts` marked *WARN* or *CRITICAL*.
+:ref:`Alerts <Alert>` marked *WARN* or *CRITICAL*.
 
 Clicking
 :menuselection:`System --> Alert Services`,

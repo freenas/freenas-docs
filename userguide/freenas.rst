@@ -18,6 +18,7 @@
    services
    plugins
    jails
+   vms
    reporting
    wizard
    processes
