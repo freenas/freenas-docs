@@ -1273,8 +1273,8 @@ for more details.
    | snapper             | provides the ability for remote SMB clients to access shadow copies of FSRVP snapshots using Windows Explorer                              |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | streams_depot       | **experimental** module to store alternate data streams in a central directory                                                             |
-   |                     |                                                                                                                                            |
+   | streams_depot       | **experimental** module to store alternate data streams in a central directory; the association with the primary file can be lost due      |
+   |                     | to inode numbers changing when a directory is copied to a new location (see `<http://marc.info/?l=samba&m=132542069802160&w=2>`_)          |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | streams_xattr       | enables storing of NTFS alternate data streams in the file system                                                                          |
    |                     |                                                                                                                                            |
