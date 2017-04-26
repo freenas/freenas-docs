@@ -112,6 +112,20 @@ New Features in |release|
 * Email notices about available updates are only sent once instead of
   once per day.
 
+* A new :ref:`Alert Services` section in
+  :menuselection:`System --> Alert Services` makes it possible to send
+  important alerts through external services, including
+  `AWS-SNS <https://aws.amazon.com/sns/>`_,
+  `Hipchat <https://www.hipchat.com/>`_,
+  `InfluxDB <https://www.influxdata.com/>`_,
+  `Slack <https://slack.com/>`_,
+  `Mattermost <https://about.mattermost.com/>`_,
+  `OpsGenie <https://www.opsgenie.com/>`_,
+  `PagerDuty <https://www.pagerduty.com/>`_,
+  and
+  `VictorOps <https://victorops.com/>`_.
+
+
 * Samba has been updated to version
   `4.6.2
   <https://www.samba.org/samba/history/samba-4.6.2.html>`_.

@@ -1442,6 +1442,33 @@ Alert Services
 system events that require attention. These events are system
 :ref:`Alerts <Alert>` marked *WARN* or *CRITICAL*.
 
+Currently available alert services:
+
+* `AWS-SNS <https://aws.amazon.com/sns/>`_
+
+* `Hipchat <https://www.hipchat.com/>`_
+
+* `InfluxDB <https://www.influxdata.com/>`_
+
+* `Slack <https://slack.com/>`_
+
+* `Mattermost <https://about.mattermost.com/>`_
+
+* `OpsGenie <https://www.opsgenie.com/>`_
+
+* `PagerDuty <https://www.pagerduty.com/>`_
+
+* `VictorOps <https://victorops.com/>`_
+
+
+.. warning:: These alert services might use a third party commercial
+   vendor not directly affiliated with iXsystems. Please investigate
+   and fully understand that vendor's pricing policies and services
+   before using their alert service. iXsystems is not responsible for
+   any charges incurred from the use of third party vendors with the
+   Alert Services feature.
+
+
 Select
 :menuselection:`System --> Alert Services` to go to the Alert Services
 screen. Click :guilabel:`Add Service` to display the dialog shown in
