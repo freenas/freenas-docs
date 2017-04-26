@@ -15,58 +15,61 @@ administer the system.
 
 .. _console_setup_menu_fig:
 
-.. figure:: images/console-menu.png
+.. figure:: images/console-menu1.png
 
    Console Setup Menu
 
 
 The menu provides these options:
 
-**1) Configure Network Interfaces:** provides a configuration wizard
-to configure the system's network interfaces.
+**1) Configure Network Interfaces** provides a configuration wizard
+to set up the system's network interfaces.
 
-**2) Configure Link Aggregation:** allows creating a new link
-aggregation or deleting an existing link aggregation.
+**2) Configure Link Aggregation** is for creating or deleting link
+aggregations.
 
-**3) Configure VLAN Interface:** is used to create or delete a VLAN
-interface.
+**3) Configure VLAN Interface** is used to create or delete VLAN
+interfaces.
 
-**4) Configure Default Route:** is used to set the IPv4 or IPv6
+**4) Configure Default Route** is used to set the IPv4 or IPv6
 default gateway. When prompted, enter the IP address of the default
 gateway.
 
-**5) Configure Static Routes:** prompts for the destination network
-and gateway IP address. Re-enter this option for each route needed.
+**5) Configure Static Routes** prompts for the destination network
+and gateway IP address. Re-enter this option for each static route
+needed.
 
-**6) Configure DNS:** prompts for the name of the DNS domain and the
+**6) Configure DNS** prompts for the name of the DNS domain and the
 IP address of the first DNS server. When adding multiple DNS servers,
 press :kbd:`Enter` to enter the next one. Press :kbd:`Enter` twice to
 leave this option.
 
-**7) Reset Root Password:** if you are unable to log in to the
-graphical administrative interface, select this option and follow the
-prompts to set the *root* password.
+**7) Reset Root Password** is used to reset a lost or forgotten *root*
+password. Select this option and follow the prompts to set the
+password.
 
-**8) Reset to factory defaults:** to delete **all** of the
-configuration changes made in the administrative GUI, select this
-option. Once the configuration is reset, the system will reboot. It
-will be necessary to use
-:menuselection:`Storage --> Volumes --> Import Volume` to re-import
-any volumes.
+**8) Reset to Factory Defaults** *Caution*! This option deletes
+**all** of the configuration settings made in the administrative GUI
+and is used to reset a %brand% system back to defaults. **Before
+selecting this option, make a full backup of all data and make sure
+all encryption keys and passphrases are known!** After this option is
+selected, the configuration is cleared and the system reboots.
+:menuselection:`Storage --> Volumes --> Import Volume` can be used to
+re-import volumes.
 
-**9) Shell:** starts a shell for running FreeBSD commands. To leave
+**9) Shell** starts a shell for running FreeBSD commands. To leave
 the shell, type :command:`exit`.
 
-**10) System Update:** checks for system updates. If any new updates
-are available, they are automatically be downloaded and applied. This
+**10) System Update** checks for system updates. If any new updates
+are available, they are automatically downloaded and applied. This
 is a simplified version of the :ref:`Update` option available in the
 web interface. Updates are applied immediately for the currently
 selected train and access to the GUI is not required. For more
 advanced update options like switching trains, use :ref:`Update`.
 
-**11) Reboot:** reboots the system.
+**11) Reboot** reboots the system.
 
-**12) Shutdown:** halts the system.
+**12) Shut Down** halts the system.
 
 
 .. _Obtaining_an_IP_Address:
