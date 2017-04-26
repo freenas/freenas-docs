@@ -109,6 +109,9 @@ New Features in |release|
 * An option to save the encryption seed has been added to the
   :ref:`System` :guilabel:`Save Config` button.
 
+* Email notices about available updates are only sent once instead of
+  once per day.
+
 * Samba has been updated to version
   `4.6.2
   <https://www.samba.org/samba/history/samba-4.6.2.html>`_.
