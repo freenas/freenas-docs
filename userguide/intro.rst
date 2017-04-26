@@ -125,6 +125,9 @@ New Features in |release|
   and
   `VictorOps <https://victorops.com/>`_.
 
+* Netatalk has been updated to version
+  `3.1.11
+  <http://netatalk.sourceforge.net/3.1/ReleaseNotes3.1.11.html>`_.
 
 * Samba has been updated to version
   `4.6.2
