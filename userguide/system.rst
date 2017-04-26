@@ -1438,13 +1438,36 @@ the update was applied.
 Alert Services
 --------------
 
-%brand% can use a number of systems to notify the administrator of
-system events the require attention. These events are system
+%brand% can use a number of methods to notify the administrator of
+system events that require attention. These events are system
 :ref:`Alerts <Alert>` marked *WARN* or *CRITICAL*.
 
-Clicking
-:menuselection:`System --> Alert Services`,
-then :guilabel:`Add Service`
+Select
+:menuselection:`System --> Alert Services` to go to the Alert Services
+screen. Click :guilabel:`Add Service` to display the dialog shown in
+:numref:`Figure %s <alertservices_add_fig>`.
+
+
+.. _alertservices_add_fig:
+
+.. figure:: images/alertservice-add.png
+
+   Add Alert Service
+
+
+The :guilabel:`Service Name` drop-down menu is used to pick a specific
+alert service. The fields shown in the rest of the dialog change to
+those required by that service. Enter the required information, check
+the :guilabel:`Enabled` checkbox, then click :guilabel:`OK` to save
+the settings.
+
+System alerts marked *WARN* or *CRITICAL* are sent to each alert
+service that has been configured and enabled.
+
+Alert services can be deleted from this list by clicking them and then
+clicking the :guilabel:`Delete` button at the bottom of the window. To
+disable an alert service temporarily, click :guilabel:`Edit` and
+remove the checkmark from the :guilabel:`Enabled` checkbox.
 
 
 #ifdef truenas
