@@ -952,69 +952,6 @@ summarizes the configuration options for the NFS service.
    group do not match on client and server.
 
 
-.. index:: S3, Minio
-.. _S3:
-
-S3
---
-
-S3 is a distributed or clustered filesystem protocol compatible with
-Amazon S3 cloud storage. The %brand% S3 service uses
-`Minio <https://minio.io/>`_. This makes it possible to provide S3
-storage hosted on the %brand% system itself. Minio also provides
-features beyond the limits of the basic Amazon S3 specifications.
-
-:numref:`Figure %s <config_s3_fig>`
-shows the S3 service configuration screen and
-:numref:`Table %s <s3_config_opts_tab>`
-summarizes the configuration options.
-After configuring the S3 service, start it in
-:menuselection:`Services --> Control Services`.
-
-
-.. _config_s3_fig:
-
-.. figure:: images/s3dialog.png
-
-   Configuring S3
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _s3_config_opts_tab:
-
-.. table:: S3 Configuration Options
-   :class: longtable
-
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Setting         | Value          | Description                                                                                              |
-   |                 |                |                                                                                                          |
-   +=================+================+==========================================================================================================+
-   | IP Address      | drop-down menu | the IP address on which to run the S3 service; *0.0.0.0* sets the server to listen on all addresses      |
-   |                 |                |                                                                                                          |
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Port            | string         | TCP port on which to provide the S3 service (default 9000)                                               |
-   |                 |                |                                                                                                          |
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Access Key      | string         | the S3 user name                                                                                         |
-   |                 |                |                                                                                                          |
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Secret Key      | string         | the password to be used by connecting S3 systems                                                         |
-   |                 |                |                                                                                                          |
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Confirm S3 Key  | string         | re-enter the S3 password to confirm                                                                      |
-   |                 |                |                                                                                                          |
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Disks           | string         | S3 filesystem directory                                                                                  |
-   |                 |                |                                                                                                          |
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Enable Browser  | checkbox       | Enable the web user interface for the S3 service                                                         |
-   |                 |                |                                                                                                          |
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-
-
 .. index:: Rsync
 .. _Rsync:
 
@@ -1143,6 +1080,70 @@ module.
    | Auxiliary parameters | string         | additional parameters from rsyncd.conf(5)                                     |
    |                      |                |                                                                               |
    +----------------------+----------------+-------------------------------------------------------------------------------+
+
+
+.. index:: S3, Minio
+.. _S3:
+
+S3
+--
+
+S3 is a distributed or clustered filesystem protocol compatible with
+Amazon S3 cloud storage. The %brand% S3 service uses
+`Minio <https://minio.io/>`_
+to provide S3 storage hosted on the %brand% system itself. Minio also
+provides features beyond the limits of the basic Amazon S3
+specifications.
+
+:numref:`Figure %s <config_s3_fig>`
+shows the S3 service configuration screen and
+:numref:`Table %s <s3_config_opts_tab>`
+summarizes the configuration options.
+After configuring the S3 service, start it in
+:menuselection:`Services --> Control Services`.
+
+
+.. _config_s3_fig:
+
+.. figure:: images/s3dialog.png
+
+   Configuring S3
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _s3_config_opts_tab:
+
+.. table:: S3 Configuration Options
+   :class: longtable
+
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   | Setting         | Value          | Description                                                                                              |
+   |                 |                |                                                                                                          |
+   +=================+================+==========================================================================================================+
+   | IP Address      | drop-down menu | the IP address on which to run the S3 service; *0.0.0.0* sets the server to listen on all addresses      |
+   |                 |                |                                                                                                          |
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   | Port            | string         | TCP port on which to provide the S3 service (default 9000)                                               |
+   |                 |                |                                                                                                          |
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   | Access Key      | string         | the S3 user name                                                                                         |
+   |                 |                |                                                                                                          |
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   | Secret Key      | string         | the password to be used by connecting S3 systems                                                         |
+   |                 |                |                                                                                                          |
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   | Confirm S3 Key  | string         | re-enter the S3 password to confirm                                                                      |
+   |                 |                |                                                                                                          |
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   | Disks           | string         | S3 filesystem directory                                                                                  |
+   |                 |                |                                                                                                          |
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   | Enable Browser  | checkbox       | Enable the web user interface for the S3 service                                                         |
+   |                 |                |                                                                                                          |
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
 
 
 .. index:: S.M.A.R.T.
