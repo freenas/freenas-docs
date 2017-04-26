@@ -23,17 +23,21 @@ source_suffix = '.rst'
 # General information about the project.
 copyright = '2011-2017, iXsystems'
 
-# The version info for the project you're documenting, acts as replacement for
-# |version| and |release|, also used in various other places throughout the
-# built documents.
+# Version info for the project being documented, acts as replacement for
+# |version| and |release|, also used in various other places throughout
+# the built documents.
 #
 # The full version number, like "9.10.2-U2"
-version = '9.10.3'
+version = '11.0'
 # The shorter feature branch version number, like "9.10.2"
-release = '9.10.3'
+release = '11.0'
+if tags.has('truenas'):
+    version = '9.10.3'
+    release = '9.10.3'
 
 # exclude_patterns is a list of patterns relative to the source directory
 # that match files and directories to ignore when looking for source files.
+
 tags.add('freenas')
 if six.PY3:
     brand = 'FreeNAS®'
