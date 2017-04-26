@@ -928,22 +928,30 @@ summarizes the configuration options for the NFS service.
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
    | mountd(8) bind port    | integer    | optional; specify port that                                                                                         |
-   |                        |            | `mountd(8) <http://www.freebsd.org/cgi/man.cgi?query=mountd>`_                                                      |
+   |                        |            | `mountd(8) <http://www.freebsd.org/cgi/man.cgi?query=mountd>`__                                                     |
    |                        |            | binds to                                                                                                            |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
    | rpc.statd(8) bind port | integer    | optional; specify port that                                                                                         |
-   |                        |            | `rpc.statd(8) <http://www.freebsd.org/cgi/man.cgi?query=rpc.statd>`_                                                |
+   |                        |            | `rpc.statd(8) <http://www.freebsd.org/cgi/man.cgi?query=rpc.statd>`__                                               |
    |                        |            | binds to                                                                                                            |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
    | rpc.lockd(8) bind port | integer    | optional; specify port that                                                                                         |
-   |                        |            | `rpc.lockd(8) <http://www.freebsd.org/cgi/man.cgi?query=rpc.lockd>`_                                                |
+   |                        |            | `rpc.lockd(8) <http://www.freebsd.org/cgi/man.cgi?query=rpc.lockd>`__                                               |
    |                        |            | binds to                                                                                                            |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
    | Support>16 groups      | checkbox   | check this box if any users are members of more than 16 groups (useful in AD environments); note that this assumes  |
    |                        |            | that group membership has been configured correctly on the NFS server                                               |
+   |                        |            |                                                                                                                     |
+   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
+   | Log mountd(8) requests | checkbox   | enable logging of `mountd(8) <http://www.freebsd.org/cgi/man.cgi?query=mountd>`__                                   |
+   |                        |            | requests by syslog                                                                                                  |
+   |                        |            |                                                                                                                     |
+   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
+   | Log rpc.statd(8)       | checkbox   | enable logging of `rpc.statd(8) <http://www.freebsd.org/cgi/man.cgi?query=rpc.statd>`__ and                         |
+   | and rpc.lockd(8)       |            | `rpc.lockd(8) <http://www.freebsd.org/cgi/man.cgi?query=rpc.lockd>`__ requests by syslog                            |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
 
