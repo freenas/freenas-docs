@@ -1497,6 +1497,17 @@ disable an alert service temporarily, click :guilabel:`Edit` and
 remove the checkmark from the :guilabel:`Enabled` checkbox.
 
 
+How it Works
+~~~~~~~~~~~~
+
+A *nas-health* service is registered with Consul. This service runs
+:file:`/usr/local/etc/consul-checks/freenas_health.sh` periodically,
+currently every two minutes. If an alert marked *WARNING* or
+*CRITICAL* is found, the *nas-health* service is marked as
+"unhealthy", triggering :command:`consul-alerts` to notify configured
+alert services.
+
+
 #ifdef truenas
 .. index:: Cloud Credentials
 .. _Cloud Credentials:
