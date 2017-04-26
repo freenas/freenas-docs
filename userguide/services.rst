@@ -1322,7 +1322,8 @@ This configuration screen is really a front-end to
    #ifdef freenas
    | NetBIOS Name                     | string         | automatically populated with the system's original hostname; limited to 15 characters; it **must**    |
    |                                  |                | be different from the *Workgroup* name                                                                |
-   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | NetBIOS Alias                    | string         | limited to 15 characters                                                                              |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    #endif freenas
    #ifdef truenas
