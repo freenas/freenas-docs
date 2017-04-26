@@ -87,7 +87,7 @@ display these settings by checking the box
 
 .. _ad_fig:
 
-.. figure:: images/active-dir1.png
+.. figure:: images/active-dir1a.png
 
    Configuring Active Directory
 
@@ -107,7 +107,7 @@ display these settings by checking the box
    |                          |               | Mode     |                                                                                                                               |
    +==========================+===============+==========+===============================================================================================================================+
    | Domain Name              | string        |          | name of Active Directory domain (*example.com*) or child domain (*sales.example.com*); this setting is mandatory and the GUI  |
-   |                          |               |          | will refuse to save the settings if the domain controller for the specified domain cannot be found                            |
+   | (DNS/Realm-Name)         |               |          | will refuse to save the settings if the domain controller for the specified domain cannot be found                            |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Domain Account Name      | string        |          | name of the Active Directory administrator account; this setting is mandatory and the GUI will refuse to save the settings    |
@@ -117,13 +117,15 @@ display these settings by checking the box
    | Domain Account Password  | string        |          | password for the Active Directory administrator account; this setting is mandatory and the GUI will refuse to save the        |
    |                          |               |          | settings if it cannot connect to the domain controller using this password                                                    |
    |                          |               |          |                                                                                                                               |
-   #ifdef freenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name             | string        | ✓        | limited to 15 characters; automatically populated with the original hostname of the system;                                   |
-   |                          |               |          | **use caution when changing this setting**, as setting an                                                                     |
-   |                          |               |          | `incorrect value can corrupt an AD installation                                                                               |
-   |                          |               |          | <https://forums.freenas.org/index.php?threads/before-you-setup-ad-authentication-please-read.2447/>`_                         |
-   #endif freenas
+   | AD check connectivity    | integer       |          | how often to verify that Active Directory services are active                                                                 |
+   | frequency (seconds)      |               |          |                                                                                                                               |
+   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+   | How many recovery        | integer       |          | number of times to attempt reconnecting to the Active Directory server; tries forever when set to *0*                         |
+   | attempts                 |               |          |                                                                                                                               |
+   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+   | Enable Monitoring        | checkbox      |          | Restart Active Directory automatically if the service is disconnected                                                         |
+   |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Encryption Mode          | drop-down     | ✓        | choices are *Off*,                                                                                                            |
    |                          | menu          |          | *SSL*, or                                                                                                                     |
@@ -147,9 +149,8 @@ display these settings by checking the box
    |                          |               |          | slowing down the ability to filter through user/group information                                                             |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Use Default Domain       | checkbox      | ✓        | only available in :guilabel:`Advanced Mode`; when unchecked, the domain name is prepended to the username; if                 |
-   |                          |               |          | :guilabel:`Allow Trusted Domains` is checked and multiple domains use the same usernames, uncheck this box to prevent name    |
-   |                          |               |          | collisions                                                                                                                    |
+   | Use Default Domain       | checkbox      | ✓        | when unchecked, the domain name is prepended to the username; if :guilabel:`Allow Trusted Domains`                            |
+   |                          |               |          | is checked and multiple domains use the same usernames, uncheck this box to prevent name collisions                           |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Allow DNS updates        | checkbox      | ✓        | when unchecked, disables Samba from doing DNS updates when joining a domain                                                   |
@@ -157,6 +158,12 @@ display these settings by checking the box
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Disable Active Directory | checkbox      | ✓        | when checked, disables caching AD users and groups; useful if you cannot bind to a domain with a large number of              |
    | user/group cache         |               |          | users or groups                                                                                                               |
+   |                          |               |          |                                                                                                                               |
+   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+   | User Base                | string        | ✓        | distinguished name (DN) of the user container in Active Directory                                                             |
+   |                          |               |          |                                                                                                                               |
+   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+   | Group Base               | string        | ✓        | distinguished name (DN) of the group container in Active Directory                                                            |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Site Name                | string        | ✓        | the relative distinguished name of the site object in Active Directory                                                        |
@@ -175,7 +182,7 @@ display these settings by checking the box
    | Kerberos Principal       | drop-down     | ✓        | browse to the location of the keytab created using the instructions in :ref:`Kerberos Keytabs`                                |
    |                          | menu          |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   |AD timeout                | integer       | ✓        | in seconds, increase if the AD service does not start after connecting to the                                                 |
+   | AD timeout               | integer       | ✓        | in seconds, increase if the AD service does not start after connecting to the                                                 |
    |                          |               |          | domain                                                                                                                        |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
@@ -196,8 +203,17 @@ display these settings by checking the box
    |                          |               |          | or *seal* (signed and encrypted); Windows 2000 SP3 and higher can be configured to enforce signed LDAP connections            |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Enable                   | checkbox      |          | uncheck to disable the configuration without deleting it                                                                      |
+   | Enable                   | checkbox      |          | Enable the Active Directory service                                                                                           |
    |                          |               |          |                                                                                                                               |
+   #ifdef freenas
+   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+   | NetBIOS name             | string        | ✓        | limited to 15 characters; automatically populated with the system's original hostname; it **must**                            |
+   |                          |               |          | be different from the *Workgroup* name                                                                                        |
+   |                          |               |          |                                                                                                                               |
+   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+   | NetBIOS alias            | string        | ✓        | limited to 15 characters                                                                                                      |
+   |                          |               |          |                                                                                                                               |
+   #endif freenas
    #ifdef truenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS Name (This Node) | string        | ✓        | limited to 15 characters; automatically populated with the system's original hostname; it **must**                            |
@@ -248,6 +264,9 @@ whenever changes are made to this setting.
    |                | and an optional size for the ranges                                                                                                      |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
+   | fruit          | generate IDs the way Apple Mac OS X does                                                                                                 |
+   |                |                                                                                                                                          |
+   +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | hash           | uses a hashing algorithm for mapping and can be used to support local name mapping files                                                 |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
@@ -273,8 +292,9 @@ whenever changes are made to this setting.
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
 
 Click the :guilabel:`Rebuild Directory Service Cache` button if a new
-Active Directory user needs immediate access to %brand%; otherwise
-this occurs automatically once a day as a cron job.
+Active Directory user needs immediate access to %brand%. This occurs
+automatically once a day as a cron job.
+
 
 .. note:: Active Directory places restrictions on which characters are
    allowed in Domain and NetBIOS names, a limits the length of those
@@ -287,6 +307,7 @@ this occurs automatically once a day as a cron job.
    :command:`kinit` will report a "Password Incorrect" error and
    :command:`ldap_bind` will report an "Invalid credentials (49)"
    error.
+
 
 It can take a few minutes after configuring the Active Directory
 service for the AD information to be populated to the %brand% system.
