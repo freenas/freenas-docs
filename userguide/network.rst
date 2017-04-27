@@ -363,6 +363,12 @@ in
 configure the Java KVM Client used by the IPMI management interface.
 #endif truenas
 
+A command-line utility called :command:`ipmitool` is available to
+control many features of the IPMI interface. See
+`How To: Change IPMI Sensor Thresholds using ipmitool
+<https://forums.freenas.org/index.php?resources/how-to-change-ipmi-sensor-thresholds-using-ipmitool.35/>`__
+for some examples.
+
 
 .. index:: Link Aggregation, LAGG, LACP, EtherChannel
 .. _Link Aggregations:
