@@ -1371,7 +1371,8 @@ temporarily store the file on the %brand% system. Use the file browser
 to locate the update file, then click :guilabel:`Apply Update` to
 apply it.
 
-Update files end with a :file:`.tar` suffix.
+Manual update files can be identified by their filenames, which end in
+:file:`-manual-update-unsigned.tar`.
 
 Manual updates cannot be used to upgrade from older major versions.
 
