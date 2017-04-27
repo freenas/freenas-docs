@@ -1637,7 +1637,8 @@ The configurable options are summarized in
    | Setting              | Value                | Description                                                                                       |
    |                      |                      |                                                                                                   |
    +======================+======================+===================================================================================================+
-   | Name                 | string               | mandatory; enter a descriptive name for the CA                                                    |
+   | Identifier           | string               | mandatory; enter a descriptive name for the CA using only alphanumeric,                           |
+   |                      |                      | underscore (:literal:`_`), and dash (:literal:`-`) characters                                     |
    |                      |                      |                                                                                                   |
    +----------------------+----------------------+---------------------------------------------------------------------------------------------------+
    | Certificate          | string               | mandatory; paste in the certificate for the CA                                                    |
