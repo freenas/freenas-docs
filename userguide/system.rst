@@ -87,7 +87,7 @@ add *.local* after the hostname.
 .. _system_info_fig:
 
 #ifdef freenas
-.. figure:: images/system1d.png
+.. figure:: images/system-information.png
 
    System Information Tab
 #endif freenas
@@ -110,7 +110,7 @@ is shown in
 .. _system_general_fig:
 
 #ifdef freenas
-.. figure:: images/system2b.png
+.. figure:: images/system-general.png
 
    General Screen
 #endif freenas
@@ -349,7 +349,7 @@ the :ref:`Wizard` was run.
 .. _view_boot_env_fig:
 
 #ifdef freenas
-.. figure:: images/be1g.png
+.. figure:: images/system-bootenv.png
 
    Viewing Boot Environments
 #endif freenas
@@ -550,7 +550,7 @@ The configurable settings are summarized in
 .. _system_adv_fig:
 
 #ifdef freenas
-.. figure:: images/system3b.png
+.. figure:: images/system-advanced.png
 
    Advanced Screen
 #endif freenas
@@ -746,7 +746,7 @@ shown in
 .. _email_conf_fig:
 
 #ifdef freenas
-.. figure:: images/system4b.png
+.. figure:: images/system-email.png
 
    Email Screen
 #endif freenas
@@ -846,7 +846,7 @@ controller users and groups.
 .. _system_dataset_fig:
 
 #ifdef freenas
-.. figure:: images/system5a.png
+.. figure:: images/system-system-dataset.png
 
    System Dataset Screen
 #endif freenas
@@ -1598,7 +1598,7 @@ shows the screen after clicking
 .. _cas_fig:
 
 #ifdef freenas
-.. figure:: images/ca1a.png
+.. figure:: images/system-cas.png
 
    Initial CA Screen
 #endif freenas
@@ -1774,7 +1774,7 @@ shows the initial screen if you click
 .. _initial_cert_scr_fig:
 
 #ifdef freenas
-.. figure:: images/cert1a.png
+.. figure:: images/system-cert.png
 
    Initial Certificates Screen
 #endif freenas
