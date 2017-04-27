@@ -138,7 +138,7 @@ The password for the root user is requested as shown in
 
 .. _quick_enter_root_pass_fig:
 
-.. figure:: images/login1b.png
+.. figure:: images/login1c.png
 
    Enter the Root Password
 
