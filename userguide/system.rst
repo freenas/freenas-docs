@@ -1619,7 +1619,7 @@ The configurable options are summarized in
 
 .. _import_ca_fig:
 
-.. figure:: images/ca2a.png
+.. figure:: images/system-import-ca.png
 
    Importing a CA
 
@@ -1669,7 +1669,7 @@ in
 
 .. _create_ca_fig:
 
-.. figure:: images/ca3.png
+.. figure:: images/system-create-internal-ca.png
 
    Creating an Internal CA
 
@@ -1693,7 +1693,8 @@ information for your organization.
    | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
-   | Name                 | string               | required; enter a descriptive name for the CA                                                   |
+   | Identifier           | string               | required; enter a descriptive name for the CA using only alphanumeric,                          |
+   |                      |                      | underscore (:literal:`_`), and dash (:literal:`-`) characters                                   |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Key Length           | drop-down menu       | for security reasons, a minimum of *2048* is recommended                                        |
@@ -1799,7 +1800,7 @@ The configurable options are summarized in
 
 .. _import_cert_fig:
 
-.. figure:: images/cert2a.png
+.. figure:: images/system-import-cert.png
 
    Importing a Certificate
 
@@ -1817,8 +1818,9 @@ The configurable options are summarized in
    | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
-   | Name                 | string               | required; enter a descriptive name for the certificate; cannot contain                          |
-   |                      |                      | the *"* (quote) character                                                                       |
+   | Identifier           | string               | required; enter a descriptive name for the certificate using only alphanumeric,                 |
+   |                      |                      | underscore (:literal:`_`), and dash (:literal:`-`) characters                                   |
+   |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Certificate          | string               | required; paste the contents of the certificate                                                 |
    |                      |                      |                                                                                                 |
@@ -1846,7 +1848,7 @@ as the signing authority.
 
 .. _create_new_cert_fig:
 
-.. figure:: images/cert3a.png
+.. figure:: images/system-create-internal-cert.png
 
    Creating a New Certificate
 
@@ -1867,8 +1869,9 @@ as the signing authority.
    | Signing Certificate  | drop-down menu       | required; select the CA which was previously imported or created using :ref:`CAs`               |
    | Authority            |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Name                 | string               | required; enter a descriptive name for the certificate; cannot contain                          |
-   |                      |                      | the *"* (quote) character                                                                       |
+   | Identifier           | string               | required; enter a descriptive name for the certificate using only alphanumeric,                 |
+   |                      |                      | underscore (:literal:`_`), and dash (:literal:`-`) characters                                   |
+   |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Key Length           | drop-down menu       | for security reasons, a minimum of *2048* is recommended                                        |
    |                      |                      |                                                                                                 |
@@ -1964,7 +1967,7 @@ feature requests.
 
 .. _support_fig:
 
-.. figure:: images/support1a.png
+.. figure:: images/system-support.png
 
    Support Tab
 
