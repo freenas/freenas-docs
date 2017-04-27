@@ -264,8 +264,8 @@ whenever changes are made to this setting.
    |                | and an optional size for the ranges                                                                                                      |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | fruit          | generate IDs the way Apple Mac OS X does                                                                                                 |
-   |                |                                                                                                                                          |
+   | fruit          | generate IDs the way Apple Mac OS X does, so UID and GID can be identical on all %brand% servers on the network; for use in              |
+   |                | :ref:`LDAP` environments where Apple's Open Directory is the authoritative LDAP server                                                   |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | hash           | uses a hashing algorithm for mapping and can be used to support local name mapping files                                                 |
    |                |                                                                                                                                          |
