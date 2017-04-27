@@ -1175,9 +1175,6 @@ for more details.
    | aio_fork            | enables async I/O                                                                                                                          |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | aio_posix           | enables asynchronous I/O on systems running POSIX kernels                                                                                  |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | aio_pthread         | implements async I/O in Samba vfs using a pthread pool instead of the internal Posix AIO interface                                         |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1236,6 +1233,10 @@ for more details.
    | netatalk            | eases the co-existence of SMB and AFP shares                                                                                               |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | offline             | marks all files in the share with the DOS *offline* attribute; this can prevent Windows Explorer from reading files just to make           |
+   |                     | thumbnail images                                                                                                                           |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | posix_eadb          | provides Extended Attributes (EAs) support so they can be used on filesystems which do not provide native support for EAs                  |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1246,9 +1247,6 @@ for more details.
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | readonly            | marks a share as read-only for all clients connecting within the configured time period                                                    |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | scannedonly         | ensures that only files that have been scanned for viruses are visible and accessible                                                      |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | shadow_copy         | allows Microsoft shadow copy clients to browse shadow copies on Windows shares                                                             |
@@ -1265,9 +1263,6 @@ for more details.
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | skel_transparent    | implements dummy passthrough functions of all VFS modules (useful to VFS module developers)                                                |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | smb_traffic_analyzer| logs Samba read and write operations through a socket to a helper application                                                              |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | snapper             | provides the ability for remote SMB clients to access shadow copies of FSRVP snapshots using Windows Explorer                              |
