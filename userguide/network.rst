@@ -389,13 +389,13 @@ the lagg interface is used to validate whether the port is active.
 Aggregation works best on switches supporting LACP, which distributes
 traffic bi-directionally while responding to failure of individual
 links. %brand% also supports active/passive failover between pairs of
-links. The LACP, FEC, and load-balance modes select the output
-interface using a hash that includes the Ethernet source and
-destination address, VLAN tag (if available), IP source and
-destination address, and flow label (IPv6 only). The benefit can only
-be observed when multiple clients are transferring files *from* the
-NAS. The flow entering *into* the NAS depends on the Ethernet
-switch load-balance algorithm.
+links. The LACP and load-balance modes select the output interface
+using a hash that includes the Ethernet source and destination
+address, VLAN tag (if available), IP source and destination address,
+and flow label (IPv6 only). The benefit can only be observed when
+multiple clients are transferring files *from* the NAS. The flow
+entering *into* the NAS depends on the Ethernet switch load-balance
+algorithm.
 
 The lagg driver currently supports several aggregation protocols,
 although only *Failover* is recommended on network switches that do
@@ -412,10 +412,6 @@ bridged network setups, by creating a a tunable with a
 :guilabel:`Value` of a non-zero integer, and a :guilabel:`Type` of
 *Sysctl* in
 :menuselection:`System --> Tunables --> Add Tunable`.
-
-**FEC:** supports Cisco EtherChannel on older Cisco switches. This is
-a static setup and does not negotiate aggregation with the peer or
-exchange frames to monitor the link.
 
 **LACP:** supports the IEEE 802.3ad Link Aggregation Control Protocol
 (LACP) and the Marker Protocol. LACP negotiates a set of
@@ -522,7 +518,7 @@ shows the configuration options when adding a lagg interface using
 
 .. _create_lagg_fig:
 
-.. figure:: images/lagg1.png
+.. figure:: images/network-lagg-add.png
 
    Creating a lagg Interface
 
