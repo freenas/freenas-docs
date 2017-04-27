@@ -64,7 +64,7 @@ the list of available plugins will be displayed.
 
 .. _view_list_plugins_fig:
 
-.. figure:: images/plugins1a.png
+.. figure:: images/plugins1b.png
 
    Viewing the List of Available Plugins
 
@@ -255,8 +255,6 @@ Available Plugins
 These plugins are available for %brand% |release|:
 
 * `bacula-sd (storage daemon) <http://bacula.org/>`_
-
-* `CloneDeploy <https://sourceforge.net/projects/clonedeploy/>`_
 
 * `CouchPotato <https://couchpota.to/>`_
 
