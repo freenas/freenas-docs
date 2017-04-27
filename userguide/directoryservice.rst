@@ -510,7 +510,7 @@ shows the LDAP Configuration screen that is seen after clicking
 
 .. _ldap_config_fig:
 
-.. figure:: images/ldap1.png
+.. figure:: images/directoryservice-ldap.png
 
    Configuring LDAP
 
@@ -577,8 +577,8 @@ Those who are new to LDAP terminology should skim through the
    | Kerberos Realm          | drop-down menu | ✓        | select the realm created using the instructions in :ref:`Kerberos Realms`                           |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Kerberos Keytab         | drop-down menu | ✓        | browse to the location of the keytab created using the instructions in :ref:`Kerberos Keytabs`      |
-   |                         |                |          |                                                                                                     |
+   | Kerberos Principal      | drop-down menu | ✓        | browse to the location of the principal in the keytab created as described in                       |
+   |                         |                |          | :ref:`Kerberos Keytabs`                                                                             |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Encryption Mode         | drop-down menu | ✓        | choices are *Off*,                                                                                  |
    |                         |                |          | *SSL*, or                                                                                           |
@@ -593,10 +593,10 @@ Those who are new to LDAP terminology should skim through the
    |                         |                |          | on the LDAP server                                                                                  |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | LDAP timeout            | integer        |          | increase this value (in seconds) if obtaining a Kerberos ticket times out                           |
+   | LDAP timeout            | integer        | ✓        | increase this value (in seconds) if obtaining a Kerberos ticket times out                           |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | DNS timeout             | integer        |          | increase this value (in seconds) if DNS queries timeout                                             |
+   | DNS timeout             | integer        | ✓        | increase this value (in seconds) if DNS queries timeout                                             |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Idmap backend           | drop-down menu | ✓        | select the backend to use to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs; see     |
@@ -608,15 +608,24 @@ Those who are new to LDAP terminology should skim through the
    |                         |                |          | configured the LDAP server with Samba attributes                                                    |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters    | string         |          | additional options for                                                                              |
+   | Auxiliary Parameters    | string         | ✓        | additional options for                                                                              |
    |                         |                |          | `sssd.conf(5) <https://jhrozek.fedorapeople.org/sssd/1.11.6/man/sssd.conf.5.html>`_                 |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Schema                  | drop-down menu |          | if :guilabel:`Samba Schema` is checked, select the schema to use; choices are *rfc2307* and         |
+   | Schema                  | drop-down menu | ✓        | if :guilabel:`Samba Schema` is checked, select the schema to use; choices are *rfc2307* and         |
    |                         |                |          | *rfc2307bis*                                                                                        |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Enable                  | checkbox       |          | uncheck to disable the configuration without deleting it                                            |
    |                         |                |          |                                                                                                     |
+   #ifdef freenas
+   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
+   | NetBIOS Name            | string         | ✓        | limited to 15 characters; automatically populated with the system's original hostname;              |
+   |                         |                |          | **must** be different from the *Workgroup* name                                                     |
+   |                         |                |          |                                                                                                     |
+   +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
+   | NetBIOS Alias           | string         | ✓        | limited to 15 characters                                                                            |
+   |                         |                |          |                                                                                                     |
+   #endif freenas
    #ifdef truenas
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | NetBIOS Name            | string         | ✓        | limited to 15 characters; automatically populated with the system's original hostname;              |
@@ -911,8 +920,9 @@ When using a keytab with Active Directory, make sure that the
 "Domain Account Name" and "Domain Account Password" fields in
 :menuselection:`Directory Service --> Active Directory`.
 
-To instruct LDAP to use the keytab, select the installed keytab using
-the drop-down "Kerberos keytab" menu in
+To instruct LDAP to use a principal from the keytab, select the
+principal from the drop-down :guilabel:`Kerberos Principal`
+menu in
 :menuselection:`Directory Service --> LDAP`.
 
 
