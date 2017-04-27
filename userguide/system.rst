@@ -74,12 +74,14 @@ seen in
 
 The information includes the hostname, the build version, type of CPU
 (platform), the amount of memory, the current system time, the
-system's uptime, and the current load average.
+system's uptime, and the current load average. On servers supplied
+or certified by iXsystems, an additional :guilabel:`Serial Number`
+field showing the hardware serial number is displayed.
 
-To change the system's hostname, click its :guilabel:`Edit` button,
+To change the system's hostname, click the :guilabel:`Edit` button,
 type in the new hostname, and click :guilabel:`OK`. The hostname must
-include the domain name. If the network does not use a domain name add
-*.local* to the end of the hostname.
+include the domain name. If the network does not use a domain name,
+add *.local* after the hostname.
 
 
 .. _system_info_fig:
