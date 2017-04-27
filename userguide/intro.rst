@@ -98,6 +98,15 @@ New Features in |release|
   LSI/Avago/Broadcom 9305-8i, 9305-16i, and 9305-24i host adapters has
   been updated to the latest version.
 
+* The
+  `mrsas(4) <https://www.freebsd.org/cgi/man.cgi?query=mrsas>`__
+  driver is loaded by default for the Dell PERC H330, Dell PERC
+  H730, and other controllers which are supported by both the
+  `mrsas(4) <https://www.freebsd.org/cgi/man.cgi?query=mrsas>`__
+  and
+  `mfi(4) <https://www.freebsd.org/cgi/man.cgi?query=mfi>`__
+  drivers.
+
 * Drivers for PMC Adaptec host bus adapters have been added with the
   `pmspcv(4) driver
   <https://www.freebsd.org/cgi/man.cgi?query=pmspcv&manpath=FreeBSD+11.0-RELEASE+and+Ports>`_.
@@ -323,13 +332,16 @@ serial numbers. It is best to use a different disk controller with
 %brand%.
 
 
-.. index:: Dell PERC H730
+.. index:: Dell PERC H330, Dell PERC H730
 
-.. note:: Dell PERC H730 disk controllers can be problematic. For best
-   results, set the controller to HBA mode and add a loader
-   :ref:`tunable <Tunables>` with a :guilabel:`Variable` of
-   *hw.mfi.mrsas_enable*, a :guilabel:`Value` of *1*, and a
-   :guilabel:`Type` of *Loader*.
+.. note:: The system is configured to prefer the
+   `mrsas(4) <https://www.freebsd.org/cgi/man.cgi?query=mrsas>`__
+   driver for controller cards like the Dell PERC H330 and H730 which
+   are supported by several drivers. Although not recommended, the
+   `mfi(4) <https://www.freebsd.org/cgi/man.cgi?query=mfi>`__
+   driver can be used instead by removing the  loader
+   :ref:`Tunable <Tunables>`: :literal:`hw.mfi.mrsas_enable` or
+   setting the :guilabel:`Value` to *0*.
 
 
 Suggestions for testing disks before adding them to a RAID array can
@@ -347,9 +359,6 @@ read/write needs and RAID requirements:
   example configuration would be six 600 GB 15K SAS drives in a RAID
   10 which would yield 1.8 TB of usable space, or eight 600 GB 15K SAS
   drives in a RAID 10 which would yield 2.4 TB of usable space.
-
-* 7200 RPM SATA disks are designed for single-user sequential I/O and
-  are not a good choice for multi-user writes.
 
 When high performance is a key requirement and budget permits,
 consider a
