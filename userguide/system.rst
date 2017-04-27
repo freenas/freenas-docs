@@ -1921,36 +1921,35 @@ certificate was issued by the internal CA named *My Company* and the
 administrator has not yet sent the certificate signing request to
 Verisign so that it can be signed. Once that certificate is signed
 and returned by the external CA, it should be imported using the
-:guilabel:`mport Certificate` button so that is available as a
+:guilabel:`Import Certificate` button so that is available as a
 configurable option for encrypting connections.
 
 
 .. _manage_cert_fig:
 
-.. figure:: images/cert4.png
+.. figure:: images/system-certs-manage.png
 
    Managing Certificates
 
 
-If you click an entry, it will activate the following configuration
-buttons:
+Clicking an entry activates these configuration buttons:
 
 * **View:** once a certificate is created, it cannot be edited. The
   :guilabel:`Name`, :guilabel:`Certificate`, and
   :guilabel:`Private Key` fields can be viewed. If a certificate must
   be changed, :guilabel:`Delete` and recreate it.
 
-* **Export Certificate:** used to save a copy of the certificate or
+* **Export Certificate** saves a copy of the certificate or
   certificate signing request to the system being used to access the
   %brand% system. For a certificate signing request, send the
   exported certificate to the external signing authority so that it
   can be signed.
 
-* **Export Private Key:** used to save a copy of the private key
-  associated with the certificate or certificate signing request to
-  the system being used to access the %brand% system.
+* **Export Private Key** saves a copy of the private key associated
+  with the certificate or certificate signing request to the system
+  being used to access the %brand% system.
 
-* **Delete:** used to delete a certificate or certificate signing
+* **Delete** is used to delete a certificate or certificate signing
   request.
 
 
