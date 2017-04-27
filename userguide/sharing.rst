@@ -2164,7 +2164,7 @@ name.**
 
 .. _iscsi_adding_extent_fig:
 
-.. figure:: images/extent2b.png
+.. figure:: images/sharing-iscsi-extent-add.png
 
    Adding an iSCSI Extent
 
@@ -2189,15 +2189,15 @@ name.**
    |                    |                | *Device*                                                                                                             |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Device             | drop-down menu | only appears if *Device* is selected; select the unformatted disk, controller, zvol, zvol snapshot, or HAST device   |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Serial             | string         | unique LUN ID; the default is generated from the system's MAC address                                                |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Path to the extent | browse button  | only appears if *File* is selected; browse to an existing file and use *0* as the :guilabel:`Extent size`,           |
    |                    |                | **or** browse to the volume or dataset, click :guilabel:`Close`, append the :guilabel:`Extent Name` to the path,     |
    |                    |                | and specify a value in :guilabel:`Extent size`; extents cannot be created inside the jail root directory             |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Device             | drop-down menu | only appears if *Device* is selected; select the unformatted disk, controller, zvol, zvol snapshot, or HAST device   |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Extent size        | integer        | only appears if *File* is selected; if the size is specified as                                                      |
