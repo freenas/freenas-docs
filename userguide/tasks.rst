@@ -443,7 +443,7 @@ task.
 
 .. _tasks_add_rsync_fig:
 
-.. figure:: images/rsync1a.png
+.. figure:: images/tasks-rsync-tasks-add.png
 
    Adding an Rsync Task
 
