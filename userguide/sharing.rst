@@ -2062,7 +2062,7 @@ summarizes the settings that can be configured when creating a Target.
 
 .. _iscsi_add_target_fig:
 
-.. figure:: images/target1a.png
+.. figure:: images/sharing-iscsi-targets-add.png
 
    Adding an iSCSI Target
 
