@@ -753,7 +753,7 @@ box :guilabel:`Show advanced fields by default` in
 
 .. _nt_fig:
 
-.. figure:: images/nt1.png
+.. figure:: images/directoryservice-nt4.png
 
    NT4 Configuration Options
 
@@ -776,9 +776,6 @@ box :guilabel:`Show advanced fields by default` in
    | Domain Controller      | string    |          | hostname of domain controller                                                              |
    |                        |           |          |                                                                                            |
    +------------------------+-----------+----------+--------------------------------------------------------------------------------------------+
-   | NetBIOS Name           | string    |          | hostname of %brand% system ; cannot be longer than 15 characters; cannot be                |
-   |                        |           |          | the same as the :guilabel:`Workgroup Name`                                                 |
-   +------------------------+-----------+----------+--------------------------------------------------------------------------------------------+
    | Workgroup Name         | string    |          | name of Windows server's workgroup                                                         |
    |                        |           |          |                                                                                            |
    +------------------------+-----------+----------+--------------------------------------------------------------------------------------------+
@@ -788,8 +785,8 @@ box :guilabel:`Show advanced fields by default` in
    | Administrator Password | string    |          | input and confirm the password for the domain administrator account                        |
    |                        |           |          |                                                                                            |
    +------------------------+-----------+----------+--------------------------------------------------------------------------------------------+
-   | Use default domain     | checkbox  |          | only available in :guilabel:`Advanced Mode`; when unchecked, the domain name is prepended  |
-   |                        |           |          | to the username                                                                            |
+   | Use Default Domain     | checkbox  | ✓        | when unchecked, the domain name is prepended to the username                               |
+   |                        |           |          |                                                                                            |
    +------------------------+-----------+----------+--------------------------------------------------------------------------------------------+
    | Idmap backend          | drop-down | ✓        | select the backend to use to map Windows security identifiers (SIDs) to UNIX UIDs          |
    |                        | and Edit  |          | and GIDs; see :numref:`Table %s <id_map_backends_tab>` for a summary of the                |
