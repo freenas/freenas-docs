@@ -14,7 +14,7 @@ wizard configuration screen.
 
 .. _wizard7:
 
-.. figure:: images/wizard.png
+.. figure:: images/wizard-lang.png
 
    Configuration Wizard
 
@@ -52,7 +52,7 @@ been formatted.
 
 .. _wizard1:
 
-.. figure:: images/wizard1.png
+.. figure:: images/wizard-vol.png
 
    Volume Creation Wizard
 
