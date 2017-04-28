@@ -283,24 +283,27 @@ While ZFS provides many benefits, there are some caveats:
   its capacity will be limited by the size of the smallest disk.
 
 For those new to ZFS, the
-`Wikipedia entry on ZFS <https://en.wikipedia.org/wiki/Zfs>`_
+`Wikipedia entry on ZFS <https://en.wikipedia.org/wiki/Zfs>`__
 provides an excellent starting point to learn more about its features.
 These resources are also useful for reference:
 
 * `FreeBSD ZFS Tuning Guide
-  <https://wiki.FreeBSD.org/ZFSTuningGuide>`_
+  <https://wiki.FreeBSD.org/ZFSTuningGuide>`__
 
 * `ZFS Administration Guide
-  <http://docs.oracle.com/cd/E19253-01/819-5461/index.html>`_
+  <http://docs.oracle.com/cd/E19253-01/819-5461/index.html>`__
 
 * `Becoming a ZFS Ninja (video)
-  <https://blogs.oracle.com/video/entry/becoming_a_zfs_ninja>`_
+  <https://blogs.oracle.com/video/entry/becoming_a_zfs_ninja>`__
 
 * `Slideshow explaining VDev, zpool, ZIL and L2ARC and other
   newbie mistakes!
-  <https://forums.freenas.org/index.php?threads/slideshow-explaining-vdev-zpool-zil-and-l2arc-for-noobs.7775/>`_
+  <https://forums.freenas.org/index.php?threads/slideshow-explaining-vdev-zpool-zil-and-l2arc-for-noobs.7775/>`__
 
-* `A Crash Course on ZFS <http://www.bsdnow.tv/tutorials/zfs>`_
+* `A Crash Course on ZFS <http://www.bsdnow.tv/tutorials/zfs>`__
 
 * `ZFS: The Last Word in File Systems - Part 1 (video)
-  <https://www.youtube.com/watch?v=uT2i2ryhCio>`_
+  <https://www.youtube.com/watch?v=uT2i2ryhCio>`__
+
+* `The Zettabyte Filesystem
+  <https://www.youtube.com/watch?v=ptY6-K78McY>`__
