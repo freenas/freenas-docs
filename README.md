@@ -56,13 +56,13 @@ cd freenas-docs/userguide
 
 ## Building the Documentation
 
-All of the following commands are run from
+All of these commands are run from
 /path/to/your-build-directory/freenas/docs/userguide. The formats
-available are HTML, single HTML, PDF, and EPUB. The output of
-either HTML form is in
+available are HTML, single HTML, PDF, and EPUB. The output of either
+HTML form is in
 /path/to/your-build-directory/freenas-docs/userguide/processed/_build/
 and can be viewed in a web browser. The PDF output is in
-/path/to/your-build-directory/freenas-docs/userguide/processed/_build/latex/FreeNAS.pdf.
+/path/to/your-build-directory/freenas-docs/userguide/processed/_build/latex/FreeNAS.pdf. 
 The EPUB output is in
 /path/to/your-build-directory/freenas-docs/userguide/processed/_build/epub/freenas_userguide.epub.
 
