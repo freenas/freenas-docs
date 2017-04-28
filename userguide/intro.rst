@@ -129,23 +129,23 @@ New Features in |release|
 * A new :ref:`Alert Services` section in
   :menuselection:`System --> Alert Services` makes it possible to send
   important alerts through external services, including
-  `AWS-SNS <https://aws.amazon.com/sns/>`_,
-  `Hipchat <https://www.hipchat.com/>`_,
-  `InfluxDB <https://www.influxdata.com/>`_,
-  `Slack <https://slack.com/>`_,
-  `Mattermost <https://about.mattermost.com/>`_,
-  `OpsGenie <https://www.opsgenie.com/>`_,
-  `PagerDuty <https://www.pagerduty.com/>`_,
+  `AWS-SNS <https://aws.amazon.com/sns/>`__,
+  `Hipchat <https://www.hipchat.com/>`__,
+  `InfluxDB <https://www.influxdata.com/>`__,
+  `Slack <https://slack.com/>`__,
+  `Mattermost <https://about.mattermost.com/>`__,
+  `OpsGenie <https://www.opsgenie.com/>`__,
+  `PagerDuty <https://www.pagerduty.com/>`__,
   and
-  `VictorOps <https://victorops.com/>`_.
+  `VictorOps <https://victorops.com/>`__.
 
 * Netatalk has been updated to version
   `3.1.11
-  <http://netatalk.sourceforge.net/3.1/ReleaseNotes3.1.11.html>`_.
+  <http://netatalk.sourceforge.net/3.1/ReleaseNotes3.1.11.html>`__.
 
 * Samba has been updated to version
-  `4.6.2
-  <https://www.samba.org/samba/history/samba-4.6.2.html>`_.
+  `4.6.3
+  <https://www.samba.org/samba/history/samba-4.6.3.html>`__.
 
 * The new :ref:`S3` service has been added, allowing a %brand% system to
   provide S3 file sharing.
