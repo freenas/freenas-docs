@@ -10,7 +10,7 @@ documentation, and issuing a git pull request. It assumes that the
 reader is using these instructions on either a FreeBSD/TrueOS system or
 a FreeBSD jail.
 
-##Requirements:
+## Requirements
 
 Perl must be installed.
 
@@ -54,7 +54,7 @@ git clone git://github.com/freenas/freenas-docs
 cd freenas-docs/userguide
 ```
 
-##Building the Documentation
+## Building the Documentation
 
 All of the following commands are run from
 /path/to/your-build-directory/freenas/docs/userguide. The formats
@@ -95,7 +95,7 @@ To build an EPUB:
 make epub
 ```
 
-##Editing the Documentation
+## Editing the Documentation
 
 To edit the User Guide, make changes to the *.rst files using any ASCII
 text editor. Refer to
