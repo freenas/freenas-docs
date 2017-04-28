@@ -277,6 +277,14 @@ another person remote access to the system in order to assist with a
 configuration or troubleshooting issue.
 #endif truenas
 
+
+.. note:: Some IPMI implementations require updates to work with newer
+   versions of Java. See
+   `PSA: Java 8 Update 131 breaks ASRock's IPMI Virtual console
+   <https://forums.freenas.org/index.php?threads/psa-java-8-update-131-breaks-asrocks-ipmi-virtual-console.53911/>`__
+   for more information.
+
+
 IPMI is configured from
 :menuselection:`Network --> IPMI`.
 The IPMI configuration screen, shown in
