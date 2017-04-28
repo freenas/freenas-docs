@@ -150,6 +150,10 @@ New Features in |release|
 * The new :ref:`S3` service has been added, allowing a %brand% system to
   provide S3 file sharing.
 
+* The Mosh
+  `mobile shell <https://mosh.org/>`__
+  has been added.
+
 * Pipe Viewer, a
   `utility for monitoring the progress of data through a pipeline
   <http://www.ivarch.com/programs/pv.shtml>`_,
