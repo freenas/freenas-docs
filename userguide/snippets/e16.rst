@@ -1,0 +1,253 @@
+.. index:: E16 Expansion Shelf
+
+.. _E16 Expansion Shelf:
+
+E16/E16F Expansion Shelf
+------------------------
+
+
+.. note:: This product is End Of Life (EOL). Support ends January 31,
+   2020.
+
+
+The %brand% E16 expansion shelf is a 3U, 16-bay storage expansion
+unit designed specifically to work with the %brand% Storage Array.
+This section will cover setting up an E16 expansion shelf and
+connecting it to a %brand% Storage Array.
+
+.. index:: E16 Expansion Shelf Contents
+
+The E16 expansion shelf comes with a number of necessary
+accessories. If anything is missing or your E16 expansion shelf
+arrived in less than pristine condition, immediately take pictures
+and contact iXsystems support.
+
+* %brand% E16 expansion shelf
+
+.. image:: images/tn_e16shelf.jpg
+
+* Up to 16 populated 3.5" drive trays
+
+.. image:: images/tn_drive_trays.jpg
+
+* Two power cables
+
+.. image:: images/tn_power_cable.jpg
+
+* Two host expansion cables (SAS 8088)
+
+.. image:: images/tn_host_expansion_cable.jpg
+
+* Inner and outer rails, left and right
+
+.. image:: /images/tn_rails.jpg
+
+* Two sets of screws
+
+.. image:: images/tn_shortscrew.png
+   :width: 5%
+
+.. image:: images/tn_longscrew.png
+   :width: 7%
+
+* One printed guide
+
+.. image:: images/tn_e16_guide.png
+
+Unused drive bays are populated with drive tray blanks to
+maintain proper airflow.
+
+.. index:: E16 Expansion Shelf Layout
+
+:numref:`Figure %s <appliance12>` shows the front view
+of the %brand% E16 expansion shelf.
+
+
+.. _appliance12:
+
+.. figure:: images/tn_e16_front_viewa.jpg
+
+   Front View
+
+
+:numref:`Figure %s <appliance13>`
+shows the rear view of the %brand% E16 expansion shelf.
+
+
+.. _appliance13:
+
+.. figure:: images/tn_e16_rear_view.jpg
+
+   Rear View
+
+
+:numref:`Figure %s <appliance14>`
+provides a detailed view of a drive tray and the possible statuses
+for the LED.
+
+
+.. _appliance14:
+
+.. figure:: images/tn_drive_tray.jpg
+
+   Drive Tray
+
+
+.. index:: Attach E16 Expansion Shelf Inner Rail to Chassis
+
+To attach the E16 expansion shelf inner rail to the chassis, remove
+the inner rail from both rails. Slide the inner and outer rails
+apart, and then push the pin-lock latch outward to allow the rails
+to separate completely, as shown in
+:numref:`Figure %s <appliance15>`.
+
+
+.. _appliance15:
+
+.. figure:: images/tn_separate_rails.jpg
+
+   Separate Inner and Outer Rails
+
+
+Align the inner rail keyholes to the two hooks near the front of
+the chassis, then slide the rails forward into place as shown in
+:numref:`Figure %s <appliance16>`.
+
+
+.. _appliance16:
+
+.. figure:: images/tn_attach_inner_rail.jpg
+
+   Attach Inner Rail to Chassis
+
+
+Secure the inner rail in place with a small screw from the rail
+kit. Refer to
+:numref:`Figure %s <appliance17>`
+for a detailed view.
+
+
+.. _appliance17:
+
+.. figure:: images/tn_secure_inner_rail.jpg
+
+   Secure Inner Rail in Place
+
+
+The %brand% E16 expansion shelf slide rails support racks with both
+square and circular hole types. Set the mounting brackets into the
+correct position for your rack type by pressing the button on the
+mounting bracket and rotating them in place, as shown in
+:numref:`Figure %s <appliance18>`.
+The square rack style brackets are the default. The circular hole
+style is the one with a flat surface and screw holes.
+
+
+.. _appliance18:
+
+.. figure:: images/tn_rotate_bracket.png
+
+   Rotate Rackmount Bracket
+
+
+Before installing, confirm that the rails included with the %brand%
+E16 expansion shelf are long enough for your rack. Examine each
+rail to find the sides labeled *Front* and *Rear*.
+
+For racks with square holes, snap the mounting brackets into the
+holes at either end of the rail into the mouting holes. Make sure
+to install the rails with the end labeled *Front* toward the front
+of the rack. Refer to
+:numref:`Figure %s <appliance19>` for a detailed view.
+
+
+.. _appliance19:
+
+.. figure:: images/tn_rack_square_holes.png
+
+   Installing Rails in Racks with Square Holes
+
+
+For racks with round holes, secure the rails into the rack at the
+desired position using the eight thumbscrews included with the
+rails. Make sure to install the rails with the end labeled *Front*
+toward the front of the rack. Refer to
+:numref:`Figure %s <appliance20>`
+for a detailed view.
+
+
+.. _appliance20:
+
+.. figure:: images/tn_rack_round_holes.png
+
+   Installing Rails in Racks with Round Holes
+
+
+You are now ready to install the E16 expansion shelf into the rack.
+
+.. warning:: Two people are required to lift a %brand% E16
+   expansion shelf.
+
+Carefully align the %brand% E16 expansion shelf inner rail with the
+notches in the outer rail. Once the rails are aligned, slide the
+array toward the rack. When the array stops moving, move the
+pin-lock laches to allow the array to slide the rest of the way
+into the rack. Refer to
+:numref:`Figure %s <appliance21>`
+for a detailed view.
+
+
+.. _appliance21:
+
+.. figure:: images/tn_rack_and_release_locks.png
+
+   Push Expansion Shelf into Rack and Release pin-lock Latches
+
+
+Next, install all populated drive trays into the front of the
+expansion shelf as shown in
+:numref:`Figure %s <appliance22>`.
+
+.. note:: to avoid personal injury, do not install drives into the
+   E16 expansion shelf before racking.
+
+
+.. _appliance22:
+
+.. figure:: images/tn_install_drive_tray.jpg
+
+   Drive Installation Instructions
+
+
+.. index:: Connect E16 Expansion Shelf to TrueNAS Array
+
+Note the labels on the SAS ports on the back of the %brand% Storage
+Array and the letter label on the back of the expansion shelf.
+Using the included SAS cables, connect the *In* SAS port of the top
+expander on the E16 expansion shelf to the SAS port with the same
+letter on the %brand% Storage Array's primary storage controller
+(the one in the top slot). If you have a secondary storage
+controller, connect the *In* SAS port of the bottom expander to the
+port with the same letter on the secondary storage controller.
+Refer to
+:numref:`Figure %s <appliance24>` for a detailed view.
+
+
+.. _appliance24:
+
+.. figure:: images/tn_e16_connect_storage.png
+
+   Connecting an E16 Expansion Shelf to a %brand% Storage Array
+
+
+.. index:: Plug in and Power on E16 Expansion Shelf
+
+Once all the other hardware setup steps are complete, plug the
+power cords into the AC receptacles on the back of the E16
+expansion shelf and secure them in place with the wire locks. Power
+on the E16 expansion shelf by pressing the top left button on the
+control panel.
+
+If you are setting up a %brand% Storage Array for the first time,
+wait two minutes after powering on all expansion shelves before
+turning on the %brand% Storage Array.
