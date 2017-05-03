@@ -77,33 +77,6 @@ json:	preproc
 	@echo
 	@echo "Build finished; now you can process the JSON files."
 
-htmlhelp:	preproc
-	cd $(PREPROCDIR) && \
-	$(SPHINXBUILD) -b htmlhelp $(ALLSPHINXOPTS) $(BUILDDIR)/htmlhelp
-	@echo
-	@echo "Build finished; now you can run HTML Help Workshop with the" \
-	      ".hhp project file in $(PREPROCDIR)/$(BUILDDIR)/htmlhelp"
-
-qthelp:	preproc
-	cd $(PREPROCDIR) && \
-	$(SPHINXBUILD) -b qthelp $(ALLSPHINXOPTS) $(BUILDDIR)/qthelp
-	@echo
-	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
-	      ".qhcp project file in $(PREPROCDIR)/$(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(PREPROCDIR)/$(BUILDDIR)/qthelp/FreeNAS.qhcp"
-	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(PREPROCDIR)/$(BUILDDIR)/qthelp/FreeNAS.qhc"
-
-devhelp:	preproc
-	cd $(PREPROCDIR) && \
-	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
-	@echo
-	@echo "Build finished."
-	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/FreeNAS"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/FreeNAS"
-	@echo "# devhelp"
-
 epub:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b epub $(ALLSPHINXOPTS) $(BUILDDIR)/epub
@@ -134,27 +107,6 @@ text:	preproc
 	$(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(BUILDDIR)/text
 	@echo
 	@echo "Build finished. The text files are in $(PREPROCDIR)/$(BUILDDIR)/text"
-
-man:	preproc
-	cd $(PREPROCDIR) && \
-	$(SPHINXBUILD) -b man $(ALLSPHINXOPTS) $(BUILDDIR)/man
-	@echo
-	@echo "Build finished. The manual pages are in $(PREPROCDIR)/$(BUILDDIR)/man"
-
-texinfo:	preproc
-	cd $(PREPROCDIR) && \
-	$(SPHINXBUILD) -b texinfo $(ALLSPHINXOPTS) $(BUILDDIR)/texinfo
-	@echo
-	@echo "Build finished. The Texinfo files are in $(PREPROCDIR)/$(BUILDDIR)/texinfo"
-	@echo "Run \`make' in that directory to run these through makeinfo" \
-	      "(use \`make info' here to do that automatically)."
-
-info:	preproc
-	cd $(PREPROCDIR) && \
-	$(SPHINXBUILD) -b texinfo $(ALLSPHINXOPTS) $(BUILDDIR)/texinfo
-	@echo "Running Texinfo files through makeinfo..."
-	make -C $(BUILDDIR)/texinfo info
-	@echo "makeinfo finished; the Info files are in $(PREPROCDIR)/$(BUILDDIR)/texinfo"
 
 gettext:	preproc
 	cd $(PREPROCDIR) && \

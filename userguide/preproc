@@ -2,7 +2,7 @@
 # ts=4
 
 # preproc: preprocess .rst files
-# Warren Block, 2016-10-19
+# Warren Block, 2017-05-03
 
 use strict;
 use warnings;
@@ -140,6 +140,9 @@ usage: $prog -h
          ------         -----------
          %brand%        FreeNAS\\ :sup:`®` or
                         TrueNAS\\ :sup:`®`, depending on -t setting
+                        (tags starting with 'bsg-' also cause %brand% to
+                        be replaced as if the tag was just 'truenas' to
+                        facilitate building BSG documents)
          %chapternum%   The current chapter number
 
        For example, when building with '-t truenas', this literal text
@@ -246,7 +249,7 @@ sub checkinput {
     print "check input\n" if $verbose;
 
     # -t is required
-    die "  ** -t tag (freenas or truenas) is required\n" unless $opt_t;
+    die "  ** -t tag (freenas, truenas, or bsg-*) is required\n" unless $opt_t;
 
     # tag file must exist
     my $masterfile = "$tag.rst";
@@ -406,7 +409,7 @@ sub do_substitutes {
 
     if ( $tag eq 'freenas' ) {
         $replist{'%brand%'} = "FreeNAS\\ :sup:`®`";
-    } elsif ( $tag eq 'truenas' ) {
+    } elsif ( $tag =~ /^truenas$|^bsg-/ ) {
         $replist{'%brand%'} = "TrueNAS\\ :sup:`®`";
     }
 

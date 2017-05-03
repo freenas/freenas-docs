@@ -39,10 +39,7 @@ if tags.has('truenas'):
 # that match files and directories to ignore when looking for source files.
 
 tags.add('freenas')
-if six.PY3:
-    brand = 'FreeNAS®'
-else:
-    brand = u'FreeNAS®'
+brand = 'FreeNAS®' if six.PY3 else u'FreeNAS®'
 project = brand + six.u(' User Guide')
 master_doc = 'freenas'
 extensions = [
@@ -52,13 +49,18 @@ numfig = True
 numfig_secnum_depth = (2)
 
 if tags.has('truenas'):
-    if six.PY3:
-        brand = 'TrueNAS®'
-    else:
-        brand = u'TrueNAS®'
+    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')
     project = brand + six.u(' User Guide')
     master_doc = 'truenas'
+
+# BSGs
+if tags.has('bsg-unified'):
+    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    tags.remove('freenas')
+    project = brand + six.u(' Unified Storage Array Setup Guide')
+    master_doc = 'bsg-unified'
+
 
 # |brand| will be replaced with FreeNAS® or TrueNAS®
 # rst_epilog = '.. |brand| replace:: %s' % brand
@@ -357,6 +359,12 @@ latex_documents = [
 if tags.has('truenas'):
     latex_documents = [
       ('truenas', 'TrueNAS.tex', texproject,
+       'iXsystems', 'manual'),
+    ]
+
+if tags.has('bsg-unified'):
+    latex_documents = [
+      ('bsg-unified', 'BSG-Unified.tex', texproject,
        'iXsystems', 'manual'),
     ]
 
