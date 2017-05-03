@@ -2,11 +2,20 @@
 
 .. _%brand% Unified Storage Array:
 
+
 %brand% Unified Storage Array
 --------------------------------------------
 
-The %brand% Storage Array is shipped with several accessories.
-Please verify that the shipment includes these items:
+The %brand% Unified Storage Array is an enterprise-grade 3U, 16-bay
+hybrid NAS control system that can be used alone, paired with a second
+Unified Storage Array to provide High Availability, or augmented with
+optional Expansion Shelves for additional storage.
+
+
+#include snippets/perfect.rst
+
+
+The %brand% Storage Array shipment includes these items:
 
 * %brand% Storage Array
 
@@ -230,9 +239,11 @@ environment. Please contact your iXsystems Support Representative if
 assistance is needed to connect the %brand% Storage Array to the
 network.
 
-The :ref:`Out-of-Band Management` feature requires connection and
-configuration of the out-of-band management port before turning on the
-%brand% Storage Array. Refer to
+The
+`Out-of-Band Management
+<https://support.ixsystems.com/truenasguide/truenas.html#out-of-band-management>`__
+feature requires connection and configuration of the out-of-band
+management port before turning on the %brand% Storage Array. Refer to
 :numref:`Figure %s <appliance11>`
 or the sticker on the storage controller handle for the location of
 the out-of-band management port.
@@ -246,7 +257,12 @@ the out-of-band management port.
 
 
 Storage cabling instructions are shown in the
-:ref:`E16 Expansion Shelf` and :ref:`E24 Expansion Shelf` sections.
+`E16/E16F Expansion Shelf
+<https://support.ixsystems.com/truenasguide/tn_hardware.html#e16-e16f-expansion-shelf>`__
+and
+`E24 Expansion Shelf
+<https://support.ixsystems.com/truenasguide/tn_hardware.html#e24-expansion-shelf>`__
+setup instructions.
 
 
 .. index:: Attach the %brand% Faceplate
@@ -276,5 +292,8 @@ Availability configurations.
 After the %brand% Storage Array is fully operational, the %brand%
 logo acts as a global fault light. By default, it is backlit in white.
 If there are any issues that need to be addressed, the light turns
-red. Refer to the :ref:`Alert` section of the %brand% administrative
-graphical interface for more details about the error condition.
+red. See the
+`Alert
+<https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__
+section of the %brand% administrative graphical interface for more
+details about the error condition.

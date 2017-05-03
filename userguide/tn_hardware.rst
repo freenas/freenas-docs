@@ -8,15 +8,13 @@ units.  Optional *Expansion Shelves* can be added to expand storage
 capacity. Racking and connection of these units is described
 individually below.
 
-If the %brand% Storage Array does not arrive in perfect condition, or
-if any parts are missing, please take photos and contact iXsystems
-support immediately.
-
 .. note:: Always perform the initial %brand% setup in consultation
    with an iXsystems Support Representative. iXsystems Support can
-   be contacted at :literal:`truenas-support@ixsystems.com`. Have all
-   %brand% hardware serial numbers available. These are located on the
-   back of each chassis.
+   be contacted at :literal:`support@iXsystems.com` or 1-855-GREP4-iX
+   (1-855-473-7449) or 1-408-943-4100.
+
+   Please locate the hardware serial numbers for easy reference. These
+   numbers are on the back of each chassis.
 
 
 #include snippets/unified-storage-array.rst

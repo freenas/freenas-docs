@@ -15,12 +15,14 @@ unit designed specifically to work with the %brand% Storage Array.
 This section will cover setting up an E16 expansion shelf and
 connecting it to a %brand% Storage Array.
 
+
+#include snippets/perfect.rst
+
+
 .. index:: E16 Expansion Shelf Contents
 
-The E16 expansion shelf comes with a number of necessary
-accessories. If anything is missing or your E16 expansion shelf
-arrived in less than pristine condition, immediately take pictures
-and contact iXsystems support.
+The E16 expansion shelf comes with these
+accessories:
 
 * %brand% E16 expansion shelf
 

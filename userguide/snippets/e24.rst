@@ -10,6 +10,10 @@ unit designed specifically for use with the %brand% Storage Array.
 This section will cover setting up an E24 expansion shelf and
 connecting it to a %brand% Storage Array.
 
+
+#include snippets/perfect.rst
+
+
 .. index:: TrueNAS E24 Expansion Shelf Contents
 
 The E24 expansion shelf comes with a number of necessary
