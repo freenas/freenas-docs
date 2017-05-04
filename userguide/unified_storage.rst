@@ -4,3 +4,4 @@
    \pagenumbering{arabic}
 
 #include snippets/unified-storage-array.rst
+#include snippets/contact.rst
