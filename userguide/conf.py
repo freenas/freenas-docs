@@ -58,7 +58,7 @@ if tags.has('truenas'):
 if tags.has('bsg-unified'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')
-    project = brand + six.u(' Unified Storage Array Setup Guide')
+    project = brand + six.u(' Unified Storage Array Basic Setup Guide')
     master_doc = 'bsg-unified'
 
 
@@ -282,6 +282,8 @@ PREAMBLE = (PREAMBLE
             + time.strftime("%B %Y")
             + ' Edition}')
 
+PREAMBLE = PREAMBLE.replace('Basic Setup Guide', r'''\newline Basic Setup Guide''')
+
 # define custom title page
 PREAMBLE = PREAMBLE + r'''
 % FreeNAS/TrueNAS LaTeX preamble
@@ -329,6 +331,10 @@ PREAMBLE = PREAMBLE + r'''
   \fancyhf[FLE,FRO]{\textbf{\thepage}}
   \fancyhf[FLO,FRE]{}
 }
+\fancypagestyle{bsg}{%
+  \fancyhf{}
+  \fancyfoot[C]{\textbf{\thepage}}
+}
 '''
 
 latex_elements = {
@@ -352,21 +358,19 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('freenas', 'FreeNAS.tex', texproject,
-   'iXsystems', 'manual'),
+  ('freenas', 'FreeNAS.tex', texproject, 'iXsystems', 'manual'),
 ]
 
 if tags.has('truenas'):
     latex_documents = [
-      ('truenas', 'TrueNAS.tex', texproject,
-       'iXsystems', 'manual'),
+      ('truenas', 'TrueNAS.tex', texproject, 'iXsystems', 'manual'),
     ]
 
 if tags.has('bsg-unified'):
     latex_documents = [
-      ('bsg-unified', 'BSG-Unified.tex', texproject,
-       'iXsystems', 'manual'),
+      ('bsg-unified', 'BSG-Unified.tex', texproject, 'iXsystems', 'howto'),
     ]
+    latex_elements.update({'printindex': ''})
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
