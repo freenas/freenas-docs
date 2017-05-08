@@ -15,7 +15,7 @@ optional Expansion Shelves for additional storage.
 #include snippets/perfect.rst
 
 
-The %brand% Storage Array shipment includes these items:
+The %brand% Storage Array shipment comes with these components:
 
 * %brand% Storage Array
 
@@ -286,7 +286,7 @@ Storage Array and secure them in place with the wire locks.
 Power on the %brand% Storage Array by pressing the top left button
 on the control panel. Wait thirty seconds after turning on the first
 storage controller before powering on the second storage controller.
-This will determine which controller is the active controller in High
+This determines which controller is the active controller in High
 Availability configurations.
 
 After the %brand% Storage Array is fully operational, the %brand%

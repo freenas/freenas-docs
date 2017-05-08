@@ -7,8 +7,8 @@ E24 Expansion Shelf
 
 The %brand% E24 expansion shelf is a 4U, 24-bay storage expansion
 unit designed specifically for use with the %brand% Storage Array.
-This section will cover setting up an E24 expansion shelf and
-connecting it to a %brand% Storage Array.
+This section covers setting up an E24 expansion shelf and connecting
+it to a %brand% Storage Array.
 
 
 #include snippets/perfect.rst
@@ -16,10 +16,7 @@ connecting it to a %brand% Storage Array.
 
 .. index:: TrueNAS E24 Expansion Shelf Contents
 
-The E24 expansion shelf comes with a number of necessary
-accessories. If anything is missing or your E24 expansion shelf
-arrived in less than pristine condition, immediately take pictures
-and contact iXsystems support.
+The E24 expansion shelf comes with these components:
 
 * %brand% E24 expansion shelf
 
@@ -86,13 +83,12 @@ provides a detailed view of a 3.5" drive tray.
 .. index:: Install E24 Expansion Shelf Rails
 
 Two rails and three sets of screws are included in the rail kit.
-Use only the screws labeled for use in the type of rack you have.
-Take note of the engraved rails at either end of each rail
-specifying whether they are for the Left (L) or Right (R) and which
-end is the front and which is the back. With two people, attach
-each rail to the rack using the topmost and bottommost screw holes.
-The folded ends of the rails should be inside the corners of the
-rack.
+Use only the screws labeled for the type of rack in which the unit is
+being installed. Take note of the engraved rails at either end of each
+rail specifying whether they are for the Left (L) or Right (R) and
+which end is the front and which is the back. With two people, attach
+each rail to the rack using the top and bottom screw holes. The folded
+ends of the rails should be inside the corners of the rack.
 :numref:`Figure %s <appliance28>`
 shows the front left attachments for an L-type rack.
 
@@ -154,8 +150,8 @@ Array and the letter label on the back of the expansion shelf.
 Using the included SAS cables, connect the left *In* SAS port of
 the left side expander on the E24 expansion shelf to the SAS port
 with the same letter on the %brand% Storage Array's primary storage
-controller (the one in the top slot). If you have a secondary
-storage controller, connect the left *In* SAS port of the right
+controller, the one in the top slot. If a secondary storage
+controller is installed, connect the left *In* SAS port of the right
 side expander to the port with the same letter on the secondary
 storage controller. Refer to
 :numref:`Figure %s <appliance32>`
@@ -169,14 +165,14 @@ for a detailed view.
    Example connection between E24 Expansion Shelf and %brand% Storage Array
 
 
-.. note:: If you only have one storage controller, retain your
-   second SAS cable. If you later upgrade %brand% with a second
-   storage controller, you will need it to connect to the E24
-   expansion shelf.
+.. note:: Please retain the second SAS cable even when only one
+   controller is installed. If the %brand% system is upgraded later
+   with a second storage controller, the second cable will be needed
+   to connect the E24 expansion shelf.
 
 .. index:: Plug in and Power on E24 Expansion Shelf
 
-Before you plug in and power on the E24 expansion shelf, make sure
+Before plugging in and powering on the E24 expansion shelf, make sure
 the power switches on both power supplies are set to the Off
 (Circle) position shown in
 :numref:`Figure %s <appliance33>`.

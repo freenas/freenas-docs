@@ -61,6 +61,18 @@ if tags.has('bsg-unified'):
     project = brand + six.u(' Unified Storage Array Basic Setup Guide')
     master_doc = 'bsg-unified'
 
+if tags.has('bsg-e16'):
+    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    tags.remove('freenas')
+    project = brand + six.u(' E16/E16F Expansion Shelf Basic Setup Guide')
+    master_doc = 'bsg-e16'
+
+if tags.has('bsg-e24'):
+    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    tags.remove('freenas')
+    project = brand + six.u(' E24 Expansion Shelf Basic Setup Guide')
+    master_doc = 'bsg-e24'
+
 
 # |brand| will be replaced with FreeNAS® or TrueNAS®
 # rst_epilog = '.. |brand| replace:: %s' % brand
@@ -369,6 +381,18 @@ if tags.has('truenas'):
 if tags.has('bsg-unified'):
     latex_documents = [
       ('bsg-unified', 'BSG-Unified.tex', texproject, 'iXsystems', 'howto'),
+    ]
+    latex_elements.update({'printindex': ''})
+
+if tags.has('bsg-e16'):
+    latex_documents = [
+      ('bsg-e16', 'BSG-E16.tex', texproject, 'iXsystems', 'howto'),
+    ]
+    latex_elements.update({'printindex': ''})
+
+if tags.has('bsg-e24'):
+    latex_documents = [
+      ('bsg-e24', 'BSG-E24.tex', texproject, 'iXsystems', 'howto'),
     ]
     latex_elements.update({'printindex': ''})
 

@@ -12,8 +12,8 @@ E16/E16F Expansion Shelf
 
 The %brand% E16 expansion shelf is a 3U, 16-bay storage expansion
 unit designed specifically to work with the %brand% Storage Array.
-This section will cover setting up an E16 expansion shelf and
-connecting it to a %brand% Storage Array.
+This section covers setting up an E16 expansion shelf and connecting
+it to a %brand% Storage Array.
 
 
 #include snippets/perfect.rst
@@ -21,8 +21,7 @@ connecting it to a %brand% Storage Array.
 
 .. index:: E16 Expansion Shelf Contents
 
-The E16 expansion shelf comes with these
-accessories:
+The E16 expansion shelf comes with these components:
 
 * %brand% E16 expansion shelf
 
@@ -138,7 +137,7 @@ for a detailed view.
 
 The %brand% E16 expansion shelf slide rails support racks with both
 square and circular hole types. Set the mounting brackets into the
-correct position for your rack type by pressing the button on the
+correct position for the type of rack by pressing the button on the
 mounting bracket and rotating them in place, as shown in
 :numref:`Figure %s <appliance18>`.
 The square rack style brackets are the default. The circular hole
@@ -153,8 +152,8 @@ style is the one with a flat surface and screw holes.
 
 
 Before installing, confirm that the rails included with the %brand%
-E16 expansion shelf are long enough for your rack. Examine each
-rail to find the sides labeled *Front* and *Rear*.
+E16 expansion shelf are long enough for the rack being used. Examine
+each rail to find the sides labeled *Front* and *Rear*.
 
 For racks with square holes, snap the mounting brackets into the
 holes at either end of the rail into the mouting holes. Make sure
@@ -185,13 +184,13 @@ for a detailed view.
    Installing Rails in Racks with Round Holes
 
 
-You are now ready to install the E16 expansion shelf into the rack.
+The E16 expansion shelf can now be installed in the rack.
 
 .. warning:: Two people are required to lift a %brand% E16
    expansion shelf.
 
 Carefully align the %brand% E16 expansion shelf inner rail with the
-notches in the outer rail. Once the rails are aligned, slide the
+notches in the outer rail. When the rails are aligned, slide the
 array toward the rack. When the array stops moving, move the
 pin-lock laches to allow the array to slide the rest of the way
 into the rack. Refer to
@@ -228,8 +227,8 @@ Array and the letter label on the back of the expansion shelf.
 Using the included SAS cables, connect the *In* SAS port of the top
 expander on the E16 expansion shelf to the SAS port with the same
 letter on the %brand% Storage Array's primary storage controller
-(the one in the top slot). If you have a secondary storage
-controller, connect the *In* SAS port of the bottom expander to the
+(the one in the top slot). If a secondary storage controller has been
+installed, connect the *In* SAS port of the bottom expander to the
 port with the same letter on the secondary storage controller.
 Refer to
 :numref:`Figure %s <appliance24>` for a detailed view.
@@ -244,12 +243,12 @@ Refer to
 
 .. index:: Plug in and Power on E16 Expansion Shelf
 
-Once all the other hardware setup steps are complete, plug the
-power cords into the AC receptacles on the back of the E16
+After all of the other hardware setup steps have been completed, plug
+the power cords into the AC receptacles on the back of the E16
 expansion shelf and secure them in place with the wire locks. Power
 on the E16 expansion shelf by pressing the top left button on the
 control panel.
 
-If you are setting up a %brand% Storage Array for the first time,
-wait two minutes after powering on all expansion shelves before
-turning on the %brand% Storage Array.
+When setting up a %brand% Storage Array for the first time, wait two
+minutes after powering on all expansion shelves before turning on the
+%brand% Storage Array.
