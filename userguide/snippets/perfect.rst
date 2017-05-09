@@ -4,6 +4,6 @@
    :literal:`support@iXsystems.com` or 1-855-GREP4-iX (1-855-473-7449)
    or 1-408-943-4100.
 
-   Please locate the hardware serial numbers for easy reference. These
-   numbers are on the back of each chassis.
+   Please locate and record the hardware serial numbers on the back of
+   each chassis for easy reference.
 
