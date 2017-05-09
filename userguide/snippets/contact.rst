@@ -39,7 +39,7 @@ For assistance, please contact a %brand% Support Representative:
    +------------------+-----------------------------------------------------------+
    | Telephone        | After Hours (24x7 Gold Level Support only):               |
    |                  |                                                           |
-   |                  | * 1 (855) 699-1531 (US-only toll-free)                    |
+   |                  | * 1 (855) 499-5131 (US-only toll-free)                    |
    |                  |                                                           |
    |                  | * 1 (678) 835-6101 (local and international)              |
    +------------------+-----------------------------------------------------------+
