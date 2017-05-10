@@ -28,7 +28,7 @@ copyright = '2011-2017, iXsystems'
 # the built documents.
 #
 # The full version number, like "9.10.2-U2"
-version = '11.0'
+version = '11.0-RC2'
 # The shorter feature branch version number, like "9.10.2"
 release = '11.0'
 if tags.has('truenas'):
@@ -40,7 +40,7 @@ if tags.has('truenas'):
 
 tags.add('freenas')
 brand = 'FreeNAS®' if six.PY3 else u'FreeNAS®'
-project = brand + six.u(' User Guide')
+project = brand + ' ' + six.u(version) + six.u(' User Guide')
 master_doc = 'freenas'
 extensions = [
     'sphinxcontrib.httpdomain'
@@ -51,7 +51,7 @@ numfig_secnum_depth = (2)
 if tags.has('truenas'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')
-    project = brand + six.u(' User Guide')
+    project = brand + ' ' + six.u(version) + six.u(' User Guide')
     master_doc = 'truenas'
 
 # BSGs
@@ -134,7 +134,7 @@ html_theme_path = ['_static/themes']
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = brand + ' User Guide ' + version + ' Table of Contents'
+html_title = brand + version + ' User Guide Table of Contents'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None

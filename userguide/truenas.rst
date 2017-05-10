@@ -1,4 +1,4 @@
-%brand% User Guide |version|
+%brand% |version| User Guide
 ======================================
 
 .. toctree::
