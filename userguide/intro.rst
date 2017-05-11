@@ -99,6 +99,10 @@ New Features in |release|
   been updated to the latest version.
 
 * The
+  `Zerotier <https://www.zerotier.com/>`__
+  distributed network hypervisor has been added.
+
+* The
   `mrsas(4) <https://www.freebsd.org/cgi/man.cgi?query=mrsas>`__
   driver is loaded by default for the Dell PERC H330, Dell PERC
   H730, and other controllers which are supported by both the
