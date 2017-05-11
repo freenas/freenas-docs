@@ -1140,8 +1140,8 @@ After configuring the S3 service, start it in
    | Access Key      | string         | the S3 user name                                                                                         |
    |                 |                |                                                                                                          |
    +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Secret Key      | string         | the password to be used by connecting S3 systems                                                         |
-   |                 |                |                                                                                                          |
+   | Secret Key      | string         | the password to be used by connecting S3 systems; must be at least 8 but no more than 40                 |
+   |                 |                | characters long                                                                                          |
    +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
    | Confirm S3 Key  | string         | re-enter the S3 password to confirm                                                                      |
    |                 |                |                                                                                                          |
