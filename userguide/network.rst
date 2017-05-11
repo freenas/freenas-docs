@@ -454,7 +454,7 @@ supports IEEE 802.3ad static link aggregation.
 lagg interface itself.
 
 .. note:: When using LACP, verify that the switch is configured for
-   active LACP, as passive LACP is not supported.
+   active LACP. Passive LACP is not supported.
 
 
 .. _LACP, MPIO, NFS, and ESXi:

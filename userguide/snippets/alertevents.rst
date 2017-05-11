@@ -80,7 +80,9 @@ Some of the conditions that trigger an alert include:
 
 * a re-key operation fails on an encrypted pool
 
-* if LDAP failed to bind to the domain
+* LDAP failed to bind to the domain
+
+* any member interfaces of a lagg interface are not active
 
 #ifdef freenas
 * the status of an Avago MegaRAID SAS controller has changed;
