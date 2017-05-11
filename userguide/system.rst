@@ -1216,7 +1216,7 @@ screen.
 .. _update_options_fig:
 
 #ifdef freenas
-.. figure:: images/update1e.png
+.. figure:: images/update1f.png
 
    Update Options
 #endif freenas
@@ -1235,13 +1235,17 @@ disabled by unchecking :guilabel:`Automatically check for updates`.
 This screen also shows which software branch, or *train*, is being
 tracked for updates. These trains are available:
 
-* **FreeNAS-10-Nightlies:** **do not use this train in production**.
-  It represents the experimental branch for the future 10 version and
+* **FreeNAS-11-Nightlies:** **do not use this train in production**.
+  It represents the experimental branch for the future 11 version and
   is meant only for bleeding edge testers and developers.
 
-* **FreeNAS-9.10-Nightlies:** this train has the latest fixes and
-  features, but they are still being tested. Do not select this train
-  for   production, it is only for testing.
+* **FreeNAS-11-STABLE**: the train upon which upcoming 11-RELEASE and
+  Release Candidates (RCs) are based. Until 11 is released, only use
+  this train for testing.
+
+* **FreeNAS-9.10-Nightlies:** as of May 5, 2017, this train has been
+  abandoned. Please switch to the FreeNAS-11-Nightlies train for
+  active support.
 
 * **FreeNAS-9.10-STABLE:**  this is the
   **recommended train for production use**. After new fixes and
