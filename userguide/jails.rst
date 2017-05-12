@@ -45,6 +45,12 @@ separation by installing different applications in each jail, or to
 create one jail for all installed applications, or to mix and match
 how software is installed into each jail.
 
+
+.. note:: Jails created with %brand% 9.3 or later are expected to work
+   with the current release. Jails created on older versions of
+   %brand% must be reinstalled due to ABI changes.
+
+
 The rest of this section describes:
 
 * :ref:`Jails Configuration`

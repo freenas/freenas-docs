@@ -34,8 +34,10 @@ It is recommended that users skim through both the :ref:`Plugins` and
 and limitations of each and to choose the method that best meets their
 software needs.
 
-.. note:: Due to ABI (application binary interface) changes, %brand%
-   8.x Plugins cannot be installed on a 9.x system.
+
+.. note:: Plugins created for %brand% 9.3 or later are expected to
+   work on the current release. Plugins created for earlier releases
+   of %brand% must be reinstalled.
 
 
 .. _Installing Plugins:
