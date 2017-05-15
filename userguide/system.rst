@@ -1235,28 +1235,45 @@ disabled by unchecking :guilabel:`Automatically check for updates`.
 This screen also shows which software branch, or *train*, is being
 tracked for updates. These trains are available:
 
-* **FreeNAS-11-Nightlies:** **do not use this train in production**.
-  It represents the experimental branch for the future 11 version and
-  is meant only for bleeding edge testers and developers.
 
-* **FreeNAS-11-STABLE**: the train upon which upcoming 11-RELEASE and
-  Release Candidates (RCs) are based. Until 11 is released, only use
-  this train for testing.
+**For Production Use**
 
-* **FreeNAS-9.10-Nightlies:** as of May 5, 2017, this train has been
-  abandoned. Please switch to the FreeNAS-11-Nightlies train for
-  active support.
+* **FreeNAS-9.10-STABLE** (Recommended)
 
-* **FreeNAS-9.10-STABLE:**  this is the
-  **recommended train for production use**. After new fixes and
-  features have been tested, they are added to this train. It is
-  recommended to follow this train and to apply any of its pending
-  updates.
+  After testing, new fixes and features are added to this train.
+  Selecting this train and applying any pending updates is
+  recommended.
 
-* **FreeNAS-9.3-STABLE:** this is the maintenance-only mode for an
-  older version of %brand%. It is recommended to upgrade to
-  *FreeNAS-9.10-STABLE* to ensure that the system receives bug fixes
-  and new features.
+**For Pre-Production Testing**
+
+* **FreeNAS-11-STABLE**
+
+  The train upon which upcoming 11-RELEASE and Release Candidates
+  (RCs) are based. Until 11 is released, only use this train for
+  testing.
+
+* **FreeNAS-11-Nightlies**
+
+  **Do not use this train in production**. It is the experimental
+  branch for the future 11 version and is meant only for bleeding
+  edge testers and developers.
+
+**Legacy Versions**
+
+* **FreeNAS-9.3-STABLE**
+
+  Maintenance-only updates to the older version of %brand%. Upgrading
+  to FreeNAS-9.10-STABLE is recommended to ensure that the system
+  receives bug fixes and new features.
+
+**Obsolete Versions**
+
+* **FreeNAS-9.10-Nightlies**
+
+  As of May 5, 2017, this train has been replaced by the
+  FreeNAS-11-Nightlies train. Please switch to the
+  FreeNAS-11-Nightlies train for active support.
+
 
 To change the train, use the drop-down menu to make a different
 selection.
