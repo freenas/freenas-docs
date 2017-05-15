@@ -92,6 +92,11 @@ New Features in |release|
   <https://www.freebsd.org/releases/11.0R/relnotes.html>`_,
   including important speed improvements for 40/100GigE networking.
 
+* An updated version of ZFS includes new pool
+  `Feature Flags,
+  <http://open-zfs.org/wiki/Feature_Flags>`__,
+  the *skein* and *SHA512* hash functions.
+
 * Python has been updated to version 3.6.1.
 
 * The :command:`sas3flash` firmware upgrade tool for
