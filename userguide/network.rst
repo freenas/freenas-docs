@@ -74,10 +74,10 @@ but can be changed to meet requirements of the local network.
    | Domain                 | string     | system domain name                                                                                                   |
    |                        |            |                                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-   | IPv4 Default Gateway   | IP address | typically not set (see NOTE below)                                                                                   |
+   | IPv4 Default Gateway   | IP address | typically not set (see Note below); if set, used instead of default gateway provided by DHCP                         |
    |                        |            |                                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-   | IPv6 Default Gateway   | IP address | typically not set (see NOTE below)                                                                                   |
+   | IPv6 Default Gateway   | IP address | typically not set (see Note below)                                                                                   |
    |                        |            |                                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
    | Nameserver 1           | IP address | primary DNS server (typically in Windows domain)                                                                     |
