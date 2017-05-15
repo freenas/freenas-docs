@@ -1287,9 +1287,9 @@ selection.
    can then use this screen to see if any updates are available for
    that train.
 
-This screen also lists the URL of the official update server in case
-that information is needed in a network with outbound firewall
-restrictions.
+This screen also shows the URL of the official update server. That
+information can be required when using a network with outbound
+firewall restrictions.
 #endif freenas
 #ifdef truenas
 This screen lists the URL of the official update server in case that
@@ -1310,10 +1310,10 @@ is being tracked for updates. These trains are available:
   and new features.
 #endif truenas
 
-The :guilabel:`Verify Install` button goes through the operating
-system files in the current installation, looking for any
-inconsistencies. When finished, a pop-up menu lists any files with
-checksum mismatches or permission errors.
+The :guilabel:`Verify Install` button verifies that the operating
+system files in the current installation do not have any
+inconsistencies. If any problems are found, a pop-up menu lists the
+files with checksum mismatches or permission errors.
 
 
 .. Checking for Updates:
@@ -1322,17 +1322,17 @@ Checking for Updates
 ~~~~~~~~~~~~~~~~~~~~
 
 #ifdef freenas
-To see if any updates are available, make sure the desired train is
-selected and click the :guilabel:`Check Now` button. Any available
-updates are listed. In the example shown in
+Checking for updates by making sure the desired train is selected and
+clicking the :guilabel:`Check Now` button. Any available updates are
+listed. In the example shown in
 :numref:`Figure %s <review_updates_fig>`,
 the numbers which begin with a *#* represent the bug report number
 from
 `bugs.freenas.org <https://bugs.freenas.org>`__.
 Numbers which do not begin with a *#* represent a git commit. Click
-the :guilabel:`ChangeLog` hyperlink to open the log of changes in a
-web browser. Click the :guilabel:`ReleaseNotes` hyperlink to open the
-Release Notes in the browser.
+the :guilabel:`ChangeLog` link to open the log of changes in a web
+browser. Click the :guilabel:`ReleaseNotes` link to open the Release
+Notes in the browser.
 
 
 .. _review_updates_fig:
