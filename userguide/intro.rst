@@ -143,6 +143,8 @@ New Features in |release|
   and
   `VictorOps <https://victorops.com/>`__.
 
+* Encrypted volumes now use the AES-256 cipher.
+
 * Netatalk has been updated to version
   `3.1.11
   <http://netatalk.sourceforge.net/3.1/ReleaseNotes3.1.11.html>`__.
