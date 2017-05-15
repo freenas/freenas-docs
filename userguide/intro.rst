@@ -145,6 +145,10 @@ New Features in |release|
 
 * Encrypted volumes now use the AES-256 cipher.
 
+* Plugin and jail templates have been updated to address
+  `CVE-2016-2107
+  <https://www.freebsd.org/security/advisories/FreeBSD-SA-16:17.openssl.asc>`__.
+
 * Netatalk has been updated to version
   `3.1.11
   <http://netatalk.sourceforge.net/3.1/ReleaseNotes3.1.11.html>`__.
