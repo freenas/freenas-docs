@@ -1281,11 +1281,11 @@ selection.
 .. note:: The train selector does not allow downgrades. For example,
    the STABLE train cannot be selected while booted into a Nightly
    boot environment, or a 9.3 train cannot be selected while booted
-   into a 9.10 boot environment. If you have been testing or running a
-   more recent version and wish to go back to an earlier version,
-   reboot and select a boot environment for that earlier version. You
-   can then use this screen to see if any updates are available for
-   that train.
+   into a 9.10 boot environment. To go back to an earlier version
+   after testing or running a more recent version, reboot and select a
+   boot environment for that earlier version. This screen can then be
+   used to check for updates that train.
+
 
 This screen also shows the URL of the official update server. That
 information can be required when using a network with outbound
