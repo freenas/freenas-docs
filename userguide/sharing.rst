@@ -1075,8 +1075,8 @@ provides more details for each configurable option.
    |                              |               |          | :numref:`Table %s <avail_vfs_modules_tab>` summarizes the available modules                                 |
    |                              |               |          |                                                                                                             |
    +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Periodic Snapshot Task       | drop-down     |          | used to configure home directory shadow copies on a per-share basis; select the pre-configured periodic     |
-   |                              | menu          |          | snapshot task to use for the share's shadow copies                                                          |
+   | Periodic Snapshot Task       | drop-down     | ✓        | used to configure directory shadow copies on a per-share basis; select the pre-configured periodic          |
+   |                              | menu          |          | snapshot task to use for the share's shadow copies; periodic snapshot must be recursive                     |
    |                              |               |          |                                                                                                             |
    +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters         | string        | ✓        | additional :file:`smb4.conf` parameters not covered by other option fields                                  |
