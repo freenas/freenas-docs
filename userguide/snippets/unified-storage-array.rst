@@ -15,195 +15,170 @@ optional Expansion Shelves for additional storage.
 #include snippets/perfect.rst
 
 
+Check the Contents of the Box
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 The %brand% Storage Array shipment comes with these components:
 
-* %brand% Storage Array
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.2\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.4\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.4\linewidth-2\tabcolsep}|
 
-.. image:: images/truenas_appliance.png
+.. table: Package Contents
+   :class: longtable
 
-
-* Up to 16 Populated 3.5" drive trays
-
-.. image:: images/tn_drive_trays.jpg
-
-
-* One pair of outer rails, left and right
-
-.. image:: images/tn_rails.jpg
-
-
-* Eight thumbscrews
-
-.. image:: images/tn_thumbscrews1.png
-   :width: 5%
-
-
-* Two short screws
-
-.. image:: images/tn_shortscrew.png
-   :width: 5%
-
-
-* Two long screws
-
-.. image:: images/tn_longscrew.png
-   :width: 7%
-
-
-* Two power cables
-
-.. image:: images/tn_power_cable.jpg
-
-
-* One serial to 3.5mm cable
-
-.. image:: images/tn_serialcable.png
++------------+------------------------------------------+-----------------------------------------+
+| Quantity   | Description                              | Image                                   |
++============+==========================================+=========================================+
+| 1          | %brand% Unified Storage Array            | .. image:: images/truenas_appliance.png |
++------------+------------------------------------------+-----------------------------------------+
+| up to 16   | Populated 3.5" drive trays               | .. image:: images/tn_drive_trays.jpg    |
++------------+------------------------------------------+-----------------------------------------+
+| 1 pair     | Outer rails, left and right              | .. image:: images/tn_rails.jpg          |
++------------+------------------------------------------+-----------------------------------------+
+| 8          | #32 Thumbscrews                          | .. image:: images/tn_thumbscrews1.png   |
+|            |                                          |    :width: 5%                           |
++------------+------------------------------------------+-----------------------------------------+
+| 2          | Short screws                             | .. image:: images/tn_shortscrew.png     |
+|            |                                          |    :width: 5%                           |
++------------+------------------------------------------+-----------------------------------------+
+| 2          | Long screws                              | .. image:: images/tn_longscrew.png      |
+|            |                                          |    :width: 7%                           |
++------------+------------------------------------------+-----------------------------------------+
+| 2          | Power cables                             | .. image:: images/tn_power_cable.jpg    |
+|            |                                          |    :width: 10%                          |
++------------+------------------------------------------+-----------------------------------------+
+| 1          | Serial to 3.5mm cable                    | .. image:: images/tn_serialcable.png    |
+|            |                                          |    :width: 10%                          |
++------------+------------------------------------------+-----------------------------------------+
+| 1          | Faceplate                                | .. image:: images/tn_bezel.png          |
++------------+------------------------------------------+-----------------------------------------+
+| 1          | Printed setup guide                      | .. image:: images/tn_setupguide.png     |
++------------+------------------------------------------+-----------------------------------------+
 
 
-* One faceplate
+.. note:: Network cables are highly configuration-dependent. Please
+   contact your iXsystems Sales Representative for any questions about
+   the included cables.
 
-.. image:: images/tn_bezel.png
-
-
-* One printed guide
-
-.. image:: images/tn_setupguide.png
+.. note: Unused drive bays must be populated with drive tray blanks to
+   maintain proper airflow.
 
 
-Network cables are highly configuration-dependent. Please contact your
-iXsystems Sales Representative for any questions about the included
-cables.
-
-Unused drive bays are populated with drive tray blanks to maintain
-proper airflow.
-
-Layout of the storage controller varies with configuration.
-:numref:`Figure %s <appliance1>` provides an example of
-the front view of the %brand% Storage Array.
-
-
-.. _appliance1:
+Become Familiar with the System
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: images/tn_appliance_front_view.jpg
 
    Front View
 
 
-There are two control panels, one on each side of the front of the
-array. The one on the left controls the primary storage controller,
-and the one on the right controls the secondary storage controller
-in High Availability models.
-
-:numref:`Figure %s <appliance2>`
-shows the layout of the front panel buttons and indicators.
-
-
-.. _appliance2:
-
 .. figure:: images/tn_appliance_front_panel.jpg
 
    Front Panel Buttons and Indicators
 
-
-:numref:`Figure %s <appliance3>`
-shows the rear view of the array. If the %brand% Storage Array is
-configured for High Availability, both storage controller slots
-are populated. In a single-controller model, the bottom slot is
-covered with a blank panel.
-
-
-.. _appliance3:
 
 .. figure:: images/tn_appliance_rear_view.jpg
 
    Rear View
 
 
-:numref:`Figure %s <appliance4>`
-shows a drive tray and the LED color indications.
-
-
-.. _appliance4:
-
 .. figure:: images/tn_drive_tray.jpg
 
    Drive Tray
 
 
-.. index:: Hardware Installation
+Mounting in an EIA Rack or Cabinet
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Hardware Installation:
+EIA racks and cabinets have either round or square holes on the
+mounting frame.
 
-Hardware Installation
-~~~~~~~~~~~~~~~~~~~~~
+.. figure:: images/tn_rack_holes.png
 
-The %brand% Storage Array slide rails work on racks with either square
-or circular hole types. Set the mounting brackets into the correct
-position for the rack type by pressing the button on the mounting
-bracket and rotating them, as shown in
-:numref:`Figure %s <appliance5>`.
-The square rack style brackets are the default. The circular hole
-style has a flat surface and screw holes.
+   Racks with Square or Round Holes
 
 
-.. _appliance5:
+Match the rail mounting bracket to the rack or cabinet holes. The
+outer rails shipped with a %brand% Array are configured for a rack or
+cabinet with square holes by default.
+
+
+.. figure:: images/tn_rails_square.png
+
+   Outer Rail Configured for Square Holes (Default)
+
+
+.. figure:: images/tn_rails_round.png
+
+   Outer Rail Configured for Round Holes
+
+
+.. caution:: The outer rails have a specific rear and front end and
+   must be installed in the correct orientation. **The front of the
+   outer rail has a black plastic rail guide to assist guiding the
+   chassis inner rail into it.** If the outer rails are not attached
+   to the rack in the correct orientation, the %brand% Array cannot be
+   mounted to them.
+
+
+Press the button and rotate the bracket on the outer rail to match the
+type of holes in the rack or cabinet as shown:
+
 
 .. figure:: images/tn_rotate_bracket.png
 
    Rotate Rackmount Bracket
 
 
-.. index:: Install %brand% Outer Rail in Rack
-
-Before installing, confirm that the rails included are long enough for
-the rack. Examine each rail to find the sides labeled *Front* and
-*Rear*.
-
-For racks with square holes, snap the mounting brackets into the
-holes at either end of the rail into the mouting holes. Make sure
-to install the rails with the end labeled *Front* toward the front
-of the rack. Refer to
-:numref:`Figure %s <appliance6>`
-for a detailed view.
+Make sure the rails are long enough for the rack or cabinet being
+used. Double-check the outer rail orientation, making sure the front
+of the outer rail is matched with the front of the rack or cabinet.
 
 
-.. _appliance6:
+.. figure:: images/tn_rail_front.png
+
+   Outer Rail Front
+
+
+.. figure:: images/tn_rail_rear.png
+
+   Outer Rail Rear
+
+
+For racks with square holes, snap the mounting brackets in the outer
+rail into the front and back of the rack frame. The brackets use a
+spring-loaded locking mechanism and do not require mounting screws.
+holes at either end of the rail into the mouting holes.
+
 
 .. figure:: images/tn_rack_square_holes.png
 
    Installing Rails in Racks with Square Holes
 
 
-For racks with round holes, secure the rails into the rack at the
-desired position using the eight thumbscrews included. Make sure to
-install the rails with the end labeled *Front* toward the front of the
-rack. Refer to
-:numref:`Figure %s <appliance7>`
-for a detailed view.
+For racks with round holes, position the rails at the desired location
+in the rack and secure them with 8 #32 thumbscrews.
 
-
-.. _appliance7:
 
 .. figure:: images/tn_rack_round_holes.png
 
    Installing Rails in Racks with Round Holes
 
 
-.. index:: Install Array into Rack
-
 The %brand% Storage Array can now be installed into the rack.
 
-.. warning:: Two people are required to lift a %brand% Storage
-   Array.
+.. caution:: Two people are required to safely install or remove the
+   %brand% Storage Array in a rack or cabinet.
 
 
-Carefully align the %brand% Storage Array inner rail with the
-notches in the outer rail. When the rails are aligned, slide the
-array toward the rack. When the array stops moving, move the
-pin-lock laches to allow the array to slide the rest of the way
-into the rack. Refer to
-:numref:`Figure %s <appliance8>`
-for a detailed view.
+Carefully align the %brand% Array inner rails with the guides in the
+outer rails attached to the rack. When aligned, slide the %brand%
+Array into the rack until it locks. Press the lock releases, then push
+the unit the rest of the way in until the front is flush with the rack
+or cabinet. Finally, secure the system to the rack with 8 #32 screws.
+It might be necessary to adjust the position of the %brand% Array to
+align the screw holes for securing the unit.
 
 
 .. _appliance8:
