@@ -119,7 +119,7 @@ summarizes the configuration options of this screen.
    | Add Extra Device | button         | used to configure multiple vdevs or to add log or cache devices during pool creation       |
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Manual setup     | button         | used to make a non-optimal pool (not recommended); see :ref:`Manual Setup` for details     |
+   | Manual setup     | button         | used to create a pool manually (not recommended); see :ref:`Manual Setup` for details      |
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
 
@@ -258,9 +258,9 @@ the details when considering whether encryption is right for your
 To create an encrypted volume, check the :guilabel:`Encryption` box
 shown in
 :numref:`Figure %s <create_zfs_pool_volman_fig>`.
-A pop-up message reminds you that
-**it is extremely important to make a backup of the key**, as without
-it the data on the disks is inaccessible. Refer to
+A pop-up message shows a reminder that
+**it is extremely important to make a backup of the key**. Without
+the key, the data on the disks is inaccessible. Refer to
 :ref:`Managing Encrypted Volumes` for instructions.
 
 
@@ -271,27 +271,31 @@ Manual Setup
 
 The :guilabel:`Manual Setup` button shown in
 :numref:`Figure %s <create_zfs_pool_volman_fig>`
-can be used to create a non-optimal ZFS volume. While this is **not**
-recommended, it can, for example, be used to create a volume
-containing disks of different sizes.
+can be used to create a ZFS volume manually. While this is **not**
+recommended, it can, for example, be used to create a non-optimal
+volume containing disks of different sizes.
 
-.. note:: When using disks of differing sizes, the volume is limited
-   by the size of the smallest disk. For this reason, it is
-   recommended to instead use :guilabel:`Volume Manager` with
-   same-size disks.
+.. note:: The usable space of each disk in a volume is limited to the
+   size of the smallest disk in the volume. Because of this, creating
+   volumes with disks of the same size through the
+   :guilabel:`Volume Manager` is recommended.
 
 
 :numref:`Figure %s <zfs_create_nonopt_vol_fig>`
-shows the :guilabel:`Manual Setup` screen and
+shows the :guilabel:`Manual Setup` screen.
 :numref:`Table %s <zfs_manual_opts_tab>`
-summarizes the available options.
+shows the available options.
 
 
 .. _zfs_create_nonopt_vol_fig:
 
 .. figure:: images/manual.png
 
-   Creating a Non-Optimal ZFS Volume
+   Manually Creating a ZFS Volume
+
+
+.. note:: Because of the disadvantages of creating volumes with disks
+   of different sizes, the displayed list of disks is sorted by size.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
