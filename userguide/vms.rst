@@ -124,10 +124,12 @@ Computing) remote connection:
    VM VNC Device
 
 
-A standard VNC client can connect to the VM to provide screen output
-and keyboard and mouse input. The VNC port number can be set to *0* or
-left empty for %brand% to assign a port when the VM is started, or set
-to a fixed, preferred port number.
+A standard
+`VNC <https://en.wikipedia.org/wiki/Virtual_Network_Computing>`__
+client can connect to the VM to provide screen output and keyboard and
+mouse input. The VNC port number can be set to *0* or left empty for
+%brand% to assign a port when the VM is started, or set to a fixed,
+preferred port number.
 
 :ref:`Zvols <Create zvol>` are used as virtual hard drives. After
 :ref:`creating a zvol <Create zvol>`, select :guilabel:`Add device`,
