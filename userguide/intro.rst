@@ -175,6 +175,11 @@ New Features in |release|
   has been added. This can be useful for monitoring
   :command:`zfs send | zfs recv` commands.
 
+* The Unison
+  `file synchronization tool
+  <http://www.cis.upenn.edu/~bcpierce/unison/>`__
+  has been added.
+
 
 #ifdef comment
 .. _Changes in |version|:
