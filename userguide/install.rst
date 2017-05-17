@@ -502,6 +502,43 @@ Caveats:
 Be aware of these caveats **before** attempting an upgrade to
 |release|:
 
+* **Warning: upgrading the ZFS pool can make it impossible to go back
+  to a previous version.** For this reason, the update process does
+  not automatically upgrade the ZFS pool, though the :ref:`Alert`
+  system shows when newer feature flags are available for a pool.
+  Unless a new feature flag is needed, it is safe to leave the pool at
+  the current version and uncheck the alert. If the pool is upgraded,
+  it will not be possible to boot into a previous version that does
+  not support the newer feature flags.
+
+* If upgrading from a version of %brand% before 9.10.2, upgrade to
+  9.10.2 first, then to %brand% 11.
+
+* The :ref:`Wizard` does not recognize an encrypted ZFS pool. If the
+  ZFS pool is GELI-encrypted and the :ref:`Wizard` starts after the
+  upgrade, cancel the :ref:`Wizard` and use the instructions in
+  :ref:`Importing an Encrypted Pool` to import the encrypted volume.
+  The :ref:`Wizard` can be run afterward for post-configuration. It
+  will then recognize that the volume has been imported and not prompt
+  to reformat the disks.
+
+* The *mps* driver for 6 G Avago SAS HBAs is version 21, which
+  requires phase 20 firmware on the host adapter. The *mpr* driver for
+  12 G Avago SAS HBAs is version 15 which requires phase 14 firmware.
+  Upgrading the firmware before installing %brand% or immediately
+  after upgrading %brand% is recommended. Follow the instructions
+  shown in :ref:`Alert`. Running older firmware can cause many
+  problems, including failure to probe all attached disks, which can
+  lead to degraded or unavailable arrays. While firmware can be
+  mismatched with a higher version and things will "probably still
+  work", there are no guarantees due to the driver and firmware
+  combination being untested.
+
+* If upgrading from 9.3.x, please read the
+  `FAQ: Upgrading from 9.3 to 9.10
+  <https://wiki.freenas.org/index.php/Frequently_Asked_Questions_(FAQ)#Upgrading_from_9.3_to_9.10>`_
+  first.
+
 * **Upgrades from** %brand% **0.7x are not supported.** The system
   has no way to import configuration settings from 0.7x versions of
   %brand%. The configuration must be manually recreated.  If
@@ -524,41 +561,6 @@ Be aware of these caveats **before** attempting an upgrade to
   to the ZFS volume. Instead, back up the data before the upgrade,
   create a ZFS volume after the upgrade, then restore the data from
   the backup.
-
-* The :ref:`Wizard` will not recognize an encrypted ZFS pool. If the
-  ZFS pool is GELI-encrypted and the :ref:`Wizard` starts after the
-  upgrade, cancel the :ref:`Wizard` and use the instructions in
-  :ref:`Importing an Encrypted Pool` to import the encrypted volume.
-  The :ref:`Wizard` can be run afterwards to use it for
-  post-configuration, and it will recognize that the volume has been
-  imported and will not prompt to reformat the disks.
-
-* **DO NOT upgrade the ZFS pool unless absolutely sure that you will
-  never want to go back to the previous version.**
-  For this reason, the update process will not automatically upgrade
-  the ZFS pool, though the :ref:`Alert` system shows when newer
-  feature flags are available for the pool. Unless you need a new
-  feature flag, it is safe to leave the ZFS pool at its current
-  version and uncheck the alert. If you do decide to upgrade the pool,
-  you will not be able to boot into a previous version that does not
-  support the newer feature flags.
-
-* The *mps* driver for 6 G Avago SAS HBAs is version 21, which
-  requires phase 20 firmware on the host adapter. The *mpr* driver
-  for 12 G Avago SAS HBAs is version 15 which requires phase 14
-  firmware. It is recommended to upgrade the firmware before
-  installing %brand% or immediately after upgrading %brand%. Follow
-  the instructions shown in :ref:`Alert`. Running older firmware can
-  cause many problems, including failure to probe all attached disks,
-  which can lead to degraded or unavailable arrays. While firmware
-  can be mismatched with a higher version and things will "probably
-  still work", there are no guarantees due to the driver and firmware
-  combination being untested.
-
-* If upgrading from 9.3.x, please read the
-  `FAQ: Upgrading from 9.3 to 9.10
-  <https://wiki.freenas.org/index.php/Frequently_Asked_Questions_(FAQ)#Upgrading_from_9.3_to_9.10>`_
-  first.
 
 
 .. _Initial Preparation:
