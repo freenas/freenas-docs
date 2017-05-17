@@ -97,6 +97,12 @@ New Features in |release|
   <http://open-zfs.org/wiki/Feature_Flags>`__,
   the *skein* and *SHA512* hash functions.
 
+* The Ports version of SSH has been updated to 7.4p1 to address
+  `CVE-2016-10012
+  <https://nvd.nist.gov/vuln/detail/CVE-2016-10012>`__.
+  Please use the :file:`/usr/local/bin/ssh` and
+  :file:`/usr/local/bin/sshd` binaries.
+
 * Python has been updated to version 3.6.1.
 
 * The :command:`sas3flash` firmware upgrade tool for
