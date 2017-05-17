@@ -157,6 +157,14 @@ New Features in |release|
   `CVE-2016-2107
   <https://www.freebsd.org/security/advisories/FreeBSD-SA-16:17.openssl.asc>`__.
 
+* A new :ref:`VMs` (Virtual Machines) feature has been added. Based on
+  `bhyve(8) <https://www.freebsd.org/cgi/man.cgi?query=bhyve>`__,
+  it offers support for BSDs (FreeBSD, OpenBSD, NetBSD), Linux
+  (including CentOS, Debian, Fedora, OpenSUSE, Ubuntu), SmartOS,
+  Windows, and Windows Server. Future versions will include additional
+  features like VM templates, hardware pass-through, and UEFI screen
+  resolution adjustment.
+
 * Netatalk has been updated to version
   `3.1.11
   <http://netatalk.sourceforge.net/3.1/ReleaseNotes3.1.11.html>`__.
@@ -165,8 +173,8 @@ New Features in |release|
   `4.6.3
   <https://www.samba.org/samba/history/samba-4.6.3.html>`__.
 
-* The new :ref:`S3` service has been added, allowing a %brand% system to
-  provide S3 file sharing.
+* The new :ref:`S3` service has been added, allowing the %brand%
+  system to provide S3 file sharing.
 
 * The Mosh
   `mobile shell <https://mosh.org/>`__
