@@ -74,8 +74,10 @@ VM configuration options are described in
    | Description       | string         | a short description of the VM or its purpose                                       |
    |                   |                |                                                                                    |
    +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Virtual CPUs      | integer        | quantity of virtual CPUs allocated to the VM                                       |
-   |                   |                |                                                                                    |
+   | Virtual CPUs      | integer        | quantity of virtual CPUs allocated to the VM, up to 16; although these are         |
+   |                   |                | virtual and not strictly related to host processor cores, the host CPU might       |
+   |                   |                | limit the maximum number; the operating system used in the VM might also have      |
+   |                   |                | operational or licensing restrictions on the number of CPUs allowed                |
    +-------------------+----------------+------------------------------------------------------------------------------------+
    | Memory Size (MiB) | integer        | megabytes of RAM allocated to the VM                                               |
    |                   |                |                                                                                    |
