@@ -163,6 +163,9 @@ New Features in |release|
   `CVE-2016-2107
   <https://www.freebsd.org/security/advisories/FreeBSD-SA-16:17.openssl.asc>`__.
 
+* Plugins are transitioning from the old Warden system to
+  `iocage <https://github.com/iocage/iocage>`__.
+
 * A new :ref:`VMs` (Virtual Machines) feature has been added. Based on
   `bhyve(8) <https://www.freebsd.org/cgi/man.cgi?query=bhyve>`__,
   it offers support for BSDs (FreeBSD, OpenBSD, NetBSD), Linux
