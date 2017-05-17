@@ -150,6 +150,9 @@ New Features in |release|
 
 * Encrypted volumes now use the AES-256 cipher.
 
+* An enhanced :ref:`Services` screen adds a checkbox to directly set
+  which services start at boot.
+
 * Plugin and jail templates have been updated to address
   `CVE-2016-2107
   <https://www.freebsd.org/security/advisories/FreeBSD-SA-16:17.openssl.asc>`__.
