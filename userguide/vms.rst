@@ -46,7 +46,7 @@ shown in
 
 .. _vms_add_fig:
 
-.. figure:: images/vms-add.png
+.. figure:: images/vms-add1.png
 
    Add VM
 
@@ -61,7 +61,7 @@ VM configuration options are described in
 
 .. _vms_add_opts_tab:
 
-.. table:: Options When Adding a VM
+.. table:: VM Options
    :class: longtable
 
    +-------------------+----------------+------------------------------------------------------------------------------------+
@@ -84,6 +84,9 @@ VM configuration options are described in
    +-------------------+----------------+------------------------------------------------------------------------------------+
    | Boot Method       | drop-down menu | *UEFI* for newer operating systems, or *UEFI-CSM* (Compatibility Support Mode) for |
    |                   |                | older operating systems that only understand BIOS booting                          |
+   |                   |                |                                                                                    |
+   +-------------------+----------------+------------------------------------------------------------------------------------+
+   | Autostart         | checkbox       | start the VM automatically on boot                                                 |
    |                   |                |                                                                                    |
    +-------------------+----------------+------------------------------------------------------------------------------------+
 
