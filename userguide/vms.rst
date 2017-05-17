@@ -160,6 +160,18 @@ installation image is shown:
    VM CD-ROM Device
 
 
+.. note:: VMs from other virtual machine systems can be recreated for
+   use in %brand%. Back up the original VM, then create a new %brand%
+   VM with virtual hardware as close as possible to the original VM.
+   Binary-copy the disk image data into the :ref:`zvol <Create zvol>`
+   created for the %brand% VM with a tool that operates at the level
+   of disk blocks, like
+   `dd(1) <https://www.freebsd.org/cgi/man.cgi?query=dd>`__.
+   For some VM systems, it is best to back up data, install the
+   operating system from scratch in a new %brand% VM, and restore the
+   data into the new VM.
+
+
 .. index:: Running VMs
 .. _Running VMs:
 
