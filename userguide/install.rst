@@ -511,9 +511,6 @@ Be aware of these caveats **before** attempting an upgrade to
   it will not be possible to boot into a previous version that does
   not support the newer feature flags.
 
-* If upgrading from a version of %brand% before 9.10.2, upgrade to
-  9.10.2 first, then to %brand% 11.
-
 * The :ref:`Wizard` does not recognize an encrypted ZFS pool. If the
   ZFS pool is GELI-encrypted and the :ref:`Wizard` starts after the
   upgrade, cancel the :ref:`Wizard` and use the instructions in
