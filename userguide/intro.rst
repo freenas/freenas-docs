@@ -126,7 +126,7 @@ New Features in |release|
 
 * The :ref:`login dialog <quick_enter_root_pass_fig>` now has a link
   to try a preliminary version of the new
-  `Angular.js-based <https://angular.io/>`__
+  `Angular-based <https://angular.io/>`__
   GUI. Click on :guilabel:`Demo our upcoming UI!` to try it.
 
 * An option to save the encryption seed has been added to the
