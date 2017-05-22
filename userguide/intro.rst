@@ -245,7 +245,7 @@ has performance tips from %brand% users and is a place to post
 questions regarding the hardware best suited to meet specific
 requirements.
 `Hardware Recommendations
-<https://forums.freenas.org/index.php?threads/hardware-recommendations-read-this-first.23069/>`__
+<https://forums.freenas.org/index.php?resources/hardware-recommendations-guide.12/>`__
 gives detailed recommendations for system components, with the
 `FreeNAS® Quick Hardware Guide
 <https://forums.freenas.org/index.php?resources/freenas-quick-hardware-guide.7>`__
