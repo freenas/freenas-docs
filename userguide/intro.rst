@@ -25,7 +25,7 @@ This Guide covers the installation and use of %brand% |release|.
 The %brand% User Guide is a work in progress and relies on the
 contributions of many individuals. If you are interested in helping us
 to improve the Guide, read the instructions in the `README
-<https://github.com/freenas/freenas/blob/master/docs/userguide/README.md>`_.
+<https://github.com/freenas/freenas-docs/blob/master/README.md>`__.
 IRC Freenode users are welcome to join the *#freenas* channel
 where you will find other %brand% users.
 
