@@ -89,7 +89,7 @@ add *.local* after the hostname.
 .. _system_info_fig:
 
 #ifdef freenas
-.. figure:: images/system-information.png
+.. figure:: images/system-information1.png
 
    System Information Tab
 #endif freenas
@@ -1216,7 +1216,7 @@ screen.
 .. _update_options_fig:
 
 #ifdef freenas
-.. figure:: images/update1f.png
+.. figure:: images/system-update.png
 
    Update Options
 #endif freenas
