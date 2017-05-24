@@ -15,3 +15,5 @@ printf "in .rst only\t\t\tin imagesdir only\t\tin both\n"
 printf "(missing image)\t\t\t(possibly obsolete)\t\t(probably okay)\n"
 printf "______________________________\t______________________________\t______________________________\n"
 comm ${TMPUSED} ${TMPIMG} | perl -pe 's/\t/\t\t\t\t/g;'
+
+rm ${TMPIMG} ${TMPUSED}
