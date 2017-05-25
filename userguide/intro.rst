@@ -207,6 +207,10 @@ New Features in |release|
   <http://www.cis.upenn.edu/~bcpierce/unison/>`__
   has been added.
 
+* The :ref:`Alert` about mismatching driver and firmware versions for
+  Avago disk controllers has been removed as unnecessary. Driver and
+  firmware versions no longer correspond.
+
 
 #ifdef comment
 .. _Changes in |version|:
@@ -374,6 +378,9 @@ enabling AHCI in the BIOS.
 Reliable disk alerting and immediate reporting of a failed drive can
 be obtained by using an HBA such as an Avago MegaRAID controller or a
 3Ware twa-compatible controller.
+
+.. note:: Upgrading the firmware of Avago SAS HBAs to the latest
+   version is recommended.
 
 .. index:: Highpoint RAID
 
