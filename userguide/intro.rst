@@ -156,6 +156,13 @@ New Features in |release|
 
 * Encrypted volumes now use the AES-256 cipher.
 
+* A new :ref:`Active Directory` :guilabel:`Enable Monitoring` option
+  has been added. When enabled, this restarts the Active Directory
+  service after a temporary loss of communications with an Active
+  Directory server. Previously, a loss of communications with the AD
+  server would stop the Active Directory service, requiring a manual
+  restart.
+
 * An enhanced :ref:`Services` screen adds a checkbox to directly set
   which services start at boot.
 
