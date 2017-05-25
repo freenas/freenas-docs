@@ -182,8 +182,8 @@ small enough to fit into L2ARC, read performance can be increased by
 adding a dedicated cache device. SSD cache devices only help if the
 active data is larger than system RAM but small enough that a
 significant percentage fits on the SSD. As a general rule, L2ARC
-should not be added to a system with less than 64 GB of RAM, and the
-size of an L2ARC should not exceed five times the amount of RAM. In
+should not be added to a system with less than 32 GB of RAM, and the
+size of an L2ARC should not exceed ten times the amount of RAM. In
 some cases, it may be more efficient to have two separate pools: one
 on SSDs for active data, and another on hard drives for rarely used
 content. After adding an L2ARC device, monitor its effectiveness using
