@@ -1686,6 +1686,27 @@ multiplexes a target with multiple LUNs over the same TCP connection,
 there can be TCP contention when more than one target accesses the
 same LUN. %brand% supports up to 1024 LUNs.
 
+#ifdef truenas
+**ALUA:** *Asymmetric Logical Unit Access* allows a client computer to
+discover the best path to the storage on a %brand% system. HA storage
+clusters can provide multiple paths to the same storage. For example,
+the disks are directly connected to the primary computer and provide
+high speed and bandwidth when accessed through that primary computer.
+The same disks are also available through the secondary computer, but
+because they are not directly connected to it, speed and bandwidth are
+restricted. With ALUA, clients automatically ask for and use the best
+path to the storage. If one of the %brand% HA computers becomes
+inaccessible, the clients automatically switch to the next best
+alternate path to the storage. When a better path becomes available,
+as when the primary host becomes available again, the clients
+automatically switch back to that better path to the storage.
+
+.. note:: Do not enable ALUA on %brand% unless it is supported by
+      and enabled on the client computers also. ALUA only works
+      properly when enabled on both the client and server.
+#endif truenas
+
+
 In %brand%, iSCSI is built into the kernel. This version of iSCSI
 supports
 `Microsoft Offloaded Data Transfer (ODX)
@@ -1754,11 +1775,18 @@ Entities not updated during this period are unregistered. The timeout
 for iSNS requests is 5 seconds.
 
 
+#ifdef freenas
 .. _iscsi_targ_global_var_fig:
-
 .. figure:: images/global1c.png
 
    iSCSI Target Global Configuration Variables
+#endif freenas
+#ifdef truenas
+.. _iscsi_targ_global_var_fig:
+.. figure:: images/tn_iscsi_target_global.png
+
+  iSCSI Target Global Configuration Variables
+#endif truenas
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -1787,6 +1815,11 @@ for iSNS requests is 5 seconds.
    |                                 |                              | is reached, the system issues an alert, but only if zvols are used; see :ref:`VAAI`       |
    |                                 |                              | Threshold Warning                                                                         |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
+#ifdef truenas
+   | Enable iSCSI ALUA               | checkbox                     | enable ALUA for automatic best path discovery when supported by clients; this option      |
+   |                                 |                              | is only available on HA systems                                                           |
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
+#endif truenas
 
 
 .. _Portals:
