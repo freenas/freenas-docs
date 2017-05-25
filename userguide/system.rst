@@ -1231,11 +1231,25 @@ By default, the system automatically checks for updates and issues an
 alert when a new update becomes available. The automatic check can be
 disabled by unchecking :guilabel:`Automatically check for updates`.
 
+This screen lists the URL of the official update server in case that
+information is needed in a network with outbound firewall
+restrictions. It also shows which software branch, or *train*, is
+being tracked for updates.
+
+Several trains are available for updates.
+
+.. caution:: **Only Production trains are recommended for regular
+   usage.** Other trains are made available for pre-production testing
+   and updates of legacy versions. Pre-production testing trains are
+   provided only to permit testing of new versions before switching to
+   a new branch. Before using a non-production train, be prepared to
+   experience bugs or problems. Testers are encouraged to submit bug
+   reports at `<https://bugs.freenas.org/>`__.
+
+
+These trains are available:
+
 #ifdef freenas
-This screen also shows which software branch, or *train*, is being
-tracked for updates. These trains are available:
-
-
 **For Production Use**
 
 * **FreeNAS-9.10-STABLE** (Recommended)
@@ -1292,22 +1306,20 @@ information can be required when using a network with outbound
 firewall restrictions.
 #endif freenas
 #ifdef truenas
-This screen lists the URL of the official update server in case that
-information is needed in a network with outbound firewall
-restrictions. It also indicates which software branch, or *train*,
-is being tracked for updates. These trains are available:
+**For Production Use**
 
-* **TrueNAS-9.10-STABLE:**  this is the
-  **recommended train for production use**. Once new fixes and
-  features have been tested as production-ready, they are added to
-  this train. It is recommended to follow this train and to apply any
-  of its pending updates.
+* **TrueNAS-9.10-STABLE** (Recommended)
 
-* **TrueNAS-9.3-STABLE:** this is the maintenance-only mode for an
-  older version of %brand%. Unless an iX support engineer indicates
-  otherwise, it is recommended to upgrade to *TrueNAS-9.10-STABLE*, by
-  selecting that train, to ensure that the system receives bug fixes
-  and new features.
+  After new fixes and features have been tested as production-ready,
+  they are added to this train. It is recommended to follow this train
+  and to apply any of its pending updates.
+
+**Legacy Versions**
+
+* **TrueNAS-9.3-STABLE**
+
+  Maintenance-only updates for an older version of %brand%. Use this
+  train only at the recommendation of an iX support engineer.
 #endif truenas
 
 The :guilabel:`Verify Install` button verifies that the operating
