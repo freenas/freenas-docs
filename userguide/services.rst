@@ -232,7 +232,7 @@ summarizes the available options.
 
 .. _domain_controller_settings_fig:
 
-.. figure:: images/directory1a.png
+.. figure:: images/services-domain-controller.png
 
    Domain Controller Settings
 
