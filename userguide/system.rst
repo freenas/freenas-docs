@@ -2432,4 +2432,10 @@ summarizes the options for this command.
    | :literal:`-q`       | prevent status display if this is a non-HA node                                             |
    |                     |                                                                                             |
    +---------------------+---------------------------------------------------------------------------------------------+
+
+
+.. tip:: The %brand% version of the :command:`ifconfig` command adds
+   two additional fields to the output to help with failover
+   troubleshooting: :samp:`CriticalGroup{n}` and :samp:`Interlink`.
+
 #endif truenas
