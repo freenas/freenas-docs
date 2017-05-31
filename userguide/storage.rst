@@ -1465,7 +1465,7 @@ state of the RAID.
    a stripe fails, the volume will be destroyed and must be recreated
    and the data restored from backup.
 
-.. note:: If your pool is encrypted with GELI, refer to
+.. note:: If the volume is encrypted with GELI, refer to
    :ref:`Replacing an Encrypted Drive` before proceeding.
 
 
@@ -1477,14 +1477,14 @@ several icons, one of which is :guilabel:`Volume Status`. Click the
 perform these steps:
 
 #ifdef freenas
-#.  If the disk is formatted with ZFS, click the disk's entry then its
-    :guilabel:`Offline` button in order to change that disk's status
-    to OFFLINE. This step is needed to properly remove the device from
-    the ZFS pool and to prevent swap issues. If the hardware supports
-    hot-pluggable disks, click the disk's :guilabel:`Offline` button,
-    pull the disk, then skip to step 3. If there is no
-    :guilabel:`Offline` button but only a :guilabel:`Replace` button,
-    the disk is already offlined and you can safely skip this step.
+#.  Click the disk's entry, then its :guilabel:`Offline` button to
+    change the disk status to OFFLINE. This step is needed to properly
+    remove the device from the ZFS pool and to prevent swap issues. If
+    the hardware supports hot-pluggable disks, click the disk's
+    :guilabel:`Offline` button and pull the disk, then skip to step 3.
+    If there is no :guilabel:`Offline` button but only a
+    :guilabel:`Replace` button, the disk is already offlined and this
+    step can be skipped.
 #endif freenas
 #ifdef truenas
 #.  Click the disk's entry, then its :guilabel:`Offline` button to
@@ -1492,8 +1492,8 @@ perform these steps:
     properly remove the device from the ZFS pool and to prevent swap
     issues. Click the disk's :guilabel:`Offline` button and pull the
     disk. If there is no :guilabel:`Offline` button but only a
-    :guilabel:`Replace` button, the disk is already offlined and you
-    can safely skip this step.
+    :guilabel:`Replace` button, the disk is already offlined and this
+    step can be skipped.
 #endif truenas
 
     .. note:: If the process of changing the disk's status to OFFLINE
