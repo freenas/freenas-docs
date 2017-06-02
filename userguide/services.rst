@@ -1514,6 +1514,13 @@ Troubleshooting SMB
 ~~~~~~~~~~~~~~~~~~~
 
 #ifdef freenas
+Do not connect to SMB shares as :literal:`root`, and do not add the
+root user in the SMB user database. There are security implications in
+attempting to do so, and Samba 4 and later take measures to
+prevent such actions. This can produce
+:literal:`auth_check_ntlm_password` and
+:literal:`FAILED with error NT_STATUS_WRONG_PASSWORD` errors.
+
 Samba is single threaded, so CPU speed makes a big difference in SMB
 performance. A typical 2.5Ghz Intel quad core or greater should be
 capable of handling speeds in excess of Gb LAN while low power CPUs

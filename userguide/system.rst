@@ -1179,6 +1179,7 @@ necessary, and that interchanging the devices with some other system
 using an older ZFS version is not needed. After a ZFS version upgrade,
 the storage devices will not be accessible by older versions of
 %brand%.
+#endif truenas
 
 
 .. _Updates and Trains:
@@ -1199,6 +1200,7 @@ upgrade file and the associated checksum to verify file integrity.
 shows an example of the
 :menuselection:`System --> Update`
 screen.
+
 
 .. _update_options_fig:
 
@@ -1339,9 +1341,8 @@ Notes in the browser.
 .. figure:: images/update2a.png
 
    Reviewing Updates
-
-
 #endif freenas
+
 #ifdef truenas
 To see if any updates are available, click the :guilabel:`Check Now`
 button. Any available updates are listed.
