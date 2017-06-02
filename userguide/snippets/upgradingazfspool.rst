@@ -16,19 +16,19 @@ first:
   does not support those feature flags.**
 
 * before performing any operation that may affect the data on a
-  storage disk, **always back up your data first and verify the
+  storage disk, **always back up all data first and verify the
   integrity of the backup.**
   While it is unlikely that the pool upgrade will affect the data,
   it is always better to be safe than sorry.
 
-* upgrading a ZFS pool is **optional**. It is not necessary to
-  upgrade the pool if you do not need newer feature flags or if you
-  want to keep the possibility of reverting to an earlier version
-  of %brand% or repurposing the disks in another operating system
-  that supports ZFS. If you decide to upgrade the pool to the
-  latest feature flags, it will not be possible to import that pool
-  into another operating system that does not yet support those
-  feature flags.
+* upgrading a ZFS pool is **optional**. Do not upgrade the pool if the
+  the possibility of reverting to an earlier version of %brand% or
+  repurposing the disks in another operating system that supports ZFS
+  is desired. It is not necessary to upgrade the pool unless newer ZFS
+  feature flags are required. If a pool is upgraded to the latest
+  feature flags, it will not be possible to import that pool into
+  another operating system that does not yet support those feature
+  flags.
 
 To perform the ZFS pool upgrade, go to
 :menuselection:`Storage --> Volumes --> View Volumes`
@@ -48,8 +48,8 @@ and highlight the volume (ZFS pool) to upgrade. Click the
    Upgrading a ZFS Pool
 
 
-The warning reminds you that a pool upgrade is irreversible. Click
-:guilabel:`OK` to proceed with the upgrade.
+The warning serves as a reminder that a pool upgrade is not
+reversible. Click :guilabel:`OK` to proceed with the upgrade.
 
 The upgrade itself only takes a few seconds and is non-disruptive.
 It is not necessary to stop any sharing services to upgrade the

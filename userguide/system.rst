@@ -1181,19 +1181,6 @@ the storage devices will not be accessible by older versions of
 %brand%.
 
 
-.. _HA Updates:
-
-HA Updates
-~~~~~~~~~~
-
-In HA (High Availability) systems, online upgrades usually cause a
-single failover event in each node. As the master node is updated, it
-fails over to the secondary node. Then the secondary node is updated,
-causing a failover back to the original master. These failovers cause
-short disruptions, usually less than 30 seconds for each.
-#endif truenas
-
-
 .. _Updates and Trains:
 
 Updates and Trains
@@ -1434,10 +1421,6 @@ If the %brand% array has been configured for High Availability
 the update is complete, the standby node will automatically reboot.
 Wait for it to come back up by monitoring the remote console or the
 graphical administrative interface of the standby node.
-
-At this point, the active node may issue an alert indicating that
-there is a firmware version mismatch. This is expected when an
-update also updates the HBA version.
 
 After the standby node has finished booting, it is important to
 perform a failover by rebooting the current active node. This action
