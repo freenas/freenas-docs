@@ -28,9 +28,9 @@ copyright = '2011-2017, iXsystems'
 # the built documents.
 #
 # The full version number, like "9.10.2-U2"
-version = '11.0-RC4'
+version = '11.0'
 # The shorter feature branch version number, like "9.10.2"
-release = '11.0-RC4'
+release = '11.0'
 if tags.has('truenas'):
     version = '9.10.3'
     release = '9.10.3'
