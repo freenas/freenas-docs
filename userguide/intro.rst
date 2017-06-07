@@ -187,11 +187,8 @@ New Features in |release|
   <http://netatalk.sourceforge.net/3.1/ReleaseNotes3.1.11.html>`__.
 
 * Samba has been updated to version
-  `4.6.4
-  <https://www.samba.org/samba/history/samba-4.6.4.html>`__.
-  This version addresses
-  `CVE-2017-7494: Remote code execution from a writable share
-  <https://www.samba.org/samba/security/CVE-2017-7494.html>`__.
+  `4.6.5
+  <https://www.samba.org/samba/history/samba-4.6.5.html>`__.
 
 * The new :ref:`S3` service has been added, allowing the %brand%
   system to provide S3 file sharing.
