@@ -380,6 +380,8 @@ A series of instructional videos are available for %brand%:
 * `FreeNAS® 9.10 LAGG & VLAN Overview
   <https://www.youtube.com/watch?v=wqSH_uQSArQ>`_
 
+* `FreeNAS 9.10 and Samba (SMB) Permissions
+  <https://www.youtube.com/watch?v=RxggaE935PM>`_
 
 .. index:: Professional Support
 .. _Professional Support:
