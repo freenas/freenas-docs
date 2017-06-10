@@ -66,21 +66,21 @@ Other services default to off until started.
    Control Services
 
 
-A service is stopped if its icon is a red :guilabel:`OFF`. A service
-is running if the icon is a blue :guilabel:`ON`. To start or stop a
-service, click the :guilabel:`ON`/:guilabel:`OFF` icon.
+A service is stopped if its icon is a red light and its control button
+displays :guilabel:`Start Now`. A service is running if the icon is a green
+light and its control button displays  :guilabel:`Stop Now`. To start or stop
+a service, click its :guilabel:`Start Now` or :guilabel:`Stop Now` button.
 
 To configure a service, click the wrench icon associated with the
 service or click the name of the service in the :guilabel:`Services`
 section of the tree menu.
 
-If a service does not start, go to
-:menuselection:`System --> Advanced`
-and check the box :guilabel:`Show console messages in the footer`.
-Console messages will now show at the bottom of the browser. Clicking
-the console messages area will make it into a pop-up window, allowing
-scrolling through the output and copying messages. Watch these
-messages for errors when stopping or starting the problematic service.
+If a service does not start, go to :menuselection:`System --> Advanced` and
+check the box :guilabel:`Show console messages in the footer`.  Console
+messages will now show at the bottom of the browser. Clicking the console
+messages area will display a pop-up window, allowing scrolling through the
+output and copying messages. Watch these messages for errors when stopping or
+starting the problematic service.
 
 To read the system logs for more information about a service failure,
 open :ref:`Shell` and type :command:`more /var/log/messages`.
@@ -621,11 +621,11 @@ To configure anonymous FTP:
     * :guilabel:`Path`: browse to the volume/dataset/directory to be
       shared
 
-#.  Start the FTP service in
-    :menuselection:`Services --> Control Services`.
-    Click the red :guilabel:`OFF` button next to :guilabel:`FTP`.
-    After a second or so, it will change to a blue :guilabel:`ON`,
-    indicating that the service has been enabled.
+#.  Start the FTP service in :menuselection:`Services --> Control Services`.
+    Click the :guilabel:`Start Now` button next to :guilabel:`FTP`.  After a
+    second or so, the service's icon will change from red to green and the
+    control button will change to :guilabel:`Stop Now`, indicating that the
+    service has been enabled.
 
 #.  Test the connection from a client using a utility such as
     `Filezilla <https://filezilla-project.org/>`_.
@@ -715,11 +715,11 @@ To configure this scenario:
 
     * check the box :guilabel:`Always Chroot`
 
-#.  Start the FTP service in
-    :menuselection:`Services --> Control Services`.
-    Click the red :guilabel:`OFF` button next to FTP. After a second
-    or so, it will change to a blue :guilabel:`ON`, indicating that
-    the service has been enabled.
+#.  Start the FTP service in :menuselection:`Services --> Control Services`.
+    Click the :guilabel:`Start Now` button next to :guilabel:`FTP`.  After a
+    second or so, the service light  will change from red to green and the
+    control button will change to :guilabel:`Stop Now`, indicating that the
+    service has been enabled.
 
 #.  Test the connection from a client using a utility such as
     Filezilla.
