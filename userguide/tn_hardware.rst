@@ -19,6 +19,8 @@ individually below.
 
 #include snippets/unified-storage-array.rst
 
+#include snippets/x10.rst
+
 #include snippets/e16.rst
 
 #include snippets/e24.rst

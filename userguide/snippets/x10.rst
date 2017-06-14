@@ -1,0 +1,279 @@
+.. index:: X10 Unified Storage Array
+
+.. _X10 Unified Storage Array:
+
+X10 Unified Storage Array
+-------------------------
+
+The %brand% X10 Unified Storage Array is a 2U, 36-bay hybrid NAS
+control system.
+
+
+#include snippets/perfect.rst
+
+
+.. index:: X10 Unified Storage Array Contents
+
+Carefully unpack the shipping boxes and locate these components:
+
+
+* One %brand% X10 Unified Storage Array
+
+  .. image:: images/tn_x10.png
+     :width: 50%
+
+
+* One faceplate
+
+  .. image:: images/tn_x10_faceplate.png
+     :width: 50%
+
+
+* One rail kit with mounting hardware
+
+  .. image:: images/tn_x10_railkit.png
+     :width: 50%
+
+
+* Up to 12 populated drive trays
+
+  .. image:: images/tn_x10_traywithdrive.png
+     :width: 30%
+
+  .. note:: Unused drive bays must be populated with drive tray blanks
+     to maintain proper airflow for cooling.
+
+
+* Two power cords
+
+  .. image:: images/tn_power_cable.png
+     :width: 20%
+
+
+* One USB to 3.5mm cable
+
+  .. image:: images/tn_x10_serialcable.png
+     :width: 20%
+
+
+* This printed guide
+
+
+.. note:: Network cables vary by configuration and are not listed.
+   Contact your iXsystems Account Manager with any questions.
+
+
+.. index:: Become Familiar with the System
+.. _Become Familiar with the System:
+
+Become Familiar With the System
+-------------------------------
+
+.. index:: X10 Front View
+.. _X10 Front View:
+
+Front view of the array:
+
+.. _x10_front:
+
+.. figure:: images/tn_x10_front_view.png
+
+   Front View
+
+
+Front panel buttons and indicators:
+
+.. _x10_buttons:
+
+.. figure:: images/tn_x10_buttons.png
+
+   Buttons and Indicators
+
+
+The back panel of the X10 is shown in
+:numref:`Figure %s <x10_back>`:
+
+.. _x10_back:
+
+.. figure:: images/tn_x10_back.png
+
+   Back Panel
+
+
+The X10 can contain two nodes in a side-by-side configuration. The
+ports on each node, from left to right, are:
+
+* two GbE network ports; underneath these ports are two USB 2.0 ports
+
+* Out of Band (OOB) management ports
+
+* two HDmini SAS3 ports
+
+* a PCIe mezzanine expansion port
+
+* a 3.5mm serial port
+
+
+Underneath the ports are two redundant power supplies.
+
+Drive trays like those shown in
+:numref:`Figure %s <x10_tray>`
+are used to mount drives in the array:
+
+
+.. _x10_tray:
+
+.. figure:: images/tn_x10_tray.png
+
+   Drive Tray
+
+
+Each drive tray has a status LED which is blue when active, or amber
+if a fault has occurred.
+
+
+.. index:: Rail Kit Assembly
+
+Rail Kit Assembly
+-----------------
+
+.. _x10_rails:
+
+.. figure:: images/tn_x10_rails.png
+
+   Rails
+
+
+.. caution:: The rails have a specific front and rear as shown in
+   :numref:`Figure %s <x10_rails>`.
+   The rails must be attached in the correct orientation to properly
+   mount the unit in a rack.
+
+
+(Will it arrive with the inner rails already attached to the chassis?)
+
+Mount the Outer Rails
+~~~~~~~~~~~~~~~~~~~~~
+
+Open the clamp latches on the ends of each rail.
+:numref:`Figure %s <x10_rail_clamp>`
+shows a clamp in the open position:
+
+.. _x10_rail_clamp:
+
+.. figure:: images/tn_x10_rail_clamp.png
+
+   Rail Clamp
+
+
+Place the rail in the rack, aligning the pins on both ends of the rail
+with the mounting holes in the rack. Rotate the clamp latches toward
+the rack, locking the rail in place. Repeat for the second rail on the
+other side of the rack.
+
+
+Mount the Unit in the Rack
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. caution:: Two people are required to safely install the %brand%
+   array in a rack or cabinet, or to remove it.
+
+Carefully place the inner rails on the sides of the X10 chassis on the
+outer rails mounted in the rack. With the rails aligned, push the X10
+chassis in until it is flush with the front of the rack. Secure the
+chassis in place with the supplied screws.
+
+
+.. _x10_rack:
+.. figure:: images/tn_x10_rack.png
+
+   Mounting the X10 in a Rack
+
+
+Installing Drive Trays
+----------------------
+
+Install the drive trays into the X10 unit.
+
+
+Installing Expansion Shelves
+----------------------------
+
+If expansion shelves are to be used with the X10, please refer to the
+installation instructions supplied with them.
+
+
+Cabling
+-------
+
+Connect the network cables and Out of Band (OOB) management port
+before attempting to power on and configure the %brand% X10 array for
+the the first time. If the system was preconfigured by iXsystems, the
+Out of Band management interface has already been configured.
+Otherwise, it must be configured before use. Please see the %brand%
+User Guide at `<http://support.iXsystems.com>`__.
+
+If it is not possible to configure the Out of Band management before
+the initial configuration, connect the provided 3.5mm serial cable to
+the 3.5mm jack on the back of the unit. Connect the USB end of the
+cable to a laptop or desktop computer running serial terminal
+software. Set the terminal software to 38400 baud, 8 data bits, no
+stop bits, no parity, and no flow control. (The serial connection then
+allows configuration of an IP address and some other stuff so the OOB
+management port can be used?)
+
+When connecting through the Out of Band management port, an IP address
+is obtained from DHCP.
+
+Username: **sysadmin**
+
+Password: **superuser**
+
+After booting, the IP address of the %brand% web GUI is shown on the
+system console, visible through the Out of Band management system.
+
+
+Connecting Power Cords
+----------------------
+
+If any %brand% Expansion Shelves are connected to the X10 array, power
+them on first, then wait at least two minutes before connecting power
+cables to the X10 array.
+
+.. note:: Do not plug the power cords into a power outlet yet.
+
+Plug a power cord into the back of one power supply, pressing it into
+the plastic clamp and pressing on the tab to lock it in place. See
+:numref:`Figure %s <x10_power>`:
+
+.. _x10_power:
+.. figure:: images/tn_x10_power_clip.png
+
+   X10 Power Cord Connection
+
+
+Repeat the process for the second power supply and cord. After both
+cords have been connected to the X10, they can be connected to power
+outlets.
+
+The %brand% X10 Array is configured to automatically power on when
+connected to a power outlet. This design ensures that the X10
+automatically comes back on when power is restored after a power
+failure.
+
+
+Optional: Install the Bezel
+---------------------------
+
+The %brand% X10 comes with bezel installation ears on the left and
+right side of the system. Make sure these ears are present, then align
+the bezel with the pins and press it into place.
+
+
+Perform %brand% Initial Software Configuration
+--------------------------------------------------------
+
+If the %brand% X10 was preconfigured by iXsystems, enter the chosen IP
+address into a web browser on a computer on the same network. If the
+X10 was not preconfigured, please contact a %brand% Support
+Representative.
