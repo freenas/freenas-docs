@@ -112,8 +112,10 @@ Some of the conditions that trigger an alert include:
 
 * if VMware failed to log in (usually preceding a VMware snapshot)
 
-.. note:: Alerts which could be related to a hardware issue
-   automatically create a support ticket if the system is connected to
-   the internet. These include a ZFS pool status change, a multipath
-   failure, a failed S.M.A.R.T. test, and a failed re-key operation.
+.. note:: If :ref:`Proactive Support` is enabled with Silver or Gold
+   support coverage, and there is an internet connection, alerts which
+   can indicate a hardware issue automatically create a support ticket
+   with iXsystems Support. These alerts include a ZFS pool status
+   change, a multipath failure, a failed S.M.A.R.T. test, and a failed
+   re-key operation.
 #endif truenas
