@@ -34,6 +34,10 @@ Carefully unpack the shipping boxes and locate these components:
   .. image:: images/tn_x10_railkit.png
      :width: 50%
 
+  .. caution:: The rails have a specific front end, shown on the left
+     here. They must be attached to the rack with the front end of the
+     rails toward the front of the rack.
+
 
 * Up to 12 populated drive trays
 
@@ -76,18 +80,18 @@ Front view of the array:
 
 .. _x10_front:
 
-.. figure:: images/tn_x10_front_view.png
+.. figure:: images/tn_x10_front.png
 
    Front View
 
 
-Front panel buttons and indicators:
+Front panel indicators:
 
-.. _x10_buttons:
+.. _x10_indicators:
 
 .. figure:: images/tn_x10_buttons.png
 
-   Buttons and Indicators
+   Indicators
 
 
 The back panel of the X10 is shown in
@@ -137,20 +141,6 @@ if a fault has occurred.
 Rail Kit Assembly
 -----------------
 
-.. _x10_rails:
-
-.. figure:: images/tn_x10_rails.png
-
-   Rails
-
-
-.. caution:: The rails have a specific front and rear as shown in
-   :numref:`Figure %s <x10_rails>`.
-   The rails must be attached in the correct orientation to properly
-   mount the unit in a rack.
-
-
-(Will it arrive with the inner rails already attached to the chassis?)
 
 Mount the Outer Rails
 ~~~~~~~~~~~~~~~~~~~~~
