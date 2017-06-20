@@ -35,8 +35,8 @@ Carefully unpack the shipping boxes and locate these components:
      :width: 50%
 
   .. caution:: The rails have a specific front end, shown on the left
-     here. They must be attached to the rack with the front end of the
-     rails toward the front of the rack.
+     above. They must be attached to the rack with the front end of
+     the rails toward the front of the rack.
 
 
 * Up to 12 populated drive trays
@@ -44,8 +44,8 @@ Carefully unpack the shipping boxes and locate these components:
   .. image:: images/tn_x10_traywithdrive.png
      :width: 30%
 
-  .. note:: Unused drive bays must be populated with drive tray blanks
-     to maintain proper airflow for cooling.
+  .. caution:: Unused drive bays must be populated with drive tray
+     blanks to maintain proper airflow for cooling.
 
 
 * Two power cords
@@ -76,7 +76,7 @@ Become Familiar With the System
 .. index:: X10 Front View
 .. _X10 Front View:
 
-Front view of the array:
+Front view of the X10 with the faceplate installed:
 
 .. _x10_front:
 
@@ -94,7 +94,7 @@ Front panel indicators:
    Indicators
 
 
-The back panel of the X10 is shown in
+The back panel is shown in
 :numref:`Figure %s <x10_back>`:
 
 .. _x10_back:
@@ -120,19 +120,18 @@ ports on each node, from left to right, are:
 
 Underneath the ports are two redundant power supplies.
 
-Drive trays like those shown in
-:numref:`Figure %s <x10_tray>`
-are used to mount drives in the array:
+Drive trays are used to mount drives in the array:
 
 
 .. _x10_tray:
 
 .. figure:: images/tn_x10_tray.png
+   :width: 30%
 
    Drive Tray
 
 
-Each drive tray has a status LED which is blue when active, or amber
+Each drive tray has a status LED which is blue when active or amber
 if a fault has occurred.
 
 
@@ -168,10 +167,10 @@ Mount the Unit in the Rack
 .. caution:: Two people are required to safely install the %brand%
    array in a rack or cabinet, or to remove it.
 
-Carefully place the inner rails on the sides of the X10 chassis on the
-outer rails mounted in the rack. With the rails aligned, push the X10
-chassis in until it is flush with the front of the rack. Secure the
-chassis in place with the supplied screws.
+Carefully place the inner rails on the sides of the X10 chassis onto
+the outer rails mounted in the rack. With the rails aligned, push the
+X10 chassis in until it is flush with the front of the rack. Secure
+the chassis in place with the supplied screws.
 
 
 .. _x10_rack:
@@ -189,8 +188,8 @@ Install the drive trays into the X10 unit.
 Installing Expansion Shelves
 ----------------------------
 
-If expansion shelves are to be used with the X10, please refer to the
-installation instructions supplied with them.
+If expansion shelves are to be used with the X10, please see the
+installation instructions supplied with the shelves.
 
 
 Cabling
@@ -200,17 +199,16 @@ Connect the network cables and Out of Band (OOB) management port
 before attempting to power on and configure the %brand% X10 array for
 the the first time. If the system was preconfigured by iXsystems, the
 Out of Band management interface has already been configured.
-Otherwise, it must be configured before use. Please see the %brand%
-User Guide at `<http://support.iXsystems.com>`__.
+Otherwise, it must be configured before use. Please see the Out of
+Band Management section of the %brand% User Guide at
+`<http://support.iXsystems.com>`__.
 
 If it is not possible to configure the Out of Band management before
 the initial configuration, connect the provided 3.5mm serial cable to
 the 3.5mm jack on the back of the unit. Connect the USB end of the
 cable to a laptop or desktop computer running serial terminal
-software. Set the terminal software to 38400 baud, 8 data bits, no
-stop bits, no parity, and no flow control. (The serial connection then
-allows configuration of an IP address and some other stuff so the OOB
-management port can be used?)
+software. Set the terminal software to *38400 baud*, *8 data bits*,
+*no stop bits*, *no parity*, and *no flow control*.
 
 When connecting through the Out of Band management port, an IP address
 is obtained from DHCP.
@@ -226,7 +224,7 @@ system console, visible through the Out of Band management system.
 Connecting Power Cords
 ----------------------
 
-If any %brand% Expansion Shelves are connected to the X10 array, power
+If any %brand% expansion shelves are connected to the X10 array, power
 them on first, then wait at least two minutes before connecting power
 cables to the X10 array.
 
@@ -252,12 +250,12 @@ automatically comes back on when power is restored after a power
 failure.
 
 
-Optional: Install the Bezel
----------------------------
+Optional: Install the Faceplate
+-------------------------------
 
-The %brand% X10 comes with bezel installation ears on the left and
+The %brand% X10 comes with faceplate installation ears on the left and
 right side of the system. Make sure these ears are present, then align
-the bezel with the pins and press it into place.
+the faceplate with the pins and press it into place.
 
 
 Perform %brand% Initial Software Configuration
@@ -267,3 +265,5 @@ If the %brand% X10 was preconfigured by iXsystems, enter the chosen IP
 address into a web browser on a computer on the same network. If the
 X10 was not preconfigured, please contact a %brand% Support
 Representative.
+
+
