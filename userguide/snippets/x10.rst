@@ -89,7 +89,7 @@ Front panel indicators:
 
 .. _x10_indicators:
 
-.. figure:: images/tn_x10_buttons.png
+.. figure:: images/tn_x10_indicators.png
 
    Indicators
 
