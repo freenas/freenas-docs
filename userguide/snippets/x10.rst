@@ -177,12 +177,6 @@ X10 chassis in until it is flush with the front of the rack. Secure
 the chassis in place with the supplied screws.
 
 
-.. _x10_rack:
-.. figure:: images/tn_x10_rack.png
-
-   Mounting the X10 in a Rack
-
-
 Installing Drive Trays
 ----------------------
 
