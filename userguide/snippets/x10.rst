@@ -23,9 +23,9 @@ Carefully unpack the shipping boxes and locate these components:
      :width: 50%
 
 
-* One faceplate
+* One bezel
 
-  .. image:: images/tn_x10_faceplate.png
+  .. image:: images/tn_x10_bezel.png
      :width: 50%
 
 
@@ -76,13 +76,13 @@ Become Familiar With the System
 .. index:: X10 Front View
 .. _X10 Front View:
 
-Front view of the X10 with the faceplate installed:
+Front view of the X10 with the bezel installed:
 
 .. _x10_front:
 
 .. figure:: images/tn_x10_front.png
 
-   Front View
+   Front View with Bezel
 
 
 Front panel indicators:
@@ -109,7 +109,7 @@ ports on each node, from left to right, are:
 
 * two GbE network ports; underneath these ports are two USB 2.0 ports
 
-* Out of Band (OOB) management ports
+* Out-of-Band (OOB) management ports
 
 * two HDmini SAS3 ports
 
@@ -195,10 +195,13 @@ installation instructions supplied with the shelves.
 Cabling
 -------
 
-Connect the network cables and Out of Band (OOB) management port
+Connect the network cables and Out-of-Band (OOB) management port
 before attempting to power on and configure the %brand% X10 array for
-the the first time. If the system was preconfigured by iXsystems, the
-Out of Band management interface has already been configured.
+the the first time.
+
+
+If the system was preconfigured by iXsystems, the
+Out-of-Band management interface has already been configured.
 Otherwise, it must be configured before use. Please see the Out of
 Band Management section of the %brand% User Guide at
 `<http://support.iXsystems.com>`__.
@@ -250,12 +253,12 @@ automatically comes back on when power is restored after a power
 failure.
 
 
-Optional: Install the Faceplate
--------------------------------
+Optional: Install the Bezel
+---------------------------
 
-The %brand% X10 comes with faceplate installation ears on the left and
+The %brand% X10 comes with bezel installation ears on the left and
 right side of the system. Make sure these ears are present, then align
-the faceplate with the pins and press it into place.
+the bezel with the pins and press it into place.
 
 
 Perform %brand% Initial Software Configuration
