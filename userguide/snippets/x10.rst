@@ -105,17 +105,21 @@ The back panel is shown in
 
 
 The X10 can contain two nodes in a side-by-side configuration. The
-ports on each node, from left to right, are:
+ports on each node are:
 
-* two GbE network ports; underneath these ports are two USB 2.0 ports
+#. two GbE network ports
 
-* Out-of-Band (OOB) management ports
+#. one USB 2.0 port (second USB port is reserved for %brand% use)
 
-* two HDmini SAS3 ports
+#. 3.5mm serial port
 
-* a PCIe mezzanine expansion port
+#. gray USB to 3.5mm cable (reserved for %brand% use)
 
-* a 3.5mm serial port
+#. Out-of-Band (OOB) management port
+
+#. two HDmini SAS3 ports
+
+#. PCIe mezzanine expansion port
 
 
 Underneath the ports are two redundant power supplies.
@@ -248,17 +252,16 @@ cords have been connected to the X10, they can be connected to power
 outlets.
 
 The %brand% X10 Array is configured to automatically power on when
-connected to a power outlet. This design ensures that the X10
-automatically comes back on when power is restored after a power
-failure.
+connected to a power outlet. This design ensures that the X10 comes
+back on when power is restored after a power failure.
 
 
 Optional: Install the Bezel
 ---------------------------
 
 The %brand% X10 comes with bezel installation ears on the left and
-right side of the system. Make sure these ears are present, then align
-the bezel with the pins and press it into place.
+right side of the system. Verify that these ears are present, then
+align the bezel with the pins and press it into place.
 
 
 Perform %brand% Initial Software Configuration
