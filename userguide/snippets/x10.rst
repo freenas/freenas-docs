@@ -63,10 +63,6 @@ Carefully unpack the shipping boxes and locate these components:
 * This printed guide
 
 
-.. note:: Network cables vary by configuration and are not listed.
-   Contact your iXsystems Account Manager with any questions.
-
-
 .. index:: Become Familiar with the System
 .. _Become Familiar with the System:
 
@@ -104,8 +100,8 @@ The back panel is shown in
    Back Panel
 
 
-The X10 can contain two nodes in a side-by-side configuration. The
-ports on each node are:
+The X10 can contain one or two nodes in a side-by-side configuration.
+The ports on each node are:
 
 #. two GbE network ports
 
@@ -177,41 +173,48 @@ X10 chassis in until it is flush with the front of the rack. Secure
 the chassis in place with the supplied screws.
 
 
-Installing Drive Trays
-----------------------
+Install Drive Trays
+-------------------
 
-Install the drive trays into the X10 unit.
+Insert each tray into a drive bay until it stops, then switch the
+latch closed until it locks.
 
 
-Installing Expansion Shelves
-----------------------------
+Install Expansion Shelves
+-------------------------
 
 If expansion shelves are to be used with the X10, please see the
 installation instructions supplied with the shelves.
 
 
-Cabling
--------
+Connect Network Cables
+----------------------
+
+.. note:: Network cables vary by configuration and are not included.
+   Please contact your iXsystems Account Manager with any questions.
+
+.. note:: A shielded Ethernet cable must be used to connect the
+   Out-of-Band (OOB) management port.
+
 
 Connect the network cables and Out-of-Band (OOB) management port
 before attempting to power on and configure the %brand% X10 array for
 the the first time.
 
-
 If the system was preconfigured by iXsystems, the
 Out-of-Band management interface has already been configured.
-Otherwise, it must be configured before use. Please see the Out of
-Band Management section of the %brand% User Guide at
+Otherwise, it must be configured before use. Please see the
+Out-of-Band Management section of the %brand% User Guide at
 `<http://support.iXsystems.com>`__.
 
-If it is not possible to configure the Out of Band management before
-the initial configuration, connect the provided 3.5mm serial cable to
-the 3.5mm jack on the back of the unit. Connect the USB end of the
-cable to a laptop or desktop computer running serial terminal
+If it is not possible to configure Out-of-Band management before the
+initial configuration, connect the provided black USB to 3.5mm serial
+cable to the 3.5mm jack on the back of the X10. Connect the USB end
+of the cable to a laptop or desktop computer running serial terminal
 software. Set the terminal software to *38400 baud*, *8 data bits*,
 *no stop bits*, *no parity*, and *no flow control*.
 
-When connecting through the Out of Band management port, an IP address
+When connecting through the Out-of-Band management port, an IP address
 is obtained from DHCP.
 
 Username: **sysadmin**
@@ -219,11 +222,11 @@ Username: **sysadmin**
 Password: **superuser**
 
 After booting, the IP address of the %brand% web GUI is shown on the
-system console, visible through the Out of Band management system.
+system console, visible through the Out-of-Band management system.
 
 
-Connecting Power Cords
-----------------------
+Connect Power Cords
+-------------------
 
 If any %brand% expansion shelves are connected to the X10 array, power
 them on first, then wait at least two minutes before connecting power
@@ -250,20 +253,28 @@ connected to a power outlet. This design ensures that the X10 comes
 back on when power is restored after a power failure.
 
 
-Optional: Install the Bezel
----------------------------
+Install Bezel (Optional)
+------------------------
 
-The %brand% X10 comes with bezel installation ears on the left and
-right side of the system. Verify that these ears are present, then
-align the bezel with the pins and press it into place.
+The included bezel is not required for operation. If desired, install
+the bezel by verifying that bezel connection ears are present on the
+left and right sides of the system. Align the bezel with the pins on
+the ears and press it into place.
 
 
 Perform %brand% Initial Software Configuration
 --------------------------------------------------------
 
 If the %brand% X10 was preconfigured by iXsystems, enter the chosen IP
-address into a web browser on a computer on the same network. If the
-X10 was not preconfigured, please contact a %brand% Support
+address into a web browser on a computer on the same network.
+
+The local DHCP server can be configured to provide a fixed address to
+the X10. Use the MAC address on the sticker on the back of the X10 to
+configure the IP address the DHCP server assigns, or check the DHCP
+server logs to determine which IP address was assigned to that MAC
+address.
+
+If the X10 was not preconfigured, please contact a %brand% Support
 Representative.
 
 
