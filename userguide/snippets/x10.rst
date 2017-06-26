@@ -5,7 +5,7 @@
 X10 Unified Storage Array
 -------------------------
 
-The %brand% X10 Unified Storage Array is a 2U, 36-bay hybrid NAS
+The %brand% X10 Unified Storage Array is a 2U, 12-bay hybrid NAS
 control system.
 
 
