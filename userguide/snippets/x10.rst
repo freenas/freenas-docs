@@ -90,6 +90,10 @@ Front panel indicators:
    Indicators
 
 
+The Fault indicator is lit during a power-on self-test (POST) or when
+a pairing or compatibility check failure is detected.
+
+
 The back panel is shown in
 :numref:`Figure %s <x10_back>`:
 
@@ -100,25 +104,30 @@ The back panel is shown in
    Back Panel
 
 
-The X10 can contain one or two nodes in a side-by-side configuration.
-The ports on each node are:
+The X10 contains one or two nodes in a side-by-side configuration. The
+connectors and features on each node are:
 
-#. two GbE network ports
+1,2: Gigabit Ethernet connectors
 
-#. one USB 2.0 port (second USB port is reserved for %brand% use)
+3: USB memory stick (reserved for %brand% use)
 
-#. 3.5mm serial port
+4: USB 2.0 connector
 
-#. gray USB to 3.5mm cable (reserved for %brand% use)
+5: 3.5mm serial port
 
-#. Out-of-Band (OOB) management port
+6: Out-of-Band (OOB) Management Ethernet connector
 
-#. two HDmini SAS3 ports
+7,8: HDmini SAS3 connectors
 
-#. PCIe mezzanine expansion port
+9: PCIe mezzanine expansion port
 
+10: System Management port (reserved for %brand% use; a gray cable
+connects this port to a USB port above the OOB management port)
 
-Underneath the ports are two redundant power supplies.
+11: MAC address label
+
+12, 13: Redundant power supplies
+
 
 Drive trays are used to mount drives in the array:
 
