@@ -222,7 +222,7 @@ Changes in |version|
 :ref:`Update` mechanism makes it easy to keep up-to-date with the
 latest security fixes, bug fixes, and new features. Some updates
 affect the user interface, so this section lists any functional
-changes that have occurred since |version| was released.
+changes that have occurred since |release| was released.
 
 .. note:: The screenshots in this documentation assume that the system
    has been fully updated to the latest STABLE version of %brand%
