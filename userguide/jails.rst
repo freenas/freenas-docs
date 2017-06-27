@@ -1015,7 +1015,7 @@ which opens the screen shown in
 
 .. _adding_custom_jail_template_fig:
 
-.. figure:: images/jails11a.png
+.. figure:: images/jails11b.png
 
    Adding A Custom Jail Template
 
@@ -1056,13 +1056,10 @@ summarizes the fields in this screen.
    | Mtree        | string         | paste the mtree specification for the template                                                |
    |              |                |                                                                                               |
    +--------------+----------------+-----------------------------------------------------------------------------------------------+
-   | Read-only    | checkbox       | when checked, the :guilabel:`Name` and :guilabel:`URL` of the template cannot be changed      |
-   |              |                | after creation                                                                                |
-   +--------------+----------------+-----------------------------------------------------------------------------------------------+
 
-Once added, the template will appear in
+Added templates appear in
 :menuselection:`Jails --> Templates`.
-An example is seen in
+An example is shown in
 :numref:`Figure %s <default_jail_templates_fig>`.
 
 
