@@ -1056,9 +1056,6 @@ summarizes the fields in this screen.
    | Mtree        | string         | paste the mtree specification for the template                                                |
    |              |                |                                                                                               |
    +--------------+----------------+-----------------------------------------------------------------------------------------------+
-   | Read-only    | checkbox       | when checked, the :guilabel:`Name` and :guilabel:`URL` of the template cannot be changed      |
-   |              |                | after creation                                                                                |
-   +--------------+----------------+-----------------------------------------------------------------------------------------------+
 
 Once added, the template will appear in
 :menuselection:`Jails --> Templates`.
