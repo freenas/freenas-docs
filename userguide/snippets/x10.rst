@@ -54,7 +54,7 @@ Carefully unpack the shipping boxes and locate these components:
      :width: 20%
 
 
-* One USB to 3.5mm cable
+* One USB to 3.5mm cable (shipped separately)
 
   .. image:: images/tn_x10_serialcable.png
      :width: 20%
@@ -92,6 +92,11 @@ Front panel indicators:
 
 The Fault indicator is lit during a power-on self-test (POST) or when
 a pairing or compatibility check failure is detected.
+
+
+.. raw:: latex
+
+   \newpage
 
 
 The back panel is shown in
@@ -234,6 +239,11 @@ After booting, the IP address of the %brand% web GUI is shown on the
 system console, visible through the Out-of-Band management system.
 
 
+.. raw:: latex
+
+   \newpage
+
+
 Connect Power Cords
 -------------------
 
@@ -271,6 +281,13 @@ left and right sides of the system. Align the bezel with the pins on
 the ears and press it into place.
 
 
+Configure Out-of-Band (OOB) Management
+--------------------------------------
+
+The %brand% X10 Out-of-Band management IP address is set by default to
+*192.168.100.100* with a subnet mask of *255.255.255.0*.
+
+
 Perform %brand% Initial Software Configuration
 --------------------------------------------------------
 
@@ -282,8 +299,3 @@ the X10. Use the MAC address on the sticker on the back of the X10 to
 configure the IP address the DHCP server assigns, or check the DHCP
 server logs to determine which IP address was assigned to that MAC
 address.
-
-If the X10 was not preconfigured, please contact a %brand% Support
-Representative.
-
-
