@@ -28,12 +28,12 @@ copyright = '2011-2017, iXsystems'
 # the built documents.
 #
 # The full version number, like "9.10.2-U2"
-version = '11.0'
+version = '11.0-U1'
 # The shorter feature branch version number, like "9.10.2"
 release = '11.0'
 if tags.has('truenas'):
-    version = '9.10.3'
-    release = '9.10.3'
+    version = '11.0'
+    release = '11.0-U1'
 
 # exclude_patterns is a list of patterns relative to the source directory
 # that match files and directories to ignore when looking for source files.

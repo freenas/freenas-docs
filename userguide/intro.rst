@@ -213,7 +213,6 @@ New Features in |release|
   firmware versions no longer correspond.
 
 
-#ifdef comment
 .. _Changes in |version|:
 
 Changes in |version|
@@ -229,8 +228,12 @@ changes that have occurred since |version| was released.
    has been fully updated to the latest STABLE version of %brand%
    |version|. If a screen on the system is not the same as shown in
    this guide, make sure that all updates have been applied.
-#endif comment
 
+* The :guilabel:`Read only` checkbox has been removed from
+  :menuselection:`Jails --> Templates --> Add Jail Templates`.
+
+* The NT4 option has been removed from :ref:`Directory Services` as it
+  is no longer supported by Samba.
 
 .. index:: Hardware Recommendations
 .. _Hardware Recommendations:
