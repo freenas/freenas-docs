@@ -11,8 +11,6 @@ Directory Services
 
 * :ref:`NIS`
 
-* :ref:`NT4` (for Windows networks older than Windows 2000)
-
 It also supports :ref:`Kerberos Realms`, :ref:`Kerberos Keytabs`, and
 the ability to add additional parameters to :ref:`Kerberos Settings`.
 
@@ -36,10 +34,6 @@ accounts on the %brand% system. Instead, configure the Active
 Directory service so that it can import the account information and
 imported users can be authorized to access the SMB shares on the
 %brand% system.
-
-.. note:: If the network has an NT4 domain controller, or any domain
-   controller with a version earlier than Windows 2000, configure
-   :ref:`NT4` instead.
 
 Many changes and improvements have been made to Active Directory
 support within %brand%.  It is strongly recommended to update the
@@ -281,7 +275,7 @@ whenever changes are made to this setting.
    |                | the name and the UID/GID                                                                                                                 |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | rid            | default for AD and NT4 directory services; requires an explicit idmap configuration for each domain, using disjoint ranges where a       |
+   | rid            | default for AD; requires an explicit idmap configuration for each domain, using disjoint ranges where a                                  |
    |                | writeable default idmap range should be defined, using a backend like tdb or ldap                                                        |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
@@ -730,86 +724,6 @@ summarizes the configuration options.
 Click the :guilabel:`Rebuild Directory Service Cache` button after
 adding a user to NIS who needs immediate access to %brand%. Otherwise
 this occurs automatically once a day as a cron job.
-
-
-.. _NT4:
-
-NT4
----
-
-This service should only be configured if the Windows network's domain
-controller is running NT4. If the network's domain controller is
-running a more recent version of Windows, you should configure
-:ref:`Active Directory` instead.
-
-:numref:`Figure %s <nt_fig>`
-shows the configuration screen that appears when
-:menuselection:`Directory Service --> NT4`
-is clicked. These options are summarized in
-:numref:`Table %s <nt_config_tab>`.
-Some settings are only available in Advanced Mode. To see these
-settings, either click the :guilabel:`Advanced Mode` button or
-configure the system to always display these settings by checking the
-box :guilabel:`Show advanced fields by default` in
-:menuselection:`System --> Advanced`.
-
-
-#ifdef freenas
-.. raw:: latex
-
-   \newpage
-#endif freenas
-
-
-.. _nt_fig:
-
-.. figure:: images/directoryservice-nt4.png
-
-   NT4 Configuration Options
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
-                    |>{\Centering}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.54\linewidth-2\tabcolsep}|
-
-.. _nt_config_tab:
-
-.. table:: NT4 Configuration Options
-   :class: longtable
-
-   +------------------------+-----------+----------+--------------------------------------------------------------------------------------------+
-   | Setting                | Value     | Advanced | Description                                                                                |
-   |                        |           | Mode     |                                                                                            |
-   |                        |           |          |                                                                                            |
-   +========================+===========+==========+============================================================================================+
-   | Domain Controller      | string    |          | hostname of domain controller                                                              |
-   |                        |           |          |                                                                                            |
-   +------------------------+-----------+----------+--------------------------------------------------------------------------------------------+
-   | Workgroup Name         | string    |          | name of Windows server's workgroup                                                         |
-   |                        |           |          |                                                                                            |
-   +------------------------+-----------+----------+--------------------------------------------------------------------------------------------+
-   | Administrator Name     | string    |          | name of the domain administrator account                                                   |
-   |                        |           |          |                                                                                            |
-   +------------------------+-----------+----------+--------------------------------------------------------------------------------------------+
-   | Administrator Password | string    |          | input and confirm the password for the domain administrator account                        |
-   |                        |           |          |                                                                                            |
-   +------------------------+-----------+----------+--------------------------------------------------------------------------------------------+
-   | Use Default Domain     | checkbox  | ✓        | when unchecked, the domain name is prepended to the username                               |
-   |                        |           |          |                                                                                            |
-   +------------------------+-----------+----------+--------------------------------------------------------------------------------------------+
-   | Idmap backend          | drop-down | ✓        | select the backend to use to map Windows security identifiers (SIDs) to UNIX UIDs          |
-   |                        | and Edit  |          | and GIDs; see :numref:`Table %s <id_map_backends_tab>` for a summary of the                |
-   |                        | menu      |          | available backends; click the :guilabel:`Edit` link to configure the backend's             |
-   |                        |           |          | editable options                                                                           |
-   +------------------------+-----------+----------+--------------------------------------------------------------------------------------------+
-   | Enable                 | checkbox  |          | uncheck to disable the configuration without deleting it                                   |
-   |                        |           |          |                                                                                            |
-   +------------------------+-----------+----------+--------------------------------------------------------------------------------------------+
-
-Click the :guilabel:`Rebuild Directory Service Cache` button after
-adding a user to Active Directory who needs immediate access to
-%brand%. Otherwise this occurs automatically once a day as a cron job.
 
 
 .. _Kerberos Realms:
