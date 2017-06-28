@@ -81,7 +81,7 @@ display these settings by checking the box
 
 .. _ad_fig:
 
-.. figure:: images/directoryservice-ad.png
+.. figure:: images/directoryservice-ad1.png
 
    Configuring Active Directory
 
@@ -505,7 +505,7 @@ shows the LDAP Configuration screen that is seen after clicking
 
 .. _ldap_config_fig:
 
-.. figure:: images/directoryservice-ldap.png
+.. figure:: images/directoryservice-ldap1.png
 
    Configuring LDAP
 
@@ -683,7 +683,7 @@ summarizes the configuration options.
 
 .. _nis_fig:
 
-.. figure:: images/nis1.png
+.. figure:: images/directoryservice-nis.png
 
    NIS Configuration
 
@@ -741,7 +741,7 @@ Kerberos realm. This configuration screen is shown in
 
 .. _ker_realm_fig:
 
-.. figure:: images/realm1a.png
+.. figure:: images/directoryservice-realm.png
 
    Adding a Kerberos Realm
 
@@ -865,6 +865,6 @@ shows the fields available:
 
 .. _ker_setting_fig:
 
-.. figure:: images/kerberos1.png
+.. figure:: images/directoryservice-kerberos-settings.png
 
    Additional Kerberos Settings

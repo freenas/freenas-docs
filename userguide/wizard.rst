@@ -139,19 +139,19 @@ The next screen in the wizard is shown in
 
 
 If the %brand% system is on a network that does not contain an Active
-Directory, LDAP, NIS, or NT4 server, click :guilabel:`Next` to skip to
-the next screen.
+Directory, LDAP, or NIS server, click :guilabel:`Next` to skip to the
+next screen.
 
 However, if the %brand% system is on a network containing an Active
-Directory, LDAP, NIS, or NT4 server and you wish to import the users
-and groups from that server, select the type of directory service in
+Directory, LDAP, or NIS server and you wish to import the users and
+groups from that server, select the type of directory service in
 the :guilabel:`Directory Service` drop-down menu. The rest of the
 fields in this screen will vary, depending upon which directory
 service is selected. Available configuration options for each
 directory service are summarized in Tables
 :numref:`%s <ad_options>`
 through
-:numref:`%s <nt4_options>`.
+:numref:`%s <nis_options>`.
 
 .. note:: Additional configuration options are available for each
    directory service. The wizard can be used to set the initial values
@@ -239,36 +239,6 @@ through
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Manycast                | checkbox       | if checked, ypbind will bind to the server that responds the fastest; this is useful when no local    |
    |                         |                | NIS server is available on the same subnet                                                            |
-   |                         |                |                                                                                                       |
-   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _nt4_options:
-
-.. table:: NT4 Options
-   :class: longtable
-
-   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Setting                 | Value          | Description                                                                                           |
-   |                         |                |                                                                                                       |
-   +=========================+================+=======================================================================================================+
-   | Domain Controller       | string         | hostname of domain controller                                                                         |
-   |                         |                |                                                                                                       |
-   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name            | string         | hostname of %brand% system; cannot be greater than 15 characters or the same as the                   |
-   |                         |                | :guilabel:`Workgroup Name`                                                                            |
-   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Workgroup Name          | string         | name of Windows server's workgroup                                                                    |
-   |                         |                |                                                                                                       |
-   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Administrator Name      | string         | name of the domain administrator account                                                              |
-   |                         |                |                                                                                                       |
-   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Administrator Password  | string         | input and confirm the password for the domain administrator account                                   |
    |                         |                |                                                                                                       |
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
 
