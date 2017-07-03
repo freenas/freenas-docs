@@ -34,9 +34,9 @@ Carefully unpack the shipping boxes and locate these components:
   .. image:: images/tn_x10_railkit.png
      :width: 50%
 
-  .. caution:: The rails have a specific front end, shown on the left
-     above. They must be attached to the rack with the front end of
-     the rails toward the front of the rack.
+  .. caution:: The rails have a specific front end, visible on the
+     right above. They must be attached to the rack with the front end
+     of the rails toward the front of the rack.
 
 
 * Up to 12 populated drive trays
@@ -158,21 +158,19 @@ Rail Kit Assembly
 Mount the Outer Rails
 ~~~~~~~~~~~~~~~~~~~~~
 
-Open the clamp latches on the ends of each rail.
-:numref:`Figure %s <x10_rail_clamp>`
-shows a clamp in the open position:
+Open the clamp latches on the ends of each rail. Place the rail in
+the rack with the front end toward the front of the rack, aligning
+the pins on both ends of the rail with the mounting holes in the rack.
+Swing the clamp latch closed to hold the rail in place.
 
 .. _x10_rail_clamp:
 
 .. figure:: images/tn_x10_rail_clamp.png
 
-   Rail Clamp
+   Rail Clamp Latch
 
 
-Place the rail in the rack, aligning the pins on both ends of the rail
-with the mounting holes in the rack. Rotate the clamp latches toward
-the rack, locking the rail in place. Repeat for the second rail on the
-other side of the rack.
+Repeat the process for the second rail.
 
 
 Mount the Unit in the Rack
@@ -184,7 +182,16 @@ Mount the Unit in the Rack
 Carefully place the inner rails on the sides of the X10 chassis onto
 the outer rails mounted in the rack. With the rails aligned, push the
 X10 chassis in until it is flush with the front of the rack. Secure
-the chassis in place with the supplied screws.
+the chassis in place at both the front and rear with the supplied
+screws.
+
+
+.. _x10_rail_screw:
+
+.. figure:: images/tn_x10_rail_screw.png
+
+   Rail Screws
+
 
 
 Install Drive Trays
