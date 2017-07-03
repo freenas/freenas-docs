@@ -282,21 +282,26 @@ Preset
 ~~~~~~
 
 If the system was preconfigured by iXsystems, the Out-of-Band
-management interface has already been configured with the IP address
-requested by the user.
+management interfaces have already been configured with the IP
+addresses requested by the user.
 
-Otherwise, the %brand% X10 Out-of-Band management IP address is set by
-default to *192.168.100.100* with a subnet mask of *255.255.255.0*.
+Otherwise, the Out-of-Band management IP addresses are set by default
+to static addresses:
+
+Node 1: *192.168.100.100*, subnet mask *255.255.255.0*
+Node 2 (if present): *192.168.100.101*, subnet mask *255.255.255.0*
 
 
 DHCP
 ~~~~
 
-An Out-of-Band management IP address assigned by DHCP can be
-determined by checking the local DHCP server logs for the MAC address
-shown on the X10 back panel. The local DHCP server can also be
-configured to provide a fixed IP address for the X10 Out-of-Band
-management by using the MAC address.
+If the Out-of-Band management IP address has been configured to be
+assigned by DHCP, the IP address by the DHCP server can be determined
+by checking the local DHCP server logs for the MAC addresses on the
+back panel of each X10 node (see :numref:`Figure %s <x10_back>`).
+
+The local DHCP server can also be configured to provide a fixed IP
+address for the X10 Out-of-Band management by using the MAC address.
 
 
 Serial Cable
