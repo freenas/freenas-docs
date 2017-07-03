@@ -190,12 +190,20 @@ the chassis in place with the supplied screws.
 Install Drive Trays
 -------------------
 
-Insert each tray into a drive bay until it stops, then switch the
-latch closed until it locks.
+Unpack each drive tray. Press the blue button to open the latch.
+Carefully slide the tray into a drive bay until the left side of the
+latch touches the metal front edge of the chassis, then gently swing
+the latch closed until it locks.
+
+.. _x10_drivetray_load:
+
+.. figure:: images/tn_x10_drivetray_load.png
+
+   Installing Drive Trays
 
 
-Install Expansion Shelves
--------------------------
+Connecting Expansion Shelves
+----------------------------
 
 If expansion shelves are to be used with the X10, please see the
 installation instructions supplied with the shelves.
@@ -212,31 +220,8 @@ Connect Network Cables
 
 
 Connect the network cables and Out-of-Band (OOB) management port
-before attempting to power on and configure the %brand% X10 array for
-the the first time.
-
-If the system was preconfigured by iXsystems, the
-Out-of-Band management interface has already been configured.
-Otherwise, it must be configured before use. Please see the
-Out-of-Band Management section of the %brand% User Guide at
-`<http://support.iXsystems.com>`__.
-
-If it is not possible to configure Out-of-Band management before the
-initial configuration, connect the provided black USB to 3.5mm serial
-cable to the 3.5mm jack on the back of the X10. Connect the USB end
-of the cable to a laptop or desktop computer running serial terminal
-software. Set the terminal software to *38400 baud*, *8 data bits*,
-*no stop bits*, *no parity*, and *no flow control*.
-
-When connecting through the Out-of-Band management port, an IP address
-is obtained from DHCP.
-
-Username: **sysadmin**
-
-Password: **superuser**
-
-After booting, the IP address of the %brand% web GUI is shown on the
-system console, visible through the Out-of-Band management system.
+before attempting to power on and configure the %brand% X10 for the
+the first time.
 
 
 .. raw:: latex
@@ -281,21 +266,181 @@ left and right sides of the system. Align the bezel with the pins on
 the ears and press it into place.
 
 
-Configure Out-of-Band (OOB) Management
---------------------------------------
+.. raw:: latex
 
-The %brand% X10 Out-of-Band management IP address is set by default to
-*192.168.100.100* with a subnet mask of *255.255.255.0*.
+   \newpage
+
+
+Discover Out-of-Band Management IP Address
+------------------------------------------
+
+There are a variety of ways to determine the IP address that is being
+used by the %brand% X10 Out-of-Band management interface.
+
+
+Preset
+~~~~~~
+
+If the system was preconfigured by iXsystems, the Out-of-Band
+management interface has already been configured with the IP address
+requested by the user.
+
+Otherwise, the %brand% X10 Out-of-Band management IP address is set by
+default to *192.168.100.100* with a subnet mask of *255.255.255.0*.
+
+
+DHCP
+~~~~
+
+An Out-of-Band management IP address assigned by DHCP can be
+determined by checking the local DHCP server logs for the MAC address
+shown on the X10 back panel. The local DHCP server can also be
+configured to provide a fixed IP address for the X10 Out-of-Band
+management by using the MAC address.
+
+
+Serial Cable
+~~~~~~~~~~~~
+
+The Out-of-Band management IP address can be identified or changed by
+temporarily connecting the black USB to 3.5mm serial cable to the
+serial port, #5 on
+:numref:`Figure %s <x10_back>`.
+
+.. warning:: Do not leave the black USB to serial cable connected to
+   the X10. Do not use the serial port for any purpose except checking
+   the initial X10 Out-of-Band management IP address or setting that
+   address to be obtained by a different method. After checking or
+   changing these settings, disconnect the black USB to serial cable.
+
+
+Connect the USB end of the black cable to a laptop or desktop
+computer running serial terminal software. Set the terminal software
+to *38400 baud*, *8 data bits*, *no stop bits*, *no parity*, and *no
+flow control*. Serial port device names vary, but are typically
+:samp:`COM{4}` on Windows, :samp:`/dev/cuaU{0}` on FreeBSD, and
+:samp:`/dev/ttyUSB{0}` on Linux.
+
+Log in to the serial console with:
+
+Username: **sysadmin**
+
+Password: **superuser**
+
+The current Out-of-Band management IP address can be displayed with:
+
+
+.. code-block:: none
+
+   ifconfig eth0 | grep 'inet addr'
+         inet addr:10.20.1.227  Bcast:10.20.1.255  Mask:255.255.254.0
+
+
+The current Out-of-Band network configuration settings are displayed
+with:
+
+
+.. code-block:: none
+
+   ipmitool -H 127.0.0.1 -U admin -P admin lan print
+
+
+The Out-of-Band management system can be set to obtain an IP address
+from DHCP with:
+
+
+.. code-block:: none
+
+   ipmitool -H 127.0.0.1 -U admin -P admin lan set 1 ipsrc dhcp
+
+
+The Out-of-Band management system can be set to use a static IP
+address and netmask. This example shows setting the IP address to
+*192.168.100.100* with a netmask of *255.255.255.0*:
+
+
+.. code-block:: none
+
+   ipmitool -H 127.0.0.1 -U admin -P admin lan set 1 ipsrc static
+   ipmitool -H 127.0.0.1 -U admin -P admin lan set 1 ipaddr 192.168.100.10
+   ipmitool -H 127.0.0.1 -U admin -P admin lan set 1 netmask 255.255.255.0
+
+
+After use, disconnect the black USB to serial cable from the X10.
+**Do not leave it connected to the X10.**
+
+
+ARP or Nmap
+~~~~~~~~~~~
+
+Install nmap and:
+
+.. code-block:: none
+
+   nmap -sn 10.5.0.0/24 | grep -B 00:E0:EC:3C:1C:18'
+
+
+Using the X10 Out-of-Band Management System
+-------------------------------------------
+
+.. note:: `IPMItool <https://sourceforge.net/projects/ipmitool/>`__
+   must be installed on the laptop or desktop computer used to manage
+   the X10 remotely. The laptop or desktop must be attached to the
+   same network as the %brand% X10.
+
+
+After the Out-of-Band management IP address has been determined, the
+X10 console is accessible. In this example, *192.168.100.100* is the
+IP address assigned to the Out-of-Band management interface. On the
+laptop or desktop computer used for management, enter:
+
+.. code-block:: none
+
+   ipmitool -I lanplus -H 192.168.100.100 -U admin -a sol activate
+
+Enter :literal:`admin` for the password.
+
+:literal:`ESM A =>` is displayed in the SES (SCSI Enclosure Services)
+mode. Switch to the normal X86 console mode by typing these
+characters:
+
+.. code-block:: none
+
+   $%^0
+
+
+The normal X86 console is displayed.
+
+
+.. note:: The SES console can be displayed again by typing these
+   characters:
+
+   .. code-block:: none
+
+      $%^2
+
+
+.. raw:: latex
+
+   \newpage
 
 
 Perform %brand% Initial Software Configuration
 --------------------------------------------------------
 
-If the %brand% X10 was preconfigured by iXsystems, enter the chosen IP
-address into a web browser on a computer on the same network.
+The console displays the IP address of the %brand% X10 graphical web
+interface, *192.168.100.100* in this example:
 
-The local DHCP server can be configured to provide a fixed address to
-the X10. Use the MAC address on the sticker on the back of the X10 to
-configure the IP address the DHCP server assigns, or check the DHCP
-server logs to determine which IP address was assigned to that MAC
-address.
+
+.. code-block:: none
+
+   The web user interface is at:
+
+   http://192.168.100.100
+
+
+Enter the IP address into a browser on a computer on the same network
+to access the web user interface. See the
+`%brand% User Guide
+<https://support.ixsystems.com/truenasguide/truenas.html>`__ for more
+information on configuring %brand% on the X10.

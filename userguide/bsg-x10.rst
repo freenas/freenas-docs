@@ -1,5 +1,5 @@
-%brand% E24 Expansion Shelf Basic Setup Guide
-=========================================================
+%brand% X10 Unified Storage Array Basic Setup Guide
+=============================================================
 
 .. toctree::
    :numbered:
