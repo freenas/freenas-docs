@@ -405,6 +405,23 @@ laptop or desktop computer used for management, enter:
 
 Enter :literal:`admin` for the password.
 
+
+.. tip:: The Out-of-Band console password can be changed by
+   temporarily connecting the black USB to 3.5mm serial cable to the
+   serial port, #5 on
+   :numref:`Figure %s <x10_back>`.
+   Then give this command to set the password, shown as *newpassword*
+   in this example:
+
+   .. code-block:: none
+
+      ipmitool -H 127.0.0.1 -U admin -P admin user set password 2 newpassword
+
+
+   After use, disconnect the black USB to serial cable from the X10.
+   **Do not leave it connected to the X10.**
+
+
 :literal:`ESM A =>` is displayed in the SES (SCSI Enclosure Services)
 mode. Switch to the normal X86 console mode by typing these
 characters:
