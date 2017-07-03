@@ -186,14 +186,6 @@ the chassis in place at both the front and rear with the supplied
 screws.
 
 
-.. _x10_rail_screw:
-
-.. figure:: images/tn_x10_rail_screw.png
-
-   Rail Screws
-
-
-
 Install Drive Trays
 -------------------
 
