@@ -162,7 +162,8 @@ Mount the Outer Rails
 Open the clamp latches on the ends of each rail. Place the rail in
 the rack with the front end toward the front of the rack, aligning
 the pins on both ends of the rail with the mounting holes in the rack.
-Swing the clamp latch closed to hold the rail in place.
+Swing the clamp latch closed to hold the rail in place. Use the
+supplied screws to secure the back end of the rail in place.
 
 .. _x10_rail_clamp:
 
@@ -183,8 +184,7 @@ Mount the Unit in the Rack
 Carefully place the inner rails on the sides of the X10 chassis onto
 the outer rails mounted in the rack. With the rails aligned, push the
 X10 chassis in until it is flush with the front of the rack. Secure
-the chassis in place at both the front and rear with the supplied
-screws.
+the X10 in place at the front with the supplied screws.
 
 
 Install Drive Trays
@@ -299,7 +299,8 @@ DHCP
 If the Out-of-Band management IP address has been configured to be
 assigned by DHCP, the IP address by the DHCP server can be determined
 by checking the local DHCP server logs for the MAC addresses on the
-back panel of each X10 node (see :numref:`Figure %s <x10_back>`).
+back panel of each X10 node, #11 on
+:numref:`Figure %s <x10_back>`.
 
 The local DHCP server can also be configured to provide a fixed IP
 address for the X10 Out-of-Band management by using the MAC address.
@@ -307,8 +308,8 @@ address for the X10 Out-of-Band management by using the MAC address.
 
 
 
-Serial Cable to Out-of-Band Management
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Serial Cable
+~~~~~~~~~~~~
 
 The Out-of-Band management IP address can be identified or changed by
 temporarily connecting the black USB to 3.5mm serial cable to the
@@ -382,8 +383,8 @@ Connecting to the X10 Console
 -----------------------------
 
 
-Connecting to the X10 Console with IPMI
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+With IPMI
+~~~~~~~~~
 
 .. note:: An IPMI remote management utility must be installed on the
    laptop or desktop computer used to manage the X10 remotely, and the
@@ -441,8 +442,8 @@ connected.
 Proceed to :ref:`Using the X10 Console`.
 
 
-Serial Cable to X10 Console
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+With the Serial Cable
+~~~~~~~~~~~~~~~~~~~~~
 
 The X10 console can be directly connected to a serial terminal program
 by temporarily disconnecting the gray serial cable from the System
@@ -508,18 +509,19 @@ Perform %brand% Initial Software Configuration
 --------------------------------------------------------
 
 The console displays the IP address of the %brand% X10 graphical web
-interface, *192.168.100.100* in this example:
+interface, *192.168.100.231* in this example:
 
 
 .. code-block:: none
 
    The web user interface is at:
 
-   http://192.168.100.100
+   http://192.168.100.231
 
 
 Enter the IP address into a browser on a computer on the same network
 to access the web user interface. See the
-`%brand% User Guide
+`TrueNAS® User Guide
 <https://support.ixsystems.com/truenasguide/truenas.html>`__ for more
 information on configuring %brand% on the X10.
+
