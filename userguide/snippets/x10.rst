@@ -34,9 +34,10 @@ Carefully unpack the shipping boxes and locate these components:
   .. image:: images/tn_x10_railkit.png
      :width: 50%
 
-  .. caution:: The rails have a specific front end, visible on the
-     right above. They must be attached to the rack with the front end
-     of the rails toward the front of the rack.
+  .. caution:: The rails have a specific front end, identified by a
+     label on the outside. The label is visible on the right in the
+     photo above. During installation, the front ends of the rails
+     must be toward the front of the rack.
 
 
 * Up to 12 populated drive trays
@@ -288,6 +289,7 @@ Otherwise, the Out-of-Band management IP addresses are set by default
 to static addresses:
 
 Node 1: *192.168.100.100*, subnet mask *255.255.255.0*
+
 Node 2 (if present): *192.168.100.101*, subnet mask *255.255.255.0*
 
 
@@ -303,8 +305,10 @@ The local DHCP server can also be configured to provide a fixed IP
 address for the X10 Out-of-Band management by using the MAC address.
 
 
-Serial Cable
-~~~~~~~~~~~~
+
+
+Serial Cable to Out-of-Band Management
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Out-of-Band management IP address can be identified or changed by
 temporarily connecting the black USB to 3.5mm serial cable to the
@@ -331,7 +335,7 @@ Username: **sysadmin**
 
 Password: **superuser**
 
-The current Out-of-Band management IP address can be displayed with:
+The current Out-of-Band management IP address is displayed with:
 
 
 .. code-block:: none
@@ -374,35 +378,48 @@ After use, disconnect the black USB to serial cable from the X10.
 **Do not leave it connected to the X10.**
 
 
-ARP or Nmap
-~~~~~~~~~~~
-
-Install nmap and:
-
-.. code-block:: none
-
-   nmap -sn 10.5.0.0/24 | grep -B 00:E0:EC:3C:1C:18'
+Connecting to the X10 Console
+-----------------------------
 
 
-Using the X10 Out-of-Band Management System
--------------------------------------------
+Connecting to the X10 Console with IPMI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note:: `IPMItool <https://sourceforge.net/projects/ipmitool/>`__
-   must be installed on the laptop or desktop computer used to manage
-   the X10 remotely. The laptop or desktop must be attached to the
-   same network as the %brand% X10.
+.. note:: An IPMI remote management utility must be installed on the
+   laptop or desktop computer used to manage the X10 remotely, and the
+   laptop or desktop must be attached to the same network as the
+   %brand% X10. For FreeBSD or Linux,
+   `IPMItool <https://sourceforge.net/projects/ipmitool/>`__
+   can be used. For Windows,
+   `ipmiutil <http://ipmiutil.sourceforge.net/>`__
+   is available.
 
 
-After the Out-of-Band management IP address has been determined, the
-X10 console is accessible. In this example, *192.168.100.100* is the
-IP address assigned to the Out-of-Band management interface. On the
-laptop or desktop computer used for management, enter:
+When the Out-of-Band management IP address has been determined, the
+X10 console is accessible through IPMI. In this example,
+*192.168.100.100* is the IP address assigned to the Out-of-Band
+management interface.
+
+
+For laptop or desktop computers running FreeBSD or Linux with
+:command:`ipmitool`, enter:
+
 
 .. code-block:: none
 
    ipmitool -I lanplus -H 192.168.100.100 -U admin -a sol activate
 
-Enter :literal:`admin` for the password.
+
+For Windows computers with :command:`ipmiutil`, enter:
+
+
+.. code-block:: none
+
+   ipmiutil sol -N 192.168.100.100 -U admin -a
+
+
+Enter :literal:`admin` for the password, and the X10 console is
+connected.
 
 
 .. tip:: The Out-of-Band console password can be changed by
@@ -421,9 +438,50 @@ Enter :literal:`admin` for the password.
    **Do not leave it connected to the X10.**
 
 
-:literal:`ESM A =>` is displayed in the SES (SCSI Enclosure Services)
-mode. Switch to the normal X86 console mode by typing these
-characters:
+Proceed to :ref:`Using the X10 Console`.
+
+
+Serial Cable to X10 Console
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The X10 console can be directly connected to a serial terminal program
+by temporarily disconnecting the gray serial cable from the System
+Management port, #10 on
+:numref:`Figure %s <x10_back>`.
+
+
+.. warning:: After viewing the X10 console, disconnect the black USB
+   to serial cable from the X10. Reconnect the gray System Management
+   cable to the serial port. Do not leave the black USB to serial
+   cable connected to the X10. The gray cable must be reconnected to
+   the System Management port after viewing the X10 console.
+
+
+Connect the USB end of the black USB to serial cable to a laptop or
+desktop computer running serial terminal software. Set the terminal
+software to *115200 baud*, *8 data bits*, *no stop bits*, *no parity*,
+and *no flow control*. Wait two minutes after the X10 has been
+connected to power, then press :kbd:`Enter` to display the console
+menu. Find the :literal:`The web user interface is at:` message and
+write down the IP address. Remove the black USB to serial cable from
+the X10. **Do not leave the black USB to serial cable  connected to
+the X10.** Reconnect the gray System Management cable to the System
+Management port, #10 on
+:numref:`Figure %s <x10_back>`.
+
+Proceed to :ref:`Using the X10 Console`.
+
+
+.. _Using the X10 Console:
+
+Using the X10 Console
+---------------------
+
+The X10 console has two modes: SES (SCSI Enclosure Services) mode, and
+the standard X86 console mode.
+
+If :literal:`ESM A =>` is displayed, the X10 is in SES mode.
+Switch to the X86 console mode by typing these characters:
 
 .. code-block:: none
 
