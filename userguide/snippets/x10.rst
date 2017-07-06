@@ -55,7 +55,7 @@ Carefully unpack the shipping boxes and locate these components:
      :width: 20%
 
 
-* One USB to 3.5mm cable (shipped separately)
+* One black USB to 3.5mm serial cable (shipped separately)
 
   .. image:: images/tn_x10_serialcable.png
      :width: 20%
@@ -91,8 +91,10 @@ Front panel indicators:
    Indicators
 
 
-The Fault indicator is lit during a power-on self-test (POST) or when
-a pairing or compatibility check failure is detected.
+The Fault indicator is lit during the initial power-on self-test
+(POST) or when the %brand% software has issued an
+`alert
+<https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
 
 
 .. raw:: latex
@@ -119,15 +121,15 @@ connectors and features on each node are:
 
 4: USB 2.0 connector
 
-5: 3.5mm serial port
+5: Out-of-Band (OOB) serial port (3.5mm)
 
-6: Out-of-Band (OOB) Management Ethernet connector
+6: Out-of-Band Management Ethernet connector
 
 7,8: HDmini SAS3 connectors
 
 9: PCIe mezzanine expansion port
 
-10: System Management port (reserved for %brand% use; a gray cable
+10: System serial console port (reserved for %brand% use; a gray cable
 connects this port to a USB port above the OOB management port)
 
 11: MAC address label
@@ -215,18 +217,13 @@ Connect Network Cables
 .. note:: Network cables vary by configuration and are not included.
    Please contact your iXsystems Account Manager with any questions.
 
-.. note:: A shielded Ethernet cable must be used to connect the
-   Out-of-Band (OOB) management port.
+.. warning:: The Out-of-Band (OOB) management port must be connected
+   with a shielded Ethernet cable.
 
 
-Connect the network cables and Out-of-Band (OOB) management port
-before attempting to power on and configure the %brand% X10 for the
-the first time.
-
-
-.. raw:: latex
-
-   \newpage
+Connect network cables to the Ethernet ports and Out-of-Band (OOB)
+management port before attempting to power on and configure the
+%brand% X10 for the the first time.
 
 
 Connect Power Cords
@@ -306,14 +303,14 @@ The local DHCP server can also be configured to provide a fixed IP
 address for the X10 Out-of-Band management by using the MAC address.
 
 
-
+.. _X10_Serial_Cable:
 
 Serial Cable
 ~~~~~~~~~~~~
 
 The Out-of-Band management IP address can be identified or changed by
 temporarily connecting the black USB to 3.5mm serial cable to the
-serial port, #5 on
+Out-of-Band serial port, #5 on
 :numref:`Figure %s <x10_back>`.
 
 .. warning:: Do not leave the black USB to serial cable connected to
@@ -324,11 +321,42 @@ serial port, #5 on
 
 
 Connect the USB end of the black cable to a laptop or desktop
-computer running serial terminal software. Set the terminal software
-to *38400 baud*, *8 data bits*, *no stop bits*, *no parity*, and *no
-flow control*. Serial port device names vary, but are typically
-:samp:`COM{4}` on Windows, :samp:`/dev/cuaU{0}` on FreeBSD, and
-:samp:`/dev/ttyUSB{0}` on Linux.
+computer running serial terminal software.
+
+Out-of-Band Serial Terminal Communication Settings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _X10_Serial_Port_Device_Names:
+
+Serial Port Device Names
+........................
+
+The name of the serial port varies with operating systems. These are
+some typical examples:
+
+  * on Windows: :samp:`COM{4}`
+
+  * on macOS: :samp:`/dev/tty.usbserial{xynnn}`
+
+  * on FreeBSD: :samp:`/dev/cuaU{0}`
+
+  * on Linux: :samp:`/dev/ttyUSB{0}`
+
+
+Serial Port Communication Parameters
+....................................
+
+Set the serial terminal program to use the appopriate port with these
+parameters:
+
+.. code-block:: none
+
+   38400 baud
+   8 data bits
+   no stop bits
+   no parity
+   no flow control
+
 
 Log in to the serial console with:
 
@@ -379,8 +407,13 @@ After use, disconnect the black USB to serial cable from the X10.
 **Do not leave it connected to the X10.**
 
 
-Connecting to the X10 Console
------------------------------
+.. raw:: latex
+
+   \newpage
+
+
+Connect to the X10 Console
+--------------------------
 
 
 With IPMI
@@ -388,8 +421,8 @@ With IPMI
 
 .. note:: An IPMI remote management utility must be installed on the
    laptop or desktop computer used to manage the X10 remotely, and the
-   laptop or desktop must be attached to the same network as the
-   %brand% X10. For FreeBSD or Linux,
+   computer must have access to the same network as the %brand% X10.
+   For FreeBSD, macOS, or Linux,
    `IPMItool <https://sourceforge.net/projects/ipmitool/>`__
    can be used. For Windows,
    `ipmiutil <http://ipmiutil.sourceforge.net/>`__
@@ -402,8 +435,8 @@ X10 console is accessible through IPMI. In this example,
 management interface.
 
 
-For laptop or desktop computers running FreeBSD or Linux with
-:command:`ipmitool`, enter:
+For computers using :command:`ipmitool` on FreeBSD, macOS, or Linux,
+enter:
 
 
 .. code-block:: none
@@ -419,16 +452,17 @@ For Windows computers with :command:`ipmiutil`, enter:
    ipmiutil sol -N 192.168.100.100 -U admin -a
 
 
-Enter :literal:`admin` for the password, and the X10 console is
-connected.
+Enter **admin** for the password, and the X10 console is connected.
 
 
 .. tip:: The Out-of-Band console password can be changed by
    temporarily connecting the black USB to 3.5mm serial cable to the
    serial port, #5 on
-   :numref:`Figure %s <x10_back>`.
-   Then give this command to set the password, shown as *newpassword*
-   in this example:
+   :numref:`Figure %s <x10_back>`,
+   as described in
+   :ref:`the serial cable connection instructions <X10_Serial_Cable>`.
+   Then give this command to set the new password, shown as
+   *newpassword* in this example:
 
    .. code-block:: none
 
@@ -447,8 +481,9 @@ With the Serial Cable
 
 The X10 console can be directly connected to a serial terminal program
 by temporarily disconnecting the gray serial cable from the System
-Management port, #10 on
-:numref:`Figure %s <x10_back>`.
+console serial port, #10 on
+:numref:`Figure %s <x10_back>`,
+and temporarily connecting the black USB to serial cable to that port.
 
 
 .. warning:: After viewing the X10 console, disconnect the black USB
@@ -459,18 +494,26 @@ Management port, #10 on
 
 
 Connect the USB end of the black USB to serial cable to a laptop or
-desktop computer running serial terminal software. Set the terminal
-software to *115200 baud*, *8 data bits*, *no stop bits*, *no parity*,
-and *no flow control*. Wait two minutes after the X10 has been
-connected to power, then press :kbd:`Enter` to display the console
-menu. Find the :literal:`The web user interface is at:` message and
-write down the IP address. Remove the black USB to serial cable from
-the X10. **Do not leave the black USB to serial cable  connected to
-the X10.** Reconnect the gray System Management cable to the System
-Management port, #10 on
-:numref:`Figure %s <x10_back>`.
+desktop computer running serial terminal software. See
+:ref:`X10_Serial_Port_Device_Names` for the serial device name.
+Set the terminal software to:
 
-Proceed to :ref:`Using the X10 Console`.
+.. code-block:: none
+
+   115200 baud
+   8 data bits
+   no stop bits
+   no parity
+   no flow control
+
+
+Wait two minutes after the X10 has been connected to power, then press
+:kbd:`Enter` to display the console menu. Find the
+:literal:`The web user interface is at:` message and write down the IP
+address. Remove the black USB to serial cable from the X10. Reconnect
+the gray cable to the system serial console port, #10 on
+:numref:`Figure %s <x10_back>`.
+**Do not leave the black USB to serial cable connected to the X10.**
 
 
 .. _Using the X10 Console:
