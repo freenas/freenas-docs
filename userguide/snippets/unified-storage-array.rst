@@ -1,10 +1,10 @@
-.. index:: %brand% Unified Storage Array
+.. index:: Z Series Unified Storage Array
 
-.. _%brand% Unified Storage Array:
+.. _Z Series Unified Storage Array:
 
 
-%brand% Unified Storage Array
---------------------------------------------
+Z Series Unified Storage Array
+------------------------------
 
 The %brand% Unified Storage Array is an enterprise-grade 3U, 16-bay
 hybrid NAS control system that can be used alone, paired with a second
