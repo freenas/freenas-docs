@@ -94,7 +94,7 @@ add *.local* after the hostname.
    System Information Tab
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-information1.png
+.. figure:: images/tn_system-information1a.png
 
    System Information Tab
 #endif truenas
@@ -117,7 +117,7 @@ is shown in
    General Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-general1.png
+.. figure:: images/tn_system-general1a.png
 
    General Screen
 #endif truenas
@@ -356,7 +356,7 @@ the :ref:`Wizard` was run.
    Viewing Boot Environments
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-bootenv1.png
+.. figure:: images/tn_system-bootenv1a.png
 
    Viewing Boot Environments
 #endif truenas
@@ -557,7 +557,7 @@ The configurable settings are summarized in
    Advanced Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-advanced1a.png
+.. figure:: images/tn_system-advanced1b.png
 
    Advanced Screen
 #endif truenas
@@ -753,7 +753,7 @@ shown in
    Email Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-email1.png
+.. figure:: images/tn_system-email1a.png
 
    Email Screen
 #endif truenas
@@ -853,7 +853,7 @@ controller users and groups.
    System Dataset Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-system-dataset1.png
+.. figure:: images/tn_system-system-dataset1a.png
 
    System Dataset Screen
 #endif truenas
@@ -1623,7 +1623,7 @@ shows the screen after clicking
    Initial CA Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_ca1c.png
+.. figure:: images/tn_system-ca.png
 
    Initial CA Screen
 #endif truenas
@@ -1790,7 +1790,7 @@ can be signed by the CA which was previously imported or created in
 :ref:`CAs`.
 
 :numref:`Figure %s <initial_cert_scr_fig>`
-shows the initial screen if you click
+shows the initial screen after clicking
 :menuselection:`System --> Certificates`.
 
 .. _initial_cert_scr_fig:
@@ -1801,7 +1801,7 @@ shows the initial screen if you click
    Initial Certificates Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_cert1a.png
+.. figure:: images/tn_system-cert.png
 
    Initial Certificates Screen
 #endif truenas
@@ -1863,7 +1863,7 @@ The configurable options are summarized in
 :numref:`Table %s <cert_create_opts_tab>`.
 When completing the fields for the certificate authority, use the
 information for your organization. Since this is a self-signed
-certificate, use the CA that you imported or created using :ref:`CAs`
+certificate, use the CA that was imported or created with :ref:`CAs`
 as the signing authority.
 
 
@@ -1930,8 +1930,8 @@ A screen like the one in
 :numref:`Figure %s <create_new_cert_fig>` opens,
 but without the :guilabel:`Signing Certificate Authority` field.
 
-All certificates that you import, self-sign, or make a certificate
-signing request for will be added as entries to
+Certificates that are imported, self-signed, or for which a
+certificate signing request is created are added as entries to
 :menuselection:`System --> Certificates`.
 In the example shown in
 :numref:`Figure %s <manage_cert_fig>`,
@@ -1954,7 +1954,7 @@ configurable option for encrypting connections.
 
 Clicking an entry activates these configuration buttons:
 
-* **View:** once a certificate is created, it cannot be edited. The
+* **View:** after a certificate is created, it cannot be edited. The
   :guilabel:`Name`, :guilabel:`Certificate`, and
   :guilabel:`Private Key` fields can be viewed. If a certificate must
   be changed, :guilabel:`Delete` and recreate it.
@@ -2067,7 +2067,7 @@ requests.
 
 .. _tn_support1:
 
-.. figure:: images/tn_system-support1.png
+.. figure:: images/tn_system-support1a.png
 
    Support Tab
 
@@ -2143,7 +2143,7 @@ hardware conditions on the system require attention.
 
 .. _tn_proactive_support:
 
-.. figure:: images/tn_system-proactive-support1.png
+.. figure:: images/tn_system-proactive-support1a.png
 
    Proactive Support Tab
 
@@ -2301,7 +2301,7 @@ and described in
 
 .. _failover_fig:
 
-.. figure:: images/failover1d.png
+.. figure:: images/tn_system-failover.png
 
    Example Failover Screen
 
