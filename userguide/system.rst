@@ -2351,15 +2351,13 @@ and described in
 Failover Management
 ~~~~~~~~~~~~~~~~~~~
 
-The :command:`hactl` command line utility is included for managing
-existing failovers. Once a failover has been configured, it is
-recommended to use :command:`hactl` instead of the GUI as any
-changes made using
-:menuselection:`System --> Failover`
-will restart networking.
+In general, the web GUI is preferred for failover configuration and
+management. The :command:`hactl` utility is included for failover
+management when command-line use is required.
 
-When this command is given without options, it indicates the failover
-status. This example was run on an active node:
+When this command is given without options, it displays the current
+failover status. This example is from an active node with failover
+enabled:
 
 
 .. code-block:: none
@@ -2369,8 +2367,8 @@ status. This example was run on an active node:
    Failover status: Enabled
 
 
-And this example is from a system that has not been configured
-for failover:
+This example is from a system that has not been configured for
+failover:
 
 .. code-block:: none
 
@@ -2379,7 +2377,7 @@ for failover:
 
 
 :numref:`Table %s <hactl_opts_tab>`
-summarizes the options for this command.
+lists the options for this command.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -2402,11 +2400,13 @@ summarizes the options for this command.
    | :literal:`status`   | node type indicator: active, passive, or non-HA                                             |
    |                     |                                                                                             |
    +---------------------+---------------------------------------------------------------------------------------------+
-   | :literal:`takeover` | can only be run from the passive node; gives a warning message that the current active      |
-   |                     | node will reboot                                                                            |
+   | :literal:`takeover` | **use the web GUI for this function unless it is not available**; can only be executed      |
+   |                     | on the passive node; warning is displayed about the active node rebooting; current          |
+   |                     | active node reboots and the passive node takes over                                         |
    +---------------------+---------------------------------------------------------------------------------------------+
-   | :literal:`giveback` | cannot be run from the active node; gives a warning message that this node will reboot      |
-   |                     |                                                                                             |
+   | :literal:`giveback` | **use the web GUI for this function unless it is not available**; can only be executed      |
+   |                     | on the active node; a warning is displayed that this node will reboot; this node reboots,   |
+   |                     | giving control back to the other node                                                       |
    +---------------------+---------------------------------------------------------------------------------------------+
    | :literal:`-h` or    | show the help message (options) for this command                                            |
    | :literal:`--help`   |                                                                                             |
