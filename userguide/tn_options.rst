@@ -14,8 +14,8 @@ the %brand% graphical administrative interface.
 Display System Processes
 ------------------------
 
-If you click Display System Processes, a screen will open showing the
-output of
+Clicking :guilabel:`Display System Processes` opens a screen showing
+the output of
 `top(1) <http://www.freebsd.org/cgi/man.cgi?query=top>`_.
 An example is shown in
 :numref:`Figure %s <process>`.
@@ -91,11 +91,9 @@ Most FreeBSD command line utilities are available in Shell.
 Log Out
 -------
 
-To log out of the %brand% GUI, click the :guilabel:`Log Out` entry in
-the tree. You will immediately be logged out. An informational message
-will indicate that you are logged out and will provide a hyperlink
-which you can click on to log back in. When logging back in, you will
-be prompted for the *root* password.
+Click the :guilabel:`Log Out` entry in the tree to log out of the
+%brand% GUI. This causes an immediate logout. A message is displayed
+with a link to log back in.
 
 
 .. index:: Reboot
@@ -105,12 +103,10 @@ be prompted for the *root* password.
 Reboot
 ------
 
-If you click :guilabel:`Reboot`, you will receive the warning message
-shown in
-:numref:`Figure %s <reboot1>`
-and your browser window color will change to red to indicate that you
-have selected an option that will negatively impact users of the
-%brand% system.
+Click :guilabel:`Reboot` shows the warning message in
+:numref:`Figure %s <reboot1>`.
+The browser window background color changes to red to indicate that
+this option can negatively impact users of the %brand% system.
 
 .. _reboot1:
 
@@ -120,22 +116,22 @@ have selected an option that will negatively impact users of the
 
 
 If a scrub or resilver is in progress when a reboot is requested, an
-additional warning will ask you to make sure that you wish to proceed.
-In this case, it is recommended to :guilabel:`Cancel` the reboot
-request and to periodically run :command:`zpool status` from `Shell`_
+additional warning asks if you wish to proceed. In this case, it is
+recommended to :guilabel:`Cancel` the reboot request and to
+periodically run :command:`zpool status` from `Shell`_
 until it is verified that the scrub or resilver process is complete.
 Once complete, the reboot request can be re-issued.
 
-Click the :guilabel:`Cancel` button if you wish to cancel the reboot
-request. Otherwise, click the :guilabel:`Reboot` button to reboot the
-system. Rebooting the system will disconnect all clients, including
-the web administration GUI. The URL in your web browser will change to
-add */system/reboot/* to the end of the IP address. Wait a few minutes
-for the system to boot, then use the browser's Back button to return
-to the %brand% system's IP address. If all goes well, the GUI login
-screen is displayed. If the login screen does not appear, access the
-system using IPMI in order to determine what problem is preventing the
-system from resuming normal operation.
+Click the :guilabel:`Cancel` button to cancel the reboot request.
+Otherwise, click the :guilabel:`Reboot` button to reboot the system.
+Rebooting the system disconnects all clients, including the web
+administration GUI. The URL in the web browser changes, adding
+:literal:`/system/reboot/` to the end of the IP address. Wait a few
+minutes for the system to boot, then use the browser's Back button to
+return to the %brand% system's IP address and display the GUI login
+screen. If the login screen does not appear, access the system using
+IPMI to determine if a problem is preventing the system from resuming
+normal operation.
 
 
 .. index:: Shutdown
@@ -145,11 +141,10 @@ system from resuming normal operation.
 Shutdown
 --------
 
-If you click :guilabel:`Shutdown`, you will receive the warning
-message shown in
-:numref:`Figure %s <shutdown1>`
-and your browser color will change to red to indicate that you have
-selected an option that will negatively impact users of the %brand%
+Clicking :guilabel:`Shutdown` shows the warning message in
+:numref:`Figure %s <shutdown1>`.
+The browser window background color changes to red to indicate that
+this is an option that will negatively impact users of the %brand%
 system.
 
 
@@ -161,11 +156,14 @@ system.
 
 
 If a scrub or resilver is in progress when a shutdown is requested, an
-additional warning will ask you to make sure that you wish to proceed.
-In this case, it is recommended to :guilabel:`Cancel` the shutdown
-request and to periodically run :command:`zpool status` from `Shell`_
-until it is verified that the scrub or resilver process is complete.
-Once complete, the shutdown request can be re-issued.
+additional warning will ask for confirmation to proceed. In this case,
+it is recommended to :guilabel:`Cancel` the shutdown request and to
+periodically run :command:`zpool status` from `Shell`_ until it is
+verified that the scrub or resilver process is complete. Once
+complete, the shutdown request can be re-issued.
+
+On High Availability (HA) systems with :ref:`Failover`, an additional
+checkbox is provided to shut down the standby node.
 
 Click the :guilabel:`Cancel` button to cancel the shutdown request.
 Otherwise, click the :guilabel:`Shutdown` button to halt the system.
