@@ -49,7 +49,7 @@ Carefully unpack the shipping boxes and locate these components:
      blanks to maintain proper airflow for cooling.
 
 
-* Accessory kit with power cords, cage nut remover, and mounting
+* One accessory kit with power cords, cage nut remover, and mounting
   hardware
 
   .. image:: images/tn_x10_accessorykit.png
@@ -208,8 +208,8 @@ the latch closed until it locks.
 Connecting Expansion Shelves
 ----------------------------
 
-If expansion shelves are to be used with the X10, please see the
-installation instructions supplied with the shelves.
+Refer to the installation instructions included with expansion
+shelves for details on connecting them to the X10.
 
 
 Connect Network Cables
@@ -264,9 +264,7 @@ left and right sides of the system. Align the bezel with the pins on
 the ears and press it into place.
 
 
-.. raw:: latex
-
-   \newpage
+----
 
 
 Discover Out-of-Band Management IP Address
@@ -295,9 +293,9 @@ DHCP
 ~~~~
 
 If the Out-of-Band management IP address has been configured to be
-assigned by DHCP, the IP address by the DHCP server can be determined
-by checking the local DHCP server logs for the MAC addresses on the
-back panel of each X10 node, #11 on
+assigned by DHCP, the IP address assigned by the DHCP server can be
+determined by checking the local DHCP server logs for the MAC
+addresses on the back panel of each X10 node, #11 on
 :numref:`Figure %s <x10_back>`.
 
 The local DHCP server can also be configured to provide a fixed IP
@@ -408,9 +406,7 @@ After use, disconnect the black USB to serial cable from the X10.
 **Do not leave it connected to the X10.**
 
 
-.. raw:: latex
-
-   \newpage
+----
 
 
 Connect to the X10 Console
@@ -567,5 +563,5 @@ Enter the IP address into a browser on a computer on the same network
 to access the web user interface. See the
 `TrueNAS® User Guide
 <https://support.ixsystems.com/truenasguide/truenas.html>`__ for more
-information on configuring %brand% on the X10.
+information on configuring %brand%.
 
