@@ -29,9 +29,9 @@ Carefully unpack the shipping boxes and locate these components:
      :width: 50%
 
 
-* One rail kit with mounting hardware
+* One set of rails
 
-  .. image:: images/tn_x10_railkit.png
+  .. image:: images/tn_x10_rails.png
      :width: 50%
 
   .. caution:: The rails have a specific front end, identified by a
@@ -49,9 +49,10 @@ Carefully unpack the shipping boxes and locate these components:
      blanks to maintain proper airflow for cooling.
 
 
-* Two power cords
+* Accessory kit with power cords, cage nut remover, and mounting
+  hardware
 
-  .. image:: images/tn_power_cable.png
+  .. image:: images/tn_x10_accessorykit.png
      :width: 20%
 
 

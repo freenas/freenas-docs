@@ -28,7 +28,7 @@ The E24 expansion shelf comes with these components:
 
 * Two power cables
 
-.. image:: images/tn_power_cable.jpg
+.. image:: images/tn_power_cable.png
 
 * Two host expansion cables (SAS 8088)
 

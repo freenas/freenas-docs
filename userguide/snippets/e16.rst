@@ -33,7 +33,8 @@ The E16 expansion shelf comes with these components:
 
 * Two power cables
 
-.. image:: images/tn_power_cable.jpg
+.. image:: images/tn_power_cable.png
+   :width: 7%
 
 * Two host expansion cables (SAS 8088)
 

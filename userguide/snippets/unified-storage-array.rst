@@ -45,7 +45,7 @@ The %brand% Storage Array shipment comes with these components:
 | 2          | Long screws                              | .. image:: images/tn_longscrew.png      |
 |            |                                          |    :width: 7%                           |
 +------------+------------------------------------------+-----------------------------------------+
-| 2          | Power cables                             | .. image:: images/tn_power_cable.jpg    |
+| 2          | Power cables                             | .. image:: images/tn_power_cable.png    |
 |            |                                          |    :width: 10%                          |
 +------------+------------------------------------------+-----------------------------------------+
 | 1          | Serial to 3.5mm cable                    | .. image:: images/tn_serialcable.png    |
