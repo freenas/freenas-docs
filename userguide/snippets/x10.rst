@@ -69,7 +69,7 @@ Carefully unpack the shipping boxes and locate these components:
 .. _Become Familiar with the System:
 
 Become Familiar With the System
--------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. index:: X10 Front View
 .. _X10 Front View:
@@ -138,29 +138,14 @@ connects this port to a USB port above the OOB management port)
 12, 13: Redundant power supplies
 
 
-Drive trays are used to mount drives in the array:
-
-
-.. _x10_tray:
-
-.. figure:: images/tn_x10_tray.png
-   :width: 30%
-
-   Drive Tray
-
-
-Each drive tray has a status LED which is blue when active or amber
-if a fault has occurred.
-
-
 .. index:: Rail Kit Assembly
 
 Rail Kit Assembly
------------------
+~~~~~~~~~~~~~~~~~
 
 
 Mount the Outer Rails
-~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^
 
 Open the clamp latches on the ends of each rail. Place the rail in
 the rack with the front end toward the front of the rack, aligning
@@ -179,10 +164,16 @@ Repeat the process for the second rail.
 
 
 Mount the Unit in the Rack
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. caution:: Two people are required to safely install the %brand%
-   array in a rack or cabinet, or to remove it.
+   array in a rack or cabinet. Do not install the drives until after
+   the unit has been installed in the rack.
+
+   Two people are also required to safely remove the %brand% array
+   from a rack or cabinet. Remove the drives from the %brand% unit
+   before removing it from the rack.
+
 
 Carefully place the inner rails on the sides of the X10 chassis onto
 the outer rails mounted in the rack. With the rails aligned, push the
@@ -191,7 +182,21 @@ the X10 in place at the front with the supplied screws.
 
 
 Install Drive Trays
--------------------
+~~~~~~~~~~~~~~~~~~~
+
+Drive trays are used to mount drives in the array:
+
+
+.. _x10_tray:
+
+.. figure:: images/tn_x10_tray.png
+   :width: 30%
+
+   Drive Tray
+
+
+Each drive tray has a status LED which is blue when active or amber
+if a fault has occurred.
 
 Unpack each drive tray. Press the blue button to open the latch.
 Carefully slide the tray into a drive bay until the left side of the
@@ -206,14 +211,14 @@ the latch closed until it locks.
 
 
 Connecting Expansion Shelves
-----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Refer to the installation instructions included with expansion
 shelves for details on connecting them to the X10.
 
 
 Connect Network Cables
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. note:: Network cables vary by configuration and are not included.
    Please contact your iXsystems Account Manager with any questions.
@@ -228,7 +233,7 @@ management port before attempting to power on and configure the
 
 
 Connect Power Cords
--------------------
+~~~~~~~~~~~~~~~~~~~
 
 If any %brand% expansion shelves are connected to the X10 array, power
 them on first, then wait at least two minutes before connecting power
@@ -256,7 +261,7 @@ back on when power is restored after a power failure.
 
 
 Install Bezel (Optional)
-------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 The included bezel is not required for operation. If desired, install
 the bezel by verifying that bezel connection ears are present on the
@@ -264,18 +269,18 @@ left and right sides of the system. Align the bezel with the pins on
 the ears and press it into place.
 
 
-----
+~~~~
 
 
 Discover Out-of-Band Management IP Address
-------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are a variety of ways to determine the IP address that is being
 used by the %brand% X10 Out-of-Band management interface.
 
 
 Preset
-~~~~~~
+^^^^^^
 
 If the system was preconfigured by iXsystems, the Out-of-Band
 management interfaces have already been configured with the IP
@@ -290,7 +295,7 @@ Node 2 (if present): *192.168.100.101*, subnet mask *255.255.255.0*
 
 
 DHCP
-~~~~
+^^^^
 
 If the Out-of-Band management IP address has been configured to be
 assigned by DHCP, the IP address assigned by the DHCP server can be
@@ -305,7 +310,7 @@ address for the X10 Out-of-Band management by using the MAC address.
 .. _X10_Serial_Cable:
 
 Serial Cable
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 The Out-of-Band management IP address can be identified or changed by
 temporarily connecting the black USB to 3.5mm serial cable to the
@@ -322,13 +327,13 @@ Out-of-Band serial port, #5 on
 Connect the USB end of the black cable to a laptop or desktop
 computer running serial terminal software.
 
+
+.. _X10_Out-of-Band Serial Terminal Communication Settings:
+
 Out-of-Band Serial Terminal Communication Settings
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..................................................
 
-.. _X10_Serial_Port_Device_Names:
-
-Serial Port Device Names
-........................
+**Serial Port Device Names**
 
 The name of the serial port varies with operating systems. These are
 some typical examples:
@@ -342,8 +347,7 @@ some typical examples:
   * on Linux: :samp:`/dev/ttyUSB{0}`
 
 
-Serial Port Communication Parameters
-....................................
+**Serial Port Communication Parameters**
 
 Set the serial terminal program to use the appopriate port with these
 parameters:
@@ -402,19 +406,22 @@ address and netmask. This example shows setting the IP address to
    ipmitool -H 127.0.0.1 -U admin -P admin lan set 1 netmask 255.255.255.0
 
 
+Log out of the Out-of-Band management system by typing :literal:`exit`
+and pressing :kbd:`Enter`.
+
 After use, disconnect the black USB to serial cable from the X10.
 **Do not leave it connected to the X10.**
 
 
-----
+~~~~
 
 
 Connect to the X10 Console
---------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 With IPMI
-~~~~~~~~~
+^^^^^^^^^
 
 .. note:: An IPMI remote management utility must be installed on the
    laptop or desktop computer used to manage the X10 remotely, and the
@@ -474,7 +481,7 @@ Proceed to :ref:`Using the X10 Console`.
 
 
 With the Serial Cable
-~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^
 
 The X10 console can be directly connected to a serial terminal program
 by temporarily disconnecting the gray serial cable from the System
@@ -492,8 +499,8 @@ and temporarily connecting the black USB to serial cable to that port.
 
 Connect the USB end of the black USB to serial cable to a laptop or
 desktop computer running serial terminal software. See
-:ref:`X10_Serial_Port_Device_Names` for the serial device name.
-Set the terminal software to:
+:ref:`X10_Out-of-Band Serial Terminal Communication Settings` for the
+serial device name. Set the terminal software to:
 
 .. code-block:: none
 
@@ -516,7 +523,7 @@ the gray cable to the system serial console port, #10 on
 .. _Using the X10 Console:
 
 Using the X10 Console
----------------------
+~~~~~~~~~~~~~~~~~~~~~
 
 The X10 console has two modes: SES (SCSI Enclosure Services) mode, and
 the standard X86 console mode.
@@ -546,7 +553,7 @@ The normal X86 console is displayed.
 
 
 Perform %brand% Initial Software Configuration
---------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The console displays the IP address of the %brand% X10 graphical web
 interface, *192.168.100.231* in this example:
