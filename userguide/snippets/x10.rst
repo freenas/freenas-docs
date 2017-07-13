@@ -156,6 +156,7 @@ supplied screws to secure the back end of the rail in place.
 .. _x10_rail_clamp:
 
 .. figure:: images/tn_x10_rail_clamp.png
+   :width: 4.125in
 
    Rail Clamp Latch
 
@@ -166,13 +167,10 @@ Repeat the process for the second rail.
 Mount the Unit in the Rack
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. caution:: Two people are required to safely install the %brand%
-   array in a rack or cabinet. Do not install the drives until after
-   the unit has been installed in the rack.
-
-   Two people are also required to safely remove the %brand% array
-   from a rack or cabinet. Remove the drives from the %brand% unit
-   before removing it from the rack.
+.. caution:: Two people are required to safely lift the chassis for
+   rack installation or removal. Do not install drives until after the
+   chassis has been installed in the rack, and remove all drives
+   before removing the chassis from the rack.
 
 
 Carefully place the inner rails on the sides of the X10 chassis onto
@@ -190,7 +188,7 @@ Drive trays are used to mount drives in the array:
 .. _x10_tray:
 
 .. figure:: images/tn_x10_tray.png
-   :width: 30%
+   :width: 1.5in
 
    Drive Tray
 
@@ -247,6 +245,7 @@ the plastic clamp and pressing on the tab to lock it in place. See
 
 .. _x10_power:
 .. figure:: images/tn_x10_power_clip.png
+   :width: 1.5in
 
    X10 Power Cord Connection
 
@@ -269,7 +268,9 @@ left and right sides of the system. Align the bezel with the pins on
 the ears and press it into place.
 
 
-~~~~
+.. raw:: latex
+
+   \newpage
 
 
 Discover Out-of-Band Management IP Address
@@ -484,18 +485,10 @@ With the Serial Cable
 ^^^^^^^^^^^^^^^^^^^^^
 
 The X10 console can be directly connected to a serial terminal program
-by temporarily disconnecting the gray serial cable from the System
+by temporarily disconnecting the gray serial cable from the system
 console serial port, #10 on
 :numref:`Figure %s <x10_back>`,
 and temporarily connecting the black USB to serial cable to that port.
-
-
-.. warning:: After viewing the X10 console, disconnect the black USB
-   to serial cable from the X10. Reconnect the gray System Management
-   cable to the serial port. Do not leave the black USB to serial
-   cable connected to the X10. The gray cable must be reconnected to
-   the System Management port after viewing the X10 console.
-
 
 Connect the USB end of the black USB to serial cable to a laptop or
 desktop computer running serial terminal software. See
@@ -514,8 +507,9 @@ serial device name. Set the terminal software to:
 Wait two minutes after the X10 has been connected to power, then press
 :kbd:`Enter` to display the console menu. Find the
 :literal:`The web user interface is at:` message and write down the IP
-address. Remove the black USB to serial cable from the X10. Reconnect
-the gray cable to the system serial console port, #10 on
+address. After viewing the X10 console, disconnect the black USB to
+serial cable and reconnect the gray System Management cable to the
+system serial console port, #10 on
 :numref:`Figure %s <x10_back>`.
 **Do not leave the black USB to serial cable connected to the X10.**
 
@@ -545,11 +539,6 @@ The normal X86 console is displayed.
    .. code-block:: none
 
       $%^2
-
-
-.. raw:: latex
-
-   \newpage
 
 
 Perform %brand% Initial Software Configuration
