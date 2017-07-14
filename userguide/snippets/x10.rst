@@ -49,11 +49,11 @@ Carefully unpack the shipping boxes and locate these components:
      blanks to maintain proper airflow for cooling.
 
 
-* One accessory kit with power cords, cage nut remover, and mounting
-  hardware
+* One accessory kit with power cords, cage nut remover, mounting
+  hardware, and cable ties
 
   .. image:: images/tn_x10_accessorykit.png
-     :width: 20%
+     :width: 50%
 
 
 * One black USB to 3.5mm serial cable (shipped separately)
