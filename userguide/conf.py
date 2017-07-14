@@ -29,13 +29,13 @@ copyright = '2011-2017, iXsystems'
 #
 
 # VERSION is the LONG, FULL version number with all patch levels, like "11.0-U1"
-version = '11.0-U1'
+version = '11.0-U2'
 # RELEASE is the short major release number ONLY, like "11.0"
 release = '11.0'
 
 if tags.has('truenas'):
     # VERSION is the LONG, FULL, version number
-    version = '11.0-U1'
+    version = '11.0-U2'
     # RELEASE is the short major release number ONLY
     release = '11.0'
 

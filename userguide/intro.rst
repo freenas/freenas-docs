@@ -213,10 +213,10 @@ New Features in |release|
   firmware versions no longer correspond.
 
 
-.. _Changes in |version|:
+.. _Changes Since |release|:
 
-Changes in |version|
---------------------
+Changes Since |release|
+-----------------------
 
 %brand% uses a "rolling release" model instead of point releases. The
 :ref:`Update` mechanism makes it easy to keep up-to-date with the
@@ -229,11 +229,25 @@ changes that have occurred since |release| was released.
    |version|. If a screen on the system is not the same as shown in
    this guide, make sure that all updates have been applied.
 
+U1
+~~
+
 * The :guilabel:`Read only` checkbox has been removed from
   :menuselection:`Jails --> Templates --> Add Jail Templates`.
 
 * The NT4 option has been removed from :ref:`Directory Services` as it
   is no longer supported by Samba.
+
+U2
+~~
+
+* Samba has been updated to `4.6.6
+  <https://www.samba.org/samba/history/samba-4.6.6.html>`__ to address
+  `CVE-2017-11103
+  <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11103>`__.
+
+* The :ref:`Active Directory` :guilabel:`Enable Monitoring` option is no
+  longer considered experimental.
 
 .. index:: Hardware Recommendations
 .. _Hardware Recommendations:
