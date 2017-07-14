@@ -81,7 +81,7 @@ display these settings by checking the box
 
 .. _ad_fig:
 
-.. figure:: images/directoryservice-ad1.png
+.. figure:: images/directoryservice-ad1a.png
 
    Configuring Active Directory
 
@@ -118,9 +118,7 @@ display these settings by checking the box
    | How many recovery        | integer       |          | number of times to attempt reconnecting to the Active Directory server; tries forever when set to *0*                         |
    | attempts                 |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Enable Monitoring        | checkbox      |          | **experimental**; restart Active Directory automatically if the service is disconnected; at present, recommended only for     |
-   | (Experimental)           |               |          | testing in non-production environments; please submit bug reports at `<https://bugs.freenas.org>`__ if problems are           |
-   |                          |               |          | encountered                                                                                                                   |
+   | Enable Monitoring        | checkbox      |          | restart Active Directory automatically if the service is disconnected                                                         |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Encryption Mode          | drop-down     | ✓        | choices are *Off*,                                                                                                            |
    |                          | menu          |          | *SSL*, or                                                                                                                     |
