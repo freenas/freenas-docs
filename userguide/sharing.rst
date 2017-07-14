@@ -1092,16 +1092,16 @@ settings:
   in
   :menuselection:`Services --> SMB`.
 
-* Be careful about unchecking the
-  :guilabel:`Browsable to Network Clients` box. When this box is
-  checked (the default), other users will see the names of every share
-  that exists using Windows Explorer, but they will receive a
-  permissions denied error message if they try to access someone
-  else's share. If this box is unchecked, even the owner of the share
-  will not see it or be able to create a drive mapping for the share
-  in Windows Explorer. However, they can still access the share from
-  the command line. Unchecking this option provides limited security
-  and is not a substitute for proper permissions and password control.
+* When the :guilabel:`Browsable to Network Clients` box is checked (the 
+  default), the share will be visible in the server's browse list. In the 
+  context of the special [homes] share, unchecking this box will hide the 
+  [homes] share so that only the dynamically generated home share with the
+  authenticated user's name [%U] will be visibile (in contrast with [homes]
+  and [%U] both being visible. The presence of a share in the user's browse 
+  list does not indicate that the user has read or write permissions on the 
+  share. Users are still able to directly access and map shares that are not 
+  visible in the browse list by using the share's UNC path. Hence, this option
+  is of limited security utility.
 
 * If some files on a shared volume should be hidden and inaccessible
   to users, put a *veto files=* line in the
@@ -1133,13 +1133,7 @@ like Windows 7 will not be able to connect with NTLMv1 disabled.
 `Security guidance for NTLMv1 and LM network authentication
 <https://support.microsoft.com/en-us/help/2793313/security-guidance-for-ntlmv1-and-lm-network-authentication>`_
 has information about the security implications and ways to enable
-NTLMv2. If changing the client configuration is not possible, NTLMv1
-authentication can be enabled by adding this entry to
-:guilabel:`Auxiliary Parameters`:
-
-.. code-block:: none
-
-   ntlm auth = yes
+NTLMv2.
 
 
 :numref:`Table %s <avail_vfs_modules_tab>`
