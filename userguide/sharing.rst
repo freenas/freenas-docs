@@ -1286,26 +1286,26 @@ for more details.
    | xattr_tdb           | stores Extended Attributes (EAs) in a tdb file so they can be used on filesystems which do not provide support for EAs                     |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-
+   | zfs_space           | correctly calculates ZFS space used by share, including space used by ZFS snapshots, quotas, and resevations. Enabled by default.          |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | zfsacl              | provide ACL extensions for proper integration with ZFS. Enabled by default.                                                                |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. note:: When using :guilabel:`fruit`, also add the
    :guilabel:`streams_xattr` and :guilabel:`catia` VFS objects and be
    sure to configure **all** SMB shares this way. Reboot the Mac
    client after making this change.
 
-These VFS objects do not appear in the drop-down menu as they are
-always enabled:
+These VFS objects do not appear in the drop-down menu and are dynamically
+configured:
 
 * **recycle:** moves deleted files to the recycle directory instead of
-  deleting them
+  deleting them. Controlled by a checkbox in the share configuration.
 
 * **shadow_copy2:** a more recent implementation of
   :guilabel:`shadow_copy` with some additional features
-
-* **zfs_space:** correctly calculates ZFS space used by share,
-  including any reservations or quotas
-
-* **zfsacl:** provide ACL extensions for proper integration with ZFS.
 
 
 .. _Configuring Unauthenticated Access:
