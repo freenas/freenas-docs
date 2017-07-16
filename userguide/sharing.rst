@@ -1094,7 +1094,7 @@ settings:
 
 * When the :guilabel:`Browsable to Network Clients` box is checked (the 
   default), the share will be visible in the server's browse list. If the share 
-  is is flagged as a :guilabel:`home share’, unchecking this box will hide the 
+  is is flagged as a :guilabel:`home share`, unchecking this box will hide the 
   [homes] share so that only the dynamically generated home share with the
   authenticated user's name will be visible (in contrast with [homes]
   and [<username>] both being visible). 
