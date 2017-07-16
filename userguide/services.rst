@@ -1538,15 +1538,6 @@ a multiple of _SC_PAGESIZE (typically *4096*) to avoid memory
 fragmentation. This will increase Samba's memory requirements and
 should not be used on systems with limited RAM.
 
-To increase network performance, read the Samba section on socket
-options in the
-`smb.conf manual page
-<https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+11.0-RELEASE+and+Ports>`_.
-It indicates which options are available and recommends that you
-experiment to see which are supported by your clients and improve your
-network's performance.
-#endif freenas
-
 Windows automatically caches file sharing information. If changes are
 made to an SMB share or to the permissions of a volume/dataset being
 shared by SMB and the share becomes inaccessible, try logging out and
@@ -1636,7 +1627,9 @@ unless there is a specific need.**
   back up the data, create a new case-insensitive dataset, create an
   SMB share on it, then copy the data from the old one onto it. After
   the data has been checked and verified on the new share, the old one
-  can be deleted.
+  can be deleted. Once the case-insensitive dataset is created, the
+  share level auxiliary parameter “case sensitive = true” can be safely
+  set.
 
 * If present, remove options for extended attributes and DOS
   attributes in the share's
