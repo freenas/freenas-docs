@@ -1057,9 +1057,9 @@ provides more details for each configurable option.
    |                              |               |          | file) are created; existing files are not affected                                                          |
    |                              |               |          |                                                                                                             |
    +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Allow Guest Access           | checkbox      |          | if checked, no password is required to connect to the share and all users share the permissions of the      |
-   |                              |               |          | guest user defined in the :ref:`SMB` service                                                                |
-   |                              |               |          |                                                                                                             |
+   | Allow Guest Access           | checkbox      |          | if checked, no password is required to connect to the share. User login attempts with a bad password are    |
+   |                              |               |          | rejected unless the user account does not exist, in which case it is mapped to the guest account and        |
+   |                              |               |          | granted the permissions of the guest user defined in the :ref:`SMB` service.                                |
    +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
    | Only Allow Guest Access      | checkbox      | ✓        | requires :guilabel:`Allow guest access` to also be checked; forces guest access for all connections         |
    |                              |               |          |                                                                                                             |
@@ -1093,15 +1093,16 @@ settings:
   :menuselection:`Services --> SMB`.
 
 * When the :guilabel:`Browsable to Network Clients` box is checked (the 
-  default), the share will be visible in the server's browse list. In the 
-  context of the special [homes] share, unchecking this box will hide the 
+  default), the share will be visible in the server's browse list. If the share 
+  is is flagged as a :guilabel:`home share’, unchecking this box will hide the 
   [homes] share so that only the dynamically generated home share with the
-  authenticated user's name [%U] will be visibile (in contrast with [homes]
-  and [%U] both being visible. The presence of a share in the user's browse 
-  list does not indicate that the user has read or write permissions on the 
-  share. Users are still able to directly access and map shares that are not 
-  visible in the browse list by using the share's UNC path. Hence, this option
-  is of limited security utility.
+  authenticated user's name will be visible (in contrast with [homes]
+  and [<username>] both being visible). 
+
+  The presence of a share in a user's browse list does not grant the user  
+  read or write permissions on the share. Users are still able to directly 
+  access and map shares that are not visible in the browse list by using 
+  the share's UNC path. Hence, this option is of limited security utility.
 
 * If some files on a shared volume should be hidden and inaccessible
   to users, put a *veto files=* line in the
