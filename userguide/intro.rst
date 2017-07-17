@@ -246,6 +246,9 @@ U2
   `CVE-2017-11103
   <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11103>`__.
 
+* The system has been patched to address `FreeBSD-SA-17:05.heimdal
+  <https://www.freebsd.org/security/advisories/FreeBSD-SA-17:05.heimdal.asc>`__.
+
 * The :ref:`Active Directory` :guilabel:`Enable Monitoring` option is no
   longer considered experimental.
 
