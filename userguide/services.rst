@@ -1640,8 +1640,8 @@ unless there is a specific need.**
   overhead.
 
 
-  
-  
+
+
 .. index:: SNMP, Simple Network Management Protocol
 .. _SNMP:
 
