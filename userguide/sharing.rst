@@ -1057,9 +1057,9 @@ provides more details for each configurable option.
    |                              |               |          | file) are created; existing files are not affected                                                          |
    |                              |               |          |                                                                                                             |
    +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Allow Guest Access           | checkbox      |          | if checked, no password is required to connect to the share. User login attempts with a bad password are    |
+   | Allow Guest Access           | checkbox      |          | if checked, a password is not required to connect to the share; connections with a bad password are         |
    |                              |               |          | rejected unless the user account does not exist, in which case it is mapped to the guest account and        |
-   |                              |               |          | granted the permissions of the guest user defined in the :ref:`SMB` service.                                |
+   |                              |               |          | granted the permissions of the guest user defined in the :ref:`SMB` service                                 |
    +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
    | Only Allow Guest Access      | checkbox      | ✓        | requires :guilabel:`Allow guest access` to also be checked; forces guest access for all connections         |
    |                              |               |          |                                                                                                             |
@@ -1093,16 +1093,15 @@ settings:
   :menuselection:`Services --> SMB`.
 
 * When the :guilabel:`Browsable to Network Clients` box is checked (the 
-  default), the share will be visible in the server's browse list. If the share 
-  is is flagged as a :guilabel:`home share`, unchecking this box will hide the 
-  [homes] share so that only the dynamically generated home share with the
-  authenticated user's name will be visible (in contrast with [homes]
-  and [<username>] both being visible). 
-
-  The presence of a share in a user's browse list does not grant the user  
-  read or write permissions on the share. Users are still able to directly 
-  access and map shares that are not visible in the browse list by using 
-  the share's UNC path. Hence, this option is of limited security utility.
+  default), the share is visible when the user lists the available shares 
+  through Windows File Explorer or through the *net view* command. If the  
+  share is flagged as a :guilabel:`home share`, unchecking this box hides the 
+  *homes* share so that only the dynamically generated home share with the
+  authenticated username will be visible (in contrast with a share named
+  *homes* and the dynamically-generated home share both being visible). 
+  Users are not automatically granted read or write permissions on browsable
+  shares. This option provides no real security because shares that are not 
+  visible in Windows File Explorer can still be accessed with a *UNC* path.  
 
 * If some files on a shared volume should be hidden and inaccessible
   to users, put a *veto files=* line in the
@@ -1134,7 +1133,9 @@ like Windows 7 will not be able to connect with NTLMv1 disabled.
 `Security guidance for NTLMv1 and LM network authentication
 <https://support.microsoft.com/en-us/help/2793313/security-guidance-for-ntlmv1-and-lm-network-authentication>`_
 has information about the security implications and ways to enable
-NTLMv2.
+NTLMv2. If changing the client configuration is not possible, NTLMv1
+authentication can be enabled by checking the box :guilabel:`NTLMv1 auth` 
+in :menuselection:`Services --> SMB`.
 
 
 :numref:`Table %s <avail_vfs_modules_tab>`
@@ -1287,10 +1288,10 @@ for more details.
    | xattr_tdb           | stores Extended Attributes (EAs) in a tdb file so they can be used on filesystems which do not provide support for EAs                     |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | zfs_space           | correctly calculates ZFS space used by share, including space used by ZFS snapshots, quotas, and resevations. Enabled by default.          |
+   | zfs_space           | correctly calculates ZFS space used by share, including space used by ZFS snapshots, quotas, and resevations; enabled by default           |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | zfsacl              | provide ACL extensions for proper integration with ZFS. Enabled by default.                                                                |
+   | zfsacl              | provide ACL extensions for proper integration with ZFS; enabled by default                                                                 |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -1299,14 +1300,15 @@ for more details.
    sure to configure **all** SMB shares this way. Reboot the Mac
    client after making this change.
 
-These VFS objects do not appear in the drop-down menu and are dynamically
-configured:
+These VFS objects do not appear in the selection box:
 
 * **recycle:** moves deleted files to the recycle directory instead of
-  deleting them. Controlled by a checkbox in the share configuration.
+  deleting them. Controlled by :guilabel:`Export Recycle Bin`.
 
 * **shadow_copy2:** a more recent implementation of
-  :guilabel:`shadow_copy` with some additional features
+  :guilabel:`shadow_copy` with some additional features. *shadow_copy2*
+  and associated *shadow:* parameters are automatically added to the
+  :file:`smb4.conf` when a :guilabel:`Periodic Snapshot Task` is selected.
 
 
 .. _Configuring Unauthenticated Access:
