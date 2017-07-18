@@ -463,7 +463,7 @@ drive, 2 GB will be reserved for swap.
 
 Users new to ZFS who are purchasing hardware should read through
 `ZFS Storage Pools Recommendations
-<http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide#ZFS_Storage_Pools_Recommendations>`_
+<https://web.archive.org/web/20161028084224/http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide#ZFS_Storage_Pools_Recommendations>`_
 first.
 
 ZFS *vdevs*, groups of disks that act like a single device, can be
