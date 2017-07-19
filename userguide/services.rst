@@ -1415,9 +1415,9 @@ This configuration screen is really a front-end to
    |                                  |                | :guilabel:`Hosts Deny` fields of a SMB share; uncheck if IP addresses are used to avoid the           |
    |                                  |                | delay of a host lookup                                                                                |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Server minimum protocol          | drop-down menu | the minimum protocol version the server will allow the client to use; Default selects *LANMAN1*. SMB  |
-   |                                  |                | clients automatically negotiate the highest supported protocol version that meets or exceeds this     |
-   |                                  |                | value; refer to :numref:`Table %s <smb_protocol_ver_tab>` for descriptions                            |
+   | Server minimum protocol          | drop-down menu | the minimum protocol version the server will support; default selects *LANMAN1*; SMB clients          |
+   |                                  |                | automatically negotiate the highest supported protocol version that meets or exceeds this value;      |
+   |                                  |                | refer to :numref:`Table %s <smb_protocol_ver_tab>` for descriptions                                   |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Server maximum protocol          | drop-down menu | the maximum protocol version the server will support; refer to                                        |
    |                                  |                | :numref:`Table %s <smb_protocol_ver_tab>` for descriptions                                            |
