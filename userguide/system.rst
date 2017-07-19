@@ -1210,7 +1210,7 @@ screen.
    Update Options
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_update1c.png
+.. figure:: images/tn_system-update.png
 
    Update Options
 #endif truenas
@@ -1297,18 +1297,22 @@ firewall restrictions.
 #ifdef truenas
 **For Production Use**
 
-* **TrueNAS-9.10-STABLE** (Recommended)
+* **TrueNAS-11.0-STABLE** (Recommended)
 
   After new fixes and features have been tested as production-ready,
   they are added to this train. It is recommended to follow this train
-  and to apply any of its pending updates.
+  and to apply any pending updates from it.
 
 **Legacy Versions**
 
+* **TrueNAS-9.10-STABLE**
+
+  Maintenance-only updates for the previous branch of %brand%.
+
 * **TrueNAS-9.3-STABLE**
 
-  Maintenance-only updates for an older version of %brand%. Use this
-  train only at the recommendation of an iX support engineer.
+  Maintenance-only updates for the older 9.3 branch of %brand%. Use
+  this train only at the recommendation of an iX support engineer.
 #endif truenas
 
 The :guilabel:`Verify Install` button verifies that the operating
