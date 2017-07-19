@@ -1092,16 +1092,17 @@ settings:
   in
   :menuselection:`Services --> SMB`.
 
-* When the :guilabel:`Browsable to Network Clients` box is checked (the 
-  default), the share is visible when the user lists the available shares 
-  through Windows File Explorer or through the *net view* command. If the  
-  share is flagged as a :guilabel:`home share`, unchecking this box hides the 
-  *homes* share so that only the dynamically generated home share with the
-  authenticated username will be visible (in contrast with a share named
-  *homes* and the dynamically-generated home share both being visible). 
-  Users are not automatically granted read or write permissions on browsable
-  shares. This option provides no real security because shares that are not 
-  visible in Windows File Explorer can still be accessed with a *UNC* path.  
+* When the :guilabel:`Browsable to Network Clients` box is checked (the
+  default), the share is visible when the user lists the available shares
+  through Windows File Explorer or through :command:`net view`. When the
+  :guilabel:`Use as a home share` box is checked, unchecking the
+  :guilabel:`Browsable to Network Clients` box hides the share named *homes*
+  so that only the dynamically generated share granting access to the
+  authenticated user's home directory will be visible (in contrast with a
+  share named *homes* and the home directory both being visible). Users are
+  not automatically granted read or write permissions on browsable shares.
+  This option provides no real security because shares that are not
+  visible in Windows File Explorer can still be accessed with a *UNC* path.
 
 * If some files on a shared volume should be hidden and inaccessible
   to users, put a *veto files=* line in the
@@ -1288,7 +1289,7 @@ for more details.
    | xattr_tdb           | stores Extended Attributes (EAs) in a tdb file so they can be used on filesystems which do not provide support for EAs                     |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | zfs_space           | correctly calculates ZFS space used by share, including space used by ZFS snapshots, quotas, and resevations; enabled by default           |
+   | zfs_space           | correctly calculates ZFS space used by the share, including space used by ZFS snapshots, quotas, and resevations; enabled by default       |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | zfsacl              | provide ACL extensions for proper integration with ZFS; enabled by default                                                                 |
@@ -1303,11 +1304,12 @@ for more details.
 These VFS objects do not appear in the selection box:
 
 * **recycle:** moves deleted files to the recycle directory instead of
-  deleting them. Controlled by :guilabel:`Export Recycle Bin`.
+  deleting them. Controlled by :guilabel:`Export Recycle Bin` in the 
+  :ref:`SMB share configuration`.
 
 * **shadow_copy2:** a more recent implementation of
   :guilabel:`shadow_copy` with some additional features. *shadow_copy2*
-  and associated *shadow:* parameters are automatically added to the
+  and its associated parameters are automatically added to the
   :file:`smb4.conf` when a :guilabel:`Periodic Snapshot Task` is selected.
 
 
