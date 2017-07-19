@@ -968,8 +968,8 @@ Rsync
 -----
 
 :menuselection:`Services --> Rsync`
-is used to configure an rsync server when using rsync module mode. See
-the section on Rsync Module Mode for a configuration example.
+is used to configure an rsync server when using rsync module mode. Refer
+to :ref:`Rsync Module Mode` for a configuration example.
 
 This section describes the configurable options for the
 :command:`rsyncd` service and rsync modules.
