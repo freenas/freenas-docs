@@ -1093,14 +1093,13 @@ settings:
   :menuselection:`Services --> SMB`.
 
 * When the :guilabel:`Browsable to Network Clients` box is checked (the
-  default), the share is visible when the user lists the available shares
-  through Windows File Explorer or through :command:`net view`. When the
-  :guilabel:`Use as a home share` box is checked, unchecking the
-  :guilabel:`Browsable to Network Clients` box hides the share named *homes*
-  so that only the dynamically generated share granting access to the
-  authenticated user's home directory will be visible (in contrast with a
-  share named *homes* and the home directory both being visible). Users are
-  not automatically granted read or write permissions on browsable shares.
+  default), the share is visible through Windows File Explorer or through 
+  :command:`net view`. When the :guilabel:`Use as a home share` box is 
+  checked, unchecking the :guilabel:`Browsable to Network Clients` box hides 
+  the share named *homes* so that only the dynamically generated share 
+  containing the authenticated user's home directory will be visible. By 
+  default, the *homes* share and the user's home directory are both visible.
+  Users are not automatically granted read or write permissions on browsable shares.
   This option provides no real security because shares that are not
   visible in Windows File Explorer can still be accessed with a *UNC* path.
 
