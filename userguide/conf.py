@@ -49,6 +49,7 @@ master_doc = 'freenas'
 extensions = [
     'sphinxcontrib.httpdomain'
 ]
+cover_pic = r''
 numfig = True
 numfig_secnum_depth = (2)
 
@@ -86,7 +87,7 @@ if tags.has('bsg-x10'):
     tags.remove('freenas')
     project = brand + six.u(' X10 Unified Storage Array Basic Setup Guide')
     master_doc = 'bsg-x10'
-    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{tn_x10_front.png}'
+    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_x10_front.png}'
 
 
 # |brand| will be replaced with FreeNAS® or TrueNAS®
