@@ -16,53 +16,33 @@ control system.
 
 Carefully unpack the shipping boxes and locate these components:
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
 
-* One %brand% X10 Unified Storage Array
+.. table::
+   :class: longtable
 
-  .. image:: images/tn_x10.png
-     :width: 50%
-
-
-* One bezel
-
-  .. image:: images/tn_x10_bezel.png
-     :width: 50%
-
-
-* One set of rails
-
-  .. image:: images/tn_x10_rails.png
-     :width: 50%
-
-  .. caution:: The rails have a specific front end, identified by a
-     label on the outside. The label is visible on the right in the
-     photo above. During installation, the front ends of the rails
-     must be toward the front of the rack.
-
-
-* Up to 12 populated drive trays
-
-  .. image:: images/tn_x10_traywithdrive.png
-     :width: 30%
-
-  .. caution:: Unused drive bays must be populated with drive tray
-     blanks to maintain proper airflow for cooling.
-
-
-* One accessory kit with power cords, cage nut remover, mounting
-  hardware, and cable ties
-
-  .. image:: images/tn_x10_accessorykit.png
-     :width: 50%
-
-
-* One black USB to 3.5mm serial cable (shipped separately)
-
-  .. image:: images/tn_x10_serialcable.png
-     :width: 20%
-
-
-* This printed guide
+   +--------------------------------------------+--------------------------------------------+
+   | .. image:: images/tn_x10.png               | .. image:: images/tn_x10_bezel.png         |
+   |                                            |                                            |
+   | X10 Unified Storage Array                  | X10 Bezel                                  |
+   +--------------------------------------------+--------------------------------------------+
+   | .. image:: images/tn_x10_rails.png         | .. image:: images/tn_x10_traywithdrive.png |
+   |                                            |                                            |
+   | Set of rails (Caution: the rails have a    | Up to 12 populated drive trays (Caution:   |
+   | specific front end, identified by a        | Unused drive bays must be populated with   |
+   | label on the outside. The label is         | drive tray blanks to maintain proper       |
+   | visible on the right in the photo above.   | airflow for cooling.)                      |
+   | During installation, the front ends of     |                                            |
+   | the rails must be toward the front of      |                                            |
+   | the rack.)                                 |                                            |
+   +--------------------------------------------+--------------------------------------------+
+   | .. image:: images/tn_x10_accessorykit.png  | .. image:: images/tn_x10_serialcable.png   |
+   |    :width: 30%                             |    :width: 30%                             |
+   |                                            |                                            |
+   | Accessory kit with power cords and cable   | Black USB to 3.5mm serial cable (shipped   |
+   | ties                                       | separately)                                |
+   +--------------------------------------------+--------------------------------------------+
 
 
 .. index:: Become Familiar with the System
@@ -71,40 +51,20 @@ Carefully unpack the shipping boxes and locate these components:
 Become Familiar With the System
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. index:: X10 Front View
-.. _X10 Front View:
-
-Front view of the X10 with the bezel installed:
-
-.. _x10_front:
-
-.. figure:: images/tn_x10_front.png
-
-   Front View with Bezel
-
-
-Front panel indicators:
-
-.. _x10_indicators:
-
-.. figure:: images/tn_x10_indicators.png
-
-   Indicators
-
-
-The Fault indicator is lit during the initial power-on self-test
+The X10 has front panel indicators for power, unit identify and fault.
+The Fault indicator lights during the initial power-on self-test
 (POST) or when the %brand% software has issued an
 `alert
 <https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
 
 
-.. raw:: latex
+.. _x10_indicators:
 
-   \newpage
+.. figure:: images/tn_x10_indicators.png
+   :width: 1.35in
 
+   Front Panel Indicators
 
-The back panel is shown in
-:numref:`Figure %s <x10_back>`:
 
 .. _x10_back:
 
@@ -116,26 +76,27 @@ The back panel is shown in
 The X10 contains one or two nodes in a side-by-side configuration. The
 connectors and features on each node are:
 
-1,2: Gigabit Ethernet connectors
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
 
-3: USB memory stick (reserved for %brand% use)
+.. table::
+   :class: longtable
 
-4: USB 2.0 connector
-
-5: Out-of-Band (OOB) serial port (3.5mm)
-
-6: Out-of-Band Management Ethernet connector
-
-7,8: HDmini SAS3 connectors
-
-9: PCIe mezzanine expansion port
-
-10: System serial console port (reserved for %brand% use; a gray cable
-connects this port to a USB port above the OOB management port)
-
-11: MAC address label
-
-12, 13: Redundant power supplies
+   +-------------------------------------------------+-------------------------------------------------+
+   | 1,2: Gigabit Ethernet connectors                | 7,8: HDmini SAS3 connectors                     |
+   +-------------------------------------------------+-------------------------------------------------+
+   | 3: USB memory stick (reserved for               | 9: PCIe mezzanine expansion port                |
+   | %brand% use)                                    |                                                 |
+   +-------------------------------------------------+-------------------------------------------------+
+   | 4: USB 2.0 connector                            | 10: System serial console port (reserved for    |
+   |                                                 | %brand% use; a gray cable connects              |
+   |                                                 | this port to a USB port above the OOB           |
+   |                                                 | management port)                                |
+   +-------------------------------------------------+-------------------------------------------------+
+   | 5: Out-of-Band (OOB) serial port (3.5mm)        | 11: MAC address label                           |
+   +-------------------------------------------------+-------------------------------------------------+
+   | 6: Out-of-Band Management Ethernet connector    | 12, 13: Redundant power supplies                |
+   +-------------------------------------------------+-------------------------------------------------+
 
 
 .. index:: Rail Kit Assembly
@@ -151,7 +112,9 @@ Open the clamp latches on the ends of each rail. Place the rail in
 the rack with the front end toward the front of the rack, aligning
 the pins on both ends of the rail with the mounting holes in the rack.
 Swing the clamp latch closed to hold the rail in place. Use the
-supplied screws to secure the back end of the rail in place.
+supplied screws to secure the back end of the rail in place. Repeat
+the process for the second rail.
+
 
 .. _x10_rail_clamp:
 
@@ -161,16 +124,13 @@ supplied screws to secure the back end of the rail in place.
    Rail Clamp Latch
 
 
-Repeat the process for the second rail.
-
-
 Mount the Unit in the Rack
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. caution:: Two people are required to safely lift the chassis for
-   rack installation or removal. Do not install drives until after the
-   chassis has been installed in the rack, and remove all drives
-   before removing the chassis from the rack.
+**Caution: Two people are required to safely lift the chassis for rack
+installation or removal.** Do not install drives until after the
+chassis has been installed in the rack, and remove all drives before
+removing the chassis from the rack.
 
 
 Carefully place the inner rails on the sides of the X10 chassis onto
@@ -182,7 +142,9 @@ the X10 in place at the front with the supplied screws.
 Install Drive Trays
 ~~~~~~~~~~~~~~~~~~~
 
-Drive trays are used to mount drives in the array:
+Drive trays are used to mount drives in the array. Each drive tray has
+a status LED which is blue when active or amber if a fault has
+occurred.
 
 
 .. _x10_tray:
@@ -193,13 +155,10 @@ Drive trays are used to mount drives in the array:
    Drive Tray
 
 
-Each drive tray has a status LED which is blue when active or amber
-if a fault has occurred.
-
-Unpack each drive tray. Press the blue button to open the latch.
-Carefully slide the tray into a drive bay until the left side of the
-latch touches the metal front edge of the chassis, then gently swing
-the latch closed until it locks.
+Press the blue button to open the latch. Carefully slide the tray into
+a drive bay until the left side of the latch touches the metal front
+edge of the chassis, then gently swing the latch closed until it
+locks.
 
 .. _x10_drivetray_load:
 
@@ -212,22 +171,19 @@ Connecting Expansion Shelves
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Refer to the installation instructions included with expansion
-shelves for details on connecting them to the X10.
+shelves for details on connecting them.
 
 
 Connect Network Cables
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. note:: Network cables vary by configuration and are not included.
-   Please contact your iXsystems Account Manager with any questions.
-
-.. warning:: The Out-of-Band (OOB) management port must be connected
-   with a shielded Ethernet cable.
-
+Note: Network cables vary by configuration and are not included.
+Please contact your iXsystems Account Manager with any questions.
 
 Connect network cables to the Ethernet ports and Out-of-Band (OOB)
 management port before attempting to power on and configure the
-%brand% X10 for the the first time.
+%brand% X10 for the the first time. **The Out-of-Band (OOB) management
+port on the X10 must be connected with a shielded Ethernet cable.**
 
 
 Connect Power Cords
@@ -235,13 +191,12 @@ Connect Power Cords
 
 If any %brand% expansion shelves are connected to the X10 array, power
 them on first, then wait at least two minutes before connecting power
-cables to the X10 array.
-
-.. note:: Do not plug the power cords into a power outlet yet.
+cables to the X10 array.  **Do not plug the power cords into a power
+outlet yet.**
 
 Plug a power cord into the back of one power supply, pressing it into
-the plastic clamp and pressing on the tab to lock it in place. See
-:numref:`Figure %s <x10_power>`:
+the plastic clamp and pressing on the tab to lock it in place. Repeat
+the process for the second power supply and cord.
 
 .. _x10_power:
 .. figure:: images/tn_x10_power_clip.png
@@ -250,13 +205,11 @@ the plastic clamp and pressing on the tab to lock it in place. See
    X10 Power Cord Connection
 
 
-Repeat the process for the second power supply and cord. After both
-cords have been connected to the X10, they can be connected to power
-outlets.
-
-The %brand% X10 Array is configured to automatically power on when
-connected to a power outlet. This design ensures that the X10 comes
-back on when power is restored after a power failure.
+After both power cords have been connected to the X10, they can be
+connected to power outlets. The %brand% X10 Array is configured to
+automatically power on when connected to a power outlet. This design
+ensures that the X10 comes back on when power is restored after a
+power failure.
 
 
 Install Bezel (Optional)
@@ -266,11 +219,6 @@ The included bezel is not required for operation. If desired, install
 the bezel by verifying that bezel connection ears are present on the
 left and right sides of the system. Align the bezel with the pins on
 the ears and press it into place.
-
-
-.. raw:: latex
-
-   \newpage
 
 
 Discover Out-of-Band Management IP Address
@@ -318,11 +266,11 @@ temporarily connecting the black USB to 3.5mm serial cable to the
 Out-of-Band serial port, #5 on
 :numref:`Figure %s <x10_back>`.
 
-.. warning:: Do not leave the black USB to serial cable connected to
-   the X10. Do not use the serial port for any purpose except checking
-   the initial X10 Out-of-Band management IP address or setting that
-   address to be obtained by a different method. After checking or
-   changing these settings, disconnect the black USB to serial cable.
+**Do not leave the black USB to serial cable connected to the X10.**
+Do not use the serial port for any purpose except checking the initial
+X10 Out-of-Band management IP address or setting that address to be
+obtained by a different method. After checking or changing these
+settings, disconnect the black USB to serial cable.
 
 
 Connect the USB end of the black cable to a laptop or desktop
@@ -339,13 +287,13 @@ Out-of-Band Serial Terminal Communication Settings
 The name of the serial port varies with operating systems. These are
 some typical examples:
 
-  * on Windows: :samp:`COM{4}`
+  * Windows: :samp:`COM{4}`
 
-  * on macOS: :samp:`/dev/tty.usbserial{xynnn}`
+  * macOS: :samp:`/dev/tty.usbserial{xynnn}`
 
-  * on FreeBSD: :samp:`/dev/cuaU{0}`
+  * FreeBSD: :samp:`/dev/cuaU{0}`
 
-  * on Linux: :samp:`/dev/ttyUSB{0}`
+  * Linux: :samp:`/dev/ttyUSB{0}`
 
 
 **Serial Port Communication Parameters**
@@ -355,11 +303,7 @@ parameters:
 
 .. code-block:: none
 
-   38400 baud
-   8 data bits
-   no stop bits
-   no parity
-   no flow control
+   38400 baud, 8 data bits, no stop bits, no parity, no flow control
 
 
 Log in to the serial console with:
@@ -410,11 +354,8 @@ address and netmask. This example shows setting the IP address to
 Log out of the Out-of-Band management system by typing :literal:`exit`
 and pressing :kbd:`Enter`.
 
-After use, disconnect the black USB to serial cable from the X10.
-**Do not leave it connected to the X10.**
-
-
-~~~~
+**After use, disconnect the black USB to serial cable from the X10.
+Do not leave it connected to the X10.**
 
 
 Connect to the X10 Console
@@ -497,11 +438,7 @@ serial device name. Set the terminal software to:
 
 .. code-block:: none
 
-   115200 baud
-   8 data bits
-   no stop bits
-   no parity
-   no flow control
+   115200 baud, 8 data bits, no stop bits, no parity, no flow control
 
 
 Wait two minutes after the X10 has been connected to power, then press
@@ -524,21 +461,14 @@ the standard X86 console mode.
 
 If :literal:`ESM A =>` is displayed, the X10 is in SES mode.
 Switch to the X86 console mode by typing these characters:
-
-.. code-block:: none
-
-   $%^0
+:literal:`$%^0`
 
 
 The normal X86 console is displayed.
 
 
 .. note:: The SES console can be displayed again by typing these
-   characters:
-
-   .. code-block:: none
-
-      $%^2
+   characters: :literal:`$%^2`
 
 
 Perform %brand% Initial Software Configuration
@@ -556,8 +486,5 @@ interface, *192.168.100.231* in this example:
 
 
 Enter the IP address into a browser on a computer on the same network
-to access the web user interface. See the
-`TrueNAS® User Guide
-<https://support.ixsystems.com/truenasguide/truenas.html>`__ for more
-information on configuring %brand%.
+to access the web user interface.
 

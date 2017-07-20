@@ -5,9 +5,10 @@
 User Guide
 ----------
 
-The complete %brand% User Guide is available at
-`<https://support.ixsystems.com/truenasguide/truenas.html>`__
-or by clicking :guilabel:`Guide` in the %brand% user interface.
+The %brand% User Guide with complete configuration instructions is
+available by clicking :guilabel:`Guide` in the %brand% user interface
+or at
+`<https://support.ixsystems.com/truenasguide/truenas.html>`__.
 
 
 .. index:: Contacting iXsystems
