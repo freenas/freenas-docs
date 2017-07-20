@@ -2333,12 +2333,14 @@ and described in
    |                |                | if the system is using a link aggregation, after 2 seconds                                                                                            |
    |                |                |                                                                                                                                                       |
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync to Peer   | button         | force configuration sync from the active node to the standby node; the standby node must be rebooted after the sync; the HA daemon does this          |
-   |                |                | automatically, do not use this unless requested by an iX support engineer                                                                             |
+   | Sync to Peer   | button         | open a dialog window to force the %brand% configuration to sync from the active node to the standby node; after the sync, the                         |
+   |                |                | standby node must be rebooted (enabled by default) to load the new configuration; *do not use this unless requested by an iX support engineer,        |
+   |                |                | the HA daemon normally handles configuration sync automatically*                                                                                      |
    |                |                |                                                                                                                                                       |
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync From Peer | button         | force configuration sync from the standby node to the active node; the HA daemon does this                                                            |
-   |                |                | automatically, do not use this unless requested by an iX support engineer                                                                             |
+   | Sync From Peer | button         | open a dialog window to force the %brand% configuration to sync from the standby node to the active node;                                             |
+   |                |                | *do not use this unless requested by an iX support engineer, the HA daemon normally handles configuration sync automatically*                         |
+   |                |                |                                                                                                                                                       |
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
