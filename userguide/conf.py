@@ -57,6 +57,7 @@ if tags.has('truenas'):
     tags.remove('freenas')
     project = brand + ' ' + six.u(version) + six.u(' User Guide')
     master_doc = 'truenas'
+    cover_pic = r''
 
 # BSGs
 if tags.has('bsg-unified'):
@@ -64,24 +65,28 @@ if tags.has('bsg-unified'):
     tags.remove('freenas')
     project = brand + six.u(' Unified Storage Array Basic Setup Guide')
     master_doc = 'bsg-unified'
+    cover_pic = r''
 
 if tags.has('bsg-e16'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')
     project = brand + six.u(' E16/E16F Expansion Shelf Basic Setup Guide')
     master_doc = 'bsg-e16'
+    cover_pic = r''
 
 if tags.has('bsg-e24'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')
     project = brand + six.u(' E24 Expansion Shelf Basic Setup Guide')
     master_doc = 'bsg-e24'
+    cover_pic = r''
 
 if tags.has('bsg-x10'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')
     project = brand + six.u(' X10 Unified Storage Array Basic Setup Guide')
     master_doc = 'bsg-x10'
+    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{tn_x10_front.png}'
 
 
 # |brand| will be replaced with FreeNAS® or TrueNAS®
@@ -314,6 +319,8 @@ PREAMBLE = PREAMBLE + r'''
 \usepackage{color}
 \usepackage{tikz}
 \usetikzlibrary{calc}
+%for bitmaps
+\usepackage{graphicx}
 %for ragged right tables
 \usepackage{array,ragged2e}
 \definecolor{ixblue}{cmyk}{0.85,0.24,0,0}
@@ -340,6 +347,7 @@ PREAMBLE = PREAMBLE + r'''
       \fontsize{18}{22}\fontseries{sbc}\selectfont%
       \docdate\par%
     \end{widemargins}%
+    %%cover_pic%%
     \begin{tikzpicture}[remember picture,overlay]
       \fill [ixblue] (current page.south west) rectangle ($(current page.south east) + (0, 2in)$);
     \end{tikzpicture}
@@ -358,6 +366,8 @@ PREAMBLE = PREAMBLE + r'''
   \fancyfoot[C]{\textbf{\thepage}}
 }
 '''
+
+PREAMBLE = PREAMBLE.replace('%%cover_pic%%', cover_pic)
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
