@@ -5,7 +5,7 @@
 X10 Unified Storage Array
 -------------------------
 
-The %brand% X10 Unified Storage Array is a 2U, 12-bay hybrid, unified
+The %brand% X10 Unified Storage Array is a 2U, 12-bay, hybrid unified
 data storage array.
 
 
@@ -38,8 +38,9 @@ Carefully unpack the shipping boxes and locate these components:
    | .. image:: images/tn_x10_accessorykit.png  | .. image:: images/tn_x10_serialcable.png   |
    |    :width: 80%                             |    :width: 30%                             |
    |                                            |                                            |
-   | Accessory kit with power cords and cable   | Black USB to 3.5mm serial cable (shipped   |
-   | ties                                       | separately)                                |
+   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Black USB to 3.5mm serial cable (shipped   |
+   | power cords, 2 IEC C14 to C14 cords, and a | separately)                                |
+   | set of velcro cable ties                   |                                            |
    +--------------------------------------------+--------------------------------------------+
 
 
@@ -83,7 +84,7 @@ connectors and features on each node are:
    +-------------------------------------------------+-------------------------------------------------+
    | 1,2: Gigabit Ethernet connectors                | 7,8: HDmini SAS3 connectors                     |
    +-------------------------------------------------+-------------------------------------------------+
-   | 3: USB memory stick (reserved for               | 9: PCIe x8 expansion port                       |
+   | 3: USB device (reserved for                     | 9: PCIe x8 expansion port                       |
    | %brand% use)                                    |                                                 |
    +-------------------------------------------------+-------------------------------------------------+
    | 4: USB 2.0 connector                            | 10: System serial console port (reserved for    |
@@ -447,14 +448,14 @@ Using the X10 Console
 ~~~~~~~~~~~~~~~~~~~~~
 
 The X10 console has two modes: SES (SCSI Enclosure Services) mode, and
-the standard X86 console mode.
+the standard x86 console mode.
 
 If :literal:`ESM A =>` is displayed, the X10 is in SES mode.
 Switch to the X86 console mode by typing these characters:
 :literal:`$%^0`
 
 
-The normal X86 console is displayed.
+The normal x86 console is displayed.
 
 
 .. note:: The SES console can be displayed again by typing these
