@@ -29,12 +29,11 @@ Carefully unpack the shipping boxes and locate these components:
    +--------------------------------------------+--------------------------------------------+
    | .. image:: images/tn_x10_rails.png         | .. image:: images/tn_x10_traywithdrive.png |
    |                                            |                                            |
-   | Set of rails (The rails have a specific    | Up to 12 populated drive trays (Note:      |
-   | front end, identified by a label on the    | Unused drive bays must be populated with   |
-   | outside, visible on the right above.       | drive tray blanks to maintain proper       |
-   | During installation, the front ends of the | airflow for cooling.)                      |
-   | rails must be toward the front of the      |                                            |
-   | rack.)                                     |                                            |
+   | Set of rackmount rails. The rails have a   | A total of 12 populated or filler drive    |
+   | specific front end, identified by a label  | trays. Trays must be installed in all bays |
+   | visible on the right above. The front ends | to maintain proper airflow for cooling.    |
+   | of the rails must be installed facing the  |                                            |
+   | front of the rack.                         |                                            |
    +--------------------------------------------+--------------------------------------------+
    | .. image:: images/tn_x10_accessorykit.png  | .. image:: images/tn_x10_serialcable.png   |
    |    :width: 80%                             |    :width: 30%                             |
