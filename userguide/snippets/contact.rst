@@ -18,7 +18,7 @@ or at
 Contacting iXsystems
 --------------------
 
-For assistance, please contact a %brand% Support Representative:
+For assistance, please contact iX Support:
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -30,6 +30,8 @@ For assistance, please contact a %brand% Support Representative:
    +------------------+-----------------------------------------------------------+
    | Contact Method   | Contact Options                                           |
    +==================+===========================================================+
+   | Web              | `<https://support.ixsystems.com>`__                       |
+   +------------------+-----------------------------------------------------------+
    | Email            | :literal:`support@iXsystems.com`                          |
    +------------------+-----------------------------------------------------------+
    | Telephone        | Monday - Friday, 8:00AM to 5:00PM Pacific Standard Time:  |
