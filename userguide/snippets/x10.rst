@@ -27,7 +27,7 @@ Carefully unpack the shipping boxes and locate these components:
    |                                            |                                            |
    | X10 Unified Storage Array                  | X10 Bezel                                  |
    +--------------------------------------------+--------------------------------------------+
-   | .. image:: images/tn_x10_rails.png         | .. image:: images/tn_x10_traywithdrive.png |
+   | .. image:: images/tn_x10_rails.png         | .. image:: images/tn_x10_drivetrays.png    |
    |                                            |                                            |
    | Set of rackmount rails. The rails have a   | A total of 12 populated or filler drive    |
    | specific front end, identified by a label  | trays. Trays must be installed in all bays |
@@ -143,15 +143,6 @@ Install Drive Trays
 Drive trays are used to mount drives in the array. Each drive tray has
 a status LED which is blue when active or amber if a fault has
 occurred.
-
-
-.. _x10_tray:
-
-.. figure:: images/tn_x10_tray.png
-   :width: 1.5in
-
-   Drive Tray
-
 
 Press the blue button to open the latch. Carefully slide the tray into
 a drive bay until the left side of the latch touches the metal front
