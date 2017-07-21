@@ -5,8 +5,8 @@
 X10 Unified Storage Array
 -------------------------
 
-The %brand% X10 Unified Storage Array is a 2U, 12-bay hybrid NAS
-control system.
+The %brand% X10 Unified Storage Array is a 2U, 12-bay hybrid, unified
+data storage array.
 
 
 #include snippets/perfect.rst
@@ -50,8 +50,8 @@ Become Familiar With the System
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The X10 has front panel indicators for power, unit identify and fault.
-The Fault indicator lights during the initial power-on self-test
-(POST) or when the %brand% software has issued an
+The Fault indicator is on during the initial power-on self-test (POST)
+or when the %brand% software has issued an
 `alert
 <https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
 
@@ -156,7 +156,7 @@ occurred.
 Press the blue button to open the latch. Carefully slide the tray into
 a drive bay until the left side of the latch touches the metal front
 edge of the chassis, then gently swing the latch closed until it
-locks.
+clicks into place.
 
 .. _x10_drivetray_load:
 
@@ -176,7 +176,8 @@ Connect Network Cables
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Note: Network cables vary by configuration and are not included.
-Please contact your iXsystems Account Manager with any questions.
+Please contact :ref:`iX Support <Contacting iXsystems>` with any
+questions.
 
 Connect network cables to the Ethernet ports and Out-of-Band (OOB)
 management port before attempting to power on and configure the
