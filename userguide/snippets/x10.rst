@@ -104,13 +104,13 @@ Rail Kit Assembly
 ~~~~~~~~~~~~~~~~~
 
 
-Mount the Outer Rails
-^^^^^^^^^^^^^^^^^^^^^
+Mount the Rails
+^^^^^^^^^^^^^^^
 
 Open the clamp latches on the ends of each rail. Place the rail in
 the rack with the front end toward the front of the rack, aligning
 the pins on both ends of the rail with the mounting holes in the rack.
-Swing the clamp latch closed to hold the rail in place. Use the
+Swing the clamp latch closed to hold the rail in place. Use two of the
 supplied screws to secure the back end of the rail in place. Repeat
 the process for the second rail.
 
@@ -132,10 +132,9 @@ chassis has been installed in the rack, and remove all drives before
 removing the chassis from the rack.
 
 
-Carefully place the inner rails on the sides of the X10 chassis onto
-the outer rails mounted in the rack. With the rails aligned, push the
-X10 chassis in until it is flush with the front of the rack. Secure
-the X10 in place at the front with the supplied screws.
+Carefully place the X10 chassis onto the rails mounted in the rack.
+Push the X10 chassis in until the ears are flush with the front of the
+rack.  Use two of the supplied screws to secure each ear to the rack.
 
 
 Install Drive Trays
