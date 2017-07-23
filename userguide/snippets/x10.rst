@@ -43,6 +43,10 @@ Carefully unpack the shipping boxes and locate these components:
    | set of velcro cable ties                   |                                            |
    +--------------------------------------------+--------------------------------------------+
 
+.. raw:: latex
+
+   \newpage
+
 
 .. index:: Become Familiar with the System
 .. _Become Familiar with the System:
@@ -88,9 +92,8 @@ connectors and features on each node are:
    | %brand% use)                                    |                                                 |
    +-------------------------------------------------+-------------------------------------------------+
    | 4: USB 2.0 connector                            | 10: System serial console port (reserved for    |
-   |                                                 | %brand% use; a gray cable connects              |
-   |                                                 | this port to a USB port above the OOB           |
-   |                                                 | management port)                                |
+   |                                                 | %brand% use; connected to a USB port            |
+   |                                                 | above the OOB management port)                  |
    +-------------------------------------------------+-------------------------------------------------+
    | 5: Out-of-Band (OOB) serial port (3.5mm)        | 11: MAC address label                           |
    +-------------------------------------------------+-------------------------------------------------+
@@ -131,7 +134,7 @@ installation or removal.** Do not install drives until after the
 chassis has been installed in the rack, and remove all drives before
 removing the chassis from the rack.
 
-
+Snap the black bezel mounting ears onto the metal X10 chassis ears.
 Carefully place the X10 chassis onto the rails mounted in the rack.
 Push the X10 chassis in until the ears are flush with the front of the
 rack.  Use two of the supplied screws to secure each ear to the rack.
@@ -171,9 +174,9 @@ Please contact :ref:`iX Support <Contacting iXsystems>` with any
 questions.
 
 Connect network cables to the Ethernet ports and Out-of-Band (OOB)
-management port before attempting to power on and configure the
-%brand% X10 for the the first time. **The Out-of-Band (OOB) management
-port on the X10 must be connected with a shielded Ethernet cable.**
+management port before attempting to power on and configure the X10
+for the the first time. **The Out-of-Band (OOB) management port on the
+X10 must be connected to a shielded Ethernet cable.**
 
 
 Connect Power Cords
@@ -182,11 +185,9 @@ Connect Power Cords
 If any %brand% expansion shelves are connected to the X10 array, power
 them on first, then wait at least two minutes before connecting power
 cables to the X10 array.  **Do not plug the power cords into a power
-outlet yet.**
-
-Plug a power cord into the back of one power supply, pressing it into
-the plastic clamp and pressing on the tab to lock it in place. Repeat
-the process for the second power supply and cord.
+outlet yet.** Connect a power cord to the back of one power supply,
+pressing it into the plastic clamp and pressing on the tab to lock it
+in place. Repeat the process for the second power supply and cord.
 
 .. _x10_power:
 .. figure:: images/tn_x10_power_clip.png
@@ -196,26 +197,24 @@ the process for the second power supply and cord.
 
 
 After both power cords have been connected to the X10, they can be
-connected to power outlets. The %brand% X10 Array is configured to
-automatically power on when connected to a power outlet. This design
-ensures that the X10 comes back on when power is restored after a
-power failure.
+plugged into power outlets. The X10 is configured to automatically
+power on when connected to a power outlet. This design ensures that
+the X10 comes back on when power is restored after a power failure.
 
 
 Install Bezel (Optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 The included bezel is not required for operation. If desired, install
-the bezel by verifying that bezel connection ears are present on the
-left and right sides of the system. Align the bezel with the pins on
-the ears and press it into place.
+the bezel by aligning it with the pins on the bezel ears and pressing
+it into place.
 
 
 Discover Out-of-Band Management IP Address
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are a variety of ways to determine the IP address that is being
-used by the %brand% X10 Out-of-Band management interface.
+used by the X10 Out-of-Band management interface.
 
 
 Preset
@@ -252,19 +251,17 @@ Serial Cable
 ^^^^^^^^^^^^
 
 The Out-of-Band management IP address can be identified or changed by
-temporarily connecting the black USB to 3.5mm serial cable to the
+temporarily connecting the black USB serial cable to the
 Out-of-Band serial port, #5 on
 :numref:`Figure %s <x10_back>`.
-
-**Do not leave the black USB to serial cable connected to the X10.**
-Do not use the serial port for any purpose except checking the initial
-X10 Out-of-Band management IP address or setting that address to be
-obtained by a different method. After checking or changing these
-settings, disconnect the black USB to serial cable.
-
-
 Connect the USB end of the black cable to a laptop or desktop
 computer running serial terminal software.
+
+
+Do not use the serial port for any purpose except checking the initial
+X10 Out-of-Band management IP address or setting that address to be
+obtained by a different method.
+**After use, disconnect the black USB serial cable from the X10.**
 
 
 .. _X10_Out-of-Band Serial Terminal Communication Settings:
@@ -291,9 +288,7 @@ some typical examples:
 Set the serial terminal program to use the appopriate port with these
 parameters:
 
-.. code-block:: none
-
-   38400 baud, 8 data bits, no stop bits, no parity, no flow control
+*38400 baud, 8 data bits, no stop bits, no parity, no flow control*
 
 
 Log in to the serial console with:
@@ -344,8 +339,7 @@ address and netmask. This example shows setting the IP address to
 Log out of the Out-of-Band management system by typing :literal:`exit`
 and pressing :kbd:`Enter`.
 
-**After use, disconnect the black USB to serial cable from the X10.
-Do not leave it connected to the X10.**
+**After use, disconnect the black USB serial cable from the X10.**
 
 
 Connect to the X10 Console
@@ -357,8 +351,8 @@ With IPMI
 
 .. note:: An IPMI remote management utility must be installed on the
    laptop or desktop computer used to manage the X10 remotely, and the
-   computer must have access to the same network as the %brand% X10.
-   For FreeBSD, macOS, or Linux,
+   computer must have access to the same network as the X10. For
+   FreeBSD, macOS, or Linux,
    `IPMItool <https://sourceforge.net/projects/ipmitool/>`__
    can be used. For Windows,
    `ipmiutil <http://ipmiutil.sourceforge.net/>`__
@@ -392,8 +386,8 @@ Enter **admin** for the password, and the X10 console is connected.
 
 
 .. tip:: The Out-of-Band console password can be changed by
-   temporarily connecting the black USB to 3.5mm serial cable to the
-   serial port, #5 on
+   temporarily connecting the black USB serial cable to the serial
+   port, #5 on
    :numref:`Figure %s <x10_back>`,
    as described in
    :ref:`the serial cable connection instructions <X10_Serial_Cable>`.
@@ -405,8 +399,8 @@ Enter **admin** for the password, and the X10 console is connected.
       ipmitool -H 127.0.0.1 -U admin -P admin user set password 2 newpassword
 
 
-   After use, disconnect the black USB to serial cable from the X10.
-   **Do not leave it connected to the X10.**
+   **After use, disconnect the black USB serial cable from the
+   X10.**
 
 
 Proceed to :ref:`Using the X10 Console`.
@@ -419,26 +413,28 @@ The X10 console can be directly connected to a serial terminal program
 by temporarily disconnecting the gray serial cable from the system
 console serial port, #10 on
 :numref:`Figure %s <x10_back>`,
-and temporarily connecting the black USB to serial cable to that port.
+and temporarily connecting the black USB serial cable to that port.
 
-Connect the USB end of the black USB to serial cable to a laptop or
+Connect the USB end of the black USB serial cable to a laptop or
 desktop computer running serial terminal software. See
 :ref:`X10_Out-of-Band Serial Terminal Communication Settings` for the
 serial device name. Set the terminal software to:
 
-.. code-block:: none
-
-   115200 baud, 8 data bits, no stop bits, no parity, no flow control
+*115200 baud, 8 data bits, no stop bits, no parity, no flow control*
 
 
 Wait two minutes after the X10 has been connected to power, then press
-:kbd:`Enter` to display the console menu. Find the
-:literal:`The web user interface is at:` message and write down the IP
-address. After viewing the X10 console, disconnect the black USB to
-serial cable and reconnect the gray System Management cable to the
-system serial console port, #10 on
+:kbd:`Enter` to display the console menu. Find the message starting
+with :literal:`The web user interface is at:` and write down the IP
+address shown. **After viewing the X10 console, disconnect the black
+USB serial cable and reconnect the gray System Management cable**
+to the system serial console port, #10 on
 :numref:`Figure %s <x10_back>`.
-**Do not leave the black USB to serial cable connected to the X10.**
+
+
+.. raw:: latex
+
+   \newpage
 
 
 .. _Using the X10 Console:
