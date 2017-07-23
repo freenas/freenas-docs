@@ -31,7 +31,7 @@ Carefully unpack the shipping boxes and locate these components:
    |                                            |                                            |
    | Set of rackmount rails. The rails have a   | A total of 12 populated or filler drive    |
    | specific front end, identified by a label  | trays. Trays must be installed in all bays |
-   | visible on the right above. The front ends | to maintain proper airflow for cooling.    |
+   | visible on the left above. The front ends  | to maintain proper airflow for cooling.    |
    | of the rails must be installed facing the  |                                            |
    | front of the rack.                         |                                            |
    +--------------------------------------------+--------------------------------------------+
