@@ -159,8 +159,8 @@ clicks into place.
    Installing Drive Trays
 
 
-Connecting Expansion Shelves
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Connect Expansion Shelves
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Refer to the installation instructions included with expansion
 shelves for details on connecting them.
