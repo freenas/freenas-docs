@@ -22,26 +22,26 @@ Carefully unpack the shipping boxes and locate these components:
 .. table::
    :class: longtable
 
-   +--------------------------------------------+--------------------------------------------+
-   | .. image:: images/tn_x10.png               | .. image:: images/tn_x10_bezel.png         |
-   |                                            |                                            |
-   | X10 Unified Storage Array                  | X10 Bezel                                  |
-   +--------------------------------------------+--------------------------------------------+
-   | .. image:: images/tn_x10_rails.png         | .. image:: images/tn_x10_drivetrays.png    |
-   |                                            |                                            |
-   | Set of rackmount rails. The rails have a   | A total of 12 populated or filler drive    |
-   | specific front end, identified by a label  | trays. Trays must be installed in all bays |
-   | visible on the left above. The front ends  | to maintain proper airflow for cooling.    |
-   | of the rails must be installed facing the  |                                            |
-   | front of the rack.                         |                                            |
-   +--------------------------------------------+--------------------------------------------+
-   | .. image:: images/tn_x10_accessorykit.png  | .. image:: images/tn_x10_serialcable.png   |
-   |    :width: 80%                             |    :width: 30%                             |
-   |                                            |                                            |
-   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Black USB to 3.5mm serial cable (shipped   |
-   | power cords, 2 IEC C14 to C14 cords, and a | separately)                                |
-   | set of velcro cable ties                   |                                            |
-   +--------------------------------------------+--------------------------------------------+
+   +--------------------------------------------+---------------------------------------------+
+   | .. image:: images/tn_x10es12.png           | .. image:: images/tn_x10_bezel.png          |
+   |                                            |                                             |
+   | X10 Unified Storage Array                  | X10 Bezel                                   |
+   +--------------------------------------------+---------------------------------------------+
+   | .. image:: images/tn_x10es12_rails.png     | .. image:: images/tn_x10es12_drivetrays.png |
+   |                                            |                                             |
+   | Set of rackmount rails. The rails have a   | A total of 12 populated or filler drive     |
+   | specific front end, identified by a label  | trays. Trays must be installed in all bays  |
+   | visible on the left above. The front ends  | to maintain proper airflow for cooling.     |
+   | of the rails must be installed facing the  |                                             |
+   | front of the rack.                         |                                             |
+   +--------------------------------------------+---------------------------------------------+
+   | .. image:: images/tn_x10es12_acckit.png    | .. image:: images/tn_x10_serialcable.png    |
+   |    :width: 80%                             |    :width: 30%                              |
+   |                                            |                                             |
+   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Black USB to 3.5mm serial cable (shipped    |
+   | power cords, 2 IEC C14 to C14 cords, and a | separately)                                 |
+   | set of velcro cable ties                   |                                             |
+   +--------------------------------------------+---------------------------------------------+
 
 .. raw:: latex
 
@@ -63,7 +63,7 @@ or when the %brand% software has issued an
 
 .. _x10_indicators:
 
-.. figure:: images/tn_x10_indicators.png
+.. figure:: images/tn_x10es12_indicators.png
    :width: 1.35in
 
    Front Panel Indicators
@@ -120,7 +120,7 @@ the process for the second rail.
 
 .. _x10_rail_clamp:
 
-.. figure:: images/tn_x10_rail_clamp.png
+.. figure:: images/tn_x10es12_railclamp.png
    :width: 4.125in
 
    Rail Clamp Latch
@@ -154,7 +154,7 @@ clicks into place.
 
 .. _x10_drivetray_load:
 
-.. figure:: images/tn_x10_drivetray_load.png
+.. figure:: images/tn_x10es12_driveload.png
 
    Installing Drive Trays
 
@@ -190,10 +190,10 @@ pressing it into the plastic clamp and pressing on the tab to lock it
 in place. Repeat the process for the second power supply and cord.
 
 .. _x10_power:
-.. figure:: images/tn_x10_power_clip.png
+.. figure:: images/tn_x10es12_powerclip.png
    :width: 1.5in
 
-   X10 Power Cord Connection
+   Power Cord Connection
 
 
 After both power cords have been connected to the X10, they can be

@@ -1,0 +1,209 @@
+.. index:: ES12 Expansion Shelf
+
+.. _ES12 Expansion Shelf:
+
+ES12 Expansion Shelf
+--------------------
+
+The %brand% ES12 is 2U, 12-bay, SAS3  expansion shelf with dual
+expander modules and dual power supplies.
+
+
+#include snippets/perfect.rst
+
+
+.. index:: ES12 Expansion Shelf Contents
+
+Carefully unpack the shipping boxes and locate these components:
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+
+.. table::
+   :class: longtable
+
+   +--------------------------------------------+---------------------------------------------+
+   | .. image:: images/tn_x10es12.png           | .. image:: images/tn_es12_bezel.png         |
+   |                                            |                                             |
+   | ES12 Expansion Shelf                       | ES12 Bezel                                  |
+   +--------------------------------------------+---------------------------------------------+
+   | .. image:: images/tn_x10es12_rails.png     | .. image:: images/tn_x10es12_drivetrays.png |
+   |                                            |                                             |
+   | Set of rackmount rails. The rails have a   | A total of 12 populated or filler drive     |
+   | specific front end, identified by a label  | trays. Trays must be installed in all bays  |
+   | visible on the left above. The front ends  | to maintain proper airflow for cooling.     |
+   | of the rails must be installed facing the  |                                             |
+   | front of the rack.                         |                                             |
+   +--------------------------------------------+---------------------------------------------+
+   | .. image:: images/tn_x10es12_acckit.png    | .. image:: images/tn_es12_sascables.png     |
+   |    :width: 80%                             |    :width: 50%                              |
+   |                                            |                                             |
+   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Two SAS3 cables                             |
+   | power cords, 2 IEC C14 to C14 cords, and a |                                             |
+   | set of velcro cable ties                   |                                             |
+   +--------------------------------------------+---------------------------------------------+
+
+
+.. index:: Become Familiar with the System
+.. _ES12 Become Familiar with the System:
+
+Become Familiar With the System
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ES12 has front panel indicators for power, unit identify and
+fault. The Fault indicator is on during the initial power-on self-test
+(POST) or when the %brand% software has issued an
+`alert
+<https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
+
+
+.. _es12_indicators:
+
+.. figure:: images/tn_x10es12_indicators.png
+   :width: 1.35in
+
+   Front Panel Indicators
+
+
+.. _es12_back:
+
+.. figure:: images/tn_es12_back.png
+
+   Back Panel
+
+
+The ES12 contains two expander modules in a side-by-side configuration.
+The connectors and features on each module are:
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+
+.. table::
+   :class: longtable
+
+   +------------------------------------------------------+
+   | 1: Serial number labels                              |
+   +------------------------------------------------------+
+   | 2-4: SAS3 connectors (T1-T3)                         |
+   +------------------------------------------------------+
+   | 5: Debug port (%brand% internal use only)            |
+   +------------------------------------------------------+
+   | 6: Redundant power supplies                          |
+   +------------------------------------------------------+
+
+
+.. index:: Rail Kit Assembly
+
+Rail Kit Assembly
+~~~~~~~~~~~~~~~~~
+
+
+Mount the Rails
+^^^^^^^^^^^^^^^
+
+Open the clamp latches on the ends of each rail. Place the rail in
+the rack with the front end toward the front of the rack, aligning
+the pins on both ends of the rail with the mounting holes in the rack.
+Swing the clamp latch closed to hold the rail in place. Use two of the
+supplied screws to secure the back end of the rail in place. Repeat
+the process for the second rail.
+
+
+.. _es12_rail_clamp:
+
+.. figure:: images/tn_x10es12_railclamp.png
+   :width: 4.125in
+
+   Rail Clamp Latch
+
+
+Mount the Unit in the Rack
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Caution: Two people are required to safely lift the chassis for rack
+installation or removal.** Do not install drives until after the
+chassis has been installed in the rack, and remove all drives before
+removing the chassis from the rack.
+
+Snap the black bezel mounting ears onto the metal X10 chassis ears.
+Carefully place the X10 chassis onto the rails mounted in the rack.
+Push the X10 chassis in until the ears are flush with the front of the
+rack.  Use two of the supplied screws to secure each ear to the rack.
+
+
+Install Drive Trays
+~~~~~~~~~~~~~~~~~~~
+
+Drive trays are used to mount drives in the array. Each drive tray has
+a status LED which is blue when active or amber if a fault has
+occurred.
+
+Press the blue button to open the latch. Carefully slide the tray into
+a drive bay until the left side of the latch touches the metal front
+edge of the chassis, then gently swing the latch closed until it
+clicks into place.
+
+.. _es12_drivetray_load:
+
+.. figure:: images/tn_x10es12_driveload.png
+
+   Installing Drive Trays
+
+
+Connect Expansion Shelves
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+blah blah
+
+Connect Power Cords
+~~~~~~~~~~~~~~~~~~~
+
+FIXME
+
+If any %brand% expansion shelves are connected to the X10 array, power
+them on first, then wait at least two minutes before connecting power
+cables to the X10 array.  **Do not plug the power cords into a power
+outlet yet.** Connect a power cord to the back of one power supply,
+pressing it into the plastic clamp and pressing on the tab to lock it
+in place. Repeat the process for the second power supply and cord.
+
+.. _es12_power:
+.. figure:: images/tn_x10es12_powerclip.png
+   :width: 1.5in
+
+   Power Cord Connection
+
+
+FIXME
+
+After both power cords have been connected to the X10, they can be
+plugged into power outlets. The X10 is configured to automatically
+power on when connected to a power outlet. This design ensures that
+the X10 comes back on when power is restored after a power failure.
+
+
+Install Bezel (Optional)
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The included bezel is not required for operation. If desired, install
+the bezel by aligning it with the pins on the bezel ears and pressing
+it into place.
+
+
+Perform %brand% Initial Software Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The console displays the IP address of the %brand% X10 graphical web
+interface, *192.168.100.231* in this example:
+
+
+.. code-block:: none
+
+   The web user interface is at:
+
+   http://192.168.100.231
+
+
+Enter the IP address into a browser on a computer on the same network
+to access the web user interface.
+
