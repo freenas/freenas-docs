@@ -2254,7 +2254,8 @@ screen:
 
 * **Virtual Host ID:** the Virtual Host ID (VHID) must be unique on
   the broadcast segment of the network. It can be any unused number
-  between *1* and *255*.
+  between *1* and *255*, except for *10* or *20* which are reserved for
+  HA heartbeat.
 
 * **Critical for Failover:** check this box if a failover should
   occur when this interface becomes unavailable. How many seconds
