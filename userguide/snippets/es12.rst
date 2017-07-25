@@ -5,8 +5,8 @@
 ES12 Expansion Shelf
 --------------------
 
-The %brand% ES12 is 2U, 12-bay, SAS3  expansion shelf with dual
-expander modules and redundant power supplies.
+The %brand% ES12 is 2U, 12-bay, SAS3 (12 Gb/s) expansion shelf with
+dual expander modules and redundant power supplies.
 
 
 #include snippets/perfect.rst
@@ -38,9 +38,9 @@ Carefully unpack the shipping boxes and locate these components:
    | .. image:: images/tn_x10es12_acckit.png    | .. image:: images/tn_es12_sascables.png     |
    |    :width: 80%                             |    :width: 40%                              |
    |                                            |                                             |
-   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Two SAS3 cables                             |
-   | power cords, 2 IEC C14 to C14 cords, and a |                                             |
-   | set of velcro cable ties                   |                                             |
+   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Two 3-meter Mini SAS HD to Mini SAS HD      |
+   | power cords and a set of velcro cable      | cables                                      |
+   | ties                                       |                                             |
    +--------------------------------------------+---------------------------------------------+
 
 
@@ -55,8 +55,8 @@ Carefully unpack the shipping boxes and locate these components:
 Become Familiar With the System
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ES12 has front panel indicators for power, unit identify and
-fault. The Fault indicator is on during the initial power-on self-test
+The ES12 has front panel indicators for power, locate ID, and
+fault. The fault indicator is on during the initial power-on self-test
 (POST) or when the %brand% software has issued an
 `alert
 <https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
@@ -64,7 +64,7 @@ fault. The Fault indicator is on during the initial power-on self-test
 
 .. _es12_indicators:
 .. figure:: images/tn_x10es12_indicators.png
-   :width: 1.35in
+   :width: 1.5in
 
    Front Panel Indicators
 
@@ -87,7 +87,7 @@ configuration. The connectors and features on each module are:
    +-----------------------------------------------------+
    | 1: Serial number labels                             |
    +-----------------------------------------------------+
-   | 2-4: SAS3 connectors (T1-T3)                        |
+   | 2-4: HD Mini SAS3 connectors (T1-T3)                |
    +-----------------------------------------------------+
    | 5: Debug port (%brand% internal use only)           |
    +-----------------------------------------------------+
@@ -203,19 +203,19 @@ power outlets.
 Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
-Connect an SAS cable from the T1 connector on the ES12 expander
-module 1 to SAS port 1 on the X10 node 1. This is the red line shown
-in
+Plug one end of the SAS cable into the T1 connector on the ES12's
+expander module 1. Plug the other end into the SAS 1 connector on
+the X10's node 1. See cable #1 in
 :numref:`Figure %s <es12_sasconnect1>`.
 
-If the X10 has a second node for HA (High Availability), connect the
-second SAS cable from the T1 connector on the ES12 expander module 2
-to SAS port 1 on the X10 node 2. This is the blue line shown in
+If the X10 has a second node for HA (High Availability), plug one end
+of the second SAS cable into the T1 connector of the ES12's expander
+module 2. Plug the other end into the SAS 1 connector on the X10's
+node 2. See cable #2 in
 :numref:`Figure %s <es12_sasconnect1>`.
 
 .. _es12_sasconnect1:
 .. figure:: images/tn_es12_sasconnect1.png
-   :width: 80%
 
    SAS Cable Connection for One ES12
 
@@ -225,22 +225,21 @@ to SAS port 1 on the X10 node 2. This is the blue line shown in
    \newpage
 
 
-A second ES12 can be connected to the X10. After connecting the first
-ES12 as shown above, connect an SAS cable from the T1 connector on the
-second ES12 expander module 1 to SAS port 2 on the X10 node 1. This is
-the dark red line shown in
+A second ES12 can also be connected to the X10. After connecting the
+first ES12 as shown above, plug one end of an SAS cable into the
+T1 connector on the second ES12's expander module 1. Plug the other
+end into the SAS 2 connector on the X10's node 1. See cable #3 in
 :numref:`Figure %s <es12_sasconnect2>`.
 
-If the X10 has a second node for HA (High Availability), connect the
-second SAS cable from the T1 connector on the second ES12 expander
-module 2 to SAS port 2 on the X10 node 2. This is the dark blue line
-shown in
+If the X10 has a second node for HA (High Availability), plug one end
+of an SAS cable into the T1 connector of the second ES12's expander
+module 2. Plug the other end into the X10's node 2, SAS 2 connector.
+See cable #4 in
 :numref:`Figure %s <es12_sasconnect2>`.
 
 
 .. _es12_sasconnect2:
 .. figure:: images/tn_es12_sasconnect2.png
-   :width: 80%
 
    SAS Cable Connection for Two ES12s
 
