@@ -110,12 +110,13 @@ Rail Kit Assembly
 Mount the Rails
 ^^^^^^^^^^^^^^^
 
-Open the clamp latches on the ends of each rail. Place the rail in
-the rack with the front end toward the front of the rack, aligning
-the pins on both ends of the rail with the mounting holes in the rack.
-Swing the clamp latch closed to hold the rail in place. Use two of the
-supplied screws to secure the back end of the rail in place. Repeat
-the process for the second rail.
+Install a spring on the silver posts in the side of each rail. Open
+the clamp latches on the ends of each rail. Place the rail in the rack
+with the front end toward the front of the rack, aligning the pins on
+both ends of the rail with the mounting holes in the rack. Swing the
+clamp latch closed to hold the rail in place. Use two of the supplied
+screws to secure the back end of the rail in place. Repeat the process
+for the second rail.
 
 
 .. _x10_rail_clamp:

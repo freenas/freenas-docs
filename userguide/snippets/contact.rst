@@ -1,16 +1,3 @@
-.. index:: User Guide Location
-
-.. _User Guide:
-
-User Guide
-----------
-
-The %brand% User Guide with complete configuration instructions is
-available by clicking :guilabel:`Guide` in the %brand% user interface
-or at
-`<https://support.ixsystems.com/truenasguide/truenas.html>`__.
-
-
 .. index:: Contacting iXsystems
 
 .. _Contacting iXsystems:
@@ -46,3 +33,4 @@ For assistance, please contact iX Support:
    |                  |                                                           |
    |                  | * 1 (678) 835-6101 (local and international)              |
    +------------------+-----------------------------------------------------------+
+

@@ -6,7 +6,7 @@ ES12 Expansion Shelf
 --------------------
 
 The %brand% ES12 is 2U, 12-bay, SAS3  expansion shelf with dual
-expander modules and dual power supplies.
+expander modules and redundant power supplies.
 
 
 #include snippets/perfect.rst
@@ -42,6 +42,11 @@ Carefully unpack the shipping boxes and locate these components:
    | power cords, 2 IEC C14 to C14 cords, and a |                                             |
    | set of velcro cable ties                   |                                             |
    +--------------------------------------------+---------------------------------------------+
+
+
+.. raw:: latex
+
+   \newpage
 
 
 .. index:: Become Familiar with the System
@@ -101,12 +106,13 @@ Rail Kit Assembly
 Mount the Rails
 ^^^^^^^^^^^^^^^
 
-Open the clamp latches on the ends of each rail. Place the rail in
-the rack with the front end toward the front of the rack, aligning
-the pins on both ends of the rail with the mounting holes in the rack.
-Swing the clamp latch closed to hold the rail in place. Use two of the
-supplied screws to secure the back end of the rail in place. Repeat
-the process for the second rail.
+Install a spring on the silver posts in the side of each rail. Open
+the clamp latches on the ends of each rail. Place the rail in the rack
+with the front end toward the front of the rack, aligning the pins on
+both ends of the rail with the mounting holes in the rack. Swing the
+clamp latch closed to hold the rail in place. Use two of the supplied
+screws to secure the back end of the rail in place. Repeat the process
+for the second rail.
 
 
 .. _es12_rail_clamp:
@@ -126,9 +132,10 @@ chassis has been installed in the rack, and remove all drives before
 removing the chassis from the rack.
 
 Snap the black bezel mounting ears onto the metal X10 chassis ears.
-Carefully place the X10 chassis onto the rails mounted in the rack.
-Push the X10 chassis in until the ears are flush with the front of the
-rack.  Use two of the supplied screws to secure each ear to the rack.
+Carefully place the ES12 chassis onto the rails mounted in the rack.
+Push the ES12 chassis in until the ears are flush with the front of
+the rack.  Use two of the supplied screws to secure each ear to the
+rack.
 
 
 Install Drive Trays
@@ -150,22 +157,13 @@ clicks into place.
    Installing Drive Trays
 
 
-Connect Expansion Shelves
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-blah blah
-
 Connect Power Cords
 ~~~~~~~~~~~~~~~~~~~
 
-FIXME
-
-If any %brand% expansion shelves are connected to the X10 array, power
-them on first, then wait at least two minutes before connecting power
-cables to the X10 array.  **Do not plug the power cords into a power
-outlet yet.** Connect a power cord to the back of one power supply,
-pressing it into the plastic clamp and pressing on the tab to lock it
-in place. Repeat the process for the second power supply and cord.
+**Do not plug the power cords into a power outlet yet.** Connect a
+power cord to the back of one power supply, pressing it into the
+plastic clamp and pressing on the tab to lock it in place. Repeat the
+process for the second power supply and cord.
 
 .. _es12_power:
 .. figure:: images/tn_x10es12_powerclip.png
@@ -174,12 +172,23 @@ in place. Repeat the process for the second power supply and cord.
    Power Cord Connection
 
 
-FIXME
+Connect SAS Cables
+~~~~~~~~~~~~~~~~~~
 
-After both power cords have been connected to the X10, they can be
-plugged into power outlets. The X10 is configured to automatically
-power on when connected to a power outlet. This design ensures that
-the X10 comes back on when power is restored after a power failure.
+Shut down and power off the X10. Remove the X10 power cables from the
+power outlets.
+
+Plug the ES12 power cords into power outlets.
+**Wait two minutes for the drives to start.**
+
+Connect an SAS cable from the T1 connector on the ES12 expander
+module 1 to SAS port 1 on the X10 node 1.
+
+If the X10 has a second node for HA (High Availability), connect the
+second SAS cable from the T1 connector on the ES12 expander module 2
+to SAS port 1 on the X10 node 2.
+
+Plug the X10 power cords into power outlets.
 
 
 Install Bezel (Optional)

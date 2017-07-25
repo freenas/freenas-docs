@@ -4,4 +4,5 @@
    \pagenumbering{arabic}
 
 #include snippets/x10.rst
+#include snippets/userguide.rst
 #include snippets/contact.rst
