@@ -39,8 +39,7 @@ Carefully unpack the shipping boxes and locate these components:
    |    :width: 80%                             |    :width: 30%                              |
    |                                            |                                             |
    | Accessory kit with 2 IEC C13 to NEMA 5-15P | Black USB to 3.5mm serial cable (shipped    |
-   | power cords, 2 IEC C14 to C14 cords, and a | separately)                                 |
-   | set of velcro cable ties                   |                                             |
+   | power cords and set of velcro cable ties   | separately)                                 |
    +--------------------------------------------+---------------------------------------------+
 
 .. raw:: latex
@@ -54,8 +53,8 @@ Carefully unpack the shipping boxes and locate these components:
 Become Familiar With the System
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The X10 has front panel indicators for power, unit identify and fault.
-The Fault indicator is on during the initial power-on self-test (POST)
+The X10 has front panel indicators for power, locate ID, and fault.
+The fault indicator is on during the initial power-on self-test (POST)
 or when the %brand% software has issued an
 `alert
 <https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
@@ -64,7 +63,7 @@ or when the %brand% software has issued an
 .. _x10_indicators:
 
 .. figure:: images/tn_x10es12_indicators.png
-   :width: 1.35in
+   :width: 1.5in
 
    Front Panel Indicators
 
