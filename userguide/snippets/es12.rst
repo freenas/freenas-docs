@@ -28,15 +28,15 @@ Carefully unpack the shipping boxes and locate these components:
    | ES12 Expansion Shelf                       | ES12 Bezel                                  |
    +--------------------------------------------+---------------------------------------------+
    | .. image:: images/tn_x10es12_rails.png     | .. image:: images/tn_x10es12_drivetrays.png |
-   |                                            |                                             |
-   | Set of rackmount rails. The rails have a   | A total of 12 populated or filler drive     |
-   | specific front end, identified by a label  | trays. Trays must be installed in all bays  |
-   | visible on the left above. The front ends  | to maintain proper airflow for cooling.     |
-   | of the rails must be installed facing the  |                                             |
+   |                                            |    :width: 90%                              |
+   | Set of rackmount rails. The rails have a   |                                             |
+   | specific front end, identified by a label  | A total of 12 populated or filler drive     |
+   | visible on the left above. The front ends  | trays. Trays must be installed in all bays  |
+   | of the rails must be installed facing the  | to maintain proper airflow for cooling.     |
    | front of the rack.                         |                                             |
    +--------------------------------------------+---------------------------------------------+
    | .. image:: images/tn_x10es12_acckit.png    | .. image:: images/tn_es12_sascables.png     |
-   |    :width: 80%                             |    :width: 50%                              |
+   |    :width: 80%                             |    :width: 40%                              |
    |                                            |                                             |
    | Accessory kit with 2 IEC C13 to NEMA 5-15P | Two SAS3 cables                             |
    | power cords, 2 IEC C14 to C14 cords, and a |                                             |
@@ -63,7 +63,6 @@ fault. The Fault indicator is on during the initial power-on self-test
 
 
 .. _es12_indicators:
-
 .. figure:: images/tn_x10es12_indicators.png
    :width: 1.35in
 
@@ -77,24 +76,28 @@ fault. The Fault indicator is on during the initial power-on self-test
    Back Panel
 
 
-The ES12 contains two expander modules in a side-by-side configuration.
-The connectors and features on each module are:
+The ES12 contains two expander modules in a side-by-side
+configuration. The connectors and features on each module are:
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
 
 .. table::
    :class: longtable
 
-   +------------------------------------------------------+
-   | 1: Serial number labels                              |
-   +------------------------------------------------------+
-   | 2-4: SAS3 connectors (T1-T3)                         |
-   +------------------------------------------------------+
-   | 5: Debug port (%brand% internal use only)            |
-   +------------------------------------------------------+
-   | 6: Redundant power supplies                          |
-   +------------------------------------------------------+
+   +-----------------------------------------------------+
+   | 1: Serial number labels                             |
+   +-----------------------------------------------------+
+   | 2-4: SAS3 connectors (T1-T3)                        |
+   +-----------------------------------------------------+
+   | 5: Debug port (%brand% internal use only)           |
+   +-----------------------------------------------------+
+   | 6: Redundant power supplies                         |
+   +-----------------------------------------------------+
+
+
+.. raw:: latex
+
+   \newpage
 
 
 .. index:: Rail Kit Assembly
@@ -106,13 +109,21 @@ Rail Kit Assembly
 Mount the Rails
 ^^^^^^^^^^^^^^^
 
-Install a spring on the silver posts in the side of each rail. Open
-the clamp latches on the ends of each rail. Place the rail in the rack
-with the front end toward the front of the rack, aligning the pins on
-both ends of the rail with the mounting holes in the rack. Swing the
-clamp latch closed to hold the rail in place. Use two of the supplied
-screws to secure the back end of the rail in place. Repeat the process
-for the second rail.
+Install a spring on the silver posts in the side of each rail.
+
+.. _es12_spring:
+.. figure:: images/tn_x10es12_spring.png
+   :width: 50%
+
+   Installing Rail Springs
+
+
+Open the clamp latches on the ends of each rail. Place the rail in the
+rack with the front end toward the front of the rack, aligning the
+pins on both ends of the rail with the mounting holes in the rack.
+Swing the clamp latch closed to hold the rail in place. Use two of the
+supplied screws to secure the back end of the rail in place. Repeat
+the process for the second rail.
 
 
 .. _es12_rail_clamp:
@@ -131,11 +142,16 @@ installation or removal.** Do not install drives until after the
 chassis has been installed in the rack, and remove all drives before
 removing the chassis from the rack.
 
-Snap the black bezel mounting ears onto the metal X10 chassis ears.
+Snap the black bezel mounting ears onto the metal ES12 chassis ears.
 Carefully place the ES12 chassis onto the rails mounted in the rack.
 Push the ES12 chassis in until the ears are flush with the front of
 the rack.  Use two of the supplied screws to secure each ear to the
 rack.
+
+
+.. raw:: latex
+
+   \newpage
 
 
 Install Drive Trays
@@ -150,8 +166,8 @@ a drive bay until the left side of the latch touches the metal front
 edge of the chassis, then gently swing the latch closed until it
 clicks into place.
 
-.. _es12_drivetray_load:
 
+.. _es12_drivetray_load:
 .. figure:: images/tn_x10es12_driveload.png
 
    Installing Drive Trays
@@ -165,11 +181,17 @@ power cord to the back of one power supply, pressing it into the
 plastic clamp and pressing on the tab to lock it in place. Repeat the
 process for the second power supply and cord.
 
+
 .. _es12_power:
 .. figure:: images/tn_x10es12_powerclip.png
    :width: 1.5in
 
    Power Cord Connection
+
+
+.. raw:: latex
+
+   \newpage
 
 
 Connect SAS Cables
@@ -182,13 +204,49 @@ Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
 Connect an SAS cable from the T1 connector on the ES12 expander
-module 1 to SAS port 1 on the X10 node 1.
+module 1 to SAS port 1 on the X10 node 1. This is the red line shown
+in
+:numref:`Figure %s <es12_sasconnect1>`.
 
 If the X10 has a second node for HA (High Availability), connect the
 second SAS cable from the T1 connector on the ES12 expander module 2
-to SAS port 1 on the X10 node 2.
+to SAS port 1 on the X10 node 2. This is the blue line shown in
+:numref:`Figure %s <es12_sasconnect1>`.
 
-Plug the X10 power cords into power outlets.
+.. _es12_sasconnect1:
+.. figure:: images/tn_es12_sasconnect1.png
+   :width: 80%
+
+   SAS Cable Connection for One ES12
+
+
+.. raw:: latex
+
+   \newpage
+
+
+A second ES12 can be connected to the X10. After connecting the first
+ES12 as shown above, connect an SAS cable from the T1 connector on the
+second ES12 expander module 1 to SAS port 2 on the X10 node 1. This is
+the dark red line shown in
+:numref:`Figure %s <es12_sasconnect2>`.
+
+If the X10 has a second node for HA (High Availability), connect the
+second SAS cable from the T1 connector on the second ES12 expander
+module 2 to SAS port 2 on the X10 node 2. This is the dark blue line
+shown in
+:numref:`Figure %s <es12_sasconnect2>`.
+
+
+.. _es12_sasconnect2:
+.. figure:: images/tn_es12_sasconnect2.png
+   :width: 80%
+
+   SAS Cable Connection for Two ES12s
+
+
+After all SAS cables have been connected, plug the X10 power cords
+into power outlets.
 
 
 Install Bezel (Optional)
@@ -199,20 +257,6 @@ the bezel by aligning it with the pins on the bezel ears and pressing
 it into place.
 
 
-Perform %brand% Initial Software Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. raw:: latex
 
-The console displays the IP address of the %brand% X10 graphical web
-interface, *192.168.100.231* in this example:
-
-
-.. code-block:: none
-
-   The web user interface is at:
-
-   http://192.168.100.231
-
-
-Enter the IP address into a browser on a computer on the same network
-to access the web user interface.
-
+   \newpage
