@@ -123,10 +123,12 @@ supports VirtIO paravirtualized network drivers.
 VMs set to *UEFI* booting are also given a VNC (Virtual Network
 Computing) remote connection:
 
-.. note:: If you are using the RealVNC Client and getting the error
-   'RFB protocol error: invalid message type', you must disable the
-   'Adapt to network speed' option, and move the slider to 'Best
-   quality'.
+
+.. tip:: If a RealVNC 5.X Client shows the error
+   :literal:`RFB protocol error: invalid message type`, disable the
+   :guilabel:`Adapt to network speed` option and move the slider to
+   :guilabel:`Best quality`.
+
 
 .. figure:: images/vms-vnc.png
 
