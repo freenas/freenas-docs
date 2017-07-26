@@ -85,13 +85,11 @@ configuration. The connectors and features on each module are:
    :class: longtable
 
    +-----------------------------------------------------+
-   | 1: Serial number labels                             |
+   | 1-3: HD Mini SAS3 connectors (T1-T3)                |
    +-----------------------------------------------------+
-   | 2-4: HD Mini SAS3 connectors (T1-T3)                |
+   | 4: Debug port (%brand% internal use only)           |
    +-----------------------------------------------------+
-   | 5: Debug port (%brand% internal use only)           |
-   +-----------------------------------------------------+
-   | 6: Redundant power supplies                         |
+   | 5: Redundant power supplies                         |
    +-----------------------------------------------------+
 
 
