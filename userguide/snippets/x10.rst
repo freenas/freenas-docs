@@ -39,7 +39,8 @@ Carefully unpack the shipping boxes and locate these components:
    |    :width: 80%                             |    :width: 30%                              |
    |                                            |                                             |
    | Accessory kit with 2 IEC C13 to NEMA 5-15P | Black USB to 3.5mm serial cable (shipped    |
-   | power cords and set of velcro cable ties   | separately)                                 |
+   | power cords, 2 IEC C14 to C14 cords, and a | separately)                                 |
+   | set of velcro cable ties                   |                                             |
    +--------------------------------------------+---------------------------------------------+
 
 .. raw:: latex
@@ -63,7 +64,7 @@ or when the %brand% software has issued an
 .. _x10_indicators:
 
 .. figure:: images/tn_x10es12_indicators.png
-   :width: 1.5in
+   :width: 1.75in
 
    Front Panel Indicators
 

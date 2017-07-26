@@ -39,8 +39,8 @@ Carefully unpack the shipping boxes and locate these components:
    |    :width: 80%                             |    :width: 40%                              |
    |                                            |                                             |
    | Accessory kit with 2 IEC C13 to NEMA 5-15P | Two 3-meter Mini SAS HD to Mini SAS HD      |
-   | power cords and a set of velcro cable      | cables                                      |
-   | ties                                       |                                             |
+   | power cords, 2 IEC C14 to C14 cords, and a | cables                                      |
+   | set of velcro cable ties                   |                                             |
    +--------------------------------------------+---------------------------------------------+
 
 
@@ -64,7 +64,7 @@ fault. The fault indicator is on during the initial power-on self-test
 
 .. _es12_indicators:
 .. figure:: images/tn_x10es12_indicators.png
-   :width: 1.5in
+   :width: 1.75in
 
    Front Panel Indicators
 
