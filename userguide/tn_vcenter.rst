@@ -11,8 +11,28 @@ The %brand% vCenter Plugin integrates the control and operation of
 <https://www.vmware.com/products/vcenter-server>`__.
 
 
+New Features in 2.1.0
+---------------------
+
+* Advanced provisioning
+
+* Datastore snapshot management
+
+* LUN management
+
+* ZFS pool management
+
+* ZFS pool heath status
+
+* Role base access control
+
+
 .. note:: The current vCenter plugin works with versions of vCenter up
    to vCenter 6.
+
+
+Configuration
+-------------
 
 
 Click :guilabel:`vCenter` to open the plugin configuration screen
@@ -85,7 +105,11 @@ object.
    system in the HA pair.
 
 
-The vCenter plugin can be configured for a secure connection by clicking
+Secure Connections
+------------------
+
+The vCenter plugin can be configured for a secure connection by
+clicking
 :menuselection:`vCenter --> vCenter Auxiliary Settings`
 in the left tree. In the screen shown in
 :numref:`Figure %s <vcenter2>`, check the
@@ -97,4 +121,5 @@ in the left tree. In the screen shown in
 .. figure:: images/vcenter2.png
 
    Securing the vCenter Plugin Connection
+
 
