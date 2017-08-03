@@ -2265,7 +2265,7 @@ name.**
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
 
 
-.. _Targets/Extents:
+.. _Target/Extents:
 
 Target/Extents
 ~~~~~~~~~~~~~~
@@ -2392,7 +2392,7 @@ connection. An example is shown in
 
 
 The screens for adding an extent and associating a target are the same
-as described in :ref:`Extents` and :ref:`Targets/Extents`.
+as described in :ref:`Extents` and :ref:`Target/Extents`.
 
 An example of the :guilabel:`Fibre Channel Ports` screen is shown in
 :numref:`Figure %s <tn_fibre_port_fig>`.
