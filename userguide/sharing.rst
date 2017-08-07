@@ -2137,44 +2137,53 @@ summarizes the settings that can be configured when creating a Target.
 Extents
 ~~~~~~~
 
-In iSCSI, the target virtualizes something and presents it as a device
-to the iSCSI client. That something can be a device extent or a file
-extent:
+iSCSI targets provide virtual access to resources on the %brand%
+system. *Extents* are used to define resources to share with clients.
+There are two types of extents: *device* and *file*.
 
-**Device extent:** virtualizes an unformatted physical disk, RAID
-controller, zvol, zvol snapshot, or an existing
+**Device extents** provide virtual storage access to zvols, zvol
+snapshots, or physical devices like a disk, an SSD, a hardware RAID
+volume, or a
 `HAST device
 <http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/disks-hast.html>`_.
 
-Virtualizing a single disk is slow as there is no caching, but
-virtualizing a hardware RAID controller has higher performance due to
-its cache. This type of virtualization does a pass-through to the disk
-or hardware RAID controller. None of the benefits of ZFS are provided
-and performance is limited to the capabilities of the disk or
-controller.
+**File extents** provide virtual storage access to an individual file.
 
-Virtualizing a zvol adds the benefits of ZFS, such as its read cache
-and write cache. Even if the client formats the device extent with a
-different filesystem, as far as %brand% is concerned, the data
-benefits from ZFS features such as block checksums and snapshots.
 
-When determining whether to use a file or a device extent, be aware
-that a zvol is required to take advantage of all VAAI primitives and
-is recommended when using virtualization software as the iSCSI
-initiator. The ATS, WRITE SAME, XCOPY and STUN, primitives are
-supported by both file and device extents. The UNMAP primitive is
-supported by zvols and raw SSDs. The threshold warnings primitive is
-fully supported by zvols and partially supported by file extents.
+.. tip:: **For typical use as storage for virtual machines where the
+   virtualization software is the iSCSI initiator, device extents
+   with zvols provide the best performance and most features.**
+   For other applications, device extents sharing a raw device can be
+   appropriate. File extents do not have the performance or features
+   of device extents, but do allow creating multiple extents on a
+   single filesystem.
 
-**File extent:** allows you to export a portion of a ZFS volume. The
-advantage of a file extent is that you can create multiple exports per
-volume.
+
+Virtualized zvols support all the %brand% :ref:`VAAI` primitives and
+are recommended for use with virtualization software as the iSCSI
+initiator.
+
+The ATS, WRITE SAME, XCOPY and STUN, primitives are supported by both
+file and device extents. The UNMAP primitive is supported by zvols and
+raw SSDs. The threshold warnings primitive is fully supported by zvols
+and partially supported by file extents.
+
+Virtualizing a raw device like a single disk or hardware RAID volume
+limits performance to the abilities of the device. Because this
+bypasses ZFS, such devices do not benefit from ZFS caching or provide
+features like block checksums or snapshots.
+
+Virtualizing a zvol adds the benefits of ZFS, such as read and write
+cache. Even if the client formats a device extent with a different
+filesystem, the data still resides on a ZFS volume and benefits from
+ZFS features like block checksums and snapshots.
+
 
 .. warning:: For performance reasons and to avoid excessive
-   fragmentation, it is recommended to keep the used space of the pool
-   below 50% when using iSCSI. As required, you can increase the
-   capacity of an existing extent using the instructions in
-   :ref:`Growing LUNs`.
+   fragmentation, keep the used space of the pool below 50% when using
+   iSCSI. The capacity of an existing extent can be increased as shown
+   in :ref:`Growing LUNs`.
+
 
 To add an extent, go to
 :menuselection:`Sharing --> Block (iSCSI) --> Extents --> Add Extent`.
