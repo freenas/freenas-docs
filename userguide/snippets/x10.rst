@@ -1,3 +1,5 @@
+#include snippets/copyright.rst
+
 .. index:: X10 Unified Storage Array
 
 .. _X10 Unified Storage Array:

@@ -1,3 +1,5 @@
+#include snippets/copyright.rst
+
 .. index:: ES12 Expansion Shelf
 
 .. _ES12 Expansion Shelf:
