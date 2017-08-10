@@ -1415,9 +1415,9 @@ This configuration screen is really a front-end to
    |                                  |                | :guilabel:`Hosts Deny` fields of a SMB share; uncheck if IP addresses are used to avoid the           |
    |                                  |                | delay of a host lookup                                                                                |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Server minimum protocol          | drop-down menu | the minimum protocol version the server will support where the default sets automatic                 |
-   |                                  |                | negotiation; refer to :numref:`Table %s <smb_protocol_ver_tab>` for descriptions                      |
-   |                                  |                |                                                                                                       |
+   | Server minimum protocol          | drop-down menu | the minimum protocol version the server will support; default selects *LANMAN1*; SMB clients          |
+   |                                  |                | automatically negotiate the highest supported protocol version that meets or exceeds this value;      |
+   |                                  |                | refer to :numref:`Table %s <smb_protocol_ver_tab>` for descriptions                                   |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Server maximum protocol          | drop-down menu | the maximum protocol version the server will support; refer to                                        |
    |                                  |                | :numref:`Table %s <smb_protocol_ver_tab>` for descriptions                                            |
@@ -1484,7 +1484,7 @@ This configuration screen is really a front-end to
    | SMB2_10        | used by Windows 7                                          |
    |                |                                                            |
    +----------------+------------------------------------------------------------+
-   | SMB3           | used by Windows 8                                          |
+   | SMB3           | used by Windows 10; same as SMB3_11                        |
    |                |                                                            |
    +----------------+------------------------------------------------------------+
    | SMB3_00        | used by Windows 8                                          |
@@ -1498,7 +1498,8 @@ This configuration screen is really a front-end to
    +----------------+------------------------------------------------------------+
 
 
-Changes to SMB settings and SMB shares take effect immediately.
+Changes to SMB settings take effect immediately. Changes to share settings only take
+effect after the client and server negotiate a new session. 
 
 .. note:: Do not set the *directory name cache size* as an
    :guilabel:`Auxiliary parameter`. Due to differences in how Linux
@@ -1536,14 +1537,6 @@ performance in some configurations and can be added to the
 a multiple of _SC_PAGESIZE (typically *4096*) to avoid memory
 fragmentation. This will increase Samba's memory requirements and
 should not be used on systems with limited RAM.
-
-To increase network performance, read the Samba section on socket
-options in the
-`smb.conf manual page
-<https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+11.0-RELEASE+and+Ports>`_.
-It indicates which options are available and recommends that you
-experiment to see which are supported by your clients and improve your
-network's performance.
 #endif freenas
 
 Windows automatically caches file sharing information. If changes are
@@ -1633,9 +1626,10 @@ unless there is a specific need.**
   This ZFS property is only available when creating a dataset. It
   cannot be changed on an existing dataset. To convert such datasets,
   back up the data, create a new case-insensitive dataset, create an
-  SMB share on it, then copy the data from the old one onto it. After
-  the data has been checked and verified on the new share, the old one
-  can be deleted.
+  SMB share on it, set the share level auxiliary parameter 
+  *case sensitive = true*, then copy the data from the old one onto it. 
+  After the data has been checked and verified on the new share, the old 
+  one can be deleted.
 
 * If present, remove options for extended attributes and DOS
   attributes in the share's
