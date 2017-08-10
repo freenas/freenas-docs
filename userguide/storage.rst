@@ -1792,6 +1792,8 @@ automatically replicated to the destination computer.
    the replication task completes.
 
 
+.. _replication_common_config:
+
 Examples: Common Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1813,7 +1815,7 @@ is not required. Most users will already have datasets containing the
 data they wish to replicate.
 
 Create a periodic snapshot of the source dataset by selecting
-:menuselection:`Storage --> Volumes`.
+:menuselection:`Storage --> Periodic Snapshot Tasks`.
 Click the *alphavol/alphadata* dataset to highlight it. Create a
 :ref:`periodic snapshot <Periodic Snapshot Tasks>` of it by clicking
 :guilabel:`Periodic Snapshot Tasks`, then
@@ -1928,8 +1930,16 @@ replication setup between two %brand% systems with a dedicated user
 named *repluser*. SSH key authentication is used to allow the user to
 log in remotely without a password.
 
+In this example, the periodic snapshot task has not been created yet.
+If the periodic snapshot shown in the
+:ref:`example configuration <replication_common_config>` has already
+been created, go to
+:menuselection:`Storage --> Periodic Snapshot Tasks`,
+click on the task to select it, and click :guilabel:`Delete` to remove
+it before continuing.
+
 On *Alpha*, select
-:menuselection:`Accounts --> Users`.
+:menuselection:`Account --> Users`.
 Click the :guilabel:`Add User`. Enter *repluser* for
 :guilabel:`Username`, enter */mnt/alphavol/repluser* in the
 :guilabel:`Create Home Directory In` field, enter
@@ -1938,16 +1948,9 @@ the :guilabel:`Disable password login` checkbox. Leave the other
 fields at their default values, but note the :guilabel:`User ID`
 number. Click :guilabel:`OK` to create the user.
 
-On *Alpha*, the periodic snapshot job that was already created must be
-temporarily disabled. Select
-:menuselection:`Storage --> Periodic Snapshot Tasks`,
-click the *alphavol/alphadata* line, then click :guilabel:`Edit`.
-Remove the check from the :guilabel:`Enabled` checkbox and click
-:guilabel:`OK`.
-
 On *Beta*, the same dedicated user must be created as was created on
 the sending computer. Select
-:menuselection:`Accounts --> Users`.
+:menuselection:`Account --> Users`.
 Click the :guilabel:`Add User`. Enter the *User ID* number from
 *Alpha*, *repluser* for :guilabel:`Username`, enter
 */mnt/betavol/repluser* in the :guilabel:`Create Home Directory In`
@@ -1979,7 +1982,8 @@ command in the :ref:`Shell`:
    zfs set readonly=on betavol/alphadata
 
 
-Close the :ref:`Shell`.
+Close the :ref:`Shell` by typing :command:`exit` and pressing
+:kbd:`Enter`.
 
 The replication user must also be able to mount datasets. Still on
 *Beta*, go to
@@ -1989,7 +1993,16 @@ Click :guilabel:`Add Tunable`. Enter *vfs.usermount* for the
 *Sysctl* from the :guilabel:`Type` drop-down. Click :guilabel:`OK` to
 save the tunable settings.
 
-Back on *Alpha*, create the replication task by clicking
+Back on *Alpha*, create a periodic snapshot of the source dataset by
+selecting
+:menuselection:`Storage --> Periodic Snapshot Tasks`.
+Click the *alphavol/alphadata* dataset to highlight it. Create a
+:ref:`periodic snapshot <Periodic Snapshot Tasks>` of it by clicking
+:guilabel:`Periodic Snapshot Tasks`, then
+:guilabel:`Add Periodic Snapshot` as shown in
+:numref:`Figure %s <zfs_create_periodic_replication_fig>`.
+
+Still on *Alpha*, create the replication task by clicking
 :guilabel:`Replication Tasks` and :guilabel:`Add Replication`.
 *alphavol/alphadata* is selected as the dataset to replicate.
 *betavol/alphadata* is the destination volume and dataset where
@@ -2050,13 +2063,11 @@ select it, then click :guilabel:`Modify User`. Paste the value in the
 :guilabel:`SSH Public Key` field. (overwrite existing if present?)\
 #endif comment
 
-Finally, the periodic snapshot task can be enabled to begin
-replicating. Back on *Alpha*, select
-:menuselection:`Storage --> Periodic Snapshot Tasks`. Click the
-*alphavol/alphadata* snapshot task line, click :guilabel:`Edit`, set
-the :guilabel:`Enabled` checkbox, then click :guilabel:`OK` to save.
-
 Replication will begin when the periodic snapshot task runs.
+
+Additional replications can use the same dedicated user that has
+already been set up. The permissions and read only settings made
+through the :ref:`Shell` must be set on each new destination dataset.
 
 
 Example: %brand% to %brand% or Other Systems, Manual Setup
