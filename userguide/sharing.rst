@@ -1303,8 +1303,8 @@ for more details.
 These VFS objects do not appear in the selection box:
 
 * **recycle:** moves deleted files to the recycle directory instead of
-  deleting them. Controlled by :guilabel:`Export Recycle Bin` in the 
-  :ref:`SMB share configuration`.
+  deleting them. Controlled by :guilabel:`Export Recycle Bin` in the
+  :ref:`SMB share options <smb_share_opts_tab>`.
 
 * **shadow_copy2:** a more recent implementation of
   :guilabel:`shadow_copy` with some additional features. *shadow_copy2*
