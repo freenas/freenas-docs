@@ -247,11 +247,6 @@ whenever changes are made to this setting.
    |                | for users and gidNumber attributes for groups in the AD                                                                                  |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | adex           | AD server uses RFC2307 schema extensions and supports domain trusts as well as two-way cross-forest trusts; mappings must be provided in |
-   |                | advance by adding the POSIX attribute information to the users and groups objects in AD using a tool such as                             |
-   |                | "Identity Services for Unix" on Windows 2003 R2 and later                                                                                |
-   |                |                                                                                                                                          |
-   +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | autorid        | similar to :guilabel:`rid`, but automatically configures the range to be used for each domain, so there is no need to specify a          |
    |                | specific range for each domain in the forest; the only needed configuration is the range of UID/GIDs to use for user/group mappings      |
    |                | and an optional size for the ranges                                                                                                      |
