@@ -241,8 +241,7 @@ U1
 U2
 ~~
 
-* Samba has been updated to `4.6.6
-  <https://www.samba.org/samba/history/samba-4.6.6.html>`__ to address
+* Samba has been patched to address
   `CVE-2017-11103
   <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11103>`__.
 
