@@ -35,7 +35,7 @@ release = '11.0'
 
 if tags.has('truenas'):
     # VERSION is the LONG, FULL, version number
-    version = '11.0-U2'
+    version = '11.0-U2.2'
     # RELEASE is the short major release number ONLY
     release = '11.0'
 

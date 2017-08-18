@@ -3,7 +3,7 @@
 Hardware Setup
 ==============
 
-The %brand% Z series (Z20, Z30, and Z35) consists of one or two main
+The %brand% Z series (Z30, and Z35) consists of one or two main
 *Unified Storage Array* units.  Optional E16, E24, or ES60
 *Expansion Shelves* can be added to expand storage capacity.
 
