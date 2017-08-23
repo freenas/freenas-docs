@@ -1229,7 +1229,7 @@ Several trains are available for updates.
 
 .. caution:: **Only Production trains are recommended for regular
    usage.** Other trains are made available for pre-production testing
-   and updates of legacy versions. Pre-production testing trains are
+   and updates to legacy versions. Pre-production testing trains are
    provided only to permit testing of new versions before switching to
    a new branch. Before using a non-production train, be prepared to
    experience bugs or problems. Testers are encouraged to submit bug
@@ -1241,7 +1241,7 @@ These trains are available:
 #ifdef freenas
 **For Production Use**
 
-* **FreeNAS-9.10-STABLE** (Recommended)
+* **FreeNAS-11-STABLE** (Recommended)
 
   After testing, new fixes and features are added to this train.
   Selecting this train and applying any pending updates is
@@ -1249,19 +1249,19 @@ These trains are available:
 
 **For Pre-Production Testing**
 
-* **FreeNAS-11-STABLE**
-
-  The train upon which upcoming 11-RELEASE and Release Candidates
-  (RCs) are based. Until 11 is released, only use this train for
-  testing.
-
 * **FreeNAS-11-Nightlies**
 
   **Do not use this train in production**. It is the experimental
-  branch for the future 11 version and is meant only for bleeding
-  edge testers and developers.
+  branch for future versions and is meant only for testers and
+  developers.
 
 **Legacy Versions**
+
+* **FreeNAS-9.10-STABLE**
+
+  Maintenance-only updates to the older version of %brand%. Upgrading
+  to FreeNAS-11-STABLE is recommended to ensure that the system
+  receives bug fixes and new features.
 
 * **FreeNAS-9.3-STABLE**
 
