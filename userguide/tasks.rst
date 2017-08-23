@@ -566,10 +566,10 @@ task.
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
 
 
-If the rysnc server requires password authentication, input
-*--password-file=/PATHTO/FILENAME* in the :guilabel:`Extra options`
-box, replacing */PATHTO/FILENAME* with the appropriate path to the
-file containing the value of the password.
+If the rysnc server requires password authentication, enter
+:samp:`--password-file={/PATHTO/FILENAME}` in the
+:guilabel:`Extra options` box, replacing :literal:`/PATHTO/FILENAME`
+with the appropriate path to the file containing the password.
 
 Created rsync tasks will be listed in :guilabel:`View Rsync Tasks`.
 Highlight the entry for an rsync task to display buttons for
