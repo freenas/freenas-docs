@@ -1304,7 +1304,6 @@ This configuration screen is really a front-end to
 
 #ifdef freenas
 .. figure:: images/cifs1b.png
-   :width: 75%
 
    Global SMB Configuration
 #endif freenas
