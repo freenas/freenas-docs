@@ -1,0 +1,256 @@
+.. index:: ES60 Expansion Shelf
+
+.. _ES60 Expansion Shelf:
+
+ES60 Expansion Shelf
+--------------------
+
+The %brand% ES60 Expansion Shelf is a is a 4U, 60-bay storage
+expansion unit designed specifically for use with the %brand% Z Series
+Unified Storage Array.
+
+
+#include snippets/perfect.rst
+
+
+.. index:: ES60 Expansion Shelf Contents
+
+Carefully unpack the shipping boxes and locate these components:
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+
+.. table::
+   :class: longtable
+
+   +--------------------------------------------+---------------------------------------------+
+   |                                            |                                             |
+   |                                            |                                             |
+   | ES60 Expansion Shelf                       | 60 Drive trays                              |
+   +--------------------------------------------+---------------------------------------------+
+   |                                            |                                             |
+   |                                            |                                             |
+   | Rail kit with mounting hardware            | Two SAS cables (additional cables included  |
+   |                                            | if ordered)                                 |
+   +--------------------------------------------+---------------------------------------------+
+   |                                            |                                             |
+   |                                            |                                             |
+   | Two power cables                           |                                             |
+   +--------------------------------------------+---------------------------------------------+
+
+
+.. index:: Become Familiar with the System
+
+.. _ES60 Become Familiar with the System:
+
+Become Familiar With the System
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. index:: ES60 Front View
+
+.. _ES60 Front View:
+
+Front view of the ES60 Expansion Shelf:
+
+
+Front panel indicators:
+
+
+Front view of the ES60 Expansion Shelf:
+
+
+System Drive Tray:
+
+
+.. note: Do not install the drives until the chassis has been
+   installed in the rack.
+
+
+.. index:: Install Rack Mounting Rails
+
+.. _ES60 Install Rack Mounting Rails:
+
+Install Rack Mounting Rails
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Remove the rail set and screws from the rail kit box. Use only the
+screws labeled for use in the type of rack provided. Have two people
+support each rail while mounting it to the rack using the top and
+bottom screw holes. The rail surface should remain inside of the rack
+boundaries. These images show proper rail installation with the front
+and rear of the rails mounted.
+
+
+Front View
+
+
+Rear View
+
+
+Side View, No Rail
+
+
+Side View, Rail Mounted
+
+
+Rack Rail, Front
+
+
+Rack Rail, Rear
+
+
+.. _ES60 Install the ES60 Expansion Shelf in the Rack:
+
+Install the ES60 Expansion Shelf in the Rack
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Caution: Two people are required to safely lift the chassis for rack
+installation or removal.** Do not install drives until after the
+chassis has been installed in the rack, and remove all drives before
+removing the chassis from the rack.
+
+Align the chassis rails with the installed rack rails and gently slide
+the chassis into the rack until it stops. Press in the slide locks,
+then slide the chassis in until the face of the ES60 is flush with the
+rack.
+
+
+Image
+
+
+.. _ES60 Attach the Expansion Shelf to the Front the Rack:
+
+Attach the Expansion Shelf to the Front of the Rack
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Press in and turn the built-in thumbscrews to the front of the rack.
+
+
+Image
+
+
+.. _ES60 Install the Drives in the Expansion Shelf:
+
+Install the Drives in the Expansion Shelf
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To insert a drive, release the handle with the tab on the front of the
+drive chassis, push it into a drive bay until the drive handle begins
+to move into place, then push it the rest of the way until the handle
+locks into place.
+
+
+Image
+
+
+.. note: Drives are not numbered and can be installed in any
+   available bay.
+
+
+.. _ES60 Plug in the SAS Cables:
+
+Plug in the SAS Cables
+~~~~~~~~~~~~~~~~~~~~~~
+
+Refer to the Wiring Guide. (REF THE IMAGE)
+
+
+.. _ES60 Plug in the Power Cables:
+
+Plug in the Power Cables
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Plug both power cables into the power outlets and secure the cables
+with the plastic cable locks. This will turn on the Expansion Shelf.
+
+
+.. note::  Service and management ports are not used during normal
+   operation and should not be connected.
+
+
+IMAGE
+
+If setting up a %brand% Storage Array for the first time, wait
+two minutes after turning on the Expansion Shelf before
+powering on the %brand% Array. If you already have a
+%brand% Array in operation, you may power on the Expansion
+Shelf at any time.
+
+
+.. _ES60 Install the Bezel:
+
+Install the Bezel
+~~~~~~~~~~~~~~~~~
+
+The back of the bezel has two screws on the left and right side. Align
+the two screw holes on each side with the back of the ears on the
+ES60. Begin by screwing in one screw on one side, then screw in
+diagonally on the opposite side. Do this for the next two screws.
+
+IMAGE
+
+
+.. _ES60 Install the Cable Management Arm:
+
+Install the Cable Management Arm
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+On the rear of the ES60 JBOD, locate the two pin posts on the left
+side of the expansion shelf. Align the holes on the bracket of the
+cable management arm with the posts on the chassis. Slide the cable
+management arm forward and pull the lever on the latch upwards to lock
+the cable management arm into place.
+
+IMAGE
+
+
+Unscrew the two screws already attached to this side of the cable
+management arm. Align with the screw holes for this end and screw them
+in. Both pieces are now attached to the chassis.
+
+IMAGE
+
+
+.. _note: The tabs can be unlocked from above or below. Both tabs
+   can be unlocked if needed.
+
+
+IMAGE
+
+
+.. _ES60 Lock in the Power Cable:
+
+Lock in the Power Cable
+~~~~~~~~~~~~~~~~~~~~~~~
+
+This step eliminates the risk of accidentally disconnecting the power
+cable.
+
+
+IMAGE
+
+
+Insert the power cable into the plastic clamp and press down on the
+tab to lock the power cable in place.
+
+
+IMAGE
+
+
+.. _ES60 Secure the Power Cords:
+
+Secure the Power Cords
+~~~~~~~~~~~~~~~~~~~~~~
+
+Route and secure the power cords and other cables (including SAS
+cables) onto the cable-management arm, as shown in the pictures below.
+
+
+IMAGE
+
+
+The final assembly should look like this picture.
+
+
+IMAGE

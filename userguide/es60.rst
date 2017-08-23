@@ -1,0 +1,8 @@
+.. raw:: latex
+
+   \pagestyle{bsg}
+   \pagenumbering{arabic}
+
+#include snippets/es60.rst
+#include snippets/userguide.rst
+#include snippets/contact.rst
