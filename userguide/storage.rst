@@ -516,18 +516,18 @@ summarizes the options in this screen.
    boxes :guilabel:`Apply Owner (user)` and :guilabel:`Apply Mode`.
 
 
-The *Windows* :guilabel:`Permission Type` is used for SMB shares or when
-the %brand% system is a member of an Active Directory domain. This adds
-ACLs to traditional *Unix* permissions. When the *Windows*
+The *Windows* :guilabel:`Permission Type` is used for SMB shares or
+when the %brand% system is a member of an Active Directory domain.
+This adds ACLs to traditional *Unix* permissions. When the *Windows*
 :guilabel:`Permission Type` is set, ACLs are set to Windows defaults
 for new files and directories. A Windows client can be used to further
 fine-tune permissions as needed.
 
-The *Unix* :guilabel:`Permission Type` is usually used with NFS shares.
-These permissions are compatible with most network clients and generally
-work well with a mix of operating systems or clients. However, *Unix*
-permissions do not support Windows ACLs and should not be used with SMB
-shares.
+The *Unix* :guilabel:`Permission Type` is usually used with NFS
+shares. These permissions are compatible with most network clients and
+generally work well with a mix of operating systems or clients.
+However, *Unix* permissions do not support Windows ACLs and should not
+be used with SMB shares.
 
 The *Mac* :guilabel:`Permission Type` is used with AFP shares.
 
@@ -2664,12 +2664,12 @@ remote system.
 
 Snapshots have icons on the right side for several actions.
 
-**Clone Snapshot** prompts for the name of the clone to create.
-A clone is a writable copy of the snapshot. Since a clone is
-really a dataset which can be mounted, the clone appears in the
-:guilabel:`Active Volumes` tab, instead of the
-:guilabel:`Periodic Snapshots` tab, and has the word *clone* in
-its name.
+**Clone Snapshot** prompts for the name of the clone to create. A
+clone is a writable copy of the snapshot. Since a clone is actually a
+dataset which can be mounted, it appears in the :guilabel:`Volumes`
+tab rather than the :guilabel:`Snapshots` tab. By default,
+:literal:`-clone` is added to the name of a snapshot when a clone is
+created.
 
 **Destroy Snapshot** a pop-up message asks for confirmation. Child
 clones must be destroyed before their parent snapshot can be
