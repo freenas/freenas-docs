@@ -814,8 +814,9 @@ configure the system to always display these settings by checking
    |                    |                |                                                                                                                      |
    |                    |                |                                                                                                                      |
    +====================+================+======================================================================================================================+
-   | zvol Name          | string         | mandatory; input a name for the zvol                                                                                 |
-   |                    |                |                                                                                                                      |
+   | zvol Name          | string         | mandatory; enter a name for the zvol; note that there is a 63-character limit on device path names in devfs,         |
+   |                    |                | so using long zvol names can prevent accessing zvols as devices; for example, a zvol with a 70-character filename    |
+   |                    |                | or path cannot be used as an iSCSI extent                                                                            |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Comments           | string         | short comments or user notes about this zvol                                                                         |
    |                    |                |                                                                                                                      |
