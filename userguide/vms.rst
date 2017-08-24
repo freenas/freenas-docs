@@ -32,6 +32,11 @@ output shows the POPCNT feature, this processor can be used with
 *bhyve*.
 
 
+.. note:: AMD K10 "Kuma" processors include POPCNT but do not support
+   NRIPS, which is required for use with bhyve. Production of these
+   processors ceased in 2012 or 2013.
+
+
 .. index:: Creating VMs
 .. _Creating VMs:
 
