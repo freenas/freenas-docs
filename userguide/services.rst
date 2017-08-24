@@ -70,6 +70,15 @@ Stopped services show a red stop symbol and a :guilabel:`Start Now`
 button. Running services show a green light with a
 :guilabel:`Stop Now` button.
 
+
+.. tip:: Using a proxy server can prevent the list of services from
+   being displayed. If a proxy server is used, configure it to not
+   proxy local network connections or websocket connections. VPN
+   software can also cause problems. If the list of services is
+   displayed when connecting on the local network but not when
+   connecting through the VPN, check the VPN software configuration.
+
+
 Services are configured by clicking the wrench icon or the name of the
 service in the :guilabel:`Services` section of the tree menu.
 
