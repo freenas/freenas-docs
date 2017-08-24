@@ -444,7 +444,7 @@ overview of the screen that is used to set permissions.
 
 After a volume or dataset is created, it is listed by its mount point
 name in
-:menuselection:`Storage --> Volumes --> View Volumes`.
+:menuselection:`Storage --> Volumes`.
 Clicking the :guilabel:`Change Permissions` icon for a specific
 volume/dataset displays the screen shown in
 :numref:`Figure %s <zfs_change_permissions_vol_fig>`.
@@ -586,7 +586,7 @@ Most attributes, except for the :guilabel:`Dataset Name`,
 :guilabel:`Case Sensitivity`, and :guilabel:`Record Size`, can be
 changed after dataset creation by highlighting the dataset name and
 clicking its :guilabel:`Edit Options` button in
-:menuselection:`Storage --> Volumes --> View Volumes`.
+:menuselection:`Storage --> Volumes`.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -1118,13 +1118,13 @@ and VCC.
 
 .. _View Volumes:
 
-View Volumes
-~~~~~~~~~~~~
+Volumes
+~~~~~~~
 
-:menuselection:`Storage --> Volumes --> View Volumes`
+:menuselection:`Storage --> Volumes`
 is used to view and further configure existing ZFS pools, datasets,
 and zvols. The example shown in
-:numref:`Figure %s <zfs_view_vol_fig>`
+:numref:`Figure %s <zfs_vol_fig>`
 shows one ZFS pool (*volume1*) with two datasets (the one
 automatically created with the pool, *volume1*, and *dataset1*) and
 one zvol (*zvol1*).
@@ -1147,7 +1147,7 @@ the :guilabel:`Status`, whether it is mounted as read-only, and any
 :guilabel:`Comments` entered for the volume.
 
 
-.. _zfs_view_vol_fig:
+.. _zfs_vol_fig:
 
 .. figure:: images/volume1c.png
 
@@ -1252,7 +1252,7 @@ summarizes the configurable options.
 #endif freenas
 
 Clicking a dataset in
-:menuselection:`Storage --> Volumes --> View Volumes`
+:menuselection:`Storage --> Volumes`
 causes buttons to appear at the bottom of the screen, providing these
 options:
 
@@ -1281,7 +1281,7 @@ dataset.
 dataset.
 
 Clicking a zvol in
-:menuselection:`Storage --> Volumes --> View Volumes` causes
+:menuselection:`Storage --> Volumes` causes
 icons to appear at the bottom of the screen:
 :guilabel:`Create Snapshot`, :guilabel:`Edit zvol`, and
 :guilabel:`Destroy zvol`. Similar to datasets, a zvol's name cannot be
@@ -1295,7 +1295,7 @@ Managing Encrypted Volumes
 
 If the :guilabel:`Encryption` box is checked during the creation of a
 pool, additional buttons appear in the entry for the volume in
-:menuselection:`Storage --> Volumes --> View Volumes`.
+:menuselection:`Storage --> Volumes`.
 An example is shown in
 :numref:`Figure %s <zfs_encrypt_pool_icons_fig>`.
 
@@ -1470,7 +1470,7 @@ state of the RAID.
 
 
 Before physically removing the failed device, go to
-:menuselection:`Storage --> Volumes --> View Volumes`.
+:menuselection:`Storage --> Volumes`.
 Select the volume's name. At the bottom of the interface are
 several icons, one of which is :guilabel:`Volume Status`. Click the
 :guilabel:`Volume Status` icon and locate the failed disk. Then
@@ -1500,7 +1500,7 @@ perform these steps:
        fails with a "disk offline failed - no valid replicas" message,
        the ZFS volume must be scrubbed first with the
        :guilabel:`Scrub Volume` button in
-       :menuselection:`Storage --> Volumes --> View Volumes`.
+       :menuselection:`Storage --> Volumes`.
        After the scrub completes, try to :guilabel:`Offline` the disk
        again before proceeding.
 
@@ -1607,8 +1607,7 @@ Removing a Log or Cache Device
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Added log or cache devices appear in
-:menuselection:`Storage --> Volumes --> View Volumes
---> Volume Status`.
+:menuselection:`Storage --> Volumes --> Volume Status`.
 Clicking the device enables its :guilabel:`Replace` and
 :guilabel:`Remove` buttons.
 
@@ -1699,7 +1698,7 @@ which opens the screen shown in
 summarizes the fields in this screen.
 
 .. note:: If only a one-time snapshot is needed, instead use
-   :menuselection:`Storage --> Volumes --> View Volumes`
+   :menuselection:`Storage --> Volumes`
    and click the :guilabel:`Create Snapshot` button for the volume or
    dataset to snapshot.
 

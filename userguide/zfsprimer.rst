@@ -55,9 +55,10 @@ to validate their checksums and correct any corrupted blocks. While
 multiple disks are required in order to provide redundancy and data
 correction, ZFS will still provide data corruption detection to a
 system with one disk. %brand% automatically schedules a monthly scrub
-for each ZFS pool and the results of the scrub are displayed in
-:ref:`View Volumes`. Checking scrub results can provide an early
-indication of potential disk problems.
+for each ZFS pool and the results of the scrub are displayed by
+selecting the :ref:`Volume <Volumes>` then clicking the
+:guilabel:`Volume Status` button. Checking scrub results can provide
+an early indication of potential disk problems.
 
 Unlike traditional UNIX filesystems, **it is not necessary to define
 partition sizes when filesystems are created**. Instead, a group of
