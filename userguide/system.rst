@@ -215,6 +215,11 @@ will also not be available. The location of the system dataset can be
 viewed or set using
 :menuselection:`System --> System Dataset`.
 
+
+.. note:: :ref:`SSH` keys are not stored in the configuration database
+   and must be backed up separately.
+
+
 There are two types of passwords. User account passwords for the base
 operating system are stored as hashed values, do not need to be
 encrypted to be secure, and are saved in the system configuration
