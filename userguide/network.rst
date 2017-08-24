@@ -203,7 +203,7 @@ interrupted while the changes are applied.
    | Options             | string         | additional parameters from                                                                                |
    |                     |                | `ifconfig(8) <http://www.freebsd.org/cgi/man.cgi?query=ifconfig>`_,                                       |
    |                     |                | separate multiple parameters with a space; for example: *mtu 9000* increases the MTU for interfaces       |
-   |                     |                | which support jumbo frames                                                                                |
+   |                     |                | which support jumbo frames (but see :ref:`this note <LAGG_MTU>` about MTU and lagg interfaces)            |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
 
@@ -678,13 +678,20 @@ as each interface member will inherit from the lagg. To configure at
 the interface level
 (:numref:`Figure %s <lagg_member_edit_fig>`)
 instead, the configuration must be repeated for each interface within
-the lagg. Some options can only be set on the parent interfaces and
-are inherited by the lagg interface. For example, to set the MTU on a
+the lagg.
+
+
+.. _LAGG_MTU:
+
+Some options can only be set on the parent interfaces and are
+inherited by the lagg interface. For example, to set the MTU on a
 lagg, use :guilabel:`Edit Members` to set the MTU for each parent
 interface.
 
+
 .. note:: A reboot is required after changing the MTU to create a
    jumbo frame lagg.
+
 
 To see if the link aggregation is properly load balancing, run this
 command from :ref:`Shell`:
