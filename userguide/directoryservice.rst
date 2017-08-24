@@ -125,9 +125,9 @@ display these settings by checking the box
    |                          |               |          | *TLS*                                                                                                                         |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Certificate              | drop-down menu| ✓        | select the certificate of the LDAP server if  SSL connections are used; if a certificate does not exist yet, create a         |
-   |                          |               |          | CA (in :ref:`CAs`), then create a certificate on the Active Directory server and import it to the %brand%                     |
-   |                          |               |          | system with :ref:`Certificates`                                                                                               |
+   | Certificate              | drop-down menu| ✓        | select the certificate of the Active Directory server if  SSL connections are used; if a certificate does not exist           |
+   |                          |               |          | yet, create a :ref:`CA <CAs>`, then create a certificate on the Active Directory server and import it to the                  |
+   |                          |               |          | %brand% system with :ref:`Certificates`                                                                                       |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Verbose logging          | checkbox      | ✓        | when checked, logs attempts to join the domain to :file:`/var/log/messages`                                                   |
    |                          |               |          |                                                                                                                               |
@@ -576,8 +576,8 @@ Those who are new to LDAP terminology should skim through the
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Certificate             | drop-down menu | ✓        | select the certificate of the LDAP server or the CA that signed that certificate (required if       |
-   |                         |                |          | authentication is used); iIf your LDAP server does not already have a certificate, create a         |
-   |                         |                |          | CA using :ref:`CAs`, then the certificate using :ref:`Certificates` and install the certificate     |
+   |                         |                |          | authentication is used); if the LDAP server does not already have a certificate, create a           |
+   |                         |                |          | :ref:`CA <CAs>`, then the certificate using :ref:`Certificates`, and install the certificate        |
    |                         |                |          | on the LDAP server                                                                                  |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
