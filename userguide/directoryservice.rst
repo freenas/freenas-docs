@@ -353,6 +353,14 @@ seconds for the %brand% system to join Active Directory. Try bumping
 up the value of :guilabel:`AD timeout` to 60 seconds.
 
 
+.. tip:: To change a certificate, set the :guilabel:`Encryption Mode`
+   to *Off*, then disable AD by unchecking :guilabel:`Enable`. Click
+   the :guilabel:`Save` button. Select the new
+   :guilabel:`Certificate`, set the :guilabel:`Encryption Mode` as
+   desired, set the :guilabel:`Enable` checkbox to re-enable AD, and
+   click the :guilabel:`Save` button to restart AD.
+
+
 .. _Troubleshooting Tips:
 
 Troubleshooting Tips
