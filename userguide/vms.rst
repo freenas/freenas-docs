@@ -127,7 +127,10 @@ Computing) remote connection:
 .. tip:: If a RealVNC 5.X Client shows the error
    :literal:`RFB protocol error: invalid message type`, disable the
    :guilabel:`Adapt to network speed` option and move the slider to
-   :guilabel:`Best quality`.
+   :guilabel:`Best quality`. On later versions of RealVNC, select
+   :menuselection:`File --> Preferences`, click :guilabel:`Expert`,
+   :guilabel:`ProtocolVersion`, then select 4.1 from the drop-down
+   menu.
 
 
 .. figure:: images/vms-vnc.png
