@@ -251,6 +251,14 @@ U2
 * The :ref:`Active Directory` :guilabel:`Enable Monitoring` option is no
   longer considered experimental.
 
+U3
+~~
+
+* The boot volume :ref:`Automatic scrub interval <Boot>` has been
+  changed to 7 days for earlier detection of problems with boot
+  devices.
+
+
 .. index:: Hardware Recommendations
 .. _Hardware Recommendations:
 
