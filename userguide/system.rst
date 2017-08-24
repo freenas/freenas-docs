@@ -351,7 +351,7 @@ the :ref:`Wizard` was run.
 .. _view_boot_env_fig:
 
 #ifdef freenas
-.. figure:: images/system-bootenv.png
+.. figure:: images/system-bootenv1.png
 
    Viewing Boot Environments
 #endif freenas
@@ -413,16 +413,15 @@ The buttons above the boot entries can be used to:
   only alphanumeric characters, underscores, and dashes are allowed.
 
 * **Scrub Boot:** can be used to perform a manual scrub of the boot
-  devices. By default, the boot device is scrubbed every 35 days. To
-  change the default interval, input a different number in the
+  devices. By default, the boot device is scrubbed every 7 days. To
+  change the default interval, change the number in the
   :guilabel:`Automatic scrub interval (in days)` field. The date and
   results of the last scrub are also listed in this screen. The
   condition of the boot device should be listed as *HEALTHY*.
 
 * **Status:** click this button to see the status of the boot devices.
-  In the example shown in
   :numref:`Figure %s <status_boot_dev_fig>`,
-  there is only one boot device and it is *ONLINE*.
+  shows only one boot device, which is *ONLINE*.
 
 
 .. _status_boot_dev_fig:
@@ -440,9 +439,9 @@ The buttons above the boot entries can be used to:
 
 
 #ifdef freenas
-If this system has a mirrored boot device and one of the boot devices
-has a :guilabel:`Status` of *OFFLINE*, click the device to replace,
-then click its :guilabel:`Replace` button to rebuild the boot mirror.
+If the system has a mirrored boot device and one of the boot devices
+has an *OFFLINE* :guilabel:`Status`, click the device to replace,
+then click :guilabel:`Replace` to rebuild the boot mirror.
 #endif freenas
 #ifdef truenas
 If one of the boot devices has a :guilabel:`Status` of *OFFLINE*,
