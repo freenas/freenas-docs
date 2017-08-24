@@ -1497,13 +1497,16 @@ This configuration screen is really a front-end to
    +----------------+------------------------------------------------------------+
 
 
-Changes to SMB settings take effect immediately. Changes to share settings only take
-effect after the client and server negotiate a new session. 
+Changes to SMB settings take effect immediately. Changes to share
+settings only take effect after the client and server negotiate a new
+session.
+
 
 .. note:: Do not set the *directory name cache size* as an
    :guilabel:`Auxiliary parameter`. Due to differences in how Linux
    and BSD handle file descriptors, directory name caching is disabled
    on BSD systems to improve performance.
+
 
 .. note:: :ref:`SMB` cannot be disabled while :ref:`Active Directory`
    is enabled.
@@ -1625,10 +1628,10 @@ unless there is a specific need.**
   This ZFS property is only available when creating a dataset. It
   cannot be changed on an existing dataset. To convert such datasets,
   back up the data, create a new case-insensitive dataset, create an
-  SMB share on it, set the share level auxiliary parameter 
-  *case sensitive = true*, then copy the data from the old one onto it. 
-  After the data has been checked and verified on the new share, the old 
-  one can be deleted.
+  SMB share on it, set the share level auxiliary parameter
+  *case sensitive = true*, then copy the data from the old one onto
+  it. After the data has been checked and verified on the new share,
+  the old one can be deleted.
 
 * If present, remove options for extended attributes and DOS
   attributes in the share's
@@ -1637,8 +1640,6 @@ unless there is a specific need.**
 * Disable as many :guilabel:`VFS Objects` as possible in the
   :ref:`share settings <smb_share_opts_tab>`. Many have performance
   overhead.
-
-
 
 
 .. index:: SNMP, Simple Network Management Protocol
