@@ -498,8 +498,8 @@ use the instructions in :ref:`Update` to keep the system updated.
 
 .. _Caveats:
 
-Caveats:
-~~~~~~~~
+Caveats
+~~~~~~~
 
 Be aware of these caveats **before** attempting an upgrade to
 |release|:
@@ -551,6 +551,11 @@ Be aware of these caveats **before** attempting an upgrade to
   to the ZFS volume. Instead, back up the data before the upgrade,
   create a ZFS volume after the upgrade, then restore the data from
   the backup.
+
+* **The VMware Tools VMXNET3 drivers are no longer supported**.
+  Configure and use the
+  `vmx(4) <https://www.freebsd.org/cgi/man.cgi?query=vmx>`__
+  driver instead.
 
 
 .. _Initial Preparation:
