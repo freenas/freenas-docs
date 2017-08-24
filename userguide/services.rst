@@ -61,7 +61,7 @@ Other services default to off until started.
 
 .. _control_services_fig:
 
-.. figure:: images/services1d.png
+.. figure:: images/services1e.png
 
    Control Services
 
@@ -1193,7 +1193,7 @@ consists of:
 
 #.  Enabling or disabling S.M.A.R.T. for each disk member of a volume
     in
-    :menuselection:`Volumes --> View Volumes`.
+    :menuselection:`Volumes --> View Disks`.
     This setting is enabled by default for disks that support
     S.M.A.R.T.
 
