@@ -487,9 +487,10 @@ packets will pass through one interface.
 
 LACP and other forms of link aggregation generally do not work well
 with virtualization solutions. In a virtualized environment, consider
-the use of iSCSI MPIO through the creation of an iSCSI Portal. This
-allows an iSCSI initiator to recognize multiple links to a target,
-utilizing them for increased bandwidth or redundancy. This
+the use of iSCSI MPIO through the creation of an iSCSI Portal with at
+least two network cards on different networks. This allows an iSCSI
+initiator to recognize multiple links to a target, using them for
+increased bandwidth or redundancy. This
 `how-to
 <https://fojta.wordpress.com/2010/04/13/iscsi-and-esxi-multipathing-and-jumbo-frames/>`_
 contains instructions for configuring MPIO on ESXi.
