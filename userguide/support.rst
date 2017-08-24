@@ -36,20 +36,24 @@ Website and Social Media
 ------------------------
 
 The
-`FreeNAS® website <http://www.freenas.org/>`_
+`FreeNAS® website <http://www.freenas.org/>`__
 contains links to all of the available documentation, support, and
 social media resources. Major announcements are also posted to the
 main page.
 
 Users are welcome to network on the %brand% social media sites:
 
-* `LinkedIn <http://www.linkedin.com/groups/FreeNAS8-3903140>`_
+* `LinkedIn <http://www.linkedin.com/groups/FreeNAS8-3903140>`__
 
-* `Google+ <https://plus.google.com/110373675402281849911/posts>`_
+* `Google+ <https://plus.google.com/110373675402281849911/posts>`__
 
-* `Facebook <https://www.facebook.com/freenascommunity>`_
+* `Facebook FreeNAS Community
+  <https://www.facebook.com/freenascommunity>`__
 
-* `Twitter <https://twitter.com/freenasteam>`_
+* `Facebook FreeNAS Consortium (please request to be added)
+  <https://www.facebook.com/groups/1707686686200221>`__
+
+* `Twitter <https://twitter.com/freenasteam>`__
 
 
 .. index:: Forums
