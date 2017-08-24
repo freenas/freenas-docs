@@ -525,8 +525,8 @@ Be aware of these caveats **before** attempting an upgrade to
   recommended.
 
 * If upgrading from 9.3.x, please read the
-  `FAQ: Upgrading from 9.3 to 9.10
-  <https://wiki.freenas.org/index.php/Frequently_Asked_Questions_(FAQ)#Upgrading_from_9.3_to_9.10>`_
+  `FAQ: Updating from 9.3 to 9.10
+  <https://forums.freenas.org/index.php?threads/faq-updating-from-9-3-to-9-10.54260/>`__
   first.
 
 * **Upgrades from** %brand% **0.7x are not supported.** The system
