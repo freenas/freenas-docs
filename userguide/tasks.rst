@@ -247,7 +247,7 @@ shows the screen that opens after clicking
 
 
 :numref:`Table %s <tasks_cron_job_opts_tab>`
-summarizes the configurable options when creating a cron job.
+lists the configurable options for a cron job.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -301,9 +301,10 @@ summarizes the configurable options when creating a cron job.
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
 
 
-Created cron jobs will be listed in :guilabel:`View Cron Jobs`.
-Highlight a cron job entry to display buttons to :guilabel:`Edit`,
-:guilabel:`Delete`, or :guilabel:`Run Now`.
+Cron jobs are shown in :guilabel:`View Cron Jobs`. Highlight a cron
+job entry to display buttons to :guilabel:`Edit`, guilabel:`Delete`,
+or :guilabel:`Run Now`.
+
 
 .. note:: :literal:`%` symbols are automatically escaped and should
    not be prefixed with backslashes. For example, use
