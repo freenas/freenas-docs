@@ -46,3 +46,10 @@ becoming familiar with the configuration workflow, this document can
 be used as a reference guide to the many features provided by %brand%.
 
 
+.. index:: Path and Name Lengths
+.. _Path and Name Lengths:
+
+Path and Name Lengths
+~~~~~~~~~~~~~~~~~~~~~
+
+#include snippets/pathlengths.rst

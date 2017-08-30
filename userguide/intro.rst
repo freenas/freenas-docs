@@ -259,6 +259,15 @@ U3
   devices.
 
 
+.. index:: Path and Name Lengths
+.. _Path and Name Lengths:
+
+Path and Name Lengths
+---------------------
+
+#include snippets/pathlengths.rst
+
+
 .. index:: Hardware Recommendations
 .. _Hardware Recommendations:
 
