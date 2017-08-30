@@ -8,7 +8,7 @@ vCenter Plugin
 The %brand% vCenter Plugin integrates the control and operation of
 %brand% into
 `VMware vCenter Server
-<https://www.vmware.com/products/vcenter-server>`__.
+<https://www.vmware.com/products/vcenter-server>`_.
 
 
 New Features in 2.1.0
@@ -61,25 +61,30 @@ lists the options on this screen.
 .. table:: vCenter Plugin Options
    :class: longtable
 
-   +-------------------------------+----------------+----------------------------------------------------------------------------------+
-   | Setting                       | Value          | Description                                                                      |
-   |                               |                |                                                                                  |
-   +===============================+================+==================================================================================+
-   | TrueNAS Management IP Address | drop-down menu | select the CARP address of the %brand% system                                    |
-   |                               |                |                                                                                  |
-   +-------------------------------+----------------+----------------------------------------------------------------------------------+
-   | vCenter Hostname/IP Address   | string         | the IP address or resolveable hostname of the vCenter Server                     |
-   |                               |                |                                                                                  |
-   +-------------------------------+----------------+----------------------------------------------------------------------------------+
-   | vCenter Port                  | integer        | the port number on which the vCenter Server is listening                         |
-   |                               |                |                                                                                  |
-   +-------------------------------+----------------+----------------------------------------------------------------------------------+
-   | vCenter Username              | string         | the username for the vCenter Server                                              |
-   |                               |                |                                                                                  |
-   +-------------------------------+----------------+----------------------------------------------------------------------------------+
-   | vCenter Password              | string         | the password associated with *vCenter Username*                                  |
-   |                               |                |                                                                                  |
-   +-------------------------------+----------------+----------------------------------------------------------------------------------+
+   +---------------------+-----------+--------------------------------+
+   | Setting             | Value     | Description                    |
+   |                     |           |                                |
+   +=====================+===========+================================+
+   | TrueNAS Management  | drop-down | select the CARP address of the |
+   | IP Address          | menu      | %brand% system                 |
+   |                     |           |                                |
+   +---------------------+-----------+--------------------------------+
+   | vCenter             | string    | the IP address or resolveable  |
+   | Hostname/IP Address |           | hostname of the vCenter Server |
+   |                     |           |                                |
+   +---------------------+-----------+--------------------------------+
+   | vCenter Port        | integer   | the port number on which the   |
+   |                     |           | vCenter Server is listening    |
+   |                     |           |                                |
+   +---------------------+-----------+--------------------------------+
+   | vCenter Username    | string    | the username for the vCenter   |
+   |                     |           | Server                         |
+   |                     |           |                                |
+   +---------------------+-----------+--------------------------------+
+   | vCenter Password    | string    | the password associated with   |
+   |                     |           | *vCenter Username*             |
+   |                     |           |                                |
+   +---------------------+-----------+--------------------------------+
 
 
 Enter the information, then click the :guilabel:`Install` button to
@@ -92,17 +97,16 @@ available:
 **Uninstall:** click to remove the %brand% object from vCenter Server.
 
 **Upgrade:** as more features are added to the vCenter plugin, the
-:guilabel:`Available Plugin Version` number will be incremented. Click
-this button to upgrade to the newer version and access its features.
+:guilabel:`Available Plugin Version` number is incremented. Click this
+button to upgrade to the newer version and access its features.
 
-**Repair:** click this button if your iXsystems support engineer
-requests it. This reinstalls the %brand% object to repair a corrupted
+**Repair:** click this button at the request of an iXsystems support
+engineer. This reinstalls the %brand% object to repair a corrupted
 object.
 
 .. note:: In a HA-configured scenario, the :guilabel:`Upgrade` button
-   can only be used from the system that originally installed the
-   plugin. The :guilabel:`Upgrade` button is grayed out on the other
-   system in the HA pair.
+   is only usable from the system that originally installed the plugin.
+   The :guilabel:`Upgrade` button is grayed out on the HA paired system.
 
 
 Secure Connections
@@ -111,7 +115,7 @@ Secure Connections
 The vCenter plugin can be configured for a secure connection by
 clicking
 :menuselection:`vCenter --> vCenter Auxiliary Settings`
-in the left tree. In the screen shown in
+in the left tree. In the secure connection screen shown in
 :numref:`Figure %s <vcenter2>`, check the
 :guilabel:`Enable vCenter Plugin over https` box.
 
@@ -123,3 +127,577 @@ in the left tree. In the screen shown in
    Securing the vCenter Plugin Connection
 
 
+Using the vCenter Plugin
+------------------------
+
+From the main vSphere window, click
+:guilabel:`vCenter Inventory Lists`, then click
+:guilabel:`%brand% Hosts` and :guilabel:`%brand%` to see the list of
+defined %brand% hosts.
+
+
+.. index:: vCenter Hosts
+.. _vCenter Hosts:
+
+Hosts
+-----
+
+The %brand% hosts are listed on this screen.  New hosts can be added
+by clicking the :guilabel:`+` button. Enter the new %brand% host IP
+address and the username and password of that host to add it to the
+list of hosts managed with vSphere. :numref:`Figure %s <vcenternewhost>`
+shows the :guilabel:`Add New Host` window.
+
+
+.. _vcenternewhost:
+
+.. figure:: images/vcenter_newhost.png
+
+   Add new %brand% host
+
+After a %brand% host is added, click its entry in the sidebar to view a
+:guilabel:`Summary` and :guilabel:`Manage` options.
+
+
+Host Information
+~~~~~~~~~~~~~~~~
+
+Click the :guilabel:`Summary` tab to view basic information about the
+connected %brand% host. *IP*, *Version*, *Storage Sizes*, and status of
+additional features like *NFS* and *HA* is all provided.
+
+
+Manage Host
+~~~~~~~~~~~
+
+Click the :guilabel:`Manage` tab to view a number of options to modify a
+%brand% host. Each option displays related modification buttons and,
+excepting the :guilabel:`TrueNAS Configuration` option, a table that
+shows alreading existing configurations. When available, highlight a
+table header and click the drop-down menu to sort the table or choose
+which columns to display.
+
+.. index:: vCenter Datastores
+.. _vCenter Datastores:
+
+Datastores
+~~~~~~~~~~
+
+VMFS and NFS datastores can be created on %brand% hosts.
+
+
+VMFS
+^^^^
+
+
+Creating VMFS Datastores
+........................
+
+Select the :guilabel:`Datastore` tab, then click the :guilabel:`+`
+button to create a datastore. Select the ESXi host on which the
+datastore is to be available, as seen in
+:numref:`Figure %s <datastorecreatehostselection>`. Click
+:guilabel:`Next`.
+
+
+.. _datastorecreatehostselection:
+
+.. figure:: images/datastores-create-hostselection.png
+
+   Choose an ESXi host
+
+
+Select :guilabel:`VMFS` as the datastore type and click
+:guilabel:`Next`. :numref:`Figure %s <createdstype>` shows the
+configuration screen for the new datastore:
+
+
+.. _createdstype:
+
+.. figure:: images/datastores-create-type_vmfs.png
+
+   Configure the VMFS Datastore
+
+
+Enter a name for the new datastore and the desired size. Enter the IP
+address of the %brand% system in the :guilabel:`Data Path IP` box.
+Select the desired :guilabel:`VMFS Version` from the drop-down. If a
+:guilabel:`Sparse Volume` is desired, check the box.
+
+Select the %brand% volume on which to create the datastore, then click
+:guilabel:`Next`. :numref:`Figure %s <dscreatevmfs>` shows the final
+summary screen:
+
+
+.. _dscreatevmfs:
+
+.. figure:: images/datastores-create-vmfs.png
+
+   Finish creating the datastore
+
+
+Click :guilabel:`Finish` to create the datastore. The datastore may not
+be immediately visible in the list of datastores. Click the
+:guilabel:`Refresh` button to refresh the list contents.
+
+
+Extending VMFS Datastores
+.........................
+
+Highlight a VMFS datastore from the list, then click the
+:guilabel:`Edit` button to begin extending the datastore.
+:numref:`Figure %s <datastoreextend>` shows the
+:guilabel:`Extend Datastore` window.
+
+
+.. _datastoreextend:
+
+.. figure:: images/datastores-extend.png
+
+   Extend Datastore
+
+
+Choose a new size for the datastore, then click
+:guilabel:`Extend Datastore`. A pop-up window appears, showing the
+system is extending the datastore.
+
+
+.. note:: A datastore reserves space for itself, resulting in the
+   new capacity being a little less than the amount chosen.
+
+
+NFS
+^^^
+
+Select the :guilabel:`Datastore` tab, then click the :guilabel:`+`
+button to create a datastore. Select the ESXi host on which the
+datastore is to be available (see :ref:`datastorecreatehostselection`).
+Click :guilabel:`Next`.
+
+Select :guilabel:`NFS` as the datastore type, then click
+:guilabel:`Next`. :numref:`Figure %s <datastorecreatetypenfs>` shows the
+configuration window for the new NFS datastore.
+
+
+.. _datastorecreatetypenfs:
+
+.. figure:: images/datastores-create-type_nfs.png
+
+   Configure NFS datastore
+
+
+Enter a name for the new datastore.  Enter the IP address of the
+%brand% system in the :guilabel:`Data Path IP` box. Enter the path to
+the NFS share on the %brand% system in the
+:guilabel:`Mount Share Path` box. Click :guilabel:`Next`.
+
+
+.. _datastorescreatenfs:
+
+.. figure:: images/datastores-create-nfs.png
+
+   New NFS datastore summary
+
+
+The summary screen seen in :numref:`Figure %s <datastorescreatenfs>` is
+shown. Click :guilabel:`Finish` to create the datastore. The datastore
+might not be immediately visible in the list of datastores. Click the
+:guilabel:`Refresh` button to refresh the list contents.
+
+
+Cloning Datastores
+^^^^^^^^^^^^^^^^^^
+
+A datastore of either type can be cloned by clicking its entry in the
+list of datastores then the :guilabel:`Clone` button. Select the ESXi
+host on which the datastore is to be available. Click
+:guilabel:`Next` to see the window shown in
+:numref:`Figure %s <datastoresclone>`.
+
+
+.. _datastoresclone:
+
+.. figure:: images/datastores-clone.png
+
+   Create a datastore clone
+
+
+Type a name for the clone datastore and click
+:guilabel:`Clone Datastore`. A pop-up displays when cloning begins. The
+new clone datastore may not be immediately visible. Click the
+:guilabel:`Refresh` button to refresh the list contents.
+
+
+Snapshot an Existing Datastore
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Highlight a datastore from the list and click the
+:guilabel:`Create Snapshot` button to snapshot that datastore. Type a
+name for the snapshot and click :guilabel:`Create` to create the new
+snapshot. Once complete, the new snapshot is added to the
+:guilabel:`Snapshot` tab, separate from the :guilabel:`Datastore` tab.
+
+.. index:: vCenter Snapshots
+.. _vCenter Snapshots:
+
+Snapshots
+~~~~~~~~~
+
+See the :ref:`Snapshots` section for more details about creating and
+managing snapshots directly on the %brand% system.
+
+Available snapshots are listed in this tab.
+:numref:`Figure %s <snapshotmanage>` shows an example.
+
+
+.. _snapshotmanage:
+
+.. figure:: images/snapshotmanage.png
+
+   Manage Snapshots
+
+
+Buttons to :guilabel:`Revert` and :guilabel:`Delete` snapshots are
+available.
+
+:guilabel:`Revert` returns a datastore to the state saved by the
+selected snapshot. When choosing a snapshot, be sure it is associated
+with the proper datastore. Click :guilabel:`Revert` and confirm this is
+correct by clicking :guilabel:`Yes` in the window that appears. The
+system then begins to roll the datastore back to the specified snapshot
+state.
+
+
+.. index:: vCenter Periodic Snapshots
+.. _vCenter Periodic Snapshots:
+
+Scheduling: Periodic Snapshots
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+See the :ref:`Periodic Snapshot Tasks` section for more details about
+doing this task separately from the vCenter plugin.
+
+The :guilabel:`Scheduling` tab is used to :guilabel:`Create`,
+:guilabel:`Edit`, and :guilabel:`Delete` periodic snapshot schedules.
+
+Click the :guilabel:`+` button to begin creating a new snapshot
+schedule, as seen in :numref:`Figure %s <schedulingnew>`.
+
+
+.. _schedulingnew:
+
+.. figure:: images/schedulingnew.png
+
+   Create new periodic snapshot task
+
+
+The *Datastore*, *Lifetime*, *Begin*, *End*, *Interval*, and *Weekdays*
+options must be configured before the schedule can be saved.
+
+
+.. note:: For detailed descriptions of each option, see the
+   :ref:`Periodic Snapshot Options <zfs_periodic_snapshot_opts_tab>`
+   table.
+
+
+When satisfied with the configuration, click :guilabel:`OK` to save the
+schedule and add it to the list. If the new schedule is not immediately
+visible, click the :guilabel:`Refresh` button to repopulate the list of
+saved schedules.
+
+Select a schedule from the list and click :guilabel:`Edit` to open the
+configuration window for that schedule. Make any needed adjustments,
+then click :guilabel:`Edit` to save the updated schedule.
+
+
+.. index:: vCenter Replication
+.. _vCenter Replication:
+
+Replication
+~~~~~~~~~~~
+
+The :ref:`Replication Tasks` section has many examples of different
+replication configurations. Refer to this section for more general
+details about creating and modifying replications.
+
+
+.. note:: A periodic snapshot task must be available to create a new
+   replication task.
+
+
+Click the :guilabel:`+` button to open the
+:guilabel:`Create Replication` window, as seen in
+:numref:`Figure %s <replicationcreate>`.
+
+
+.. _replicationcreate:
+
+.. figure:: images/replicationcreate.png
+
+   Create a new replication schedule
+
+
+The *Datastore*, *Remote Datastore*, *Replication Stream Compression*,
+*Limit (KB/s)*, *Begin*, *End*, *Remote Hostname*, *Encryption Cipher*,
+and *Remote Host Key* options must be set to create a replication.
+
+
+.. note:: For detailed descriptions of each option, see the
+   :ref:`Replication Task Options <zfs_add_replication_task_opts_tab>`
+   table.
+
+
+Detailed instructions for obtaining the :guilabel:`Remote Host Key`
+are in :ref:`Encryption Keys <zfs_copy_replication_key_fig>`.
+
+Click :guilabel:`Ok` to save the new replication schedule and add it to
+the list. If the task does not appear in the list, click the
+:guilabel:`Refresh` button.
+
+Select an existing replication from the list and click :guilabel:`Edit`
+to modify the replication. Editing a replication provides the same
+options as :ref:`creating a replication <replicationcreate>`. Make any
+adjustments to the replication configuration and click :guilabel:`OK` to
+save the new settings.
+
+
+.. index:: vCenter Zvols
+.. _vCenter Zvols:
+
+Zvols
+~~~~~
+
+A zvol is a feature of ZFS that creates a raw block device over ZFS.
+The :ref:`Create zvol` section has more details about creating zvols
+apart from the vCenter plugin.
+
+In the vCenter :guilabel:`ZVol` tab, click the :guilabel:`+` button
+to begin creating a new zvol. :numref:`Figure %s <zvolcreate>` shows the
+:guilabel:`Create ZVol` window.
+
+
+.. _zvolcreate:
+
+.. figure:: images/zvolcreate.png
+
+   Create a new zvol
+
+
+Select a volume from the drop-down menu. Type a name for the new zvol.
+Adjust the size of the zvol with the :guilabel:`arrow` buttons and
+:guilabel:`Size` drop menu. If needed, check :guilabel:`Sparse` to
+activate thin provisioning.
+
+
+.. warning:: Be careful when using :guilabel:`Sparse`. Thin provisioning
+   can cause writes to fail when the pool is low on space.
+
+
+Click :guilabel:`Ok` to save the configuration and begin creating the
+new zvol. Click the :guilabel:`Refresh` button to repopulate the list
+and see the new zvol.
+
+Select a zvol from the list and click the :guilabel:`Edit` button to
+change the size of an existing zvol. As :numref:`Figure %s <zvoledit>`
+shows, the only element that can be adjusted for an existing zvol is its
+size.
+
+
+.. _zvoledit:
+
+.. figure:: images/zvoledit.png
+
+   Edit a Zvol
+
+Adjust the size of the ZVol and click :guilabel:`OK` to save any
+changes.
+
+
+.. index:: vCenter iSCSI Functions
+.. _vCenter iSCSI Functions:
+
+iSCSI Functions
+~~~~~~~~~~~~~~~
+
+The :guilabel:`Targets`, :guilabel:`Extents`, and
+:guilabel:`Associated Targets` tabs are parts of the broader iSCSI
+functions of %brand%. iSCSI is a protocol standard for the
+consolidation of storage data. Refer to :ref:`Block (iSCSI)` for more
+details about this standard. The rest of this section describes
+configuring *Targets*, *Extents*, and *Associated Targets* with the
+vCenter plugin.
+
+
+Targets
+^^^^^^^
+
+See the :ref:`Targets` section for more details about creating and
+modifying targets apart from the vCenter plugin.
+
+Begin creating a new target by clicking the :guilabel:`+` button. The
+:guilabel:`Add Target` window opens, showing a number of required
+configurables, seen in :numref:`Figure %s <targetcreate>`
+
+
+.. _targetcreate:
+
+.. figure:: images/targetcreate.png
+
+
+Type a target name. If desired, an alias for the target can also be
+provided. Choose a :guilabel:`Portal Group ID` and
+:guilabel:`Initiator Group ID` from the pulldown menus. Click
+:guilabel:`OK` to save and add the new target to the list. If not
+immediately visible, click the :guilabel:`Refresh` button to repopulate
+the list of targets.
+
+Highlighting an existing target and click the :guilabel:`Edit` button to
+open the :guilabel:`Edit Target` window, seen in
+:numref:`Figure %s <targetedit>`.
+
+
+.. _targetedit:
+
+.. figure:: images/targetedit.png
+
+
+The current settings are displayed in their relevant fields. Rework the
+options as needed then click :guilabel:`OK` to save the new settings.
+
+
+Extents
+^^^^^^^
+
+The :menuselection:`Sharing --> Block (iSCSI)` section of this handbook
+discusses creating file :ref:`Extents` in detail, including both *file*
+and *device* extent types.
+
+
+.. tip:: The vCenter plugin only supports creating a *device/disk*
+   extent.
+
+
+Click the :guilabel:`+` button to begin creating a new extent.
+:numref:`Figure %s <extentscreate>` shows the :guilabel:`Create Extent`
+window.
+
+
+.. _extentscreate:
+
+.. figure:: images/extentscreate.png
+
+
+The *Extent Name*, *Extent Type*, *Serial*, *Device*, *Logical Block*
+*Size*, *Available Space Threshold*, and *LUN RPM* options must be set
+before the extent can be created.
+
+
+.. note:: Detailed explanations of each option are available in the
+   :ref:`Extent Configuration Settings <iscsi_extent_conf_tab>` table.
+
+
+Click :guilabel:`OK` to save the settings and begin creating the extent.
+Once complete, click the :guilabel:`Refresh` button to repopulate the
+list of extents.
+
+Highlight an extent in the list and click :guilabel:`Edit`. The
+:guilabel:`Edit Extent` window opens, which is the same as
+:ref:`Create Extent <extentscreate>`, but populated with the current
+extent settings. Make any changes to the options, then click
+:guilabel:`OK` to save the new configuration.
+
+
+Associated Targets
+^^^^^^^^^^^^^^^^^^
+
+The :ref:`Target/Extents` section details the process of associating
+an extent with a target. vCenter does require previously created targets
+and extents before a new associated target can be made. Click the
+:guilabel:`+` button to open the :guilabel:`Add Target/Extent` window.
+Using the drop-down menus, choose a target and extend to associate. It
+is recommended to leave the :guilabel:`LUN ID` set to *Auto*, but values
+from **0-24** are available.
+
+Click :guilabel:`OK` to save the new associated target. The system may
+take some time to create the association. Click the :guilabel:`Refresh`
+button after a few moments to verify its proper creation.
+
+Highlight an entry in the list and click the :guilabel:`Edit` button.
+The :guilabel:`Target/Extent` window appears, which allows modification
+of the *Target*, *Extent*, and *LUN ID*. Click :guilabel:`OK` to save
+any changes.
+
+
+.. index:: vCenter Role-Based Access Control (RBAC)
+.. _vCenter Role-Based Access Control (RBAC):
+
+Role-Based Access Control (RBAC)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+An administrator can grant vCenter users specific roles for a %brand%
+system. However, the :guilabel:`RBAC` tab can not create new vCenter
+users. This is done from vCenter :guilabel:`Administration`
+
+.. TODO should this section be moved elsewhere in the doc with a
+   reference added here?
+
+
+Create a new vCenter user
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To create more vCenter users, hover over the :guilabel:`House + lines`
+icon on the top section of the window to view a drop-down menu of links.
+Click :guilabel:`Home`. From the :guilabel:`Home` menu, navigate from
+:menuselection:`Administration -->  Single Sign-On` and click
+:guilabel:`Users and Groups`. In the :guilabel:`Users` tab, click the
+:guilabel:`+` button to open the :guilabel:`New User` window, seen in
+:numref:`Figure %s <vspherenewuser>`.
+
+
+.. _vspherenewuser:
+
+.. figure:: images/vsphere_newuser.png
+
+
+Type in a user name and password (twice) in the related fields. Fields
+to further describe the user, add a first and last name, and attach an
+email address to the account are available, but not required. Click
+:guilabel:`OK` to create the new user.
+
+
+Add role to existing vCenter user
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Click the :guilabel:`+` button to open the
+:guilabel:`Add Role Base Access Control` window. Type a user name with
+the syntax **DOMAIN.NAME\username**. Open the :guilabel:`Assign Role`
+drop-down menu and choose a role for the user. Click :guilabel:`Add`
+to add the associated user and role to the list. If the entry does not
+appear immediately, click the :guilabel:`Refresh` button to repopulate
+the list.
+
+Highlight an entry in the list and click the :guilabel:`Edit` button.
+The :guilabel:`Edit` window opens, and the entry can be completely
+remade. Click the :guilabel:`Edit` button to save any changes. Changes
+may take a moment. Click the :guilabel:`Refresh` button to repopulate
+the list.
+
+.. index:: vCenter Configuration Duplication
+.. _vCenter Configuration Duplication:
+
+Configuration Duplication
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The :guilabel:`TrueNAS Configuration` tab is used to duplicate some of
+the current %brand% system's settings to another system.
+
+
+.. note:: Currently, only iSCSI targets are duplicated on the
+   destination system.
+
+
+Type the IP address of the system to receive the current %brand%
+systems's configuration. Provide a valid user name and password from the
+destination system. Click :guilabel:`Submit` to begin duplicating the
+%brand% configuration to the destination system. This process may take
+some time. A popup window indicates when the task is complete.
