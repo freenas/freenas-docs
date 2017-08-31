@@ -200,7 +200,7 @@ Creating VMFS Datastores
 Select the :guilabel:`Datastore` tab, then click the :guilabel:`+`
 button to create a datastore. Select the ESXi host on which the
 datastore is to be available, as shown in
-:numref:`Figure %s <vcenter_datastore_host_select_fig>`. Click
+:numref:`Figure %s <vcenter_datastore_host_select_fig>`, then click
 :guilabel:`Next`.
 
 
@@ -482,7 +482,7 @@ settings.
 Zvols
 -----
 
-A :ref`zvol <Create zvol>` is a raw block device over ZFS.
+A :ref:`zvol <Create zvol>` is a raw block device over ZFS.
 
 In the vCenter :guilabel:`ZVol` tab, click the :guilabel:`+` button
 to begin creating a new zvol.
