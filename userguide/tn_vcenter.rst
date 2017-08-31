@@ -37,10 +37,10 @@ Configuration
 
 Click :guilabel:`vCenter` to open the plugin configuration screen
 shown in
-:numref:`Figure %s <vcenter1>`.
+:numref:`Figure %s <vcenter_plugin_config_fig>`.
 
 
-.. _vcenter1:
+.. _vcenter_plugin_config_fig:
 
 .. figure:: images/vcenter-plugin-config.png
 
@@ -118,13 +118,13 @@ The vCenter plugin can be configured for a secure connection by
 clicking
 :menuselection:`vCenter --> vCenter Auxiliary Settings`
 in the left tree. In the secure connection screen shown in
-:numref:`Figure %s <vcenter2>`, check the
+:numref:`Figure %s <vcenter_secure_fig>`, check the
 :guilabel:`Enable vCenter Plugin over https` box.
 
 
-.. _vcenter2:
+.. _vcenter_secure_fig:
 
-.. figure:: images/vcenter2.png
+.. figure:: images/vcenter-plugin-secure.png
 
    Securing the vCenter Plugin Connection
 
@@ -148,13 +148,13 @@ The %brand% hosts are listed on this screen.  New hosts can be added
 by clicking the :guilabel:`+` button. Enter the new %brand% host IP
 address, username, and password of that host to add it to the list of
 hosts managed by vCenter.
-:numref:`Figure %s <vcenternewhost>`
+:numref:`Figure %s <vcenter_new_host_fig>`
 shows the :guilabel:`Add New Host` window.
 
 
-.. _vcenternewhost:
+.. _vcenter_new_host_fig:
 
-.. figure:: images/vcenter_newhost.png
+.. figure:: images/vcenter-newhost.png
 
    Adding a New %brand% Host
 
@@ -200,26 +200,26 @@ Creating VMFS Datastores
 Select the :guilabel:`Datastore` tab, then click the :guilabel:`+`
 button to create a datastore. Select the ESXi host on which the
 datastore is to be available, as shown in
-:numref:`Figure %s <datastorecreatehostselection>`. Click
+:numref:`Figure %s <vcenter_datastore_host_select_fig>`. Click
 :guilabel:`Next`.
 
 
-.. _datastorecreatehostselection:
+.. _vcenter_datastore_host_select_fig:
 
-.. figure:: images/datastores-create-hostselection.png
+.. figure:: images/vcenter-datastore-create-hostselection.png
 
    Choosing an ESXi Host
 
 
 Select :guilabel:`VMFS` as the datastore type and click
 :guilabel:`Next`.
-:numref:`Figure %s <createdstype>`
+:numref:`Figure %s <vcenter_datastore_vmfs_config_fig>`
 shows the configuration screen for the new datastore:
 
 
-.. _createdstype:
+.. _vcenter_datastore_vmfs_config_fig:
 
-.. figure:: images/datastores-create-type_vmfs.png
+.. figure:: images/vcenter-datastore-vmfs-config.png
 
    Configuring a VMFS Datastore
 
@@ -231,13 +231,13 @@ Select the desired :guilabel:`VMFS Version` from the drop-down. If a
 
 Select the %brand% volume on which to create the datastore, then click
 :guilabel:`Next`.
-:numref:`Figure %s <dscreatevmfs>`
+:numref:`Figure %s <vcenter_datastore_vmfs_confirm_fig>`
 shows the final summary screen:
 
 
-.. _dscreatevmfs:
+.. _vcenter_datastore_vmfs_confirm_fig:
 
-.. figure:: images/datastores-create-vmfs.png
+.. figure:: images/vcenter-datastore-confirm-vmfs.png
 
    Finish Creating the Datastore
 
@@ -253,13 +253,13 @@ Extending VMFS Datastores
 
 Highlight a VMFS datastore from the list, then click the
 :guilabel:`Edit` button to begin extending the datastore.
-:numref:`Figure %s <datastoreextend>` shows the
+:numref:`Figure %s <vcenter_datastore_extend_fig>` shows the
 :guilabel:`Extend Datastore` window.
 
 
-.. _datastoreextend:
+.. _vcenter_datastore_extend_fig:
 
-.. figure:: images/datastores-extend.png
+.. figure:: images/vcenter-datastore-extend.png
 
    Extending a Datastore
 
@@ -279,18 +279,18 @@ NFS Datastores
 
 Select the :guilabel:`Datastore` tab, then click the :guilabel:`+`
 button to create a datastore. Select the
-:ref:`ESXi host <datastorecreatehostselection>` on which the datastore
-is to be available. Click :guilabel:`Next`.
+:ref:`ESXi host <vcenter_datastore_host_select_fig>` on which the
+datastore is to be available. Click :guilabel:`Next`.
 
 Select :guilabel:`NFS` as the datastore type, then click
 :guilabel:`Next`.
-:numref:`Figure %s <datastorecreatetypenfs>`
+:numref:`Figure %s <vcenter_datastore_config_nfs_fig>`
 shows the configuration window for the new NFS datastore.
 
 
-.. _datastorecreatetypenfs:
+.. _vcenter_datastore_config_nfs_fig:
 
-.. figure:: images/datastores-create-type_nfs.png
+.. figure:: images/vcenter-datastore-config-nfs.png
 
    Configuring an NFS Datastore
 
@@ -301,16 +301,17 @@ the NFS share on the %brand% system is entered in the
 :guilabel:`Mount Share Path` box. Click :guilabel:`Next`.
 
 
-.. _datastorescreatenfs:
+.. _vcenter_datastore_confirm_nfs_fig:
 
-.. figure:: images/datastores-create-nfs.png
+.. figure:: images/vcenter-datastore-confirm-nfs.png
 
    New NFS Datastore Summary
 
 
-The summary screen in :numref:`Figure %s <datastorescreatenfs>` is
-shown. Click :guilabel:`Finish` to create the datastore. The datastore
-might not be immediately visible in the list of datastores. Click the
+The summary screen in
+:numref:`Figure %s <vcenter_datastore_confirm_nfs_fig>` is shown. Click
+:guilabel:`Finish` to create the datastore. The datastore might not be
+immediately visible in the list of datastores. Click the
 :guilabel:`Refresh` button to refresh the list contents.
 
 
@@ -321,12 +322,12 @@ A datastore of either type can be cloned by selecting it in the list
 of datastores, then clicking the :guilabel:`Clone` button. Select the
 ESXi host on which the datastore is to be available. Click
 :guilabel:`Next` to see the window shown in
-:numref:`Figure %s <datastoresclone>`.
+:numref:`Figure %s <vcenter_datastore_clone_fig>`.
 
 
-.. _datastoresclone:
+.. _vcenter_datastore_clone_fig:
 
-.. figure:: images/datastores-clone.png
+.. figure:: images/vcenter-datastore-clone.png
 
    Creating a Datastore Clone
 
@@ -357,12 +358,12 @@ See the :ref:`Snapshots` section for more details about creating and
 managing snapshots directly on the %brand% system.
 
 Available snapshots are listed in this tab.
-:numref:`Figure %s <snapshotmanage>` shows an example.
+:numref:`Figure %s <vcenter_snapshot_manage_fig>` shows an example.
 
 
-.. _snapshotmanage:
+.. _vcenter_snapshot_manage_fig:
 
-.. figure:: images/snapshotmanage.png
+.. figure:: images/vcenter-snapshot-manage.png
 
    Managing Snapshots
 
@@ -391,12 +392,13 @@ The :guilabel:`Scheduling` tab is used to :guilabel:`Create`,
 :guilabel:`Edit`, and :guilabel:`Delete` periodic snapshot schedules.
 
 Click the :guilabel:`+` button to begin creating a new snapshot
-schedule, as shown in :numref:`Figure %s <schedulingnew>`.
+schedule, as shown in
+:numref:`Figure %s <vcenter_new_periodic_snapshot_fig>`.
 
 
-.. _schedulingnew:
+.. _vcenter_new_periodic_snapshot_fig:
 
-.. figure:: images/schedulingnew.png
+.. figure:: images/vcenter-new-periodic-snapshot.png
 
    Creating a New Periodic Snapshot Task
 
@@ -438,12 +440,12 @@ details about creating and modifying replications.
 
 Click the :guilabel:`+` button to open the
 :guilabel:`Create Replication` window, as shown in
-:numref:`Figure %s <replicationcreate>`.
+:numref:`Figure %s <vcenter_replication_create_fig>`.
 
 
-.. _replicationcreate:
+.. _vcenter_replication_create_fig:
 
-.. figure:: images/replicationcreate.png
+.. figure:: images/vcenter-replication-create.png
 
    Create a new replication schedule
 
@@ -469,8 +471,9 @@ to the list. If the task does not appear in the list, click the
 Select an existing replication from the list and click
 :guilabel:`Edit` to modify the replication. Editing a replication
 provides the same options as :ref:`creating a replication
-<replicationcreate>`. Make any adjustments to the replication
-configuration and click :guilabel:`OK` to save the new settings.
+<vcenter_replication_create_fig>`. Make any adjustments to the
+replication configuration and click :guilabel:`OK` to save the new
+settings.
 
 
 .. index:: vCenter Zvols
@@ -483,13 +486,13 @@ A :ref`zvol <Create zvol>` is a raw block device over ZFS.
 
 In the vCenter :guilabel:`ZVol` tab, click the :guilabel:`+` button
 to begin creating a new zvol.
-:numref:`Figure %s <zvolcreate>`
+:numref:`Figure %s <vcenter_zvol_create_fig>`
 shows the :guilabel:`Create ZVol` window.
 
 
-.. _zvolcreate:
+.. _vcenter_zvol_create_fig:
 
-.. figure:: images/zvolcreate.png
+.. figure:: images/vcenter-zvol-create.png
 
    Create a new zvol
 
@@ -511,14 +514,14 @@ and see the new zvol.
 
 Select a zvol from the list and click the :guilabel:`Edit` button to
 change the size of an existing zvol. As
-:numref:`Figure %s <zvoledit>`
+:numref:`Figure %s <vcenter_zvol_edit_fig>`
 shows, the only parameter that can be modified for an existing zvol is
 size.
 
 
-.. _zvoledit:
+.. _vcenter_zvol_edit_fig:
 
-.. figure:: images/zvoledit.png
+.. figure:: images/vcenter-zvol-edit.png
 
    Edit a Zvol
 
@@ -545,12 +548,12 @@ Targets
 Click the :guilabel:`+` button to begin creating a new
 :ref:`target <Targets>`. The :guilabel:`Add Target` window opens,
 as shown in
-:numref:`Figure %s <targetcreate>`:
+:numref:`Figure %s <vcenter_target_create_fig>`:
 
 
-.. _targetcreate:
+.. _vcenter_target_create_fig:
 
-.. figure:: images/targetcreate.png
+.. figure:: images/vcenter-target-create.png
 
    Creating a Target
 
@@ -564,12 +567,12 @@ repopulate the list of targets.
 
 Highlight an existing target and click the :guilabel:`Edit` button to
 open the :guilabel:`Edit Target` window, shown in
-:numref:`Figure %s <targetedit>`.
+:numref:`Figure %s <vcenter_target_edit_fig>`.
 
 
-.. _targetedit:
+.. _vcenter_target_edit_fig:
 
-.. figure:: images/targetedit.png
+.. figure:: images/vcenter-target-edit.png
 
    Editing a Target
 
@@ -587,13 +590,15 @@ Extents
 
 Click the :guilabel:`+` button to begin creating a new
 :ref:`extent <Extents>`.
-:numref:`Figure %s <extentscreate>`
+:numref:`Figure %s <vcenter_extent_create_fig>`
 shows the :guilabel:`Create Extent` window.
 
 
-.. _extentscreate:
+.. _vcenter_extent_create_fig:
 
-.. figure:: images/extentscreate.png
+.. figure:: images/vcenter-extent-create.png
+
+   Creating a new extent
 
 
 The *Extent Name*, *Extent Type*, *Serial*, *Device*, *Logical Block*
@@ -611,8 +616,8 @@ repopulate the list of extents.
 
 Highlight an extent in the list and click :guilabel:`Edit`. The
 :guilabel:`Edit Extent` window opens, which is the same as
-:ref:`Create Extent <extentscreate>`, but populated with the current
-extent settings. Make any changes to the options, then click
+:ref:`Create Extent <vcenter_extent_create_fig>`, but populated with the
+current extent settings. Make any changes to the options, then click
 :guilabel:`OK` to save the new configuration.
 
 
@@ -665,12 +670,12 @@ navigate from
 and click :guilabel:`Users and Groups`. In the :guilabel:`Users` tab,
 click the :guilabel:`+` button to open the :guilabel:`New User`
 window, shown in
-:numref:`Figure %s <vspherenewuser>`.
+:numref:`Figure %s <vcenter_new_user_fig>`.
 
 
-.. _vspherenewuser:
+.. _vcenter_new_user_fig:
 
-.. figure:: images/vsphere_newuser.png
+.. figure:: images/vcenter-new-user.png
 
    Creating New vCenter Users
 
