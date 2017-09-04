@@ -216,7 +216,7 @@ username, and password provided by the user via the command line::
         self._ep = 'http://%s/api/v1.0' % hostname
   def request(self, resource, method='GET', data=None):
         if data is None:
-            data =
+            data = ''
         r = requests.request(
             method,
             '%s/%s/' % (self._ep, resource),
