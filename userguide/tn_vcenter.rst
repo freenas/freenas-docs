@@ -661,47 +661,60 @@ modification of the *Target*, *Extent*, and *LUN ID*. Click
 Role-Based Access Control (RBAC)
 --------------------------------
 
-An administrator can grant vCenter users specific roles for a %brand%
-system. However, the :guilabel:`RBAC` tab can not create new vCenter
-users. That must be done from vCenter :guilabel:`Administration`.
+An administrator can grant vCenter users specific role-based access
+to a %brand% system. The roles are listed in
 
-.. TODO should this section be moved elsewhere in the doc with a
-   reference added here?
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.75\linewidth-2\tabcolsep}|
 
+.. _vcenter_roles_tab:
 
-Creating a New vCenter User
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. table:: Roles
+   :class: longtable
 
-To create more vCenter users, hover over the :guilabel:`House + lines`
-icon on the top section of the window to view a drop-down menu of
-links. Click :guilabel:`Home`. From the :guilabel:`Home` menu,
-navigate from
-:menuselection:`Administration -->  Single Sign-On`
-and click :guilabel:`Users and Groups`. In the :guilabel:`Users` tab,
-click the :guilabel:`+` button to open the :guilabel:`New User`
-window, shown in
-:numref:`Figure %s <vcenter_new_user_fig>`.
-
-
-.. _vcenter_new_user_fig:
-
-.. figure:: images/vcenter-new-user.png
-
-   Creating New vCenter Users
+   +---------------------+-------------------------------------------+
+   | Role Name           | User is allowed to:                       |
+   +=====================+===========================================+
+   | Discovery           | Add storage systems                       |
+   +---------------------+-------------------------------------------+
+   | Create Clones       | Clone virtual machines                    |
+   +---------------------+-------------------------------------------+
+   | Create Storage      | Create and provision storage              |
+   +---------------------+-------------------------------------------+
+   | Modify Storage      | Modify storage                            |
+   +---------------------+-------------------------------------------+
+   | Destroy Storage     | Destroy storage                           |
+   +---------------------+-------------------------------------------+
 
 
-Enter a user name and password (twice) in the related fields. Optional
-fields to further describe the user, add a first and last name, and
-attach an email address to the account are available. Click
-:guilabel:`OK` to create the new user.
+Each role gives the user the ability to perform the functions in not
+just that role, but all of the roles that precede it in the list. For
+example, a user with a *Create Storage* role can create storage, but
+can also do *Discovery* and *Create Clones*. The vCenter administrator
+can perform all of these operations by default.
+
+
+.. note:: The vCenter plugin :guilabel:`RBAC` tab cannot create new
+   vCenter users. That must be done from vCenter
+   :guilabel:`Administration`. Hover over the
+   :guilabel:`House + lines` icon on the top section of the window to
+   view a drop-down menu of links. Click :guilabel:`Home`. From the
+   :guilabel:`Home` menu, navigate from
+   :menuselection:`Administration -->  Single Sign-On`
+   and click :guilabel:`Users and Groups`. In the :guilabel:`Users`
+   tab, click the :guilabel:`+` button to open the
+   :guilabel:`New User` window. Enter a user name and password
+   (twice) in the related fields. Optional fields can further describe
+   the user, including first and last name and an email address for
+   the account. Click :guilabel:`OK` to create the new user.
 
 
 Add a Role to an Existing vCenter User
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Click the :guilabel:`+` button to open the
 :guilabel:`Add Role Based Access Control` window. Type a user name
-with the syntax :samp:`{DOMAIN.NAME}\{username}`. Click the
+in the form :samp:`{DOMAIN.NAME}\\{username}`. Click the
 :guilabel:`Assign Role` drop-down menu and choose a role for the user.
 Click :guilabel:`Add` to add the associated user and role to the list.
 If the entry does not appear immediately, click the
