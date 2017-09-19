@@ -187,11 +187,15 @@ drop-down menu to sort the table or choose which columns to display.
 Datastores
 ----------
 
-VMFS and NFS datastores can be created on %brand% hosts.
+The vCenter plugin can create VMFS datastores on %brand% hosts for
+iSCSI block-level access, or NFS datastores for file-level access.
 
 
 VMFS Datastores
 ~~~~~~~~~~~~~~~
+
+VMFS datastores provide block-level (iSCSI) storage for virtual
+machines.
 
 
 Creating VMFS Datastores
@@ -276,6 +280,12 @@ system is extending the datastore.
 
 NFS Datastores
 ~~~~~~~~~~~~~~
+
+NFS datastores provide file-level storage access.
+
+
+Creating NFS Datastores
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Select the :guilabel:`Datastore` tab, then click the :guilabel:`+`
 button to create a datastore. Select the
