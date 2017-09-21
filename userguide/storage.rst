@@ -247,6 +247,13 @@ the details when considering whether encryption is right for your
   Volume Manager automatically encrypts the new vdev being added to
   the existing encrypted pool.
 
+* The more drives in an encrypted volume, the more encryption and
+  decryption overhead. **Encrypted volumes composed of more than eight
+  drives can suffer severe performance penalties, even with AES-NI
+  encryption acceleration**. If encryption is desired, please
+  benchmark such volumes before using them in production.
+
+
 .. note:: The encryption facility used by %brand% is designed to
    protect against physical theft of the disks. It is not designed to
    protect against unauthorized software access. Ensure that only
