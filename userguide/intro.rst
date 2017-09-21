@@ -258,6 +258,11 @@ U3
   changed to 7 days for earlier detection of problems with boot
   devices.
 
+U4
+~~
+
+* The system has been patched to address `FreeBSD-SA-17:06.openssh.asc
+  <https://www.freebsd.org/security/advisories/FreeBSD-SA-17:06.openssh.asc>`__.
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
