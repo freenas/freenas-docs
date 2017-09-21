@@ -93,7 +93,7 @@ New Features in |release|
   including important speed improvements for 40/100GigE networking.
 
 * An updated version of ZFS includes new pool
-  `Feature Flags,
+  `Feature Flags
   <http://open-zfs.org/wiki/Feature_Flags>`__,
   the *skein* and *SHA512* hash functions.
 
