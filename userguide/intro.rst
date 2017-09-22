@@ -264,6 +264,10 @@ U4
 * The system has been patched to address `FreeBSD-SA-17:06.openssh.asc
   <https://www.freebsd.org/security/advisories/FreeBSD-SA-17:06.openssh.asc>`__.
 
+* Samba has been updated to `4.6.8
+  <https://www.samba.org/samba/history/samba-4.6.8.html>`__ to address
+  the most recent CVEs.
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
