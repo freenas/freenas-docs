@@ -77,8 +77,9 @@ Modify the existing lines in :file:`cinder.conf` to these values:
 and their possible values:
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.75\linewidth-2\tabcolsep}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.60\linewidth-2\tabcolsep}|
 
 
 .. _tn-cinder-params:
