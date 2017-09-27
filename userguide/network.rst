@@ -421,6 +421,13 @@ bridged network setups, by creating a a tunable with a
 *Sysctl* in
 :menuselection:`System --> Tunables --> Add Tunable`.
 
+
+#ifdef truenas
+.. note:: The *Failover* lagg protocol can interfere with HA (High
+   Availability) systems and is disabled on those systems.
+#endif truenas
+
+
 **LACP:** supports the IEEE 802.3ad Link Aggregation Control Protocol
 (LACP) and the Marker Protocol. LACP negotiates a set of
 aggregable links with the peer into one or more link aggregated groups
