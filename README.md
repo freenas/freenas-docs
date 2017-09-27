@@ -45,7 +45,7 @@ pkg install devel/gmake (/usr/ports/devel/gmake/ && make install)
 ```
 
 Choose a place to store the source code and change to that directory
-(we'll refer to it as /path/to/your-build-directory). Then check out the
+(we will refer to it as /path/to/your-build-directory). Then check out the
 source code from git:
 
 ```
@@ -58,23 +58,17 @@ cd freenas-docs/userguide
 
 All of these commands are run from
 /path/to/your-build-directory/freenas/docs/userguide. The formats
-available are HTML, single HTML, PDF, and EPUB. The output of either
-HTML form is in
-/path/to/your-build-directory/freenas-docs/userguide/processed/_build/
-and can be viewed in a web browser. The PDF output is in
-/path/to/your-build-directory/freenas-docs/userguide/processed/_build/latex/FreeNAS.pdf. 
-The EPUB output is in
-/path/to/your-build-directory/freenas-docs/userguide/processed/_build/epub/freenas_userguide.epub.
+available are HTML, single HTML, PDF, and EPUB. The path to the rendered
+output files is displayed at the end of the build.
 
 To build the document in HTML with a separate page for each chapter and
-that chapter's table of contents in the left frame with navigational
-links to browse between chapters:
+a left frame with the table of contents:
 
 ```
 make html
 ```
 
-This is the same format that is published at doc.freenas.org/9.10.
+This is the same format that is published at http://doc.freenas.org/.
 
 To build one long HTML page with the entire table of contents in the
 left frame, use:
@@ -99,7 +93,7 @@ make epub
 
 To edit the User Guide, make changes to the *.rst files using any ASCII
 text editor. Refer to
-http://docutils.sourceforge.net/docs/user/rst/quickref.html for help
+http://www.sphinx-doc.org/en/stable/contents.html for help
 with formatting syntax. Refer to
 http://wiki.typo3.org/Editors_%28reST%29 for a list of reST editors.
 
