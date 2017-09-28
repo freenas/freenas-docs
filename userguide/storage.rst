@@ -11,7 +11,7 @@ these options:
 * :ref:`Periodic Snapshot Tasks` schedules automatic creation of
   filesystem snapshots.
 
-* :ref:`Replication Tasks` automates the replication of snapshots to
+* :ref:`Replication Tasks` automate the replication of snapshots to
   a remote system.
 
 * :ref:`Scrubs` schedules scrubs as part of ongoing disk maintenance.
@@ -1799,6 +1799,14 @@ automatically replicated to the destination computer.
    the replication task completes.
 
 
+.. note:: The target dataset on the receiving system is automatically
+   created in read-only mode to protect the data. To mount or browse
+   the data on the receiving system, create a clone of the snapshot
+   and use the clone. Clones are created in read/write mode, making it
+   possible to browse or mount them. See :ref:`Snapshots` for more
+   information on creating clones.
+
+
 .. _replication_common_config:
 
 Examples: Common Configuration
@@ -2726,22 +2734,22 @@ snapshots by selected criteria. To create a filter, click the
 :guilabel:`Define filter` icon
 (near the text :guilabel:`No filter applied`). When creating a filter:
 
-* select the column or leave the default of :guilabel:`Any Column`.
+* Select the column or leave the default of :guilabel:`Any Column`.
 
-* select the condition. Possible conditions are: *contains* (default),
+* Select the condition. Possible conditions are: *contains* (default),
   *is*, *starts with*, *ends with*, *does not contain*, *is not*,
   *does not start with*, *does not end with*, and *is empty*.
 
-* enter a value that meets your view criteria.
+* Enter a value that meets your view criteria.
 
-* click the :guilabel:`Filter` button to save your filter and exit the
+* Click the :guilabel:`Filter` button to save the filter and exit the
   define filter screen. Alternately, click the :guilabel:`+` button to
   add another filter.
 
-If you create multiple filters, select the filter to use before
-leaving the define filter screen. Once a filter is selected, the
+When creating multiple filters, select the filter to use before
+leaving the define filter screen. After a filter is selected, the
 :guilabel:`No filter applied` text changes to
-:guilabel:`Clear filter`. If you click :guilabel:`Clear filter`, a
+:guilabel:`Clear filter`. Clicking :guilabel:`Clear filter` produces a
 pop-up message indicates that this removes the filter and all
 available snapshots are listed.
 
