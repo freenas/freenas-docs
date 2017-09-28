@@ -1,21 +1,21 @@
 .. index:: OpenStack Cinder Driver
 .. _OpenStack Cinder Driver:
 
-%brand% OpenStack Cinder Driver
-=========================================
+OpenStack Cinder Driver
+=======================
 
 
-The %brand% Cinder driver provides an iSCSI (Block) Storage service
-for OpenStack. Detection and management of the connected %brand% iSCSI
-resources is available from within the OpenStack web interface.
+The %brand% Cinder driver for OpenStack provides an iSCSI (Block)
+Storage service for OpenStack. Detection and management of connected
+%brand% iSCSI resources is available from within the OpenStack web
+interface.
 
 
 Requirements
 ------------
 
 
-Two computers are required to install and use the %brand% Cinder
-driver:
+Two computers are required to install and use the Cinder driver:
 
  1. A computer running %brand% with at least 8 GiB of memory and at
     least 20 GiB of disk storage.
@@ -33,8 +33,8 @@ driver:
 Installation
 ------------
 
-The %brand% Cinder driver is packaged as a :file:`.zip` file for
-simple download and extraction. To obtain the driver, please contact
+The Cinder driver is packaged as a :file:`.zip` file for simple
+download and extraction. To obtain the driver, please contact
 iXsystems Customer Support at
 :literal:`truenas-support@ixsystems.com`.
 
@@ -48,12 +48,12 @@ with :command:`su - stack`. Extract the contents of the Cinder driver
 
 
 Log in to the %brand% system and
-:ref:`create a new dataset <Create Dataset>` called
-:literal:`cinder`. Note the %brand% IP address, root username, and
-password. Locate the base name of the iSCSI target by navigating to
+:ref:`create a new dataset <Create Dataset>` named :literal:`cinder`.
+Note the %brand% IP address, root username, and password. Locate the
+base name of the iSCSI target by navigating to
 :menuselection:`Sharing --> Block(iSCSI) --> Target --> Global Configuration --> Base Name`.
-This information is needed to configure the %brand% Cinder driver
-before it can be used in the OpenStack interface.
+This information is needed to configure the Cinder driver before it
+can be used in the OpenStack interface.
 
 
 Configuration
@@ -61,7 +61,7 @@ Configuration
 
 
 On the OpenStack computer, open :file:`/etc/cinder/cinder.conf` in an
-editor. Some sections on this file must be edited and some
+editor. Some sections of this file must be edited and some
 user-defined parameters must be added.
 
 Modify the existing lines in :file:`cinder.conf` to these values:
@@ -90,12 +90,12 @@ and their possible values:
    +---------------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------+
    | Parameter                       | Description                                               | Possible Values                                                                         |
    +=================================+===========================================================+=========================================================================================+
-   | *iscsi_helper*                  | iSCSI target user-land tool. The default is recommended.  | *tgtadm* (default), *lioadm*, *scstadmin*, *iscsictl*, *ietadm*, *fake* (testing only). |
+   | *iscsi_helper*                  | iSCSI target user-land tool; the default is recommended   | *tgtadm* (default), *lioadm*, *scstadmin*, *iscsictl*, *ietadm*, *fake* (testing only)  |
    +---------------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------+
-   | *volume_dd_blocksize*           | Default block size used when copying or clearing volumes. | Block size string value: *512*, *1M*.                                                   |
+   | *volume_dd_blocksize*           | Default block size used when copying or clearing volumes  | Block size string value: *512*, *1M*                                                    |
    +---------------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------+
-   | *volume_driver*                 | Driver used in volume creation. Provide the path to the   | Default path for the iX driver:                                                         |
-   |                                 | driver.                                                   | *cinder.volume.drivers.ixsystems.iscsi.FreeNASISCSIDriver*                              |
+   | *volume_driver*                 | Driver used in volume creation; provide the path to the   | Default path for the iX driver:                                                         |
+   |                                 | driver                                                    | *cinder.volume.drivers.ixsystems.iscsi.FreeNASISCSIDriver*                              |
    +---------------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------+
    | *ixsystems_login*               |                                                           | Username of the connected host                                                          |
    +---------------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------+
@@ -103,12 +103,12 @@ and their possible values:
    +---------------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------+
    | *ixsystems_server_hostname*     |                                                           | IP address of the host                                                                  |
    +---------------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------+
-   | *ixsystems_volume_backend_name* | Backend name for a given driver implementation.           | The default is *iXsystems_FREENAS_Storage*                                              |
+   | *ixsystems_volume_backend_name* | Backend name for a given driver implementation            | The default is *iXsystems_FREENAS_Storage*                                              |
    +---------------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------+
-   | *ixsystems_iqn_prefix*          | Base name of the iSCSI target.                            | User defined. Found in the web interface by navigating to                               |
+   | *ixsystems_iqn_prefix*          | Base name of the iSCSI target                             | User defined. Found in the web interface by navigating to                               |
    |                                 |                                                           | :menuselection:`Sharing -> Block(iscsi) -> Target Global Configuration -> Base Name`    |
    +---------------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------+
-   | *ixsystems_datastore_pool*      | Name of the dataset on the connected system.              | If the *cinder* dataset is created, the value is *cinder-tank*.                         |
+   | *ixsystems_datastore_pool*      | Name of the dataset on the connected system               | If the *cinder* dataset is created, the value is *cinder-tank*                          |
    +---------------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------+
    | *ixsystems_vendor_name*         |                                                           | *iXsystems*                                                                             |
    +---------------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------+
@@ -116,7 +116,8 @@ and their possible values:
    +---------------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------+
 
 
-Here is an example of typical additional parameter settings:
+Here is an example of typical additional parameter settings for a
+%brand% system at IP address :literal:`10.3.1.81`:
 
 
 .. code-block:: none
@@ -140,14 +141,13 @@ Here is an example of typical additional parameter settings:
    also provides examples of :file:`cinder.conf` configurations.
 
 
-Restart the OpenStack system to reload :file:`cinder.conf` and
+Restart the OpenStack computer to reload :file:`cinder.conf` and
 initialize the Cinder service properly. After this reboot, the Cinder
 service can be restarted manually:
 
 :samp:`# /usr/local/bin/cider-volume --config-file /etc/cinder/cinder.conf & echo $! >/opt/stack/status/stack/c-vol.pid; fg || echo "c-vol failed to start" | tee "/opt/stack/status/stack/c-vol.failure"`.
 
-The %brand% Cinder driver is now available in the OpenStack web
-interface.
+The Cinder driver is now available in the OpenStack web interface.
 
 Open a web browser, go to the IP address of the OpenStack system, and
 log in with the OpenStack user name and password. Click
@@ -171,8 +171,8 @@ ensure the :guilabel:`Public` box is checked. An optional
 type. The list is automatically refreshed when the task is finished.
 
 
-Using the %brand% Cinder Driver
------------------------------------------
+Using the Cinder Driver
+-----------------------
 
 
 Cinder is used to manage volumes in the :guilabel:`Project` and
@@ -228,21 +228,21 @@ and a description of the configurable settings:
    +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
    | Action             | Cinder Command                    | Configurables                                                                   |
    +====================+===================================+=================================================================================+
-   | Edit Volume        |                                   | Adjust name and description of a volume, or make a volume *Bootable*.           |
+   | Edit Volume        |                                   | Adjust name and description of a volume, or make a volume *Bootable*            |
    +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
-   | Extend Volume      |                                   | Enter a new size in GiB.                                                        |
+   | Extend Volume      |                                   | Enter a new size in GiB                                                         |
    +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
-   | Manage Attachments |                                   | View and adjust volume attachment to instances.                                 |
+   | Manage Attachments |                                   | View and adjust volume attachment to instances                                  |
    +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
-   | Create Snapshot    |                                   | Enter a snapshot *name* and *description*; snapshot limits are shown.           |
+   | Create Snapshot    |                                   | Enter a snapshot *name* and *description*; snapshot limits are shown            |
    +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
-   | Change Volume Type | :command:`cinder retype`          | Choose a new *type* and *migration policy*.                                     |
+   | Change Volume Type | :command:`cinder retype`          | Choose a new *type* and *migration policy*                                      |
    +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
-   | Upload to Image    | :command:`cinder upload-to-image` | Enter an image name and choose a disk format: *QCOW2*, *Raw*, *VDI*, or *VMDK*. |
+   | Upload to Image    | :command:`cinder upload-to-image` | Enter an image name and choose a disk format: *QCOW2*, *Raw*, *VDI*, or *VMDK*  |
    +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
-   | Create Transfer    | :command:`cinder-transfer-create` | Enter recipient project name.                                                   |
+   | Create Transfer    | :command:`cinder-transfer-create` | Enter recipient project name                                                    |
    +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
-   | Update Metadata    |                                   | Move items into the existing metadata column or create a custom metadata key.   |
+   | Update Metadata    |                                   | Move items into the existing metadata column or create a custom metadata key    |
    +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
 
 
@@ -321,20 +321,20 @@ the configurable elements.
    +=================+===============================+==============================================================================+
    | Manage Volumes  | :command:`cinder manage`      | Type the volume identifier, host, and volume name to make it visible in      |
    |                 |                               | OpenStack; other configurable elements are *Volume Name*, *Description*,     |
-   |                 |                               | *Metadata*, *Volume Type*, *Availability Zone*, and *Bootable*.              |
+   |                 |                               | *Metadata*, *Volume Type*, *Availability Zone*, and *Bootable*               |
    +-----------------+-------------------------------+------------------------------------------------------------------------------+
-   | Delete Volumes  |                               | Warning: volumes deleted here cannot be recovered.                           |
+   | Delete Volumes  |                               | Warning: volumes deleted here cannot be recovered                            |
    +-----------------+-------------------------------+------------------------------------------------------------------------------+
    | Update Volume   | :command:`cinder reset-state` | Select a new status from the dropdown menu; volume status is normally set    |
-   | Status          |                               | automatically.                                                               |
+   | Status          |                               | automatically                                                                |
    +-----------------+-------------------------------+------------------------------------------------------------------------------+
-   | Unmanage Volume | :command:`cinder unmanage`    | Unmanaging a volume makes it invisible in OpenStack, but does not delete it. |
+   | Unmanage Volume | :command:`cinder unmanage`    | Unmanaging a volume makes it invisible in OpenStack, but does not delete it  |
    +-----------------+-------------------------------+------------------------------------------------------------------------------+
    | Migrate Volume  |                               | Choose a new *Destination Host* from the dropdown menu; there is also an     |
-   |                 |                               | option to *Force Host Copy*, which bypasses driver optimizations.            |
+   |                 |                               | option to *Force Host Copy*, which bypasses driver optimizations             |
    +-----------------+-------------------------------+------------------------------------------------------------------------------+
    | Update Metadata |                               | Choose items to move to the *Existing Metadata* column; custom keys can      |
-   |                 |                               | also be added.                                                               |
+   |                 |                               | also be added                                                                |
    +-----------------+-------------------------------+------------------------------------------------------------------------------+
 
 
@@ -373,26 +373,26 @@ A number of actions can be applied to either volume type, as
    +---------------------+------------------------------------+--------------------------------------------------------------+
    | Action              | Cinder Command                     | Configurables                                                |
    +=====================+====================================+==============================================================+
-   | Create Volume Type  | :command:`cinder type-create`      | Name, description, and visible to "Public".                  |
+   | Create Volume Type  | :command:`cinder type-create`      | Name, description, and visible to "Public"                   |
    +---------------------+------------------------------------+--------------------------------------------------------------+
-   | Delete Volume Types |                                    | Warning: action is permanent.                                |
+   | Delete Volume Types |                                    | Warning: action is permanent                                 |
    +---------------------+------------------------------------+--------------------------------------------------------------+
    | Create QoS Spec     | :command:`cinder qos-create`       | Provide a name and consumer for the new Quality of Service   |
-   |                     |                                    | spec; choose *back-end* to associate the policy with Cinder. |
+   |                     |                                    | spec; choose *back-end* to associate the policy with Cinder  |
    +---------------------+------------------------------------+--------------------------------------------------------------+
    | Create Encryption   |                                    | Type a provider and control location; custom cipher and key  |
-   |                     |                                    | size can also be designated.                                 |
+   |                     |                                    | size can also be designated                                  |
    +---------------------+------------------------------------+--------------------------------------------------------------+
    | View/Create Extra   |                                    | Click :guilabel:`Create` to enter and save a new key/value   |
-   | Specs               |                                    | pair.                                                        |
+   | Specs               |                                    | pair                                                         |
    +---------------------+------------------------------------+--------------------------------------------------------------+
-   | Manage QoS Spec     | :command:`cinder qos-associate`,   | Select a QoS spec from the drop-down menu.                   |
+   | Manage QoS Spec     | :command:`cinder qos-associate`,   | Select a QoS spec from the drop-down menu                    |
    | Association         | :command:`cinder qos-disassociate` |                                                              |
    +---------------------+------------------------------------+--------------------------------------------------------------+
-   | Edit Volume Type    |                                    | Modify the volume type name, description, and public fields. |
+   | Edit Volume Type    |                                    | Modify the volume type name, description, and public fields  |
    +---------------------+------------------------------------+--------------------------------------------------------------+
    | Update Metadata     |                                    | Add new metadata items to the volume type; custom keys       |
-   |                     |                                    | can be created.                                              |
+   |                     |                                    | can be created                                               |
    +---------------------+------------------------------------+--------------------------------------------------------------+
 
 
