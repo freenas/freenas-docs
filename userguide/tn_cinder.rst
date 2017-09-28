@@ -14,20 +14,16 @@ interface.
 Requirements
 ------------
 
+1. A %brand% 2.0 or higher system to provide storage. At least 20 GiB
+   of free disk space is recommended.
 
-Two computers are required to install and use the Cinder driver:
+2. A computer running the
+   `Newton release <https://docs.openstack.org/newton/>`_
+   of OpenStack or newer, with these minimum hardware requirements:
 
- 1. A computer running %brand% with at least 8 GiB of memory and at
-    least 20 GiB of disk storage.
-
- 2. A computer running the
-    `Devstack Newton Release <https://docs.openstack.org/newton/>`_
-    of OpenStack or newer, and with these minimum hardware
-    requirements:
-
-    * 4 GiB of RAM
-    * 4-core CPU
-    * 40 GiB storage disk
+   * 4 GiB of RAM
+   * 4-core CPU
+   * 40 GiB storage disk
 
 
 Installation
@@ -60,9 +56,9 @@ Configuration
 -------------
 
 
-On the OpenStack computer, open :file:`/etc/cinder/cinder.conf` in an
-editor. Some sections of this file must be edited and some
-user-defined parameters must be added.
+On the OpenStack computer, edit :file:`/etc/cinder/cinder.conf`. Some
+sections of this file must be edited and some user-defined parameters
+must be added.
 
 Modify the existing lines in :file:`cinder.conf` to these values:
 
@@ -77,9 +73,9 @@ Modify the existing lines in :file:`cinder.conf` to these values:
 and their possible values:
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.32\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.60\linewidth-2\tabcolsep}|
+                    |>{\RaggedRight}p{\dimexpr 0.48\linewidth-2\tabcolsep}|
 
 
 .. _tn-cinder-params:
@@ -216,8 +212,8 @@ and a description of the configurable settings:
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.60\linewidth-2\tabcolsep}|
+                    |>{\RaggedRight}p{\dimexpr 0.30\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.50\linewidth-2\tabcolsep}|
 
 
 .. _tn_openstack_proj_vol_actions:
@@ -307,8 +303,8 @@ the configurable elements.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.40\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.40\linewidth-2\tabcolsep}|
+                    |>{\RaggedRight}p{\dimexpr 0.28\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.52\linewidth-2\tabcolsep}|
 
 
 .. _tn_openstack_admin_volumes:
@@ -361,8 +357,8 @@ A number of actions can be applied to either volume type, as
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.60\linewidth-2\tabcolsep}|
+                    |>{\RaggedRight}p{\dimexpr 0.30\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.50\linewidth-2\tabcolsep}|
 
 
 .. _tn_openstack_voltype_actions:
