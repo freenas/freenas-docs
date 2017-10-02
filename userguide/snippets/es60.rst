@@ -25,18 +25,19 @@ Carefully unpack the shipping boxes and locate these components:
    :class: longtable
 
    +--------------------------------------------+---------------------------------------------+
+   | .. image:: images/tn_es60bare.png          | .. image:: images/tn_es60bezel.png          |
    |                                            |                                             |
-   |                                            |                                             |
-   | ES60 Expansion Shelf                       | 60 Drive trays                              |
+   | ES60 Expansion Shelf                       | ES60 Bezel                                  |
    +--------------------------------------------+---------------------------------------------+
+   | .. image:: images/tn_es60rails.png         | .. image:: images/tn_es60drivetray.png      |
    |                                            |                                             |
-   |                                            |                                             |
-   | Rail kit with mounting hardware            | Two SAS cables (additional cables included  |
-   |                                            | if ordered)                                 |
+   | Rail kit with mounting hardware            | Up to 60 drive trays with installed hard    |
+   |                                            | drives (shipped separately from the ES60)   |
    +--------------------------------------------+---------------------------------------------+
-   |                                            |                                             |
-   |                                            |                                             |
-   | Two power cables                           |                                             |
+   | .. image:: images/tn_es60powercords.png    | .. image:: images/tn_es12_sascables.png     |
+   | Power cords                                |                                             |
+   |                                            | Two 3-meter Mini SAS HD to Mini SAS HD      |
+   |                                            | cables.                                     |
    +--------------------------------------------+---------------------------------------------+
 
 
@@ -53,11 +54,13 @@ Become Familiar With the System
 
 Front view of the ES60 Expansion Shelf:
 
+.. image:: images/tn_es60.png
+
 
 Front panel indicators:
 
+.. image:: images/tn_es60indicators.png
 
-Front view of the ES60 Expansion Shelf:
 
 
 System Drive Tray:
