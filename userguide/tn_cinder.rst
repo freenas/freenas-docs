@@ -210,9 +210,8 @@ lists the action, the equivalent :command:`cinder` CLI command,
 and a description of the configurable settings:
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.30\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.50\linewidth-2\tabcolsep}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.3\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.7\linewidth-2\tabcolsep}|
 
 
 .. _tn_openstack_proj_vol_actions:
@@ -220,25 +219,25 @@ and a description of the configurable settings:
 .. table:: OpenStack Single Volume Actions
    :class: longtable
 
-   +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
-   | Action             | Cinder Command                    | Configurables                                                                   |
-   +====================+===================================+=================================================================================+
-   | Edit Volume        |                                   | Adjust name and description of a volume, or make a volume *Bootable*            |
-   +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
-   | Extend Volume      |                                   | Enter a new size in GiB                                                         |
-   +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
-   | Manage Attachments |                                   | View and adjust volume attachment to instances                                  |
-   +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
-   | Create Snapshot    |                                   | Enter a snapshot *name* and *description*; snapshot limits are shown            |
-   +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
-   | Change Volume Type | :command:`cinder retype`          | Choose a new *type* and *migration policy*                                      |
-   +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
-   | Upload to Image    | :command:`cinder upload-to-image` | Enter an image name and choose a disk format: *QCOW2*, *Raw*, *VDI*, or *VMDK*  |
-   +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
-   | Create Transfer    | :command:`cinder-transfer-create` | Enter recipient project name                                                    |
-   +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
-   | Update Metadata    |                                   | Move items into the existing metadata column or create a custom metadata key    |
-   +--------------------+-----------------------------------+---------------------------------------------------------------------------------+
+   +--------------------+---------------------------------------------------------------------------------+
+   | Action             | Configurables                                                                   |
+   +====================+=================================================================================+
+   | Edit Volume        | Adjust name and description of a volume, or make a volume *Bootable*            |
+   +--------------------+---------------------------------------------------------------------------------+
+   | Extend Volume      | Enter a new size in GiB                                                         |
+   +--------------------+---------------------------------------------------------------------------------+
+   | Manage Attachments | View and adjust volume attachment to instances                                  |
+   +--------------------+---------------------------------------------------------------------------------+
+   | Create Snapshot    | Enter a snapshot *name* and *description*; snapshot limits are shown            |
+   +--------------------+---------------------------------------------------------------------------------+
+   | Change Volume Type | Choose a new *type* and *migration policy*                                      |
+   +--------------------+---------------------------------------------------------------------------------+
+   | Upload to Image    | Enter an image name and choose a disk format: *QCOW2*, *Raw*, *VDI*, or *VMDK*  |
+   +--------------------+---------------------------------------------------------------------------------+
+   | Create Transfer    | Enter recipient project name                                                    |
+   +--------------------+---------------------------------------------------------------------------------+
+   | Update Metadata    | Move items into the existing metadata column or create a custom metadata key    |
+   +--------------------+---------------------------------------------------------------------------------+
 
 
 Project Volume Snapshots
@@ -301,9 +300,8 @@ the configurable elements.
    :menuselection:`Project --> Compute --> Volumes` tab.
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.28\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.52\linewidth-2\tabcolsep}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.3\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.7\linewidth-2\tabcolsep}|
 
 
 .. _tn_openstack_admin_volumes:
@@ -311,26 +309,26 @@ the configurable elements.
 .. table:: Cinder Volume Management Options
    :class: longtable
 
-   +-----------------+-------------------------------+------------------------------------------------------------------------------+
-   | Action          | Cinder Command                | Configurables                                                                |
-   +=================+===============================+==============================================================================+
-   | Manage Volumes  | :command:`cinder manage`      | Type the volume identifier, host, and volume name to make it visible in      |
-   |                 |                               | OpenStack; other configurable elements are *Volume Name*, *Description*,     |
-   |                 |                               | *Metadata*, *Volume Type*, *Availability Zone*, and *Bootable*               |
-   +-----------------+-------------------------------+------------------------------------------------------------------------------+
-   | Delete Volumes  |                               | Warning: volumes deleted here cannot be recovered                            |
-   +-----------------+-------------------------------+------------------------------------------------------------------------------+
-   | Update Volume   | :command:`cinder reset-state` | Select a new status from the dropdown menu; volume status is normally set    |
-   | Status          |                               | automatically                                                                |
-   +-----------------+-------------------------------+------------------------------------------------------------------------------+
-   | Unmanage Volume | :command:`cinder unmanage`    | Unmanaging a volume makes it invisible in OpenStack, but does not delete it  |
-   +-----------------+-------------------------------+------------------------------------------------------------------------------+
-   | Migrate Volume  |                               | Choose a new *Destination Host* from the dropdown menu; there is also an     |
-   |                 |                               | option to *Force Host Copy*, which bypasses driver optimizations             |
-   +-----------------+-------------------------------+------------------------------------------------------------------------------+
-   | Update Metadata |                               | Choose items to move to the *Existing Metadata* column; custom keys can      |
-   |                 |                               | also be added                                                                |
-   +-----------------+-------------------------------+------------------------------------------------------------------------------+
+   +-----------------+------------------------------------------------------------------------------+
+   | Action          | Configurables                                                                |
+   +=================+==============================================================================+
+   | Manage Volumes  | Type the volume identifier, host, and volume name to make it visible in      |
+   |                 | OpenStack; other configurable elements are *Volume Name*, *Description*,     |
+   |                 | *Metadata*, *Volume Type*, *Availability Zone*, and *Bootable*               |
+   +-----------------+------------------------------------------------------------------------------+
+   | Delete Volumes  | Warning: volumes deleted here cannot be recovered                            |
+   +-----------------+------------------------------------------------------------------------------+
+   | Update Volume   | Select a new status from the dropdown menu; volume status is normally set    |
+   | Status          | automatically                                                                |
+   +-----------------+------------------------------------------------------------------------------+
+   | Unmanage Volume | Unmanaging a volume makes it invisible in OpenStack, but does not delete it  |
+   +-----------------+------------------------------------------------------------------------------+
+   | Migrate Volume  | Choose a new *Destination Host* from the dropdown menu; there is also an     |
+   |                 | option to *Force Host Copy*, which bypasses driver optimizations             |
+   +-----------------+------------------------------------------------------------------------------+
+   | Update Metadata | Choose items to move to the *Existing Metadata* column; custom keys can      |
+   |                 | also be added                                                                |
+   +-----------------+------------------------------------------------------------------------------+
 
 
 Manage Volume Types
@@ -355,9 +353,8 @@ A number of actions can be applied to either volume type, as
 :numref:`Table %s <tn_openstack_voltype_actions>` shows:
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.30\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.50\linewidth-2\tabcolsep}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.4\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.6\linewidth-2\tabcolsep}|
 
 
 .. _tn_openstack_voltype_actions:
@@ -365,30 +362,30 @@ A number of actions can be applied to either volume type, as
 .. table:: Volume Type Actions
    :class: longtable
 
-   +---------------------+------------------------------------+--------------------------------------------------------------+
-   | Action              | Cinder Command                     | Configurables                                                |
-   +=====================+====================================+==============================================================+
-   | Create Volume Type  | :command:`cinder type-create`      | Name, description, and visible to "Public"                   |
-   +---------------------+------------------------------------+--------------------------------------------------------------+
-   | Delete Volume Types |                                    | Warning: action is permanent                                 |
-   +---------------------+------------------------------------+--------------------------------------------------------------+
-   | Create QoS Spec     | :command:`cinder qos-create`       | Provide a name and consumer for the new Quality of Service   |
-   |                     |                                    | spec; choose *back-end* to associate the policy with Cinder  |
-   +---------------------+------------------------------------+--------------------------------------------------------------+
-   | Create Encryption   |                                    | Type a provider and control location; custom cipher and key  |
-   |                     |                                    | size can also be designated                                  |
-   +---------------------+------------------------------------+--------------------------------------------------------------+
-   | View/Create Extra   |                                    | Click :guilabel:`Create` to enter and save a new key/value   |
-   | Specs               |                                    | pair                                                         |
-   +---------------------+------------------------------------+--------------------------------------------------------------+
-   | Manage QoS Spec     | :command:`cinder qos-associate`,   | Select a QoS spec from the drop-down menu                    |
-   | Association         | :command:`cinder qos-disassociate` |                                                              |
-   +---------------------+------------------------------------+--------------------------------------------------------------+
-   | Edit Volume Type    |                                    | Modify the volume type name, description, and public fields  |
-   +---------------------+------------------------------------+--------------------------------------------------------------+
-   | Update Metadata     |                                    | Add new metadata items to the volume type; custom keys       |
-   |                     |                                    | can be created                                               |
-   +---------------------+------------------------------------+--------------------------------------------------------------+
+   +---------------------+--------------------------------------------------------------+
+   | Action              | Configurables                                                |
+   +=====================+==============================================================+
+   | Create Volume Type  | Name, description, and visible to "Public"                   |
+   +---------------------+--------------------------------------------------------------+
+   | Delete Volume Types | Warning: action is permanent                                 |
+   +---------------------+--------------------------------------------------------------+
+   | Create QoS Spec     | Provide a name and consumer for the new Quality of Service   |
+   |                     | spec; choose *back-end* to associate the policy with Cinder  |
+   +---------------------+--------------------------------------------------------------+
+   | Create Encryption   | Type a provider and control location; custom cipher and key  |
+   |                     | size can also be designated                                  |
+   +---------------------+--------------------------------------------------------------+
+   | View/Create Extra   | Click :guilabel:`Create` to enter and save a new key/value   |
+   | Specs               | pair                                                         |
+   +---------------------+--------------------------------------------------------------+
+   | Manage QoS Spec     | Select a QoS spec from the drop-down menu                    |
+   | Association         |                                                              |
+   +---------------------+--------------------------------------------------------------+
+   | Edit Volume Type    | Modify the volume type name, description, and public fields  |
+   +---------------------+--------------------------------------------------------------+
+   | Update Metadata     | Add new metadata items to the volume type; custom keys       |
+   |                     | can be created                                               |
+   +---------------------+--------------------------------------------------------------+
 
 
 Manage Volume Snapshots
