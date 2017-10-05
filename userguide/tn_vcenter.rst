@@ -727,22 +727,23 @@ moment to redraw. Click the :guilabel:`Refresh` button to repopulate
 the list.
 
 
-.. index:: vCenter Configuration Duplication
-.. _vCenter Configuration Duplication:
+.. index:: vCenter Copying iSCSI Configuration
+.. _vCenter Copying iSCSI Configuration:
 
-Configuration Duplication
--------------------------
+Copying iSCSI Configuration
+---------------------------
 
 The :guilabel:`TrueNAS Configuration` tab is used to duplicate some of
-the current %brand% system's settings to another system.
+the current %brand% system's iSCSI settings to another %brand% system.
 
 
 .. note:: Currently, only iSCSI targets are duplicated on the
    destination system.
 
 
-Type the IP address of the system to receive the current %brand%
-systems's configuration. Provide a valid user name and password from
-the destination system. Click :guilabel:`Submit` to begin duplicating
-the %brand% configuration to the destination system. This process may
-take some time. A popup window indicates when the task is complete.
+Enter the IP address of the destination %brand% system where the
+current %brand% systems's iSCSI configuration is to be copied. Provide
+a valid user name and password from the destination system. Click
+:guilabel:`Submit` to begin duplicating the %brand% configuration to
+the destination system. This process may take some time. A popup
+window indicates when the task is complete.
