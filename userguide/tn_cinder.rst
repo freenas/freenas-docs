@@ -14,8 +14,7 @@ interface.
 Requirements
 ------------
 
-1. A %brand% 2.0 or higher system to provide storage. At least 20 GiB
-   of free disk space is recommended.
+1. A %brand% 11.0 or newer system to provide storage.
 
 2. A computer running the
    `Newton release <https://docs.openstack.org/newton/>`_
