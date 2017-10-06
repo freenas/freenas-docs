@@ -1729,6 +1729,9 @@ summarizes the configuration options.
    | Privacy Passphrase   | string         | if not specified, :guilabel:`Password` is used                                                   |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
+   | Log Level            | drop-down menu | choices range from the least log entries (:guilabel:`Emergency`) to the most (:guilabel:`Debug`) |
+   |                      |                |                                                                                                  |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters | string         | additional `snmpd.conf(5) <http://net-snmp.sourceforge.net/docs/man/snmpd.conf.html>`_ options   |
    |                      |                | not covered in this screen, one per line                                                         |
    |                      |                |                                                                                                  |

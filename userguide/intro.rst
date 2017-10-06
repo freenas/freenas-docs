@@ -102,6 +102,10 @@ New Features in |release|
 
 * Iocage has been updated to version 0.9.9.2.
 
+* The :guilabel:`Log Level` drop-down menu has been added to
+  :menuselection:`Services --> SNMP`. It defaults to the :guilabel:`Error`
+  log level.
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
