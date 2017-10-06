@@ -91,12 +91,16 @@ New Features in |release|
   `features and drivers
   <https://www.freebsd.org/releases/11.1R/relnotes.html>`_.
 
+* The Dojo Tookit has been updated to version 1.12.2.
+
 * OpenVPN has been updated to version `2.4.3
   <https://github.com/OpenVPN/openvpn/blob/release/2.4/Changes.rst#version-243>`_.
 
 * `Iperf version 3.2 
   <http://software.es.net/iperf/>`_ has been added. To use this version,
   specify :command:`iperf3` instead of :command:`iperf`.
+
+* Iocage has been updated to version 0.9.9.2.
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
