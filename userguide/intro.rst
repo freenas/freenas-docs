@@ -117,6 +117,10 @@ The following screens have changed:
   :menuselection:`Services --> SNMP`. It defaults to the :guilabel:`Error`
   log level.
 
+* The :guilabel:`No Communication Warning Time` field has been added to
+  :menuselection:`Services --> UPS`. This can be used to configure the
+  frequency of email notifications during the loss of UPS communications.
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 

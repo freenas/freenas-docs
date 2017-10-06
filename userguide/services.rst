@@ -2021,76 +2021,79 @@ summarizes the options in the UPS Configuration screen.
 .. table:: UPS Configuration Options
    :class: longtable
 
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Setting                   | Value          | Description                                                                                           |
-   |                           |                |                                                                                                       |
-   |                           |                |                                                                                                       |
-   +===========================+================+=======================================================================================================+
-   | UPS Mode                  | drop-down menu | select from *Master* or                                                                               |
-   |                           |                | *Slave*                                                                                               |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Identifier                | string         | can contain alphanumeric, period, comma, hyphen, and underscore characters                            |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Driver                    | drop-down menu | supported UPS devices are listed at                                                                   |
-   |                           |                | `http://www.networkupstools.org/stable-hcl.html <http://www.networkupstools.org/stable-hcl.html>`_    |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Port                      | drop-down      | select the serial or USB port the UPS is plugged into (see  NOTE below)                               |
-   |                           | menu           |                                                                                                       |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters      | string         | additional options from                                                                               |
-   | (ups.conf)                |                | `ups.conf(5) <http://www.networkupstools.org/docs/man/ups.conf.html>`_                                |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters      | string         | additional options from                                                                               |
-   | (upsd.conf)               |                | `upsd.conf(5) <http://www.networkupstools.org/docs/man/upsd.conf.html>`_                              |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Description               | string         | optional                                                                                              |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Shutdown mode             | drop-down menu | choices are *UPS goes on battery* and                                                                 |
-   |                           |                | *UPS reaches low battery*                                                                             |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Shutdown timer            | integer        | in seconds; will initiate shutdown after this many seconds after UPS enters *UPS goes on battery*,    |
-   |                           |                | unless power is restored                                                                              |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Shutdown Command          | string         | the command to run to shut down the computer when battery power is low or shutdown timer runs out     |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Monitor User              | string         | default is *upsmon*                                                                                   |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Monitor Password          | string         | default is known value *fixmepass* and should be changed; cannot contain a space or #                 |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Extra users               | string         | defines the accounts that have administrative access; see                                             |
-   |                           |                | `upsd.users(5) <http://www.networkupstools.org/docs/man/upsd.users.html>`_                            |
-   |                           |                | for examples                                                                                          |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Remote monitor            | checkbox       | if enabled, be aware that the default is to listen on all interfaces and to use the known values user |
-   |                           |                | *upsmon* and password                                                                                 |
-   |                           |                | *fixmepass*                                                                                           |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Send Email Status Updates | checkbox       | if checked, activates the :guilabel:`To email` field                                                  |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | To email                  | email address  | if :guilabel:`Send Email` box checked, email address to receive status updates;                       |
-   |                           |                | separate multiple email addresses with a semicolon                                                    |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Email Subject             | string         | subject line to be used in the email                                                                  |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Power Off UPS             | checkbox       | if checked, the UPS will also power off after shutting down the FreeNAS system                        |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Setting                       | Value          | Description                                                                                           |
+   |                               |                |                                                                                                       |
+   |                               |                |                                                                                                       |
+   +===============================+================+=======================================================================================================+
+   | UPS Mode                      | drop-down menu | select from *Master* or                                                                               |
+   |                               |                | *Slave*                                                                                               |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Identifier                    | string         | can contain alphanumeric, period, comma, hyphen, and underscore characters                            |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Driver                        | drop-down menu | supported UPS devices are listed at                                                                   |
+   |                               |                | `http://www.networkupstools.org/stable-hcl.html <http://www.networkupstools.org/stable-hcl.html>`_    |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Port                          | drop-down      | select the serial or USB port the UPS is plugged into (see  NOTE below)                               |
+   |                               | menu           |                                                                                                       |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Auxiliary Parameters          | string         | additional options from                                                                               |
+   | (ups.conf)                    |                | `ups.conf(5) <http://www.networkupstools.org/docs/man/ups.conf.html>`_                                |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Auxiliary Parameters          | string         | additional options from                                                                               |
+   | (upsd.conf)                   |                | `upsd.conf(5) <http://www.networkupstools.org/docs/man/upsd.conf.html>`_                              |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Description                   | string         | optional                                                                                              |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Shutdown mode                 | drop-down menu | choices are *UPS goes on battery* and                                                                 |
+   |                               |                | *UPS reaches low battery*                                                                             |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Shutdown timer                | integer        | in seconds; will initiate shutdown after this many seconds after UPS enters *UPS goes on battery*,    |
+   |                               |                | unless power is restored                                                                              |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Shutdown Command              | string         | the command to run to shut down the computer when battery power is low or shutdown timer runs out     |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | No Communication Warning Time | string         | the frequency, in seconds, of email notifications during the loss of UPS communications; the default  |
+   |                               |                | is *300*                                                                                              |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Monitor User                  | string         | default is *upsmon*                                                                                   |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Monitor Password              | string         | default is known value *fixmepass* and should be changed; cannot contain a space or #                 |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Extra users                   | string         | defines the accounts that have administrative access; see                                             |
+   |                               |                | `upsd.users(5) <http://www.networkupstools.org/docs/man/upsd.users.html>`_                            |
+   |                               |                | for examples                                                                                          |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Remote monitor                | checkbox       | if enabled, be aware that the default is to listen on all interfaces and to use the known values user |
+   |                               |                | *upsmon* and password                                                                                 |
+   |                               |                | *fixmepass*                                                                                           |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Send Email Status Updates     | checkbox       | if checked, activates the :guilabel:`To email` field                                                  |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | To email                      | email address  | if :guilabel:`Send Email` box checked, email address to receive status updates;                       |
+   |                               |                | separate multiple email addresses with a semicolon                                                    |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Email Subject                 | string         | subject line to be used in the email                                                                  |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Power Off UPS                 | checkbox       | if checked, the UPS will also power off after shutting down the FreeNAS system                        |
+   |                               |                |                                                                                                       |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
 
 
 .. note:: For USB devices, the easiest way to determine the correct
