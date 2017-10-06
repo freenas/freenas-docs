@@ -102,6 +102,12 @@ New Features in |release|
 
 * Iocage has been updated to version 0.9.9.2.
 
+The following screens have changed:
+
+* The :guilabel:`Enable Console Menu` in
+  :menuselection:`System --> Advanced` has been renamed to
+  :guilabel:`Show Text Console Without Password Prompt`.
+
 * The :guilabel:`Log Level` drop-down menu has been added to
   :menuselection:`Services --> SNMP`. It defaults to the :guilabel:`Error`
   log level.

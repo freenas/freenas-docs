@@ -576,75 +576,75 @@ The configurable settings are summarized in
 .. table:: Advanced Configuration Settings
    :class: longtable
 
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Setting                                 | Value                            | Description                                                                  |
-   |                                         |                                  |                                                                              |
-   +=========================================+==================================+==============================================================================+
-   | Enable Console Menu                     | checkbox                         | unchecking this box removes the console menu shown in                        |
-   |                                         |                                  | :numref:`Figure %s <console_setup_menu_fig>`                                 |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Use Serial Console                      | checkbox                         | **do not** check this box if the serial port is disabled                     |
-   |                                         |                                  |                                                                              |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Serial Port Address                     | string                           | serial port address in hex                                                   |
-   |                                         |                                  |                                                                              |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Serial Port Speed                       | drop-down menu                   | select the speed used by the serial port                                     |
-   |                                         |                                  |                                                                              |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable screen saver                     | checkbox                         | enable or disable the console screen saver                                   |
-   |                                         |                                  |                                                                              |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable powerd (Power Saving Daemon)     | checkbox                         | `powerd(8) <http://www.freebsd.org/cgi/man.cgi?query=powerd>`_               |
-   |                                         |                                  | monitors the system state and sets the CPU frequency accordingly             |
-   |                                         |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Setting                                  | Value                            | Description                                                                  |
+   |                                          |                                  |                                                                              |
+   +==========================================+==================================+==============================================================================+
+   | Show Text Console Without Password Prompt| checkbox                         | unchecking this box removes the console menu shown in                        |
+   |                                          |                                  | :numref:`Figure %s <console_setup_menu_fig>`                                 |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Use Serial Console                       | checkbox                         | **do not** check this box if the serial port is disabled                     |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Serial Port Address                      | string                           | serial port address in hex                                                   |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Serial Port Speed                        | drop-down menu                   | select the speed used by the serial port                                     |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Enable screen saver                      | checkbox                         | enable or disable the console screen saver                                   |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Enable powerd (Power Saving Daemon)      | checkbox                         | `powerd(8) <http://www.freebsd.org/cgi/man.cgi?query=powerd>`_               |
+   |                                          |                                  | monitors the system state and sets the CPU frequency accordingly             |
+   |                                          |                                  |                                                                              |
    #ifdef freenas
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Swap size                               | non-zero integer representing GB | by default, all data disks are created with this amount of swap; this        |
-   |                                         |                                  | setting does not affect log or cache devices as they are created without     |
-   |                                         |                                  | swap                                                                         |
-   |                                         |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Swap size                                | non-zero integer representing GB | by default, all data disks are created with this amount of swap; this        |
+   |                                          |                                  | setting does not affect log or cache devices as they are created without     |
+   |                                          |                                  | swap                                                                         |
+   |                                          |                                  |                                                                              |
    #endif freenas
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Show console messages in the footer     | checkbox                         | display console messages in real time at bottom of browser; click the        |
-   |                                         |                                  | console to bring up a scrollable screen; check the :guilabel:`Stop refresh`  |
-   |                                         |                                  | box in the scrollable screen to pause updating and uncheck the box           |
-   |                                         |                                  | to continue to watch the messages as they occur                              |
-   |                                         |                                  |                                                                              |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Show tracebacks in case of fatal errors | checkbox                         | provides a pop-up of diagnostic information when a fatal error occurs        |
-   |                                         |                                  |                                                                              |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Show advanced fields by default         | checkbox                         | several GUI menus provide an :guilabel:`Advanced Mode` button to access      |
-   |                                         |                                  | additional features; enabling this shows these features by default           |
-   |                                         |                                  |                                                                              |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable autotune                         | checkbox                         | enables :ref:`autotune` which attempts to optimize the system depending      |
-   |                                         |                                  | upon the hardware which is installed                                         |
-   |                                         |                                  |                                                                              |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable debug kernel                     | checkbox                         | when checked, next boot uses a debug version of the kernel                   |
-   |                                         |                                  |                                                                              |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable automatic upload of kernel       | checkbox                         | when checked, kernel crash dumps and telemetry (some system stats, collectd  |
-   | crash dumps and daily telemetry         |                                  | RRDs, and select syslog messages) are automatically sent to the development  |
-   |                                         |                                  | team for diagnosis                                                           |
-   |                                         |                                  |                                                                              |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | MOTD banner                             | string                           | message to be shown when a user logs in with SSH                             |
-   |                                         |                                  |                                                                              |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Periodic Notification User              | drop-down menu                   | user to receive security output emails; this output runs nightly             |
-   |                                         |                                  | but only sends an email when the system reboots or encounters an error       |
-   |                                         |                                  |                                                                              |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Remote Graphite Server hostname         | string                           | IP address or hostname of a remote server running                            |
-   |                                         |                                  | `Graphite <http://graphite.wikidot.com/>`_                                   |
-   |                                         |                                  |                                                                              |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Use FQDN for logging                    | checkbox                         | when checked, include the Fully-Qualified Domain Name in logs to precisely   |
-   |                                         |                                  | identify systems with similar hostnames                                      |
-   +-----------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Show console messages in the footer      | checkbox                         | display console messages in real time at bottom of browser; click the        |
+   |                                          |                                  | console to bring up a scrollable screen; check the :guilabel:`Stop refresh`  |
+   |                                          |                                  | box in the scrollable screen to pause updating and uncheck the box           |
+   |                                          |                                  | to continue to watch the messages as they occur                              |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Show tracebacks in case of fatal errors  | checkbox                         | provides a pop-up of diagnostic information when a fatal error occurs        |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Show advanced fields by default          | checkbox                         | several GUI menus provide an :guilabel:`Advanced Mode` button to access      |
+   |                                          |                                  | additional features; enabling this shows these features by default           |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Enable autotune                          | checkbox                         | enables :ref:`autotune` which attempts to optimize the system depending      |
+   |                                          |                                  | upon the hardware which is installed                                         |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Enable debug kernel                      | checkbox                         | when checked, next boot uses a debug version of the kernel                   |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Enable automatic upload of kernel        | checkbox                         | when checked, kernel crash dumps and telemetry (some system stats, collectd  |
+   | crash dumps and daily telemetry          |                                  | RRDs, and select syslog messages) are automatically sent to the development  |
+   |                                          |                                  | team for diagnosis                                                           |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | MOTD banner                              | string                           | message to be shown when a user logs in with SSH                             |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Periodic Notification User               | drop-down menu                   | user to receive security output emails; this output runs nightly             |
+   |                                          |                                  | but only sends an email when the system reboots or encounters an error       |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Remote Graphite Server hostname          | string                           | IP address or hostname of a remote server running                            |
+   |                                          |                                  | `Graphite <http://graphite.wikidot.com/>`_                                   |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Use FQDN for logging                     | checkbox                         | when checked, include the Fully-Qualified Domain Name in logs to precisely   |
+   |                                          |                                  | identify systems with similar hostnames                                      |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
 
 Click the :guilabel:`Save` button after making any changes.
 
