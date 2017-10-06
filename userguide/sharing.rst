@@ -2313,8 +2313,8 @@ targets and extents.
    | Target      | drop-down menu | select the pre-created target                                                                          |
    |             |                |                                                                                                        |
    +-------------+----------------+--------------------------------------------------------------------------------------------------------+
-   | LUN ID      | drop-down menu | select the value of the ID or type in the desired value; %brand% supports up to                        |
-   |             |                | 1024 LUNs                                                                                              |
+   | LUN ID      | drop-down menu | select the value to use or type in a value between *1* and *1023*; note that some initiators expect    |
+   |             |                | a value below *256*                                                                                    |
    |             |                |                                                                                                        |
    +-------------+----------------+--------------------------------------------------------------------------------------------------------+
    | Extent      | drop-down menu | select the pre-created extent                                                                          |
