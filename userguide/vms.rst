@@ -91,7 +91,7 @@ VM configuration options are described in
    |                   |                | older operating systems that only understand BIOS booting                          |
    |                   |                |                                                                                    |
    +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Autostart         | checkbox       | start the VM automatically on boot                                                 |
+   | Autostart         | checkbox       | when checked, start the VM automatically on boot                                   |
    |                   |                |                                                                                    |
    +-------------------+----------------+------------------------------------------------------------------------------------+
 
