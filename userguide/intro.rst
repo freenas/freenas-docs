@@ -108,6 +108,9 @@ The following screens have changed:
   :menuselection:`System --> Advanced` has been renamed to
   :guilabel:`Show Text Console Without Password Prompt`.
 
+* An :guilabel:`Enabled` checkbox has been added to
+  :menuselection:`Tasks --> Init/Shutdown Scripts`.
+
 * The :guilabel:`Additional domains` field has been added to
   :menuselection:`Network -> Global Configuration`. This allows up to
   six additional DNS search domains with the caveat that adding more

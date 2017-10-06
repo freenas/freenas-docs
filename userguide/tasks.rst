@@ -370,7 +370,9 @@ has been fully tested to ensure that it achieves the desired results.
    |             |                | (towards end of boot process before FreeNAS services are started), or *Shutdown*  |
    |             |                |                                                                                   |
    +-------------+----------------+-----------------------------------------------------------------------------------+
-
+   | Enabled     | checkbox       | uncheck to disable the task                                                       |
+   |             |                |                                                                                   |
+   +-------------+----------------+-----------------------------------------------------------------------------------+
 
 .. index:: Rsync Tasks
 .. _Rsync Tasks:
