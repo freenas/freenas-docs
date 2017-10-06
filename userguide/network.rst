@@ -74,6 +74,9 @@ but can be changed to meet requirements of the local network.
    | Domain                 | string     | system domain name                                                                                                   |
    |                        |            |                                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+   | Additional domains     | string     | can enter up to 6 space delimited search domains; adding multiple domains may result in slower DNS lookups           |
+   |                        |            |                                                                                                                      |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
    | IPv4 Default Gateway   | IP address | typically not set (see Note below); if set, used instead of default gateway provided by DHCP                         |
    |                        |            |                                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+

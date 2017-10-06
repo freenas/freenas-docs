@@ -108,6 +108,11 @@ The following screens have changed:
   :menuselection:`System --> Advanced` has been renamed to
   :guilabel:`Show Text Console Without Password Prompt`.
 
+* The :guilabel:`Additional domains` field has been added to
+  :menuselection:`Network -> Global Configuration`. This allows up to
+  six additional DNS search domains with the caveat that adding more
+  domains may negatively impact DNS lookup time.
+
 * The :guilabel:`Log Level` drop-down menu has been added to
   :menuselection:`Services --> SNMP`. It defaults to the :guilabel:`Error`
   log level.
