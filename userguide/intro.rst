@@ -91,6 +91,13 @@ New Features in |release|
   `features and drivers
   <https://www.freebsd.org/releases/11.1R/relnotes.html>`_.
 
+* OpenVPN has been updated to version `2.4.3
+  <https://github.com/OpenVPN/openvpn/blob/release/2.4/Changes.rst#version-243>`_.
+
+* `Iperf version 3.2 
+  <http://software.es.net/iperf/>`_ has been added. To use this version,
+  specify :command:`iperf3` instead of :command:`iperf`.
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 

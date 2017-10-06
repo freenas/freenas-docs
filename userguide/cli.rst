@@ -73,64 +73,28 @@ To start xjperf on Mac OS X, Linux, or BSD, unzip the downloaded file,
 :command:`chmod u+x jperf.sh`, and run :command:`./jperf.sh`.
 
 Once the client is ready, you need to start the Iperf server on
-%brand%. To see the available server options, open Shell and type:
+%brand%. 
+
+.. note:: Beginning with %brand% version 11.1, both `iperf2
+   <https://sourceforge.net/projects/iperf2/>`_ and `iperf3
+   <http://software.es.net/iperf/>`_ are pre-installed. To use iperf2,
+   use :command:`iperf`. To use iperf3, instead type :command:`iperf3`.
+   The examples below are for iperf2.
+
+To see the available server options, open Shell and type:
 
 .. code-block:: none
 
    iperf --help | more
-   Usage: iperf [-s|-c host] [options]
-   iperf [-h|--help] [-v|--version]
 
-   Client/Server:
-   -f, --format	[kmKM]	format to report: Kbits, Mbits, KBytes, MBytes
-   -i, --interval	#	seconds between periodic bandwidth reports
-   -l, --len	#[KM]	length of buffer to read or write (default 8 KB)
-   -m, --print_mss	print TCP maximum segment size (MTU - TCP/IP header)
-   -o, --output	<filename> output the report or error message to this specified file
-   -p, --port	#	server port to listen on/connect to
-   -u, --udp		use UDP rather than TCP
-   -w, --window	#[KM]	TCP window size (socket buffer size)
-   -B, --bind	<host>	bind to <host>, an interface or multicast address
-   -C, --compatibility	for use with older versions does not sent extra msgs
-   -M, --mss	#	set TCP maximum segment size (MTU - 40 bytes)
-   -N, --nodelay		set TCP no delay, disabling Nagle's Algorithm
-   -V, --IPv6Version	Set the domain to IPv6
+or:
 
-   Server specific:
-   -s, --server		run in server mode
-   -U, --single_udp	run in single threaded UDP mode
-   -D, --daemon		run the server as a daemon
+.. code-block:: none
 
-   Client specific:
-   -b, --bandwidth #[KM]	for UDP, bandwidth to send at in bits/sec
-			  (default 1 Mbit/sec, implies -u)
-   -c, --client	<host>	run in client mode, connecting to <host>
-   -d, --dualtest		Do a bidirectional test simultaneously
-   -n, --num	#[KM]	number of bytes to transmit (instead of -t)
-   -r, --tradeoff		Do a bidirectional test individually
-   -t, --time	#	time in seconds to transmit for (default 10 secs)
-   -F, --fileinput <name>	input the data to be transmitted from a file
-   -I, --stdin		input the data to be transmitted from stdin
-   -L, --listenport #	port to receive bidirectional tests back on
-   -P, --parallel	#	number of parallel client threads to run
-   -T, --ttl	#	time-to-live, for multicast (default 1)
-   -Z, --linux-congestion <algo> set TCP congestion control algorithm (Linux only)
-
-   Miscellaneous:
-   -x, --reportexclude [CDMSV]	exclude C(connection) D(data) M(multicast) S(settings) V(server) reports
-   -y, --reportstyle C		report as a Comma-Separated Values
-   -h, --help			print this message and quit
-   -v, --version			print version information and quit
-
-   [KM] Indicates options that support a K or M suffix for kilo- or mega-
-
-   The TCP window size option can be set by the environment variable
-
-   TCP_WINDOW_SIZE. Most other options can be set by an environment variable
-   IPERF_<long option name>, such as IPERF_BANDWIDTH.
+   iperf3 --help | more
 
 For example, to perform a TCP test and start the server in daemon mode
-(so that you get your prompt back), type:
+(to get the prompt back), type:
 
 .. code-block:: none
 
