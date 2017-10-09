@@ -112,9 +112,14 @@ The following screens have changed:
   :menuselection:`Tasks --> Init/Shutdown Scripts`.
 
 * The :guilabel:`Additional domains` field has been added to
-  :menuselection:`Network -> Global Configuration`. This allows up to
+  :menuselection:`Network --> Global Configuration`. This allows up to
   six additional DNS search domains with the caveat that adding more
   domains may negatively impact DNS lookup time.
+
+* The :guilabel:`Priority Code Point (CoS)` field has been added to
+  :menuselection:`Network --> VLANs --> Add VLAN`. This can be useful in
+  datacenter environments to classify storage traffic on a given VLAN
+  interface using IEEE 802.1p Class of Service (COS).
 
 * The :guilabel:`Log Level` drop-down menu has been added to
   :menuselection:`Services --> SNMP`. It defaults to the :guilabel:`Error`

@@ -834,24 +834,27 @@ summarizes the configurable fields.
 .. table:: Adding a VLAN
    :class: longtable
 
-   +-------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Setting           | Value          | Description                                                                                       |
-   |                   |                |                                                                                                   |
-   +===================+================+===================================================================================================+
-   | Virtual Interface | string         | use the format *vlanX* where                                                                      |
-   |                   |                | *X* is a number representing a vlan interface not currently being used as a parent                |
-   |                   |                |                                                                                                   |
-   +-------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Parent Interface  | drop-down menu | usually an Ethernet card connected to a properly configured switch port; note that newly created  |
-   |                   |                | :ref:`Link Aggregations` will not appear in the drop-down until the system is rebooted            |
-   |                   |                |                                                                                                   |
-   +-------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | VLAN Tag          | integer        | number between 1 and 4095 which matches a numeric tag set up in the switched network              |
-   |                   |                |                                                                                                   |
-   +-------------------+----------------+---------------------------------------------------------------------------------------------------+
-   | Description       | string         | optional                                                                                          |
-   |                   |                |                                                                                                   |
-   +-------------------+----------------+---------------------------------------------------------------------------------------------------+
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
+   | Setting             | Value          | Description                                                                                       |
+   |                     |                |                                                                                                   |
+   +=====================+================+===================================================================================================+
+   | Virtual Interface   | string         | use the format *vlanX* where                                                                      |
+   |                     |                | *X* is a number representing a vlan interface not currently being used as a parent                |
+   |                     |                |                                                                                                   |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
+   | Parent Interface    | drop-down menu | usually an Ethernet card connected to a properly configured switch port; note that newly created  |
+   |                     |                | :ref:`Link Aggregations` will not appear in the drop-down until the system is rebooted            |
+   |                     |                |                                                                                                   |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
+   | VLAN Tag            | integer        | number between 1 and 4095 which matches a numeric tag set up in the switched network              |
+   |                     |                |                                                                                                   |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
+   | Priority Code Point | drop-down menu | available 802.1p Class of Service ranges from *Best Effort (default)* to                          |
+   |                     |                | *Network Control (highest)*                                                                       |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
+   | Description         | string         | optional                                                                                          |
+   |                     |                |                                                                                                   |
+   +---------------------+----------------+---------------------------------------------------------------------------------------------------+
 
 
 The parent interface of a VLAN must be up, but it can have an IP
