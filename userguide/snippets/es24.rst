@@ -1,0 +1,258 @@
+#include snippets/copyright.rst
+
+.. index:: ES24 Expansion Shelf
+
+.. _ES24 Expansion Shelf:
+
+ES24 Expansion Shelf
+--------------------
+
+The %brand% ES24 is 4U, 24-bay, SAS3 (12 Gb/s) expansion shelf with
+dual expander modules and redundant power supplies.
+
+
+#include snippets/perfect.rst
+
+
+.. index:: ES24 Expansion Shelf Contents
+
+Carefully unpack the shipping boxes and locate these components:
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+
+.. table::
+   :class: longtable
+
+   +--------------------------------------------+---------------------------------------------+
+   | .. image:: images/                         | .. image:: images/                          |
+   |                                            |                                             |
+   | ES24 Expansion Shelf                       | ES24 Bezel                                  |
+   +--------------------------------------------+---------------------------------------------+
+   | .. image:: images/                         | .. image:: images/                          |
+   |                                            |    :width: 90%                              |
+   | Set of rackmount rails.                    |                                             |
+   |                                            | A total of 12 populated or filler drive     |
+   +--------------------------------------------+---------------------------------------------+
+   | .. image:: images/                         | .. image:: images/                          |
+   |    :width: 80%                             |    :width: 40%                              |
+   |                                            |                                             |
+   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Two 3-meter Mini SAS HD to Mini SAS HD      |
+   | power cords, 2 IEC C14 to C14 cords, and a | cables                                      |
+   | set of velcro cable ties                   |                                             |
+   +--------------------------------------------+---------------------------------------------+
+
+
+.. raw:: latex
+
+   \newpage
+
+
+.. index:: Become Familiar with the ES24
+.. _ES24 Become Familiar with the System:
+
+Become Familiar With the System
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ES24 has front panel indicators for power, locate ID, and
+fault. The fault indicator is on during the initial power-on self-test
+(POST) or when the %brand% software has issued an
+`alert
+<https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
+
+
+.. _es24_indicators:
+.. figure:: images/
+   :width: 1.75in
+
+   Front Panel Indicators
+
+
+.. _es24_back:
+
+.. figure:: images/
+
+   Back Panel
+
+
+The ES24 contains two expander modules in a side-by-side
+configuration. The connectors and features on each module are:
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+
+.. table::
+   :class: longtable
+
+   +-----------------------------------------------------+
+   | 1-3: HD Mini SAS3 connectors (T1-T3)                |
+   +-----------------------------------------------------+
+   | 4: Debug port (%brand% internal use only)           |
+   +-----------------------------------------------------+
+   | 5: Redundant power supplies                         |
+   +-----------------------------------------------------+
+
+
+.. raw:: latex
+
+   \newpage
+
+
+.. index:: Rail Kit Assembly
+
+Rail Kit Assembly
+~~~~~~~~~~~~~~~~~
+
+
+Mount the Rails
+^^^^^^^^^^^^^^^
+
+Install a spring on the silver posts in the side of each rail.
+
+.. _es24_spring:
+.. figure:: images/
+   :width: 50%
+
+   Installing Rail Springs
+
+
+Open the clamp latches on the ends of each rail. Place the rail in the
+rack with the front end toward the front of the rack, aligning the
+pins on both ends of the rail with the mounting holes in the rack.
+Swing the clamp latch closed to hold the rail in place. Use two of the
+supplied screws to secure the back end of the rail in place. Repeat
+the process for the second rail.
+
+
+.. _es24_rail_clamp:
+
+.. figure:: images/
+   :width: 4.125in
+
+   Rail Clamp Latch
+
+
+Mount the Unit in the Rack
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Caution: Two people are required to safely lift the chassis for rack
+installation or removal.** Do not install drives until after the
+chassis has been installed in the rack, and remove all drives before
+removing the chassis from the rack.
+
+Snap the black bezel mounting ears onto the metal ES24 chassis ears.
+Carefully place the ES24 chassis onto the rails mounted in the rack.
+Push the ES24 chassis in until the ears are flush with the front of
+the rack.  Use two of the supplied screws to secure each ear to the
+rack.
+
+
+.. raw:: latex
+
+   \newpage
+
+
+Install Drive Trays
+~~~~~~~~~~~~~~~~~~~
+
+Drive trays are used to mount drives in the array. Each drive tray has
+a status LED which is blue when active or amber if a fault has
+occurred.
+
+Press the blue button to open the latch. Carefully slide the tray into
+a drive bay until the left side of the latch touches the metal front
+edge of the chassis, then gently swing the latch closed until it
+clicks into place.
+
+
+.. _es24_drivetray_load:
+.. figure:: images/
+
+   Installing Drive Trays
+
+
+Connect Power Cords
+~~~~~~~~~~~~~~~~~~~
+
+**Do not plug the power cords into a power outlet yet.** Connect a
+power cord to the back of one power supply, pressing it into the
+plastic clamp and pressing on the tab to lock it in place. Repeat the
+process for the second power supply and cord.
+
+
+.. _es24_power:
+.. figure:: images/
+   :width: 1.5in
+
+   Power Cord Connection
+
+
+.. raw:: latex
+
+   \newpage
+
+
+Connect SAS Cables
+~~~~~~~~~~~~~~~~~~
+
+Shut down and power off the X10. Remove the X10 power cables from the
+power outlets.
+
+Plug the ES24 power cords into power outlets.
+**Wait two minutes for the drives to start.**
+
+Plug one end of the SAS cable into the T1 connector on the ES24
+expander module 1. Plug the other end into the SAS 1 connector on
+the X10's node 1. See cable #1 in
+:numref:`Figure %s <es24_sasconnect1>`.
+
+If the X10 has a second node for HA (High Availability), plug one end
+of the second SAS cable into the T1 connector of the ES24's expander
+module 2. Plug the other end into the SAS 1 connector on the X10's
+node 2. See cable #2 in
+:numref:`Figure %s <es24_sasconnect1>`.
+
+.. _es24_sasconnect1:
+.. figure:: images/tn_es24_sasconnect1.png
+
+   SAS Cable Connection for One ES24
+
+
+.. raw:: latex
+
+   \newpage
+
+
+A second ES24 can also be connected to the X10. After connecting the
+first ES24 as shown above, plug one end of an SAS cable into the
+T1 connector on the second ES24's expander module 1. Plug the other
+end into the SAS 2 connector on the X10's node 1. See cable #3 in
+:numref:`Figure %s <es24_sasconnect2>`.
+
+If the X10 has a second node for HA (High Availability), plug one end
+of an SAS cable into the T1 connector of the second ES24's expander
+module 2. Plug the other end into the X10's node 2, SAS 2 connector.
+See cable #4 in
+:numref:`Figure %s <es24_sasconnect2>`.
+
+
+.. _es24_sasconnect2:
+.. figure:: images/tn_es24_sasconnect2.png
+
+   SAS Cable Connection for Two ES24s
+
+
+After all SAS cables have been connected, plug the X10 power cords
+into power outlets.
+
+
+Install Bezel (Optional)
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The included bezel is not required for operation. If desired, install
+the bezel by aligning it with the pins on the bezel ears and pressing
+it into place.
+
+
+.. raw:: latex
+
+   \newpage
