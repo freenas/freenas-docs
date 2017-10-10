@@ -139,6 +139,9 @@ The following screens have changed:
   datacenter environments to classify storage traffic on a given VLAN
   interface using IEEE 802.1p Class of Service (COS).
 
+* The :guilabel:`Read-Only` drop-down menu has been added to
+  :menuselection:`Storage --> Datasets --> Add Dataset --> Advanced Mode`.
+
 * The :guilabel:`CheckIP Server SSL`, :guilabel:`CheckIP Server`,
   :guilabel:`CheckIP Path`, and :guilabel:`Use SSL` fields have been
   added to :menuselection:`Services --> DDNS`. The
