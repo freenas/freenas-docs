@@ -89,25 +89,30 @@ New Features in |release|
 * The base operating system has been updated to FreeBSD 11.1-STABLE.
   This brings in many new
   `features and drivers
-  <https://www.freebsd.org/releases/11.1R/relnotes.html>`_.
+  <https://www.freebsd.org/releases/11.1R/relnotes.html>`__.
 
 * Compressed ARC statistics have been added to :command:`top`. The
   information gathered includes *Compressed* (bytes of memory used by ARC
   caches), *Uncompressed* (bytes of data stored in ARC caches before
   compression), and *Ratio* (ratio of uncompressed data to total ARC size).
 
-The following base applications have been updated:
+The following base applications have been updated or added:
 
 * The Dojo Tookit has been updated to version 1.12.2.
 
 * OpenVPN has been updated to version `2.4.3
-  <https://github.com/OpenVPN/openvpn/blob/release/2.4/Changes.rst#version-243>`_.
+  <https://github.com/OpenVPN/openvpn/blob/release/2.4/Changes.rst#version-243>`__.
 
-* `Iperf version 3.2 
-  <http://software.es.net/iperf/>`_ has been added. To use this version,
+* `Iperf version 3.2
+  <http://software.es.net/iperf/>`__ has been added. To use this version,
   specify :command:`iperf3` instead of :command:`iperf`.
 
 * Iocage has been updated to version 0.9.9.2.
+
+* `mmv <https://packages.debian.org/unstable/utils/mmv>`__
+  has been added. It can be used from the command line to safely move or
+  copy multiple files using patterns, without any unexpected deletion of
+  files due to target name collisions.
 
 The following screens have changed:
 
