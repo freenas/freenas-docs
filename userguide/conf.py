@@ -96,6 +96,13 @@ if tags.has('bsg-es12'):
     master_doc = 'bsg-es12'
     cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_es12_front.png}'
 
+if tags.has('bsg-es24'):
+    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    tags.remove('freenas')
+    project = brand + six.u(' ES24 Expansion Shelf Basic Setup Guide')
+    master_doc = 'bsg-es24'
+    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_es24_front.png}'
+
 if tags.has('bsg-es60'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')

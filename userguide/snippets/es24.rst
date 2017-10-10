@@ -25,16 +25,20 @@ Carefully unpack the shipping boxes and locate these components:
    :class: longtable
 
    +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/                         | .. image:: images/                          |
+   | .. image:: images/tn_es24_bare.png         | .. image:: images/tn_es24_bezel.png         |
    |                                            |                                             |
    | ES24 Expansion Shelf                       | ES24 Bezel                                  |
    +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/                         | .. image:: images/                          |
-   |                                            |    :width: 90%                              |
-   | Set of rackmount rails.                    |                                             |
-   |                                            | A total of 12 populated or filler drive     |
+   | .. image:: images/tn_es24_rails.png        | .. image:: images/tn_es24_drivetray.png     |
+   |                                            |    :width: 30%                              |
+   |                                            |                                             |
+   | Set of rackmount rails                     | Up to 24 drive trays populated with drives  |
    +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/                         | .. image:: images/                          |
+   | .. image:: images/tn_es24_serialcable.png  |                                             |
+   |    :width: 40%                             |                                             |
+   | Serial cable                               |                                             |
+   +--------------------------------------------+---------------------------------------------+
+   | .. image:: images/ab.png                   | .. image:: images/ab.png                    |
    |    :width: 80%                             |    :width: 40%                              |
    |                                            |                                             |
    | Accessory kit with 2 IEC C13 to NEMA 5-15P | Two 3-meter Mini SAS HD to Mini SAS HD      |
@@ -62,7 +66,7 @@ fault. The fault indicator is on during the initial power-on self-test
 
 
 .. _es24_indicators:
-.. figure:: images/
+.. figure:: images/ab.png
    :width: 1.75in
 
    Front Panel Indicators
@@ -70,7 +74,7 @@ fault. The fault indicator is on during the initial power-on self-test
 
 .. _es24_back:
 
-.. figure:: images/
+.. figure:: images/ab.png
 
    Back Panel
 
@@ -109,7 +113,7 @@ Mount the Rails
 Install a spring on the silver posts in the side of each rail.
 
 .. _es24_spring:
-.. figure:: images/
+.. figure:: images/ab.png
    :width: 50%
 
    Installing Rail Springs
@@ -125,7 +129,7 @@ the process for the second rail.
 
 .. _es24_rail_clamp:
 
-.. figure:: images/
+.. figure:: images/ab.png
    :width: 4.125in
 
    Rail Clamp Latch
@@ -165,7 +169,7 @@ clicks into place.
 
 
 .. _es24_drivetray_load:
-.. figure:: images/
+.. figure:: images/ab.png
 
    Installing Drive Trays
 
@@ -180,7 +184,7 @@ process for the second power supply and cord.
 
 
 .. _es24_power:
-.. figure:: images/
+.. figure:: images/ab.png
    :width: 1.5in
 
    Power Cord Connection
