@@ -1589,6 +1589,8 @@ clicking the :guilabel:`Delete` button at the bottom of the window. To
 disable an alert service temporarily, click :guilabel:`Edit` and
 remove the checkmark from the :guilabel:`Enabled` checkbox.
 
+.. note:: To send a test alert, highlight an alert entry, click
+   :guilabel:`Edit`, and click the :guilabel:`Send Test Alert` button.
 
 How it Works
 ~~~~~~~~~~~~

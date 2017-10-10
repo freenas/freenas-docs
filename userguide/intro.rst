@@ -96,6 +96,8 @@ New Features in |release|
   caches), *Uncompressed* (bytes of data stored in ARC caches before
   compression), and *Ratio* (ratio of uncompressed data to total ARC size).
 
+The following base applications have been updated:
+
 * The Dojo Tookit has been updated to version 1.12.2.
 
 * OpenVPN has been updated to version `2.4.3
@@ -112,6 +114,9 @@ The following screens have changed:
 * The :guilabel:`Enable Console Menu` in
   :menuselection:`System --> Advanced` has been renamed to
   :guilabel:`Show Text Console Without Password Prompt`.
+
+* The :guilabel:`Send Test Alert` button has been added to
+  :menuselection:`System --> Alert Services --> Edit`.
 
 * An :guilabel:`Enabled` checkbox has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts`.
