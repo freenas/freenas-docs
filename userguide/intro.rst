@@ -96,6 +96,9 @@ New Features in |release|
   caches), *Uncompressed* (bytes of data stored in ARC caches before
   compression), and *Ratio* (ratio of uncompressed data to total ARC size).
 
+* Several dozen DDNS providers have been added to
+  :menuselection:`Services --> DDNS`.
+
 The following base applications have been updated or added:
 
 * The Dojo Tookit has been updated to version 1.12.2.
@@ -135,6 +138,12 @@ The following screens have changed:
   :menuselection:`Network --> VLANs --> Add VLAN`. This can be useful in
   datacenter environments to classify storage traffic on a given VLAN
   interface using IEEE 802.1p Class of Service (COS).
+
+* The :guilabel:`CheckIP Server SSL`, :guilabel:`CheckIP Server`,
+  :guilabel:`CheckIP Path`, and :guilabel:`Use SSL` fields have been
+  added to :menuselection:`Services --> DDNS`. The
+  :guilabel:`Forced update period` and :guilabel:`Auxiliary parameters`
+  fields have been removed.
 
 * The :guilabel:`Log Level` drop-down menu has been added to
   :menuselection:`Services --> SNMP`. It defaults to the :guilabel:`Error`

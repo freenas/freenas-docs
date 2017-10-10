@@ -343,7 +343,16 @@ start the DDNS service in
    |                      |                | provider in the :guilabel:`Auxiliary parameters` field                                                             |
    |                      |                |                                                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | IP Server            | string         | can be used to specify the hostname and port of the IP check server                                                |
+   | CheckIP Server SSL   | string         | when checked,                                                                                                      |
+   |                      |                |                                                                                                                    |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | CheckIP Server       | string         | input the name and port of the update server in the format *server.name.org:port*                                  |
+   |                      |                |                                                                                                                    |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | CheckIP Path         | string         |                                                                                                                    |
+   |                      |                |                                                                                                                    |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | Use SSL              |                | when checked,                                                                                                      |
    |                      |                |                                                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
    | Domain name          | string         | fully qualified domain name (e.g. *yourname.dyndns.org*)                                                           |
@@ -357,18 +366,7 @@ start the DDNS service in
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
    | Update period        | integer        | how often the IP is checked in seconds                                                                             |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Forced update period | integer        | how often the IP should be updated, even it has not changed, in seconds                                            |
-   |                      |                |                                                                                                                    |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Auxiliary parameters | string         | additional parameters passed to the provider during record update; an example of specifying a custom provider is   |
-   |                      |                | *dyndns_system default@provider.com*                                                                               |
-   |                      |                |                                                                                                                    |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
 
-
-When using "freedns.afraid.org", see `this forum post
-<https://forums.freenas.org/index.php?threads/dynamic-dns-and-freeedns-afraid-org.24455/#post-151746>`_
-for an example configuration.
 
 When using "he.net", enter the domain name for
 :guilabel:`Username` and enter the DDNS key generated for that
