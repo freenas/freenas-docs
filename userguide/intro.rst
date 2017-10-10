@@ -133,6 +133,14 @@ The following screens have changed:
 * The :guilabel:`Send Test Alert` button has been added to
   :menuselection:`System --> Alert Services --> Edit`.
 
+* The :guilabel:`Subject Alternate Names` field has been added to
+  :menuselection:`System --> CAs --> Create Internal CA`,
+  :menuselection:`System --> CAs --> Create Intermediate CA`,
+  :menuselection:`System --> Certificates --> Create Internal Certificate`,
+  and
+  :menuselection:`System --> Certificates --> Create Certificate Signing Request`
+  screens.
+
 * An :guilabel:`Enabled` checkbox has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts`.
 
