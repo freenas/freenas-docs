@@ -91,6 +91,11 @@ New Features in |release|
   `features and drivers
   <https://www.freebsd.org/releases/11.1R/relnotes.html>`_.
 
+* Compressed ARC statistics have been added to :command:`top`. The
+  information gathered includes *Compressed* (bytes of memory used by ARC
+  caches), *Uncompressed* (bytes of data stored in ARC caches before
+  compression), and *Ratio* (ratio of uncompressed data to total ARC size).
+
 * The Dojo Tookit has been updated to version 1.12.2.
 
 * OpenVPN has been updated to version `2.4.3
