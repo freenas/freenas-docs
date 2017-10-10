@@ -1589,6 +1589,8 @@ clicking the :guilabel:`Delete` button at the bottom of the window. To
 disable an alert service temporarily, click :guilabel:`Edit` and
 remove the checkmark from the :guilabel:`Enabled` checkbox.
 
+.. note:: To send a test alert, highlight an alert entry, click
+   :guilabel:`Edit`, and click the :guilabel:`Send Test Alert` button.
 
 How it Works
 ~~~~~~~~~~~~
@@ -1716,41 +1718,45 @@ information for your organization.
 .. table:: Internal CA Options
    :class: longtable
 
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Setting              | Value                | Description                                                                                     |
-   |                      |                      |                                                                                                 |
-   +======================+======================+=================================================================================================+
-   | Identifier           | string               | required; enter a descriptive name for the CA using only alphanumeric,                          |
-   |                      |                      | underscore (:literal:`_`), and dash (:literal:`-`) characters                                   |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Key Length           | drop-down menu       | for security reasons, a minimum of *2048* is recommended                                        |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Digest Algorithm     | drop-down menu       | the default is acceptable unless your organization requires a different algorithm               |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Lifetime             | integer              | in days                                                                                         |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Country              | drop-down menu       | select the country for the organization                                                         |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | State                | string               | required; enter the state or province of the organization                                       |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Locality             | string               | required; enter the location of the organization                                                |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Organization         | string               | required; enter the name of the company or organization                                         |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Email Address        | string               | required; enter the email address for the person responsible for the CA                         |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Common Name          | string               | required; enter the fully-qualified hostname (FQDN) of the %brand% system                       |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Setting                 | Value                | Description                                                                                     |
+   |                         |                      |                                                                                                 |
+   +=========================+======================+=================================================================================================+
+   | Identifier              | string               | required; enter a descriptive name for the CA using only alphanumeric,                          |
+   |                         |                      | underscore (:literal:`_`), and dash (:literal:`-`) characters                                   |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Key Length              | drop-down menu       | for security reasons, a minimum of *2048* is recommended                                        |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Digest Algorithm        | drop-down menu       | the default is acceptable unless your organization requires a different algorithm               |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Lifetime                | integer              | in days                                                                                         |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Country                 | drop-down menu       | select the country for the organization                                                         |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | State                   | string               | required; enter the state or province of the organization                                       |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Locality                | string               | required; enter the location of the organization                                                |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Organization            | string               | required; enter the name of the company or organization                                         |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Email Address           | string               | required; enter the email address for the person responsible for the CA                         |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Common Name             | string               | required; enter the fully-qualified hostname (FQDN) of the %brand% system                       |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Subject Alternate Names | string               | newer browsers look for the values in this field to match the domain to the certificate; use a  |
+   |                         |                      | space to separate domain names                                                                  |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
 
 To instead create an intermediate CA which is part of a certificate
@@ -1889,45 +1895,48 @@ as the signing authority.
 .. table:: Certificate Creation Options
    :class: longtable
 
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Setting              | Value                | Description                                                                                     |
-   |                      |                      |                                                                                                 |
-   +======================+======================+=================================================================================================+
-   | Signing Certificate  | drop-down menu       | required; select the CA which was previously imported or created using :ref:`CAs`               |
-   | Authority            |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Identifier           | string               | required; enter a descriptive name for the certificate using only alphanumeric,                 |
-   |                      |                      | underscore (:literal:`_`), and dash (:literal:`-`) characters                                   |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Key Length           | drop-down menu       | for security reasons, a minimum of *2048* is recommended                                        |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Digest Algorithm     | drop-down menu       | the default is acceptable unless your organization requires a different algorithm               |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Lifetime             | integer              | in days                                                                                         |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Country              | drop-down menu       | select the country for the organization                                                         |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | State                | string               | required; enter the state or province for the organization                                      |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Locality             | string               | required; enter the location for the organization                                               |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Organization         | string               | required; enter the name of the company or organization                                         |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Email Address        | string               | required; enter the email address for the person responsible for the CA                         |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Common Name          | string               | required; enter the fully-qualified hostname (FQDN) of the %brand% system                       |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Setting                 | Value                | Description                                                                                     |
+   |                         |                      |                                                                                                 |
+   +=========================+======================+=================================================================================================+
+   | Signing Certificate     | drop-down menu       | required; select the CA which was previously imported or created using :ref:`CAs`               |
+   | Authority               |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Identifier              | string               | required; enter a descriptive name for the certificate using only alphanumeric,                 |
+   |                         |                      | underscore (:literal:`_`), and dash (:literal:`-`) characters                                   |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Key Length              | drop-down menu       | for security reasons, a minimum of *2048* is recommended                                        |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Digest Algorithm        | drop-down menu       | the default is acceptable unless your organization requires a different algorithm               |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Lifetime                | integer              | in days                                                                                         |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Country                 | drop-down menu       | select the country for the organization                                                         |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | State                   | string               | required; enter the state or province for the organization                                      |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Locality                | string               | required; enter the location for the organization                                               |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Organization            | string               | required; enter the name of the company or organization                                         |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Email Address           | string               | required; enter the email address for the person responsible for the CA                         |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Common Name             | string               | required; enter the fully-qualified hostname (FQDN) of the %brand% system                       |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   | Subject Alternate Names | string               | newer browsers look for the values in this field to match the domain to the certificate; use a  |
+   |                         |                      | space to separate domain names                                                                  |
+   |                         |                      |                                                                                                 |
+   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
 If you need to use a certificate that is signed by an external CA,
 such as Verisign, instead create a certificate signing request. To do

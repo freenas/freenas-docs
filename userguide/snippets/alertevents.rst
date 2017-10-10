@@ -46,7 +46,8 @@ a :ref:`High Availability (HA) <Failover>` system.
 
 Some of the conditions that trigger an alert include:
 
-* used space on a volume goes over 80%
+* used space on a volume, dataset, or zvol goes over 80%; the alert will
+  go red at 95%
 
 * new OpenZFS feature flags are available for the pool; this alert can
   be unchecked if you choose not to upgrade the pool at this time

@@ -89,24 +89,57 @@ New Features in |release|
 * The base operating system has been updated to FreeBSD 11.1-STABLE.
   This brings in many new
   `features and drivers
-  <https://www.freebsd.org/releases/11.1R/relnotes.html>`_.
+  <https://www.freebsd.org/releases/11.1R/relnotes.html>`__.
+
+* Mirrored swap means a failed disk won’t crash running applications
+  due to swap.
+
+* Compressed ARC statistics have been added to :command:`top`. The
+  information gathered includes *Compressed* (bytes of memory used by ARC
+  caches), *Uncompressed* (bytes of data stored in ARC caches before
+  compression), and *Ratio* (ratio of uncompressed data to total ARC size).
+
+* The hardware watchdog has been reenabled for recent firmware versions
+  of AsrockRack C2750D4I. The BMC bug which required watchdog to be
+  disabled is resolved with the 00.30.00 or newer BMC firmware version.
+
+* Several dozen DDNS providers have been added to
+  :menuselection:`Services --> DDNS`.
+
+The following base applications have been updated or added:
 
 * The Dojo Tookit has been updated to version 1.12.2.
 
 * OpenVPN has been updated to version `2.4.3
-  <https://github.com/OpenVPN/openvpn/blob/release/2.4/Changes.rst#version-243>`_.
+  <https://github.com/OpenVPN/openvpn/blob/release/2.4/Changes.rst#version-243>`__.
 
-* `Iperf version 3.2 
-  <http://software.es.net/iperf/>`_ has been added. To use this version,
+* `Iperf version 3.2
+  <http://software.es.net/iperf/>`__ has been added. To use this version,
   specify :command:`iperf3` instead of :command:`iperf`.
 
 * Iocage has been updated to version 0.9.9.2.
+
+* `mmv <https://packages.debian.org/unstable/utils/mmv>`__
+  has been added. It can be used from the command line to safely move or
+  copy multiple files using patterns, without any unexpected deletion of
+  files due to target name collisions.
 
 The following screens have changed:
 
 * The :guilabel:`Enable Console Menu` in
   :menuselection:`System --> Advanced` has been renamed to
   :guilabel:`Show Text Console Without Password Prompt`.
+
+* The :guilabel:`Send Test Alert` button has been added to
+  :menuselection:`System --> Alert Services --> Edit`.
+
+* The :guilabel:`Subject Alternate Names` field has been added to
+  :menuselection:`System --> CAs --> Create Internal CA`,
+  :menuselection:`System --> CAs --> Create Intermediate CA`,
+  :menuselection:`System --> Certificates --> Create Internal Certificate`,
+  and
+  :menuselection:`System --> Certificates --> Create Certificate Signing Request`
+  screens.
 
 * An :guilabel:`Enabled` checkbox has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts`.
@@ -120,6 +153,15 @@ The following screens have changed:
   :menuselection:`Network --> VLANs --> Add VLAN`. This can be useful in
   datacenter environments to classify storage traffic on a given VLAN
   interface using IEEE 802.1p Class of Service (COS).
+
+* The :guilabel:`Read-Only` drop-down menu has been added to
+  :menuselection:`Storage --> Datasets --> Add Dataset --> Advanced Mode`.
+
+* The :guilabel:`CheckIP Server SSL`, :guilabel:`CheckIP Server`,
+  :guilabel:`CheckIP Path`, and :guilabel:`Use SSL` fields have been
+  added to :menuselection:`Services --> DDNS`. The
+  :guilabel:`Forced update period` and :guilabel:`Auxiliary parameters`
+  fields have been removed.
 
 * The :guilabel:`Log Level` drop-down menu has been added to
   :menuselection:`Services --> SNMP`. It defaults to the :guilabel:`Error`

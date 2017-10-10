@@ -623,11 +623,6 @@ clicking its :guilabel:`Edit Options` button in
    |                          |                     | *Mac* for an AFP share                                                                                    |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Case Sensitivity         | drop-down menu      | choices are *sensitive* (default, assumes filenames are case sensitive),                                  |
-   |                          |                     | *insensitive* (assumes filenames are not case sensitive), or                                              |
-   |                          |                     | *mixed* (understands both types of filenames)                                                             |
-   |                          |                     |                                                                                                           |
-   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    | Enable atime             | Inherit, On, or Off | controls whether the access time for files is updated when they are read; setting this property to *Off*  |
    |                          |                     | avoids producing log traffic when reading files and can result in significant performance gains           |
    |                          |                     |                                                                                                           |
@@ -659,11 +654,18 @@ clicking its :guilabel:`Edit Options` button in
    |                          |                     |                                                                                                           |
    #endif truenas
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+   | Read-Only                | drop-down menu      | only available in :guilabel:`Advanced Mode`; choices are *Inherit (off)*, *On*, or *Off*                  |
+   |                          |                     |                                                                                                           |
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    | Record Size              | drop-down menu      | only available in :guilabel:`Advanced Mode`; while ZFS automatically adapts the record                    |
    |                          |                     | size dynamically to adapt to data, if the data has a fixed size (e.g. a database), matching               |
    |                          |                     | that size may result in better performance                                                                |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-
+   | Case Sensitivity         | drop-down menu      | choices are *sensitive* (default, assumes filenames are case sensitive),                                  |
+   |                          |                     | *insensitive* (assumes filenames are not case sensitive), or                                              |
+   |                          |                     | *mixed* (understands both types of filenames)                                                             |
+   |                          |                     |                                                                                                           |
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
 
 After a dataset is created, you can click on that dataset and select
 :guilabel:`Create Dataset`, thus creating a nested dataset, or a
