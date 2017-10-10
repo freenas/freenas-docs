@@ -91,6 +91,9 @@ New Features in |release|
   `features and drivers
   <https://www.freebsd.org/releases/11.1R/relnotes.html>`__.
 
+* Mirrored swap means a failed disk won’t crash running applications
+  due to swap.
+
 * Compressed ARC statistics have been added to :command:`top`. The
   information gathered includes *Compressed* (bytes of memory used by ARC
   caches), *Uncompressed* (bytes of data stored in ARC caches before
