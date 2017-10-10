@@ -99,6 +99,10 @@ New Features in |release|
   caches), *Uncompressed* (bytes of data stored in ARC caches before
   compression), and *Ratio* (ratio of uncompressed data to total ARC size).
 
+* The hardware watchdog has been reenabled for recent firmware versions
+  of AsrockRack C2750D4I. The BMC bug which required watchdog to be
+  disabled is resolved with the 00.30.00 or newer BMC firmware version.
+
 * Several dozen DDNS providers have been added to
   :menuselection:`Services --> DDNS`.
 
