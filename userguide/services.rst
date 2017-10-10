@@ -2202,7 +2202,7 @@ summarizes the available options.
    |                           |                | certificate, use :menuselection:`System --> Certificates`                                             |
    |                           |                |                                                                                                       |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | HTTP Authentication       | drop-down menu | choices are *Basic Authentication* (unencrypted) or                                                   |
+   | HTTP Authentication       | drop-down menu | choices are *No Authentication*, *Basic Authentication* (unencrypted), or                             |
    |                           |                | *Digest Authentication* (encrypted)                                                                   |
    |                           |                |                                                                                                       |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+

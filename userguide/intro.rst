@@ -129,6 +129,10 @@ The following screens have changed:
   :menuselection:`Services --> UPS`. This can be used to configure the
   frequency of email notifications during the loss of UPS communications.
 
+* The :guilabel:`No Authentication` choice has been added to the
+  :menuselection:`Services --> WebDAV --> HTTP Authentication`
+  drop-down menu.
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
