@@ -37,7 +37,7 @@ Carefully unpack the shipping boxes and locate these components:
    | of the rails must be installed facing the  | to maintain proper airflow for cooling.     |
    | front of the rack.                         |                                             |
    +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_x10es12_acckit.png    | .. image:: images/tn_es12_sascables.png     |
+   | .. image:: images/tn_x10es12_acckit.png    | .. image:: images/tn_sascables_minihd.png   |
    |    :width: 80%                             |    :width: 40%                              |
    |                                            |                                             |
    | Accessory kit with 2 IEC C13 to NEMA 5-15P | Two 3-meter Mini SAS HD to Mini SAS HD      |

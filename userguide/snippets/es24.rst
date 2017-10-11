@@ -38,12 +38,11 @@ Carefully unpack the shipping boxes and locate these components:
    |    :width: 40%                             |                                             |
    | Serial cable                               |                                             |
    +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/ab.png                   | .. image:: images/ab.png                    |
-   |    :width: 80%                             |    :width: 40%                              |
+   | .. image:: images/tn_power_cable.png       | .. image:: images/tn_sascables_minihd.png   |
+   |    :width: 40%                             |    :width: 40%                              |
    |                                            |                                             |
-   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Two 3-meter Mini SAS HD to Mini SAS HD      |
-   | power cords, 2 IEC C14 to C14 cords, and a | cables                                      |
-   | set of velcro cable ties                   |                                             |
+   | Two 2 IEC C13 to NEMA 5-15P power cords    | Two 3-meter Mini SAS HD to Mini SAS HD      |
+   |                                            | cables                                      |
    +--------------------------------------------+---------------------------------------------+
 
 
@@ -53,10 +52,10 @@ Carefully unpack the shipping boxes and locate these components:
 
 
 .. index:: Become Familiar with the ES24
-.. _ES24 Become Familiar with the System:
+.. _Become Familiar with the ES24:
 
-Become Familiar With the System
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Become Familiar With the ES24
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ES24 has front panel indicators for power, locate ID, and
 fault. The fault indicator is on during the initial power-on self-test
@@ -66,7 +65,7 @@ fault. The fault indicator is on during the initial power-on self-test
 
 
 .. _es24_indicators:
-.. figure:: images/ab.png
+.. figure:: images/tn_es24_indicators.png
    :width: 1.75in
 
    Front Panel Indicators
