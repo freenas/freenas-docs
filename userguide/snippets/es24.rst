@@ -34,15 +34,17 @@ Carefully unpack the shipping boxes and locate these components:
    |                                            |                                             |
    | Set of rackmount rails                     | Up to 24 drive trays populated with drives  |
    +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es24_serialcable.png  |                                             |
-   |    :width: 40%                             |                                             |
-   | Serial cable                               |                                             |
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_power_cable.png       | .. image:: images/tn_sascables_minihd.png   |
+   | .. image:: images/tn_es24_serialcable.png  | .. image:: images/tn_sascables_minihd.png   |
    |    :width: 40%                             |    :width: 40%                              |
    |                                            |                                             |
-   | Two 2 IEC C13 to NEMA 5-15P power cords    | Two 3-meter Mini SAS HD to Mini SAS HD      |
+   | Serial cable                               | Two 3-meter Mini SAS HD to Mini SAS HD      |
    |                                            | cables                                      |
+   +--------------------------------------------+---------------------------------------------+
+   | .. image:: images/tn_power_cable.png       |                                             |
+   |    :width: 40%                             |                                             |
+   |                                            |                                             |
+   | Two 2 IEC C13 to NEMA 5-15P power cords    |                                             |
+   |                                            |                                             |
    +--------------------------------------------+---------------------------------------------+
 
 
@@ -57,9 +59,10 @@ Carefully unpack the shipping boxes and locate these components:
 Become Familiar With the ES24
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ES24 has front panel indicators for power, locate ID, and
-fault. The fault indicator is on during the initial power-on self-test
-(POST) or when the %brand% software has issued an
+The ES24 has front panel buttons for power and alarm mute, and
+indicators for power, locate ID, and fault. The fault indicator is on
+during the initial power-on self-test (POST) or when the %brand%
+software has issued an
 `alert
 <https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
 
@@ -73,13 +76,13 @@ fault. The fault indicator is on during the initial power-on self-test
 
 .. _es24_back:
 
-.. figure:: images/ab.png
+.. figure:: images/tn_es24_back.png
 
    Back Panel
 
 
-The ES24 contains two expander modules in a side-by-side
-configuration. The connectors and features on each module are:
+The ES24 contains two expander modules in an over/under configuration.
+The connectors and features on each module are:
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
 
@@ -87,11 +90,15 @@ configuration. The connectors and features on each module are:
    :class: longtable
 
    +-----------------------------------------------------+
-   | 1-3: HD Mini SAS3 connectors (T1-T3)                |
+   | 1-2: Redundant power supplies                       |
    +-----------------------------------------------------+
-   | 4: Debug port (%brand% internal use only)           |
+   | 3-4: Fans                                           |
    +-----------------------------------------------------+
-   | 5: Redundant power supplies                         |
+   | 5-7: HD Mini SAS3 connectors                        |
+   +-----------------------------------------------------+
+   | 8: Serial port                                      |
+   +-----------------------------------------------------+
+   | 9: Network management port (Expander Module 1 only  |
    +-----------------------------------------------------+
 
 
