@@ -101,7 +101,7 @@ if tags.has('bsg-es24'):
     tags.remove('freenas')
     project = brand + six.u(' ES24 Expansion Shelf Basic Setup Guide')
     master_doc = 'bsg-es24'
-    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_es24_front.png}'
+    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_es24_front.png}'
 
 if tags.has('bsg-es60'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
@@ -447,6 +447,12 @@ if tags.has('bsg-x10'):
 if tags.has('bsg-es12'):
     latex_documents = [
       ('bsg-es12', 'BSG-ES12.tex', texproject, 'iXsystems', 'howto'),
+    ]
+    latex_elements.update({'printindex': ''})
+
+if tags.has('bsg-es24'):
+    latex_documents = [
+      ('bsg-es24', 'BSG-ES24.tex', texproject, 'iXsystems', 'howto'),
     ]
     latex_elements.update({'printindex': ''})
 

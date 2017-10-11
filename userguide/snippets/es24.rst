@@ -26,6 +26,7 @@ Carefully unpack the shipping boxes and locate these components:
 
    +--------------------------------------------+---------------------------------------------+
    | .. image:: images/tn_es24_bare.png         | .. image:: images/tn_es24_bezel.png         |
+   |                                            |    :width: 10%                              |
    |                                            |                                             |
    | ES24 Expansion Shelf                       | ES24 Bezel                                  |
    +--------------------------------------------+---------------------------------------------+
@@ -116,29 +117,12 @@ Rail Kit Assembly
 Mount the Rails
 ^^^^^^^^^^^^^^^
 
-Install a spring on the silver posts in the side of each rail.
-
-.. _es24_spring:
-.. figure:: images/ab.png
-   :width: 50%
-
-   Installing Rail Springs
-
-
 Open the clamp latches on the ends of each rail. Place the rail in the
 rack with the front end toward the front of the rack, aligning the
 pins on both ends of the rail with the mounting holes in the rack.
 Swing the clamp latch closed to hold the rail in place. Use two of the
 supplied screws to secure the back end of the rail in place. Repeat
 the process for the second rail.
-
-
-.. _es24_rail_clamp:
-
-.. figure:: images/ab.png
-   :width: 4.125in
-
-   Rail Clamp Latch
 
 
 Mount the Unit in the Rack
@@ -174,12 +158,6 @@ edge of the chassis, then gently swing the latch closed until it
 clicks into place.
 
 
-.. _es24_drivetray_load:
-.. figure:: images/ab.png
-
-   Installing Drive Trays
-
-
 Connect Power Cords
 ~~~~~~~~~~~~~~~~~~~
 
@@ -187,13 +165,6 @@ Connect Power Cords
 power cord to the back of one power supply, pressing it into the
 plastic clamp and pressing on the tab to lock it in place. Repeat the
 process for the second power supply and cord.
-
-
-.. _es24_power:
-.. figure:: images/ab.png
-   :width: 1.5in
-
-   Power Cord Connection
 
 
 .. raw:: latex
@@ -219,13 +190,14 @@ If the X10 has a second node for HA (High Availability), plug one end
 of the second SAS cable into the T1 connector of the ES24's expander
 module 2. Plug the other end into the SAS 1 connector on the X10's
 node 2. See cable #2 in
+#ifdef comment
 :numref:`Figure %s <es24_sasconnect1>`.
 
 .. _es24_sasconnect1:
 .. figure:: images/tn_es24_sasconnect1.png
 
    SAS Cable Connection for One ES24
-
+#endif comment
 
 .. raw:: latex
 
@@ -236,12 +208,15 @@ A second ES24 can also be connected to the X10. After connecting the
 first ES24 as shown above, plug one end of an SAS cable into the
 T1 connector on the second ES24's expander module 1. Plug the other
 end into the SAS 2 connector on the X10's node 1. See cable #3 in
+#ifdef comment
 :numref:`Figure %s <es24_sasconnect2>`.
+#endif comment
 
 If the X10 has a second node for HA (High Availability), plug one end
 of an SAS cable into the T1 connector of the second ES24's expander
 module 2. Plug the other end into the X10's node 2, SAS 2 connector.
 See cable #4 in
+#ifdef comment
 :numref:`Figure %s <es24_sasconnect2>`.
 
 
@@ -249,7 +224,7 @@ See cable #4 in
 .. figure:: images/tn_es24_sasconnect2.png
 
    SAS Cable Connection for Two ES24s
-
+#endif comment
 
 After all SAS cables have been connected, plug the X10 power cords
 into power outlets.
