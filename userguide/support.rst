@@ -19,8 +19,6 @@ available to %brand% users:
 
 * :ref:`IRC`
 
-* :ref:`Mailing Lists`
-
 * :ref:`Videos`
 
 * :ref:`Professional Support`
@@ -280,61 +278,6 @@ To get the most out of the IRC channel, keep these points in mind:
   probably kick you out. Instead, use a pasting service such as
   `pastebin <http://www.pastebin.com/>`_
   and paste the resulting URL into the IRC discussion.
-
-
-.. index:: Mailing Lists
-.. _Mailing Lists:
-
-Mailing Lists
--------------
-
-Several %brand% mailing lists are available which allow users and
-developers to ask and answer questions related to the topic of the
-mailing list. To post an email to a list, you will need to subscribe
-to it first. Each mailing list is archived, allowing you to browse for
-information by date, thread name, or author.
-
-These mailing lists are available:
-
-* `Freenas-announce
-  <http://lists.freenas.org/mailman/listinfo/freenas-announce>`_:
-  this is a low-volume, read-only list where major milestones, such as
-  new releases, are announced.
-
-* `Freenas-commit
-  <http://lists.freenas.org/mailman/listinfo/freenas-commit>`_:
-  this is a read-only list. As code changes in the FreeNAS\ :sup:`®`
-  repository, the commit message is automatically sent to this list.
-
-* `Freenas-devel
-  <http://lists.freenas.org/mailman/listinfo/freenas-devel>`_:
-  FreeNAS\ :sup:`®` developers are subscribed to this list. Technical
-  questions about the current FreeNAS\ :sup:`®` release can be posted
-  here.
-
-* `Freenas-docs
-  <http://lists.freenas.org/mailman/listinfo/freenas-docs>`_:
-  this list is for discussion regarding
-  `FreeNAS®` documentation <http://doc.freenas.org/>`_.
-
-* `Freenas-testing
-  <http://lists.freenas.org/mailman/listinfo/freenas-testing>`_:
-  FreeNAS\ :sup:`®` developers are subscribed to this list. Technical
-  questions about the upcoming FreeNAS\ :sup:`®` release and feedback
-  on testing snapshots can be posted here.
-
-* `Freenas-translations
-  <http://lists.freenas.org/mailman/listinfo/freenas-translations>`_:
-  this list is for discussion regarding
-  `FreeNAS®` localization <http://pootle.freenas.org/>`_
-  and translating FreeNAS\ :sup:`®` documentation.
-
-.. note:: The mailing lists were migrated from SourceForge to Mailman
-   in December, 2013. Archives of the SourceForge mailing lists are
-   available at
-   `Gmane
-   <http://dir.gmane.org/index.php?prefix=gmane.os.freenas>`_.
-
 
 .. _Videos:
 
