@@ -27,10 +27,8 @@ The System section of the administrative GUI contains these entries:
 * :ref:`Update` performs upgrades and checks for system
   updates
 
-#ifdef truenas
 * :ref:`Cloud Credentials` is used to enter connection credentials for
   remote cloud service providers
-#endif truenas
 
 * :ref:`Alert Services` configures services used to notify the
   administrator about system events.
@@ -1459,6 +1457,7 @@ Select an entry with a date prior to the update, then press
 the update was applied.
 
 #include snippets/upgradingazfspool.rst
+#endif truenas
 
 
 .. index:: Cloud Credentials
@@ -1469,7 +1468,10 @@ Cloud Credentials
 
 %brand% can use cloud services for features like :ref:`Cloud Sync`.
 The credentials to provide secure connections with cloud services
-are entered here. Select
+are entered here. Supported services are Amazon S3, Backblaze B2, and
+Google Cloud Storage.
+
+Select
 :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
 to display the dialog shown in
 :numref:`Figure %s <cloud_cred_fig>`.
@@ -1481,8 +1483,9 @@ to display the dialog shown in
 
    Adding Cloud Credentials
 
-
-The options are shown in
+Enter a descriptive name for the cloud credential in the
+:guilabel`Account Name` field and select a provider. This will activate
+the remaining options, which vary by provider, and are shown in
 :numref:`Table %s <cloud_cred_tab>`.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -1495,20 +1498,23 @@ The options are shown in
    :class: longtable
 
    +----------------------+----------------------+------------------------------------------------------------------------------------------+
-   | Setting              | Value                | Description                                                                              |
+   | Provider             | Setting              | Description                                                                              |
    |                      |                      |                                                                                          |
    +======================+======================+==========================================================================================+
-   | Account Name         | string               | required; enter a descriptive name for the cloud credential                              |
+   | Amazon S3            | Access Key           | paste the Amazon account access key                                                      |
    |                      |                      |                                                                                          |
    +----------------------+----------------------+------------------------------------------------------------------------------------------+
-   | Provider             | drop-down menu       | required; select a cloud service provider                                                |
+   | Amazon S3            | Secret Key           | paste the Amazon account secret key                                                      |
    |                      |                      |                                                                                          |
    +----------------------+----------------------+------------------------------------------------------------------------------------------+
-   | Access Key           | string               | shown when Amazon S3 is the :guilabel:`Provider`; paste the Amazon account Access Key    |
+   | Backblaze B2         | Account ID           | input the ID associated with the Backblaze account                                       |
    |                      |                      |                                                                                          |
    +----------------------+----------------------+------------------------------------------------------------------------------------------+
-   | Private Key          | string               | shown when Amazon S3 is the :guilabel:`Provider`; paste the Amazon account Secret Key    |
+   | Backblaze B2         | Application Key      | paste the application key                                                                |
    |                      |                      |                                                                                          |
+   +----------------------+----------------------+------------------------------------------------------------------------------------------+
+   | Google Cloud Storage | JSON Server Account  | browse to the location of the saved key                                                  |
+   |                      | Key                  |                                                                                          |
    +----------------------+----------------------+------------------------------------------------------------------------------------------+
 
 
@@ -1522,8 +1528,6 @@ Copy the Access Key value to the %brand% Cloud Credential
 :guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
 value saved when the key pair was created. If the Secret Key value is
 not known, a new key pair can be created on the same Amazon screen.
-#endif truenas
-
 
 .. index:: Alert Services
 .. _Alert Services:

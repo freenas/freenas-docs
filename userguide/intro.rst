@@ -106,6 +106,16 @@ New Features in |release|
 * Several dozen DDNS providers have been added to
   :menuselection:`Services --> DDNS`.
 
+The following major features have been added:
+
+* :ref:`Cloud Credentials` has been added to :ref:`System`. This can be
+  used to provide a secure connection to a cloud services providers.
+  Supported services include Amazon S3, Backblaze B2, and Google Cloud
+  Storage.
+
+* :ref:`Cloud Sync` has been added to :ref:`Tasks` and can be used to
+  synchronize files or directories to remote cloud storage providers.
+
 The following base applications have been updated or added:
 
 * The Dojo Tookit has been updated to version 1.12.2.

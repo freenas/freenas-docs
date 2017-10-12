@@ -7,9 +7,7 @@ Tasks
 The Tasks section of the administrative GUI is used to configure
 repetitive tasks:
 
-#ifdef truenas
 * :ref:`Cloud Sync` schedules data synchronization to cloud providers
-#endif truenas
 
 * :ref:`Cron Jobs` schedules a command or script to automatically
   execute at a specified time
@@ -28,7 +26,6 @@ Each of these tasks is described in more detail in this section.
    :ref:`Periodic Snapshot Tasks` must be set up manually.
 
 
-#ifdef truenas
 .. index:: Cloud Sync
 .. _Cloud Sync:
 
@@ -221,8 +218,6 @@ The completed dialog is shown in
 
    Example: Adding a Cloud Sync
 
-
-#endif truenas
 
 .. index:: Cron Jobs
 .. _Cron Jobs:
