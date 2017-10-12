@@ -302,7 +302,7 @@ some typical examples:
 Set the serial terminal program to use the appopriate port with these
 parameters:
 
-*38400 baud, 8 data bits, no stop bits, no parity, no flow control*
+*38400 baud, 8 data bits, 1 stop bit, no parity, no flow control*
 
 
 Log in to the serial console with:
@@ -426,7 +426,7 @@ desktop computer running serial terminal software. See
 :ref:`x_Out-of-Band Serial Terminal Communication Settings` for the
 serial device name. Set the terminal software to:
 
-*115200 baud, 8 data bits, no stop bits, no parity, no flow control*
+*115200 baud, 8 data bits, 1 stop bit, no parity, no flow control*
 
 
 Wait two minutes after the X series has been connected to power, then
