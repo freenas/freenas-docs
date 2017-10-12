@@ -1,20 +1,20 @@
 #include snippets/copyright.rst
 
-.. index:: X10 Unified Storage Array
+.. index:: X Series Unified Storage Array
 
-.. _X10 Unified Storage Array:
+.. _X Series Unified Storage Array:
 
-X10 Unified Storage Array
--------------------------
+X Series Unified Storage Array
+------------------------------
 
-The %brand% X10 Unified Storage Array is a 2U, 12-bay, hybrid unified
-data storage array.
+The %brand% X Series Unified Storage Array is a 2U, 12-bay, hybrid
+unified data storage array.
 
 
 #include snippets/perfect.rst
 
 
-.. index:: X10 Unified Storage Array Contents
+.. index:: X Series Unified Storage Array Contents
 
 Carefully unpack the shipping boxes and locate these components:
 
@@ -25,11 +25,11 @@ Carefully unpack the shipping boxes and locate these components:
    :class: longtable
 
    +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_x10es12.png           | .. image:: images/tn_x10_bezel.png          |
+   | .. image:: images/tn_x.png                 | .. image:: images/tn_x_bezel.png            |
    |                                            |                                             |
-   | X10 Unified Storage Array                  | X10 Bezel                                   |
+   | X Series Unified Storage Array             | X Series Bezel                              |
    +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_x10es12_rails.png     | .. image:: images/tn_x10es12_drivetrays.png |
+   | .. image:: images/tn_x_rails.png           | .. image:: images/tn_x_drivetrays.png       |
    |                                            |                                             |
    | Set of rackmount rails. The rails have a   | A total of 12 populated or filler drive     |
    | specific front end, identified by a label  | trays. Trays must be installed in all bays  |
@@ -37,7 +37,7 @@ Carefully unpack the shipping boxes and locate these components:
    | of the rails must be installed facing the  |                                             |
    | front of the rack.                         |                                             |
    +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_x10es12_acckit.png    | .. image:: images/tn_x10_serialcable.png    |
+   | .. image:: images/tn_x_acckit.png          | .. image:: images/tn_x_serialcable.png      |
    |    :width: 80%                             |    :width: 30%                              |
    |                                            |                                             |
    | Accessory kit with 2 IEC C13 to NEMA 5-15P | Black USB to 3.5mm serial cable (shipped    |
@@ -50,36 +50,36 @@ Carefully unpack the shipping boxes and locate these components:
    \newpage
 
 
-.. index:: Become Familiar with the System
-.. _Become Familiar with the System:
+.. index:: Become Familiar with the X Series System
+.. _Become Familiar with the X Series System:
 
-Become Familiar With the System
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Become Familiar With the X Series System
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The X10 has front panel indicators for power, locate ID, and fault.
-The fault indicator is on during the initial power-on self-test (POST)
-or when the %brand% software has issued an
+The X Series has front panel indicators for power, locate ID, and
+fault. The fault indicator is on during the initial power-on self-test
+(POST) or when the %brand% software has issued an
 `alert
 <https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
 
 
-.. _x10_indicators:
+.. _x_indicators:
 
-.. figure:: images/tn_x10es12_indicators.png
+.. figure:: images/tn_x_indicators.png
    :width: 1.75in
 
    Front Panel Indicators
 
 
-.. _x10_back:
+.. _x_back:
 
-.. figure:: images/tn_x10_back.png
+.. figure:: images/tn_x_back.png
 
    Back Panel
 
 
-The X10 contains one or two nodes in a side-by-side configuration. The
-connectors and features on each node are:
+The X Series contains one or two nodes in a side-by-side
+configuration. The connectors and features on each node are:
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
@@ -103,27 +103,33 @@ connectors and features on each node are:
    +-------------------------------------------------+-------------------------------------------------+
 
 
-.. index:: Rail Kit Assembly
+.. index:: X Series Rail Kit Assembly
 
-Rail Kit Assembly
-~~~~~~~~~~~~~~~~~
+X Series Rail Kit Assembly
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 Mount the Rails
 ^^^^^^^^^^^^^^^
 
-Install a spring on the silver posts in the side of each rail. Open
-the clamp latches on the ends of each rail. Place the rail in the rack
-with the front end toward the front of the rack, aligning the pins on
-both ends of the rail with the mounting holes in the rack. Swing the
-clamp latch closed to hold the rail in place. Use two of the supplied
-screws to secure the back end of the rail in place. Repeat the process
-for the second rail.
+Install a spring on the silver posts in the side of each rail.
 
 
-.. _x10_rail_clamp:
+.. _x_spring:
+.. figure:: images/tn_x_spring.png
+   :width: 50%
 
-.. figure:: images/tn_x10es12_railclamp.png
+Open the clamp latches on the ends of each rail. Place the rail in the
+rack with the front end toward the front of the rack, aligning the
+pins on both ends of the rail with the mounting holes in the rack.
+Swing the clamp latch closed to hold the rail in place. Use two of the
+supplied screws to secure the back end of the rail in place. Repeat
+the process for the second rail.
+
+
+.. _x_rail_clamp:
+
+.. figure:: images/tn_x_railclamp.png
    :width: 4.125in
 
    Rail Clamp Latch
@@ -137,9 +143,9 @@ installation or removal.** Do not install drives until after the
 chassis has been installed in the rack, and remove all drives before
 removing the chassis from the rack.
 
-Snap the black bezel mounting ears onto the metal X10 chassis ears.
-Carefully place the X10 chassis onto the rails mounted in the rack.
-Push the X10 chassis in until the ears are flush with the front of the
+Snap the black bezel mounting ears onto the metal X series chassis
+ears. Carefully place the chassis onto the rails mounted in the rack.
+Push the chassis in until the ears are flush with the front of the
 rack.  Use two of the supplied screws to secure each ear to the rack.
 
 
@@ -155,9 +161,9 @@ a drive bay until the left side of the latch touches the metal front
 edge of the chassis, then gently swing the latch closed until it
 clicks into place.
 
-.. _x10_drivetray_load:
+.. _x_drivetray_load:
 
-.. figure:: images/tn_x10es12_driveload.png
+.. figure:: images/tn_x_driveload.png
 
    Installing Drive Trays
 
@@ -177,32 +183,35 @@ Please contact :ref:`iX Support <Contacting iXsystems>` with any
 questions.
 
 Connect network cables to the Ethernet ports and Out-of-Band (OOB)
-management port before attempting to power on and configure the X10
-for the the first time. **The Out-of-Band (OOB) management port on the
-X10 must be connected to a shielded Ethernet cable.**
+management port before attempting to power on and configure the
+X series for the the first time.
+**The Out-of-Band (OOB) management port on the X series must be
+connected to a shielded Ethernet cable.**
 
 
 Connect Power Cords
 ~~~~~~~~~~~~~~~~~~~
 
-If any %brand% expansion shelves are connected to the X10 array, power
-them on first, then wait at least two minutes before connecting power
-cables to the X10 array.  **Do not plug the power cords into a power
-outlet yet.** Connect a power cord to the back of one power supply,
-pressing it into the plastic clamp and pressing on the tab to lock it
-in place. Repeat the process for the second power supply and cord.
+If any %brand% expansion shelves are connected to the X series array,
+power them on first, then wait at least two minutes before connecting
+power cables to the X series array.
+**Do not plug the power cords into a power outlet yet.**
+Connect a power cord to the back of one power supply, pressing it into
+the plastic clamp and pressing on the tab to lock it in place. Repeat
+the process for the second power supply and cord.
 
-.. _x10_power:
-.. figure:: images/tn_x10es12_powerclip.png
+.. _x_power:
+.. figure:: images/tn_x_powerclip.png
    :width: 1.5in
 
    Power Cord Connection
 
 
-After both power cords have been connected to the X10, they can be
-plugged into power outlets. The X10 is configured to automatically
-power on when connected to a power outlet. This design ensures that
-the X10 comes back on when power is restored after a power failure.
+After both power cords have been connected to the X series, they can
+be plugged into power outlets. The system is configured to
+automatically power on when connected to a power outlet. This design
+ensures that the X series comes back on when power is restored after a
+power failure.
 
 
 Install Bezel (Optional)
@@ -216,8 +225,8 @@ it into place.
 Discover Out-of-Band Management IP Address
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-There are a variety of ways to determine the IP address that is being
-used by the X10 Out-of-Band management interface.
+Several methods are available to determine the IP address that is
+being used by the X series Out-of-Band management interface.
 
 
 Preset
@@ -241,14 +250,15 @@ DHCP
 If the Out-of-Band management IP address has been configured to be
 assigned by DHCP, the IP address assigned by the DHCP server can be
 determined by checking the local DHCP server logs for the MAC
-addresses on the back panel of each X10 node, #11 on
-:numref:`Figure %s <x10_back>`.
+addresses on the back panel of each X series node, #11 on
+:numref:`Figure %s <x_back>`.
 
 The local DHCP server can also be configured to provide a fixed IP
-address for the X10 Out-of-Band management by using the MAC address.
+address for the X series Out-of-Band management by using the MAC
+address.
 
 
-.. _X10_Serial_Cable:
+.. _x_Serial_Cable:
 
 Serial Cable
 ^^^^^^^^^^^^
@@ -256,18 +266,19 @@ Serial Cable
 The Out-of-Band management IP address can be identified or changed by
 temporarily connecting the black USB serial cable to the
 Out-of-Band serial port, #5 on
-:numref:`Figure %s <x10_back>`.
+:numref:`Figure %s <x_back>`.
 Connect the USB end of the black cable to a laptop or desktop
 computer running serial terminal software.
 
 
 Do not use the serial port for any purpose except checking the initial
-X10 Out-of-Band management IP address or setting that address to be
-obtained by a different method.
-**After use, disconnect the black USB serial cable from the X10.**
+X series Out-of-Band management IP address or setting that address to
+be obtained by a different method.
+**After use, disconnect the black USB serial cable from the X
+series.**
 
 
-.. _X10_Out-of-Band Serial Terminal Communication Settings:
+.. _x_Out-of-Band Serial Terminal Communication Settings:
 
 Out-of-Band Serial Terminal Communication Settings
 ..................................................
@@ -342,20 +353,21 @@ address and netmask. This example shows setting the IP address to
 Log out of the Out-of-Band management system by typing :literal:`exit`
 and pressing :kbd:`Enter`.
 
-**After use, disconnect the black USB serial cable from the X10.**
+**After use, disconnect the black USB serial cable from the
+X series.**
 
 
-Connect to the X10 Console
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Connect to the X Series Console
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 With IPMI
 ^^^^^^^^^
 
 .. note:: An IPMI remote management utility must be installed on the
-   laptop or desktop computer used to manage the X10 remotely, and the
-   computer must have access to the same network as the X10. For
-   FreeBSD, macOS, or Linux,
+   laptop or desktop computer used to manage the X series remotely,
+   and the computer must have access to the same network as the
+   X series. For FreeBSD, macOS, or Linux,
    `IPMItool <https://sourceforge.net/projects/ipmitool/>`__
    can be used. For Windows,
    `ipmiutil <http://ipmiutil.sourceforge.net/>`__
@@ -363,7 +375,7 @@ With IPMI
 
 
 When the Out-of-Band management IP address has been determined, the
-X10 console is accessible through IPMI. In this example,
+X series console is accessible through IPMI. In this example,
 *192.168.100.100* is the IP address assigned to the Out-of-Band
 management interface.
 
@@ -385,15 +397,16 @@ For Windows computers with :command:`ipmiutil`, enter:
    ipmiutil sol -N 192.168.100.100 -U admin -a
 
 
-Enter **admin** for the password, and the X10 console is connected.
+Enter **admin** for the password, and the X series console is
+connected.
 
 
 .. tip:: The Out-of-Band console password can be changed by
    temporarily connecting the black USB serial cable to the serial
    port, #5 on
-   :numref:`Figure %s <x10_back>`,
+   :numref:`Figure %s <x_back>`,
    as described in
-   :ref:`the serial cable connection instructions <X10_Serial_Cable>`.
+   :ref:`the serial cable connection instructions <x_Serial_Cable>`.
    Then give this command to set the new password, shown as
    *newpassword* in this example:
 
@@ -403,36 +416,37 @@ Enter **admin** for the password, and the X10 console is connected.
 
 
    **After use, disconnect the black USB serial cable from the
-   X10.**
+   X series.**
 
 
-Proceed to :ref:`Using the X10 Console`.
+Proceed to :ref:`Using the X Series Console`.
 
 
 With the Serial Cable
 ^^^^^^^^^^^^^^^^^^^^^
 
-The X10 console can be directly connected to a serial terminal program
-by temporarily disconnecting the gray serial cable from the system
-console serial port, #10 on
-:numref:`Figure %s <x10_back>`,
+The X series console can be directly connected to a serial terminal
+program by temporarily disconnecting the gray serial cable from the
+system console serial port, #10 on
+:numref:`Figure %s <x_back>`,
 and temporarily connecting the black USB serial cable to that port.
 
 Connect the USB end of the black USB serial cable to a laptop or
 desktop computer running serial terminal software. See
-:ref:`X10_Out-of-Band Serial Terminal Communication Settings` for the
+:ref:`x_Out-of-Band Serial Terminal Communication Settings` for the
 serial device name. Set the terminal software to:
 
 *115200 baud, 8 data bits, no stop bits, no parity, no flow control*
 
 
-Wait two minutes after the X10 has been connected to power, then press
-:kbd:`Enter` to display the console menu. Find the message starting
-with :literal:`The web user interface is at:` and write down the IP
-address shown. **After viewing the X10 console, disconnect the black
-USB serial cable and reconnect the gray System Management cable**
+Wait two minutes after the X series has been connected to power, then
+press :kbd:`Enter` to display the console menu. Find the message
+starting with :literal:`The web user interface is at:` and write down
+the IP address shown.
+**After viewing the X series console, disconnect the black USB serial
+cable and reconnect the gray System Management cable**
 to the system serial console port, #10 on
-:numref:`Figure %s <x10_back>`.
+:numref:`Figure %s <x_back>`.
 
 
 .. raw:: latex
@@ -440,31 +454,38 @@ to the system serial console port, #10 on
    \newpage
 
 
-.. _Using the X10 Console:
+.. _Using the X Series Console:
 
-Using the X10 Console
-~~~~~~~~~~~~~~~~~~~~~
+Using the X Series Console
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The X10 console has two modes: SES (SCSI Enclosure Services) mode, and
-the standard x86 console mode.
+The X series console has two modes: SES (SCSI Enclosure Services)
+mode, and the standard x86 console mode.
 
-If :literal:`ESM A =>` is displayed, the X10 is in SES mode.
+If :literal:`ESM A =>` is displayed, the X series is in SES mode.
 Switch to the X86 console mode by typing these characters:
-:literal:`$%^0`
+
+.. code-block:: none
+
+   $%^0
 
 
 The normal x86 console is displayed.
 
 
 .. note:: The SES console can be displayed again by typing these
-   characters: :literal:`$%^2`
+   characters:
+
+   .. code-block:: none
+
+      $%^2
 
 
 Perform %brand% Initial Software Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The console displays the IP address of the %brand% X10 graphical web
-interface, *192.168.100.231* in this example:
+The console displays the IP address of the %brand% X series graphical
+web interface, *192.168.100.231* in this example:
 
 
 .. code-block:: none

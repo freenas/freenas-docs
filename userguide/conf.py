@@ -82,12 +82,12 @@ if tags.has('bsg-e24'):
     master_doc = 'bsg-e24'
     cover_pic = r''
 
-if tags.has('bsg-x10'):
+if tags.has('bsg-xseries'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')
-    project = brand + six.u(' X10 Unified Storage Array Basic Setup Guide')
-    master_doc = 'bsg-x10'
-    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_x10_front.png}'
+    project = brand + six.u(' X-Series Unified Storage Array Basic Setup Guide')
+    master_doc = 'bsg-xseries'
+    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_x_front.png}'
 
 if tags.has('bsg-es12'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
@@ -438,9 +438,9 @@ if tags.has('bsg-e24'):
     ]
     latex_elements.update({'printindex': ''})
 
-if tags.has('bsg-x10'):
+if tags.has('bsg-xseries'):
     latex_documents = [
-      ('bsg-x10', 'BSG-X10.tex', texproject, 'iXsystems', 'howto'),
+      ('bsg-xseries', 'BSG-X-Series.tex', texproject, 'iXsystems', 'howto'),
     ]
     latex_elements.update({'printindex': ''})
 

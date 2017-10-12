@@ -25,11 +25,11 @@ Carefully unpack the shipping boxes and locate these components:
    :class: longtable
 
    +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_x10es12.png           | .. image:: images/tn_es12_bezel.png         |
+   | .. image:: images/tn_x.png                 | .. image:: images/tn_es12_bezel.png         |
    |                                            |                                             |
    | ES12 Expansion Shelf                       | ES12 Bezel                                  |
    +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_x10es12_rails.png     | .. image:: images/tn_x10es12_drivetrays.png |
+   | .. image:: images/tn_x_rails.png           | .. image:: images/tn_x_drivetrays.png       |
    |                                            |    :width: 90%                              |
    | Set of rackmount rails. The rails have a   |                                             |
    | specific front end, identified by a label  | A total of 12 populated or filler drive     |
@@ -37,7 +37,7 @@ Carefully unpack the shipping boxes and locate these components:
    | of the rails must be installed facing the  | to maintain proper airflow for cooling.     |
    | front of the rack.                         |                                             |
    +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_x10es12_acckit.png    | .. image:: images/tn_sascables_minihd.png   |
+   | .. image:: images/tn_x_acckit.png          | .. image:: images/tn_sascables_minihd.png   |
    |    :width: 80%                             |    :width: 40%                              |
    |                                            |                                             |
    | Accessory kit with 2 IEC C13 to NEMA 5-15P | Two 3-meter Mini SAS HD to Mini SAS HD      |
@@ -51,11 +51,11 @@ Carefully unpack the shipping boxes and locate these components:
    \newpage
 
 
-.. index:: Become Familiar with the System
+.. index:: Become Familiar with the ES12 System
 .. _ES12 Become Familiar with the System:
 
-Become Familiar With the System
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Become Familiar With the ES12 System
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ES12 has front panel indicators for power, locate ID, and
 fault. The fault indicator is on during the initial power-on self-test
@@ -65,7 +65,7 @@ fault. The fault indicator is on during the initial power-on self-test
 
 
 .. _es12_indicators:
-.. figure:: images/tn_x10es12_indicators.png
+.. figure:: images/tn_x_indicators.png
    :width: 1.75in
 
    Front Panel Indicators
@@ -112,7 +112,7 @@ Mount the Rails
 Install a spring on the silver posts in the side of each rail.
 
 .. _es12_spring:
-.. figure:: images/tn_x10es12_spring.png
+.. figure:: images/tn_x_spring.png
    :width: 50%
 
    Installing Rail Springs
@@ -128,7 +128,7 @@ the process for the second rail.
 
 .. _es12_rail_clamp:
 
-.. figure:: images/tn_x10es12_railclamp.png
+.. figure:: images/tn_x_railclamp.png
    :width: 4.125in
 
    Rail Clamp Latch
@@ -168,7 +168,7 @@ clicks into place.
 
 
 .. _es12_drivetray_load:
-.. figure:: images/tn_x10es12_driveload.png
+.. figure:: images/tn_x_driveload.png
 
    Installing Drive Trays
 
@@ -176,14 +176,14 @@ clicks into place.
 Connect Power Cords
 ~~~~~~~~~~~~~~~~~~~
 
-**Do not plug the power cords into a power outlet yet.** Connect a
-power cord to the back of one power supply, pressing it into the
-plastic clamp and pressing on the tab to lock it in place. Repeat the
-process for the second power supply and cord.
+**Do not plug the power cords into a power outlet yet.**
+Connect a power cord to the back of one power supply, pressing it into
+the plastic clamp and pressing on the tab to lock it in place. Repeat
+the process for the second power supply and cord.
 
 
 .. _es12_power:
-.. figure:: images/tn_x10es12_powerclip.png
+.. figure:: images/tn_x_powerclip.png
    :width: 1.5in
 
    Power Cord Connection
@@ -197,21 +197,21 @@ process for the second power supply and cord.
 Connect SAS Cables
 ~~~~~~~~~~~~~~~~~~
 
-Shut down and power off the X10. Remove the X10 power cables from the
-power outlets.
+Shut down and power off the X series. Remove the X series power cables
+from the power outlets.
 
 Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
 Plug one end of the SAS cable into the T1 connector on the ES12's
 expander module 1. Plug the other end into the SAS 1 connector on
-the X10's node 1. See cable #1 in
+the X series node 1. See cable #1 in
 :numref:`Figure %s <es12_sasconnect1>`.
 
-If the X10 has a second node for HA (High Availability), plug one end
-of the second SAS cable into the T1 connector of the ES12's expander
-module 2. Plug the other end into the SAS 1 connector on the X10's
-node 2. See cable #2 in
+If the X series has a second node for HA (High Availability), plug one
+end of the second SAS cable into the T1 connector of the ES12's
+expander module 2. Plug the other end into the SAS 1 connector on the
+X series node 2. See cable #2 in
 :numref:`Figure %s <es12_sasconnect1>`.
 
 .. _es12_sasconnect1:
@@ -225,16 +225,16 @@ node 2. See cable #2 in
    \newpage
 
 
-A second ES12 can also be connected to the X10. After connecting the
-first ES12 as shown above, plug one end of an SAS cable into the
+A second ES12 can also be connected to the X series. After connecting
+the first ES12 as shown above, plug one end of an SAS cable into the
 T1 connector on the second ES12's expander module 1. Plug the other
-end into the SAS 2 connector on the X10's node 1. See cable #3 in
+end into the SAS 2 connector on the X series node 1. See cable #3 in
 :numref:`Figure %s <es12_sasconnect2>`.
 
 If the X10 has a second node for HA (High Availability), plug one end
 of an SAS cable into the T1 connector of the second ES12's expander
-module 2. Plug the other end into the X10's node 2, SAS 2 connector.
-See cable #4 in
+module 2. Plug the other end into the X series node 2, SAS 2
+connector. See cable #4 in
 :numref:`Figure %s <es12_sasconnect2>`.
 
 
@@ -244,8 +244,8 @@ See cable #4 in
    SAS Cable Connection for Two ES12s
 
 
-After all SAS cables have been connected, plug the X10 power cords
-into power outlets.
+After all SAS cables have been connected, plug the X series power
+cords into power outlets.
 
 
 Install Bezel (Optional)
