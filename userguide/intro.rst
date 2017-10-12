@@ -173,6 +173,10 @@ The following screens have changed:
   :guilabel:`Forced update period` and :guilabel:`Auxiliary parameters`
   fields have been removed.
 
+* The :guilabel:`Certificate` drop-down menu has been added to
+  :menuselection:`Services --> S3` in order to configure encrypted S3
+  connections.
+
 * The :guilabel:`Log Level` drop-down menu has been added to
   :menuselection:`Services --> SNMP`. It defaults to the :guilabel:`Error`
   log level.

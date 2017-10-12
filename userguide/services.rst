@@ -1157,6 +1157,10 @@ After configuring the S3 service, start it in
    | Disks           | string         | S3 filesystem directory                                                                                  |
    |                 |                |                                                                                                          |
    +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   | Certificate     | drop-down menu | the SSL certificate to be used for secure S3 connections; to create a  certificate, use                  |
+   |                 |                | :menuselection:`System --> Certificates`                                                                 |
+   |                 |                |                                                                                                          |
+   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
    | Enable Browser  | checkbox       | Enable the web user interface for the S3 service                                                         |
    |                 |                |                                                                                                          |
    +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
