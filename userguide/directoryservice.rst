@@ -225,7 +225,7 @@ display these settings by checking the box
 :numref:`Table %s <id_map_backends_tab>`
 summarizes the backends which are available in the
 :guilabel:`Idmap backend` drop-down menu. Each backend has its own
-`man page <https://www.samba.org/samba/docs/man/manpages/>`_
+`man page <http://samba.org.ru/samba/docs/man/manpages/>`_
 which gives implementation details. Since selecting the wrong backend
 will break Active Directory integration, a pop-up menu will appear
 whenever changes are made to this setting.
@@ -255,9 +255,6 @@ whenever changes are made to this setting.
    | fruit          | generate IDs the way Apple Mac OS X does, so UID and GID can be identical on all %brand% servers on the network; for use in              |
    |                | :ref:`LDAP` environments where Apple's Open Directory is the authoritative LDAP server                                                   |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | hash           | uses a hashing algorithm for mapping and can be used to support local name mapping files                                                 |
-   |                |                                                                                                                                          |
-   +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | ldap           | stores and retrieves mapping tables in an LDAP directory service; default for LDAP directory service                                     |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
@@ -270,6 +267,9 @@ whenever changes are made to this setting.
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | rid            | default for AD; requires an explicit idmap configuration for each domain, using disjoint ranges where a                                  |
    |                | writeable default idmap range should be defined, using a backend like tdb or ldap                                                        |
+   |                |                                                                                                                                          |
+   +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
+   | script         | stores mapping tables for clustered environments in the winbind_cache tdb                                                                |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | tdb            | default backend used by winbindd for storing mapping tables                                                                              |
