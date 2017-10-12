@@ -40,8 +40,8 @@ Carefully unpack the shipping boxes and locate these components:
    | .. image:: images/tn_x_acckit.png          | .. image:: images/tn_x_serialcable.png      |
    |    :width: 80%                             |    :width: 30%                              |
    |                                            |                                             |
-   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Black USB to 3.5mm serial cable (shipped    |
-   | power cords, 2 IEC C14 to C14 cords, and a | separately)                                 |
+   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Black USB to 3.5mm serial cable             |
+   | power cords, 2 IEC C14 to C14 cords, and a |                                             |
    | set of velcro cable ties                   |                                             |
    +--------------------------------------------+---------------------------------------------+
 
@@ -302,7 +302,7 @@ some typical examples:
 Set the serial terminal program to use the appopriate port with these
 parameters:
 
-*38400 baud, 8 data bits, no stop bits, no parity, no flow control*
+*38400 baud, 8 data bits, 1 stop bit, no parity, no flow control*
 
 
 Log in to the serial console with:
@@ -367,11 +367,9 @@ With IPMI
 .. note:: An IPMI remote management utility must be installed on the
    laptop or desktop computer used to manage the X series remotely,
    and the computer must have access to the same network as the
-   X series. For FreeBSD, macOS, or Linux,
+   X series. For FreeBSD, Windows, macOS, or Linux,
    `IPMItool <https://sourceforge.net/projects/ipmitool/>`__
-   can be used. For Windows,
-   `ipmiutil <http://ipmiutil.sourceforge.net/>`__
-   is available.
+   can be used.
 
 
 When the Out-of-Band management IP address has been determined, the
@@ -387,14 +385,6 @@ enter:
 .. code-block:: none
 
    ipmitool -I lanplus -H 192.168.100.100 -U admin -a sol activate
-
-
-For Windows computers with :command:`ipmiutil`, enter:
-
-
-.. code-block:: none
-
-   ipmiutil sol -N 192.168.100.100 -U admin -a
 
 
 Enter **admin** for the password, and the X series console is
@@ -436,7 +426,7 @@ desktop computer running serial terminal software. See
 :ref:`x_Out-of-Band Serial Terminal Communication Settings` for the
 serial device name. Set the terminal software to:
 
-*115200 baud, 8 data bits, no stop bits, no parity, no flow control*
+*115200 baud, 8 data bits, 1 stop bit, no parity, no flow control*
 
 
 Wait two minutes after the X series has been connected to power, then
