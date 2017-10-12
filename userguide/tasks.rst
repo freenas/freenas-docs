@@ -121,13 +121,13 @@ shows the configuration options for Cloud Syncs.
    | Hour              | slider or hour      | select :guilabel:`Every N hours` and use the slider to choose a value, or select                        |
    |                   | selections          | :guilabel:`Each selected hour` and choose specific hours                                                |
    +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Days of month     | slider or day of    | select :guilabel:`Every N days of month` and use the slider to choose a value, or select                |
+   | Day of month      | slider or day of    | select :guilabel:`Every N days of month` and use the slider to choose a value, or select                |
    |                   | month selections    | :guilabel:`Each selected day of month` and choose specific days                                         |
    +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Months            | checkboxes          | months when the Cloud Sync runs                                                                         |
+   | Month             | checkboxes          | months when the Cloud Sync runs                                                                         |
    |                   |                     |                                                                                                         |
    +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Days of week      | checkboxes          | days of the week when the Cloud Sync runs                                                               |
+   | Day of week       | checkboxes          | days of the week when the Cloud Sync runs                                                               |
    |                   |                     |                                                                                                         |
    +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Enabled           | checkbox            | uncheck to temporarily disable this Cloud Sync                                                          |
