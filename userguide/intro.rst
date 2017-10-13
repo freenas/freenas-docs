@@ -116,6 +116,9 @@ The following base applications and drivers have been updated or added:
 
 * Iocage has been updated to version 0.9.9.2.
 
+* The new middleware now uses Python asyncio which simplifies asynchronous
+  code and makes it more readable.
+
 * `mmv <https://packages.debian.org/unstable/utils/mmv>`__
   has been added. It can be used from the command line to safely move or
   copy multiple files using patterns, without any unexpected deletion of
