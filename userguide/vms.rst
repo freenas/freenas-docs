@@ -143,7 +143,7 @@ If the system has multiple physical network interface cards, the
 :guilabel:`Nic to attach` drop-down menu can be used to specify which
 physical interface to associate with the VM.
 
-By default, the VM will receive an auto-generated MAC address. To
+By default, the VM will receive an auto-generated random MAC address. To
 override the default with a custom value, input the desired address into
 the :guilabel:`Mac Address` field.
 
