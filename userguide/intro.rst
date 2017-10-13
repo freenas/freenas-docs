@@ -86,53 +86,22 @@ built-in features by installing additional software.
 New Features in |release|
 -------------------------
 
+%brand%  |release| is a feature release, which includes several new
+significant features, many improvements and bug fixes to existing
+features, and version updates to the operating system, base applications,
+and drivers. Users are encouraged to :ref:`Update` to this release in
+order to take advantage of these improvements and bug fixes.
+
+The following base applications and drivers have been updated or added:
+
 * The base operating system has been updated to FreeBSD 11.1-STABLE.
   This brings in many new
   `features and drivers
   <https://www.freebsd.org/releases/11.1R/relnotes.html>`__.
 
-* Mirrored swap means a failed disk won’t crash running applications
-  due to swap.
-
-* Compressed ARC statistics have been added to :command:`top`. The
-  information gathered includes *Compressed* (bytes of memory used by ARC
-  caches), *Uncompressed* (bytes of data stored in ARC caches before
-  compression), and *Ratio* (ratio of uncompressed data to total ARC size).
-
-* The hardware watchdog has been reenabled for recent firmware versions
-  of AsrockRack C2750D4I. The BMC bug which required watchdog to be
-  disabled is resolved with the 00.30.00 or newer BMC firmware version.
-
-* Several dozen DDNS providers have been added to
-  :menuselection:`Services --> DDNS`.
-
-* :ref:`VMs` have received significant improvements, including:
-
-  * support for non-US keyboards.
-
-  * the ability to specify the NIC used by the VM as well as the MAC
-    address for the VM NIC. These options can be set using
-    :menuselection:`VMs --> Devices --> Network Interface`.
-
-  * the ability to specify the sector size used by the emulated disk has
-    been added to :menuselection:`VMs --> Devices --> Disk`.
-
-  * the ability to edit the VNC screen resolution, select the IP address
-    to bind to, set the VNC password, and select the option to use the Web
-    version of VNC. These options can be set using
-    :menuselection:`VMs --> Devices --> VNC`.
-
-The following major features are new in this version:
-
-* :ref:`Cloud Credentials` has been added to :ref:`System`. This can be
-  used to provide a secure connection to a cloud services providers.
-  Supported services include Amazon S3, Backblaze B2, and Google Cloud
-  Storage.
-
-* :ref:`Cloud Sync` has been added to :ref:`Tasks` and can be used to
-  synchronize files or directories to remote cloud storage providers.
-
-The following base applications have been updated or added:
+* There have been many improvements to OpenZFS. Users should notice a
+  significant speed difference when listing a large number of snapshots
+  or when deleting multiple snapshots and large files.
 
 * The Dojo Tookit has been updated to version 1.12.2.
 
@@ -149,6 +118,36 @@ The following base applications have been updated or added:
   has been added. It can be used from the command line to safely move or
   copy multiple files using patterns, without any unexpected deletion of
   files due to target name collisions.
+
+* The hardware watchdog has been reenabled for recent firmware versions
+  of AsrockRack C2750D4I. The BMC bug which required watchdog to be
+  disabled is resolved with the 00.30.00 or newer BMC firmware version.
+
+The following major features are new in this version:
+
+* :ref:`Cloud Credentials` has been added to :ref:`System`. This can be
+  used to provide a secure connection to a cloud services providers.
+  Supported services include Amazon S3, Backblaze B2, and Google Cloud
+  Storage.
+
+* :ref:`Cloud Sync` has been added to :ref:`Tasks` and can be used to
+  synchronize files or directories to remote cloud storage providers.
+
+* :ref:`VMs` have received significant improvements, including:
+
+  * support for non-US keyboards.
+
+  * the ability to specify the NIC used by the VM as well as the MAC
+    address for the VM NIC. These options can be set using
+    :menuselection:`VMs --> Devices --> Network Interface`.
+
+  * the ability to specify the sector size used by the emulated disk has
+    been added to :menuselection:`VMs --> Devices --> Disk`.
+
+  * the ability to edit the VNC screen resolution, select the IP address
+    to bind to, set the VNC password, and select the option to use the Web
+    version of VNC. These options can be set using
+    :menuselection:`VMs --> Devices --> VNC`.
 
 The following screens have changed:
 
@@ -187,7 +186,8 @@ The following screens have changed:
   :guilabel:`CheckIP Path`, and :guilabel:`Use SSL` fields have been
   added to :menuselection:`Services --> DDNS`. The
   :guilabel:`Forced update period` and :guilabel:`Auxiliary parameters`
-  fields have been removed.
+  fields have been removed. In addition, several dozen DDNS providers
+  have been added to the :guilabel:`Provider` drop-down menu.
 
 * The :guilabel:`Certificate` drop-down menu has been added to
   :menuselection:`Services --> S3` in order to configure encrypted S3
