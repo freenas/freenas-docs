@@ -121,6 +121,10 @@ The following base applications and drivers have been updated or added:
   copy multiple files using patterns, without any unexpected deletion of
   files due to target name collisions.
 
+* `s3cmd
+  <http://s3tools.org/s3cmd>`__ has been added back as a CLI alternative
+  to :ref:`S3`.
+
 * The hardware watchdog has been reenabled for recent firmware versions
   of AsrockRack C2750D4I. The BMC bug which required watchdog to be
   disabled is resolved with the 00.30.00 or newer BMC firmware version.
