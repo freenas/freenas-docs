@@ -97,7 +97,9 @@ The following base applications and drivers have been updated or added:
 * The base operating system has been updated to FreeBSD 11.1-STABLE.
   This brings in many new
   `features and drivers
-  <https://www.freebsd.org/releases/11.1R/relnotes.html>`__.
+  <https://www.freebsd.org/releases/11.1R/relnotes.html>`__. Improvements
+  have been made to the ixl(4) and mps(4) drivers and support has been
+  added for the HBA 9400-81.
 
 * There have been many improvements to OpenZFS. Users should notice a
   significant speed difference when listing a large number of snapshots
