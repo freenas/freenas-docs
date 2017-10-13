@@ -143,13 +143,45 @@ If the system has multiple physical network interface cards, the
 :guilabel:`Nic to attach` drop-down menu can be used to specify which
 physical interface to associate with the VM.
 
-By default, the VM will receive an auto-generated MAC address. To
+By default, the VM will receive an auto-generated random MAC address. To
 override the default with a custom value, input the desired address into
 the :guilabel:`Mac Address` field.
 
 VMs set to *UEFI* booting are also given a VNC (Virtual Network
-Computing) remote connection:
+Computing) remote connection. A standard
+`VNC <https://en.wikipedia.org/wiki/Virtual_Network_Computing>`__
+client can connect to the VM to provide screen output and keyboard and
+mouse input.
 
+:numref:`Figure %s <vms-vnc_fig>` shows the fields that appear when
+:guilabel:`VNC` is the selected :guilabel:`Type`.
+
+.. _vms-vnc_fig:
+
+.. figure:: images/vms-vnc.png
+
+   VM VNC Device
+
+The :guilabel:`Resolution` drop-down menu can be used to
+modify the default screen resolution used by the VNC session.
+
+The :guilabel:`VNC port` can be set to *0*, left empty for
+%brand% to assign a port when the VM is started, or set to a fixed,
+preferred port number.
+
+By default, VNC will bind to all available IP addresse (*0.0.0.0*). To
+specify the IP address to use, select it from the :guilabel:`Bind to`
+drop-down menu.
+
+Check the :guilabel:`Wait to boot` checkbox to indicate that the VNC
+client should wait until the VM has booted before attempting the
+connection.
+
+To automatically pass the VNC password, input it into the
+:guilabel:`Password` field. Note that the password is limited to 8
+characters.
+
+To use the VNC web interface, check the :guilabel:`VNC Web` checkbox.
 
 .. tip:: If a RealVNC 5.X Client shows the error
    :literal:`RFB protocol error: invalid message type`, disable the
@@ -159,23 +191,13 @@ Computing) remote connection:
    :guilabel:`ProtocolVersion`, then select 4.1 from the drop-down
    menu.
 
-
-.. figure:: images/vms-vnc.png
-
-   VM VNC Device
-
-
-A standard
-`VNC <https://en.wikipedia.org/wiki/Virtual_Network_Computing>`__
-client can connect to the VM to provide screen output and keyboard and
-mouse input. The VNC port number can be set to *0* or left empty for
-%brand% to assign a port when the VM is started, or set to a fixed,
-preferred port number.
-
 :ref:`Zvols <Create zvol>` are used as virtual hard drives. After
-:ref:`creating a zvol <Create zvol>`, select :guilabel:`Add device`,
-choose the *VM*, select a :guilabel:`Type` of *Disk*, select the zvol,
-then set the :guilabel:`Mode`:
+:ref:`creating a zvol <Create zvol>`, associate it with the VM by
+selecting :guilabel:`Add device`, choose the *VM*, select a
+:guilabel:`Type` of *Disk*, select the created zvol, then set the
+:guilabel:`Mode`. If a specific sector size is required, input the number
+of bytes into :guilabel:`Disk sectorsize`. The default of *0* means that
+the sector size is unset.
 
 
 .. figure:: images/vms-disk.png
