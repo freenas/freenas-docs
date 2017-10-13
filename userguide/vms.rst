@@ -192,9 +192,12 @@ To use the VNC web interface, check the :guilabel:`VNC Web` checkbox.
    menu.
 
 :ref:`Zvols <Create zvol>` are used as virtual hard drives. After
-:ref:`creating a zvol <Create zvol>`, select :guilabel:`Add device`,
-choose the *VM*, select a :guilabel:`Type` of *Disk*, select the zvol,
-then set the :guilabel:`Mode`:
+:ref:`creating a zvol <Create zvol>`, associate it with the VM by
+selecting :guilabel:`Add device`, choose the *VM*, select a
+:guilabel:`Type` of *Disk*, select the created zvol, then set the
+:guilabel:`Mode`. If a specific sector size is required, input the number
+of bytes into :guilabel:`Disk sectorsize`. The default of *0* means that
+the sector size is unset.
 
 
 .. figure:: images/vms-disk.png

@@ -112,6 +112,9 @@ New Features in |release|
     address for the VM NIC. These options can be set using
     :menuselection:`VMs --> Devices --> Network Interface`.
 
+  * the ability to specify the sector size used by the emulated disk has
+    been added to :menuselection:`VMs --> Devices --> Disk`.
+
   * the ability to edit the VNC screen resolution, select the IP address
     to bind to, set the VNC password, and select the option to use the Web
     version of VNC. These options can be set using
