@@ -109,7 +109,13 @@ New Features in |release|
 * :ref:`VMs` have received significant improvements, including:
 
   * the ability to specify the MAC address for the VM NIC when adding
-    or editing a NIC device using :menuselection:`VMs --> Devices`.
+    or editing a NIC device using
+    :menuselection:`VMs --> Devices --> Network Interface`.
+
+  * the ability to edit the VNC screen resolution, select the IP address
+    to bind to, set the VNC password, and select the option to use the Web
+    version of VNC. These options can be set using
+    :menuselection:`VMs --> Devices --> VNC`.
 
 The following major features are new in this version:
 
