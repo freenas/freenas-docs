@@ -98,8 +98,9 @@ The following base applications and drivers have been updated or added:
   This brings in many new
   `features and drivers
   <https://www.freebsd.org/releases/11.1R/relnotes.html>`__. Improvements
-  have been made to the ixl(4) and mps(4) drivers and support has been
-  added for the HBA 9400-81.
+  have been made to the ixl(4) and mps(4) drivers. Support has been
+  added for the HBA 9400-81, Intel Skylake and Kaby Lake processors,
+  and Ryzen processors.
 
 * There have been many improvements to OpenZFS. Users should notice a
   significant speed difference when listing a large number of snapshots
