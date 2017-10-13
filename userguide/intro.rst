@@ -106,7 +106,12 @@ New Features in |release|
 * Several dozen DDNS providers have been added to
   :menuselection:`Services --> DDNS`.
 
-The following major features have been added:
+* :ref:`VMs` have received significant improvements, including:
+
+  * the ability to specify the MAC address for the VM NIC when adding
+    or editing a NIC device using :menuselection:`VMs --> Devices`.
+
+The following major features are new in this version:
 
 * :ref:`Cloud Credentials` has been added to :ref:`System`. This can be
   used to provide a secure connection to a cloud services providers.

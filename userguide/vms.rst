@@ -102,28 +102,50 @@ VM configuration options are described in
 Adding Devices to a VM
 ----------------------
 
-After creating the VM, click it to select it, then click the Devices
-button at the bottom of the screen to add virtual hardware to it:
+After creating the VM, click it to select it, then click
+:menuselection:`Devices --> Add Device` to add virtual
+hardware to it:
 
 
 .. figure:: images/vms-devices.png
 
    Add Devices to a VM
 
+Select the name of the VM from the :guilabel:`VM` drop-down menu, then
+select the :guilabel:`Type` of device to add. The following types are
+available:
 
-VMs are given a NIC (Network Interface Card) by default. This
-interface emulates an Intel E1000 (82545) Ethernet card for
-compatibility with most operating systems:
+* Network Interface
 
+* Disk
+
+* Raw File
+
+* CD-ROM
+
+* VNC
+
+:numref:`Figure %s <vms-nic_fig>` shows the fields that appear when
+:guilabel:`Network Interface` is the selected :guilabel:`Type`.
+
+.. _vms-nic_fig:
 
 .. figure:: images/vms-nic.png
 
    VM Network Interface Device
 
+The default :guilabel:`Adapter Type` emulates an Intel E1000 (82545)
+Ethernet card for compatibility with most operating systems. This can be
+changed to *VirtIO* to provide better performance when the operating
+system installed in the VM supports VirtIO paravirtualized network drivers.
 
-The :guilabel:`Adapter Type` can be changed to *VirtIO* to provide
-better performance when the operating system installed in the VM
-supports VirtIO paravirtualized network drivers.
+If the system has multiple physical network interface cards, the
+:guilabel:`Nic to attach` drop-down menu can be used to specify which
+physical interface to associate with the VM.
+
+By default, the VM will receive an auto-generated MAC address. To
+override the default with a custom value, input the desired address into
+the :guilabel:`Mac Address` field.
 
 VMs set to *UEFI* booting are also given a VNC (Virtual Network
 Computing) remote connection:
