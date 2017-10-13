@@ -108,6 +108,8 @@ New Features in |release|
 
 * :ref:`VMs` have received significant improvements, including:
 
+  * support for non-US keyboards.
+
   * the ability to specify the NIC used by the VM as well as the MAC
     address for the VM NIC. These options can be set using
     :menuselection:`VMs --> Devices --> Network Interface`.
