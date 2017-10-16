@@ -1716,7 +1716,7 @@ summarizes the fields in this screen.
 
 .. _zfs_periodic_snapshot_fig:
 
-.. figure:: images/periodic1b.png
+.. figure:: images/storage-periodic-snapshot.png
 
    Creating a Periodic Snapshot
 
@@ -1848,7 +1848,7 @@ chosen lifetime of two weeks expires.
 
 .. _zfs_create_periodic_replication_fig:
 
-.. figure:: images/replication3.png
+.. figure:: images/replication3a.png
 
    Create a Periodic Snapshot for Replication
 
@@ -2115,7 +2115,7 @@ it.
 
 .. _zfs_copy_replication_key_fig:
 
-.. figure:: images/replication1b.png
+.. figure:: images/replication1c.png
 
    Copy the Replication Key
 
@@ -2267,7 +2267,7 @@ showing the latest status.
 
 .. _zfs_repl_task_list_fig:
 
-.. figure:: images/replication9.png
+.. figure:: images/replication9a.png
    :width: 90%
 
    Replication Task List
