@@ -816,7 +816,7 @@ to see the screen shown in
 
 .. _adding_vlan_fig:
 
-.. figure:: images/vlan.png
+.. figure:: images/network-vlan-add.png
 
    Adding a VLAN
 
