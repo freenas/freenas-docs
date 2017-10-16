@@ -1574,7 +1574,7 @@ screen. Click :guilabel:`Add Service` to display the dialog shown in
 
 .. _alertservices_add_fig:
 
-.. figure:: images/alertservice-add1.png
+.. figure:: images/system-alertservices-add.png
 
    Add Alert Service
 
