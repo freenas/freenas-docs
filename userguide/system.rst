@@ -750,7 +750,7 @@ shown in
 .. _email_conf_fig:
 
 #ifdef freenas
-.. figure:: images/system-email.png
+.. figure:: images/system-email1.png
 
    Email Screen
 #endif freenas
@@ -850,7 +850,7 @@ controller users and groups.
 .. _system_dataset_fig:
 
 #ifdef freenas
-.. figure:: images/system-system-dataset.png
+.. figure:: images/system-system-dataset1.png
 
    System Dataset Screen
 #endif freenas
@@ -1207,7 +1207,7 @@ screen.
 .. _update_options_fig:
 
 #ifdef freenas
-.. figure:: images/system-update.png
+.. figure:: images/system-update1.png
 
    Update Options
 #endif freenas
@@ -1630,7 +1630,7 @@ shows the screen after clicking
 .. _cas_fig:
 
 #ifdef freenas
-.. figure:: images/system-cas.png
+.. figure:: images/system-cas1.png
 
    Initial CA Screen
 #endif freenas
@@ -1812,7 +1812,7 @@ shows the initial screen after clicking
 .. _initial_cert_scr_fig:
 
 #ifdef freenas
-.. figure:: images/system-cert.png
+.. figure:: images/system-cert1.png
 
    Initial Certificates Screen
 #endif freenas
@@ -2016,7 +2016,7 @@ feature requests.
 
 .. _support_fig:
 
-.. figure:: images/system-support.png
+.. figure:: images/system-support1.png
 
    Support Tab
 
