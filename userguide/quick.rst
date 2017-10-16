@@ -138,16 +138,17 @@ The password for the root user is requested as shown in
 
 .. _quick_enter_root_pass_fig:
 
-.. figure:: images/login1c.png
+.. figure:: images/quick-login.png
 
    Enter the Root Password
 
-.. note:: The %brand% UI is in the process of being rewritten in Angular,
-   with a new, asynchronous middleware. To see a preview of the new UI,
-   click the "Try the Beta UI!" link in the login box. Note that the new
-   UI is not expected to be feature complete with the classic %brand% UI
-   until version 11.2. Until then, this Guide only demonstrates the classic
-   UI.
+
+.. note:: The %brand% UI is in the process of being rewritten in
+   Angular, with a new, asynchronous middleware. To see a preview of
+   the new UI, click the :guilabel:`Try the Beta UI!` link in the
+   login box. Note that the new UI is not expected to be feature
+   complete until version 11.2. Until then, this Guide will only
+   demonstrate the classic UI.
 
 
 Enter the password chosen during the installation. The administrative
