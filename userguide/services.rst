@@ -2010,8 +2010,7 @@ shows the UPS configuration screen:
 
 .. _ups_config_fig:
 
-.. figure:: images/ups1a.png
-   :width: 75%
+.. figure:: images/services-ups.png
 
    UPS Configuration Screen
 
