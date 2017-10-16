@@ -61,7 +61,7 @@ Other services default to off until started.
 
 .. _control_services_fig:
 
-.. figure:: images/services1e.png
+.. figure:: images/services1f.png
 
    Control Services
 
