@@ -322,18 +322,18 @@ Script`.
 :numref:`Table %s <tasks_init_opt_tab>`
 summarizes the options.
 
-When scheduling a command, make sure that the command is in the path
-or give the full path to the command. One way to test the path is to
-type :command:`which command_name`. If the command is not found, it is
-not in your path.
+Scheduled commands must be in the default path. The full path to
+the command can also be included in the entry. The path can be tested
+by typing :samp:`which {commandname}`. If the command is not found, it
+is not in the path.
 
 When scheduling a script, make sure that the script is executable and
-has been fully tested to ensure that it achieves the desired results.
+has been fully tested to ensure it achieves the desired results.
 
 
 .. _tasks_init_script_fig:
 
-.. figure:: images/init.png
+.. figure:: images/tasks-initshutdown.png
 
    Add an Init/Shutdown Script
 
@@ -356,7 +356,7 @@ has been fully tested to ensure that it achieves the desired results.
    |             |                | *Script* (for an executable script)                                               |
    |             |                |                                                                                   |
    +-------------+----------------+-----------------------------------------------------------------------------------+
-   | Command     | string         | if *Command* is selected, input the command plus any desired options; if          |
+   | Command     | string         | if *Command* is selected, enter the command plus any desired options; if          |
    |             |                | *Script* is selected, browse to the location of the script                        |
    |             |                |                                                                                   |
    +-------------+----------------+-----------------------------------------------------------------------------------+
