@@ -1831,6 +1831,11 @@ When importing a certificate chain, paste the primary certificate,
 followed by any intermediate certificates, followed by the root CA
 certificate.
 
+For the TrueNAS HA systems please be advised that the imported certificate needs to cover
+IP addresses or DNS names of both nodes and the CARP Virtual IP.
+This can be achieved by placing all mentioned IP addresses or DNS names in 
+Subject Alternative Name (SAN) x509 extension.
+
 The configurable options are summarized in
 :numref:`Table %s <cert_import_opt_tab>`.
 
