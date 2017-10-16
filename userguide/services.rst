@@ -1678,7 +1678,7 @@ summarizes the configuration options.
 
 .. _config_snmp_fig:
 
-.. figure:: images/snmp2a.png
+.. figure:: images/services-snmp.png
 
    Configuring SNMP
 
