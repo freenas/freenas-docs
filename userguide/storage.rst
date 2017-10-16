@@ -73,7 +73,7 @@ a screen like the example shown in
 
 .. _create_zfs_pool_volman_fig:
 
-.. figure:: images/zfs1a.png
+.. figure:: images/storage-volman.png
 
    Creating a ZFS Pool Using Volume Manager
 
@@ -798,7 +798,7 @@ tree then click :guilabel:`Create zvol` to open the screen shown in
 
 .. figure:: images/zvol1a.png
 
-   Creating a zvol
+   Creating a Zvol
 
 
 The configuration options are described in
@@ -879,7 +879,7 @@ dataset. Only one disk can be imported at a time.
 
 .. _zfs_import_disk_fig:
 
-.. figure:: images/import1.png
+.. figure:: images/storage-import.png
 
    Importing a Disk
 
@@ -1160,7 +1160,7 @@ the :guilabel:`Status`, whether it is mounted as read-only, and any
 
 .. _zfs_vol_fig:
 
-.. figure:: images/volume1c.png
+.. figure:: images/storage-volumes.png
 
    Viewing Volumes
 
@@ -1193,7 +1193,7 @@ state.**
 
   .. _zfs_detach_vol_fig:
 
-  .. figure:: images/detach1.png
+  .. figure:: images/storage-detach.png
 
      Detach or Delete a Volume
 
@@ -1229,7 +1229,7 @@ if the pool is running the latest version of feature flags.
 .. _volume_status_fig:
 
 #ifdef freenas
-.. figure:: images/volume2.png
+.. figure:: images/storage-volstatus.png
 
    Volume Status
 #endif freenas
@@ -1313,7 +1313,7 @@ An example is shown in
 
 .. _zfs_encrypt_pool_icons_fig:
 
-.. figure:: images/encrypt1.png
+.. figure:: images/storage-encrypted.png
 
    Encryption Icons Associated with an Encrypted Volume
 
