@@ -87,7 +87,7 @@ add *.local* after the hostname.
 .. _system_info_fig:
 
 #ifdef freenas
-.. figure:: images/system-information1.png
+.. figure:: images/system-information1a.png
 
    System Information Tab
 #endif freenas
@@ -110,7 +110,7 @@ is shown in
 .. _system_general_fig:
 
 #ifdef freenas
-.. figure:: images/system-general.png
+.. figure:: images/system-general1.png
 
    General Screen
 #endif freenas
@@ -354,7 +354,7 @@ the :ref:`Wizard` was run.
 .. _view_boot_env_fig:
 
 #ifdef freenas
-.. figure:: images/system-bootenv1.png
+.. figure:: images/system-bootenv1a.png
 
    Viewing Boot Environments
 #endif freenas
@@ -554,7 +554,7 @@ The configurable settings are summarized in
 .. _system_adv_fig:
 
 #ifdef freenas
-.. figure:: images/system-advanced1.png
+.. figure:: images/system-advanced1a.png
 
    Advanced Screen
 #endif freenas
