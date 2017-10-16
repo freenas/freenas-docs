@@ -189,9 +189,13 @@ a status LED which is blue when active or amber if a fault has
 occurred.
 
 
-.. note:: Recommended drive tray installation order: if SSD drives for
-   SLOG or L2ARC are present, install them first. Hard drives are
-   installed next.
+.. note:: Recommended drive tray installation order:
+
+   #. SSD drive for SLOG (if present)
+
+   #. SSD drive for L2ARC (if present)\
+
+   #. Hard drives
 
    Install the first drive tray in the top left drive bay. Install the
    next drive tray to the right of the first. Install remaining drive
