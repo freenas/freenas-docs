@@ -43,7 +43,7 @@ network interface.
 
 .. _global_net_config_fig:
 
-.. figure:: images/network1.png
+.. figure:: images/network-global.png
 
    Global Network Configuration
 
