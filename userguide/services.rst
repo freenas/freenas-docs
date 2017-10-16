@@ -339,20 +339,26 @@ start the DDNS service in
    | Setting              | Value          | Description                                                                                                        |
    |                      |                |                                                                                                                    |
    +======================+================+====================================================================================================================+
-   | Provider             | drop-down menu | several providers are supported; if your provider is not listed, leave this field blank and specify the custom     |
-   |                      |                | provider in the :guilabel:`Auxiliary parameters` field                                                             |
+   | Provider             | drop-down menu | several providers are supported; if your provider is not listed, select *Custom Provider* and input the            |
+   |                      |                | information in the *Custom Server* and *Custom Path* fields                                                        |
    |                      |                |                                                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | CheckIP Server SSL   | string         | when checked,                                                                                                      |
+   | CheckIP Server SSL   | string         | when checked, HTTPS is used for the connection to the *CheckIP Server*                                             |
    |                      |                |                                                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | CheckIP Server       | string         | input the name and port of the update server in the format *server.name.org:port*                                  |
+   | CheckIP Server       | string         | input the name and port of the server that reports the external IP adress, in the format *server.name.org:port*    |
    |                      |                |                                                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | CheckIP Path         | string         |                                                                                                                    |
+   | CheckIP Path         | string         | input the update path of the *CheckIP Server*                                                                      |
    |                      |                |                                                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Use SSL              |                | when checked,                                                                                                      |
+   | Use SSL              |                | when checked, HTTPS is used for the connection to the server that updates the DNS record                           |
+   |                      |                |                                                                                                                    |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | Custom Server        | string         | only appears if *Custom Provider* is selected as the *Provider*                                                    |
+   |                      |                |                                                                                                                    |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   | Custom Path          | string         | only appears if *Custom Provider* is selected as the *Provider*                                                    |
    |                      |                |                                                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
    | Domain name          | string         | fully qualified domain name (e.g. *yourname.dyndns.org*)                                                           |
