@@ -51,7 +51,7 @@ shown in
 
 .. _vms_add_fig:
 
-.. figure:: images/vms-add1.png
+.. figure:: images/vms-add1a.png
 
    Add VM
 
@@ -103,13 +103,14 @@ Adding Devices to a VM
 ----------------------
 
 After creating the VM, click it to select it, then click
-:menuselection:`Devices --> Add Device` to add virtual
-hardware to it:
+:guilabel:`Devices` and :guilabel:`Add Device` to add virtual hardware
+to it:
 
 
-.. figure:: images/vms-devices.png
+.. figure:: images/vms-devices1.png
 
    Add Devices to a VM
+
 
 Select the name of the VM from the :guilabel:`VM` drop-down menu, then
 select the :guilabel:`Type` of device to add. The following types are
@@ -130,7 +131,7 @@ available:
 
 .. _vms-nic_fig:
 
-.. figure:: images/vms-nic.png
+.. figure:: images/vms-nic1.png
 
    VM Network Interface Device
 
@@ -158,7 +159,7 @@ mouse input.
 
 .. _vms-vnc_fig:
 
-.. figure:: images/vms-vnc.png
+.. figure:: images/vms-vnc1.png
 
    VM VNC Device
 
@@ -200,7 +201,7 @@ of bytes into :guilabel:`Disk sectorsize`. The default of *0* means that
 the sector size is unset.
 
 
-.. figure:: images/vms-disk.png
+.. figure:: images/vms-disk1.png
 
    VM Disk Device
 
@@ -246,7 +247,7 @@ appear at the bottom of the screen when an individual VM is selected
 with a mouse click:
 
 
-.. figure:: images/vms-control.png
+.. figure:: images/vms-control1.png
 
    VM Configuration and Control Buttons
 
