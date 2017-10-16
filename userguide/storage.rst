@@ -551,10 +551,11 @@ Create Dataset
 
 An existing ZFS volume can be divided into datasets. Permissions,
 compression, deduplication, and quotas can be set on a per-dataset
-basis, allowing more granular control over access to storage data. A
-dataset is similar to a folder in that you can set permissions; it is
-also similar to a filesystem in that you can set properties such as
-quotas and compression as well as create snapshots.
+basis, allowing more granular control over access to storage data.
+Like a folder or directory, permissions can be set on dataset.
+Datasets are also similar to filesystems in that properties such as
+quotas and compression can be set, and snapshots created.
+
 
 .. note:: ZFS provides thick provisioning using quotas and thin
    provisioning using reserved space.
@@ -568,7 +569,7 @@ Selecting an existing ZFS volume in the tree and clicking
 .. _zfs_create_dataset:
 
 #ifdef freenas
-.. figure:: images/dataset1b.png
+.. figure:: images/storage-dataset.png
 
    Creating a ZFS Dataset
 #endif freenas
