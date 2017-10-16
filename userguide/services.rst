@@ -1127,7 +1127,7 @@ After configuring the S3 service, start it in
 
 .. _config_s3_fig:
 
-.. figure:: images/s3dialog.png
+.. figure:: images/services-s3.png
 
    Configuring S3
 
