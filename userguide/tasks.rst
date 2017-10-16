@@ -827,7 +827,7 @@ The S.M.A.R.T. service will not start if there are no volumes.
 
 .. _tasks_add_smart_test_fig:
 
-.. figure:: images/smart1.png
+.. figure:: images/tasks-smart.png
 
    Adding a S.M.A.R.T. Test
 
