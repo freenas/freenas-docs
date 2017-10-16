@@ -1702,7 +1702,7 @@ in
 
 .. _create_ca_fig:
 
-.. figure:: images/system-create-internal-ca.png
+.. figure:: images/system-create-internal-ca1.png
 
    Creating an Internal CA
 
@@ -1836,8 +1836,8 @@ certificate.
 On %brand% :ref:`High Availability (HA) <Failover>` systems, the
 imported certificate must include the IP addresses or DNS hostnames of
 both nodes and the CARP virtual IP address. These IP addresses or DNS
-hostnames can be placed in the Subject Alternative Name (SAN) x509
-extension.
+hostnames can be placed in the :guilabel:`Subject Alternative Name`
+(SAN) x509 extension field.
 #endif truenas
 
 
@@ -1895,7 +1895,7 @@ as the signing authority.
 
 .. _create_new_cert_fig:
 
-.. figure:: images/system-create-internal-cert.png
+.. figure:: images/system-create-internal-cert1.png
 
    Creating a New Certificate
 
