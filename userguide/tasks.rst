@@ -236,7 +236,7 @@ shows the screen that opens after clicking
 
 .. _tasks_create_cron_job_fig:
 
-.. figure:: images/cron.png
+.. figure:: images/tasks-cron.png
 
    Creating a Cron Job
 
