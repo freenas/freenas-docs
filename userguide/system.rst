@@ -1831,6 +1831,16 @@ When importing a certificate chain, paste the primary certificate,
 followed by any intermediate certificates, followed by the root CA
 certificate.
 
+
+#ifdef truenas
+On %brand% :ref:`High Availability (HA) <Failover>` systems, the
+imported certificate must include the IP addresses or DNS hostnames of
+both nodes and the CARP virtual IP address. These IP addresses or DNS
+hostnames can be placed in the Subject Alternative Name (SAN) x509
+extension.
+#endif truenas
+
+
 The configurable options are summarized in
 :numref:`Table %s <cert_import_opt_tab>`.
 
