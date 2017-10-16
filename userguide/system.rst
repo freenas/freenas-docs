@@ -554,7 +554,7 @@ The configurable settings are summarized in
 .. _system_adv_fig:
 
 #ifdef freenas
-.. figure:: images/system-advanced.png
+.. figure:: images/system-advanced1.png
 
    Advanced Screen
 #endif freenas
