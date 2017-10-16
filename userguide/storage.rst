@@ -2556,7 +2556,7 @@ summarizes the options in this screen.
 
 .. _zfs_view_volume_scrub_fig:
 
-.. figure:: images/scrub1.png
+.. figure:: images/storage-scrub.png
 
    Viewing a Volume's Default Scrub Settings
 
@@ -2640,7 +2640,7 @@ available snapshots. An example is shown in
 
 .. _zfs_view_avail_snapshots_fig:
 
-.. figure:: images/periodic3a.png
+.. figure:: images/storage-snapshots.png
 
    Viewing Available Snapshots
 
