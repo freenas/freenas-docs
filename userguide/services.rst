@@ -1320,7 +1320,7 @@ This configuration screen is really a front-end to
 .. _global_smb_config_fig:
 
 #ifdef freenas
-.. figure:: images/cifs1b.png
+.. figure:: images/services-smb.png
 
    Global SMB Configuration
 #endif freenas
