@@ -2146,9 +2146,8 @@ summarizes the options in the UPS Configuration screen.
    device name is to check the box :guilabel:`Show console messages`
    in
    :menuselection:`System --> Advanced`.
-   Plug in the USB device and console messages show the name of the
-   */dev/ugenX.X* device, where the X's are the numbers that show on
-   the console.
+   Plug in the USB device and look for a */dev/ugen* or */dev/uhid* device
+   name in the console messages.
 
 `upsc(8) <http://www.networkupstools.org/docs/man/upsc.html>`_
 can be used to get status variables from the UPS daemon such as the
