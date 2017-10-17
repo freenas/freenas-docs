@@ -93,7 +93,7 @@ but can be changed to meet requirements of the local network.
    |                        |            |                                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
    | HTTP Proxy             | string     | enter the proxy information for the network in the format *http://my.proxy.server:3128* or                           |
-   |                        |            | *http://user@password:my.proxy.server:3128*                                                                          |
+   |                        |            | *http://user:password@my.proxy.server:3128*                                                                          |
    |                        |            |                                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
    | Enable netwait feature | checkbox   | if enabled, network services are not started at boot until the interface is able to ping the addresses               |
