@@ -1183,7 +1183,7 @@ for more details.
    | cap                 | translates filenames to and from the CAP encoding format, commonly used in Japanese language environments                                  |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | catia               | creates filenames that use characters that are illegal in SMB filenames                                                                    |
+   | catia               | creates filenames that use characters that are illegal in SMB filenames; useful for Mac clients                                            |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | commit              | tracks the amount of data written to a file and synchronizes it to disk when a specified amount accumulates                                |
@@ -1213,7 +1213,8 @@ for more details.
    | fake_perms          | allows roaming profile files and directories to be set as read-only                                                                        |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | fruit               | enhances OS X support by providing the SMB2 AAPL extension and Netatalk interoperability (see NOTE below table)                            |
+   | fruit               | enhances OS X support by providing the SMB2 AAPL extension and Netatalk interoperability; automatically loads *streams_xattr*; reconnect   |
+   |                     | Mac clients to the share after adding this module                                                                                          |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | full_audit          | record selected client operations to the system log; if selected, a warning will indicate that Windows 10 clients may experience issues    |
@@ -1294,11 +1295,6 @@ for more details.
    | zfsacl              | provide ACL extensions for proper integration with ZFS; enabled by default                                                                 |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-
-.. note:: When using :guilabel:`fruit`, also add the
-   :guilabel:`streams_xattr` and :guilabel:`catia` VFS objects and be
-   sure to configure **all** SMB shares this way. Reboot the Mac
-   client after making this change.
 
 These VFS objects do not appear in the selection box:
 
