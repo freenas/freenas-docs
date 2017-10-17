@@ -286,37 +286,8 @@ Videos
 
 A series of instructional videos are available for %brand%:
 
-* `Changes in FreeNAS® 9.3
-  <https://www.youtube.com/watch?v=weKWqmbWdR4>`_
-
-* `FreeNAS 9.3 Updates <https://www.youtube.com/watch?v=lC7af_ahwSE>`_
-
-* `How to Upgrade FreeNAS® 9.3
-  <https://www.youtube.com/watch?v=L61IJF98eP8>`_
-
-* `How to Install FreeNAS® 9.3
-  <https://www.youtube.com/watch?v=k-mRgeDS8rk>`_
-
-* `FreeNAS® 9.3 Shares Overview (AFP, NFS, CIFS, + New WebDAV)
-  <https://www.youtube.com/watch?v=GVJQ0Vx_6i4>`_
-
-* `How to Replace HDD in FreeNAS® 9.3
-  <https://www.youtube.com/watch?v=c8bvtj-LQ_A>`_
-
-* `TrueNAS® 9.3 Snapshots Setup
-  <https://www.youtube.com/watch?v=R92wb_xN9k4>`_
-
 * `Install Murmur (Mumble server) on FreeNAS/FreeBSD
   <https://www.youtube.com/watch?v=aAeZRNfarJc>`_
-
-* `FreeNAS® 9.3 - First Time Setup Wizard
-  <https://www.youtube.com/watch?v=isvHJ51YRBk>`_
-
-* `FreeNAS® 9.3 Permissions Overview
-  <https://www.youtube.com/watch?v=RBszScnsRgY>`_
-
-* `FreeNAS® 9.3 iSCSI Overview
-  <https://www.youtube.com/watch?v=HvyOWlFISdo&>`_
 
 * `FreeNAS® 9.10 - Certificate Authority & SSL Certificates
   <https://www.youtube.com/watch?v=OT1Le5VQIc0>`_
@@ -329,6 +300,12 @@ A series of instructional videos are available for %brand%:
 
 * `FreeNAS 9.10 and Samba (SMB) Permissions
   <https://www.youtube.com/watch?v=RxggaE935PM>`_
+
+* `FreeNAS® 11 - What's New
+  <https://www.youtube.com/watch?v=-uJ_7eG88zk>`__
+
+* `FreeNAS® 11 - How to Install
+  <https://www.youtube.com/watch?v=R3f-Sr6y-c4>`__
 
 .. index:: Professional Support
 .. _Professional Support:
