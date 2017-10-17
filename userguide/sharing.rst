@@ -1187,7 +1187,7 @@ for more details.
    | cap                 | translates filenames to and from the CAP encoding format, commonly used in Japanese language environments                                  |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | catia               | creates filenames that use characters that are illegal in SMB filenames; useful for Mac clients                                            |
+   | catia               | improves Mac interoperability by translating characters that are unsupported by Windows                                                    |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | commit              | tracks the amount of data written to a file and synchronizes it to disk when a specified amount accumulates                                |
@@ -1217,8 +1217,8 @@ for more details.
    | fake_perms          | allows roaming profile files and directories to be set as read-only                                                                        |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | fruit               | enhances OS X support by providing the SMB2 AAPL extension and Netatalk interoperability; automatically loads *streams_xattr*; reconnect   |
-   |                     | Mac clients to the share after adding this module                                                                                          |
+   | fruit               | enhances OS X support by providing the SMB2 AAPL extension and Netatalk interoperability; automatically loads *catia* and *streams_xattr*  |
+   |                     | but read the caveat in NOTE below table                                                                                                    |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | full_audit          | record selected client operations to the system log; if selected, a warning will indicate that Windows 10 clients may experience issues    |
@@ -1299,6 +1299,15 @@ for more details.
    | zfsacl              | provide ACL extensions for proper integration with ZFS; enabled by default                                                                 |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+
+.. note:: Be careful when using multiple SMB shares, some with and some
+   without *fruit*. OS X clients negotiate SMB2 AAPL protocol extensions
+   on the first connection to the server, so mixing shares with and
+   without fruit will globally disable AAPL if the first connection occurs
+   without fruit. To resolve this, all OS X clients need to disconnect
+   from all SMB shares and the first reconnection to the server has to be
+   to a fruit-enabled share.
+
 
 These VFS objects do not appear in the selection box:
 
