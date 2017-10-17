@@ -225,7 +225,7 @@ Be aware that configuring a domain controller is a complex process
 that requires a good understanding of how :ref:`Active Directory`
 works. While
 :menuselection:`Services --> Domain Controller`
-makes it easy to input the needed settings into the administrative
+makes it easy to enter the needed settings into the administrative
 graphical interface, it is important to understand what those settings
 should be. Before beginning configuration, read through the
 `Samba AD DC HOWTO
@@ -341,17 +341,17 @@ start the DDNS service in
    | Setting              | Value          | Description                                                                                                        |
    |                      |                |                                                                                                                    |
    +======================+================+====================================================================================================================+
-   | Provider             | drop-down menu | several providers are supported; if your provider is not listed, select *Custom Provider* and input the            |
+   | Provider             | drop-down menu | several providers are supported; if your provider is not listed, select *Custom Provider* and enter the            |
    |                      |                | information in the *Custom Server* and *Custom Path* fields                                                        |
    |                      |                |                                                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
    | CheckIP Server SSL   | string         | when checked, HTTPS is used for the connection to the *CheckIP Server*                                             |
    |                      |                |                                                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | CheckIP Server       | string         | input the name and port of the server that reports the external IP adress, in the format *server.name.org:port*    |
+   | CheckIP Server       | string         | enter the name and port of the server that reports the external IP adress, in the format *server.name.org:port*    |
    |                      |                |                                                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | CheckIP Path         | string         | input the update path of the *CheckIP Server*                                                                      |
+   | CheckIP Path         | string         | enter the update path of the *CheckIP Server*                                                                      |
    |                      |                |                                                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
    | Use SSL              |                | when checked, HTTPS is used for the connection to the server that updates the DNS record                           |
@@ -769,7 +769,7 @@ To configure any FTP scenario to use encrypted connections:
     the :guilabel:`Certificate` drop-down menu.
 
 #.  Specify secure FTP when accessing the %brand% system. For
-    example, in Filezilla input *ftps://IP_address* (for an implicit
+    example, in Filezilla enter *ftps://IP_address* (for an implicit
     connection) or *ftpes://IP_address* (for an explicit connection)
     as the Host when connecting. The first time a user connects, they
     will be presented with the certificate of the %brand% system.
@@ -867,7 +867,7 @@ summarizes the configuration options for the LLDP service.
    | Interface Description  | checkbox   | when checked, receive mode is enabled and received peer information is saved in interface descriptions              |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Country Code           | string     | required for LLDP location support; input 2 letter ISO 3166 country code                                            |
+   | Country Code           | string     | required for LLDP location support; enter a two-letter ISO 3166 country code                                        |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
    | Location               | string     | optional; specify the physical location of the host                                                                 |

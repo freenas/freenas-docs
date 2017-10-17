@@ -179,7 +179,7 @@ Check the :guilabel:`Wait to boot` checkbox to indicate that the VNC
 client should wait until the VM has booted before attempting the
 connection.
 
-To automatically pass the VNC password, input it into the
+To automatically pass the VNC password, enter it into the
 :guilabel:`Password` field. Note that the password is limited to 8
 characters.
 

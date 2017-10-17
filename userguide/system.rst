@@ -411,9 +411,10 @@ configuration buttons are shown:
 
 The buttons above the boot entries can be used to:
 
-* **Create:** a manual boot environment. A pop-up menu will prompt you
-  to input a "Name" for the boot environment. When entering the name,
-  only alphanumeric characters, underscores, and dashes are allowed.
+* **Create:** a manual boot environment. A pop-up menu prompts for
+  entry of a :guilabel:`Name` for the boot environment. When entering
+  the name, only alphanumeric characters, underscores, and dashes are
+  allowed.
 
 * **Scrub Boot:** can be used to perform a manual scrub of the boot
   devices. By default, the boot device is scrubbed every 7 days. To
@@ -1507,7 +1508,7 @@ the remaining options, which vary by provider, and are shown in
    | Amazon S3            | Secret Key           | paste the Amazon account secret key                                                      |
    |                      |                      |                                                                                          |
    +----------------------+----------------------+------------------------------------------------------------------------------------------+
-   | Backblaze B2         | Account ID           | input the ID associated with the Backblaze account                                       |
+   | Backblaze B2         | Account ID           | enter the ID associated with the Backblaze account                                       |
    |                      |                      |                                                                                          |
    +----------------------+----------------------+------------------------------------------------------------------------------------------+
    | Backblaze B2         | Application Key      | paste the application key                                                                |
@@ -2065,13 +2066,13 @@ complete the following fields:
   string, and configuration is automatically generated and included
   with the ticket.
 
-* **Subject:** input a descriptive title for the ticket. A good
+* **Subject:** enter a descriptive title for the ticket. A good
   *Subject* makes it easy for you and other users to find similar
   reports.
 
-* **Description:** input a 1 to 3 paragraph summary of the issue
-  that describes the problem, and if applicable, what steps one can
-  do to reproduce it.
+* **Description:** enter a one- to three-paragraph summary of the
+  issue that describes the problem, and if applicable, what steps can
+  be taken to reproduce it.
 
 * **Attachments:** this is the only optional field. It is useful
   for including configuration files or screenshots of any errors or
@@ -2275,7 +2276,7 @@ screen:
 * **IPv4 Address (This Node):** if this node will use a static IP
   address, rather than DHCP, set it here.
 
-* **Virtual IP:** input the IP address to use for administrative
+* **Virtual IP:** enter the IP address to use for administrative
   access to the array.
 
 * **Virtual Host ID:** the Virtual Host ID (VHID) must be unique on

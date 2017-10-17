@@ -231,7 +231,7 @@ for the VHID when creating the link aggregation.
 interface.
 
 **4) Configure Default Route:** used to set the IPv4 or IPv6
-default gateway. When prompted, input the IP address of the default
+default gateway. When prompted, enter the IP address of the default
 gateway.
 
 **5) Configure Static Routes:** prompts for the destination
@@ -240,7 +240,7 @@ route to be added.
 
 **6) Configure DNS:** will prompt for the name of the DNS domain
 then the IP address of the first DNS server. To enter multiple DNS
-servers, press :kbd:`Enter` to input the next one. When finished,
+servers, press :kbd:`Enter` to enter the next one. When finished,
 press :kbd:`Enter` twice to leave this option.
 
 **7) Reset Root Password:** if logging in to the
