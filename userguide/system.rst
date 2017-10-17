@@ -1983,10 +1983,9 @@ configurable option for encrypting connections.
 
 Clicking an entry activates these configuration buttons:
 
-* **View:** after a certificate is created, it cannot be edited. The
-  :guilabel:`Name`, :guilabel:`Certificate`, and
-  :guilabel:`Private Key` fields can be viewed. If a certificate must
-  be changed, :guilabel:`Delete` and recreate it.
+* **View:** use this option to view or edit the contents of an existing
+  certificate. These fields can be edited: :guilabel:`Identifier` (name),
+  :guilabel:`Certificate`, and :guilabel:`Private Key`.
 
 * **Export Certificate** saves a copy of the certificate or
   certificate signing request to the system being used to access the

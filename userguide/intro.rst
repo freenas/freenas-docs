@@ -176,6 +176,10 @@ The following screens have changed:
   :menuselection:`System --> Certificates --> Create Certificate Signing Request`
   screens.
 
+* The ability to edit an existing certificate's :guilabel:`Name`,
+  :guilabel:`Certificate`, and :guilabel:`Private Key` fields has been
+  added to :menuselection:`System --> Certificates --> View`.
+
 * An :guilabel:`Enabled` checkbox has been added to
   :menuselection:`Tasks --> Init/Shutdown Scripts`.
 
