@@ -796,7 +796,7 @@ tree then click :guilabel:`Create zvol` to open the screen shown in
 
 .. _zfs_create_zvol_fig:
 
-.. figure:: images/zvol1a.png
+.. figure:: images/storage-zvol.png
 
    Creating a Zvol
 

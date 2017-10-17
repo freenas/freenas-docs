@@ -114,7 +114,7 @@ which are described in
 
 .. _global_afp_config_fig:
 
-.. figure:: images/afp1b.png
+.. figure:: images/services-afp.png
 
    Global AFP Configuration
 
