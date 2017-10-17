@@ -20,6 +20,8 @@ includes these built-in services:
 
 * :ref:`LLDP`
 
+* :ref:`Netdata`
+
 * :ref:`NFS`
 
 * :ref:`Rsync`
@@ -871,6 +873,43 @@ summarizes the configuration options for the LLDP service.
    | Location               | string     | optional; specify the physical location of the host                                                                 |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
+
+
+.. index:: Netdata
+.. _Netdata:
+
+Netdata
+-------
+
+Netdata is a real-time performance and monitoring system. It displays
+data as web dashboards.
+
+Start the Netdata service from the :ref:`Services` screen. Click the
+wrench icon to display the Netdata settings dialog shown in
+:numref:`Figure %s <services_netdata_settings_fig>`.
+
+
+.. _services_netdata_settings_fig:
+
+.. figure:: images/services-netdata-config.png
+
+   Netdata Settings Dialog
+
+
+Click the :guilabel:`Take me to the Netdata UI` button to view the web
+dashboard as shown in
+:numref:`Figure %s <services_netdata_fig>`.
+
+
+.. _services_netdata_fig:
+
+.. figure:: images/services-netdata.png
+
+   Netdata Web Dashboard
+
+
+More information on configuring and using Netdata is available at the
+`Netdata website <https://my-netdata.io/>`__.
 
 
 .. index:: NFS, Network File System
