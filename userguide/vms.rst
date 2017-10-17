@@ -136,17 +136,18 @@ available:
    VM Network Interface Device
 
 The default :guilabel:`Adapter Type` emulates an Intel E1000 (82545)
-Ethernet card for compatibility with most operating systems. This can be
-changed to *VirtIO* to provide better performance when the operating
-system installed in the VM supports VirtIO paravirtualized network drivers.
+Ethernet card for compatibility with most operating systems. This can
+be changed to *VirtIO* to provide better performance when the
+operating system installed in the VM supports VirtIO paravirtualized
+network drivers.
 
 If the system has multiple physical network interface cards, the
 :guilabel:`Nic to attach` drop-down menu can be used to specify which
 physical interface to associate with the VM.
 
-By default, the VM will receive an auto-generated random MAC address. To
-override the default with a custom value, input the desired address into
-the :guilabel:`Mac Address` field.
+By default, the VM receives an auto-generated random MAC address. To
+override the default with a custom value, enter the desired address
+into the :guilabel:`MAC Address` field.
 
 VMs set to *UEFI* booting are also given a VNC (Virtual Network
 Computing) remote connection. A standard
@@ -188,17 +189,17 @@ To use the VNC web interface, check the :guilabel:`VNC Web` checkbox.
    :literal:`RFB protocol error: invalid message type`, disable the
    :guilabel:`Adapt to network speed` option and move the slider to
    :guilabel:`Best quality`. On later versions of RealVNC, select
-   :menuselection:`File --> Preferences`, click :guilabel:`Expert`,
-   :guilabel:`ProtocolVersion`, then select 4.1 from the drop-down
-   menu.
+   :menuselection:`File --> Preferences`,
+   click :guilabel:`Expert`, :guilabel:`ProtocolVersion`, then
+   select 4.1 from the drop-down menu.
 
 :ref:`Zvols <Create zvol>` are used as virtual hard drives. After
 :ref:`creating a zvol <Create zvol>`, associate it with the VM by
 selecting :guilabel:`Add device`, choose the *VM*, select a
 :guilabel:`Type` of *Disk*, select the created zvol, then set the
-:guilabel:`Mode`. If a specific sector size is required, input the number
-of bytes into :guilabel:`Disk sectorsize`. The default of *0* means that
-the sector size is unset.
+:guilabel:`Mode`. If a specific sector size is required, enter the
+number of bytes into :guilabel:`Disk sectorsize`. The default of *0*
+leaves the sector size unset.
 
 
 .. figure:: images/vms-disk1.png
@@ -232,6 +233,31 @@ installation image is shown:
    For some VM systems, it is best to back up data, install the
    operating system from scratch in a new %brand% VM, and restore the
    data into the new VM.
+
+
+.. index: Other VM Devices
+.. _Other VM Devices:
+
+Virtual Serial Ports
+--------------------
+
+VMs automatically include a virtual serial port.
+
+* :file:`/dev/nmdm1B` is assigned to the first VM
+
+* :file:`/dev/nmdm2B` is assigned to the second VM
+
+And so on. These virtual serial ports allow connecting to the VM
+console from the :ref:`Shell`. To connect to the first VM:
+
+.. code-block:: none
+
+   cu -s 9600 -l /dev/nmdm1B
+
+
+See
+`cu(1) <https://www.freebsd.org/cgi/man.cgi?query=cu>`__
+for more information on operating :command:`cu`.
 
 
 .. index:: Running VMs
