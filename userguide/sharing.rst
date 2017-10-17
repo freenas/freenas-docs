@@ -1022,66 +1022,70 @@ provides more details for each configurable option.
 .. table:: Options for a SMB Share
    :class: longtable
 
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Setting                      | Value         | Advanced | Description                                                                                                 |
-   |                              |               | Mode     |                                                                                                             |
-   +==============================+===============+==========+=============================================================================================================+
-   | Path                         | browse button |          | select volume/dataset/directory to share                                                                    |
-   |                              |               |          |                                                                                                             |
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Use as home share            | checkbox      |          | check this box if the share is meant to hold user home directories; only one share can be the homes share   |
-   |                              |               |          |                                                                                                             |
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Name                         | string        |          | mandatory; name of share                                                                                    |
-   |                              |               |          |                                                                                                             |
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Comment                      | string        | ✓        | optional description                                                                                        |
-   |                              |               |          |                                                                                                             |
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Apply Default Permissions    | checkbox      |          | sets the ACLs to allow read/write for owner/group and read-only for others; should only be unchecked when   |
-   |                              |               |          | creating a share on a system that already has custom ACLs set                                               |
-   |                              |               |          |                                                                                                             |
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Export Read Only             | checkbox      | ✓        | prohibits write access to the share                                                                         |
-   |                              |               |          |                                                                                                             |
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Browsable to Network Clients | checkbox      | ✓        | when checked, users see the contents of */homes* (including other home directories of other users)          |
-   |                              |               |          | and when unchecked, users see only their own home directory                                                 |
-   |                              |               |          |                                                                                                             |
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Export Recycle Bin           | checkbox      | ✓        | deleted files are moved to a hidden :file:`.recycle` in the root folder of the share; the                   |
-   |                              |               |          | :file:`.recycle` directory can be deleted to reclaim space and is automatically recreated when a file       |
-   |                              |               |          | is deleted                                                                                                  |
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Show Hidden Files            | checkbox      | ✓        | if enabled, the Windows hidden attribute is not set when filenames that begin with a dot (a Unix hidden     |
-   |                              |               |          | file) are created; existing files are not affected                                                          |
-   |                              |               |          |                                                                                                             |
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Allow Guest Access           | checkbox      |          | if checked, a password is not required to connect to the share; connections with a bad password are         |
-   |                              |               |          | rejected unless the user account does not exist, in which case it is mapped to the guest account and        |
-   |                              |               |          | granted the permissions of the guest user defined in the :ref:`SMB` service                                 |
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Only Allow Guest Access      | checkbox      | ✓        | requires :guilabel:`Allow guest access` to also be checked; forces guest access for all connections         |
-   |                              |               |          |                                                                                                             |
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Hosts Allow                  | string        | ✓        | comma-, space-, or tab-delimited list of allowed hostnames or IP addresses                                  |
-   |                              |               |          |                                                                                                             |
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Hosts Deny                   | string        | ✓        | comma-, space-, or tab-delimited list of denied hostnames or IP addresses; allowed hosts take               |
-   |                              |               |          | precedence so can use *ALL* in this field and specify allowed hosts in :guilabel:`Hosts Allow`              |
-   |                              |               |          |                                                                                                             |
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | VFS Objects                  | selection     | ✓        | adds virtual file system modules to enhance functionality;                                                  |
-   |                              |               |          | :numref:`Table %s <avail_vfs_modules_tab>` summarizes the available modules                                 |
-   |                              |               |          |                                                                                                             |
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Periodic Snapshot Task       | drop-down     | ✓        | used to configure directory shadow copies on a per-share basis; select the pre-configured periodic          |
-   |                              | menu          |          | snapshot task to use for the share's shadow copies; periodic snapshot must be recursive                     |
-   |                              |               |          |                                                                                                             |
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters         | string        | ✓        | additional :file:`smb4.conf` parameters not covered by other option fields                                  |
-   |                              |               |          |                                                                                                             |
-   +------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Setting                        | Value         | Advanced | Description                                                                                                 |
+   |                                |               | Mode     |                                                                                                             |
+   +================================+===============+==========+=============================================================================================================+
+   | Path                           | browse button |          | select volume/dataset/directory to share                                                                    |
+   |                                |               |          |                                                                                                             |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Use as home share              | checkbox      |          | check this box if the share is meant to hold user home directories; only one share can be the homes share   |
+   |                                |               |          |                                                                                                             |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Name                           | string        |          | mandatory; name of share                                                                                    |
+   |                                |               |          |                                                                                                             |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Comment                        | string        | ✓        | optional description                                                                                        |
+   |                                |               |          |                                                                                                             |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Apply Default Permissions      | checkbox      |          | sets the ACLs to allow read/write for owner/group and read-only for others; should only be unchecked when   |
+   |                                |               |          | creating a share on a system that already has custom ACLs set                                               |
+   |                                |               |          |                                                                                                             |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Export Read Only               | checkbox      | ✓        | prohibits write access to the share                                                                         |
+   |                                |               |          |                                                                                                             |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Browsable to Network Clients   | checkbox      | ✓        | when checked, users see the contents of */homes* (including other home directories of other users)          |
+   |                                |               |          | and when unchecked, users see only their own home directory                                                 |
+   |                                |               |          |                                                                                                             |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Export Recycle Bin             | checkbox      | ✓        | deleted files are moved to a hidden :file:`.recycle` in the root folder of the share; the                   |
+   |                                |               |          | :file:`.recycle` directory can be deleted to reclaim space and is automatically recreated when a file       |
+   |                                |               |          | is deleted                                                                                                  |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Show Hidden Files              | checkbox      | ✓        | if enabled, the Windows hidden attribute is not set when filenames that begin with a dot (a Unix hidden     |
+   |                                |               |          | file) are created; existing files are not affected                                                          |
+   |                                |               |          |                                                                                                             |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Allow Guest Access             | checkbox      |          | if checked, a password is not required to connect to the share; connections with a bad password are         |
+   |                                |               |          | rejected unless the user account does not exist, in which case it is mapped to the guest account and        |
+   |                                |               |          | granted the permissions of the guest user defined in the :ref:`SMB` service                                 |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Only Allow Guest Access        | checkbox      | ✓        | requires :guilabel:`Allow guest access` to also be checked; forces guest access for all connections         |
+   |                                |               |          |                                                                                                             |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Access Based Share Enumeration | checkbox      | ✓        | when checked, users can only see the shares they have permission to access; to change the default that      |
+   |                                |               |          | grants Everyone access, use the computer management MMC on Windows or the **sharesec** command-line utility |
+   |                                |               |          |                                                                                                             |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Hosts Allow                    | string        | ✓        | comma-, space-, or tab-delimited list of allowed hostnames or IP addresses                                  |
+   |                                |               |          |                                                                                                             |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Hosts Deny                     | string        | ✓        | comma-, space-, or tab-delimited list of denied hostnames or IP addresses; allowed hosts take               |
+   |                                |               |          | precedence so can use *ALL* in this field and specify allowed hosts in :guilabel:`Hosts Allow`              |
+   |                                |               |          |                                                                                                             |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | VFS Objects                    | selection     | ✓        | adds virtual file system modules to enhance functionality;                                                  |
+   |                                |               |          | :numref:`Table %s <avail_vfs_modules_tab>` summarizes the available modules                                 |
+   |                                |               |          |                                                                                                             |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Periodic Snapshot Task         | drop-down     | ✓        | used to configure directory shadow copies on a per-share basis; select the pre-configured periodic          |
+   |                                | menu          |          | snapshot task to use for the share's shadow copies; periodic snapshot must be recursive                     |
+   |                                |               |          |                                                                                                             |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Auxiliary Parameters           | string        | ✓        | additional :file:`smb4.conf` parameters not covered by other option fields                                  |
+   |                                |               |          |                                                                                                             |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
 
 
 Note the following regarding some of the :guilabel:`Advanced Mode`
