@@ -1525,8 +1525,7 @@ perform these steps:
     the disk again and then click its :guilabel:`Replace` button.
     Select the replacement disk from the drop-down menu and click the
     :guilabel:`Replace Disk` button.  After clicking the
-    :guilabel:`Replace Disk` button, the ZFS pool starts to resilver
-    and the status of the resilver is displayed.
+    :guilabel:`Replace Disk` button, the ZFS pool begins resilvering.
 
 #. After the drive replacement process is complete, re-add the
    replaced disk in the :ref:`S.M.A.R.T. Tests` screen.
