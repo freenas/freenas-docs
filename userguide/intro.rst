@@ -176,6 +176,9 @@ The following screens have changed:
   :menuselection:`System --> Certificates --> Create Certificate Signing Request`
   screens.
 
+* The :guilabel:`Sign CSR` button has been added to
+  :menuselection:`System --> CAs`.
+
 * The ability to edit an existing certificate's :guilabel:`Name`,
   :guilabel:`Certificate`, and :guilabel:`Private Key` fields has been
   added to :menuselection:`System --> Certificates --> View`.
@@ -196,6 +199,9 @@ The following screens have changed:
 * The :guilabel:`Read-Only` drop-down menu has been added to
   :menuselection:`Storage --> Datasets --> Add Dataset --> Advanced Mode`.
 
+* The :guilabel:`Replication` column has been removed from
+  :menuselection:`Storage --> Snapshots`.
+
 * The :guilabel:`Access Based Share Enumeration` checkbox has been added
   to :menuselection:`Sharing --> SMB (Windows) Shares --> Add SMB (Windows) Share`.
 
@@ -209,6 +215,10 @@ The following screens have changed:
 * The :guilabel:`Certificate` drop-down menu has been added to
   :menuselection:`Services --> S3` in order to configure encrypted S3
   connections.
+
+* The :guilabel:`Server minimum protocol`
+  and :guilabel:`Server maximum protocol` fields have been removed from
+  :menuselection:`Services --> SMB`.
 
 * The :guilabel:`Log Level` drop-down menu has been added to
   :menuselection:`Services --> SNMP`. It defaults to the :guilabel:`Error`
