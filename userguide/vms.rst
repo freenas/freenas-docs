@@ -129,11 +129,13 @@ available:
 :numref:`Figure %s <vms-nic_fig>` shows the fields that appear when
 :guilabel:`Network Interface` is the selected :guilabel:`Type`.
 
+
 .. _vms-nic_fig:
 
-.. figure:: images/vms-nic1.png
+.. figure:: images/vms-nic1a.png
 
    VM Network Interface Device
+
 
 The default :guilabel:`Adapter Type` emulates an Intel E1000 (82545)
 Ethernet card for compatibility with most operating systems. This can
