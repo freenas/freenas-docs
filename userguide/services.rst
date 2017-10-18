@@ -1470,13 +1470,6 @@ This configuration screen is really a front-end to
    |                                  |                | :guilabel:`Hosts Deny` fields of a SMB share; uncheck if IP addresses are used to avoid the           |
    |                                  |                | delay of a host lookup                                                                                |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Server minimum protocol          | drop-down menu | the minimum protocol version the server will support; default selects *LANMAN1*; SMB clients          |
-   |                                  |                | automatically negotiate the highest supported protocol version that meets or exceeds this value;      |
-   |                                  |                | refer to :numref:`Table %s <smb_protocol_ver_tab>` for descriptions                                   |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Server maximum protocol          | drop-down menu | the maximum protocol version the server will support; refer to                                        |
-   |                                  |                | :numref:`Table %s <smb_protocol_ver_tab>` for descriptions                                            |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Allow execute always             | checkbox       | if checked, Samba will allow the user to execute a file, even if that user's permissions are not set  |
    |                                  |                | to execute                                                                                            |
    |                                  |                |                                                                                                       |
@@ -1500,57 +1493,6 @@ This configuration screen is really a front-end to
    |                                  |                | ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely defined IDs  |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _smb_protocol_ver_tab:
-
-.. table:: SMB Protocol Versions
-   :class: longtable
-
-   +----------------+------------------------------------------------------------+
-   | Value          | Description                                                |
-   |                |                                                            |
-   +================+============================================================+
-   | CORE           | used by DOS                                                |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | COREPLUS       | used by DOS                                                |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | LANMAN1        | used by Windows for Workgroups, OS/2, and Windows 9x       |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | LANMAN2        | used by Windows for Workgroups, OS/2, and Windows 9x       |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | NT1            | used by Windows NT                                         |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | SMB2           | used by Windows 7; same as SMB2_10                         |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | SMB2_02        | used by Windows Vista                                      |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | SMB2_10        | used by Windows 7                                          |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | SMB3           | used by Windows 10; same as SMB3_11                        |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | SMB3_00        | used by Windows 8                                          |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | SMB3_02        | used by Windows 8.1 and Windows Server 2012                |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
-   | SMB3_11        | used by Windows 10                                         |
-   |                |                                                            |
-   +----------------+------------------------------------------------------------+
 
 
 Changes to SMB settings take effect immediately. Changes to share

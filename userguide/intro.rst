@@ -213,6 +213,10 @@ The following screens have changed:
   :menuselection:`Services --> S3` in order to configure encrypted S3
   connections.
 
+* The :guilabel:`Server minimum protocol`
+  and :guilabel:`Server maximum protocol` fields have been removed from
+  :menuselection:`Services --> SMB`.
+
 * The :guilabel:`Log Level` drop-down menu has been added to
   :menuselection:`Services --> SNMP`. It defaults to the :guilabel:`Error`
   log level.
