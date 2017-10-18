@@ -196,6 +196,9 @@ The following screens have changed:
 * The :guilabel:`Read-Only` drop-down menu has been added to
   :menuselection:`Storage --> Datasets --> Add Dataset --> Advanced Mode`.
 
+* The :guilabel:`Replication` column has been removed from
+  :menuselection:`Storage --> Snapshots`.
+
 * The :guilabel:`Access Based Share Enumeration` checkbox has been added
   to :menuselection:`Sharing --> SMB (Windows) Shares --> Add SMB (Windows) Share`.
 

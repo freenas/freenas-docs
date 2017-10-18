@@ -2272,12 +2272,6 @@ showing the latest status.
    Replication Task List
 
 
-After a snapshot has been successfully replicated to another system,
-an :literal:`OK` is shown in the :guilabel:`Replication` column of the
-snapshot list at
-:menuselection:`Storage --> Snapshots`.
-
-
 .. note:: The encryption key that was copied from the source computer
    (*Alpha*) to the destination computer (*Beta*) is an RSA public
    key located in the :file:`/data/ssh/replication.pub` file on the
@@ -2675,9 +2669,6 @@ which may or may not be shared with other datasets in the pool. When a
 snapshot or clone is created, it initially references the same amount
 of space as the file system or snapshot it was created from, since its
 contents are identical.
-
-**Replication** shows whether the snapshot has been replicated to a
-remote system.
 
 Snapshots have icons on the right side for several actions.
 
