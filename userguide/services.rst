@@ -358,7 +358,7 @@ start the DDNS service in
    | CheckIP Server       | string         | enter the name and port of the server that reports the external IP adress, in the format *server.name.org:port*    |
    |                      |                |                                                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | CheckIP Path         | string         | enter the update path of the *CheckIP Server*                                                                      |
+   | CheckIP Path         | string         | enter the path that is requested by the *CheckIP Server* to determine the user's IP address                        |
    |                      |                |                                                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
    | Use SSL              |                | when checked, HTTPS is used for the connection to the server that updates the DNS record                           |
