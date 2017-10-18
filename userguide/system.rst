@@ -1783,6 +1783,10 @@ the CA expires.
 
 Clicking the entry for a CA causes these buttons to become available:
 
+* **Sign CSR:** used to sign internal Certificate Signing Requests created
+  using
+  :menuselection:`System --> Certificates --> Create Certificate Signing Request`.
+
 * **Export Certificate:** prompts to browse to the location to save a
   copy of the CA's X.509 certificate on the computer being used to
   access the %brand% system.

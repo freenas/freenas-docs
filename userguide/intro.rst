@@ -176,6 +176,9 @@ The following screens have changed:
   :menuselection:`System --> Certificates --> Create Certificate Signing Request`
   screens.
 
+* The :guilabel:`Sign CSR` button has been added to
+  :menuselection:`System --> CAs`.
+
 * The ability to edit an existing certificate's :guilabel:`Name`,
   :guilabel:`Certificate`, and :guilabel:`Private Key` fields has been
   added to :menuselection:`System --> Certificates --> View`.
