@@ -2633,7 +2633,7 @@ available snapshots. An example is shown in
 
 .. _zfs_view_avail_snapshots_fig:
 
-.. figure:: images/storage-snapshots.png
+.. figure:: images/storage-snapshots1.png
 
    Viewing Available Snapshots
 
