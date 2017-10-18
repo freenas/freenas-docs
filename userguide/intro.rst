@@ -161,9 +161,17 @@ The following major features are new in this version:
 
 The following screens have changed:
 
+* Each device in a mirrored boot pool now displays a :guilabel:`Detach`
+  button in :menuselection:`System --> Boot --> Status`. This can be
+  used to remove a device from the boot pool.
+
 * The :guilabel:`Enable Console Menu` in
   :menuselection:`System --> Advanced` has been renamed to
   :guilabel:`Show Text Console Without Password Prompt`.
+
+* The :guilabel:`FreeNAS-11-Nightlies-SDK` train has been added and the
+  :guilabel:`FreeNAS-9.3-STABLE` train has been removed from
+  :menuselection:`System --> Update`.
 
 * The :guilabel:`Send Test Alert` button has been added to
   :menuselection:`System --> Alert Services --> Edit`.

@@ -40,18 +40,13 @@ other information is at
 
 .. note:: %brand% requires 64-bit hardware.
 
-The download page contains these types of files:
-
-* **.iso:** this is a bootable installer that can be written to either
-  a CD or USB flash as described in :ref:`Preparing the Media`.
-
-* **.GUI_Upgrade.txz:** this is a compressed firmware upgrade image.
-  To upgrade %brand%, download this file and see the section on
-  :ref:`Upgrading`.
+The download page contains an *.iso* file. This is a bootable installer
+that can be written to either a CD or USB flash as described in
+:ref:`Preparing the Media`.
 
 .. index:: Checksum
 
-Each file has an associated :file:`sha256.txt` file which should be
+The *.iso* file has an associated :file:`sha256.txt` file which should be
 used to verify the integrity of the downloaded file. The command to
 verify the checksum varies by operating system:
 
@@ -86,10 +81,9 @@ stick.
 A CD burning utility is needed to write the :file:`.iso` file to a
 CD.
 
-The :file:`.iso` file can also be written to a USB memory stick or
-Compact Flash card. The method used to write the file depends on the
-operating system. Examples for several common operating systems are
-shown below.
+The :file:`.iso` file can also be written to a USB memory stick. The
+method used to write the file depends on the operating system. Examples
+for several common operating systems are shown below.
 
 .. note:: To install from a USB stick to another USB stick, **two**
    USB ports are needed, each with an inserted USB device. One USB
@@ -112,8 +106,7 @@ On FreeBSD or Linux
 ~~~~~~~~~~~~~~~~~~~
 
 On a FreeBSD or Linux system, the :command:`dd` command can be used to
-write the :file:`.iso` file to an inserted USB thumb drive or Compact
-Flash device.
+write the :file:`.iso` file to an inserted USB thumb drive.
 :ref:`Example: Writing the .iso file to a USB Thumb Drive
 <install_write_iso_topic>`
 demonstrates writing the image to the first USB device (*/dev/da0*) on
@@ -132,7 +125,7 @@ the device name representing the device to write to on your system.
 
    .. code-block:: none
 
-    dd if=FreeNAS-9.10-RELEASE-x64.iso of=/dev/da0 bs=64k
+    dd if=FreeNAS-11.0-RELEASE.iso of=/dev/da0 bs=64k
     6117+0 records in
     6117+0 records out
     400883712 bytes transferred in 88.706398 secs (4519220 bytes/sec)
@@ -232,7 +225,7 @@ path to the USB thumb drive.
     diskutil unmountDisk /dev/disk1
     Unmount of all volumes on disk1 was successful
 
-    dd if=FreeNAS-9.10-RELEASE-x64.iso of=/dev/rdisk1 bs=64k
+    dd if=FreeNAS-11.0-RELEASE.iso of=/dev/rdisk1 bs=64k
 
 
 .. note:: If the error "Resource busy" is shown when the
@@ -242,7 +235,7 @@ path to the USB thumb drive.
    all of them are unmounted. If the error
    "dd: /dev/disk1: Permission denied" is shown, run the :command:`dd`
    command by typing
-   :command:`sudo dd if=FreeNAS-9.10-RELEASE-x64.iso of=/dev/rdisk1 bs=64k`.
+   :command:`sudo dd if=FreeNAS-11.0-RELEASE.iso of=/dev/rdisk1 bs=64k`.
    This will prompt for your password.
 
 The :command:`dd` command can take some minutes to complete. Wait
@@ -313,14 +306,14 @@ system.
 
 
 Use the arrow keys to highlight the destination USB drive, SSD,
-DOM (Disk on Module), Compact Flash device, or virtual disk. Press the
-:kbd:`spacebar` to select it. To mirror the boot device, move to the
-second device and press :kbd:`spacebar` to select it also. After
-making these selections, press :kbd:`Enter`. The warning shown in
+DOM (Disk on Module), or virtual disk. Press the :kbd:`spacebar` to select
+it. To mirror the boot device, move to the second device and press
+:kbd:`spacebar` to select it also. After making these selections, press
+:kbd:`Enter`. The warning shown in
 :numref:`Figure %s <install_warning_fig>`
 is displayed, a reminder not to install the operating system on a
 drive that is meant for storage. Press :kbd:`Enter` to continue on to
-the screen shown in
+the screen shown in 
 :numref:`Figure %s <set_root_pass_fig>`.
 
 
