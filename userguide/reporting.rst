@@ -17,10 +17,8 @@ Click the tab for a device type to see its graphs.
 
 %brand% uses
 `collectd <https://collectd.org/>`__
-to provide reporting statistics. collectd plugins are enabled in
-:file:`/conf/base/etc/local/collectd.conf` to provide reporting
-graphs. These graphs are grouped into several tabs on the Reporting
-page:
+to provide reporting statistics. The resulting graphs are grouped into
+several tabs on the Reporting page:
 
 * :guilabel:`CPU`
 
