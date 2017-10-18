@@ -579,8 +579,8 @@ The configurable settings are summarized in
    | Setting                                  | Value                            | Description                                                                  |
    |                                          |                                  |                                                                              |
    +==========================================+==================================+==============================================================================+
-   | Show Text Console Without Password Prompt| checkbox                         | unchecking this box removes the console menu shown in                        |
-   |                                          |                                  | :numref:`Figure %s <console_setup_menu_fig>`                                 |
+   | Show Text Console Without Password Prompt| checkbox                         | unchecking this box replaces the console menu shown in                       |
+   |                                          |                                  | :numref:`Figure %s <console_setup_menu_fig>` with a login prompt             |
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Use Serial Console                       | checkbox                         | **do not** check this box if the serial port is disabled                     |
    |                                          |                                  |                                                                              |
