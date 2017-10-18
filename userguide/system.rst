@@ -1258,6 +1258,13 @@ These trains are available:
   branch for future versions and is meant only for testers and
   developers.
 
+
+* **FreeNAS-11-Nightlies-SDK**
+
+  **Do not use this train in production**. This train is meant only for
+  developers. It is similar to *FreeNAS-11-Nightlies* but with extra
+  development and debugging utilities added.
+
 **Legacy Versions**
 
 * **FreeNAS-9.10-STABLE**
@@ -1266,28 +1273,14 @@ These trains are available:
   to FreeNAS-11-STABLE is recommended to ensure that the system
   receives bug fixes and new features.
 
-* **FreeNAS-9.3-STABLE**
-
-  Maintenance-only updates to the older version of %brand%. Upgrading
-  to FreeNAS-9.10-STABLE is recommended to ensure that the system
-  receives bug fixes and new features.
-
-**Obsolete Versions**
-
-* **FreeNAS-9.10-Nightlies**
-
-  As of May 5, 2017, this train has been replaced by the
-  FreeNAS-11-Nightlies train. Please switch to the
-  FreeNAS-11-Nightlies train for active support.
-
 
 To change the train, use the drop-down menu to make a different
 selection.
 
 .. note:: The train selector does not allow downgrades. For example,
    the STABLE train cannot be selected while booted into a Nightly
-   boot environment, or a 9.3 train cannot be selected while booted
-   into a 9.10 boot environment. To go back to an earlier version
+   boot environment, or a 9.10 train cannot be selected while booted
+   into a 11 boot environment. To go back to an earlier version
    after testing or running a more recent version, reboot and select a
    boot environment for that earlier version. This screen can then be
    used to check for updates that train.
