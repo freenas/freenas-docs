@@ -1977,7 +1977,7 @@ configurable option for encrypting connections.
 
 .. _manage_cert_fig:
 
-.. figure:: images/system-certs-manage.png
+.. figure:: images/system-certs-manage1.png
 
    Managing Certificates
 
