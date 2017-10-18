@@ -205,6 +205,9 @@ The following screens have changed:
 * The :guilabel:`Access Based Share Enumeration` checkbox has been added
   to :menuselection:`Sharing --> SMB (Windows) Shares --> Add SMB (Windows) Share`.
 
+* The :guilabel:`Home Share Time Machine` checkbox has been added to
+  :menuselection:`Services --> AFP`.
+
 * The :guilabel:`CheckIP Server SSL`, :guilabel:`CheckIP Server`,
   :guilabel:`CheckIP Path`, and :guilabel:`Use SSL` fields have been
   added to :menuselection:`Services --> DDNS`. The

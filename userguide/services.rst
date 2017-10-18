@@ -153,6 +153,10 @@ which are described in
    | Home share name         | string         | overrides default home folder name with the specified value                                                     |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Home Share Time Machine | checkbox       | when checked, enables Time Machine Lock Stealing; Apple recommends that shares designated for Time Machine      |
+   |                         |                | backups be used exclusively for Time Machine backups                                                            |
+   |                         |                |                                                                                                                 |
+   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Database Path           | browse button  | select the path to store the CNID databases used by AFP (default is the root of the volume); the path must be   |
    |                         |                | writable                                                                                                        |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
@@ -162,6 +166,9 @@ which are described in
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Map ACLs                | drop-down menu | choose mapping of effective permissions for authenticated users; *Rights* (default, Unix-style permissions),    |
    |                         |                | *Mode* (ACLs), or *None*                                                                                        |
+   |                         |                |                                                                                                                 |
+   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Chmod Request           | drop-down menu | indicates how to handle ACLs; choices are *Ignore*, *Preserve*, or *Simple*                                     |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Bind IP Addresses       | selection      | specify the IP addresses to listen for FTP connections; highlight the desired IP addresses in the               |
