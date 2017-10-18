@@ -443,7 +443,10 @@ The buttons above the boot entries can be used to:
 
 
 #ifdef freenas
-If the system has a mirrored boot device and one of the boot devices
+If the system has a mirrored boot pool, there will be a
+:guilabel:`Detach` button in addition to the :guilabel:`Replace` button.
+To remove a device from the boot pool, highlight the device and click
+its :guilabel:`Detach` button. Alternately, if one of the boot devices
 has an *OFFLINE* :guilabel:`Status`, click the device to replace,
 then click :guilabel:`Replace` to rebuild the boot mirror.
 #endif freenas
