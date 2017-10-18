@@ -13,6 +13,19 @@ installation and management. Any software installed using Jails must
 be managed from the command line of the jail. If you prefer to use a
 GUI to manage software, use :ref:`Plugins` instead.
 
+.. note:: The jails infrastructure is transitioning from the old
+   warden backend to the new iocage backend. This transition process
+   requires the middleware API calls to be rewritten for the new UI. It
+   is expected that the transition will be complete with %brand% version
+   11.2. Since jails created in the old UI use the warden backend, jails
+   created in the new UI use the iocage backend, and both use different
+   API versions, they are not compatible. While a migration script will
+   be made available when the transition is complete, it will not be able
+   to anticipate every configuration scenario for every application
+   installed in jails. At that time, the recommendation will be to: create
+   new jails using the new UI, copy over any existing configurations, and
+   delete the old jail datasets once the new jails are working as expected.
+
 %brand% automatically creates a jail whenever a plugin is
 installed, but does not let the user install multiple plugins into the
 same jail. In contrast, using Jails allows users to create as many
@@ -1110,6 +1123,19 @@ Using iocage
 Beginning with %brand% 9.10.1, the
 `iocage <https://github.com/iocage/iocage>`_
 command line utility is included for creating, and managing jails.
+
+.. note:: The jails infrastructure is transitioning from the old
+   warden backend to the new iocage backend. This transition process
+   requires the middleware API calls to be rewritten for the new UI. It
+   is expected that the transition will be complete with %brand% version
+   11.2. Since jails created in the old UI use the warden backend, jails
+   created in the new UI use the iocage backend, and both use different
+   API versions, they are not compatible. While a migration script will
+   be made available when the transition is complete, it will not be able
+   to anticipate every configuration scenario for every application
+   installed in jails. At that time, the recommendation will be to: create
+   new jails using the new UI, copy over any existing configurations, and
+   delete the old jail datasets once the new jails are working as expected.
 
 The built-in help can be displayed with
 :samp:`iocage --help | more`. Each subcommand also has help, which is
