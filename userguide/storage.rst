@@ -14,6 +14,8 @@ these options:
 * :ref:`Replication Tasks` automate the replication of snapshots to
   a remote system.
 
+* :ref:`Resilver Priority` controls the priority of resilvers.
+
 * :ref:`Scrubs` schedules scrubs as part of ongoing disk maintenance.
 
 * :ref:`Snapshots` manages local snapshots.
@@ -2529,6 +2531,60 @@ system, *Beta*, can be listed from the :ref:`Shell` with
 :menuselection:`Storage --> Snapshots`.
 
 Error messages here can indicate any remaining problems.
+
+
+.. index: Resilver Priority
+.. _Resilver Priority:
+
+Resilver Priority
+-----------------
+
+Resilvering, or the process of copying data to a replacement disk, is
+best completed as quickly as possible. Increasing the priority of
+resilvers can help them to complete more quickly. The
+:guilabel:`Resilver Priority` tab makes it possible to increase the
+priority of resilvering at times where the additional I/O or CPU usage
+will not affect normal usage. Select
+:menuselection:`Storage --> Resilver Priority`
+to display the screen shown in
+:numref:`Figure %s <storage_resilver_pri_fig>`.
+:numref:`Table %s <storage_resilver_pri_opts_tab>`
+describes the fields on this screen.
+
+
+.. _storage_resilver_pri_fig:
+
+.. figure:: images/storage-resilver-priority.png
+
+   Resilver Priority
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.3\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.2\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+
+.. _storage_resilver_pri_opts_tab:
+
+.. table:: Resilver Priority Options
+   :class: longtable
+
+   +----------------------+-------------+-------------------------------------------------------------+
+   | Setting              | Value       | Description                                                 |
+   |                      |             |                                                             |
+   +======================+=============+=============================================================+
+   | Enabled              | checkbox    | check to enable higher-priority resilvering                 |
+   |                      |             |                                                             |
+   +----------------------+-------------+-------------------------------------------------------------+
+   | Begin higher         | drop-down   | start time to begin higher-priority resilvering             |
+   | priority resilvering |             |                                                             |
+   | at this time         |             |                                                             |
+   +----------------------+-------------+-------------------------------------------------------------+
+   | End higher priority  | drop-down   | end time to begin higher-priority resilvering               |
+   | resilvering at this  |             |                                                             |
+   | time                 |             |                                                             |
+   +----------------------+-------------+-------------------------------------------------------------+
+   | Weekday              | checkboxes  | use higher-priority resilvering on these days of the week   |
+   +----------------------+-------------+-------------------------------------------------------------+
 
 
 .. index:: Scrub

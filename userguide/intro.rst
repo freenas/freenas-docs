@@ -72,7 +72,8 @@ Introduction
 
 %brand% is an embedded open source network-attached storage (NAS)
 operating system based on FreeBSD and released under a
-`2-clause BSD license <https://opensource.org/licenses/BSD-2-Clause>`_.
+`2-clause BSD license
+<https://opensource.org/licenses/BSD-2-Clause>`__.
 A NAS has an operating system optimized for file storage and sharing.
 
 %brand% provides a browser-based, graphical configuration interface.
@@ -88,89 +89,100 @@ New Features in |release|
 
 %brand%  |release| is a feature release, which includes several new
 significant features, many improvements and bug fixes to existing
-features, and version updates to the operating system, base applications,
-and drivers. Users are encouraged to :ref:`Update` to this release in
-order to take advantage of these improvements and bug fixes.
+features, and version updates to the operating system, base
+applications, and drivers. Users are encouraged to :ref:`Update` to
+this release in order to take advantage of these improvements and bug
+fixes.
 
-The following base applications and drivers have been updated or added:
+These base applications and drivers have been updated or added:
 
 * The base operating system has been updated to FreeBSD 11.1-STABLE.
   This brings in many new
   `features and drivers
-  <https://www.freebsd.org/releases/11.1R/relnotes.html>`__. Improvements
-  have been made to the ixl(4) and mps(4) drivers. Support has been
-  added for the HBA 9400-81, Intel Skylake and Kaby Lake processors,
-  and Ryzen processors.
+  <https://www.freebsd.org/releases/11.1R/relnotes.html>`__.
+  Improvements have been made to the
+  `ixl(4) <https://www.freebsd.org/cgi/man.cgi?query=ixl>`__
+  and
+  `mps(4) <https://www.freebsd.org/cgi/man.cgi?query=mps>`__
+  drivers. Support has been added for the HBA 9400-81, Intel Skylake
+  and Kaby Lake processors, and Ryzen processors.
 
 * There have been many improvements to OpenZFS. Users should notice a
-  significant speed difference when listing a large number of snapshots
-  or when deleting multiple snapshots and large files.
+  significant speed difference when listing a large number of
+  snapshots or when deleting multiple snapshots and large files.
 
 * The Dojo Tookit has been updated to version 1.12.2.
 
-* OpenVPN has been updated to version `2.4.3
+* OpenVPN has been updated to version
+  `2.4.3
   <https://github.com/OpenVPN/openvpn/blob/release/2.4/Changes.rst#version-243>`__.
 
-* `Iperf version 3.2
-  <http://software.es.net/iperf/>`__ has been added. To use this version,
-  specify :command:`iperf3` instead of :command:`iperf`.
+* `Iperf version 3.2 <http://software.es.net/iperf/>`__
+  has been added. To use this version, specify :command:`iperf3`
+  instead of :command:`iperf`.
 
 * Iocage has been updated to version 0.9.9.2.
 
-* The new middleware now uses Python asyncio which simplifies asynchronous
-  code and makes it more readable.
+* The new middleware now uses Python asyncio which simplifies
+  asynchronous code and makes it more readable.
 
 * `mmv <https://packages.debian.org/unstable/utils/mmv>`__
-  has been added. It can be used from the command line to safely move or
-  copy multiple files using patterns, without any unexpected deletion of
-  files due to target name collisions.
+  has been added. It can be used from the command line to safely move
+  or copy multiple files using patterns, without any unexpected
+  deletion of files due to target name collisions.
 
-* `s3cmd
-  <http://s3tools.org/s3cmd>`__ has been added back as a CLI alternative
-  to :ref:`S3`.
+* `s3cmd <http://s3tools.org/s3cmd>`__
+  has been added back as a CLI alternative to :ref:`S3`.
 
-* The hardware watchdog has been reenabled for recent firmware versions
-  of AsrockRack C2750D4I. The BMC bug which required watchdog to be
-  disabled is resolved with the 00.30.00 or newer BMC firmware version.
+* The hardware watchdog has been reenabled for recent firmware
+  versions of AsrockRack C2750D4I. The BMC bug which required the
+  watchdog to be disabled is resolved with the 00.30.00 or newer BMC
+  firmware version.
 
-The following major features are new in this version:
+These major features are new in this version:
 
-* :ref:`Cloud Credentials` has been added to :ref:`System`. This can be
-  used to provide a secure connection to a cloud services providers.
-  Supported services include Amazon S3, Backblaze B2, and Google Cloud
-  Storage.
+* :ref:`Cloud Credentials` has been added to :ref:`System`. This can
+  be used to provide a secure connection to a cloud services
+  providers. Supported services include Amazon S3, Backblaze B2, and
+  Google Cloud Storage.
 
 * :ref:`Cloud Sync` has been added to :ref:`Tasks` and can be used to
   synchronize files or directories to remote cloud storage providers.
+
+* :ref:`Resilver Priority` has been added to :ref:`Storage`. This
+  provides the ability to run resilvering at a higher priority at
+  configurable times and days of the week.
 
 * :ref:`VMs` have received significant improvements, including:
 
   * support for non-US keyboards.
 
   * the ability to specify the NIC used by the VM as well as the MAC
-    address for the VM NIC. These options can be set using
+    address for the VM NIC. These options can be set with
     :menuselection:`VMs --> Devices --> Network Interface`.
 
-  * the ability to specify the sector size used by the emulated disk has
-    been added to :menuselection:`VMs --> Devices --> Disk`.
+  * the ability to specify the sector size used by the emulated disk
+    has been added to :menuselection:`VMs --> Devices --> Disk`.
 
-  * the ability to edit the VNC screen resolution, select the IP address
-    to bind to, set the VNC password, and select the option to use the Web
-    version of VNC. These options can be set using
+  * the ability to edit the VNC screen resolution, select the IP
+    address to bind to, set the VNC password, and select the option to
+    use the Web version of VNC. These options can be set with
     :menuselection:`VMs --> Devices --> VNC`.
 
-The following screens have changed:
 
-* Each device in a mirrored boot pool now displays a :guilabel:`Detach`
-  button in :menuselection:`System --> Boot --> Status`. This can be
-  used to remove a device from the boot pool.
+These screens have changed:
+
+* Each device in a mirrored boot pool now displays a
+  :guilabel:`Detach` button in
+  :menuselection:`System --> Boot --> Status`.
+  This can be used to remove a device from the boot pool.
 
 * The :guilabel:`Enable Console Menu` in
   :menuselection:`System --> Advanced` has been renamed to
   :guilabel:`Show Text Console Without Password Prompt`.
 
-* The :guilabel:`FreeNAS-11-Nightlies-SDK` train has been added and the
-  :guilabel:`FreeNAS-9.3-STABLE` train has been removed from
+* The :guilabel:`FreeNAS-11-Nightlies-SDK` train has been added and
+  the :guilabel:`FreeNAS-9.3-STABLE` train has been removed from
   :menuselection:`System --> Update`.
 
 * The :guilabel:`Send Test Alert` button has been added to
@@ -204,9 +216,10 @@ The following screens have changed:
   system in a rack by flashing its IPMI LED light.
 
 * The :guilabel:`Priority Code Point (CoS)` field has been added to
-  :menuselection:`Network --> VLANs --> Add VLAN`. This can be useful in
-  datacenter environments to classify storage traffic on a given VLAN
-  interface using IEEE 802.1p Class of Service (COS).
+  :menuselection:`Network --> VLANs --> Add VLAN`.
+  This can be useful in datacenter environments to classify storage
+  traffic on a given VLAN interface using IEEE 802.1p Class of Service
+  (COS).
 
 * The :guilabel:`Read-Only` drop-down menu has been added to
   :menuselection:`Storage --> Datasets --> Add Dataset --> Advanced Mode`.
@@ -214,8 +227,10 @@ The following screens have changed:
 * The :guilabel:`Replication` column has been removed from
   :menuselection:`Storage --> Snapshots`.
 
-* The :guilabel:`Access Based Share Enumeration` checkbox has been added
-  to :menuselection:`Sharing --> SMB (Windows) Shares --> Add SMB (Windows) Share`.
+* The :guilabel:`Access Based Share Enumeration` checkbox has been
+  added to
+  :menuselection:`Sharing --> SMB (Windows) Shares --> Add SMB
+  (Windows) Share`.
 
 * The :guilabel:`Home Share Time Machine` checkbox has been added to
   :menuselection:`Services --> AFP`.
@@ -223,25 +238,28 @@ The following screens have changed:
 * The :guilabel:`CheckIP Server SSL`, :guilabel:`CheckIP Server`,
   :guilabel:`CheckIP Path`, and :guilabel:`Use SSL` fields have been
   added to :menuselection:`Services --> DDNS`. The
-  :guilabel:`Forced update period` and :guilabel:`Auxiliary parameters`
-  fields have been removed. In addition, several dozen DDNS providers
-  have been added to the :guilabel:`Provider` drop-down menu.
+  :guilabel:`Forced update period` and
+  :guilabel:`Auxiliary parameters` fields have been removed. In
+  addition, several dozen DDNS providers have been added to the
+  :guilabel:`Provider` drop-down menu.
 
 * The :guilabel:`Certificate` drop-down menu has been added to
   :menuselection:`Services --> S3` in order to configure encrypted S3
   connections.
 
 * The :guilabel:`Server minimum protocol`
-  and :guilabel:`Server maximum protocol` fields have been removed from
-  :menuselection:`Services --> SMB`.
+  and :guilabel:`Server maximum protocol` fields have been removed
+  from :menuselection:`Services --> SMB`.
 
 * The :guilabel:`Log Level` drop-down menu has been added to
-  :menuselection:`Services --> SNMP`. It defaults to the :guilabel:`Error`
-  log level.
+  :menuselection:`Services --> SNMP`. It defaults to the
+  :guilabel:`Error` log level.
 
-* The :guilabel:`No Communication Warning Time` field has been added to
-  :menuselection:`Services --> UPS`. This can be used to configure the
-  frequency of email notifications during the loss of UPS communications.
+* The :guilabel:`No Communication Warning Time` field has been added
+  to
+  :menuselection:`Services --> UPS`.
+  This can be used to configure the frequency of email notifications
+  during the loss of UPS communications.
 
 * The :guilabel:`No Authentication` choice has been added to the
   :menuselection:`Services --> WebDAV --> HTTP Authentication`
