@@ -2255,6 +2255,16 @@ from the source to the destination computer. This can take much longer
 to complete than subsequent replications, which only send differences
 in data.
 
+
+.. warning:: Snapshots record incremental changes in data. If the
+   receiving system does not have at least one snapshot that can be
+   used as a basis for the incremental changes in the snapshots from
+   the sending system, there is no way to identify only the data that
+   has changed. In this situation, the snapshots in the receiving
+   system target dataset are removed so a complete initial copy of the
+   new replicated data can be created.
+
+
 Selecting
 :menuselection:`Storage --> Replication Tasks` displays
 :numref:`Figure %s <zfs_repl_task_list_fig>`, the list of
