@@ -1096,16 +1096,18 @@ settings:
   in
   :menuselection:`Services --> SMB`.
 
-* When the :guilabel:`Browsable to Network Clients` box is checked (the
-  default), the share is visible through Windows File Explorer or through 
-  :command:`net view`. When the :guilabel:`Use as a home share` box is 
-  checked, unchecking the :guilabel:`Browsable to Network Clients` box hides 
-  the share named *homes* so that only the dynamically generated share 
-  containing the authenticated user's home directory will be visible. By 
-  default, the *homes* share and the user's home directory are both visible.
-  Users are not automatically granted read or write permissions on browsable shares.
-  This option provides no real security because shares that are not
-  visible in Windows File Explorer can still be accessed with a *UNC* path.
+* When the :guilabel:`Browsable to Network Clients` box is checked
+  (the default), the share is visible through Windows File Explorer or
+  through :command:`net view`. When the
+  :guilabel:`Use as a home share` box is checked, unchecking the
+  :guilabel:`Browsable to Network Clients` box hides the share named
+  *homes* so that only the dynamically generated share containing the
+  authenticated user's home directory will be visible. By default, the
+  *homes* share and the user's home directory are both visible. Users
+  are not automatically granted read or write permissions on browsable
+  shares. This option provides no real security because shares that
+  are not visible in Windows File Explorer can still be accessed with
+  a *UNC* path.
 
 * If some files on a shared volume should be hidden and inaccessible
   to users, put a *veto files=* line in the
@@ -1114,22 +1116,6 @@ settings:
   `smb.conf manual page
   <https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+11.0-RELEASE+and+Ports>`__.
 
-To configure support for OS/2 clients, add this line to
-:guilabel:`Auxiliary Parameters`:
-
-.. code-block:: none
-
-   lanman auth = yes
-
-
-To configure lanman authentication for pre-NT authentication, add
-these lines instead:
-
-.. code-block:: none
-
- client lanman auth = yes
- client plaintext auth = yes
-
 
 Samba disables NTLMv1 authentication by default for security. Standard
 configurations of Windows XP and some configurations of later clients
@@ -1137,9 +1123,10 @@ like Windows 7 will not be able to connect with NTLMv1 disabled.
 `Security guidance for NTLMv1 and LM network authentication
 <https://support.microsoft.com/en-us/help/2793313/security-guidance-for-ntlmv1-and-lm-network-authentication>`_
 has information about the security implications and ways to enable
-NTLMv2. If changing the client configuration is not possible, NTLMv1
-authentication can be enabled by checking the box :guilabel:`NTLMv1 auth` 
-in :menuselection:`Services --> SMB`.
+NTLMv2 on those clients. If changing the client configuration is not
+possible, NTLMv1 authentication can be enabled by checking the box
+:guilabel:`NTLMv1 auth` in
+:menuselection:`Services --> SMB`.
 
 
 :numref:`Table %s <avail_vfs_modules_tab>`
@@ -1316,9 +1303,10 @@ These VFS objects do not appear in the selection box:
   :ref:`SMB share options <smb_share_opts_tab>`.
 
 * **shadow_copy2:** a more recent implementation of
-  :guilabel:`shadow_copy` with some additional features. *shadow_copy2*
-  and its associated parameters are automatically added to the
-  :file:`smb4.conf` when a :guilabel:`Periodic Snapshot Task` is selected.
+  :guilabel:`shadow_copy` with some additional features.
+  *shadow_copy2* and the associated parameters are automatically added
+  to the :file:`smb4.conf` when a :guilabel:`Periodic Snapshot Task`
+  is selected.
 
 
 .. _Configuring Unauthenticated Access:
@@ -1976,9 +1964,10 @@ initiator on any network. Group 2 allows connections from any
 initiator on the *10.10.1.0/24* network. Click an initiator's entry to
 display its :guilabel:`Edit` and :guilabel:`Delete` buttons.
 
+
 .. note:: Attempting to delete an initiator causes a warning that
    indicates if any targets or target/extent mappings depend upon the
-   initiator. Confirming the delete causes these to be deleted as well.
+   initiator. Confirming the delete causes these to be deleted also.
 
 
 .. _iscsi_initiator_conf_sample_fig:
