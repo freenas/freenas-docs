@@ -1673,6 +1673,25 @@ replaced and the final resilver completes, the added space will appear
 in the pool.
 
 
+.. index:: Hot Spares, Spares
+.. _Hot Spares:
+
+Hot Spares
+~~~~~~~~~~
+
+ZFS provides the ability to have "hot" *spares*. These are drives that
+are connected to a volume, but not in use. If the volume experiences
+the failure of a data drive, the system uses the hot spare as a
+temporary replacement. If the failed drive is replaced with a new
+drive, the hot spare drive is no longer needed and reverts to being a
+hot spare. If the failed drive is instead removed from the volume, the
+spare is promoted to a full member of the volume.
+
+Hot spares can be added to a volume during or after creation. On
+%brand%, hot spare actions are implemented by
+`zfsd(8) <https://www.freebsd.org/cgi/man.cgi?query=zfsd>`__.
+
+
 .. index:: Periodic Snapshot, Snapshot
 .. _Periodic Snapshot Tasks:
 
