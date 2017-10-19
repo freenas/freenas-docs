@@ -344,6 +344,11 @@ summarizes the options available when configuring IPMI with the
    +----------------------+----------------+-----------------------------------------------------------------------------+
 
 
+The :guilabel:`Identify Light` button can be used to identify a system in
+a multi-system rack by flashing its IPMI LED light. Clicking this button
+will present a pop-up with a menu of times, ranging from 15 seconds to
+4 minutes, to flash the LED light.
+
 #ifdef freenas
 After configuration, the IPMI interface is accessed using a web
 browser and the IP address specified in the configuration. The

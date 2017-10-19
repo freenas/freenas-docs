@@ -199,6 +199,10 @@ The following screens have changed:
   six additional DNS search domains with the caveat that adding more
   domains may negatively impact DNS lookup time.
 
+* The :guilabel:`Identify Light` button has been added to
+  :menuselection:`Network --> IPMI` to make it easier to identify a
+  system in a rack by flashing its IPMI LED light.
+
 * The :guilabel:`Priority Code Point (CoS)` field has been added to
   :menuselection:`Network --> VLANs --> Add VLAN`. This can be useful in
   datacenter environments to classify storage traffic on a given VLAN
