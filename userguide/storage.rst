@@ -2600,31 +2600,32 @@ summarizes the options in this screen.
    | Volume         | drop-down menu              | volume to be scrubbed                                                                                       |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Threshold days | integer                     | number of days to wait after a scrub has completed before the next scrub can occur, regardless of the       |
-   |                |                             | calendar schedule; the default is a multiple of 7 which should ensure that the scrub always occurs on the   |
-   |                |                             | same day of the week                                                                                        |
+   | Threshold days | integer                     | prevent scrub from running for this number of days after a scrub has completed, regardless of the calendar  |
+   |                |                             | schedule; the default is a multiple of 7 to ensure that the scrub always occurs on the same day of the week |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Description    | string                      | optional                                                                                                    |
+   | Description    | string                      | optional text description of scrub                                                                          |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Minute         | slider or minute selections | if the slider is used, a scrub occurs every N minutes; if specific minutes are chosen, a scrub starts at    |
+   | Minute         | slider or minute selections | if the slider is used, a scrub occurs every N minutes; if specific minutes are chosen, a scrub runs only at |
    |                |                             | the selected minute values                                                                                  |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Hour           | slider or hour selections   | if the slider is used, a scrub occurs every N hours; if specific hours are chosen, a scrub occurs at the    |
+   | Hour           | slider or hour selections   | if the slider is used, a scrub occurs every N hours; if specific hours are chosen, a scrub runs only at the |
    |                |                             | selected hour values                                                                                        |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Day of Month   | slider or month selections  | if the slider is used, a scrub occurs every N days; if specific months are chosen, a scrub occurs on the    |
-   |                |                             | selected days of the selected months                                                                        |
+   | Day of Month   | slider or month selections  | if the slider is used, a scrub occurs every N days; if specific days of the month are chosen, a scrub runs  |
+   |                |                             | only on the selected days of the selected months                                                            |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Month          | checkboxes                  | a scrub occurs on the selected months                                                                       |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Day of week    | checkboxes                  | a scrub occurs on the selected days; the default is *Sunday* to least impact users                          |
-   |                |                             |                                                                                                             |
+   | Day of week    | checkboxes                  | a scrub occurs on the selected days; the default is *Sunday* to least impact users; note that this field    |
+   |                |                             | and the :guilabel:`Day of Month` field are ORed together: setting :guilabel:`Day of Month` to *01,15* and   |
+   |                |                             | :guilabel:`Day of week` to *Thursday* will cause scrubs to run on the 1st and 15th days of the month, but   |
+   |                |                             | also on any Thursday                                                                                        |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Enabled        | checkbox                    | uncheck to disable the scheduled scrub without deleting it                                                  |
    |                |                             |                                                                                                             |
@@ -2632,14 +2633,15 @@ summarizes the options in this screen.
 
 
 Review the default selections and, if necessary, modify them to meet
-the needs of the environment.
+the needs of the environment. Note that the :guilabel:`Threshold`
+field is used to prevent scrubs from running too often, and overrides
+the schedule chosen in the other fields.
 
-Scrubs can be deleted with the :guilabel:`Delete` button, but
-**deleting a scrub is not recommended as a scrub provides an early
-indication of disk issues that could lead to a disk failure.**
-If a scrub is too intensive for the hardware, consider unchecking the
-:guilabel:`Enabled` button for the scrub as a temporary measure until
-the hardware can be upgraded.
+Scheduled crubs can be deleted with the :guilabel:`Delete` button, but
+this is not recommended. **Scrubs can provide an early indication of
+disk issues before a disk failure.** If a scrub is too intensive for
+the hardware, consider temporarily unchecking the :guilabel:`Enabled`
+button for the scrub until the hardware can be upgraded.
 
 
 .. index:: Snapshots
