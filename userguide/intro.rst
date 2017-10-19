@@ -111,7 +111,7 @@ These base applications and drivers have been updated or added:
   significant speed difference when listing a large number of
   snapshots or when deleting multiple snapshots and large files.
 
-* The Dojo Tookit has been updated to version 1.12.2.
+* The Dojo Toolkit has been updated to version 1.12.2.
 
 * OpenVPN has been updated to version
   `2.4.3
