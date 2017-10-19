@@ -297,7 +297,7 @@ lists the configurable options for a cron job.
 
 
 Cron jobs are shown in :guilabel:`View Cron Jobs`. Highlight a cron
-job entry to display buttons to :guilabel:`Edit`, guilabel:`Delete`,
+job entry to display buttons to :guilabel:`Edit`, :guilabel:`Delete`,
 or :guilabel:`Run Now`.
 
 
