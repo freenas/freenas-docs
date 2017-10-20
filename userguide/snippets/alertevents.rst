@@ -54,6 +54,8 @@ Some of the conditions that trigger an alert include:
 
 * a new update is available
 
+* the system reboots itself
+
 * non-optimal multipath states detected
 
 * ZFS pool status changes from :guilabel:`HEALTHY`

@@ -145,6 +145,8 @@ These base applications and drivers have been updated or added:
   watchdog to be disabled is resolved with the 00.30.00 or newer BMC
   firmware version.
 
+* The system will issue an alert if the system reboots itself.
+
 These major features are new in this version:
 
 * It is now possible to pause and resume scrubs from the command line.
