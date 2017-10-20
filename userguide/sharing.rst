@@ -575,7 +575,7 @@ button.
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
 
 
-When creating NFS shares, keep the following points in mind:
+When creating NFS shares, keep these points in mind:
 
 #. Clients will specify the :guilabel:`Path` when mounting the share.
 
@@ -596,16 +596,15 @@ When creating NFS shares, keep the following points in mind:
     share per filesystem.
 
 
-To better understand these restrictions, consider the following
-scenario where there are:
+To better understand these restrictions, consider a scenario where
+there are:
 
-* 2 networks named *10.0.0.0/8* and
-  *20.0.0.0/8*
+* two networks, *10.0.0.0/8* and *20.0.0.0/8*
 
 * a ZFS volume named :file:`volume1` with 2 datasets named
   :file:`dataset1` and :file:`dataset2`
 
-* :file:`dataset1` has a directory named :file:`directory1`
+* :file:`dataset1` contains a directory named :file:`directory1`
 
 Because of restriction #3, an error is shown when trying to create one
 NFS share like this:
@@ -642,13 +641,13 @@ done with only one share.
 Example Configuration
 ~~~~~~~~~~~~~~~~~~~~~
 
-By default, the :guilabel:`Mapall` options show as *N/A*. This means
-that when a user connects to the NFS share, they connect with the
+By default, the :guilabel:`Mapall` fields are not set. This means
+that when a user connects to the NFS share, the user has the
 permissions associated with their user account. This is a security
 risk if a user is able to connect as *root* as they will have complete
 access to the share.
 
-A better scenario is to do the following:
+A better option is to do this:
 
 #.  Specify the built-in *nobody* account to be used for NFS access.
 
@@ -699,8 +698,8 @@ The following examples share this configuration:
 From BSD or Linux
 ^^^^^^^^^^^^^^^^^
 
-The NFS share is mounted on BSD or Linux systems needing access with
-this command executed as the superuser or with :command:`sudo`:
+NFS shares are mounted on BSD or Linux clients with this command
+executed as the superuser (*root*) or with :command:`sudo`:
 
 .. code-block:: none
 
