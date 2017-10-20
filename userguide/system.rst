@@ -889,7 +889,9 @@ To store the system log on the system dataset, check the
 :guilabel:`Syslog` box.
 
 To store the reporting information on the system dataset, check the
-:guilabel:`Reporting Database` box.
+:guilabel:`Reporting Database` box. Note that if this box is unchecked,
+the system will automatically create a RAM disk to prevent reporting
+information from filling up :file:`/var`.
 
 If you make any changes, click the :guilabel:`Save` button to save
 them.
