@@ -1257,18 +1257,19 @@ These trains are available:
 
 **For Pre-Production Testing**
 
-* **FreeNAS-11-Nightlies**
-
-  **Do not use this train in production**. It is the experimental
-  branch for future versions and is meant only for testers and
-  developers.
+* **FreeNAS-11-Nightlies: Do not use this train in production**. It
+  is the experimental branch for future versions and is meant only for
+  testers and developers.
 
 
-* **FreeNAS-11-Nightlies-SDK**
+* **FreeNAS-11-Nightlies-SDK: Do not use this train in production**.
+  This train is meant only for developers. It is similar to
+  *FreeNAS-11-Nightlies* but with extra development and debugging
+  utilities added.
 
-  **Do not use this train in production**. This train is meant only for
-  developers. It is similar to *FreeNAS-11-Nightlies* but with extra
-  development and debugging utilities added.
+* **FreeNAS-HEAD-Nightlies: Do not use this train in production**.
+  This train is meant only for developers and contains the source that
+  will eventually become %brand% version 12.
 
 **Legacy Versions**
 
