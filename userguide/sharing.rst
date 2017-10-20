@@ -185,6 +185,10 @@ information given when the share was created.
    |                              |               |          | checking :guilabel:`Time Machine` on multiple shares could result in intermittent failed backups              |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Time Machine Quota           | checkbox      |          | only appears when *Time Machine* is checked; when checked, each time machine backup on the share has its own  |
+   |                              |               |          | quota                                                                                                         |
+   |                              |               |          |                                                                                                               |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Zero Device Numbers          | checkbox      | ✓        | enable when the device number is not constant across a reboot                                                 |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
@@ -327,8 +331,7 @@ enter the following information, as seen in the example in
    this example, the share is named *backup_user1*.
 
 #. Click the button for :guilabel:`Mac OS X (AFP)` and check the box
-   for :guilabel:`Time Machine`. If the user will not be using Time
-   Machine, leave the box unchecked.
+   for :guilabel:`Time Machine`.
 
 #. Click the :guilabel:`Ownership` button. If the user already exists
    on the %brand% system, click the drop-down :guilabel:`User` menu to

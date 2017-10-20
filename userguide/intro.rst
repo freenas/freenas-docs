@@ -249,6 +249,9 @@ These screens have changed:
 * The :guilabel:`Replication` column has been removed from
   :menuselection:`Storage --> Snapshots`.
 
+* The :guilabel:`Time Machine Quota` checkbox has been added to 
+  :menuselection:`Sharing --> Apple (AFP) Shares --> Add Apple (AFP) Share`.
+
 * The :guilabel:`Access Based Share Enumeration` checkbox has been
   added to
   :menuselection:`Sharing --> SMB (Windows) Shares --> Add SMB
