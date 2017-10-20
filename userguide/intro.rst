@@ -111,8 +111,8 @@ These base applications and drivers have been updated or added:
   significant speed difference when listing a large number of
   snapshots or when deleting multiple snapshots and large files.
 
-* The algorithm used for scrubs has received many improvements which will
-  be most noticable on defragmented pools.
+* The algorithm used for scrubs and resilvers has received many
+  improvements which will be most noticable on defragmented pools.
 
 * The Dojo Toolkit has been updated to version 1.12.2.
 
