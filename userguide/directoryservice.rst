@@ -488,8 +488,9 @@ authorized access to the data stored on the %brand% system.
    `The Linux Samba-OpenLDAP Howto
    <http://download.gna.org/smbldap-tools/docs/samba-ldap-howto/#htoc29>`_.
    In addition, the LDAP server must support SSL/TLS and the
-   certificate for the LDAP server must be imported with
-   :menuselection:`System --> Certificates --> Import Certificate`.
+   certificate for the LDAP server CA must be imported with
+   :menuselection:`System --> Certificates --> Import Certificate`. Note
+   that non-CA certificates are not supported at this time.
 
 .. tip:: Apple's
    `Open Directory
@@ -583,10 +584,9 @@ Those who are new to LDAP terminology should skim through the
    |                         |                |          | *TLS* and a :guilabel:`Certificate` must be selected in order for authentication to work            |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Certificate             | drop-down menu | ✓        | select the certificate of the LDAP server or the CA that signed that certificate (required if       |
-   |                         |                |          | authentication is used); if the LDAP server does not already have a certificate, create a           |
-   |                         |                |          | :ref:`CA <CAs>`, then the certificate using :ref:`Certificates`, and install the certificate        |
-   |                         |                |          | on the LDAP server                                                                                  |
+   | Certificate             | drop-down menu | ✓        | select the certificate of the LDAP CA (required if authentication is used); the certificate for the |
+   |                         |                |          | LDAP server CA must first be imported with                                                          |
+   |                         |                |          | :menuselection:`System --> Certificates --> Import Certificate`                                     |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | LDAP timeout            | integer        | ✓        | increase this value (in seconds) if obtaining a Kerberos ticket times out                           |
