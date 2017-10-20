@@ -165,6 +165,10 @@ These major features are new in this version:
 * :ref:`Cloud Sync` has been added to :ref:`Tasks` and can be used to
   synchronize files or directories to remote cloud storage providers.
 
+* The :guilabel:`Server Side Encryption` drop-down menu has been added
+  to :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`, when an
+  S3 provider is selected.
+
 * :ref:`Resilver Priority` has been added to :ref:`Storage`. This
   provides the ability to run resilvering at a higher priority at
   configurable times and days of the week.

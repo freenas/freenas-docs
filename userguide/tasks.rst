@@ -112,6 +112,16 @@ shows the configuration options for Cloud Syncs.
    | Provider          | drop-down menu      | select the cloud storage provider; the list of providers is defined by :ref:`Cloud Credentials`         |
    |                   |                     |                                                                                                         |
    +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Amazon S3 Buckets | drop-down menu      | only appears when an S3 credential is the *Provider*; select the bucket to use                          |
+   |                   |                     |                                                                                                         |
+   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Folder            | string              | only appears when an S3 credential is the *Provider*; input the name of the folder to sync to           |
+   |                   |                     |                                                                                                         |
+   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Server Side       | drop-down menu      | only appears when an S3 credential is the *Provider*; choices are *None* (no encryption) or             |
+   | Encryption        |                     | *AES-256* (encrypted)                                                                                   |
+   |                   |                     |                                                                                                         |
+   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Path              | browse button       | select the directories or files to be sent for *Push* syncs or the destinations for *Pull* syncs        |
    |                   |                     |                                                                                                         |
    +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
