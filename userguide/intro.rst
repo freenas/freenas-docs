@@ -144,6 +144,16 @@ These base applications and drivers have been updated or added:
 
 These major features are new in this version:
 
+* It is now possible to pause and resume scrubs from the command line.
+  Since scrub pause state and progress are periodically synced to disk,
+  if the system is restarted or pool is exported during a paused scrub,
+  the scrub will remain paused until it is resumed. Once resumed the
+  scrub will pick up from the place where it was last checkpointed to
+  disk. To resume a paused scrub, type :command:`zpool scrub`. To
+  manually pause a scrub, use :command:`zpool scrub -p`.  A future
+  version of %brand% will add a button to the UI to resume or pause a
+  scrub.
+
 * :ref:`Cloud Credentials` has been added to :ref:`System`. This can
   be used to provide a secure connection to a cloud services
   providers. Supported services include Amazon S3, Backblaze B2, and
