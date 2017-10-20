@@ -301,7 +301,7 @@ summarizes the options available when configuring IPMI with the
 
 .. _ipmi_config_fig:
 
-.. figure:: images/ipmi1.png
+.. figure:: images/network-ipmi.png
 
    IPMI Configuration
 
