@@ -102,7 +102,7 @@ These base applications and drivers have been updated or added:
   <https://www.freebsd.org/releases/11.1R/relnotes.html>`__.
   Improvements have been made to the
   `ixl(4) <https://www.freebsd.org/cgi/man.cgi?query=ixl>`__,
-  `ixgb(4) <https://www.freebsd.org/cgi/man.cgi?query=ixgb>`__,
+  `ixgbe(4) <https://www.freebsd.org/cgi/man.cgi?query=ixgbe>`__,
   and
   `mps(4) <https://www.freebsd.org/cgi/man.cgi?query=mps>`__
   drivers. Support has been added for the HBA 9400-81, Intel Skylake
