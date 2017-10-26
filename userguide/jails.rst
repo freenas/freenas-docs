@@ -1122,7 +1122,9 @@ Using iocage
 
 Beginning with %brand% 9.10.1, the
 `iocage <https://github.com/iocage/iocage>`_
-command line utility is included for creating, and managing jails.
+command line utility is included for creating, and managing jails. Click
+the :guilabel:`Shell` option to open the command line and begin using
+iocage.
 
 .. note:: The jails infrastructure is transitioning from the old
    warden backend to the new iocage backend. This transition process
@@ -1137,42 +1139,136 @@ command line utility is included for creating, and managing jails.
    new jails using the new UI, copy over any existing configurations, and
    delete the old jail datasets once the new jails are working as expected.
 
-The built-in help can be displayed with
-:samp:`iocage --help | more`. Each subcommand also has help, which is
-displayed by giving the subcommand name followed by the
-:literal:`--help` flag. For example, help on the :command:`activate`
-subcommand is displayed with :samp:`iocage activate --help`.
+Iocage has several options to help users:
+
+* There is built-in help displayed by entering
+  :samp:`iocage --help | more`. Each subcommand also has help, displayed
+  by giving the subcommand name followed by the :literal:`--help` flag.
+  For example, help for the :command:`activate` subcommand displays with
+  :samp:`iocage activate --help`.
+
+* The iocage manual page is accessed by typing :samp:`man iocage`.
+
+* The iocage project also has documentation available on
+  `readthedocs.io <http://iocage.readthedocs.io/en/latest/index.html>`_.
 
 
 Managing iocage Jails
 ~~~~~~~~~~~~~~~~~~~~~
 
-Create a jail named *examplejail* that uses IP address *192.168.1.10*
-with a netmask of */24* on the *em0* interface. Install FreeBSD
-11.0-RELEASE in the jail.
+Creating a jail automatically starts the iocage configuration process for
+the %brand% system. Jail properties can also be specified with the
+:command:`iocage create` command.
 
-
-.. code-block:: none
-
-   iocage create tag=examplejail ip4_addr="em0|192.168.1.10/24" -r 11.0-RELEASE
-
-
-Start the new jail:
+In this example a new jail named *examplejail* is created. Additional
+properties are a manually designated IP address of *192.168.1.10*, a
+netmask of */24* on the *em0* interface, and using the FreeBSD
+11.1-RELEASE:
 
 .. code-block:: none
 
-   iocage start examplejail
+   [root@freenas ~]# iocage create -n examplejail ip4_addr="em0|192.168.1.10/24" -r
+   11.1-RELEASE
+   ...
+   examplejail successfully created!
 
-
-Get a console on the jail:
-
-.. code-block:: none
-
-   iocage console examplejail
-
-
-Shut down the jail after use:
+Jail creation may take a few moments. After completion, start the new
+jail with :command:`iocage start`:
 
 .. code-block:: none
 
-   iocage stop examplejail
+   [root@freenas ~]# iocage start examplejail
+   * Starting examplejail
+   + Started OK
+   + Starting services OK
+
+To open the console in the started jail, use :command:`iocage console`
+
+.. code-block:: none
+
+   [root@freenas ~]# iocage console examplejail
+   FreeBSD 11.1-STABLE (FreeNAS.amd64) #0 35e0ef284(freenas/11-stable): Wed Oct 18
+   17:44:36 UTC 2017
+
+   Welcome to FreeBSD!
+
+   Release Notes, Errata: https://www.FreeBSD.org/releases/
+   Security Advisories:   https://www.FreeBSD.org/security/
+   FreeBSD Handbook:      https://www.FreeBSD.org/handbook/
+   FreeBSD FAQ:           https://www.FreeBSD.org/faq/
+   Questions List: https://lists.FreeBSD.org/mailman/listinfo/freebsd-questions/
+   FreeBSD Forums:        https://forums.FreeBSD.org/
+
+   Documents installed with the system are in the /usr/local/share/doc/freebsd/
+   directory, or can be installed later with:  pkg install en-freebsd-doc
+   For other languages, replace "en" with a language code like de or fr.
+
+   Show the version of FreeBSD installed:  freebsd-version ; uname -a
+   Please include that output and any error messages when posting questions.
+   Introduction to manual pages:  man man
+   FreeBSD directory layout:      man hier
+
+   Edit /etc/motd to change this login announcement.
+   root@examplejail:~ #
+
+Jails can be shut down with :command:`iocage stop`:
+
+.. code-block:: none
+
+   [root@freenas ~]# iocage stop examplejail
+   * Stopping examplejail
+     + Running prestop OK
+     + Stopping services OK
+     + Removing jail process OK
+     + Running poststop OK
+
+Jails are deleted with :command:`iocage destroy`:
+
+.. code-block:: none
+
+   [root@freenas ~]# iocage stop examplejail
+   * Stopping examplejail2
+     + Running prestop OK
+     + Stopping services OK
+     + Removing jail process OK
+     + Running poststop OK
+
+To adjust the properties of a jail, use :command:`iocage set` and
+:command:`iocage get`. All properties of a jail are viewed with
+:command:`iocage get all`:
+
+.. tip:: This example shows an abbreviated list of **examplejail**'s
+   properties. The iocage manual page (:command:`man iocage`) describes
+   even more configurable properties for jails.
+
+.. code-block:: none
+
+   [root@freenas ~]# iocage get all examplejail | less
+   allow_mount:0
+   allow_mount_devfs:0
+   allow_sysvipc:0
+   available:readonly
+   basejail:no
+   boot:off
+   bpf:no
+   children_max:0
+   cloned_release:11.1-RELEASE
+   comment:none
+   compression:lz4
+   compressratio:readonly
+   coredumpsize:off
+   count:1
+   cpuset:off
+   cputime:off
+   datasize:off
+   dedup:off
+   defaultrouter:none
+   defaultrouter6:none
+   ...
+
+To adjust a jail property, use :command:`iocage set`:
+
+.. code-block:: none
+
+   [root@freenas ~]# iocage set notes="This is a testing jail." examplejail
+   Property: notes has been updated to This is a testing jail.
