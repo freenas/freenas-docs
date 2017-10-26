@@ -204,6 +204,9 @@ These screens have changed:
   :menuselection:`System --> Advanced` has been renamed to
   :guilabel:`Show Text Console Without Password Prompt`.
 
+* The :guilabel:`Report CPU usage in percentage` checkbox has been added
+  to :menuselection:`System --> Advanced`.
+
 * The :guilabel:`FreeNAS-11-Nightlies-SDK` train has been added and
   the :guilabel:`FreeNAS-9.3-STABLE` train has been removed from
   :menuselection:`System --> Update`.

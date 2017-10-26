@@ -640,6 +640,9 @@ The configurable settings are summarized in
    |                                          |                                  | but only sends an email when the system reboots or encounters an error       |
    |                                          |                                  |                                                                              |
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Report CPU usage in percentage           | checkbox                         | when checked, CPU usage is reported as percentages in :ref:`Reporting`       |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Remote Graphite Server hostname          | string                           | IP address or hostname of a remote server running                            |
    |                                          |                                  | `Graphite <http://graphite.wikidot.com/>`_                                   |
    |                                          |                                  |                                                                              |
