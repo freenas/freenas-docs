@@ -125,13 +125,15 @@ These base applications and drivers have been updated or added:
   has been added. To use this version, specify :command:`iperf3`
   instead of :command:`iperf`.
 
-* Iocage has been updated to version 0.9.9.2.
+* Iocage has been updated to version 0.9.10.
 
 * The new middleware now uses Python asyncio which simplifies
   asynchronous code and makes it more readable.
 
 * The SNMP MIB has many improvements, including the ability to send SNMP
   traps for new alerts.
+
+* The system now sends an email when a scrub finishes.
 
 * `mmv <https://packages.debian.org/unstable/utils/mmv>`__
   has been added. It can be used from the command line to safely move
@@ -175,6 +177,9 @@ These major features are new in this version:
 * :ref:`Resilver Priority` has been added to :ref:`Storage`. This
   provides the ability to run resilvering at a higher priority at
   configurable times and days of the week.
+
+* The :ref:`Netdata` real-time performance and monitoring system has been
+  added to :ref:`Services`.
 
 * :ref:`VMs` have received significant improvements, including:
 
@@ -249,6 +254,9 @@ These screens have changed:
 
 * The :guilabel:`Read-Only` drop-down menu has been added to
   :menuselection:`Storage --> Datasets --> Add Dataset --> Advanced Mode`.
+
+* The :guilabel:`Promote Dataset` button has been added to
+  :menuselection:`Storage --> Volumes`.
 
 * The :guilabel:`Replication` column has been removed from
   :menuselection:`Storage --> Snapshots`.

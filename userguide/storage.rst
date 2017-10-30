@@ -1276,6 +1276,11 @@ options:
 regular creation of snapshots, instead use
 :ref:`Periodic Snapshot Tasks`.
 
+**Promote Dataset:** only applies to clones. When a clone is promoted,
+the origin filesystem becomes a clone of the clone making it possible
+to destroy the filesystem that the clone was created from. Otherwise, a
+clone can not be destroyed while its origin filesystem exists.
+
 **Destroy Dataset:** clicking the :guilabel:`Destroy Dataset` button
 causes the browser window to turn red to indicate that this is a
 destructive action. The :guilabel:`Destroy Dataset` screen forces you
