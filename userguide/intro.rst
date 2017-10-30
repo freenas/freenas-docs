@@ -133,6 +133,8 @@ These base applications and drivers have been updated or added:
 * The SNMP MIB has many improvements, including the ability to send SNMP
   traps for new alerts.
 
+* The system now sends an email when a scrub finishes.
+
 * `mmv <https://packages.debian.org/unstable/utils/mmv>`__
   has been added. It can be used from the command line to safely move
   or copy multiple files using patterns, without any unexpected
