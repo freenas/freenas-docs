@@ -125,7 +125,7 @@ These base applications and drivers have been updated or added:
   has been added. To use this version, specify :command:`iperf3`
   instead of :command:`iperf`.
 
-* Iocage has been updated to version 0.9.9.2.
+* Iocage has been updated to version 0.9.10.
 
 * The new middleware now uses Python asyncio which simplifies
   asynchronous code and makes it more readable.
@@ -175,6 +175,9 @@ These major features are new in this version:
 * :ref:`Resilver Priority` has been added to :ref:`Storage`. This
   provides the ability to run resilvering at a higher priority at
   configurable times and days of the week.
+
+* The :ref:`Netdata` real-time performance and monitoring system has been
+  added to :ref:`Services`.
 
 * :ref:`VMs` have received significant improvements, including:
 
