@@ -423,7 +423,7 @@ port is used. The first interface added is the master port; any
 interfaces added after that are used as failover devices. By default,
 received traffic is only accepted when received through the active
 port. This constraint can be relaxed, which is useful for certain
-bridged network setups, by creating a a tunable with a
+bridged network setups, by creating a tunable with a
 :guilabel:`Variable` of *net.link.lagg.failover_rx_all*, a
 :guilabel:`Value` of a non-zero integer, and a :guilabel:`Type` of
 *Sysctl* in
