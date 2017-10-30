@@ -255,6 +255,9 @@ These screens have changed:
 * The :guilabel:`Read-Only` drop-down menu has been added to
   :menuselection:`Storage --> Datasets --> Add Dataset --> Advanced Mode`.
 
+* The :guilabel:`Promote Dataset` button has been added to
+  :menuselection:`Storage --> Volumes`.
+
 * The :guilabel:`Replication` column has been removed from
   :menuselection:`Storage --> Snapshots`.
 
