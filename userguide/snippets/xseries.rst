@@ -33,9 +33,10 @@ Carefully unpack the shipping boxes and locate these components:
    |                                            |                                             |
    | Set of rackmount rails. The rails have a   | A total of 12 populated or filler drive     |
    | specific front end, identified by a label  | trays. Trays must be installed in all bays  |
-   | visible on the left above. The front ends  | to maintain proper airflow for cooling.     |
-   | of the rails must be installed facing the  |                                             |
-   | front of the rack.                         |                                             |
+   | visible on the left above. The front ends  | to maintain proper airflow for cooling. Up  |
+   | of the rails must be installed facing the  | to ten drive trays are packed in a          |
+   | front of the rack.                         | cardboard tray. Additional drive trays are  |
+   |                                            | packed with the accessory kit.              |
    +--------------------------------------------+---------------------------------------------+
    | .. image:: images/tn_x_acckit.png          | .. image:: images/tn_x_serialcable.png      |
    |    :width: 80%                             |    :width: 30%                              |
