@@ -398,9 +398,11 @@ With IPMI
 .. note:: An IPMI remote management utility must be installed on the
    laptop or desktop computer used to manage the X series remotely,
    and the computer must have access to the same network as the
-   X series. For FreeBSD, Windows, macOS, or Linux,
-   `IPMItool <https://sourceforge.net/projects/ipmitool/>`__
-   can be used.
+   X series. FreeBSD, macOS, and Linux have package systems which can
+   be used to install
+   `IPMItool <https://sourceforge.net/projects/ipmitool/>`__.
+   For Windows, a simple option is to install IPMItool through
+   `Cygwin <https://www.cygwin.com/>`__.
 
 
 When the Out-of-Band management IP address has been determined, the
