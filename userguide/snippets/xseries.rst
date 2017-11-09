@@ -40,7 +40,7 @@ Carefully unpack the shipping boxes and locate these components:
    | .. image:: images/tn_x_acckit.png          | .. image:: images/tn_x_serialcable.png      |
    |    :width: 80%                             |    :width: 30%                              |
    |                                            |                                             |
-   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Black USB to 3.5mm serial cable             |
+   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Black USB to 3.5mm, 3.3V serial cable       |
    | power cords, 2 IEC C14 to C14 cords, and a |                                             |
    | set of velcro cable ties                   |                                             |
    +--------------------------------------------+---------------------------------------------+
@@ -301,12 +301,15 @@ Out-of-Band serial port, #5 on
 Connect the USB end of the black cable to a laptop or desktop
 computer running serial terminal software.
 
-
 Do not use the serial port for any purpose except checking the initial
 X series Out-of-Band management IP address or setting that address to
 be obtained by a different method.
 **After use, disconnect the black USB serial cable from the X
 series.**
+
+.. warning:: The black USB serial cable is only for use with the
+   Out-of-Band serial port on the X Series. Do not attempt to use it
+   with other computers.
 
 
 .. _x_Out-of-Band Serial Terminal Communication Settings:
