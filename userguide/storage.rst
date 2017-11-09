@@ -51,7 +51,7 @@ create ZFS datasets and zvols and to manage their permissions.
 Proper storage design is important for any NAS.
 **Please read through this entire chapter before configuring storage
 disks. All of the features are described to help make it clear which
-will be the most benefit for your uses, and caveats or caveats or
+will be the most benefit for your uses, and caveats or
 hardware restrictions which could limit their use.**
 
 
