@@ -310,7 +310,7 @@ series.**
 
 .. warning:: The black USB serial cable is only for use with the
    Out-of-Band serial port on the X Series. Do not attempt to use it
-   with other computers.
+   with any other systems.
 
 
 .. _x_Out-of-Band Serial Terminal Communication Settings:
@@ -386,10 +386,8 @@ address and netmask. This example shows setting the IP address to
 
 
 Log out of the Out-of-Band management system by typing :literal:`exit`
-and pressing :kbd:`Enter`.
-
-**After use, disconnect the black USB serial cable from the
-X series.**
+and pressing :kbd:`Enter`. After use, always disconnect the black USB
+serial cable from the X series system.
 
 
 Connect to the X Series Console
@@ -415,8 +413,7 @@ X series console is accessible through IPMI. In this example,
 management interface.
 
 
-For computers using :command:`ipmitool` on FreeBSD, macOS, or Linux,
-enter:
+For computers using :command:`ipmitool`, enter:
 
 
 .. code-block:: none
@@ -428,22 +425,59 @@ Enter **admin** for the password, and the X series console is
 connected.
 
 
-.. tip:: The Out-of-Band console password can be changed by
-   temporarily connecting the black USB serial cable to the serial
-   port, #5 on
-   :numref:`Figure %s <x_back>`,
-   as described in
-   :ref:`the serial cable connection instructions <x_Serial_Cable>`.
-   Then give this command to set the new password, shown as
+.. tip:: When a Serial Over LAN connection is already in use,
+   :literal:`SOL on another session` is displayed when a laptop or
+   desktop computer attempts to connect. The Serial Over LAN system
+   can be reset from the remote laptop or desktop computer with:
+
+
+   .. code-block:: none
+
+      ipmitool -H 192.168.100.100 -U admin bmc reset cold
+
+
+   Enter **admin** for the password, and the Serial Over LAN system
+   is reset. Repeat the :command:`sol activate` command above to
+   connect.
+
+   The Serial Over LAN system can also be reset with the Out-of-Band
+   serial port by attaching the black USB serial cable, connecting
+   with a serial terminal program, and logging in as shown in
+   :ref:`x_Serial_Cable`. Then use
+
+
+   .. code-block:: none
+
+      ifconfig eth0
+
+
+   to view the IP address of the *eth0* network interface. Use the
+   IP address, shown as *eth0ipaddress* in this example, in the
+   reset command:
+
+
+   .. code-block:: none
+
+      ipmitool -H eth0ipaddress -U admin bmc reset cold
+
+
+   Enter **admin** for the password, and the Serial Over LAN system is
+   reset. Log out of the system with :command:`exit` and disconnect
+   the black USB serial cable from the X series system.
+
+
+.. tip:: The Out-of-Band console password can be changed by attaching
+   the black USB serial cable, connecting with a serial terminal
+   program, and logging in as shown in :ref:`x_Serial_Cable`. Then
+   give this command to set the new password, shown as
    *newpassword* in this example:
 
    .. code-block:: none
 
       ipmitool -H 127.0.0.1 -U admin -P admin user set password 2 newpassword
 
-
-   **After use, disconnect the black USB serial cable from the
-   X series.**
+   Log out of the system with :command:`exit` and disconnect the black
+   USB serial cable from the X series system.
 
 
 Proceed to :ref:`Using the X Series Console`.
