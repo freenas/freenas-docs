@@ -16,9 +16,7 @@ mirror image of the first. Proceed with rail kit installation.
 
 .. _x_railextender:
 .. figure:: images/tn_x_railextender.png
-   :width: 50%
-
-   Rail Extenders
+   :width: 20%
 
 
 .. index:: X/ES12 Series Rail Kit Assembly
@@ -35,14 +33,7 @@ Install a spring on the silver posts in the side of each rail.
 
 .. _x_spring:
 .. figure:: images/tn_x_spring.png
-   :width: 50%
-
-   Rail Spring Installation
-
-
-.. raw:: latex
-
-   \newpage
+   :width: 30%
 
 
 Open the clamp latches on the ends of each rail. Place the rail in the
@@ -56,9 +47,7 @@ the process for the second rail.
 .. _x_rail_clamp:
 
 .. figure:: images/tn_x_railclamp.png
-   :width: 4.125in
-
-   Rail Clamp Latch
+   :width: 50%
 
 
 Mount the Unit in the Rack

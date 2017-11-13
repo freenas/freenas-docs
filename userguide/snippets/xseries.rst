@@ -24,38 +24,30 @@ Carefully unpack the shipping boxes and locate these components:
 .. table::
    :class: longtable
 
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_x.png                 | .. image:: images/tn_x_bezel.png            |
-   |                                            |                                             |
-   | X Series Unified Storage Array             | X Series Bezel                              |
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_x_rails.png           | .. image:: images/tn_x_drivetrays.png       |
-   |                                            |                                             |
-   | Set of rackmount rails. The rails have a   | A total of 12 populated or filler drive     |
-   | specific front end, identified by a label  | trays. Trays must be installed in all bays  |
-   | visible on the left above. The front ends  | to maintain proper airflow for cooling. Up  |
-   | of the rails must be installed facing the  | to ten drive trays are packed in a          |
-   | front of the rack.                         | cardboard tray. Additional drive trays are  |
-   |                                            | packed with the accessory kit.              |
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_x_acckit.png          | .. image:: images/tn_x_serialcable.png      |
-   |    :width: 80%                             |    :width: 30%                              |
-   |                                            |                                             |
-   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Black USB to 3.5mm, 3.3V serial cable       |
-   | power cords, 2 IEC C14 to C14 cords, and a |                                             |
-   | set of velcro cable ties                   |                                             |
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_x_railextenders.png   |                                             |
-   |    :width: 30%                             |                                             |
-   |                                            |                                             |
-   | Rail extenders for racks deeper than 36    |                                             |
-   | inches                                     |                                             |
-   +--------------------------------------------+---------------------------------------------+
-
-
-.. raw:: latex
-
-   \newpage
+   +--------------------------------------------+-------------------------------------------------+
+   | .. image:: images/tn_x.png                 | .. image:: images/tn_x_bezel.png                |
+   |                                            |                                                 |
+   | X Series Unified Storage Array             | X Series Bezel                                  |
+   +--------------------------------------------+-------------------------------------------------+
+   | .. image:: images/tn_x_rails.png           | .. image:: images/tn_x_drivetrays.png           |
+   |                                            |                                                 |
+   | Set of rackmount rails. The rails have a   | A total of 12 populated or filler drive         |
+   | specific front end, identified by a label  | trays. Trays must be installed in all bays      |
+   | visible on the left above. The front ends  | to maintain proper airflow for cooling. Up      |
+   | of the rails must be installed facing the  | to ten drive trays are packed in a              |
+   | front of the rack.                         | cardboard tray. Additional drive trays are      |
+   |                                            | packed with the accessory kit.                  |
+   +--------------------------------------------+-------------------------------------------------+
+   |                                            | |pic1|    |pic2|                                |
+   | .. image:: images/tn_x_acckit.png          |                                                 |
+   |    :width: 80%                             | .. |pic1| image:: images/tn_x_serialcable.png   |
+   |                                            |    :width: 30%                                  |
+   | Accessory kit with 2 IEC C13 to NEMA 5-15P | .. |pic2| image:: images/tn_x_railextenders.png |
+   | power cords, 2 IEC C14 to C14 cords, and   |    :width: 30%                                  |
+   | velcro cable ties                          |                                                 |
+   |                                            | Black USB to 3.5mm, 3.3V serial cable and rail  |
+   |                                            | extenders for racks over 30" deep               |
+   +--------------------------------------------+-------------------------------------------------+
 
 
 .. index:: Become Familiar with the X Series System
@@ -74,17 +66,15 @@ fault. The fault indicator is on during the initial power-on self-test
 .. _x_indicators:
 
 .. figure:: images/tn_x_indicators.png
-   :width: 1.75in
-
-   Front Panel Indicators
+   :width: 15%
 
 
 .. _x_back:
 
 .. figure:: images/tn_x_back.png
+   :width: 60%
 
    Back Panel
-
 
 The X Series contains one or two nodes in a side-by-side
 configuration. The connectors and features on each node are:
@@ -95,71 +85,23 @@ configuration. The connectors and features on each node are:
 .. table::
    :class: longtable
 
-   +-------------------------------------------------+-------------------------------------------------+
-   | 1,2: Gigabit Ethernet connectors                | 7,8: HDmini SAS3 connectors                     |
-   +-------------------------------------------------+-------------------------------------------------+
-   | 3: USB device (reserved for                     | 9: PCIe x8 expansion port                       |
-   | %brand% use)                                    |                                                 |
-   +-------------------------------------------------+-------------------------------------------------+
-   | 4: USB 2.0 connector                            | 10: System serial console port (reserved for    |
-   |                                                 | %brand% use; connected to a USB port            |
-   |                                                 | above the OOB management port)                  |
-   +-------------------------------------------------+-------------------------------------------------+
-   | 5: Out-of-Band (OOB) serial port (3.5mm)        | 11: MAC address label                           |
-   +-------------------------------------------------+-------------------------------------------------+
-   | 6: Out-of-Band Management Ethernet connector    | 12, 13: Redundant power supplies                |
-   +-------------------------------------------------+-------------------------------------------------+
-
-
-.. raw:: latex
-
-   \newpage
+   +------------------------------------------------+-----------------------------------------------------+
+   | 1,2: Gigabit Ethernet connectors               | 7,8: HDmini SAS3 connectors                         |
+   +------------------------------------------------+-----------------------------------------------------+
+   | 3: USB device (reserved)                       | 9: PCIe x8 expansion port                           |
+   +------------------------------------------------+-----------------------------------------------------+
+   | 4: USB 2.0 connector                           | 10: System console port (reserved)                  |
+   +------------------------------------------------+-----------------------------------------------------+
+   | 5: Out-of-Band (OOB) serial port (3.5mm)       | 11: MAC address label                               |
+   +------------------------------------------------+-----------------------------------------------------+
+   | 6: Out-of-Band Management Ethernet connector   | 12, 13: Redundant power supplies                    |
+   +------------------------------------------------+-----------------------------------------------------+
 
 
 #include snippets/x_rails.rst
 
 
-.. raw:: latex
-
-   \newpage
-
-
-Install Drive Trays
-~~~~~~~~~~~~~~~~~~~
-
-Drive trays are used to mount drives in the array. Each drive tray has
-a status LED which is blue when active or amber if a fault has
-occurred.
-
-
-.. note:: Recommended drive tray installation order:
-
-   #. SSD drive for SLOG (if present)
-
-   #. SSD drive for L2ARC (if present)\
-
-   #. Hard drives
-
-   Install the first drive tray in the top left drive bay. Install the
-   next drive tray to the right of the first. Install remaining drive
-   trays to the right across the row. After a row is filled with
-   drives, move down to the next row and start again with the left
-   bay.
-
-   This order simplifies support and is strongly recommended.
-
-
-Press the blue button to open the latch. Carefully slide the tray into
-a drive bay until the left side of the latch touches the metal front
-edge of the chassis, then gently swing the latch closed until it
-clicks into place.
-
-
-.. _x_drivetray_load:
-
-.. figure:: images/tn_x_driveload.png
-
-   Installing Drive Trays
+#include snippets/x_drivetrays.rst
 
 
 Connect Expansion Shelves
@@ -183,11 +125,6 @@ X series for the the first time.
 connected to a shielded Ethernet cable.**
 
 
-.. raw:: latex
-
-   \newpage
-
-
 Connect Power Cords
 ~~~~~~~~~~~~~~~~~~~
 
@@ -201,9 +138,7 @@ the process for the second power supply and cord.
 
 .. _x_power:
 .. figure:: images/tn_x_powerclip.png
-   :width: 1.5in
-
-   Power Cord Connection
+   :width: 15%
 
 
 After both power cords have been connected to the X series, they can
@@ -219,11 +154,6 @@ Install Bezel (Optional)
 The included bezel is not required for operation. If desired, install
 the bezel by aligning it with the pins on the bezel ears and pressing
 it into place.
-
-
-.. raw:: latex
-
-   \newpage
 
 
 Discover Out-of-Band Management IP Address
@@ -293,30 +223,19 @@ Out-of-Band Serial Terminal Communication Settings
 **Serial Port Device Names**
 
 The name of the serial port varies with operating systems. These are
-some typical examples:
-
-  * Windows: :samp:`COM{4}`
-
-  * macOS: :samp:`/dev/tty.usbserial{xynnn}`
-
-  * FreeBSD: :samp:`/dev/cuaU{0}`
-
-  * Linux: :samp:`/dev/ttyUSB{0}`
+some typical examples: Windows: :samp:`COM{4}`,
+macOS: :samp:`/dev/tty.usbserial{xynnn}`,
+FreeBSD: :samp:`/dev/cuaU{0}`, Linux: :samp:`/dev/ttyUSB{0}`.
 
 
 **Serial Port Communication Parameters**
 
 Set the serial terminal program to use the appopriate port with these
 parameters:
-
-*38400 baud, 8 data bits, 1 stop bit, no parity, no flow control*
-
-
+*38400 baud, 8 data bits, 1 stop bit, no parity, no flow control*.
 Log in to the serial console with:
 
-Username: **sysadmin**
-
-Password: **superuser**
+Username: **sysadmin**  Password: **superuser**
 
 The current Out-of-Band management IP address is displayed with:
 
@@ -382,10 +301,7 @@ With IPMI
 When the Out-of-Band management IP address has been determined, the
 X series console is accessible through IPMI. In this example,
 *192.168.100.100* is the IP address assigned to the Out-of-Band
-management interface.
-
-
-For computers using :command:`ipmitool`, enter:
+management interface:
 
 
 .. code-block:: none
@@ -482,11 +398,6 @@ to the system serial console port, #10 on
 :numref:`Figure %s <x_back>`.
 
 
-.. raw:: latex
-
-   \newpage
-
-
 .. _Using the X Series Console:
 
 Using the X Series Console
@@ -503,20 +414,12 @@ Switch to the X86 console mode by typing these characters:
    $%^0
 
 
-The normal x86 console is displayed.
+The normal x86 console is displayed. The SES console can be displayed
+again by typing these characters:
 
+.. code-block:: none
 
-.. note:: The SES console can be displayed again by typing these
-   characters:
-
-   .. code-block:: none
-
-      $%^2
-
-
-.. raw:: latex
-
-   \newpage
+   $%^2
 
 
 Perform %brand% Initial Software Configuration
