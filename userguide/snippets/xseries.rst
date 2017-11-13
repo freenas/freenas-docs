@@ -52,6 +52,7 @@ Carefully unpack the shipping boxes and locate these components:
    | inches                                     |                                             |
    +--------------------------------------------+---------------------------------------------+
 
+
 .. raw:: latex
 
    \newpage
@@ -109,58 +110,18 @@ configuration. The connectors and features on each node are:
    | 6: Out-of-Band Management Ethernet connector    | 12, 13: Redundant power supplies                |
    +-------------------------------------------------+-------------------------------------------------+
 
+
 .. raw:: latex
 
    \newpage
 
 
-#include snippets/x_railextenders.rst
+#include snippets/x_rails.rst
 
 
-.. index:: X Series Rail Kit Assembly
+.. raw:: latex
 
-X Series Rail Kit Assembly
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-Mount the Rails
-^^^^^^^^^^^^^^^
-
-Install a spring on the silver posts in the side of each rail.
-
-
-.. _x_spring:
-.. figure:: images/tn_x_spring.png
-   :width: 50%
-
-Open the clamp latches on the ends of each rail. Place the rail in the
-rack with the front end toward the front of the rack, aligning the
-pins on both ends of the rail with the mounting holes in the rack.
-Swing the clamp latch closed to hold the rail in place. Use two of the
-supplied screws to secure the back end of the rail in place. Repeat
-the process for the second rail.
-
-
-.. _x_rail_clamp:
-
-.. figure:: images/tn_x_railclamp.png
-   :width: 4.125in
-
-   Rail Clamp Latch
-
-
-Mount the Unit in the Rack
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Caution: Two people are required to safely lift the chassis for rack
-installation or removal.** Do not install drives until after the
-chassis has been installed in the rack, and remove all drives before
-removing the chassis from the rack.
-
-Snap the black bezel mounting ears onto the metal X series chassis
-ears. Carefully place the chassis onto the rails mounted in the rack.
-Push the chassis in until the ears are flush with the front of the
-rack.  Use two of the supplied screws to secure each ear to the rack.
+   \newpage
 
 
 Install Drive Trays
@@ -193,6 +154,7 @@ a drive bay until the left side of the latch touches the metal front
 edge of the chassis, then gently swing the latch closed until it
 clicks into place.
 
+
 .. _x_drivetray_load:
 
 .. figure:: images/tn_x_driveload.png
@@ -219,6 +181,11 @@ management port before attempting to power on and configure the
 X series for the the first time.
 **The Out-of-Band (OOB) management port on the X series must be
 connected to a shielded Ethernet cable.**
+
+
+.. raw:: latex
+
+   \newpage
 
 
 Connect Power Cords
@@ -252,6 +219,11 @@ Install Bezel (Optional)
 The included bezel is not required for operation. If desired, install
 the bezel by aligning it with the pins on the bezel ears and pressing
 it into place.
+
+
+.. raw:: latex
+
+   \newpage
 
 
 Discover Out-of-Band Management IP Address
@@ -540,6 +512,11 @@ The normal x86 console is displayed.
    .. code-block:: none
 
       $%^2
+
+
+.. raw:: latex
+
+   \newpage
 
 
 Perform %brand% Initial Software Configuration
