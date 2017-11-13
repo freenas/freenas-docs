@@ -100,53 +100,7 @@ configuration. The connectors and features on each module are:
    \newpage
 
 
-.. index:: Rail Kit Assembly
-
-Rail Kit Assembly
-~~~~~~~~~~~~~~~~~
-
-
-Mount the Rails
-^^^^^^^^^^^^^^^
-
-Install a spring on the silver posts in the side of each rail.
-
-.. _es12_spring:
-.. figure:: images/tn_x_spring.png
-   :width: 50%
-
-   Installing Rail Springs
-
-
-Open the clamp latches on the ends of each rail. Place the rail in the
-rack with the front end toward the front of the rack, aligning the
-pins on both ends of the rail with the mounting holes in the rack.
-Swing the clamp latch closed to hold the rail in place. Use two of the
-supplied screws to secure the back end of the rail in place. Repeat
-the process for the second rail.
-
-
-.. _es12_rail_clamp:
-
-.. figure:: images/tn_x_railclamp.png
-   :width: 4.125in
-
-   Rail Clamp Latch
-
-
-Mount the Unit in the Rack
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Caution: Two people are required to safely lift the chassis for rack
-installation or removal.** Do not install drives until after the
-chassis has been installed in the rack, and remove all drives before
-removing the chassis from the rack.
-
-Snap the black bezel mounting ears onto the metal ES12 chassis ears.
-Carefully place the ES12 chassis onto the rails mounted in the rack.
-Push the ES12 chassis in until the ears are flush with the front of
-the rack.  Use two of the supplied screws to secure each ear to the
-rack.
+#include snippets/x_rails.rst
 
 
 .. raw:: latex
