@@ -69,7 +69,6 @@ installation or removal.** Do not install drives until after the
 chassis has been installed in the rack, and remove all drives before
 removing the chassis from the rack.
 
-Snap the black bezel mounting ears onto the metal chassis ears.
 Carefully place the chassis onto the rails mounted in the rack. Push
 the chassis in until the ears are flush with the front of the rack.
 Use two of the supplied screws to secure each ear to the rack.
