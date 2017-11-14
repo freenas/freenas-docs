@@ -146,7 +146,7 @@ Use with the ES60 Expansion Shelf (X20 Only)
 The X20 supports using an ES60 Expansion Shelf in combination with the
 ES12. Connect the ES60 to the SAS 1 ports on the X20:
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.8\linewidth-2\tabcolsep}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.6\linewidth-2\tabcolsep}|
 
 .. table::
    :class: longtable
@@ -160,7 +160,7 @@ ES12. Connect the ES60 to the SAS 1 ports on the X20:
 Connect the ES12 to the SAS 2 ports on the X20:
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.8\linewidth-2\tabcolsep}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.7\linewidth-2\tabcolsep}|
 
 .. table::
    :class: longtable
