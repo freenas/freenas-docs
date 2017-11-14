@@ -42,7 +42,7 @@ shown in
 
 .. _vcenter_plugin_config_fig:
 
-.. figure:: images/tn_vcenter-plugin-config_a.png
+.. figure:: images/tn_vcenter-plugin-config.png
 
    Configuring the vCenter Plugin
 
@@ -132,11 +132,10 @@ in the left tree. In the secure connection screen shown in
 Using the vCenter Plugin
 ------------------------
 
-Log in to the paired vCenter Host by typing its IP address into a
-browser. From the main vSphere window, click
-:guilabel:`vCenter Inventory Lists`, then click
-:guilabel:`TrueNAS Hosts` and :guilabel:`TrueNAS` to see the list of
-defined %brand% hosts.
+Type the IP address of the paired vCenter Host into a browser to log in.
+From the main vSphere window, click :guilabel:`vCenter Inventory Lists`,
+then click :guilabel:`TrueNAS Hosts` and :guilabel:`TrueNAS` to see the
+list of defined %brand% hosts.
 
 
 .. index:: vCenter Hosts
@@ -230,8 +229,8 @@ shows the configuration screen for the new datastore:
 
 
 Enter a name for the new datastore and the desired size. Datastore names
-can only contain alphanumeric characters and only the :literal:`-` and
-:literal:`.` symbols. Enter the IP address of the %brand% system in the
+can only contain alphanumeric characters, :literal:`-`, and
+:literal:`.`. Enter the IP address of the %brand% system in the
 :guilabel:`Data Path IP` box. Select the desired
 :guilabel:`VMFS Version` from the drop-down. If a
 :guilabel:`Sparse Volume` is desired, check the box.
