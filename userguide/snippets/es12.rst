@@ -46,11 +46,6 @@ Carefully unpack the shipping boxes and locate these components:
    +--------------------------------------------+---------------------------------------------+
 
 
-.. raw:: latex
-
-   \newpage
-
-
 .. index:: Become Familiar with the ES12 System
 .. _ES12 Become Familiar with the System:
 
@@ -66,16 +61,13 @@ fault. The fault indicator is on during the initial power-on self-test
 
 .. _es12_indicators:
 .. figure:: images/tn_x_indicators.png
-   :width: 1.75in
-
-   Front Panel Indicators
+   :width: 15%
 
 
 .. _es12_back:
 
 .. figure:: images/tn_es12_back.png
-
-   Back Panel
+   :width: 60%
 
 
 The ES12 contains two expander modules in a side-by-side
@@ -95,36 +87,9 @@ configuration. The connectors and features on each module are:
    +-----------------------------------------------------+
 
 
-.. raw:: latex
-
-   \newpage
-
-
 #include snippets/x_rails.rst
 
-
-.. raw:: latex
-
-   \newpage
-
-
-Install Drive Trays
-~~~~~~~~~~~~~~~~~~~
-
-Drive trays are used to mount drives in the array. Each drive tray has
-a status LED which is blue when active or amber if a fault has
-occurred.
-
-Press the blue button to open the latch. Carefully slide the tray into
-a drive bay until the left side of the latch touches the metal front
-edge of the chassis, then gently swing the latch closed until it
-clicks into place.
-
-
-.. _es12_drivetray_load:
-.. figure:: images/tn_x_driveload.png
-
-   Installing Drive Trays
+#include snippets/x_drivetrays.rst
 
 
 Connect Power Cords
@@ -138,14 +103,7 @@ the process for the second power supply and cord.
 
 .. _es12_power:
 .. figure:: images/tn_x_powerclip.png
-   :width: 1.5in
-
-   Power Cord Connection
-
-
-.. raw:: latex
-
-   \newpage
+   :width: 15%
 
 
 Connect SAS Cables
@@ -159,45 +117,59 @@ Plug the ES12 power cords into power outlets.
 
 Plug one end of the SAS cable into the T1 connector on the ES12's
 expander module 1. Plug the other end into the SAS 1 connector on
-the X series node 1. See cable #1 in
-:numref:`Figure %s <es12_sasconnect1>`.
+the X series node 1.
 
-If the X series has a second node for HA (High Availability), plug one
-end of the second SAS cable into the T1 connector of the ES12's
-expander module 2. Plug the other end into the SAS 1 connector on the
-X series node 2. See cable #2 in
-:numref:`Figure %s <es12_sasconnect1>`.
 
 .. _es12_sasconnect1:
+
 .. figure:: images/tn_es12_sasconnect1.png
+   :width: 50%
 
-   SAS Cable Connection for One ES12
+A second ES12 can also be connected to the X series. Connect the first
+ES12 as shown above. Then add the second ES12 with these connections:
 
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.8\linewidth-2\tabcolsep}|
 
-.. raw:: latex
+.. table::
+   :class: longtable
 
-   \newpage
-
-
-A second ES12 can also be connected to the X series. After connecting
-the first ES12 as shown above, plug one end of an SAS cable into the
-T1 connector on the second ES12's expander module 1. Plug the other
-end into the SAS 2 connector on the X series node 1. See cable #3 in
-:numref:`Figure %s <es12_sasconnect2>`.
-
-If the X series has a second node for HA (High Availability), plug one
-end of an SAS cable into the T1 connector of the second ES12's
-expander module 2. Plug the other end into the X series node 2, SAS 2
-connector. See cable #4 in
-:numref:`Figure %s <es12_sasconnect2>`.
+   +-----------------------------------------------------------------------+
+   | Second ES12 expander module 1 connector T1 to X series node 1, SAS 2. |
+   +-----------------------------------------------------------------------+
+   | Second ES12 expander module 2 connector T2 to X series node 2, SAS 2. |
+   +-----------------------------------------------------------------------+
 
 
+Use with the ES60 Expansion Shelf (X20 Only)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The X20 supports using an ES60 Expansion Shelf in combination with the
+ES12. Connect the ES60 to the SAS 1 ports on the X20:
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.8\linewidth-2\tabcolsep}|
+
+.. table::
+   :class: longtable
+
+   +-------------------------------------------------------------+
+   | ES60 expander module 1, connector "1" to X20 node 1, SAS 1. |
+   +-------------------------------------------------------------+
+   | ES60 expander module 2, connector "2" to X20 node 2, SAS 1. |
+   +-------------------------------------------------------------+
+
+Connect the ES12 to the SAS 2 ports on the X20:
 
 
-.. _es12_sasconnect2:
-.. figure:: images/tn_es12_sasconnect2.png
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.8\linewidth-2\tabcolsep}|
 
-   SAS Cable Connection for Two ES12s
+.. table::
+   :class: longtable
+
+   +----------------------------------------------------------------+
+   | ES12 expander module 1 connector T1 to X series node 1, SAS 2. |
+   +----------------------------------------------------------------+
+   | ES12 expander module 2 connector T1 to X series node 2, SAS 2. |
+   +----------------------------------------------------------------+
 
 
 After all SAS cables have been connected, plug the X series power
@@ -210,8 +182,3 @@ Install Bezel (Optional)
 The included bezel is not required for operation. If desired, install
 the bezel by aligning it with the pins on the bezel ears and pressing
 it into place.
-
-
-.. raw:: latex
-
-   \newpage

@@ -25,9 +25,6 @@ Rail Kit Assembly
 ~~~~~~~~~~~~~~~~~
 
 
-Mount the Rails
-^^^^^^^^^^^^^^^
-
 Install a spring on the silver posts in the side of each rail.
 
 
@@ -49,9 +46,6 @@ the process for the second rail.
 .. figure:: images/tn_x_railclamp.png
    :width: 50%
 
-
-Mount the Unit in the Rack
-^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Caution: Two people are required to safely lift the chassis for rack
 installation or removal.** Do not install drives until after the
