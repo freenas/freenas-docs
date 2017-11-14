@@ -185,11 +185,13 @@ T1 connector on the second ES12's expander module 1. Plug the other
 end into the SAS 2 connector on the X series node 1. See cable #3 in
 :numref:`Figure %s <es12_sasconnect2>`.
 
-If the X10 has a second node for HA (High Availability), plug one end
-of an SAS cable into the T1 connector of the second ES12's expander
-module 2. Plug the other end into the X series node 2, SAS 2
+If the X series has a second node for HA (High Availability), plug one
+end of an SAS cable into the T1 connector of the second ES12's
+expander module 2. Plug the other end into the X series node 2, SAS 2
 connector. See cable #4 in
 :numref:`Figure %s <es12_sasconnect2>`.
+
+
 
 
 .. _es12_sasconnect2:
