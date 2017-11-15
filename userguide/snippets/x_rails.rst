@@ -1,9 +1,10 @@
-.. index:: X/ES12 Series Rail Extenders
+.. index:: X/ES12 Series Rail Kit Assembly
 
-Rail Extenders
-~~~~~~~~~~~~~~
+Rail Kit Assembly
+~~~~~~~~~~~~~~~~~
 
-The stock rails can be installed in racks up to 30 inches deep.
+On racks that are 30 inches deep or less, proceed to rail spring
+installation below.
 
 Racks from 31 to 36 inches deep require installation of the included
 rail extenders. For these deeper racks, install cage nuts on the
@@ -11,18 +12,12 @@ outside rear of the rack.
 **The tabs on the cage nuts must be horizontal as shown**.
 Using the included bolts, install the rail extender inside the rear of
 the rack. Repeat the process for the second extender, which is a
-mirror image of the first. Proceed with rail kit installation.
+mirror image of the first.
 
 
 .. _x_railextender:
 .. figure:: images/tn_x_railextender.png
    :width: 20%
-
-
-.. index:: X/ES12 Series Rail Kit Assembly
-
-Rail Kit Assembly
-~~~~~~~~~~~~~~~~~
 
 
 Install a spring on the silver posts in the side of each rail.

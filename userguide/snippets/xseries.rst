@@ -69,13 +69,6 @@ fault. The fault indicator is on during the initial power-on self-test
    :width: 15%
 
 
-.. _x_back:
-
-.. figure:: images/tn_x_back.png
-   :width: 60%
-
-   Back Panel
-
 The X Series contains one or two nodes in a side-by-side
 configuration. The connectors and features on each node are:
 
@@ -96,6 +89,14 @@ configuration. The connectors and features on each node are:
    +------------------------------------------------+-----------------------------------------------------+
    | 6: Out-of-Band Management Ethernet connector   | 12, 13: Redundant power supplies                    |
    +------------------------------------------------+-----------------------------------------------------+
+
+
+.. _x_back:
+
+.. figure:: images/tn_x_back.png
+   :width: 60%
+
+   Back Panel
 
 
 #include snippets/x_rails.rst

@@ -64,12 +64,6 @@ fault. The fault indicator is on during the initial power-on self-test
    :width: 15%
 
 
-.. _es12_back:
-
-.. figure:: images/tn_es12_back.png
-   :width: 60%
-
-
 The ES12 contains two expander modules in a side-by-side
 configuration. The connectors and features on each module are:
 
@@ -85,6 +79,12 @@ configuration. The connectors and features on each module are:
    +-----------------------------------------------------+
    | 5: Redundant power supplies                         |
    +-----------------------------------------------------+
+
+
+.. _es12_back:
+
+.. figure:: images/tn_es12_back.png
+   :width: 60%
 
 
 #include snippets/x_rails.rst
@@ -182,3 +182,4 @@ Install Bezel (Optional)
 The included bezel is not required for operation. If desired, install
 the bezel by aligning it with the pins on the bezel ears and pressing
 it into place.
+
