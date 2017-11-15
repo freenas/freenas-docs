@@ -19,7 +19,5 @@ edge of the chassis, then gently swing the latch closed until it
 clicks into place.
 
 
-.. _x_drivetray_load:
-
 .. figure:: images/tn_x_driveload.png
    :width: 60%

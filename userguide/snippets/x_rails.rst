@@ -1,5 +1,3 @@
-.. index:: X/ES12 Series Rail Kit Assembly
-
 Rail Kit Assembly
 ~~~~~~~~~~~~~~~~~
 
@@ -15,7 +13,6 @@ the rack. Repeat the process for the second extender, which is a
 mirror image of the first.
 
 
-.. _x_railextender:
 .. figure:: images/tn_x_railextender.png
    :width: 20%
 
@@ -23,7 +20,6 @@ mirror image of the first.
 Install a spring on the silver posts in the side of each rail.
 
 
-.. _x_spring:
 .. figure:: images/tn_x_spring.png
    :width: 30%
 
@@ -35,8 +31,6 @@ Swing the clamp latch closed to hold the rail in place. Use two of the
 supplied screws to secure the back end of the rail in place. Repeat
 the process for the second rail.
 
-
-.. _x_rail_clamp:
 
 .. figure:: images/tn_x_railclamp.png
    :width: 50%
