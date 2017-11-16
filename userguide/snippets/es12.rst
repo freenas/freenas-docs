@@ -8,7 +8,7 @@ ES12 Expansion Shelf
 --------------------
 
 The %brand% ES12 is 2U, 12-bay, SAS3 (12 Gb/s) expansion shelf with
-dual expander modules and redundant power supplies.
+dual expansion modules and redundant power supplies.
 
 
 #include snippets/perfect.rst
@@ -64,7 +64,7 @@ fault. The fault indicator is on during the initial power-on self-test
    :width: 15%
 
 
-The ES12 contains two expander modules in a side-by-side
+The ES12 contains two expansion modules in a side-by-side
 configuration. The connectors and features on each module are:
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
@@ -116,7 +116,7 @@ Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
 Plug one end of the SAS cable into the T1 connector on the ES12's
-expander module 1. Plug the other end into the SAS 1 connector on
+expansion module 1. Plug the other end into the SAS 1 connector on
 the X series node 1.
 
 
@@ -133,11 +133,11 @@ ES12 as shown above. Then add the second ES12 with these connections:
 .. table::
    :class: longtable
 
-   +-----------------------------------------------------------------------+
-   | Second ES12 expander module 1 connector T1 to X series node 1, SAS 2. |
-   +-----------------------------------------------------------------------+
-   | Second ES12 expander module 2 connector T2 to X series node 2, SAS 2. |
-   +-----------------------------------------------------------------------+
+   +------------------------------------------------------------------------+
+   | Second ES12 expansion module 1 connector T1 to X series node 1, SAS 2. |
+   +------------------------------------------------------------------------+
+   | Second ES12 expansion module 2 connector T2 to X series node 2, SAS 2. |
+   +------------------------------------------------------------------------+
 
 
 Use with the ES60 Expansion Shelf (X20 Only)
@@ -151,11 +151,11 @@ ES12. Connect the ES60 to the SAS 1 ports on the X20:
 .. table::
    :class: longtable
 
-   +-------------------------------------------------------------+
-   | ES60 expander module 1, connector "1" to X20 node 1, SAS 1. |
-   +-------------------------------------------------------------+
-   | ES60 expander module 2, connector "2" to X20 node 2, SAS 1. |
-   +-------------------------------------------------------------+
+   +--------------------------------------------------------------+
+   | ES60 expansion module 1, connector "1" to X20 node 1, SAS 1. |
+   +--------------------------------------------------------------+
+   | ES60 expansion module 2, connector "2" to X20 node 2, SAS 1. |
+   +--------------------------------------------------------------+
 
 Connect the ES12 to the SAS 2 ports on the X20:
 
@@ -165,11 +165,11 @@ Connect the ES12 to the SAS 2 ports on the X20:
 .. table::
    :class: longtable
 
-   +----------------------------------------------------------------+
-   | ES12 expander module 1 connector T1 to X series node 1, SAS 2. |
-   +----------------------------------------------------------------+
-   | ES12 expander module 2 connector T1 to X series node 2, SAS 2. |
-   +----------------------------------------------------------------+
+   +-----------------------------------------------------------------+
+   | ES12 expansion module 1 connector T1 to X series node 1, SAS 2. |
+   +-----------------------------------------------------------------+
+   | ES12 expansion module 2 connector T1 to X series node 2, SAS 2. |
+   +-----------------------------------------------------------------+
 
 
 After all SAS cables have been connected, plug the X series power
