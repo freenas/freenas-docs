@@ -8,7 +8,7 @@ ES24 Expansion Shelf
 --------------------
 
 The %brand% ES24 is 4U, 24-bay, SAS3 (12 Gb/s) expansion shelf with
-dual expander modules and redundant power supplies.
+dual expansion modules and redundant power supplies.
 
 
 #include snippets/perfect.rst
@@ -76,25 +76,29 @@ software has issued an
 
 .. figure:: images/tn_es24_back.png
 
-The ES24 contains two expander modules in an over/under configuration.
-The connectors and features on each module are:
+   Back Panel
+
+
+The ES24 contains two expansion modules in an over/under
+configuration. The connectors and features on each module are:
+
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
 
 .. table::
    :class: longtable
 
-   +-----------------------------------------------------+
-   | 1-2: Redundant power supplies                       |
-   +-----------------------------------------------------+
-   | 3-4: Fans                                           |
-   +-----------------------------------------------------+
-   | 5-7: HD Mini SAS3 connectors                        |
-   +-----------------------------------------------------+
-   | 8: Serial port                                      |
-   +-----------------------------------------------------+
-   | 9: Network management port (Expander Module 1 only) |
-   +-----------------------------------------------------+
+   +------------------------------------------------------+
+   | 1-2: Redundant power supplies                        |
+   +------------------------------------------------------+
+   | 3-4: Fans                                            |
+   +------------------------------------------------------+
+   | 5-7: HD Mini SAS3 connectors                         |
+   +------------------------------------------------------+
+   | 8: Serial port                                       |
+   +------------------------------------------------------+
+   | 9: Network management port (Expansion Module 1 only) |
+   +------------------------------------------------------+
 
 
 .. raw:: latex
@@ -238,13 +242,13 @@ Plug the ES24 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
 Plug one end of the SAS cable into the T1 connector on the ES24
-expander module 1. Plug the other end into the SAS 1 connector on
-the Z30's node 1. See cable #1 in
+expansion module 1. Plug the other end into the SAS 1 connector on
+the X10's node 1. See cable #1 in
 :numref:`Figure %s <es24_sasconnect1>`.
 
-If the ES24 has a second node for HA (High Availability), plug one end
-of the second SAS cable into the T1 connector of the ES24's expander
-module 2. Plug the other end into the SAS 1 connector on the Z30's
+If the X10 has a second node for HA (High Availability), plug one end
+of the second SAS cable into the T1 connector of the ES24's expansion
+module 2. Plug the other end into the SAS 1 connector on the X10's
 node 2. See cable #2 in
 #ifdef comment
 :numref:`Figure %s <es24_sasconnect1>`.
@@ -258,14 +262,14 @@ node 2. See cable #2 in
 
 A second ES24 can also be connected to the X10. After connecting the
 first ES24 as shown above, plug one end of an SAS cable into the
-T1 connector on the second ES24's expander module 1. Plug the other
+T1 connector on the second ES24's expansion module 1. Plug the other
 end into the SAS 2 connector on the X10's node 1. See cable #3 in
 #ifdef comment
 :numref:`Figure %s <es24_sasconnect2>`.
 #endif comment
 
-If the ES24 has a second node for HA (High Availability), plug one end
-of an SAS cable into the T1 connector of the second ES24's expander
+If the X10 has a second node for HA (High Availability), plug one end
+of an SAS cable into the T1 connector of the second ES24's expansion
 module 2. Plug the other end into the X10's node 2, SAS 2 connector.
 See cable #4 in
 #ifdef comment

@@ -105,10 +105,9 @@ engineer. This reinstalls the %brand% object to repair a corrupted
 object.
 
 
-.. note:: In an HA-configured scenario, the :guilabel:`Upgrade` button
-   is only usable from the system that originally installed the
-   plugin. The :guilabel:`Upgrade` button is disabled out on the HA
-   paired system.
+.. note:: In an HA system, the :guilabel:`Upgrade` button can only
+   be used on the system that originally installed the plugin. The
+   :guilabel:`Upgrade` button is disabled on the other HA node.
 
 
 Secure Connections
@@ -132,10 +131,10 @@ in the left tree. In the secure connection screen shown in
 Using the vCenter Plugin
 ------------------------
 
-From the main vSphere window, click
-:guilabel:`vCenter Inventory Lists`, then click
-:guilabel:`TrueNAS Hosts` and :guilabel:`TrueNAS` to see the list of
-defined %brand% hosts.
+Log in to the vCenter server by entering the IP address in a web
+browser. From the main vSphere window, click
+:guilabel:`vCenter Inventory Lists`, :guilabel:`TrueNAS Hosts`, and
+:guilabel:`TrueNAS` to see the list of defined %brand% hosts.
 
 
 .. index:: vCenter Hosts
@@ -228,9 +227,11 @@ shows the configuration screen for the new datastore:
    Configuring a VMFS Datastore
 
 
-Enter a name for the new datastore and the desired size. Enter the IP
-address of the %brand% system in the :guilabel:`Data Path IP` box.
-Select the desired :guilabel:`VMFS Version` from the drop-down. If a
+Enter a name for the new datastore and the desired size. Datastore
+names can only contain letters, numbers, and :literal:`-` and
+:literal:`.` characters. Enter the IP address of the %brand% system in
+the :guilabel:`Data Path IP` box. Select the desired
+:guilabel:`VMFS Version` from the drop-down. If a
 :guilabel:`Sparse Volume` is desired, check the box.
 
 Select the %brand% volume on which to create the datastore, then click

@@ -113,7 +113,7 @@ These base applications and drivers have been updated or added:
   snapshots or when deleting multiple snapshots and large files.
 
 * The algorithm used for scrubs and resilvers has received many
-  improvements which will be most noticable on defragmented pools.
+  improvements which will be most noticeable on defragmented pools.
 
 * The Dojo Toolkit has been updated to version 1.12.2.
 
@@ -317,13 +317,13 @@ Path and Name Lengths
 Hardware Recommendations
 ------------------------
 
-%brand% |release| is based on FreeBSD 11 and supports the same
+%brand% |release| is based on FreeBSD 11.1 and supports the same
 hardware found in the
 `FreeBSD Hardware Compatibility List
-<http://www.freebsd.org/releases/11.0R/hardware.html>`__.
+<http://www.freebsd.org/releases/11.1R/hardware.html>`__.
 Supported processors are listed in section
 `2.1 amd64
-<https://www.freebsd.org/releases/11.0R/hardware.html#proc>`_.
+<https://www.freebsd.org/releases/11.1R/hardware.html#proc>`_.
 %brand% is only available for 64-bit processors. This architecture is
 called *amd64* by AMD and *Intel 64* by Intel.
 
@@ -446,7 +446,7 @@ Storage Disks and Controllers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The `Disk section
-<http://www.freebsd.org/releases/11.0R/hardware.html#DISK>`_
+<http://www.freebsd.org/releases/11.1R/hardware.html#DISK>`_
 of the FreeBSD Hardware List lists the supported disk controllers. In
 addition, support for 3ware 6 Gbps RAID controllers has been added
 along with the CLI utility :command:`tw_cli` for managing 3ware RAID
@@ -546,7 +546,7 @@ Network Interfaces
 ~~~~~~~~~~~~~~~~~~
 
 The `Ethernet section
-<http://www.freebsd.org/releases/11.0R/hardware.html#ethernet>`_
+<http://www.freebsd.org/releases/11.1R/hardware.html#ethernet>`_
 of the FreeBSD Hardware Notes indicates which interfaces are supported
 by each driver. While many interfaces are supported, %brand% users
 have seen the best performance from Intel and Chelsio interfaces, so

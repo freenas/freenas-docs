@@ -226,11 +226,11 @@ expansion shelf as shown in
 Note the labels on the SAS ports on the back of the %brand% Storage
 Array and the letter label on the back of the expansion shelf.
 Using the included SAS cables, connect the *In* SAS port of the top
-expander on the E16 expansion shelf to the SAS port with the same
-letter on the %brand% Storage Array's primary storage controller
+expansion module on the E16 expansion shelf to the SAS port with the
+same letter on the %brand% Storage Array's primary storage controller
 (the one in the top slot). If a secondary storage controller has been
-installed, connect the *In* SAS port of the bottom expander to the
-port with the same letter on the secondary storage controller.
+installed, connect the *In* SAS port of the bottom expansion module to
+the port with the same letter on the secondary storage controller.
 Refer to
 :numref:`Figure %s <appliance24>` for a detailed view.
 
