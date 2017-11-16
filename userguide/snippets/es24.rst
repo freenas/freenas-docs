@@ -7,7 +7,7 @@
 ES24 Expansion Shelf
 --------------------
 
-The %brand% ES24 is 4U, 24-bay, SAS3 (12 Gb/s) expansion shelf with
+The %brand% ES24 is a 4U, 24-bay, SAS3 (12 Gb/s) expansion shelf with
 dual expansion modules and redundant power supplies.
 
 
@@ -24,34 +24,27 @@ Carefully unpack the shipping boxes and locate these components:
 .. table::
    :class: longtable
 
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es24_bare.png         | .. image:: images/tn_es24_bezel.png         |
-   |                                            |    :width: 10%                              |
-   |                                            |                                             |
-   | ES24 Expansion Shelf                       | ES24 Bezel                                  |
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es24_rails.png        | .. image:: images/tn_es24_drivetray.png     |
-   |                                            |    :width: 30%                              |
-   |                                            |                                             |
-   | Set of rackmount rails                     | Up to 24 drive trays populated with drives  |
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es24_serialcable.png  | .. image:: images/tn_sascables_minihd.png   |
-   |    :width: 40%                             |    :width: 40%                              |
-   |                                            |                                             |
-   | Serial cable                               | Two 3-meter Mini SAS HD to Mini SAS HD      |
-   |                                            | cables                                      |
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_power_cable.png       |                                             |
-   |    :width: 40%                             |                                             |
-   |                                            |                                             |
-   | Two 2 IEC C13 to NEMA 5-15P power cords    |                                             |
-   |                                            |                                             |
-   +--------------------------------------------+---------------------------------------------+
-
-
-.. raw:: latex
-
-   \newpage
+   +--------------------------------------------------+---------------------------------------------+
+   | .. image:: images/tn_es24_bare.png               | .. image:: images/tn_es24_bezel.png         |
+   |                                                  |    :width: 10%                              |
+   |                                                  |                                             |
+   | ES24 Expansion Shelf                             | ES24 Bezel                                  |
+   +--------------------------------------------------+---------------------------------------------+
+   | .. image:: images/tn_es24_rails.png              | .. image:: images/tn_es24_drivetray.png     |
+   |                                                  |    :width: 30%                              |
+   |                                                  |                                             |
+   | Set of rackmount rails                           | Up to 24 drive trays populated with drives  |
+   +--------------------------------------------------+---------------------------------------------+
+   | |pic1|   |pic2|                                  | .. image:: images/tn_power_cable.png        |
+   |                                                  |    :width: 30%                              |
+   | .. |pic1| image:: images/tn_sascables_minihd.png |                                             |
+   |    :width: 30%                                   | Two 2 IEC C13 to NEMA 5-15P power cords     |
+   | .. |pic2| image:: images/tn_es24_serialcable.png |                                             |
+   |    :width: 30%                                   |                                             |
+   |                                                  |                                             |
+   | Two 3-meter Mini SAS HD to Mini SAS HD cables    |                                             |
+   | and a serial cable                               |                                             |
+   +--------------------------------------------------+---------------------------------------------+
 
 
 .. index:: Become Familiar with the ES24
@@ -70,11 +63,12 @@ software has issued an
 
 .. _es24_indicators:
 .. figure:: images/tn_es24_indicators.png
-   :width: 1.75in
+   :width: 15%
 
 .. _es24_back:
 
 .. figure:: images/tn_es24_back.png
+   :width: 60%
 
    Back Panel
 
@@ -99,11 +93,6 @@ configuration. The connectors and features on each module are:
    +------------------------------------------------------+
    | 9: Network management port (Expansion Module 1 only) |
    +------------------------------------------------------+
-
-
-.. raw:: latex
-
-   \newpage
 
 
 .. index:: Rail Kit Assembly
@@ -140,12 +129,7 @@ Repeat this process on the other side.
 
 .. _rail_screws:
 .. figure:: images/tn_es24_rail_screws.png
-   :width: 50%
-
-
-.. raw:: latex
-
-   \newpage
+   :width: 15%
 
 
 Mount the Rack Rails
@@ -170,6 +154,7 @@ click in place. Repeat this process for the second rear rail.
 
 .. _rack_rail_install:
 .. figure:: images/tn_es24_rack_rail_install.png
+   :width: 60%
 
 
 Mount the Unit in the Rack
@@ -188,11 +173,7 @@ process for the second rail.
 
 .. _rack_rail_to_cabinet_rail:
 .. figure:: images/tn_es24_cabinet_meets_rack.png
-
-
-.. raw:: latex
-
-   \newpage
+   :width: 60%
 
 
 When both cabinet rails are secured inside of the rack rails gently
@@ -203,6 +184,7 @@ pushing the unit in until it is flush with the front of the rack.
 
 .. _mount_system_in_rack:
 .. figure:: images/tn_es24_mount_system.png
+   :width: 60%
 
 
 Anchor the unit in the rack on both sides with the 6-32 screws
@@ -212,11 +194,6 @@ included in the rail kit.
 .. _secure_system_in_rack:
 .. figure:: images/tn_es24_secure_unit.png
    :width: 50%
-
-
-.. raw:: latex
-
-   \newpage
 
 
 Install Drive Trays
@@ -234,6 +211,7 @@ clicks into place.
 
 .. _drive_installation:
 .. figure:: images/tn_es24_drive_tray1.png
+   :width: 60%
 
 
 Connect Power Cords
@@ -246,19 +224,14 @@ process for the second power supply and cord.
 
 .. _power_cord_connection:
 .. figure:: images/tn_es24_power_cord.png
-  :width: 50%
-
-
-.. raw:: latex
-
-   \newpage
+  :width: 25%
 
 
 Connect SAS Cables
 ~~~~~~~~~~~~~~~~~~
 
-Shut down and power off the ES24. Remove the ES24 power cables from the
-power outlets.
+Shut down and power off the ES24. Remove the ES24 power cables from
+the power outlets.
 
 Plug the ES24 power cords into power outlets.
 **Wait two minutes for the drives to start.**
