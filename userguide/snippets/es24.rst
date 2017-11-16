@@ -114,48 +114,59 @@ Rail Kit Assembly
 Remove Cabinet Rails from Rack Rails
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Extend the cabinet rail until it stops. To remove the cabinet rail, press the white release tab to the
-right while pulling the cabinet rail.
+Extend the cabinet rail until it stops. To remove the cabinet rail,
+press the white release tab to the right while pulling the cabinet
+rail.
 
 .. _cabinet_rail_removal:
 .. figure:: images/tn_es24_cabinet_rail1.png
 
 
-Mount Cabinet Rails 
+Mount Cabinet Rails
 ^^^^^^^^^^^^^^^^^^^
 
-The cabinet rails are mounted on both sides of the system. Align the cabinet rail keyhole with the post 
-on the side of the chassis and pull the rail until the post is wedged in the smaller hole. 
+The cabinet rails are mounted on both sides of the system. Align the
+cabinet rail keyhole with the post on the side of the chassis and pull
+the rail until the post is wedged in the smaller hole.
+
 
 .. _cabinet_rail2:
 .. image:: images/tn_es24_cabinet_rail2.png
-  
 
-Align the rail holes with the screw holes and secure the rail with three of the supplied cabinet screws included 
-with the rail kit. Repeat this process on the other side.
+
+Align the rail holes with the screw holes and secure the rail with
+three of the supplied cabinet screws included with the rail kit.
+Repeat this process on the other side.
 
 .. _rail_screws:
 .. figure:: images/tn_es24_rail_screws.png
    :width: 50%
 
+
 .. raw:: latex
 
    \newpage
 
+
 Mount the Rack Rails
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
-Place the rail in the rack with the front end toward the front of the rack, aligning the pins with the 
-mounting holes in the front rack. Push the pins in the holes until the latch clicks. 
-Secure rail in place with the front rail screw included in the rail kit. Repeat this process for the second front rail.
+Place the rail in the rack with the front end toward the front of the
+rack, aligning the pins with the mounting holes in the front rack.
+Push the pins in the holes until the latch clicks. Secure rail in
+place with the front rail screw included in the rail kit. Repeat this
+process for the second front rail.
 
-Install two square cage nuts on the front end of the rack, one directly above the top rail pin and 
-the other in the third rack hole above it. Repeat this process on the other front rail. The cage nuts will 
-later support the screws used to secure the enclosure to the rack.
+Install two square cage nuts on the front end of the rack, one
+directly above the top rail pin and the other in the third rack hole
+above it. Repeat this process on the other front rail. The cage nuts
+will later support the screws used to secure the enclosure to the
+rack.
 
-For the rear end of the rail, align the pins with the mounting holes on the rear rack. 
-Pull the white latch toward the rear until the pins click in place. 
-Repeat this process for the second rear rail.
+For the rear end of the rail, align the pins with the mounting holes
+on the rear rack. Pull the white latch toward the rear until the pins
+click in place. Repeat this process for the second rear rail.
+
 
 .. _rack_rail_install:
 .. figure:: images/tn_es24_rack_rail_install.png
@@ -169,31 +180,39 @@ installation or removal.** Do not install drives until after the
 chassis has been installed in the rack, and remove all drives before
 removing the chassis from the rack.
 
-Pull the front rack rail forward until it stops. Align the cabinet rail with the inside of the 
-front rack rail and slide the cabinet rail forward until it is fully seated inside the rack rail. 
-Repeat the process for the second rail.  
+Pull the front rack rail forward until it stops. Align the cabinet
+rail with the inside of the front rack rail and slide the cabinet rail
+forward until it is fully seated inside the rack rail. Repeat the
+process for the second rail.
 
 
 .. _rack_rail_to_cabinet_rail:
 .. figure:: images/tn_es24_cabinet_meets_rack.png
 
+
 .. raw:: latex
 
    \newpage
-   
-When both cabinet rails are secured inside of the rack rails gently push the chassis until it stops halfway in.
-Slide the blue release tabs on both cabinet rails toward the front of the system while pushing the unit in 
-until it is flush with the front of the rack.
+
+
+When both cabinet rails are secured inside of the rack rails gently
+push the chassis until it stops halfway in. Slide the blue release
+tabs on both cabinet rails toward the front of the system while
+pushing the unit in until it is flush with the front of the rack.
+
 
 .. _mount_system_in_rack:
 .. figure:: images/tn_es24_mount_system.png
 
-Anchor the unit in the rack on both sides with the 6-32 screws included in the rail kit.  
+
+Anchor the unit in the rack on both sides with the 6-32 screws
+included in the rail kit.
 
 
 .. _secure_system_in_rack:
 .. figure:: images/tn_es24_secure_unit.png
    :width: 50%
+
 
 .. raw:: latex
 
@@ -207,10 +226,11 @@ Drive trays are used to mount drives in the array. Each drive tray has
 a status LED which is blue when active or amber if a fault has
 occurred.
 
-Press the silver button to open the latch. Carefully slide the tray into
-a drive bay until the right side of the latch touches the metal front
-edge of the chassis, then gently swing the latch closed until it
+Press the silver button to open the latch. Carefully slide the tray
+into a drive bay until the right side of the latch touches the metal
+front edge of the chassis, then gently swing the latch closed until it
 clicks into place.
+
 
 .. _drive_installation:
 .. figure:: images/tn_es24_drive_tray1.png
@@ -228,10 +248,12 @@ process for the second power supply and cord.
 .. figure:: images/tn_es24_power_cord.png
   :width: 50%
 
+
 .. raw:: latex
 
    \newpage
- 
+
+
 Connect SAS Cables
 ~~~~~~~~~~~~~~~~~~
 
