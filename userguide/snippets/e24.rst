@@ -144,16 +144,16 @@ of the way forward to secure the drive in place.
 
 .. index:: Connect E24 Expansion Shelf to TrueNAS Array
 
-To connect the E24 expansion shelf to the %brand% Storage Array,
-note the labels on the SAS ports on the back of the %brand% Storage
-Array and the letter label on the back of the expansion shelf.
-Using the included SAS cables, connect the left *In* SAS port of
-the left side expander on the E24 expansion shelf to the SAS port
-with the same letter on the %brand% Storage Array's primary storage
-controller, the one in the top slot. If a secondary storage
-controller is installed, connect the left *In* SAS port of the right
-side expander to the port with the same letter on the secondary
-storage controller. Refer to
+To connect the E24 expansion shelf to the %brand% Storage Array, note
+the labels on the SAS ports on the back of the %brand% Storage Array
+and the letter label on the back of the expansion shelf. Using the
+included SAS cables, connect the left *In* SAS port of the left side
+expansion module on the E24 expansion shelf to the SAS port with the
+same letter on the %brand% Storage Array's primary storage controller,
+the one in the top slot. If a secondary storage controller is
+installed, connect the left *In* SAS port of the right side expansion
+module to the port with the same letter on the secondary storage
+controller. Refer to
 :numref:`Figure %s <appliance32>`
 for a detailed view.
 

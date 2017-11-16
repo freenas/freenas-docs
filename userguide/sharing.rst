@@ -76,20 +76,22 @@ consider using the :ref:`SSH` service instead of a share. It is slower
 than unencrypted FTP due to the encryption overhead, but the data
 passing through the network is encrypted.
 
+
 .. note:: It is generally a mistake to share a volume or dataset with
    more than one share type or access method. Different types of
    shares and services use different file locking methods. For
    example, if the same volume is configured to use both NFS and FTP,
-   NFS will lock a file for editing by an NFS user, but a FTP user can
-   simultaneously edit or delete that file. This results in lost edits
-   and confused users. Another example: if a volume is configured for
-   both AFP and SMB, Windows users can be confused by the "extra"
-   filenames used by Mac files and delete them. This corrupts the
-   files on the AFP share. Pick the one type of share or service that
-   makes the most sense for the types of clients accessing that
-   volume, and use that single type of share or service. To support
-   multiple types of shares, divide the volume into datasets and use
-   one dataset per share.
+   NFS will lock a file for editing by an NFS user, but an FTP user
+   can simultaneously edit or delete that file. This results in lost
+   edits and confused users. Another example: if a volume is
+   configured for both AFP and SMB, Windows users can be confused by
+   the "extra" filenames used by Mac files and delete them. This
+   corrupts the files on the AFP share. Pick the one type of share or
+   service that makes the most sense for the types of clients
+   accessing that volume, and use that single type of share or
+   service. To support multiple types of shares, divide the volume
+   into datasets and use one dataset per share.
+
 
 This section demonstrates configuration and fine-tuning of AFP, NFS,
 SMB, WebDAV, and iSCSI shares. FTP and SSH configurations are

@@ -29,7 +29,7 @@ copyright = '2011-2017, iXsystems'
 #
 
 # VERSION is the LONG, FULL version number with all patch levels, like "11.0-U1"
-version = '11.1-RC1'
+version = '11.1'
 # RELEASE is the short major release number ONLY, like "11.0"
 release = '11.1'
 
@@ -336,6 +336,7 @@ PREAMBLE = PREAMBLE.replace('Basic Setup Guide', r'''\newline Basic Setup Guide'
 # define custom title page
 PREAMBLE = PREAMBLE + r'''
 % FreeNAS/TrueNAS LaTeX preamble
+\usepackage{geometry}
 \usepackage[default,scale=0.95]{opensans}
 \usepackage[T1]{fontenc}
 \usepackage{color}
@@ -346,29 +347,22 @@ PREAMBLE = PREAMBLE + r'''
 %for ragged right tables
 \usepackage{array,ragged2e}
 \definecolor{ixblue}{cmyk}{0.85,0.24,0,0}
-\newenvironment{widemargins}{%
-\begin{list}{}{%
-  \setlength{\leftmargin}{-0.5in}%
-  \setlength{\rightmargin}{-0.5in}%
-  }\item}%
-  {\end{list}%
-}
+\newgeometry{hmargin=0.5in, vmargin=0.75in}
 \makeatletter
 \renewcommand{\maketitle}{%
   \begin{titlepage}%
     \newlength{\thistitlewidth}%
-    \begin{widemargins}%
-      \usefont{T1}{fos}{l}{n}%
-      \vspace*{-6mm}%
-      \fontsize{32}{36}\selectfont%
-      \docname\par%
-      \vspace*{-4.5mm}%
-      \settowidth{\thistitlewidth}{\docname}%
-      {\color{ixblue}\rule{\thistitlewidth}{1.5pt}}\par%
-      \vspace*{4.5mm}%
-      \fontsize{18}{22}\fontseries{sbc}\selectfont%
-      \docdate\par%
-    \end{widemargins}%
+    \newgeometry{hmargin=0.5in, vmargin=0.5in}%
+    \usefont{T1}{fos}{l}{n}%
+    \vspace*{-6mm}%
+    \fontsize{32}{36}\selectfont%
+    \docname\par%
+    \vspace*{-4.5mm}%
+    \settowidth{\thistitlewidth}{\docname}%
+    {\color{ixblue}\rule{\thistitlewidth}{1.5pt}}\par%
+    \vspace*{4.5mm}%
+    \fontsize{18}{22}\fontseries{sbc}\selectfont%
+    \docdate\par%
     %%cover_pic%%
     \begin{tikzpicture}[remember picture,overlay]
       \fill [ixblue] (current page.south west) rectangle ($(current page.south east) + (0, 2in)$);
@@ -406,7 +400,7 @@ latex_elements = {
 'babel': r'''\usepackage[english]{babel}''',
 
 # strict positioning of figures
-'figure_align': 'H'
+'figure_align': 'H',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples

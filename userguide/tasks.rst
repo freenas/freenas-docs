@@ -416,7 +416,7 @@ Both ends of an rsync connection must be configured:
 %brand% can be configured as either an rsync client or an rsync
 server. The opposite end of the connection can be another %brand%
 system or any other system running rsync. In %brand% terminology, an
-rysnc task defines which data is synchronized between the two systems.
+rsync task defines which data is synchronized between the two systems.
 To synchronize data between two %brand% systems, create the rsync task
 on the rsync client.
 
