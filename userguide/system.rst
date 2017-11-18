@@ -1244,7 +1244,7 @@ Several trains are available for updates.
    provided only to permit testing of new versions before switching to
    a new branch. Before using a non-production train, be prepared to
    experience bugs or problems. Testers are encouraged to submit bug
-   reports at `<https://bugs.freenas.org/>`__.
+   reports at https://redmine.ixsystems.com/projects/freenas/issues.
 
 
 These trains are available:
@@ -1336,9 +1336,8 @@ Checking for updates by making sure the desired train is selected and
 clicking the :guilabel:`Check Now` button. Any available updates are
 listed. In the example shown in
 :numref:`Figure %s <review_updates_fig>`,
-the numbers which begin with a *#* represent the bug report number
-from
-`bugs.freenas.org <https://bugs.freenas.org>`__.
+the numbers which begin with a *#* represent the issue number from
+`the issue tracker <https://redmine.ixsystems.com/projects/freenas/issues>`__.
 Numbers which do not begin with a *#* represent a git commit. Click
 the :guilabel:`ChangeLog` link to open the log of changes in a web
 browser. Click the :guilabel:`ReleaseNotes` link to open the Release
@@ -2027,9 +2026,9 @@ feature requests.
    Support Tab
 
 
-This screen provides a built-in interface to the %brand% bug
+This screen provides a built-in interface to the %brand% issue
 tracker located at
-`bugs.freenas.org <https://bugs.freenas.org>`_.
+https://redmine.ixsystems.com/projects/freenas/issues.
 If you have not yet used the %brand% bug tracker, you must first go
 to that website, click the :guilabel:`Register` link, fill out the
 form, and reply to the registration email. This will create a username
@@ -2038,7 +2037,7 @@ notifications as the reports are actioned.
 
 Before creating a bug report or feature request, ensure that an
 existing report does not already exist at
-`bugs.freenas.org <https://bugs.freenas.org>`__.
+https://redmine.ixsystems.com/projects/freenas/issues.
 If you find a similar issue that is not yet marked as *closed* or
 *resolved*, add a comment to that issue if you have new information
 to provide that can assist in resolving the issue. If you find a
@@ -2052,7 +2051,7 @@ To generate a report using the built-in :guilabel:`Support` screen,
 complete the following fields:
 
 * **Username:** enter the login name created when registering at
-  `bugs.freenas.org <https://bugs.freenas.org>`__.
+  https://redmine.ixsystems.com/projects/freenas/issues.
 
 * **Password:** enter the password associated with the registered
   login name.
@@ -2086,8 +2085,7 @@ complete the following fields:
 
 Once you have finished completing the fields, click the
 :guilabel:`Submit` button to automatically generate and upload the
-report to
-`bugs.freenas.org <https://bugs.freenas.org>`__.
+report to https://redmine.ixsystems.com/projects/freenas/issues.
 A pop-up menu provides a clickable URL so to view status or add
 additional information to the report.
 #endif freenas

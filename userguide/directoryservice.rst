@@ -419,7 +419,7 @@ If the System Will not Join the Domain
 If the system will not join the Active Directory domain, run these
 commands in the order listed. If any of the commands fail or result in
 a traceback, create a bug report at
-`bugs.freenas.org <https://bugs.freenas.org/>`_
+https://redmine.ixsystems.com/projects/freenas/issues
 that includes the commands in the order in which they were run and the
 exact wording of the error message or traceback.
 
