@@ -372,10 +372,12 @@ If more than one disk is added, it is possible to specify how the
 new disks will be organized (as single disks, mirrors, or RAIDZ arrays).
 Organizing the new disks as a mirror or RAIDZ array creates redundancy
 and means that data will be safe if a disk fails (or if more than one
-disk fails, for some structures). **As it is not possible to change a
-structure that has been added to the pool at a later date, it is important
-to consider the structure and redundancy that will be required, before
-adding the new disks with Volume Manager**. 
+disk fails, for some structures). 
+
+**As it is not possible to change the structures chosen for the new disks
+after they are added to the pool (other than adding and removing mirrors
+in some cases), it is important to consider the structure and redundancy
+that will be required, before adding the new disks with Volume Manager**
 
 It is also possible to add disks as mirrors to existing single disks and
 mirrored devices, and to remove disks from mirrored devices. This affects
