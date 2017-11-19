@@ -65,7 +65,14 @@ Volume Manager
 old data on added disks is overwritten, so save it elsewhere before
 reusing a disk. Please see the :ref:`ZFS Primer` for information on
 ZFS redundancy with multiple disks before using
-:guilabel:`Volume Manager`.
+:guilabel:`Volume Manager`. 
+
+Within a ZFS pool, disks are grouped into individual storage groups
+(known as "vdev"s, short for "virtual devices"). Some operations related
+to adding and removing mirrors, and increasing disk sizes, are possible
+for mirrored devices and single disks in a pool, which are not allowed
+on RAIDZ arrays. Please see :ref:`Adding and removing mirrored devices
+to a ZFS Volume` for these operations.
 
 Selecting
 :menuselection:`Storage --> Volumes --> Volume Manager` opens
@@ -356,10 +363,24 @@ Extending a ZFS Volume
 
 The :guilabel:`Volume to extend` drop-down menu in
 :menuselection:`Storage --> Volumes --> Volume Manager`,
-shown in
-:numref:`Figure %s <create_zfs_pool_volman_fig>`,
-can be used to add additional disks to an existing ZFS volume. This
-drop-down menu will be empty if no ZFS volume exists.
+shown in :numref:`Figure %s <create_zfs_pool_volman_fig>`,
+can be used to add additional disks to an existing ZFS volume,
+to increase its overall capacity. This drop-down menu will be
+empty if no ZFS volume exists.
+
+If more than one disk is added, it is possible to specify how the
+new disks will be organized (as single disks, mirrors, or RAIDZ arrays).
+Organizing the new disks as a mirror or RAIDZ array creates redundancy
+and means that data will be safe if a disk fails (or if more than one
+disk fails, for some structures). **As it is not possible to change a
+structure that has been added to the pool at a later date, it is important
+to consider the structure and redundancy that will be required, before
+adding the new disks with Volume Manager**. 
+
+It is also possible to add disks as mirrors to existing single disks and
+mirrored devices, and to remove disks from mirrored devices. This affects
+redundancy and speed, but does not change the size of the pool. Please
+see :ref:`Adding and removing mirrored devices to a ZFS Volume` for these actions.
 
 .. note:: If the existing volume is encrypted, a warning message will
    remind you that the operation of extending a volume will reset the
@@ -404,6 +425,19 @@ an error message will appear, indicating the number of disks that are
 needed. You will need to select the correct number of disks in order
 to continue.
 
+.. _Adding and removing mirrored devices to a ZFS Volume:
+
+Adding and removing mirrored devices to a ZFS Volume
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Single disks and mirrored devices in an existing pool can be expanded to
+mirrored devices by adding extra disks of the same or larger size, and
+individual disks can be removed from existing mirrored devices. At present,
+removal of individual disks from a mirror is possible using the Volume 
+Manager, but addition of extra mirrors usually requires
+:ref:`Command Line Utilities`.  The necessary commands for managing mirrored
+devices in the Command Line are :menuselection:`zpool attach` (to add disks)
+and :menuselection:`zpool detach` (to remove disks).
 
 .. _Adding L2ARC or ZIL Devices:
 
