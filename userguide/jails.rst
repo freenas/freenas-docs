@@ -222,7 +222,9 @@ route need to be added to the specified network. After changing this
 value, ensure that the subnet mask value is correct, as an incorrect
 mask can make the IP network unreachable. When in doubt, keep the
 default setting for :guilabel:`IPv4 Network`. With VMware, make sure
-that the vswitch is set to "promiscuous mode".
+that the vswitch is set to "promiscuous mode". With VirtualBox, make sure
+:menuselection:`Network -> Advanced -> Promiscuous Mode` is not set to
+"Deny".
 
 After clicking the :guilabel:`Save` button to save the configuration,
 the system is ready to create and manage jails as described in the
