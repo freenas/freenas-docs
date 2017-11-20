@@ -25,11 +25,11 @@ these options:
 
 
 #ifdef truenas
-.. note:: If the %brand% system has been configured as the passive
-   node in a failover configuration, the screens shown in this chapter
-   will be replaced by a message indicating that this node is passive.
-   All of the options discussed in this chapter can only be configured
-   on the active node.
+.. note:: When using an HA (High Availability) %brand% system,
+   connecting to the graphical interface on the passive node only
+   shows a screen indicating that it is the passive node. All of the
+   options discussed in this chapter can only be configured on the
+   active node.
 #endif truenas
 
 
@@ -40,19 +40,21 @@ Volumes
 -------
 
 The :guilabel:`Volumes` section of the %brand% graphical interface can
-be used to format ZFS pools, import a disk to copy its data into an
-existing pool, or import an existing ZFS pool. It can also be used to
-create ZFS datasets and zvols and to manage their permissions.
+be used to format volumes, attach a disk to copy data onto an existing
+volume, or import a ZFS volume. It can also be used to create ZFS
+datasets and zvols and to manage their permissions.
 
-.. note:: In ZFS terminology, the storage that is managed by ZFS is
-   referred to as a pool. The %brand% graphical interface uses the
-   term *volume* to refer to a ZFS pool.
+
+.. note:: In ZFS terminology, groups of storage devices managed by ZFS
+   are referred to as a *pool*. The %brand% graphical interface uses
+   the term *volume* to refer to a ZFS pool.
+
 
 Proper storage design is important for any NAS.
 **Please read through this entire chapter before configuring storage
-disks. All of the features are described to help make it clear which
-will be the most benefit for your uses, and caveats or
-hardware restrictions which could limit their use.**
+disks. Features are described to help make it clear which are
+beneficial for particular uses, and caveats or hardware restrictions
+which limit usefulness.**
 
 
 .. _Volume Manager:
@@ -61,11 +63,15 @@ Volume Manager
 ~~~~~~~~~~~~~~
 
 
-:guilabel:`Volume Manager` is used to add disks to a ZFS pool. Any
+The :guilabel:`Volume Manager` is used to add disks to a ZFS pool. Any
 old data on added disks is overwritten, so save it elsewhere before
 reusing a disk. Please see the :ref:`ZFS Primer` for information on
 ZFS redundancy with multiple disks before using
-:guilabel:`Volume Manager`.
+:guilabel:`Volume Manager`. It is important to realize that different
+layouts of virtual devices (*vdevs*) affect which operations can be
+performed on that volume later. For example, adding mirrored drives
+or growing the size of a vdev can be done on mirrors, but not on
+RAIDZ arrays.
 
 Selecting
 :menuselection:`Storage --> Volumes --> Volume Manager` opens
@@ -90,7 +96,7 @@ summarizes the configuration options of this screen.
 
 .. _zfs_vol_opts_tab:
 
-.. table:: Options When Creating a ZFS Volume
+.. table:: ZFS Volume Creation Options
    :class: longtable
 
    +------------------+----------------+--------------------------------------------------------------------------------------------+
@@ -99,44 +105,46 @@ summarizes the configuration options of this screen.
    +==================+================+============================================================================================+
    | Volume name      | string         | ZFS volumes must conform to these                                                          |
    |                  |                | `naming conventions <http://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`__;     |
-   |                  |                | it is recommended to choose a name that will stick out in the logs (e.g. **not**           |
-   |                  |                | :file:`data` or :file:`freenas`)                                                           |
+   |                  |                | choosing a name that will stick out in the logs (e.g. **not** a generic term like          |
+   |                  |                | :file:`data` or :file:`freenas`) is recommended                                            |
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Volume to extend | drop-down menu | used to extend an existing ZFS pool; see :ref:`Extending a ZFS Volume` for instructions    |
+   | Volume to extend | drop-down menu | extend an existing ZFS pool; see :ref:`Extending a ZFS Volume` for more details            |
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Encryption       | checkbox       | read the section on :ref:`Encryption` before choosing to use encryption                    |
+   | Encryption       | checkbox       | see the warnings in :ref:`Encryption` before enabling encryption                           |
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Available disks  | display        | displays the number and size of available disks; hover over :guilabel:`show` to            |
+   | Available disks  | display        | display the number and size of available disks; hover over :guilabel:`show` to             |
    |                  |                | list the available device names; click the *+* to add all of the disks to the pool         |
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Volume layout    | drag and drop  | click and drag the icon to select the desired number of disks for a vdev; once at least    |
-   |                  |                | one disk is selected, the layouts supported by the selected number of disks will be        |
-   |                  |                | added to the drop-down menu                                                                |
+   | Volume layout    | drag and drop  | click and drag the icon to select the desired number of disks for a vdev; when at least    |
+   |                  |                | one disk is selected, the layouts supported by the selected number of disks are added to   |
+   |                  |                | the drop-down menu                                                                         |
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Add Extra Device | button         | used to configure multiple vdevs or to add log or cache devices during pool creation       |
+   | Add Extra Device | button         | configure multiple vdevs or add log or cache devices during pool creation                  |
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Manual setup     | button         | used to create a pool manually (not recommended); see :ref:`Manual Setup` for details      |
+   | Manual setup     | button         | create a pool manually (not recommended); see :ref:`Manual Setup` for details              |
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
+
 
 Drag the slider to select the desired number of disks.
 :guilabel:`Volume Manager` displays the resulting storage capacity,
-including taking swap space into account. To change the layout or the
-number of disks, use the mouse to drag the slider to the desired
-volume layout. The :guilabel:`Volume layout` drop-down menu can also
-be clicked if a different level of redundancy is required.
+taking reserved swap space into account. To change the layout or the
+number of disks, drag the slider to the desired volume layout. The
+:guilabel:`Volume layout` drop-down menu can also be clicked if a
+different level of redundancy is required.
+
 
 .. note:: For performance and capacity reasons, this screen does not
    allow creating a volume from disks of differing sizes. While it is
-   not recommended, it is possible to create a volume in this
-   situation by using the :guilabel:`Manual setup` button and
-   following the instructions in :ref:`Manual Setup`.
+   not recommended, it is possible to create a volume of
+   differently-sized disks with the :guilabel:`Manual setup` button.
+   Follow the instructions in :ref:`Manual Setup`.
 
 
 :guilabel:`Volume Manager` only allows choosing a configuration if
@@ -167,22 +175,21 @@ information about log and cache devices can be found in the
 
 The :guilabel:`Add Volume` button warns that
 **existing data will be cleared**. In other words, creating a new
-volume reformats the selected disks. If the existing data is meant to
-be preserved, click the :guilabel:`Cancel` button and refer to
-:ref:`Import Disk` and :ref:`Import Volume` to see if the existing
-format is supported. If so, perform that action instead. If the
-current storage format is not supported, it is necessary to back
-up the data to external media, format the disks, then restore the data
-to the new volume.
+volume **reformats the selected disks**. To preserve existing data,
+click the :guilabel:`Cancel` button and refer to :ref:`Import Disk`
+and :ref:`Import Volume` to see if the existing format is supported.
+If so, perform that action instead. If the current storage format is
+not supported, it is necessary to back up the data to external media,
+format the disks, then restore the data to the new volume.
 
 Depending on the size and number of disks, the type of controller, and
 whether encryption is selected, creating the volume may take some
-time. After the volume is created, the screen will refresh and the new
+time. After the volume is created, the screen refreshes and the new
 volume is listed in the tree under
 :menuselection:`Storage --> Volumes`.
-Click the *+* next to the volume name to access its
+Click the *+* next to the volume name to access
 :ref:`Change Permissions`, :ref:`Create Dataset`, and
-:ref:`Create zvol` options.
+:ref:`Create zvol` options for that volume.
 
 
 .. index:: Encryption
@@ -322,12 +329,11 @@ shows the available options.
    |               |                  |                                                                                                |
    +===============+==================+================================================================================================+
    | Volume name   | string           | ZFS volumes must conform to these                                                              |
-   |               |                  | `naming conventions <http://docs.oracle.com/cd/E19082-01/817-2271/gbcpt/index.html>`_ ;        |
-   |               |                  | it is recommended to choose a name that will stick out in the logs (e.g.                       |
-   |               |                  | **not** :file:`data` or :file:`freenas`)                                                       |
+   |               |                  | `naming conventions <http://docs.oracle.com/cd/E19082-01/817-2271/gbcpt/index.html>`__;        |
+   |               |                  | choose a name that will stand out in the logs (e.g. **not** :file:`data` or :file:`freenas`)   |
    |               |                  |                                                                                                |
    +---------------+------------------+------------------------------------------------------------------------------------------------+
-   | Encryption    | checkbox         | read the section on `Encryption`_ before choosing to use encryption                            |
+   | Encryption    | checkbox         | see the warnings in :ref:`Encryption` before using encryption                                  |
    |               |                  |                                                                                                |
    +---------------+------------------+------------------------------------------------------------------------------------------------+
    | Member disks  | list             | highlight desired number of disks from list of available disks                                 |
@@ -336,15 +342,15 @@ shows the available options.
    #ifdef freenas
    | Deduplication | drop-down menu   | choices are *Off*,                                                                             |
    |               |                  | *Verify*, and                                                                                  |
-   |               |                  | *On*; carefully consider the section on `Deduplication`_ before changing this setting          |
+   |               |                  | *On*; carefully consider the section on :ref:`Deduplication` before changing this setting      |
    |               |                  |                                                                                                |
    #endif freenas
    #ifdef truenas
-   | Deduplication | drop-down menu   | do not change this setting unless instructed to do so by your iXsystems support engineer       |
+   | Deduplication | drop-down menu   | do not change this setting unless instructed to do so by an iXsystems support engineer         |
    |               |                  |                                                                                                |
    #endif truenas
    +---------------+------------------+------------------------------------------------------------------------------------------------+
-   | ZFS Extra     | bullet selection | used to specify if disk is used for storage (*None*), a log device, a cache device, or a spare |
+   | ZFS Extra     | bullet selection | specify disk usage: storage (*None*), a log device, a cache device, or a spare                 |
    |               |                  |                                                                                                |
    +---------------+------------------+------------------------------------------------------------------------------------------------+
 
@@ -358,40 +364,44 @@ The :guilabel:`Volume to extend` drop-down menu in
 :menuselection:`Storage --> Volumes --> Volume Manager`,
 shown in
 :numref:`Figure %s <create_zfs_pool_volman_fig>`,
-can be used to add additional disks to an existing ZFS volume. This
-drop-down menu will be empty if no ZFS volume exists.
+is used to add disks to an existing ZFS volume to increase capacity.
+This menu is empty if there are no ZFS volumes yet.
 
-.. note:: If the existing volume is encrypted, a warning message will
-   remind you that the operation of extending a volume will reset the
-   passphrase and recovery key. After extending the volume, you should
-   immediately recreate both using the instructions in
-   :ref:`Managing Encrypted Volumes`.
+If more than one disk is added, the arrangement of the new disks into
+stripes, mirrors, or RAIDZ vdevs can be specified. Mirrors and RAIDZ
+arrays provide redundancy for data protection if an individual drive
+fails.
+
+
+.. note:: If the existing volume is encrypted, a warning message shows
+   a reminder that **extending a volume resets the passphrase and
+   recovery key**. After extending the volume, immediately recreate
+   both using the instructions in :ref:`Managing Encrypted Volumes`.
 
 
 After an existing volume has been selected from the drop-down menu,
 drag and drop the desired disks and select the desired volume
 layout. For example, disks can be added to increase the capacity of
-the ZFS pool.
+the volume.
 
 When adding disks to increase the capacity of a volume, ZFS supports
-the addition of virtual devices, known as vdevs, to an existing ZFS
+the addition of virtual devices, or *vdevs*, to an existing ZFS
 pool. A vdev can be a single disk, a stripe, a mirror, a RAIDZ1,
 RAIDZ2, or a RAIDZ3. **After a vdev is created, more drives cannot be
-added to that vdev**; however, you can stripe a new vdev (and its
-disks) with another of the **same type of existing vdev** to increase
-the overall size of ZFS the pool. In other words, when you extend a
-ZFS volume, you are really striping similar vdevs. Here are some
-examples:
+added to that vdev**. However, a new vdev can be striped with another
+of the **same type of existing vdev** to increase the overall size of
+the volume. Extending a volume often involves striping similar vdevs.
+Here are some examples:
 
 * to extend a ZFS stripe, add one or more disks. Since there is no
-  redundancy, you do not have to add the same amount of disks as the
-  existing stripe.
+  redundancy, disks do not have to be added in the same quantity as
+  the existing stripe.
 
 * to extend a ZFS mirror, add the same number of drives. The resulting
-  striped mirror is a RAID 10. For example, if you have 10 drives, you
-  could start by creating a mirror of two drives, extending this
-  mirror by creating another mirror of two drives, and repeating three
-  more times until all 10 drives have been added.
+  striped mirror is a RAID 10. For example, if ten new drives are
+  available, a mirror of two drives could be created initially, then
+  extended by creating another mirror of two drives, and repeating
+  three more times until all ten drives have been added.
 
 * to extend a three drive RAIDZ1, add three additional drives. The
   result is a RAIDZ+0, similar to RAID 50 on a hardware controller.
@@ -399,20 +409,20 @@ examples:
 * to extend a RAIDZ2 requires a minimum of four additional drives. The
   result is a RAIDZ2+0, similar to RAID 60 on a hardware controller.
 
-If you try to add an incorrect number of disks to the existing vdev,
-an error message will appear, indicating the number of disks that are
-needed. You will need to select the correct number of disks in order
-to continue.
+If an attempt is made to add a non-matching number of disks to the
+existing vdev, an error message appears, indicating the number of
+disks that are required. Select the correct number of disks to
+continue.
 
 
-.. _Adding L2ARC or ZIL Devices:
+.. _Adding L2ARC or SLOG Devices:
 
-Adding L2ARC or ZIL Devices
-"""""""""""""""""""""""""""
+Adding L2ARC or SLOG Devices
+""""""""""""""""""""""""""""
 
-:menuselection:`Storage --> Volumes --> Volume Manager` (see
-:numref:`Figure %s <create_zfs_pool_volman_fig>`)
-is also used to add L2ARC or ZIL SSDs to improve specific types of
+:menuselection:`Storage --> Volumes --> Volume Manager`
+(see :numref:`Figure %s <create_zfs_pool_volman_fig>`)
+is also used to add L2ARC or SLOG SSDs to improve specific types of
 volume performance. This is described in more detail in the
 :ref:`ZFS Primer`.
 
