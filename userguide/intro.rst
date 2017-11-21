@@ -143,6 +143,10 @@ These base applications and drivers have been updated or added:
 * `s3cmd <http://s3tools.org/s3cmd>`__
   has been added back as a CLI alternative to :ref:`S3`.
 
+* The CLI `zfs-stats <http://www.vx.sk/zfs-stats/>`_
+  utility has been added. Type :command:`zfs-stats` to see its command
+  usage.
+
 * The hardware watchdog has been reenabled for recent firmware
   versions of AsrockRack C2750D4I. The BMC bug which required the
   watchdog to be disabled is resolved with the 00.30.00 or newer BMC
