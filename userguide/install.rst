@@ -293,6 +293,9 @@ Press :kbd:`Enter` to select the default option,
 lists all available drives. This includes any inserted USB thumb
 drives, which have names beginning with *da*.
 
+.. note:: A minimum of 8 GB of RAM is required and the installer will
+   present a warning message if less than 8 GB is detected.
+
 In this example, the user is performing a test installation using
 VirtualBox and has created a 16 GB virtual disk to hold the operating
 system.
