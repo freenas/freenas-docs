@@ -69,9 +69,9 @@ reusing a disk. Please see the :ref:`ZFS Primer` for information on
 ZFS redundancy with multiple disks before using
 :guilabel:`Volume Manager`. It is important to realize that different
 layouts of virtual devices (*vdevs*) affect which operations can be
-performed on that volume later. For example, adding mirrored drives
-or growing the size of a vdev can be done on mirrors, but not on
-RAIDZ arrays.
+performed on that volume later. For example, drives can be added to a
+mirror to increase redundancy, but that is not possible with RAIDZ
+arrays.
 
 Selecting
 :menuselection:`Storage --> Volumes --> Volume Manager` opens
