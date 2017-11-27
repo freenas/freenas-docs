@@ -101,6 +101,7 @@ These base applications and drivers have been updated or added:
   `features and drivers
   <https://www.freebsd.org/releases/11.1R/relnotes.html>`__.
   Improvements have been made to the
+  `em(4) <https://www.freebsd.org/cgi/man.cgi?query=en>`__,
   `ixl(4) <https://www.freebsd.org/cgi/man.cgi?query=ixl>`__,
   `ixgbe(4) <https://www.freebsd.org/cgi/man.cgi?query=ixgbe>`__,
   and
