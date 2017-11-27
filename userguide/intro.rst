@@ -104,9 +104,13 @@ These base applications and drivers have been updated or added:
   `em(4) <https://www.freebsd.org/cgi/man.cgi?query=en>`__,
   `ixl(4) <https://www.freebsd.org/cgi/man.cgi?query=ixl>`__,
   `ixgbe(4) <https://www.freebsd.org/cgi/man.cgi?query=ixgbe>`__,
-  and
-  `mps(4) <https://www.freebsd.org/cgi/man.cgi?query=mps>`__
-  drivers. Support has been added for the HBA 9400-81, Intel Skylake
+  and `mps(4) <https://www.freebsd.org/cgi/man.cgi?query=mps>`__
+  drivers. Additionally, the
+  `netmap(4) <https://www.freebsd.org/cgi/man.cgi?query=netmap>`__
+  kernel module has been added to the build as some NIC drivers depend
+  upon it.
+
+* Support has been added for the HBA 9400-81, Intel Skylake
   and Kaby Lake processors, and Ryzen processors.
 
 * There have been many improvements to OpenZFS. Users should notice a
