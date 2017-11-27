@@ -517,7 +517,7 @@ Be aware of these caveats **before** attempting an upgrade to
   will then recognize that the volume has been imported and not prompt
   to reformat the disks.
 
-* Upgrading the firmware of Avago SAS HBAs to the latest version is
+* Upgrading the firmware of Broadcom SAS HBAs to the latest version is
   recommended.
 
 * If upgrading from 9.3.x, please read the

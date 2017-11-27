@@ -461,10 +461,10 @@ controllers.
 enabling AHCI in the BIOS.
 
 Reliable disk alerting and immediate reporting of a failed drive can
-be obtained by using an HBA such as an Avago MegaRAID controller or a
+be obtained by using an HBA such as an Broadcom MegaRAID controller or a
 3Ware twa-compatible controller.
 
-.. note:: Upgrading the firmware of Avago SAS HBAs to the latest
+.. note:: Upgrading the firmware of Broadcom SAS HBAs to the latest
    version is recommended.
 
 .. index:: Highpoint RAID

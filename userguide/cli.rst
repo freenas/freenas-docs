@@ -23,7 +23,7 @@ The following utilities are specific to RAID controllers:
 
 * :ref:`tw_cli`:_used to monitor and maintain 3ware RAID controllers
 
-* :ref:`MegaCli`: used to configure and manage Avago MegaRAID SAS
+* :ref:`MegaCli`: used to configure and manage Broadcom MegaRAID SAS
   family of RAID controllers
 
 This section also describes these utilities:
@@ -908,7 +908,7 @@ contains a handy wrapper script that will notify you of errors.
 MegaCli
 -------
 
-:command:`MegaCli` is the command line interface for the Avago
+:command:`MegaCli` is the command line interface for the Broadcom
 :MegaRAID SAS family of RAID controllers. %brand% also includes the
 `mfiutil(8) <http://www.freebsd.org/cgi/man.cgi?query=mfiutil>`_
 utility which can be used to configure and manage connected storage
