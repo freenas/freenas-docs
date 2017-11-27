@@ -1470,8 +1470,8 @@ Cloud Credentials
 
 %brand% can use cloud services for features like :ref:`Cloud Sync`.
 The credentials to provide secure connections with cloud services
-are entered here. Supported services are Amazon S3, Backblaze B2, and
-Google Cloud Storage.
+are entered here. Amazon S3, Azure Blob Storage, Backblaze B2, and
+Google Cloud Storage are supported.
 
 Select
 :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
@@ -1481,14 +1481,16 @@ to display the dialog shown in
 
 .. _cloud_cred_fig:
 
-.. figure:: images/cloud-cred.png
+.. figure:: images/system-cloud-cred.png
 
    Adding Cloud Credentials
 
+
 Enter a descriptive name for the cloud credential in the
-:guilabel`Account Name` field and select a provider. This will activate
-the remaining options, which vary by provider, and are shown in
+:guilabel:`Account Name` field, then select a provider. The
+remaining options vary by provider, and are shown in
 :numref:`Table %s <cloud_cred_tab>`.
+
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -1499,25 +1501,23 @@ the remaining options, which vary by provider, and are shown in
 .. table:: Cloud Credential Options
    :class: longtable
 
-   +----------------------+----------------------+------------------------------------------------------------------------------------------+
-   | Provider             | Setting              | Description                                                                              |
-   |                      |                      |                                                                                          |
-   +======================+======================+==========================================================================================+
-   | Amazon S3            | Access Key           | paste the Amazon account access key                                                      |
-   |                      |                      |                                                                                          |
-   +----------------------+----------------------+------------------------------------------------------------------------------------------+
-   | Amazon S3            | Secret Key           | paste the Amazon account secret key                                                      |
-   |                      |                      |                                                                                          |
-   +----------------------+----------------------+------------------------------------------------------------------------------------------+
-   | Backblaze B2         | Account ID           | enter the ID associated with the Backblaze account                                       |
-   |                      |                      |                                                                                          |
-   +----------------------+----------------------+------------------------------------------------------------------------------------------+
-   | Backblaze B2         | Application Key      | paste the application key                                                                |
-   |                      |                      |                                                                                          |
-   +----------------------+----------------------+------------------------------------------------------------------------------------------+
-   | Google Cloud Storage | JSON Server Account  | browse to the location of the saved key                                                  |
-   |                      | Key                  |                                                                                          |
-   +----------------------+----------------------+------------------------------------------------------------------------------------------+
+   +----------------------+----------------------+-------------------------------------------------------------+
+   | Provider             | Setting              | Description                                                 |
+   |                      |                      |                                                             |
+   +======================+======================+=============================================================+
+   | Amazon S3            | Access Key,          | paste the Amazon account access key and secret key in the   |
+   |                      | Secret Key           | fields                                                      |
+   +----------------------+----------------------+-------------------------------------------------------------+
+   | Azure Blob Storage   | Account Name,        | enter the Azure Blob Storage account name and key in the    |
+   |                      | Account Key          | fields                                                      |
+   +----------------------+----------------------+-------------------------------------------------------------+
+   | Backblaze B2         | Account ID,          | enter the Backblaze account ID and paste the application    |
+   |                      | Application Key      | in the fields                                               |
+   |                      |                      |                                                             |
+   +----------------------+----------------------+-------------------------------------------------------------+
+   | Google Cloud Storage | JSON Server Account  | browse to the location of the saved Google Cloud Storage    |
+   |                      | Key                  | key and select it                                           |
+   +----------------------+----------------------+-------------------------------------------------------------+
 
 
 Additional fields are displayed after :guilabel:`Provider` is
@@ -1530,6 +1530,7 @@ Copy the Access Key value to the %brand% Cloud Credential
 :guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
 value saved when the key pair was created. If the Secret Key value is
 not known, a new key pair can be created on the same Amazon screen.
+
 
 .. index:: Alert Services
 .. _Alert Services:
