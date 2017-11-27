@@ -6,8 +6,6 @@ Microsoft Corporation in the United States and/or other countries.
 Apple, Mac and Mac OS are trademarks of Apple Inc., registered in the
 U.S. and other countries.
 
-Avago is a trademark of Avago Technologies.
-
 #ifdef freenas
 Broadcom is a trademark of Broadcom Corporation.
 #endif freenas
@@ -29,8 +27,6 @@ FreeBSD\ :sup:`®` and the FreeBSD\ :sup:`®` logo are registered
 trademarks of the FreeBSD Foundation\ :sup:`®`.
 
 #ifdef freenas
-Fusion-io is a trademark or registered trademark of Fusion-io, Inc.
-
 Intel, the Intel logo, Pentium Inside, and Pentium are trademarks of
 Intel Corporation in the U.S. and/or other countries.
 
