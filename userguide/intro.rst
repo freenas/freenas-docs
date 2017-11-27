@@ -120,6 +120,10 @@ These base applications and drivers have been updated or added:
 * The algorithm used for scrubs and resilvers has received many
   improvements which will be most noticeable on defragmented pools.
 
+* Samba has been updated to 
+  `4.7.3 <https://www.samba.org/samba/history/samba-4.7.3>`__. This version
+  addresses several recent security advisories.
+
 * The Dojo Toolkit has been updated to version 1.12.2.
 
 * OpenVPN has been updated to version
