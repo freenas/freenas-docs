@@ -181,7 +181,8 @@ These major features are new in this version:
   Backblaze B2, and Google Cloud Storage.
 
 * :ref:`Cloud Sync` has been added to :ref:`Tasks` and can be used to
-  synchronize files or directories to remote cloud storage providers.
+  synchronize files or directories to remote cloud storage providers using
+  the specified transfer mode.
 
 * The :guilabel:`Server Side Encryption` drop-down menu has been added
   to :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`, when an
