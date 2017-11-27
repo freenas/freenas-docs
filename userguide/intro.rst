@@ -503,18 +503,6 @@ read/write needs and RAID requirements:
   10 which would yield 1.8 TB of usable space, or eight 600 GB 15K SAS
   drives in a RAID 10 which would yield 2.4 TB of usable space.
 
-When high performance is a key requirement and budget permits,
-consider a
-`Fusion-I/O card <http://www.fusionio.com/products/>`_
-which is optimized for massive random access. These cards are
-expensive and are suited for high-end systems that demand performance.
-A Fusion-I/O card can be formatted with a filesystem and used as
-direct storage; when used this way, it does not have the write issues
-typically associated with a flash device. A Fusion-I/O card can also
-be used as a cache device when your ZFS dataset size is bigger than
-your RAM. Due to the increased throughput, systems running these cards
-typically use multiple 10 GigE network interfaces.
-
 For ZFS,
 `Disk Space Requirements for ZFS Storage Pools
 <http://docs.oracle.com/cd/E19253-01/819-5461/6n7ht6r12/index.html>`_
