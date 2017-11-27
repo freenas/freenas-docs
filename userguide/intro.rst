@@ -168,8 +168,8 @@ These major features are new in this version:
 
 * :ref:`Cloud Credentials` has been added to :ref:`System`. This can
   be used to provide a secure connection to a cloud services
-  providers. Supported services include Amazon S3, Backblaze B2, and
-  Google Cloud Storage.
+  providers. Supported services include Amazon S3, Azure Blob Storage,
+  Backblaze B2, and Google Cloud Storage.
 
 * :ref:`Cloud Sync` has been added to :ref:`Tasks` and can be used to
   synchronize files or directories to remote cloud storage providers.
