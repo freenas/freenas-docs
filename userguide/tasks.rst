@@ -58,7 +58,7 @@ clicking with the mouse.
 
 .. _tasks_cloudsync_status_fig:
 
-.. figure:: images/cloudsync-status.png
+.. figure:: images/tasks-cloudsync-status.png
 
    Cloud Sync Status
 
@@ -82,7 +82,7 @@ The :guilabel:`Add Cloud Sync` dialog is shown in
 
 .. _tasks_cloudsync_add_fig:
 
-.. figure:: images/cloudsync1.png
+.. figure:: images/tasks-cloudsync.png
 
    Adding a Cloud Sync
 
@@ -123,6 +123,16 @@ shows the configuration options for Cloud Syncs.
    |                   |                     |                                                                                                         |
    +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Path              | browse button       | select the directories or files to be sent for *Push* syncs or the destinations for *Pull* syncs        |
+   |                   |                     |                                                                                                         |
+   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Transfer Mode     | drop-down menu      | *Sync* (default): make files on destination system identical to those on the source; files removed from |
+   |                   |                     | the source are removed from the destination (like :command:`rsync --delete`)                            |
+   |                   |                     |                                                                                                         |
+   |                   |                     | *Copy*: copy files from the source to the destination, skipping files that are identical                |
+   |                   |                     | (like :command:`rsync`)                                                                                 |
+   |                   |                     |                                                                                                         |
+   |                   |                     | *Move*: copy files from the source to the destination, deleting files from the source after the copy    |
+   |                   |                     | (like :command:`mv`)                                                                                    |
    |                   |                     |                                                                                                         |
    +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Minute            | slider or minute    | select :guilabel:`Every N minutes` and use the slider to choose a value, or select                      |
