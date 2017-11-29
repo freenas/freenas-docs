@@ -79,7 +79,7 @@ configuration. The connectors and features on each node are:
    :class: longtable
 
    +------------------------------------------------+-----------------------------------------------------+
-   | 1,2: Gigabit Ethernet connectors               | 7,8: HDmini SAS3 connectors                         |
+   | 1,2: Gigabit Ethernet connectors               | 7,8: HDmini SAS3 connectors 1 and 2                 |
    +------------------------------------------------+-----------------------------------------------------+
    | 3: USB device (reserved)                       | 9: PCIe x8 expansion port                           |
    +------------------------------------------------+-----------------------------------------------------+
