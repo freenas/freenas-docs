@@ -392,7 +392,9 @@ configuration, it might also require changes to the setting of the
 service, like allowing root user login with a password.
 
 At the %brand% console prompt, connect to the Rancher VM with
-`cu <https://www.freebsd.org/cgi/man.cgi?query=cu>`__:
+`cu <https://www.freebsd.org/cgi/man.cgi?query=cu>`__, replacing
+:samp:`{/dev/nmdm3B}` with the value from the RancherUI
+:guilabel:`Info` column:
 
 
 .. code-block:: none
@@ -404,8 +406,9 @@ If the terminal does not show a :literal:`rancher login:` prompt,
 press :kbd:`Enter`.
 
 Enter *rancher* as the username, press :kbd:`Enter`, then type the
-password that was entered when the raw file was created above. After
-logging in, a :literal:`[rancher@rancher ~]$` prompt is displayed.
+password that was entered when the raw file was created above and
+press :kbd:`Enter` again. After logging in, a
+:literal:`[rancher@rancher ~]$` prompt is displayed.
 
 Download and install the Rancher system with this command:
 
@@ -424,14 +427,19 @@ command prompt is shown, type this command:
    ifconfig eth0 | grep 'inet addr'
 
 
-This is the IP address of the Rancher server. The Rancher server takes
-a few minutes to start. After it starts, connect to it by entering the
-Rancher server IP address and port 8080 as the URL in a web browser.
-For example, if the IP address was :literal:`10.231.3.208`, enter
+The first value is the IP address of the Rancher server. Enter the IP
+address and port 8080 as the URL in a web browser. For example, if the
+IP address was :literal:`10.231.3.208`, enter
 :literal:`10.231.3.208:8080` as the URL in the web browser.
 
-Finally, click :guilabel:`Add a host` in the Rancher GUI and enter
-this same IP address and port number.
+The Rancher server takes a few minutes to start. The web browser might
+show a connection error while the Rancher GUI is still starting. If
+the browser shows a :literal:`connection has timed out` or a similar
+error, wait one minute and try again.
+
+In the Rancher GUI, click :guilabel:`Add a host` and enter the same IP
+address and port number. Click :guilabel:`Save` to save the
+information.
 
 For more information on using Rancher, see the Rancher
 `Quick Start Guide
