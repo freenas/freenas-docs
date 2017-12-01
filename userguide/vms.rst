@@ -160,11 +160,13 @@ mouse input.
 :numref:`Figure %s <vms-vnc_fig>` shows the fields that appear when
 :guilabel:`VNC` is the selected :guilabel:`Type`.
 
+
 .. _vms-vnc_fig:
 
 .. figure:: images/vms-vnc1.png
 
    VM VNC Device
+
 
 The :guilabel:`Resolution` drop-down menu can be used to
 modify the default screen resolution used by the VNC session.
@@ -288,3 +290,149 @@ output and keyboard and mouse input.
 
 On running VMs, the button is shown as :guilabel:`Stop`, and used,
 unsurprisingly, to stop them.
+
+
+.. index: Docker/Rancher VM
+.. _Docker/Rancher VM:
+
+Docker/Rancher VM
+-----------------
+
+`Docker <https://www.docker.com/what-docker>`__
+is open source software for automating application deployment
+inside containers. A container provides a complete filesystem,
+runtime, system tools, and system libraries, so applications always
+see the same environment.
+
+`Rancher <http://rancher.com/>`__
+is a GUI tool for managing Docker containers.
+
+%brand% runs the Rancher GUI as a separate VM.
+
+
+.. index: Rancher VM Requirements
+.. _Rancher VM Requirements:
+
+Rancher VM Requirements
+~~~~~~~~~~~~~~~~~~~~~~~
+
+20 GiB of storage space is required for the Rancher VM. For setup, the
+:ref:`SSH` service must be enabled.
+
+The Rancher VM requires 2 GiB of RAM while running.
+
+
+.. index: Create the Rancher VM
+.. _Create the Rancher VM:
+
+Create the Rancher VM
+~~~~~~~~~~~~~~~~~~~~~
+
+Click :guilabel:`VMs`, then the :guilabel:`Add VM` button. Set the
+:guilabel:`VM Type` to *Docker VM*. Enter *RancherUI* for the name,
+*Rancher UI VM* for the :guilabel:`Description`, leave the number of
+:guilabel:`Virtual CPUs` at *1*, and enter *2048* for the
+:guilabel:`Memory Size`. To have the Rancher VM start when the %brand%
+system boots, check the :guilabel:`Autostart` checkbox. Click
+:guilabel:`OK` to create the virtual machine.
+
+
+.. figure:: images/vms-add-rancher.png
+
+   Rancher VM Configuration
+
+
+A location to store the disk image must now be chosen. In this
+example, a :ref:`dataset <Create Dataset>` called *vm-storage* has
+already been created as a location to store VM data. Click
+:guilabel:`VMs`, then click on the *RancherUI* line to select it.
+Click on the :guilabel:`Devices` button to show the devices attached
+to that VM. Click on the *RAW* device to select it, then click the
+:guilabel:`Edit` button. In the :guilabel:`Raw File` field, browse to
+the dataset and select it. Then add a filename by typing
+*/rancherui.img* to the end of the path in the text box.
+
+Set the :guilabel:`Disk boot` checkbox, enter a password for the
+:literal:`rancher` user in the :guilabel:`Password` field, then enter
+*20G* in the :guilabel:`Disk size` field. Click :guilabel:`OK` to save
+the device.
+
+
+.. figure:: images/vms-rancher-storage.png
+
+   Rancher Image Storage
+
+
+Start the Rancher VM
+~~~~~~~~~~~~~~~~~~~~
+
+Click :guilabel:`VMs`, then click on the *RancherUI* line to select
+it. Click the :guilabel:`Start` button and then :guilabel:`Yes` to
+start the VM.
+
+The first time the Rancher VM is started, it downloads the Rancher
+disk image file. How long this takes to complete depends on the speed
+of the network connection. A status dialog reports the progress of the
+download.
+
+After the image is downloaded, the VM is started.
+
+
+Installing the Rancher Server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Click :guilabel:`VMs` and locate the line for the RancherUI VM. The
+:guilabel:`Info` column shows the :literal:`Com Port` for the
+Rancher VM. In this example, :literal:`/dev/nmdm3B` is used.
+
+Further setup of the Rancher VM is done from the command line. Use an
+SSH client to connect to the %brand% server. Remember that this
+requires the :ref:`SSH` service to be running. Depending on local
+configuration, it might also require changes to the setting of the
+service, like allowing root user login with a password.
+
+At the %brand% console prompt, connect to the Rancher VM with
+`cu <https://www.freebsd.org/cgi/man.cgi?query=cu>`__:
+
+
+.. code-block:: none
+
+   cu -l /dev/nmdm3B
+
+
+If the terminal does not show a :literal:`rancher login:` prompt,
+press :kbd:`Enter`.
+
+Enter *rancher* as the username, press :kbd:`Enter`, then type the
+password that was entered when the raw file was created above. After
+logging in, a :literal:`[rancher@rancher ~]$` prompt is displayed.
+
+Download and install the Rancher system with this command:
+
+.. code-block:: none
+
+   sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server
+
+
+Installation time varies with processor and network connection speed,
+but typically takes a few minutes. After the process finishes and a
+command prompt is shown, type this command:
+
+
+.. code-block:: none
+
+   ifconfig eth0 | grep 'inet addr'
+
+
+This is the IP address of the Rancher server. The Rancher server takes
+a few minutes to start. After it starts, connect to it by entering the
+Rancher server IP address and port 8080 as the URL in a web browser.
+For example, if the IP address was :literal:`10.231.3.208`, enter
+:literal:`10.231.3.208:8080` as the URL in the web browser.
+
+Finally, click :guilabel:`Add a host` in the Rancher GUI and enter
+this same IP address and port number.
+
+For more information on using Rancher, see the Rancher
+`Quick Start Guide
+<https://rancher.com/docs/rancher/v1.6/en/quick-start-guide/>`__.
