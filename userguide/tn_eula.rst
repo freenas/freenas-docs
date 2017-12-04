@@ -2,8 +2,8 @@
 
 .. _Appendix A:
 
-Appendix A
-==========
+Appendix A: End-User License Agreement
+======================================
 
 TrueNAS\ :sup:`®` EULA:
 
