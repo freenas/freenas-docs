@@ -138,8 +138,8 @@ These base applications and drivers have been updated or added:
 * The new middleware now uses Python asyncio which simplifies
   asynchronous code and makes it more readable.
 
-* The SNMP MIB has many improvements, including the ability to send SNMP
-  traps for new alerts.
+* The SNMP MIB has many improvements, including the ability to send
+  SNMP traps for new alerts.
 
 * The system now sends an email when a scrub finishes.
 
@@ -165,14 +165,14 @@ These base applications and drivers have been updated or added:
 These major features are new in this version:
 
 * It is now possible to pause and resume scrubs from the command line.
-  Since scrub pause state and progress are periodically synced to disk,
-  if the system is restarted or pool is exported during a paused scrub,
-  the scrub will remain paused until it is resumed. Once resumed the
-  scrub will pick up from the place where it was last checkpointed to
-  disk. To resume a paused scrub, type :command:`zpool scrub`. To
-  manually pause a scrub, use :command:`zpool scrub -p`.  A future
-  version of %brand% will add a button to the UI to resume or pause a
-  scrub.
+  Since scrub pause state and progress are periodically synced to
+  disk, if the system is restarted or pool is exported during a paused
+  scrub, the scrub will remain paused until it is resumed. When
+  resumed, the scrub picks up from the place where it was last
+  checkpointed to disk. Paused scrubs can be resumed with
+  :command:`zpool scrub`. Scrubs can be paused manually with
+  :command:`zpool scrub -p`.  A future version of %brand% will add a
+  button to the UI to resume or pause a scrub.
 
 * :ref:`Cloud Credentials` has been added to :ref:`System`. This can
   be used to provide a secure connection to a cloud services
@@ -180,8 +180,8 @@ These major features are new in this version:
   Backblaze B2, and Google Cloud Storage.
 
 * :ref:`Cloud Sync` has been added to :ref:`Tasks` and can be used to
-  synchronize files or directories to remote cloud storage providers using
-  the specified transfer mode.
+  synchronize files or directories to remote cloud storage providers
+  with a specified transfer mode.
 
 * The :guilabel:`Server Side Encryption` drop-down menu has been added
   to :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`, when an
@@ -191,8 +191,8 @@ These major features are new in this version:
   provides the ability to run resilvering at a higher priority at
   configurable times and days of the week.
 
-* The :ref:`Netdata` real-time performance and monitoring system has been
-  added to :ref:`Services`.
+* The :ref:`Netdata` real-time performance and monitoring system has
+  been added to :ref:`Services`.
 
 * :ref:`VMs` have received significant improvements, including:
 
@@ -222,8 +222,9 @@ These screens have changed:
   :menuselection:`System --> Advanced` has been renamed to
   :guilabel:`Show Text Console Without Password Prompt`.
 
-* The :guilabel:`Report CPU usage in percentage` checkbox has been added
-  to :menuselection:`System --> Advanced`.
+* The :guilabel:`Report CPU usage in percentage` checkbox has been
+  added to
+  :menuselection:`System --> Advanced`.
 
 * The :guilabel:`FreeNAS-11-Nightlies-SDK` train has been added and
   the :guilabel:`FreeNAS-9.3-STABLE` train has been removed from
@@ -274,13 +275,12 @@ These screens have changed:
 * The :guilabel:`Replication` column has been removed from
   :menuselection:`Storage --> Snapshots`.
 
-* The :guilabel:`Time Machine Quota` checkbox has been added to 
+* The :guilabel:`Time Machine Quota` checkbox has been added to
   :menuselection:`Sharing --> Apple (AFP) Shares --> Add Apple (AFP) Share`.
 
 * The :guilabel:`Access Based Share Enumeration` checkbox has been
   added to
-  :menuselection:`Sharing --> SMB (Windows) Shares --> Add SMB
-  (Windows) Share`.
+  :menuselection:`Sharing --> SMB (Windows) Shares --> Add SMB (Windows) Share`.
 
 * The :guilabel:`Home Share Time Machine` checkbox has been added to
   :menuselection:`Services --> AFP`.
@@ -297,8 +297,8 @@ These screens have changed:
   :menuselection:`Services --> S3` in order to configure encrypted S3
   connections.
 
-* The :guilabel:`Server minimum protocol`
-  and :guilabel:`Server maximum protocol` fields have been removed
+* The :guilabel:`Server minimum protocol` and
+  :guilabel:`Server maximum protocol` fields have been removed
   from :menuselection:`Services --> SMB`.
 
 * The :guilabel:`Log Level` drop-down menu has been added to
@@ -314,6 +314,7 @@ These screens have changed:
 * The :guilabel:`No Authentication` choice has been added to the
   :menuselection:`Services --> WebDAV --> HTTP Authentication`
   drop-down menu.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
