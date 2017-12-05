@@ -417,6 +417,11 @@ Download and install the Rancher system with this command:
    sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server
 
 
+.. note:: If the error :literal:`Cannot connect to the Docker daemon`
+   is shown, run :command:`sudo dockerd`. Then give the
+   :command:`sudo docker run` command above again.
+
+
 Installation time varies with processor and network connection speed,
 but typically takes a few minutes. After the process finishes and a
 command prompt is shown, type this command:
