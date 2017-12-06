@@ -176,7 +176,7 @@ process for the second rail.
    :width: 60%
 
 
-When both cabinet rails are secured inside of the rack rails gently
+When both cabinet rails are secured inside of the rack rails, gently
 push the chassis until it stops halfway in. Slide the blue release
 tabs on both cabinet rails toward the front of the system while
 pushing the unit in until it is flush with the front of the rack.
@@ -277,6 +277,6 @@ See cable #4 in
    SAS Cable Connection for Two ES24s
 #endif comment
 
-After all SAS cables have been connected, plug the X10 power cords
-into power outlets.
+After all SAS cables have been connected, plug the X series power
+cords into power outlets.
 
