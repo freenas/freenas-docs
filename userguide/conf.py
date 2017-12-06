@@ -336,6 +336,7 @@ PREAMBLE = PREAMBLE.replace('Basic Setup Guide', r'''\newline Basic Setup Guide'
 # define custom title page
 PREAMBLE = PREAMBLE + r'''
 % FreeNAS/TrueNAS LaTeX preamble
+\usepackage[tmargin=.75in, bmargin=.75in, lmargin=0.5in, rmargin=0.5in]{geometry}
 \usepackage[default,scale=0.95]{opensans}
 \usepackage[T1]{fontenc}
 \usepackage{color}
@@ -346,29 +347,20 @@ PREAMBLE = PREAMBLE + r'''
 %for ragged right tables
 \usepackage{array,ragged2e}
 \definecolor{ixblue}{cmyk}{0.85,0.24,0,0}
-\newenvironment{widemargins}{%
-\begin{list}{}{%
-  \setlength{\leftmargin}{-0.5in}%
-  \setlength{\rightmargin}{-0.5in}%
-  }\item}%
-  {\end{list}%
-}
 \makeatletter
 \renewcommand{\maketitle}{%
   \begin{titlepage}%
     \newlength{\thistitlewidth}%
-    \begin{widemargins}%
-      \usefont{T1}{fos}{l}{n}%
-      \vspace*{-6mm}%
-      \fontsize{32}{36}\selectfont%
-      \docname\par%
-      \vspace*{-4.5mm}%
-      \settowidth{\thistitlewidth}{\docname}%
-      {\color{ixblue}\rule{\thistitlewidth}{1.5pt}}\par%
-      \vspace*{4.5mm}%
-      \fontsize{18}{22}\fontseries{sbc}\selectfont%
-      \docdate\par%
-    \end{widemargins}%
+    \usefont{T1}{fos}{l}{n}%
+    \vspace*{-6mm}%
+    \fontsize{32}{36}\selectfont%
+    \docname\par%
+    \vspace*{-4.5mm}%
+    \settowidth{\thistitlewidth}{\docname}%
+    {\color{ixblue}\rule{\thistitlewidth}{1.5pt}}\par%
+    \vspace*{4.5mm}%
+    \fontsize{18}{22}\fontseries{sbc}\selectfont%
+    \docdate\par%
     %%cover_pic%%
     \begin{tikzpicture}[remember picture,overlay]
       \fill [ixblue] (current page.south west) rectangle ($(current page.south east) + (0, 2in)$);
