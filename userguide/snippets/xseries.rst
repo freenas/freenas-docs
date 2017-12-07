@@ -289,14 +289,18 @@ Connect to the X Series Console
 With IPMI
 ^^^^^^^^^
 
-.. note:: An IPMI remote management utility must be installed on the
-   laptop or desktop computer used to manage the X series remotely,
-   and the computer must have access to the same network as the
-   X series. FreeBSD, macOS, and Linux have package systems which can
-   be used to install
+.. note:: The IPMItool remote management utility must be installed on
+   the laptop or desktop computer used to manage the X series
+   remotely, and the computer must have access to the same network as
+   the X series. FreeBSD, macOS, and Linux have package systems which
+   can be used to install
    `IPMItool <https://sourceforge.net/projects/ipmitool/>`__.
    For Windows, a simple option is to install IPMItool through
    `Cygwin <https://www.cygwin.com/>`__.
+
+   .. warning:: Only use IPMItool for remote IPMI management on the X
+      series. Other IPMI utilities may not work correctly or even
+      damage the X series system.
 
 
 When the Out-of-Band management IP address has been determined, the
