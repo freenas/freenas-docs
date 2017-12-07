@@ -118,7 +118,7 @@ These base applications and drivers have been updated or added:
   snapshots or when deleting multiple snapshots and large files.
 
 * The algorithm used for scrubs and resilvers has received many
-  improvements which will be most noticeable on defragmented pools.
+  improvements which will be most noticeable on fragmented pools.
 
 * Samba has been patched to address
   `these security vulnerabilities <https://www.samba.org/samba/history/samba-4.7.3>`__.
