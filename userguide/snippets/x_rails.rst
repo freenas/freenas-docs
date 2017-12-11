@@ -14,14 +14,14 @@ mirror image of the first.
 
 
 .. figure:: images/tn_x_railextender.png
-   :width: 20%
+   :width: 30%
 
 
 Install a spring on the silver posts in the side of each rail.
 
 
 .. figure:: images/tn_x_spring.png
-   :width: 30%
+   :width: 50%
 
 
 Open the clamp latches on the ends of each rail. Place the rail in the
@@ -33,7 +33,7 @@ the process for the second rail.
 
 
 .. figure:: images/tn_x_railclamp.png
-   :width: 50%
+   :width: 100%
 
 
 **Caution: Two people are required to safely lift the chassis for rack

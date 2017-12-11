@@ -31,10 +31,10 @@ Carefully unpack the shipping boxes and locate these components:
    +--------------------------------------------+-------------------------------------------------+
    | .. image:: images/tn_x_rails.png           | .. image:: images/tn_x_drivetrays.png           |
    |                                            |                                                 |
-   | Set of rackmount rails. The rails have a   | A total of 12 populated or filler drive         |
-   | specific front end, identified by a label  | trays. Trays must be installed in all bays      |
-   | visible on the left above. The front ends  | to maintain proper airflow for cooling. Up      |
-   | of the rails must be installed facing the  | to ten drive trays are packed in a              |
+   | Set of rackmount rails. The rails have a   | A total of 12 populated or empty "air baffle"   |
+   | specific front end, identified by a label  | drive trays. Trays must be installed in all     |
+   | visible on the left above. The front ends  | bays to maintain proper airflow for cooling.    |
+   | of the rails must be installed facing the  | Up to ten drive trays are packed in a           |
    | front of the rack.                         | cardboard tray. Additional drive trays are      |
    |                                            | packed with the accessory kit.                  |
    +--------------------------------------------+-------------------------------------------------+
@@ -48,6 +48,11 @@ Carefully unpack the shipping boxes and locate these components:
    |                                            | Black USB to 3.5mm, 3.3V serial cable and rail  |
    |                                            | extenders for racks over 30" deep               |
    +--------------------------------------------+-------------------------------------------------+
+
+
+.. raw:: latex
+
+   \newpage
 
 
 .. index:: Become Familiar with the X Series System
@@ -66,7 +71,7 @@ fault. The fault indicator is on during the initial power-on self-test
 .. _x_indicators:
 
 .. figure:: images/tn_x_indicators.png
-   :width: 15%
+   :width: 30%
 
 
 The X Series contains one or two nodes in a side-by-side
@@ -94,9 +99,14 @@ configuration. The connectors and features on each node are:
 .. _x_back:
 
 .. figure:: images/tn_x_back.png
-   :width: 60%
+   :width: 100%
 
    Back Panel
+
+
+.. raw:: latex
+
+   \newpage
 
 
 #include snippets/x_rails.rst
@@ -139,7 +149,7 @@ the process for the second power supply and cord.
 
 .. _x_power:
 .. figure:: images/tn_x_powerclip.png
-   :width: 15%
+   :width: 25%
 
 
 After both power cords have been connected to the X series, they can
@@ -213,7 +223,7 @@ series.**
 
 .. warning:: The black USB serial cable is only for use with the
    Out-of-Band serial port on the X Series. Do not attempt to use it
-   with any other systems.
+   with any other equipment.
 
 
 .. _x_Out-of-Band Serial Terminal Communication Settings:
