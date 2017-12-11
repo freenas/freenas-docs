@@ -160,8 +160,8 @@ it into place.
 Discover Out-of-Band Management IP Address
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Several methods are available to determine the IP address that is
-being used by the X series Out-of-Band management interface.
+Several methods are available to determine the IP address currently
+assigned to the X series Out-of-Band management interface.
 
 
 Preset
@@ -291,7 +291,7 @@ With IPMI
 
 .. note:: The IPMItool remote management utility must be installed on
    the laptop or desktop computer used to manage the X series
-   remotely, and the computer must have access to the same network as
+   remotely, and that computer must have access to the same network as
    the X series. FreeBSD, macOS, and Linux have package systems which
    can be used to install
    `IPMItool <https://sourceforge.net/projects/ipmitool/>`__.
