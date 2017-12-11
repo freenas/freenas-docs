@@ -56,9 +56,9 @@ Carefully unpack the shipping boxes and locate these components:
 Become Familiar With the X Series System
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The X Series has front panel indicators for power, locate ID, and
-fault. The fault indicator is on during the initial power-on self-test
-(POST) or when the %brand% software has issued an
+The X Series has front panel indicators for **power**, **locate ID**,
+and **fault**. The fault indicator is on during the initial power-on
+self-test (POST) or when the %brand% software has issued an
 `alert
 <https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
 
@@ -133,7 +133,7 @@ If any %brand% expansion shelves are connected to the X series array,
 power them on first, then wait at least two minutes before connecting
 power cables to the X series array.
 **Do not plug the power cords into a power outlet yet.**
-Connect a power cord to the back of one power supply, pressing it into
+Connect a power cord to the back of one power supply by pressing it into
 the plastic clamp and pressing on the tab to lock it in place. Repeat
 the process for the second power supply and cord.
 
@@ -142,34 +142,32 @@ the process for the second power supply and cord.
    :width: 15%
 
 
-After both power cords have been connected to the X series, they can
-be plugged into power outlets. The system is configured to
-automatically power on when connected to a power outlet. This design
-ensures that the X series comes back on when power is restored after a
-power failure.
+After both power cords are connected to the X series, they can be
+plugged into power outlets. The system is configured to automatically
+power on when connected to a power outlet. This design ensures the X
+series comes back on when power is restored after an outage.
 
 
 Install Bezel (Optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The included bezel is not required for operation. If desired, install
-the bezel by aligning it with the pins on the bezel ears and pressing
-it into place.
+The included bezel is not required for operation. Install the bezel by
+aligning it with the pins on the bezel ears and pressing it into place.
 
 
 Discover Out-of-Band Management IP Address
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Several methods are available to determine the IP address that is
-being used by the X series Out-of-Band management interface.
+Several methods are available to determine the IP address used by the X
+series Out-of-Band management interface.
 
 
 Preset
 ^^^^^^
 
 If the system was preconfigured by iXsystems, the Out-of-Band
-management interfaces have already been configured with the IP
-addresses requested by the user.
+management interfaces are configured with the IP addresses requested by
+the user.
 
 Otherwise, the Out-of-Band management IP addresses are set by default
 to static addresses:
@@ -182,10 +180,10 @@ Node 2 (if present): *192.168.100.101*, subnet mask *255.255.255.0*
 DHCP
 ^^^^
 
-If the Out-of-Band management IP address has been configured to be
-assigned by DHCP, the IP address assigned by the DHCP server can be
-determined by checking the local DHCP server logs for the MAC
-addresses on the back panel of each X series node, #11 on
+If the Out-of-Band management IP address is configured to be assigned by
+DHCP, the IP address assigned by the DHCP server can be determined by
+checking the local DHCP server logs for the MAC addresses on the back
+panel of each X series node, #11 on
 :numref:`Figure %s <x_back>`.
 
 The local DHCP server can also be configured to provide a fixed IP
@@ -291,7 +289,7 @@ With IPMI
 
 .. note:: The IPMItool remote management utility must be installed on
    the laptop or desktop computer used to manage the X series
-   remotely, and the computer must have access to the same network as
+   remotely. The computer must also have access to the same network as
    the X series. FreeBSD, macOS, and Linux have package systems which
    can be used to install
    `IPMItool <https://sourceforge.net/projects/ipmitool/>`__.
@@ -299,7 +297,7 @@ With IPMI
    `Cygwin <https://www.cygwin.com/>`__.
 
    .. warning:: Only use IPMItool for remote IPMI management on the X
-      series. Other IPMI utilities may not work correctly or even
+      series. Other IPMI utilities may not work correctly or can even
       damage the X series system.
 
 
@@ -345,8 +343,8 @@ connected.
 
 
    to view the IP address of the *eth0* network interface. Use the
-   IP address, shown as *eth0ipaddress* in this example, in the
-   reset command:
+   IP address in the reset command, shown as *eth0ipaddress* in this
+   example:
 
 
    .. code-block:: none
@@ -359,11 +357,11 @@ connected.
    the black USB serial cable from the X series system.
 
 
-.. tip:: The Out-of-Band console password can be changed by attaching
-   the black USB serial cable, connecting with a serial terminal
+.. tip:: The Out-of-Band console password is changed by attaching the
+   black USB serial cable, connecting with a serial terminal
    program, and logging in as shown in :ref:`x_Serial_Cable`. Then
-   give this command to set the new password, shown as
-   *newpassword* in this example:
+   use *ipmitool* to set the new password, shown as *newpassword* in
+   this example:
 
    .. code-block:: none
 
@@ -443,4 +441,3 @@ web interface, *192.168.100.231* in this example:
 
 Enter the IP address into a browser on a computer on the same network
 to access the web user interface.
-

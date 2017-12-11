@@ -1,7 +1,7 @@
 Rail Kit Assembly
 ~~~~~~~~~~~~~~~~~
 
-On racks that are 30 inches deep or less, proceed to rail spring
+On racks that are 30 inches deep or less, proceed to the rail spring
 installation below.
 
 Racks from 31 to 36 inches deep require installation of the included
@@ -44,4 +44,3 @@ removing the chassis from the rack.
 Carefully place the chassis onto the rails mounted in the rack. Push
 the chassis in until the ears are flush with the front of the rack.
 Use two of the supplied screws to secure each ear to the rack.
-
