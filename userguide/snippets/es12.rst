@@ -52,9 +52,9 @@ Carefully unpack the shipping boxes and locate these components:
 Become Familiar With the ES12 System
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ES12 has front panel indicators for power, locate ID, and
-fault. The fault indicator is on during the initial power-on self-test
-(POST) or when the %brand% software has issued an
+The ES12 has front panel indicators for power, locate ID, and fault. The
+fault indicator is on during the initial power-on self-test (POST) or
+when the %brand% software has issued an
 `alert
 <https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
 
@@ -96,9 +96,9 @@ Connect Power Cords
 ~~~~~~~~~~~~~~~~~~~
 
 **Do not plug the power cords into a power outlet yet.**
-Connect a power cord to the back of one power supply, pressing it into
-the plastic clamp and pressing on the tab to lock it in place. Repeat
-the process for the second power supply and cord.
+Connect a power cord to the back of one power supply. Press it into
+the plastic clamp, then press the tab to lock it in place. Repeat the
+process for the second power supply and cord.
 
 
 .. _es12_power:
@@ -126,7 +126,7 @@ the X series node 1.
    :width: 50%
 
 A second ES12 can also be connected to the X series. Connect the first
-ES12 as shown above. Then add the second ES12 with these connections:
+ES12 as shown above. Now add the second ES12 with these connections:
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.8\linewidth-2\tabcolsep}|
 
@@ -172,7 +172,7 @@ Connect the ES12 to the SAS 2 ports on the X20:
    +-----------------------------------------------------------------+
 
 
-After all SAS cables have been connected, plug the X series power
+After connecting all SAS cables, plug the X series power
 cords into power outlets.
 
 
@@ -182,4 +182,3 @@ Install Bezel (Optional)
 The included bezel is not required for operation. If desired, install
 the bezel by aligning it with the pins on the bezel ears and pressing
 it into place.
-
