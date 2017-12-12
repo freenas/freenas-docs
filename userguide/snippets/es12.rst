@@ -133,8 +133,11 @@ Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
 Connect an SAS cable from the ES12 expander module 1 T1 connector to
-the X series node 1 SAS 1 connector. Connect a second SAS cable from
-the ES12 expander module 2 to the X series node 2 SAS 1 connector.
+the X series node 1 SAS 1 connector (cable #1 in photo).
+
+If the X series has a second node for HA (High Availability), connect
+a second SAS cable from the ES12 expander module 2 to the X series
+node 2 SAS 1 connector (cable #2 in photo).
 
 
 .. _es12_sasconnect1:
