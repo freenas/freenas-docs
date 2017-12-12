@@ -98,7 +98,18 @@ configuration. The connectors and features on each module are:
 
 #include snippets/x_rails.rst
 
+
+.. raw:: latex
+
+   \newpage
+
+
 #include snippets/x_drivetrays.rst
+
+
+.. raw:: latex
+
+   \newpage
 
 
 Connect Power Cords
@@ -107,16 +118,21 @@ Connect Power Cords
 #include snippets/x_power.rst
 
 
+.. raw:: latex
+
+   \newpage
+
+
 Connect SAS Cables
 ~~~~~~~~~~~~~~~~~~
 
-Shut down and power off the X series. Remove the X series power cables
-from the power outlets.
+Shut down and power off the %brand% X series. Remove the X series
+power cables from the power outlets.
 
 Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
-Connet an SAS cable from the ES12 expander module 1 T1 connector to
+Connect an SAS cable from the ES12 expander module 1 T1 connector to
 the X series node 1 SAS 1 connector. Connect a second SAS cable from
 the ES12 expander module 2 to the X series node 2 SAS 1 connector.
 

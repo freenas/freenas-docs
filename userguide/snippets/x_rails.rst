@@ -14,14 +14,14 @@ mirror image of the first.
 
 
 .. figure:: images/tn_x_railextender.png
-   :width: 30%
+   :width: 35%
 
 
 Install a spring on the silver posts in the side of each rail.
 
 
 .. figure:: images/tn_x_spring.png
-   :width: 50%
+   :width: 60%
 
 
 Open the clamp latches on the ends of each rail. Place the rail in the

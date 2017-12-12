@@ -29,7 +29,7 @@ This example shows the proper order for a SLOG SSD, an L2ARC SSD,
 eight hard drives, and two empty air baffle trays.
 
 .. figure:: images/tn_x_driveorder.png
-   :width: 60%
+   :width: 80%
 
 
 To load an individual drive tray into a bay, press the blue button to

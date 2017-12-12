@@ -112,7 +112,17 @@ configuration. The connectors and features on each node are:
 #include snippets/x_rails.rst
 
 
+.. raw:: latex
+
+   \newpage
+
+
 #include snippets/x_drivetrays.rst
+
+
+.. raw:: latex
+
+   \newpage
 
 
 Connect Expansion Shelves
@@ -291,6 +301,11 @@ and pressing :kbd:`Enter`. After use, always disconnect the black USB
 serial cable from the X series system.
 
 
+.. raw:: latex
+
+   \newpage
+
+
 Connect to the X Series Console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -412,6 +427,11 @@ to the system serial console port, #10 on
 :numref:`Figure %s <x_back>`.
 
 
+.. raw:: latex
+
+   \newpage
+
+
 .. _Using the X Series Console:
 
 Using the X Series Console
@@ -452,4 +472,9 @@ web interface, *192.168.100.231* in this example:
 
 Enter the IP address into a browser on a computer on the same network
 to access the web user interface.
+
+
+.. raw:: latex
+
+   \newpage
 
