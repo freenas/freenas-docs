@@ -286,7 +286,8 @@ from DHCP with:
 
 The Out-of-Band management system can be set to use a static IP
 address and netmask. This example shows setting the IP address to
-*192.168.100.100* with a netmask of *255.255.255.0*:
+*192.168.100.100* with a netmask of *255.255.255.0*, with a default
+gateway of *192.168.100.1*:
 
 
 .. code-block:: none
@@ -294,6 +295,7 @@ address and netmask. This example shows setting the IP address to
    ipmitool -H 127.0.0.1 -U admin -P admin lan set 1 ipsrc static
    ipmitool -H 127.0.0.1 -U admin -P admin lan set 1 ipaddr 192.168.100.10
    ipmitool -H 127.0.0.1 -U admin -P admin lan set 1 netmask 255.255.255.0
+   ipmitool -H 127.0.0.1 -U admin -P admin lan set 1 defgw ipaddr 192.168.100.1
 
 
 Log out of the Out-of-Band management system by typing :literal:`exit`
@@ -447,9 +449,10 @@ Switch to the X86 console mode by typing these characters:
 
    $%^0
 
+Press :kbd:`Enter` twice after typing the characters. The normal x86
+console is displayed.
 
-The normal x86 console is displayed. The SES console can be displayed
-again by typing these characters:
+To switch back to the SES console, type these characters:
 
 .. code-block:: none
 
