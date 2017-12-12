@@ -149,9 +149,9 @@ connected to a shielded Ethernet cable.**
 Connect Power Cords
 ~~~~~~~~~~~~~~~~~~~
 
-If any %brand% expansion shelves are connected to the X series array,
-power them on first, then wait at least two minutes before connecting
-power cables to the X series array.
+If any %brand% expansion shelves are connected to the X series, power
+them on first, then wait at least two minutes before connecting power
+cables to the X series.
 
 #include snippets/x_power.rst
 
@@ -286,7 +286,7 @@ from DHCP with:
 
 The Out-of-Band management system can be set to use a static IP
 address and netmask. This example shows setting the IP address to
-*192.168.100.100* with a netmask of *255.255.255.0*, with a default
+*192.168.100.100* with a netmask of *255.255.255.0*, and a default
 gateway of *192.168.100.1*:
 
 
