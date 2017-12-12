@@ -215,38 +215,36 @@ clicks into place.
 Connect Power Cords
 ~~~~~~~~~~~~~~~~~~~
 
-**Do not plug the power cords into a power outlet yet.** Connect a
-power cord to the back of one power supply, pressing it into the
-plastic clamp and pressing on the tab to lock it in place. Repeat the
-process for the second power supply and cord.
+**Do not plug the power cords into a power outlet yet.**
+Connect a power cord to the back of one power supply. Place the cord
+into the plastic clamp and press the tab into the latch to lock it in
+place. Repeat the process for the second power supply and cord.
 
 .. _power_cord_connection:
 .. figure:: images/tn_es24_power_cord.png
-  :width: 25%
+  :width: 35%
 
 
 Connect SAS Cables
 ~~~~~~~~~~~~~~~~~~
 
-Shut down and power off the X series. Remove the X series power cables
-from the power outlets.
+Shut down and power off the %brand% Z series. Remove the Z series
+power cables from the power outlets.
 
 Plug the ES24 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
-Plug one end of the SAS cable into the SAS 0 connector on the ES24
-expansion module 1. Plug the other end into the SAS 1 connector on
-the Z series node 1. See cable #1 in
-:numref:`Figure %s <es24_sasconnect1>`.
+Connect an SAS cable from ES24 expansion module 1 SAS 0 connector to
+the farthest left Z series node 1 SAS connector (cable #1 in photo).
 
-If the Z series has a second node for HA (High Availability), plug one
-end of the second SAS cable into the T1 connector of the ES24's
-expansion module 2. Plug the other end into the SAS 1 connector on the
-Z series node 2. See cable #2 in
-:numref:`Figure %s <es24_sasconnect1>`.
+If the Z series has a second node for HA (High Availability), connect
+a second SAS cable from ES24 expansion module 2 SAS 0 connector to the
+farthest left Z series node 2 SAS connector (cable #2 in photo).
+
 
 .. _es24_sasconnect1:
 .. figure:: images/tn_es24_sasconnect1.png
+   :width: 50%
 
    SAS Cable Connection for One ES24
 
@@ -260,11 +258,11 @@ ES24 as shown above. Then add the second ES24 with these connections:
 .. table::
    :class: longtable
 
-   +------------------------------------------------------------------------+
-   | Second ES24 expansion module 1 connector T1 to Z series node 1, SAS 2. |
-   +------------------------------------------------------------------------+
-   | Second ES24 expansion module 2 connector T2 to Z series node 2, SAS 2. |
-   +------------------------------------------------------------------------+
+   +-------------------------------------------------------------------------------------------------------------+
+   | Second ES24 expansion module 1 connector SAS 0 to Z series node 1, next unused SAS connector from the left. |
+   +-------------------------------------------------------------------------------------------------------------+
+   | Second ES24 expansion module 2 connector SAS 0 to Z series node 2, next unused SAS connector from the left. |
+   +-------------------------------------------------------------------------------------------------------------+
 
 
 After all SAS cables have been connected, plug the X series power
