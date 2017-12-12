@@ -142,14 +142,8 @@ Connect Power Cords
 If any %brand% expansion shelves are connected to the X series array,
 power them on first, then wait at least two minutes before connecting
 power cables to the X series array.
-**Do not plug the power cords into a power outlet yet.**
-Connect a power cord to the back of one power supply, pressing it into
-the plastic clamp and pressing on the tab to lock it in place. Repeat
-the process for the second power supply and cord.
 
-.. _x_power:
-.. figure:: images/tn_x_powerclip.png
-   :width: 25%
+#include snippets/x_power.rst
 
 
 After both power cords have been connected to the X series, they can

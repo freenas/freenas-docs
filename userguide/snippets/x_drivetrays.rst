@@ -25,17 +25,17 @@ trays to the right across the row. After a row is filled with drives,
 move down to the next row and start again with the left bay. This
 standard order simplifies support and is strongly recommended.
 
-The example shown here is an X series with a SLOG SSD, an L2ARC SSD,
+This example shows the proper order for a SLOG SSD, an L2ARC SSD,
 eight hard drives, and two empty air baffle trays.
 
 .. figure:: images/tn_x_driveorder.png
    :width: 60%
 
 
-Press the blue button to open the latch. Carefully slide the tray into
-a drive bay until the left side of the latch touches the metal front
-edge of the chassis, then gently swing the latch closed until it
-clicks into place.
+To load an individual drive tray into a bay, press the blue button to
+open the latch. Carefully slide the tray into a drive bay until the
+left side of the latch touches the metal front edge of the chassis,
+then gently swing the latch closed until it clicks into place.
 
 
 .. figure:: images/tn_x_driveload.png
