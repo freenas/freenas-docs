@@ -161,6 +161,11 @@ the bezel by aligning it with the pins on the bezel ears and pressing
 it into place.
 
 
+.. raw:: latex
+
+   \newpage
+
+
 Discover Out-of-Band Management IP Address
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

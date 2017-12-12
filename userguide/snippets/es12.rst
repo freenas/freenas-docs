@@ -66,7 +66,7 @@ The fault indicator is on during the initial power-on self-test
 
 .. _es12_indicators:
 .. figure:: images/tn_x_indicators.png
-   :width: 15%
+   :width: 30%
 
 
 The ES12 contains two expansion modules in a side-by-side
@@ -89,7 +89,11 @@ configuration. The connectors and features on each module are:
 .. _es12_back:
 
 .. figure:: images/tn_es12_back.png
-   :width: 60%
+   :width: 100%
+
+.. raw:: latex
+
+   \newpage
 
 
 #include snippets/x_rails.rst
@@ -112,29 +116,23 @@ from the power outlets.
 Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
-Plug one end of the SAS cable into the T1 connector on the ES12's
-expansion module 1. Plug the other end into the SAS 1 connector on
-the X series node 1.
+Connet an SAS cable from the ES12 expander module 1 T1 connector to
+the X series node 1 SAS 1 connector. Connect a second SAS cable from
+the ES12 expander module 2 to the X series node 2 SAS 1 connector.
 
 
 .. _es12_sasconnect1:
-
 .. figure:: images/tn_es12_sasconnect1.png
    :width: 50%
 
+
 A second ES12 can also be connected to the X series. Connect the first
-ES12 as shown above. Then add the second ES12 with these connections:
+ES12 as shown above. Then connect the second ES12, running SAS cables
+from the ES12 T1 connectors to the SAS 2 connectors on the X series.
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.8\linewidth-2\tabcolsep}|
-
-.. table::
-   :class: longtable
-
-   +------------------------------------------------------------------------+
-   | Second ES12 expansion module 1 connector T1 to X series node 1, SAS 2. |
-   +------------------------------------------------------------------------+
-   | Second ES12 expansion module 2 connector T2 to X series node 2, SAS 2. |
-   +------------------------------------------------------------------------+
+.. _es12_sasconnect2:
+.. figure:: images/tn_es12_sasconnect2.png
+   :width: 50%
 
 
 Use with the ES60 Expansion Shelf (X20 Only)
