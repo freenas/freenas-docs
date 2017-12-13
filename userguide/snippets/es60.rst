@@ -62,11 +62,12 @@ Front panel indicators:
 .. image:: images/tn_es60indicators.png
 
 
-
 System Drive Tray:
 
+.. IMAGE
 
-.. note: Do not install the drives until the chassis has been
+
+.. note:: Do not install the drives until the chassis has been
    installed in the rack.
 
 
@@ -84,21 +85,27 @@ bottom screw holes. The rail surface should remain inside of the rack
 boundaries. These images show proper rail installation with the front
 and rear of the rails mounted.
 
+.. IMAGE
 
 Front View
 
+.. IMAGE
 
 Rear View
 
+.. IMAGE
 
 Side View, No Rail
 
+.. IMAGE
 
 Side View, Rail Mounted
 
+.. IMAGE
 
 Rack Rail, Front
 
+.. IMAGE
 
 Rack Rail, Rear
 
@@ -119,7 +126,7 @@ then slide the chassis in until the face of the ES60 is flush with the
 rack.
 
 
-Image
+.. Image
 
 
 .. _ES60 Attach the Expansion Shelf to the Front the Rack:
@@ -130,7 +137,7 @@ Attach the Expansion Shelf to the Front of the Rack
 Press in and turn the built-in thumbscrews to the front of the rack.
 
 
-Image
+.. Image
 
 
 .. _ES60 Install the Drives in the Expansion Shelf:
@@ -144,10 +151,10 @@ to move into place, then push it the rest of the way until the handle
 locks into place.
 
 
-Image
+.. Image
 
 
-.. note: Drives are not numbered and can be installed in any
+.. note:: Drives are not numbered and can be installed in any
    available bay.
 
 
@@ -156,7 +163,9 @@ Image
 Plug in the SAS Cables
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Refer to the Wiring Guide. (REF THE IMAGE)
+Refer to the Wiring Guide.
+
+.. REF Wiring Guide IMAGE
 
 
 .. _ES60 Plug in the Power Cables:
@@ -165,20 +174,19 @@ Plug in the Power Cables
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Plug both power cables into the power outlets and secure the cables
-with the plastic cable locks. This will turn on the Expansion Shelf.
+with the plastic cable locks. This turns on the Expansion Shelf.
 
 
 .. note::  Service and management ports are not used during normal
    operation and should not be connected.
 
 
-IMAGE
+.. IMAGE
 
 If setting up a %brand% Storage Array for the first time, wait
-two minutes after turning on the Expansion Shelf before
-powering on the %brand% Array. If you already have a
-%brand% Array in operation, you may power on the Expansion
-Shelf at any time.
+two minutes after turning on the Expansion Shelf before powering on the
+%brand% Array. If a %brand% Array is already in operation, the Expansion
+Shelf may be powered on at any time.
 
 
 .. _ES60 Install the Bezel:
@@ -187,11 +195,11 @@ Install the Bezel
 ~~~~~~~~~~~~~~~~~
 
 The back of the bezel has two screws on the left and right side. Align
-the two screw holes on each side with the back of the ears on the
-ES60. Begin by screwing in one screw on one side, then screw in
-diagonally on the opposite side. Do this for the next two screws.
+the two holes on each side with the back of the ears on the ES60. Attach
+a screw on one side, then the next diagonally on the opposite side.
+Follow this procedure for each remaining screw.
 
-IMAGE
+.. IMAGE
 
 
 .. _ES60 Install the Cable Management Arm:
@@ -205,21 +213,21 @@ cable management arm with the posts on the chassis. Slide the cable
 management arm forward and pull the lever on the latch upwards to lock
 the cable management arm into place.
 
-IMAGE
+.. IMAGE
 
 
-Unscrew the two screws already attached to this side of the cable
-management arm. Align with the screw holes for this end and screw them
-in. Both pieces are now attached to the chassis.
+Remove the two screws already attached to this side of the cable
+management arm. Align with the screw holes for this end and reattach the
+screws. Both pieces are now attached to the chassis.
 
-IMAGE
-
-
-.. _note: The tabs can be unlocked from above or below. Both tabs
-   can be unlocked if needed.
+.. IMAGE
 
 
-IMAGE
+.. note:: The tabs can be unlocked from above or below. If needed, both
+   tabs can be unlocked.
+
+
+.. IMAGE
 
 
 .. _ES60 Lock in the Power Cable:
@@ -231,14 +239,14 @@ This step eliminates the risk of accidentally disconnecting the power
 cable.
 
 
-IMAGE
+.. IMAGE
 
 
 Insert the power cable into the plastic clamp and press down on the
 tab to lock the power cable in place.
 
 
-IMAGE
+.. IMAGE
 
 
 .. _ES60 Secure the Power Cords:
@@ -246,14 +254,14 @@ IMAGE
 Secure the Power Cords
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Route and secure the power cords and other cables (including SAS
-cables) onto the cable-management arm, as shown in the pictures below.
+Route and secure the power cords and other cables, including SAS cables,
+onto the cable-management arm. This is shown in the next image:
 
 
-IMAGE
+.. IMAGE
 
 
-The final assembly should look like this picture.
+The final assembly looks exactly like <imageref>:
 
 
-IMAGE
+.. IMAGE
