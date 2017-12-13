@@ -46,14 +46,19 @@ Carefully unpack the shipping boxes and locate these components:
    +--------------------------------------------+---------------------------------------------+
 
 
+.. raw:: latex
+
+   \newpage
+
+
 .. index:: Become Familiar with the ES12 System
 .. _ES12 Become Familiar with the System:
 
 Become Familiar With the ES12 System
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ES12 has front panel indicators for power, locate ID, and
-fault. The fault indicator is on during the initial power-on self-test
+The ES12 has front panel indicators for power, locate ID, and fault.
+The fault indicator is on during the initial power-on self-test
 (POST) or when the %brand% software has issued an
 `alert
 <https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
@@ -61,7 +66,7 @@ fault. The fault indicator is on during the initial power-on self-test
 
 .. _es12_indicators:
 .. figure:: images/tn_x_indicators.png
-   :width: 15%
+   :width: 30%
 
 
 The ES12 contains two expansion modules in a side-by-side
@@ -84,60 +89,69 @@ configuration. The connectors and features on each module are:
 .. _es12_back:
 
 .. figure:: images/tn_es12_back.png
-   :width: 60%
+   :width: 100%
+
+.. raw:: latex
+
+   \newpage
 
 
 #include snippets/x_rails.rst
 
+
+.. raw:: latex
+
+   \newpage
+
+
 #include snippets/x_drivetrays.rst
+
+
+.. raw:: latex
+
+   \newpage
 
 
 Connect Power Cords
 ~~~~~~~~~~~~~~~~~~~
 
-**Do not plug the power cords into a power outlet yet.**
-Connect a power cord to the back of one power supply, pressing it into
-the plastic clamp and pressing on the tab to lock it in place. Repeat
-the process for the second power supply and cord.
+#include snippets/x_power.rst
 
 
-.. _es12_power:
-.. figure:: images/tn_x_powerclip.png
-   :width: 15%
+.. raw:: latex
+
+   \newpage
 
 
 Connect SAS Cables
 ~~~~~~~~~~~~~~~~~~
 
-Shut down and power off the X series. Remove the X series power cables
-from the power outlets.
+Shut down and power off the %brand% X series. Remove the X series
+power cables from the power outlets.
 
 Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
-Plug one end of the SAS cable into the T1 connector on the ES12's
-expansion module 1. Plug the other end into the SAS 1 connector on
-the X series node 1.
+Connect an SAS cable from the ES12 expander module 1 T1 connector to
+the X series node 1 SAS 1 connector (cable #1 in photo).
+
+If the X series has a second node for HA (High Availability), connect
+a second SAS cable from the ES12 expander module 2 to the X series
+node 2 SAS 1 connector (cable #2 in photo).
 
 
 .. _es12_sasconnect1:
-
 .. figure:: images/tn_es12_sasconnect1.png
    :width: 50%
 
+
 A second ES12 can also be connected to the X series. Connect the first
-ES12 as shown above. Then add the second ES12 with these connections:
+ES12 as shown above. Then connect the second ES12, running SAS cables
+from the ES12 T1 connectors to the SAS 2 connectors on the X series.
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.8\linewidth-2\tabcolsep}|
-
-.. table::
-   :class: longtable
-
-   +------------------------------------------------------------------------+
-   | Second ES12 expansion module 1 connector T1 to X series node 1, SAS 2. |
-   +------------------------------------------------------------------------+
-   | Second ES12 expansion module 2 connector T2 to X series node 2, SAS 2. |
-   +------------------------------------------------------------------------+
+.. _es12_sasconnect2:
+.. figure:: images/tn_es12_sasconnect2.png
+   :width: 50%
 
 
 Use with the ES60 Expansion Shelf (X20 Only)

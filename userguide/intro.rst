@@ -110,9 +110,6 @@ These base applications and drivers have been updated or added:
   kernel module has been added to the build as some NIC drivers depend
   upon it.
 
-* Support has been added for the HBA 9400-81, Intel Skylake
-  and Kaby Lake processors, and Ryzen processors.
-
 * There have been many improvements to OpenZFS. Users should notice a
   significant speed difference when listing a large number of
   snapshots or when deleting multiple snapshots and large files.

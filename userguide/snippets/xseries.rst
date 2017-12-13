@@ -31,10 +31,10 @@ Carefully unpack the shipping boxes and locate these components:
    +--------------------------------------------+-------------------------------------------------+
    | .. image:: images/tn_x_rails.png           | .. image:: images/tn_x_drivetrays.png           |
    |                                            |                                                 |
-   | Set of rackmount rails. The rails have a   | A total of 12 populated or filler drive         |
-   | specific front end, identified by a label  | trays. Trays must be installed in all bays      |
-   | visible on the left above. The front ends  | to maintain proper airflow for cooling. Up      |
-   | of the rails must be installed facing the  | to ten drive trays are packed in a              |
+   | Set of rackmount rails. The rails have a   | A total of 12 populated or empty "air baffle"   |
+   | specific front end, identified by a label  | drive trays. Trays must be installed in all     |
+   | visible on the left above. The front ends  | bays to maintain proper airflow for cooling.    |
+   | of the rails must be installed facing the  | Up to ten drive trays are packed in a           |
    | front of the rack.                         | cardboard tray. Additional drive trays are      |
    |                                            | packed with the accessory kit.                  |
    +--------------------------------------------+-------------------------------------------------+
@@ -48,6 +48,11 @@ Carefully unpack the shipping boxes and locate these components:
    |                                            | Black USB to 3.5mm, 3.3V serial cable and rail  |
    |                                            | extenders for racks over 30" deep               |
    +--------------------------------------------+-------------------------------------------------+
+
+
+.. raw:: latex
+
+   \newpage
 
 
 .. index:: Become Familiar with the X Series System
@@ -66,7 +71,7 @@ fault. The fault indicator is on during the initial power-on self-test
 .. _x_indicators:
 
 .. figure:: images/tn_x_indicators.png
-   :width: 15%
+   :width: 30%
 
 
 The X Series contains one or two nodes in a side-by-side
@@ -94,15 +99,30 @@ configuration. The connectors and features on each node are:
 .. _x_back:
 
 .. figure:: images/tn_x_back.png
-   :width: 60%
+   :width: 100%
 
    Back Panel
+
+
+.. raw:: latex
+
+   \newpage
 
 
 #include snippets/x_rails.rst
 
 
+.. raw:: latex
+
+   \newpage
+
+
 #include snippets/x_drivetrays.rst
+
+
+.. raw:: latex
+
+   \newpage
 
 
 Connect Expansion Shelves
@@ -129,17 +149,11 @@ connected to a shielded Ethernet cable.**
 Connect Power Cords
 ~~~~~~~~~~~~~~~~~~~
 
-If any %brand% expansion shelves are connected to the X series array,
-power them on first, then wait at least two minutes before connecting
-power cables to the X series array.
-**Do not plug the power cords into a power outlet yet.**
-Connect a power cord to the back of one power supply, pressing it into
-the plastic clamp and pressing on the tab to lock it in place. Repeat
-the process for the second power supply and cord.
+If any %brand% expansion shelves are connected to the X series, power
+them on first, then wait at least two minutes before connecting power
+cables to the X series.
 
-.. _x_power:
-.. figure:: images/tn_x_powerclip.png
-   :width: 15%
+#include snippets/x_power.rst
 
 
 After both power cords have been connected to the X series, they can
@@ -155,6 +169,11 @@ Install Bezel (Optional)
 The included bezel is not required for operation. If desired, install
 the bezel by aligning it with the pins on the bezel ears and pressing
 it into place.
+
+
+.. raw:: latex
+
+   \newpage
 
 
 Discover Out-of-Band Management IP Address
@@ -213,7 +232,7 @@ series.**
 
 .. warning:: The black USB serial cable is only for use with the
    Out-of-Band serial port on the X Series. Do not attempt to use it
-   with any other systems.
+   with any other equipment.
 
 
 .. _x_Out-of-Band Serial Terminal Communication Settings:
@@ -267,7 +286,8 @@ from DHCP with:
 
 The Out-of-Band management system can be set to use a static IP
 address and netmask. This example shows setting the IP address to
-*192.168.100.100* with a netmask of *255.255.255.0*:
+*192.168.100.100* with a netmask of *255.255.255.0*, and a default
+gateway of *192.168.100.1*:
 
 
 .. code-block:: none
@@ -275,11 +295,17 @@ address and netmask. This example shows setting the IP address to
    ipmitool -H 127.0.0.1 -U admin -P admin lan set 1 ipsrc static
    ipmitool -H 127.0.0.1 -U admin -P admin lan set 1 ipaddr 192.168.100.10
    ipmitool -H 127.0.0.1 -U admin -P admin lan set 1 netmask 255.255.255.0
+   ipmitool -H 127.0.0.1 -U admin -P admin lan set 1 defgw ipaddr 192.168.100.1
 
 
 Log out of the Out-of-Band management system by typing :literal:`exit`
 and pressing :kbd:`Enter`. After use, always disconnect the black USB
 serial cable from the X series system.
+
+
+.. raw:: latex
+
+   \newpage
 
 
 Connect to the X Series Console
@@ -403,6 +429,11 @@ to the system serial console port, #10 on
 :numref:`Figure %s <x_back>`.
 
 
+.. raw:: latex
+
+   \newpage
+
+
 .. _Using the X Series Console:
 
 Using the X Series Console
@@ -418,9 +449,10 @@ Switch to the X86 console mode by typing these characters:
 
    $%^0
 
+Press :kbd:`Enter` twice after typing the characters. The normal x86
+console is displayed.
 
-The normal x86 console is displayed. The SES console can be displayed
-again by typing these characters:
+To switch back to the SES console, type these characters:
 
 .. code-block:: none
 
@@ -443,4 +475,9 @@ web interface, *192.168.100.231* in this example:
 
 Enter the IP address into a browser on a computer on the same network
 to access the web user interface.
+
+
+.. raw:: latex
+
+   \newpage
 
