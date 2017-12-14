@@ -26,16 +26,16 @@ Carefully unpack the shipping boxes and locate these components:
    :class: longtable
 
    +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es60bare.png          | .. image:: images/tn_es60bezel.png          |
+   | .. image:: images/tn_es60_bare.png         | .. image:: images/tn_es60_bezel.png         |
    |                                            |                                             |
    | ES60 Expansion Shelf                       | ES60 Bezel                                  |
    +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es60_railkit.png      | .. image:: images/tn_es60drivetray.png      |
+   | .. image:: images/tn_es60_railkit.png      | .. image:: images/tn_es60_drivetray.png     |
    |                                            |                                             |
    | Rail kit with mounting hardware            | Up to 60 drive trays with installed hard    |
    |                                            | drives (shipped separately from the ES60)   |
    +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es60powercords.png    | .. image:: images/tn_sascables_minihd.png   |
+   | .. image:: images/tn_es60_powercords.png   | .. image:: images/tn_sascables_minihd.png   |
    |                                            |                                             |
    | Two IEC C13 to NEMA 5-15P power cords,     | Two 3-meter Mini SAS HD to Mini SAS HD      |
    | two IEC C14 to C14 power cords             | cables                                      |
@@ -48,9 +48,9 @@ Carefully unpack the shipping boxes and locate these components:
 Become Familiar With the ES60
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ES60 has indicators on the front panel for power, fault, and locate
-ID. The fault indicator is on during the initial power-on self-test
-(POST) or when the %brand% software has issued an
+The ES60 has indicators on the front panel for power, fault, and
+locate ID. The fault indicator is on during the initial power-on
+self-test (POST) or when the %brand% software has issued an
 `alert
 <https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
 
@@ -67,10 +67,10 @@ Front panel indicators:
 
 Rear view of the ES60 Expansion Shelf:
 
-.. figure: <sj-storage: IMG_8962gimp.xcf>
+.. figure:: images/tn_es60_back.png
 
 
-The ES60 contains two expansion modules in an over/under
+The ES60 contains two expansion modules in a side-by-side
 configuration. The connectors and features on each module are:
 
 
@@ -79,17 +79,13 @@ configuration. The connectors and features on each module are:
 .. table::
    :class: longtable
 
-   +------------------------------------------------------+
-   | 1-2: Redundant power supplies                        |
-   +------------------------------------------------------+
-   | 3: Power, 4: Alarm, 5: Locate                        |
-   +------------------------------------------------------+
-   | 6-7: HD Mini SAS3 connectors                         |
-   +------------------------------------------------------+
-   | 8-9: Serial Console Ports                            |
-   +------------------------------------------------------+
-   | 10-11: Expansion Modules                             |
-   +------------------------------------------------------+
+   +----------------------+-------------------------------+
+   | 1: Power supply      | 4: Locate ID                  |
+   +----------------------+-------------------------------+
+   | 2: Power indicator   | 5: Serial console port        |
+   +----------------------+-------------------------------+
+   | 3: Alarm indicator   | 6-7: HD Mini SAS3 connectors  |
+   +----------------------+-------------------------------+
 
 
 System Drive Tray:
@@ -99,6 +95,7 @@ System Drive Tray:
 
 .. note:: Do not install the drives until the chassis has been
    installed in the rack.
+
 
 Rail Kit Assembly
 ~~~~~~~~~~~~~~~~~
