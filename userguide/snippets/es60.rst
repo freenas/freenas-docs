@@ -57,22 +57,22 @@ ID. The fault indicator is on during the initial power-on self-test
 
 Front view of the ES60 Expansion Shelf:
 
-.. image:: images/tn_es60.png
+.. figure:: images/tn_es60.png
 
 
 Front panel indicators:
 
-.. image:: images/tn_es60_indicators.png
+.. figure:: images/tn_es60_indicators.png
 
 
 Rear view of the ES60 Expansion Shelf:
 
-.. image:
+.. figure:
 
 
 System Drive Tray:
 
-.. image:
+.. figure:
 
 
 .. note:: Do not install the drives until the chassis has been
@@ -90,27 +90,27 @@ bottom screw holes. The rail surface should remain inside of the rack
 boundaries. These images show proper rail installation with the front
 and rear of the rails mounted.
 
-.. image:
+.. figure:
 
    Front View
 
-.. image:
+.. figure:
 
    Rear View
 
-.. image:
+.. figure:
 
    Side View, No Rail
 
-.. image:
+.. figure:
 
    Side View, Rail Mounted
 
-.. image:
+.. figure:
 
    Rack Rail, Front
 
-.. image:
+.. figure:
 
    Rack Rail, Rear
 
@@ -130,14 +130,14 @@ then slide the chassis in until the face of the ES60 is flush with the
 rack.
 
 
-.. image:
+.. figure:
 
 
 With the face of the ES60 flush with the rack, attach it by pressing and
 turning the built-in thumbscrews on the front panel.
 
 
-.. image:
+.. figure:
 
 
 Install the Drives in the Expansion Shelf
@@ -149,7 +149,7 @@ to move into place, then push it the rest of the way until the handle
 locks into place.
 
 
-.. image:
+.. figure:
 
 
 .. note:: Drives are not numbered and can be installed in any
@@ -177,7 +177,7 @@ with the plastic cable locks. This turns on the Expansion Shelf.
    operation and should not be connected.
 
 
-.. image:
+.. figure:
 
 If setting up a %brand% Storage Array for the first time, wait
 two minutes after turning on the Expansion Shelf before powering on the
@@ -194,7 +194,7 @@ the two holes on each side with the back of the ears on the ES60. Attach
 a screw on one side, then the next diagonally on the opposite side.
 Follow this procedure for each remaining screw.
 
-.. image:
+.. figure:
 
 
 
@@ -207,21 +207,21 @@ cable management arm with the posts on the chassis. Slide the cable
 management arm forward and pull the lever on the latch upwards to lock
 the cable management arm into place.
 
-.. image:
+.. figure:
 
 
 Remove the two screws already attached to this side of the cable
 management arm. Align with the screw holes for this end and reattach the
 screws. Both pieces are now attached to the chassis.
 
-.. image:
+.. figure:
 
 
 .. note:: The tabs can be unlocked from above or below. If needed, both
    tabs can be unlocked.
 
 
-.. image:
+.. figure:
 
 
 
@@ -232,14 +232,14 @@ This step eliminates the risk of accidentally disconnecting the power
 cable.
 
 
-.. image:
+.. figure:
 
 
 Insert the power cable into the plastic clamp and press down on the
 tab to lock the power cable in place.
 
 
-.. image:
+.. figure:
 
 
 Secure the Power Cords
@@ -249,11 +249,11 @@ Route and secure the power cords and other cables, including SAS cables,
 onto the cable-management arm. This is shown in the next image:
 
 
-.. image:
+.. figure:
 
 
 The final assembly looks exactly like <imageref>:
 
 
-.. image:
+.. figure:
 
