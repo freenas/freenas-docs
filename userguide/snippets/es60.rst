@@ -67,7 +67,29 @@ Front panel indicators:
 
 Rear view of the ES60 Expansion Shelf:
 
-.. figure:
+.. figure: <sj-storage: IMG_8962gimp.xcf>
+
+
+The ES60 contains two expansion modules in an over/under
+configuration. The connectors and features on each module are:
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+
+.. table::
+   :class: longtable
+
+   +------------------------------------------------------+
+   | 1-2: Redundant power supplies                        |
+   +------------------------------------------------------+
+   | 3: Power, 4: Alarm, 5: Locate                        |
+   +------------------------------------------------------+
+   | 6-7: HD Mini SAS3 connectors                         |
+   +------------------------------------------------------+
+   | 8-9: Serial Console Ports                            |
+   +------------------------------------------------------+
+   | 10-11: Expansion Modules                             |
+   +------------------------------------------------------+
 
 
 System Drive Tray:
@@ -78,70 +100,94 @@ System Drive Tray:
 .. note:: Do not install the drives until the chassis has been
    installed in the rack.
 
+Rail Kit Assembly
+~~~~~~~~~~~~~~~~~
 
 
-Install Rack Mounting Rails
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Remove Cabinet Rails from Rack Rails
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Remove the rail set and screws from the rail kit box. Use only the
-screws labeled for use in the type of rack provided. Have two people
-support each rail while mounting it to the rack using the top and
-bottom screw holes. The rail surface should remain inside of the rack
-boundaries. These images show proper rail installation with the front
-and rear of the rails mounted.
+Each rack rail includes an inner cabinet rail that must be removed.
+Extend the cabinet rail until the white release tab is exposed.
 
-.. figure:
-
-   Front View
-
-.. figure:
-
-   Rear View
-
-.. figure:
-
-   Side View, No Rail
-
-.. figure:
-
-   Side View, Rail Mounted
-
-.. figure:
-
-   Rack Rail, Front
-
-.. figure:
-
-   Rack Rail, Rear
+.. figure: <sj-storage: IMG_8490_cabinet_removalNov22>
 
 
+Press the white release tab to the right while pulling the cabinet
+rail to remove it. Repeat this process for the second rail.
 
-Install the ES60 Expansion Shelf in the Rack
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Mount Cabinet Rails
+^^^^^^^^^^^^^^^^^^^
+
+The cabinet rails are mounted on each side of the system. Align the
+cabinet rail keyholes with the posts on the side of the chassis. Slide
+the rail toward the rear of the system until the metal tab clicks and
+secures the rail in place. Repeat this process on the other side.
+
+.. figure: <sj-storage: IMG-8975_workingcopy.xcf>
+
+
+Mount Rack Rails
+^^^^^^^^^^^^^^^^
+
+Install 4 cage nuts in the rack, one for each bracket. The lock screw
+for the bracket is already installed in the cage nut. Place the rail
+in the rack with the front end toward the front of the rack and rear
+toward the back of the rack, aligning the pins on both ends of the rail
+with the mounting holes in the rack. Push the pins into the rack holes
+until they lock in place.
+
+.. figure: <sj-storage: IMG_6337_railcombination_Dec6.xcf>
+
+
+Mount Unit in the Rack
+~~~~~~~~~~~~~~~~~~~~~~
 
 **Caution: Two people are required to safely lift the chassis for rack
-installation or removal.** Do not install drives until after the
-chassis has been installed in the rack, and remove all drives before
-removing the chassis from the rack.
+installation or removal.** Do not install drives until after the chassis
+has been installed in the rack, and remove all drives before removing
+the chassis from the rack.
 
-Align the chassis rails with the installed rack rails and gently slide
-the chassis into the rack until it stops. Press in the slide locks,
-then slide the chassis in until the face of the ES60 is flush with the
-rack.
+Slide the front rack rail forward to meet the rear of the cabinet rails.
+Align the cabinet rail with the inside of the front rack rail and slide
+the cabinet rail forward until it is fully seated inside the rack rail.
+Repeat the process for the second rail.
 
-
-.. figure:
-
-
-With the face of the ES60 flush with the rack, attach it by pressing and
-turning the built-in thumbscrews on the front panel.
+.. figure: <sj-storage: IMG_6428 or IMG_6463>
 
 
-.. figure:
+When both cabinet rails are secured inside the rack rails, carefully
+slide the chassis until the ears are flush with the front of the rack.
+Turn both blue screws on the ears of the chassis to the right to secure
+the unit in the rack.
+
+.. figure: <sj-storage: IMG_6080_copy_working_copy.psd>
 
 
-Install the Drives in the Expansion Shelf
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Drive Tray Installation
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Remove Top Cover
+^^^^^^^^^^^^^^^^
+
+Turn the blue screws counterclockwise to unlock the top cover. Slide the
+top cover toward the front of the system, then lift to remove it.
+
+.. figure: <sj-storage: IMG_6226.png>
+
+
+Install Drive Trays
+^^^^^^^^^^^^^^^^^^^
+
+Drive trays are used to mount drives in the array. Each drive tray has a
+status LED which is blue when active and amber when a fault occurs.
+
+Press the blue button to open the drive tray latch and gently remove the
+tray from the drive bay.
+
+.. Add TEXT about attaching a drive to the tray?
 
 To insert a drive, release the handle with the tab on the front of the
 drive chassis, push it into a drive bay until the drive handle begins
@@ -155,29 +201,23 @@ locks into place.
 .. note:: Drives are not numbered and can be installed in any
    available bay.
 
+.. figure: <sj-storage: IMG_6190drive_install_machup_es60.xcf>
 
 
-Plug in the SAS Cables
-~~~~~~~~~~~~~~~~~~~~~~
+Connect Power Cords
+~~~~~~~~~~~~~~~~~~~
 
-Refer to the Wiring Guide.
+**Do not plug the power cords into a power outlet yet.** Connect a
+power cord to the back of one power supply, pressing it into the plastic
+clamp and pressing on the tab to lock it in place. Repeat the process
+for the second power supply and cord. This turns on the ES60.
 
-.. REF Wiring Guide IMAGE
-
-
-
-Plug in the Power Cables
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-Plug both power cables into the power outlets and secure the cables
-with the plastic cable locks. This turns on the Expansion Shelf.
+.. figure: <sj-storage: es60_powerclip_nov17.png>
 
 
 .. note::  Service and management ports are not used during normal
    operation and should not be connected.
 
-
-.. figure:
 
 If setting up a %brand% Storage Array for the first time, wait
 two minutes after turning on the Expansion Shelf before powering on the
@@ -185,32 +225,48 @@ two minutes after turning on the Expansion Shelf before powering on the
 Shelf may be powered on at any time.
 
 
+Connect SAS Cables
+~~~~~~~~~~~~~~~~~~
 
-Install the Bezel
-~~~~~~~~~~~~~~~~~
+Shut down and power off the ES60.
 
-The back of the bezel has two screws on the left and right side. Align
-the two holes on each side with the back of the ears on the ES60. Attach
-a screw on one side, then the next diagonally on the opposite side.
-Follow this procedure for each remaining screw.
+.. <more text required, see Wiring Guide>
+
+.. figure: <sj-storage: IMG_8962gimp.xcf - remove mark number circles>
+
+
+Install Bezel (Optional)
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The included bezel is not required for operation. If desired, install
+the bezel by lining up the two holes on each side of the bezel with the
+back of the ears on the ES60. Attach a screw on one side, then the next
+diagonally on the opposite side. Follow this pattern for the remaining
+screws.
 
 .. figure:
 
+ES60 Cable Managment Arm (Optional)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The included cable management arm (CBA) is not required for operation.
+If desired, the CBA is used to organize the ES60 power cords and other
+cables.
 
 
 Install the Cable Management Arm
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-On the rear of the ES60 JBOD, locate the two pin posts on the left
-side of the expansion shelf. Align the holes on the bracket of the
-cable management arm with the posts on the chassis. Slide the cable
-management arm forward and pull the lever on the latch upwards to lock
-the cable management arm into place.
+On the rear side of the ES60, locate the two pin posts on the left side.
+Align the holes on the bracket of the cable management arm with the
+posts on the chassis. Slide the cable management arm forward and pull
+the lever on the latch upwards to lock the cable management arm into
+place.
 
 .. figure:
 
 
-Remove the two screws already attached to this side of the cable
+Remove the two screws already attached to the side of the cable
 management arm. Align with the screw holes for this end and reattach the
 screws. Both pieces are now attached to the chassis.
 
@@ -223,37 +279,76 @@ screws. Both pieces are now attached to the chassis.
 
 .. figure:
 
-
-
-Lock in the Power Cable
-~~~~~~~~~~~~~~~~~~~~~~~
-
-This step eliminates the risk of accidentally disconnecting the power
-cable.
-
-
-.. figure:
-
-
-Insert the power cable into the plastic clamp and press down on the
-tab to lock the power cable in place.
-
-
-.. figure:
-
-
-Secure the Power Cords
-~~~~~~~~~~~~~~~~~~~~~~
+Using the Cable Management Arm
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Route and secure the power cords and other cables, including SAS cables,
-onto the cable-management arm. This is shown in the next image:
+onto the cable-management arm:
 
+.. figure:
+
+
+Final Assembly:
 
 .. figure:
 
 
-The final assembly looks exactly like <imageref>:
+.. OLD text: remove when ready
+
+   Install Rack Mounting Rails
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Remove the rail set and screws from the rail kit box. Use only the
+   screws labeled for use in the type of rack provided. Have two people
+   support each rail while mounting it to the rack using the top and
+   bottom screw holes. The rail surface should remain inside of the rack
+   boundaries. These images show proper rail installation with the front
+   and rear of the rails mounted.
+
+   .. figure:
+
+      Front View
+
+   .. figure:
+
+      Rear View
+
+   .. figure:
+
+      Side View, No Rail
+
+   .. figure:
+
+      Side View, Rail Mounted
+
+   .. figure:
+
+      Rack Rail, Front
+
+   .. figure:
+
+      Rack Rail, Rear
 
 
-.. figure:
+   Install the ES60 Expansion Shelf in the Rack
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+   **Caution: Two people are required to safely lift the chassis for rack
+   installation or removal.** Do not install drives until after the
+   chassis has been installed in the rack, and remove all drives before
+   removing the chassis from the rack.
+
+   Align the chassis rails with the installed rack rails and gently slide
+   the chassis into the rack until it stops. Press in the slide locks,
+   then slide the chassis in until the face of the ES60 is flush with the
+   rack.
+
+
+   .. figure:
+
+
+   With the face of the ES60 flush with the rack, attach it by pressing and
+   turning the built-in thumbscrews on the front panel.
+
+
+   .. figure:
