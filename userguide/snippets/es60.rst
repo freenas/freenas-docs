@@ -88,26 +88,17 @@ configuration. The connectors and features on each module are:
    +----------------------+-------------------------------+
 
 
-System Drive Tray:
-
-.. figure:
-
-
-.. note:: Do not install the drives until the chassis has been
-   installed in the rack.
-
-
 Rail Kit Assembly
 ~~~~~~~~~~~~~~~~~
 
 
-Remove Cabinet Rails from Rack Rails
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Separate Cabinet Rails from Rack Rails
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Each rack rail includes an inner cabinet rail that must be removed.
 Extend the cabinet rail until the white release tab is exposed.
 
-.. figure: <sj-storage: IMG_8490_cabinet_removalNov22>
+.. figure:: images/tn_es60_rail_separate.png
 
 
 Press the white release tab to the right while pulling the cabinet
@@ -164,6 +155,10 @@ secure the unit in the rack.
 
 Drive Tray Installation
 ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+.. note:: Do not install the drives until the chassis has been
+   installed in the rack.
 
 
 Remove Top Cover
