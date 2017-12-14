@@ -350,7 +350,7 @@ Click on the :guilabel:`Devices` button to show the devices attached
 to that VM. Click on the *RAW* device to select it, then click the
 :guilabel:`Edit` button. In the :guilabel:`Raw File` field, browse to
 the dataset and select it. Then add a filename by typing
-*/rancherui.img* to the end of the path in the text box.
+*/rancherui.img* at the end of the path in the text box.
 
 Set the :guilabel:`Disk boot` checkbox, enter a password for the
 :literal:`rancher` user in the :guilabel:`Password` field, then enter

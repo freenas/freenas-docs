@@ -1,5 +1,6 @@
-.. index:: ES60 Expansion Shelf
+#include snippets/copyright.rst
 
+.. index:: ES60 Expansion Shelf
 .. _ES60 Expansion Shelf:
 
 ES60 Expansion Shelf
@@ -29,7 +30,7 @@ Carefully unpack the shipping boxes and locate these components:
    |                                            |                                             |
    | ES60 Expansion Shelf                       | ES60 Bezel                                  |
    +--------------------------------------------+---------------------------------------------+
-   | images/tn_es60rails.png                    | .. image:: images/tn_es60drivetray.png      |
+   | .. image:: images/tn_es60_railkit.png      | .. image:: images/tn_es60drivetray.png      |
    |                                            |                                             |
    | Rail kit with mounting hardware            | Up to 60 drive trays with installed hard    |
    |                                            | drives (shipped separately from the ES60)   |
@@ -41,39 +42,43 @@ Carefully unpack the shipping boxes and locate these components:
    +--------------------------------------------+---------------------------------------------+
 
 
-.. index:: Become Familiar with the System
+.. index:: Become Familiar with the ES60
+.. _Become Familiar with the ES60:
 
-.. _ES60 Become Familiar with the System:
+Become Familiar With the ES60
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Become Familiar With the System
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The ES60 has indicators on the front panel for power, fault, and locate
+ID. The fault indicator is on during the initial power-on self-test
+(POST) or when the %brand% software has issued an
+`alert
+<https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
 
-.. index:: ES60 Front View
-
-.. _ES60 Front View:
 
 Front view of the ES60 Expansion Shelf:
 
-.. image:: images/tn_es60.png
+.. figure:: images/tn_es60.png
 
 
 Front panel indicators:
 
-.. image:: images/tn_es60indicators.png
+.. figure:: images/tn_es60_indicators.png
+
+
+Rear view of the ES60 Expansion Shelf:
+
+.. figure:
 
 
 System Drive Tray:
 
-.. IMAGE
+.. figure:
 
 
 .. note:: Do not install the drives until the chassis has been
    installed in the rack.
 
 
-.. index:: Install Rack Mounting Rails
-
-.. _ES60 Install Rack Mounting Rails:
 
 Install Rack Mounting Rails
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -85,32 +90,31 @@ bottom screw holes. The rail surface should remain inside of the rack
 boundaries. These images show proper rail installation with the front
 and rear of the rails mounted.
 
-.. IMAGE
+.. figure:
 
-Front View
+   Front View
 
-.. IMAGE
+.. figure:
 
-Rear View
+   Rear View
 
-.. IMAGE
+.. figure:
 
-Side View, No Rail
+   Side View, No Rail
 
-.. IMAGE
+.. figure:
 
-Side View, Rail Mounted
+   Side View, Rail Mounted
 
-.. IMAGE
+.. figure:
 
-Rack Rail, Front
+   Rack Rail, Front
 
-.. IMAGE
+.. figure:
 
-Rack Rail, Rear
+   Rack Rail, Rear
 
 
-.. _ES60 Install the ES60 Expansion Shelf in the Rack:
 
 Install the ES60 Expansion Shelf in the Rack
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -126,21 +130,15 @@ then slide the chassis in until the face of the ES60 is flush with the
 rack.
 
 
-.. Image
+.. figure:
 
 
-.. _ES60 Attach the Expansion Shelf to the Front the Rack:
-
-Attach the Expansion Shelf to the Front of the Rack
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Press in and turn the built-in thumbscrews to the front of the rack.
+With the face of the ES60 flush with the rack, attach it by pressing and
+turning the built-in thumbscrews on the front panel.
 
 
-.. Image
+.. figure:
 
-
-.. _ES60 Install the Drives in the Expansion Shelf:
 
 Install the Drives in the Expansion Shelf
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -151,14 +149,13 @@ to move into place, then push it the rest of the way until the handle
 locks into place.
 
 
-.. Image
+.. figure:
 
 
 .. note:: Drives are not numbered and can be installed in any
    available bay.
 
 
-.. _ES60 Plug in the SAS Cables:
 
 Plug in the SAS Cables
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -168,7 +165,6 @@ Refer to the Wiring Guide.
 .. REF Wiring Guide IMAGE
 
 
-.. _ES60 Plug in the Power Cables:
 
 Plug in the Power Cables
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -181,7 +177,7 @@ with the plastic cable locks. This turns on the Expansion Shelf.
    operation and should not be connected.
 
 
-.. IMAGE
+.. figure:
 
 If setting up a %brand% Storage Array for the first time, wait
 two minutes after turning on the Expansion Shelf before powering on the
@@ -189,7 +185,6 @@ two minutes after turning on the Expansion Shelf before powering on the
 Shelf may be powered on at any time.
 
 
-.. _ES60 Install the Bezel:
 
 Install the Bezel
 ~~~~~~~~~~~~~~~~~
@@ -199,10 +194,9 @@ the two holes on each side with the back of the ears on the ES60. Attach
 a screw on one side, then the next diagonally on the opposite side.
 Follow this procedure for each remaining screw.
 
-.. IMAGE
+.. figure:
 
 
-.. _ES60 Install the Cable Management Arm:
 
 Install the Cable Management Arm
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -213,24 +207,23 @@ cable management arm with the posts on the chassis. Slide the cable
 management arm forward and pull the lever on the latch upwards to lock
 the cable management arm into place.
 
-.. IMAGE
+.. figure:
 
 
 Remove the two screws already attached to this side of the cable
 management arm. Align with the screw holes for this end and reattach the
 screws. Both pieces are now attached to the chassis.
 
-.. IMAGE
+.. figure:
 
 
 .. note:: The tabs can be unlocked from above or below. If needed, both
    tabs can be unlocked.
 
 
-.. IMAGE
+.. figure:
 
 
-.. _ES60 Lock in the Power Cable:
 
 Lock in the Power Cable
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -239,17 +232,15 @@ This step eliminates the risk of accidentally disconnecting the power
 cable.
 
 
-.. IMAGE
+.. figure:
 
 
 Insert the power cable into the plastic clamp and press down on the
 tab to lock the power cable in place.
 
 
-.. IMAGE
+.. figure:
 
-
-.. _ES60 Secure the Power Cords:
 
 Secure the Power Cords
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -258,10 +249,11 @@ Route and secure the power cords and other cables, including SAS cables,
 onto the cable-management arm. This is shown in the next image:
 
 
-.. IMAGE
+.. figure:
 
 
 The final assembly looks exactly like <imageref>:
 
 
-.. IMAGE
+.. figure:
+
