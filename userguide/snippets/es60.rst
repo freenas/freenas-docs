@@ -131,9 +131,9 @@ Mount Rack Rails
 Install 4 cage nuts in the rack, one for each bracket. The lock screw
 for the bracket is already installed in the cage nut. Place the rail
 in the rack with the front end toward the front of the rack and rear
-toward the back of the rack, aligning the pins on both ends of the rail
-with the mounting holes in the rack. Push the pins into the rack holes
-until they lock in place.
+toward the back of the rack, aligning the pins on both ends of the
+rail with the mounting holes in the rack. Push the pins into the rack
+holes until they lock in place.
 
 .. figure: <sj-storage: IMG_6337_railcombination_Dec6.xcf>
 
@@ -142,22 +142,22 @@ Mount Unit in the Rack
 ~~~~~~~~~~~~~~~~~~~~~~
 
 **Caution: Two people are required to safely lift the chassis for rack
-installation or removal.** Do not install drives until after the chassis
-has been installed in the rack, and remove all drives before removing
-the chassis from the rack.
+installation or removal.** Do not install drives until after the
+chassis has been installed in the rack, and remove all drives before
+removing the chassis from the rack.
 
-Slide the front rack rail forward to meet the rear of the cabinet rails.
-Align the cabinet rail with the inside of the front rack rail and slide
-the cabinet rail forward until it is fully seated inside the rack rail.
-Repeat the process for the second rail.
+Slide the front rack rail forward to meet the rear of the cabinet
+rails. Align the cabinet rail with the inside of the front rack rail
+and slide the cabinet rail forward until it is fully seated inside the
+rack rail. Repeat the process for the second rail.
 
 .. figure: <sj-storage: IMG_6428 or IMG_6463>
 
 
 When both cabinet rails are secured inside the rack rails, carefully
 slide the chassis until the ears are flush with the front of the rack.
-Turn both blue screws on the ears of the chassis to the right to secure
-the unit in the rack.
+Turn both blue screws on the ears of the chassis to the right to
+secure the unit in the rack.
 
 .. figure: <sj-storage: IMG_6080_copy_working_copy.psd>
 
@@ -169,8 +169,8 @@ Drive Tray Installation
 Remove Top Cover
 ^^^^^^^^^^^^^^^^
 
-Turn the blue screws counterclockwise to unlock the top cover. Slide the
-top cover toward the front of the system, then lift to remove it.
+Turn the blue screws counterclockwise to unlock the top cover. Slide
+the top cover toward the front of the system, then lift to remove it.
 
 .. figure: <sj-storage: IMG_6226.png>
 
@@ -178,11 +178,11 @@ top cover toward the front of the system, then lift to remove it.
 Install Drive Trays
 ^^^^^^^^^^^^^^^^^^^
 
-Drive trays are used to mount drives in the array. Each drive tray has a
-status LED which is blue when active and amber when a fault occurs.
+Drive trays are used to mount drives in the array. Each drive tray has
+a status LED which is blue when active and amber when a fault occurs.
 
-Press the blue button to open the drive tray latch and gently remove the
-tray from the drive bay.
+Press the blue button to open the drive tray latch and gently remove
+the tray from the drive bay.
 
 .. Add TEXT about attaching a drive to the tray?
 
@@ -198,6 +198,7 @@ locks into place.
 .. note:: Drives are not numbered and can be installed in any
    available bay.
 
+
 .. figure: <sj-storage: IMG_6190drive_install_machup_es60.xcf>
 
 
@@ -205,9 +206,9 @@ Connect Power Cords
 ~~~~~~~~~~~~~~~~~~~
 
 **Do not plug the power cords into a power outlet yet.** Connect a
-power cord to the back of one power supply, pressing it into the plastic
-clamp and pressing on the tab to lock it in place. Repeat the process
-for the second power supply and cord. This turns on the ES60.
+power cord to the back of one power supply, pressing it into the
+plastic clamp and pressing on the tab to lock it in place. Repeat the
+process for the second power supply and cord. This turns on the ES60.
 
 .. figure: <sj-storage: es60_powerclip_nov17.png>
 
@@ -216,10 +217,10 @@ for the second power supply and cord. This turns on the ES60.
    operation and should not be connected.
 
 
-If setting up a %brand% Storage Array for the first time, wait
-two minutes after turning on the Expansion Shelf before powering on the
-%brand% Array. If a %brand% Array is already in operation, the Expansion
-Shelf may be powered on at any time.
+If setting up a %brand% Storage Array for the first time, wait two
+minutes after turning on the Expansion Shelf before powering on the
+%brand% Array. If a %brand% Array is already in operation, the
+Expansion Shelf may be powered on at any time.
 
 
 Connect SAS Cables
@@ -236,10 +237,11 @@ Install Bezel (Optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 The included bezel is not required for operation. If desired, install
-the bezel by lining up the two holes on each side of the bezel with the
-back of the ears on the ES60. Attach a screw on one side, then the next
-diagonally on the opposite side. Follow this pattern for the remaining
-screws.
+the bezel by lining up the two holes on each side of the bezel with
+the back of the ears on the ES60. Attach a screw on one side, then the
+next diagonally on the opposite side. Follow this pattern for the
+remaining screws.
+
 
 .. figure:
 
@@ -254,24 +256,26 @@ cables.
 Install the Cable Management Arm
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-On the rear side of the ES60, locate the two pin posts on the left side.
-Align the holes on the bracket of the cable management arm with the
-posts on the chassis. Slide the cable management arm forward and pull
-the lever on the latch upwards to lock the cable management arm into
-place.
+On the rear side of the ES60, locate the two pin posts on the left
+side. Align the holes on the bracket of the cable management arm with
+the posts on the chassis. Slide the cable management arm forward and
+pull the lever on the latch upwards to lock the cable management arm
+into place.
+
 
 .. figure:
 
 
 Remove the two screws already attached to the side of the cable
-management arm. Align with the screw holes for this end and reattach the
-screws. Both pieces are now attached to the chassis.
+management arm. Align with the screw holes for this end and reattach
+the screws. Both pieces are now attached to the chassis.
+
 
 .. figure:
 
 
-.. note:: The tabs can be unlocked from above or below. If needed, both
-   tabs can be unlocked.
+.. note:: The tabs can be unlocked from above or below. If needed,
+   both tabs can be unlocked.
 
 
 .. figure:
@@ -279,13 +283,15 @@ screws. Both pieces are now attached to the chassis.
 Using the Cable Management Arm
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Route and secure the power cords and other cables, including SAS cables,
-onto the cable-management arm:
+Route and secure the power cords and other cables, including SAS
+cables, onto the cable-management arm:
+
 
 .. figure:
 
 
 Final Assembly:
+
 
 .. figure:
 
@@ -296,11 +302,11 @@ Final Assembly:
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
    Remove the rail set and screws from the rail kit box. Use only the
-   screws labeled for use in the type of rack provided. Have two people
-   support each rail while mounting it to the rack using the top and
-   bottom screw holes. The rail surface should remain inside of the rack
-   boundaries. These images show proper rail installation with the front
-   and rear of the rails mounted.
+   screws labeled for use in the type of rack provided. Have two
+   people support each rail while mounting it to the rack using the
+   top and bottom screw holes. The rail surface should remain inside
+   of the rack boundaries. These images show proper rail installation
+   with the front and rear of the rails mounted.
 
    .. figure:
 
@@ -330,22 +336,22 @@ Final Assembly:
    Install the ES60 Expansion Shelf in the Rack
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   **Caution: Two people are required to safely lift the chassis for rack
-   installation or removal.** Do not install drives until after the
-   chassis has been installed in the rack, and remove all drives before
-   removing the chassis from the rack.
+   **Caution: Two people are required to safely lift the chassis for
+   rack installation or removal.** Do not install drives until after
+   the chassis has been installed in the rack, and remove all drives
+   before removing the chassis from the rack.
 
-   Align the chassis rails with the installed rack rails and gently slide
-   the chassis into the rack until it stops. Press in the slide locks,
-   then slide the chassis in until the face of the ES60 is flush with the
-   rack.
+   Align the chassis rails with the installed rack rails and gently
+   slide the chassis into the rack until it stops. Press in the slide
+   locks, then slide the chassis in until the face of the ES60 is
+   flush with the rack.
 
 
    .. figure:
 
 
-   With the face of the ES60 flush with the rack, attach it by pressing and
-   turning the built-in thumbscrews on the front panel.
+   With the face of the ES60 flush with the rack, attach it by
+   pressing and turning the built-in thumbscrews on the front panel.
 
 
    .. figure:
