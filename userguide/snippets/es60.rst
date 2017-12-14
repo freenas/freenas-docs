@@ -82,7 +82,7 @@ configuration. The connectors and features on each module are:
    +----------------------+-------------------------------+
    | 1: Power supply      | 4: Locate ID                  |
    +----------------------+-------------------------------+
-   | 2: Power indicator   | 5: Serial console port        |
+   | 2: Power indicator   | 5: Management port (not used) |
    +----------------------+-------------------------------+
    | 3: Alarm indicator   | 6-7: HD Mini SAS3 connectors  |
    +----------------------+-------------------------------+
