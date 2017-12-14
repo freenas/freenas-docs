@@ -30,7 +30,7 @@ Carefully unpack the shipping boxes and locate these components:
    |                                            |                                             |
    | ES60 Expansion Shelf                       | ES60 Bezel                                  |
    +--------------------------------------------+---------------------------------------------+
-   |   images/tn_es60rails.png                  | .. image:: images/tn_es60drivetray.png      |
+   | .. image:: images/tn_es60_railkit.png      | .. image:: images/tn_es60drivetray.png      |
    |                                            |                                             |
    | Rail kit with mounting hardware            | Up to 60 drive trays with installed hard    |
    |                                            | drives (shipped separately from the ES60)   |
@@ -62,7 +62,7 @@ Front view of the ES60 Expansion Shelf:
 
 Front panel indicators:
 
-.. image:: images/tn_es60indicators.png
+.. image:: images/tn_es60_indicators.png
 
 
 Rear view of the ES60 Expansion Shelf:
