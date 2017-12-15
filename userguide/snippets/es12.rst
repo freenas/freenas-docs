@@ -24,26 +24,28 @@ Carefully unpack the shipping boxes and locate these components:
 .. table::
    :class: longtable
 
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_x.png                 | .. image:: images/tn_es12_bezel.png         |
-   |                                            |                                             |
-   | ES12 Expansion Shelf                       | ES12 Bezel                                  |
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_x_rails.png           | .. image:: images/tn_x_drivetrays.png       |
-   |                                            |    :width: 90%                              |
-   | Set of rackmount rails. The rails have a   |                                             |
-   | specific front end, identified by a label  | A total of 12 populated or filler drive     |
-   | visible on the left above. The front ends  | trays. Trays must be installed in all bays  |
-   | of the rails must be installed facing the  | to maintain proper airflow for cooling.     |
-   | front of the rack.                         |                                             |
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_x_acckit.png          | .. image:: images/tn_sascables_minihd.png   |
-   |    :width: 80%                             |    :width: 40%                              |
-   |                                            |                                             |
-   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Two 3-meter Mini SAS HD to Mini SAS HD      |
-   | power cords, 2 IEC C14 to C14 cords, and a | cables                                      |
-   | set of velcro cable ties                   |                                             |
-   +--------------------------------------------+---------------------------------------------+
+   +--------------------------------------------+-----------------------------------------------+
+   | .. image:: images/tn_x.png                 | .. image:: images/tn_es12_bezel.png           |
+   |                                            |                                               |
+   | ES12 Expansion Shelf                       | ES12 Bezel                                    |
+   +--------------------------------------------+-----------------------------------------------+
+   | .. image:: images/tn_x_rails.png           | .. image:: images/tn_x_drivetrays.png         |
+   |                                            |    :width: 90%                                |
+   | Set of rackmount rails. The rails have a   |                                               |
+   | specific front end, identified by a label  | A total of 12 populated or empty "air baffle" |
+   | visible on the left above. The front ends  | drive trays. Trays must be installed in all   |
+   | of the rails must be installed facing the  | bays to maintain proper airflow for cooling.  |
+   | front of the rack.                         | Up to ten drive trays are packed in a         |
+   |                                            | cardboard tray. Additional drive trays are    |
+   |                                            | packed with the accessory kit.                |
+   +--------------------------------------------+-----------------------------------------------+
+   | .. image:: images/tn_x_acckit.png          | .. image:: images/tn_sascables_minihd.png     |
+   |    :width: 80%                             |    :width: 40%                                |
+   |                                            |                                               |
+   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Two 3-meter Mini SAS HD to Mini SAS HD        |
+   | power cords, 2 IEC C14 to C14 cords, and a | cables                                        |
+   | set of velcro cable ties                   |                                               |
+   +--------------------------------------------+-----------------------------------------------+
 
 
 .. raw:: latex
@@ -58,15 +60,16 @@ Become Familiar With the ES12 System
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ES12 has front panel indicators for power, locate ID, and fault.
-The fault indicator is on during the initial power-on self-test
-(POST) or when the %brand% software has issued an
+The fault indicator is on during the initial power-on self-test (POST)
+and turns off during normal operation. It turns on if the %brand%
+software issues an
 `alert
 <https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
 
 
 .. _es12_indicators:
 .. figure:: images/tn_x_indicators.png
-   :width: 30%
+   :width: 50%
 
 
 The ES12 contains two expansion modules in a side-by-side
@@ -158,32 +161,13 @@ Use with the ES60 Expansion Shelf (X20 Only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The X20 supports using an ES60 Expansion Shelf in combination with the
-ES12. Connect the ES60 to the SAS 1 ports on the X20:
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.6\linewidth-2\tabcolsep}|
-
-.. table::
-   :class: longtable
-
-   +--------------------------------------------------------------+
-   | ES60 expansion module 1, connector "1" to X20 node 1, SAS 1. |
-   +--------------------------------------------------------------+
-   | ES60 expansion module 2, connector "2" to X20 node 2, SAS 1. |
-   +--------------------------------------------------------------+
-
-Connect the ES12 to the SAS 2 ports on the X20:
+ES12. Connect the ES60 to the X20 SAS 1 ports, and connect the ES12
+to the X20 SAS 2 ports.
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.7\linewidth-2\tabcolsep}|
-
-.. table::
-   :class: longtable
-
-   +-----------------------------------------------------------------+
-   | ES12 expansion module 1 connector T1 to X series node 1, SAS 2. |
-   +-----------------------------------------------------------------+
-   | ES12 expansion module 2 connector T1 to X series node 2, SAS 2. |
-   +-----------------------------------------------------------------+
+.. _es12_sasconnect3:
+.. figure:: images/tn_es12_sasconnect3.png
+   :width: 50%
 
 
 After all SAS cables have been connected, plug the X series power
