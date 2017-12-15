@@ -16,7 +16,7 @@ strongly recommended:
 
 * SSD drives for L2ARC, if present
 
-* Hard drives
+* Hard drives or SSD drives for data storage
 
 * Air baffle filler trays to fill any remaining empty bays
 
