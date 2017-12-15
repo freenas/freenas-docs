@@ -84,7 +84,7 @@ configuration. The connectors and features on each module are:
    +----------------------+-------------------------------+
    | 2: Power indicator   | 5: Management port (not used) |
    +----------------------+-------------------------------+
-   | 3: Alarm indicator   | 6-7: HD Mini SAS3 connectors  |
+   | 3: Alarm indicator   | 6,7: HD Mini SAS3 connectors  |
    +----------------------+-------------------------------+
 
 
@@ -113,7 +113,7 @@ cabinet rail keyholes with the posts on the side of the chassis. Slide
 the rail toward the rear of the system until the metal tab clicks and
 secures the rail in place. Repeat this process on the other side.
 
-.. figure: <sj-storage: IMG-8975_workingcopy.xcf>
+.. figure:: images/tn_es60_cabinetrails.png
 
 
 Mount Rack Rails
