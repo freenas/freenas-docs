@@ -74,7 +74,8 @@ The ES60 contains two expansion modules in a side-by-side
 configuration. The connectors and features on each module are:
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
 
 .. table::
    :class: longtable
