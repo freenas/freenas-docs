@@ -63,7 +63,8 @@ Become Familiar With the X Series System
 
 The X Series has front panel indicators for power, locate ID, and
 fault. The fault indicator is on during the initial power-on self-test
-(POST) or when the %brand% software has issued an
+(POST) and turns off during normal operation. It turns on if the
+%brand% software issues an
 `alert
 <https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
 
@@ -71,11 +72,12 @@ fault. The fault indicator is on during the initial power-on self-test
 .. _x_indicators:
 
 .. figure:: images/tn_x_indicators.png
-   :width: 30%
+   :width: 50%
 
 
-The X Series contains one or two nodes in a side-by-side
-configuration. The connectors and features on each node are:
+The X Series contains one or two storage controllers in a side-by-side
+configuration. The connectors and features on each storage controller
+are:
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
@@ -86,7 +88,7 @@ configuration. The connectors and features on each node are:
    +------------------------------------------------+-----------------------------------------------------+
    | 1,2: Gigabit Ethernet connectors               | 7,8: HDmini SAS3 connectors 1 and 2                 |
    +------------------------------------------------+-----------------------------------------------------+
-   | 3: USB device (reserved)                       | 9: PCIe x8 expansion port                           |
+   | 3: USB device (reserved, *do not remove*)      | 9: PCIe x8 expansion port                           |
    +------------------------------------------------+-----------------------------------------------------+
    | 4: USB 2.0 connector                           | 10: System console port (reserved)                  |
    +------------------------------------------------+-----------------------------------------------------+
@@ -193,9 +195,10 @@ addresses requested by the user.
 Otherwise, the Out-of-Band management IP addresses are set by default
 to static addresses:
 
-Node 1: *192.168.100.100*, subnet mask *255.255.255.0*
+Storage controller 1: *192.168.100.100*, subnet mask *255.255.255.0*
 
-Node 2 (if present): *192.168.100.101*, subnet mask *255.255.255.0*
+Storage controller 2 (if present): *192.168.100.101*, subnet mask
+*255.255.255.0*
 
 
 DHCP
@@ -204,7 +207,8 @@ DHCP
 If the Out-of-Band management IP address has been configured to be
 assigned by DHCP, the IP address assigned by the DHCP server can be
 determined by checking the local DHCP server logs for the MAC
-addresses on the back panel of each X series node, #11 on
+addresses on the back panel of each X series storage controller, #11
+on
 :numref:`Figure %s <x_back>`.
 
 The local DHCP server can also be configured to provide a fixed IP

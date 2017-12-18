@@ -154,7 +154,7 @@ These base applications and drivers have been updated or added:
 
 * The hardware watchdog has been reenabled for recent firmware
   versions of AsrockRack C2750D4I. The BMC bug which required the
-  watchdog to be disabled is resolved with the 00.30.00 or newer BMC
+  watchdog to be disabled is resolved with the 00.35.00 or newer BMC
   firmware version.
 
 * The system will issue an alert if the system reboots itself.
