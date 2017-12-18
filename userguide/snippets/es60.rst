@@ -206,10 +206,11 @@ power cord to the back of one power supply, pressing it into the
 plastic clamp and pressing on the tab to lock it in place. Repeat the
 process for the second power supply and cord. This turns on the ES60.
 
-.. figure: <sj-storage: es60_powerclip_nov17.png>
+
+.. figure:: images/tn_es60_powerclip.png
 
 
-.. note::  Service and management ports are not used during normal
+.. note:: Service and management ports are not used during normal
    operation and should not be connected.
 
 
