@@ -60,7 +60,7 @@ Navigate to the :guilabel:`Server Mgmt` menu and then
    Navigate to BMC LAN Configuration
 
 
-When using DCHP to assign the out-of-band management IP address, leave
+When using DHCP to assign the out-of-band management IP address, leave
 the :guilabel:`Configuration Source` set to
 :guilabel:`Dynamic` in the screen shown in
 :numref:`Figure %s <appliance36>`.
