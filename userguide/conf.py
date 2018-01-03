@@ -35,9 +35,9 @@ release = '11.1'
 
 if tags.has('truenas'):
     # VERSION is the LONG, FULL, version number
-    version = '11.0-U4'
+    version = '11.1-RELEASE'
     # RELEASE is the short major release number ONLY
-    release = '11.0'
+    release = '11.1'
 
 # exclude_patterns is a list of patterns relative to the source directory
 # that match files and directories to ignore when looking for source files.
