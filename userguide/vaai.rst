@@ -71,6 +71,4 @@ running. These operations are supported:
 
 * *Full File Clone* efficiently clones a file on the NAS without
   copying the data over the network.
-
-* *Reserve Space* reserves space on the NAS.
 #endif truenas
