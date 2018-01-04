@@ -1070,10 +1070,15 @@ installed. %brand% |release| ships with these loaders set:
    hw.hptrr.attach_generic=0
    vfs.mountroot.timeout="30"
    ispfw_load="YES"
+   freenas_sysctl_load="YES"
    hint.isp.0.role=2
    hint.isp.1.role=2
    hint.isp.2.role=2
    hint.isp.3.role=2
+   hint.isp.0.topology="nport-only"
+   hint.isp.1.topology="nport-only"
+   hint.isp.2.topology="nport-only"
+   hint.isp.3.topology="nport-only"
    module_path="/boot/kernel;/boot/modules;/usr/local/modules"
    net.inet6.ip6.auto_linklocal="0"
    vfs.zfs.vol.mode=2
@@ -1081,7 +1086,13 @@ installed. %brand% |release| ships with these loaders set:
    hint.ahciem.0.disabled="1"
    hint.ahciem.1.disabled="1"
    kern.msgbufsize="524288"
+   hw.mfi.mrsas_enable="1"
    hw.usb.no_shutdown_wait=1
+   hw.cxgbe.toecaps_allowed=0
+   hw.cxgbe.rdmacaps_allowed=0
+   hw.cxgbe.iscsicaps_allowed=0
+   vfs.nfsd.fha.write=0
+   vfs.nfsd.fha.max_nfsds_per_fh=32
 #endif freenas
 #ifdef truenas
 .. code-block:: none
@@ -1096,6 +1107,11 @@ installed. %brand% |release| ships with these loaders set:
    debug.ddb.textdump.pending=1
    hw.hptrr.attach_generic=0
    ispfw_load="YES"
+   freenas_sysctl_load="YES"
+   hint.isp.0.topology="nport-only"
+   hint.isp.1.topology="nport-only"
+   hint.isp.2.topology="nport-only"
+   hint.isp.3.topology="nport-only"
    module_path="/boot/kernel;/boot/modules;/usr/local/modules"
    net.inet6.ip6.auto_linklocal="0"
    vfs.zfs.vol.mode=2
@@ -1103,6 +1119,11 @@ installed. %brand% |release| ships with these loaders set:
    hint.ahciem.0.disabled="1"
    hint.ahciem.1.disabled="1"
    kern.msgbufsize="524288"
+   hw.cxgbe.toecaps_allowed=0
+   hw.cxgbe.rdmacaps_allowed=0
+   hw.cxgbe.iscsicaps_allowed=0
+   vfs.nfsd.fha.write=0
+   vfs.nfsd.fha.max_nfsds_per_fh=32
    kern.ipc.nmbclusters="262144"
    kern.hwpmc.nbuffers="4096"
    kern.hwpmc.nsamples="4096"
@@ -1111,7 +1132,7 @@ installed. %brand% |release| ships with these loaders set:
    kern.cam.ctl.ha_mode=2
    kern.geom.label.ufs.enable=0
    kern.geom.label.ufsid.enable=0
-   hint.ntb_hw.0.config="ntb_nvdimm:1:4:0,ntb_transport"
+   hint.ntb_hw.0.config="ntb_pmem:1:4:0,ntb_transport"
    hint.ntb_transport.0.config=":3"
    hw.ntb.msix_mw_idx="-1"
 #endif truenas
