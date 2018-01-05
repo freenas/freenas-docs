@@ -115,7 +115,7 @@ is shown in
    General Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-general1a.png
+.. figure:: images/tn_system-general.png
 
    General Screen
 #endif truenas
@@ -194,12 +194,12 @@ After making any changes, click the :guilabel:`Save` button.
 
 This screen also contains these buttons:
 
-**Factory Restore:** reset the configuration database to the default
-base version. However, this does not delete user SSH keys or any other
-data stored in a user's home directory. Since any configuration
-changes stored in the configuration database will be erased, this
-option is useful when a mistake has been made or to return a test
-system to the original configuration.
+**Reset Configuration to Defaults:** reset the configuration database
+to the default base version. This does not delete user SSH keys or any
+other data stored in a user's home directory. Since configuration
+changes stored in the configuration database are erased, this option
+is useful when a mistake has been made or to return a test system to
+the original configuration.
 
 **Save Config:** save a backup copy of the current configuration
 database in the format *hostname-version-architecture* to the computer

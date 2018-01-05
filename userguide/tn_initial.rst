@@ -247,7 +247,7 @@ press :kbd:`Enter` twice to leave this option.
 graphical administrative interface fails, select this option and
 follow the prompts to set the *root* password.
 
-**8) Reset to factory defaults:** to delete **all** of the
+**8) Reset Configuration to Defaults:** to delete **all** of the
 configuration changes made in the administrative GUI, select this
 option. Once the configuration is reset, the system will reboot. It
 will be necessary to go to

@@ -48,14 +48,15 @@ leave this option.
 password. Select this option and follow the prompts to set the
 password.
 
-**8) Reset to Factory Defaults** *Caution*! This option deletes
+**8) Reset Configuration to Defaults** *Caution*! This option deletes
 **all** of the configuration settings made in the administrative GUI
 and is used to reset a %brand% system back to defaults. **Before
 selecting this option, make a full backup of all data and make sure
 all encryption keys and passphrases are known!** After this option is
-selected, the configuration is cleared and the system reboots.
-:menuselection:`Storage --> Volumes --> Import Volume` can be used to
-re-import volumes.
+selected, the configuration is reset to defaults and the system
+reboots.
+:menuselection:`Storage --> Volumes --> Import Volume`
+can be used to re-import volumes.
 
 **9) Shell** starts a shell for running FreeBSD commands. To leave
 the shell, type :command:`exit`.
