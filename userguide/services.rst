@@ -1611,17 +1611,6 @@ performance. However, changing these settings can affect other usage.
 In general, the defaults are adequate. **Do not change these settings
 unless there is a specific need.**
 
-* Use at least the *SMB2* version of the protocol when possible.
-  Enable this on the client if possible. The default settings for
-  :guilabel:`Server minimum protocol` (*----*) and
-  :guilabel:`Server maximum protocol` (*SMB3*) in the
-  :ref:`global SMB service options <global_smb_config_opts_tab>`
-  allow clients to connect and negotiate higher and faster levels of
-  the protocol. If these have been changed from the default, they
-  might reduce performance. Note that Windows XP does not support
-  SMB2, so it is particularly important to leave
-  :guilabel:`Server minimum protocol` at the default on networks
-  with XP clients.
 
 * :guilabel:`Hostname Lookups` and :guilabel:`Log Level` can also have
   a performance penalty. When not needed, they can be disabled or
