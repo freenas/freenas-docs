@@ -92,7 +92,7 @@ add *.local* after the hostname.
    System Information Tab
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-information1a.png
+.. figure:: images/tn_system-information.png
 
    System Information Tab
 #endif truenas
