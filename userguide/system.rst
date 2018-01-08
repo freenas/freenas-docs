@@ -2255,9 +2255,11 @@ active node, synchronize any configuration changes between the
 active and the standby node, and failover to the standby node
 should the active node become unavailable.
 
-.. warning:: Seamless failover is only available with iSCSI or NFS.
+
+.. warning:: Seamless failover is only available with iSCSI or NFSv4.
    Other protocols will failover, but connections will be disrupted
    by the failover event.
+
 
 To configure HA, turn on both units in the array. Use the
 instructions in the :ref:`Console Setup Menu` to log into the
@@ -2275,11 +2277,13 @@ address, peer hostname, and virtual IP can be configured. An extra
 :guilabel:`IPMI (Node A/B)` tab will also be added so that
 :ref:`IPMI` can be configured for the other unit.
 
+
 .. note:: The modified fields refer to this node as *This Node* and
    the other node as either *A* or *B*. The node value is hard-coded
    into each unit and the value that appears is automatically
    generated. For example, on node *A*, the fields refer to node *B*,
    and vice versa.
+
 
 To configure HA networking, go to
 :menuselection:`Network --> Global Configuration`.
@@ -2337,8 +2341,10 @@ IP address that is used for configuration management. The standby node
 also has a red :guilabel:`Standby` icon and no longer accepts logins
 as all configuration changes must occur on the active node.
 
+
 .. note:: After the :guilabel:`Virtual IP` address is configured, all
    subsequent logins should use that address.
+
 
 When HA has been disabled by the system administrator, the status icon
 changes to :guilabel:`HA Disabled`. If the standby node is not
