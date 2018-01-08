@@ -53,6 +53,10 @@ The System section of the administrative GUI contains these entries:
 #endif truenas
 
 #ifdef truenas
+* :ref:`View Enclosure`: view status of disk enclosures.
+#endif truenas
+
+#ifdef truenas
 * :ref:`Failover`: manage High Availability.
 #endif truenas
 
@@ -2233,6 +2237,46 @@ The Proactive Support fields are:
 To enable Proactive Support, complete the fields, make sure the
 :guilabel:`Enable automatic support alerts to iXsystems` box is
 checked, then click :guilabel:`Save`.
+
+
+.. _View Enclosure:
+
+View Enclosure
+--------------
+
+Click
+:menuselection:`Storage --> Volumes --> View Enclosure`
+to display a status summary of the connected disks and hardware. An
+example is shown in
+:numref:`Figure %s <tn_enclosure1>`.
+
+.. _tn_enclosure1:
+
+.. figure:: images/tn_system-view-enclosure.png
+
+   View Enclosure
+
+
+The screen is divided into these sections:
+
+**Array Device Slot:** has an entry for each slot in the storage
+array, indicating the current disk status and FreeBSD device name.
+To blink the status light for that disk as a visual indicator, click
+the :guilabel:`Identify` button.
+
+**Cooling:** has an entry for each fan, its status, and its RPM.
+
+**Enclosure:** shows the status of the enclosure.
+
+**Power Supply:** shows the status of each power supply.
+
+**SAS Expander:** shows the status of the expander.
+
+**Temperature Sensor:** shows the current temperature of each expander
+and the disk chassis.
+
+**Voltage Sensor:** shows the current voltage for each sensor, VCCP,
+and VCC.
 
 
 .. index:: Failover

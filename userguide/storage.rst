@@ -1098,47 +1098,6 @@ large disk can take several hours, and a *Full with random data* takes
 longer. A progress bar is displayed during the wipe to track status.
 
 
-#ifdef truenas
-.. _View Enclosure:
-
-View Enclosure
-~~~~~~~~~~~~~~
-
-Click :menuselection:`Storage --> Volumes --> View Enclosure` to
-receive a status summary of the appliance's disks and hardware. An
-example is shown in
-:numref:`Figure %s <tn_enclosure1>`.
-
-.. _tn_enclosure1:
-
-.. figure:: images/tn_enclosure1a.png
-
-   View Enclosure
-
-
-This screen is divided into the following sections:
-
-**Array Device Slot:** has an entry for each slot in the storage
-array, indicating the disk's current status and FreeBSD device name.
-To blink the status light for that disk as a visual indicator, click
-its :guilabel:`Identify` button.
-
-**Cooling:** has an entry for each fan, its status, and its RPM.
-
-**Enclosure:** shows the status of the enclosure.
-
-**Power Supply:** shows the status of each power supply.
-
-**SAS Expander:** shows the status of the expander.
-
-**Temperature Sensor:** shows the current temperature of each expander
-and the disk chassis.
-
-**Voltage Sensor:** shows the current voltage for each sensor, VCCP,
-and VCC.
-#endif truenas
-
-
 .. _View Volumes:
 
 Volumes
