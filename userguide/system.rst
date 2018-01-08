@@ -507,11 +507,13 @@ another device to create a mirrored boot device. This way, if one
 device fails, the system still has a copy of the boot file system and
 can be configured to boot from the remaining device in the mirror.
 
-.. note:: When adding another boot device, it must be the same size
-   (or larger) as the existing boot device. Different models of USB
-   devices which advertise the same size may not necessarily be the
-   same size. For this reason, it is recommended to use the same model
-   of USB drive.
+.. note:: When adding another boot device for a mirror, the new device
+   must have at least the same capacity as the existing boot device.
+   Larger capacity devices can be added, but the mirror will only have
+   the capacity of the smallest device. Different models of devices
+   which advertise the same nominal size are not necessarily the same
+   actual size. For this reason, adding another of the same model of
+   boot device is recommended.
 
 In the example shown in
 :numref:`Figure %s <mirror_boot_dev_fig>`,
@@ -524,24 +526,38 @@ word *stripe*. To create a mirrored boot device, click either the
 entry called *freenas-boot* or *stripe*, then click the
 :guilabel:`Attach` button. If another device is available, it appears
 in the :guilabel:`Member disk` drop-down menu. Select the desired
-device, then click :guilabel:`Attach Disk`.
+device.
+
+The :guilabel:`Use all disk space` checkbox gives control of how much
+of the new device is made available to ZFS. The default is unchecked,
+and the new device will be partitioned to the same size as the
+existing device. If either device in the mirror fails, it can be
+replaced with another of the same size as the original boot device.
+
+When :guilabel:`Use all disk space` is checked, the entire capacity of
+the new device is used. If the original boot device fails and is
+removed, the boot mirror will consist of just the newer drive, and
+will grow to whatever capacity it provides. However, new devices added
+to this mirror must now be as large as the new capacity.
+
+Click :guilabel:`Attach Disk` to attach the new disk to the mirror.
 
 
 .. _mirror_boot_dev_fig:
 
-.. figure:: images/mirror1.png
+.. figure:: images/system-boot-mirror1.png
 
    Mirroring a Boot Device
 
 
-Once the mirror is created, the :guilabel:`Status` screen indicates
+After the mirror is created, the :guilabel:`Status` screen indicates
 that it is now a *mirror*. The number of devices in the mirror are
 shown, as seen in the example in
 :numref:`Figure %s <mirror_boot_status_fig>`.
 
 .. _mirror_boot_status_fig:
 
-.. figure:: images/mirror2.png
+.. figure:: images/system-boot-mirror2.png
 
    Viewing the Status of a Mirrored Boot Device
 #endif freenas
