@@ -432,10 +432,9 @@ The Operating System Device
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The %brand% operating system is installed to at least one device that
-is separate from the storage disks. The device can be a USB stick,
-SSD, compact flash, or DOM (Disk on Module). Installation to a hard
-drive is discouraged as that drive is then not available for data
-storage.
+is separate from the storage disks. The device can be a SSD, USB
+memory stick, or DOM (Disk on Module). Installation to a hard drive is
+discouraged as that drive is then not available for data storage.
 
 .. note:: To write the installation file to a USB stick, **two** USB
    ports are needed, each with an inserted USB device. One USB stick
@@ -450,24 +449,38 @@ storage.
 When determining the type and size of the target device where %brand%
 is to be installed, keep these points in mind:
 
-- the *bare minimum* size is 8 GB. This provides room for the
-  operating system and several boot environments. Since each update
-  creates a boot environment, this is the *recommended* minimum. 32 GB
-  provides room for more boot environments.
+- The absolute *bare minimum* size is 8 GB. That does not provide much
+  room. The *recommended* minimum is 16 GB. This provides room for the
+  operating system and several boot environments created by updates.
+  More space provides room for more boot environments and 32 GB or
+  more is preferred.
 
-- when planning to add your own boot environments, budget about 1 GB
+- SSDs (Solid State Disks) are fast and reliable, and make very good
+  %brand% operating system devices. Their one disadvantage is that
+  they require a disk connection which might be needed for storage
+  disks.
+
+  Even a relatively large SSD (120 or 128 GB) is useful as a boot
+  device. While it might appear that the unused space is wasted, that
+  space is instead used internally by the SSD for wear leveling. This
+  makes the SSD last longer and provides greater reliability.
+
+- When planning to add your own boot environments, budget about 1 GB
   of storage per boot environment. Consider deleting older boot
   environments after making sure they are no longer needed. Boot
   environments can be created and deleted using
   :menuselection:`System --> Boot`.
 
-- use quality, name-brand USB sticks, as ZFS will quickly reveal
+- Use quality, name-brand USB sticks, as ZFS will quickly reveal
   errors on cheap, poorly-made sticks.
 
-- for a more reliable boot disk, use two identical devices and select
+- For a more reliable boot disk, use two identical devices and select
   them both during the installation. This will create a mirrored boot
   device.
 
+.. note:: Current versions of %brand% run directly from the operating
+   system device. Early versions of %brand% ran from RAM, but that has
+   not been the case for years.
 
 .. _Storage Disks and Controllers:
 
@@ -485,8 +498,8 @@ controllers.
 enabling AHCI in the BIOS.
 
 Reliable disk alerting and immediate reporting of a failed drive can
-be obtained by using an HBA such as an Broadcom MegaRAID controller or a
-3Ware twa-compatible controller.
+be obtained by using an HBA such as an Broadcom MegaRAID controller or
+a 3Ware twa-compatible controller.
 
 .. note:: Upgrading the firmware of Broadcom SAS HBAs to the latest
    version is recommended.
