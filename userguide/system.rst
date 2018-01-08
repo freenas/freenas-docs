@@ -2264,7 +2264,7 @@ array, indicating the current disk status and FreeBSD device name.
 To blink the status light for that disk as a visual indicator, click
 the :guilabel:`Identify` button.
 
-**Cooling:** has an entry for each fan, its status, and its RPM.
+**Cooling:** has an entry for each fan with status and RPM.
 
 **Enclosure:** shows the status of the enclosure.
 
