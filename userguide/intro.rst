@@ -366,46 +366,64 @@ RAM
 ~~~
 
 The best way to get the most out of a %brand% system is to install
-as much RAM as possible. The recommended minimum is 8 GB of RAM. The
-more RAM, the better the performance, and the
-`FreeNAS® Forums <https://forums.freenas.org/index.php>`_
-provide anecdotal evidence from users on how much performance is
+as much RAM as possible. More RAM allows ZFS to provide better
+performance. The
+`FreeNAS® Forums <https://forums.freenas.org/index.php>`__
+provide anecdotal evidence from users on how much performance can be
 gained by adding more RAM.
 
-Depending upon the use case, your system may require more RAM. Here
-are some general rules of thumb:
+General guidelines for RAM:
+
+* **A minimum of 8 GB of RAM is required.**
+
+  Additional features require additional RAM, and large amounts of
+  storage require more RAM for cache. An old, somewhat overstated
+  guideline is 1 GB of RAM per terabyte of disk capacity.
 
 * To use Active Directory with many users, add an additional 2 GB of
-  RAM for winbind's internal cache.
+  RAM for the winbind internal cache.
 
 * For iSCSI, install at least 16 GB of RAM if performance is not
   critical, or at least 32 GB of RAM if good performance is a
   requirement.
 
+* :ref:`Jails` are very memory-efficient, but can still use memory
+  that would otherwise be available for ZFS. If the system will be
+  running many jails, or a few resource-intensive jails, adding 1 to 4
+  additional gigabytes of RAM can be helpful. This memory is shared by
+  the host and will be used for ZFS when not being used by jails.
+
+* :ref:`Virtual Machines <VMs>` require additional RAM beyond any
+  amounts listed here. Memory used by virtual machines is not
+  available to the host while the VM is running, and is not included
+  in the amounts described above. For example, a system that will be
+  running two VMs that each need 1 GB of RAM requires an additional 2
+  GB of RAM.
+
 * When installing %brand% on a headless system, disable the shared
   memory settings for the video card in the BIOS.
 
-* To use ZFS deduplication, ensure the system has at least 5 GB of RAM
-  per TB of storage to be deduplicated.
+* For ZFS deduplication, ensure the system has at least 5 GB of RAM
+  per terabyte of storage to be deduplicated.
 
 
-If the hardware supports it and the budget allows for it, install ECC
-RAM. While more expensive, ECC RAM is highly recommended as it
-prevents in-flight corruption of data before the error-correcting
-properties of ZFS come into play, thus providing consistency for the
-checksumming and parity calculations performed by ZFS. If you consider
-your data important, use ECC RAM. This
+If the hardware supports it, install ECC RAM. While more expensive,
+ECC RAM is highly recommended as it prevents in-flight corruption of
+data before the error-correcting properties of ZFS come into play,
+thus providing consistency for the checksumming and parity
+calculations performed by ZFS. If your data is important, use ECC RAM.
+This
 `Case Study
 <http://research.cs.wisc.edu/adsl/Publications/zfs-corruption-fast10.pdf>`_
 describes the risks associated with memory corruption.
 
-Unless the system has at least 8 GB of RAM, consider adding RAM before
-using %brand% to store data. Many users expect %brand% to function
-with less memory, just at reduced performance.  The bottom line is
-that these minimums are based on feedback from many users. Requests
-for help in the forums or IRC are sometimes ignored when the installed
-system does not have at least 8 GB of RAM because of the abundance of
-information that %brand% may not behave properly with less memory.
+Do not use %brand% to store data without at least 8 GB of RAM. Many
+users expect %brand% to function with less memory, just at reduced
+performance.  The bottom line is that these minimums are based on
+feedback from many users. Requests for help in the forums or IRC are
+sometimes ignored when the installed system does not have at least 8
+GB of RAM because of the abundance of information that %brand% may not
+behave properly with less memory.
 
 
 .. _The Operating System Device:
@@ -421,24 +439,24 @@ storage.
 
 .. note:: To write the installation file to a USB stick, **two** USB
    ports are needed, each with an inserted USB device. One USB stick
-   contains the installer.  The other USB stick is the destination for
-   the %brand% installation. Take care to select the correct USB
-   device for the %brand% installation. It is **not** possible to
-   install %brand% onto the same USB stick containing the installer.
+   contains the installer, while the other USB stick is the
+   destination for the %brand% installation. Be careful to select
+   the correct USB device for the %brand% installation. %brand% cannot
+   be installed onto the same device that contains the installer.
    After installation, remove the installer USB stick. It might also
    be necessary to adjust the BIOS configuration to boot from the new
-   %brand% USB stick.
+   %brand% boot device.
 
 When determining the type and size of the target device where %brand%
-will be installed, keep these points in mind:
+is to be installed, keep these points in mind:
 
 - the *bare minimum* size is 8 GB. This provides room for the
   operating system and several boot environments. Since each update
   creates a boot environment, this is the *recommended* minimum. 32 GB
   provides room for more boot environments.
 
-- if you plan to make your own boot environments, budget about 1 GB of
-  storage per boot environment. Consider deleting older boot
+- when planning to add your own boot environments, budget about 1 GB
+  of storage per boot environment. Consider deleting older boot
   environments after making sure they are no longer needed. Boot
   environments can be created and deleted using
   :menuselection:`System --> Boot`.
