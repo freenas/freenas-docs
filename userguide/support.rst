@@ -60,184 +60,68 @@ Users are welcome to network on the %brand% social media sites:
 Forums
 ------
 
-The FreeNAS\ :sup:`®` Forums are another information source which
-contains categorized user-contributed tips and guides. This makes it
-an ideal resource for learning more about a certain aspect of %brand%.
-A search bar is included for searching by keyword. Or click a category
-to browse through the threads that exist for that topic.
-
-These categories are available under **Forum Information:**
-
-* `Forum Guidelines
-  <https://forums.freenas.org/index.php?forums/forum-guidelines-read-before-posting.26/>`_:
-  read this first before creating a forum post.
-
-* `Announcements
-  <https://forums.freenas.org/index.php?forums/announcements.27/>`_:
-  subscribe to this forum if you wish to receive announcements about
-  new %brand% versions and features.
-
-These categories are available under **Help and Support:**
-
-* `New to FreeNAS®?
-  <https://forums.freenas.org/index.php?forums/new-to-freenas.5/>`_:
-  post here if you are new to %brand% and are unsure which category
-  best matches your question.
-
-* `Feature Requests
-  <https://forums.freenas.org/index.php?forums/feature-requests.6/>`_:
-  for the discussion of upcoming features.
-
-* `Bug Reporting
-  <https://forums.freenas.org/index.php?forums/bug-reporting.7/>`_:
-  use this forum if you think you have found a bug in %brand% and want
-  to discuss it before creating a support ticket.
-
-* `Hardware
-  <https://forums.freenas.org/index.php?forums/hardware.18/>`__: for
-  the discussion of hardware and tips for getting the most out of your
-  hardware.
-
-* `User Authentication
-  <https://forums.freenas.org/index.php?forums/user-authentication.19/>`_:
-  LDAP and Active Directory.
-
-* `Sharing
-  <https://forums.freenas.org/index.php?forums/sharing.20/>`_: AFP,
-  CIFS, NFS, and iSCSI.
-
-* `Storage
-  <https://forums.freenas.org/index.php?forums/storage.21/>`_:
-  replication, snapshots, volumes, and ZFS.
-
-* `Networking
-  <https://forums.freenas.org/index.php?forums/networking.22/>`_:
-  networking hardware, performance, link aggregation, VLANs, DDNS,
-  FTP, SNMP, SSH, and TFTP.
-
-* `Installation
-  <https://forums.freenas.org/index.php?forums/installation.32/>`__:
-  installing help or advice before performing the installation.
-
-* `Plugins
-  <https://forums.freenas.org/index.php?forums/plugins.34/>`_:
-  provides a discussion area for creating and troubleshooting PBIs.
-
-These categories are available under **Development:**
-
-* `FreeNAS
-  <https://forums.freenas.org/index.php?forums/freenas.9/>`_: general
-  development discussion.
-
-* `nanobsd
-  <https://forums.freenas.org/index.php?forums/nanobsd.10/>`_: the
-  embedded operating system on which %brand% is based.
-
-* `Django
-  <https://forums.freenas.org/index.php?forums/django.11/>`_: the web
-  framework used by the %brand% graphical administrative interface.
-
-* `Dojo Toolkit
-  <https://forums.freenas.org/index.php?forums/dojo-toolkit.12/>`_:
-  the javascript toolkit used to create widgets and handle client side
-  processing.
-
-These categories are available under **How-To Guides:**
-
-* `Hacking
-  <https://forums.freenas.org/index.php?forums/hacking.14/>`_:
-  undocumented tricks for getting the most out of your %brand% system.
-
-* `Installation
-  <https://forums.freenas.org/index.php?forums/installation.15/>`__:
-  specific installation scenarios (hardware and/or software).
-
-* `Configuration
-  <https://forums.freenas.org/index.php?forums/configuration.16/>`_:
-  specific configuration scenarios (e.g. software or client
-  configuration).
-
-* `Hardware
-  <https://forums.freenas.org/index.php?forums/hardware.17/>`__:
-  instructions for setting up specific hardware.
-
-* `Useful Scripts
-  <https://forums.freenas.org/index.php?forums/useful-scripts.47/>`_:
-  user-contributed scripts.
-
-For tips on testing and increasing the performance of your system,
-check out the
-`Performance
-<https://forums.freenas.org/index.php?forums/performance.37/>`_
+The
+`FreeNAS Forums <https://forums.freenas.org/index.php>`__
+are an online resource where people can ask questions, receive help,
+and share findings with other %brand% users. New users are
+encouraged to post a brief message about themselves and how they use
+or are considering using %brand% in the
+`Introductions
+<https://forums.freenas.org/index.php?forums/introductions.25/>`__
 forum.
 
-These categories are available under **Community Forum:**
+The
+`Resources <https://forums.freenas.org/index.php?resources/>`__
+section contains guides on many aspects of building and using %brand%
+systems.
 
-* `Off-topic
-  <https://forums.freenas.org/index.php?forums/off-topic.23/>`_: want
-  to discuss something of interest to %brand% users but which is not
-  necessarily related to %brand%? This is the place.
+Language-specific categories are available under **International**,
+allowing %brand% users to interact with each other in their native
+language:
 
-* `Resources
-  <https://forums.freenas.org/index.php?forums/resources.24/>`_:
-  blogs, reviews, and other sources of %brand% information not listed
-  at
-  `freenas.org <http://www.freenas.org/>`_.
-
-* `Introductions
-  <https://forums.freenas.org/index.php?forums/introductions.25/>`_:
-  %brand% Community meet 'n greet - introduce yourself and let us know
-  who we are chatting with.
-
-These language-specific categories are available under
-**International**, allowing %brand% users to interact with each other
-in their native language:
+* `Chinese
+  <https://forums.freenas.org/index.php?forums/chinese-%E4%B8%AD%E6%96%87.60/>`__
 
 * `Dutch - Nederlands
-  <http://forums.freenas.org/forumdisplay.php?35-Dutch-Nederlands>`_
+  <https://forums.freenas.org/index.php?forums/dutch-nederlands.35/>`__
 
 * `French - Francais
-  <http://forums.freenas.org/forumdisplay.php?29-French-Francais>`_
+  <https://forums.freenas.org/index.php?forums/french-francais.29/>`__
 
 * `German - Deutsch
-  <http://forums.freenas.org/forumdisplay.php?31-German-Deutsch>`_
+  <https://forums.freenas.org/index.php?forums/german-deutsch.31/>`__
 
 * `Italian - Italiano
-  <http://forums.freenas.org/forumdisplay.php?30-Italian-Italiano>`_
+  <https://forums.freenas.org/index.php?forums/italian-italiano.30/>`__
 
 * `Portuguese - Português
-  <http://forums.freenas.org/forums/portuguese-português.44/>`_
+  <https://forums.freenas.org/index.php?forums/portuguese-portugu%C3%AAs.44/>`__
 
-* `Russian <http://goo.gl/sCMUe5>`_
+* `Romanian - Română
+  <https://forums.freenas.org/index.php?forums/romanian-rom%C3%A2n%C4%83.53/>`__
 
-* `Spanish - Espanol
-  <http://forums.freenas.org/forumdisplay.php?33-Spanish-Espanol>`_
+* `Russian - Русский
+  <https://forums.freenas.org/index.php?forums/russian-%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9.38/>`__
+
+* `Spanish - Español
+  <https://forums.freenas.org/index.php?forums/spanish-espa%C3%B1ol.33/>`__
 
 * `Swedish - Svenske
-  <https://forums.freenas.org/index.php?forums/swedish-svenske.51/>`_
+  <https://forums.freenas.org/index.php?forums/swedish-svenske.51/>`__
 
 * `Turkish - Türkçe
-  <http://forums.freenas.org/forumdisplay.php?36-Turkish-T%FCrk%E7e>`_
+  <https://forums.freenas.org/index.php?forums/turkish-t%C3%BCrk%C3%A7e.36/>`__
 
-To ask a question on the forum, click the :guilabel:`Sign Up Now!`
-link to create an account and log in using that account.
+To join the forums, create an account with the
+:guilabel:`Sign Up Now!` link.
 
-When asking a question on the forum, it is important to:
-
-* First check to see if the question has already been asked. If a
-  similar question exists, do not create a new thread. Instead use the
-  :guilabel:`Reply` link at the bottom of the post to add your
-  comments to the existing thread.
-
-* Review the available categories to see which one is most closely
-  related to your question. Click on that category and use the
-  :guilabel:`Post New Thread` button to open the editor. After typing
-  your post but before clicking the :guilabel:`Create Thread` button,
-  make sure the :guilabel:`Watch this thread...` box is checked. To be
-  notified by email, also check the
-  :guilabel:`and receive email notifications` box. You will be
-  notified whenever anyone answers your question.
-
+Before asking a question on the forum, check the
+`Resources <https://forums.freenas.org/index.php?resources/>`__
+to see if the information is already there. Then see the
+`Forum Rules
+<https://forums.freenas.org/index.php?threads/updated-forum-rules-4-11-17.45124/>`__
+for guidelines on posting your hardware information and how to ask
+questions that will get a response.
 
 .. index:: IRC
 .. _IRC:
