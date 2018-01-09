@@ -62,8 +62,8 @@ Forums
 
 The
 `FreeNAS Forums <https://forums.freenas.org/index.php>`__
-are an online resource where people can ask questions, receive help,
-and share findings with other %brand% users. New users are
+are an active online resource where people can ask questions, receive
+help, and share findings with other %brand% users. New users are
 encouraged to post a brief message about themselves and how they use
 or are considering using %brand% in the
 `Introductions
@@ -72,8 +72,8 @@ forum.
 
 The
 `Resources <https://forums.freenas.org/index.php?resources/>`__
-section contains guides on many aspects of building and using %brand%
-systems.
+section contains categorized, user-contributed guides on many aspects
+of building and using %brand% systems.
 
 Language-specific categories are available under **International**,
 allowing %brand% users to interact with each other in their native
