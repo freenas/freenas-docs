@@ -273,7 +273,7 @@ explains these options in more detail.
 
 .. _ntp_server_fig:
 
-.. figure:: images/ntp1.png
+.. figure:: images/system-general-ntp.png
 
    Add an NTP Server
 
@@ -363,7 +363,7 @@ the :ref:`Wizard` was run.
    Viewing Boot Environments
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-bootenv1a.png
+.. figure:: images/tn_system-boot.png
 
    Viewing Boot Environments
 #endif truenas
@@ -583,7 +583,7 @@ The configurable settings are summarized in
    Advanced Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-advanced1b.png
+.. figure:: images/tn_system-advanced.png
 
    Advanced Screen
 #endif truenas
@@ -782,7 +782,7 @@ shown in
    Email Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-email1a.png
+.. figure:: images/tn_system-email.png
 
    Email Screen
 #endif truenas
@@ -882,7 +882,7 @@ controller users and groups.
    System Dataset Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-system-dataset1a.png
+.. figure:: images/tn_system-system-dataset.png
 
    System Dataset Screen
 #endif truenas
@@ -912,16 +912,15 @@ To store the system log on the system dataset, check the
 :guilabel:`Syslog` box.
 
 To store the reporting information on the system dataset, check the
-:guilabel:`Reporting Database` box. Note that if this box is unchecked,
-the system will automatically create a RAM disk to prevent reporting
-information from filling up :file:`/var`.
+:guilabel:`Reporting Database` box. When this box is not checked, a
+RAM disk is created to prevent reporting information from filling up
+:file:`/var`.
 
-If you make any changes, click the :guilabel:`Save` button to save
-them.
+Click the :guilabel:`Save` button to save changes.
 
-If you change the pool storing the system dataset at a later time,
-%brand% will automatically migrate the existing data in the system
-dataset to the new location.
+If the pool storing the system dataset is changed at a later time,
+%brand% migrates the existing data in the system dataset to the new
+location.
 
 
 .. note:: Depending on configuration, the system dataset can occupy a
@@ -951,7 +950,7 @@ can be used to manage the following:
 
 #. **FreeBSD rc.conf options:**
    `rc.conf(5)
-   <https://www.freebsd.org/cgi/man.cgi?query=rc.conf&manpath=FreeBSD+11.0-RELEASE>`_
+   <https://www.freebsd.org/cgi/man.cgi?query=rc.conf&manpath=FreeBSD+11.0-RELEASE>`__
    is used to pass system configuration options to the system startup
    scripts as the system boots. Since %brand% has been optimized for
    storage, not all of the services mentioned in rc.conf(5) are
@@ -980,7 +979,7 @@ to access the screen shown in seen in
 
 .. _add_tunable_fig:
 
-.. figure:: images/tunable.png
+.. figure:: images/system-tunables-add.png
 
    Adding a Tunable
 
@@ -1343,11 +1342,11 @@ firewall restrictions.
 #ifdef truenas
 **For Production Use**
 
-* **TrueNAS-11.0-STABLE** (Recommended)
+* **TrueNAS-11-STABLE** (Recommended)
 
   After new fixes and features have been tested as production-ready,
-  they are added to this train. It is recommended to follow this train
-  and to apply any pending updates from it.
+  they are added to this train. Following this train  and applying any
+  pending updates from it is recommended.
 
 **Legacy Versions**
 
@@ -2142,7 +2141,7 @@ requests.
 
 .. _tn_support1:
 
-.. figure:: images/tn_system-support1a.png
+.. figure:: images/tn_system-support.png
 
    Support Tab
 
@@ -2218,7 +2217,7 @@ hardware conditions on the system require attention.
 
 .. _tn_proactive_support:
 
-.. figure:: images/tn_system-proactive-support1a.png
+.. figure:: images/tn_system-proactive-support.png
 
    Proactive Support Tab
 
