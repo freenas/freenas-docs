@@ -1311,12 +1311,12 @@ implications are:
   data. If a passphrase is set, this must **also** be provided before data 
   can be accessed (`two factor authentication <https://en.wikipedia.org/wiki/Multi-factor_authentication>`_).
 
-Decrypted data **cannot be accessed** when the disks are removed, the system 
-is shut down, or (on a running system) when the key is unavailable. If the 
-key is protected with a passphrase, then data cannot be decrypted without 
-having both key and passphrase. Decryption is per-volume not per-user, so 
-when a volume is unlocked, data will be decrypted for *any* user whose 
-permissions allow them to access it.
+Decrypted data **cannot be accessed** (other than from *L2ARC*) when the
+disks are removed, the system is shut down, or (on a running system) when 
+the key is unavailable. If the key is protected with a passphrase, then 
+data cannot be decrypted without having both key and passphrase. 
+Decryption is per-volume not per-user, so when a volume is unlocked, data 
+will be decrypted for *any* user whose permissions allow them to access it.
 
 .. note:: By design, `GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`_
    uses *two* randomized encryption keys for each disk. One is the key discussed
