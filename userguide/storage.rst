@@ -1298,7 +1298,8 @@ By default, encryption keys will be stored locally within %brand*'s data
 files. They can also be downloaded as a safety measure, to allow
 decryption on a different system in the event of failure, or to allow
 the locally stored key to be deleted for extra security. Encryption keys
-can also be optionally protected with a **passphrase**:
+can also be optionally protected with a **passphrase**. The security 
+implications are:
 
 * *Key stored locally, no passphrase* - data is automatically decrypted 
   and always accessible when system running. (Protects "data at rest" only.)
