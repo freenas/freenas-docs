@@ -227,21 +227,9 @@ the details when considering whether encryption is right for your
 * The encryption key is per ZFS volume (pool). Multiple pools each
   have their own encryption key.
 
-#ifdef freenas
-* If the system has a lot of disks, performance will suffer if the CPU
-  does not support
-  `AES-NI <https://en.wikipedia.org/wiki/AES-NI#Supporting_CPUs>`_
-  or if no crypto hardware is installed. Without hardware
-  acceleration, there will be about a 20% performance decrease for a
-  single disk. Performance degradation increases with more disks. As
-  data is written, it is automatically encrypted. As data is read, it
-  is decrypted on the fly. If the processor supports the AES-NI
-  instruction set, there is very little, if any, degradation in
-  performance when using encryption. This
-  `forum post
-  <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__
-  compares the performance of various CPUs.
-#endif freenas
+* Technical details about how encryption keys are used, stored and managed
+  within %brand% can be found in
+  `this forum post <https://forums.freenas.org/index.php?threads/recover-encryption-key.16593/#post-85497>`_.
 
 * Data in the ARC cache and the contents of RAM are unencrypted.
 
@@ -256,12 +244,9 @@ the details when considering whether encryption is right for your
   Volume Manager automatically encrypts the new vdev being added to
   the existing encrypted pool.
 
-* The more drives in an encrypted volume, the more encryption and
-  decryption overhead. **Encrypted volumes composed of more than eight
-  drives can suffer severe performance penalties, even with AES-NI
-  encryption acceleration**. If encryption is desired, please
-  benchmark such volumes before using them in production.
-
+* The impact of encryption upon performance can be negligible or 
+  significant, depending upon the number of disks, and the CPU's 
+  capabilities. See :ref:`Encryption performance`.
 
 .. note:: The encryption facility used by %brand% is designed to
    protect against physical theft of the disks. It is not designed to
@@ -279,6 +264,32 @@ A pop-up message shows a reminder that
 the key, the data on the disks is inaccessible. Refer to
 :ref:`Managing Encrypted Volumes` for instructions.
 
+.. _Encryption performance:
+
+Encryption performance
+^^^^^^^^^^^^^^^^^^^^^^
+
+#ifdef freenas
+* If the system has a lot of disks, performance will suffer if the CPU
+  does not support
+  `AES-NI <https://en.wikipedia.org/wiki/AES-NI#Supporting_CPUs>`_
+  or if no crypto hardware is installed. Without hardware
+  acceleration, there will be about a 20% performance decrease for a
+  single disk. Performance degradation increases with more disks. As
+  data is written, it is automatically encrypted. As data is read, it
+  is decrypted on the fly. If the processor supports the AES-NI
+  instruction set, there is very little, if any, degradation in
+  performance when using encryption. This
+  `forum post
+  <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__
+  compares the performance of various CPUs.
+#endif freenas
+
+* The more drives in an encrypted volume, the more encryption and
+  decryption overhead. **Encrypted volumes composed of more than eight
+  drives can suffer severe performance penalties, even with AES-NI
+  encryption acceleration**. If encryption is desired, please
+  benchmark such volumes before using them in production.
 
 .. _Manual Setup:
 
