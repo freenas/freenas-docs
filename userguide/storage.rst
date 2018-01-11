@@ -212,9 +212,9 @@ the details when considering whether encryption is right for your
   on top of the encrypted devices. As data is written, it is automatically 
   encrypted, and as data is read, it is decrypted on the fly. 
 
-* Data in the ARC cache and the contents of RAM are always unencrypted, and 
-  Swap is always **encrypted** (even on unencrypted volumes). Data in the 
-  LOG (ZIL) cache is encrypted when it relates to an encrypted disk.
+* Data in the ARC cache and the contents of RAM are **always unencrypted**, 
+  and Swap is **always encrypted** (even on unencrypted volumes). The 
+  LOG (ZIL) cache is **encrypted if it relates to an encrypted disk**.
 
 * This type of encryption is primarily targeted at users who store
   sensitive data and want to retain the ability to remove disks from
