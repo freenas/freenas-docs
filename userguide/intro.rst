@@ -334,6 +334,9 @@ U1
 * RancherOS has been updated to version 
   `1.1.2 <https://github.com/rancher/os/releases/tag/v1.1.2>`__.
 
+* Smartmontools has been updated to
+  `6.6 <https://www.smartmontools.org/browser/tags/RELEASE_6_6/smartmontools/NEWS>`__.
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
