@@ -1326,7 +1326,7 @@ will be decrypted for *any* user whose permissions allow them to access it.
    disk failure, and in a redundant pool, other disks will contain accessible 
    copies of the uncorrupted data.
    Therefore, while it is *possible* to separately backup any master keys, 
-   it is **not** considered necessary or useful to do so.
+   it is **not** usually considered necessary or useful to do so.
 
 
 .. _Additional controls for encrypted volumes:
