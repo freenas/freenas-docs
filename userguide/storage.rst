@@ -1290,11 +1290,10 @@ Managing Encrypted Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 %brand% automatically generates a randomized **encryption key** 
-whenever a new encrypted volume is created. The data "at rest" (on disk)
-on an encrypted volume is **always encrypted**, but access to the decrypted
-data on a live (running) system can be customized for each volume.
+whenever a new encrypted volume is created. %brand% needs this key 
+to read and decrypt any data (or any other information) within the volume.
 
-By default, encryption keys will be stored locally within %brand*'s data 
+By default, encryption keys will be stored locally within %brand%'s data 
 files. They can also be downloaded as a safety measure, to allow
 decryption on a different system in the event of failure, or to allow
 the locally stored key to be deleted for extra security. Encryption keys
@@ -1311,12 +1310,15 @@ implications are:
   data. If a passphrase is set, this must **also** be provided before data 
   can be accessed (`two factor authentication <https://en.wikipedia.org/wiki/Multi-factor_authentication>`_).
 
-Decrypted data **cannot be accessed** (other than from *L2ARC*) when the
-disks are removed, the system is shut down, or (on a running system) when 
-the key is unavailable. If the key is protected with a passphrase, then 
-data cannot be decrypted without having both key and passphrase. 
-Decryption is per-volume not per-user, so when a volume is unlocked, data 
-will be decrypted for *any* user whose permissions allow them to access it.
+Data stored on an encrypted volume disk is **always encrypted**. Data to be 
+written to an encrypted volume is encrypted when written to the LOG disk (ZIL),
+but is **not** stored encrypted in L2ARC, if present. With the exception of L2ARC, 
+decrypted data **cannot be accessed** when the disks are removed, the system
+has been shut down, or (on a running system) when the volume is 'locked' and
+the key is unavailable. If the key is protected with a passphrase, then data
+cannot be decrypted without having both key and passphrase. Decryption is 
+per-volume not per-user, so when a volume is unlocked, data will be decrypted
+for *any* user whose permissions allow them to access it.
 
 .. note:: By design, `GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`_
    uses *two* randomized encryption keys for each disk. One is the key discussed
@@ -1325,13 +1327,13 @@ will be decrypted for *any* user whose permissions allow them to access it.
    a disk's master key due to disk corruption would be equivalent to any other
    disk failure, and in a redundant pool, other disks will contain accessible 
    copies of the uncorrupted data.
-   Therefore, while it is *possible* to separately backup any master keys, 
-   it is **not** usually considered necessary or useful to do so.
+   Therefore, while it is *possible* to separately back up any master keys, 
+   it is not usually considered necessary or useful to do so.
 
 
-.. _Additional controls for encrypted volumes:
+.. _Additional Controls for Encrypted Volumes:
 
-Additional controls for encrypted volumes
+Additional Controls for Encrypted Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If the :guilabel:`Encryption` box is checked during the creation of a
