@@ -1289,6 +1289,39 @@ changed, and destroying a zvol requires confirmation.
 Managing Encrypted Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+%brand% automatically generates a randomized **encryption key** 
+whenever a new encrypted volume is created. The data "at rest" (on disk)
+on an encrypted volume is **always encrypted**, but access to the decrypted
+data on a live (running) system can be customized for each volume.
+
+By default, encryption keys will be stored locally within %brand*'s data 
+files. They can also be downloaded as a safety measure, to allow
+decryption on a different system in the event of failure, or to allow
+the locally stored key to be deleted for extra security. Encryption keys
+can also be optionally protected with a **passphrase**:
+
+* *Key stored locally, no passphrase* - data is automatically decrypted 
+  and always accessible when system running. (Protects "data at rest" only.)
+
+* *Key stored locally, with passphrase* - user must provide passphrase
+  before anyone can access data.
+
+* *Key not stored locally* - user must provide key before anyone can access
+  data. If a passphrase is set, this must **also** be provided before data 
+  can be accessed (`two factor authentication <https://en.wikipedia.org/wiki/Multi-factor_authentication>`_).
+
+Decrypted data **cannot be accessed** when the disks are removed, the system 
+is shut down, or (on a running system) when the key is unavailable. If the 
+key is protected with a passphrase, then data cannot be decrypted without 
+having both key and passphrase. Decryption is per-volume not per-user, so 
+when a volume is unlocked, data will be decrypted for *any* user whose 
+permissions allow them to access it.
+
+.. _Additional controls for encrypted volumes:
+
+Additional controls for encrypted volumes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 If the :guilabel:`Encryption` box is checked during the creation of a
 pool, additional buttons appear in the entry for the volume in
 :menuselection:`Storage --> Volumes`.
