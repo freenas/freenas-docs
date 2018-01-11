@@ -32,7 +32,7 @@ where you will find other %brand% users.
 The %brand% User Guide is freely available for sharing and
 redistribution under the terms of the
 `Creative Commons Attribution
-License <https://creativecommons.org/licenses/by/3.0/>`_.
+License <https://creativecommons.org/licenses/by/3.0/>`__.
 This means that you have permission to copy, distribute, translate,
 and adapt the work as long as you attribute iXsystems as the original
 source of the Guide.
@@ -110,15 +110,16 @@ These base applications and drivers have been updated or added:
   kernel module has been added to the build as some NIC drivers depend
   upon it.
 
-* There have been many improvements to OpenZFS. Users should notice a
-  significant speed difference when listing a large number of
-  snapshots or when deleting multiple snapshots and large files.
+* There have been many improvements to OpenZFS, including a
+  significant speed improvement when listing a large number of
+  snapshots and deleting multiple snapshots or large files.
 
 * The algorithm used for scrubs and resilvers has received many
-  improvements which will be most noticeable on fragmented pools.
+  improvements which are most noticeable on fragmented pools.
 
 * Samba has been patched to address
-  `these security vulnerabilities <https://www.samba.org/samba/history/samba-4.7.3>`__.
+  `these security vulnerabilities
+  <https://www.samba.org/samba/history/samba-4.7.3>`__.
 
 * The Dojo Toolkit has been updated to version 1.12.2.
 
@@ -148,8 +149,8 @@ These base applications and drivers have been updated or added:
 * `s3cmd <http://s3tools.org/s3cmd>`__
   has been added back as a CLI alternative to :ref:`S3`.
 
-* The CLI `zfs-stats <http://www.vx.sk/zfs-stats/>`_
-  utility has been added. Type :command:`zfs-stats` to see its command
+* The `zfs-stats <http://www.vx.sk/zfs-stats/>`_
+  CLI utility has been added. Type :command:`zfs-stats` to see command
   usage.
 
 * The hardware watchdog has been reenabled for recent firmware
@@ -157,32 +158,31 @@ These base applications and drivers have been updated or added:
   watchdog to be disabled is resolved with the 00.35.00 or newer BMC
   firmware version.
 
-* The system will issue an alert if the system reboots itself.
+* The system issues an alert if the system reboots itself.
 
 These major features are new in this version:
 
-* It is now possible to pause and resume scrubs from the command line.
-  Since scrub pause state and progress are periodically synced to
-  disk, if the system is restarted or pool is exported during a paused
-  scrub, the scrub will remain paused until it is resumed. When
-  resumed, the scrub picks up from the place where it was last
-  checkpointed to disk. Paused scrubs can be resumed with
-  :command:`zpool scrub`. Scrubs can be paused manually with
-  :command:`zpool scrub -p`.  A future version of %brand% will add a
-  button to the UI to resume or pause a scrub.
+* Scrubs can be paused and resumed from the command line. Scrub pause
+  state and progress are periodically synced to disk. If the system is
+  restarted or the pool is exported during a paused scrub, the scrub
+  remains paused until it is resumed. When resumed, the scrub picks up
+  from the place where it was last checkpointed to disk. Paused scrubs
+  can be resumed with :command:`zpool scrub`. Scrubs can be paused
+  manually with :command:`zpool scrub -p`.  A future version of
+  %brand% will add a button to the UI to resume or pause a scrub.
 
 * :ref:`Cloud Credentials` has been added to :ref:`System`. This can
-  be used to provide a secure connection to a cloud services
-  providers. Supported services include Amazon S3, Azure Blob Storage,
-  Backblaze B2, and Google Cloud Storage.
+  be used to provide a secure connection to a cloud service providers.
+  Supported services include Amazon S3, Azure Blob Storage, Backblaze
+  B2, and Google Cloud Storage.
 
 * :ref:`Cloud Sync` has been added to :ref:`Tasks` and can be used to
   synchronize files or directories to remote cloud storage providers
   with a specified transfer mode.
 
-* The :guilabel:`Server Side Encryption` drop-down menu has been added
-  to :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`, when an
-  S3 provider is selected.
+* The :guilabel:`Server Side Encryption` drop-down menu appears on
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`
+  when an S3 provider is selected.
 
 * :ref:`Resilver Priority` has been added to :ref:`Storage`. This
   provides the ability to run resilvering at a higher priority at
@@ -331,7 +331,7 @@ changes that have occurred since |release| was released.
 U1
 ~~
 
-* RancherOS has been updated to version 
+* RancherOS has been updated to version
   `1.1.2 <https://github.com/rancher/os/releases/tag/v1.1.2>`__.
 
 * Smartmontools has been updated to
@@ -620,7 +620,7 @@ spend, use 10 GigE interfaces and a managed switch. Managed switches
 with support for LACP and jumbo frames are preferred, as both can be
 used to increase network throughput. Refer to the
 `10 Gig Networking Primer
-<https://forums.freenas.org/index.php?threads/10-gig-networking-primer.25749/>`_
+<https://forums.freenas.org/index.php?threads/10-gig-networking-primer.25749/>`__
 for more information.
 
 .. note:: At present, these are not supported: InfiniBand,
@@ -629,7 +629,7 @@ for more information.
 Both hardware and the type of shares can affect network performance.
 On the same hardware, SMB is slower than FTP or NFS because Samba is
 `single-threaded
-<https://www.samba.org/samba/docs/man/Samba-Developers-Guide/architecture.html>`_.
+<https://www.samba.org/samba/docs/man/Samba-Developers-Guide/architecture.html>`__.
 So a fast CPU can help with SMB performance.
 
 Wake on LAN (WOL) support depends on the FreeBSD driver for the
