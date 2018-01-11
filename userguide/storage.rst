@@ -209,7 +209,11 @@ the details when considering whether encryption is right for your
 
 * This is full disk encryption and **not** per-filesystem encryption.
   The underlying drives are first encrypted, then the pool is created
-  on top of the encrypted devices.
+  on top of the encrypted devices. As data is written, it is automatically 
+  encrypted, and as data is read, it is decrypted on the fly. 
+
+* Data in the ARC cache and the contents of RAM are always unencrypted, and 
+  Swap is always encrypted (even on unencrypted volumes).
 
 * This type of encryption is primarily targeted at users who store
   sensitive data and want to retain the ability to remove disks from
@@ -230,10 +234,6 @@ the details when considering whether encryption is right for your
 * Technical details about how encryption keys are used, stored and managed
   within %brand% can be found in
   `this forum post <https://forums.freenas.org/index.php?threads/recover-encryption-key.16593/#post-85497>`_.
-
-* Data in the ARC cache and the contents of RAM are unencrypted.
-
-* Swap is always encrypted, even on unencrypted volumes.
 
 * There is no way to convert an existing, unencrypted volume. Instead,
   the data must be backed up, the existing pool destroyed, a new
@@ -269,27 +269,24 @@ the key, the data on the disks is inaccessible. Refer to
 Encryption performance
 ^^^^^^^^^^^^^^^^^^^^^^
 
-#ifdef freenas
-* If the system has a lot of disks, performance will suffer if the CPU
-  does not support
-  `AES-NI <https://en.wikipedia.org/wiki/AES-NI#Supporting_CPUs>`_
-  or if no crypto hardware is installed. Without hardware
-  acceleration, there will be about a 20% performance decrease for a
-  single disk. Performance degradation increases with more disks. As
-  data is written, it is automatically encrypted. As data is read, it
-  is decrypted on the fly. If the processor supports the AES-NI
-  instruction set, there is very little, if any, degradation in
-  performance when using encryption. This
-  `forum post
-  <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__
-  compares the performance of various CPUs.
-#endif freenas
+If the processor supports the 
+`AES-NI <https://en.wikipedia.org/wiki/AES-NI#Supporting_CPUs>`_
+instruction set, there is very little, if any, degradation in
+performance when using encryption and only a few disks.
+Performance will suffer if the CPU does not support
+AES-NI or if no crypto hardware is installed.  Without hardware
+acceleration, there will be about a 20% performance decrease for a
+single disk. 
+This `forum post <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__
+compares the performance of various CPUs.
 
-* The more drives in an encrypted volume, the more encryption and
-  decryption overhead. **Encrypted volumes composed of more than eight
-  drives can suffer severe performance penalties, even with AES-NI
-  encryption acceleration**. If encryption is desired, please
-  benchmark such volumes before using them in production.
+Performance also depends upon the number of disks encrypted.
+The more drives in an encrypted volume, the more encryption and
+decryption overhead, and the greater the impact on performance. 
+**Encrypted volumes composed of more than eight
+drives can suffer severe performance penalties, even with AES-NI
+encryption acceleration**. If encryption is desired, please
+benchmark such volumes before using them in production.
 
 .. _Manual Setup:
 
