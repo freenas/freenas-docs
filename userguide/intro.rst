@@ -331,7 +331,8 @@ changes that have occurred since |release| was released.
 U1
 ~~
 
-* 
+* RancherOS has been updated to version 
+  `1.1.2 <https://github.com/rancher/os/releases/tag/v1.1.2>`__.
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
