@@ -1318,12 +1318,12 @@ when a volume is unlocked, data will be decrypted for *any* user whose
 permissions allow them to access it.
 
 .. note:: By design, `GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`_
-   uses two randomized encryption keys for each disk. One is the key discussed
-   in this guide, the other is a "master" key stored on the disk itself, in a
-   strongly encrypted form, which the user never sees. Loss of a disk's master key
-   due to disk corruption would be equivalent to any other disk failure, and 
-   as with any failure, other disks in the pool will contain accessible copies of 
-   the uncorrupted data. 
+   uses *two* randomized encryption keys for each disk. One is the key discussed
+   in this guide. The other, called the disk's "master key", is stored on the
+   disk itself, in a strongly encrypted form which the user never sees. Loss of 
+   a disk's master key due to disk corruption would be equivalent to any other
+   disk failure, and in a redundant pool, other disks will contain accessible 
+   copies of the uncorrupted data.
    Therefore, while it is *possible* to separately backup any master keys, 
    it is **not** considered necessary or useful to do so.
 
