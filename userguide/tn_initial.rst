@@ -196,80 +196,7 @@ controlled as if using a directly-connected keyboard and monitor.
 Console Setup Menu
 ------------------
 
-The Console Setup menu, shown in
-:numref:`Figure %s <console_setup_menu_fig>`,
-appears at the end of the boot process. If access to the %brand%
-system's keyboard and monitor is available, this Console Setup menu
-can be used to administer the system even if the administrative GUI is
-not accessible.
-
-
-#include snippets/consolesetupnote.rst
-
-
-.. _console_setup_menu_fig:
-
-.. figure:: images/tn_console1.png
-
-   Console Setup Menu
-
-
-This menu provides these options:
-
-**1) Configure Network Interfaces:** provides a configuration
-wizard to configure the system's network interfaces. If the system has
-been licensed for High Availability (HA), the wizard prompts for
-IP addresses for both :guilabel:`(This Node)` and
-:guilabel:`(Node B)`.
-
-**2) Configure Link Aggregation:** allows creating a new link
-aggregation or deleting an existing link aggregation. If the system
-has been licensed for High Availability (HA), this option prompts
-for the VHID when creating the link aggregation.
-
-**3) Configure VLAN Interface:** used to create or delete a VLAN
-interface.
-
-**4) Configure Default Route:** used to set the IPv4 or IPv6
-default gateway. When prompted, enter the IP address of the default
-gateway.
-
-**5) Configure Static Routes:** prompts for the destination
-network and the gateway IP address. Re-enter this option for each
-route to be added.
-
-**6) Configure DNS:** will prompt for the name of the DNS domain
-then the IP address of the first DNS server. To enter multiple DNS
-servers, press :kbd:`Enter` to enter the next one. When finished,
-press :kbd:`Enter` twice to leave this option.
-
-**7) Reset Root Password:** if logging in to the
-graphical administrative interface fails, select this option and
-follow the prompts to set the *root* password.
-
-**8) Reset Configuration to Defaults:** to delete **all** of the
-configuration changes made in the administrative GUI, select this
-option. Once the configuration is reset, the system will reboot. It
-will be necessary to go to
-:menuselection:`Storage --> Volumes --> Import Volume`
-to re-import volumes.
-
-**9) Shell:** starts a shell to run FreeBSD commands. To leave the
-shell, type :command:`exit`.
-
-**10) System Update:** if any system updates are available, they
-will automatically be downloaded and applied. The functionality is
-the same as described in :ref:`Update`, except that the updates
-will be applied immediately and access to the GUI is not required.
-
-**11) Reboot:** reboot the system.
-
-**12) Shutdown:** shut down the system.
-
-.. note:: The numbering and quantity of options on this menu can
-   change due to software updates, service agreements, or other
-   factors. Please carefully check the menu before selecting an
-   option, and keep this in mind when writing local procedures.
+#include snippets/console_menu.rst
 
 
 During boot, %brand% automatically attempts to connect to a DHCP
@@ -287,7 +214,7 @@ value is *truenas.local*.
 
 If the %brand% server is not connected to a network with a DHCP
 server, the console network menu can be used to manually
-configure the interface as seen in
+configure the interface as shown in
 :ref:`Example: Manually Setting an IP Address from the Console Menu
 <quick_manual_ip_topic>`.
 In this example, the %brand% system has one network interface, *em0*.

@@ -588,24 +588,23 @@ Selecting an existing ZFS volume in the tree and clicking
 #ifdef truenas
 .. _tn_dataset1:
 
-.. figure:: images/tn_dataset1b.png
+.. figure:: images/tn_storage-dataset.png
 
    Creating a ZFS Dataset
 #endif truenas
 
 
 :numref:`Table %s <zfs_dataset_opts_tab>`
-summarizes the options available when creating a ZFS
-dataset. Some settings are only available in
-:guilabel:`Advanced Mode`. To see these settings, either click the
-:guilabel:`Advanced Mode` button, or configure the system to always
-display these settings by checking the box
+shows the options available when creating a dataset. Some settings are
+only available in :guilabel:`Advanced Mode`. To see these settings,
+either click the :guilabel:`Advanced Mode` button, or configure the
+system to always display advanced settings by checking the box
 :guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
 Most attributes, except for the :guilabel:`Dataset Name`,
 :guilabel:`Case Sensitivity`, and :guilabel:`Record Size`, can be
 changed after dataset creation by highlighting the dataset name and
-clicking its :guilabel:`Edit Options` button in
+clicking the :guilabel:`Edit Options` button in
 :menuselection:`Storage --> Volumes`.
 
 
@@ -967,11 +966,12 @@ supported or if it needs to be loaded using :ref:`Tunables`.
 Importing an Encrypted Pool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you are importing an existing GELI-encrypted ZFS pool, you must
-decrypt the disks before importing the pool. In
+Disks in existing GELI-encrypted ZFS pools must be decrypted before
+importing the pool. In the Import Volume dialog shown in
 :numref:`Figure %s <zfs_import_vol_fig>`,
-select :guilabel:`Yes: Decrypt disks` to access the screen shown in
-:numref:`Figure %s <zfs_decrypt_import_fig>`.
+select :guilabel:`Yes: Decrypt disks`. The screen shown in
+:numref:`Figure %s <zfs_decrypt_import_fig>`
+is then displayed.
 
 
 .. _zfs_decrypt_import_fig:
@@ -982,7 +982,7 @@ select :guilabel:`Yes: Decrypt disks` to access the screen shown in
 
 
 Select the disks in the encrypted pool, browse to the location of the
-saved encryption key, input the passphrase associated with the key,
+saved encryption key, enter the passphrase associated with the key,
 then click :guilabel:`OK` to decrypt the disks.
 
 .. note:: The encryption key is required to decrypt the pool. If the
@@ -993,9 +993,21 @@ then click :guilabel:`OK` to decrypt the disks.
    :ref:`Managing Encrypted Volumes` for instructions on how to
    manage the keys for encrypted volumes.
 
-Once the pool is decrypted, it will appear in the drop-down menu of
+After the pool is decrypted, it appears in the drop-down menu of
 :numref:`Figure %s <zfs_import_nonencrypt_fig>`.
 Click the :guilabel:`OK` button to finish the volume import.
+
+.. note:: For security reasons, GELI keys for encrypted volumes are
+   not saved in a configuration backup file. When %brand% has been
+   installed to a new device and a saved configuration file restored
+   to it, the GELI keys for encrypted disks will not be present, and
+   the system will not request them. To correct this, export the
+   encrypted volume with Detach Volume, making sure that the
+   checkboxes which clear data are **not** selected
+   (there are no check marks on :guilabel:`Mark the disks as new
+   (destroy data)` or :guilabel:`Also delete the share's
+   configuration`). Then import the volume again. During the import,
+   the GELI keys can be entered as described above.
 
 
 .. _View Disks:
@@ -1137,29 +1149,35 @@ the :guilabel:`Status`, whether it is mounted as read-only, and any
 
 
 Clicking the entry for a pool causes several buttons to appear at the
-bottom of the screen. The buttons perform these actions:
+bottom of the screen.
 
-**Detach Volume:** allows you to either export the pool or to delete
-the contents of the pool, depending upon the choice you make in the
-screen shown in
+
+#ifdef truenas
+.. note:: When the system has :ref:`High Availability (HA) <Failover>`
+   active, volumes cannot be exported or destroyed.
+#endif truenas
+
+
+**Detach Volume:** allows exporting the pool or deleting the contents
+of the pool, depending upon the choice made in thescreen shown in
 :numref:`Figure %s <zfs_detach_vol_fig>`.
 The :guilabel:`Detach Volume` screen displays the current used space
-and indicates if there are any shares, provides checkboxes to
+and indicates whether there are any shares, provides checkboxes to
 :guilabel:`Mark the disks as new (destroy data)` and to
-:guilabel:`Also delete the share's configuration`, asks if you are
-sure that you want to do this, and the browser will turn red to alert
-you that you are about to do something that will make the data
-inaccessible.
-**If you do not check the box to mark the disks as new, the volume
-will be exported.** This means that the data is not destroyed and the
-volume can be re-imported at a later time. If you will be moving a ZFS
-pool from one system to another, perform this export action first as
-it flushes any unwritten data to disk, writes data to the disk
-indicating that the export was done, and removes all knowledge of the
-pool from the system. **If you do check the box to mark the disks as
-new, the pool and all the data in its datasets, zvols, and shares will
-be destroyed and the underlying disks will be returned to their raw
-state.**
+:guilabel:`Also delete the share's configuration`, and asks if you are
+sure about doing this. The browser window turns red to indicate that
+some choices will make the data inaccessible.
+**When the box to mark the disks as new is left unchecked, the volume
+is exported.** The data is not destroyed and the volume can be
+re-imported at a later time. When moving a ZFS pool from one system to
+another, perform this export action first as it flushes any unwritten
+data to disk, writes data to the disk indicating that the export was
+done, and removes all knowledge of the pool from the system.
+
+**When the box to mark the disks as new is checked, the pool and all
+the data in its datasets, zvols, and shares is destroyed and the
+individual disks are returned to their raw state. Desired data must
+be backed up to another disk or device before using this option.**
 
 
   .. _zfs_detach_vol_fig:
