@@ -2677,7 +2677,7 @@ div[class^='highlight'] pre {
     margin-bottom: 0
 }
 .wy-menu-vertical li.divide-top {
-    border-top: solid 1px #
+    border-top: solid 1px #404040
 }
 .wy-menu-vertical li.divide-bottom {
     border-bottom: solid 1px #404040
@@ -2901,6 +2901,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#730000', end
 	margin-left: auto;
     margin-right: auto;
    }
+
+   
+#wy-menu\ rst-imagebox2 > a:nth-child(4) > img:nth-child(1) {
+	width: 80%;
+	margin: 0 auto;
+	display: block;
+}
    
 .wy-side-nav-search>a:hover,
 .wy-side-nav-search .wy-dropdown>a:hover {
@@ -4096,16 +4103,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', end
 
 /*"""""""""""""""""""""""""""""""""""""""""""""""*
  |    Allow for printing from browser            | 
- |    with reasonable appearance         (END)   | 
+ |    with reasonable appearance                   | 
  *"""""""""""""""""""""""""""""""""""""""""""""""*/
-#wy-menu\ rst-imagebox2 {
-	height: 340px;
+
+/*  Josh's Ad Code */
+
+.document {
+	background-color: unset;
 }
 
-#wy-menu\ rst-imagebox2{margin-top:15px;margin-left:20px;margin-right:20px;border:3px solid gray;border-radius:8px;background:#bbbbbb!important;font-size:75%;margin-left:auto;margin-right:auto;}
+#wy-menu\ rst-imagebox2{display:none;}
 
-#wy-menu\ rst-imageboxcontainer{margin-top:15px;margin-left:20px;margin-right:20px;border:3px solid gray;border-top-left-radius:5px;border-top-right-radius:5px;background:gray;padding-left:5px;padding-top:3px;}
+#wy-menu\ rst-imageboxcontainer{display:none;}
 
-#wy-menu\ rst-imagebox2 > a:nth-child(4) > img:nth-child(1){margin:0 auto; width:80%;display:block;}
+#wy-menu\ rst-imagebox2 > a:nth-child(4) > img:nth-child(1){margin:0 auto;display:none;}
 
-#wy-menu\ rst-imagebox2 > a:nth-child(3) > img:nth-child(1){width:80%;margin:0 auto;display:block;}
+#wy-menu\ rst-imagebox2 > a:nth-child(3) > img:nth-child(1){display:none;}
+
+/* END */
