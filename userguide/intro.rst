@@ -337,6 +337,10 @@ U1
 * Smartmontools has been updated to
   `6.6 <https://www.smartmontools.org/browser/tags/RELEASE_6_6/smartmontools/NEWS>`__.
 
+* The :guilabel:`Factory Restore` button in
+  :menuselection:`System --> General` has been renamed to
+  :guilabel:`Reset Configuration to Defaults`.
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
