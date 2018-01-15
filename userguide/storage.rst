@@ -588,24 +588,23 @@ Selecting an existing ZFS volume in the tree and clicking
 #ifdef truenas
 .. _tn_dataset1:
 
-.. figure:: images/tn_dataset1b.png
+.. figure:: images/tn_storage-dataset.png
 
    Creating a ZFS Dataset
 #endif truenas
 
 
 :numref:`Table %s <zfs_dataset_opts_tab>`
-summarizes the options available when creating a ZFS
-dataset. Some settings are only available in
-:guilabel:`Advanced Mode`. To see these settings, either click the
-:guilabel:`Advanced Mode` button, or configure the system to always
-display these settings by checking the box
+shows the options available when creating a dataset. Some settings are
+only available in :guilabel:`Advanced Mode`. To see these settings,
+either click the :guilabel:`Advanced Mode` button, or configure the
+system to always display advanced settings by checking the box
 :guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
 Most attributes, except for the :guilabel:`Dataset Name`,
 :guilabel:`Case Sensitivity`, and :guilabel:`Record Size`, can be
 changed after dataset creation by highlighting the dataset name and
-clicking its :guilabel:`Edit Options` button in
+clicking the :guilabel:`Edit Options` button in
 :menuselection:`Storage --> Volumes`.
 
 
