@@ -114,7 +114,7 @@ is shown in
 .. _system_general_fig:
 
 #ifdef freenas
-.. figure:: images/system-general1.png
+.. figure:: images/system-general.png
 
    General Screen
 #endif freenas
