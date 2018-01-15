@@ -1136,29 +1136,35 @@ the :guilabel:`Status`, whether it is mounted as read-only, and any
 
 
 Clicking the entry for a pool causes several buttons to appear at the
-bottom of the screen. The buttons perform these actions:
+bottom of the screen.
 
-**Detach Volume:** allows you to either export the pool or to delete
-the contents of the pool, depending upon the choice you make in the
-screen shown in
+
+#ifdef truenas
+.. note:: When the system has :ref:`High Availability (HA) <Failover>`
+   active, volumes cannot be exported or destroyed.
+#endif truenas
+
+
+**Detach Volume:** allows exporting the pool or deleting the contents
+of the pool, depending upon the choice made in thescreen shown in
 :numref:`Figure %s <zfs_detach_vol_fig>`.
 The :guilabel:`Detach Volume` screen displays the current used space
-and indicates if there are any shares, provides checkboxes to
+and indicates whether there are any shares, provides checkboxes to
 :guilabel:`Mark the disks as new (destroy data)` and to
-:guilabel:`Also delete the share's configuration`, asks if you are
-sure that you want to do this, and the browser will turn red to alert
-you that you are about to do something that will make the data
-inaccessible.
-**If you do not check the box to mark the disks as new, the volume
-will be exported.** This means that the data is not destroyed and the
-volume can be re-imported at a later time. If you will be moving a ZFS
-pool from one system to another, perform this export action first as
-it flushes any unwritten data to disk, writes data to the disk
-indicating that the export was done, and removes all knowledge of the
-pool from the system. **If you do check the box to mark the disks as
-new, the pool and all the data in its datasets, zvols, and shares will
-be destroyed and the underlying disks will be returned to their raw
-state.**
+:guilabel:`Also delete the share's configuration`, and asks if you are
+sure about doing this. The browser window turns red to indicate that
+some choices will make the data inaccessible.
+**When the box to mark the disks as new is left unchecked, the volume
+is exported.** The data is not destroyed and the volume can be
+re-imported at a later time. When moving a ZFS pool from one system to
+another, perform this export action first as it flushes any unwritten
+data to disk, writes data to the disk indicating that the export was
+done, and removes all knowledge of the pool from the system.
+
+**When the box to mark the disks as new is checked, the pool and all
+the data in its datasets, zvols, and shares is destroyed and the
+individual disks are returned to their raw state. Desired data must
+be backed up to another disk or device before using this option.**
 
 
   .. _zfs_detach_vol_fig:
