@@ -209,7 +209,7 @@ not accessible.
 
 .. _console_setup_menu_fig:
 
-.. figure:: images/tn_console1.png
+.. figure:: images/console-menu.png
 
    Console Setup Menu
 
@@ -264,7 +264,7 @@ will be applied immediately and access to the GUI is not required.
 
 **11) Reboot:** reboot the system.
 
-**12) Shutdown:** shut down the system.
+**12) Shut Down:** shut down the system.
 
 .. note:: The numbering and quantity of options on this menu can
    change due to software updates, service agreements, or other
@@ -287,7 +287,7 @@ value is *truenas.local*.
 
 If the %brand% server is not connected to a network with a DHCP
 server, the console network menu can be used to manually
-configure the interface as seen in
+configure the interface as shown in
 :ref:`Example: Manually Setting an IP Address from the Console Menu
 <quick_manual_ip_topic>`.
 In this example, the %brand% system has one network interface, *em0*.
