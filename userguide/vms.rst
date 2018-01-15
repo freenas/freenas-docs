@@ -1,18 +1,19 @@
 .. index:: VMs
 .. _VMs:
 
-VMs
-===
+Virtual Machines
+================
 
 A Virtual Machine (*VM*) is an environment on a host computer that
 can be used as if it were a separate physical computer. VMs can be
-used to run multiple operating systems simultaneously. Operating
-systems running inside a VM see emulated virtual hardware rather than
-the actual hardware of the host computer. This provides more isolation
-than :ref:`Jails`, although there is additional overhead. A portion of
-system RAM is assigned to each VM, and each VM uses a
-:ref:`zvol <Create zvol>` for storage. While a VM is running, these
-resources are not available to the host computer or other VMs.
+used to run multiple operating systems simultaneously on a single
+computer. Operating systems running inside a VM see emulated virtual
+hardware rather than the actual hardware of the host computer. This
+provides more isolation than :ref:`Jails`, although there is
+additional overhead. A portion of system RAM is assigned to each VM,
+and each VM uses a :ref:`zvol <Create zvol>` for storage. While a VM
+is running, these resources are not available to the host computer or
+other VMs.
 
 %brand% VMs use the
 `bhyve(8)
