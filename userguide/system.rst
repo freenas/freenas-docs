@@ -384,7 +384,7 @@ Each boot environment entry contains this information:
   entry's :guilabel:`Keep` button if that boot environment should not
   be automatically pruned.
 
-Highlight an entry to view its configuration buttons.  These
+Highlight an entry to view the configuration buttons for it.  These
 configuration buttons are shown:
 
 * **Rename:** used to change the name of the boot environment.
@@ -2393,23 +2393,28 @@ screen:
 After the network configuration is complete, log out and log back in,
 this time using the :guilabel:`Virtual IP` address. Volumes and shares
 can now be configured as usual and configuration automatically
-synchronizes between the active and the standby node. A
-:guilabel:`HA Enabled` icon is added after the :guilabel:`Alert` icon
-on the active node. The passive or standby node indicates the virtual
-IP address that is used for configuration management. The standby node
-also has a red :guilabel:`Standby` icon and no longer accepts logins
-as all configuration changes must occur on the active node.
+synchronizes between the active and the standby node.
+
+The passive or standby node indicates the virtual IP address that is
+used for configuration management. The standby node also has a red
+:guilabel:`Standby` icon and no longer accepts logins as all
+configuration changes must occur on the active node.
 
 
 .. note:: After the :guilabel:`Virtual IP` address is configured, all
    subsequent logins should use that address.
 
+After HA has been configured, an :guilabel:`HA Enabled` icon is shown
+to the right of the :guilabel:`Alert` icon on the active node.
 
 When HA has been disabled by the system administrator, the status icon
 changes to :guilabel:`HA Disabled`. If the standby node is not
 available because it is powered off, still starting up, or is
 disconnected from the network, or if failover has not been configured,
 the status icon changes to :guilabel:`HA Unavailable`.
+
+The icon is red when HA is starting up, disabled, or has encountered a
+problem. When HA is functioning normally, the icon turns green.
 
 The options available in
 :menuselection:`System --> Failover`
