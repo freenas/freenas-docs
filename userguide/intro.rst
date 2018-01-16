@@ -195,6 +195,8 @@ These major features are new in this version:
 
   * support for non-US keyboards.
 
+  * the ability to restart a VM and to clone a VM.
+
   * the ability to specify the NIC used by the VM as well as the MAC
     address for the VM NIC. These options can be set with
     :menuselection:`VMs --> Devices --> Network Interface`.
