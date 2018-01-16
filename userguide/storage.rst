@@ -966,11 +966,12 @@ supported or if it needs to be loaded using :ref:`Tunables`.
 Importing an Encrypted Pool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you are importing an existing GELI-encrypted ZFS pool, you must
-decrypt the disks before importing the pool. In
+Disks in existing GELI-encrypted ZFS pools must be decrypted before
+importing the pool. In the Import Volume dialog shown in
 :numref:`Figure %s <zfs_import_vol_fig>`,
-select :guilabel:`Yes: Decrypt disks` to access the screen shown in
-:numref:`Figure %s <zfs_decrypt_import_fig>`.
+select :guilabel:`Yes: Decrypt disks`. The screen shown in
+:numref:`Figure %s <zfs_decrypt_import_fig>`
+is then displayed.
 
 
 .. _zfs_decrypt_import_fig:
@@ -981,7 +982,7 @@ select :guilabel:`Yes: Decrypt disks` to access the screen shown in
 
 
 Select the disks in the encrypted pool, browse to the location of the
-saved encryption key, input the passphrase associated with the key,
+saved encryption key, enter the passphrase associated with the key,
 then click :guilabel:`OK` to decrypt the disks.
 
 .. note:: The encryption key is required to decrypt the pool. If the
@@ -992,9 +993,21 @@ then click :guilabel:`OK` to decrypt the disks.
    :ref:`Managing Encrypted Volumes` for instructions on how to
    manage the keys for encrypted volumes.
 
-Once the pool is decrypted, it will appear in the drop-down menu of
+After the pool is decrypted, it appears in the drop-down menu of
 :numref:`Figure %s <zfs_import_nonencrypt_fig>`.
 Click the :guilabel:`OK` button to finish the volume import.
+
+.. note:: For security reasons, GELI keys for encrypted volumes are
+   not saved in a configuration backup file. When %brand% has been
+   installed to a new device and a saved configuration file restored
+   to it, the GELI keys for encrypted disks will not be present, and
+   the system will not request them. To correct this, export the
+   encrypted volume with Detach Volume, making sure that the
+   checkboxes which clear data are **not** selected
+   (there are no check marks on :guilabel:`Mark the disks as new
+   (destroy data)` or :guilabel:`Also delete the share's
+   configuration`). Then import the volume again. During the import,
+   the GELI keys can be entered as described above.
 
 
 .. _View Disks:
