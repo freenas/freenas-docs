@@ -52,7 +52,7 @@ shown in
 
 .. _vms_add_fig:
 
-.. figure:: images/vms-add1a.png
+.. figure:: images/vms-add.png
 
    Add VM
 
@@ -74,6 +74,9 @@ VM configuration options are described in
    | Setting           | Value          | Description                                                                        |
    |                   |                |                                                                                    |
    +===================+================+====================================================================================+
+   | VM Type           | drop-down menu | type of VM, either *Virtual Machine* for a typical instance, or *Docker VM*        |
+   |                   |                | for a special VM to run Docker                                                     |
+   +-------------------+----------------+------------------------------------------------------------------------------------+
    | Name              | string         | a name to identify the VM                                                          |
    |                   |                |                                                                                    |
    +-------------------+----------------+------------------------------------------------------------------------------------+
@@ -284,13 +287,38 @@ with a mouse click:
 
 
 The name, description, running state, VNC port (if present), and other
-configuration values are shown. A :guilabel:`Start` button is shown
-when the VM is not running. Click this to start the VM. If a VNC port
-is present, use VNC client software to connect to that port for screen
-output and keyboard and mouse input.
+configuration values are shown. Click on an individual VM for
+additional options.
 
-On running VMs, the button is shown as :guilabel:`Stop`, and used,
-unsurprisingly, to stop them.
+Some standard buttons are shown for all VMs:
+
+* :guilabel:`Edit` changes VM settings.
+
+* :guilabel:`Delete` removes the VM.
+
+* :guilabel:`Devices` is used to add and remove devices to this VM.
+
+
+When a VM is not running, these buttons are shown:
+
+* :guilabel:`Start` starts the VM.
+
+* :guilabel:`Clone` *clones* or copies the VM to a new VM. The new VM
+  is given the same name as the original, with *_cloneN* appended.
+
+
+When a VM is already running, these buttons are shown:
+
+* :guilabel:`Stop` shuts down the VM.
+
+* :guilabel:`Power off` immediately halts the VM, equivalent to
+  disconnecting the power on a physical computer.
+
+* :guilabel:`Restart` restarts the VM.
+
+* :guilabel:`Vnc via Web` starts a web VNC connection to the VM. The
+  VM must have a VNC device, and :guilabel:`VNC Web` enabled in that
+  device.
 
 
 .. index: Docker/Rancher VM
