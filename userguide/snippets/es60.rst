@@ -36,6 +36,7 @@ Carefully unpack the shipping boxes and locate these components:
    |                                            | drives (shipped separately from the ES60)   |
    +--------------------------------------------+---------------------------------------------+
    | .. image:: images/tn_es60_powercords.png   | .. image:: images/tn_sascables_minihd.png   |
+   |                                            |    :width: 50%                              |
    |                                            |                                             |
    | Two IEC C13 to NEMA 5-15P power cords,     | Two 3-meter Mini SAS HD to Mini SAS HD      |
    | two IEC C14 to C14 power cords             | cables                                      |
@@ -143,7 +144,7 @@ rails. Align the cabinet rail with the inside of the front rack rail
 and slide the cabinet rail forward until it is fully seated inside the
 rack rail. Repeat the process for the second rail.
 
-.. figure: <sj-storage: IMG_6428 or IMG_6463>
+.. figure: images/tn_es60_cabinet_mount.png
 
 
 When both cabinet rails are secured inside the rack rails, carefully
@@ -151,7 +152,7 @@ slide the chassis until the ears are flush with the front of the rack.
 Turn both blue screws on the ears of the chassis to the right to
 secure the unit in the rack.
 
-.. figure: <sj-storage: IMG_6080_copy_working_copy.psd>
+.. figure: images/tn_es60_cabinet_secure.png
 
 
 Drive Tray Installation
@@ -168,7 +169,7 @@ Remove Top Cover
 Turn the blue screws counterclockwise to unlock the top cover. Slide
 the top cover toward the front of the system, then lift to remove it.
 
-.. figure: <sj-storage: IMG_6226.png>
+.. figure: images/tn_es60_remove_cover.png
 
 
 Install Drive Trays
@@ -188,14 +189,10 @@ to move into place, then push it the rest of the way until the handle
 locks into place.
 
 
-.. figure:
+.. figure: images/tn_es60_drivetray_install.png
 
 
-.. note:: Drives are not numbered and can be installed in any
-   available bay.
-
-
-.. figure: <sj-storage: IMG_6190drive_install_machup_es60.xcf>
+.. note:: install flash drives first (see X10).
 
 
 Connect Power Cords
@@ -227,25 +224,23 @@ Shut down and power off the ES60.
 
 .. <more text required, see Wiring Guide>
 
-.. figure: <sj-storage: IMG_8962gimp.xcf - remove mark number circles>
-
 
 Install Bezel (Optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The included bezel is not required for operation. If desired, install
-the bezel by lining up the two holes on each side of the bezel with
-the back of the ears on the ES60. Attach a screw on one side, then the
-next diagonally on the opposite side. Follow this pattern for the
-remaining screws.
+The included bezel is not required for operation.
 
+Line up the screw holes on the back of the bezel with the screw holes
+on the ears of the ES60. Install one upper screw from the back side of
+the left ES60 ear, then install a lower screw from the back of the
+right ES60 ear. Install the remaining two screws following the same
+diagonal pattern.
 
-.. figure:
 
 ES60 Cable Managment Arm (Optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The included cable management arm (CBA) is not required for operation.
+The included cable management arm (CMA) is not required for operation.
 If desired, the CBA is used to organize the ES60 power cords and other
 cables.
 
