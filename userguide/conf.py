@@ -21,7 +21,7 @@ source_suffix = '.rst'
 #source_encoding = 'utf-8-sig'
 
 # General information about the project.
-copyright = '2011-2017, iXsystems'
+copyright = '2011-2018, iXsystems'
 
 # Version info for the project being documented, acts as replacement for
 # |version| and |release|, also used in various other places throughout
@@ -251,7 +251,7 @@ if tags.has('truenas'):
     epub_title = u'TrueNAS® User Guide'
 epub_author = u'iXsystems'
 epub_publisher = u'iXsystems'
-epub_copyright = u'2011-2017, iXsystems'
+epub_copyright = u'2011-2018, iXsystems'
 
 # The basename for the epub file. It defaults to the project name.
 epub_basename = u'freenas_userguide'
