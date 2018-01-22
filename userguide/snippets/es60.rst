@@ -237,25 +237,24 @@ right ES60 ear. Install the remaining two screws following the same
 diagonal pattern.
 
 
-ES60 Cable Managment Arm (Optional)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ES60 Cable Managment Arm
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 The included cable management arm (CMA) is not required for operation.
-If desired, the CBA is used to organize the ES60 power cords and other
-cables.
+If desired, the CMA can be used to organize the ES60 power cords and
+other cables.
 
 
 Install the Cable Management Arm
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-On the rear side of the ES60, locate the two pin posts on the left
-side. Align the holes on the bracket of the cable management arm with
-the posts on the chassis. Slide the cable management arm forward and
-pull the lever on the latch upwards to lock the cable management arm
-into place.
+Locate the two posts on the left rear side of the ES60. Align the
+holes on the CMA bracket with the posts on the chassis. Slide the
+cable management arm forward and pull the lever on the latch upwards
+to lock the bracket into place.
 
 
-.. figure:
+.. figure:: images/tn_es60_arm_clip.png
 
 
 Remove the two screws already attached to the side of the cable
