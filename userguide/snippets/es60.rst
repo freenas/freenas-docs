@@ -245,6 +245,9 @@ If desired, the CMA can be used to organize the ES60 power cords and
 other cables.
 
 
+.. figure:: images/tn_es60_arm_parts.png
+
+
 Install the Cable Management Arm
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
