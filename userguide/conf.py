@@ -338,7 +338,7 @@ PREAMBLE = PREAMBLE + r'''
 % FreeNAS/TrueNAS LaTeX preamble
 \usepackage[tmargin=.75in, bmargin=.75in, lmargin=0.5in, rmargin=0.5in]{geometry}
 \usepackage[default,scale=0.95]{opensans}
-\usepackage[T1]{fontenc}
+\usepackage[T1,T2A]{fontenc}
 \usepackage{color}
 \usepackage{tikz}
 \usetikzlibrary{calc}
