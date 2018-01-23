@@ -282,12 +282,12 @@ such volumes before using them in production.
 .. note:: Processors with support for the
    `AES-NI <https://en.wikipedia.org/wiki/AES-NI#Supporting_CPUs>`__
    instruction set are strongly recommended. These processors can
-   handle encryption of several disks with negligible performance
-   loss. Older processors without the AES-NI instructions see
-   significant performance impact with even a single encrypted disk.
-   This
-   `forum post
-   <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__
+   handle encryption of a small number of disks with negligible
+   performance impact. They also retain performance better as the
+   number of disks increases. Older processors without the AES-NI
+   instructions see significant performance impact with even a single
+   encrypted disk. This `forum post
+   <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__ 
    compares the performance of various processors.
 #endif freenas
 
