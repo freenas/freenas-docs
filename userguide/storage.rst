@@ -209,7 +209,12 @@ the details when considering whether encryption is right for your
 
 * This is full disk encryption and **not** per-filesystem encryption.
   The underlying drives are first encrypted, then the pool is created
-  on top of the encrypted devices.
+  on top of the encrypted devices. As data is written, it is automatically 
+  encrypted, and as data is read, it is decrypted on the fly. 
+
+* Data in memory, including ARC, is **not** encrypted. ZFS data on disk,
+  including ZIL and SLOG, are encrypted if the underlying disks **are** 
+  encrypted. Swap data on disk is **always** encrypted.
 
 * This type of encryption is primarily targeted at users who store
   sensitive data and want to retain the ability to remove disks from
@@ -225,27 +230,9 @@ the details when considering whether encryption is right for your
   inaccessible. Always back up the key!
 
 * The encryption key is per ZFS volume (pool). Multiple pools each
-  have their own encryption key.
-
-#ifdef freenas
-* If the system has a lot of disks, performance will suffer if the CPU
-  does not support
-  `AES-NI <https://en.wikipedia.org/wiki/AES-NI#Supporting_CPUs>`_
-  or if no crypto hardware is installed. Without hardware
-  acceleration, there will be about a 20% performance decrease for a
-  single disk. Performance degradation increases with more disks. As
-  data is written, it is automatically encrypted. As data is read, it
-  is decrypted on the fly. If the processor supports the AES-NI
-  instruction set, there is very little, if any, degradation in
-  performance when using encryption. This
-  `forum post
-  <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__
-  compares the performance of various CPUs.
-#endif freenas
-
-* Data in the ARC cache and the contents of RAM are unencrypted.
-
-* Swap is always encrypted, even on unencrypted volumes.
+  have their own encryption key. Technical details about how encryption
+  keys are used, stored and managed within %brand% can be found in
+  `this forum post <https://forums.freenas.org/index.php?threads/recover-encryption-key.16593/#post-85497>`_.
 
 * There is no way to convert an existing, unencrypted volume. Instead,
   the data must be backed up, the existing pool destroyed, a new
@@ -256,12 +243,15 @@ the details when considering whether encryption is right for your
   Volume Manager automatically encrypts the new vdev being added to
   the existing encrypted pool.
 
-* The more drives in an encrypted volume, the more encryption and
-  decryption overhead. **Encrypted volumes composed of more than eight
-  drives can suffer severe performance penalties, even with AES-NI
-  encryption acceleration**. If encryption is desired, please
-  benchmark such volumes before using them in production.
-
+* The impact of encryption upon performance can be negligible or 
+  significant, depending upon 
+#ifdef freenas
+  the number of disks, and the CPU's capabilities. 
+#endif freenas
+#ifdef truenas
+  the number of disks. 
+#endif truenas
+  See :ref:`Encryption performance`.
 
 .. note:: The encryption facility used by %brand% is designed to
    protect against physical theft of the disks. It is not designed to
@@ -279,6 +269,39 @@ A pop-up message shows a reminder that
 the key, the data on the disks is inaccessible. Refer to
 :ref:`Managing Encrypted Volumes` for instructions.
 
+.. _Encryption performance:
+
+Encryption performance
+^^^^^^^^^^^^^^^^^^^^^^
+
+#ifdef freenas
+If the processor supports the 
+`AES-NI <https://en.wikipedia.org/wiki/AES-NI#Supporting_CPUs>`_
+instruction set, there is very little, if any, degradation in
+performance when using encryption and only a few disks.
+Performance will suffer if the CPU does not support AES-NI or if 
+no crypto hardware is installed.  Without hardware acceleration,
+there will be about a 20% performance decrease for a single disk. 
+This `forum post <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__
+compares the performance of various CPUs.
+#endif freenas
+
+#ifdef freenas
+Performance also depends upon the number of disks encrypted.
+The more drives in an encrypted volume, the more encryption and
+decryption overhead, and the greater the impact on performance. 
+**Encrypted volumes composed of more than eight drives can suffer 
+severe performance penalties, even with AES-NI encryption acceleration**.
+#endif freenas
+#ifdef truenas
+Performance depends upon the number of disks encrypted.
+The more drives in an encrypted volume, the more encryption and
+decryption overhead, and the greater the impact on performance. 
+**Encrypted volumes composed of more than eight
+drives can suffer severe performance penalties**. 
+#endif truenas
+If encryption is desired, please
+benchmark such volumes before using them in production.
 
 .. _Manual Setup:
 
@@ -1297,6 +1320,53 @@ changed, and destroying a zvol requires confirmation.
 
 Managing Encrypted Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+%brand% automatically generates a randomized **encryption key** 
+whenever a new encrypted volume is created. %brand% needs this key 
+to read and decrypt any data (or any other information) within the volume.
+
+By default, encryption keys will be stored locally within %brand%'s data 
+files. They can also be downloaded as a safety measure, to allow
+decryption on a different system in the event of failure, or to allow
+the locally stored key to be deleted for extra security. Encryption keys
+can also be optionally protected with a **passphrase**. The security 
+implications are:
+
+* *Key stored locally, no passphrase* - data is automatically decrypted 
+  and always accessible when system running. (Protects "data at rest" only.)
+
+* *Key stored locally, with passphrase* - user must provide passphrase
+  before anyone can access data.
+
+* *Key not stored locally* - user must provide key before anyone can access
+  data. If a passphrase is set, this must **also** be provided before data 
+  can be accessed (`two factor authentication <https://en.wikipedia.org/wiki/Multi-factor_authentication>`_).
+
+Data stored on an encrypted volume disk is **always encrypted**. Data to be 
+written to an encrypted volume is encrypted when written to the LOG disk (ZIL),
+but is **not** stored encrypted in L2ARC, if present. With the exception of L2ARC, 
+decrypted data **cannot be accessed** when the disks are removed, the system
+has been shut down, or (on a running system) when the volume is 'locked' and
+the key is unavailable. If the key is protected with a passphrase, then data
+cannot be decrypted without having both key and passphrase. Decryption is 
+per-volume not per-user, so when a volume is unlocked, data will be decrypted
+for *any* user whose permissions allow them to access it.
+
+.. note:: By design, `GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`_
+   uses *two* randomized encryption keys for each disk. One is the key discussed
+   in this guide. The other, called the disk's "master key", is stored on the
+   disk itself, in a strongly encrypted form which the user never sees. Loss of 
+   a disk's master key due to disk corruption would be equivalent to any other
+   disk failure, and in a redundant pool, other disks will contain accessible 
+   copies of the uncorrupted data.
+   Therefore, while it is *possible* to separately back up any master keys, 
+   it is not usually considered necessary or useful to do so.
+
+
+.. _Additional Controls for Encrypted Volumes:
+
+Additional Controls for Encrypted Volumes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If the :guilabel:`Encryption` box is checked during the creation of a
 pool, additional buttons appear in the entry for the volume in
