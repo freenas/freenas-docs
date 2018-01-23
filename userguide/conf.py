@@ -21,7 +21,7 @@ source_suffix = '.rst'
 #source_encoding = 'utf-8-sig'
 
 # General information about the project.
-copyright = '2011-2017, iXsystems'
+copyright = '2011-2018, iXsystems'
 
 # Version info for the project being documented, acts as replacement for
 # |version| and |release|, also used in various other places throughout
@@ -29,15 +29,15 @@ copyright = '2011-2017, iXsystems'
 #
 
 # VERSION is the LONG, FULL version number with all patch levels, like "11.0-U1"
-version = '11.1-RELEASE'
+version = '11.1-U1'
 # RELEASE is the short major release number ONLY, like "11.0"
 release = '11.1'
 
 if tags.has('truenas'):
     # VERSION is the LONG, FULL, version number
-    version = '11.0-U4'
+    version = '11.1-U1'
     # RELEASE is the short major release number ONLY
-    release = '11.0'
+    release = '11.1'
 
 # exclude_patterns is a list of patterns relative to the source directory
 # that match files and directories to ignore when looking for source files.
@@ -251,7 +251,7 @@ if tags.has('truenas'):
     epub_title = u'TrueNAS® User Guide'
 epub_author = u'iXsystems'
 epub_publisher = u'iXsystems'
-epub_copyright = u'2011-2017, iXsystems'
+epub_copyright = u'2011-2018, iXsystems'
 
 # The basename for the epub file. It defaults to the project name.
 epub_basename = u'freenas_userguide'

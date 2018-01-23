@@ -53,6 +53,10 @@ The System section of the administrative GUI contains these entries:
 #endif truenas
 
 #ifdef truenas
+* :ref:`View Enclosure`: view status of disk enclosures.
+#endif truenas
+
+#ifdef truenas
 * :ref:`Failover`: manage High Availability.
 #endif truenas
 
@@ -92,7 +96,7 @@ add *.local* after the hostname.
    System Information Tab
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-information1a.png
+.. figure:: images/tn_system-information.png
 
    System Information Tab
 #endif truenas
@@ -110,12 +114,12 @@ is shown in
 .. _system_general_fig:
 
 #ifdef freenas
-.. figure:: images/system-general1.png
+.. figure:: images/system-general.png
 
    General Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-general1a.png
+.. figure:: images/tn_system-general.png
 
    General Screen
 #endif truenas
@@ -194,12 +198,12 @@ After making any changes, click the :guilabel:`Save` button.
 
 This screen also contains these buttons:
 
-**Factory Restore:** reset the configuration database to the default
-base version. However, this does not delete user SSH keys or any other
-data stored in a user's home directory. Since any configuration
-changes stored in the configuration database will be erased, this
-option is useful when a mistake has been made or to return a test
-system to the original configuration.
+**Reset Configuration to Defaults:** reset the configuration database
+to the default base version. This does not delete user SSH keys or any
+other data stored in a user's home directory. Since configuration
+changes stored in the configuration database are erased, this option
+is useful when a mistake has been made or to return a test system to
+the original configuration.
 
 **Save Config:** save a backup copy of the current configuration
 database in the format *hostname-version-architecture* to the computer
@@ -269,7 +273,7 @@ explains these options in more detail.
 
 .. _ntp_server_fig:
 
-.. figure:: images/ntp1.png
+.. figure:: images/system-general-ntp.png
 
    Add an NTP Server
 
@@ -359,7 +363,7 @@ the :ref:`Wizard` was run.
    Viewing Boot Environments
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-bootenv1a.png
+.. figure:: images/tn_system-boot.png
 
    Viewing Boot Environments
 #endif truenas
@@ -380,7 +384,7 @@ Each boot environment entry contains this information:
   entry's :guilabel:`Keep` button if that boot environment should not
   be automatically pruned.
 
-Highlight an entry to view its configuration buttons.  These
+Highlight an entry to view the configuration buttons for it.  These
 configuration buttons are shown:
 
 * **Rename:** used to change the name of the boot environment.
@@ -503,11 +507,13 @@ another device to create a mirrored boot device. This way, if one
 device fails, the system still has a copy of the boot file system and
 can be configured to boot from the remaining device in the mirror.
 
-.. note:: When adding another boot device, it must be the same size
-   (or larger) as the existing boot device. Different models of USB
-   devices which advertise the same size may not necessarily be the
-   same size. For this reason, it is recommended to use the same model
-   of USB drive.
+.. note:: When adding another boot device for a mirror, the new device
+   must have at least the same capacity as the existing boot device.
+   Larger capacity devices can be added, but the mirror will only have
+   the capacity of the smallest device. Different models of devices
+   which advertise the same nominal size are not necessarily the same
+   actual size. For this reason, adding another of the same model of
+   boot device is recommended.
 
 In the example shown in
 :numref:`Figure %s <mirror_boot_dev_fig>`,
@@ -520,24 +526,38 @@ word *stripe*. To create a mirrored boot device, click either the
 entry called *freenas-boot* or *stripe*, then click the
 :guilabel:`Attach` button. If another device is available, it appears
 in the :guilabel:`Member disk` drop-down menu. Select the desired
-device, then click :guilabel:`Attach Disk`.
+device.
+
+The :guilabel:`Use all disk space` checkbox gives control of how much
+of the new device is made available to ZFS. The default is unchecked,
+and the new device will be partitioned to the same size as the
+existing device. If either device in the mirror fails, it can be
+replaced with another of the same size as the original boot device.
+
+When :guilabel:`Use all disk space` is checked, the entire capacity of
+the new device is used. If the original boot device fails and is
+removed, the boot mirror will consist of just the newer drive, and
+will grow to whatever capacity it provides. However, new devices added
+to this mirror must now be as large as the new capacity.
+
+Click :guilabel:`Attach Disk` to attach the new disk to the mirror.
 
 
 .. _mirror_boot_dev_fig:
 
-.. figure:: images/mirror1.png
+.. figure:: images/system-boot-mirror1.png
 
    Mirroring a Boot Device
 
 
-Once the mirror is created, the :guilabel:`Status` screen indicates
+After the mirror is created, the :guilabel:`Status` screen indicates
 that it is now a *mirror*. The number of devices in the mirror are
 shown, as seen in the example in
 :numref:`Figure %s <mirror_boot_status_fig>`.
 
 .. _mirror_boot_status_fig:
 
-.. figure:: images/mirror2.png
+.. figure:: images/system-boot-mirror2.png
 
    Viewing the Status of a Mirrored Boot Device
 #endif freenas
@@ -563,7 +583,7 @@ The configurable settings are summarized in
    Advanced Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-advanced1b.png
+.. figure:: images/tn_system-advanced.png
 
    Advanced Screen
 #endif truenas
@@ -762,7 +782,7 @@ shown in
    Email Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-email1a.png
+.. figure:: images/tn_system-email.png
 
    Email Screen
 #endif truenas
@@ -862,7 +882,7 @@ controller users and groups.
    System Dataset Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-system-dataset1a.png
+.. figure:: images/tn_system-system-dataset.png
 
    System Dataset Screen
 #endif truenas
@@ -892,16 +912,15 @@ To store the system log on the system dataset, check the
 :guilabel:`Syslog` box.
 
 To store the reporting information on the system dataset, check the
-:guilabel:`Reporting Database` box. Note that if this box is unchecked,
-the system will automatically create a RAM disk to prevent reporting
-information from filling up :file:`/var`.
+:guilabel:`Reporting Database` box. When this box is not checked, a
+RAM disk is created to prevent reporting information from filling up
+:file:`/var`.
 
-If you make any changes, click the :guilabel:`Save` button to save
-them.
+Click the :guilabel:`Save` button to save changes.
 
-If you change the pool storing the system dataset at a later time,
-%brand% will automatically migrate the existing data in the system
-dataset to the new location.
+If the pool storing the system dataset is changed at a later time,
+%brand% migrates the existing data in the system dataset to the new
+location.
 
 
 .. note:: Depending on configuration, the system dataset can occupy a
@@ -931,7 +950,7 @@ can be used to manage the following:
 
 #. **FreeBSD rc.conf options:**
    `rc.conf(5)
-   <https://www.freebsd.org/cgi/man.cgi?query=rc.conf&manpath=FreeBSD+11.0-RELEASE>`_
+   <https://www.freebsd.org/cgi/man.cgi?query=rc.conf&manpath=FreeBSD+11.0-RELEASE>`__
    is used to pass system configuration options to the system startup
    scripts as the system boots. Since %brand% has been optimized for
    storage, not all of the services mentioned in rc.conf(5) are
@@ -960,7 +979,7 @@ to access the screen shown in seen in
 
 .. _add_tunable_fig:
 
-.. figure:: images/tunable.png
+.. figure:: images/system-tunables-add.png
 
    Adding a Tunable
 
@@ -1070,10 +1089,15 @@ installed. %brand% |release| ships with these loaders set:
    hw.hptrr.attach_generic=0
    vfs.mountroot.timeout="30"
    ispfw_load="YES"
+   freenas_sysctl_load="YES"
    hint.isp.0.role=2
    hint.isp.1.role=2
    hint.isp.2.role=2
    hint.isp.3.role=2
+   hint.isp.0.topology="nport-only"
+   hint.isp.1.topology="nport-only"
+   hint.isp.2.topology="nport-only"
+   hint.isp.3.topology="nport-only"
    module_path="/boot/kernel;/boot/modules;/usr/local/modules"
    net.inet6.ip6.auto_linklocal="0"
    vfs.zfs.vol.mode=2
@@ -1081,7 +1105,13 @@ installed. %brand% |release| ships with these loaders set:
    hint.ahciem.0.disabled="1"
    hint.ahciem.1.disabled="1"
    kern.msgbufsize="524288"
+   hw.mfi.mrsas_enable="1"
    hw.usb.no_shutdown_wait=1
+   hw.cxgbe.toecaps_allowed=0
+   hw.cxgbe.rdmacaps_allowed=0
+   hw.cxgbe.iscsicaps_allowed=0
+   vfs.nfsd.fha.write=0
+   vfs.nfsd.fha.max_nfsds_per_fh=32
 #endif freenas
 #ifdef truenas
 .. code-block:: none
@@ -1096,6 +1126,11 @@ installed. %brand% |release| ships with these loaders set:
    debug.ddb.textdump.pending=1
    hw.hptrr.attach_generic=0
    ispfw_load="YES"
+   freenas_sysctl_load="YES"
+   hint.isp.0.topology="nport-only"
+   hint.isp.1.topology="nport-only"
+   hint.isp.2.topology="nport-only"
+   hint.isp.3.topology="nport-only"
    module_path="/boot/kernel;/boot/modules;/usr/local/modules"
    net.inet6.ip6.auto_linklocal="0"
    vfs.zfs.vol.mode=2
@@ -1103,6 +1138,11 @@ installed. %brand% |release| ships with these loaders set:
    hint.ahciem.0.disabled="1"
    hint.ahciem.1.disabled="1"
    kern.msgbufsize="524288"
+   hw.cxgbe.toecaps_allowed=0
+   hw.cxgbe.rdmacaps_allowed=0
+   hw.cxgbe.iscsicaps_allowed=0
+   vfs.nfsd.fha.write=0
+   vfs.nfsd.fha.max_nfsds_per_fh=32
    kern.ipc.nmbclusters="262144"
    kern.hwpmc.nbuffers="4096"
    kern.hwpmc.nsamples="4096"
@@ -1111,7 +1151,7 @@ installed. %brand% |release| ships with these loaders set:
    kern.cam.ctl.ha_mode=2
    kern.geom.label.ufs.enable=0
    kern.geom.label.ufsid.enable=0
-   hint.ntb_hw.0.config="ntb_nvdimm:1:4:0,ntb_transport"
+   hint.ntb_hw.0.config="ntb_pmem:1:4:0,ntb_transport"
    hint.ntb_transport.0.config=":3"
    hw.ntb.msix_mw_idx="-1"
 #endif truenas
@@ -1302,11 +1342,11 @@ firewall restrictions.
 #ifdef truenas
 **For Production Use**
 
-* **TrueNAS-11.0-STABLE** (Recommended)
+* **TrueNAS-11-STABLE** (Recommended)
 
   After new fixes and features have been tested as production-ready,
-  they are added to this train. It is recommended to follow this train
-  and to apply any pending updates from it.
+  they are added to this train. Following this train  and applying any
+  pending updates from it is recommended.
 
 **Legacy Versions**
 
@@ -2101,7 +2141,7 @@ requests.
 
 .. _tn_support1:
 
-.. figure:: images/tn_system-support1a.png
+.. figure:: images/tn_system-support.png
 
    Support Tab
 
@@ -2177,7 +2217,7 @@ hardware conditions on the system require attention.
 
 .. _tn_proactive_support:
 
-.. figure:: images/tn_system-proactive-support1a.png
+.. figure:: images/tn_system-proactive-support.png
 
    Proactive Support Tab
 
@@ -2214,6 +2254,46 @@ To enable Proactive Support, complete the fields, make sure the
 checked, then click :guilabel:`Save`.
 
 
+.. _View Enclosure:
+
+View Enclosure
+--------------
+
+Click
+:menuselection:`Storage --> Volumes --> View Enclosure`
+to display a status summary of the connected disks and hardware. An
+example is shown in
+:numref:`Figure %s <tn_enclosure1>`.
+
+.. _tn_enclosure1:
+
+.. figure:: images/tn_system-view-enclosure.png
+
+   View Enclosure
+
+
+The screen is divided into these sections:
+
+**Array Device Slot:** has an entry for each slot in the storage
+array, indicating the current disk status and FreeBSD device name.
+To blink the status light for that disk as a visual indicator, click
+the :guilabel:`Identify` button.
+
+**Cooling:** has an entry for each fan with status and RPM.
+
+**Enclosure:** shows the status of the enclosure.
+
+**Power Supply:** shows the status of each power supply.
+
+**SAS Expander:** shows the status of the expander.
+
+**Temperature Sensor:** shows the current temperature of each expander
+and the disk chassis.
+
+**Voltage Sensor:** shows the current voltage for each sensor, VCCP,
+and VCC.
+
+
 .. index:: Failover
 
 .. _Failover:
@@ -2234,9 +2314,11 @@ active node, synchronize any configuration changes between the
 active and the standby node, and failover to the standby node
 should the active node become unavailable.
 
-.. warning:: Seamless failover is only available with iSCSI or NFS.
+
+.. warning:: Seamless failover is only available with iSCSI or NFSv4.
    Other protocols will failover, but connections will be disrupted
    by the failover event.
+
 
 To configure HA, turn on both units in the array. Use the
 instructions in the :ref:`Console Setup Menu` to log into the
@@ -2254,11 +2336,13 @@ address, peer hostname, and virtual IP can be configured. An extra
 :guilabel:`IPMI (Node A/B)` tab will also be added so that
 :ref:`IPMI` can be configured for the other unit.
 
+
 .. note:: The modified fields refer to this node as *This Node* and
    the other node as either *A* or *B*. The node value is hard-coded
    into each unit and the value that appears is automatically
    generated. For example, on node *A*, the fields refer to node *B*,
    and vice versa.
+
 
 To configure HA networking, go to
 :menuselection:`Network --> Global Configuration`.
@@ -2309,21 +2393,28 @@ screen:
 After the network configuration is complete, log out and log back in,
 this time using the :guilabel:`Virtual IP` address. Volumes and shares
 can now be configured as usual and configuration automatically
-synchronizes between the active and the standby node. A
-:guilabel:`HA Enabled` icon is added after the :guilabel:`Alert` icon
-on the active node. The passive or standby node indicates the virtual
-IP address that is used for configuration management. The standby node
-also has a red :guilabel:`Standby` icon and no longer accepts logins
-as all configuration changes must occur on the active node.
+synchronizes between the active and the standby node.
+
+The passive or standby node indicates the virtual IP address that is
+used for configuration management. The standby node also has a red
+:guilabel:`Standby` icon and no longer accepts logins as all
+configuration changes must occur on the active node.
+
 
 .. note:: After the :guilabel:`Virtual IP` address is configured, all
    subsequent logins should use that address.
+
+After HA has been configured, an :guilabel:`HA Enabled` icon is shown
+to the right of the :guilabel:`Alert` icon on the active node.
 
 When HA has been disabled by the system administrator, the status icon
 changes to :guilabel:`HA Disabled`. If the standby node is not
 available because it is powered off, still starting up, or is
 disconnected from the network, or if failover has not been configured,
 the status icon changes to :guilabel:`HA Unavailable`.
+
+The icon is red when HA is starting up, disabled, or has encountered a
+problem. When HA is functioning normally, the icon turns green.
 
 The options available in
 :menuselection:`System --> Failover`

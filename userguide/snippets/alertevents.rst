@@ -24,14 +24,14 @@ Informational messages have a green :guilabel:`OK`, warning messages
 flash yellow, and messages requiring attention are listed as a red
 :guilabel:`CRITICAL`. CRITICAL messages are also emailed to the root
 user account. If you are aware of a critical condition but wish to
-remove the flashing alert until you deal with it, uncheck the box next
-to that message.
+remove the flashing alert until it can be dealt with, uncheck the box
+next to that message.
 
 Behind the scenes, an alert daemon checks for various alert
 conditions, such as volume and disk status, and writes the current
 conditions to :file:`/var/tmp/alert`. The daemon retrieves the current
-alert status every minute and will change the solid green alert icon
-to flashing red if a new alert is detected.
+alert status every minute and changes the solid green alert icon to
+flashing red when a new alert is detected.
 
 Current alerts can also be viewed from the Shell option of the Console
 Setup Menu
@@ -46,17 +46,17 @@ a :ref:`High Availability (HA) <Failover>` system.
 
 Some of the conditions that trigger an alert include:
 
-* used space on a volume, dataset, or zvol goes over 80%; the alert will
-  go red at 95%
+* used space on a volume, dataset, or zvol goes over 80%; the alert
+  goes red at 95%
 
 * new OpenZFS feature flags are available for the pool; this alert can
-  be unchecked if you choose not to upgrade the pool at this time
+  be unchecked if a pool upgrade is not desired at present
 
 * a new update is available
 
 * the system reboots itself
 
-* non-optimal multipath states detected
+* non-optimal multipath states are detected
 
 * ZFS pool status changes from :guilabel:`HEALTHY`
 
@@ -114,6 +114,16 @@ Some of the conditions that trigger an alert include:
   fields are empty
 
 * if VMware failed to log in (usually preceding a VMware snapshot)
+
+* if an unlicensed expansion shelf is connected
+
+* if a USB storage device has been attached which could prevent
+  booting or failover
+
+* when the passive node cannot be contacted
+
+* when it is 180, 90, 30, or 14 days before support contract
+  expiration
 
 .. note:: If :ref:`Proactive Support` is enabled with Silver or Gold
    support coverage, and there is an internet connection, alerts which

@@ -1,4 +1,4 @@
-%brand% is © 2011-2017 iXsystems
+%brand% is © 2011-2018 iXsystems
 
 %brand% and the %brand% logo are registered trademarks of iXsystems
 
@@ -9,7 +9,7 @@ system.
 
 Version |release|
 
-Copyright © 2011-2017
+Copyright © 2011-2018
 `iXsystems <https://www.ixsystems.com/>`_
 
 
@@ -32,7 +32,7 @@ where you will find other %brand% users.
 The %brand% User Guide is freely available for sharing and
 redistribution under the terms of the
 `Creative Commons Attribution
-License <https://creativecommons.org/licenses/by/3.0/>`_.
+License <https://creativecommons.org/licenses/by/3.0/>`__.
 This means that you have permission to copy, distribute, translate,
 and adapt the work as long as you attribute iXsystems as the original
 source of the Guide.
@@ -110,15 +110,16 @@ These base applications and drivers have been updated or added:
   kernel module has been added to the build as some NIC drivers depend
   upon it.
 
-* There have been many improvements to OpenZFS. Users should notice a
-  significant speed difference when listing a large number of
-  snapshots or when deleting multiple snapshots and large files.
+* There have been many improvements to OpenZFS, including a
+  significant speed improvement when listing a large number of
+  snapshots and deleting multiple snapshots or large files.
 
 * The algorithm used for scrubs and resilvers has received many
-  improvements which will be most noticeable on fragmented pools.
+  improvements which are most noticeable on fragmented pools.
 
 * Samba has been patched to address
-  `these security vulnerabilities <https://www.samba.org/samba/history/samba-4.7.3>`__.
+  `these security vulnerabilities
+  <https://www.samba.org/samba/history/samba-4.7.3>`__.
 
 * The Dojo Toolkit has been updated to version 1.12.2.
 
@@ -148,8 +149,8 @@ These base applications and drivers have been updated or added:
 * `s3cmd <http://s3tools.org/s3cmd>`__
   has been added back as a CLI alternative to :ref:`S3`.
 
-* The CLI `zfs-stats <http://www.vx.sk/zfs-stats/>`_
-  utility has been added. Type :command:`zfs-stats` to see its command
+* The `zfs-stats <http://www.vx.sk/zfs-stats/>`_
+  CLI utility has been added. Type :command:`zfs-stats` to see command
   usage.
 
 * The hardware watchdog has been reenabled for recent firmware
@@ -157,32 +158,31 @@ These base applications and drivers have been updated or added:
   watchdog to be disabled is resolved with the 00.35.00 or newer BMC
   firmware version.
 
-* The system will issue an alert if the system reboots itself.
+* The system issues an alert if the system reboots itself.
 
 These major features are new in this version:
 
-* It is now possible to pause and resume scrubs from the command line.
-  Since scrub pause state and progress are periodically synced to
-  disk, if the system is restarted or pool is exported during a paused
-  scrub, the scrub will remain paused until it is resumed. When
-  resumed, the scrub picks up from the place where it was last
-  checkpointed to disk. Paused scrubs can be resumed with
-  :command:`zpool scrub`. Scrubs can be paused manually with
-  :command:`zpool scrub -p`.  A future version of %brand% will add a
-  button to the UI to resume or pause a scrub.
+* Scrubs can be paused and resumed from the command line. Scrub pause
+  state and progress are periodically synced to disk. If the system is
+  restarted or the pool is exported during a paused scrub, the scrub
+  remains paused until it is resumed. When resumed, the scrub picks up
+  from the place where it was last checkpointed to disk. Paused scrubs
+  can be resumed with :command:`zpool scrub`. Scrubs can be paused
+  manually with :command:`zpool scrub -p`.  A future version of
+  %brand% will add a button to the UI to resume or pause a scrub.
 
 * :ref:`Cloud Credentials` has been added to :ref:`System`. This can
-  be used to provide a secure connection to a cloud services
-  providers. Supported services include Amazon S3, Azure Blob Storage,
-  Backblaze B2, and Google Cloud Storage.
+  be used to provide a secure connection to a cloud service providers.
+  Supported services include Amazon S3, Azure Blob Storage, Backblaze
+  B2, and Google Cloud Storage.
 
 * :ref:`Cloud Sync` has been added to :ref:`Tasks` and can be used to
   synchronize files or directories to remote cloud storage providers
   with a specified transfer mode.
 
-* The :guilabel:`Server Side Encryption` drop-down menu has been added
-  to :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`, when an
-  S3 provider is selected.
+* The :guilabel:`Server Side Encryption` drop-down menu appears on
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`
+  when an S3 provider is selected.
 
 * :ref:`Resilver Priority` has been added to :ref:`Storage`. This
   provides the ability to run resilvering at a higher priority at
@@ -194,6 +194,8 @@ These major features are new in this version:
 * :ref:`VMs` have received significant improvements, including:
 
   * support for non-US keyboards.
+
+  * the ability to restart a VM and to clone a VM.
 
   * the ability to specify the NIC used by the VM as well as the MAC
     address for the VM NIC. These options can be set with
@@ -312,6 +314,34 @@ These screens have changed:
   :menuselection:`Services --> WebDAV --> HTTP Authentication`
   drop-down menu.
 
+.. _Changes Since |release|:
+
+Changes Since |release|
+-----------------------
+
+%brand% uses a "rolling release" model instead of point releases. The
+:ref:`Update` mechanism makes it easy to keep up-to-date with the
+latest security fixes, bug fixes, and new features. Some updates
+affect the user interface, so this section lists any functional
+changes that have occurred since |release| was released.
+
+.. note:: The screenshots in this documentation assume that the system
+   has been fully updated to the latest STABLE version of %brand%
+   |version|. If a screen on the system is not the same as shown in
+   this guide, make sure that all updates have been applied.
+
+U1
+~~
+
+* RancherOS has been updated to version
+  `1.1.3 <https://github.com/rancher/os/releases/tag/v1.1.3>`__.
+
+* Smartmontools has been updated to
+  `6.6 <https://www.smartmontools.org/browser/tags/RELEASE_6_6/smartmontools/NEWS>`__.
+
+* The :guilabel:`Factory Restore` button in
+  :menuselection:`System --> General` has been renamed to
+  :guilabel:`Reset Configuration to Defaults`.
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
@@ -366,46 +396,64 @@ RAM
 ~~~
 
 The best way to get the most out of a %brand% system is to install
-as much RAM as possible. The recommended minimum is 8 GB of RAM. The
-more RAM, the better the performance, and the
-`FreeNAS® Forums <https://forums.freenas.org/index.php>`_
-provide anecdotal evidence from users on how much performance is
+as much RAM as possible. More RAM allows ZFS to provide better
+performance. The
+`FreeNAS® Forums <https://forums.freenas.org/index.php>`__
+provide anecdotal evidence from users on how much performance can be
 gained by adding more RAM.
 
-Depending upon the use case, your system may require more RAM. Here
-are some general rules of thumb:
+General guidelines for RAM:
+
+* **A minimum of 8 GB of RAM is required.**
+
+  Additional features require additional RAM, and large amounts of
+  storage require more RAM for cache. An old, somewhat overstated
+  guideline is 1 GB of RAM per terabyte of disk capacity.
 
 * To use Active Directory with many users, add an additional 2 GB of
-  RAM for winbind's internal cache.
+  RAM for the winbind internal cache.
 
 * For iSCSI, install at least 16 GB of RAM if performance is not
   critical, or at least 32 GB of RAM if good performance is a
   requirement.
 
+* :ref:`Jails` are very memory-efficient, but can still use memory
+  that would otherwise be available for ZFS. If the system will be
+  running many jails, or a few resource-intensive jails, adding 1 to 4
+  additional gigabytes of RAM can be helpful. This memory is shared by
+  the host and will be used for ZFS when not being used by jails.
+
+* :ref:`Virtual Machines <VMs>` require additional RAM beyond any
+  amounts listed here. Memory used by virtual machines is not
+  available to the host while the VM is running, and is not included
+  in the amounts described above. For example, a system that will be
+  running two VMs that each need 1 GB of RAM requires an additional 2
+  GB of RAM.
+
 * When installing %brand% on a headless system, disable the shared
   memory settings for the video card in the BIOS.
 
-* To use ZFS deduplication, ensure the system has at least 5 GB of RAM
-  per TB of storage to be deduplicated.
+* For ZFS deduplication, ensure the system has at least 5 GB of RAM
+  per terabyte of storage to be deduplicated.
 
 
-If the hardware supports it and the budget allows for it, install ECC
-RAM. While more expensive, ECC RAM is highly recommended as it
-prevents in-flight corruption of data before the error-correcting
-properties of ZFS come into play, thus providing consistency for the
-checksumming and parity calculations performed by ZFS. If you consider
-your data important, use ECC RAM. This
+If the hardware supports it, install ECC RAM. While more expensive,
+ECC RAM is highly recommended as it prevents in-flight corruption of
+data before the error-correcting properties of ZFS come into play,
+thus providing consistency for the checksumming and parity
+calculations performed by ZFS. If your data is important, use ECC RAM.
+This
 `Case Study
 <http://research.cs.wisc.edu/adsl/Publications/zfs-corruption-fast10.pdf>`_
 describes the risks associated with memory corruption.
 
-Unless the system has at least 8 GB of RAM, consider adding RAM before
-using %brand% to store data. Many users expect %brand% to function
-with less memory, just at reduced performance.  The bottom line is
-that these minimums are based on feedback from many users. Requests
-for help in the forums or IRC are sometimes ignored when the installed
-system does not have at least 8 GB of RAM because of the abundance of
-information that %brand% may not behave properly with less memory.
+Do not use %brand% to store data without at least 8 GB of RAM. Many
+users expect %brand% to function with less memory, just at reduced
+performance.  The bottom line is that these minimums are based on
+feedback from many users. Requests for help in the forums or IRC are
+sometimes ignored when the installed system does not have at least 8
+GB of RAM because of the abundance of information that %brand% may not
+behave properly with less memory.
 
 
 .. _The Operating System Device:
@@ -414,42 +462,55 @@ The Operating System Device
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The %brand% operating system is installed to at least one device that
-is separate from the storage disks. The device can be a USB stick,
-SSD, compact flash, or DOM (Disk on Module). Installation to a hard
-drive is discouraged as that drive is then not available for data
-storage.
+is separate from the storage disks. The device can be a SSD, USB
+memory stick, or DOM (Disk on Module). Installation to a hard drive is
+discouraged as that drive is then not available for data storage.
 
 .. note:: To write the installation file to a USB stick, **two** USB
    ports are needed, each with an inserted USB device. One USB stick
-   contains the installer.  The other USB stick is the destination for
-   the %brand% installation. Take care to select the correct USB
-   device for the %brand% installation. It is **not** possible to
-   install %brand% onto the same USB stick containing the installer.
+   contains the installer, while the other USB stick is the
+   destination for the %brand% installation. Be careful to select
+   the correct USB device for the %brand% installation. %brand% cannot
+   be installed onto the same device that contains the installer.
    After installation, remove the installer USB stick. It might also
    be necessary to adjust the BIOS configuration to boot from the new
-   %brand% USB stick.
+   %brand% boot device.
 
 When determining the type and size of the target device where %brand%
-will be installed, keep these points in mind:
+is to be installed, keep these points in mind:
 
-- the *bare minimum* size is 8 GB. This provides room for the
-  operating system and several boot environments. Since each update
-  creates a boot environment, this is the *recommended* minimum. 32 GB
-  provides room for more boot environments.
+- The absolute *bare minimum* size is 8 GB. That does not provide much
+  room. The *recommended* minimum is 16 GB. This provides room for the
+  operating system and several boot environments created by updates.
+  More space provides room for more boot environments and 32 GB or
+  more is preferred.
 
-- if you plan to make your own boot environments, budget about 1 GB of
-  storage per boot environment. Consider deleting older boot
+- SSDs (Solid State Disks) are fast and reliable, and make very good
+  %brand% operating system devices. Their one disadvantage is that
+  they require a disk connection which might be needed for storage
+  disks.
+
+  Even a relatively large SSD (120 or 128 GB) is useful as a boot
+  device. While it might appear that the unused space is wasted, that
+  space is instead used internally by the SSD for wear leveling. This
+  makes the SSD last longer and provides greater reliability.
+
+- When planning to add your own boot environments, budget about 1 GB
+  of storage per boot environment. Consider deleting older boot
   environments after making sure they are no longer needed. Boot
   environments can be created and deleted using
   :menuselection:`System --> Boot`.
 
-- use quality, name-brand USB sticks, as ZFS will quickly reveal
+- Use quality, name-brand USB sticks, as ZFS will quickly reveal
   errors on cheap, poorly-made sticks.
 
-- for a more reliable boot disk, use two identical devices and select
+- For a more reliable boot disk, use two identical devices and select
   them both during the installation. This will create a mirrored boot
   device.
 
+.. note:: Current versions of %brand% run directly from the operating
+   system device. Early versions of %brand% ran from RAM, but that has
+   not been the case for years.
 
 .. _Storage Disks and Controllers:
 
@@ -467,8 +528,8 @@ controllers.
 enabling AHCI in the BIOS.
 
 Reliable disk alerting and immediate reporting of a failed drive can
-be obtained by using an HBA such as an Broadcom MegaRAID controller or a
-3Ware twa-compatible controller.
+be obtained by using an HBA such as an Broadcom MegaRAID controller or
+a 3Ware twa-compatible controller.
 
 .. note:: Upgrading the firmware of Broadcom SAS HBAs to the latest
    version is recommended.
@@ -565,7 +626,7 @@ spend, use 10 GigE interfaces and a managed switch. Managed switches
 with support for LACP and jumbo frames are preferred, as both can be
 used to increase network throughput. Refer to the
 `10 Gig Networking Primer
-<https://forums.freenas.org/index.php?threads/10-gig-networking-primer.25749/>`_
+<https://forums.freenas.org/index.php?threads/10-gig-networking-primer.25749/>`__
 for more information.
 
 .. note:: At present, these are not supported: InfiniBand,
@@ -574,7 +635,7 @@ for more information.
 Both hardware and the type of shares can affect network performance.
 On the same hardware, SMB is slower than FTP or NFS because Samba is
 `single-threaded
-<https://www.samba.org/samba/docs/man/Samba-Developers-Guide/architecture.html>`_.
+<https://www.samba.org/samba/docs/man/Samba-Developers-Guide/architecture.html>`__.
 So a fast CPU can help with SMB performance.
 
 Wake on LAN (WOL) support depends on the FreeBSD driver for the

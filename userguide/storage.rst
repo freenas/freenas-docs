@@ -209,7 +209,12 @@ the details when considering whether encryption is right for your
 
 * This is full disk encryption and **not** per-filesystem encryption.
   The underlying drives are first encrypted, then the pool is created
-  on top of the encrypted devices.
+  on top of the encrypted devices. As data is written, it is automatically 
+  encrypted, and as data is read, it is decrypted on the fly. 
+
+* Data in memory, including ARC, is **not** encrypted. ZFS data on disk,
+  including ZIL and SLOG, are encrypted if the underlying disks **are** 
+  encrypted. Swap data on disk is **always** encrypted.
 
 * This type of encryption is primarily targeted at users who store
   sensitive data and want to retain the ability to remove disks from
@@ -225,27 +230,9 @@ the details when considering whether encryption is right for your
   inaccessible. Always back up the key!
 
 * The encryption key is per ZFS volume (pool). Multiple pools each
-  have their own encryption key.
-
-#ifdef freenas
-* If the system has a lot of disks, performance will suffer if the CPU
-  does not support
-  `AES-NI <https://en.wikipedia.org/wiki/AES-NI#Supporting_CPUs>`_
-  or if no crypto hardware is installed. Without hardware
-  acceleration, there will be about a 20% performance decrease for a
-  single disk. Performance degradation increases with more disks. As
-  data is written, it is automatically encrypted. As data is read, it
-  is decrypted on the fly. If the processor supports the AES-NI
-  instruction set, there is very little, if any, degradation in
-  performance when using encryption. This
-  `forum post
-  <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__
-  compares the performance of various CPUs.
-#endif freenas
-
-* Data in the ARC cache and the contents of RAM are unencrypted.
-
-* Swap is always encrypted, even on unencrypted volumes.
+  have their own encryption key. Technical details about how encryption
+  keys are used, stored and managed within %brand% can be found in
+  `this forum post <https://forums.freenas.org/index.php?threads/recover-encryption-key.16593/#post-85497>`_.
 
 * There is no way to convert an existing, unencrypted volume. Instead,
   the data must be backed up, the existing pool destroyed, a new
@@ -256,12 +243,15 @@ the details when considering whether encryption is right for your
   Volume Manager automatically encrypts the new vdev being added to
   the existing encrypted pool.
 
-* The more drives in an encrypted volume, the more encryption and
-  decryption overhead. **Encrypted volumes composed of more than eight
-  drives can suffer severe performance penalties, even with AES-NI
-  encryption acceleration**. If encryption is desired, please
-  benchmark such volumes before using them in production.
-
+* The impact of encryption upon performance can be negligible or 
+  significant, depending upon 
+#ifdef freenas
+  the number of disks, and the CPU's capabilities. 
+#endif freenas
+#ifdef truenas
+  the number of disks. 
+#endif truenas
+  See :ref:`Encryption performance`.
 
 .. note:: The encryption facility used by %brand% is designed to
    protect against physical theft of the disks. It is not designed to
@@ -279,6 +269,39 @@ A pop-up message shows a reminder that
 the key, the data on the disks is inaccessible. Refer to
 :ref:`Managing Encrypted Volumes` for instructions.
 
+.. _Encryption performance:
+
+Encryption performance
+^^^^^^^^^^^^^^^^^^^^^^
+
+#ifdef freenas
+If the processor supports the 
+`AES-NI <https://en.wikipedia.org/wiki/AES-NI#Supporting_CPUs>`_
+instruction set, there is very little, if any, degradation in
+performance when using encryption and only a few disks.
+Performance will suffer if the CPU does not support AES-NI or if 
+no crypto hardware is installed.  Without hardware acceleration,
+there will be about a 20% performance decrease for a single disk. 
+This `forum post <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__
+compares the performance of various CPUs.
+#endif freenas
+
+#ifdef freenas
+Performance also depends upon the number of disks encrypted.
+The more drives in an encrypted volume, the more encryption and
+decryption overhead, and the greater the impact on performance. 
+**Encrypted volumes composed of more than eight drives can suffer 
+severe performance penalties, even with AES-NI encryption acceleration**.
+#endif freenas
+#ifdef truenas
+Performance depends upon the number of disks encrypted.
+The more drives in an encrypted volume, the more encryption and
+decryption overhead, and the greater the impact on performance. 
+**Encrypted volumes composed of more than eight
+drives can suffer severe performance penalties**. 
+#endif truenas
+If encryption is desired, please
+benchmark such volumes before using them in production.
 
 .. _Manual Setup:
 
@@ -588,24 +611,23 @@ Selecting an existing ZFS volume in the tree and clicking
 #ifdef truenas
 .. _tn_dataset1:
 
-.. figure:: images/tn_dataset1b.png
+.. figure:: images/tn_storage-dataset.png
 
    Creating a ZFS Dataset
 #endif truenas
 
 
 :numref:`Table %s <zfs_dataset_opts_tab>`
-summarizes the options available when creating a ZFS
-dataset. Some settings are only available in
-:guilabel:`Advanced Mode`. To see these settings, either click the
-:guilabel:`Advanced Mode` button, or configure the system to always
-display these settings by checking the box
+shows the options available when creating a dataset. Some settings are
+only available in :guilabel:`Advanced Mode`. To see these settings,
+either click the :guilabel:`Advanced Mode` button, or configure the
+system to always display advanced settings by checking the box
 :guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
 Most attributes, except for the :guilabel:`Dataset Name`,
 :guilabel:`Case Sensitivity`, and :guilabel:`Record Size`, can be
 changed after dataset creation by highlighting the dataset name and
-clicking its :guilabel:`Edit Options` button in
+clicking the :guilabel:`Edit Options` button in
 :menuselection:`Storage --> Volumes`.
 
 
@@ -967,11 +989,12 @@ supported or if it needs to be loaded using :ref:`Tunables`.
 Importing an Encrypted Pool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you are importing an existing GELI-encrypted ZFS pool, you must
-decrypt the disks before importing the pool. In
+Disks in existing GELI-encrypted ZFS pools must be decrypted before
+importing the pool. In the Import Volume dialog shown in
 :numref:`Figure %s <zfs_import_vol_fig>`,
-select :guilabel:`Yes: Decrypt disks` to access the screen shown in
-:numref:`Figure %s <zfs_decrypt_import_fig>`.
+select :guilabel:`Yes: Decrypt disks`. The screen shown in
+:numref:`Figure %s <zfs_decrypt_import_fig>`
+is then displayed.
 
 
 .. _zfs_decrypt_import_fig:
@@ -982,7 +1005,7 @@ select :guilabel:`Yes: Decrypt disks` to access the screen shown in
 
 
 Select the disks in the encrypted pool, browse to the location of the
-saved encryption key, input the passphrase associated with the key,
+saved encryption key, enter the passphrase associated with the key,
 then click :guilabel:`OK` to decrypt the disks.
 
 .. note:: The encryption key is required to decrypt the pool. If the
@@ -993,9 +1016,21 @@ then click :guilabel:`OK` to decrypt the disks.
    :ref:`Managing Encrypted Volumes` for instructions on how to
    manage the keys for encrypted volumes.
 
-Once the pool is decrypted, it will appear in the drop-down menu of
+After the pool is decrypted, it appears in the drop-down menu of
 :numref:`Figure %s <zfs_import_nonencrypt_fig>`.
 Click the :guilabel:`OK` button to finish the volume import.
+
+.. note:: For security reasons, GELI keys for encrypted volumes are
+   not saved in a configuration backup file. When %brand% has been
+   installed to a new device and a saved configuration file restored
+   to it, the GELI keys for encrypted disks will not be present, and
+   the system will not request them. To correct this, export the
+   encrypted volume with Detach Volume, making sure that the
+   checkboxes which clear data are **not** selected
+   (there are no check marks on :guilabel:`Mark the disks as new
+   (destroy data)` or :guilabel:`Also delete the share's
+   configuration`). Then import the volume again. During the import,
+   the GELI keys can be entered as described above.
 
 
 .. _View Disks:
@@ -1098,47 +1133,6 @@ large disk can take several hours, and a *Full with random data* takes
 longer. A progress bar is displayed during the wipe to track status.
 
 
-#ifdef truenas
-.. _View Enclosure:
-
-View Enclosure
-~~~~~~~~~~~~~~
-
-Click :menuselection:`Storage --> Volumes --> View Enclosure` to
-receive a status summary of the appliance's disks and hardware. An
-example is shown in
-:numref:`Figure %s <tn_enclosure1>`.
-
-.. _tn_enclosure1:
-
-.. figure:: images/tn_enclosure1a.png
-
-   View Enclosure
-
-
-This screen is divided into the following sections:
-
-**Array Device Slot:** has an entry for each slot in the storage
-array, indicating the disk's current status and FreeBSD device name.
-To blink the status light for that disk as a visual indicator, click
-its :guilabel:`Identify` button.
-
-**Cooling:** has an entry for each fan, its status, and its RPM.
-
-**Enclosure:** shows the status of the enclosure.
-
-**Power Supply:** shows the status of each power supply.
-
-**SAS Expander:** shows the status of the expander.
-
-**Temperature Sensor:** shows the current temperature of each expander
-and the disk chassis.
-
-**Voltage Sensor:** shows the current voltage for each sensor, VCCP,
-and VCC.
-#endif truenas
-
-
 .. _View Volumes:
 
 Volumes
@@ -1178,29 +1172,35 @@ the :guilabel:`Status`, whether it is mounted as read-only, and any
 
 
 Clicking the entry for a pool causes several buttons to appear at the
-bottom of the screen. The buttons perform these actions:
+bottom of the screen.
 
-**Detach Volume:** allows you to either export the pool or to delete
-the contents of the pool, depending upon the choice you make in the
-screen shown in
+
+#ifdef truenas
+.. note:: When the system has :ref:`High Availability (HA) <Failover>`
+   active, volumes cannot be exported or destroyed.
+#endif truenas
+
+
+**Detach Volume:** allows exporting the pool or deleting the contents
+of the pool, depending upon the choice made in thescreen shown in
 :numref:`Figure %s <zfs_detach_vol_fig>`.
 The :guilabel:`Detach Volume` screen displays the current used space
-and indicates if there are any shares, provides checkboxes to
+and indicates whether there are any shares, provides checkboxes to
 :guilabel:`Mark the disks as new (destroy data)` and to
-:guilabel:`Also delete the share's configuration`, asks if you are
-sure that you want to do this, and the browser will turn red to alert
-you that you are about to do something that will make the data
-inaccessible.
-**If you do not check the box to mark the disks as new, the volume
-will be exported.** This means that the data is not destroyed and the
-volume can be re-imported at a later time. If you will be moving a ZFS
-pool from one system to another, perform this export action first as
-it flushes any unwritten data to disk, writes data to the disk
-indicating that the export was done, and removes all knowledge of the
-pool from the system. **If you do check the box to mark the disks as
-new, the pool and all the data in its datasets, zvols, and shares will
-be destroyed and the underlying disks will be returned to their raw
-state.**
+:guilabel:`Also delete the share's configuration`, and asks if you are
+sure about doing this. The browser window turns red to indicate that
+some choices will make the data inaccessible.
+**When the box to mark the disks as new is left unchecked, the volume
+is exported.** The data is not destroyed and the volume can be
+re-imported at a later time. When moving a ZFS pool from one system to
+another, perform this export action first as it flushes any unwritten
+data to disk, writes data to the disk indicating that the export was
+done, and removes all knowledge of the pool from the system.
+
+**When the box to mark the disks as new is checked, the pool and all
+the data in its datasets, zvols, and shares is destroyed and the
+individual disks are returned to their raw state. Desired data must
+be backed up to another disk or device before using this option.**
 
 
   .. _zfs_detach_vol_fig:
@@ -1320,6 +1320,53 @@ changed, and destroying a zvol requires confirmation.
 
 Managing Encrypted Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+%brand% automatically generates a randomized **encryption key** 
+whenever a new encrypted volume is created. %brand% needs this key 
+to read and decrypt any data (or any other information) within the volume.
+
+By default, encryption keys will be stored locally within %brand%'s data 
+files. They can also be downloaded as a safety measure, to allow
+decryption on a different system in the event of failure, or to allow
+the locally stored key to be deleted for extra security. Encryption keys
+can also be optionally protected with a **passphrase**. The security 
+implications are:
+
+* *Key stored locally, no passphrase* - data is automatically decrypted 
+  and always accessible when system running. (Protects "data at rest" only.)
+
+* *Key stored locally, with passphrase* - user must provide passphrase
+  before anyone can access data.
+
+* *Key not stored locally* - user must provide key before anyone can access
+  data. If a passphrase is set, this must **also** be provided before data 
+  can be accessed (`two factor authentication <https://en.wikipedia.org/wiki/Multi-factor_authentication>`_).
+
+Data stored on an encrypted volume disk is **always encrypted**. Data to be 
+written to an encrypted volume is encrypted when written to the LOG disk (ZIL),
+but is **not** stored encrypted in L2ARC, if present. With the exception of L2ARC, 
+decrypted data **cannot be accessed** when the disks are removed, the system
+has been shut down, or (on a running system) when the volume is 'locked' and
+the key is unavailable. If the key is protected with a passphrase, then data
+cannot be decrypted without having both key and passphrase. Decryption is 
+per-volume not per-user, so when a volume is unlocked, data will be decrypted
+for *any* user whose permissions allow them to access it.
+
+.. note:: By design, `GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`_
+   uses *two* randomized encryption keys for each disk. One is the key discussed
+   in this guide. The other, called the disk's "master key", is stored on the
+   disk itself, in a strongly encrypted form which the user never sees. Loss of 
+   a disk's master key due to disk corruption would be equivalent to any other
+   disk failure, and in a redundant pool, other disks will contain accessible 
+   copies of the uncorrupted data.
+   Therefore, while it is *possible* to separately back up any master keys, 
+   it is not usually considered necessary or useful to do so.
+
+
+.. _Additional Controls for Encrypted Volumes:
+
+Additional Controls for Encrypted Volumes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If the :guilabel:`Encryption` box is checked during the creation of a
 pool, additional buttons appear in the entry for the volume in
