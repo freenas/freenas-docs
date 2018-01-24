@@ -220,9 +220,33 @@ Expansion Shelf may be powered on at any time.
 Connect SAS Cables
 ~~~~~~~~~~~~~~~~~~
 
-Shut down and power off the ES60.
+Shut down and power off the %brand% X series. Remove the X series
+power cables from the power outlets.
 
-.. <more text required, see Wiring Guide>
+Plug the ES60 power cords into power outlets.
+**Wait two minutes for the drives to start.**
+
+Connect an SAS cable from the ES60 expander module 1 connector 1 to
+the X series node 1 SAS 1 connector (cable #1 in photo).
+
+If the X series has a second node for HA (High Availability), connect
+a second SAS cable from the ES60 expander module 2 connector 1 to the
+X series node 2 SAS 1 connector (cable #2 in photo).
+
+
+.. _es60_sasconnect1:
+.. figure:: images/tn_es60_sasconnect1.png
+   :width: 50%
+
+
+A second ES60 can also be connected to the X series. Connect the first
+ES60 as shown above. Then connect the second ES60, running SAS cables
+from the "2" connectors on the ES60 to the SAS 2 connectors on the X
+series.
+
+.. _es60_sasconnect2:
+.. figure:: images/tn_es60_sasconnect2.png
+   :width: 50%
 
 
 Install Bezel (Optional)
