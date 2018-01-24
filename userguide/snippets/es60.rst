@@ -144,7 +144,7 @@ rails. Align the cabinet rail with the inside of the front rack rail
 and slide the cabinet rail forward until it is fully seated inside the
 rack rail. Repeat the process for the second rail.
 
-.. figure: images/tn_es60_cabinet_mount.png
+.. figure:: images/tn_es60_cabinet_mount.png
 
 
 When both cabinet rails are secured inside the rack rails, carefully
@@ -152,7 +152,7 @@ slide the chassis until the ears are flush with the front of the rack.
 Turn both blue screws on the ears of the chassis to the right to
 secure the unit in the rack.
 
-.. figure: images/tn_es60_cabinet_secure.png
+.. figure:: images/tn_es60_cabinet_secure.png
 
 
 Drive Tray Installation
@@ -169,7 +169,7 @@ Remove Top Cover
 Turn the blue screws counterclockwise to unlock the top cover. Slide
 the top cover toward the front of the system, then lift to remove it.
 
-.. figure: images/tn_es60_remove_cover.png
+.. figure:: images/tn_es60_remove_cover.png
 
 
 Install Drive Trays
@@ -189,7 +189,7 @@ to move into place, then push it the rest of the way until the handle
 locks into place.
 
 
-.. figure: images/tn_es60_drivetray_install.png
+.. figure:: images/tn_es60_drivetray_install.png
 
 
 .. note:: install flash drives first (see X10).
