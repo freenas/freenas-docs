@@ -1026,6 +1026,71 @@ summarizes the configuration options for the NFS service.
 Rsync
 -----
 
+`Rsync <http://www.samba.org/ftp/rsync/rsync.html>`_
+is a versatile and widely used utility that copies specified data
+from one system to another over a network. It is widely used for 
+directory/file synchronization, backup and restore, and compatible 
+with many popular systems, and can be used for backups, mirroring 
+data on multiple systems, or for copying files between systems.
+
+Rsync has a `client-server design <https://en.wikipedia.org/wiki/Client%E2%80%93server_model>`_,
+where one device (called **the rsync client**) pushes, or sends, 
+data, and the other device (called **the rsync server**) pulls, or 
+receives, the data and stores it. The %brand%  rsync service can 
+operate in both roles. The opposite end of the connection can be 
+another %brand% system or any other system running rsync. Both ends 
+of an rsync connection must be configured for rsync to work.
+
+If some or all of the data already exists on the rsync server, or has 
+previously been sent, Rsync reduces the amount of data sent over the 
+network by sending only the differences between the source and destination 
+files. 
+
+.. _Managing Rsync:
+
+Managing Rsync
+~~~~~~~~~~~~~~
+
+Rsync is most effective when only a relatively small amount of the
+data has changed. There are also
+`some limitations when using Rsync with Windows files
+<https://forums.freenas.org/index.php?threads/impaired-rsync-permissions-support-for-windows-datasets.43973/>`_.
+For large amounts of data, data that has many changes from the
+previous copy, or Windows files, :ref:`Replication Tasks` are often
+the faster and better solution.
+
+Rsync is single-threaded, so gains little from multiple processor
+cores. To see whether rsync is currently running, use
+:samp:`pgrep rsync` from the :ref:`Shell`.
+
+In %brand% terminology, the execution of an RSync activity by the %brand% 
+server is controlled by an "Rsync task".  To synchronize data between two 
+%brand% systems, create the rsync task on the rsync client.
+
+Depending upon how rsync is to be used, Rsync configuration may require 
+configuration of any or all of the rsyncd daemon, rsync modules, and rsync 
+tasks. Global parameters for the rsyncd daemon are specified in the rsyncd 
+configuration screen which is accessed from :menuselection:`Services --> 
+Rsync --> Configure Rsyncd`.  Configuration settings to be used for 
+specific kinds of Rsync tasks, known as "Rsync modules", can be defined 
+and saved individually in the rsyncd modules screen, which is accessed 
+from :menuselection:`Services --> Rsync --> Rsync Modules --> Add Rsync 
+Module`. Rsync tasks to be executed can be defined at   
+:menuselection:`Tasks --> Rsync Tasks`.
+
+%brand% supports two modes of rsync operation:
+
+* **rsync module mode:** exports a directory tree, and its configured
+  settings, as a symbolic name over an unencrypted connection. This
+  mode requires that at least one module be defined on the rsync
+  server. It can be defined in the %brand% GUI under
+  :menuselection:`Services --> Rsync --> Rsync Modules`.
+  In other operating systems, the module is defined in
+  `rsyncd.conf(5) <http://www.samba.org/ftp/rsync/rsyncd.conf.html>`_.
+
+* **rsync over SSH:** synchronizes over an encrypted connection.
+  Requires the configuration of SSH user and host public keys.
+
 :menuselection:`Services --> Rsync`
 is used to configure an rsync server when using rsync module mode. Refer
 to :ref:`Rsync Module Mode` for a configuration example.
@@ -1049,8 +1114,9 @@ shows the rsyncd configuration screen which is accessed from
 
    Rsyncd Configuration
 
-
-:numref:`Table %s <rsyncd_config_opts_tab>`
+To enable rsyncd, the daemon requires a TCP port to listen on. Any optional 
+or global configuration to be used by the daemon can also be entered on the 
+same configuration screen. :numref:`Table %s <rsyncd_config_opts_tab>`
 summarizes the options that can be configured for the rsync daemon:
 
 
@@ -1063,24 +1129,34 @@ summarizes the options that can be configured for the rsync daemon:
 .. table:: Rsyncd Configuration Options
    :class: longtable
 
-   +----------------------+-----------+----------------------------------------------------------------------+
-   | Setting              | Value     | Description                                                          |
-   |                      |           |                                                                      |
-   |                      |           |                                                                      |
-   +======================+===========+======================================================================+
-   | TCP Port             | integer   | port for :command:`rsyncd` to listen on, default is *873*            |
-   |                      |           |                                                                      |
-   +----------------------+-----------+----------------------------------------------------------------------+
-   | Auxiliary parameters | string    | additional parameters from                                           |
-   |                      |           | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`_ |
-   |                      |           |                                                                      |
-   +----------------------+-----------+----------------------------------------------------------------------+
+   +----------------------+-----------+-----------------------------------------------------------------------+
+   | Setting              | Value     | Description                                                           |
+   |                      |           |                                                                       |
+   |                      |           |                                                                       |
+   +======================+===========+=======================================================================+
+   | TCP Port             | integer   | port for :command:`rsyncd` to listen on, default is *873*             |
+   |                      |           |                                                                       |
+   +----------------------+-----------+-----------------------------------------------------------------------+
+   | Auxiliary parameters | string    | any additional (optional) parameters from                             |
+   |                      |           | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`_. |
+   |                      |           | Additional parameters are outside the scope of this guidance.         |
+   |                      |           |                                                                       |
+   +----------------------+-----------+-----------------------------------------------------------------------+
 
 
 .. _Rsync Modules:
 
 Rsync Modules
 ~~~~~~~~~~~~~
+
+An **rsync module** contains parameters that define a specific type of 
+Rsync task. A module should be created for each task that will run in 
+**module mode**, and given a unique name. The same module name is 
+also used on the remote system, so that Rsync on both the %brand% 
+server and the remote system can identify the module being executed.  
+Among other capabilities, the Rsync module defines defaults, 
+paths, included/excluded files and user permissions, for all tasks which 
+specify that module. 
 
 :numref:`Figure %s <add_rsync_module_fig>`
 shows the configuration screen that appears after clicking
@@ -1113,7 +1189,8 @@ module.
    |                      |                |                                                                               |
    |                      |                |                                                                               |
    +======================+================+===============================================================================+
-   | Module name          | string         | mandatory; needs to match the setting on the rsync client                     |
+   | Module name          | string         | mandatory, chosen by user. Remote Rsync connections will need this name       |
+   |                      |                | provided to them, so they can identify the correct module when connected      |
    |                      |                |                                                                               |
    +----------------------+----------------+-------------------------------------------------------------------------------+
    | Comment              | string         | optional description                                                          |
@@ -1148,6 +1225,9 @@ module.
    | Auxiliary parameters | string         | additional parameters from rsyncd.conf(5)                                     |
    |                      |                |                                                                               |
    +----------------------+----------------+-------------------------------------------------------------------------------+
+
+Further details and additional options can be found at 
+`rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`_.
 
 
 .. index:: S3, Minio
