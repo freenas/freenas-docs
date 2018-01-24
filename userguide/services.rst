@@ -1046,16 +1046,27 @@ previously been sent, Rsync reduces the amount of data sent over the
 network by sending only the differences between the source and destination 
 files. 
 
-.. warning:: Rsync does not by default use secure or encrypted network
-   protocols such as TLS or SSH for data transfer. If security in transit 
-   is required, either within a local network or over a network such as 
-   the Internet, then **use of Rsync over SSH is highly recommended**.
+.. _Rsync Security:
 
-   It is also **highly recommended** not to use an account for the transfer, 
-   that has greater access or privileges than the transfer requires.
-   Particularly, **do not use the root account for Rsync** without carefully
-   considering security imlications.
+Rsync Security
+^^^^^^^^^^^^^^
 
+Rsync does not by default use secure or encrypted network
+protocols such as TLS or SSH for data transfer. If security in transit 
+is required, either within a local network or over a network such as 
+the Internet, then **use of Rsync over SSH is highly recommended**.
+
+It is also **highly recommended** not to use an account for the transfer, 
+that has greater access or privileges than the transfer requires.
+Particularly, **do not use the root account for Rsync** without carefully
+considering security imlications. 
+
+Rsyncd also supports "forced commands" - configurations where a remote
+user can only control some pre-defined session parameters (or none of them), 
+all other session properties being defined within the rsyncd configuration
+of the %brand% server. These are outside the scope of this Guide but allow
+partially or totally restricted use of Rsync. They are covered in 
+`rsyncd.conf(5) <http://www.samba.org/ftp/rsync/rsyncd.conf.html>`_.
 
 .. _Managing Rsync:
 
