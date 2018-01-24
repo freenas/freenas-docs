@@ -1046,6 +1046,17 @@ previously been sent, Rsync reduces the amount of data sent over the
 network by sending only the differences between the source and destination 
 files. 
 
+.. warning:: Rsync does not by default use secure or encrypted network
+   protocols such as TLS or SSH for data transfer. If security in transit 
+   is required, either within a local network or over a network such as 
+   the Internet, then **use of Rsync over SSH is highly recommended**.
+
+   It is also **highly recommended** not to use an account for the transfer, 
+   that has greater access or privileges than the transfer requires.
+   Particularly, **do not use the root account for Rsync** without carefully
+   considering security imlications.
+
+
 .. _Managing Rsync:
 
 Managing Rsync
