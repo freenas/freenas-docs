@@ -1061,12 +1061,13 @@ that has greater access or privileges than the transfer requires.
 Particularly, **do not use the root account for Rsync** without carefully
 considering security imlications. 
 
-Rsyncd can also be configured to create "forced commands", in which a remote
-user can only control some pre-defined session parameters (or none of them), 
-all other session properties being controlled within the %brand% server
-configuration, using SSH options such as "AuthorizedKeys" and "ForceCommand".
-These are outside the scope of this Guide but allow partially or totally 
-restricted use of Rsync. They are covered in 
+It is also possible to create a partially or totally restricted Rsync activity
+(whether or not a privileged account is used) by using "forced commands". This 
+feature of the %brand% SSH service allows a remote user only limited (or no) 
+control over the actions within an Rsync session, with all other 
+session activity defined in the %brand% server's configuration. 
+This technique is outside the scope of this guide but can be found by looking for
+options such as  "AuthorizedKeys" and "ForceCommand" in  
 `sshd_config(5) <https://www.freebsd.org/cgi/man.cgi?sshd_config(5)>`_.
 
 .. _Managing Rsync:
