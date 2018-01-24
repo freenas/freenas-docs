@@ -1172,8 +1172,8 @@ summarizes the options that can be configured for the rsync daemon:
 Rsync Modules
 ~~~~~~~~~~~~~
 
-An **rsync module** contains parameters that define a specific type of 
-Rsync task. A module should be created for each task that will run in 
+An **rsync module** contains parameters that are used by a specific Rsync task, or set of 
+Rsync actions. A module should be created for each task that will run in 
 **module mode**, and given a unique name. The same module name is 
 also used on the remote system, so that Rsync on both the %brand% 
 server and the remote system can identify the module being executed.  
