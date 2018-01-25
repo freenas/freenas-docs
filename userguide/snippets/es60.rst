@@ -181,7 +181,6 @@ a status LED which is blue when active and amber when a fault occurs.
 Press the blue button to open the drive tray latch and gently remove
 the tray from the drive bay.
 
-.. Add TEXT about attaching a drive to the tray?
 
 To insert a drive, release the handle with the tab on the front of the
 drive chassis, push it into a drive bay until the drive handle begins
