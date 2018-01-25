@@ -1111,7 +1111,7 @@ the Internet, then **use of Rsync over SSH is highly recommended**.
 It is also **highly recommended** not to use an account for the transfer, 
 that has greater access or privileges than the transfer requires.
 Particularly, **do not use the root account for Rsync** without carefully
-considering security imlications. 
+considering security implications. 
 
 It is possible to create a partially or totally restricted Rsync activity
 (whether or not a privileged account is used) by using "forced commands". This 
