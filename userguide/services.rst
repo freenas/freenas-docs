@@ -1113,9 +1113,9 @@ that has greater access or privileges than the transfer requires.
 Particularly, **do not use the root account for Rsync** without carefully
 considering security imlications. 
 
-It is also possible to create a partially or totally restricted Rsync activity
+It is possible to create a partially or totally restricted Rsync activity
 (whether or not a privileged account is used) by using "forced commands". This 
-feature of the %brand% SSH service allows a remote user only limited (or no) 
+feature of the %brand% :ref:`SSH` service allows a remote user only limited (or no) 
 control over the actions within an Rsync session, with all other 
 session activity defined in the %brand% server's configuration. 
 This technique is outside the scope of this guide but can be found by looking for
