@@ -1027,7 +1027,7 @@ Rsync
 -----
 
 `Rsync <http://www.samba.org/ftp/rsync/rsync.html>`_
-is a versatile and widely used utility that copies specified data
+is a versatile and popular utility that copies specified data
 from one system to another over a network. It is widely used for 
 directory/file synchronization, backup and restore, and compatible 
 with many popular systems, and can be used for backups, mirroring 
