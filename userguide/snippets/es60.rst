@@ -272,6 +272,13 @@ data cables.
 .. figure:: images/tn_es60_arm_parts.png
 
 
+The tabs along the side of the flex housing can be unclipped from the
+top, the bottom, or removed entirely.
+
+
+.. figure:: images/tn_es60_arm_tabs.png
+
+
 Install the Cable Management Arm
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -284,8 +291,10 @@ upward to lock the bracket into place.
 .. figure:: images/tn_es60_arm_clip.png
 
 
-Locate the end of the flex housing with exposed pins and push it onto
-the chassis bracket.
+Locate the end of the flex housing with exposed pins. Unclip and open
+the two tabs closest to the end, allowin the flex housing to compress
+enough to fit into the bracket holes. Press the flex housing firmly
+into the bracket until the pins seat in the holes.
 
 
 .. figure:: images/tn_es60_arm_chassis_flex.png
@@ -299,8 +308,10 @@ cabinet rail and attach the bracket to the rail with the screws.
 .. figure:: images/tn_es60_arm_bracket_rail.png
 
 
-Locate the end of the flex housing with holes and push it onto the
-rail bracket.
+Locate the end of the flex housing with exposed holes. Unclip and open
+the two tabs closest to the end, allowing the flex housing to compress
+enough to fit onto the bracket pins. Press the flex housing firmly
+into the bracket until the holes seat on the pins.
 
 
 .. figure:: images/tn_es60_arm_rail_flex.png
@@ -308,18 +319,11 @@ rail bracket.
 
 Completed CMA assembly:
 
+
 .. figure:: images/tn_es60_arm_complete.png
 
 
-Using the Cable Management Arm
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The tabs along one side of the flex housing can be unclipped from the
-top, the bottom, or both. Route power and data cables through the CMA
-using the tabs for access. Remember to leave some slack in the cables
-at both ends to allow for movement of the arm and chassis.
-
-
-.. figure:
-
-
+Route power and data cables through the flex housing. The tabs can be
+opened or removed to allow access or space for cable ends. Remember to
+leave some slack in the cables at both ends to allow for movement of
+the arm and chassis.
