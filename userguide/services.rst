@@ -1046,47 +1046,6 @@ previously been sent, Rsync reduces the amount of data sent over the
 network by sending only the differences between the source and destination 
 files. 
 
-.. _Rsync Security:
-
-Rsync Security
-^^^^^^^^^^^^^^
-
-Rsync does not by default use secure or encrypted network
-protocols such as TLS or SSH for data transfer. If security in transit 
-is required, either within a local network or over a network such as 
-the Internet, then **use of Rsync over SSH is highly recommended**.
-
-It is also **highly recommended** not to use an account for the transfer, 
-that has greater access or privileges than the transfer requires.
-Particularly, **do not use the root account for Rsync** without carefully
-considering security imlications. 
-
-It is also possible to create a partially or totally restricted Rsync activity
-(whether or not a privileged account is used) by using "forced commands". This 
-feature of the %brand% SSH service allows a remote user only limited (or no) 
-control over the actions within an Rsync session, with all other 
-session activity defined in the %brand% server's configuration. 
-This technique is outside the scope of this guide but can be found by looking for
-options such as  "AuthorizedKeys" and "ForceCommand" in  
-`sshd_config(5) <https://www.freebsd.org/cgi/man.cgi?sshd_config(5)>`_.
-
-.. _Managing Rsync:
-
-Managing Rsync
-~~~~~~~~~~~~~~
-
-Rsync is most effective when only a relatively small amount of the
-data has changed. There are also
-`some limitations when using Rsync with Windows files
-<https://forums.freenas.org/index.php?threads/impaired-rsync-permissions-support-for-windows-datasets.43973/>`_.
-For large amounts of data, data that has many changes from the
-previous copy, or Windows files, :ref:`Replication Tasks` are often
-the faster and better solution.
-
-Rsync is single-threaded, so gains little from multiple processor
-cores. To see whether rsync is currently running, use
-:samp:`pgrep rsync` from the :ref:`Shell`.
-
 In %brand% terminology, the execution of an RSync activity by the %brand% 
 server is controlled by an "Rsync task".  To synchronize data between two 
 %brand% systems, create the rsync task on the rsync client.
@@ -1121,6 +1080,49 @@ to :ref:`Rsync Module Mode` for a configuration example.
 
 This section describes the configurable options for the
 :command:`rsyncd` service and rsync modules.
+
+
+.. _Rsync Efficiency:
+
+Rsync Efficiency
+~~~~~~~~~~~~~~~~
+
+Rsync is most effective when only a relatively small amount of the
+data has changed. There are also
+`some limitations when using Rsync with Windows files
+<https://forums.freenas.org/index.php?threads/impaired-rsync-permissions-support-for-windows-datasets.43973/>`_.
+For large amounts of data, data that has many changes from the
+previous copy, or Windows files, :ref:`Replication Tasks` are often
+the faster and better solution.
+
+Rsync is single-threaded, so gains little from multiple processor
+cores. To see whether rsync is currently running, use
+:samp:`pgrep rsync` from the :ref:`Shell`.
+
+
+.. _Rsync Security:
+
+Rsync Security
+~~~~~~~~~~~~~~
+
+Rsync does not by default use secure or encrypted network
+protocols such as TLS or SSH for data transfer. If security in transit 
+is required, either within a local network or over a network such as 
+the Internet, then **use of Rsync over SSH is highly recommended**.
+
+It is also **highly recommended** not to use an account for the transfer, 
+that has greater access or privileges than the transfer requires.
+Particularly, **do not use the root account for Rsync** without carefully
+considering security imlications. 
+
+It is also possible to create a partially or totally restricted Rsync activity
+(whether or not a privileged account is used) by using "forced commands". This 
+feature of the %brand% SSH service allows a remote user only limited (or no) 
+control over the actions within an Rsync session, with all other 
+session activity defined in the %brand% server's configuration. 
+This technique is outside the scope of this guide but can be found by looking for
+options such as  "AuthorizedKeys" and "ForceCommand" in  
+`sshd_config(5) <https://www.freebsd.org/cgi/man.cgi?sshd_config(5)>`_.
 
 
 .. _Configure Rsyncd:
