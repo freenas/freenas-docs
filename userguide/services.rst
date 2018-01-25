@@ -1046,21 +1046,6 @@ previously been sent, Rsync reduces the amount of data sent over the
 network by sending only the differences between the source and destination 
 files. 
 
-In %brand% terminology, the execution of an RSync activity by the %brand% 
-server is controlled by an "Rsync task".  To synchronize data between two 
-%brand% systems, create the rsync task on the rsync client.
-
-Depending upon how rsync is to be used, Rsync configuration may require 
-configuration of any or all of the rsyncd daemon, rsync modules, and rsync 
-tasks. Global parameters for the rsyncd daemon are specified in the rsyncd 
-configuration screen which is accessed from :menuselection:`Services --> 
-Rsync --> Configure Rsyncd`.  Configuration settings to be used for 
-specific kinds of Rsync tasks, known as "Rsync modules", can be defined 
-and saved individually in the rsyncd modules screen, which is accessed 
-from :menuselection:`Services --> Rsync --> Rsync Modules --> Add Rsync 
-Module`. Rsync tasks to be executed can be defined at   
-:menuselection:`Tasks --> Rsync Tasks`.
-
 %brand% supports two modes of rsync operation:
 
 * **rsync module mode:** exports a directory tree, and its configured
@@ -1077,6 +1062,19 @@ Module`. Rsync tasks to be executed can be defined at
 :menuselection:`Services --> Rsync`
 is used to configure an rsync server when using rsync module mode. Refer
 to :ref:`Rsync Module Mode` for a configuration example.
+
+Depending upon how rsync is to be used, Rsync configuration may require 
+configuration of any or all of the rsyncd daemon, rsync modules, and rsync 
+tasks. Global parameters for the rsyncd daemon are specified in the rsyncd 
+configuration screen which is accessed from :menuselection:`Services --> 
+Rsync --> Configure Rsyncd`.  Configuration settings to be used for 
+specific kinds of Rsync tasks, known as "Rsync modules", can be defined 
+and saved individually in the rsyncd modules screen, which is accessed 
+from :menuselection:`Services --> Rsync --> Rsync Modules --> Add Rsync 
+Module`. Execution of RSync activities by the %brand% 
+server (called an "Rsync task") can be defined at   
+:menuselection:`Tasks --> Rsync Tasks`. To synchronize data between two 
+%brand% systems, create the rsync task on the rsync client.
 
 This section describes the configurable options for the
 :command:`rsyncd` service and rsync modules.
