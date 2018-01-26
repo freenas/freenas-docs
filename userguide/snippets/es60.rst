@@ -240,7 +240,7 @@ upward to lock the bracket into place.
 
 
 Locate the end of the flex housing with exposed pins. Unclip and open
-the two tabs closest to the end, allowin the flex housing to compress
+the two tabs closest to the end, allowing the flex housing to compress
 enough to fit into the bracket holes. Press the flex housing firmly
 into the bracket until the pins seat in the holes.
 
