@@ -6,8 +6,8 @@
 ES60 Expansion Shelf
 --------------------
 
-The %brand% ES60 Expansion Shelf is a is a 4U, 60-bay storage
-expansion unit designed specifically for use with the %brand% Z Series
+The %brand% ES60 Expansion Shelf is a 4U, 60-bay storage
+expansion unit designed specifically for use with the %brand%
 Unified Storage Array.
 
 
