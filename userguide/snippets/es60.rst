@@ -43,6 +43,11 @@ Carefully unpack the shipping boxes and locate these components:
    +--------------------------------------------+---------------------------------------------+
 
 
+.. raw:: latex
+
+   \newpage
+
+
 .. index:: Become Familiar with the ES60
 .. _Become Familiar with the ES60:
 
@@ -121,12 +126,12 @@ secures the rail in place. Repeat this process on the other side.
 Mount Rack Rails
 ^^^^^^^^^^^^^^^^
 
-Install 4 cage nuts in the rack, one for each bracket. The lock screw
-for the bracket is already installed in the cage nut. Place the rail
-in the rack with the front end toward the front of the rack and rear
-toward the back of the rack, aligning the pins on both ends of the
-rail with the mounting holes in the rack. Push the pins into the rack
-holes until they lock in place.
+Install four cage nuts in the rack, one for each bracket. The lock
+screw for the bracket is already installed in the cage nut. Place the
+rail in the rack with the front end toward the front of the rack and
+rear toward the back of the rack, aligning the pins on both ends of
+the rail with the mounting holes in the rack. Push the pins into the
+rack holes until they lock in place.
 
 .. figure:: images/tn_es60_rackrails.png
 
@@ -166,8 +171,9 @@ Drive Tray Installation
 Remove Top Cover
 ^^^^^^^^^^^^^^^^
 
-Turn the blue screws counterclockwise to unlock the top cover. Slide
-the top cover toward the front of the system, then lift to remove it.
+Slide the unit out on the rails. Turn the blue screws counterclockwise
+to unlock the top cover. Slide the top cover toward the front of the
+system, then lift to remove it.
 
 .. figure:: images/tn_es60_remove_cover.png
 
@@ -175,94 +181,31 @@ the top cover toward the front of the system, then lift to remove it.
 Install Drive Trays
 ^^^^^^^^^^^^^^^^^^^
 
-Drive trays are used to mount drives in the array. Each drive tray has
-a status LED which is blue when active and amber when a fault occurs.
+Drive trays are used to mount drives in the array.
 
-Press the blue button to open the drive tray latch and gently remove
-the tray from the drive bay.
+A standard drive tray installation order simplifies support and is
+strongly recommended:
 
+* SSD drives for SLOG, if present
 
-To insert a drive, release the handle with the tab on the front of the
-drive chassis, push it into a drive bay until the drive handle begins
-to move into place, then push it the rest of the way until the handle
-locks into place.
+* SSD drives for L2ARC, if present
+
+* Hard drives or SSD drives for data storage
+
+Install the first drive tray in the front left drive bay. Install the
+next drive tray to the right of the first. Install remaining drive
+trays to the right across the row. After a row is filled with drives,
+move back to the next row and start again with the left bay. A sticker
+on the top of the unit identifies the preferred order of drive
+connection.
+
+Press the blue button to open the latch. Lower the drive tray into a
+drive bay until the latch begins to move into place. Push the latch
+the rest of the way until it locks into place.
 
 
 .. figure:: images/tn_es60_drivetray_install.png
    :width: 100%
-
-
-.. note:: install flash drives first (see X10).
-
-
-Connect Power Cords
-~~~~~~~~~~~~~~~~~~~
-
-**Do not plug the power cords into a power outlet yet.** Connect a
-power cord to the back of one power supply, pressing it into the
-plastic clamp and pressing on the tab to lock it in place. Repeat the
-process for the second power supply and cord. This turns on the ES60.
-
-
-.. figure:: images/tn_es60_powerclip.png
-
-
-.. note:: Service and management ports are not used during normal
-   operation and should not be connected.
-
-
-If setting up a %brand% Storage Array for the first time, wait two
-minutes after turning on the Expansion Shelf before powering on the
-%brand% Array. If a %brand% Array is already in operation, the
-Expansion Shelf may be powered on at any time.
-
-
-.. raw:: latex
-
-   \newpage
-
-
-Connect SAS Cables
-~~~~~~~~~~~~~~~~~~
-
-Shut down and power off the %brand% X series. Remove the X series
-power cables from the power outlets.
-
-Plug the ES60 power cords into power outlets.
-**Wait two minutes for the drives to start.**
-
-Connect an SAS cable from the ES60 expander module 1 connector 1 to
-the X series node 1 SAS 1 connector (cable #1 in photo). If the X
-series has a second node for HA (High Availability), connect a second
-SAS cable from the ES60 expander module 2 connector 1 to the X series
-node 2 SAS 1 connector (cable #2 in photo).
-
-
-.. _es60_sasconnect1:
-.. figure:: images/tn_es60_sasconnect1.png
-   :width: 40%
-
-
-A second ES60 can also be connected to the X series. Connect the first
-ES60 as shown above. Then connect the second ES60, running SAS cables
-from the "1" connectors on the second ES60 to the SAS 2 connectors on
-the X series.
-
-.. _es60_sasconnect2:
-.. figure:: images/tn_es60_sasconnect2.png
-   :width: 40%
-
-
-Install Bezel (Optional)
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-The included bezel is not required for operation.
-
-Line up the screw holes on the back of the bezel with the screw holes
-on the ears of the ES60. Install one upper screw from the back side of
-the left ES60 ear, then install a lower screw from the back of the
-right ES60 ear. Install the remaining two screws following the same
-diagonal pattern.
 
 
 ES60 Cable Managment Arm
@@ -281,7 +224,7 @@ top, the bottom, or removed entirely.
 
 
 .. figure:: images/tn_es60_arm_tabs.png
-   :width: 30%
+   :width: 20%
 
 
 Install the Cable Management Arm
@@ -311,7 +254,7 @@ cabinet rail and attach the bracket to the rail with the screws.
 
 
 .. figure:: images/tn_es60_arm_bracket_rail.png
-   :width: 30%
+   :width: 40%
 
 
 Locate the end of the flex housing with exposed holes. Unclip and open
@@ -323,13 +266,87 @@ into the bracket until the holes seat on the pins.
 .. figure:: images/tn_es60_arm_rail_flex.png
 
 
-Completed CMA assembly:
+.. raw:: latex
+
+   \newpage
+
+
+Completed Cable Management Arm assembly:
 
 
 .. figure:: images/tn_es60_arm_complete.png
+   :width: 80%
 
 
-Route power and data cables through the flex housing. The tabs can be
-opened or removed to allow access or space for cable ends. Remember to
-leave some slack in the cables at both ends to allow for movement of
-the arm and chassis.
+Power and data cables are routed through the flex housing. The tabs
+can be opened or removed to allow access or space for cable ends.
+Remember to leave some slack in the cables at both ends to allow for
+movement of the arm and chassis.
+
+
+Connect Power Cords
+~~~~~~~~~~~~~~~~~~~
+
+**Do not plug the power cords into a power outlet yet.** Connect a
+power cord to the back of one power supply, pressing it into the
+plastic clamp and pressing on the tab to lock it in place. Repeat the
+process for the second power supply and cord. This turns on the ES60.
+
+
+.. figure:: images/tn_es60_powerclip.png
+   :width: 50%
+
+
+.. note:: Service and management ports are not used during normal
+   operation and should not be connected.
+
+
+When setting up an ES60 for the first time, wait two minutes after
+turning on the ES60 before powering on the X Series. If the X Series
+is already in operation, the Expansion Shelf may be powered on at any
+time.
+
+
+Connect SAS Cables
+~~~~~~~~~~~~~~~~~~
+
+Shut down and power off the %brand% X series. Remove the X series
+power cables from the power outlets.
+
+Plug the ES60 power cords into power outlets.
+**Wait two minutes for the drives to start.**
+
+Connect an SAS cable from the ES60 expander module 1 connector 1 to
+the X series node 1 SAS 1 connector (cable #1 in photo). If the X
+series has a second node for HA (High Availability), connect a second
+SAS cable from the ES60 expander module 2 connector 1 to the X series
+node 2 SAS 1 connector (cable #2 in photo).
+
+
+.. _es60_sasconnect1:
+.. figure:: images/tn_es60_sasconnect1.png
+   :width: 50%
+
+
+A second ES60 can also be connected to the X series. Connect the first
+ES60 as shown above. Then connect the second ES60, running SAS cables
+from the "1" connectors on the second ES60 to the SAS 2 connectors on
+the X series.
+
+.. _es60_sasconnect2:
+.. figure:: images/tn_es60_sasconnect2.png
+   :width: 50%
+
+
+Install Bezel (Optional)
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The included bezel is not required for operation.
+
+Line up the screw holes on the back of the bezel with the screw holes
+on the ears of the ES60. Install one upper screw from the back side of
+the left ES60 ear, then install a lower screw from the back of the
+right ES60 ear. Install the remaining two screws following the same
+diagonal pattern.
+
+
