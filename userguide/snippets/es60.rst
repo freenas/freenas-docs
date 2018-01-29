@@ -195,8 +195,8 @@ strongly recommended:
 Install the first drive tray in the front left drive bay. Install the
 next drive tray to the right of the first. Install remaining drive
 trays to the right across the row. After a row is filled with drives,
-move back to the next row and start again with the left bay. A sticker
-on the top of the unit identifies the preferred order of drive
+move back to the next row and start again with the left bay. A label
+on the front left of the lid identifies the preferred order of drive
 connection.
 
 Press the blue button to open the latch. Lower the drive tray into a
