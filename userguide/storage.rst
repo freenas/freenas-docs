@@ -204,21 +204,24 @@ full disk encryption for ZFS volumes. It is important to understand
 the details when considering whether encryption is right for your
 %brand% system:
 
-* This is **not** the encryption method used by Oracle's version of
-  ZFS. That version is not open source and is the property of Oracle.
+* This is not the encryption method used by Oracle's version of ZFS.
+  That version is not open source and is the property of Oracle.
 
-* This is full disk encryption and **not** per-filesystem encryption.
-  The underlying drives are first encrypted, then the pool is created
-  on top of the encrypted devices. As data is written, it is automatically 
-  encrypted, and as data is read, it is decrypted on the fly. 
+* This is full-disk encryption and not per-filesystem encryption.  The
+  underlying drives are first encrypted, then the pool is created on
+  top of the encrypted devices. Data is encrypted as it is written,
+  and decrypted as it is read.
 
-* Data in memory, including ARC, is **not** encrypted. ZFS data on disk,
-  including ZIL and SLOG, are encrypted if the underlying disks **are** 
-  encrypted. Swap data on disk is **always** encrypted.
+* Data in memory, including ARC, is not encrypted. ZFS data on disk,
+  including ZIL and SLOG, are encrypted if the underlying disks are
+  encrypted. Swap data on disk is always encrypted.
+
+  .. warning:: Data stored in Cache (L2ARC) drives is not encrypted.
+     Do not use Cache (L2ARC) with encrypted volumes.
 
 * This type of encryption is primarily targeted at users who store
   sensitive data and want to retain the ability to remove disks from
-  the pool without having to first wipe the disk's contents.
+  the pool without having to first wipe the disk contents.
 
 * This design is only suitable for safe disposal of disks independent
   of the encryption key. As long as the key and the disks are intact,
@@ -229,29 +232,21 @@ the details when considering whether encryption is right for your
 * On the other hand, if the key is lost, the data on the disks is
   inaccessible. Always back up the key!
 
-* The encryption key is per ZFS volume (pool). Multiple pools each
-  have their own encryption key. Technical details about how encryption
-  keys are used, stored and managed within %brand% can be found in
-  `this forum post <https://forums.freenas.org/index.php?threads/recover-encryption-key.16593/#post-85497>`_.
+* Encryption keys are per ZFS volume (pool). Each pool has a separate
+  encryption key. Technical details about how encryption keys are
+  used, stored, and managed within %brand% are described in this
+  `forum post
+  <https://forums.freenas.org/index.php?threads/recover-encryption-key.16593/#post-85497>`__.
 
-* There is no way to convert an existing, unencrypted volume. Instead,
-  the data must be backed up, the existing pool destroyed, a new
-  encrypted volume created, and the backup restored to the new volume.
+* There is no one-step way to encrypt an existing, unencrypted volume.
+  Instead, the data must be backed up, the existing pool destroyed, a
+  new encrypted volume created, and the backup restored to the new
+  volume.
 
-* Hybrid pools are not supported. In other words, newly created vdevs
-  must match the existing encryption scheme. When extending a volume,
-  Volume Manager automatically encrypts the new vdev being added to
-  the existing encrypted pool.
+* Hybrid pools are not supported. Added vdevs must match the existing
+  encryption scheme. The :ref:`Volume Manager` automatically encrypts
+  a new vdev being added to an existing encrypted pool.
 
-* The impact of encryption upon performance can be negligible or 
-  significant, depending upon 
-#ifdef freenas
-  the number of disks, and the CPU's capabilities. 
-#endif freenas
-#ifdef truenas
-  the number of disks. 
-#endif truenas
-  See :ref:`Encryption performance`.
 
 .. note:: The encryption facility used by %brand% is designed to
    protect against physical theft of the disks. It is not designed to
@@ -266,42 +261,36 @@ shown in
 :numref:`Figure %s <create_zfs_pool_volman_fig>`.
 A pop-up message shows a reminder that
 **it is extremely important to make a backup of the key**. Without
-the key, the data on the disks is inaccessible. Refer to
+the key, the data on the disks is inaccessible. See
 :ref:`Managing Encrypted Volumes` for instructions.
 
-.. _Encryption performance:
 
-Encryption performance
+.. _Encryption Performance:
+
+Encryption Performance
 ^^^^^^^^^^^^^^^^^^^^^^
 
-#ifdef freenas
-If the processor supports the 
-`AES-NI <https://en.wikipedia.org/wiki/AES-NI#Supporting_CPUs>`_
-instruction set, there is very little, if any, degradation in
-performance when using encryption and only a few disks.
-Performance will suffer if the CPU does not support AES-NI or if 
-no crypto hardware is installed.  Without hardware acceleration,
-there will be about a 20% performance decrease for a single disk. 
-This `forum post <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__
-compares the performance of various CPUs.
-#endif freenas
+Performance depends upon the number of disks encrypted. The more
+drives in an encrypted volume, the more encryption and decryption
+overhead, and the greater the impact on performance. **Encrypted
+volumes composed of more than eight drives can suffer severe
+performance penalties**. If encryption is desired, please benchmark
+such volumes before using them in production.
+
 
 #ifdef freenas
-Performance also depends upon the number of disks encrypted.
-The more drives in an encrypted volume, the more encryption and
-decryption overhead, and the greater the impact on performance. 
-**Encrypted volumes composed of more than eight drives can suffer 
-severe performance penalties, even with AES-NI encryption acceleration**.
+.. note:: Processors with support for the
+   `AES-NI <https://en.wikipedia.org/wiki/AES-NI#Supporting_CPUs>`__
+   instruction set are strongly recommended. These processors can
+   handle encryption of a small number of disks with negligible
+   performance impact. They also retain performance better as the
+   number of disks increases. Older processors without the AES-NI
+   instructions see significant performance impact with even a single
+   encrypted disk. This `forum post
+   <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__ 
+   compares the performance of various processors.
 #endif freenas
-#ifdef truenas
-Performance depends upon the number of disks encrypted.
-The more drives in an encrypted volume, the more encryption and
-decryption overhead, and the greater the impact on performance. 
-**Encrypted volumes composed of more than eight
-drives can suffer severe performance penalties**. 
-#endif truenas
-If encryption is desired, please
-benchmark such volumes before using them in production.
+
 
 .. _Manual Setup:
 
@@ -1321,46 +1310,51 @@ changed, and destroying a zvol requires confirmation.
 Managing Encrypted Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-%brand% automatically generates a randomized **encryption key** 
-whenever a new encrypted volume is created. %brand% needs this key 
-to read and decrypt any data (or any other information) within the volume.
+%brand% generates and stores a randomized *encryption key* whenever
+a new encrypted volume is created. This key is required to read and
+decrypt any data on the volume.
 
-By default, encryption keys will be stored locally within %brand%'s data 
-files. They can also be downloaded as a safety measure, to allow
+Encryption keys can also be downloaded as a safety measure, to allow
 decryption on a different system in the event of failure, or to allow
-the locally stored key to be deleted for extra security. Encryption keys
-can also be optionally protected with a **passphrase**. The security 
-implications are:
+the locally stored key to be deleted for extra security. Encryption
+keys can also be optionally protected with a *passphrase* for
+additional security. The combination of encryption key location and
+whether a passphrase is used provide several different security
+scenarios:
 
-* *Key stored locally, no passphrase* - data is automatically decrypted 
-  and always accessible when system running. (Protects "data at rest" only.)
+* *Key stored locally, no passphrase*: the encrypted volume is
+  decrypted and accessible when the system running. Protects "data at
+  rest" only.
 
-* *Key stored locally, with passphrase* - user must provide passphrase
-  before anyone can access data.
+* *Key stored locally, with passphrase*: the encrypted volume is not
+  accessible until the passphrase is entered by the %brand%
+  administrator.
 
-* *Key not stored locally* - user must provide key before anyone can access
-  data. If a passphrase is set, this must **also** be provided before data 
-  can be accessed (`two factor authentication <https://en.wikipedia.org/wiki/Multi-factor_authentication>`_).
+* *Key not stored locally*: the encrypted volume is not accessible
+  until the %brand% administrator provides the key. If a passphrase is
+  set on the key, it must also be entered before the encrypted volume
+  can be accessed (`two factor authentication
+  <https://en.wikipedia.org/wiki/Multi-factor_authentication>`__).
 
-Data stored on an encrypted volume disk is **always encrypted**. Data to be 
-written to an encrypted volume is encrypted when written to the LOG disk (ZIL),
-but is **not** stored encrypted in L2ARC, if present. With the exception of L2ARC, 
-decrypted data **cannot be accessed** when the disks are removed, the system
-has been shut down, or (on a running system) when the volume is 'locked' and
-the key is unavailable. If the key is protected with a passphrase, then data
-cannot be decrypted without having both key and passphrase. Decryption is 
-per-volume not per-user, so when a volume is unlocked, data will be decrypted
-for *any* user whose permissions allow them to access it.
+Encrypted data cannot be accessed when the disks are removed or the
+system has been shut down. On a running system, encrypted data
+cannot be accessed when the volume is locked (see below) and the key
+is not available. If the key is protected with a passphrase, both the
+key and passphrase are required for decryption.
 
-.. note:: By design, `GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`_
-   uses *two* randomized encryption keys for each disk. One is the key discussed
-   in this guide. The other, called the disk's "master key", is stored on the
-   disk itself, in a strongly encrypted form which the user never sees. Loss of 
-   a disk's master key due to disk corruption would be equivalent to any other
-   disk failure, and in a redundant pool, other disks will contain accessible 
-   copies of the uncorrupted data.
-   Therefore, while it is *possible* to separately back up any master keys, 
-   it is not usually considered necessary or useful to do so.
+Encryption applies to a volume, not individual users. When a volume is
+unlocked, data is accessible to all users with permissions to access
+it.
+
+.. note:: `GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`__
+   uses *two* randomized encryption keys for each disk. The first has
+   been discussed here. The second, the disk's "master key", is
+   encrypted and stored in the on-disk GELI metadata. Loss of a disk
+   master key due to disk corruption is equivalent to any other disk
+   failure, and in a redundant pool, other disks will contain
+   accessible copies of the uncorrupted data. While it is *possible*
+   to separately back up disk master keys, it is usually not necessary
+   or useful.
 
 
 .. _Additional Controls for Encrypted Volumes:

@@ -108,7 +108,7 @@ if tags.has('bsg-es60'):
     tags.remove('freenas')
     project = brand + six.u(' ES60 Expansion Shelf Basic Setup Guide')
     master_doc = 'bsg-es60'
-    cover_pic = r''
+    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_es60.png}'
 
 
 # |brand| will be replaced with FreeNAS® or TrueNAS®
@@ -338,7 +338,7 @@ PREAMBLE = PREAMBLE + r'''
 % FreeNAS/TrueNAS LaTeX preamble
 \usepackage[tmargin=.75in, bmargin=.75in, lmargin=0.5in, rmargin=0.5in]{geometry}
 \usepackage[default,scale=0.95]{opensans}
-\usepackage[T1]{fontenc}
+\usepackage[T1,T2A]{fontenc}
 \usepackage{color}
 \usepackage{tikz}
 \usetikzlibrary{calc}
