@@ -1797,8 +1797,8 @@ information for your organization.
    | Email Address           | string               | required; enter the email address for the person responsible for the CA                         |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Common Name             | string               | required; enter the fully-qualified hostname (FQDN) of the %brand% system; the                  |
-   |                         |                      | :guilabel:`Common Name` **must** be unique within a certificate chain                           |
+   | Common Name             | string               | required; enter the fully-qualified hostname (FQDN) of the system; the :guilabel:`Common Name`  |
+   |                         |                      | **must** be unique within a certificate chain                                                   |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Subject Alternate Names | string               | newer browsers look for the values in this field to match the domain to the certificate; use a  |
@@ -1992,8 +1992,8 @@ as the signing authority.
    | Email Address           | string               | required; enter the email address for the person responsible for the CA                         |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Common Name             | string               | required; enter the fully-qualified hostname (FQDN) of the %brand% system; the                  |
-   |                         |                      | :guilabel:`Common Name` **must** be unique within a certificate chain                           |
+   | Common Name             | string               | required; enter the fully-qualified hostname (FQDN) of the system; the :guilabel:`Common Name`  |
+   |                         |                      | **must** be unique within a certificate chain                                                   |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Subject Alternate Names | string               | newer browsers look for the values in this field to match the domain to the certificate; use a  |
