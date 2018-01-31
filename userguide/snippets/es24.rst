@@ -202,6 +202,11 @@ clicks into place.
    :width: 60%
 
 
+.. raw:: latex
+
+   \newpage
+
+
 Connect Power Cords
 ~~~~~~~~~~~~~~~~~~~
 
@@ -239,6 +244,11 @@ farthest left Z series node 2 SAS connector (cable #2 in photo).
    SAS Cable Connection for One ES24
 
 
+.. raw:: latex
+
+   \newpage
+
+
 A second ES24 can also be connected to the Z series. Connect the first
 ES24 as shown above. Then connect the second ES24 SAS 0 ports to the
 next unused SAS ports on the Z series as shown:
@@ -261,3 +271,8 @@ Install Bezel (Optional)
 The included bezel is not required for operation. If desired, install
 the bezel by aligning it with the pins on the bezel ears and pressing
 it into place.
+
+.. raw:: latex
+
+   \newpage
+
