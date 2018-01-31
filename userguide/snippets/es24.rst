@@ -178,16 +178,16 @@ pushing the unit in until it is flush with the front of the rack.
 
 .. _mount_system_in_rack:
 .. figure:: images/tn_es24_mount_system.png
-   :width: 60%
+   :width: 30%
 
 
-Anchor the unit in the rack on both sides with the 6-32 screws
-included in the rail kit.
+Anchor the unit in the rack on both sides with the screws included in
+the rail kit.
 
 
 .. _secure_system_in_rack:
 .. figure:: images/tn_es24_secure_unit.png
-   :width: 50%
+   :width: 20%
 
 
 Install Drive Trays
