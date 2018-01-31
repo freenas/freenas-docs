@@ -8,6 +8,7 @@
 
 import os
 import six
+import sphinx
 import string
 import sys
 import time
@@ -333,10 +334,15 @@ PREAMBLE = (PREAMBLE
 
 PREAMBLE = PREAMBLE.replace('Basic Setup Guide', r'''\newline Basic Setup Guide''')
 
+if sphinx.__version__ < '1.6.5':
+    PREAMBLE = PREAMBLE + r'''\usepackage[tmargin=.75in, bmargin=.75in, lmargin=0.5in, rmargin=0.5in]{geometry}'''
+else:
+    PREAMBLE = PREAMBLE + r'''\geometry{tmargin=.75in, bmargin=.75in, lmargin=0.5in, rmargin=0.5in}'''
+
+
 # define custom title page
 PREAMBLE = PREAMBLE + r'''
 % FreeNAS/TrueNAS LaTeX preamble
-\usepackage[tmargin=.75in, bmargin=.75in, lmargin=0.5in, rmargin=0.5in]{geometry}
 \usepackage[default,scale=0.95]{opensans}
 \usepackage[T1,T2A]{fontenc}
 \usepackage{color}
