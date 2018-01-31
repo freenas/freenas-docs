@@ -302,40 +302,44 @@ process for the second power supply and cord. This turns on the ES60.
 
 
 When setting up an ES60 for the first time, wait two minutes after
-turning on the ES60 before powering on the X Series. If the X Series
-is already in operation, the Expansion Shelf may be powered on at any
-time.
+turning on the ES60 before powering on the %brand% Unified Array. If
+the %brand% Unified Array is already in operation, the Expansion Shelf
+can be powered on at any time.
 
 
 Connect SAS Cables
 ~~~~~~~~~~~~~~~~~~
 
-Shut down and power off the %brand% X series. Remove the X series
-power cables from the power outlets.
+Shut down and power off the %brand% Unified Array. Remove the %brand%
+Unified Array power cables from the power outlets.
 
 Plug the ES60 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
+
+Connecting the ES60 to a %brand% X20
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Connect an SAS cable from the ES60 expander module 1 connector 1 to
-the X series node 1 SAS 1 connector (cable #1 in photo). If the X
-series has a second node for HA (High Availability), connect a second
-SAS cable from the ES60 expander module 2 connector 1 to the X series
-node 2 SAS 1 connector (cable #2 in photo).
+the X20 1 SAS 1 connector (cable #1 in photo). If the X20 has a second
+node for HA (High Availability), connect a second SAS cable from the
+ES60 expander module 2 connector 1 to the X20 node 2 SAS 1 connector
+(cable #2 in photo).
 
 
-.. _es60_sasconnect1:
+.. _es60_x20sasconnect1:
 .. figure:: images/tn_es60_sasconnect1.png
    :width: 50%
 
 
-A second ES60 can also be connected to the X series. Connect the first
-ES60 as shown above. Then connect the second ES60, running SAS cables
-from the "1" connectors on the second ES60 to the SAS 2 connectors on
-the X series.
+Connecting the ES60 to a %brand% Z Series
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _es60_sasconnect2:
-.. figure:: images/tn_es60_sasconnect2.png
+
+.. _es60_zsasconnect1:
+.. figure:: images/tn_es60_sasconnect1.png
    :width: 50%
+
 
 
 Install Bezel (Optional)
