@@ -332,14 +332,14 @@ ES60 expander module 2 connector 1 to the X20 node 2 SAS 1 connector
    :width: 50%
 
 
-Connecting the ES60 to a %brand% Z Series
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Connecting the ES60 to a %brand% Z35
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Connect an SAS cable from the ES60 expander module 1 connector 1 to
-the Z series Controller 1 SAS 1 connector (cable #1 in photo). If the
-Z series has a second node for HA (High Availability), connect a
-second SAS cable from the ES60 expander module 2 connector 1 to the
-Z series Controller 2 SAS 1 connector (cable #2 in photo).
+the Z35 Controller 1 SAS 1 connector (cable #1 in photo). If the Z35
+has a second node for HA (High Availability), connect a second SAS
+cable from the ES60 expander module 2 connector 1 to the Z35
+Controller 2 SAS 1 connector (cable #2 in photo).
 
 
 .. _es60_zsasconnect1:
@@ -347,14 +347,17 @@ Z series Controller 2 SAS 1 connector (cable #2 in photo).
    :width: 50%
 
 
-A second ES60 can also be connected to the Z series. Connect the first
+A second ES60 can also be connected to the Z35. Connect the first
 ES60 as shown above. Then connect the second ES60 1 ports to the
-next unused SAS ports on the Z series as shown:
+next unused SAS ports on the Z35 as shown:
 
 
 .. _es60_zsasconnect2:
 .. figure:: images/tn_es60_zsasconnect2.png
    :width: 50%
+
+
+Up to eight ES60 expansion shelves are supported on the %brand% Z35.
 
 
 Install Bezel (Optional)
