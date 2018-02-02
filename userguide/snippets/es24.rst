@@ -43,7 +43,7 @@ Carefully unpack the shipping boxes and locate these components:
    |    :width: 30%                                   |                                             |
    |                                                  |                                             |
    | Two 3-meter Mini SAS HD to Mini SAS HD cables    |                                             |
-   | and a serial cable                               |                                             |
+   | and one serial cable                             |                                             |
    +--------------------------------------------------+---------------------------------------------+
 
 
@@ -131,9 +131,7 @@ Mount the Rack Rails
 
 Place the rail in the rack with the front end toward the front of the
 rack, aligning the pins with the mounting holes in the front of the
-rack. Push the pins into the holes until the latch clicks. Secure the
-rail in place with the front rail screw included in the rail kit.
-Repeat this process for the second front rail.
+rack. Push the pins into the holes until the latch clicks.
 
 Place one square cage nut with the tabs vertical into the front of
 the rack, directly below the top rail pin. Repeat this process on the
@@ -222,9 +220,6 @@ place. Repeat the process for the second power supply and cord.
 
 Connect SAS Cables
 ~~~~~~~~~~~~~~~~~~
-
-Shut down and power off the %brand% Z series. Remove the Z series
-power cables from the power outlets.
 
 Plug the ES24 power cords into power outlets.
 **Wait two minutes for the drives to start.**
