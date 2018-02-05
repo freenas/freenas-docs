@@ -164,7 +164,7 @@ display these settings by checking the box
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Domain Controller        | string        | ✓        | will automatically be added to the SRV record for the domain and, when multiple controllers are                               |
    |                          |               |          | specified, %brand% selects the closest DC which responds; use the short form of the FQDN                                      |
-   |                          |               |          | (Example: *sampleserver*)                                                                                                   |
+   |                          |               |          | (Example: *sampleserver*)                                                                                                     |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Global Catalog Server    | string        | ✓        | if the hostname of the global catalog server to use is specified, make sure it is resolvable                                  |
