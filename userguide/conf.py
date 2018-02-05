@@ -189,6 +189,15 @@ if tags.has('truenas'):
 html_favicon = "artwork/freenas.ico"
 if tags.has('truenas'):
     html_favicon = "artwork/truenas.ico"
+    
+# The modified build code will select a stylesheet based on the tag specified.
+if tags.has('truenas'):
+	def setup(app):
+		app.add_stylesheet('css/truenas_style.css')
+
+if tags.has('freenas'):
+	def setup(app):
+		app.add_stylesheet('css/trueos_style.css')
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

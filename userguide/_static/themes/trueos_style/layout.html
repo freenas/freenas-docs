@@ -111,6 +111,29 @@
           {% endif %}
         {% endblock %}
       </div>
+      
+      	<div id="wy-menu rst-imagebox2" style=width:220px;height:360px; data-spy="affix" role="navigation" aria-label="main navigation" <p>Advertising &nbsp<a href="appendix_a.html#ethical-advertising-policy"><img src="{{pathto("_static/information-icon.png", 1) }}" border="0" style=width:14px;height:14px; alt="image"/></a></p>
+	  {% block imagecontainer  %}
+
+		   <script type="text/javascript">
+		  function randomImg(){
+		  var myImages = new Array();
+		  myImages[1] = "_static/FreeNAS_Certified_Ad.png";
+		  myImages[2] = "_static/TrueNAS_Ad.png";
+
+		  var myLinks = new Array();
+
+		  myLinks[1] = "https://www.ixsystems.com/freenas-certified-servers/";
+		  myLinks[2] = "https://www.ixsystems.com/truenas/";
+
+		  var rnd = Math.floor((Math.random() * 2) +1);
+
+		  document.write('<a href="'+myLinks[rnd]+'"><img src="'+myImages[rnd]+'" border="0"></a>');
+		  }
+		  randomImg();
+		  </script>
+	  {% endblock %}
+	</div>
       &nbsp;
     </nav>
 
