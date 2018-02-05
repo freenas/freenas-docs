@@ -396,52 +396,16 @@ Rsync Tasks
 -----------
 
 `Rsync <http://www.samba.org/ftp/rsync/rsync.html>`_
-is a utility that copies specified data from one system to another
-over a network. Once the initial data is copied, rsync reduces the
-amount of data sent over the network by sending only the differences
-between the source and destination files. Rsync can be used for
-backups, mirroring data on multiple systems, or for copying files
-between systems.
+is a versatile and widely used utility that copies specified data
+from one system to another over a network. It is widely used for 
+directory/file synchronization, backup and restore, and compatible 
+with many popular systems, and can be used for backups, mirroring 
+data on multiple systems, or for copying files between systems.
 
-Rsync is most effective when only a relatively small amount of the
-data has changed. There are also
-`some limitations when using Rsync with Windows files
-<https://forums.freenas.org/index.php?threads/impaired-rsync-permissions-support-for-windows-datasets.43973/>`_.
-For large amounts of data, data that has many changes from the
-previous copy, or Windows files, :ref:`Replication Tasks` are often
-the faster and better solution.
-
-Rsync is single-threaded, so gains little from multiple processor
-cores. To see whether rsync is currently running, use
-:samp:`pgrep rsync` from the :ref:`Shell`.
-
-Both ends of an rsync connection must be configured:
-
-* **the rsync server:** this system pulls (receives) the data. This
-  system is referred to as *PULL* in the configuration examples.
-
-* **the rsync client:** this system pushes (sends) the data. This
-  system is referred to as *PUSH* in the configuration examples.
-
-%brand% can be configured as either an rsync client or an rsync
-server. The opposite end of the connection can be another %brand%
-system or any other system running rsync. In %brand% terminology, an
-rsync task defines which data is synchronized between the two systems.
-To synchronize data between two %brand% systems, create the rsync task
-on the rsync client.
-
-%brand% supports two modes of rsync operation:
-
-* **rsync module mode:** exports a directory tree, and its configured
-  settings, as a symbolic name over an unencrypted connection. This
-  mode requires that at least one module be defined on the rsync
-  server. It can be defined in the %brand% GUI under
-  :menuselection:`Services --> Rsync --> Rsync Modules`.
-  In other operating systems, the module is defined in
-  `rsyncd.conf(5) <http://www.samba.org/ftp/rsync/rsyncd.conf.html>`_.
-
-* **rsync over SSH:** synchronizes over an encrypted connection.
-  Requires the configuration of SSH user and host public keys.
+%brand% supports two modes of rsync operation: **rsync module mode** 
+and **rsync over SSH**. Details of %brand%'s Rsync services and an
+explanation of Rsync terminology used in this section, can be 
+found on the page for the :ref:`Rsync service`.
 
 This section summarizes the options when creating an Rsync Task. It
 then provides a configuration example between two %brand% systems for
