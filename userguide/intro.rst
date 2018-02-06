@@ -346,6 +346,9 @@ U1
 U2
 ~~
 
+* Midnight Commander has been updated to version
+  `4.8.20 <http://midnight-commander.org/wiki/NEWS-4.8.20>`_.
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
