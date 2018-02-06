@@ -343,6 +343,9 @@ U1
   :menuselection:`System --> General` has been renamed to
   :guilabel:`Reset Configuration to Defaults`.
 
+U2
+~~
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
