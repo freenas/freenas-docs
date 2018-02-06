@@ -37,13 +37,13 @@ The latest STABLE version of %brand% |release| can be downloaded from
 
 .. note:: %brand% requires 64-bit hardware.
 
-The download page contains an *.iso* file. This is a bootable installer
-that can be written to either a CD or USB flash as described in
-:ref:`Preparing the Media`.
+The download page contains an *.iso* file. This is a bootable
+installer that can be written to either a CD or USB flash as described
+in :ref:`Preparing the Media`.
 
 .. index:: Checksum
 
-The *.iso* file has an associated :file:`sha256.txt` file which should be
+The *.iso* file has an associated :file:`sha256.txt` file which is
 used to verify the integrity of the downloaded file. The command to
 verify the checksum varies by operating system:
 
@@ -164,7 +164,9 @@ but enter the name of the downloaded :file:`.iso` into the
 and
 `Rufus <http://rufus.akeo.ie/>`_
 are alternate programs for writing images to USB sticks on a computer
-running Windows.
+running Windows. When using Rufus, check
+:guilabel:`Create a bootable disk using` and select *DD Image* from
+the drop-down menu.
 
 
 .. _On OS X:
