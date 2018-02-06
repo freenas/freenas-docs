@@ -117,7 +117,7 @@ to it:
 
 
 Select the name of the VM from the :guilabel:`VM` drop-down menu, then
-select the :guilabel:`Type` of device to add. The following types are
+select the :guilabel:`Type` of device to add. These types are
 available:
 
 * Network Interface
@@ -133,6 +133,11 @@ available:
 :numref:`Figure %s <vms-nic_fig>` shows the fields that appear when
 :guilabel:`Network Interface` is the selected :guilabel:`Type`.
 
+
+.. _vms-Network Interface:
+
+Network Interface
+~~~~~~~~~~~~~~~~~
 
 .. _vms-nic_fig:
 
@@ -154,6 +159,12 @@ physical interface to associate with the VM.
 By default, the VM receives an auto-generated random MAC address. To
 override the default with a custom value, enter the desired address
 into the :guilabel:`MAC Address` field.
+
+
+.. _vms-VNC:
+
+VNC Interface
+~~~~~~~~~~~~~
 
 VMs set to *UEFI* booting are also given a VNC (Virtual Network
 Computing) remote connection. A standard
@@ -201,9 +212,14 @@ To use the VNC web interface, check the :guilabel:`VNC Web` checkbox.
    click :guilabel:`Expert`, :guilabel:`ProtocolVersion`, then
    select 4.1 from the drop-down menu.
 
-:ref:`Zvols <Create zvol>` are used as virtual hard drives. After
-:ref:`creating a zvol <Create zvol>`, associate it with the VM by
-selecting :guilabel:`Add device`, choose the *VM*, select a
+.. _vms-disk-device:
+
+Disk Devices
+~~~~~~~~~~~~
+
+:ref:`Zvols <Create zvol>` are typically used as virtual hard drives.
+After :ref:`creating a zvol <Create zvol>`, associate it with the VM
+by selecting :guilabel:`Add device`, choose the *VM*, select a
 :guilabel:`Type` of *Disk*, select the created zvol, then set the
 :guilabel:`Mode`. If a specific sector size is required, enter the
 number of bytes into :guilabel:`Disk sectorsize`. The default of *0*
@@ -219,6 +235,11 @@ leaves the sector size unset.
 *VirtIO* uses paravirtualized drivers and can provide better
 performance, but requires the operating system installed in the VM to
 support VirtIO disk devices.
+
+.. vms-cd-rom:
+
+CD-ROM Devices
+~~~~~~~~~~~~~~
 
 Adding a CD-ROM device makes it possible to boot the VM from a CD-ROM
 image, typically an installation CD. The image must be present on an
@@ -246,8 +267,10 @@ installation image is shown:
 .. index: Other VM Devices
 .. _Other VM Devices:
 
+.. _vms-virtual-serial:
+
 Virtual Serial Ports
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 VMs automatically include a virtual serial port.
 
