@@ -224,6 +224,11 @@ Connect SAS Cables
 Plug the ES24 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
+
+.. note:: The %brand% Unified Array can remain on while the expansion
+   shelf is connected.
+
+
 Connect an SAS cable from ES24 expansion module 1 SAS 0 connector to
 the farthest left Z series node 1 SAS connector (cable #1 in photo).
 
