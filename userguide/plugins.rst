@@ -284,7 +284,7 @@ These plugins are available for %brand% |release|:
 
 * `NZBHydra <https://github.com/theotherp/nzbhydra>`_
 
-* `owncloud <https://owncloud.org/>`_
+* `ownCloud <https://owncloud.org/>`_
 
 * `PlexMediaServer <https://plex.tv/>`_
 
@@ -307,6 +307,8 @@ These plugins are available for %brand% |release|:
 * `Transmission <http://www.transmissionbt.com/>`_
 
 * `XDM <https://github.com/lad1337/XDM>`_
+
+* `XMRig <https://github.com/xmrig/xmrig>`_
 
 While the %brand% Plugins system makes it easy to install software,
 it is still up to you to know how to configure and use the installed
