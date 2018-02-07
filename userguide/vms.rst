@@ -356,7 +356,7 @@ Some standard buttons are shown for all VMs:
 
 * :guilabel:`Edit` changes VM settings.
 
-* :guilabel:`Delete` removes the VM.
+* :guilabel:`Delete` :ref:`removes the VM <Deleting VMs>`.
 
 * :guilabel:`Devices` is used to add and remove devices to this VM.
 
@@ -381,6 +381,25 @@ When a VM is already running, these buttons are shown:
 * :guilabel:`Vnc via Web` starts a web VNC connection to the VM. The
   VM must have a VNC device, and :guilabel:`VNC Web` enabled in that
   device.
+
+
+.. index:: Deleting VMs
+.. _Deleting VMs:
+
+Deleting VMs
+------------
+
+When a VM is no longer needed, it can be deleted by clicking on the
+VM, then clicking :guilabel:`Delete` at the bottom of the screen. A
+dialog will show any related devices that will also be deleted and ask
+for confirmation.
+
+.. tip:: :ref:`Zvols <Create zvol>` used in
+   :ref:`disk devices <vms-disk-device>` and image files used in
+   :ref:`raw file <vms-raw-file>` devices are *not* removed when a VM
+   is deleted. These resources can be removed manually after it is
+   determined that the data in them has been backed up or is no longer
+   needed.
 
 
 .. index: Docker/Rancher VM
