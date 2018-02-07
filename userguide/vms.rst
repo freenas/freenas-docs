@@ -279,8 +279,7 @@ The :guilabel:`VNC port` can be set to *0*, left empty for
 %brand% to assign a port when the VM is started, or set to a fixed,
 preferred port number.
 
-By default, VNC binds to all available IP addresses (*0.0.0.0*).
-To specify the IP address to use, select it from the
+Select the IP address for VNC to listen on with the
 :guilabel:`Bind to` drop-down menu.
 
 Check the :guilabel:`Wait to boot` checkbox to indicate that the VNC
