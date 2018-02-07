@@ -17,7 +17,7 @@ other VMs.
 
 %brand% VMs use the
 `bhyve(8)
-<https://www.freebsd.org/cgi/man.cgi?query=bhyve&manpath=FreeBSD+11.0-RELEASE+and+Ports>`_
+<https://www.freebsd.org/cgi/man.cgi?query=bhyve&manpath=FreeBSD+11.0-RELEASE+and+Ports>`__
 virtual machine software. This type of virtualization requires an
 Intel processor with Extended Page Tables (EPT) or an AMD processor
 with Rapid Virtualization Indexing (RVI) or Nested Page Tables (NPT).
@@ -31,6 +31,14 @@ To verify that an AMD processor has the required features, use
 :ref:`Shell` to run :command:`grep POPCNT /var/run/dmesg.boot`. If the
 output shows the POPCNT feature, this processor can be used with
 *bhyve*.
+
+
+.. note:: By default, new VMs have the
+   `bhyve(8)
+   <https://www.freebsd.org/cgi/man.cgi?query=bhyve&manpath=FreeBSD+11.0-RELEASE+and+Ports>`__
+   :literal:`-H` option is set. This causes the virtual CPU thread to
+   yield when a HLT instruction is detected, and prevents idle VMs
+   from consuming all of the host's CPU.
 
 
 .. note:: AMD K10 "Kuma" processors include POPCNT but do not support
