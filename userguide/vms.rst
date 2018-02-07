@@ -120,24 +120,24 @@ Select the name of the VM from the :guilabel:`VM` drop-down menu, then
 select the :guilabel:`Type` of device to add. These types are
 available:
 
-* Network Interface
+* :ref:`Network Interfaces <vms-network-interface>`
 
-* Disk
+* :ref:`Disk Devices <vms-disk-device>`
 
-* Raw File
+* :ref:`Raw Files <vms-raw-file>`
 
-* CD-ROM
+* :ref:`CD-ROMs <vms-cd-rom>`
 
-* VNC
+* :ref:`VNC Interface <vms-vnc>`
 
 :numref:`Figure %s <vms-nic_fig>` shows the fields that appear when
 :guilabel:`Network Interface` is the selected :guilabel:`Type`.
 
 
-.. _vms-Network Interface:
+.. _vms-network-interface:
 
-Network Interface
-~~~~~~~~~~~~~~~~~
+Network Interfaces
+~~~~~~~~~~~~~~~~~~
 
 .. _vms-nic_fig:
 
@@ -159,6 +159,87 @@ physical interface to associate with the VM.
 By default, the VM receives an auto-generated random MAC address. To
 override the default with a custom value, enter the desired address
 into the :guilabel:`MAC Address` field.
+
+
+.. _vms-disk-device:
+
+Disk Devices
+~~~~~~~~~~~~
+
+:ref:`Zvols <Create zvol>` are typically used as virtual hard drives.
+After :ref:`creating a zvol <Create zvol>`, associate it with the VM
+by selecting :guilabel:`Add device`, choose the *VM*, select a
+:guilabel:`Type` of *Disk*, select the created zvol, then set the
+:guilabel:`Mode`. If a specific sector size is required, enter the
+number of bytes into :guilabel:`Disk sectorsize`. The default of *0*
+leaves the sector size unset.
+
+
+.. figure:: images/vms-disk1.png
+
+   VM Disk Device
+
+
+*AHCI* emulates an AHCI hard disk for best software compatibility.
+*VirtIO* uses paravirtualized drivers and can provide better
+performance, but requires the operating system installed in the VM to
+support VirtIO disk devices.
+
+
+.. _vms-raw-file:
+
+Raw Files
+~~~~~~~~~
+
+*Raw Files* are similar to :ref:`Zvol <Create zvol>` disk devices,
+but the disk image comes from a file. These are typically used with
+existing read-only binary images of drives, like an installer disk
+image file meant to be copied onto a USB stick.
+
+After obtaining and copying the image file to the %brand% system,
+select :guilabel:`Add device`, choose the *VM*, select a
+:guilabel:`Type` of *Raw File*, browse to the image file, then set the
+:guilabel:`Mode`. *AHCI* emulates an AHCI hard disk for best software
+compatibility. *VirtIO* uses paravirtualized drivers and can provide
+better performance, but requires the operating system installed in the
+VM to support VirtIO disk devices.
+
+If a specific sector size is required, enter the number of bytes into
+:guilabel:`Disk sectorsize`. The default of *0* leaves the sector size
+unset.
+
+
+.. figure:: images/vms-raw-file.png
+
+   VM Raw File Disk Device
+
+
+.. _vms-cd-rom:
+
+CD-ROM Devices
+~~~~~~~~~~~~~~
+
+Adding a CD-ROM device makes it possible to boot the VM from a CD-ROM
+image, typically an installation CD. The image must be present on an
+accessible portion of the %brand% storage. In this example, a FreeBSD
+installation image is shown:
+
+
+.. figure:: images/vms-cdrom.png
+
+   VM CD-ROM Device
+
+
+.. note:: VMs from other virtual machine systems can be recreated for
+   use in %brand%. Back up the original VM, then create a new %brand%
+   VM with virtual hardware as close as possible to the original VM.
+   Binary-copy the disk image data into the :ref:`zvol <Create zvol>`
+   created for the %brand% VM with a tool that operates at the level
+   of disk blocks, like
+   `dd(1) <https://www.freebsd.org/cgi/man.cgi?query=dd>`__.
+   For some VM systems, it is best to back up data, install the
+   operating system from scratch in a new %brand% VM, and restore the
+   data into the new VM.
 
 
 .. _vms-VNC:
@@ -204,6 +285,7 @@ characters.
 
 To use the VNC web interface, check the :guilabel:`VNC Web` checkbox.
 
+
 .. tip:: If a RealVNC 5.X Client shows the error
    :literal:`RFB protocol error: invalid message type`, disable the
    :guilabel:`Adapt to network speed` option and move the slider to
@@ -211,57 +293,6 @@ To use the VNC web interface, check the :guilabel:`VNC Web` checkbox.
    :menuselection:`File --> Preferences`,
    click :guilabel:`Expert`, :guilabel:`ProtocolVersion`, then
    select 4.1 from the drop-down menu.
-
-.. _vms-disk-device:
-
-Disk Devices
-~~~~~~~~~~~~
-
-:ref:`Zvols <Create zvol>` are typically used as virtual hard drives.
-After :ref:`creating a zvol <Create zvol>`, associate it with the VM
-by selecting :guilabel:`Add device`, choose the *VM*, select a
-:guilabel:`Type` of *Disk*, select the created zvol, then set the
-:guilabel:`Mode`. If a specific sector size is required, enter the
-number of bytes into :guilabel:`Disk sectorsize`. The default of *0*
-leaves the sector size unset.
-
-
-.. figure:: images/vms-disk1.png
-
-   VM Disk Device
-
-
-*AHCI* emulates an AHCI hard disk for best software compatibility.
-*VirtIO* uses paravirtualized drivers and can provide better
-performance, but requires the operating system installed in the VM to
-support VirtIO disk devices.
-
-.. vms-cd-rom:
-
-CD-ROM Devices
-~~~~~~~~~~~~~~
-
-Adding a CD-ROM device makes it possible to boot the VM from a CD-ROM
-image, typically an installation CD. The image must be present on an
-accessible portion of the %brand% storage. In this example, a FreeBSD
-installation image is shown:
-
-
-.. figure:: images/vms-cdrom.png
-
-   VM CD-ROM Device
-
-
-.. note:: VMs from other virtual machine systems can be recreated for
-   use in %brand%. Back up the original VM, then create a new %brand%
-   VM with virtual hardware as close as possible to the original VM.
-   Binary-copy the disk image data into the :ref:`zvol <Create zvol>`
-   created for the %brand% VM with a tool that operates at the level
-   of disk blocks, like
-   `dd(1) <https://www.freebsd.org/cgi/man.cgi?query=dd>`__.
-   For some VM systems, it is best to back up data, install the
-   operating system from scratch in a new %brand% VM, and restore the
-   data into the new VM.
 
 
 .. index: Other VM Devices
