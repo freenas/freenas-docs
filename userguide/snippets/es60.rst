@@ -258,8 +258,8 @@ cabinet rail and attach the bracket to the rail with the screws.
 
 
 Locate the end of the flex housing with exposed holes. Unclip and open
-the two tabs closest to the end, allowing the flex housing to compress
-enough to fit onto the bracket pins. Press the flex housing firmly
+the two tabs closest to the end, allowing the flex housing to expand
+enough to fit over the bracket pins. Press the flex housing firmly
 into the bracket until the holes seat on the pins.
 
 
