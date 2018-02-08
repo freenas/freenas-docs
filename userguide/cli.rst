@@ -944,9 +944,11 @@ run the command without any options:
    Where options are:
        -e  Email debug log to this comma-delimited list of email addresses
        -A  Dump all debug information
+
        -a  Dump Active Directory Configuration
        -f  Dump AFP Configuration
        -c  Dump (AD|LDAP) Cache
+       -B  Dump System Configuration Database
        -D  Dump Domain Controller Configuration
        -d  Dump DTrace Scripts
        -g  Dump GEOM Configuration
