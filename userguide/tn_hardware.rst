@@ -28,6 +28,11 @@ Racking and connection information is described below.
 
 #include snippets/es12.rst
 
+#include snippets/es24.rst
+
+#include snippets/es60.rst
+
 #include snippets/e16.rst
 
 #include snippets/e24.rst
+
