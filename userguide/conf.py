@@ -348,6 +348,10 @@ PREAMBLE = PREAMBLE + r'''
 \usepackage{color}
 \usepackage{tikz}
 \usetikzlibrary{calc}
+%for better UTF handling
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
 %for bitmaps
 \usepackage{graphicx}
 %for ragged right tables
@@ -406,6 +410,8 @@ latex_elements = {
 # strict positioning of figures
 'figure_align': 'H',
 }
+
+latex_engine = 'xelatex'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
