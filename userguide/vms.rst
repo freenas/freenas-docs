@@ -302,9 +302,6 @@ To use the VNC web interface, check the :guilabel:`VNC Web` checkbox.
    select 4.1 from the drop-down menu.
 
 
-.. index: Other VM Devices
-.. _Other VM Devices:
-
 .. _vms-virtual-serial:
 
 Virtual Serial Ports

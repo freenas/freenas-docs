@@ -103,12 +103,10 @@ On FreeBSD or Linux
 ~~~~~~~~~~~~~~~~~~~
 
 On a FreeBSD or Linux system, the :command:`dd` command can be used to
-write the :file:`.iso` file to an inserted USB thumb drive.
-:ref:`Example: Writing the .iso file to a USB Thumb Drive
-<install_write_iso_topic>`
-demonstrates writing the image to the first USB device (*/dev/da0*) on
-a FreeBSD system. Substitute the filename of the :file:`.iso` file and
-the device name representing the device to write to on your system.
+write the :file:`.iso` file to an inserted USB thumb drive. This
+example demonstrates writing the image to the first USB device
+(*/dev/da0*) connected to a FreeBSD system. Substitute the filename of
+the :file:`.iso` file and the device name of the device to write.
 
 .. warning:: The :command:`dd` command is very powerful and can
    destroy any existing data on the specified device. Make
@@ -117,15 +115,12 @@ the device name representing the device to write to on your system.
    uncomfortable using this command, write the :file:`.iso` file to a
    CD instead.
 
-.. topic:: Writing the *.iso* file to a USB Thumb Drive
-   :name: install_write_iso_topic
+.. code-block:: none
 
-   .. code-block:: none
-
-    dd if=FreeNAS-11.0-RELEASE.iso of=/dev/da0 bs=64k
-    6117+0 records in
-    6117+0 records out
-    400883712 bytes transferred in 88.706398 secs (4519220 bytes/sec)
+   dd if=FreeNAS-11.0-RELEASE.iso of=/dev/da0 bs=64k
+   6117+0 records in
+   6117+0 records out
+   400883712 bytes transferred in 88.706398 secs (4519220 bytes/sec)
 
 
 When using the :command:`dd` command:
@@ -208,23 +203,19 @@ is the correct one for the USB stick, remove the device, run the
 command again, and compare the difference. Once sure of the device
 name, navigate to the Desktop from TERMINAL, unmount the USB stick,
 and use the :command:`dd` command to write the image to the USB stick.
-In :ref:`Example: Using dd on an OS X System <install_dd_osx_topic>`,
-the USB thumb drive is :file:`/dev/disk1`, which is first unmounted.
-The :command:`dd` command uses :file:`/dev/rdisk1` (note the extra
-*r*) to write to the raw device, which is faster. When running these
-commands, substitute the name of the installation file and the correct
-path to the USB thumb drive.
+In this example, the USB thumb drive is :file:`/dev/disk1`. It is
+first unmounted. The :command:`dd` command is used to write the
+image to the faster "raw" version of the device (note the extra
+:literal:`r` in :file:`/dev/rdisk1`). When running these commands,
+substitute the name of the installation file and the correct path to
+the USB thumb drive.
 
+.. code-block:: none
 
-.. topic:: Example: Using *dd* on an OS X System
-   :name: install_dd_osx_topic
+   diskutil unmountDisk /dev/disk1
+   Unmount of all volumes on disk1 was successful
 
-   .. code-block:: none
-
-    diskutil unmountDisk /dev/disk1
-    Unmount of all volumes on disk1 was successful
-
-    dd if=FreeNAS-11.0-RELEASE.iso of=/dev/rdisk1 bs=64k
+   dd if=FreeNAS-11.0-RELEASE.iso of=/dev/rdisk1 bs=64k
 
 
 .. note:: If the error "Resource busy" is shown when the
