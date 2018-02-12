@@ -73,7 +73,7 @@ To start xjperf on Mac OS X, Linux, or BSD, unzip the downloaded file,
 :command:`chmod u+x jperf.sh`, and run :command:`./jperf.sh`.
 
 Once the client is ready, you need to start the Iperf server on
-%brand%. 
+%brand%.
 
 .. note:: Beginning with %brand% version 11.1, both `iperf2
    <https://sourceforge.net/projects/iperf2/>`_ and `iperf3

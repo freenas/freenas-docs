@@ -287,7 +287,7 @@ such volumes before using them in production.
    number of disks increases. Older processors without the AES-NI
    instructions see significant performance impact with even a single
    encrypted disk. This `forum post
-   <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__ 
+   <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__
    compares the performance of various processors.
 #endif freenas
 
@@ -1277,8 +1277,8 @@ regular creation of snapshots, instead use
 
 **Promote Dataset:** only applies to clones. When a clone is promoted,
 the origin filesystem becomes a clone of the clone making it possible
-to destroy the filesystem that the clone was created from. Otherwise, a
-clone can not be destroyed while its origin filesystem exists.
+to destroy the filesystem that the clone was created from. Otherwise,
+a clone cannot be destroyed while the origin filesystem exists.
 
 **Destroy Dataset:** clicking the :guilabel:`Destroy Dataset` button
 causes the browser window to turn red to indicate that this is a

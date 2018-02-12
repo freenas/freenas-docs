@@ -204,7 +204,7 @@ server from all live interfaces. If it successfully receives an IP
 address, the address is displayed so it can be used to access the
 graphical user interface. In the example seen in
 :numref:`Figure %s <console_setup_menu_fig>`,
-the %brand% system is accessible at *http://10.0.0.142*.
+the %brand% system is accessible at *http://10.0.0.102*.
 
 Some %brand% systems are set up without a monitor, making it
 challenging to determine which IP address has been assigned. On

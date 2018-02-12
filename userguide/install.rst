@@ -265,16 +265,16 @@ The %brand% installer GRUB menu is displayed as is shown in
 
 The installer will start automatically after a few seconds, or an
 option can be chosen by moving the highlight bar to it with the up and
-down arrow keys and pressing :kbd:`Enter`. After booting, the console
-setup menu is displayed as shown in
-:numref:`Figure %s <console_setup_fig>`.
+down arrow keys and pressing :kbd:`Enter`. After booting, the
+installer menu is displayed as shown in
+:numref:`Figure %s <installer_menu_fig>`.
 
 
-.. _console_setup_fig:
+.. _installer_menu_fig:
 
 .. figure:: images/install2c.png
 
-   Console Setup
+   Installer Menu
 
 
 Press :kbd:`Enter` to select the default option,
@@ -298,15 +298,15 @@ system.
    Selecting the Install Drive
 
 
-Use the arrow keys to highlight the destination USB drive, SSD,
-DOM (Disk on Module), or virtual disk. Press the :kbd:`spacebar` to select
+Use the arrow keys to highlight the destination USB drive, SSD, DOM
+(Disk on Module), or virtual disk. Press the :kbd:`spacebar` to select
 it. To mirror the boot device, move to the second device and press
-:kbd:`spacebar` to select it also. After making these selections, press
-:kbd:`Enter`. The warning shown in
+:kbd:`spacebar` to select it also. After making these selections,
+press :kbd:`Enter`. The warning shown in
 :numref:`Figure %s <install_warning_fig>`
 is displayed, a reminder not to install the operating system on a
 drive that is meant for storage. Press :kbd:`Enter` to continue on to
-the screen shown in 
+the screen shown in
 :numref:`Figure %s <set_root_pass_fig>`.
 
 

@@ -68,16 +68,9 @@ can be used to re-import volumes.
 **9) Shell** starts a shell for running FreeBSD commands. To leave
 the shell, type :command:`exit`.
 
-**10) System Update** checks for system updates. If any new updates
-are available, they are automatically downloaded and applied. This
-is a simplified version of the :ref:`Update` option available in the
-web interface. Updates are applied immediately for the currently
-selected train and access to the GUI is not required. For more
-advanced update options like switching trains, use :ref:`Update`.
+**10) Reboot** reboots the system.
 
-**11) Reboot** reboots the system.
-
-**12) Shut Down** shuts down the system.
+**11) Shut Down** shuts down the system.
 
 .. note:: The numbering and quantity of options on this menu can
    change due to software updates, service agreements, or other
