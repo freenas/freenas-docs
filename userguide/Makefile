@@ -9,6 +9,7 @@ PREPROC       = ./preproc
 PREPROCDIR    = processed
 PAPER         =
 BUILDDIR      = _build
+LATEX_ENGINE  = xelatex
 
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
@@ -94,7 +95,9 @@ latex:	preproc
 latexpdf pdf:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
-	@echo "Running LaTeX files through pdflatex..."
+	@echo "Running LaTeX files through $(LATEX_ENGINE)..."
+	# fix missing latex_engine substitution in old versions of Sphinx
+	@sed -i '' -e 's/pdflatex/$(LATEX_ENGINE)/g' $(PREPROCDIR)/$(BUILDDIR)/latex/Makefile
 	# move the table of contents to a different spot
 	@sed -i '' -e '/\\tableofcontents/d' -e '/\\sphinxtableofcontents/d' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@sed -i '' -e 's/\\par--TABLEOFCONTENTS--\\par/\\tableofcontents/' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
