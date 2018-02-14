@@ -28,10 +28,9 @@ command will indicate that the most recent version is already installed.
 
 ```
 portsnap fetch extract
-pkg install devel/git (cd /usr/ports/devel/git/ && make install)
-pkg install textproc/py-sphinx (cd /usr/ports/textproc/py-sphinx/ && make install)
-pkg install textproc/py-sphinxcontrib-httpdomain (cd /usr/ports/textproc/py-sphinxcontrib-httpdomain && make
-install)
+pkg install devel/git                            (make -C /usr/ports/devel/git install clean)
+pkg install textproc/py-sphinx                   (make -C /usr/ports/textproc/py-sphinx install clean)
+pkg install textproc/py-sphinxcontrib-httpdomain (make -C /usr/ports/textproc/py-sphinxcontrib-httpdomain install clean)
 rehash
 ```
 
@@ -39,9 +38,11 @@ To generate a PDF version of the documentation, this software also must be
 installed:
 
 ```
-pkg install print/tex-formats (cd /usr/ports/print/tex-formats/ && make install)
-pkg install print/tex-dvipsk (cd /usr/ports/print/tex-dvipsk/ && make install)
-pkg install devel/gmake (/usr/ports/devel/gmake/ && make install)
+pkg install print/tex-formats  (make -C /usr/ports/print/tex-formats install clean)
+pkg install print/tex-dvipdfmx (make -C /usr/ports/print/tex-dvipsk install clean)
+pkg install print/tex-dvipsk   (make -C /usr/ports/print/tex-dvipsk install clean)
+pkg install print/tex-xetex    (make -C /usr/ports/print/tex-xetex install clean)
+pkg install devel/gmake        (make -C /usr/ports/devel/gmake install clean)
 ```
 
 Choose a place to store the source code and change to that directory
