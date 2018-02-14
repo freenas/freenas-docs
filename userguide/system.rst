@@ -78,7 +78,7 @@ The information includes the hostname, the build version, type of CPU
 (platform), the amount of memory, the current system time, the
 system's uptime, the number of users connected at the console or by
 serial, telnet, or SSH connections, and the current load average. On
-servers supplied or certified by iXsystems, an additional
+systems supplied or certified by iXsystems, an additional
 :guilabel:`Serial Number` field showing the hardware serial number is
 displayed.
 
