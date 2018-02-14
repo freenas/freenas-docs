@@ -639,6 +639,10 @@ clicking the :guilabel:`Edit Options` button in
    | Comments                 | string              | short comments or user notes about this dataset                                                           |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+   | Sync                     | drop-down menu      | data write synchronization: *Inherit* inherits the sync settings from the parent dataset; *Standard*      |
+   |                          |                     | uses the sync settings that have been requested by the client software; *Always* always waits for         |
+   |                          |                     | data writes to complete; *Disabled* never waits for writes to complete                                    |
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    | Compression Level        | drop-down menu      | see the section on :ref:`Compression` for a description of the available algorithms                       |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
