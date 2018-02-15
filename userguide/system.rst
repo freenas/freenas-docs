@@ -763,10 +763,11 @@ status changes.
 
 The first step is to set the remote address where email will be sent.
 Select
-:menuselection:`Users --> View Users`, click on *root* to highlight
-that user, then click :guilabel:`Change E-mail`. Enter the email
-address on the remote system where email is to be sent, like
-*admin@example.com*.
+:menuselection:`Account --> Users`, click on *root* to highlight
+that user, then click :guilabel:`Modify User`. In the
+:guilabel:`E-mail` field, enter the email address on the remote system
+where email is to be sent, like *admin@example.com*. Click
+:guilabel:`OK` to save the settings.
 
 Additional configuration is performed with
 :menuselection:`System --> Email`,

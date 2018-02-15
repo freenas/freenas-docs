@@ -163,7 +163,7 @@ operating system, as shown in
 
 .. _managing_user_fig:
 
-.. figure:: images/user1a.png
+.. figure:: images/account-users.png
 
    Managing User Accounts
 
@@ -195,7 +195,7 @@ Except for the *root* user, the accounts that come with %brand%
 are system accounts. Each system account is used by a service and
 should not be used as a login account. For this reason, the default
 shell on system accounts is
-`nologin(8) <http://www.freebsd.org/cgi/man.cgi?query=nologin>`_.
+`nologin(8) <http://www.freebsd.org/cgi/man.cgi?query=nologin>`__.
 For security reasons, and to prevent breakage of system services, do
 not modify the system accounts.
 
