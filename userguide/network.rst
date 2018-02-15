@@ -704,6 +704,8 @@ inherited by the lagg interface. For example, to set the MTU on a
 lagg, use :guilabel:`Edit Members` to set the MTU for each parent
 interface.
 
+If the MTU settings on the lagg member interfaces are not identical,
+the smallest value is used for the MTU of the entire lagg.
 
 .. note:: A reboot is required after changing the MTU to create a
    jumbo frame lagg.
