@@ -319,7 +319,7 @@ DDNS service such as `DynDNS <http://dyn.com/dns/>`_.
 :numref:`Figure %s <config_ddns_fig>`
 shows the DDNS configuration screen and
 :numref:`Table %s <ddns_config_opts_tab>`
-summarizes the configuration options. The values to enter will be
+summarizes the configuration options. The values for these fields are
 provided by the DDNS provider. After configuring DDNS, remember to
 start the DDNS service in
 :menuselection:`Services --> Control Services`.
@@ -327,7 +327,7 @@ start the DDNS service in
 
 .. _config_ddns_fig:
 
-.. figure:: images/ddns.png
+.. figure:: images/services-ddns.png
 
    Configuring DDNS
 
@@ -361,12 +361,6 @@ start the DDNS service in
    | Use SSL              |                | when checked, HTTPS is used for the connection to the server that updates the DNS record                           |
    |                      |                |                                                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Custom Server        | string         | only appears if *Custom Provider* is selected as the *Provider*                                                    |
-   |                      |                |                                                                                                                    |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Custom Path          | string         | only appears if *Custom Provider* is selected as the *Provider*                                                    |
-   |                      |                |                                                                                                                    |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
    | Domain name          | string         | fully qualified domain name (e.g. *yourname.dyndns.org*)                                                           |
    |                      |                |                                                                                                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
@@ -380,9 +374,9 @@ start the DDNS service in
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
 
 
-When using "he.net", enter the domain name for
+When using :literal:`he.net`, enter the domain name for
 :guilabel:`Username` and enter the DDNS key generated for that
-domain's A entry at the `<he.net>`_ website for :guilabel:`Password`.
+domain's A entry at the `<he.net>`__ website for :guilabel:`Password`.
 
 .. index:: FTP, File Transfer Protocol
 .. _FTP:
@@ -390,7 +384,7 @@ domain's A entry at the `<he.net>`_ website for :guilabel:`Password`.
 FTP
 ---
 
-%brand% uses the `proftpd <http://www.proftpd.org/>`_ FTP server to
+%brand% uses the `proftpd <http://www.proftpd.org/>`__ FTP server to
 provide FTP services. Once the FTP service is configured and started,
 clients can browse and download data using a web browser or FTP client
 software. The advantage of FTP is that easy-to-use cross-platform
