@@ -346,8 +346,12 @@ U1
 U2
 ~~
 
+* ZFS Sync write synchronization settings have been added to
+  :ref:`Create Dataset` and :ref:`Create zvol`.
+
 * Midnight Commander has been updated to version
   `4.8.20 <http://midnight-commander.org/wiki/NEWS-4.8.20>`_.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
