@@ -349,6 +349,9 @@ U2
 * :literal:`System Update` has been removed from the
   :ref:`Console Setup Menu <Booting>`.
 
+* :menuselection:`System -> Information` shows the system serial
+  number on systems supplied or certified by iXsystems.
+
 * ZFS Sync write synchronization settings have been added to
   :ref:`Create Dataset` and :ref:`Create zvol`.
 
