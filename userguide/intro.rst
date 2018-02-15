@@ -346,6 +346,9 @@ U1
 U2
 ~~
 
+* :literal:`System Update` has been removed from the
+  :ref:`Console Setup Menu <Booting>`.
+
 * ZFS Sync write synchronization settings have been added to
   :ref:`Create Dataset` and :ref:`Create zvol`.
 
