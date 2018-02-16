@@ -212,6 +212,9 @@ These major features are new in this version:
 
 These screens have changed:
 
+* The :guilabel:`Change E-mail` button has been removed from
+  :menuselection:`Account --> Users`.
+
 * Each device in a mirrored boot pool now displays a
   :guilabel:`Detach` button in
   :menuselection:`System --> Boot --> Status`.
