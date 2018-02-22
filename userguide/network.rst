@@ -529,10 +529,10 @@ interfaces have been manually configured in
 If any manually-configured interfaces exist, delete them as
 **lagg creation fails if any interfaces are manually configured**.
 
-.. note:: Creating or editing link aggregations can disconnect clients
-   using the %brand% computer. Please verify that clients have saved
-   their work and are not connected through the affected networks
-   before making changes.
+.. warning:: Creating or editing link aggregations can disconnect
+   clients using the %brand% computer. Please verify that clients have
+   saved their work and are not connected through the affected
+   networks before making changes.
 
 :numref:`Figure %s <create_lagg_fig>`
 shows the configuration options when adding a lagg interface using
