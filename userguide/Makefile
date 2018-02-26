@@ -9,7 +9,7 @@ PREPROC       = ./preproc
 PREPROCDIR    = processed
 PAPER         =
 BUILDDIR      = _build
-LATEX_ENGINE  = xelatex
+LATEX_ENGINE != grep 'latex_engine = ' conf.py | grep -oE '[^ ]+$$' | tr -d \\047
 
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
@@ -89,7 +89,7 @@ latex:	preproc
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo
 	@echo "Build finished; the LaTeX files are in $(PREPROCDIR)/$(BUILDDIR)/latex"
-	@echo "Run \`gmake' in that directory to run these through (pdf)latex" \
+	@echo "Run \`gmake' in that directory to run these through $(LATEX_ENGINE)" \
 	      "(use \`gmake latexpdf' here to do that automatically)."
 
 latexpdf pdf:	preproc
@@ -103,7 +103,7 @@ latexpdf pdf:	preproc
 	@sed -i '' -e 's/\\par--TABLEOFCONTENTS--\\par/\\tableofcontents/' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	# gmake is required here
 	gmake -C $(PREPROCDIR)/$(BUILDDIR)/latex all-pdf
-	@echo "pdflatex finished; the PDF file is" $(PREPROCDIR)/$(BUILDDIR)/latex/*.pdf
+	@echo "$(LATEX_ENGINE) finished; the PDF file is" $(PREPROCDIR)/$(BUILDDIR)/latex/*.pdf
 .if $(TAG:Mbsg-*)
 	fname=`ls $(PREPROCDIR)/$(BUILDDIR)/latex/*.pdf` && \
 	pname="$${fname%.pdf}_print.pdf" && \

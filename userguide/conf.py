@@ -19,7 +19,7 @@ templates_path = ['_templates']
 source_suffix = '.rst'
 
 # The encoding of source files.
-#source_encoding = 'utf-8-sig'
+source_encoding = 'utf-8-sig'
 
 # General information about the project.
 copyright = '2011-2018, iXsystems'
@@ -45,7 +45,8 @@ if tags.has('truenas'):
 
 tags.add('freenas')
 brand = 'FreeNAS®' if six.PY3 else u'FreeNAS®'
-project = brand + ' ' + six.u(version) + six.u(' User Guide')
+project = brand + ' ' + six.u(version) + ' ' + 'User Guide'
+projtype = None
 master_doc = 'freenas'
 extensions = [
     'sphinxcontrib.httpdomain'
@@ -58,6 +59,7 @@ if tags.has('truenas'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')
     project = brand + ' ' + six.u(version) + six.u(' User Guide')
+    projtype = None
     master_doc = 'truenas'
     cover_pic = r''
 
@@ -65,49 +67,56 @@ if tags.has('truenas'):
 if tags.has('bsg-unified'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')
-    project = brand + six.u(' Unified Storage Array Basic Setup Guide')
+    project = brand + ' ' + six.u('Unified Storage Array')
+    projtype = 'Basic Setup Guide'
     master_doc = 'bsg-unified'
     cover_pic = r''
 
 if tags.has('bsg-e16'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')
-    project = brand + six.u(' E16/E16F Expansion Shelf Basic Setup Guide')
+    project = brand + ' ' + six.u('E16/E16F Expansion Shelf')
+    projtype = 'Basic Setup Guide'
     master_doc = 'bsg-e16'
     cover_pic = r''
 
 if tags.has('bsg-e24'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')
-    project = brand + six.u(' E24 Expansion Shelf Basic Setup Guide')
+    project = brand + ' ' + six.u(' E24 Expansion Shelf')
+    projtype = 'Basic Setup Guide'
     master_doc = 'bsg-e24'
     cover_pic = r''
 
 if tags.has('bsg-xseries'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')
-    project = brand + six.u(' X-Series Unified Storage Array Basic Setup Guide')
+    project = brand + ' ' + six.u('X-Series Unified Storage Array')
+    projtype = 'Basic Setup Guide'
     master_doc = 'bsg-xseries'
     cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_x_front.png}'
 
 if tags.has('bsg-es12'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')
-    project = brand + six.u(' ES12 Expansion Shelf Basic Setup Guide')
+    project = brand + ' ' + six.u('ES12 Expansion Shelf')
+    projtype = 'Basic Setup Guide'
     master_doc = 'bsg-es12'
     cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_es12_front.png}'
 
 if tags.has('bsg-es24'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')
-    project = brand + six.u(' ES24 Expansion Shelf Basic Setup Guide')
+    project = brand + ' ' + six.u('ES24 Expansion Shelf')
+    projtype = 'Basic Setup Guide'
     master_doc = 'bsg-es24'
     cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_es24_front.png}'
 
 if tags.has('bsg-es60'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')
-    project = brand + six.u(' ES60 Expansion Shelf Basic Setup Guide')
+    project = brand + ' ' + six.u('ES60 Expansion Shelf')
+    projtype = 'Basic Setup Guide'
     master_doc = 'bsg-es60'
     cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_es60.png}'
 
@@ -321,9 +330,9 @@ epub_show_urls = 'no'
 # -- Options for LaTeX output --------------------------------------------------
 
 if six.PY3:
-    texproject = project.replace('®', r'''\textsuperscript{\textregistered}''')
+    texproject = project.replace('®', r'''{\textsuperscript{\textregistered}}''')
 else:
-    texproject = project.replace(u'®', r'''\textsuperscript{\textregistered}''')
+    texproject = project.replace(u'®', r'''{\textsuperscript{\textregistered}}''')
 
 PREAMBLE = r'''\def\docname{''' + texproject + '}'
 
@@ -331,8 +340,6 @@ PREAMBLE = (PREAMBLE
             + r'''\def\docdate{'''
             + time.strftime("%B %Y")
             + ' Edition}')
-
-PREAMBLE = PREAMBLE.replace('Basic Setup Guide', r'''\newline Basic Setup Guide''')
 
 if sphinx.__version__ < '1.6.5':
     PREAMBLE = PREAMBLE + r'''\usepackage[tmargin=.75in, bmargin=.75in, lmargin=0.5in, rmargin=0.5in]{geometry}'''
@@ -343,35 +350,45 @@ else:
 # define custom title page
 PREAMBLE = PREAMBLE + r'''
 % FreeNAS/TrueNAS LaTeX preamble
-\usepackage[default,scale=0.95]{opensans}
-\usepackage[T1,T2A]{fontenc}
+%%font_init%%
 \usepackage{color}
 \usepackage{tikz}
 \usetikzlibrary{calc}
 %for better UTF handling
-\usepackage{polyglossia}
-\setdefaultlanguage{english}
 \DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
 %for bitmaps
 \usepackage{graphicx}
 %for ragged right tables
 \usepackage{array,ragged2e}
 \definecolor{ixblue}{cmyk}{0.85,0.24,0,0}
+\usepackage{ifthen}
+\usepackage{calc}
 \makeatletter
 \renewcommand{\maketitle}{%
   \begin{titlepage}%
-    \newlength{\thistitlewidth}%
-    \usefont{T1}{fos}{l}{n}%
     \vspace*{-6mm}%
-    \fontsize{32}{36}\selectfont%
-    \docname\par%
-    \vspace*{-4.5mm}%
+    % title
+    %%title_font%%
+    \fontsize{32pt}{32pt}\selectfont%
+    \newlength{\thistitlewidth}%
     \settowidth{\thistitlewidth}{\docname}%
-    {\color{ixblue}\rule{\thistitlewidth}{1.5pt}}\par%
-    \vspace*{4.5mm}%
-    \fontsize{18}{22}\fontseries{sbc}\selectfont%
+    \ifthenelse{\thistitlewidth > \textwidth}%
+      % if docname is wider than textwidth, squash box to fit
+      {\resizebox{\textwidth}{32pt}{\mbox{\docname}}}%
+      {\mbox{\docname}}%
+    \par%
+    % document type
+    \fontsize{32pt}{32pt}\selectfont%
+    %%doc_type%%\par%
+    \vspace*{-4.5mm}%
+    {\color{ixblue}\rule{\textwidth}{1.5pt}}\par%
+    \vspace*{2.5mm}%
+    % document date
+    \fontsize{20pt}{23pt}\fontseries{sbc}\selectfont%
     \docdate\par%
-    %%cover_pic%%
+    % cover picture
+    %%cover_pic%%%
+    % iX blue bottom fill
     \begin{tikzpicture}[remember picture,overlay]
       \fill [ixblue] (current page.south west) rectangle ($(current page.south east) + (0, 2in)$);
     \end{tikzpicture}
@@ -392,6 +409,29 @@ PREAMBLE = PREAMBLE + r'''
 '''
 
 PREAMBLE = PREAMBLE.replace('%%cover_pic%%', cover_pic)
+if projtype is not None:
+    PREAMBLE = PREAMBLE.replace('%%doc_type%%', projtype)
+
+
+latex_engine = 'xelatex'
+
+if latex_engine == 'xelatex':
+    font_init = r'''\usepackage{fontspec}%
+                    \newfontfamily\opensansfont{OpenSans-Regular.ttf}[Scale=0.95]%
+                    \setmainfont{OpenSans-Regular.ttf}[Scale=0.95]%
+                    \setmonofont{FreeMono.otf}[Scale=0.95]%
+                    \defaultfontfeatures{Ligatures=TeX}%'''
+    title_font = r'''\fontspec{OpenSans-Light.ttf}[Scale=0.95]%'''
+else:
+    # pdflatex, can't use fontspec
+    font_init = r'''\usepackage[T1,T2A]{fontenc}%
+                    \usepackage{textcomp}%
+                    \usepackage[default,scale=0.95]{opensans}%'''
+    title_font = r'''%no font choice needed'''
+
+PREAMBLE = PREAMBLE.replace('%%font_init%%', font_init)
+PREAMBLE = PREAMBLE.replace('%%title_font%%', title_font)
+
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
@@ -410,8 +450,6 @@ latex_elements = {
 # strict positioning of figures
 'figure_align': 'H',
 }
-
-latex_engine = 'xelatex'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
