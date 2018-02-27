@@ -193,9 +193,17 @@ instructions.
 Guide
 -----
 
-The :guilabel:`Guide` icon, located as the second icon from the left
-in the top menubar, provides a built-in browser to the %brand%
-Administrator Guide (this documentation).
+The :guilabel:`Guide` icon, the second icon from the left in the top
+menubar, provides links to both HTML (web) and PDF versions of the
+%brand% User Guide (this documentation).
+
+Both links are to local copies of the User Guide. No network
+connection is required.
+
+
+.. figure:: images/tn_guide.png
+
+   User Guide Menu
 
 
 #include snippets/alertevents.rst
