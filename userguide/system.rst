@@ -1060,7 +1060,7 @@ installed. %brand% |release| ships with the following sysctls set:
    kern.metadelay=3
    kern.dirdelay=4
    kern.filedelay=5
-   kern.coredump=0
+   kern.coredump=1
    net.inet.carp.preempt=1
    debug.ddb.textdump.pending=1
    vfs.nfsd.tcpcachetimeo=300
