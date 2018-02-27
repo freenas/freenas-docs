@@ -34,7 +34,8 @@ can also reduce the length of these limits by one or more bytes.
    | Names               |                |                                                                        |
    +---------------------+----------------+------------------------------------------------------------------------+
    | Mounted Filesystem  | 88 bytes       | Mounted filesystem path length (*MNAMELEN*). Longer paths can prevent  |
-   | Paths               |                | a device from being mounted.                                           |
+   | Paths               |                | a device from being mounted.  See below for examples of path length    |
+   |                     |                | calculation.                                                           |
    +---------------------+----------------+------------------------------------------------------------------------+
    | Device Filesystem   | 63 bytes       | `devfs(8)                                                              |
    | Paths               |                | <https://www.freebsd.org/cgi/man.cgi?query=devfs&sektion=8>`__ device  |
@@ -42,3 +43,18 @@ can also reduce the length of these limits by one or more bytes.
    |                     |                | being created.                                                         |
    +---------------------+----------------+------------------------------------------------------------------------+
 
+Care is needed with regard to ZFS snapshots. **If the mounted path length for a snapshot exceeds 88 characters, 
+then the snapshot and its data will be safe but inaccessible until its mounted path length is reduced**. 
+Typically this is rectified by renaming (shortening) the dataset, snapshot, or mountpoint, so that the path length is
+below the 88 byte limit. Note that ZFS snapshots are automatically mounted on demand within hidden :file:`/.zfs/snapshot/`
+directories, and can also be manually mounted using the command line. The 88 byte limit affects both types of mount.
+
+Examples:
+
+- **Automatic mount:** Any time a user attempts to navigate to a snapshot, or search or access its contents, ZFS must temporarily mount the snapshot. Typically the snapshot :file:`mypool/dataset/snap1@snap2` will be mounted at the path
+:file:`/mnt/mypool/dataset/.zfs/snapshot/snap2/`, which must not exceed 88 characters. 
+
+- **Manual mount:** If the same snapshot were mounted manually, using 
+:command:`mount -t zfs mypool/dataset/snap1@snap2 /mnt/mymountpoint` then the path :file:`/mnt/mountpoint/` 
+must not exceed 88 characters. (Note: a snapshot which cannot be automatically mounted can still be manually mounted if 
+an appropriate short mountpoint path is used)
