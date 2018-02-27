@@ -936,7 +936,7 @@ summarizes the configuration options for the NFS service.
 
 .. _config_nfs_fig:
 
-.. figure:: images/nfs1c.png
+.. figure:: images/services-nfs.png
 
    Configuring NFS
 
@@ -970,7 +970,7 @@ summarizes the configuration options for the NFS service.
    | Enable NFSv4           | checkbox   | NFSv3 is the default, check this box to switch to NFSv4                                                             |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | NFSv3 ownership model  | checkbox   | grayed out unless :guilabel:`Enable NFSv4` is checked and, in turn, will gray out :guilabel:`Support>16 groups`     |
+   | NFSv3 ownership model  | checkbox   | grayed out unless :guilabel:`Enable NFSv4` is checked and, in turn, grays out :guilabel:`Support>16 groups`         |
    | for NFSv4              |            | which is incompatible; check this box if NFSv4 ACL support is needed without requiring the client and               |
    |                        |            | the server to sync users and groups                                                                                 |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
