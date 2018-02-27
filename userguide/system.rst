@@ -2305,17 +2305,25 @@ Failover
 --------
 
 If the %brand% array has been licensed for High Availability (HA),
-a :guilabel:`Failover` tab is added to :guilabel:`System`. HA-licensed
-arrays use the Common Address Redundancy Protocol
+a :guilabel:`Failover` tab is added to :guilabel:`System`.
+
+%brand% uses an active/standby configuration of dual storage
+controllers for HA. Dual-ported disk drives are connected to both
+storage controllers simultaneously. One storage controller is active,
+the other standby. The active controller sends periodic announcements
+to the network. If a fault occurs and the active controller stops
+sending the announcements, the standby controller detects this and
+initiates a failover. Cache is synchronized to the standby controller,
+then I/O operations switch to over to it. The standby controller then
+becomes the active controller. This failover operation can happen in
+seconds rather than the minutes of other configurations, significantly
+reducing the chance of a client timeout.
+
+The Common Address Redundancy Protocol
 (`CARP <http://www.openbsd.org/faq/pf/carp.html>`_)
-to provide high availability and failover. CARP was originally
+is used to provide high availability and failover. CARP was originally
 developed by the OpenBSD project and provides an open source, non
 patent-encumbered alternative to the VRRP and HSRP protocols.
-%brand% uses a two-unit active/standby model and provides an HA
-synchronization daemon to automatically monitor the status of the
-active node, synchronize any configuration changes between the
-active and the standby node, and failover to the standby node
-should the active node become unavailable.
 
 
 .. warning:: Seamless failover is only available with iSCSI or NFSv4.
