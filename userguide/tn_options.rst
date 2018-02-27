@@ -178,8 +178,8 @@ web administration GUI, and will power off the %brand% system.
 Support Icon
 ------------
 
-The :guilabel:`Support` icon, located as the third icon from the left
-in the top menubar, provides a shortcut to
+The :guilabel:`Support` icon, the first icon on the right side of the
+menubar, provides a shortcut to
 :menuselection:`System --> Support`.
 This screen can be used to verify the system license or to create a
 support ticket. Refer to :ref:`Support` for detailed usage
@@ -193,9 +193,9 @@ instructions.
 Guide
 -----
 
-The :guilabel:`Guide` icon, the second icon from the left in the top
-menubar, provides links to both HTML (web) and PDF versions of the
-%brand% User Guide (this documentation).
+The :guilabel:`Guide` icon, the second icon in the top menubar,
+provides links to both HTML (web) and PDF versions of the %brand% User
+Guide (this documentation).
 
 Both links are to local copies of the User Guide. No network
 connection is required.
