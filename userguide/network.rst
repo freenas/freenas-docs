@@ -43,7 +43,12 @@ network interface.
 
 .. _global_net_config_fig:
 
+#ifdef freenas
 .. figure:: images/network-global.png
+#endif freenas
+#ifdef truenas
+.. figure:: images/tn_network-global.png
+#endif truenas
 
    Global Network Configuration
 
@@ -68,9 +73,22 @@ but can be changed to meet requirements of the local network.
    | Setting                | Value      | Description                                                                                                          |
    |                        |            |                                                                                                                      |
    +========================+============+======================================================================================================================+
+#ifdef freenas
    | Hostname               | string     | system host name                                                                                                     |
    |                        |            |                                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+#endif freenas
+#ifdef truenas
+   | Hostname (This Node)   | string     | host name of first storage controller                                                                                |
+   |                        |            |                                                                                                                      |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+   | Hostname (Node B)      | string     | host name of second storage controller                                                                               |
+   |                        |            |                                                                                                                      |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+   | Hostname (Virtual)     | string     | virtual host name; when using a virtualhost, this is also used as the Kerberos principal name; must be               |
+   |                        |            | the fully qualified hostname plus the domain name                                                                    |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
+#endif truenas
    | Domain                 | string     | system domain name                                                                                                   |
    |                        |            |                                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
