@@ -1847,13 +1847,10 @@ dataset are included in the snapshot and there is no need to create
 snapshots for each child dataset. The downside is that there is no way
 to exclude particular child  datasets from a recursive snapshot.
 
-When the :guilabel:`OK` button is clicked, a snapshot is taken and the
-task will be repeated according to your settings.
-
-After creating a periodic snapshot task, an entry for the snapshot
-task will be added to :guilabel:`View Periodic Snapshot Tasks`. Click
-an entry to access its :guilabel:`Edit` and :guilabel:`Delete`
-buttons.
+Click the :guilabel:`OK` button to save the task. Entries for each
+task are shown in :guilabel:`View Periodic Snapshot Tasks`. Click an
+entry to display :guilabel:`Edit` and :guilabel:`Delete` buttons for
+it.
 
 
 .. index:: Replication
