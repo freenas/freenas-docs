@@ -198,38 +198,40 @@ Click the *+* next to the volume name to access
 Encryption
 ^^^^^^^^^^
 
+.. note:: The encryption facility used by %brand% is designed to
+   protect against physical theft of the disks. It is not designed to
+   protect against unauthorized software access. Ensure that only
+   authorized users have access to the administrative GUI and that
+   proper permissions are set on shares if sensitive data is stored on
+   the system.
+
+
 %brand% supports
 `GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`_
 full disk encryption for ZFS volumes. It is important to understand
 the details when considering whether encryption is right for your
 %brand% system:
 
-* This is not the encryption method used by Oracle's version of ZFS.
-  That version is not open source and is the property of Oracle.
 
-* This is full-disk encryption and not per-filesystem encryption.  The
-  underlying drives are first encrypted, then the pool is created on
-  top of the encrypted devices. Data is encrypted as it is written,
-  and decrypted as it is read.
+* %brand% encryption is different from the encryption used in
+  Oracle's proprietary, non-open source version of ZFS.
 
-* Data in memory, including ARC, is not encrypted. ZFS data on disk,
-  including ZIL and SLOG, are encrypted if the underlying disks are
-  encrypted. Swap data on disk is always encrypted.
+* In %brand%, entire disks are encrypted, not individual filesystems.
+  Encrypted devices are created from the underlying drives, then the
+  volume (pool) is created on top of the encrypted devices. Data is
+  encrypted as it is written and decrypted as it is read.
 
-  .. warning:: Data stored in Cache (L2ARC) drives is not encrypted.
-     Do not use Cache (L2ARC) with encrypted volumes.
+* This type of encryption is primarily useful for users storing
+  sensitive data but wanting the ability to remove disks from the pool
+  without having to first wipe the disk contents.
 
-* This type of encryption is primarily targeted at users who store
-  sensitive data and want to retain the ability to remove disks from
-  the pool without having to first wipe the disk contents.
+* The %brand% encryption design is only suitable for safe disposal of
+  disks independent of the encryption key. As long as the key and the
+  disks are intact, the system is vulnerable to being decrypted. The
+  key should be protected by a strong passphrase and any backups of
+  the key should be securely stored.
 
-* This design is only suitable for safe disposal of disks independent
-  of the encryption key. As long as the key and the disks are intact,
-  the system is vulnerable to being decrypted. The key should be
-  protected by a strong passphrase and any backups of the key should
-  be securely stored.
-
-* On the other hand, if the key is lost, the data on the disks is
+* If the encryption key is lost, the data on the disks is
   inaccessible. Always back up the key!
 
 * Encryption keys are per ZFS volume (pool). Each pool has a separate
@@ -238,22 +240,21 @@ the details when considering whether encryption is right for your
   `forum post
   <https://forums.freenas.org/index.php?threads/recover-encryption-key.16593/#post-85497>`__.
 
-* There is no one-step way to encrypt an existing, unencrypted volume.
-  Instead, the data must be backed up, the existing pool destroyed, a
-  new encrypted volume created, and the backup restored to the new
-  volume.
+* Data in memory, including ARC, is not encrypted. ZFS data on disk,
+  including ZIL and SLOG, are encrypted if the underlying disks are
+  encrypted. Swap data on disk is always encrypted.
+
+  .. warning:: Data stored in Cache (L2ARC) drives is not encrypted.
+     Do not use Cache (L2ARC) with encrypted volumes.
+
+* At present, there is no one-step way to encrypt an existing,
+  unencrypted volume. Instead, the data must be backed up, the
+  existing pool destroyed, a new encrypted volume created, and the
+  backup restored to the new volume.
 
 * Hybrid pools are not supported. Added vdevs must match the existing
   encryption scheme. The :ref:`Volume Manager` automatically encrypts
   a new vdev being added to an existing encrypted pool.
-
-
-.. note:: The encryption facility used by %brand% is designed to
-   protect against physical theft of the disks. It is not designed to
-   protect against unauthorized software access. Ensure that only
-   authorized users have access to the administrative GUI and that
-   proper permissions are set on shares if sensitive data is stored on
-   the system.
 
 
 To create an encrypted volume, check the :guilabel:`Encryption` box
