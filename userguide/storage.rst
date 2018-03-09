@@ -721,21 +721,10 @@ similar files to be held very efficiently within a much smaller
 amount of storage capacity, if the data contains numerous very 
 similar files or blocks.  However, deduplication also places a very 
 heavy burden on RAM and on the CPU, and in particular, deduplication 
-can significantly slow down data write performance. 
+can significantly slow down data write performance and usually requires
+large (and at times huge) amounts of RAM. See 
+:ref:`Deduplication RAM requirements` for details.
 
-A generally quoted rule of thumb is 5 GB of RAM per terabyte of 
-deduplicated storage, however if the pool is highly duplicated 
-(around 3x to 5x space saving) this can drop to as low as 1 GB to 2 
-GB of RAM per TB of deduplicated storage. The exact size required for 
-deduplication data is found by using the :command:`CLI` command 
-:command:`zdb -U /data/zfs/zpool.cache -D pool_name` to identify the 
-total number of blocks in the pool, and the number of bytes of RAM 
-required per block (shown as *"{number) in core"* in the output). The 
-command  :command:`zdb -U /data/zfs/zpool.cache -S pool_name` 
-displays an estimate of the storage saving if deduplication is 
-applied to a dataset. Note that these commands may take a long time 
-to run because they scan the entire pool to produce the results. 
-   
 .. warning::
 
    The more data written to a deduplicated dataset, the more RAM it 
@@ -780,13 +769,6 @@ do a byte-to-byte comparison when two blocks have the same signature
 to make sure that the block contents are identical. Since hash 
 collisions are extremely rare, *Verify* is usually not worth the 
 performance hit.
-
-.. tip::
-   The amount of RAM cache (known as ARC) that ZFS reserves for the DDTs and other 
-   file system metadata is set by default at 25% of ARC. It may be necessary to 
-   manually increase this value in some cases where dedup is used. This can 
-   be done by creating a :ref:`Tunable` called :command:`vfs.zfs.arc_meta_limit` 
-   of type *loader*, and entering the amount of RAM to be used for metadata in bytes.
 #endif freenas
 
 .. tip:: Deduplication is often considered when using a group of very
@@ -797,6 +779,43 @@ performance hit.
    dataset are saved, giving the effect of deduplication without the
    overhead.
 
+#ifdef freenas
+.. _Deduplication RAM requirements:
+
+Deduplication RAM requirements
+------------------------------
+
+A generally quoted rule of thumb is 5 GB of RAM per terabyte of 
+deduplicated storage. However, if the pool is highly duplicated 
+(around 3x to 5x space saving) this can drop to as low as 1 GB to 2 
+GB of RAM per TB of deduplicated storage. The exact size required for 
+deduplication data is found by using the :command:`CLI` command 
+:command:`zdb -U /data/zfs/zpool.cache -D pool_name` to identify the 
+total number of blocks in the pool, and the number of bytes of RAM 
+required per block (shown as *"{number) in core"* in the output). The 
+command  :command:`zdb -U /data/zfs/zpool.cache -S pool_name` 
+displays an estimate of the storage saving if deduplication is 
+applied to a dataset. Note that these commands may take a long time 
+to run because they scan the entire pool to produce the results. 
+
+There is also another RAM limitation affecting dedup.  Because ZFS 
+uses RAM for many caching activities, it limits the amount of metadata
+(including DDT data) for which it attempts to reserves space in RAM. By
+default, DDTs and other file system metadata can rely on up to 25% of
+the total RAM available to ZFS (known as ARC), and the balance is used 
+for  other caching. Therefore if the system has 32 GB of RAM of which 
+20 GB is available for ZFS, ZFS will aim to apportion this 25% (5 GB) 
+for metadata and 75% (15 GB) for file data. The DDTs can rely on not more 
+than 5 GB of RAM (and perhaps less), which may only allow dedup of 
+1 TB in many cases.
+
+If the system has a large amount of RAM, metadata can be allowed to use
+much more RAM, at the expense of file cache data. This can be done by
+creating a :ref:`Tunable` called :command:`vfs.zfs.arc_meta_limit` of
+type *loader*, and entering the amount of RAM to be used for metadata in 
+bytes. The new setting requires a reboot to becoms activated.
+
+#endif freenas
 
 .. index:: Compression
 .. _Compression:
