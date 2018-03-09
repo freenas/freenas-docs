@@ -811,10 +811,10 @@ than 5 GB of RAM (and perhaps less), which may only allow dedup of
 1 TB in many cases.
 
 If the system has a large amount of RAM, metadata can use more RAM, at 
-the expense of file cache data. For example: suppose that a 20 TB pool with
-a dedup ratio of 3x space saving is found to require 40 GB total for the DDT 
-(2 GB per TB). If the system has 96GB of RAM then the user could reserve 
-60 GB for metadata and DDT, and leave the rest (36 GB) for the system and
+the expense of file cache data. For example: suppose that a 12 TB pool with
+a dedup ratio of 3x space saving is found to require 30 GB total for the DDT 
+(2.5 GB per TB). If the system has 64 GB of RAM then the user could reserve 
+40 GB for metadata and DDT, and leave the rest (24 GB) for the system, jails, and
 other file cache.  This would  be done by creating a :ref:`Tunable` called 
 :command:`vfs.zfs.arc_meta_limit` of type *loader*, and entering the amount 
 of RAM to be used for metadata. The value can be abbreviated using G for GB
