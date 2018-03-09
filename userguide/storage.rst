@@ -723,21 +723,22 @@ similar files or blocks.  However, deduplication also places a very
 heavy burden on RAM and on the CPU, and in particular, deduplication 
 can significantly slow down data write performance. 
 
+A generally quoted rule of thumb is 5 GB of RAM per terabyte of 
+deduplicated storage, however if the pool is highly duplicated 
+(around 3x to 5x space saving) this can drop to as low as 1 GB to 2 
+GB of RAM per TB of deduplicated storage. The exact size required for 
+deduplication data is found by using the :command:`CLI` command 
+:command:`zdb -U /data/zfs/zpool.cache -D pool_name` to identify the 
+total number of blocks in the pool, and the number of bytes of RAM 
+required per block (shown as "<number> in core" in the output). The 
+command  :command:`zdb -U /data/zfs/zpool.cache -S pool_name` 
+displays an estimate of the storage saving if deduplication is 
+applied to a dataset. Note that these commands may take a long time 
+to run because they scan the entire pool to produce the results. 
+   
 .. warning::
 
-   A generally quoted rule of thumb is 5 GB of RAM per terabyte of 
-   deduplicated storage, however if the pool is highly duplicated 
-   (around 3x to 5x space saving) this can drop to as low as 1 GB to 2 
-   GB of RAM per TB of deduplicated storage. The exact size required for 
-   deduplication data is found by using the :command:`CLI` command 
-   :command:`zdb -U /data/zfs/zpool.cache -D pool_name` to identify the 
-   total number of blocks in the pool, and the number of bytes of RAM 
-   required per block (shown as "<number> in core" in the output). The 
-   command  :command:`zdb -U /data/zfs/zpool.cache -S pool_name` 
-   displays an estimate of the storage saving if deduplication is 
-   applied to a dataset. Note that these commands may take a long time 
-   to run because they scan the entire pool to produce the results. The
-   more data written to a deduplicated dataset, the more RAM it 
+   The more data written to a deduplicated dataset, the more RAM it 
    requires. When the system starts storing the DDTs (dedup tables) on 
    disk because they no longer fit into RAM, performance craters. 
    Further, importing an unclean pool can require similar amounts of RAM 
