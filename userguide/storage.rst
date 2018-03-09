@@ -713,53 +713,69 @@ existing datasets to close them--the remaining
 Deduplication
 ^^^^^^^^^^^^^
 
-Deduplication is the process of ZFS transparently reusing a single
-copy of duplicated data to save space. Depending on the amount of
-duplicate data, deduplicaton can improve storage capacity, as less
-data is written and stored. However, deduplication is RAM intensive. A
-general rule of thumb is 5 GB of RAM per terabyte of deduplicated
-storage. **In most cases, compression provides storage gains
-comparable to deduplication with less impact on performance.**
+Deduplication is the process of storing one copy of any data that is 
+found to be duplicated between different files. The result is that 
+only unique data is stored and common components are shared among 
+files.  Deduplication potentially allows a large number of very 
+similar files to be held very efficiently within a much smaller 
+amount of storage capacity, if the data contains numerous very 
+similar files or blocks.  However, deduplication also places a very 
+heavy burden on RAM and on the CPU, and in particular, deduplication 
+can significantly slow down data write performance. 
 
-In %brand%, deduplication can be enabled during dataset creation. Be
-forewarned that **there is no way to undedup the data within a dataset
-once deduplication is enabled**, as disabling deduplication has
-**NO EFFECT** on existing data. The more data written to a
-deduplicated dataset, the more RAM it requires. When the system starts
-storing the DDTs (dedup tables) on disk because they no longer fit
-into RAM, performance craters. Further, importing an unclean pool can
-require between 3-5 GB of RAM per terabyte of deduped data, and if the
-system does not have the needed RAM, it will panic. The only solution
-is to add more RAM or recreate the pool.
-**Think carefully before enabling dedup!**
-This `article
-<http://constantin.glez.de/blog/2011/07/zfs-dedupe-or-not-dedupe>`_
-provides a good description of the value versus cost considerations
-for deduplication.
+.. warning::
 
-**Unless a lot of RAM and a lot of duplicate data is available, do not
-change the default deduplication setting of "Off".**
-For performance reasons, consider using compression rather than
-turning this option on.
+   A generally quoted rule of thumb is 5 GB of RAM per terabyte of 
+   deduplicated storage, however if the pool is highly duplicated 
+   (around 3x to 5x space saving) this can drop to as low as 1 GB to 2 
+   GB of RAM per TB of deduplicated storage. The exact size required for 
+   deduplication data is found by using the :command:`CLI` command 
+   :command:`zdb -U /data/zfs/zpool.cache -D pool_name` to identify the 
+   total number of blocks in the pool, and the number of bytes of RAM 
+   required per block (shown as "<number> in core" in the output). The 
+   command  :command:`zdb -U /data/zfs/zpool.cache -S pool_name` 
+   displays an estimate of the storage saving if deduplication is 
+   applied to a dataset. Note that these commands may take a long time 
+   to run because they scan the entire pool to produce the results. The
+   more data written to a deduplicated dataset, the more RAM it 
+   requires. When the system starts storing the DDTs (dedup tables) on 
+   disk because they no longer fit into RAM, performance craters. 
+   Further, importing an unclean pool can require similar amounts of RAM 
+   and if the system does not have the needed RAM, it will panic. The 
+   only solution then is to add more RAM or recreate the pool.  
 
-If deduplication is changed to *On*, duplicate data blocks are removed
-synchronously. The result is that only unique data is stored and
-common components are shared among files. If deduplication is changed
-to *Verify*, ZFS will do a byte-to-byte comparison when two blocks
-have the same signature to make sure that the block contents are
-identical. Since hash collisions are extremely rare, *Verify* is
-usually not worth the performance hit.
+   Furthermore, **there is no quick way to undedup data 
+   within a dataset once deduplication is enabled**, as disabling 
+   deduplication has **NO EFFECT** on existing data. The simplest way to 
+   undedup existing data is to copy the deduped files to a new undeduped 
+   dataset or location in the pool or elsewhere, delete the original 
+   data, and (if necessary) copy back the undeduped copies of the data.  
+   If desired the original dataset can be set to disable dedup first 
+   (disable dedup using the :ref:`GUI` or the :samp:`zfs set dedup=off {dataset_name}`
+   command from :ref:`Shell`), in which case the files 
+   can be copied to a different directory in the same dataset and the 
+   copies will be undeduped.
 
-.. note:: After deduplication is enabled, the only way to disable it
-   is to use the :samp:`zfs set dedup=off {dataset_name}` command
-   from :ref:`Shell`. However, any data that has already been
-   deduplicated will not be un-deduplicated. Only newly stored data
-   after the property change will not be deduplicated. The only way to
-   remove existing deduplicated data is to copy all of the data off of
-   the dataset, set the property to off, then copy the data back in
-   again. Alternately, create a new dataset with
-   :guilabel:`ZFS Deduplication` left disabled, copy the data to the
-   new dataset, and destroy the original dataset.
+   For these reasons, **think carefully before enabling dedup!** 
+   Deduplication is **usually not recommended unless the data contains a 
+   very substantial level of duplication, and the system (especially 
+   RAM) can cope acceptably with the additional burden**. In most cases, 
+   compression provides storage gains comparable to deduplication with 
+   less impact on performance.  This `article 
+   <http://constantin.glez.de/blog/2011/07/zfs-dedupe-or-not-dedupe>`_ 
+   provides a good description of the value versus cost considerations 
+   for deduplication. Unless a lot of RAM and a lot of highly duplicate 
+   data is available, **do not change the default deduplication setting 
+   of "Off"!**  
+
+In %brand%, deduplication can be enabled during dataset creation, and 
+occurs at the time when files are read and written. The setting can 
+be changed at any time but will not affect data already written to 
+the pool.  If the deduplication method is set to *Verify*, ZFS will 
+do a byte-to-byte comparison when two blocks have the same signature 
+to make sure that the block contents are identical. Since hash 
+collisions are extremely rare, *Verify* is usually not worth the 
+performance hit.
 #endif freenas
 
 .. tip:: Deduplication is often considered when using a group of very
