@@ -713,13 +713,14 @@ existing datasets to close them--the remaining
 Deduplication
 ^^^^^^^^^^^^^
 
-Deduplication is the process of storing one copy of any data that is 
-found to be duplicated between different files. The result is that 
-only unique data is stored and common components are shared among 
-files.  Deduplication potentially allows a large number of very 
+Deduplication (often just called "dedup") is the process of storing 
+just one copy of any data that is found to be the same in different 
+files. The aim is that only unique data is physically stored, rather
+than another identical copy being stored for every file which contains 
+that data. Deduplication potentially allows a large number of very 
 similar files to be held very efficiently within a much smaller 
-amount of storage capacity, if the data contains numerous very 
-similar files or blocks.  However, deduplication also places a very 
+amount of storage capacity, if the data contains numerous identical 
+files or blocks of data.  However, deduplication also places a very 
 heavy burden on RAM and on the CPU, and in particular, deduplication 
 can significantly slow down data write performance and usually requires
 large (and at times huge) amounts of RAM. See 
