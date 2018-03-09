@@ -818,7 +818,7 @@ a dedup ratio of 3x space saving is found to require 30 GB total for the DDT
 other file cache.  This would  be done by creating a :ref:`Tunable` called 
 :command:`vfs.zfs.arc_meta_limit` of type *loader*, and entering the amount 
 of RAM to be used for metadata. The value can be abbreviated using G for GB
-or M for MB (in this case, 60G). The setting requires a reboot to become activated.
+or M for MB (in this case, 40G). The setting requires a reboot to become activated.
 
 #endif freenas
 
