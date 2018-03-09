@@ -2892,10 +2892,10 @@ pop-up message indicates that this removes the filter and all
 available snapshots are listed.
 
 .. warning:: A snapshot and any files it contains will not be accessible or searchable
-   if its mount path is longer than 88 characters. The data within the snapshot will be
-   safe, and the snapshot will become accessible again when its mountpath length is
-   shortened. For details of this limitation, and how to shorten a long mount path,
-   see :ref:`Path and Name Lengths`.
+   if the snapshot's mount path mount path is longer than 88 characters. The data 
+   within the snapshot will be safe, and the snapshot will become accessible again
+   when the mountpath length is shortened. For details of this limitation, and how
+   to shorten a long mount path, see :ref:`Path and Name Lengths`.
 
 Browsing a snapshot collection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
