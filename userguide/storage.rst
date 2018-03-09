@@ -733,8 +733,8 @@ large (and at times huge) amounts of RAM. See
    storing DDTs on disk because they no longer fit into RAM or have been
    pushed out of RAM, performance craters.
    
-   Importing an unclean pool canalso require very large amounts of RAM, 
-   to allow the deduplicated data in the pool to be checked before import. 
+   Importing an unclean deduplicated pool can also require large amounts of RAM, 
+   so that the deduplicated data in the pool can be checked during import. 
    If the system does not have the needed RAM, it will panic. The only 
    solution then is to add more RAM or recreate the pool.
 
