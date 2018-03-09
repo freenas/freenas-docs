@@ -730,7 +730,7 @@ GB of RAM per TB of deduplicated storage. The exact size required for
 deduplication data is found by using the :command:`CLI` command 
 :command:`zdb -U /data/zfs/zpool.cache -D pool_name` to identify the 
 total number of blocks in the pool, and the number of bytes of RAM 
-required per block (shown as "<number> in core" in the output). The 
+required per block (shown as *"{number) in core"* in the output). The 
 command  :command:`zdb -U /data/zfs/zpool.cache -S pool_name` 
 displays an estimate of the storage saving if deduplication is 
 applied to a dataset. Note that these commands may take a long time 
@@ -739,13 +739,16 @@ to run because they scan the entire pool to produce the results.
 .. warning::
 
    The more data written to a deduplicated dataset, the more RAM it 
-   requires. When the system starts storing the DDTs (dedup tables) on 
-   disk because they no longer fit into RAM, performance craters. 
-   Further, importing an unclean pool can require similar amounts of RAM 
-   and if the system does not have the needed RAM, it will panic. The 
-   only solution then is to add more RAM or recreate the pool.  
+   requires. The DDTs (dedup tables) also compete with other data for RAM,
+   and can be pushed out of RAM in some cases. When the system starts 
+   storing DDTs on disk because they no longer fit into RAM or have been
+   pushed out of RAM, performance craters.
+   
+   Importing an unclean pool can require similar amounts of RAM. If
+   the system does not have the needed RAM, it will panic. The only solution
+   then is to add more RAM or recreate the pool.
 
-   Furthermore, **there is no quick way to undedup data 
+   **There is also no quick way to undedup data 
    within a dataset once deduplication is enabled**, as disabling 
    deduplication has **NO EFFECT** on existing data. The simplest way to 
    undedup existing data is to copy the deduped files to a new undeduped 
@@ -777,6 +780,13 @@ do a byte-to-byte comparison when two blocks have the same signature
 to make sure that the block contents are identical. Since hash 
 collisions are extremely rare, *Verify* is usually not worth the 
 performance hit.
+
+.. tip::
+   The amount of RAM cache (known as ARC) that ZFS reserves for the DDTs and other 
+   file system metadata is set by default at 25% of ARC. It may be necessary to 
+   manually increase this value in some cases where dedup is used. This can 
+   be done by creating a :ref:`Tunable` called :command:`vfs.zfs.arc_meta_limit` 
+   of type *loader*, and entering the amount of RAM to be used for metadata in bytes.
 #endif freenas
 
 .. tip:: Deduplication is often considered when using a group of very
