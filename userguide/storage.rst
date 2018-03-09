@@ -793,7 +793,7 @@ GB of RAM per TB of deduplicated storage. The exact size required for
 deduplication data is found by using the :command:`CLI` command 
 :command:`zdb -U /data/zfs/zpool.cache -D pool_name` to identify the 
 total number of blocks in the pool, and the number of bytes of RAM 
-required per block (shown as *"{number) in core"* in the output). The 
+required per block (shown as *"{number} in core"* in the output). The 
 command  :command:`zdb -U /data/zfs/zpool.cache -S pool_name` 
 displays an estimate of the storage saving if deduplication is 
 applied to a dataset. Note that these commands may take a long time 
