@@ -361,6 +361,14 @@ U2
 * Midnight Commander has been updated to version
   `4.8.20 <http://midnight-commander.org/wiki/NEWS-4.8.20>`_.
 
+U3
+~~
+
+* Samba has been patched to address
+  `CVE-2018-1050 <https://www.samba.org/samba/security/CVE-2018-1050.html>`_
+  and
+  `CVE-2018-1057 <https://wiki.samba.org/index.php/CVE-2018-1057>`_.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
