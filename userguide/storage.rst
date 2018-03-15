@@ -713,18 +713,22 @@ existing datasets to close them--the remaining
 Deduplication
 ^^^^^^^^^^^^^
 
-Deduplication (often just called "dedup") is the process of storing 
-just one copy of any data that is found to be the same in different 
-files. The aim is that only unique data is physically stored, rather
-than another identical copy being stored for every file which contains 
-that data. Deduplication potentially allows a large number of very 
-similar files to be held very efficiently within a much smaller 
-amount of storage capacity, if the data contains numerous identical 
-files or blocks of data.  However, deduplication also places a very 
-heavy burden on RAM and on the CPU, and in particular, deduplication 
-can significantly slow down data write performance and usually requires
-large (and at times huge) amounts of RAM. See 
-:ref:`Deduplication RAM requirements` for details.
+#ifdef freenas
+.. index:: Deduplication
+.. _Deduplication:
+
+Deduplication
+^^^^^^^^^^^^^
+
+Deduplication ("dedup") is a process where ZFS aims to store a single copy
+of any data that is repeated in different blocks or files, rather than storing 
+another identical block or file copy each time it occurs. Deduplication 
+potentially allows a large number of very similar files to be held very 
+efficiently within a much smaller amount of storage capacity, if the data contains 
+numerous identical files or blocks of data. However, deduplication also places a 
+very heavy burden on RAM and on the CPU, and in particular, deduplication can 
+significantly slow down data write performance and usually requires large (and at 
+times huge) amounts of RAM. See :ref:`Deduplication RAM requirements` for details.
 
 .. warning::
 
@@ -739,17 +743,14 @@ large (and at times huge) amounts of RAM. See
    If the system does not have the needed RAM, it will panic. The only 
    solution then is to add more RAM or recreate the pool.
 
-   **There is also no quick way to undedup data 
-   within a dataset once deduplication is enabled**, as disabling 
-   deduplication has **NO EFFECT** on existing data. The simplest way to 
-   undedup existing data is to copy the deduped files to a new undeduped 
-   dataset or location in the pool or elsewhere, delete the original 
-   data, and (if necessary) copy back the undeduped copies of the data.  
-   If desired the original dataset can be set to disable dedup first 
-   (disable dedup using the :ref:`GUI` or the :samp:`zfs set dedup=off {dataset_name}`
-   command from :ref:`Shell`), in which case the files 
-   can be copied to a different directory in the same dataset and the 
-   copies will be undeduped.
+   **There is also no quick way to undedup data within a dataset once deduplication 
+   is enabled**, since disabling deduplication **DOES NOT CHANGE** existing data. The 
+   simplest way to undedup existing data is to copy the deduped data to a new dataset 
+   or location that does not have dedup set. The data will be undeduped when written. 
+   The simplest way to undedup data and keep it in the same pool, zvol or dataset is 
+   as follows: disable dedup on the pool, zvol or dataset, then copy the data within 
+   the same pool, zvol or dataset. Once the copy is confirmed to be correct, the 
+   original data can optionally be deleted.
 
    For these reasons, **think carefully before enabling dedup!** 
    Deduplication is **usually not recommended unless the data contains a 
@@ -787,39 +788,34 @@ performance hit.
 Deduplication RAM requirements
 ------------------------------
 
-A generally quoted rule of thumb is 5 GB of RAM per terabyte of 
-deduplicated storage. However, if the pool is highly duplicated 
-(around 3x to 5x space saving) this can drop to as low as 1 GB to 2 
-GB of RAM per TB of deduplicated storage. The exact size required for 
-deduplication data is found by using the :command:`CLI` command 
-:command:`zdb -U /data/zfs/zpool.cache -D pool_name` to identify the 
-total number of blocks in the pool, and the number of bytes of RAM 
-required per block (shown as *"{number} in core"* in the output). The 
-command  :command:`zdb -U /data/zfs/zpool.cache -S pool_name` 
-displays an estimate of the storage saving if deduplication is 
-applied to a dataset. Note that these commands may take a long time 
-to run because they scan the entire pool to produce the results. 
+It is often said that ZFS needs about 5 GB of RAM per terabyte of deduplicated 
+storage. However this may not be the case, depending on the data to be deduped. A 
+highly duplicated pool capabe of around 3x to 5x space saving may only need as little 
+as 1 or 2 GB of RAM per TB of data. The exact size required for deduplication data is 
+calculated from the output of the :command:`CLI` command :command:`zdb -U 
+/data/zfs/zpool.cache -D pool_name`, which states the total number of blocks in the 
+pool, and the number of bytes of RAM required per block (shown as *"{number} in 
+core"*). The command :command:`zdb -U /data/zfs/zpool.cache -S pool_name` also 
+provides an estimate of the storage saving if deduplication is applied to a dataset 
+or zvol. These commands may take a long time to run because they scan the entire pool 
+to produce the results.
 
-There is also another RAM limitation affecting dedup.  Because ZFS 
-uses RAM for many caching activities, it limits the amount of metadata
-(including DDT data) for which it attempts to reserves space in RAM. By
-default, DDTs and other file system metadata can rely on up to 25% of
-the total RAM available to ZFS (known as ARC), and the balance is used 
-for  other caching. Therefore if the system has 32 GB of RAM of which 
-20 GB is available for ZFS, ZFS will aim to apportion this 25% (5 GB) 
-for metadata and 75% (15 GB) for file data. The DDTs can rely on not more 
-than 5 GB of RAM (and perhaps less), which may only allow dedup of 
-1 TB in many cases.
+ZFS uses RAM for many purposes. Therefore ZFS limits the amount of metadata 
+(including DDT data) for which space is reserved in RAM. ZFS stores DDT data in its 
+main data cache ("ARC"). By default, DDTs and other file system metadata use up to 
+25% of ARC. Therefore if a system has 32 GB of RAM and 20 GB is available for ZFS, 
+ZFS would aim to apportion this 25% (5 GB) for metadata and 75% (15 GB) for file 
+data. The DDTs culd not rely on more than 5 GB of RAM (and perhaps less), which may 
+only allow dedup of 1 TB in many cases.
 
-If the system has a large amount of RAM, metadata can use more RAM, at 
-the expense of file cache data. For example: suppose that a 12 TB pool with
-a dedup ratio of 3x space saving is found to require 30 GB total for the DDT 
-(2.5 GB per TB). If the system has 64 GB of RAM then the user could reserve 
-40 GB for metadata and DDT, and leave the rest (24 GB) for the system, jails, and
-other file cache.  This would  be done by creating a :ref:`Tunable` called 
-:command:`vfs.zfs.arc_meta_limit` of type *loader*, and entering the amount 
-of RAM to be used for metadata. The value can be abbreviated using G for GB
-or M for MB (in this case, 40G). The setting requires a reboot to become activated.
+On systems with a large amount of RAM, metadata can use more RAM at the expense of 
+file cache data. For example: suppose that a 12 TB pool requires 30 GB for the DDTs 
+(2.5 GB per TB). On a system with 64 GB of RAM, the user could reserve 40 GB for 
+metadata and DDT, and leave the rest (24 GB) for the system, jails, and other file 
+cache. This would be done by creating a :ref:`Tunable` called :command:
+`vfs.zfs.arc_meta_limit` of type *loader*, and entering the amount of RAM to be used 
+for metadata, using G for GB or M for MB (in this case, 40G). The setting requires a 
+reboot to become activated. 
 
 #endif freenas
 
