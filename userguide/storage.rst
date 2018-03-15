@@ -722,13 +722,14 @@ Deduplication
 
 Deduplication ("dedup") is a process where ZFS aims to store a single copy
 of any data that is repeated in different blocks or files, rather than storing 
-another identical block or file copy each time it occurs. Deduplication 
-potentially allows a large number of very similar files to be held very 
-efficiently within a much smaller amount of storage capacity, if the data contains 
-numerous identical files or blocks of data. However, deduplication also places a 
-very heavy burden on RAM and on the CPU, and in particular, deduplication can 
+identical copies each time the data occurs. Deduplication 
+potentially allows a large number of very similar data to be stored very 
+efficiently in a smaller space, if there is a lot of identical data, but also places a 
+very heavy burden on RAM and on the CPU. In particular, dedup can 
 significantly slow down data write performance and usually requires large (and at 
-times huge) amounts of RAM. See :ref:`Deduplication RAM requirements` for details.
+times huge) amounts of RAM.  See :ref:`Deduplication RAM requirements` for details.
+Because of the demands it places on a system, dedup is **not recommended** and should 
+be left in the default setting ("off") in most situations.
 
 .. warning::
 
