@@ -24,27 +24,27 @@ Carefully unpack the shipping boxes and locate these components:
 .. table::
    :class: longtable
 
-   +--------------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es24_bare.png               | .. image:: images/tn_es24_bezel.png         |
-   |                                                  |    :width: 10%                              |
-   |                                                  |                                             |
-   | ES24 Expansion Shelf                             | ES24 Bezel                                  |
-   +--------------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es24_rails.png              | .. image:: images/tn_es24_drivetray.png     |
-   |                                                  |    :width: 30%                              |
-   |                                                  |                                             |
-   | Set of rackmount rails                           | Up to 24 drive trays populated with drives  |
-   +--------------------------------------------------+---------------------------------------------+
-   | |pic3|   |pic4|                                  | .. image:: images/tn_power_cable.png        |
-   |                                                  |    :width: 30%                              |
-   | .. |pic3| image:: images/tn_sascables_minihd.png |                                             |
-   |    :width: 30%                                   | Two 2 IEC C13 to NEMA 5-15P power cords     |
-   | .. |pic4| image:: images/tn_es24_serialcable.png |                                             |
-   |    :width: 30%                                   |                                             |
-   |                                                  |                                             |
-   | Two 3-meter Mini SAS HD to Mini SAS HD cables    |                                             |
-   | and one serial cable                             |                                             |
-   +--------------------------------------------------+---------------------------------------------+
+   +-------------------------------------------------------+----------------------------------------------+
+   | .. image:: images/truenas/es24_bare.png               | .. image:: images/truenas/es24_bezel.png     |
+   |                                                       |    :width: 10%                               |
+   |                                                       |                                              |
+   | ES24 Expansion Shelf                                  | ES24 Bezel                                   |
+   +-------------------------------------------------------+----------------------------------------------+
+   | .. image:: images/truenas/es24_rails.png              | .. image:: images/truenas/es24_drivetray.png |
+   |                                                       |    :width: 30%                               |
+   |                                                       |                                              |
+   | Set of rackmount rails                                | Up to 24 drive trays populated with drives   |
+   +-------------------------------------------------------+----------------------------------------------+
+   | |pic3|   |pic4|                                       | .. image:: images/truenas/power_cable.png    |
+   |                                                       |    :width: 30%                               |
+   | .. |pic3| image:: images/truenas/sascables_minihd.png |                                              |
+   |    :width: 30%                                        | Two 2 IEC C13 to NEMA 5-15P power cords      |
+   | .. |pic4| image:: images/truenas/es24_serialcable.png |                                              |
+   |    :width: 30%                                        |                                              |
+   |                                                       |                                              |
+   | Two 3-meter Mini SAS HD to Mini SAS HD cables         |                                              |
+   | and one serial cable                                  |                                              |
+   +-------------------------------------------------------+----------------------------------------------+
 
 
 .. index:: Become Familiar with the ES24
@@ -62,12 +62,12 @@ software has issued an
 
 
 .. _es24_indicators:
-.. figure:: images/tn_es24_indicators.png
+.. figure:: images/truenas/es24_indicators.png
    :width: 15%
 
 .. _es24_back:
 
-.. figure:: images/tn_es24_back.png
+.. figure:: images/truenas/es24_back.png
    :width: 60%
 
    Back Panel
@@ -106,7 +106,7 @@ press the white release tab to the right while pulling the cabinet
 rail.
 
 .. _cabinet_rail_removal:
-.. figure:: images/tn_es24_cabinet_rail1.png
+.. figure:: images/truenas/es24_cabinet_rail1.png
 
 
 Mount Cabinet Rails
@@ -118,7 +118,7 @@ and pull the rail until the post is wedged in the smaller hole.
 
 
 .. _cabinet_rail2:
-.. figure:: images/tn_es24_cabinet_rail2.png
+.. figure:: images/truenas/es24_cabinet_rail2.png
 
 
 Align the rail holes with the screw holes and secure the rail with
@@ -144,7 +144,7 @@ click in place. Repeat this process for the second rear rail.
 
 
 .. _rack_rail_install:
-.. figure:: images/tn_es24_rack_rail_install.png
+.. figure:: images/truenas/es24_rack_rail_install.png
    :width: 60%
 
 
@@ -163,7 +163,7 @@ process for the second rail.
 
 
 .. _rack_rail_to_cabinet_rail:
-.. figure:: images/tn_es24_cabinet_meets_rack.png
+.. figure:: images/truenas/es24_cabinet_meets_rack.png
    :width: 60%
 
 
@@ -174,7 +174,7 @@ pushing the unit in until it is flush with the front of the rack.
 
 
 .. _mount_system_in_rack:
-.. figure:: images/tn_es24_mount_system.png
+.. figure:: images/truenas/es24_mount_system.png
    :width: 60%
 
 
@@ -196,7 +196,7 @@ clicks into place.
 
 
 .. _drive_installation:
-.. figure:: images/tn_es24_drive_tray1.png
+.. figure:: images/truenas/es24_drive_tray1.png
    :width: 60%
 
 
@@ -214,7 +214,7 @@ into the plastic clamp and press the tab into the latch to lock it in
 place. Repeat the process for the second power supply and cord.
 
 .. _power_cord_connection:
-.. figure:: images/tn_es24_power_cord.png
+.. figure:: images/truenas/es24_power_cord.png
   :width: 35%
 
 
@@ -238,7 +238,7 @@ farthest left Z series node 2 SAS connector (cable #2 in photo).
 
 
 .. _es24_sasconnect1:
-.. figure:: images/tn_es24_sasconnect1.png
+.. figure:: images/truenas/es24_sasconnect1.png
    :width: 50%
 
    SAS Cable Connection for One ES24
@@ -255,7 +255,7 @@ next unused SAS ports on the Z series as shown:
 
 
 .. _es24_sasconnect2:
-.. figure:: images/tn_es24_sasconnect2.png
+.. figure:: images/truenas/es24_sasconnect2.png
    :width: 50%
 
    SAS Cable Connection for Two ES24s

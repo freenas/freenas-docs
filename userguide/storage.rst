@@ -601,7 +601,7 @@ Selecting an existing ZFS volume in the tree and clicking
 #ifdef truenas
 .. _tn_dataset1:
 
-.. figure:: images/tn_storage-dataset.png
+.. figure:: images/truenas/storage-dataset.png
 
    Creating a ZFS Dataset
 #endif truenas
@@ -1046,7 +1046,7 @@ shown in
    Viewing Disks
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_view.png
+.. figure:: images/truenas/view.png
 
    Viewing Disks
 #endif truenas
@@ -1240,7 +1240,7 @@ if the pool is running the latest version of feature flags.
    Volume Status
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_volume2.png
+.. figure:: images/truenas/volume2.png
 
    Volume Status
 #endif truenas

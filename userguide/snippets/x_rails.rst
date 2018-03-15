@@ -13,14 +13,14 @@ the rack. Repeat the process for the second extender, which is a
 mirror image of the first.
 
 
-.. figure:: images/tn_x_railextender.png
+.. figure:: images/truenas/x_railextender.png
    :width: 35%
 
 
 Install a spring on the silver posts in the side of each rail.
 
 
-.. figure:: images/tn_x_spring.png
+.. figure:: images/truenas/x_spring.png
    :width: 60%
 
 
@@ -32,7 +32,7 @@ supplied screws to secure the back end of the rail in place. Repeat
 the process for the second rail.
 
 
-.. figure:: images/tn_x_railclamp.png
+.. figure:: images/truenas/x_railclamp.png
    :width: 100%
 
 

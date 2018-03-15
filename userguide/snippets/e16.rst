@@ -25,36 +25,36 @@ The E16 expansion shelf comes with these components:
 
 * %brand% E16 expansion shelf
 
-.. image:: images/tn_e16shelf.jpg
+.. image:: images/truenas/e16shelf.jpg
 
 * Up to 16 populated 3.5" drive trays
 
-.. image:: images/tn_drive_trays.jpg
+.. image:: images/truenas/drive_trays.jpg
 
 * Two power cables
 
-.. image:: images/tn_power_cable.png
+.. image:: images/truenas/power_cable.png
    :width: 7%
 
 * Two host expansion cables (SAS 8088)
 
-.. image:: images/tn_host_expansion_cable.jpg
+.. image:: images/truenas/host_expansion_cable.jpg
 
 * Inner and outer rails, left and right
 
-.. image:: /images/tn_rails.jpg
+.. image:: /images/truenas/rails.jpg
 
 * Two sets of screws
 
-.. image:: images/tn_shortscrew.png
+.. image:: images/truenas/shortscrew.png
    :width: 5%
 
-.. image:: images/tn_longscrew.png
+.. image:: images/truenas/longscrew.png
    :width: 7%
 
 * One printed guide
 
-.. image:: images/tn_e16_guide.png
+.. image:: images/truenas/e16_guide.png
 
 Unused drive bays are populated with drive tray blanks to
 maintain proper airflow.
@@ -67,7 +67,7 @@ of the %brand% E16 expansion shelf.
 
 .. _appliance12:
 
-.. figure:: images/tn_e16_front_viewa.jpg
+.. figure:: images/truenas/e16_front_viewa.jpg
 
    Front View
 
@@ -78,7 +78,7 @@ shows the rear view of the %brand% E16 expansion shelf.
 
 .. _appliance13:
 
-.. figure:: images/tn_e16_rear_view.jpg
+.. figure:: images/truenas/e16_rear_view.jpg
 
    Rear View
 
@@ -90,7 +90,7 @@ for the LED.
 
 .. _appliance14:
 
-.. figure:: images/tn_drive_tray.jpg
+.. figure:: images/truenas/drive_tray.jpg
 
    Drive Tray
 
@@ -106,7 +106,7 @@ to separate completely, as shown in
 
 .. _appliance15:
 
-.. figure:: images/tn_separate_rails.jpg
+.. figure:: images/truenas/separate_rails.jpg
 
    Separate Inner and Outer Rails
 
@@ -118,7 +118,7 @@ the chassis, then slide the rails forward into place as shown in
 
 .. _appliance16:
 
-.. figure:: images/tn_attach_inner_rail.jpg
+.. figure:: images/truenas/attach_inner_rail.jpg
 
    Attach Inner Rail to Chassis
 
@@ -131,7 +131,7 @@ for a detailed view.
 
 .. _appliance17:
 
-.. figure:: images/tn_secure_inner_rail.jpg
+.. figure:: images/truenas/secure_inner_rail.jpg
 
    Secure Inner Rail in Place
 
@@ -147,7 +147,7 @@ style is the one with a flat surface and screw holes.
 
 .. _appliance18:
 
-.. figure:: images/tn_rotate_bracket.png
+.. figure:: images/truenas/rotate_bracket.png
 
    Rotate Rackmount Bracket
 
@@ -165,7 +165,7 @@ of the rack. Refer to
 
 .. _appliance19:
 
-.. figure:: images/tn_rack_square_holes.png
+.. figure:: images/truenas/rack_square_holes.png
 
    Installing Rails in Racks with Square Holes
 
@@ -180,7 +180,7 @@ for a detailed view.
 
 .. _appliance20:
 
-.. figure:: images/tn_rack_round_holes.png
+.. figure:: images/truenas/rack_round_holes.png
 
    Installing Rails in Racks with Round Holes
 
@@ -201,7 +201,7 @@ for a detailed view.
 
 .. _appliance21:
 
-.. figure:: images/tn_rack_and_release_locks.png
+.. figure:: images/truenas/rack_and_release_locks.png
 
    Push Expansion Shelf into Rack and Release pin-lock Latches
 
@@ -216,7 +216,7 @@ expansion shelf as shown in
 
 .. _appliance22:
 
-.. figure:: images/tn_install_drive_tray.jpg
+.. figure:: images/truenas/install_drive_tray.jpg
 
    Drive Installation Instructions
 
@@ -237,7 +237,7 @@ Refer to
 
 .. _appliance24:
 
-.. figure:: images/tn_e16_connect_storage.png
+.. figure:: images/truenas/e16_connect_storage.png
 
    Connecting an E16 Expansion Shelf to a %brand% Storage Array
 

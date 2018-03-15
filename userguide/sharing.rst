@@ -1782,7 +1782,7 @@ for iSNS requests is 5 seconds.
 #endif freenas
 #ifdef truenas
 .. _iscsi_targ_global_var_fig:
-.. figure:: images/tn_iscsi_target_global.png
+.. figure:: images/truenas/iscsi_target_global.png
 
   iSCSI Target Global Configuration Variables
 #endif truenas
@@ -2359,7 +2359,7 @@ is shown in
 
 .. _tn_fibre1:
 
-.. figure:: images/tn_fibre1.png
+.. figure:: images/truenas/fibre1.png
 
    Block (iSCSI) Screen
 
@@ -2381,7 +2381,7 @@ whether the target to create is iSCSI, Fibre Channel, or both.
 
 .. _tn_fibre2:
 
-.. figure:: images/tn_fibre2.png
+.. figure:: images/truenas/fibre2.png
 
    Add Target Screen
 
@@ -2395,7 +2395,7 @@ connection. An example is shown in
 
 .. _tn_fibre3:
 
-.. figure:: images/tn_fibre3.png
+.. figure:: images/truenas/fibre3.png
 
    Configuring a Fibre Channel Target
 
@@ -2409,7 +2409,7 @@ An example of the :guilabel:`Fibre Channel Ports` screen is shown in
 
 .. _tn_fibre_port_fig:
 
-.. figure:: images/tn_fibre4c.png
+.. figure:: images/truenas/fibre4c.png
 
    Configuring a Fibre Channel Port
 
@@ -2470,7 +2470,7 @@ associated with a target, it is added to the :guilabel:`Target` tab of
 
 .. _tn_npiv:
 
-.. figure:: images/tn_system-tunables-npiv.png
+.. figure:: images/truenas/system-tunables-npiv.png
 
    Adding Virtual Ports
 #endif truenas
@@ -2594,7 +2594,7 @@ the current size of the zvol named *zvol1* is 4GB.
    Editing an Existing Zvol
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_grow.png
+.. figure:: images/truenas/grow.png
 
    Editing an Existing Zvol
 #endif truenas

@@ -28,7 +28,7 @@ move down to the next row and start again with the left bay.
 This example shows the proper order for a SLOG SSD, an L2ARC SSD,
 eight hard drives, and two empty air baffle trays.
 
-.. figure:: images/tn_x_driveorder.png
+.. figure:: images/truenas/x_driveorder.png
    :width: 80%
 
 
@@ -38,5 +38,5 @@ left side of the latch touches the metal front edge of the chassis,
 then gently swing the latch closed until it clicks into place.
 
 
-.. figure:: images/tn_x_driveload.png
+.. figure:: images/truenas/x_driveload.png
    :width: 100%

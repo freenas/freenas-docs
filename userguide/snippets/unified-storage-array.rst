@@ -27,34 +27,34 @@ The %brand% Storage Array shipment comes with these components:
 .. table: Package Contents
    :class: longtable
 
-+------------+------------------------------------------+-----------------------------------------+
-| Quantity   | Description                              | Image                                   |
-+============+==========================================+=========================================+
-| 1          | %brand% Unified Storage Array            | .. image:: images/truenas_appliance.png |
-+------------+------------------------------------------+-----------------------------------------+
-| up to 16   | Populated 3.5" drive trays               | .. image:: images/tn_drive_trays.jpg    |
-+------------+------------------------------------------+-----------------------------------------+
-| 1 pair     | Outer rails, left and right              | .. image:: images/tn_rails.jpg          |
-+------------+------------------------------------------+-----------------------------------------+
-| 8          | #32 Thumbscrews                          | .. image:: images/tn_thumbscrews1.png   |
-|            |                                          |    :width: 5%                           |
-+------------+------------------------------------------+-----------------------------------------+
-| 2          | Short screws                             | .. image:: images/tn_shortscrew.png     |
-|            |                                          |    :width: 5%                           |
-+------------+------------------------------------------+-----------------------------------------+
-| 2          | Long screws                              | .. image:: images/tn_longscrew.png      |
-|            |                                          |    :width: 7%                           |
-+------------+------------------------------------------+-----------------------------------------+
-| 2          | Power cables                             | .. image:: images/tn_power_cable.png    |
-|            |                                          |    :width: 10%                          |
-+------------+------------------------------------------+-----------------------------------------+
-| 1          | Serial to 3.5mm cable                    | .. image:: images/tn_serialcable.png    |
-|            |                                          |    :width: 10%                          |
-+------------+------------------------------------------+-----------------------------------------+
-| 1          | Faceplate                                | .. image:: images/tn_bezel.png          |
-+------------+------------------------------------------+-----------------------------------------+
-| 1          | Printed setup guide                      | .. image:: images/tn_setupguide.png     |
-+------------+------------------------------------------+-----------------------------------------+
++------------+------------------------------------------+--------------------------------------------+
+| Quantity   | Description                              | Image                                      |
++============+==========================================+============================================+
+| 1          | %brand% Unified Storage Array            | .. image:: images/truenas_appliance.png    |
++------------+------------------------------------------+--------------------------------------------+
+| up to 16   | Populated 3.5" drive trays               | .. image:: images/truenas/drive_trays.jpg  |
++------------+------------------------------------------+--------------------------------------------+
+| 1 pair     | Outer rails, left and right              | .. image:: images/truenas/rails.jpg        |
++------------+------------------------------------------+--------------------------------------------+
+| 8          | #32 Thumbscrews                          | .. image:: images/truenas/thumbscrews1.png |
+|            |                                          |    :width: 5%                              |
++------------+------------------------------------------+--------------------------------------------+
+| 2          | Short screws                             | .. image:: images/truenas/shortscrew.png   |
+|            |                                          |    :width: 5%                              |
++------------+------------------------------------------+--------------------------------------------+
+| 2          | Long screws                              | .. image:: images/truenas/longscrew.png    |
+|            |                                          |    :width: 7%                              |
++------------+------------------------------------------+--------------------------------------------+
+| 2          | Power cables                             | .. image:: images/truenas/power_cable.png  |
+|            |                                          |    :width: 10%                             |
++------------+------------------------------------------+--------------------------------------------+
+| 1          | Serial to 3.5mm cable                    | .. image:: images/truenas/serialcable.png  |
+|            |                                          |    :width: 10%                             |
++------------+------------------------------------------+--------------------------------------------+
+| 1          | Faceplate                                | .. image:: images/truenas/bezel.png        |
++------------+------------------------------------------+--------------------------------------------+
+| 1          | Printed setup guide                      | .. image:: images/truenas/setupguide.png   |
++------------+------------------------------------------+--------------------------------------------+
 
 
 .. note:: Network cables are highly configuration-dependent. Please
@@ -68,22 +68,22 @@ The %brand% Storage Array shipment comes with these components:
 Become Familiar with the System
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: images/tn_appliance_front_view.jpg
+.. figure:: images/truenas/appliance_front_view.jpg
 
    Front View
 
 
-.. figure:: images/tn_appliance_front_panel.jpg
+.. figure:: images/truenas/appliance_front_panel.jpg
 
    Front Panel Buttons and Indicators
 
 
-.. figure:: images/tn_appliance_rear_view.jpg
+.. figure:: images/truenas/appliance_rear_view.jpg
 
    Rear View
 
 
-.. figure:: images/tn_drive_tray.jpg
+.. figure:: images/truenas/drive_tray.jpg
 
    Drive Tray
 
@@ -94,7 +94,7 @@ Mounting in an EIA Rack or Cabinet
 EIA racks and cabinets have either round or square holes on the
 mounting frame.
 
-.. figure:: images/tn_rack_holes.png
+.. figure:: images/truenas/rack_holes.png
 
    Racks with Square or Round Holes
 
@@ -104,12 +104,12 @@ outer rails shipped with a %brand% Array are configured for a rack or
 cabinet with square holes by default.
 
 
-.. figure:: images/tn_rails_square.png
+.. figure:: images/truenas/rails_square.png
 
    Outer Rail Configured for Square Holes (Default)
 
 
-.. figure:: images/tn_rails_round.png
+.. figure:: images/truenas/rails_round.png
 
    Outer Rail Configured for Round Holes
 
@@ -126,7 +126,7 @@ Press the button and rotate the bracket on the outer rail to match the
 type of holes in the rack or cabinet as shown:
 
 
-.. figure:: images/tn_rotate_bracket.png
+.. figure:: images/truenas/rotate_bracket.png
 
    Rotate Rackmount Bracket
 
@@ -136,12 +136,12 @@ used. Double-check the outer rail orientation, making sure the front
 of the outer rail is matched with the front of the rack or cabinet.
 
 
-.. figure:: images/tn_rail_front.png
+.. figure:: images/truenas/rail_front.png
 
    Outer Rail Front
 
 
-.. figure:: images/tn_rail_rear.png
+.. figure:: images/truenas/rail_rear.png
 
    Outer Rail Rear
 
@@ -152,7 +152,7 @@ spring-loaded locking mechanism and do not require mounting screws.
 holes at either end of the rail into the mouting holes.
 
 
-.. figure:: images/tn_rack_square_holes.png
+.. figure:: images/truenas/rack_square_holes.png
 
    Installing Rails in Racks with Square Holes
 
@@ -161,7 +161,7 @@ For racks with round holes, position the rails at the desired location
 in the rack and secure them with 8 #32 thumbscrews.
 
 
-.. figure:: images/tn_rack_round_holes.png
+.. figure:: images/truenas/rack_round_holes.png
 
    Installing Rails in Racks with Round Holes
 
@@ -183,7 +183,7 @@ align the screw holes for securing the unit.
 
 .. _appliance8:
 
-.. figure:: images/tn_rack_and_release_locks.png
+.. figure:: images/truenas/rack_and_release_locks.png
 
    Push Array into Rack and Release Pin-lock Latches
 
@@ -201,7 +201,7 @@ for a detailed view.
 
 .. _appliance9:
 
-.. figure:: images/tn_install_drive_tray.jpg
+.. figure:: images/truenas/install_drive_tray.jpg
 
    Drive Installation Instructions
 
@@ -226,7 +226,7 @@ the out-of-band management port.
 
 .. _appliance11:
 
-.. figure:: images/tn_appliance_back_panel_left.jpg
+.. figure:: images/truenas/appliance_back_panel_left.jpg
 
    Back Panel Layout
 

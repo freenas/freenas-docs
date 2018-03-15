@@ -43,7 +43,7 @@ is booting to access the system BIOS. This opens the menu shown in
 
 .. _appliance34:
 
-.. figure:: images/tn_BIOS1.png
+.. figure:: images/truenas/BIOS1.png
 
    Initial BIOS Screen
 
@@ -55,7 +55,7 @@ Navigate to the :guilabel:`Server Mgmt` menu and then
 
 .. _appliance35:
 
-.. figure:: images/tn_BIOS2.png
+.. figure:: images/truenas/BIOS2.png
 
    Navigate to BMC LAN Configuration
 
@@ -69,7 +69,7 @@ If an IP has been assigned by DHCP, it is displayed.
 
 .. _appliance36:
 
-.. figure:: images/tn_BIOS3.png
+.. figure:: images/truenas/BIOS3.png
 
    Configuring a Dynamic IP Address
 
@@ -83,7 +83,7 @@ filling out all four octets completely.
 
 .. _appliance37:
 
-.. figure:: images/tn_BIOS4.png
+.. figure:: images/truenas/BIOS4.png
 
    Configuring a Static IP Address
 
@@ -95,7 +95,7 @@ network subnet. An example is shown in
 
 .. _appliance38:
 
-.. figure:: images/tn_BIOS5.png
+.. figure:: images/truenas/BIOS5.png
 
    Entering the Subnet Mask
 
@@ -108,7 +108,7 @@ shown in
 
 .. _appliance39:
 
-.. figure:: images/tn_BIOS6.png
+.. figure:: images/truenas/BIOS6.png
 
    Entering the Default Gateway Address
 
@@ -125,7 +125,7 @@ a login prompt appears.
 
 .. _appliance40:
 
-.. figure:: images/tn_IPMIlogin.png
+.. figure:: images/truenas/IPMIlogin.png
 
    Connecting to the IPMI Graphical Interface
 
@@ -144,7 +144,7 @@ the :guilabel:`Launch Java KVM Client` button shown in
 
 .. _tn_IPMIdownload:
 
-.. figure:: images/tn_IPMIdownload.png
+.. figure:: images/truenas/IPMIdownload.png
 
    Launching the Java KVM Client
 
@@ -156,7 +156,7 @@ Web Start Launcher shown in
 
 .. _appliance41:
 
-.. figure:: images/tn_IPMIjava.png
+.. figure:: images/truenas/IPMIjava.png
 
    Configure the Launch Program
 
@@ -169,7 +169,7 @@ the box indicating that you understand the risks and press
 
 .. _appliance42:
 
-.. figure:: images/tn_IPMIaccept.png
+.. figure:: images/truenas/IPMIaccept.png
 
    Respond to Warning
 
@@ -181,7 +181,7 @@ press :guilabel:`Continue`.
 
 .. _tn_IPMIcontinue:
 
-.. figure:: images/tn_IPMIcontinue.png
+.. figure:: images/truenas/IPMIcontinue.png
 
    Continue Through this Screen
 
@@ -259,7 +259,7 @@ user, as shown in
 
 .. _tn_login1:
 
-.. figure:: images/tn_login1c.png
+.. figure:: images/truenas/login1c.png
 
    Enter the Root Password
 
@@ -288,7 +288,7 @@ example in
 
 .. _tn_initial:
 
-.. figure:: images/tn_initial1c.png
+.. figure:: images/truenas/initial1c.png
 
    %brand% Graphical Configuration Menu
 

@@ -1362,7 +1362,7 @@ This configuration screen is really a front-end to
    Global SMB Configuration
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_cifs1b.png
+.. figure:: images/truenas/cifs1b.png
 
    Global SMB Configuration
 #endif truenas

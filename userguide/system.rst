@@ -96,7 +96,7 @@ add *.local* after the hostname.
    System Information Tab
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-information.png
+.. figure:: images/truenas/system-information.png
 
    System Information Tab
 #endif truenas
@@ -119,7 +119,7 @@ is shown in
    General Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-general.png
+.. figure:: images/truenas/system-general.png
 
    General Screen
 #endif truenas
@@ -363,7 +363,7 @@ the :ref:`Wizard` was run.
    Viewing Boot Environments
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-boot.png
+.. figure:: images/truenas/system-boot.png
 
    Viewing Boot Environments
 #endif truenas
@@ -440,7 +440,7 @@ The buttons above the boot entries can be used to:
    Viewing the Status of the Boot Device
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_be2.png
+.. figure:: images/truenas/be2.png
 
    Viewing the Status of the Boot Device
 #endif truenas
@@ -478,7 +478,7 @@ shows a sample boot menu.
    Boot Environments in Boot Menu
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_be3b.png
+.. figure:: images/truenas/be3b.png
 
    Boot Environments in Boot Menu
 #endif truenas
@@ -583,7 +583,7 @@ The configurable settings are summarized in
    Advanced Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-advanced.png
+.. figure:: images/truenas/system-advanced.png
 
    Advanced Screen
 #endif truenas
@@ -783,7 +783,7 @@ shown in
    Email Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-email.png
+.. figure:: images/truenas/system-email.png
 
    Email Screen
 #endif truenas
@@ -883,7 +883,7 @@ controller users and groups.
    System Dataset Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-system-dataset.png
+.. figure:: images/truenas/system-system-dataset.png
 
    System Dataset Screen
 #endif truenas
@@ -1262,7 +1262,7 @@ screen.
    Update Options
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-update.png
+.. figure:: images/truenas/system-update.png
 
    Update Options
 #endif truenas
@@ -1679,7 +1679,7 @@ shows the screen after clicking
    Initial CA Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-ca.png
+.. figure:: images/truenas/system-ca.png
 
    Initial CA Screen
 #endif truenas
@@ -1866,7 +1866,7 @@ shows the initial screen after clicking
    Initial Certificates Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-cert.png
+.. figure:: images/truenas/system-cert.png
 
    Initial Certificates Screen
 #endif truenas
@@ -2144,7 +2144,7 @@ requests.
 
 .. _tn_support1:
 
-.. figure:: images/tn_system-support.png
+.. figure:: images/truenas/system-support.png
 
    Support Tab
 
@@ -2220,7 +2220,7 @@ hardware conditions on the system require attention.
 
 .. _tn_proactive_support:
 
-.. figure:: images/tn_system-proactive-support.png
+.. figure:: images/truenas/system-proactive-support.png
 
    Proactive Support Tab
 
@@ -2270,7 +2270,7 @@ example is shown in
 
 .. _tn_enclosure1:
 
-.. figure:: images/tn_system-view-enclosure.png
+.. figure:: images/truenas/system-view-enclosure.png
 
    View Enclosure
 
@@ -2437,7 +2437,7 @@ and described in
 
 .. _failover_fig:
 
-.. figure:: images/tn_system-failover.png
+.. figure:: images/truenas/system-failover.png
 
    Example Failover Screen
 
