@@ -746,7 +746,7 @@ the default setting ("off") in most situations.
    solution then is to add more RAM or recreate the pool.
 
    **There is also no quick way to undedup data within a dataset once deduplication 
-   is enabled**, since disabling deduplication **DOES NOT CHANGE** existing data. The 
+   is enabled, since disabling deduplication DOES NOT CHANGE existing data.** The 
    simplest way to undedup existing data is to copy the deduped data to a new dataset 
    or location that does not have dedup set. The data will be undeduped when written. 
    The simplest way to undedup data and keep it in the same pool, zvol or dataset is 
