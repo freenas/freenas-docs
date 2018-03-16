@@ -752,7 +752,10 @@ the default setting ("off") in most situations.
    The simplest way to undedup data and keep it in the same pool, zvol or dataset is 
    as follows: disable dedup on the pool, zvol or dataset, then copy the data within 
    the same pool, zvol or dataset. Once the copy is confirmed to be correct, the 
-   original data can optionally be deleted.
+   original data can optionally be deleted. If the pool does not have enough free space
+   for this procedure, then disable dedup, copy the data to another system or storage
+   device, check the copies are correct and safe, then delete the original data, and 
+   transfer back the copied data to the pool.
 
    For these reasons, **think carefully before enabling dedup!** 
    Deduplication is **usually not recommended unless the data contains a 
