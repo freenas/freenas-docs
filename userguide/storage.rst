@@ -796,14 +796,14 @@ Deduplication RAM requirements
 It is often said that ZFS needs about 5 GB of RAM per terabyte of deduplicated 
 storage. However this may not be the case, depending on the data to be deduped. A 
 highly duplicated pool capable of around 3x to 5x space saving may only need as little 
-as 1 or 2 GB of RAM per TB of data. The exact size required for deduplication data is 
-calculated from the output of the :command:`CLI` command :command:`zdb -U 
-/data/zfs/zpool.cache -D pool_name`, which states the total number of blocks in the 
-pool, and the number of bytes of RAM required per block (shown as *"{number} in 
-core"*). The command :command:`zdb -U /data/zfs/zpool.cache -S pool_name` also 
-provides an estimate of the storage saving if deduplication is applied to a dataset 
-or zvol. These commands may take a long time to run because they scan the entire pool 
-to produce the results.
+as 1 or 2 GB of RAM per TB of data. The exact size required for DDTs in a deduped pool, 
+dataset or zvol is calculated from the output of the :command:`CLI` command 
+:command:`zdb -U /data/zfs/zpool.cache -D pool_name`, which states the total number of
+blocks in the pool, and the number of bytes of RAM required per block (shown as
+*"{number} in core"*). The command :command:`zdb -U /data/zfs/zpool.cache -S pool_name`
+calculates the storage saving that would be achieved for a pool, dataset or zvol, if the 
+data within it were to be completely deduped. These commands may take a long time to run
+because they scan the entire pool to produce the results.
 
 ZFS uses RAM for many purposes. Therefore ZFS limits the amount of metadata 
 (including DDT data) for which space is reserved in RAM. ZFS stores DDT data in its 
