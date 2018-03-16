@@ -728,9 +728,9 @@ efficiently in a smaller space, but also places a
 very heavy burden on RAM and on the CPU. In particular, dedup 
 significantly reduces write performance and usually requires large (and at 
 times huge) amounts of RAM.  See :ref:`Deduplication RAM requirements` for details.
-Because of the demands it places on a system and the impact on performance, dedup
-is **usually not recommended** and should be left in the default setting 
-("off") in most situations.
+Because of the demands that dedup places on a system and the impact on performance, 
+enabling dedup is **usually not recommended** and the setting should be left in
+the default setting ("off") in most situations.
 
 .. warning::
 
