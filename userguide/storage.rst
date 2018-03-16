@@ -802,7 +802,7 @@ dataset or zvol is calculated from the output of the :command:`CLI` command
 blocks in the pool, and the number of bytes of RAM required per block (shown as
 *"{number} in core"*). The command :command:`zdb -U /data/zfs/zpool.cache -S pool_name`
 calculates the storage saving that would be achieved for a pool, dataset or zvol, if the 
-data within it were to be completely deduped. These commands may take a long time to run
+data within it were completely deduped. These commands may take a long time to run
 because they scan the entire pool to produce the results.
 
 ZFS uses RAM for many purposes. Therefore ZFS limits the amount of metadata 
