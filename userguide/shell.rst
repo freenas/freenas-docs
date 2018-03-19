@@ -6,7 +6,7 @@ Shell
 
 Beginning with version 8.2.0, the %brand% GUI provides a web shell,
 making it convenient to run command line tools from the web browser as
-the *root* user. The link to Shell is the fourth entry from the bottom
+the *root* user. The link to Shell is the second entry from the bottom
 of the menu tree. In
 :numref:`Figure %s <web_shell_fig>`,
 the link has been clicked and Shell is open.
