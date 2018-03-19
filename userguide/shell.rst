@@ -23,28 +23,25 @@ The prompt indicates that the current user is *root*, the hostname is
 *freenas*, and the current working directory is :file:`~`
 (*root*'s home directory).
 
-To change the size of the shell, click the *80x25* drop-down menu and
-select a different size.
+The :guilabel:`Set font size` slider adjusts the size of text
+displayed in the Shell.
 
-To copy text from shell, highlight the text, right-click, and select
-:guilabel:`Copy` from the right-click menu. To paste into the shell,
-click the :guilabel:`Paste` button, paste the text into the box that
-opens, and click the :guilabel:`OK` button to complete the paste
-operation.
+Highlight the text and use :command:`ctrl c` to copy text from
+the Shell. :command:`ctrl v` is used to paste text into the Shell.
 
-Shell provides history (use your up arrow to see previously entered
+Shell provides history (use the up arrow to see previously entered
 commands and press :kbd:`Enter` to repeat the currently displayed
 command) and tab completion (type a few letters and press tab to
-complete a command name or filename in the current directory). When
-you are finished using Shell, type :command:`exit` to leave the
+complete a command name or filename in the current directory).
+Type :command:`exit` to leave the
 session.
 
-While you are in Shell, you will not have access to any of the other
-GUI menus. If you need to have access to a prompt while using the GUI
-menus, use :ref:`tmux` instead as it supports multiple shell sessions
+GUI menus cannot be accessed while using Shell.
+To access a prompt while using the GUI
+menus, use :ref:`tmux` as it supports multiple shell sessions
 and the detachment and reattachment of sessions.
 
-.. note:: Not all of Shell's features render correctly in Chrome.
+.. note:: Not all Shell features render correctly in Chrome.
    Firefox is the recommended browser for using Shell.
 
 Most FreeBSD command line utilities are available in Shell. Additional
