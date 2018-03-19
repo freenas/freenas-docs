@@ -641,7 +641,7 @@ To configure anonymous FTP:
     button changes to :guilabel:`Stop Now`.
 
 #.  Test the connection from a client using a utility such as
-    `Filezilla <https://filezilla-project.org/>`_.
+    `Filezilla <https://filezilla-project.org/>`__.
 
 In the example shown in
 :numref:`Figure %s <ftp_filezilla_fig>`,
