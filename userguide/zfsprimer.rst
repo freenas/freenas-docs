@@ -229,11 +229,7 @@ the goal is to maximize disk space or performance:
 * Some older ZFS documentation recommends that a certain number of
   disks is needed for each type of RAIDZ in order to achieve optimal
   performance. On systems using LZ4 compression, which is the default
-  for %brand% 9.2.1 and higher, this is no longer true. See
-  `ZFS RAIDZ stripe width, or: How I Learned to Stop Worrying and Love
-  RAIDZ
-  <http://blog.delphix.com/matt/2014/06/06/zfs-stripe-width/>`_
-  for details.
+  for %brand% 9.2.1 and higher, this is no longer true.
 
 These resources can also help determine the RAID configuration best
 suited to your storage needs:
