@@ -43,6 +43,15 @@ $(document).ready(function() {
     });
 });
 
+// Open links in a new tab
+var links = document.links;
+
+for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+   if (links[i].hostname != window.location.hostname) {
+       links[i].target = '_blank';
+   }
+}
+
 // Sphinx theme state
 window.SphinxRtdTheme = (function (jquery) {
     var stickyNav = (function () {
