@@ -31,13 +31,13 @@ first:
   flags.
 
 To perform the ZFS pool upgrade, go to
-:menuselection:`Storage --> Volumes --> View Volumes`
-and highlight the volume (ZFS pool) to upgrade. Click the
-:guilabel:`Upgrade` button as shown in
-:numref:`Figure %s <upgrading_zfs_pool_fig>`.
+:menuselection:`Storage --> Volumes` and click the :guilabel:`Gear` icon
+under the volume (ZFS pool) to upgrade. Click the
+:guilabel:`Upgrade Volume` button as shown in
+ :numref:`Figure %s <upgrading_zfs_pool_fig>`.
 
-.. note:: If the :guilabel:`Upgrade` button does not appear, the pool
-   is already at the latest feature flags and does not need to be
+.. note:: If the :guilabel:`Upgrade Volume` button does not appear, the
+   pool is already at the latest feature flags and does not need to be
    upgraded.
 
 
