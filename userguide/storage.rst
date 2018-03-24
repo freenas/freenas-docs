@@ -735,8 +735,8 @@ Deduplication can require **very large amounts of RAM** and substantial impacts 
 performance and CPU usage.  See :ref:`Deduplication RAM requirements` for details.
 
 Due to the demands that deduplication places on a system and the impact on performance,
-deduplication is **off by default**. Enabling deduplication without good reason is
-**not usually recommended** unless there are good reasons for doing so, the system has 
+deduplication is **off** by default and **should not be enabled** unless there
+are good reasons for doing so, the system has 
 sufficient RAM and CPU, and the performance impact has been tested on a sample of data and
 is acceptable.
 
