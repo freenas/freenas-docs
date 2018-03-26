@@ -720,7 +720,7 @@ Deduplication
 Deduplication
 ^^^^^^^^^^^^^
 
-Deduplication ("dedup") is a process where ZFS aims to store a single copy
+Deduplication, or "dedup", is a process where ZFS aims to store a single copy
 of any data that is repeated in different blocks or files, rather than storing 
 identical copies each time the data occurs. Deduplication 
 allows repeated and identical data to be stored very 
