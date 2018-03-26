@@ -94,6 +94,32 @@ applications, and drivers. Users are encouraged to :ref:`Update` to
 this release in order to take advantage of these improvements and bug
 fixes.
 
+These major features are new in this version:
+
+* The login screen defaults to the new, Angular-based UI. Users who wish
+  to continue to use the classic UI can select "Back to the Old UI" in
+  the login screen.
+
+* Beginning with this release, the screenshots that appear in the
+  `published version of the Guide <http://doc.freenas.org/11/freenas.html>`_
+  and in the :guilabel:`Guide` icon within the new UI are for the new UI.
+  However, users who click on the :guilabel:`Guide` icon while logged into
+  the classic UI will continue to see screenshots for the old UI. The
+  availability of both versions of the Guide is to assist users as they
+  become familiar with the new UI during the transition period before the
+  classic UI is deprecated in a future release.
+
+* The rewrite from the old API to the new middlewared continues. Once the
+  rewrite is complete, `api.freenas.org <http://api.freenas.org/>`_ will
+  be deprecated and replaced by the new API documentation. In the mean
+  time, to see the API documentation for the new middleware, log into the
+  new UI, click on the URL for the FreeNAS system in your browser's
+  location bar, and add :guilabel:`:api/docs` to the end of that URL.
+
+* The boot loader has changed from GRUB to the native FreeBSD boot loader.
+  This should resolve several issues that some users experienced with
+  GRUB. GRUB was introduced as a temporary solution until the FreeBSD
+  boot loader had full support for boot environments, which it now has.
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
