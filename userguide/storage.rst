@@ -731,7 +731,7 @@ occurs at the time when files are read and written. The setting can
 be changed at any time but will not affect data already written to 
 the pool.  
 
-Deduplication can require **very large amounts of RAM** and substantial impacts write 
+Deduplication can require **very large amounts of RAM** and substantially impacts both write 
 performance and CPU usage.  See :ref:`Deduplication RAM requirements` for details.
 
 Due to the demands that deduplication places on a system and the impact on performance,
