@@ -57,24 +57,24 @@ beneficial for particular uses, and caveats or hardware restrictions
 which limit usefulness.**
 
 
-.. _Volume Manager:
+.. _ZFS Pool Manager:
 
-Volume Manager
-~~~~~~~~~~~~~~
+ZFS Pool Manager
+~~~~~~~~~~~~~~~~
 
 
-The :guilabel:`Volume Manager` is used to add disks to a ZFS pool. Any
+The :guilabel:`ZFS Pool Manager` is used to add disks to a ZFS pool. Any
 old data on added disks is overwritten, so save it elsewhere before
 reusing a disk. Please see the :ref:`ZFS Primer` for information on
 ZFS redundancy with multiple disks before using
-:guilabel:`Volume Manager`. It is important to realize that different
+:guilabel:`ZFS Pool Manager`. It is important to realize that different
 layouts of virtual devices (*vdevs*) affect which operations can be
 performed on that volume later. For example, drives can be added to a
 mirror to increase redundancy, but that is not possible with RAIDZ
 arrays.
 
 Selecting
-:menuselection:`Storage --> Volumes --> Volume Manager` opens
+:menuselection:`Storage --> Volumes --> ZFS Pool Manager` opens
 a screen like the example shown in
 :numref:`Figure %s <create_zfs_pool_volman_fig>`.
 
@@ -83,7 +83,7 @@ a screen like the example shown in
 
 .. figure:: images/storage-volman.png
 
-   Creating a ZFS Pool Using Volume Manager
+   Creating a ZFS Pool Using ZFS Pool Manager
 
 
 :numref:`Table %s <zfs_vol_opts_tab>`
@@ -133,7 +133,7 @@ summarizes the configuration options of this screen.
 
 
 Drag the slider to select the desired number of disks.
-:guilabel:`Volume Manager` displays the resulting storage capacity,
+:guilabel:`ZFS Pool Manager` displays the resulting storage capacity,
 taking reserved swap space into account. To change the layout or the
 number of disks, drag the slider to the desired volume layout. The
 :guilabel:`Volume layout` drop-down menu can also be clicked if a
@@ -147,7 +147,7 @@ different level of redundancy is required.
    Follow the instructions in :ref:`Manual Setup`.
 
 
-:guilabel:`Volume Manager` only allows choosing a configuration if
+:guilabel:`ZFS Pool Manager` only allows choosing a configuration if
 enough disks have been selected to create that configuration. These
 layouts are supported:
 
@@ -253,7 +253,7 @@ the details when considering whether encryption is right for your
   backup restored to the new volume.
 
 * Hybrid pools are not supported. Added vdevs must match the existing
-  encryption scheme. The :ref:`Volume Manager` automatically encrypts
+  encryption scheme. The :ref:`ZFS Pool Manager` automatically encrypts
   a new vdev being added to an existing encrypted pool.
 
 
@@ -307,7 +307,7 @@ volume containing disks of different sizes.
 .. note:: The usable space of each disk in a volume is limited to the
    size of the smallest disk in the volume. Because of this, creating
    volumes with disks of the same size through the
-   :guilabel:`Volume Manager` is recommended.
+   :guilabel:`ZFS Pool Manager` is recommended.
 
 
 :numref:`Figure %s <zfs_create_nonopt_vol_fig>`
@@ -374,7 +374,7 @@ Extending a ZFS Volume
 ^^^^^^^^^^^^^^^^^^^^^^
 
 The :guilabel:`Volume to extend` drop-down menu in
-:menuselection:`Storage --> Volumes --> Volume Manager`,
+:menuselection:`Storage --> Volumes --> ZFS Pool Manager`,
 shown in
 :numref:`Figure %s <create_zfs_pool_volman_fig>`,
 is used to add disks to an existing ZFS volume to increase capacity.
@@ -433,14 +433,14 @@ continue.
 Adding L2ARC or SLOG Devices
 """"""""""""""""""""""""""""
 
-:menuselection:`Storage --> Volumes --> Volume Manager`
+:menuselection:`Storage --> Volumes --> ZFS Pool Manager`
 (see :numref:`Figure %s <create_zfs_pool_volman_fig>`)
 is also used to add L2ARC or SLOG SSDs to improve specific types of
 volume performance. This is described in more detail in the
 :ref:`ZFS Primer`.
 
 After the SSDs have been physically installed, click the
-:guilabel:`Volume Manager` button and choose the volume from the
+:guilabel:`ZFS Pool Manager` button and choose the volume from the
 :guilabel:`Volume to extend` drop-down menu. Click the
 :guilabel:`+` next to the SSD in the :guilabel:`Available disks` list.
 In the :guilabel:`Volume layout` drop-down menu, select
@@ -1147,7 +1147,7 @@ including disk parity. The second represents the implicit or root
 dataset and its :guilabel:`Used` and :guilabel:`Available` entries
 indicate the amount of disk space available for storage.
 
-Buttons are provided for quick access to :guilabel:`Volume Manager`,
+Buttons are provided for quick access to :guilabel:`ZFS Pool Manager`,
 :guilabel:`Import Disk`, :guilabel:`Import Volume`, and
 :guilabel:`View Disks`. If the system has multipath-capable hardware,
 an extra button will be added, :guilabel:`View Multipaths`. For each
@@ -1696,7 +1696,7 @@ Replacing Drives to Grow a ZFS Pool
 
 The recommended method for expanding the size of a ZFS pool is to
 pre-plan the number of disks in a vdev and to stripe additional vdevs
-using :ref:`Volume Manager` as additional capacity is needed.
+using :ref:`ZFS Pool Manager` as additional capacity is needed.
 
 However, this is not an option if there are no open drive ports and a
 SAS/SATA HBA card cannot be added. In this case, one disk at a time
@@ -1779,7 +1779,7 @@ catastrophic loss, an off-site snapshot can be used to restore the
 system up to the time of the last snapshot.
 
 An existing ZFS volume is required before creating a snapshot.
-Creating a volume is described in :ref:`Volume Manager`.
+Creating a volume is described in :ref:`ZFS Pool Manager`.
 
 To create a periodic snapshot task, click
 :menuselection:`Storage --> Periodic Snapshot Tasks

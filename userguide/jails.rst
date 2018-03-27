@@ -84,7 +84,7 @@ Jails are stored in a volume or dataset.
 **Using a separate dataset for the**
 :guilabel:`Jail Root` **is strongly recommended**. The volume
 or dataset to be used must already exist or can be created with
-:ref:`Volume Manager`.
+:ref:`ZFS Pool Manager`.
 
 .. note:: The :guilabel:`Jail Root` volume or dataset cannot be
    created on a :ref:`Share <Sharing>`.

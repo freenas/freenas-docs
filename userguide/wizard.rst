@@ -80,7 +80,7 @@ Decide if the pool should provide disk redundancy, and if so, which
 type. The :ref:`ZFS Primer` discusses RAIDZ redundancy in more detail.
 If you prefer to make a more complex configuration, click the
 :guilabel:`Exit` button to close the wizard and instead use
-:ref:`Volume Manager`.
+:ref:`ZFS Pool Manager`.
 
 These redundancy types are available:
 
