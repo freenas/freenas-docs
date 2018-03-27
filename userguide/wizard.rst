@@ -37,7 +37,7 @@ map, and timezone. After making your selections, click
 :guilabel:`Next`.
 
 .. note:: Typically, a %brand% system ships with pre-configured
-   volumes. The screens shown in
+   pools. The screens shown in
    :numref:`Figure %s <wizard1>`
    and
    :numref:`Figure %s <wizard2>`
@@ -54,15 +54,15 @@ been formatted.
 
 .. figure:: images/wizard-vol.png
 
-   Volume Creation Wizard
+   Pool Creation Wizard
 
 
 .. note:: The wizard will not recognize an **encrypted** ZFS pool. If
    your ZFS pool is GELI-encrypted, cancel the wizard and use the
    instructions in :ref:`Importing an Encrypted Pool` to import the
-   encrypted volume. You can then rerun the wizard afterwards, if you
+   encrypted pool. You can then rerun the wizard afterwards, if you
    wish to use it for post-configuration, and it will recognize that
-   the volume has been imported and will not prompt to reformat the
+   the pool has been imported and will not prompt to reformat the
    disks.
 
 Enter a name for the ZFS pool that conforms to these
@@ -80,7 +80,7 @@ Decide if the pool should provide disk redundancy, and if so, which
 type. The :ref:`ZFS Primer` discusses RAIDZ redundancy in more detail.
 If you prefer to make a more complex configuration, click the
 :guilabel:`Exit` button to close the wizard and instead use
-:ref:`Volume Manager`.
+:ref:`Pool Manager`.
 
 These redundancy types are available:
 
@@ -106,12 +106,12 @@ Once you have made your selection, click :guilabel:`Next` to continue.
 #ifdef freenas
 If the disks have already been formatted with ZFS and the disks have
 **not** been encrypted, the next screen will instead prompt to import
-the volume, as shown in
+the pool, as shown in
 :numref:`Figure %s <wizard2>`.
 #endif freenas
 #ifdef truenas
 If the system has been reinstalled and the disks are formatted as an
-unencrypted ZFS pool, a screen to import the volume will appear. This
+unencrypted ZFS pool, a screen to import the pool will appear. This
 screen is shown in
 :numref:`Figure %s <wizard2>`.
 #endif truenas
@@ -121,10 +121,10 @@ screen is shown in
 
 .. figure:: images/wizard2.png
 
-   Volume Import Screen
+   Pool Import Screen
 
 
-Select the existing volume from the drop-down menu and click
+Select the existing pool from the drop-down menu and click
 :guilabel:`Next` to continue.
 
 The next screen in the wizard is shown in

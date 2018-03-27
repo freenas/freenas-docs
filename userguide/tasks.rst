@@ -508,7 +508,7 @@ task.
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Remote Path                      | string                      | only appears when using *Rsync over SSH* mode, enter the **existing** path on the remote  |
-   |                                  |                             | host to sync with (e.g. */mnt/volume*); note that maximum path length is 255 characters   |
+   |                                  |                             | host to sync with (e.g. */mnt/pool*); note that maximum path length is 255 characters     |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Validate Remote Path             | checkbox                    | if the :guilabel:`Remote Path` does not yet exist, check this box to have it              |
@@ -539,7 +539,7 @@ task.
    | Day of week                      | checkboxes                  | task occurs on the selected days of the week                                              |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Recursive                        | checkbox                    | if checked, copy will include all subdirectories of the specified volume                  |
+   | Recursive                        | checkbox                    | if checked, copy will include all subdirectories of the specified pool                    |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Times                            | checkbox                    | preserve modification times of files                                                      |
@@ -606,7 +606,7 @@ the two following %brand% systems:
   will be the rsync client, meaning that an rsync task needs to be
   defined. It will be referred to as *PUSH.*
 
-* *192.168.2.6* has an existing volume named :file:`/mnt/remote`. It
+* *192.168.2.6* has an existing pool named :file:`/mnt/remote`. It
   will be the rsync server, meaning that it will receive the contents
   of :file:`/mnt/local/images`. An rsync module needs to be defined on
   this system and the rsyncd service needs to be started. It will be
@@ -837,7 +837,7 @@ configuration in
 :menuselection:`Services --> S.M.A.R.T.`,
 then click the slider to :guilabel:`ON` for the S.M.A.R.T. service in
 :menuselection:`Services --> Control Services`.
-The S.M.A.R.T. service will not start if there are no volumes.
+The S.M.A.R.T. service will not start if there are no pools.
 
 .. note:: To prevent problems, do not enable the S.M.A.R.T. service if
    the disks are controlled by a RAID controller. It is the job of the

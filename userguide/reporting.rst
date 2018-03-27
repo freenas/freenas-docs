@@ -52,7 +52,7 @@ several tabs on the Reporting page:
 
   * `Disk space
     <https://collectd.org/wiki/index.php/Plugin:DF>`__
-    displays free and used space for each volume and dataset.
+    displays free and used space for each pool and dataset.
     However, the disk space used by an individual zvol is not
     displayed as it is a block device.
 

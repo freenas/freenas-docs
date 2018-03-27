@@ -256,7 +256,7 @@ created or modified.
    |                            |                 |          | *wheel* group in :guilabel:`Auxiliary groups`                                                                                              |
    |                            |                 |          |                                                                                                                                            |
    +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Create Home Directory In   | browse button   |          | browse to the name of an **existing** volume or dataset that the user will be assigned permission to access                                |
+   | Create Home Directory In   | browse button   |          | browse to the name of an **existing** pool or dataset where the user will be assigned permission to access                                 |
    |                            |                 |          |                                                                                                                                            |
    +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | Home Directory Mode        | checkboxes      | ✓        | sets default Unix permissions of user's home directory; read-only for built-in users                                                       |

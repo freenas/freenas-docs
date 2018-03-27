@@ -55,7 +55,7 @@ example that creates a user.
 A %brand% system running at least version 9.2.0 is required when
 creating a customized script based on this example. To test the
 scripts directly on the %brand% system, create a user account and
-select an existing volume or dataset for the user's
+select an existing pool or dataset for the user's
 :guilabel:`Home Directory`. After creating the user, start the SSH
 service using
 :menuselection:`Services --> Control Services`.
@@ -195,7 +195,7 @@ A More Complex Example
 This section provides a walk-through of a more complex example found
 in the :file:`startup.py` script. Use the searchbar within the API
 documentation to quickly locate the JSON parameters used here. This
-example defines a class and several methods to create a ZFS volume,
+example defines a class and several methods to create a ZFS pool,
 create a ZFS dataset, share the dataset over CIFS, and enable the CIFS
 service. Responses from some methods are used as parameters in other
 methods.  In addition to the import lines seen in the previous

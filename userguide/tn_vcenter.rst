@@ -234,7 +234,7 @@ the :guilabel:`Data Path IP` box. Select the desired
 :guilabel:`VMFS Version` from the drop-down. If a
 :guilabel:`Sparse Volume` is desired, check the box.
 
-Select the %brand% volume on which to create the datastore, then click
+Select the %brand% pool on which to create the datastore, then click
 :guilabel:`Next`.
 :numref:`Figure %s <vcenter_datastore_vmfs_confirm_fig>`
 shows the final summary screen:
@@ -508,7 +508,7 @@ shows the :guilabel:`Create ZVol` window.
    Create a new zvol
 
 
-Select a volume from the drop-down menu. Type a name for the new zvol.
+Select a pool from the drop-down menu. Type a name for the new zvol.
 Adjust the size of the zvol with the :guilabel:`arrow` buttons and
 :guilabel:`Size` drop menu. If desired, check :guilabel:`Sparse` to
 activate thin provisioning.

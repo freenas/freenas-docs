@@ -137,7 +137,7 @@ which are described in
    | Guest Access            | checkbox       | if checked, clients will not be prompted to authenticate before accessing AFP shares                            |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Guest account           | drop-down menu | select account to use for guest access; the selected account must have permissions to the volume or dataset     |
+   | Guest account           | drop-down menu | select account to use for guest access; the selected account must have permissions to the pool or dataset       |
    |                         |                | being shared                                                                                                    |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
@@ -147,7 +147,7 @@ which are described in
    | Enable home directories | checkbox       | if checked, any user home directories located under :guilabel:`Home directories` will be available              |
    |                         |                | over the share                                                                                                  |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Home directories        | browse button  | select the volume or dataset which contains user home directories                                               |
+   | Home directories        | browse button  | select the pool or dataset which contains user home directories                                                 |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Home share name         | string         | overrides default home folder name with the specified value                                                     |
@@ -157,7 +157,7 @@ which are described in
    |                         |                | backups be used exclusively for Time Machine backups                                                            |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Database Path           | browse button  | select the path to store the CNID databases used by AFP (default is the root of the volume); the path must be   |
+   | Database Path           | browse button  | select the path to store the CNID databases used by AFP (default is the root of the pool); the path must be     |
    |                         |                | writable                                                                                                        |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Global auxiliary        | string         | additional `afp.conf(5) <http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html>`_                        |
@@ -180,12 +180,12 @@ which are described in
 When configuring home directories, it is recommended to create a
 dataset to hold the home directories which contains a child dataset
 for each user. As an example, create a dataset named
-:file:`volume1/homedirs` and browse to this dataset when configuring
+:file:`pool1/homedirs` and browse to this dataset when configuring
 the :guilabel:`Home directories` field of the AFP service. Then, as
 you create each user, first create a child dataset for that user. For
-example, create a dataset named :file:`volume1/homedirs/user1`. When
+example, create a dataset named :file:`pool1/homedirs/user1`. When
 you create the *user1* user, browse to the
-:file:`volume1/homedirs/user1` dataset in the
+:file:`pool1/homedirs/user1` dataset in the
 :guilabel:`Home Directory` field of the :guilabel:`Add New User`
 screen.
 
@@ -207,7 +207,7 @@ problematic AFP share:
    dbd -rf /path/to/share
 
 
-This command may take a while, depending upon the size of the volume
+This command may take a while, depending upon the size of the pool
 or dataset being shared. This command will wipe the CNID database and
 rebuild it from the CNIDs stored in the AppleDouble files.
 
@@ -607,8 +607,8 @@ changed passwords on the %brand% system.
 To configure anonymous FTP:
 
 #.  Give the built-in ftp user account permissions to the
-    volume/dataset to be shared in
-    :menuselection:`Storage --> Volumes` as follows:
+    pool or dataset to be shared in
+    :menuselection:`Storage --> Pools`:
 
     * :guilabel:`Owner(user)`: select the built-in *ftp* user from the
       drop-down menu
@@ -630,7 +630,7 @@ To configure anonymous FTP:
 
     * check the box :guilabel:`Allow Anonymous Login`
 
-    * :guilabel:`Path`: browse to the volume/dataset/directory to be
+    * :guilabel:`Path`: browse to the pool/dataset/directory to be
       shared
 
 #.  Start the FTP service in
@@ -664,7 +664,7 @@ client:
 
 The messages within the client indicate that the FTP connection is
 successful. The user can now navigate the contents of the root folder
-on the remote site—this is the volume/dataset that was specified in
+on the remote site—this is the pool or dataset that was specified in
 the FTP service configuration. The user can also transfer files
 between the local site (their system) and the remote site (the
 %brand% system).
@@ -687,15 +687,14 @@ directory is limited to the size of the quota.
 To configure this scenario:
 
 #.  Create a ZFS dataset for each user in
-    :menuselection:`Storage --> Volumes`.
-    Click an existing
-    :menuselection:`ZFS volume --> Create ZFS Dataset`
+    :menuselection:`Storage --> Pools`.
+    Click an existing pool, then click :guilabel:`Create ZFS Dataset`
     and set an appropriate quota for each dataset. Repeat this process
     to create a dataset for every user that needs access to the FTP
     service.
 
-#.  If you are not using AD or LDAP, create a user account for each
-    user in
+#.  When not using either :ref:`Active Directory` or :ref:`LDAP`,
+    create a user account for each user in
     :menuselection:`Account --> Users --> Add User`.
     For each user, browse to the dataset created for that user in the
     :guilabel:`Home Directory` field. Repeat this process to create a
@@ -703,7 +702,7 @@ To configure this scenario:
     making sure to assign each user their own dataset.
 
 #.  Set the permissions for each dataset in
-    :menuselection:`Storage --> Volumes`.
+    :menuselection:`Storage --> Pools`.
     Click the :guilabel:`Change Permissions` button for a dataset to
     assign a user account as :guilabel:`Owner` of that dataset and to
     set the desired permissions for that user. Repeat for each
@@ -718,7 +717,7 @@ To configure this scenario:
     :menuselection:`Services --> FTP`
     with these attributes:
 
-    * :guilabel:`Path`: browse to the parent volume containing the
+    * :guilabel:`Path`: browse to the parent pool containing the
       datasets
 
     * make sure the boxes for :guilabel:`Allow Anonymous Login` and
@@ -743,10 +742,10 @@ To test this configuration in Filezilla, use the IP address of the
 a dataset, and the Password for that user. The messages should
 indicate that the authorization and the FTP connection are successful.
 The user can now navigate the contents of the root folder on the
-remote site—this time it is not the entire volume but the dataset that
-was created for that user. The user should be able to transfer files
-between the local site (their system) and the remote site (their
-dataset on the %brand% system).
+remote site. This time it is not the entire pool but the dataset
+that was created for that user. The user can transfer files between
+the local site (their system) and the remote site (their dataset on
+the %brand% system).
 
 
 .. _Encrypting FTP:
@@ -1110,7 +1109,7 @@ module.
    | Comment              | string         | optional description                                                          |
    |                      |                |                                                                               |
    +----------------------+----------------+-------------------------------------------------------------------------------+
-   | Path                 | browse button  | volume/dataset to hold received data                                          |
+   | Path                 | browse button  | pool or dataset to hold received data                                         |
    |                      |                |                                                                               |
    +----------------------+----------------+-------------------------------------------------------------------------------+
    | Access Mode          | drop-down menu | choices are *Read and Write*,                                                 |
@@ -1237,7 +1236,7 @@ several hours on larger drives.
 
 %brand% uses the
 `smartd(8)
-<http://www.smartmontools.org/browser/trunk/smartmontools/smartd.8.in>`_
+<http://www.smartmontools.org/browser/trunk/smartmontools/smartd.8.in>`__
 service to monitor S.M.A.R.T. information. A complete configuration
 consists of:
 
@@ -1245,9 +1244,8 @@ consists of:
     :menuselection:`Tasks --> S.M.A.R.T. Tests
     --> Add S.M.A.R.T. Test`.
 
-#.  Enabling or disabling S.M.A.R.T. for each disk member of a volume
-    in
-    :menuselection:`Volumes --> View Disks`.
+#.  Enabling or disabling S.M.A.R.T. for each disk member of a pool in
+    :menuselection:`Pools --> View Disks`.
     This setting is enabled by default for disks that support
     S.M.A.R.T.
 
@@ -1436,7 +1434,7 @@ This configuration screen is really a front-end to
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Guest Account                    | drop-down menu | account to be used for guest access; default is *nobody*; account must have permission to access      |
-   |                                  |                | the shared volume/dataset; if Guest Account user is deleted, resets to *nobody*                       |
+   |                                  |                | the shared pool or dataset; if Guest Account user is deleted, resets to *nobody*                      |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | File mask                        | integer        | overrides default file creation mask of 0666 which creates files with read and write access for       |
@@ -1538,9 +1536,9 @@ should not be used on systems with limited RAM.
 #endif freenas
 
 Windows automatically caches file sharing information. If changes are
-made to an SMB share or to the permissions of a volume/dataset being
-shared by SMB and the share becomes inaccessible, try logging out and
-back into the Windows system. Alternately, users can type
+made to an SMB share or to the permissions of a pool or dataset being
+shared by SMB and the share becomes inaccessible, log out and back
+into the Windows system. Alternately, users can type
 :command:`net use /delete` from the command line to clear their
 SMB sessions.
 
@@ -1833,7 +1831,7 @@ When you configure SSH, authenticated users with a user account
 created using
 :menuselection:`Account --> Users --> Add User`
 can use the :command:`ssh` command to login to the %brand% system over
-the network. A user's home directory will be the volume/dataset
+the network. A user's home directory will be the pool or dataset
 specified in the :guilabel:`Home Directory` field of their %brand%
 user account. While the SSH login will default to the user's home
 directory, users are able to navigate outside of their home directory,

@@ -28,7 +28,7 @@ remove the flashing alert until it can be dealt with, uncheck the box
 next to that message.
 
 Behind the scenes, an alert daemon checks for various alert
-conditions, such as volume and disk status, and writes the current
+conditions, such as pool and disk status, and writes the current
 conditions to :file:`/var/tmp/alert`. The daemon retrieves the current
 alert status every minute and changes the solid green alert icon to
 flashing red when a new alert is detected.
@@ -46,7 +46,7 @@ a :ref:`High Availability (HA) <Failover>` system.
 
 Some of the conditions that trigger an alert include:
 
-* used space on a volume, dataset, or zvol goes over 80%; the alert
+* used space on a pool, dataset, or zvol goes over 80%; the alert
   goes red at 95%
 
 * new OpenZFS feature flags are available for the pool; this alert can

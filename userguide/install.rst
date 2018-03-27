@@ -502,10 +502,9 @@ Be aware of these caveats **before** attempting an upgrade to
 * The :ref:`Wizard` does not recognize an encrypted ZFS pool. If the
   ZFS pool is GELI-encrypted and the :ref:`Wizard` starts after the
   upgrade, cancel the :ref:`Wizard` and use the instructions in
-  :ref:`Importing an Encrypted Pool` to import the encrypted volume.
-  The :ref:`Wizard` can be run afterward for post-configuration. It
-  will then recognize that the volume has been imported and not prompt
-  to reformat the disks.
+  :ref:`Importing an Encrypted Pool`. The :ref:`Wizard` can be run
+  afterward for post-configuration. It will then recognize that the
+  pool has been imported and not prompt to reformat the disks.
 
 * Upgrading the firmware of Broadcom SAS HBAs to the latest version is
   recommended.
@@ -518,7 +517,7 @@ Be aware of these caveats **before** attempting an upgrade to
 * **Upgrades from** %brand% **0.7x are not supported.** The system
   has no way to import configuration settings from 0.7x versions of
   %brand%. The configuration must be manually recreated.  If
-  supported, the %brand% 0.7x volumes or disks must be manually
+  supported, the %brand% 0.7x pools or disks must be manually
   imported.
 
 * **Upgrades on 32-bit hardware are not supported.** However, if the
@@ -527,15 +526,15 @@ Be aware of these caveats **before** attempting an upgrade to
   archived reporting graphs will be lost during the upgrade.
 
 * **UFS is no longer supported.** If your data currently resides on
-  **one** UFS-formatted disk, create a ZFS volume using **other**
+  **one** UFS-formatted disk, create a ZFS pool using **other**
   disks after the upgrade, then use the instructions in
   :ref:`Import Disk` to mount the UFS-formatted disk and copy the data
-  to the ZFS volume. With only one disk, back up its data to another
+  to the ZFS pool. With only one disk, back up its data to another
   system or media before the upgrade, format the disk as ZFS after the
   upgrade, then restore the backup. If the data currently resides on a
   UFS RAID of disks, it is not possible to directly import that data
-  to the ZFS volume. Instead, back up the data before the upgrade,
-  create a ZFS volume after the upgrade, then restore the data from
+  to the ZFS pool. Instead, back up the data before the upgrade,
+  create a ZFS pool after the upgrade, then restore the data from
   the backup.
 
 * **The VMware Tools VMXNET3 drivers are no longer supported**.
@@ -554,11 +553,11 @@ Before upgrading the operating system, perform the following steps:
 #.  **Back up the** %brand% **configuration** in
     :menuselection:`System --> General --> Save Config`.
 
-#.  If any volumes are encrypted, **make sure** that you have set the
+#.  If any pools are encrypted, **make sure** that you have set the
     passphrase and have a copy of the encryption key and the latest
     recovery key. After the upgrade is complete, use the instructions
     in :ref:`Importing an Encrypted Pool` to import the encrypted
-    volume.
+    pools.
 
 #.  Warn users that the %brand% shares will be unavailable during the
     upgrade; you should schedule the upgrade for a time that will
@@ -726,8 +725,8 @@ configuration. The system can be recovered with a few steps:
 
 #.  Perform a fresh installation on a new boot device.
 
-#.  Import the volumes in
-    :menuselection:`Storage --> Auto Import Volume`.
+#.  Import the pools in
+    :menuselection:`Storage --> Auto Import Pool`.
 
 #.  Restore the configuration in
     :menuselection:`System --> General --> Upload Config`.
