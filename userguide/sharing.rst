@@ -9,15 +9,6 @@ on factors like which operating systems are being used by computers
 on the network, security requirements, and expectations for network
 transfer speeds.
 
-%brand% provides a :ref:`Wizard` for creating shares. The
-:ref:`Wizard` automatically creates the correct type of dataset
-and permissions for the type of share, sets the default permissions
-for the share type, and starts the service needed by the share. It is
-recommended to use the Wizard to create shares, fine-tune the share
-settings using the instructions in the rest of this chapter if needed,
-then fine-tune the default permissions from the client operating
-system to meet the requirements of the network.
-
 .. note:: Shares are created to provide and control access to an area
    of storage. Before creating shares, it is recommended to make a
    list of the users that need access to storage data, which operating
@@ -107,18 +98,16 @@ Apple (AFP) Shares
 %brand% uses the
 `Netatalk <http://netatalk.sourceforge.net/>`_
 AFP server to share data with Apple systems. This section describes
-the configuration screen for fine-tuning AFP shares created using the
-:ref:`Wizard`. It then provides configuration examples for using the
-:ref:`Wizard` to create a guest share, configuring Time Machine to
-back up to a dataset on the %brand% system, and for connecting to the
-share from a Mac OS X client.
+the configuration screen for fine-tuning AFP shares. It then provides
+configuration examples for configuring Time Machine to back up to a
+dataset on the %brand% system and for connecting to the share from a
+Mac OS X client.
 
-To view the AFP share created by the Wizard, click
-:menuselection:`Sharing --> Apple (AFP)`
-and highlight the name of the share. Click its :guilabel:`Edit` button
-to see the configuration options shown in
-:numref:`Figure %s <creating_afp_share_fig>`.
-The values showing for these options will vary, depending upon the
+To view a created AFP share, click
+:menuselection:`Sharing --> Apple (AFP)` and highlight the name of the
+share. Click its :guilabel:`Edit` button to see the configuration
+options shown in :numref:`Figure %s <creating_afp_share_fig>`. The
+values showing for these options will vary, depending upon the
 information given when the share was created.
 
 
@@ -245,32 +234,18 @@ or imported into the %brand% system.
    authenticated users to a guest group and set the permissions to
    *77x*.
 
+.. TODO Add instructions to create an AFP guest share apart from the
+   now-removed wizard.
 
 Before creating a guest share, go to
 :menuselection:`Services --> AFP`
 and make sure that the :guilabel:`Guest Access` box is checked.
 
-To create the AFP guest share, click :guilabel:`Wizard`, then click
-the :guilabel:`Next` button twice to display the screen shown in
-:numref:`Figure %s <creating_guest_afp_share_fig>`.
-Complete these fields in this screen:
+To create an AFP guest share, navigate
+:menuselection:`Sharing -> Apple (AFP) Shares` and click
+:guilabel:`Add Apple (AFP) Share`.
 
-#. **Share name:** enter a name for the share that is identifiable but
-   less than 27 characters long. This name cannot contain a period. In
-   this example, the share is named *afp_guest*.
-
-#. Click the button for :guilabel:`Mac OS X (AFP)`.
-
-#. Click the :guilabel:`Ownership` button. Click the drop-down
-   :guilabel:`User` menu and select :guilabel:`nobody`. Click the
-   :guilabel:`Return` button to return to the previous screen.
-
-#. Click the :guilabel:`Add` button.
-   **The share is not created until the button is clicked**.
-   Clicking the :guilabel:`Add` button adds an entry to the
-   :guilabel:`Name` frame with the name that was entered in
-   :guilabel:`Share name`.
-
+:numref:`Figure %s <creating_guest_afp_share_fig>` shows this form.
 
 .. _creating_guest_afp_share_fig:
 
@@ -278,13 +253,6 @@ Complete these fields in this screen:
 
    Creating a Guest AFP Share
 
-
-Click the :guilabel:`Next` button twice, then the :guilabel:`Confirm`
-button to create the share. The Wizard automatically creates a dataset
-for the share that contains the correct default permissions and starts
-the AFP service so the share is immediately available. The new share
-is also added as an entry to
-:menuselection:`Sharing --> Apple (AFP)`.
 
 Mac OS X users can connect to the guest AFP share by clicking
 :menuselection:`Go --> Connect to Server`. In the example shown in
@@ -324,51 +292,18 @@ Mac OS X system to %brand%. The process for creating an authenticated
 share for a user is the same as creating a Time Machine share for that
 user.
 
-To use the Wizard to create an authenticated or Time Machine share,
-enter the following information, as seen in the example in
-:numref:`Figure %s <create_time_machine_share_fig>`.
+.. Add instructions for creating Time Machine share separate from the
+   removed wizard.
 
-#. **Share name:** enter a name for the share that is identifiable but
-   less than 27 characters long. The name cannot contain a period. In
-   this example, the share is named *backup_user1*.
+To create an authenticated or Time Machine share, navigate
+:menuselection:`Sharing -> Apple (AFP) Shares` and click
+:guilabel:`Add Apple (AFP) Share`.
 
-#. Click the button for :guilabel:`Mac OS X (AFP)` and check the box
-   for :guilabel:`Time Machine`.
+:numref:`Figure %s <create_time_machine_share_fig>` shows an example of
+a configured Time Machine Share.
 
-#. Click the :guilabel:`Ownership` button. If the user already exists
-   on the %brand% system, click the drop-down :guilabel:`User` menu to
-   select their user account.  If the user does not yet exist on the
-   %brand% system, type their name into the :guilabel:`User` field and
-   check the :guilabel:`Create User` checkbox. If the user will be a
-   member of a group that already exists on the %brand% system, click
-   the drop-down :guilabel:`Group` menu to select the group name. To
-   create a new group to be used by Time Machine users, enter the name
-   in the :guilabel:`Group` field and check the
-   :guilabel:`Create Group` checkbox. Otherwise, enter the same name
-   as the user. In the example shown in
-   :numref:`Figure %s <create_tm_auth_user_fig>`,
-   both a new *user1* user and a new *tm_backups* group will be
-   created. Since a new user is being created, this screen prompts for
-   the user password to be used when accessing the share. It also
-   provides an opportunity to change the default permissions on the
-   share. When finished, click :guilabel:`Return` to return to the
-   screen shown in
-   :numref:`Figure %s <create_time_machine_share_fig>`.
-
-#. Click the :guilabel:`Add` button.
-   **Remember to do this or the share will not be created**.
-   Clicking the :guilabel:`Add` button adds an entry to the
-   :guilabel:`Name` frame with the name that was entered in
-   :guilabel:`Share name`.
-
-
-To configure multiple authenticated or Time Machine shares, repeat for
-each user, giving each user their own :guilabel:`Share name` and
-:guilabel:`Ownership`. When finished, click the :guilabel:`Next`
-button twice, then the :guilabel:`Confirm` button to create the
-shares. The Wizard automatically creates a dataset for each share with
-the correct ownership and starts the AFP service so the shares are
-immediately available. The new shares are also added to
+To configure multiple authenticated or Time Machine shares, repeat this
+process for each user. The new shares are also added to
 :menuselection:`Sharing --> Apple (AFP)`.
 
 
@@ -377,13 +312,6 @@ immediately available. The new shares are also added to
 .. figure:: images/afp7a.png
 
    Creating a Time Machine Share
-
-
-.. _create_tm_auth_user_fig:
-
-.. figure:: images/afp8.png
-
-   Creating an Authenticated User
 
 
 At this point, it may be desirable to configure a quota for each Time
@@ -477,26 +405,21 @@ application.
    <http://blog.laspina.ca/ubiquitous/running-zfs-over-nfs-as-a-vmware-store>`_.
 #endif freenas
 
-To create an NFS share using the :ref:`Wizard`, click the
-:guilabel:`Next` button twice to display the screen shown in
-:numref:`Figure %s <nfs_share_wiz_fig>`.
-Enter a :guilabel:`Share name`. Spaces are not allowed in these names.
-Click the button for :guilabel:`Generic Unix (NFS)`, then click
-:guilabel:`Add` so the share name appears in the :guilabel:`Name`
-frame. When finished, click the :guilabel:`Next` button twice, then
-the :guilabel:`Confirm` button to create the share. Creating an NFS
-share using the wizard automatically creates a new dataset for the
-share, starts the services required for NFS, and adds an entry in
-:menuselection:`Sharing --> Unix (NFS) Shares`.
-Depending on your requirements, the IP addresses that are allowed to
-access the NFS share can be restricted, or the permissions adjusted.
+.. Add instructions for creating NFS share in new UI
+
+To create an NFS share, navigate
+:menuselection:`Sharing -> Unix (NFS) Shares` and click
+:guilabel:`Add Unix (NFS) Share`.
+
+:numref:`Figure %s <nfs_share_wiz_fig>` shows an example of creating an
+NFS Share.
 
 
 .. _nfs_share_wiz_fig:
 
 .. figure:: images/nfs6a.png
 
-   NFS Share Wizard
+   NFS Share Creation
 
 
 NFS shares are edited by clicking
@@ -1330,26 +1253,15 @@ modified the data on the share. This type of configuration is best
 suited for small networks where quick and easy access to the share is
 more important than the security of the data on the share.
 
-To configure an unauthenticated SMB share, click :guilabel:`Wizard`,
-then click the :guilabel:`Next` button twice to display the screen
-shown in
-:numref:`Figure %s <create_unauth_smb_share_fig>`.
-Complete the following fields in this screen:
+.. TODO add instructions for creating an unauthenticated SMB share
+   separately from the now removed wizard.
 
-#. **Share name:** enter a name for the share that is useful to you.
-   In this example, the share is named *smb_insecure*.
+To configure an unauthenticated SMB share, navigate
+:menuselection:`Sharing -> Windows (SMB) Shares` and click
+:guilabel:`Add Windows (SMB) Share`.
 
-#. Click the button for :guilabel:`Windows (SMB)` and check the box
-   for :guilabel:`Allow Guest`.
-
-#. Click the :guilabel:`Ownership` button. Click the drop-down
-   :guilabel:`User` menu and select *nobody*. Click the
-   :guilabel:`Return` button to return to the previous screen.
-
-#. Click the :guilabel:`Add` button. **If you forget to do this, the
-   share will not be created**. Clicking the :guilabel:`Add` button
-   adds an entry to the :guilabel:`Name` frame with the name that was
-   entered in :guilabel:`Share name`.
+:numref:`Figure %s <create_unauth_smb_share_fig>` shows the
+configuration form.
 
 
 .. _create_unauth_smb_share_fig:
@@ -1359,11 +1271,8 @@ Complete the following fields in this screen:
    Creating an Unauthenticated SMB Share
 
 
-Click the :guilabel:`Next` button twice, then the :guilabel:`Confirm`
-button to create the share. The Wizard automatically creates a dataset
-for the share and starts the SMB service so the share is immediately
-available. The new share is also be added to
-:menuselection:`Sharing --> Windows (SMB)`.
+The new share is also be added to
+:menuselection:`Sharing --> Windows (SMB) Shares`.
 
 Users can now access the share from any SMB client and will not be
 prompted for their username or password. For example, to access the
@@ -1400,43 +1309,18 @@ The simpler configuration is to make one share per user as it does not
 require the creation of groups, adding the correct users to the
 groups, and ensuring that group permissions are set correctly.
 
-To use the Wizard to create an authenticated SMB share, enter the
-following information, as shown in the example in
-:numref:`Figure %s <create_auth_smb_share_fig>`.
+.. TODO add instructions to create an authenticated SMB share apart
+   from the now removed wizard.
 
-#. **Share name:** enter a name for the share that is useful to you.
-   In this example, the share is named *smb_user1*.
+To create an authenticated SMB share, navigate
+:menuselection:`Sharing -> Windows (SMB) Shares` and click
+:guilabel:`Add Windows (SMB) Share`.
 
-#. Click the button for :guilabel:`Windows (SMB)`.
+:numref:`Figure %s <create_auth_smb_share_fig>` shows the creation
+process.
 
-#. Click the :guilabel:`Ownership` button. To create the user account
-   on the %brand% system, type their name into the :guilabel:`User`
-   field and check the :guilabel:`Create User` checkbox. The user's
-   password is then entered and confirmed. **If the user will not be
-   sharing this share with other users**, type their name into the
-   :guilabel:`Group` field and click :guilabel:`Create Group`.
-   **If, however, the share will be used by several users**,
-   instead type in a group name and check the :guilabel:`Create Group`
-   box. In the example shown in
-   :numref:`Figure %s <create_smb_user_group_fig>`,
-   *user1* has been used for both the user and group name, meaning
-   that this share will only be used by *user1*. When finished, click
-   :guilabel:`Return` to return to the screen shown in
-   :numref:`Figure %s <create_auth_smb_share_fig>`.
-
-#. Click the :guilabel:`Add` button. **If you forget to do this, the
-   share will not be created**. Clicking the :guilabel:`Add` button
-   adds an entry to the :guilabel:`Name` frame with the name that was
-   entered in :guilabel:`Share name`.
-
-If you wish to configure multiple authenticated shares, repeat for
-each user, giving each user their own :guilabel:`Share name` and
-:guilabel:`Ownership`. When finished, click :guilabel:`Next` twice,
-then :guilabel:`Confirm` to create the shares. The Wizard
-automatically creates a dataset with the correct ownership for each
-share and starts the SMB service so the shares are available
-immediately. The new shares are also added to
-:menuselection:`Sharing --> Windows (SMB)`.
+To configure multiple authenticated shares, repeat for each user. The
+new shares are also added to :menuselection:`Sharing --> Windows (SMB)`.
 
 
 .. _create_auth_smb_share_fig:
@@ -1444,13 +1328,6 @@ immediately. The new shares are also added to
 .. figure:: images/cifs3a.png
 
    Creating an Authenticated SMB Share
-
-
-.. _create_smb_user_group_fig:
-
-.. figure:: images/cifs8.png
-
-   Creating the User and Group
 
 
 The authenticated share can now be tested from any SMB client. For
