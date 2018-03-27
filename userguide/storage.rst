@@ -8,15 +8,7 @@ these options:
 
 * :ref:`Pools` creates and manages storage pools.
 
-* :ref:`Periodic Snapshot Tasks` schedules automatic creation of
-  filesystem snapshots.
-
-* :ref:`Replication Tasks` automate the replication of snapshots to
-  a remote system.
-
 * :ref:`Resilver Priority` controls the priority of resilvers.
-
-* :ref:`Scrubs` schedules scrubs as part of ongoing disk maintenance.
 
 * :ref:`Snapshots` manages local snapshots.
 
@@ -1281,7 +1273,7 @@ options:
 
 **Create Snapshot:** create a one-time snapshot. To schedule the
 regular creation of snapshots, instead use
-:ref:`Periodic Snapshot Tasks`.
+:ref:`Tasks Periodic Snapshots`.
 
 **Promote Dataset:** only applies to clones. When a clone is promoted,
 the origin filesystem becomes a clone of the clone making it possible
@@ -2594,7 +2586,6 @@ system, *Beta*, can be listed from the :ref:`Shell` with
 
 Error messages here can indicate any remaining problems.
 
-
 .. index: Resilver Priority
 .. _Resilver Priority:
 
@@ -2761,7 +2752,6 @@ disk issues before a disk failure.** If a scrub is too intensive for
 the hardware, consider temporarily unchecking the :guilabel:`Enabled`
 button for the scrub until the hardware can be upgraded.
 
-
 .. index:: Snapshots
 .. _Snapshots:
 
@@ -2773,7 +2763,7 @@ available snapshots. An example is shown in
 :numref:`Figure %s <zfs_view_avail_snapshots_fig>`.
 
 .. note:: If snapshots do not appear, check that the current time
-   configured in :ref:`Periodic Snapshot Tasks` does not conflict with
+   configured in :ref:`Tasks Periodic Snapshots` does not conflict with
    the :guilabel:`Begin`, :guilabel:`End`, and :guilabel:`Interval`
    settings. If the snapshot was attempted but failed, an entry is
    added to :file:`/var/log/messages`. This log file can be viewed in

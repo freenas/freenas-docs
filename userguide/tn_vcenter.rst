@@ -396,7 +396,7 @@ snapshot.
 Scheduling: Periodic Snapshots
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See the :ref:`Periodic Snapshot Tasks` section for more details about
+See the :ref:`Tasks Periodic Snapshots` section for more details about
 native %brand% periodic snapshots.
 
 The :guilabel:`Scheduling` tab is used to :guilabel:`Create`,
