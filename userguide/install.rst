@@ -499,13 +499,6 @@ Be aware of these caveats **before** attempting an upgrade to
   it will not be possible to boot into a previous version that does
   not support the newer feature flags.
 
-* The :ref:`Wizard` does not recognize an encrypted ZFS pool. If the
-  ZFS pool is GELI-encrypted and the :ref:`Wizard` starts after the
-  upgrade, cancel the :ref:`Wizard` and use the instructions in
-  :ref:`Importing an Encrypted Pool`. The :ref:`Wizard` can be run
-  afterward for post-configuration. It will then recognize that the
-  pool has been imported and not prompt to reformat the disks.
-
 * Upgrading the firmware of Broadcom SAS HBAs to the latest version is
   recommended.
 
