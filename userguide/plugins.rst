@@ -258,7 +258,6 @@ Submit a plugin under the
 
 Click
 :menuselection:`+ --> New Issue` .
-The table below shows what each field should contain.
 
 Set :guilabel:`Tracker` to *Feature*.
 
