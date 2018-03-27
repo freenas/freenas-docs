@@ -302,7 +302,7 @@ It can take a few minutes after configuring the Active Directory
 service for the AD information to be populated to the %brand% system.
 Once populated, the AD users and groups will be available in the
 drop-down menus of the :guilabel:`Permissions` screen of a
-volume/dataset. For performance reasons, every available user may not
+pool or dataset. For performance reasons, every available user may not
 show in the listing. However, it will autocomplete all applicable
 users when typing in a username.
 
@@ -647,7 +647,7 @@ this occurs automatically once a day as a cron job.
    user, group, password, and machine suffixes.
 
 LDAP users and groups appear in the drop-down menus of the
-:guilabel:`Permissions` screen of a volume/dataset after configuring
+:guilabel:`Permissions` screen of a pool or dataset after configuring
 the LDAP service. Type :command:`getent passwd` from :ref:`Shell` to
 verify that the users have been imported. Type :command:`getent group`
 to verify that the groups have been imported.

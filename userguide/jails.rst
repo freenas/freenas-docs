@@ -15,16 +15,17 @@ GUI to manage software, use :ref:`Plugins` instead.
 
 .. note:: The jails infrastructure is transitioning from the old
    warden backend to the new iocage backend. This transition process
-   requires the middleware API calls to be rewritten for the new UI. It
-   is expected that the transition will be complete with %brand% version
-   11.2. Since jails created in the old UI use the warden backend, jails
-   created in the new UI use the iocage backend, and both use different
-   API versions, they are not compatible. While a migration script will
-   be made available when the transition is complete, it will not be able
-   to anticipate every configuration scenario for every application
-   installed in jails. At that time, the recommendation will be to: create
-   new jails using the new UI, copy over any existing configurations, and
-   delete the old jail datasets once the new jails are working as expected.
+   requires the middleware API calls to be rewritten for the new UI.
+   It is expected that the transition will be complete with %brand%
+   version 11.2. Since jails created in the old UI use the warden
+   backend, jails created in the new UI use the iocage backend, and
+   both use different API versions, they are not compatible. While a
+   migration script will be made available when the transition is
+   complete, it will not be able to anticipate every configuration
+   scenario for every application installed in jails. At that time,
+   the recommendation will be to: create new jails using the new UI,
+   copy over any existing configurations, and delete the old jail
+   datasets once the new jails are working as expected.
 
 %brand% automatically creates a jail whenever a plugin is
 installed, but does not let the user install multiple plugins into the
@@ -80,13 +81,13 @@ The rest of this section describes:
 Jails Configuration
 -------------------
 
-Jails are stored in a volume or dataset.
+Jails are stored in a pool or dataset.
 **Using a separate dataset for the**
-:guilabel:`Jail Root` **is strongly recommended**. The volume
-or dataset to be used must already exist or can be created with
-:ref:`ZFS Pool Manager`.
+:guilabel:`Jail Root` **is strongly recommended**. The pool or dataset
+to be used must already exist or can be created with
+:ref:`Pool Manager`.
 
-.. note:: The :guilabel:`Jail Root` volume or dataset cannot be
+.. note:: The :guilabel:`Jail Root` pool or dataset cannot be
    created on a :ref:`Share <Sharing>`.
 
 Begin global jail configuration by choosing
@@ -95,9 +96,9 @@ to open the screen shown in
 :numref:`Figure %s <global_jail_config_fig>`.
 Jails are automatically installed into their own dataset under the
 specified path as they are created. For example, if the
-:guilabel:`Jail Root` is set to :file:`/mnt/volume1/dataset1` and a
+:guilabel:`Jail Root` is set to :file:`/mnt/pool1/dataset1` and a
 jail named *jail1* is created, it is installed into its own dataset
-named :file:`/mnt/volume1/dataset1/jail1`.
+named :file:`/mnt/pool1/dataset1/jail1`.
 
 
 .. _global_jail_config_fig:
@@ -178,14 +179,14 @@ always display these settings by checking the box
 
 
 When selecting the :guilabel:`Jail Root`, ensure that the size of the
-selected volume or dataset is sufficient to hold the number of jails
+selected pool or dataset is sufficient to hold the number of jails
 to be installed as well as any software, log files, and data to be
 stored within each jail. At a bare minimum, budget at least 2 GB per
 jail and do not select a dataset that is less than 2 GB in size.
 
 .. note:: If you plan to add storage to a jail, be aware that the path
    size is limited to 88 characters. Make sure that the length of the
-   volume name plus the dataset name plus the jail name does not
+   pool name plus the dataset name plus the jail name does not
    exceed this limit.
 
 If the network contains a DHCP server, it is recommended to check the
@@ -573,7 +574,7 @@ Browse to the :guilabel:`Source` and :guilabel:`Destination`, where:
 
 * **Source:** is the directory or dataset on the %brand% system
   which will be accessed by the jail. This directory **must** reside
-  outside of the volume or dataset being used by the jail. This is why
+  outside of the pool or dataset being used by the jail. This is why
   it is recommended to create a separate dataset to store jails, so
   the dataset holding the jails is always separate from any datasets
   used for storage on the %brand% system.
@@ -618,7 +619,7 @@ The workflow for adding storage usually goes like this:
     a new area of storage will be set aside for the jail to use.
 
 #.  If the jail will access existing data, edit the permissions of
-    the volume or dataset so the user and group accounts have the
+    the pool or dataset so the user and group accounts have the
     desired read and write access. If multiple applications or jails
     are to have access to the same data, create a new group and add
     each needed user account to that group.
@@ -629,7 +630,7 @@ The workflow for adding storage usually goes like this:
     and write access.
 
 #.  Use the :guilabel:`Add Storage` button of the jail and select the
-    configured volume/dataset as the :guilabel:`Source`.
+    configured pool or dataset as the :guilabel:`Source`.
 
 To prevent writes to the storage, check the box :guilabel:`Read-Only`.
 
@@ -641,10 +642,10 @@ already exist.
 After storage has been added or created, it appears in the tree
 under the specified jail. In the example shown in
 :numref:`Figure %s <jail_example_storage_fig>`,
-a dataset named :file:`volume1/data` has been chosen as the
+a dataset named :file:`pool1/data` has been chosen as the
 :guilabel:`Source` as it contains the files stored on the %brand%
 system. When the storage was created, the user browsed to
-:file:`volume1/jails/freebsd1/usr/local` in the
+:file:`pool1/jails/freebsd1/usr/local` in the
 :guilabel:`Destination` field, then entered *test* as the directory.
 Since this directory did not already exist, it was created, because
 the :guilabel:`Create directory` box was left checked. The resulting

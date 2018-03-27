@@ -685,13 +685,12 @@ Autotune
 
 #ifdef freenas
 %brand% provides an autotune script which optimizes the system
-depending on the installed hardware. For example, if a ZFS volume
-exists on a system with limited RAM, the autotune script automatically
-adjusts some ZFS sysctl values in an attempt to minimize ZFS memory
-starvation issues. It should only be used as a temporary measure on a
-system that hangs until the underlying hardware issue is addressed by
-adding more RAM. Autotune will always slow such a system, as it caps
-the ARC.
+depending on the installed hardware. For example, if a pool exists on
+a system with limited RAM, the autotune script automatically adjusts
+some ZFS sysctl values in an attempt to minimize memory starvation
+issues. It should only be used as a temporary measure on a system that
+hangs until the underlying hardware issue is addressed by adding more
+RAM. Autotune will always slow such a system, as it caps the ARC.
 
 The :guilabel:`Enable autotune` checkbox in
 :menuselection:`System --> Advanced`
@@ -885,7 +884,7 @@ controller users and groups.
    System Dataset Screen
 #endif truenas
 
-.. note:: Encrypted volumes are not displayed in the
+.. note:: Encrypted pools are not displayed in the
    :guilabel:`System dataset pool` drop-down menu.
 
 The system dataset can optionally be configured to also store the
@@ -894,10 +893,10 @@ entries or reporting information, moving these to the system dataset
 will prevent :file:`/var/` on the device holding the operating system
 from filling up as :file:`/var/` has limited space.
 
-Use the drop-down menu to select the ZFS volume (pool) to contain the
-system dataset. Whenever the location of the system dataset is
-changed, a pop-up warning indicates that the SMB service must be
-restarted, causing a temporary outage of any active SMB connections.
+Use the drop-down menu to select the pool to contain the system
+dataset. Whenever the location of the system dataset is changed, a
+pop-up warning indicates that the SMB service must be restarted,
+causing a temporary outage of any active SMB connections.
 
 #ifdef truenas
 .. note:: It is recommended to store the system dataset on the
@@ -2260,7 +2259,7 @@ View Enclosure
 --------------
 
 Click
-:menuselection:`Storage --> Volumes --> View Enclosure`
+:menuselection:`Storage --> Pools --> View Enclosure`
 to display a status summary of the connected disks and hardware. An
 example is shown in
 :numref:`Figure %s <tn_enclosure1>`.
@@ -2399,7 +2398,7 @@ screen:
   multipath scenario.
 
 After the network configuration is complete, log out and log back in,
-this time using the :guilabel:`Virtual IP` address. Volumes and shares
+this time using the :guilabel:`Virtual IP` address. Pools and shares
 can now be configured as usual and configuration automatically
 synchronizes between the active and the standby node.
 

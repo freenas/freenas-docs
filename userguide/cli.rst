@@ -48,7 +48,7 @@ performance. It can be used to chart network throughput over time. For
 example, it can be used to test the speed of different types of shares
 to determine which type performs best on the network.
 
-%brand% includes the Iperf server. To perform network testing, 
+%brand% includes the Iperf server. To perform network testing,
 an Iperf client must be installed on a desktop system that has
 network access to the %brand% system. This section demonstrates
 how to use the
@@ -259,7 +259,7 @@ read, pread, mmap, aio_read, and aio_write.
 
 %brand% ships with IOzone, meaning that it can be run from Shell.
 When using IOzone on %brand%, :command:`cd` to a directory in a
-volume that you have permission to write to, otherwise an
+pool that you have permission to write to, otherwise an
 error about being unable to write the temporary file will occur.
 
 Before using IOzone, read through the `IOzone documentation PDF
@@ -280,7 +280,7 @@ interpret the results:
 * `10 iozone Examples for Disk I/O Performance Measurement on Linux
   <http://www.thegeekstuff.com/2011/05/iozone-examples/>`_
 
-Type the following command to receive a summary of the available 
+Type the following command to receive a summary of the available
 switches. IOzone is comprehensive so it may take some time
 to learn how to use the tests effectively.
 
