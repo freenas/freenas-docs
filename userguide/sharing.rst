@@ -241,7 +241,7 @@ Before creating a guest share, go to
 :menuselection:`Services --> AFP`
 and make sure that the :guilabel:`Guest Access` box is checked.
 
-To create an AFP guest share, navigate
+To create an AFP guest share, navigate to
 :menuselection:`Sharing -> Apple (AFP) Shares` and click
 :guilabel:`Add Apple (AFP) Share`.
 
@@ -295,7 +295,7 @@ user.
 .. Add instructions for creating Time Machine share separate from the
    removed wizard.
 
-To create an authenticated or Time Machine share, navigate
+To create an authenticated or Time Machine share, navigate to
 :menuselection:`Sharing -> Apple (AFP) Shares` and click
 :guilabel:`Add Apple (AFP) Share`.
 
@@ -407,7 +407,7 @@ application.
 
 .. Add instructions for creating NFS share in new UI
 
-To create an NFS share, navigate
+To create an NFS share, navigate to
 :menuselection:`Sharing -> Unix (NFS) Shares` and click
 :guilabel:`Add Unix (NFS) Share`.
 
@@ -1257,7 +1257,7 @@ more important than the security of the data on the share.
 .. TODO add instructions for creating an unauthenticated SMB share
    separately from the now removed wizard.
 
-To configure an unauthenticated SMB share, navigate
+To configure an unauthenticated SMB share, navigate to
 :menuselection:`Sharing -> Windows (SMB) Shares` and click
 :guilabel:`Add Windows (SMB) Share`.
 
@@ -1313,7 +1313,7 @@ groups, and ensuring that group permissions are set correctly.
 .. TODO add instructions to create an authenticated SMB share apart
    from the now removed wizard.
 
-To create an authenticated SMB share, navigate
+To create an authenticated SMB share, navigate to
 :menuselection:`Sharing -> Windows (SMB) Shares` and click
 :guilabel:`Add Windows (SMB) Share`.
 
