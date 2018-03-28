@@ -20,27 +20,27 @@ The E24 expansion shelf comes with these components:
 
 * %brand% E24 expansion shelf
 
-.. image:: images/tn_e24shelf.jpg
+.. image:: images/truenas/e24shelf.jpg
 
 * Up to 24 populated drive trays
 
-.. image:: images/tn_drive_trays.jpg
+.. image:: images/truenas/drive_trays.jpg
 
 * Two power cables
 
-.. image:: images/tn_power_cable.png
+.. image:: images/truenas/power_cable.png
 
 * Two host expansion cables (SAS 8088)
 
-.. image:: images/tn_host_expansion_cable.jpg
+.. image:: images/truenas/host_expansion_cable.jpg
 
 * One rail kit
 
-.. image:: images/tn_e24_rail_kit.jpg
+.. image:: images/truenas/e24_rail_kit.jpg
 
 * One printed guide
 
-.. image:: images/tn_e24_guide.png
+.. image:: images/truenas/e24_guide.png
 
 Unused drive bays are populated with drive tray blanks to
 maintain proper airflow.
@@ -53,7 +53,7 @@ shows the front of the %brand% E24 expansion shelf.
 
 .. _appliance25:
 
-.. figure:: images/tn_e24_front_view.png
+.. figure:: images/truenas/e24_front_view.png
 
    Front View
 
@@ -64,7 +64,7 @@ shows the rear view of the %brand% E24 expansion shelf.
 
 .. _appliance26:
 
-.. figure:: images/tn_e24_rear_view.jpg
+.. figure:: images/truenas/e24_rear_view.jpg
 
    Rear View
 
@@ -75,7 +75,7 @@ provides a detailed view of a 3.5" drive tray.
 
 .. _appliance27:
 
-.. figure:: images/tn_e24_drive_tray.png
+.. figure:: images/truenas/e24_drive_tray.png
 
    Drive Tray
 
@@ -95,7 +95,7 @@ shows the front left attachments for an L-type rack.
 
 .. _appliance28:
 
-.. figure:: images/tn_e24_front_left_rail.png
+.. figure:: images/truenas/e24_front_left_rail.png
 
    Front Left Rail
 
@@ -106,7 +106,7 @@ shows the rear right attachments for an L-type rack.
 
 .. _appliance29:
 
-.. figure:: images/tn_e24_right_rear_rail.png
+.. figure:: images/truenas/e24_right_rear_rail.png
 
    Rear Right Rail
 
@@ -129,7 +129,7 @@ tightening the two built-in thumbscrews as indicated in
 
 .. _appliance30:
 
-.. figure:: images/tn_attach_e24_expansion_shelf.png
+.. figure:: images/truenas/attach_e24_expansion_shelf.png
 
    Secure E24 Expansion Shelf to the Rack
 
@@ -160,7 +160,7 @@ for a detailed view.
 
 .. _appliance32:
 
-.. figure:: images/tn_e24_connect_storage.jpg
+.. figure:: images/truenas/e24_connect_storage.jpg
 
    Example connection between E24 Expansion Shelf and %brand% Storage Array
 
@@ -183,7 +183,7 @@ the plastic locks.
 
 .. _appliance33:
 
-.. figure:: images/tn_e24_power_supply.jpg
+.. figure:: images/truenas/e24_power_supply.jpg
 
    E24 Power Supply
 

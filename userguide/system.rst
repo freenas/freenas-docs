@@ -96,7 +96,7 @@ add *.local* after the hostname.
    System Information Tab
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-information.png
+.. figure:: images/truenas/system-information.png
 
    System Information Tab
 #endif truenas
@@ -119,7 +119,7 @@ is shown in
    General Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-general.png
+.. figure:: images/truenas/system-general.png
 
    General Screen
 #endif truenas
@@ -351,9 +351,6 @@ environment, named *Initial-Install* can be booted into if the system
 needs to be returned to a pristine, non-configured version of the
 installation.
 
-If the :ref:`Wizard` was used, a third boot environment called
-:samp:`Wizard-{date}` is also created, indicating the date and time
-the :ref:`Wizard` was run.
 
 .. _view_boot_env_fig:
 
@@ -363,7 +360,7 @@ the :ref:`Wizard` was run.
    Viewing Boot Environments
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-boot.png
+.. figure:: images/truenas/system-boot.png
 
    Viewing Boot Environments
 #endif truenas
@@ -440,7 +437,7 @@ The buttons above the boot entries can be used to:
    Viewing the Status of the Boot Device
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_be2.png
+.. figure:: images/truenas/be2.png
 
    Viewing the Status of the Boot Device
 #endif truenas
@@ -478,7 +475,7 @@ shows a sample boot menu.
    Boot Environments in Boot Menu
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_be3b.png
+.. figure:: images/truenas/be3b.png
 
    Boot Environments in Boot Menu
 #endif truenas
@@ -583,7 +580,7 @@ The configurable settings are summarized in
    Advanced Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-advanced.png
+.. figure:: images/truenas/system-advanced.png
 
    Advanced Screen
 #endif truenas
@@ -688,13 +685,12 @@ Autotune
 
 #ifdef freenas
 %brand% provides an autotune script which optimizes the system
-depending on the installed hardware. For example, if a ZFS volume
-exists on a system with limited RAM, the autotune script automatically
-adjusts some ZFS sysctl values in an attempt to minimize ZFS memory
-starvation issues. It should only be used as a temporary measure on a
-system that hangs until the underlying hardware issue is addressed by
-adding more RAM. Autotune will always slow such a system, as it caps
-the ARC.
+depending on the installed hardware. For example, if a pool exists on
+a system with limited RAM, the autotune script automatically adjusts
+some ZFS sysctl values in an attempt to minimize memory starvation
+issues. It should only be used as a temporary measure on a system that
+hangs until the underlying hardware issue is addressed by adding more
+RAM. Autotune will always slow such a system, as it caps the ARC.
 
 The :guilabel:`Enable autotune` checkbox in
 :menuselection:`System --> Advanced`
@@ -783,7 +779,7 @@ shown in
    Email Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-email.png
+.. figure:: images/truenas/system-email.png
 
    Email Screen
 #endif truenas
@@ -883,12 +879,12 @@ controller users and groups.
    System Dataset Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-system-dataset.png
+.. figure:: images/truenas/system-system-dataset.png
 
    System Dataset Screen
 #endif truenas
 
-.. note:: Encrypted volumes are not displayed in the
+.. note:: Encrypted pools are not displayed in the
    :guilabel:`System dataset pool` drop-down menu.
 
 The system dataset can optionally be configured to also store the
@@ -897,10 +893,10 @@ entries or reporting information, moving these to the system dataset
 will prevent :file:`/var/` on the device holding the operating system
 from filling up as :file:`/var/` has limited space.
 
-Use the drop-down menu to select the ZFS volume (pool) to contain the
-system dataset. Whenever the location of the system dataset is
-changed, a pop-up warning indicates that the SMB service must be
-restarted, causing a temporary outage of any active SMB connections.
+Use the drop-down menu to select the pool to contain the system
+dataset. Whenever the location of the system dataset is changed, a
+pop-up warning indicates that the SMB service must be restarted,
+causing a temporary outage of any active SMB connections.
 
 #ifdef truenas
 .. note:: It is recommended to store the system dataset on the
@@ -1262,7 +1258,7 @@ screen.
    Update Options
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-update.png
+.. figure:: images/truenas/system-update.png
 
    Update Options
 #endif truenas
@@ -1679,7 +1675,7 @@ shows the screen after clicking
    Initial CA Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-ca.png
+.. figure:: images/truenas/system-ca.png
 
    Initial CA Screen
 #endif truenas
@@ -1866,7 +1862,7 @@ shows the initial screen after clicking
    Initial Certificates Screen
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_system-cert.png
+.. figure:: images/truenas/system-cert.png
 
    Initial Certificates Screen
 #endif truenas
@@ -2144,7 +2140,7 @@ requests.
 
 .. _tn_support1:
 
-.. figure:: images/tn_system-support.png
+.. figure:: images/truenas/system-support.png
 
    Support Tab
 
@@ -2220,7 +2216,7 @@ hardware conditions on the system require attention.
 
 .. _tn_proactive_support:
 
-.. figure:: images/tn_system-proactive-support.png
+.. figure:: images/truenas/system-proactive-support.png
 
    Proactive Support Tab
 
@@ -2263,14 +2259,14 @@ View Enclosure
 --------------
 
 Click
-:menuselection:`Storage --> Volumes --> View Enclosure`
+:menuselection:`Storage --> Pools --> View Enclosure`
 to display a status summary of the connected disks and hardware. An
 example is shown in
 :numref:`Figure %s <tn_enclosure1>`.
 
 .. _tn_enclosure1:
 
-.. figure:: images/tn_system-view-enclosure.png
+.. figure:: images/truenas/system-view-enclosure.png
 
    View Enclosure
 
@@ -2402,7 +2398,7 @@ screen:
   multipath scenario.
 
 After the network configuration is complete, log out and log back in,
-this time using the :guilabel:`Virtual IP` address. Volumes and shares
+this time using the :guilabel:`Virtual IP` address. Pools and shares
 can now be configured as usual and configuration automatically
 synchronizes between the active and the standby node.
 
@@ -2437,7 +2433,7 @@ and described in
 
 .. _failover_fig:
 
-.. figure:: images/tn_system-failover.png
+.. figure:: images/truenas/system-failover.png
 
    Example Failover Screen
 

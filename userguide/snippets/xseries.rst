@@ -24,30 +24,30 @@ Carefully unpack the shipping boxes and locate these components:
 .. table::
    :class: longtable
 
-   +--------------------------------------------+-------------------------------------------------+
-   | .. image:: images/tn_x.png                 | .. image:: images/tn_x_bezel.png                |
-   |                                            |                                                 |
-   | X Series Unified Storage Array             | X Series Bezel                                  |
-   +--------------------------------------------+-------------------------------------------------+
-   | .. image:: images/tn_x_rails.png           | .. image:: images/tn_x_drivetrays.png           |
-   |                                            |                                                 |
-   | Set of rackmount rails. The rails have a   | A total of 12 populated or empty "air baffle"   |
-   | specific front end, identified by a label  | drive trays. Trays must be installed in all     |
-   | visible on the left above. The front ends  | bays to maintain proper airflow for cooling.    |
-   | of the rails must be installed facing the  | Up to ten drive trays are packed in a           |
-   | front of the rack.                         | cardboard tray. Additional drive trays are      |
-   |                                            | packed with the accessory kit.                  |
-   +--------------------------------------------+-------------------------------------------------+
-   |                                            | |pic1|    |pic2|                                |
-   | .. image:: images/tn_x_acckit.png          |                                                 |
-   |    :width: 80%                             | .. |pic1| image:: images/tn_x_serialcable.png   |
-   |                                            |    :width: 30%                                  |
-   | Accessory kit with 2 IEC C13 to NEMA 5-15P | .. |pic2| image:: images/tn_x_railextenders.png |
-   | power cords, 2 IEC C14 to C14 cords, and   |    :width: 30%                                  |
-   | velcro cable ties                          |                                                 |
-   |                                            | Black USB to 3.5mm, 3.3V serial cable and rail  |
-   |                                            | extenders for racks over 30" deep               |
-   +--------------------------------------------+-------------------------------------------------+
+   +--------------------------------------------+------------------------------------------------------+
+   | .. image:: images/truenas/x.png            | .. image:: images/truenas/x_bezel.png                |
+   |                                            |                                                      |
+   | X Series Unified Storage Array             | X Series Bezel                                       |
+   +--------------------------------------------+------------------------------------------------------+
+   | .. image:: images/truenas/x_rails.png      | .. image:: images/truenas/x_drivetrays.png           |
+   |                                            |                                                      |
+   | Set of rackmount rails. The rails have a   | A total of 12 populated or empty "air baffle"        |
+   | specific front end, identified by a label  | drive trays. Trays must be installed in all          |
+   | visible on the left above. The front ends  | bays to maintain proper airflow for cooling.         |
+   | of the rails must be installed facing the  | Up to ten drive trays are packed in a                |
+   | front of the rack.                         | cardboard tray. Additional drive trays are           |
+   |                                            | packed with the accessory kit.                       |
+   +--------------------------------------------+------------------------------------------------------+
+   |                                            | |pic1|    |pic2|                                     |
+   | .. image:: images/truenas/x_acckit.png     |                                                      |
+   |    :width: 80%                             | .. |pic1| image:: images/truenas/x_serialcable.png   |
+   |                                            |    :width: 30%                                       |
+   | Accessory kit with 2 IEC C13 to NEMA 5-15P | .. |pic2| image:: images/truenas/x_railextenders.png |
+   | power cords, 2 IEC C14 to C14 cords, and   |    :width: 30%                                       |
+   | velcro cable ties                          |                                                      |
+   |                                            | Black USB to 3.5mm, 3.3V serial cable and rail       |
+   |                                            | extenders for racks over 30" deep                    |
+   +--------------------------------------------+------------------------------------------------------+
 
 
 .. raw:: latex
@@ -71,7 +71,7 @@ fault. The fault indicator is on during the initial power-on self-test
 
 .. _x_indicators:
 
-.. figure:: images/tn_x_indicators.png
+.. figure:: images/truenas/x_indicators.png
    :width: 50%
 
 
@@ -100,7 +100,7 @@ are:
 
 .. _x_back:
 
-.. figure:: images/tn_x_back.png
+.. figure:: images/truenas/x_back.png
    :width: 100%
 
    Back Panel

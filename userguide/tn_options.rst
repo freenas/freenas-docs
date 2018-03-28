@@ -201,7 +201,7 @@ Both links are to local copies of the User Guide. No network
 connection is required.
 
 
-.. figure:: images/tn_guide.png
+.. figure:: images/truenas/guide.png
 
    User Guide Menu
 

@@ -57,9 +57,9 @@ verify the checksum varies by operating system:
   :samp:`shasum -a 256 {name_of_file}`
 
 * Windows or Mac users can install additional utilities like
-  `HashCalc <http://www.slavasoft.com/hashcalc/>`_
+  `HashCalc <http://www.slavasoft.com/hashcalc/>`__
   or
-  `HashTab <http://implbits.com/products/hashtab/>`_
+  `HashTab <http://implbits.com/products/hashtab/>`__.
 
 The value produced by running the command must match the value shown
 in the :file:`sha256.txt` file.  Checksum values that do not match
@@ -79,8 +79,8 @@ A CD burning utility is needed to write the :file:`.iso` file to a
 CD.
 
 The :file:`.iso` file can also be written to a USB memory stick. The
-method used to write the file depends on the operating system. Examples
-for several common operating systems are shown below.
+method used to write the file depends on the operating system.
+Examples for several common operating systems are shown below.
 
 .. note:: To install from a USB stick to another USB stick, **two**
    USB ports are needed, each with an inserted USB device. One USB
@@ -155,9 +155,9 @@ image from an :file:`.iso` file. Follow
 but enter the name of the downloaded :file:`.iso` into the
 :guilabel:`SOURCE FILE` box.
 
-`Image Writer <https://launchpad.net/win32-image-writer/>`_
+`Image Writer <https://launchpad.net/win32-image-writer/>`__
 and
-`Rufus <http://rufus.akeo.ie/>`_
+`Rufus <http://rufus.akeo.ie/>`__
 are alternate programs for writing images to USB sticks on a computer
 running Windows. When using Rufus, check
 :guilabel:`Create a bootable disk using` and select *DD Image* from
@@ -443,7 +443,7 @@ follow the instructions in
 If the burned image fails to boot and the image was burned using a
 Windows system, wipe the USB stick before trying a second burn using a
 utility such as
-`Active@ KillDisk <http://how-to-erase-hard-drive.com/>`_.
+`Active@ KillDisk <http://how-to-erase-hard-drive.com/>`__.
 Otherwise, the second burn attempt will fail as Windows does not
 understand the partition which was written from the image file. Be
 very careful to specify the correct USB stick when using a wipe
@@ -499,14 +499,6 @@ Be aware of these caveats **before** attempting an upgrade to
   it will not be possible to boot into a previous version that does
   not support the newer feature flags.
 
-* The :ref:`Wizard` does not recognize an encrypted ZFS pool. If the
-  ZFS pool is GELI-encrypted and the :ref:`Wizard` starts after the
-  upgrade, cancel the :ref:`Wizard` and use the instructions in
-  :ref:`Importing an Encrypted Pool` to import the encrypted volume.
-  The :ref:`Wizard` can be run afterward for post-configuration. It
-  will then recognize that the volume has been imported and not prompt
-  to reformat the disks.
-
 * Upgrading the firmware of Broadcom SAS HBAs to the latest version is
   recommended.
 
@@ -518,7 +510,7 @@ Be aware of these caveats **before** attempting an upgrade to
 * **Upgrades from** %brand% **0.7x are not supported.** The system
   has no way to import configuration settings from 0.7x versions of
   %brand%. The configuration must be manually recreated.  If
-  supported, the %brand% 0.7x volumes or disks must be manually
+  supported, the %brand% 0.7x pools or disks must be manually
   imported.
 
 * **Upgrades on 32-bit hardware are not supported.** However, if the
@@ -527,15 +519,15 @@ Be aware of these caveats **before** attempting an upgrade to
   archived reporting graphs will be lost during the upgrade.
 
 * **UFS is no longer supported.** If your data currently resides on
-  **one** UFS-formatted disk, create a ZFS volume using **other**
+  **one** UFS-formatted disk, create a ZFS pool using **other**
   disks after the upgrade, then use the instructions in
   :ref:`Import Disk` to mount the UFS-formatted disk and copy the data
-  to the ZFS volume. With only one disk, back up its data to another
+  to the ZFS pool. With only one disk, back up its data to another
   system or media before the upgrade, format the disk as ZFS after the
   upgrade, then restore the backup. If the data currently resides on a
   UFS RAID of disks, it is not possible to directly import that data
-  to the ZFS volume. Instead, back up the data before the upgrade,
-  create a ZFS volume after the upgrade, then restore the data from
+  to the ZFS pool. Instead, back up the data before the upgrade,
+  create a ZFS pool after the upgrade, then restore the data from
   the backup.
 
 * **The VMware Tools VMXNET3 drivers are no longer supported**.
@@ -554,11 +546,11 @@ Before upgrading the operating system, perform the following steps:
 #.  **Back up the** %brand% **configuration** in
     :menuselection:`System --> General --> Save Config`.
 
-#.  If any volumes are encrypted, **make sure** that you have set the
+#.  If any pools are encrypted, **make sure** that you have set the
     passphrase and have a copy of the encryption key and the latest
     recovery key. After the upgrade is complete, use the instructions
     in :ref:`Importing an Encrypted Pool` to import the encrypted
-    volume.
+    pools.
 
 #.  Warn users that the %brand% shares will be unavailable during the
     upgrade; you should schedule the upgrade for a time that will
@@ -574,7 +566,7 @@ Upgrading Using the ISO
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 To perform an upgrade using this method,
-`download <http://download.freenas.org/latest/>`_
+`download <http://download.freenas.org/latest/>`__
 the :file:`.iso` to the computer that will be used to prepare the
 installation media. Burn the downloaded :file:`.iso` file to a CD or
 USB thumb drive using the instructions in
@@ -611,10 +603,14 @@ boot drive or drives and presents the message shown in
    Upgrading a %brand% Installation
 
 
-.. note:: If you choose a :guilabel:`Fresh Install`, the backup of
-   your configuration data must be restored using
-   :menuselection:`System --> General --> Upload Config`
-   after booting into the new operating system.
+.. note:: A system can be upgraded by backing up the existing
+   configuration data with
+   :menuselection:`System --> General --> Save Config`.
+   Choose :guilabel:`Fresh Install` during the installation. After
+   booting into the new the install, restore the previous
+   configuration data with
+   :menuselection:`System --> General --> Upload Config`.
+
 
 To perform an upgrade, press :kbd:`Enter` to accept the default of
 :guilabel:`Upgrade Install`. Again, the installer will remind you that
@@ -722,8 +718,8 @@ configuration. The system can be recovered with a few steps:
 
 #.  Perform a fresh installation on a new boot device.
 
-#.  Import the volumes in
-    :menuselection:`Storage --> Auto Import Volume`.
+#.  Import the pools in
+    :menuselection:`Storage --> Auto Import Pool`.
 
 #.  Restore the configuration in
     :menuselection:`System --> General --> Upload Config`.
@@ -748,7 +744,7 @@ Virtualization
 experimentation, and educational purposes. Please note that running
 %brand% in production as a virtual machine is `not recommended
 <https://forums.freenas.org/index.php?threads/please-do-not-run-freenas-in-production-as-a-virtual-machine.12484/>`_.
-If you decide to use %brand% within a virtual environment,
+When using %brand% within a virtual environment,
 `read this post first
 <https://forums.freenas.org/index.php?threads/absolutely-must-virtualize-freenas-a-guide-to-not-completely-losing-your-data.12714/>`_
 as it contains useful guidelines for minimizing the risk of losing
@@ -808,8 +804,7 @@ Enter a name for the virtual machine, click the
 
 .. figure:: images/virtualbox2.png
 
-   Type in a Name and Select the Operating System for the New Virtual
-   Machine
+   Enter Name and Operating System for the New Virtual Machine
 
 
 Click :guilabel:`Next` to see the screen in
@@ -970,12 +965,13 @@ device name of *em0*.
 
 
 After configuration is complete, click the :guilabel:`Start` arrow and
-install %brand% as described in `Performing the Installation`_. Once
-%brand% is installed, press :kbd:`F12` when the VM starts to boot to
-access the boot menu. Select the primary hard disk as the boot option.
-You can permanently boot from disk by removing the :guilabel:`CD/DVD`
-device in :guilabel:`Storage` or by unchecking :guilabel:`CD/DVD-ROM`
-in the :guilabel:`Boot Order` section of :guilabel:`System`.
+install %brand% as described in :ref:`Performing the Installation`.
+After %brand% is installed, press :kbd:`F12` when the VM starts to
+boot to access the boot menu. Select the primary hard disk as the boot
+option. You can permanently boot from disk by removing the
+:guilabel:`CD/DVD` device in :guilabel:`Storage` or by unchecking
+:guilabel:`CD/DVD-ROM` in the :guilabel:`Boot Order` section of
+:guilabel:`System`.
 
 
 .. _VMware ESXi:
@@ -983,15 +979,16 @@ in the :guilabel:`Boot Order` section of :guilabel:`System`.
 VMware ESXi
 ~~~~~~~~~~~
 
-Before using ESXi, read `this post
-<https://forums.freenas.org/index.php?threads/sync-writes-or-why-is-my-esxi-nfs-so-slow-and-why-is-iscsi-faster.12506/>`_
+Before using ESXi, read
+`this post
+<https://forums.freenas.org/index.php?threads/sync-writes-or-why-is-my-esxi-nfs-so-slow-and-why-is-iscsi-faster.12506/>`__
 for an explanation of why iSCSI will be faster than NFS.
 
 ESXi is a bare-metal hypervisor architecture created by VMware Inc.
 Commercial and free versions of the VMware vSphere Hypervisor
 operating system (ESXi) are available from the
 `VMware website
-<http://www.vmware.com/products/esxi-and-esx/overview>`_.
+<http://www.vmware.com/products/esxi-and-esx/overview>`__.
 After the operating system is installed on supported hardware, use a
 web browser to connect to its IP address. The welcome screen provides
 a link to download the VMware vSphere client which is used to create

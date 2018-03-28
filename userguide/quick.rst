@@ -122,10 +122,3 @@ This `blog post
 <http://fortysomethinggeek.blogspot.com/2012/10/ipad-iphone-connect-with-freenas-or-any.html>`_
 describes some applications which can be used to access the %brand%
 system from an iPad or iPhone.
-
-
-Initial Configuration
-^^^^^^^^^^^^^^^^^^^^^
-
-The first time the %brand% GUI is accessed, the :ref:`Wizard` starts
-automatically to help configure the %brand% device quickly and easily.
