@@ -739,7 +739,7 @@ catastrophic loss, an off-site snapshot can be used to restore the
 system up to the time of the last snapshot.
 
 An existing ZFS volume is required before creating a snapshot.
-Creating a volume is described in :ref:`Volume Manager`.
+Creating a volume is described in :ref:`Pools`.
 
 To create a periodic snapshot task, click
 :menuselection:`Tasks --> Periodic Snapshots
@@ -832,9 +832,9 @@ The basic configuration requires a source system with the original
 data and a destination system where the data will be replicated.
 The destination system is prepared to receive replicated data, a
 :ref:`Periodic Snapshot Tasks <Periodic Snapshot Tasks>` of the data
-on thesource system is created, and then a replication task is 
-created. As snapshots are automatically created on the source 
-computer, they are automatically replicated to the destination 
+on thesource system is created, and then a replication task is
+created. As snapshots are automatically created on the source
+computer, they are automatically replicated to the destination
 computer.
 
 .. note:: Replicated data is not visible on the receiving system until
@@ -862,7 +862,7 @@ computers.
 ^^^^^^^^^^^^^^^^
 
 *Alpha* is the source computer with the data to be replicated. It is
-at IP address *10.0.0.102*. A :ref:`volume <Volumes>` named *alphavol*
+at IP address *10.0.0.102*. A :ref:`pool <Pools>` named *alphavol*
 has already been created, and a :ref:`dataset <Create Dataset>` named
 *alphadata* has been created on that volume. This dataset contains the
 files which will be snapshotted and replicated onto *Beta*.
@@ -896,7 +896,7 @@ chosen lifetime of two weeks expires.
 ^^^^^^^^^^^^^^^^^^^^
 
 *Beta* is the destination computer where the replicated data will be
-copied.  It is at IP address *10.0.0.118*. A :ref:`volume <Volumes>`
+copied.  It is at IP address *10.0.0.118*. A :ref:`pool <Pools>`
 named *betavol* has already been created.
 
 Snapshots are transferred with :ref:`SSH`. To allow incoming
