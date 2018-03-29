@@ -2044,7 +2044,7 @@ summarizes the options in the UPS Configuration screen.
    |                               |                |                                                                                                       |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Monitor Password              | string         | default is known value *fixmepass* and should be changed; cannot contain a space or #, and usually    |
-   |                               |                | should not contain \ or = since these symbols have a special meaning in the configuration file        |
+   |                               |                | should not contain \\ or = since these symbols have a special meaning in the configuration file       |
    |                               |                |                                                                                                       |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Extra users                   | string         | defines any additional accounts that have administrative access; see                                  |
