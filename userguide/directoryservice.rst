@@ -12,7 +12,7 @@ Directory Services
 * :ref:`NIS`
 
 It also supports :ref:`Kerberos Realms`, :ref:`Kerberos Keytabs`, and
-the ability to add additional parameters to :ref:`Kerberos Settings`.
+the ability to add more parameters to :ref:`Kerberos Settings`.
 
 This section summarizes each of these services and their available
 configurations within the %brand% GUI.
@@ -27,7 +27,7 @@ Active Directory (AD) is a service for sharing resources in a Windows
 network. AD can be configured on a Windows server that is running
 Windows Server 2000 or higher or on a Unix-like operating system that
 is running `Samba version 4
-<https://wiki.samba.org/index.php/Samba4/HOWTO#Provisioning_The_Samba_Active_Directory>`_.
+<https://wiki.samba.org/index.php/Samba4/HOWTO#Provisioning_The_Samba_Active_Directory>`__.
 Since AD provides authentication and authorization services for the
 users in a network, it is not necessary to recreate these user
 accounts on the %brand% system. Instead, configure the Active
@@ -40,23 +40,22 @@ support within %brand%.  It is strongly recommended to update the
 system to the latest %brand% |release| before attempting Active
 Directory integration.
 
-**Before configuring the Active Directory service**, ensure name
-resolution is properly configured by :command:`ping` ing the domain
-name of the Active Directory domain controller from :ref:`Shell` on
-the %brand% system. If the :command:`ping` fails, check the DNS
-server and default gateway settings in
-:menuselection:`Network --> Global Configuration`
-on the %brand% system.
+Before configuring the Active Directory service, ensure name resolution
+is properly configured by :command:`ping`ing the domain name of the
+Active Directory domain controller from :ref:`Shell` on the %brand%
+system. If the :command:`ping` fails, check the DNS server and default
+gateway settings in :menuselection:`Network --> Global Configuration` on
+the %brand% system.
 
-Next, add a DNS record for the %brand% system on the Windows server
-and verify that the hostname of the %brand% system can be
-pinged from the domain controller.
+Next, add a DNS record for the %brand% system on the Windows server and
+verify the hostname of the %brand% system can be pinged from the domain
+controller.
 
-Active Directory relies on Kerberos, which is a time sensitive
-protocol. The time on both the %brand% system and the
-Active Directory Domain Controller cannot be out of sync by more than
-a few minutes. The best way to ensure that the same time is running on
-both systems is to configure both systems to:
+Active Directory relies on Kerberos, which is a time sensitive protocol.
+The time on both the %brand% system and the Active Directory
+Domain Controller cannot be out of sync by more than a few minutes. The
+best way to ensure the same time is running on both systems is to
+configure both systems to:
 
 * use the same NTP server (set in
   :menuselection:`System --> NTP Servers`
@@ -74,7 +73,7 @@ is chosen.
 describes the configurable options. Some settings are only available
 in Advanced Mode. To see these settings, either click the
 :guilabel:`Advanced Mode` button or configure the system to always
-display these settings by checking the box
+display these settings by checking
 :guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
 
@@ -100,125 +99,124 @@ display these settings by checking the box
    | Setting                  | Value         | Advanced | Description                                                                                                                   |
    |                          |               | Mode     |                                                                                                                               |
    +==========================+===============+==========+===============================================================================================================================+
-   | Domain Name              | string        |          | name of Active Directory domain (*example.com*) or child domain (*sales.example.com*); this setting is mandatory and the GUI  |
-   | (DNS/Realm-Name)         |               |          | will refuse to save the settings if the domain controller for the specified domain cannot be found                            |
+   | Domain Name              | string        |          | Name of Active Directory domain (*example.com*) or child domain (*sales.example.com*). This setting is mandatory and the GUI  |
+   | (DNS/Realm-Name)         |               |          | will refuse to save the settings if the domain controller for the specified domain cannot be found.                           |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Domain Account Name      | string        |          | name of the Active Directory administrator account; this setting is mandatory and the GUI will refuse to save the settings    |
-   |                          |               |          | if it cannot connect to the domain controller using this account name                                                         |
+   | Domain Account Name      | string        |          | Name of the Active Directory administrator account. This setting is mandatory and the GUI will refuse to save the settings    |
+   |                          |               |          | if it cannot connect to the domain controller using this account name.                                                        |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Domain Account Password  | string        |          | password for the Active Directory administrator account; this setting is mandatory and the GUI will refuse to save the        |
-   |                          |               |          | settings if it cannot connect to the domain controller using this password                                                    |
+   | Domain Account Password  | string        |          | Password for the Active Directory administrator account. This setting is mandatory and the GUI will refuse to save the        |
+   |                          |               |          | settings if it cannot connect to the domain controller using this password.                                                   |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | AD check connectivity    | integer       |          | how often to verify that Active Directory services are active                                                                 |
+   | AD check connectivity    | integer       |          | How often to verify that Active Directory services are active.                                                                |
    | frequency (seconds)      |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | How many recovery        | integer       |          | number of times to attempt reconnecting to the Active Directory server; tries forever when set to *0*                         |
+   | How many recovery        | integer       |          | Number of times to attempt reconnecting to the Active Directory server. Tries forever when set to *0*.                        |
    | attempts                 |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Enable Monitoring        | checkbox      |          | restart Active Directory automatically if the service is disconnected                                                         |
+   | Enable AD Monitoring     | checkbox      |          | Restart Active Directory automatically if the service is disconnected.                                                        |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Encryption Mode          | drop-down     | ✓        | choices are *Off*,                                                                                                            |
-   |                          | menu          |          | *SSL*, or                                                                                                                     |
-   |                          |               |          | *TLS*                                                                                                                         |
+   | Encryption Mode          | drop-down     | ✓        | Choices are *Off*, *SSL*, or *TLS*.                                                                                           |
+   |                          | menu          |          |                                                                                                                               |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Certificate              | drop-down menu| ✓        | select the certificate of the Active Directory server if  SSL connections are used; if a certificate does not exist           |
-   |                          |               |          | yet, create a :ref:`CA <CAs>`, then create a certificate on the Active Directory server and import it to the                  |
-   |                          |               |          | %brand% system with :ref:`Certificates`                                                                                       |
-   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Verbose logging          | checkbox      | ✓        | when checked, logs attempts to join the domain to :file:`/var/log/messages`                                                   |
+   | Certificate              | drop-down menu| ✓        | Select the certificate of the Active Directory server if  SSL connections are used. If a certificate does not exist           |
+   |                          |               |          | yet, create a :ref:`Certificate Authority <CAs>`, then create a certificate on the Active Directory server and import         |
+   |                          |               |          | it to the %brand% system with :ref:`Certificates`.                                                                            |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | UNIX extensions          | checkbox      | ✓        | **only** check this box if the AD server has been explicitly configured to map permissions for UNIX users; checking           |
-   |                          |               |          | this box provides persistent UIDs and GUIDs, otherwise, users/groups are mapped to the UID/GUID range configured in Samba     |
+   | Verbose logging          | checkbox      | ✓        | When checked, logs attempts to join the domain to :file:`/var/log/messages`.                                                  |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Allow Trusted Domains    | checkbox      | ✓        | should only be enabled if network has active                                                                                  |
-   |                          |               |          | `domain/forest trusts <https://technet.microsoft.com/en-us/library/cc757352(WS.10).aspx>`_                                    |
-   |                          |               |          | and you need to manage files on multiple domains; use with caution as it will generate more winbindd traffic,                 |
-   |                          |               |          | slowing down the ability to filter through user/group information                                                             |
+   | UNIX extensions          | checkbox      | ✓        | **Only** check if the AD server has been explicitly configured to map permissions for UNIX users. Check to provide            |
+   |                          |               |          | persistent UIDs and GUIDs. Leave unchecked to map users and groups to the UID/GUID range configured in Samba.                 |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Use Default Domain       | checkbox      | ✓        | when unchecked, the domain name is prepended to the username; if :guilabel:`Allow Trusted Domains`                            |
-   |                          |               |          | is checked and multiple domains use the same usernames, uncheck this box to prevent name collisions                           |
+   | Allow Trusted Domains    | checkbox      | ✓        | Only enable if the network has active                                                                                         |
+   |                          |               |          | `domain/forest trusts <https://technet.microsoft.com/en-us/library/cc757352(WS.10).aspx>`__                                   |
+   |                          |               |          | and files need to be managed on multiple domains. Use with caution, this will generate more winbindd traffic,                 |
+   |                          |               |          | slowing down the ability to filter through user and group information.                                                        |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Allow DNS updates        | checkbox      | ✓        | when unchecked, disables Samba from doing DNS updates when joining a domain                                                   |
+   | Use Default Domain       | checkbox      | ✓        | Uncheck to prepend the domain name to the username. If :guilabel:`Allow Trusted Domains`                                      |
+   |                          |               |          | is checked and multiple domains use the same usernames, uncheck to prevent name collisions.                                   |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Disable Active Directory | checkbox      | ✓        | when checked, disables caching AD users and groups; useful if you cannot bind to a domain with a large number of              |
-   | user/group cache         |               |          | users or groups                                                                                                               |
+   | Allow DNS updates        | checkbox      | ✓        | Uncheck to disable Samba from doing DNS updates when joining a domain.                                                        |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | User Base                | string        | ✓        | distinguished name (DN) of the user container in Active Directory                                                             |
+   | Disable Active Directory | checkbox      | ✓        | Check to disable caching of AD users and groups. This is useful if the system cannot bind to a domain with a                  |
+   | user/group cache         |               |          | large number of users or groups.                                                                                              |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Group Base               | string        | ✓        | distinguished name (DN) of the group container in Active Directory                                                            |
+   | User Base                | string        | ✓        | Distinguished name (DN) of the user container in Active Directory.                                                            |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Site Name                | string        | ✓        | the relative distinguished name of the site object in Active Directory                                                        |
+   | Group Base               | string        | ✓        | Distinguished name (DN) of the group container in Active Directory.                                                           |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Domain Controller        | string        | ✓        | will automatically be added to the SRV record for the domain and, when multiple controllers are                               |
-   |                          |               |          | specified, %brand% selects the closest DC which responds; use the short form of the FQDN                                      |
+   | Site Name                | string        | ✓        | The relative distinguished name of the site object in Active Directory.                                                       |
+   |                          |               |          |                                                                                                                               |
+   +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+   | Domain Controller        | string        | ✓        | Will automatically be added to the SRV record for the domain and, when multiple controllers are                               |
+   |                          |               |          | specified, %brand% selects the closest DC which responds. Uses the short form of the FQDN                                     |
    |                          |               |          | (Example: *sampleserver*)                                                                                                     |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Global Catalog Server    | string        | ✓        | if the hostname of the global catalog server to use is specified, make sure it is resolvable                                  |
+   | Global Catalog Server    | string        | ✓        | If the hostname of the global catalog server to use is specified, make sure it is resolvable.                                 |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Kerberos Realm           | drop-down     | ✓        | select the realm created using the instructions in :ref:`Kerberos Realms`                                                     |
+   | Kerberos Realm           | drop-down     | ✓        | Select the realm created using the instructions in :ref:`Kerberos Realms`.                                                    |
    |                          | menu          |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Kerberos Principal       | drop-down     | ✓        | browse to the location of the keytab created using the instructions in :ref:`Kerberos Keytabs`                                |
+   | Kerberos Principal       | drop-down     | ✓        | Browse to the location of the keytab created using the instructions in :ref:`Kerberos Keytabs`.                               |
    |                          | menu          |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | AD timeout               | integer       | ✓        | in seconds, increase if the AD service does not start after connecting to the                                                 |
-   |                          |               |          | domain                                                                                                                        |
+   | AD timeout               | integer       | ✓        | In seconds, increase if the AD service does not start after connecting to the domain.                                         |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | DNS timeout              | integer       | ✓        | in seconds, increase if AD DNS queries timeout                                                                                |
+   | DNS timeout              | integer       | ✓        | In seconds, increase if AD DNS queries timeout.                                                                               |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Idmap backend            | drop-down     | ✓        | select the backend to use to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs; see                               |
-   |                          | menu and Edit |          | :numref:`Table %s <id_map_backends_tab>` for a summary of the available backends; click the :guilabel:`Edit` link             |
-   |                          |               |          | to configure that backend's editable options                                                                                  |
+   | Idmap backend            | drop-down     | ✓        | Select the backend to use to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs. See                               |
+   |                          | menu and Edit |          | :numref:`Table %s <id_map_backends_tab>` for a summary of the available backends. Click :guilabel:`Edit Idmap`                |
+   |                          | Idmap button  |          | to configure the selected backend.                                                                                            |
+   |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Windbind NSS Info        | drop-down     | ✓        | defines the schema to use when querying AD for user/group info; *rfc2307* uses the RFC2307 schema                             |
+   | Windbind NSS Info        | drop-down     | ✓        | Defines the schema to use when querying AD for user/group info. *rfc2307* uses the RFC2307 schema                             |
    |                          | menu          |          | support included in Windows 2003 R2, *sfu20* is for Services For Unix 3.0 or 3.5, and                                         |
-   |                          |               |          | *sfu* is for Services For Unix 2.0                                                                                            |
+   |                          |               |          | *sfu* is for Services For Unix 2.0.                                                                                           |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | SASL wrapping            | drop-down     | ✓        | defines how LDAP traffic is transmitted; choices are *plain* (plain text),                                                    |
-   |                          | menu          |          | *sign* (signed only),                                                                                                         |
-   |                          |               |          | or *seal* (signed and encrypted); Windows 2000 SP3 and higher can be configured to enforce signed LDAP connections            |
+   | SASL wrapping            | drop-down     | ✓        | Defines how LDAP traffic is transmitted. Choices are *plain* (plain text), *sign* (signed only),                              |
+   |                          | menu          |          | or *seal* (signed and encrypted). Windows 2000 SP3 and higher can be configured to enforce signed LDAP connections.           |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Enable                   | checkbox      |          | Enable the Active Directory service                                                                                           |
+   | Enable                   | checkbox      |          | Enable the Active Directory service.                                                                                          |
    |                          |               |          |                                                                                                                               |
    #ifdef freenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS name             | string        | ✓        | limited to 15 characters; automatically populated with the system's original hostname; it **must**                            |
-   |                          |               |          | be different from the *Workgroup* name                                                                                        |
+   | NetBIOS name             | string        | ✓        | Limited to 15 characters. Automatically populated with the original hostname of the system. This **must**                     |
+   |                          |               |          | be different from the *Workgroup* name.                                                                                       |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS alias            | string        | ✓        | limited to 15 characters                                                                                                      |
+   | NetBIOS alias            | string        | ✓        | Limited to 15 characters.                                                                                                     |
    |                          |               |          |                                                                                                                               |
    #endif freenas
    #ifdef truenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (This Node) | string        | ✓        | limited to 15 characters; automatically populated with the system's original hostname; it **must**                            |
-   |                          |               |          | be different from the *Workgroup* name                                                                                        |
+   | NetBIOS Name (This Node) | string        | ✓        | Limited to 15 characters. Automatically populated with the system's original hostname. It **must**                            |
+   |                          |               |          | be different from the *Workgroup* name.                                                                                       |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (Node B)    | string        | ✓        | limited to 15 characters; when using :ref:`Failover`, set a unique NetBIOS name for the standby node                          |
+   | NetBIOS Name (Node B)    | string        | ✓        | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the standby node.                         |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias            | string        | ✓        | limited to 15 characters; when using :ref:`Failover`, this is the NetBIOS name that resolves                                  |
-   |                          |               |          | to either node                                                                                                                |
+   | NetBIOS Alias            | string        | ✓        | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves                                  |
+   |                          |               |          | to either node.                                                                                                               |
    #endif truenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
 
