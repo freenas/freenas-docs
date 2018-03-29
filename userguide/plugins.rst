@@ -42,8 +42,8 @@ software needs.
 
 .. _Installing Plugins:
 
-Installing Plugins
-------------------
+Installing
+----------
 
 A plugin is a self-contained application installer which has been
 designed to integrate into the %brand% GUI. A plugin offers several
@@ -163,8 +163,8 @@ start, click the jail's :guilabel:`Shell` icon and type
 
 .. _Updating Plugins:
 
-Updating Plugins
-----------------
+Updating
+--------
 
 When a newer version of a plugin becomes available in the official
 repository, an :guilabel:`Update` button is added to the entry for the
@@ -188,8 +188,8 @@ and the :guilabel:`Update` button will disappear.
 
 .. _Uploading Plugins:
 
-Uploading Plugins
------------------
+Uploading
+---------
 
 The :guilabel:`Available` tab of :guilabel:`Plugins` contains an
 :guilabel:`Upload` button. This button allows installation of plugins
@@ -223,8 +223,8 @@ command line of the jail's shell instead of from the GUI.
 
 .. _Deleting Plugins:
 
-Deleting Plugins
-----------------
+Deleting
+--------
 
 When you install a plugin, an associated jail is created. If you
 decide to delete a plugin, the associated jail is also deleted as it
@@ -248,6 +248,85 @@ are permanently deleted.
 
    Deleting an Installed Plugin
 
+.. _Submitting Plugins:
+
+Submitting
+----------
+
+Submit a plugin under the
+`FreeNAS project on redmine <https://redmine.ixsystems.com/projects/freenas>`__.
+
+Click
+:menuselection:`+ --> New Issue` .
+The table below shows what each field should contain.
+
+Set :guilabel:`Tracker` to *Feature*.
+
+.. the :guilabel:`Tracker` may change. Kris has said that he could add
+   another option in the drop down, related to plugin submisisons.
+
+* :guilabel:`Subject`:
+
+Contains the name and a description of the plugin.
+
+* :guilabel:`Description`:
+
+   * Find the correct port by searching for the plugin at
+     `<https://www.freshports.org/>`__. Link the URL of the port.
+   * Create and link the URL of the Git artifact repo for the plugin.
+     Refer to :numref:`table %s <Artifact Files>` for possible files
+     that are in the artifact repo.
+
+.. _Artifact Files:
+
+.. table:: Artifact Files
+   :class: longtable
+
+   +-------------------------+----------------------------------------------------------------------+
+   | File                    | Description                                                          |
+   +=========================+======================================================================+
+   | :file:`post_install.sh` | This script is run *inside* the jail after                           |
+   |                         | it has been created and packages installed.                          |
+   |                         | Enable services in /etc/rc.conf that need to start                   |
+   |                         | with the jail startup, apply configuration settings,                 |
+   |                         | and more.                                                            |
+   +-------------------------+----------------------------------------------------------------------+
+   | :file:`ui.json`         | Json file that accepts the  key or value options:                    |
+   |                         |                                                                      |
+   |                         | :samp:`adminportal: "http://%%IP%%/"`                                |
+   |                         |                                                                      |
+   |                         | The web-interface of the plugin for control and                      |
+   |                         | configuration .                                                      |
+   +-------------------------+----------------------------------------------------------------------+
+   | :file:`overlay/`        | Directory of files copied on top of the jail post-install.           |
+   |                         | For example, :file:`usr/local/bin/myfile` is placed in the jails     |
+   |                         | /usr/local/bin/myfile location. Can be used to supply custom         |
+   |                         | files and configuration data, scripts, and more.                     |
+   +-------------------------+----------------------------------------------------------------------+
+   | :file:`settings.json`   | Json file that controls plugins settings interface. The required     |
+   |                         | fields include:                                                      |
+   |                         |                                                                      |
+   |                         | * :samp:`"servicerestart" : "service plexmediaserver restart"`       |
+   |                         |                                                                      |
+   |                         | Command to run when restarting service after changing settings.      |
+   |                         |                                                                      |
+   |                         | * :samp:`"serviceget" : "/usr/local/bin/myget"`                      |
+   |                         |                                                                      |
+   |                         | Points to the command used to get values for plugin configuration.   |
+   |                         | Provided by the plugin creator. Can be any language as long as it    |
+   |                         | accepts two arguments for key or value pair.                         |
+   |                         |                                                                      |
+   |                         | * :samp:`"options" : { }`                                            |
+   |                         |                                                                      |
+   |                         | This subsection contains arrays of elements, starting with the "key" |
+   |                         | name and required arguments for that particular type of setting.     |
+   +-------------------------+----------------------------------------------------------------------+
+
+Refer to the quassel
+`artifact repo <https://github.com/freenas/iocage-plugin-quassel>`__
+for an example.
+
+Click :guilabel:`Create` .
 
 .. _Available Plugins:
 
