@@ -24,11 +24,11 @@ first:
 * upgrading a ZFS pool is **optional**. Do not upgrade the pool if the
   the possibility of reverting to an earlier version of %brand% or
   repurposing the disks in another operating system that supports ZFS
-  is desired. It is not necessary to upgrade the pool unless newer ZFS
-  feature flags are required. If a pool is upgraded to the latest
-  feature flags, it will not be possible to import that pool into
-  another operating system that does not yet support those feature
-  flags.
+  is desired. It is not necessary to upgrade the pool unless the end
+  user has a specific need for the newer ZFS feature flags. If a pool
+  is upgraded to the latest feature flags, it will not be possible to
+  import that pool into another operating system that does not yet
+  support those feature flags.
 
 To perform the ZFS pool upgrade, go to
 :menuselection:`Storage --> Pools` and click the :guilabel:`Gear` icon

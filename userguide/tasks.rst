@@ -722,11 +722,11 @@ Periodic Snapshot Tasks
 -----------------------
 
 A periodic snapshot task allows scheduling the creation of read-only
-versions of ZFS volumes and datasets at a given point in time.
-Snapshots can be created quickly and, if little data changes, new
-snapshots take up very little space. For example, a snapshot where no
-files have changed takes 0 MB of storage, but as changes are made to
-files, the snapshot size changes to reflect the size of the changes.
+versions of pools and datasets at a given point in time. Snapshots can
+be created quickly and, if little data changes, new snapshots take up
+very little space. For example, a snapshot where no files have changed
+takes 0 MB of storage, but as changes are made to files, the snapshot
+size changes to reflect the size of the changes.
 
 Snapshots provide a clever way of keeping a history of files,
 providing a way to recover an older copy or even a deleted file. For
@@ -738,8 +738,8 @@ roll the system back to a specific point in time. If there is a
 catastrophic loss, an off-site snapshot can be used to restore the
 system up to the time of the last snapshot.
 
-An existing ZFS volume is required before creating a snapshot.
-Creating a volume is described in :ref:`Volume Manager`.
+A pool must exist before a snapshot can be created. Creating a pool is
+described in :ref:`Pools`.
 
 To create a periodic snapshot task, click
 :menuselection:`Tasks --> Periodic Snapshots
@@ -750,8 +750,8 @@ which opens the screen shown in
 summarizes the fields in this screen.
 
 .. note:: If only a one-time snapshot is needed, instead use
-   :menuselection:`Storage --> Volumes`
-   and click the :guilabel:`Create Snapshot` button for the volume or
+   :menuselection:`Storage --> Pools`
+   and click the :guilabel:`Create Snapshot` button for the pool or
    dataset to snapshot.
 
 
@@ -775,11 +775,11 @@ summarizes the fields in this screen.
    | Setting            | Value                      | Description                                                                                                  |
    |                    |                            |                                                                                                              |
    +====================+============================+==============================================================================================================+
-   | Volume/Dataset     | drop-down menu             | select an existing ZFS volume, dataset, or zvol                                                              |
+   | Pool/Dataset       | drop-down menu             | select an existing pool, dataset, or zvol                                                                    |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Recursive          | checkbox                   | select this box to take separate snapshots of the volume/dataset and each of its child datasets; if          |
-   |                    |                            | unchecked, a single snapshot is taken of only the specified volume/dataset, but not any child                |
+   | Recursive          | checkbox                   | select this box to take separate snapshots of the pool/dataset and each of its child datasets; if            |
+   |                    |                            | unchecked, a single snapshot is taken of only the specified pool/dataset, but not any child                  |
    |                    |                            | datasets                                                                                                     |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Snapshot Lifetime  | integer and drop-down menu | length of time to retain the snapshot on this system; if the snapshot is replicated, it is not removed       |
@@ -832,9 +832,9 @@ The basic configuration requires a source system with the original
 data and a destination system where the data will be replicated.
 The destination system is prepared to receive replicated data, a
 :ref:`Periodic Snapshot Tasks <Periodic Snapshot Tasks>` of the data
-on thesource system is created, and then a replication task is 
-created. As snapshots are automatically created on the source 
-computer, they are automatically replicated to the destination 
+on thesource system is created, and then a replication task is
+created. As snapshots are automatically created on the source
+computer, they are automatically replicated to the destination
 computer.
 
 .. note:: Replicated data is not visible on the receiving system until
@@ -862,9 +862,9 @@ computers.
 ^^^^^^^^^^^^^^^^
 
 *Alpha* is the source computer with the data to be replicated. It is
-at IP address *10.0.0.102*. A :ref:`volume <Volumes>` named *alphavol*
+at IP address *10.0.0.102*. A :ref:`pool <Pools>` named *alphapool*
 has already been created, and a :ref:`dataset <Create Dataset>` named
-*alphadata* has been created on that volume. This dataset contains the
+*alphadata* has been created on that pool. This dataset contains the
 files which will be snapshotted and replicated onto *Beta*.
 
 This new dataset has been created for this example, but a new dataset
@@ -873,13 +873,13 @@ data they wish to replicate.
 
 Create a periodic snapshot of the source dataset by selecting
 :menuselection:`Tasks --> Periodic Snapshots`.
-Click the *alphavol/alphadata* dataset to highlight it. Create a
+Click the *alphapool/alphadata* dataset to highlight it. Create a
 :ref:`Periodic Snapshot Tasks <Periodic Snapshot Tasks>` of it by clicking
 :guilabel:`Periodic Snapshots`, then
 :guilabel:`Add Periodic Snapshot` as shown in
 :numref:`Figure %s <zfs_create_periodic_replication_fig>`.
 
-This example creates a snapshot of the *alphavol/alphadata* dataset
+This example creates a snapshot of the *alphapool/alphadata* dataset
 every two hours from Monday through Friday between the hours of 9:00
 and 18:00 (6:00 PM). Snapshots are automatically deleted after their
 chosen lifetime of two weeks expires.
@@ -896,8 +896,8 @@ chosen lifetime of two weeks expires.
 ^^^^^^^^^^^^^^^^^^^^
 
 *Beta* is the destination computer where the replicated data will be
-copied.  It is at IP address *10.0.0.118*. A :ref:`volume <Volumes>`
-named *betavol* has already been created.
+copied.  It is at IP address *10.0.0.118*. A :ref:`pool <Pools>`
+named *betapool* has already been created.
 
 Snapshots are transferred with :ref:`SSH`. To allow incoming
 connections, this service is enabled on *Beta*. The service is not
@@ -911,8 +911,8 @@ Example: %brand% to %brand% Semi-Automatic Setup
 %brand% offers a special semi-automatic setup mode that simplifies
 setting up replication.  Create the replication task on *Alpha* by
 clicking :guilabel:`Replication Tasks` and
-:guilabel:`Add Replication`. *alphavol/alphadata* is selected as the
-dataset to replicate. *betavol* is the destination volume where
+:guilabel:`Add Replication`. *alphapool/alphadata* is selected as the
+dataset to replicate. *betapool* is the destination pool where
 *alphadata* snapshots are replicated. The :guilabel:`Setup mode`
 dropdown is set to *Semi-automatic* as shown in
 :numref:`Figure %s <zfs_create_repl2_fig>`.
@@ -998,7 +998,7 @@ it before continuing.
 On *Alpha*, select
 :menuselection:`Account --> Users`.
 Click the :guilabel:`Add User`. Enter *repluser* for
-:guilabel:`Username`, enter */mnt/alphavol/repluser* in the
+:guilabel:`Username`, enter */mnt/alphapool/repluser* in the
 :guilabel:`Create Home Directory In` field, enter
 *Replication Dedicated User* for the :guilabel:`Full Name`, and set
 the :guilabel:`Disable password login` checkbox. Leave the other
@@ -1010,7 +1010,7 @@ the sending computer. Select
 :menuselection:`Account --> Users`.
 Click the :guilabel:`Add User`. Enter the *User ID* number from
 *Alpha*, *repluser* for :guilabel:`Username`, enter
-*/mnt/betavol/repluser* in the :guilabel:`Create Home Directory In`
+*/mnt/betapool/repluser* in the :guilabel:`Create Home Directory In`
 field, enter *Replication Dedicated User* for the
 :guilabel:`Full Name`, and set the :guilabel:`Disable password login`
 checkbox. Leave the other fields at their default values. Click
@@ -1018,8 +1018,8 @@ checkbox. Leave the other fields at their default values. Click
 
 A dataset with the same name as the original must be created on the
 destination computer, *Beta*. Select
-:menuselection:`Storage --> Volumes`,
-click on *betavol*, then click the :guilabel:`Create Dataset` icon at
+:menuselection:`Storage --> Pools`,
+click on *betapool*, then click the :guilabel:`Create Dataset` icon at
 the bottom. Enter *alphadata* as the :guilabel:`Dataset Name`, then
 click :guilabel:`Add Dataset`.
 
@@ -1028,7 +1028,7 @@ dataset. Still on *Beta*, open a :ref:`Shell` and enter this command:
 
 .. code-block:: none
 
-   zfs allow -ldu repluser create,destroy,diff,mount,readonly,receive,release,send,userprop betavol/alphadata
+   zfs allow -ldu repluser create,destroy,diff,mount,readonly,receive,release,send,userprop betapool/alphadata
 
 
 The destination dataset must also be set to read-only. Enter this
@@ -1036,7 +1036,7 @@ command in the :ref:`Shell`:
 
 .. code-block:: none
 
-   zfs set readonly=on betavol/alphadata
+   zfs set readonly=on betapool/alphadata
 
 
 Close the :ref:`Shell` by typing :command:`exit` and pressing
@@ -1053,7 +1053,7 @@ save the tunable settings.
 Back on *Alpha*, create a periodic snapshot of the source dataset by
 selecting
 :menuselection:`Storage --> Periodic Snapshot Tasks`.
-Click the *alphavol/alphadata* dataset to highlight it. Create a
+Click the *alphapool/alphadata* dataset to highlight it. Create a
 :ref:`Periodic Snapshot Tasks <Periodic Snapshot Tasks>` of it by clicking
 :guilabel:`Periodic Snapshots`, then
 :guilabel:`Add Periodic Snapshot` as shown in
@@ -1061,8 +1061,8 @@ Click the *alphavol/alphadata* dataset to highlight it. Create a
 
 Still on *Alpha*, create the replication task by clicking
 :guilabel:`Replication Tasks` and :guilabel:`Add Replication`.
-*alphavol/alphadata* is selected as the dataset to replicate.
-*betavol/alphadata* is the destination volume and dataset where
+*alphapool/alphadata* is selected as the dataset to replicate.
+*betapool/alphadata* is the destination pool and dataset where
 *alphadata* snapshots are replicated.
 
 The :guilabel:`Setup mode` dropdown is set to *Semi-automatic* as
@@ -1134,7 +1134,7 @@ This example uses the same basic configuration of source and
 destination computers shown above, but the destination computer is not
 required to be a %brand% system. Other operating systems can receive
 the replication if they support SSH, ZFS, and the same features that
-are in use on the source system. The details of creating volumes and
+are in use on the source system. The details of creating pools and
 datasets, enabling SSH, and copying encryption keys will vary when the
 destination computer is not a %brand% system.
 
@@ -1176,8 +1176,8 @@ copied key into the :guilabel:`SSH Public Key` field and click
 
 Back on *Alpha*, create the replication task by clicking
 :guilabel:`Replication Tasks` and :guilabel:`Add Replication`.
-*alphavol/alphadata* is selected as the dataset to replicate. The
-destination volume is *betavol*. The *alphadata* dataset and snapshots
+*alphapool/alphadata* is selected as the dataset to replicate. The
+destination pool is *betapool*. The *alphadata* dataset and snapshots
 are replicated there. The IP address of *Beta* is entered in the
 :guilabel:`Remote hostname` field as shown in
 :numref:`Figure %s <zfs_create_repl1_fig>`.
@@ -1221,11 +1221,11 @@ options in the replication task dialog.
    |                           |                |                                                                                                              |
    |                           |                |                                                                                                              |
    +===========================+================+==============================================================================================================+
-   | Volume/Dataset            | drop-down menu | ZFS volume or dataset on the source computer containing the snapshots to be replicated; the                  |
+   | Pool/Dataset              | drop-down menu | pool or dataset on the source computer containing the snapshots to be replicated; the                        |
    |                           |                | drop-down menu is empty if a snapshot does not already exist                                                 |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote ZFS Volume/Dataset | string         | ZFS volume on the remote or destination computer which will store the snapshots; if the destination dataset  |
+   | Remote Pool/Dataset       | string         | pool on the remote or destination computer which will store the snapshots; if the destination dataset        |
    |                           |                | is not present, it will be created; :file:`/mnt/` is assumed, do not include it in the path                  |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
@@ -1523,14 +1523,14 @@ can also show helpful messages to locate the problem.
 On the source computer, *Alpha*, open a :ref:`Shell` and manually send
 a single snapshot to the destination computer, *Beta*. The snapshot
 used in this example is named :file:`auto-20161206.1110-2w`. As
-before, it is located in the *alphavol/alphadata* dataset. A
+before, it is located in the *alphapool/alphadata* dataset. A
 :literal:`@` symbol separates the name of the dataset from the name of
 the snapshot in the command.
 
 
 .. code-block:: none
 
-   zfs send alphavol/alphadata@auto-20161206.1110-2w | ssh -i /data/ssh/replication 10.0.0.118 zfs recv betavol
+   zfs send alphapool/alphadata@auto-20161206.1110-2w | ssh -i /data/ssh/replication 10.0.0.118 zfs recv betapool
 
 
 If a snapshot of that name already exists on the destination computer,
@@ -1541,7 +1541,7 @@ opening a :ref:`Shell` on *Beta* and running this command:
 
 .. code-block:: none
 
-   zfs destroy -R betavol/alphadata@auto-20161206.1110-2w
+   zfs destroy -R betapool/alphadata@auto-20161206.1110-2w
 
 
 Then send the snapshot manually again. Snapshots on the destination
@@ -1558,17 +1558,17 @@ Error messages here can indicate any remaining problems.
 Scrubs
 ----------
 
-A scrub is the process of ZFS scanning through the data on a volume.
+A scrub is the process of ZFS scanning through the data on a pool.
 Scrubs help to identify data integrity problems, detect silent data
 corruptions caused by transient hardware issues, and provide early
 alerts of impending disk failures. %brand% makes it easy to schedule
 periodic automatic scrubs.
 
-Each volume should be scrubbed at least once a month. Bit errors in
+Each pool should be scrubbed at least once a month. Bit errors in
 critical data can be detected by ZFS, but only when that data is read.
 Scheduled scrubs can find bit errors in rarely-read data. The amount
 of time needed for a scrub is proportional to the quantity of data on
-the volume. Typical scrubs take several hours or longer.
+the pool. Typical scrubs take several hours or longer.
 
 The scrub process is I/O intensive and can negatively impact
 performance. Schedule scrubs for evenings or weekends to minimize
@@ -1584,13 +1584,13 @@ to run once or twice a month.
 Scrubs are scheduled and managed with
 :menuselection:`Tasks --> Scrub Tasks`.
 
-When a volume is created, a ZFS scrub is automatically scheduled. An
-entry with the same volume name is added to
+When a pool is created, a scrub is automatically scheduled. An entry
+with the same pool name is added to
 :menuselection:`Tasks --> Scrub Tasks`.
 A summary of this entry can be viewed with
 :menuselection:`Tasks --> Scrub Tasks`.
 :numref:`Figure %s <zfs_view_volume_scrub_fig>`
-displays the default settings for the volume named :file:`volume1`. In
+displays the default settings for the pool named :file:`pool1`. In
 this example, the entry has been highlighted and the :guilabel:`Edit`
 button clicked to display the :guilabel:`Edit` screen.
 :numref:`Table %s <zfs_scrub_opts_tab>`
@@ -1601,7 +1601,7 @@ summarizes the options in this screen.
 
 .. figure:: images/storage-scrub.png
 
-   Viewing a Volume's Default Scrub Settings
+   Viewing Pool Default Scrub Settings
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -1618,7 +1618,7 @@ summarizes the options in this screen.
    |                |                             |                                                                                                             |
    |                |                             |                                                                                                             |
    +================+=============================+=============================================================================================================+
-   | Volume         | drop-down menu              | volume to be scrubbed                                                                                       |
+   | Pool           | drop-down menu              | pool to be scrubbed                                                                                         |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Description    | string                      | optional text description of scrub                                                                          |
