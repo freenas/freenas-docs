@@ -23,7 +23,7 @@
    processes
    shell
    logout
-   reboot
+   restart
    shutdown
    help
    alert
