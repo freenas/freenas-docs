@@ -2040,7 +2040,8 @@ summarizes the options in the UPS Configuration screen.
    | No Communication Warning Time | string         | the frequency, in seconds, of email notifications during the loss of UPS communications; the default  |
    |                               |                | is *300*                                                                                              |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Monitor User                  | string         | a user account that %brand% will use to communicate with the UPS daemon. The default is *upsmon*      |
+   | Monitor User                  | string         | a user name that %brand% will use to communicate with the UPS daemon. The default is *upsmon*. This   |
+   |                               |                | name is only used internally and does not need to be created within the %brand% GUI                   |
    |                               |                |                                                                                                       |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Monitor Password              | string         | default is known value *fixmepass* and should be changed; cannot contain a space or #, and usually    |
