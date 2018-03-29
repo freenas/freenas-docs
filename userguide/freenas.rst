@@ -20,7 +20,6 @@
    jails
    vms
    reporting
-   wizard
    processes
    shell
    logout

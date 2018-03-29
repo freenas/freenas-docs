@@ -30,9 +30,10 @@ copyright = '2011-2018, iXsystems'
 #
 
 # VERSION is the LONG, FULL version number with all patch levels, like "11.0-U1"
-version = '11.1-U4'
+version = '11.2-BETA1'
+
 # RELEASE is the short major release number ONLY, like "11.0"
-release = '11.1'
+release = '11.2'
 
 if tags.has('truenas'):
     # VERSION is the LONG, FULL, version number
@@ -94,7 +95,7 @@ if tags.has('bsg-xseries'):
     project = brand + ' ' + six.u('X-Series Unified Storage Array')
     projtype = 'Basic Setup Guide'
     master_doc = 'bsg-xseries'
-    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_x_front.png}'
+    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/truenas/x_front.png}'
 
 if tags.has('bsg-es12'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
@@ -102,7 +103,7 @@ if tags.has('bsg-es12'):
     project = brand + ' ' + six.u('ES12 Expansion Shelf')
     projtype = 'Basic Setup Guide'
     master_doc = 'bsg-es12'
-    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_es12_front.png}'
+    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/truenas/es12_front.png}'
 
 if tags.has('bsg-es24'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
@@ -110,7 +111,7 @@ if tags.has('bsg-es24'):
     project = brand + ' ' + six.u('ES24 Expansion Shelf')
     projtype = 'Basic Setup Guide'
     master_doc = 'bsg-es24'
-    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_es24_front.png}'
+    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/truenas/es24_front.png}'
 
 if tags.has('bsg-es60'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
@@ -118,7 +119,7 @@ if tags.has('bsg-es60'):
     project = brand + ' ' + six.u('ES60 Expansion Shelf')
     projtype = 'Basic Setup Guide'
     master_doc = 'bsg-es60'
-    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_es60.png}'
+    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/truenas/es60.png}'
 
 
 # |brand| will be replaced with FreeNAS® or TrueNAS®

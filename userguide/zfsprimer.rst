@@ -10,7 +10,7 @@ to provide features not available in traditional UNIX filesystems. It
 was originally developed at Sun with the intent to open source the
 filesystem so that it could be ported to other operating systems.
 After the Oracle acquisition of Sun, some of the original ZFS
-engineers founded `OpenZFS <http://open-zfs.org/wiki/Main_Page>`_
+engineers founded `OpenZFS <http://open-zfs.org/wiki/Main_Page>`__
 to provide continued, collaborative development of the open
 source version. To differentiate itself from Oracle ZFS version
 numbers, OpenZFS uses feature flags. Feature flags are used to tag
@@ -24,7 +24,7 @@ Here is an overview of the features provided by ZFS:
 
 **ZFS is a transactional, Copy-On-Write**
 `(COW)
-<https://en.wikipedia.org/wiki/ZFS#Copy-on-write_transactional_model>`_
+<https://en.wikipedia.org/wiki/ZFS#Copy-on-write_transactional_model>`__
 filesystem. For each write request, a copy is made of the associated
 disk blocks and all changes are made to the copy rather than to the
 original blocks. When the write is complete, all block pointers are
@@ -35,7 +35,7 @@ successfully. ZFS has direct access to disks and bundles multiple read
 and write requests into transactions. Most filesystems cannot do this,
 as they only have access to disk blocks. A transaction either
 completes or fails, meaning there will never be a
-`write-hole <https://blogs.oracle.com/bonwick/entry/raid_z>`_
+`write-hole <https://blogs.oracle.com/bonwick/entry/raid_z>`__
 and a filesystem checker utility is not necessary. Because of the
 transactional design, as additional storage capacity is added, it
 becomes immediately available for writes. To rebalance the data, one
@@ -56,31 +56,33 @@ multiple disks are required in order to provide redundancy and data
 correction, ZFS will still provide data corruption detection to a
 system with one disk. %brand% automatically schedules a monthly scrub
 for each ZFS pool and the results of the scrub are displayed by
-selecting the :ref:`Volume <Volumes>` then clicking the
-:guilabel:`Volume Status` button. Checking scrub results can provide
-an early indication of potential disk problems.
+selecting the :ref:`Pool <Pools>`, clicking the
+:guilabel:`Gear icon`, then the :guilabel:`Status` button. Checking
+scrub results can provide an early indication of potential disk
+problems.
 
-Unlike traditional UNIX filesystems, **it is not necessary to define
-partition sizes when filesystems are created**. Instead, a group of
-disks, known as a *vdev*, are built into a ZFS *pool*. Filesystems are
-created from the pool as needed. As more capacity is needed, identical
-vdevs can be striped into the pool. In %brand%, :ref:`Volume Manager`
-can be used to create or extend ZFS pools. After a pool is created, it
-can be divided into dynamically-sized datasets or fixed-size zvols as
-needed. Datasets can be used to optimize storage for the type of data
-being stored as permissions and properties such as quotas and
-compression can be set on a per-dataset level. A zvol is essentially a
-raw, virtual block device which can be used for applications that need
-raw-device semantics such as iSCSI device extents.
+Unlike traditional UNIX filesystems,
+**it is not necessary to define partition sizes when filesystems are
+created**.
+Instead, a group of disks, known as a *vdev*, are built into a ZFS
+*pool*. Filesystems are created from the pool as needed. As more
+capacity is needed, identical vdevs can be striped into the pool. In
+%brand%, :ref:`Pool Manager` can be used to create or extend pools.
+After a pool is created, it can be divided into dynamically-sized
+datasets or fixed-size zvols as needed. Datasets can be used to
+optimize storage for the type of data being stored as permissions and
+properties such as quotas and compression can be set on a per-dataset
+level. A zvol is essentially a raw, virtual block device which can be
+used for applications that need raw-device semantics such as iSCSI
+device extents.
 
 **ZFS supports real-time data compression**. Compression happens when
 a block is written to disk, but only if the written data will benefit
 from compression. When a compressed block is accessed, it is
 automatically decompressed. Since compression happens at the block
 level, not the file level, it is transparent to any applications
-accessing the compressed data. By default, ZFS pools made using
-%brand% version 9.2.1 or later will use the recommended LZ4
-compression algorithm.
+accessing the compressed data. ZFS pools created on %brand% version
+9.2.1 or later use the recommended LZ4 compression algorithm.
 
 **ZFS provides low-cost, instantaneous snapshots** of the specified
 pool, dataset, or zvol. Due to COW, snapshots initially take no
@@ -103,7 +105,7 @@ also be replicated to a remote ZFS pool. During replication, ZFS does
 not do a byte-for-byte copy but instead converts a snapshot into a
 stream of data. This design means that the ZFS pool on the receiving
 end does not need to be identical and can use a different RAIDZ level,
-volume size, or compression settings.
+pool size, or compression settings.
 
 **ZFS boot environments provide a method for recovering from a failed
 upgrade**. In %brand%, a snapshot of the dataset the operating system
@@ -119,11 +121,11 @@ changes.
 
 **ZFS provides a write cache** in RAM as well as a ZFS Intent Log
 (`ZIL
-<https://blogs.oracle.com/realneel/entry/the_zfs_intent_log>`_).
+<https://blogs.oracle.com/realneel/entry/the_zfs_intent_log>`__).
 The ZIL is a storage area that
 `temporarily holds *synchronous* writes until they are written to the
 ZFS pool
-<https://pthree.org/2013/04/19/zfs-administration-appendix-a-visualizing-the-zfs-intent-log/>`_.
+<https://pthree.org/2013/04/19/zfs-administration-appendix-a-visualizing-the-zfs-intent-log/>`__.
 Adding a fast (low-latency), power-protected SSD as a SLOG
 (*Separate Log*) device permits much higher performance. This is a
 necessity for NFS over ESXi, and highly recommended for database
@@ -132,20 +134,20 @@ detail on SLOG benefits and usage is available in these blog and forum
 posts:
 
 * `The ZFS ZIL and SLOG Demystified
-  <http://www.freenas.org/blog/zfs-zil-and-slog-demystified/>`_
+  <http://www.freenas.org/blog/zfs-zil-and-slog-demystified/>`__
 
 * `Some insights into SLOG/ZIL with ZFS on FreeNAS®
-  <https://forums.freenas.org/index.php?threads/some-insights-into-slog-zil-with-zfs-on-freenas.13633/>`_
+  <https://forums.freenas.org/index.php?threads/some-insights-into-slog-zil-with-zfs-on-freenas.13633/>`__
 
 * `ZFS Intent Log
-  <http://nex7.blogspot.com/2013/04/zfs-intent-log.html>`_
+  <http://nex7.blogspot.com/2013/04/zfs-intent-log.html>`__
 
 Synchronous writes are relatively rare with SMB, AFP, and iSCSI, and
 adding a SLOG to improve performance of these protocols only makes
 sense in special cases. The :command:`zilstat` utility can be run from
 :ref:`Shell` to determine if the system will benefit from a SLOG. See
 `this website
-<http://www.richardelling.com/Home/scripts-and-programs-1/zilstat>`_
+<http://www.richardelling.com/Home/scripts-and-programs-1/zilstat>`__
 for usage information.
 
 ZFS currently uses 16 GB of space for SLOG. Larger SSDs can be
@@ -164,11 +166,11 @@ value of *-* means the ZFS pool is version 5000 (also known as
 
 **ZFS provides a read cache** in RAM, known as the ARC, which reduces
 read latency. %brand% adds ARC stats to
-`top(1) <http://www.freebsd.org/cgi/man.cgi?query=top>`_
+`top(1) <http://www.freebsd.org/cgi/man.cgi?query=top>`__
 and includes the :command:`arc_summary.py` and :command:`arcstat.py`
 tools for monitoring the efficiency of the ARC. If an SSD is dedicated
 as a cache device, it is known as an
-`L2ARC <https://blogs.oracle.com/brendan/entry/test>`_.
+`L2ARC <https://blogs.oracle.com/brendan/entry/test>`__.
 Additional read data is cached here, which can increase random read
 performance. L2ARC does *not* reduce the need for sufficient RAM. In
 fact, L2ARC needs RAM to function. If there is not enough RAM for a
@@ -232,17 +234,17 @@ the goal is to maximize disk space or performance:
   for %brand% 9.2.1 and higher, this is no longer true. See
   `ZFS RAIDZ stripe width, or: How I Learned to Stop Worrying and Love
   RAIDZ
-  <http://blog.delphix.com/matt/2014/06/06/zfs-stripe-width/>`_
+  <http://blog.delphix.com/matt/2014/06/06/zfs-stripe-width/>`__
   for details.
 
 These resources can also help determine the RAID configuration best
 suited to your storage needs:
 
 * `Getting the Most out of ZFS Pools
-  <https://forums.freenas.org/index.php?threads/getting-the-most-out-of-zfs-pools.16/>`_
+  <https://forums.freenas.org/index.php?threads/getting-the-most-out-of-zfs-pools.16/>`__
 
 * `A Closer Look at ZFS, Vdevs and Performance
-  <http://constantin.glez.de/blog/2010/06/closer-look-zfs-vdevs-and-performance>`_
+  <http://constantin.glez.de/blog/2010/06/closer-look-zfs-vdevs-and-performance>`__
 
 .. warning:: RAID AND DISK REDUNDANCY ARE NOT A SUBSTITUTE FOR A
    RELIABLE BACKUP STRATEGY. BAD THINGS HAPPEN AND A GOOD BACKUP

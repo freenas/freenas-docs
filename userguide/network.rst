@@ -47,7 +47,7 @@ network interface.
 .. figure:: images/network-global.png
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_network-global.png
+.. figure:: images/truenas/network-global.png
 #endif truenas
 
    Global Network Configuration

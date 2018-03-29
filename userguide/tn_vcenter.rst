@@ -42,7 +42,7 @@ shown in
 
 .. _vcenter_plugin_config_fig:
 
-.. figure:: images/tn_vcenter-plugin-config.png
+.. figure:: images/truenas/vcenter-plugin-config.png
 
    Configuring the vCenter Plugin
 
@@ -123,7 +123,7 @@ in the left tree. In the secure connection screen shown in
 
 .. _vcenter_secure_fig:
 
-.. figure:: images/tn_vcenter-plugin-secure.png
+.. figure:: images/truenas/vcenter-plugin-secure.png
 
    Securing the vCenter Plugin Connection
 
@@ -153,7 +153,7 @@ shows the :guilabel:`Add New Host` window.
 
 .. _vcenter_new_host_fig:
 
-.. figure:: images/tn_vcenter-newhost.png
+.. figure:: images/truenas/vcenter-newhost.png
 
    Adding a New %brand% Host
 
@@ -209,7 +209,7 @@ datastore is to be available, as shown in
 
 .. _vcenter_datastore_host_select_fig:
 
-.. figure:: images/tn_vcenter-datastore-create-hostselection.png
+.. figure:: images/truenas/vcenter-datastore-create-hostselection.png
 
    Choosing an ESXi Host
 
@@ -222,7 +222,7 @@ shows the configuration screen for the new datastore:
 
 .. _vcenter_datastore_vmfs_config_fig:
 
-.. figure:: images/tn_vcenter-datastore-vmfs-config.png
+.. figure:: images/truenas/vcenter-datastore-vmfs-config.png
 
    Configuring a VMFS Datastore
 
@@ -234,7 +234,7 @@ the :guilabel:`Data Path IP` box. Select the desired
 :guilabel:`VMFS Version` from the drop-down. If a
 :guilabel:`Sparse Volume` is desired, check the box.
 
-Select the %brand% volume on which to create the datastore, then click
+Select the %brand% pool on which to create the datastore, then click
 :guilabel:`Next`.
 :numref:`Figure %s <vcenter_datastore_vmfs_confirm_fig>`
 shows the final summary screen:
@@ -242,7 +242,7 @@ shows the final summary screen:
 
 .. _vcenter_datastore_vmfs_confirm_fig:
 
-.. figure:: images/tn_vcenter-datastore-confirm-vmfs.png
+.. figure:: images/truenas/vcenter-datastore-confirm-vmfs.png
 
    Finish Creating the Datastore
 
@@ -264,7 +264,7 @@ Highlight a VMFS datastore from the list, then click the
 
 .. _vcenter_datastore_extend_fig:
 
-.. figure:: images/tn_vcenter-datastore-extend.png
+.. figure:: images/truenas/vcenter-datastore-extend.png
 
    Extending a Datastore
 
@@ -301,7 +301,7 @@ shows the configuration window for the new NFS datastore.
 
 .. _vcenter_datastore_config_nfs_fig:
 
-.. figure:: images/tn_vcenter-datastore-config-nfs.png
+.. figure:: images/truenas/vcenter-datastore-config-nfs.png
 
    Configuring an NFS Datastore
 
@@ -314,7 +314,7 @@ the NFS share on the %brand% system is entered in the
 
 .. _vcenter_datastore_confirm_nfs_fig:
 
-.. figure:: images/tn_vcenter-datastore-confirm-nfs.png
+.. figure:: images/truenas/vcenter-datastore-confirm-nfs.png
 
    New NFS Datastore Summary
 
@@ -338,7 +338,7 @@ ESXi host on which the datastore is to be available. Click
 
 .. _vcenter_datastore_clone_fig:
 
-.. figure:: images/tn_vcenter-datastore-clone.png
+.. figure:: images/truenas/vcenter-datastore-clone.png
 
    Creating a Datastore Clone
 
@@ -374,7 +374,7 @@ Available snapshots are listed in this tab.
 
 .. _vcenter_snapshot_manage_fig:
 
-.. figure:: images/tn_vcenter-snapshot-manage.png
+.. figure:: images/truenas/vcenter-snapshot-manage.png
 
    Managing Snapshots
 
@@ -396,7 +396,7 @@ snapshot.
 Scheduling: Periodic Snapshots
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See the :ref:`Periodic Snapshot Tasks` section for more details about
+See the :ref:`Tasks Periodic Snapshots` section for more details about
 native %brand% periodic snapshots.
 
 The :guilabel:`Scheduling` tab is used to :guilabel:`Create`,
@@ -409,7 +409,7 @@ schedule, as shown in
 
 .. _vcenter_new_periodic_snapshot_fig:
 
-.. figure:: images/tn_vcenter-new-periodic-snapshot.png
+.. figure:: images/truenas/vcenter-new-periodic-snapshot.png
 
    Creating a New Periodic Snapshot Task
 
@@ -456,7 +456,7 @@ Click the :guilabel:`+` button to open the
 
 .. _vcenter_replication_create_fig:
 
-.. figure:: images/tn_vcenter-replication-create.png
+.. figure:: images/truenas/vcenter-replication-create.png
 
    Create a new replication schedule
 
@@ -503,12 +503,12 @@ shows the :guilabel:`Create ZVol` window.
 
 .. _vcenter_zvol_create_fig:
 
-.. figure:: images/tn_vcenter-zvol-create.png
+.. figure:: images/truenas/vcenter-zvol-create.png
 
    Create a new zvol
 
 
-Select a volume from the drop-down menu. Type a name for the new zvol.
+Select a pool from the drop-down menu. Type a name for the new zvol.
 Adjust the size of the zvol with the :guilabel:`arrow` buttons and
 :guilabel:`Size` drop menu. If desired, check :guilabel:`Sparse` to
 activate thin provisioning.
@@ -532,7 +532,7 @@ size.
 
 .. _vcenter_zvol_edit_fig:
 
-.. figure:: images/tn_vcenter-zvol-edit.png
+.. figure:: images/truenas/vcenter-zvol-edit.png
 
    Edit a Zvol
 
@@ -564,7 +564,7 @@ as shown in
 
 .. _vcenter_target_create_fig:
 
-.. figure:: images/tn_vcenter-target-create.png
+.. figure:: images/truenas/vcenter-target-create.png
 
    Creating a Target
 
@@ -583,7 +583,7 @@ open the :guilabel:`Edit Target` window, shown in
 
 .. _vcenter_target_edit_fig:
 
-.. figure:: images/tn_vcenter-target-edit.png
+.. figure:: images/truenas/vcenter-target-edit.png
 
    Editing a Target
 
@@ -607,7 +607,7 @@ shows the :guilabel:`Create Extent` window.
 
 .. _vcenter_extent_create_fig:
 
-.. figure:: images/tn_vcenter-extent-create.png
+.. figure:: images/truenas/vcenter-extent-create.png
 
    Creating a new extent
 

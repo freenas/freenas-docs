@@ -32,8 +32,8 @@ VAAI for iSCSI supports these operations:
 * *LUN Reporting* allows a hypervisor to query the NAS to determine
   whether a LUN is using thin provisioning.
 
-* *Stun* pauses running virtual machines when a volume runs out
-  of space. The space issue can then be fixed and the virtual machines
+* *Stun* pauses running virtual machines when a pool runs out of
+  space. The space issue can then be fixed and the virtual machines
   can continue rather than reporting write errors.
 
 * *Threshold Warning* the system reports a warning when a

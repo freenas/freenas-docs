@@ -154,7 +154,7 @@ and click :guilabel:`Create Volume Type`. The window shown in
 
 .. _tn_openstack_createvoltype:
 
-.. figure:: images/tn_cinder-admin-voltypes-create.png
+.. figure:: images/truenas/cinder-admin-voltypes-create.png
 
    Creating the *ixsystems-iscsi* Volume Type
 
@@ -191,7 +191,7 @@ with the :guilabel:`Volumes` tab visible:
 
 .. _tn_openstack_proj_vol_tab:
 
-.. figure:: images/tn_cinder_project_compute_vols.png
+.. figure:: images/truenas/cinder_project_compute_vols.png
 
    Interface for Managing Project Volumes
 
@@ -251,7 +251,7 @@ tab, seen in
 
 .. _tn_openstack_project_compute_vols_volsnaps:
 
-.. figure:: images/tn_cinder-project-volsnaps.png
+.. figure:: images/truenas/cinder-project-volsnaps.png
 
    Project Volume Snapshots Tab
 
@@ -285,7 +285,7 @@ Managing Volumes
 
 .. _tn_openstack_admin_sys_vols:
 
-.. figure:: images/tn_cinder_admin_sys_vols.png
+.. figure:: images/truenas/cinder_admin_sys_vols.png
 
    OpenStack Volumes Tab
 
@@ -344,7 +344,7 @@ driver installation, two types are visible:
 
 .. _tn_openstack_admin_system_vols_voltypes:
 
-.. figure:: images/tn_cinder-admin-voltypes.png
+.. figure:: images/truenas/cinder-admin-voltypes.png
 
    OpenStack Volume Types Tab
 
@@ -401,7 +401,7 @@ shows an example:
 
 .. _tn_openstack_admin_sys_vols_volsnaps:
 
-.. figure:: images/tn_cinder-admin-volsnaps.png
+.. figure:: images/truenas/cinder-admin-volsnaps.png
 
    Manage All Projects Volume Snapshots
 

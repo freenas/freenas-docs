@@ -3,20 +3,11 @@
 Sharing
 =======
 
-*Shares* are created to make part or all of a volume accessible to
+*Shares* are created to make part or all of a pool accessible to
 other computers on the network. The type of share to create depends
 on factors like which operating systems are being used by computers
 on the network, security requirements, and expectations for network
 transfer speeds.
-
-%brand% provides a :ref:`Wizard` for creating shares. The
-:ref:`Wizard` automatically creates the correct type of dataset
-and permissions for the type of share, sets the default permissions
-for the share type, and starts the service needed by the share. It is
-recommended to use the Wizard to create shares, fine-tune the share
-settings using the instructions in the rest of this chapter if needed,
-then fine-tune the default permissions from the client operating
-system to meet the requirements of the network.
 
 .. note:: Shares are created to provide and control access to an area
    of storage. Before creating shares, it is recommended to make a
@@ -77,20 +68,20 @@ than unencrypted FTP due to the encryption overhead, but the data
 passing through the network is encrypted.
 
 
-.. note:: It is generally a mistake to share a volume or dataset with
+.. note:: It is generally a mistake to share a pool or dataset with
    more than one share type or access method. Different types of
    shares and services use different file locking methods. For
-   example, if the same volume is configured to use both NFS and FTP,
+   example, if the same pool is configured to use both NFS and FTP,
    NFS will lock a file for editing by an NFS user, but an FTP user
    can simultaneously edit or delete that file. This results in lost
-   edits and confused users. Another example: if a volume is
-   configured for both AFP and SMB, Windows users can be confused by
-   the "extra" filenames used by Mac files and delete them. This
-   corrupts the files on the AFP share. Pick the one type of share or
-   service that makes the most sense for the types of clients
-   accessing that volume, and use that single type of share or
-   service. To support multiple types of shares, divide the volume
-   into datasets and use one dataset per share.
+   edits and confused users. Another example: if a pool is configured
+   for both AFP and SMB, Windows users can be confused by the "extra"
+   filenames used by Mac files and delete them. This corrupts the
+   files on the AFP share. Pick the one type of share or service that
+   makes the most sense for the types of clients accessing that pool,
+   and use that single type of share or service. To support multiple
+   types of shares, divide the pool into datasets and use one dataset
+   per share.
 
 
 This section demonstrates configuration and fine-tuning of AFP, NFS,
@@ -107,18 +98,16 @@ Apple (AFP) Shares
 %brand% uses the
 `Netatalk <http://netatalk.sourceforge.net/>`_
 AFP server to share data with Apple systems. This section describes
-the configuration screen for fine-tuning AFP shares created using the
-:ref:`Wizard`. It then provides configuration examples for using the
-:ref:`Wizard` to create a guest share, configuring Time Machine to
-back up to a dataset on the %brand% system, and for connecting to the
-share from a Mac OS X client.
+the configuration screen for fine-tuning AFP shares. It then provides
+configuration examples for configuring Time Machine to back up to a
+dataset on the %brand% system and for connecting to the share from a
+Mac OS X client.
 
-To view the AFP share created by the Wizard, click
-:menuselection:`Sharing --> Apple (AFP)`
-and highlight the name of the share. Click its :guilabel:`Edit` button
-to see the configuration options shown in
-:numref:`Figure %s <creating_afp_share_fig>`.
-The values showing for these options will vary, depending upon the
+To view a created AFP share, click
+:menuselection:`Sharing --> Apple (AFP)` and highlight the name of the
+share. Click its :guilabel:`Edit` button to see the configuration
+options shown in :numref:`Figure %s <creating_afp_share_fig>`. The
+values showing for these options will vary, depending upon the
 information given when the share was created.
 
 
@@ -155,11 +144,11 @@ information given when the share was created.
    | Setting                      | Value         | Advanced | Description                                                                                                   |
    |                              |               | Mode     |                                                                                                               |
    +==============================+===============+==========+===============================================================================================================+
-   | Path                         | browse button |          | browse to the volume/dataset to share; do not nest additional volumes, datasets, or symbolic links beneath    |
+   | Path                         | browse button |          | browse to the pool or dataset to share; do not nest additional pools, datasets, or symbolic links beneath     |
    |                              |               |          | this path because Netatalk does not fully support that                                                        |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Name                         | string        |          | volume name which appears in the Mac computer's :guilabel:`connect to server` dialog; limited to              |
+   | Name                         | string        |          | pool name which appears in the Mac computer :guilabel:`connect to server` dialog; limited to                  |
    |                              |               |          | 27 characters and cannot contain a period                                                                     |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
@@ -183,7 +172,7 @@ information given when the share was created.
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Time Machine                 | checkbox      |          | when checked, %brand% advertises itself as a Time Machine disk so it can be found by Macs; due to a           |
-   |                              |               |          | limitation in how the Mac deals with low-diskspace issues when multiple Macs share the same volume,           |
+   |                              |               |          | limitation in how the Mac deals with low-diskspace issues when multiple Macs share the same pool,             |
    |                              |               |          | checking :guilabel:`Time Machine` on multiple shares could result in intermittent failed backups              |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
@@ -194,8 +183,8 @@ information given when the share was created.
    | Zero Device Numbers          | checkbox      | ✓        | enable when the device number is not constant across a reboot                                                 |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | No Stat                      | checkbox      | ✓        | if checked, AFP does not stat the volume path when enumerating the volumes list; useful for                   |
-   |                              |               |          | automounting or volumes created by a preexec script                                                           |
+   | No Stat                      | checkbox      | ✓        | if checked, AFP does not stat the pool path when enumerating the pools list; useful for                       |
+   |                              |               |          | automounting or pools created by a preexec script                                                             |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | AFP3 UNIX Privs              | checkbox      | ✓        | enable Unix privileges supported by OSX 10.5 and higher; do not enable this if the network contains           |
@@ -245,32 +234,18 @@ or imported into the %brand% system.
    authenticated users to a guest group and set the permissions to
    *77x*.
 
+.. TODO Add instructions to create an AFP guest share apart from the
+   now-removed wizard.
 
 Before creating a guest share, go to
 :menuselection:`Services --> AFP`
 and make sure that the :guilabel:`Guest Access` box is checked.
 
-To create the AFP guest share, click :guilabel:`Wizard`, then click
-the :guilabel:`Next` button twice to display the screen shown in
-:numref:`Figure %s <creating_guest_afp_share_fig>`.
-Complete these fields in this screen:
+To create an AFP guest share, navigate to
+:menuselection:`Sharing -> Apple (AFP) Shares` and click
+:guilabel:`Add Apple (AFP) Share`.
 
-#. **Share name:** enter a name for the share that is identifiable but
-   less than 27 characters long. This name cannot contain a period. In
-   this example, the share is named *afp_guest*.
-
-#. Click the button for :guilabel:`Mac OS X (AFP)`.
-
-#. Click the :guilabel:`Ownership` button. Click the drop-down
-   :guilabel:`User` menu and select :guilabel:`nobody`. Click the
-   :guilabel:`Return` button to return to the previous screen.
-
-#. Click the :guilabel:`Add` button.
-   **The share is not created until the button is clicked**.
-   Clicking the :guilabel:`Add` button adds an entry to the
-   :guilabel:`Name` frame with the name that was entered in
-   :guilabel:`Share name`.
-
+:numref:`Figure %s <creating_guest_afp_share_fig>` shows this form.
 
 .. _creating_guest_afp_share_fig:
 
@@ -278,13 +253,6 @@ Complete these fields in this screen:
 
    Creating a Guest AFP Share
 
-
-Click the :guilabel:`Next` button twice, then the :guilabel:`Confirm`
-button to create the share. The Wizard automatically creates a dataset
-for the share that contains the correct default permissions and starts
-the AFP service so the share is immediately available. The new share
-is also added as an entry to
-:menuselection:`Sharing --> Apple (AFP)`.
 
 Mac OS X users can connect to the guest AFP share by clicking
 :menuselection:`Go --> Connect to Server`. In the example shown in
@@ -305,8 +273,8 @@ share is displayed in the right frame.
    Connect to Server Dialogue
 
 
-To disconnect from the volume, click the :guilabel:`eject` button in
-the :guilabel:`Shared` sidebar.
+To disconnect from the pool, click the :guilabel:`eject` button in the
+:guilabel:`Shared` sidebar.
 
 
 .. index:: Time Machine
@@ -324,51 +292,18 @@ Mac OS X system to %brand%. The process for creating an authenticated
 share for a user is the same as creating a Time Machine share for that
 user.
 
-To use the Wizard to create an authenticated or Time Machine share,
-enter the following information, as seen in the example in
-:numref:`Figure %s <create_time_machine_share_fig>`.
+.. Add instructions for creating Time Machine share separate from the
+   removed wizard.
 
-#. **Share name:** enter a name for the share that is identifiable but
-   less than 27 characters long. The name cannot contain a period. In
-   this example, the share is named *backup_user1*.
+To create an authenticated or Time Machine share, navigate to
+:menuselection:`Sharing -> Apple (AFP) Shares` and click
+:guilabel:`Add Apple (AFP) Share`.
 
-#. Click the button for :guilabel:`Mac OS X (AFP)` and check the box
-   for :guilabel:`Time Machine`.
+:numref:`Figure %s <create_time_machine_share_fig>` shows an example of
+a configured Time Machine Share.
 
-#. Click the :guilabel:`Ownership` button. If the user already exists
-   on the %brand% system, click the drop-down :guilabel:`User` menu to
-   select their user account.  If the user does not yet exist on the
-   %brand% system, type their name into the :guilabel:`User` field and
-   check the :guilabel:`Create User` checkbox. If the user will be a
-   member of a group that already exists on the %brand% system, click
-   the drop-down :guilabel:`Group` menu to select the group name. To
-   create a new group to be used by Time Machine users, enter the name
-   in the :guilabel:`Group` field and check the
-   :guilabel:`Create Group` checkbox. Otherwise, enter the same name
-   as the user. In the example shown in
-   :numref:`Figure %s <create_tm_auth_user_fig>`,
-   both a new *user1* user and a new *tm_backups* group will be
-   created. Since a new user is being created, this screen prompts for
-   the user password to be used when accessing the share. It also
-   provides an opportunity to change the default permissions on the
-   share. When finished, click :guilabel:`Return` to return to the
-   screen shown in
-   :numref:`Figure %s <create_time_machine_share_fig>`.
-
-#. Click the :guilabel:`Add` button.
-   **Remember to do this or the share will not be created**.
-   Clicking the :guilabel:`Add` button adds an entry to the
-   :guilabel:`Name` frame with the name that was entered in
-   :guilabel:`Share name`.
-
-
-To configure multiple authenticated or Time Machine shares, repeat for
-each user, giving each user their own :guilabel:`Share name` and
-:guilabel:`Ownership`. When finished, click the :guilabel:`Next`
-button twice, then the :guilabel:`Confirm` button to create the
-shares. The Wizard automatically creates a dataset for each share with
-the correct ownership and starts the AFP service so the shares are
-immediately available. The new shares are also added to
+To configure multiple authenticated or Time Machine shares, repeat this
+process for each user. The new shares are also added to
 :menuselection:`Sharing --> Apple (AFP)`.
 
 
@@ -377,13 +312,6 @@ immediately available. The new shares are also added to
 .. figure:: images/afp7a.png
 
    Creating a Time Machine Share
-
-
-.. _create_tm_auth_user_fig:
-
-.. figure:: images/afp8.png
-
-   Creating an Authenticated User
 
 
 At this point, it may be desirable to configure a quota for each Time
@@ -398,7 +326,7 @@ desired number of backups.**
 Note that a default installation of Mac OS X is ~21 GB in size.
 
 To configure a quota, go to
-:menuselection:`Storage --> Volumes`
+:menuselection:`Storage --> Pools`
 and highlight the entry for the share. In the example shown in
 :numref:`Figure %s <set_quota_fig>`,
 the Time Machine share name is *backup_user1*. Click the
@@ -477,26 +405,21 @@ application.
    <http://blog.laspina.ca/ubiquitous/running-zfs-over-nfs-as-a-vmware-store>`_.
 #endif freenas
 
-To create an NFS share using the :ref:`Wizard`, click the
-:guilabel:`Next` button twice to display the screen shown in
-:numref:`Figure %s <nfs_share_wiz_fig>`.
-Enter a :guilabel:`Share name`. Spaces are not allowed in these names.
-Click the button for :guilabel:`Generic Unix (NFS)`, then click
-:guilabel:`Add` so the share name appears in the :guilabel:`Name`
-frame. When finished, click the :guilabel:`Next` button twice, then
-the :guilabel:`Confirm` button to create the share. Creating an NFS
-share using the wizard automatically creates a new dataset for the
-share, starts the services required for NFS, and adds an entry in
-:menuselection:`Sharing --> Unix (NFS) Shares`.
-Depending on your requirements, the IP addresses that are allowed to
-access the NFS share can be restricted, or the permissions adjusted.
+.. Add instructions for creating NFS share in new UI
+
+To create an NFS share, navigate to
+:menuselection:`Sharing -> Unix (NFS) Shares` and click
+:guilabel:`Add Unix (NFS) Share`.
+
+:numref:`Figure %s <nfs_share_wiz_fig>` shows an example of creating an
+NFS Share.
 
 
 .. _nfs_share_wiz_fig:
 
 .. figure:: images/nfs6a.png
 
-   NFS Share Wizard
+   NFS Share Creation
 
 
 NFS shares are edited by clicking
@@ -534,7 +457,7 @@ button.
    | Setting             | Value          | Advanced | Description                                                                                                |
    |                     |                | Mode     |                                                                                                            |
    +=====================+================+==========+============================================================================================================+
-   | Path                | browse button  |          | browse to the volume or dataset to be shared; click :guilabel:`Add extra path` to select multiple paths    |
+   | Path                | browse button  |          | browse to the pool or dataset to be shared; click :guilabel:`Add extra path` to select multiple paths      |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
    | Comment             | string         |          | set the share name; if left empty, share name is the list of selected :guilabel:`Path` entries             |
@@ -591,7 +514,7 @@ When creating NFS shares, keep these points in mind:
     permissions, set the :guilabel:`Maproot` option. To restrict
     permissions of all users, set the :guilabel:`Mapall` options.
 
-#.  Each volume or dataset is considered to be its own filesystem and
+#.  Each pool or dataset is considered to be its own filesystem and
     NFS is not able to cross filesystem boundaries.
 
 #.  The network or host must be unique per share and per filesystem or
@@ -606,7 +529,7 @@ there are:
 
 * two networks, *10.0.0.0/8* and *20.0.0.0/8*
 
-* a ZFS volume named :file:`volume1` with 2 datasets named
+* a ZFS pool named :file:`pool1` with 2 datasets named
   :file:`dataset1` and :file:`dataset2`
 
 * :file:`dataset1` contains a directory named :file:`directory1`
@@ -616,10 +539,10 @@ NFS share like this:
 
 * :guilabel:`Authorized networks` set to *10.0.0.0/8 20.0.0.0/8*
 
-* :guilabel:`Path` set to :file:`/mnt/volume1/dataset1` and
-  :file:`/mnt/volume1/dataset1/directory1`
+* :guilabel:`Path` set to :file:`/mnt/pool1/dataset1` and
+  :file:`/mnt/pool1/dataset1/directory1`
 
-Instead, set a :guilabel:`Path` of :file:`/mnt/volume1/dataset1` and
+Instead, set a :guilabel:`Path` of :file:`/mnt/pool1/dataset1` and
 check the :guilabel:`All directories` box.
 
 That directory could also be restricted to one of the networks by
@@ -629,13 +552,13 @@ First NFS share:
 
 * :guilabel:`Authorized networks` set to *10.0.0.0/8*
 
-* :guilabel:`Path` set to :file:`/mnt/volume1/dataset1`
+* :guilabel:`Path` set to :file:`/mnt/pool1/dataset1`
 
 Second NFS share:
 
 * :guilabel:`Authorized networks` set to *20.0.0.0/8*
 
-* :guilabel:`Path` set to :file:`/mnt/volume1/dataset1/directory1`
+* :guilabel:`Path` set to :file:`/mnt/pool1/dataset1/directory1`
 
 Note that this requires the creation of two shares. It cannot be
 done with only one share.
@@ -656,9 +579,10 @@ A better option is to do this:
 
 #.  Specify the built-in *nobody* account to be used for NFS access.
 
-#.  In the :guilabel:`Change Permissions` screen of the volume/dataset
-    that is being shared, change the owner and group to *nobody* and
-    set the permissions according to your requirements.
+#.  In the :guilabel:`Change Permissions` screen of the pool or
+    dataset that is being shared, change the owner and group to
+    *nobody* and set the permissions according to the desired
+    requirements.
 
 #.  Select *nobody* in the :guilabel:`Mapall User` and
     :guilabel:`Mapall Group` drop-down menus for the share in
@@ -668,7 +592,7 @@ A better option is to do this:
 With this configuration, it does not matter which user account
 connects to the NFS share, as it will be mapped to the *nobody* user
 account and will only have the permissions that were specified on the
-volume/dataset. For example, even if the *root* user is able to
+pool or dataset. For example, even if the *root* user is able to
 connect, it will not gain *root* access to the share.
 
 
@@ -681,13 +605,13 @@ The following examples share this configuration:
 
 #.  The %brand% system is at IP address *192.168.2.2*.
 
-#.  A dataset named :file:`/mnt/volume1/nfs_share1` is created and the
+#.  A dataset named :file:`/mnt/pool1/nfs_share1` is created and the
     permissions set to the *nobody* user account and the *nobody*
     group.
 
 #.  An NFS share is created with these attributes:
 
-    * :guilabel:`Path`: :file:`/mnt/volume1/nfs_share1`
+    * :guilabel:`Path`: :file:`/mnt/pool1/nfs_share1`
 
     * :guilabel:`Authorized Networks`: *192.168.2.0/24*
 
@@ -708,14 +632,14 @@ executed as the superuser (*root*) or with :command:`sudo`:
 
 .. code-block:: none
 
-   mount -t nfs 192.168.2.2:/mnt/volume1/nfs_share1 /mnt
+   mount -t nfs 192.168.2.2:/mnt/pool1/nfs_share1 /mnt
 
 
 * **-t nfs** specifies the filesystem type of the share
 
 * **192.168.2.2** is the IP address of the %brand% system
 
-* **/mnt/volume/nfs_share1** is the name of the directory to be
+* **/mnt/pool/nfs_share1** is the name of the directory to be
   shared, a dataset in this case
 
 * **/mnt** is the mountpoint on the client system. This must be an
@@ -733,7 +657,7 @@ without any status or error messages.
 This configuration allows users on the client system to copy files to
 and from :file:`/mnt` (the mount point). All files are owned by
 *nobody:nobody*. Changes to any files or directories in :file:`/mnt`
-are written to the %brand% system's :file:`/mnt/volume1/nfs_share1`
+are written to the %brand% system's :file:`/mnt/pool1/nfs_share1`
 dataset.
 
 Settings cannot be changed on the NFS share if it is mounted on any
@@ -760,13 +684,13 @@ best results, use :ref:`Windows (SMB) Shares`.
 From Mac OS X
 ^^^^^^^^^^^^^
 
-To mount the NFS volume from a Mac OS X client, click on
+To mount the NFS share from a Mac OS X client, click on
 :menuselection:`Go --> Connect to Server`.
 In the :guilabel:`Server Address` field, enter *nfs://* followed by
 the IP address of the %brand% system and the name of the
-volume/dataset being shared by NFS. The example shown in
+pool or dataset being shared by NFS. The example shown in
 :numref:`Figure %s <mount_nfs_osx_fig>`
-continues with our example of *192.168.2.2:/mnt/volume1/nfs_share1*.
+continues with the example of *192.168.2.2:/mnt/pool1/nfs_share1*.
 
 Finder opens automatically after connecting. The IP address of the
 %brand% system is displayed in the SHARED section in the left frame
@@ -840,7 +764,7 @@ WebDAV Shares
 ------------------
 
 In %brand%, WebDAV shares can be created so that authenticated users
-can browse the contents of the specified volume, dataset, or directory
+can browse the contents of the specified pool, dataset, or directory
 from a web browser.
 
 Configuring WebDAV shares is a two step process. First, create the
@@ -920,7 +844,7 @@ summarizes the available options.
    | Comment                      | string        | optional                                                                                                    |
    |                              |               |                                                                                                             |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Path                         | browse button | browse to the volume/dataset to share                                                                       |
+   | Path                         | browse button | browse to the pool or dataset to share                                                                      |
    |                              |               |                                                                                                             |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
    | Read Only                    | checkbox      | if checked, users cannot write to the share                                                                 |
@@ -945,7 +869,7 @@ share. These settings are described in :ref:`WebDAV`.
 Windows (SMB) Shares
 ---------------------
 
-%brand% uses `Samba <https://www.samba.org/>`_ to share volumes using
+%brand% uses `Samba <https://www.samba.org/>`_ to share pools using
 Microsoft's SMB protocol. SMB is built into the Windows and Mac OS X
 operating systems and most Linux and BSD systems pre-install the Samba
 client in order to provide support for SMB. If your distro did not,
@@ -1030,7 +954,7 @@ provides more details for each configurable option.
    | Setting                        | Value         | Advanced | Description                                                                                                 |
    |                                |               | Mode     |                                                                                                             |
    +================================+===============+==========+=============================================================================================================+
-   | Path                           | browse button |          | select volume/dataset/directory to share                                                                    |
+   | Path                           | browse button |          | select pool or dataset/directory to share                                                                   |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
    | Use as home share              | checkbox      |          | check this box if the share is meant to hold user home directories; only one share can be the homes share   |
@@ -1113,7 +1037,7 @@ settings:
   are not visible in Windows File Explorer can still be accessed with
   a *UNC* path.
 
-* If some files on a shared volume should be hidden and inaccessible
+* If some files on a shared pool should be hidden and inaccessible
   to users, put a *veto files=* line in the
   :guilabel:`Auxiliary Parameters` field. The syntax for the
   :guilabel:`veto files` option and some examples can be found in the
@@ -1330,26 +1254,15 @@ modified the data on the share. This type of configuration is best
 suited for small networks where quick and easy access to the share is
 more important than the security of the data on the share.
 
-To configure an unauthenticated SMB share, click :guilabel:`Wizard`,
-then click the :guilabel:`Next` button twice to display the screen
-shown in
-:numref:`Figure %s <create_unauth_smb_share_fig>`.
-Complete the following fields in this screen:
+.. TODO add instructions for creating an unauthenticated SMB share
+   separately from the now removed wizard.
 
-#. **Share name:** enter a name for the share that is useful to you.
-   In this example, the share is named *smb_insecure*.
+To configure an unauthenticated SMB share, navigate to
+:menuselection:`Sharing -> Windows (SMB) Shares` and click
+:guilabel:`Add Windows (SMB) Share`.
 
-#. Click the button for :guilabel:`Windows (SMB)` and check the box
-   for :guilabel:`Allow Guest`.
-
-#. Click the :guilabel:`Ownership` button. Click the drop-down
-   :guilabel:`User` menu and select *nobody*. Click the
-   :guilabel:`Return` button to return to the previous screen.
-
-#. Click the :guilabel:`Add` button. **If you forget to do this, the
-   share will not be created**. Clicking the :guilabel:`Add` button
-   adds an entry to the :guilabel:`Name` frame with the name that was
-   entered in :guilabel:`Share name`.
+:numref:`Figure %s <create_unauth_smb_share_fig>` shows the
+configuration form.
 
 
 .. _create_unauth_smb_share_fig:
@@ -1359,11 +1272,8 @@ Complete the following fields in this screen:
    Creating an Unauthenticated SMB Share
 
 
-Click the :guilabel:`Next` button twice, then the :guilabel:`Confirm`
-button to create the share. The Wizard automatically creates a dataset
-for the share and starts the SMB service so the share is immediately
-available. The new share is also be added to
-:menuselection:`Sharing --> Windows (SMB)`.
+The new share is also be added to
+:menuselection:`Sharing --> Windows (SMB) Shares`.
 
 Users can now access the share from any SMB client and will not be
 prompted for their username or password. For example, to access the
@@ -1400,43 +1310,18 @@ The simpler configuration is to make one share per user as it does not
 require the creation of groups, adding the correct users to the
 groups, and ensuring that group permissions are set correctly.
 
-To use the Wizard to create an authenticated SMB share, enter the
-following information, as shown in the example in
-:numref:`Figure %s <create_auth_smb_share_fig>`.
+.. TODO add instructions to create an authenticated SMB share apart
+   from the now removed wizard.
 
-#. **Share name:** enter a name for the share that is useful to you.
-   In this example, the share is named *smb_user1*.
+To create an authenticated SMB share, navigate to
+:menuselection:`Sharing -> Windows (SMB) Shares` and click
+:guilabel:`Add Windows (SMB) Share`.
 
-#. Click the button for :guilabel:`Windows (SMB)`.
+:numref:`Figure %s <create_auth_smb_share_fig>` shows the creation
+process.
 
-#. Click the :guilabel:`Ownership` button. To create the user account
-   on the %brand% system, type their name into the :guilabel:`User`
-   field and check the :guilabel:`Create User` checkbox. The user's
-   password is then entered and confirmed. **If the user will not be
-   sharing this share with other users**, type their name into the
-   :guilabel:`Group` field and click :guilabel:`Create Group`.
-   **If, however, the share will be used by several users**,
-   instead type in a group name and check the :guilabel:`Create Group`
-   box. In the example shown in
-   :numref:`Figure %s <create_smb_user_group_fig>`,
-   *user1* has been used for both the user and group name, meaning
-   that this share will only be used by *user1*. When finished, click
-   :guilabel:`Return` to return to the screen shown in
-   :numref:`Figure %s <create_auth_smb_share_fig>`.
-
-#. Click the :guilabel:`Add` button. **If you forget to do this, the
-   share will not be created**. Clicking the :guilabel:`Add` button
-   adds an entry to the :guilabel:`Name` frame with the name that was
-   entered in :guilabel:`Share name`.
-
-If you wish to configure multiple authenticated shares, repeat for
-each user, giving each user their own :guilabel:`Share name` and
-:guilabel:`Ownership`. When finished, click :guilabel:`Next` twice,
-then :guilabel:`Confirm` to create the shares. The Wizard
-automatically creates a dataset with the correct ownership for each
-share and starts the SMB service so the shares are available
-immediately. The new shares are also added to
-:menuselection:`Sharing --> Windows (SMB)`.
+To configure multiple authenticated shares, repeat for each user. The
+new shares are also added to :menuselection:`Sharing --> Windows (SMB)`.
 
 
 .. _create_auth_smb_share_fig:
@@ -1444,13 +1329,6 @@ immediately. The new shares are also added to
 .. figure:: images/cifs3a.png
 
    Creating an Authenticated SMB Share
-
-
-.. _create_smb_user_group_fig:
-
-.. figure:: images/cifs8.png
-
-   Creating the User and Group
 
 
 The authenticated share can now be tested from any SMB client. For
@@ -1531,7 +1409,7 @@ Windows 7. Windows XP or 2000 users need to install the
 `Shadow Copy client
 <http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=16220>`_.
 
-When you create a periodic snapshot task on a ZFS volume that is
+When you create a periodic snapshot task on a ZFS pool that is
 configured as a SMB share in %brand%, it is automatically configured
 to support shadow copies.
 
@@ -1544,7 +1422,7 @@ caveats:
   sure that the system is fully up-to-date.
 
 * Shadow copy support only works for ZFS pools or datasets. This means
-  that the SMB share must be configured on a volume or dataset, not
+  that the SMB share must be configured on a pool or dataset, not
   on a directory.
 
 * Datasets are filesystems and shadow copies cannot traverse
@@ -1560,7 +1438,7 @@ caveats:
   SMB share was created first, restart the SMB service in
   :menuselection:`Services --> Control Services`.
 
-* Appropriate permissions must be configured on the volume/dataset
+* Appropriate permissions must be configured on the pool or dataset
   being shared by SMB.
 
 * Users cannot delete shadow copies on the Windows system due to the
@@ -1582,9 +1460,9 @@ second share is named *user2*. Then:
    --> Add Periodic Snapshot`
    to create at least one periodic snapshot task. You can either
    create a snapshot task for each user's dataset, in this example the
-   datasets :file:`/mnt/volume1/user1` and :file:`/mnt/volume1/user2`,
-   or you can create one periodic snapshot task for the entire volume,
-   in this case :file:`/mnt/volume1`.
+   datasets :file:`/mnt/pool1/user1` and :file:`/mnt/pool1/user2`,
+   or you can create one periodic snapshot task for the entire pool,
+   in this case :file:`/mnt/pool1`.
    **Before continuing to the next step,** confirm that at least one
    snapshot for each defined task is displayed in the
    :menuselection:`Storage --> Snapshots`
@@ -1599,12 +1477,12 @@ second share is named *user2*. Then:
    :guilabel:`Periodic Snapshot Task` drop-down menu and select the
    periodic snapshot task to use for that share. Repeat for each share
    being configured as a shadow copy. For this example, the share
-   named :file:`/mnt/volume1/user1` is configured to use a periodic
+   named :file:`/mnt/pool1/user1` is configured to use a periodic
    snapshot task that was configured to take snapshots of the
-   :file:`/mnt/volume1/user1` dataset and the share named
-   :file:`/mnt/volume1/user2` is configured to use a periodic snapshot
+   :file:`/mnt/pool1/user1` dataset and the share named
+   :file:`/mnt/pool1/user2` is configured to use a periodic snapshot
    task that was configured to take snapshots of the
-   :file:`/mnt/volume1/user2` dataset.
+   :file:`/mnt/pool1/user2` dataset.
 
 #. Verify that the SMB service is set to :guilabel:`ON` in
    :menuselection:`Services --> Control Services`.
@@ -1782,7 +1660,7 @@ for iSNS requests is 5 seconds.
 #endif freenas
 #ifdef truenas
 .. _iscsi_targ_global_var_fig:
-.. figure:: images/tn_iscsi_target_global.png
+.. figure:: images/truenas/iscsi_target_global.png
 
   iSCSI Target Global Configuration Variables
 #endif truenas
@@ -2145,7 +2023,7 @@ There are two types of extents: *device* and *file*.
 snapshots, or physical devices like a disk, an SSD, a hardware RAID
 volume, or a
 `HAST device
-<http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/disks-hast.html>`_.
+<http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/disks-hast.html>`__.
 
 **File extents** provide virtual storage access to an individual file.
 
@@ -2175,7 +2053,7 @@ features like block checksums or snapshots.
 
 Virtualizing a zvol adds the benefits of ZFS, such as read and write
 cache. Even if the client formats a device extent with a different
-filesystem, the data still resides on a ZFS volume and benefits from
+filesystem, the data still resides on a ZFS pool and benefits from
 ZFS features like block checksums and snapshots.
 
 
@@ -2190,13 +2068,12 @@ To add an extent, go to
 In the example shown in
 :numref:`Figure %s <iscsi_adding_extent_fig>`,
 the device extent is using the :file:`export` zvol that was previously
-created from the :file:`/mnt/volume1` volume.
+created from the :file:`/mnt/pool1` pool.
 
 :numref:`Table %s <iscsi_extent_conf_tab>`
 summarizes the settings that can be configured when creating an
-extent. Note that **file extent creation will fail if you do not
-append the name of the file to be created to the volume/dataset
-name.**
+extent. Note that **file extent creation fails unless the name of the
+file to be created is appended to the pool or dataset name.**
 
 
 .. _iscsi_adding_extent_fig:
@@ -2220,7 +2097,7 @@ name.**
    |                    |                |                                                                                                                      |
    +====================+================+======================================================================================================================+
    | Extent Name        | string         | name of extent; if the :guilabel:`Extent size` is not *0*, it cannot be an existing file within the                  |
-   |                    |                | volume/dataset                                                                                                       |
+   |                    |                | pool or dataset                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Extent Type        | drop-down menu | select from *File* or                                                                                                |
    |                    |                | *Device*                                                                                                             |
@@ -2233,7 +2110,7 @@ name.**
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Path to the extent | browse button  | only appears if *File* is selected; browse to an existing file and use *0* as the :guilabel:`Extent size`,           |
-   |                    |                | **or** browse to the volume or dataset, click :guilabel:`Close`, append the :guilabel:`Extent Name` to the path,     |
+   |                    |                | **or** browse to the pool or dataset, click :guilabel:`Close`, append the :guilabel:`Extent Name` to the path,       |
    |                    |                | and specify a value in :guilabel:`Extent size`; extents cannot be created inside the jail root directory             |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
@@ -2359,7 +2236,7 @@ is shown in
 
 .. _tn_fibre1:
 
-.. figure:: images/tn_fibre1.png
+.. figure:: images/truenas/fibre1.png
 
    Block (iSCSI) Screen
 
@@ -2381,7 +2258,7 @@ whether the target to create is iSCSI, Fibre Channel, or both.
 
 .. _tn_fibre2:
 
-.. figure:: images/tn_fibre2.png
+.. figure:: images/truenas/fibre2.png
 
    Add Target Screen
 
@@ -2395,7 +2272,7 @@ connection. An example is shown in
 
 .. _tn_fibre3:
 
-.. figure:: images/tn_fibre3.png
+.. figure:: images/truenas/fibre3.png
 
    Configuring a Fibre Channel Target
 
@@ -2409,7 +2286,7 @@ An example of the :guilabel:`Fibre Channel Ports` screen is shown in
 
 .. _tn_fibre_port_fig:
 
-.. figure:: images/tn_fibre4c.png
+.. figure:: images/truenas/fibre4c.png
 
    Configuring a Fibre Channel Port
 
@@ -2470,7 +2347,7 @@ associated with a target, it is added to the :guilabel:`Target` tab of
 
 .. _tn_npiv:
 
-.. figure:: images/tn_system-tunables-npiv.png
+.. figure:: images/truenas/system-tunables-npiv.png
 
    Adding Virtual Ports
 #endif truenas
@@ -2579,7 +2456,7 @@ Zvol Based LUN
 ^^^^^^^^^^^^^^
 
 To grow a zvol based LUN, go to
-:menuselection:`Storage --> Volumes --> View Volumes`,
+:menuselection:`Storage --> Pools --> View Pools`,
 highlight the zvol to be grown, and click :guilabel:`Edit zvol`. In
 the example shown in
 :numref:`Figure %s <iscsi_zvol_lun_fig>`,
@@ -2594,20 +2471,20 @@ the current size of the zvol named *zvol1* is 4GB.
    Editing an Existing Zvol
 #endif freenas
 #ifdef truenas
-.. figure:: images/tn_grow.png
+.. figure:: images/truenas/grow.png
 
    Editing an Existing Zvol
 #endif truenas
 
 
 Enter the new size for the zvol in the :guilabel:`Size` field and
-click :guilabel:`Edit ZFS Volume`. This menu closes and the new size
+click :guilabel:`Edit ZFS Pool`. This menu closes and the new size
 for the zvol is immediately shown in the :guilabel:`Used` column of
-the :guilabel:`View Volumes` screen.
+the :guilabel:`View Pools` screen.
 
 .. note:: The GUI does not allow reducing (shrinking) the size of the
    zvol, as doing so could result in loss of data. It also does not
-   allow increasing the size of the zvol past 80% of the volume size.
+   allow increasing the size of the zvol past 80% of the pool size.
 
 
 .. _File Extent Based LUN:
@@ -2616,18 +2493,18 @@ File Extent Based LUN
 ^^^^^^^^^^^^^^^^^^^^^
 
 To grow a file extent based LUN, go to
-:menuselection:`Services --> iSCSI --> File Extents
---> View File Extents` to determine the path of the file extent to
-grow. Open Shell to grow the extent. This example
-grows :file:`/mnt/volume1/data` by 2 G:
+:menuselection:`Services --> iSCSI --> File Extents --> View File Extents`
+to determine the path of the file extent to grow. Open the
+:ref:`Shell` to grow the extent. This example
+grows :file:`/mnt/pool1/data` by 2 GB:
 
 .. code-block:: none
 
-   truncate -s +2g /mnt/volume1/data
+   truncate -s +2g /mnt/pool1/data
 
 
-Go back to
-:menuselection:`Services --> iSCSI --> File Extents
---> View File Extents` and click the :guilabel:`Edit` button for the
-file extent. Set the size to *0* as this causes the iSCSI target to
-use the new size of the file.
+Return to
+:menuselection:`Services --> iSCSI --> File Extents --> View File Extents`
+and click the :guilabel:`Edit` button for the file extent. Set the
+size to *0* as this causes the iSCSI target to use the new size of the
+file.

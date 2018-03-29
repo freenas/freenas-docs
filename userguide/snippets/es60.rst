@@ -25,22 +25,22 @@ Carefully unpack the shipping boxes and locate these components:
 .. table::
    :class: longtable
 
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es60_bare.png         | .. image:: images/tn_es60_bezel.png         |
-   |                                            |                                             |
-   | ES60 Expansion Shelf                       | ES60 Bezel                                  |
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es60_railkit.png      | .. image:: images/tn_es60_drivetray.png     |
-   |                                            |                                             |
-   | Rail kit with mounting hardware            | Up to 60 drive trays with installed hard    |
-   |                                            | drives (shipped separately from the ES60)   |
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es60_powercords.png   | .. image:: images/tn_sascables_minihd.png   |
-   |                                            |    :width: 50%                              |
-   |                                            |                                             |
-   | Two IEC C13 to NEMA 5-15P power cords,     | Two 3-meter Mini SAS HD to Mini SAS HD      |
-   | two IEC C14 to C14 power cords             | cables                                      |
-   +--------------------------------------------+---------------------------------------------+
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. image:: images/truenas/es60_bare.png         | .. image:: images/truenas/es60_bezel.png        |
+   |                                                 |                                                 |
+   | ES60 Expansion Shelf                            | ES60 Bezel                                      |
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. image:: images/truenas/es60_railkit.png      | .. image:: images/truenas/es60_drivetray.png    |
+   |                                                 |                                                 |
+   | Rail kit with mounting hardware                 | Up to 60 drive trays with installed hard        |
+   |                                                 | drives (shipped separately from the ES60)       |
+   +-------------------------------------------------+-------------------------------------------------+
+   | .. image:: images/truenas/es60_powercords.png   | .. image:: images/truenas/sascables_minihd.png  |
+   |                                                 |    :width: 50%                                  |
+   |                                                 |                                                 |
+   | Two IEC C13 to NEMA 5-15P power cords,          | Two 3-meter Mini SAS HD to Mini SAS HD          |
+   | two IEC C14 to C14 power cords                  | cables                                          |
+   +-------------------------------------------------+-------------------------------------------------+
 
 
 .. raw:: latex
@@ -63,17 +63,17 @@ self-test (POST) or when the %brand% software has issued an
 
 Front view of the ES60 Expansion Shelf:
 
-.. figure:: images/tn_es60.png
+.. figure:: images/truenas/es60.png
 
 
 Front panel indicators:
 
-.. figure:: images/tn_es60_indicators.png
+.. figure:: images/truenas/es60_indicators.png
 
 
 Rear view of the ES60 Expansion Shelf:
 
-.. figure:: images/tn_es60_back.png
+.. figure:: images/truenas/es60_back.png
 
 
 The ES60 contains two expansion modules in a side-by-side
@@ -105,7 +105,7 @@ Separate Cabinet Rails from Rack Rails
 Each rack rail includes an inner cabinet rail that must be removed.
 Extend the cabinet rail until the white release tab is exposed.
 
-.. figure:: images/tn_es60_rail_separate.png
+.. figure:: images/truenas/es60_rail_separate.png
 
 
 Press the white release tab to the right while pulling the cabinet
@@ -120,7 +120,7 @@ cabinet rail keyholes with the posts on the side of the chassis. Slide
 the rail toward the rear of the system until the metal tab clicks and
 secures the rail in place. Repeat this process on the other side.
 
-.. figure:: images/tn_es60_cabinetrails.png
+.. figure:: images/truenas/es60_cabinetrails.png
 
 
 Mount Rack Rails
@@ -133,7 +133,7 @@ rear toward the back of the rack, aligning the pins on both ends of
 the rail with the mounting holes in the rack. Push the pins into the
 rack holes until they lock in place.
 
-.. figure:: images/tn_es60_rackrails.png
+.. figure:: images/truenas/es60_rackrails.png
 
 
 Mount Unit in the Rack
@@ -149,7 +149,7 @@ rails. Align the cabinet rail with the inside of the front rack rail
 and slide the cabinet rail forward until it is fully seated inside the
 rack rail. Repeat the process for the second rail.
 
-.. figure:: images/tn_es60_cabinet_mount.png
+.. figure:: images/truenas/es60_cabinet_mount.png
 
 
 When both cabinet rails are secured inside the rack rails, carefully
@@ -157,7 +157,7 @@ slide the chassis until the ears are flush with the front of the rack.
 Turn both blue screws on the ears of the chassis to the right to
 secure the unit in the rack.
 
-.. figure:: images/tn_es60_cabinet_secure.png
+.. figure:: images/truenas/es60_cabinet_secure.png
 
 
 Drive Tray Installation
@@ -175,7 +175,7 @@ Slide the unit out on the rails. Turn the blue screws counterclockwise
 to unlock the top cover. Slide the top cover toward the front of the
 system, then lift to remove it.
 
-.. figure:: images/tn_es60_remove_cover.png
+.. figure:: images/truenas/es60_remove_cover.png
 
 
 Install Drive Trays
@@ -204,7 +204,7 @@ drive bay until the latch begins to move into place. Push the latch
 the rest of the way until it locks into place.
 
 
-.. figure:: images/tn_es60_drivetray_install.png
+.. figure:: images/truenas/es60_drivetray_install.png
    :width: 100%
 
 
@@ -216,14 +216,14 @@ If desired, the CMA can be used to help organize the ES60 power and
 data cables.
 
 
-.. figure:: images/tn_es60_arm_parts.png
+.. figure:: images/truenas/es60_arm_parts.png
 
 
 The tabs along the side of the flex housing can be unclipped from the
 top, the bottom, or removed entirely.
 
 
-.. figure:: images/tn_es60_arm_tabs.png
+.. figure:: images/truenas/es60_arm_tabs.png
    :width: 20%
 
 
@@ -236,7 +236,7 @@ the cable management arm forward and pull the lever on the latch
 upward to lock the bracket into place.
 
 
-.. figure:: images/tn_es60_arm_clip.png
+.. figure:: images/truenas/es60_arm_clip.png
 
 
 Locate the end of the flex housing with exposed pins. Unclip and open
@@ -245,7 +245,7 @@ enough to fit into the bracket holes. Press the flex housing firmly
 into the bracket until the pins seat in the holes.
 
 
-.. figure:: images/tn_es60_arm_chassis_flex.png
+.. figure:: images/truenas/es60_arm_chassis_flex.png
 
 
 Remove the two screws already attached to the side of the CMA rail
@@ -253,7 +253,7 @@ bracket. Align the screw holes with the holes in the rear of the left
 cabinet rail and attach the bracket to the rail with the screws.
 
 
-.. figure:: images/tn_es60_arm_bracket_rail.png
+.. figure:: images/truenas/es60_arm_bracket_rail.png
    :width: 40%
 
 
@@ -263,7 +263,7 @@ enough to fit over the bracket pins. Press the flex housing firmly
 into the bracket until the holes seat on the pins.
 
 
-.. figure:: images/tn_es60_arm_rail_flex.png
+.. figure:: images/truenas/es60_arm_rail_flex.png
 
 
 .. raw:: latex
@@ -274,7 +274,7 @@ into the bracket until the holes seat on the pins.
 Completed Cable Management Arm assembly:
 
 
-.. figure:: images/tn_es60_arm_complete.png
+.. figure:: images/truenas/es60_arm_complete.png
    :width: 80%
 
 
@@ -293,7 +293,7 @@ plastic clamp and pressing on the tab to lock it in place. Repeat the
 process for the second power supply and cord. This turns on the ES60.
 
 
-.. figure:: images/tn_es60_powerclip.png
+.. figure:: images/truenas/es60_powerclip.png
    :width: 50%
 
 
@@ -329,7 +329,7 @@ ES60 expander module 2 connector 1 to the X20 node 2 SAS 1 connector
 
 
 .. _es60_x20sasconnect1:
-.. figure:: images/tn_es60_sasconnect1.png
+.. figure:: images/truenas/es60_sasconnect1.png
    :width: 50%
 
 
@@ -344,7 +344,7 @@ Controller 2 SAS 1 connector (cable #2 in photo).
 
 
 .. _es60_zsasconnect1:
-.. figure:: images/tn_es60_zsasconnect1.png
+.. figure:: images/truenas/es60_zsasconnect1.png
    :width: 50%
 
 
@@ -354,7 +354,7 @@ next unused SAS ports on the Z35 as shown:
 
 
 .. _es60_zsasconnect2:
-.. figure:: images/tn_es60_zsasconnect2.png
+.. figure:: images/truenas/es60_zsasconnect2.png
    :width: 50%
 
 
