@@ -47,12 +47,13 @@ to see a screen like
    Group Management
 
 
-All groups that came with the operating system will be listed. Each
-group has an entry indicating the group name, group ID (GID), and
-whether or not it is a built-in group which was installed with %brand%.
-Clicking the :guilabel:`More Options` icon for a group entry displays
-:guilabel:`Members`, :guilabel:`Edit`, and :guilabel:`Delete` options.
-Click :guilabel:`Members` to view and modify the group membership.
+The :guilabel:`Groups` pages lists all groups, including those installed
+by the operating system. Each group has an entry indicating the group
+name, group ID (GID), and whether or not it is a built-in group which
+was installed with %brand%. Clicking the :guilabel:`More Options` icon
+for a group entry displays :guilabel:`Members`, :guilabel:`Edit`, and
+:guilabel:`Delete` options. Click :guilabel:`Members` to view and modify
+the group membership.
 
 .. index:: Add Group, New Group, Create Group
 
@@ -84,26 +85,26 @@ summarizes the available options when creating a group.
    |                     |           |                                                                                                                          |
    +=====================+===========+==========================================================================================================================+
    | GID                 | string    | The next available group ID is suggested. By convention, UNIX groups containing user accounts have an ID greater than    |
-   |                     |           | **1000** and groups required by a service have an ID equal to the default port number used by the service. For example,  |
-   |                     |           | the :literal:`sshd` group has an ID of **22**.                                                                           |
+   |                     |           | 1000 and groups required by a service have an ID equal to the default port number used by the service. For example,      |
+   |                     |           | the :literal:`sshd` group has an ID of 22.                                                                               |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
    | Name                | string    | Enter a name for the new group. This is required.                                                                        |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Permit Sudo         | checkbox  | Check this to allow members of the group to use `sudo <http://www.sudo.ws/>`__. When using :command:`sudo`, a user is    |
+   | Permit Sudo         | checkbox  | Check to allow members of the group to use `sudo <http://www.sudo.ws/>`__. When using :command:`sudo`, a user is         |
    |                     |           | prompted for their own password.                                                                                         |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Allow repeated GIDs | checkbox  | Check this to allow multiple groups to share the same group id (GID). This is useful when a GID is already associated    |
+   | Allow repeated GIDs | checkbox  | Check to allow multiple groups to share the same group id (GID). This is useful when a GID is already associated         |
    |                     |           | with the UNIX permissions for existing data.                                                                             |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
 
 
-After a group and users are created, users can be made members
-of a group. Highlight the group where users will be assigned and click
-the :guilabel:`More Options` then :guilabel:`Members` buttons. Click the
+After a group and users are created, users can be added to a group.
+Highlight the group where users will be assigned and click the
+:guilabel:`More Options` then :guilabel:`Members` buttons. Click the
 desired users in the :guilabel:`Members` list. This list shows all user
 accounts on the system. Next, click :guilabel:`>` to move those users to
 the right frame. The user accounts which appear in the right frame are
@@ -231,7 +232,7 @@ created or modified.
    |                            |                 | space, tab, or the characters :literal:`, : + & # % ^ \ & ( ) ! @ ~ * ? < > =`                                                |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Create a new primary group | checkbox        | By default, a primary group with the same name as the user will be created. Uncheck this box to select a different            |
+   | Create a new primary group | checkbox        | By default, a primary group with the same name as the user will be created. Uncheck to select a different                     |
    |                            |                 | primary group name.                                                                                                           |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
@@ -266,15 +267,15 @@ created or modified.
    |                            |                 | :guilabel:`Lock user` and :guilabel:`Permit Sudo`, which are mutually exclusive.                                              |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Lock user                  | checkbox        | Check this to prevent the user from logging in until the account is unlocked (box is unchecked). Checking this                |
+   | Lock user                  | checkbox        | Check to prevent the user from logging in until the account is unlocked (box is unchecked). Checking this                     |
    |                            |                 | box will gray out :guilabel:`Disable password login`, which is mutually exclusive.                                            |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Permit Sudo                | checkbox        | If checked, members of the group have permission to use `sudo <http://www.sudo.ws/>`__. When using sudo, a user is            |
+   | Permit Sudo                | checkbox        | Check to allow members of the group to use `sudo <http://www.sudo.ws/>`__. When using sudo, a user is                         |
    |                            |                 | prompted for their own password.                                                                                              |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Microsoft Account          | checkbox        | Check this box if the user will be connecting from a Windows 8 or higher system.                                              |
+   | Microsoft Account          | checkbox        | Check if the user will be connecting from a Windows 8 or higher system.                                                       |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | SSH Public Key             | string          | Paste the user's **public** SSH key to be used for key-based authentication.                                                  |
