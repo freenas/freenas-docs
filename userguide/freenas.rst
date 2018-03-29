@@ -29,7 +29,6 @@
    alert
    support
    cli
-   contribute
    zfsprimer
    vaai
    api
