@@ -42,8 +42,8 @@ software needs.
 
 .. _Installing Plugins:
 
-Installing Plugins
-------------------
+Installing
+----------
 
 A plugin is a self-contained application installer which has been
 designed to integrate into the %brand% GUI. A plugin offers several
@@ -163,8 +163,8 @@ start, click the jail's :guilabel:`Shell` icon and type
 
 .. _Updating Plugins:
 
-Updating Plugins
-----------------
+Updating
+--------
 
 When a newer version of a plugin becomes available in the official
 repository, an :guilabel:`Update` button is added to the entry for the
@@ -188,8 +188,8 @@ and the :guilabel:`Update` button will disappear.
 
 .. _Uploading Plugins:
 
-Uploading Plugins
------------------
+Uploading
+---------
 
 The :guilabel:`Available` tab of :guilabel:`Plugins` contains an
 :guilabel:`Upload` button. This button allows installation of plugins
@@ -223,8 +223,8 @@ command line of the jail's shell instead of from the GUI.
 
 .. _Deleting Plugins:
 
-Deleting Plugins
-----------------
+Deleting
+--------
 
 When you install a plugin, an associated jail is created. If you
 decide to delete a plugin, the associated jail is also deleted as it
