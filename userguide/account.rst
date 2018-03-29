@@ -140,9 +140,9 @@ Users
 %brand% supports users, groups, and permissions, allowing great
 flexibility in configuring which users have access to the data stored
 on %brand%. To assign permissions to shares,
-**one of these options** must be done:
+one of these options must be done:
 
-#.  Create a guest account for all users to use or create a user
+#.  Create a guest account for all users to use, or create a user
     account for every user in the network where the name of each
     account is the same as a logon name used on a computer. For
     example, if a Windows system has a login name of *bobsmith*,
@@ -168,9 +168,9 @@ accounts installed with the %brand% operating system, as shown in
 
 Each account entry indicates the username, user ID, primary group ID,
 home directory, default shell, and whether it is a built-in user that
-came with the %brand% installation. To reorder the list, click the
-desired column name. An arrow indicates which column controls the view
-sort order. Click the arrow to reverse the sort order.
+came with the %brand% installation. Clicking a column name will resort
+the list by that value. An arrow indicates which column controls the
+view sort order. Click the arrow to reverse the sort order.
 
 Highlight a user account and click :guilabel:`More Options` to cause
 the :guilabel:`Edit` and :guilabel:`Delete` buttons to appear.
@@ -186,7 +186,7 @@ are system accounts. Each system account is used by a service and
 should not be used as a login account. For this reason, the default
 shell on system accounts is
 `nologin(8) <http://www.freebsd.org/cgi/man.cgi?query=nologin>`__.
-For both security reasons and to prevent breakage of system services, do
+For security reasons and to prevent breakage of system services, do
 not modify the system accounts.
 
 .. index:: Add User, Create User, New User
