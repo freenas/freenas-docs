@@ -1966,8 +1966,7 @@ summarizes the available options:
 UPS
 ---
 
-%brand% uses
-`NUT <http://www.networkupstools.org/>`_
+%brand% uses `NUT <http://www.networkupstools.org/>`_
 (Network UPS Tools) to provide UPS support. If the %brand% system is
 connected to a UPS device, configure the UPS service then start it in
 :menuselection:`Services --> Control Services`.
@@ -2041,20 +2040,19 @@ summarizes the options in the UPS Configuration screen.
    | No Communication Warning Time | string         | the frequency, in seconds, of email notifications during the loss of UPS communications; the default  |
    |                               |                | is *300*                                                                                              |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Monitor User                  | string         | default is *upsmon*                                                                                   |
+   | Monitor User                  | string         | a user account that %brand% will use to communicate with the UPS daemon. The default is *upsmon*.     |
    |                               |                |                                                                                                       |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Monitor Password              | string         | default is known value *fixmepass* and should be changed; cannot contain a space or #                 |
    |                               |                |                                                                                                       |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Extra users                   | string         | defines the accounts that have administrative access; see                                             |
+   | Extra users                   | string         | defines any additional accounts that have administrative access; see                                  |
    |                               |                | `upsd.users(5) <http://www.networkupstools.org/docs/man/upsd.users.html>`_                            |
    |                               |                | for examples                                                                                          |
    |                               |                |                                                                                                       |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Remote monitor                | checkbox       | if enabled, be aware that the default is to listen on all interfaces and to use the known values user |
-   |                               |                | *upsmon* and password                                                                                 |
-   |                               |                | *fixmepass*                                                                                           |
+   |                               |                | *upsmon* and password *fixmepass*                                                                     |
    |                               |                |                                                                                                       |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Send Email Status Updates     | checkbox       | if checked, activates the :guilabel:`To email` field                                                  |
@@ -2077,6 +2075,9 @@ summarizes the options in the UPS Configuration screen.
    :menuselection:`System --> Advanced`.
    Plug in the USB device and look for a */dev/ugen* or */dev/uhid* device
    name in the console messages.
+
+Further details on some of these options is provided on the 
+`NUT configuration notes web page <http://networkupstools.org/docs/user-manual.chunked/ar01s06.html>`_.
 
 `upsc(8) <http://www.networkupstools.org/docs/man/upsc.html>`_
 can be used to get status variables from the UPS daemon such as the
