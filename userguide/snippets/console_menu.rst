@@ -12,7 +12,7 @@ administer the system.
 
    The Console Setup menu can be disabled by unchecking
    :guilabel:`Enable Console Menu` in
-   :menuselection:`System --> Settings --> Advanced`.
+   :menuselection:`System --> Advanced`.
 
 
 .. _console_setup_menu_fig:
