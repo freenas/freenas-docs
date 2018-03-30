@@ -3,13 +3,13 @@
 Installing and Upgrading
 ========================
 
-Please note that the %brand% operating system must be installed on a
+The %brand% operating system must be installed on a
 separate device from the drives which hold the storage data. In other
 words, with only one disk drive, the %brand% graphical interface is
 available, but there is no place to store any data. And storing data
 is, after all, the whole point of a NAS system. Home users
 experimenting with %brand% can install %brand% on an inexpensive USB
-thumb drive and use the computer's disks for storage.
+thumb drive and use the computer disks for storage.
 
 This section describes:
 
@@ -92,7 +92,7 @@ Examples for several common operating systems are shown below.
    might also be necessary to adjust the BIOS configuration to boot
    from the new %brand% USB stick.
 
-Make sure that the boot device order in the BIOS is set to boot from
+Ensure the boot device order in the BIOS is set to boot from
 the device containing the %brand% installer media, then boot the
 system to start the installation.
 
@@ -102,7 +102,7 @@ system to start the installation.
 On FreeBSD or Linux
 ~~~~~~~~~~~~~~~~~~~
 
-On a FreeBSD or Linux system, the :command:`dd` command can be used to
+On a FreeBSD or Linux system, the :command:`dd` command is used to
 write the :file:`.iso` file to an inserted USB thumb drive. This
 example demonstrates writing the image to the first USB device
 (*/dev/da0*) connected to a FreeBSD system. Substitute the filename of
@@ -111,8 +111,8 @@ the :file:`.iso` file and the device name of the device to write.
 .. warning:: The :command:`dd` command is very powerful and can
    destroy any existing data on the specified device. Make
    **absolutely sure** of the device name to write to and do not
-   mistype the device name when using :command:`dd`! If you are
-   uncomfortable using this command, write the :file:`.iso` file to a
+   mistype the device name when using :command:`dd`! The use of this
+   command can be avoided by writing the :file:`.iso` file to a
    CD instead.
 
 .. code-block:: none
@@ -198,7 +198,7 @@ TERMINAL, navigate to the Desktop, then type this command:
 
 
 This shows which devices are available to the system. Locate the
-target USB stick and record the path. If you are not sure which path
+target USB stick and record the path. If unsure which path
 is the correct one for the USB stick, remove the device, run the
 command again, and compare the difference. Once sure of the device
 name, navigate to the Desktop from TERMINAL, unmount the USB stick,
@@ -518,7 +518,7 @@ Be aware of these caveats **before** attempting an upgrade to
   hardware supports 64-bit, the system can be upgraded.  Any
   archived reporting graphs will be lost during the upgrade.
 
-* **UFS is no longer supported.** If your data currently resides on
+* **UFS is no longer supported.** If the data currently resides on
   **one** UFS-formatted disk, create a ZFS pool using **other**
   disks after the upgrade, then use the instructions in
   :ref:`Import Disk` to mount the UFS-formatted disk and copy the data
@@ -546,18 +546,19 @@ Before upgrading the operating system, perform the following steps:
 #.  **Back up the** %brand% **configuration** in
     :menuselection:`System --> General --> Save Config`.
 
-#.  If any pools are encrypted, **make sure** that you have set the
-    passphrase and have a copy of the encryption key and the latest
-    recovery key. After the upgrade is complete, use the instructions
+#.  If any pools are encrypted, **remember** to set a passphrase
+    and download a copy of the encryption key and the latest
+    recovery key.
+    After the upgrade is complete, use the instructions
     in :ref:`Importing an Encrypted Pool` to import the encrypted
     pools.
 
 #.  Warn users that the %brand% shares will be unavailable during the
-    upgrade; you should schedule the upgrade for a time that will
-    least impact users.
+    upgrade; it is recommended to schedule the upgrade for a time
+    that will least impact users.
 
 #.  Stop all services in
-    :menuselection:`Services --> Control Services`.
+    :menuselection:`Services`.
 
 
 .. _Upgrading Using the ISO:
@@ -613,9 +614,9 @@ boot drive or drives and presents the message shown in
 
 
 To perform an upgrade, press :kbd:`Enter` to accept the default of
-:guilabel:`Upgrade Install`. Again, the installer will remind you that
-the operating system should be installed on a disk that is not used
-for storage.
+:guilabel:`Upgrade Install`. Again, the installer will display a
+reminder that the operating system should be installed on a disk
+that is not used for storage.
 
 
 .. _install_new_boot_environment_fig:
@@ -662,7 +663,7 @@ normally. If database errors are shown but the graphical
 administrative interface is accessible, go to
 :menuselection:`Settings --> General`
 and use the :guilabel:`Upload Config` button to upload the
-configuration that you saved before starting the upgrade.
+configuration that was saved before starting the upgrade.
 
 
 .. _Upgrading From the GUI:
@@ -673,11 +674,11 @@ Upgrading From the GUI
 To perform an upgrade using this method, go to
 :menuselection:`System --> Update`.
 
-After the update is complete, you will temporarily lose your
-connection as the %brand% system reboots into the new version of the
+After the update is complete, the connection will be lost temporarily
+as the %brand% system reboots into the new version of the
 operating system. The %brand% system will normally receive the same
-IP address from the DHCP server. Refresh your browser after a moment
-to see if you can access the system.
+IP address from the DHCP server. Refresh the browser after a moment
+to see if the system can be accessed.
 
 
 .. _If Something Goes Wrong:
@@ -725,9 +726,9 @@ configuration. The system can be recovered with a few steps:
     :menuselection:`System --> General --> Upload Config`.
 
 .. note:: It is not possible to restore a saved configuration that is
-   newer than the installed version. For example, if you reboot into
-   an older version of the operating system, you cannot restore a
-   configuration that was created in a later version.
+   newer than the installed version. For example, if a reboot
+   into an older version of the operating system is performed,
+   a configuration created in a later version cannot be restored.
 
 #ifdef freenas
 #include snippets/upgradingazfspool.rst
@@ -741,7 +742,7 @@ Virtualization
 --------------
 
 %brand% can be run inside a virtual environment for development,
-experimentation, and educational purposes. Please note that running
+experimentation, and educational purposes. Note that running
 %brand% in production as a virtual machine is `not recommended
 <https://forums.freenas.org/index.php?threads/please-do-not-run-freenas-in-production-as-a-virtual-machine.12484/>`_.
 When using %brand% within a virtual environment,
@@ -942,7 +943,7 @@ possible to boot the VM from :file:`.iso`. If
 the :file:`.iso`, the host CPU either does not have the required
 extension or AMD-V/VT-x is disabled in the system BIOS.
 
-.. note:: If you receive a kernel panic when booting into the ISO,
+.. note:: If there is a kernel panic when booting into the ISO,
    stop the virtual machine. Then, go to :guilabel:`System` and check
    the box :guilabel:`Enable IO APIC`.
 
@@ -989,10 +990,10 @@ Commercial and free versions of the VMware vSphere Hypervisor
 operating system (ESXi) are available from the
 `VMware website
 <http://www.vmware.com/products/esxi-and-esx/overview>`__.
-After the operating system is installed on supported hardware, use a
-web browser to connect to its IP address. The welcome screen provides
-a link to download the VMware vSphere client which is used to create
-and manage virtual machines.
+After the operating system is installed on the supported hardware,
+use a web browser to connect to its IP address. The welcome screen
+provides a link to download the VMware vSphere client which is used
+to create and manage virtual machines.
 
 Once the VMware vSphere client is installed, use it to connect to the
 ESXi server. To create a new virtual machine, click
@@ -1083,7 +1084,7 @@ For ESX 5.0, Workstation 8.0, or Fusion 4.0 or higher, additional
 configuration is needed so that the virtual HPET setting does not
 prevent the virtual machine from booting.
 
-If you are running ESX, while in :guilabel:`Edit Settings`, click
+If running ESX, while in :guilabel:`Edit Settings`, click
 :menuselection:`Options --> Advanced --> General
 --> Configuration Parameters`.
 Change :guilabel:`hpet0.present` from *true* to *false*, then click
