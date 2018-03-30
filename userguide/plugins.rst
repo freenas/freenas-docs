@@ -29,10 +29,9 @@ but assumes that the user is comfortable working from the command line
 can and has a good understanding of networking basics and software
 installation on FreeBSD-based systems.
 
-It is recommended that users skim through both the :ref:`Plugins` and
-:ref:`Jails` sections in order to become familiar with the features
-and limitations of each and to choose the method that best meets their
-software needs.
+Look through the :ref:`Plugins` and :ref:`Jails` sections to become
+familiar with the features and limitations of each and to choose the
+best method that meets the software needs.
 
 
 .. note:: Plugins created for %brand% 9.3 or later are expected to
@@ -73,15 +72,14 @@ the list of available plugins will be displayed.
 
 .. note:: if the list of available plugins is not displayed, open
    :ref:`Shell` and verify that the %brand% system can :command:`ping`
-   an address on the Internet. If it cannot, you may have to add a
-   default gateway address and/or DNS server address in
+   an address on the Internet. If it cannot, add a default gateway
+   address and/or DNS server address in
    :menuselection:`Network --> Global Configuration`.
 
-Highlight the plugin you would like to install, click its
-:guilabel:`Install` button, then click :guilabel:`OK`. In the example
-shown in
-:numref:`Figure %s <installing_plugin_fig>`,
-SABnzbd is selected for installation.
+Highlight the plugin to install and click its :guilabel:`Install` button.
+Click :guilabel:`OK`. In the example shown in
+:numref:`Figure %s <installing_plugin_fig>`, SABnzbd is selected for
+installation.
 
 
 .. _installing_plugin_fig:
@@ -111,7 +109,7 @@ tab as shown in
 
 As seen in the example shown in
 :numref:`Figure %s <view_installed_plugins_fig>`,
-entries for the installed PBI will appear in the following locations:
+entries for the installed PBI will appear in these locations:
 
 * the :guilabel:`Installed` tab of :guilabel:`Plugins`
 
@@ -138,9 +136,9 @@ application will also appear.
    **not** work until the plugin is started.
 
 Always review a plugin's configuration options before attempting to
-start it. some plugins have options that need to be set before their
-service will successfully start. If you have never configured that
-application before, check the application's website to see what
+start it. Some plugins have options that need to be set before their
+service will successfully start. To help with installing a new
+application, check the website of the application to see what
 documentation is available. A link to the website for each available
 plugin can be found in :ref:`Available Plugins`.
 
@@ -149,10 +147,10 @@ system, click the entry for the associated jail in the
 :guilabel:`Jails` section of the tree and add a storage as described
 in :ref:`Add Storage`.
 
-If you need to access the shell of the jail containing the application
-to complete or test your configuration, click the entry for the
-associated jail in the :guilabel:`Jails` section of the tree. You can
-then click its "shell" icon as described in :ref:`Managing Jails`.
+Click the entry for the associated jail in the :guilabel:`Jails`
+section of the tree. This will give access to the shell of the jail
+containing the application to complete or test the configuration.
+Then, click the "shell" icon as described in :ref:`Managing Jails`.
 
 Once the configuration is complete, click the red :guilabel:`OFF`
 button for the entry for the plugin. If the service starts
@@ -195,15 +193,14 @@ The :guilabel:`Available` tab of :guilabel:`Plugins` contains an
 :guilabel:`Upload` button. This button allows installation of plugins
 that are not yet available in the official repository or which are
 still being tested. These plugins must be manually downloaded and
-should end in a :file:`.pbi` extension. When downloading a plugin,
+end in a :file:`.pbi` extension. When downloading a plugin,
 make sure that it is 64-bit and that it was developed for 9.x. as 8.x
 and 10.x applications will not work on a 9.x %brand% system.
 
-Upload the new plugin with the :guilabel:`Upload` button. As seen in
-the example in
-:numref:`Figure %s <install_pbi_plugin_fig>`,
-this prompts you to browse to the location of the plugin file. Select
-the file and click :guilabel:`Upload` to begin the installation.
+Click the :guilabel:`Upload` button to upload the new plugin. The
+example in :numref:`Figure %s <install_pbi_plugin_fig>` shows how to
+browse to the location of the plugin file. Select the file and click
+:guilabel:`Upload` to begin the installation.
 
 
 .. _install_pbi_plugin_fig:
@@ -226,20 +223,18 @@ command line of the jail's shell instead of from the GUI.
 Deleting
 --------
 
-When you install a plugin, an associated jail is created. If you
-decide to delete a plugin, the associated jail is also deleted as it
-is no longer required. **Before deleting a plugin,** make sure that
-you do not have any data or configuration in the jail that you need to
-save. If you do, back up that data first, **before** deleting the
-plugin.
+Installing a plugin creates an associated jail. Deleting a plugin
+deletes the associated jail because it is no longer required.
+**Before** deleting a plugin, make sure that there is no data
+or configuration in the jail that needs to be saved. Back up
+that data **first** if needed.
 
 In the example shown in
 :numref:`Figure %s <deleting_installed_plugin_fig>`,
-Sabnzbd has been installed and the user has clicked its
-:guilabel:`Delete` button. A pop-up message asks the user if they are
-sure that they want to delete. **This is the one and only warning.**
-If the user clicks :guilabel:`Yes`, the plugin and the associated jail
-are permanently deleted.
+Sabnzbd has been installed and the :guilabel:`Delete` button has been
+clicked. A pop-up message asks the user if they are sure that they want
+to delete. **This is the only warning.** The plugin and the associated
+jail are permanently deleted when :guilabel:`Yes` is clicked.
 
 
 .. _deleting_installed_plugin_fig:
@@ -290,36 +285,99 @@ Contains the name and a description of the plugin.
    |                         | with the jail startup, apply configuration settings,                 |
    |                         | and more.                                                            |
    +-------------------------+----------------------------------------------------------------------+
-   | :file:`ui.json`         | Json file that accepts the  key or value options:                    |
+   | :file:`ui.json`         | JSON file that accepts the  key or value options:                    |
    |                         |                                                                      |
    |                         | :samp:`adminportal: "http://%%IP%%/"`                                |
    |                         |                                                                      |
    |                         | The web-interface of the plugin for control and                      |
    |                         | configuration .                                                      |
    +-------------------------+----------------------------------------------------------------------+
-   | :file:`overlay/`        | Directory of files copied on top of the jail post-install.           |
-   |                         | For example, :file:`usr/local/bin/myfile` is placed in the jails     |
-   |                         | /usr/local/bin/myfile location. Can be used to supply custom         |
-   |                         | files and configuration data, scripts, and more.                     |
+   | :file:`overlay/`        | Directory of files overlaid on the jail after install.               |
+   |                         | For example, :file:`usr/local/bin/myfile` is placed in the           |
+   |                         | /usr/local/bin/myfile locationof the jail. Can be used to            |
+   |                         | supply custom files and configuration data, scripts, and             |
+   |                         | any other type of customized files.                                  |
    +-------------------------+----------------------------------------------------------------------+
-   | :file:`settings.json`   | Json file that controls plugins settings interface. The required     |
-   |                         | fields include:                                                      |
+   | :file:`settings.json`   | JSON file that manages the settings interface of the plugin.         |
+   |                         | The required fields include:                                         |
    |                         |                                                                      |
    |                         | * :samp:`"servicerestart" : "service plexmediaserver restart"`       |
    |                         |                                                                      |
-   |                         | Command to run when restarting service after changing settings.      |
+   |                         | Command to run when restarting the plugin service after              |
+   |                         | changing settings.                                                   |
    |                         |                                                                      |
    |                         | * :samp:`"serviceget" : "/usr/local/bin/myget"`                      |
    |                         |                                                                      |
-   |                         | Points to the command used to get values for plugin configuration.   |
-   |                         | Provided by the plugin creator. Can be any language as long as it    |
-   |                         | accepts two arguments for key or value pair.                         |
+   |                         | Command used to get values for plugin configuration.                 |
+   |                         | Provided by the plugin creator. The command accpets                  |
+   |                         | two arguments for key or value pair.                                 |
    |                         |                                                                      |
    |                         | * :samp:`"options" : { }`                                            |
    |                         |                                                                      |
    |                         | This subsection contains arrays of elements, starting with the "key" |
    |                         | name and required arguments for that particular type of setting.     |
+   |                         |                                                                      |
+   |                         | See :ref:`options subection example <plugin-json-options>`           |
+   |                         | below.                                                               |
+   |                         |                                                                      |
    +-------------------------+----------------------------------------------------------------------+
+
+.. _plugin-json-options:
+
+.. code-block:: none
+
+   "options": {
+			"adduser": {
+				"type": "add",
+				"name": "Add User",
+				"description": "Add new quasselcore user",
+				"requiredargs": {
+					"username": {
+						"type": "string",
+						"description": Quassel Client Username",
+						},
+						"password": {
+							"type": "password",
+							"description": "Quassel Client Password",
+						},
+						"fullname": {
+							"type": "string",
+							"description": "Quassel Client Full Name",
+						}
+				},
+				"optionalargs": {
+						"adminuser": {
+							"type": "bool",
+							"description": "Can this user administrate quasselcore?",
+						}
+				}
+			},
+			"port": {
+				"type": "int",
+				"name": "Quassel Core Port",
+				"description": "Port for incoming quassel connections",
+				"range": "1024-32000",
+				"default": "4242",
+				"requirerestart": true,
+			},
+			"sslmode": {
+				"type": "combo",
+				"name": "SSL Options",
+				"description": "SSL Connection Options",
+				"requirerestart": true,
+				"default": "tlsallow",
+				"options": {
+							"tlsrequire": "Require TLS",
+							"tlsallow": "Allow TLS",
+							"tlsdisable": "Disable TLS",
+				}
+			},
+			"deluser": {
+				"type": "delete",
+				"name": "Delete User",
+				"description": "Remove a quasselcore user",
+			}
+   }
 
 Refer to the quassel
 `artifact repo <https://github.com/freenas/iocage-plugin-quassel>`__
@@ -388,7 +446,6 @@ These plugins are available for %brand% |release|:
 
 * `XMRig <https://github.com/xmrig/xmrig>`_
 
-While the %brand% Plugins system makes it easy to install software,
-it is still up to you to know how to configure and use the installed
-application. When in doubt, refer to the documentation for that
-application.
+The %brand% Plugins system makes it simple to install software.
+However, refer to the documentation for that application if there are
+troubles.
