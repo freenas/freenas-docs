@@ -23,13 +23,12 @@
    processes
    shell
    logout
-   reboot
+   restart
    shutdown
    help
    alert
    support
    cli
-   contribute
    zfsprimer
    vaai
    api
