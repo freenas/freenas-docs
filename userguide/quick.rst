@@ -12,9 +12,9 @@ Obtaining an IP Address
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 During boot, %brand% automatically attempts to connect to a DHCP
-server from all live network interfaces. If it successfully receives
-an IP address, the address is displayed so it can be used to access
-the graphical user interface. The example in
+server from all live network interfaces. After %brand% successfully
+recieves an IP address, the address is displayed so it can be used 
+to access the graphical user interface. The example in
 :numref:`Figure %s <console_setup_menu_fig>` shows a
 %brand% system that is accessible at *http://192.168.1.119*.
 
