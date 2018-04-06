@@ -6,31 +6,27 @@ Plugins
 
 %brand% 8.2.0 introduced the ability to extend the built-in NAS
 services by providing a mechanism for installing additional software.
-This mechanism was known as the Plugins architecture and is based on
-`FreeBSD jails <https://en.wikipedia.org/wiki/Freebsd_jail>`_
+This mechanism is known as the Plugins architecture and is based on
+`FreeBSD jails <https://en.wikipedia.org/wiki/Freebsd_jail>`__
 and
-`PC-BSD 9.x PBIs
-<http://wiki.pcbsd.org/index.php/AppCafe%C2%AE/9.2>`_.
-This allowed
-users to install and configure additional applications once they had
-created and configured a plugins jail.
+`PC-BSD 9.x PBIs <http://wiki.pcbsd.org/index.php/AppCafe%C2%AE/9.2>`__.
+This allows the installation and configuration of additional
+applications of a created jail.
 
 %brand% 9.x simplifies this procedure by providing two methods for
-software installation. The Plugins method, described in this section,
-is meant for users who prefer to browse for, install, and configure
-available software using the GUI. This method is very easy to use, but
-is limited in the amount of software that is available. Each
-application will automatically be installed into its own jail, meaning
-that this method may not be suitable for users who wish to run
-multiple applications within the same jail.
+software installation. The Plugins method is used to browse for,
+install, and configure available software using the GUI.
+This method is very easy to use, but is limited in the amount of
+software that is available. Each application is automatically installed
+into a jail. This method may not be suitable if running multiple
+applications within the same jail is desired.
 
-The Jails method provides much more control over software installation
-but assumes that the user is comfortable working from the command line
-can and has a good understanding of networking basics and software
-installation on FreeBSD-based systems.
+The Jails method provides much more control over software installation.
+It requires working from the command line and a good understanding of
+networking basics and software  installation on FreeBSD-based systems.
 
 Look through the :ref:`Plugins` and :ref:`Jails` sections to become
-familiar with the features and limitations of each and to choose the
+familiar with the features and limitations of each. Choose the
 best method that meets the software needs.
 
 
@@ -44,9 +40,8 @@ best method that meets the software needs.
 Installing
 ----------
 
-A plugin is a self-contained application installer which has been
-designed to integrate into the %brand% GUI. A plugin offers several
-advantages:
+A plugin is a self-contained application installer designed to
+integrate into the %brand% GUI. A plugin offers several advantages:
 
 * the %brand% GUI provides a browser for viewing the list of
   available plugins
@@ -55,13 +50,12 @@ advantages:
   managing, and deleting plugins
 
 * if the plugin has configuration options, a screen will be added to
-  the %brand% GUI so that these options can be configured from the
-  GUI
+  the %brand% GUI for these options to be configured
 
-To install a plugin, click :guilabel:`Plugins`. As seen in
-:numref:`Figure %s <view_list_plugins_fig>`,
-the list of available plugins will be displayed.
-
+To install a plugin, click
+:menuselection:`Plugins --> Available`.
+As seen in :numref:`Figure %s <view_list_plugins_fig>`. The list of
+available plugins is displayed.
 
 .. _view_list_plugins_fig:
 
@@ -70,17 +64,23 @@ the list of available plugins will be displayed.
    Viewing the List of Available Plugins
 
 
-.. note:: if the list of available plugins is not displayed, open
+.. note:: If the list of available plugins is not displayed, open
    :ref:`Shell` and verify that the %brand% system can :command:`ping`
    an address on the Internet. If it cannot, add a default gateway
    address and/or DNS server address in
    :menuselection:`Network --> Global Configuration`.
 
-Highlight the plugin to install and click its :guilabel:`Install` button.
-Click :guilabel:`OK`. In the example shown in
-:numref:`Figure %s <installing_plugin_fig>`, SABnzbd is selected for
-installation.
+CLick the
+:menuselection:`menu icon --> install`.
+Check the :guilabel:`dhcp` checkbox to automatically configure IP
+settings, or manually enter the IPv4 or IPv6 addresses. Click
+:guilabel:`Save`. In the example shown in
+:numref:`Figure %s <installing_plugin_fig>`, Plex Media Server is
+selected for installation.
 
+.. Have the screenshot showing the menu icon dropdown with "install"
+   highlighted. Perhaps add another screenshot showing the network
+   form that appears after clicking install.
 
 .. _installing_plugin_fig:
 
@@ -88,17 +88,11 @@ installation.
 
    Installing a Plugin
 
-
-The installation will take a few minutes as the system will first
-download and configure a jail to contain the installed software. It
-will then install the plugin and add it to the :guilabel:`Installed`
-tab as shown in
-:numref:`Figure %s <view_installed_plugins_fig>`.
-
-.. warning:: Be patient and wait for the installation to finish.
-   Navigating away from the installation before it is finished will
-   cause problems with the installation.
-
+The installation takes a few minutes because the system
+downloads and configures a jail to contain the installed software. It
+then installs the plugin and adds it to the
+:menuselection:`Plugins --> Installed`
+section as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
 .. _view_installed_plugins_fig:
 
@@ -106,24 +100,11 @@ tab as shown in
 
    Viewing Installed PBIs
 
-
-As seen in the example shown in
-:numref:`Figure %s <view_installed_plugins_fig>`,
-entries for the installed PBI will appear in these locations:
-
-* the :guilabel:`Installed` tab of :guilabel:`Plugins`
-
-* the :guilabel:`Plugins` section of the tree
-
-* the :guilabel:`Jails` section of the tree
-
-The entry in the :guilabel:`Installed` tab of Plugins will display the
-plugin name and version, the name of the PBI that was installed, the
-name of the jail that was created, whether the application status is
-:guilabel:`ON` or :guilabel:`OFF`, and a button to delete the
-application and its associated jail. If a newer version of the
-application is available as a plugin, a button to update the
-application will also appear.
+The entry in the
+:menuselection:`Plugins --> Installed`
+section displays the
+plugin name, boot status, state, release, IP4 and IP6 addresses, and if
+it is a template.
 
 .. note:: The :guilabel:`Service status` of a plugin must be turned to
    :guilabel:`ON` before the installed application is available.
@@ -135,12 +116,12 @@ application will also appear.
    hyperlink for accessing the software. However, that hyperlink does
    **not** work until the plugin is started.
 
-Always review a plugin's configuration options before attempting to
+Always review plugin configuration options before attempting to
 start it. Some plugins have options that need to be set before their
 service will successfully start. To help with installing a new
 application, check the website of the application to see what
 documentation is available. A link to the website for each available
-plugin can be found in :ref:`Available Plugins`.
+plugin is found in :ref:`Available Plugins`.
 
 If the application requires access to the data stored on the %brand%
 system, click the entry for the associated jail in the
@@ -243,33 +224,20 @@ jail are permanently deleted when :guilabel:`Yes` is clicked.
 
    Deleting an Installed Plugin
 
-.. _Submitting Plugins:
+.. _Creating Plugins:
 
-Submitting
-----------
+Creating
+--------
 
-Submit a plugin under the
-`FreeNAS project on redmine <https://redmine.ixsystems.com/projects/freenas>`__.
+Create a plugin for FreeNAS\ :sup:`®` by follwing these steps:
 
-Click
-:menuselection:`+ --> New Issue` .
+* create an artifact repo
 
-Set :guilabel:`Tracker` to *Feature*.
+The correct port must be used. Find the correct port by searching for
+the plugin at `<https://www.freshports.org/>`__ .
 
-.. the :guilabel:`Tracker` may change. Kris has said that he could add
-   another option in the drop down, related to plugin submisisons.
-
-* :guilabel:`Subject`:
-
-Contains the name and a description of the plugin.
-
-* :guilabel:`Description`:
-
-   * Find the correct port by searching for the plugin at
-     `<https://www.freshports.org/>`__. Link the URL of the port.
-   * Create and link the URL of the Git artifact repo for the plugin.
-     Refer to :numref:`table %s <Artifact Files>` for possible files
-     that are in the artifact repo.
+Refer to :numref:`table %s <Artifact Files>` and add the necessary files
+to the artifact repo.
 
 .. _Artifact Files:
 
@@ -383,7 +351,68 @@ Refer to the quassel
 `artifact repo <https://github.com/freenas/iocage-plugin-quassel>`__
 for an example.
 
-Click :guilabel:`Create` .
+* create the JSON file for the plugin
+
+The naming convention is :file:`{pluginname}.json`. For example, a
+json file for the plugin transmission has the name
+:file:`transmission.json`. Refer to :numref:`table %s <json contents>`
+for the data fields and a description of each.
+
+.. _json contents:
+
+.. table:: Json File Contents
+   :class: longtable
+
+   +-------------------------+------------------------------------------------------------------+
+   | Data Field              | Description                                                      |
+   +=========================+==================================================================+
+   | :samp:`"name":`         | Name of the plugin.                                              |
+   +-------------------------+------------------------------------------------------------------+
+   | :samp:`"release":`      | Release used for the plugin.                                     |
+   +-------------------------+------------------------------------------------------------------+
+   | :samp:`"artifact":`     | URL of the artifact repo                                         |
+   +-------------------------+------------------------------------------------------------------+
+   | :samp:`"pkgs":`         | Port of the plugin                                               |
+   +-------------------------+------------------------------------------------------------------+
+   | :samp:`"packagesite":`  | CDN the plugins use. Default                                     |
+   |                         | for the TrueOS CDN is                                            |
+   |                         | `<http://pkg.cdn.trueos.org/iocage>`__.                          |
+   +-------------------------+------------------------------------------------------------------+
+   | :samp:`"fingerprints":` | :samp:`"function":`                                              |
+   |                         |                                                                  |
+   |                         | Default is *sha256*.                                             |
+   |                         |                                                                  |
+   |                         | :samp:`"fingerprint":`                                           |
+   |                         |                                                                  |
+   |                         | The pkg fingerprint for the artifact repo.                       |
+   |                         | Default is                                                       |
+   |                         | 226efd3a126fb86e71d60a37353d17f57af816d1c7ecad0623c21f0bf73eb0c7 |
+   +-------------------------+------------------------------------------------------------------+
+
+Update the :file:`INDEX` file when adding a new JSON file. Refer to the
+`INDEX <https://github.com/freenas/iocage-ix-plugins/blob/master/INDEX>`__
+file as an example.
+
+* save the icon for the plugin
+
+Most plugins will have a specific icon. Search the web and save the icon
+as a png file. The naming convention for the png file is
+:file:`{pluginname}.png`. For example, the plugin transmisison has the
+icon file :file:`transmission.png`.
+
+* submit a pull request
+
+Lastly, submit a pull request to the
+`iocage-ix-plugins repo <https://github.com/freenas/iocage-ix-plugins>`__.
+Make sure the pull request contains:
+
+* the new JSON file created
+
+* the addition of an icon to the :file:`icons` directory
+
+* an update to the :file:`INDEX` file with an entry for the new plugin.
+
+* a link to the artifact repository with the built form of the plugin.
 
 .. _Available Plugins:
 
