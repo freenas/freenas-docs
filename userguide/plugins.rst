@@ -7,9 +7,7 @@ Plugins
 %brand% 8.2.0 introduced the ability to extend the built-in NAS
 services by providing a mechanism for installing additional software.
 This mechanism is known as the Plugins architecture and is based on
-`FreeBSD jails <https://en.wikipedia.org/wiki/Freebsd_jail>`__
-and
-`PC-BSD 9.x PBIs <http://wiki.pcbsd.org/index.php/AppCafe%C2%AE/9.2>`__.
+`FreeBSD jails <https://en.wikipedia.org/wiki/Freebsd_jail>`__.
 This allows the installation and configuration of additional
 applications of a created jail.
 
