@@ -561,9 +561,6 @@ The final set of jail properties are contained in the
    |                     |           | filesystem in the jail.                                                                                       |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | template            | checkbox  | Check to set this jail as a template. See :ref:`Using Jail Templates` for more details.                       |
-   |                     |           |                                                                                                               |
-   +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
    | host_time           | checkbox  | Check to synchronize the time between jail and host.                                                          |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
@@ -1223,43 +1220,6 @@ available:
    # --config file
    # NAME_dir="/usr/local/etc/openvpn"
    # --cd directory
-
-
-.. _Using Jail Templates:
-
-Using Jail Templates
---------------------
-
-:command:`iocage` supports transforming a jail into a template. This
-allows many jails to be created from a single, user-customized jail.
-
-The :command:`iocage` backend quickly transforms a jail into a template.
-After creating and customizing a jail, :guilabel:`Stop` the jail,
-:guilabel:`Edit` the jail properties, and check :guilabel:`template`.
-After saving, the jail now functions as a template. It cannot be
-started, but it can be duplicated into as many new jails are needed.
-
-.. tip:: Need to further customize a template? Just uncheck
-   :guilabel:`template` and click :guilabel:`Save`. The template will
-   be automatically switched back to a normal jail.
-
-
-Template jails appear in the main
-:ref:`Jail List <view_added_jails_fig>` as a :guilabel:`template` under
-the :guilabel:`Type` column.
-
-.. TODO update text when templates are part of the new gui (#31431):
-
-To create new jails from a template, use :command:`iocage` in the
-%brand% :guilabel:`Shell`. In this example, :command:`iocage create` is
-used to create *newjail01* from the template *template01*:
-
-
-.. code-block:: none
-
-   [root@freenas ~]# iocage create -t template01 -n newjail01
-   newjail01 successfully created!
-
 
 
 .. index:: iocage
