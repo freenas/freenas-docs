@@ -20,7 +20,7 @@ includes these built-in services:
 
 * :ref:`LLDP`
 
-* :ref:`Netdata`
+* :ref:`netdata`
 
 * :ref:`NFS`
 
@@ -52,12 +52,13 @@ configuration options for each %brand% service.
 Control Services
 ----------------
 
-:menuselection:`Services --> Control Services`, shown in
+
+The :guilabel:`Services` screen, shown in
 :numref:`Figure %s <control_services_fig>`,
 shows which services are currently running and can start, stop, or
 configure them. The S.M.A.R.T. service is enabled by default, but only
 runs if the storage devices support
-`S.M.A.R.T. data <http://en.wikipedia.org/wiki/S.M.A.R.T.>`_
+`S.M.A.R.T. data <http://en.wikipedia.org/wiki/S.M.A.R.T.>`__.
 Other services default to off until started.
 
 
@@ -68,9 +69,8 @@ Other services default to off until started.
    Control Services
 
 
-Stopped services show a red stop symbol and a :guilabel:`Start Now`
-button. Running services show a green light with a
-:guilabel:`Stop Now` button.
+Stopped services show a red power button. Running services show a
+green power button. Click the button to start or stop a service.
 
 
 .. tip:: Using a proxy server can prevent the list of services from
@@ -81,16 +81,15 @@ button. Running services show a green light with a
    connecting through the VPN, check the VPN software configuration.
 
 
-Services are configured by clicking the wrench icon or the name of the
-service in the :guilabel:`Services` section of the tree menu.
+Services are configured by clicking :guilabel:`Configure`.
 
 If a service does not start, go to
 :menuselection:`System --> Advanced`
-and check the box :guilabel:`Show console messages in the footer`.
-Console messages appear at the bottom of the browser. Clicking
-the console message area makes it into a pop-up window, allowing
-scrolling through or copying the messages. Watch these messages for
-errors when stopping or starting the problematic service.
+and check :guilabel:`Show console messages`. Console messages appear at
+the bottom of the browser. Clicking the console message area makes it
+into a pop-up window, allowing scrolling through or copying the
+messages. Watch these messages for errors when stopping or starting the
+problematic service.
 
 To read the system logs for more information about a service failure,
 open :ref:`Shell` and type :command:`more /var/log/messages`.
@@ -101,6 +100,7 @@ open :ref:`Shell` and type :command:`more /var/log/messages`.
 
 AFP
 ---
+
 
 The settings that are configured when creating AFP Shares in
 :menuselection:`Sharing --> Apple (AFP) Shares --> Add Apple (AFP)
@@ -134,57 +134,41 @@ which are described in
    | Setting                 | Value          | Description                                                                                                     |
    |                         |                |                                                                                                                 |
    +=========================+================+=================================================================================================================+
-   | Guest Access            | checkbox       | if checked, clients will not be prompted to authenticate before accessing AFP shares                            |
+   | Guest Account           | drop-down menu | Select an account to use for guest access. The selected account must have permissions to the pool or dataset    |
+   |                         |                | being shared.                                                                                                   |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Guest account           | drop-down menu | select account to use for guest access; the selected account must have permissions to the pool or dataset       |
-   |                         |                | being shared                                                                                                    |
+   | Guest Access            | checkbox       | If checked, clients will not be prompted to authenticate before accessing AFP shares.                           |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Max Connections         | integer        | maximum number of simultaneous connections                                                                      |
+   | Max. Connections        | integer        | Maximum number of simultaneous connections.                                                                     |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Enable home directories | checkbox       | if checked, any user home directories located under :guilabel:`Home directories` will be available              |
-   |                         |                | over the share                                                                                                  |
+   | Database Path           | browse button  | Select the path to store the CNID databases used by AFP (default is the root of the pool). The path must be     |
+   |                         |                | writable.                                                                                                       |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Home directories        | browse button  | select the pool or dataset which contains user home directories                                                 |
+   | Chmod Request           | drop-down menu | Indicates how to handle ACLs. choices are *Ignore*, *Preserve*, or *Simple*.                                    |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Home share name         | string         | overrides default home folder name with the specified value                                                     |
+   | Map ACLs                | drop-down menu | Choose mapping of effective permissions for authenticated users. *Rights* (default, Unix-style permissions),    |
+   |                         |                | *Mode* (ACLs), or *None*.                                                                                       |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Home Share Time Machine | checkbox       | when checked, enables Time Machine Lock Stealing; Apple recommends that shares designated for Time Machine      |
-   |                         |                | backups be used exclusively for Time Machine backups                                                            |
+   | Bind Interfaces         | selection      | Specify the IP addresses to listen for FTP connections. Check the desired IP addresses in the list              |
+   |                         |                | to add them to the :guilabel:`Bind Interfaces` list.                                                            |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Database Path           | browse button  | select the path to store the CNID databases used by AFP (default is the root of the pool); the path must be     |
-   |                         |                | writable                                                                                                        |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Global auxiliary        | string         | additional `afp.conf(5) <http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html>`_                        |
-   | parameters              |                | parameters not covered elsewhere in this screen                                                                 |
+   | Global auxiliary        | string         | Additional `afp.conf(5) <http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html>`__                       |
+   | parameters              |                | parameters not covered elsewhere in this screen.                                                                |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Map ACLs                | drop-down menu | choose mapping of effective permissions for authenticated users; *Rights* (default, Unix-style permissions),    |
-   |                         |                | *Mode* (ACLs), or *None*                                                                                        |
-   |                         |                |                                                                                                                 |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Chmod Request           | drop-down menu | indicates how to handle ACLs; choices are *Ignore*, *Preserve*, or *Simple*                                     |
-   |                         |                |                                                                                                                 |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Bind IP Addresses       | selection      | specify the IP addresses to listen for FTP connections; highlight the desired IP addresses in the               |
-   |                         |                | :guilabel:`Available` list and use the :guilabel:`>>` button to add to the :guilabel:`Selected` list            |
-   |                         |                |                                                                                                                 |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-
 
 When configuring home directories, it is recommended to create a
 dataset to hold the home directories which contains a child dataset
 for each user. As an example, create a dataset named
-:file:`pool1/homedirs` and browse to this dataset when configuring
-the :guilabel:`Home directories` field of the AFP service. Then, as
-you create each user, first create a child dataset for that user. For
-example, create a dataset named :file:`pool1/homedirs/user1`. When
-you create the *user1* user, browse to the
+:file:`pool1/homedirs`. Then, when creating a new user, first create a
+child dataset for that user. For example, create a dataset named
+:file:`pool1/homedirs/user1`. When creating *user1*, browse to the
 :file:`pool1/homedirs/user1` dataset in the
 :guilabel:`Home Directory` field of the :guilabel:`Add New User`
 screen.
@@ -195,7 +179,7 @@ screen.
 Troubleshooting AFP
 ~~~~~~~~~~~~~~~~~~~
 
-You can determine which users are connected to an AFP share by typing
+Determine which users are connected to an AFP share by typing
 :command:`afpusers`.
 
 If :guilabel:`Something wrong with the volume's CNID DB` is shown,
@@ -207,7 +191,7 @@ problematic AFP share:
    dbd -rf /path/to/share
 
 
-This command may take a while, depending upon the size of the pool
+This command can take some time, depending upon the size of the pool
 or dataset being shared. This command will wipe the CNID database and
 rebuild it from the CNIDs stored in the AppleDouble files.
 
@@ -236,7 +220,7 @@ makes it easy to enter the needed settings into the administrative
 graphical interface, it is important to understand what those settings
 should be. Before beginning configuration, read through the
 `Samba AD DC HOWTO
-<https://wiki.samba.org/index.php/Samba_AD_DC_HOWTO>`_.
+<https://wiki.samba.org/index.php/Samba_AD_DC_HOWTO>`__.
 After %brand% is configured, use the RSAT utility from a Windows
 system to manage the domain controller. The Samba AD DC HOWTO includes
 instructions for installing and configuring RSAT.
@@ -263,34 +247,33 @@ summarizes the available options.
 .. table:: Domain Controller Configuration Options
    :class: longtable
 
-   +------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Setting                | Value          | Description                                                                                                                                                                               |
-   |                        |                |                                                                                                                                                                                           |
-   |                        |                |                                                                                                                                                                                           |
-   +========================+================+===========================================================================================================================================================================================+
-   | Realm                  | string         | capitalized DNS realm name                                                                                                                                                                |
-   |                        |                |                                                                                                                                                                                           |
-   +------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Domain                 | string         | capitalized domain name                                                                                                                                                                   |
-   |                        |                |                                                                                                                                                                                           |
-   +------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Server Role            | drop-down menu | at this time, the only supported role is as the domain controller for a new domain                                                                                                        |
-   |                        |                |                                                                                                                                                                                           |
-   +------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | DNS Forwarder          | string         | IP address of DNS forwarder; required for recursive queries when *SAMBA_INTERNAL* is selected                                                                                             |
-   |                        |                |                                                                                                                                                                                           |
-   +------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Domain Forest Level    | drop-down menu | choices are *2000*, *2003*, *2008*, *2008_R2*, *2012*, or *2012_R2*; refer to                                                                                                             |
-   |                        |                | `Understanding Active Directory Domain Services (AD DS) Functional Levels <https://technet.microsoft.com/en-us/library/understanding-active-directory-functional-levels(WS.10).aspx>`__   |
-   |                        |                | for details                                                                                                                                                                               |
-   |                        |                |                                                                                                                                                                                           |
-   +------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Administrator password | string         | password to be used for the :ref:`Active Directory` administrator account                                                                                                                 |
-   |                        |                |                                                                                                                                                                                           |
-   +------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Kerberos Realm         | drop-down menu | auto-populates with information from the :guilabel:`Realm` when the settings in this screen are saved                                                                                     |
-   |                        |                |                                                                                                                                                                                           |
-   +------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------------------+
+   | Setting                 | Value          | Description                                                                                                       |
+   |                         |                |                                                                                                                   |
+   +=========================+================+===================================================================================================================+
+   | Realm                   | string         | Capitalized DNS realm name.                                                                                       |
+   |                         |                |                                                                                                                   |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------------------+
+   | Domain                  | string         | Capitalized domain name.                                                                                          |
+   |                         |                |                                                                                                                   |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------------------+
+   | Server Roll             | drop-down menu | At this time, the only supported role is as the domain controller for a new domain.                               |
+   |                         |                |                                                                                                                   |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------------------+
+   | DNS Forwarder           | string         | IP address of DNS forwarder. Required for recursive queries when *SAMBA_INTERNAL* is selected.                    |
+   |                         |                |                                                                                                                   |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------------------+
+   | Forest Level            | drop-down menu | Choices are *2000*, *2003*, *2008*, *2008_R2*, *2012*, or *2012_R2*. Refer to                                     |
+   |                         |                | `Understanding Active Directory Domain Services (AD DS) Functional Levels                                         |
+   |                         |                | <https://technet.microsoft.com/en-us/library/understanding-active-directory-functional-levels(WS.10).aspx>`__.    |
+   |                         |                |                                                                                                                   |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------------------+
+   | Administration Password | string         | Password to be used for the :ref:`Active Directory` administrator account.                                        |
+   |                         |                |                                                                                                                   |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------------------+
+   | Kerberos Realm          | drop-down menu | Auto-populates with information from the :guilabel:`Realm` when the settings in this screen are saved.            |
+   |                         |                |                                                                                                                   |
+   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------------------+
 
 
 .. _Samba Domain Controller Backup:
