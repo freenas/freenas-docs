@@ -279,6 +279,10 @@ whenever changes are made to this setting.
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
 
 
+Click the :guilabel:`Rebuild Directory Service Cache` button if a new
+Active Directory user needs immediate access to %brand%. This occurs
+automatically once a day as a cron job.
+
 .. note:: Active Directory places restrictions on which characters are
    allowed in Domain and NetBIOS names, a limits the length of those
    names to 15 characters. If there are problems connecting to the
@@ -385,6 +389,11 @@ If the System Will not Join the Domain
 If the system will not join the Active Directory domain, run these
 commands in the order listed. :command:`echo` commands will return a
 value of *0* and :command:`klist` will show a Kerberos ticket:
+
+If the cache becomes out of sync due to an AD server being taken off
+and back online, resync the cache using
+:menuselection:`Directory Service --> Active Directory
+--> Rebuild Directory Service Cache`.
 
 .. note:: If any of the commands fail or result in a traceback,
    create a bug report at
@@ -632,6 +641,10 @@ aliases, and other text-based tables of information. If an NIS server is
 running on the network, the %brand% system can be configured to import
 the users and groups from the NIS directory.
 
+Click the :guilabel:`Rebuild Directory Service Cache` button after
+adding a user to LDAP who needs immediate access to %brand%. Otherwise
+this occurs automatically once a day as a cron job.
+
 .. note:: In Windows Server 2016, Microsoft removed the Identity
    Management for Unix (IDMU) and NIS Server Role. See
    `Clarification regarding the status of Identity Management for Unix
@@ -711,6 +724,9 @@ to always display these settings by checking the box
 :guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
 
+Click the :guilabel:`Rebuild Directory Service Cache` button after
+adding a user to NIS who needs immediate access to %brand%. Otherwise
+this occurs automatically once a day as a cron job.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
