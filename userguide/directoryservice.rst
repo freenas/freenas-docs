@@ -27,7 +27,7 @@ Active Directory (AD) is a service for sharing resources in a Windows
 network. AD can be configured on a Windows server that is running
 Windows Server 2000 or higher or on a Unix-like operating system that
 is running `Samba version 4
-<https://wiki.samba.org/index.php/Samba4/HOWTO#Provisioning_The_Samba_Active_Directory>`__.
+<https://wiki.samba.org/index.php/Setting_up_Samba_as_an_Active_Directory_Domain_Controller#Provisioning_a_Samba_Active_Directory>`__.
 Since AD provides authentication and authorization services for the
 users in a network, it is not necessary to recreate these user
 accounts on the %brand% system. Instead, configure the Active
@@ -135,8 +135,8 @@ these settings by checking
    |                          |               |          | persistent UIDs and GUIDs. Leave unchecked to map users and groups to the UID/GUID range configured in Samba.                 |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Allow Trusted Domains    | checkbox      | ✓        | Only enable if the network has active                                                                                         |
-   |                          |               |          | `domain/forest trusts <https://technet.microsoft.com/en-us/library/cc757352(WS.10).aspx>`__                                   |
+   | Allow Trusted Domains    | checkbox      | ✓        | Only enable if the network has active `domain/forest trusts                                                                   |
+   |                          |               |          | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc757352(v=ws.10)>`__                  |
    |                          |               |          | and files need to be managed on multiple domains. Use with caution, this will generate more winbindd traffic,                 |
    |                          |               |          | slowing down the ability to filter through user and group information.                                                        |
    |                          |               |          |                                                                                                                               |
@@ -224,7 +224,7 @@ these settings by checking
 :numref:`Table %s <id_map_backends_tab>`
 summarizes the backends which are available in the
 :guilabel:`Idmap backend` drop-down menu. Each backend has its own
-`man page <http://samba.org.ru/samba/docs/man/manpages/>`_
+`man page <http://samba.org.ru/samba/docs/man/manpages/>`__
 which gives implementation details. Since selecting the wrong backend
 will break Active Directory integration, a pop-up menu will appear
 whenever changes are made to this setting.
@@ -242,39 +242,39 @@ whenever changes are made to this setting.
    | Value          | Description                                                                                                                              |
    |                |                                                                                                                                          |
    +================+==========================================================================================================================================+
-   | ad             | AD server uses RFC2307 or Services For Unix schema extensions; mappings must be provided in advance by adding the uidNumber attributes   |
-   |                | for users and gidNumber attributes for groups in the AD                                                                                  |
+   | ad             | AD server uses RFC2307 or Services For Unix schema extensions. Mappings must be provided in advance by adding the uidNumber attributes   |
+   |                | for users and gidNumber attributes for groups in the AD.                                                                                 |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | autorid        | similar to :guilabel:`rid`, but automatically configures the range to be used for each domain, so there is no need to specify a          |
-   |                | specific range for each domain in the forest; the only needed configuration is the range of UID/GIDs to use for user/group mappings      |
-   |                | and an optional size for the ranges                                                                                                      |
+   | autorid        | Similar to :guilabel:`rid`, but automatically configures the range to be used for each domain, so there is no need to specify a          |
+   |                | specific range for each domain in the forest. The only needed configuration is the range of UID/GIDs to use for user/group mappings      |
+   |                | and an optional size for the ranges.                                                                                                     |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | fruit          | generate IDs the way Apple Mac OS X does, so UID and GID can be identical on all %brand% servers on the network; for use in              |
-   |                | :ref:`LDAP` environments where Apple's Open Directory is the authoritative LDAP server                                                   |
+   | fruit          | Generate IDs the way Apple Mac OS X does, so UID and GID can be identical on all %brand% servers on the network. For use in              |
+   |                | :ref:`LDAP` environments where Apple's Open Directory is the authoritative LDAP server.                                                  |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | ldap           | stores and retrieves mapping tables in an LDAP directory service; default for LDAP directory service                                     |
+   | ldap           | Stores and retrieves mapping tables in an LDAP directory service. Default for LDAP directory service.                                    |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | nss            | provides a simple means of ensuring that the SID for a Unix user is reported as the one assigned to the corresponding domain user        |
+   | nss            | Provides a simple means of ensuring that the SID for a Unix user is reported as the one assigned to the corresponding domain user.       |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | rfc2307        | an AD server is required to provide the mapping between the name and SID and an LDAP server is required to provide the mapping between   |
-   |                | the name and the UID/GID                                                                                                                 |
+   | rfc2307        | An AD server is required to provide the mapping between the name and SID and an LDAP server is required to provide the mapping between   |
+   |                | the name and the UID/GID.                                                                                                                |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | rid            | default for AD; requires an explicit idmap configuration for each domain, using disjoint ranges where a                                  |
-   |                | writeable default idmap range should be defined, using a backend like tdb or ldap                                                        |
+   | rid            | Default for AD. Requires an explicit idmap configuration for each domain, using disjoint ranges where a                                  |
+   |                | writeable default idmap range is to be defined, using a backend like tdb or ldap.                                                        |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | script         | stores mapping tables for clustered environments in the winbind_cache tdb                                                                |
+   | script         | Stores mapping tables for clustered environments in the winbind_cache tdb.                                                               |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | tdb            | default backend used by winbindd for storing mapping tables                                                                              |
+   | tdb            | Default backend used by winbindd for storing mapping tables.                                                                             |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | tdb2           | substitute for tdb used by winbindd in clustered environments                                                                            |
+   | tdb2           | Substitute for tdb used by winbindd in clustered environments.                                                                           |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -287,8 +287,9 @@ automatically once a day as a cron job.
    allowed in Domain and NetBIOS names, a limits the length of those
    names to 15 characters. If there are problems connecting to the
    realm,
-   `verify <https://support.microsoft.com/en-us/kb/909264>`__
-   that your settings do not include any disallowed characters. Also,
+   `verify
+   <https://support.microsoft.com/en-us/help/909264/naming-conventions-in-active-directory-for-computers-domains-sites-and>`__
+   the settings do not include any disallowed characters. Also,
    the Administrator account password cannot contain the *$*
    character. If a *$* exists in the domain administrator's password,
    :command:`kinit` will report a "Password Incorrect" error and
@@ -353,15 +354,11 @@ records of the network and change the weight and/or priority of the SRV
 record to reflect the fastest server. More information about SRV records
 can be found in the Technet article
 `How DNS Support for Active Directory Works
-<https://technet.microsoft.com/en-us/library/cc759550(WS.10).aspx>`__.
+<https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc759550(v=ws.10)>`__.
 
 The realm used depends upon the priority in the SRV DNS record. DNS can
 override the system Active Directory settings. When unable to connect to
 the correct realm, check the SRV records on the DNS server.
-`This article
-<http://www.informit.com/guides/content.aspx?g=security&seqNum=37&rll=1>`__
-describes how to configure KDC discovery over DNS and provides some
-examples of records with differing priorities.
 
 An expired password for the administrator account will cause
 :command:`kinit` to fail. Ensure the password is still valid. Also,
@@ -450,17 +447,14 @@ provides directory services for finding network resources such as
 users and their associated permissions. Examples of LDAP servers
 include Microsoft Server (2000 and newer), Mac OS X Server, Novell
 eDirectory, and OpenLDAP running on a BSD or Linux system. If an LDAP
-server is running on your network, configure the %brand% LDAP service
+server is running on the network, configure the %brand% LDAP service
 so network users can authenticate to the LDAP server and have
 authorized access to the data stored on the %brand% system.
 
 .. note:: LDAP authentication for SMB shares is disabled unless
    the LDAP directory has been configured for and populated with Samba
    attributes. The most popular script for performing this task is
-   `smbldap-tools <http://download.gna.org/smbldap-tools/>`__
-   and instructions for using it are found at
-   `The Linux Samba-OpenLDAP Howto
-   <http://download.gna.org/smbldap-tools/docs/samba-ldap-howto/#htoc29>`__.
+   `smbldap-tools <https://wiki.samba.org/index.php/4.1_smbldap-tools>`__.
    In addition, the LDAP server must support SSL/TLS and the
    certificate for the LDAP server CA must be imported with
    :menuselection:`System --> Certificates --> Import Certificate`. Note
@@ -468,7 +462,7 @@ authorized access to the data stored on the %brand% system.
 
 .. tip:: Apple's
    `Open Directory
-   <https://manuals.info.apple.com/en_US/Open_Directory_Admin_v10.5_3rd_Ed.pdf>`__
+   <https://manuals.info.apple.com/MANUALS/0/MA954/en_US/Open_Directory_Admin_v10.5_3rd_Ed.pdf>`__
    is an LDAP-compatible directory service into which %brand% can be
    integrated. See
    `FreeNAS with Open Directory in Mac OS X environments
@@ -493,7 +487,7 @@ display these settings by checking the box
 :guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
 
-Those who are new to LDAP terminology should skim through the
+It is recommended that those new to LDAP terminology skim through the
 `OpenLDAP Software 2.4 Administrator's Guide
 <http://www.openldap.org/doc/admin24/>`__.
 
@@ -515,11 +509,11 @@ Those who are new to LDAP terminology should skim through the
    | Hostname                | string         |          | Hostname or IP address of LDAP server.                                                              |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Base DN                 | string         |          | Top level of the LDAP directory tree to be used when searching for resources (e.g.                  |
+   | Base DN                 | string         |          | Top level of the LDAP directory tree to be used when searching for resources (Example:              |
    |                         |                |          | *dc=test,dc=org*).                                                                                  |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Bind DN                 | string         |          | Name of administrative account on LDAP server (e.g. *cn=Manager,dc=test,dc=org*).                   |
+   | Bind DN                 | string         |          | Name of administrative account on LDAP server (Example: *cn=Manager,dc=test,dc=org*).               |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Bind password           | string         |          | Password for :guilabel:`Bind DN`.                                                                   |
@@ -529,18 +523,18 @@ Those who are new to LDAP terminology should skim through the
    | Binding                 |                |          | to any client.                                                                                      |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | User Suffix             | string         | ✓        | Optional. Can be added to the name when the user account is added to the LDAP directory (e.g. dept. |
-   |                         |                |          | company name).                                                                                      |
+   | User Suffix             | string         | ✓        | Optional. Can be added to the name when the user account is added to the LDAP directory (Example:   |
+   |                         |                |          | dept. company name).                                                                                |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Group Suffix            | string         | ✓        | Optional. Can be added to the name when the group is added to the LDAP directory (e.g. dept. or     |
+   | Group Suffix            | string         | ✓        | Optional. Can be added to the name when the group is added to the LDAP directory (Example: dept. or |
    |                         |                |          | company name).                                                                                      |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Password Suffix         | string         | ✓        | Optional. Can be added to the password when the password is added to the LDAP directory.            |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Machine Suffix          | string         | ✓        | Optional. Can be added to the name when the system is added to the LDAP directory (e.g. server,     |
+   | Machine Suffix          | string         | ✓        | Optional. Can be added to the name when the system is added to the LDAP directory (Example: server, |
    |                         |                |          | accounting).                                                                                        |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
@@ -614,7 +608,7 @@ Those who are new to LDAP terminology should skim through the
 
 
 .. note:: %brand% automatically appends the root DN. This means the
-   scope and root DN should not be included when configuring the
+   scope and root DN are not to be included when configuring the
    user, group, password, and machine suffixes.
 
 LDAP users and groups appear in the drop-down menus of the
@@ -684,7 +678,7 @@ after navigating :menuselection:`Directory Service --> NIS`.
    |             |           |                                                                                              |
    +-------------+-----------+----------------------------------------------------------------------------------------------+
    | Secure mode | checkbox  | If checked,                                                                                  |
-   |             |           | `ypbind(8) <http://www.freebsd.org/cgi/man.cgi?query=ypbind>`__                              |
+   |             |           | `ypbind(8) <https://www.freebsd.org/cgi/man.cgi?query=ypbind>`__                             |
    |             |           | will refuse to bind to any NIS server not running as root on a TCP port number over 1024.    |
    |             |           |                                                                                              |
    +-------------+-----------+----------------------------------------------------------------------------------------------+
