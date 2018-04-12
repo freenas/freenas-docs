@@ -25,12 +25,12 @@ transfer speeds.
 These types of shares and services are available:
 
 * :ref:`AFP <Apple (AFP) Shares>`: Apple File Protocol shares are
-  often used when the client computers all run Mac OS X. Apple has
+  often used when the client computers all run macOS. Apple has
   slowly shifted to preferring :ref:`SMB <Windows (SMB) Shares>` for
   modern networks, although Time Machine still requires AFP.
 
 * :ref:`Unix (NFS) <Unix (NFS) Shares>`: Network File System shares
-  are accessible from Mac OS X, Linux, BSD, and the professional and
+  are accessible from macOS, Linux, BSD, and the professional and
   enterprise versions (but not the home editions) of Windows. This can
   be are a good choice when the client computers do not all run the
   same operating system but NFS client software is available for all
@@ -43,14 +43,14 @@ These types of shares and services are available:
 
 * :ref:`SMB <Windows (SMB) Shares>`: Server Message Block shares, also
   known as Common Internet File System (CIFS) shares, are accessible
-  by Windows, Mac OS X, Linux, and BSD computers. Access is slower
+  by Windows, macOS, Linux, and BSD computers. Access is slower
   than an NFS share due to the single-threaded design of Samba. SMB
   provides more configuration options than NFS and is a good choice
   on a network for Windows systems. However, it is a poor choice if
   the CPU on the %brand% system is limited; if the CPU is maxed out,
   upgrade the CPU or consider another type of share.
 
-* :ref:`Block (iSCSI)`: block or iSCSI shares appear as an unformatted
+* :ref:`Block (iSCSI)`: Block or iSCSI shares appear as an unformatted
   disk to clients running iSCSI initiator software or a virtualization
   solution such as VMware. These are usually used as virtual drives.
 
@@ -101,13 +101,13 @@ AFP server to share data with Apple systems. This section describes
 the configuration screen for fine-tuning AFP shares. It then provides
 configuration examples for configuring Time Machine to back up to a
 dataset on the %brand% system and for connecting to the share from a
-Mac OS X client.
+macOS client.
 
-To view a created AFP share, click
-:menuselection:`Sharing --> Apple (AFP)` and highlight the name of the
-share. Click its :guilabel:`Edit` button to see the configuration
-options shown in :numref:`Figure %s <creating_afp_share_fig>`. The
-values showing for these options will vary, depending upon the
+To view a created AFP share, go to
+:menuselection:`Sharing --> Apple (AFP)`. To see the configuration
+options shown in :numref:`Figure %s <creating_afp_share_fig>`
+click the :guilabel:`Edit` button on the desired share.
+The values showing for these options will vary, depending upon the
 information given when the share was created.
 
 
@@ -220,7 +220,7 @@ information given when the share was created.
 Creating AFP Guest Shares
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-AFP supports guest logins, meaning that Mac OS X users can access the
+AFP supports guest logins, meaning that macOS users can access the
 AFP share without requiring their user accounts to first be created on
 or imported into the %brand% system.
 
@@ -234,27 +234,49 @@ or imported into the %brand% system.
    authenticated users to a guest group and set the permissions to
    *77x*.
 
-.. TODO Add instructions to create an AFP guest share apart from the
-   now-removed wizard.
-
 Before creating a guest share, go to
-:menuselection:`Services --> AFP`
-and make sure that the :guilabel:`Guest Access` box is checked.
+:menuselection:`Services --> AFP` and click the power button to
+turn on the service. Then, click
+:guilabel:`Configure`.
+In the :guilabel:`Guest Account` field use the drop-down
+to select :guilabel:`Nobody`, tick
+the :guilabel:`Guest Access` box, and press :guilabel:`Save`.
 
-To create an AFP guest share, navigate to
-:menuselection:`Sharing -> Apple (AFP) Shares` and click
-:guilabel:`Add Apple (AFP) Share`.
+Next, create a dataset for the guest share. Refer to
+:ref:`create dataset <Create Dataset>` in this guide for more
+information about dataset creation.
 
-:numref:`Figure %s <creating_guest_afp_share_fig>` shows this form.
+After creating the dataset for the guest share, go to
+:menuselection:`Storage --> Pools` and click the
+:guilabel:`Edit Permissions` button for the dataset. Complete the
+fields shown in 
+:numref:`Figure %s <creating_guest_afp_dataset_fig>`.
 
-.. _creating_guest_afp_share_fig:
+#. **ACL Type:** Select :guilabel:`Mac`.
+#. **User:** Use the drop-down to select :guilabel:`Nobody`.
+#. Click :guilabel:`Save`.
+
+.. _creating_guest_afp_dataset_fig:
 
 .. figure:: images/afp6a.png
 
+
+   Editing Dataset Permissions for Guest AFP Share
+
+To create a Guest AFP share, 
+go to :menuselection:`Sharing --> AFP --> Add Apple (AFP) Share` and
+:guilabel:`Browse` to the dataset created for the guest share
+as shown in :numref:`Figure %s <creating_guest_afp_share_fig>`.
+Press :guilabel:`Save` to create the guest share. 
+
+.. _creating_guest_afp_share_fig:
+
+.. figure:: images/afp2a.png
+
+
    Creating a Guest AFP Share
 
-
-Mac OS X users can connect to the guest AFP share by clicking
+macOS users can connect to the guest AFP share by clicking
 :menuselection:`Go --> Connect to Server`. In the example shown in
 :numref:`Figure %s <afp_connect_server_fig>`,
 the user has entered *afp://* followed by the IP address of the
@@ -270,6 +292,7 @@ share is displayed in the right frame.
 
 .. figure:: images/afp3.png
 
+
    Connect to Server Dialogue
 
 
@@ -283,35 +306,56 @@ To disconnect from the pool, click the :guilabel:`eject` button in the
 Creating Authenticated and Time Machine Shares
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Mac OS X includes the Time Machine application which can be used to
-schedule automatic backups.  In this configuration example, a Time
+macOS includes the Time Machine application which can be used to
+schedule automatic backups. In this configuration example, a Time
 Machine user will be configured to backup to an AFP share on a
 %brand% system. It is recommended to create a separate Time Machine
 share for each user that will be using Time Machine to backup their
-Mac OS X system to %brand%. The process for creating an authenticated
+macOS system to %brand%. The process for creating an authenticated
 share for a user is the same as creating a Time Machine share for that
 user.
 
-.. Add instructions for creating Time Machine share separate from the
-   removed wizard.
+Before creating a Time Machine or authenticated share, go to
+:menuselection:`Storage --> Pools` to make a dataset for the share.
+For more information about how creating a dataset,
+refer to :ref:`create dataset <Create Dataset>` in this guide.
 
-To create an authenticated or Time Machine share, navigate to
-:menuselection:`Sharing -> Apple (AFP) Shares` and click
-:guilabel:`Add Apple (AFP) Share`.
+After creating the dataset, go to
+:menuselection:`Storage --> Pools` and click the
+:guilabel:`Edit Permissions` button for the desired dataset.
 
-:numref:`Figure %s <create_time_machine_share_fig>` shows an example of
-a configured Time Machine Share.
+Enter the following information as shown in
+:numref:`Figure %s <creating_an_authenticated_share_fig>`.
 
-To configure multiple authenticated or Time Machine shares, repeat this
-process for each user. The new shares are also added to
+#. **ACL Type:** Select :guilabel:`Mac`.
+#. **User:** Use the drop-down to select the desired user account.
+   If the user does not yet exist on the %brand% system, go to
+   :menuselection:`Accounts --> Users` to create one. Refer to
+   :ref:`users <Users>` in this guide for more information
+   about creating a user.
+#. **Group:** Use the drop-down to select the desired group name.
+   If the group does not yet exist on the %brand% system, go to
+   :menuselection:`Accounts --> Groups` to create one. Refer to
+   :ref:`groups <Groups>` in this guide for more information about
+   creating a group.
+#. Click :guilabel:`Save`.
+
+Go to :menuselection:`Sharing --> AFP --> Add Apple (AFP) Share` and
+:guilabel:`Browse` to the dataset created for the share.
+When creating a Time Machine share, tick the 
+:guilabel:`Time Machine` checkbox.
+Press :guilabel:`Save` to create the share.
+
+To configure multiple authenticated or Time Machine shares, repeat
+this process for each user. The new shares are appear in
 :menuselection:`Sharing --> Apple (AFP)`.
 
 
-.. _create_time_machine_share_fig:
+.. _creating_an_authenticated_share_fig:
 
-.. figure:: images/afp7a.png
+.. figure:: images/afp2a.png
 
-   Creating a Time Machine Share
+   Creating an Authenticated or Time Machine Share
 
 
 At this point, it may be desirable to configure a quota for each Time
@@ -323,17 +367,17 @@ and then one backup each day, each week and each month.
 **Since the oldest backups are deleted when a Time Machine share
 becomes full, make sure that the quota size is sufficient to hold the
 desired number of backups.**
-Note that a default installation of Mac OS X is ~21 GB in size.
+Note that a default installation of macOS is ~21 GB in size.
 
 To configure a quota, go to
-:menuselection:`Storage --> Pools`
-and highlight the entry for the share. In the example shown in
+:menuselection:`Sharing --> Apple (AFP)`
+and click the :guilabel:`Edit` button for the existing Time Machine
+share. In the example shown in
 :numref:`Figure %s <set_quota_fig>`,
 the Time Machine share name is *backup_user1*. Click the
-:guilabel:`Edit Options` button for the share, then
-:guilabel:`Advanced Mode`. Enter a value in the
-:guilabel:`Quota for this dataset` field, then click
-:guilabel:`Edit Dataset` to save the change. In this example, the
+Enter a value in the
+:guilabel:`Time Machine Quota` field, then click
+:guilabel:`Save`. In this example, the
 Time Machine share is restricted to 200 GB.
 
 
@@ -349,7 +393,7 @@ Time Machine share is restricted to 200 GB.
    `Set up Time Machine for multiple machines with OSX Server-Style Quotas
    <https://forums.freenas.org/index.php?threads/how-to-set-up-time-machine-for-multiple-machines-with-osx-server-style-quotas.47173/>`_.
 
-To configure Time Machine on the Mac OS X client, go to
+To configure Time Machine on the macOS client, go to
 :menuselection:`System Preferences --> Time Machine`
 which opens the screen shown in
 :numref:`Figure %s <config_tm_osx>`.
@@ -365,8 +409,9 @@ set for the *user1* account.
 
 .. figure:: images/afp5.png
 
-   Configuring Time Machine on Mac OS X Lion
+   Configuring Time Machine on macOS
 
+.. TODO Take screenshot on macOS client
 
 If :guilabel:`Time Machine could not complete the backup. The
 backup disk image could not be created (error 45)` is shown when
@@ -1272,7 +1317,7 @@ configuration form.
    Creating an Unauthenticated SMB Share
 
 
-The new share is also be added to
+The new share will also be added to
 :menuselection:`Sharing --> Windows (SMB) Shares`.
 
 Users can now access the share from any SMB client and will not be
