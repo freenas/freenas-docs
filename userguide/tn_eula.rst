@@ -2,115 +2,238 @@
 
 .. _Appendix A:
 
-Appendix A: End-User License Agreement
-======================================
+Appendix A: TrueNAS Software End User License Agreement
+=======================================================
 
 TrueNAS\ :sup:`®` EULA:
 
-BY PURCHASING, DOWNLOADING, INSTALLING, OR OTHERWISE USING THE SOFTWARE, YOU AGREE TO BE BOUND BY THE TERMS OF THIS END-USER LICENSE AGREEMENT (EULA). IF YOU DO NOT AGREE TO THE TERMS OF
-THIS EULA, YOU MAY NOT INSTALL OR USE THE SOFTWARE.
+**Important - Please Read This EULA Carefully**
 
-1. DEFINITIONS
+PLEASE CAREFULLY READ THIS END USER LICENSE AGREEMENT (EULA) BEFORE
+CLICKING THE AGREE BUTTON. THIS AGREEMENT SERVES AS A LEGALLY BINDING
+DOCUMENT BETWEEN YOU AND IXSYSTEMS, INC. BY CLICKING THE AGREE BUTTON,
+DOWNLOADING, INSTALLING, OR OTHERWISE USING TRUENAS SOFTWARE, YOU AGREE
+TO BE BOUND BY THE TERMS AND CONDITIONS OF THIS AGREEMENT). IF YOU DO NOT
+AGREE TO THE TERMS AND CONDITIONS IN THIS AGREEMENT, DO NOT USE OR
+INSTALL TRUENAS SOFTWARE.
 
-"Company" means iXsystems, Inc.
+This agreement is provided in accordance with the Commercial Arbitration
+Rules of the American Arbitration Association (the “AAA Rules”) under
+confidential binding arbitration held in Santa Clara County, California.
+To the fullest extent permitted by applicable law, no arbitration under
+this EULA will be joined to an arbitration involving any other party
+subject to this EULA, whether through class arbitration proceedings or
+otherwise. Any litigation relating to this EULA shall be subject to the
+jurisdiction of the Federal Courts of the Northern District of California
+and the state courts of the State of California, with venue lying in
+Santa Clara County, California.  All matters arising out of or relating
+to this agreement shall be governed by and construed in accordance with
+the internal laws of the State of California without giving effect to any
+choice or conflict of law provision or rule.
 
-"Product" means iXsystems Storage Array software (TrueNAS\ :sup:`®`).
+**1.0 Definitions**
 
-"EULA" means this End User License Agreement
+**1.1 “Company”**, **“iXsystems”** and **“iX”** means iXsystems, Inc.,
+on behalf of themselves, subsidiaries, and affiliates under common control.
 
-"You" means the natural person or the entity that is agreeing to be bound by this EULA, their employees and third party contractors that provide services to you.
+**1.2 “TrueNAS Software”** means the TrueNAS storage management software.
 
-"Open Source Software" means various open source software components licensed under the terms of applicable open source license agreements included in the materials relating to such
-software. Open Source Software is composed of individual software components, each of which has its own copyright and its own applicable license conditions.
+**1.3 “TrueNAS Device”** means the TrueNAS hardware storage appliances
+and peripheral equipment.
 
-"FreeNAS\ :sup:`®`" means a complete open source operating system available at http://www.iXsystems.org
+**1.4 “Product”** means, individually and collectively, the TrueNAS
+Software and the TrueNAS Device.
 
-"Site" means iXsystems, Inc. website: http://www.iXsystems.com
+**1.5 “Open Source Software”** means various open source software
+components licensed under the terms of applicable open source license
+agreements, each of which has its own copyright and its own applicable
+license terms.
+
+**1.6 “Licensee”**, **“You”** and **“Your”** refers to the person,
+organization, or entity that has agreed to be bound by this EULA
+including any employees, affiliates, and third party contractors that
+provide services to You.
+
+**1.6 “Agreement”** refers to this document, the TrueNAS End User License
+Agreement.
+
+**2.0 License**
+
+Subject to the terms set forth in this Agreement, iXsystems grants You a
+non-exclusive, non-transferable, revocable, limited license without the
+option to sublicense, to use TrueNAS Software on Your TrueNAS Device(s)
+in accordance with Your authorized purchase and use of a TrueNAS Device(s)
+for Your internal business purposes. This use includes but is not limited
+to using or viewing the instructions, specifications, and documentation
+provided with the Product. 
+
+**3.0 License Restrictions**
+
+TrueNAS Software is only authorized for use with a TrueNAS Device
+identified by a specific serial number and manufactured by iXsystems. This
+license may be extended to a second TrueNAS Device if an additional
+TrueNAS Device was purchased for high availability data protection. The
+Product, including the TrueNAS Software, is protected by copyright laws
+and international treaties, as well as other intellectual property laws,
+statutes, and treaties. The Product is licensed, not sold to You the end
+user. The Product, including TrueNAS Software, may contain trademarks,
+trade secrets, and proprietary collateral from iXsystems. iXsystems
+strictly prohibits the acts of decompiling, reverse engineering, or
+disassembly of the Product, including TrueNAS Software. By accepting this
+Agreement, You agree You will not disclose, copy, transfer, or publish
+benchmark results relating to the Product without the express written
+consent of iXsystems. You agree not to use, or permit others to use, the
+Product beyond the scope of the license granted under Section 2, unless
+otherwise permitted by iXsystems, or in violation of any law, regulation
+or rule, and you will not modify, adapt, or otherwise create derivative
+works or improvements of the Product. You are responsible and liable for
+all uses of the Product through access thereto provided by You, directly
+or indirectly.
+
+**4.0 General**
+
+**4.1 Entire Agreement** - This Agreement, together with any associated
+purchase order, service level agreement, and all other documents and
+policies referenced herein, constitutes the entire and only agreement
+between You and iXsystems for use of the TrueNAS Software and the TrueNAS
+Device and all other prior negotiations, representations, agreements, and
+understandings are superseded hereby. No agreements altering or
+supplementing the terms hereof may be made except by means of a written
+document signed by Your duly authorized representatives and those of
+iXsystems.
+
+**4.2 Waiver and Modification** - No failure of either party to exercise
+or enforce any of its rights under this EULA will act as a waiver of those
+rights. This EULA may only be modified, or any rights under it waived, by
+a written document executed by the party against which it is asserted.
+
+**4.3 Severability** - If any provision of this EULA is found illegal or
+unenforceable, it will be enforced to the maximum extent permissible, and
+the legality and enforceability of the other provisions of this EULA will
+not be affected.
+
+**4.4 United States Government End Users** - For any Product licensed
+directly or indirectly on behalf of a unit or agency of the United States
+Government, this paragraph applies. Company’s proprietary software
+embodied in the Product: (a) was developed at private expense and is in
+all respects Company’s proprietary information; (b) was not developed
+with government funds; (c) is Company’s trade secret for all purposes of
+the Freedom of Information Act; (d) is a commercial item and thus,
+pursuant to Section 12.212 of the Federal Acquisition Regulations (FAR)
+and DFAR Supplement Section 227.7202, Government’s use, duplication or
+disclosure of such software is subject to the restrictions set forth by
+the Company and Licensee shall receive only those rights with respect to
+the Product as are granted to all other end users.
+
+**4.5 Foreign Corrupt Practices Act** - You will comply with the
+requirements of the United States Foreign Corrupt Practices Act (the
+“FCPA”) and will refrain from making, directly or indirectly, any payments
+to third parties which constitute a breach of the FCPA. You will notify
+Company immediately upon Your becoming aware that such a payment has been
+made. You will indemnify and hold harmless Company from any breach of this
+provision.
+
+**4.6. Title** - iXsystems retains all rights, titles, and interest in
+TrueNAS Software and in TrueNAS Device(s) and all related copyrights,
+trade secrets, patents, trademarks, and any other intellectual and
+industrial property and proprietary rights, including registrations,
+applications, registration keys, renewals, and extensions of such rights.
+
+**4.7 Contact Information** - If You have any questions about this
+Agreement, or if You want to contact iXsystems for any reason, please
+email legal@ixsystems.com.
+
+**4.8 Maintenance and Support** - You may be entitled to support services
+from iXsystems after purchasing a TrueNAS Device or a support contract.
+iXsystems will provide these support services based on the length of time
+of the purchased support contract. This maintenance and support is only
+valid for the length of time that You have purchased with Your TrueNAS 
+Device. iXsystems may from time to time and at their sole discretion vary
+the terms and conditions of the maintenance and support agreement based
+on different business environmental and personnel factors. For more
+information on our Maintenance and Support contract, refer to
+https://ixsystems.com/TrueNAS_SLA.
+
+**4.9 Force Majeure** - iXsystems will not be deemed to be in default of
+any of the provisions of this Agreement or be liable for any delay or
+failure in performance due to Force Majeure, which shall include without
+limitation acts of God, earthquake, weather conditions, labor disputes,
+changes in law, regulation or government policy, riots, war, fire,
+epidemics, acts or omissions of vendors or suppliers, equipment failures,
+transportation difficulties, malicious or criminal acts of third parties,
+or other occurrences which are beyond iXsystems’ reasonable control.
+
+**4.10 Termination** - iXsystems may terminate or suspend Your license to
+use the Product and cease any and all support, services, or maintenance
+under this Agreement without prior notice, or liability, and for any
+reason whatsoever, without limitation, if any of the terms and conditions
+of this Agreement are breached. Upon termination, rights to use the
+Product will immediately cease. Other provisions of this Agreement will
+survive termination including, without limitation, ownership provisions,
+warranty disclaimers, indemnity, and limitations of liability.
+
+**4.11 Open Source Software Components** - iXsystems uses Open Source
+Software components in the development of the Product. Open Source
+Software components that are used in the Product are composed of separate
+components each having their own trademarks, copyrights, and license
+conditions. 
+
+**4.12 Assignment** - Licensee shall not assign or otherwise transfer any
+of its rights, or delegate or otherwise transfer any of its obligations
+or performance, under this Agreement, in each case whether voluntarily,
+involuntarily, by operation of law, or otherwise, without iXsystems’ prior
+written consent. No delegation or other transfer will relieve Licensee of
+any of its obligations or performance under this Agreement. Any purported
+assignment, delegation, or transfer in violation of this Section is void.
+iXsystems may freely assign or otherwise transfer all or any of its
+rights, or delegate or otherwise transfer all or any of its obligations
+or performance, under this Agreement without Licensee's consent. This
+Agreement is binding upon and inures to the benefit of the parties hereto
+and their respective permitted successors and assigns.
+
+**5.0 Export Control Regulations**
+
+The Product may be subject to US export control laws, including the US
+Export Administration Act and its associated regulations. You shall not,
+directly or indirectly, export, re-export, or release the Product to, or
+make the Product accessible from, any jurisdiction or country to which
+export, re-export, or release is prohibited by law, rule, or regulation.
+You shall comply with all applicable federal laws, regulations, and rules,
+and complete all required undertakings (including obtaining any necessary
+export license or other governmental approval), prior to exporting,
+re-exporting, releasing, or otherwise making the Product available outside
+the US.
 
 
-2. TERMS AND CONDITIONS
+**6.0 Data Collection and Privacy**
 
-2.1. Company grants You a non-exclusive, non-sublicensable, non-transferable license to use the Product on a single computer, subject to the terms and conditions of this EULA and in
-accordance with the instructions, specifications and documentation provided with the Product (collectively, the "Documentation"). This license of Product may not be shared or used
-concurrently on different computers.
+TrueNAS Software may collect information relating to Your use of the
+Product, including information that has been provided directly or
+indirectly through automated means. Usage of TrueNAS Software, geolocation
+information, user login credentials, and device and operating system
+identification are allowed according to iXsystems’ privacy policy. By
+accepting this  Agreement and continuing to use the Product, you agree
+that iXsystems may use any information provided through direct or indirect
+means in accordance with our privacy policy and as permitted by applicable
+law, for purposes relating to management, compliance, marketing, support,
+security, update delivery, and product improvement.
 
-2.2. Product Warranty Disclaimer. THE PRODUCT IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE. Company BEARS NO LIABILITY FOR ANY DAMAGES
-RESULTING FROM USE (OR ATTEMPTED USE) OF THE PRODUCT.
+**7.0 Limitation of Liability and Disclaimer of Warranty**
 
-2.3. You agree that You will NOT without the express written authorization of Company:
-(a) copy, sell, sublicense, or otherwise transfer the Product to any third party;
-(b) remove any titles, trademarks or trade names, copyright notices, legends, or other proprietary markings on the software in the Product;
-(c)  except to the extent expressly permitted by applicable law, and to the extent that the Company is not permitted by that applicable law to exclude or limit the following rights, You will not decompile, disassemble, reverse engineer, or otherwise attempt to derive source code from the Product, in whole or in part.
+THE PRODUCT IS PROVIDED "AS IS" AND WITH ALL FAULTS AND DEFECTS WITHOUT
+WARRANTY OF ANY KIND. TO THE MAXIMUM EXTENT PERMITTED UNDER APPLICABLE
+LAW, IXSYSTEMS, ON ITS OWN BEHALF AND ON BEHALF OF ITS AFFILIATES AND ITS
+AND THEIR RESPECTIVE LICENSORS AND SERVICE PROVIDERS, EXPRESSLY DISCLAIMS
+ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, WITH
+RESPECT TO THE PRODUCT, INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND
+NON-INFRINGEMENT, AND WARRANTIES THAT MAY ARISE OUT OF COURSE OF DEALING,
+COURSE OF PERFORMANCE, USAGE, OR TRADE PRACTICE. WITHOUT LIMITATION TO THE
+FOREGOING, IXSYSTEMS PROVIDES NO WARRANTY OR UNDERTAKING, AND MAKES NO
+REPRESENTATION OF ANY KIND THAT THE PRODUCT WILL MEET THE LICENSEE'S
+REQUIREMENTS, ACHIEVE ANY INTENDED RESULTS, BE COMPATIBLE, OR WORK WITH
+ANY OTHER SOFTWARE, APPLICATIONS, SYSTEMS, OR SERVICES, OPERATE WITHOUT
+INTERRUPTION, MEET ANY PERFORMANCE OR RELIABILITY STANDARDS OR BE ERROR
+FREE, OR THAT ANY ERRORS OR DEFECTS CAN OR WILL BE CORRECTED.
 
-2.4. FreeNAS\ :sup:`®` software. The Product contains part of FreeNAS\ :sup:`®` software, which in turn contains a variety of Open Source Software components. You can redistribute and/or modify the Open
-Source Software under the terms and conditions of the corresponding open source licenses. You may obtain a copy of the source code corresponding to the binaries for the Open Source Software
-from the FreeNAS\ :sup:`®` home page at http://www.FreeNAS.org. You agree to comply with the applicable licenses and additional terms and notices of such Open Source Software components. Company
-makes no warranties or representations of any kind to You regarding Open Source Software components, or that the corresponding open source licenses may not change or be altered at any time.
-
-2.5. Third party software. The Product may contain Third Party software that must be separately licensed. Any separately licensed software is licensed exclusively by that license and the
-terms of this License Agreement do not apply.
-
-2.6. Software Modifications. Modifications of the Product software will not be supported by the Company unless indicated otherwise by express written authorization. Company will not be
-liable for any modifications to the Product software or any errors or damages resulting from such modifications.
-
-2.7. Company may update or discontinue the Product or revise the Documentation at any time without prior notice to You, and the Product and/or the Documentation may become unavailable to You
-even after an order is placed. All prices mentioned on the Company Site are subject to change without notice.
-
-2.8. Product Descriptions; Pricing; Errors. Company attempts to be as accurate as possible and eliminate errors in the Product and on the Site. However, Company does not warrant that the
-Product, its descriptions, photographs, pricing or other content of the Site is accurate, complete, reliable, stable, defect free, current, or error-free. In the event of an error, whether
-on the Site or otherwise, Company reserves the right to correct such error at any time, and Your sole remedy in the event of such error is stop using the Product.
-
-
-3. TERMINATION
-
-3.1. Termination. This License Agreement shall commence as of the date on which the submitted trial registration request has been received by Company and, unless terminated earlier in
-accordance with this License Agreement shall continue in perpetuity.
-
-3.2. Company may terminate this EULA immediately and without notice if You fail to comply with any term of this EULA.
-
-
-4. LIMITATION OF LIABILITY
-
-4.1. Company PROVIDES THE PRODUCT WITHOUT ANY WARRANTIES OF ANY KIND, EXPRESS, IMPLIED, STATUTORY, OR IN ANY OTHER PROVISION OF THIS EULA OR COMMUNICATION WITH You. Company SPECIFICALLY
-DISCLAIMS ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON- INFRINGEMENT.
-
-4.2. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT WILL Company BE LIABLE FOR ANY LOST PROFITS OR BUSINESS OPPORTUNITIES, LOSS OF USE, BUSINESS INTERRUPTION, LOSS OF DATA,
-OR ANY OTHER INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES UNDER ANY THEORY OF LIABILITY, WHETHER BASED IN CONTRACT, TORT, NEGLIGENCE, PRODUCT LIABILITY, OR OTHERWISE.
-
-
-5. GENERAL
-
-5.1. Governing Law.  This License Agreement shall be governed, construed and enforced in accordance with the laws of the United States of America and of the State of California.
-
-5.2. Entire Agreement. This Agreement constitutes the entire and only agreement between the parties for Product and all other prior negotiations, representations, agreements, and
-understandings are superseded hereby.  No agreements altering or supplementing the terms hereof may be made except by means of a written document signed by the duly authorized
-representatives of the parties.
-
-5.3. Waiver and Modification. No failure of either party to exercise or enforce any of its rights under this EULA will act as a waiver of those rights. This EULA may only be modified, or any
-rights under it waived, by a written document executed by the party against which it is asserted.
-
-5.4. Severability. If any provision of this EULA is found illegal or unenforceable, it will be enforced to the maximum extent permissible, and the legality and enforceability of the other
-provisions of this EULA will not be affected.
-
-5.5. United States Government End Users. For any Software licensed directly or indirectly on behalf of a unit or agency of the United States Government, this paragraph applies. Company's
-proprietary software embodied in the Product: (a) was developed at private expense and is in all respects Company's proprietary information; (b) was not developed with government funds; (c)
-is Company's trade secret for all purposes of the Freedom of Information Act; (d) is a commercial item and thus, pursuant to Section 12.212 of the Federal Acquisition Regulations (FAR) and
-DFAR Supplement Section 227.7202, Government's use, duplication or disclosure of such software is subject to the restrictions set forth by the Company.
-
-5.6. Foreign Corrupt Practices Act. You will comply with the requirements of the United States Foreign Corrupt Practices Act (the "FCPA") and will refrain from making, directly or
-indirectly, any payments to third parties which constitute a breach of the FCPA. You will notify Company immediately upon Your becoming aware that such a payment has been made. You will
-indemnify and hold harmless Company from any breach of this provision.
-
-5.7. Export Restrictions. You may not export or re-export the Product except in compliance with the United States Export Administration Act and the related rules and regulations and similar
-non-U.S. government restrictions, if applicable. The Product and accompanying documentation are deemed to be "commercial computer software" and "commercial computer software documentation"
-respectively, pursuant to DFAR Section 227.7202 and FAR Section 12.212(b), as applicable.
-
-5.8. All disputes arising out of or relating to this EULA will be exclusively resolved in accordance with the Commercial Arbitration Rules of the American Arbitration Association (the "AAA
-Rules") under confidential binding arbitration held in Santa Clara County, California. To the fullest extent permitted by applicable law, no arbitration under this EULA will be joined to an
-arbitration involving any other party subject to this EULA, whether through class arbitration proceedings or otherwise. Any litigation relating to this EULA shall be subject to the
-jurisdiction of the Federal Courts of the Northern District of California and the state courts of the State of California, with venue lying in Santa Clara County, California.
-
-5.9. Title. Company retains all right, title, and interest in and to the Software and the Software License Key and in all related copyrights, trade secrets, patents, trademarks, and any
-other intellectual and industrial property and proprietary rights, including registrations, applications, renewals, and extensions of such rights.
-
-5.10. Contact Information. If You have any questions about this Agreement, or if You want to contact Company for any reason, please email sales@iXsystems.com.
+TO THE FULLEST EXTENT PERMITTED UNDER APPLICABLE LAW: (A) IN NO EVENT WILL IXSYSTEMS OR ITS AFFILIATES, OR ANY OF ITS OR THEIR RESPECTIVE LICENSORS OR SERVICE PROVIDERS, BE LIABLE TO LICENSEE, LICENSEE’S AFFILIATES, OR ANY THIRD PARTY FOR ANY USE, INTERRUPTION, DELAY, OR INABILITY TO USE THE PRODUCT; LOST REVENUES OR PROFITS; DELAYS, INTERRUPTION, OR LOSS OF SERVICES, BUSINESS, OR GOODWILL; LOSS OR CORRUPTION OF DATA; LOSS RESULTING FROM SYSTEM OR SYSTEM SERVICE FAILURE, MALFUNCTION, OR SHUTDOWN; FAILURE TO ACCURATELY TRANSFER, READ, OR TRANSMIT INFORMATION; FAILURE TO UPDATE OR PROVIDE CORRECT INFORMATION; SYSTEM INCOMPATIBILITY OR PROVISION OF INCORRECT COMPATIBILITY INFORMATION; OR BREACHES IN SYSTEM SECURITY; OR FOR ANY CONSEQUENTIAL, INCIDENTAL, INDIRECT, EXEMPLARY, SPECIAL, OR PUNITIVE DAMAGES, WHETHER ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT, BREACH OF CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE, REGARDLESS OF WHETHER SUCH DAMAGES WERE FORESEEABLE AND WHETHER OR NOT IXSYSTEMS WAS ADVISED OF THE POSSIBILITY OF SUCH DAMAGES; (B) IN NO EVENT WILL IXSYSTEMS’ AND ITS AFFILIATES', INCLUDING ANY OF ITS OR THEIR RESPECTIVE LICENSORS' AND SERVICE PROVIDERS', COLLECTIVE AGGREGATE LIABILITY UNDER OR IN CONNECTION WITH THIS AGREEMENT OR ITS SUBJECT MATTER, UNDER ANY LEGAL OR EQUITABLE THEORY, INCLUDING BREACH OF CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, AND OTHERWISE, EXCEED THE TOTAL AMOUNT PAID TO IXSYSTEMS PURSUANT TO THIS AGREEMENT FOR THE PRODUCT THAT IS THE SUBJECT OF THE CLAIM; (C) THE LIMITATIONS SET FORTH IN THIS SECTION SHALL APPLY EVEN IF THE LICENSEE'S REMEDIES UNDER THIS AGREEMENT FAIL OF THEIR ESSENTIAL PURPOSE.
