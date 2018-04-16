@@ -130,6 +130,11 @@ These applications have been added or updated:
 * rsync has been updated to
   `version 3.1.3 <https://download.samba.org/pub/rsync/src/rsync-3.1.3-NEWS>`_.
 
+The following screens have changed:
+
+* Disk temperature graphs have been added to
+  :menuselection:`Reporting --> Disk`.
+
 .. _Path and Name Lengths:
 
 Path and Name Lengths
