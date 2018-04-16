@@ -121,6 +121,12 @@ These major features are new in this version:
   GRUB. GRUB was introduced as a temporary solution until the FreeBSD
   boot loader had full support for boot environments, which it now has.
 
+These applications have been added or updated:
+
+* `ncdu <https://dev.yorhel.nl/ncdu>`_ has been added to the base system.
+  This CLI utility can be used to analyze disk usage from the console or
+  an SSH session.
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
