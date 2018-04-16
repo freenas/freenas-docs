@@ -59,7 +59,7 @@ The :guilabel:`Services` screen, shown in
 shows which services are currently running and can start, stop, or
 configure them. The S.M.A.R.T. service is enabled by default, but only
 runs if the storage devices support
-`S.M.A.R.T. data <http://en.wikipedia.org/wiki/S.M.A.R.T.>`__.
+`S.M.A.R.T. data <https://en.wikipedia.org/wiki/S.M.A.R.T.>`__.
 Other services default to off until started.
 
 
@@ -250,33 +250,33 @@ summarizes the available options.
 .. table:: Domain Controller Configuration Options
    :class: longtable
 
-   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------------------+
-   | Setting                 | Value          | Description                                                                                                       |
-   |                         |                |                                                                                                                   |
-   +=========================+================+===================================================================================================================+
-   | Realm                   | string         | Capitalized DNS realm name.                                                                                       |
-   |                         |                |                                                                                                                   |
-   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------------------+
-   | Domain                  | string         | Capitalized domain name.                                                                                          |
-   |                         |                |                                                                                                                   |
-   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------------------+
-   | Server Roll             | drop-down menu | At this time, the only supported role is as the domain controller for a new domain.                               |
-   |                         |                |                                                                                                                   |
-   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------------------+
-   | DNS Forwarder           | string         | IP address of DNS forwarder. Required for recursive queries when *SAMBA_INTERNAL* is selected.                    |
-   |                         |                |                                                                                                                   |
-   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------------------+
-   | Forest Level            | drop-down menu | Choices are *2000*, *2003*, *2008*, *2008_R2*, *2012*, or *2012_R2*. Refer to                                     |
-   |                         |                | `Understanding Active Directory Domain Services (AD DS) Functional Levels                                         |
-   |                         |                | <https://technet.microsoft.com/en-us/library/understanding-active-directory-functional-levels(WS.10).aspx>`__.    |
-   |                         |                |                                                                                                                   |
-   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------------------+
-   | Administration Password | string         | Password to be used for the :ref:`Active Directory` administrator account.                                        |
-   |                         |                |                                                                                                                   |
-   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------------------+
-   | Kerberos Realm          | drop-down menu | Auto-populates with information from the :guilabel:`Realm` when the settings in this screen are saved.            |
-   |                         |                |                                                                                                                   |
-   +-------------------------+----------------+-------------------------------------------------------------------------------------------------------------------+
+   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
+   | Setting                 | Value          | Description                                                                                                               |
+   |                         |                |                                                                                                                           |
+   +=========================+================+===========================================================================================================================+
+   | Realm                   | string         | Capitalized DNS realm name.                                                                                               |
+   |                         |                |                                                                                                                           |
+   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
+   | Domain                  | string         | Capitalized domain name.                                                                                                  |
+   |                         |                |                                                                                                                           |
+   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
+   | Server Roll             | drop-down menu | At this time, the only supported role is as the domain controller for a new domain.                                       |
+   |                         |                |                                                                                                                           |
+   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
+   | DNS Forwarder           | string         | IP address of DNS forwarder. Required for recursive queries when *SAMBA_INTERNAL* is selected.                            |
+   |                         |                |                                                                                                                           |
+   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
+   | Forest Level            | drop-down menu | Choices are *2000*, *2003*, *2008*, *2008_R2*, *2012*, or *2012_R2*. Refer to                                             |
+   |                         |                | `Understanding Active Directory Domain Services (AD DS) Functional Levels                                                 |
+   |                         |                | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754918(v=ws.10)>`__. |
+   |                         |                |                                                                                                                           |
+   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
+   | Administration Password | string         | Password to be used for the :ref:`Active Directory` administrator account.                                                |
+   |                         |                |                                                                                                                           |
+   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
+   | Kerberos Realm          | drop-down menu | Auto-populates with information from the :guilabel:`Realm` when the settings in this screen are saved.                    |
+   |                         |                |                                                                                                                           |
+   +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
 
 
 .. _Samba Domain Controller Backup:
@@ -302,7 +302,7 @@ ISP that periodically changes the IP address of the system. With dynamic
 DNS, the system can automatically associate its current IP address with
 a domain name, allowing access to the %brand% system even if the IP
 address changes. DDNS requires registration with a DDNS service such
-as `DynDNS <http://dyn.com/dns/>`__.
+as `DynDNS <https://dyn.com/dns/>`__.
 
 :numref:`Figure %s <config_ddns_fig>` shows the DDNS configuration
 screen and :numref:`Table %s <ddns_config_opts_tab>` summarizes the
@@ -363,7 +363,8 @@ service in :menuselection:`Services --> Control Services`.
 
 When using :literal:`he.net`, enter the domain name for
 :guilabel:`Username` and enter the DDNS key generated for that
-domain's A entry at the `<he.net>`__ website for :guilabel:`Password`.
+domain's A entry at the `he.net <https://he.net>`__ website for
+:guilabel:`Password`.
 
 .. index:: FTP, File Transfer Protocol
 .. _FTP:
@@ -562,7 +563,7 @@ summarizes the available options when configuring the FTP server.
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
    | Auxiliary parameters                                           | string         | ✓        | Used to add                                                                         |
-   |                                                                |                |          | `proftpd(8) <http://linux.die.net/man/8/proftpd>`__                                 |
+   |                                                                |                |          | `proftpd(8) <https://linux.die.net/man/8/proftpd>`__                                |
    |                                                                |                |          | parameters not covered elsewhere in this screen.                                    |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
@@ -952,27 +953,27 @@ summarizes the configuration options for the NFS service.
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
    | mountd(8) bind port    | integer    | Optional. Specify the port that                                                                                     |
-   |                        |            | `mountd(8) <http://www.freebsd.org/cgi/man.cgi?query=mountd>`__ binds to.                                           |
+   |                        |            | `mountd(8) <https://www.freebsd.org/cgi/man.cgi?query=mountd>`__ binds to.                                          |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
    | rpc.statd(8) bind port | integer    | Optional. Specify the port that                                                                                     |
-   |                        |            | `rpc.statd(8) <http://www.freebsd.org/cgi/man.cgi?query=rpc.statd>`__ binds to.                                     |
+   |                        |            | `rpc.statd(8) <https://www.freebsd.org/cgi/man.cgi?query=rpc.statd>`__ binds to.                                    |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
    | rpc.lockd(8) bind port | integer    | Optional. Specify the port that                                                                                     |
-   |                        |            | `rpc.lockd(8) <http://www.freebsd.org/cgi/man.cgi?query=rpc.lockd>`__ binds to.                                     |
+   |                        |            | `rpc.lockd(8) <https://www.freebsd.org/cgi/man.cgi?query=rpc.lockd>`__ binds to.                                    |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
    | Support>16 groups      | checkbox   | Check this box if any users are members of more than 16 groups (useful in AD environments). Note this assumes       |
    |                        |            | group membership is configured correctly on the NFS server.                                                         |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Log mountd(8) requests | checkbox   | Enable logging of `mountd(8) <http://www.freebsd.org/cgi/man.cgi?query=mountd>`__                                   |
+   | Log mountd(8) requests | checkbox   | Enable logging of `mountd(8) <https://www.freebsd.org/cgi/man.cgi?query=mountd>`__                                  |
    |                        |            | requests by syslog.                                                                                                 |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Log rpc.statd(8)       | checkbox   | Enable logging of `rpc.statd(8) <http://www.freebsd.org/cgi/man.cgi?query=rpc.statd>`__ and                         |
-   | and rpc.lockd(8)       |            | `rpc.lockd(8) <http://www.freebsd.org/cgi/man.cgi?query=rpc.lockd>`__ requests by syslog.                           |
+   | Log rpc.statd(8)       | checkbox   | Enable logging of `rpc.statd(8) <https://www.freebsd.org/cgi/man.cgi?query=rpc.statd>`__ and                        |
+   | and rpc.lockd(8)       |            | `rpc.lockd(8) <https://www.freebsd.org/cgi/man.cgi?query=rpc.lockd>`__ requests by syslog.                          |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
 
@@ -1185,7 +1186,7 @@ S.M.A.R.T.
 
 
 `S.M.A.R.T., or Self-Monitoring, Analysis, and Reporting Technology
-<http://en.wikipedia.org/wiki/S.M.A.R.T.>`__,
+<https://en.wikipedia.org/wiki/S.M.A.R.T.>`__,
 is an industry standard for disk monitoring and testing. Drives can be
 monitored for status and problems, and several types of self-tests can
 be run to check the drive health.
@@ -1206,7 +1207,7 @@ several hours on larger drives.
 
 %brand% uses the
 `smartd(8)
-<http://www.smartmontools.org/browser/trunk/smartmontools/smartd.8.in>`__
+<https://www.smartmontools.org/browser/trunk/smartmontools/smartd.8.in>`__
 service to monitor S.M.A.R.T. information. A complete configuration
 consists of:
 
@@ -1304,7 +1305,7 @@ settings which apply to all SMB shares are configured in
 
 .. note:: After starting the SMB service, it can take several minutes
    for the `master browser election
-   <http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/NetworkBrowsing.html#id2581357>`__
+   <https://www.samba.org/samba/docs/old/Samba3-HOWTO/NetworkBrowsing.html#id2581357>`__
    to occur and for the %brand% system to become available in
    Windows Explorer.
 
@@ -1546,7 +1547,7 @@ If the ACLs are already destroyed by using :command:`chmod`,
 :ref:`Shell` for usage instructions.
 
 The `Common Errors
-<http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/domain-member.html#id2573692>`__
+<https://www.samba.org/samba/docs/old/Samba3-HOWTO/domain-member.html#id2573692>`__
 section of the Samba documentation contains additional troubleshooting
 tips.
 
@@ -1679,10 +1680,11 @@ summarizes the configuration options.
 SSH
 ---
 
+
 Secure Shell (SSH) allows for files to be transferred securely over an
-encrypted network. If you configure your %brand% system as an SSH
-server, the users in your network will need to use `SSH client
-software <https://en.wikipedia.org/wiki/Comparison_of_SSH_clients>`_
+encrypted network. When a %brand% system is used as an SSH
+server, the users in the network must use `SSH client software
+<https://en.wikipedia.org/wiki/Comparison_of_SSH_clients>`__
 to transfer files with SSH.
 
 This section shows the %brand% SSH configuration options,
@@ -1691,9 +1693,9 @@ home directory, and provides some troubleshooting tips.
 
 :numref:`Figure %s <ssh_config_fig>`
 shows the
-:menuselection:`Services --> SSH`
-configuration screen. After configuring SSH, remember to start it in
-:menuselection:`Services --> Control Services`.
+:menuselection:`Services --> SSH --> Configure`
+screen. After configuring SSH, remember to start it in
+:guilabel:`Services`.
 
 
 .. _ssh_config_fig:
@@ -1726,60 +1728,57 @@ display these settings by checking the box
    | Setting                       | Value          | Advanced | Description                                                                                         |
    |                               |                | Mode     |                                                                                                     |
    +===============================+================+==========+=====================================================================================================+
-   | Bind Interfaces               | selection      | ✓        | by default, SSH listens on all interfaces unless specific interfaces are highlighted in the         |
-   |                               |                |          | :guilabel:`Available` field and added to the :guilabel:`Selected` field                             |
+   | Bind Interfaces               | selection      | ✓        | By default, SSH listens on all interfaces unless specific interfaces are checked in this drop-down  |
+   |                               |                |          | menu.                                                                                               |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | TCP Port                      | integer        |          | port to open for SSH connection requests; *22* by default                                           |
+   | TCP Port                      | integer        |          | Port to open for SSH connection requests. *22* by default.                                          |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Login as Root with password   | checkbox       |          | **for security reasons, root logins are discouraged and disabled by default** if enabled,           |
-   |                               |                |          | password must be set for *root* user in :guilabel:`View Users`                                      |
+   | Login as Root with password   | checkbox       |          | **As a security precaution, root logins are discouraged and disabled by default.** If enabled,      |
+   |                               |                |          | password must be set for the *root* user in :guilabel:`Users`.                                      |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Allow Password Authentication | checkbox       |          | if unchecked, key-based authentication for all users is required; requires                          |
-   |                               |                |          | `additional setup <http://the.earth.li/%7Esgtatham/putty/0.55/htmldoc/Chapter8.html>`_              |
-   |                               |                |          | on both the SSH client and server                                                                   |
+   | Allow Password Authentication | checkbox       |          | If unchecked, key-based authentication for all users is required. Requires                          |
+   |                               |                |          | `additional setup <http://the.earth.li/~sgtatham/putty/0.55/htmldoc/Chapter8.html>`__               |
+   |                               |                |          | on both the SSH client and server.                                                                  |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Allow Kerberos Authentication | checkbox       |          | before checking this box, ensure that :ref:`Kerberos Realms` and :ref:`Kerberos Keytabs`            |
-   |                               |                |          | have been configured and that the %brand% system can communicate with the KDC                       |
+   | Allow Kerberos Authentication | checkbox       | ✓        | Before checking this box, ensure :ref:`Kerberos Realms` and :ref:`Kerberos Keytabs` are             |
+   |                               |                |          | configured and %brand% can communicate with the Kerberos Domain Controller (KDC).                   |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Allow TCP Port Forwarding     | checkbox       |          | allows users to bypass firewall restrictions using SSH's                                            |
-   |                               |                |          | `port forwarding feature <http://www.symantec.com/connect/articles/ssh-port-forwarding>`_           |
+   | Allow TCP Port Forwarding     | checkbox       |          | Allows users to bypass firewall restrictions using the SSH                                          |
+   |                               |                |          | `port forwarding feature <https://www.symantec.com/connect/articles/ssh-port-forwarding>`__.        |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Compress Connections          | checkbox       |          | may reduce latency over slow networks                                                               |
+   | Compress Connections          | checkbox       |          | May reduce latency over slow networks.                                                              |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | SFTP Log Level                | drop-down menu | ✓        | select the                                                                                          |
-   |                               |                |          | `syslog(3) <http://www.freebsd.org/cgi/man.cgi?query=syslog>`_                                      |
-   |                               |                |          | level of the SFTP server                                                                            |
+   | SFTP Log Level                | drop-down menu | ✓        | Select the `syslog(3) <https://www.freebsd.org/cgi/man.cgi?query=syslog>`__                         |
+   |                               |                |          | level of the SFTP server.                                                                           |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | SFTP Log Facility             | drop-down menu | ✓        | select the                                                                                          |
-   |                               |                |          | `syslog(3) <http://www.freebsd.org/cgi/man.cgi?query=syslog>`_                                      |
-   |                               |                |          | facility of the SFTP server                                                                         |
+   | SFTP Log Facility             | drop-down menu | ✓        | Select the `syslog(3) <https://www.freebsd.org/cgi/man.cgi?query=syslog>`__                         |
+   |                               |                |          | facility of the SFTP server.                                                                        |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Extra Options                 | string         | ✓        | additional                                                                                          |
-   |                               |                |          | `sshd_config(5) <http://www.freebsd.org/cgi/man.cgi?query=sshd_config>`_                            |
-   |                               |                |          | options not covered in this screen, one per line; these options are case-sensitive                  |
-   |                               |                |          | and misspellings may prevent the SSH service from starting                                          |
+   | Extra options                 | string         | ✓        | Additional `sshd_config(5) <https://www.freebsd.org/cgi/man.cgi?query=sshd_config>`__               |
+   |                               |                |          | options not covered in this screen, one per line. These options are case-sensitive                  |
+   |                               |                |          | and misspellings may prevent the SSH service from starting.                                         |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
 
 
 A few `sshd_config(5)
-<http://www.freebsd.org/cgi/man.cgi?query=sshd_config>`_
+<https://www.freebsd.org/cgi/man.cgi?query=sshd_config>`__
 options that are useful to enter in the :guilabel:`Extra Options`
 field include:
 
 *  increase the *ClientAliveInterval* if SSH connections tend to drop
 
-* *ClientMaxStartup* defaults to *10*; increase this value if you need
-  more concurrent SSH connections
+* *ClientMaxStartup* defaults to *10*. Increase this value more
+  concurrent SSH connections are required.
 
 
 .. index:: SCP, Secure Copy
@@ -1788,33 +1787,30 @@ field include:
 SCP Only
 ~~~~~~~~
 
-When you configure SSH, authenticated users with a user account
-created using
-:menuselection:`Account --> Users --> Add User`
-can use the :command:`ssh` command to login to the %brand% system over
-the network. A user's home directory will be the pool or dataset
-specified in the :guilabel:`Home Directory` field of their %brand%
-user account. While the SSH login will default to the user's home
-directory, users are able to navigate outside of their home directory,
-which can pose a security risk.
 
-It is possible to allow users to use the :command:`scp` and
-:command:`sftp` commands to transfer files between their local
-computer and their home directory on the %brand% system, while
-restricting them from logging into the system using :command:`ssh`. To
-configure this scenario, go to
-:menuselection:`Account --> Users --> View Users`,
-select the user and click :guilabel:`Modify User`, and change the
-user's :guilabel:`Shell` to *scponly*. Repeat for each user that needs
-restricted SSH access.
+When SSH is configured, authenticated users with a user account
+created using :menuselection:`Account --> Users --> Add User`
+can use :command:`ssh` to login to the %brand% system over the network.
+The user home directory will be the pool or dataset specified in the
+:guilabel:`Home Directory` field of their %brand% user account. While
+the SSH login will default to the user home directory, users are able to
+navigate outside their home directory, which can pose a security risk.
+
+It is possible to allow users to use :command:`scp` and :command:`sftp`
+to transfer files between their local computer and their home directory
+on the %brand% system, while restricting them from logging into the
+system using :command:`ssh`. To configure this scenario, go to
+:menuselection:`Account --> Users`, click :guilabel:`More Options` for
+the user, and click :guilabel:`Edit`. Change the :guilabel:`Shell` to
+*scponly*. Repeat for each user that needs restricted SSH access.
 
 Test the configuration from another system by running the
 :command:`sftp`, :command:`ssh`, and :command:`scp` commands as the
-user. The :command:`sftp` and :command:`scp` commands should work but
-the :command:`ssh` should fail.
+user. :command:`sftp` and :command:`scp` will work but :command:`ssh`
+will fail.
 
-.. note:: Some utilities such as WinSCP and Filezilla can bypass the
-   scponly shell. This section assumes that users are accessing the
+.. note:: Some utilities like WinSCP and Filezilla can bypass the
+   scponly shell. This section assumes users are accessing the
    system using the command line versions of :command:`scp` and
    :command:`sftp`.
 
@@ -1824,32 +1820,31 @@ the :command:`ssh` should fail.
 Troubleshooting SSH
 ~~~~~~~~~~~~~~~~~~~
 
-When adding any :guilabel:`Extra Options`, be aware that the keywords
-listed in
-`sshd_config(5)
-<http://www.freebsd.org/cgi/man.cgi?query=sshd_config>`_
-are case sensitive. This means that your configuration will fail to do
-what you intended if you do not match the upper and lowercase letters
-of the keyword.
 
-If your clients are receiving "reverse DNS" or timeout errors, add an
-entry for the IP address of the %brand% system in the
-:guilabel:`Host name database` field of
+Keywords listed in `sshd_config(5)
+<https://www.freebsd.org/cgi/man.cgi?query=sshd_config>`__ are case
+sensitive. This is important to remember when adding any
+:guilabel:`Extra options`. The configuration will not function as
+intended if the upper and lowercase letters of the keyword are not an
+exact match.
+
+If clients are receiving "reverse DNS" or timeout errors, add an entry
+for the IP address of the %brand% system in the
+:guilabel:`Host name data base` field of
 :menuselection:`Network --> Global Configuration`.
 
-When configuring SSH, always test your configuration as an SSH user
-account to ensure that the user is limited to what you have configured
-and that they have permission to transfer files within the intended
-directories. If the user account is experiencing problems, the SSH
-error messages are usually pretty specific to what the problem is.
-Type the following command within :ref:`Shell` to read these messages
-as they occur:
+When configuring SSH, always test the configuration as an SSH user
+account to ensure the user is limited by the configuration and they have
+permission to transfer files within the intended directories. If the
+user account is experiencing problems, the SSH error messages are
+specific in describing the problem. Type this command within
+:ref:`Shell` to read these messages as they occur:
 
 .. code-block:: none
 
    tail -f /var/log/messages
 
-Additional messages regarding authentication errors may be found in
+Additional messages regarding authentication errors are found in
 :file:`/var/log/auth.log`.
 
 
@@ -1859,19 +1854,19 @@ Additional messages regarding authentication errors may be found in
 TFTP
 ----
 
+
 Trivial File Transfer Protocol (TFTP) is a light-weight version of FTP
-usually used to transfer configuration or boot files between machines,
+typically used to transfer configuration or boot files between machines,
 such as routers, in a local environment. TFTP provides an extremely
 limited set of commands and provides no authentication.
 
 If the %brand% system will be used to store images and configuration
-files for the network's devices, configure and start the TFTP service.
-Starting the TFTP service will open UDP port 69.
+files for network devices, configure and start the TFTP service.
+Starting the TFTP service opens UDP port 69.
 
-:numref:`Figure %s <tftp_config_fig>`
-shows the TFTP configuration screen and
-:numref:`Table %s <tftp_config_opts_tab>`
-summarizes the available options:
+:numref:`Figure %s <tftp_config_fig>` shows the TFTP configuration
+screen and :numref:`Table %s <tftp_config_opts_tab>` summarizes the
+available options:
 
 .. _tftp_config_fig:
 
@@ -1893,28 +1888,26 @@ summarizes the available options:
    | Setting         | Value         | Description                                                                                                              |
    |                 |               |                                                                                                                          |
    +=================+===============+==========================================================================================================================+
-   | Directory       | browse button | browse to an **existing** directory to be used for storage; some devices require a specific directory name, refer to the |
-   |                 |               | device's documentation for details                                                                                       |
+   | Directory       | Browse button | Browse to an **existing** directory to be used for storage. Some devices require a specific directory name, refer to the |
+   |                 |               | device documentation for details.                                                                                        |
    |                 |               |                                                                                                                          |
    +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Allow New Files | checkbox      | enable if network devices need to send files to the system (for example, to back up their configuration)                 |
+   | Allow New Files | checkbox      | Enable if network devices need to send files to the system (for example, to back up their configuration).                |
    |                 |               |                                                                                                                          |
    +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Port            | integer       | UDP port to listen for TFTP requests, *69* by default                                                                    |
+   | Port            | integer       | UDP port to listen for TFTP requests, *69* by default.                                                                   |
    |                 |               |                                                                                                                          |
    +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Username        | drop-down     | account used for tftp requests; must have permission to the :guilabel:`Directory`                                        |
+   | Username        | drop-down     | Account used for TFTP requests. Must have permission to the :guilabel:`Directory`.                                       |
    |                 | menu          |                                                                                                                          |
    |                 |               |                                                                                                                          |
+   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
+   | File Permission | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write. Some devices     |
+   |                 |               | require less strict permissions.                                                                                         |
    |                 |               |                                                                                                                          |
    +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Umask           | integer       | umask for newly created files, default is *022* (everyone can read, nobody can write); some devices require a less       |
-   |                 |               | strict umask                                                                                                             |
-   |                 |               |                                                                                                                          |
-   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Extra options   | string        | additional                                                                                                               |
-   |                 |               | `tftpd(8) <http://www.freebsd.org/cgi/man.cgi?query=tftpd>`_                                                             |
-   |                 |               | options not shown in this screen, one per line                                                                           |
+   | Extra options   | string        | Additional `tftpd(8) <https://www.freebsd.org/cgi/man.cgi?query=tftpd>`__                                                |
+   |                 |               | options not shown in this screen, one per line.                                                                          |
    |                 |               |                                                                                                                          |
    +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
 
@@ -1925,14 +1918,12 @@ summarizes the available options:
 UPS
 ---
 
-%brand% uses
-`NUT <http://www.networkupstools.org/>`_
-(Network UPS Tools) to provide UPS support. If the %brand% system is
-connected to a UPS device, configure the UPS service then start it in
-:menuselection:`Services --> Control Services`.
 
-:numref:`Figure %s <ups_config_fig>`
-shows the UPS configuration screen:
+%brand% uses `NUT <http://networkupstools.org/>`__ (Network UPS Tools)
+to provide UPS support. If the %brand% system is connected to a UPS
+device, configure the UPS service then start it in :guilabel:`Services`.
+
+:numref:`Figure %s <ups_config_fig>` shows the UPS configuration screen:
 
 
 .. _ups_config_fig:
@@ -1942,8 +1933,8 @@ shows the UPS configuration screen:
    UPS Configuration Screen
 
 
-:numref:`Table %s <ups_config_opts_tab>`
-summarizes the options in the UPS Configuration screen.
+:numref:`Table %s <ups_config_opts_tab>` summarizes the options in the
+UPS Configuration screen.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -1955,103 +1946,104 @@ summarizes the options in the UPS Configuration screen.
 .. table:: UPS Configuration Options
    :class: longtable
 
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Setting                       | Value          | Description                                                                                           |
-   |                               |                |                                                                                                       |
-   |                               |                |                                                                                                       |
-   +===============================+================+=======================================================================================================+
-   | UPS Mode                      | drop-down menu | select from *Master* or                                                                               |
-   |                               |                | *Slave*                                                                                               |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Identifier                    | string         | can contain alphanumeric, period, comma, hyphen, and underscore characters                            |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Driver                        | drop-down menu | supported UPS devices are listed at                                                                   |
-   |                               |                | `http://www.networkupstools.org/stable-hcl.html <http://www.networkupstools.org/stable-hcl.html>`_    |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Port                          | drop-down      | select the serial or USB port the UPS is plugged into (see  NOTE below)                               |
-   |                               | menu           |                                                                                                       |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters          | string         | additional options from                                                                               |
-   | (ups.conf)                    |                | `ups.conf(5) <http://www.networkupstools.org/docs/man/ups.conf.html>`_                                |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters          | string         | additional options from                                                                               |
-   | (upsd.conf)                   |                | `upsd.conf(5) <http://www.networkupstools.org/docs/man/upsd.conf.html>`_                              |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Description                   | string         | optional                                                                                              |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Shutdown mode                 | drop-down menu | choices are *UPS goes on battery* and                                                                 |
-   |                               |                | *UPS reaches low battery*                                                                             |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Shutdown timer                | integer        | in seconds; will initiate shutdown after this many seconds after UPS enters *UPS goes on battery*,    |
-   |                               |                | unless power is restored                                                                              |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Shutdown Command              | string         | the command to run to shut down the computer when battery power is low or shutdown timer runs out     |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | No Communication Warning Time | string         | the frequency, in seconds, of email notifications during the loss of UPS communications; the default  |
-   |                               |                | is *300*                                                                                              |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Monitor User                  | string         | default is *upsmon*                                                                                   |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Monitor Password              | string         | default is known value *fixmepass* and should be changed; cannot contain a space or #                 |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Extra users                   | string         | defines the accounts that have administrative access; see                                             |
-   |                               |                | `upsd.users(5) <http://www.networkupstools.org/docs/man/upsd.users.html>`_                            |
-   |                               |                | for examples                                                                                          |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Remote monitor                | checkbox       | if enabled, be aware that the default is to listen on all interfaces and to use the known values user |
-   |                               |                | *upsmon* and password                                                                                 |
-   |                               |                | *fixmepass*                                                                                           |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Send Email Status Updates     | checkbox       | if checked, activates the :guilabel:`To email` field                                                  |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | To email                      | email address  | if :guilabel:`Send Email` box checked, email address to receive status updates;                       |
-   |                               |                | separate multiple email addresses with a semicolon                                                    |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Email Subject                 | string         | subject line to be used in the email                                                                  |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Power Off UPS                 | checkbox       | if checked, the UPS will also power off after shutting down the FreeNAS system                        |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Setting                       | Value          | Description                                                                               |
+   |                               |                |                                                                                           |
+   +===============================+================+===========================================================================================+
+   | UPS Mode                      | drop-down menu | Select from *Master* or *Slave*.                                                          |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Identifier                    | string         | Can contain alphanumeric, period, comma, hyphen, and underscore characters.               |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Driver                        | drop-down menu | Supported UPS devices are listed at                                                       |
+   |                               |                | `<http://networkupstools.org/stable-hcl.html>`__.                                         |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Port                          | drop-down menu | Select the serial or USB port the UPS is plugged into (see :ref:`NOTE <UPS USB>`).        |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Auxiliary Parameters          | string         | Additional options from                                                                   |
+   | (ups.conf)                    |                | `ups.conf(5) <http://networkupstools.org/docs/man/ups.conf.html>`__.                      |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Auxiliary Parameters          | string         | Additional options from                                                                   |
+   | (upsd.conf)                   |                | `upsd.conf(5) <http://networkupstools.org/docs/man/upsd.conf.html>`__.                    |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Description                   | string         | (optional) Enter any notes about the UPS service.                                         |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Shutdown Mode                 | drop-down menu | Choices are *UPS goes on battery* and *UPS reaches low battery*.                          |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Shutdown Timer                | integer        | Initiates shutdown after the defined interval in seconds after UPS enters                 |
+   |                               |                | *UPS goes on battery*, unless power is restored.                                          |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Shutdown Command              | string         | The command to run to shut down the computer when battery power is low or                 |
+   |                               |                | shutdown timer runs out.                                                                  |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | No Communication Warning Time | string         | The frequency in seconds of email notifications during the loss of UPS communications.    |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Monitor User                  | string         | Default is *upsmon*.                                                                      |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Monitor Password              | string         | Default is the known value *fixmepass*. Change this to enhance system security.           |
+   |                               |                | Cannot contain a space or :kbd:`#`.                                                       |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Extra users                   | string         | Defines the accounts with administrative access. See `upsd.users(5)                       |
+   |                               |                | <http://networkupstools.org/docs/man/upsd.users.html>`__ for examples.                    |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Remote Monitor                | checkbox       | If enabled, be aware the default is to listen on all interfaces and to use the            |
+   |                               |                | known values user: *upsmon* and password: *fixmepass*                                     |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Send Email Status Updates     | checkbox       | Enables the %brand% system to send email updates to the configured field                  |
+   |                               |                | :guilabel:`To Email` address.                                                             |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | To Email                      | email address  | Define the email address to receive status updates.                                       |
+   |                               |                | Separate multiple email addresses with a semicolon (:kbd:`;`)                             |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Email Subject                 | string         | Enter a subject line to be used in email status updates.                                  |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Power Off UPS                 | checkbox       | If checked, the UPS will also power off after shutting down the FreeNAS system.           |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
 
+
+.. _UPS USB:
 
 .. note:: For USB devices, the easiest way to determine the correct
    device name is to check the box :guilabel:`Show console messages`
-   in
-   :menuselection:`System --> Advanced`.
-   Plug in the USB device and look for a */dev/ugen* or */dev/uhid* device
-   name in the console messages.
+   in :menuselection:`System --> Advanced`.
+   Plug in the USB device and look for a */dev/ugen* or */dev/uhid*
+   device name in the console messages.
 
-`upsc(8) <http://www.networkupstools.org/docs/man/upsc.html>`_
-can be used to get status variables from the UPS daemon such as the
-current charge and input voltage. It can be run from Shell using the
-following syntax. The man page gives some other usage examples.
+
+`upsc(8) <http://networkupstools.org/docs/man/upsc.html>`__ can be used
+to get status variables from the UPS daemon such as the current charge
+and input voltage. It can be run from :ref:`Shell` using this syntax:
 
 .. code-block:: none
 
    upsc ups@localhost
 
 
-`upscmd(8) <http://www.networkupstools.org/docs/man/upscmd.html>`_
-can be used to send commands directly to the UPS, assuming that the
-hardware supports the command being sent. Only users with
-administrative rights can use this command. These users are created in
-the :guilabel:`Extra users` field.
+The *upsc(8)* man page gives some other usage examples.
+
+`upscmd(8) <http://networkupstools.org/docs/man/upscmd.html>`__
+can be used to send commands directly to the UPS, assuming the
+hardware supports the command being sent. Only users with administrative
+rights can use this command. These users are created in the
+:guilabel:`Extra users` field.
 
 
 .. _Multiple Computers with One UPS:
@@ -2059,16 +2051,17 @@ the :guilabel:`Extra users` field.
 Multiple Computers with One UPS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
 A UPS with adequate capacity can be used to power multiple computers.
 One computer is connected to the UPS data port with a serial or USB
 cable. This *master* makes UPS status available on the network for
 other computers. These *slave* computers are powered by the UPS, but
 receive UPS status data from the master computer. See the
 `NUT User Manual
-<http://networkupstools.org/docs/user-manual.chunked/index.html>`_
+<http://networkupstools.org/docs/user-manual.chunked/index.html>`__
 and
 `NUT User Manual Pages
-<http://networkupstools.org/docs/man/index.html#User_man>`_.
+<http://networkupstools.org/docs/man/index.html#User_man>`__.
 
 
 .. index:: WebDAV
@@ -2077,19 +2070,18 @@ and
 WebDAV
 ------
 
+
 The WebDAV service can be configured to provide a file browser over a
-web connection. Before starting this service, you must create at least
-one WebDAV share using
+web connection. Before starting this service, at least one WebDAV share
+must be created using
 :menuselection:`Sharing --> WebDAV Shares --> Add WebDAV Share`.
-Refer to :ref:`WebDAV Shares` for instructions on how to create a
-share and then how to connect to it once the service is configured and
-started.
+Refer to :ref:`WebDAV Shares` for instructions on how to create a share
+and connect to it once the service is configured and started.
 
 The settings in the WebDAV service apply to all WebDAV shares.
-:numref:`Figure %s <webdav_config_fig>`
-shows the WebDAV configuration screen.
-:numref:`Table %s <webdav_config_opts_tab>`
-summarizes the available options.
+:numref:`Figure %s <webdav_config_fig>` shows the WebDAV configuration
+screen. :numref:`Table %s <webdav_config_opts_tab>` summarizes the
+available options.
 
 
 .. _webdav_config_fig:
@@ -2111,32 +2103,26 @@ summarizes the available options.
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Setting                   | Value          | Description                                                                                           |
    |                           |                |                                                                                                       |
-   |                           |                |                                                                                                       |
    +===========================+================+=======================================================================================================+
-   | Protocol                  | drop-down menu | choices are *HTTP* (connection always unencrypted),                                                   |
-   |                           |                | *HTTPS* (connection always encrypted), or                                                             |
-   |                           |                | *HTTP+HTTPS* (both types of connections allowed)                                                      |
+   | Protocol                  | drop-down menu | Choices are *HTTP* (connection always unencrypted), *HTTPS* (connection always encrypted), or         |
+   |                           |                | *HTTP+HTTPS* (both types of connections allowed).                                                     |
    |                           |                |                                                                                                       |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | HTTP Port                 | string         | only appears if the selected :guilabel:`Protocol` is *HTTP* or                                        |
-   |                           |                | *HTTP+HTTPS* and is used to specify the port to be used for unencrypted connections; the default      |
-   |                           |                | of *8080* should work, if you change it,                                                              |
-   |                           |                | **do not** use a port number already being used by another service                                    |
+   | HTTP Port                 | string         | Used to specify the port to be used for unencrypted connections. The default of *8080* is             |
+   |                           |                | recommended. If it must be changed, **do not** use a port number already being used by                |
+   |                           |                | another service.                                                                                      |
    |                           |                |                                                                                                       |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | HTTPS Port                | string         | only appears if the selected :guilabel:`Protocol` is *HTTPS* or                                       |
-   |                           |                | *HTTP+HTTPS* and is used to specify the port to be used for encrypted connections; the default        |
-   |                           |                | of *8081* should work, if you change it,                                                              |
-   |                           |                | **do not** use a port number already being used by another service                                    |
+   | HTTPS Port                | string         | Used to specify the port to be used for encrypted connections. The default of *8081* is               |
+   |                           |                | recommended. If the port must be changed, **do not** use a port number already being used             |
+   |                           |                | by another service.                                                                                   |
    |                           |                |                                                                                                       |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Webdav SSL Certificate    | drop-down menu | only appears if the selected :guilabel:`Protocol` is *HTTPS* or                                       |
-   |                           |                | *HTTP+HTTPS*; select the SSL certificate to be used for encrypted connections; to create a            |
-   |                           |                | certificate, use :menuselection:`System --> Certificates`                                             |
+   | Webdav SSL Certificate    | drop-down menu | Select the SSL certificate to be used for encrypted connections. To create a                          |
+   |                           |                | certificate, use :menuselection:`System --> Certificates`.                                            |
    |                           |                |                                                                                                       |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | HTTP Authentication       | drop-down menu | choices are *No Authentication*, *Basic Authentication* (unencrypted), or                             |
-   |                           |                | *Digest Authentication* (encrypted)                                                                   |
+   | HTTP Authentication       | drop-down menu | Choices are *Basic Authentication* (unencrypted) or *Digest Authentication* (encrypted).              |
    |                           |                |                                                                                                       |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Webdav Password           | string         | default is *davtest*; this should be changed as it is a known value                                   |
