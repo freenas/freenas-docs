@@ -5,9 +5,8 @@ Services
 ========
 
 
-The Services section of the GUI is where various services that ship
-with the %brand% system are configured, started, or stopped. %brand%
-includes these built-in services:
+Services that ship with %brand% can be configured, started, or stopped
+with :guilabel:`Services`. These services are included:
 
 * :ref:`AFP`
 
@@ -135,7 +134,7 @@ which are described in
    | Setting                 | Value          | Description                                                                                                     |
    |                         |                |                                                                                                                 |
    +=========================+================+=================================================================================================================+
-   | Guest Account           | drop-down menu | Select an account to use for guest access. The selected account must have permissions to the pool or dataset    |
+   | Guest Account           | drop-down menu | Select an account to use for guest access. The account must have permissions to the pool or dataset             |
    |                         |                | being shared.                                                                                                   |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
@@ -148,10 +147,10 @@ which are described in
    | Database Path           | browse button  | Select the path to store the CNID databases used by AFP (default is the root of the pool). The path must be     |
    |                         |                | writable.                                                                                                       |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Chmod Request           | drop-down menu | Indicates how to handle ACLs. choices are *Ignore*, *Preserve*, or *Simple*.                                    |
+   | Chmod Request           | drop-down menu | Set how ACLs are handled: *Ignore*, *Preserve*, or *Simple*.                                                    |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Map ACLs                | drop-down menu | Choose mapping of effective permissions for authenticated users. *Rights* (default, Unix-style permissions),    |
+   | Map ACLs                | drop-down menu | Choose mapping of effective permissions for authenticated users: *Rights* (default, Unix-style permissions),    |
    |                         |                | *Mode* (ACLs), or *None*.                                                                                       |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
@@ -194,8 +193,8 @@ problematic AFP share:
 
 
 This command can take some time, depending upon the size of the pool
-or dataset being shared. This command will wipe the CNID database and
-rebuild it from the CNIDs stored in the AppleDouble files.
+or dataset being shared. The CNID database is wiped and rebuilt from the
+CNIDs stored in the AppleDouble files.
 
 
 .. index:: Domain Controller, DC
@@ -244,6 +243,8 @@ summarizes the available options.
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. TODO update "Setting" column when #32244 is resolved.
 
 .. _domain_controller_opts_tab:
 
@@ -765,7 +766,7 @@ Troubleshooting FTP
 
 
 The FTP service will not start if it cannot resolve the system
-hostname to an IP address using DNS. To see if the FTP service is
+hostname to an IP address with DNS. To see if the FTP service is
 running, open :ref:`Shell` and issue the command:
 
 .. code-block:: none
@@ -777,12 +778,11 @@ If there is nothing listening on port 21, the FTP service is not
 running. To see the error message that occurs when %brand% tries to
 start the FTP service, go to :menuselection:`System --> Advanced`,
 check :guilabel:`Show console messages`, and click :guilabel:`Save`.
-Next, go to :guilabel:`Services` and switch the FTP service off, then
-back on. Watch the console messages at the bottom of the browser for
-errors.
+Go to :guilabel:`Services` and switch the FTP service off, then back on.
+Watch the console messages at the bottom of the browser for errors.
 
 If the error refers to DNS, either create an entry in the local DNS
-server with the %brand% system hostname and IP address or add an entry
+server with the %brand% system hostname and IP address, or add an entry
 for the IP address of the %brand% system in the
 :menuselection:`Network --> Global Configuration`
 :guilabel:`Host name data base` field.
@@ -1789,20 +1789,23 @@ SCP Only
 
 
 When SSH is configured, authenticated users with a user account
-created using :menuselection:`Account --> Users --> Add User`
-can use :command:`ssh` to login to the %brand% system over the network.
-The user home directory will be the pool or dataset specified in the
-:guilabel:`Home Directory` field of their %brand% user account. While
-the SSH login will default to the user home directory, users are able to
-navigate outside their home directory, which can pose a security risk.
+created using
+:menuselection:`Account --> Users --> Add User`
+can use :command:`ssh` to log into the %brand% system over the network.
+The user home directory is the pool or dataset specified in the
+:guilabel:`Home Directory` field of the %brand% account for that user.
+While the SSH login defaults to the user home directory, users are able
+to navigate outside their home directory, which can pose a security
+risk.
 
 It is possible to allow users to use :command:`scp` and :command:`sftp`
 to transfer files between their local computer and their home directory
 on the %brand% system, while restricting them from logging into the
 system using :command:`ssh`. To configure this scenario, go to
-:menuselection:`Account --> Users`, click :guilabel:`More Options` for
-the user, and click :guilabel:`Edit`. Change the :guilabel:`Shell` to
-*scponly*. Repeat for each user that needs restricted SSH access.
+:menuselection:`Account --> Users`,
+click :guilabel:`More Options` for the user, and click :guilabel:`Edit`.
+Change the :guilabel:`Shell` to *scponly*. Repeat for each user that
+needs restricted SSH access.
 
 Test the configuration from another system by running the
 :command:`sftp`, :command:`ssh`, and :command:`scp` commands as the
@@ -2008,7 +2011,7 @@ UPS Configuration screen.
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | To Email                      | email address  | Define the email address to receive status updates.                                       |
-   |                               |                | Separate multiple email addresses with a semicolon (:kbd:`;`)                             |
+   |                               |                | Separate multiple email addresses with a semicolon (:literal:`;`).                        |
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Email Subject                 | string         | Enter a subject line to be used in email status updates.                                  |
