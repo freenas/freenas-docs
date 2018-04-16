@@ -833,10 +833,9 @@ shown in
 
 Click the :guilabel:`Send Test Mail` button to verify that the
 configured email settings are working. If the test email fails,
-double-check the destination email address by clicking the
-:guilabel:`Change E-mail` button for the *root* account in
-:menuselection:`Account --> Users --> View Users`.
-Test mail cannot be sent unless the *root* email address has been set.
+double-check that the :guilabel:`E-mail` field of the *root* user is
+correctly configured by clicking the :guilabel:`Modify User` button for
+the *root* account in :menuselection:`Account --> Users --> View Users`.
 
 Configuring email for TLS/SSL email providers is described in
 `Are you having trouble getting FreeNAS to email you in Gmail?
