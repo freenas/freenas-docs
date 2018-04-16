@@ -130,6 +130,10 @@ These applications have been added or updated:
 * rsync has been updated to
   `version 3.1.3 <https://download.samba.org/pub/rsync/src/rsync-3.1.3-NEWS>`_.
 
+* `zsh <http://www.zsh.org/>`_ is the root shell for new installations.
+  Upgrades will continue to use the :command:`csh` shell as the default
+  root shell.
+
 The following screens have changed:
 
 * Disk temperature graphs have been added to
