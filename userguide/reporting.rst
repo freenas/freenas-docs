@@ -31,7 +31,7 @@ several tabs on the Reporting page:
 
   * `Disk <https://collectd.org/wiki/index.php/Plugin:Disk>`__
     shows statistics on I/O, percent busy, latency, operations per
-    second, and pending I/O requests.
+    second, pending I/O requests, and disk temperature.
 
 * :guilabel:`Memory`
 
