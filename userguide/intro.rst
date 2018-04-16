@@ -127,7 +127,9 @@ These applications have been added or updated:
   This CLI utility can be used to analyze disk usage from the console or
   an SSH session.
 
-.. index:: Path and Name Lengths
+* rsync has been updated to
+  `version 3.1.3 <https://download.samba.org/pub/rsync/src/rsync-3.1.3-NEWS>`_.
+
 .. _Path and Name Lengths:
 
 Path and Name Lengths
