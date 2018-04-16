@@ -136,6 +136,9 @@ These applications have been added or updated:
 
 The following screens have changed:
 
+* The :guilabel:`Exec` field has been added to
+  :menuselection:`Storage --> Volumes --> Create Dataset --> Advanced Mode`.
+
 * Disk temperature graphs have been added to
   :menuselection:`Reporting --> Disk`.
 
