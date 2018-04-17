@@ -4,9 +4,9 @@
 Reporting
 =========
 
-Reporting displays several graphs, as seen in the example in
-:numref:`Figure %s <reporting_graphs_fig>`.
-Click the tab for a device type to see its graphs.
+Reporting displays several graphs, as seen in
+:numref:`Figure %s <reporting_graphs_fig>`. Click the tab for a device
+type to see those specific graphs.
 
 .. _reporting_graphs_fig:
 
@@ -60,7 +60,7 @@ several tabs on the Reporting page:
 
   * `Processes and Uptime
     <https://collectd.org/wiki/index.php/Plugin:Processes>`__
-    displays the number of processes, grouped by state.
+    displays the number of processes. It is grouped by state.
 
   * `Uptime <https://collectd.org/wiki/index.php/Plugin:Uptime>`__
     keeps track of the system uptime, the average running time, and
