@@ -118,7 +118,7 @@ to see if the information is already there. See the
 `Forum Rules
 <https://forums.freenas.org/index.php?threads/updated-forum-rules-4-11-17.45124/>`__
 for guidelines on posting your hardware information and how to ask a
-question that gets a response.
+questions that will get a response.
 
 .. index:: IRC
 .. _IRC:
@@ -144,11 +144,12 @@ To get the most out of the IRC channel, keep these points in mind:
 
 * Do not ask "can anyone help me?". Just ask the question.
 
-* Do not ask a question and leave.
+* Do not ask a question and leave. Users who know the answer cannot
+  help you if you disappear.
 
 * If no one answers, the question may be difficult to answer or it has
-  been asked before. Try asking again in a few hours or research other
-  resources to see if something was missed.
+  been asked before. Research other resources while waiting for the
+  question to be answered.
 
 * Do not post error messages in the channel. Instead, use a pasting
   service such as `pastebin <http://www.pastebin.com/>`_ and paste the
@@ -188,10 +189,10 @@ A series of instructional videos are available for %brand%:
 Professional Support
 --------------------
 
-In addition to the free community resources, professional
-support is available through the third-party consultants of iXsystems.
-Submit a support inquiry using the form at
-`<https://www.ixsystems.com/freenas-commercial-support/>`_.
+In addition to free community resources, support might be available in
+your area through third-party consultants. Submit a support
+inquiry using the form at
+`<https://www.ixsystems.com/freenas-commercial-support/>`__.
 
 
 #ifdef commented
