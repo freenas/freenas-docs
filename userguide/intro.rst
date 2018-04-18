@@ -121,7 +121,30 @@ These major features are new in this version:
   GRUB. GRUB was introduced as a temporary solution until the FreeBSD
   boot loader had full support for boot environments, which it now has.
 
-.. index:: Path and Name Lengths
+These applications have been added or updated:
+
+* `ncdu <https://dev.yorhel.nl/ncdu>`_ has been added to the base system.
+  This CLI utility can be used to analyze disk usage from the console or
+  an SSH session.
+
+* rsync has been updated to
+  `version 3.1.3 <https://download.samba.org/pub/rsync/src/rsync-3.1.3-NEWS>`_.
+
+* Minio has been updated to
+  `version 2018-04-04T05 <https://github.com/minio/minio/releases/tag/RELEASE.2018-04-04T05-20-54Z>`_.
+
+* `zsh <http://www.zsh.org/>`_ is the root shell for new installations.
+  Upgrades will continue to use the :command:`csh` shell as the default
+  root shell.
+
+The following screens have changed:
+
+* The :guilabel:`Exec` field has been added to
+  :menuselection:`Storage --> Volumes --> Create Dataset --> Advanced Mode`.
+
+* Disk temperature graphs have been added to
+  :menuselection:`Reporting --> Disk`.
+
 .. _Path and Name Lengths:
 
 Path and Name Lengths
