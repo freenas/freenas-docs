@@ -25,7 +25,6 @@
    logout
    restart
    shutdown
-   help
    alert
    support
    cli
