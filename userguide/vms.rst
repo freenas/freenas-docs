@@ -53,7 +53,7 @@ Creating VMs
 ------------
 
 Select
-:menuselection:`VMs --> Add VM` for the :guilabel:`Add VM` dialog
+:menuselection:`VMs --> Add VM` for the :guilabel:`Add VM` Wizard
 shown in
 :numref:`Figure %s <vms_add_fig>`:
 
@@ -78,34 +78,150 @@ VM configuration options are described in
 .. table:: VM Options
    :class: longtable
 
-   +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Setting           | Value          | Description                                                                        |
-   |                   |                |                                                                                    |
-   +===================+================+====================================================================================+
-   | VM Type           | drop-down menu | type of VM, either *Virtual Machine* for a typical instance, or *Docker VM*        |
-   |                   |                | for a special VM to run Docker                                                     |
-   +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Name              | string         | a name to identify the VM                                                          |
-   |                   |                |                                                                                    |
-   +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Description       | string         | a short description of the VM or its purpose                                       |
-   |                   |                |                                                                                    |
-   +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Virtual CPUs      | integer        | quantity of virtual CPUs allocated to the VM, up to 16; although these are         |
-   |                   |                | virtual and not strictly related to host processor cores, the host CPU might       |
-   |                   |                | limit the maximum number; the operating system used in the VM might also have      |
-   |                   |                | operational or licensing restrictions on the number of CPUs allowed                |
-   +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Memory Size (MiB) | integer        | megabytes of RAM allocated to the VM                                               |
-   |                   |                |                                                                                    |
-   +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Boot Method       | drop-down menu | *UEFI* for newer operating systems, or *UEFI-CSM* (Compatibility Support Mode) for |
-   |                   |                | older operating systems that only understand BIOS booting                          |
-   |                   |                |                                                                                    |
-   +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Autostart         | checkbox       | when checked, start the VM automatically on boot                                   |
-   |                   |                |                                                                                    |
-   +-------------------+----------------+------------------------------------------------------------------------------------+
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | Screen # | Setting            | Value          | Description                                                                        |
+   |          |                    |                |                                                                                    |
+   +==========+====================+================+====================================================================================+
+   | 1        | Guest Operating    | drop-down menu | operating system for the VM, either *Windows*, *Linux*, or *FreeBSD*               |
+   |          | System             |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 1        | VM Name            | string         | a name to identify the VM                                                          |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 1        | Boot Method        | drop-down menu | *UEFI* for newer operating systems, or *UEFI-CSM* (Compatibility Support Mode) for |
+   |          |                    |                | older operating systems that only understand BIOS booting                          |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 1        | Autostart          | checkbox       | when checked, start the VM automatically on boot                                   |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 1        | Enable VNC         | checkbox       | check to activate a Virtual Network Computing (VNC) remote connection for a VM set |
+   |          |                    |                | to *UEFI* booting                                                                  |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 2        | Virtual CPUs       | integer        | quantity of virtual CPUs allocated to the VM, up to 16; although these are         |
+   |          |                    |                | virtual and not strictly related to host processor cores, the host CPU might       |
+   |          |                    |                | limit the maximum number; the operating system used in the VM might also have      |
+   |          |                    |                | operational or licensing restrictions on the number of CPUs allowed                |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 2        | Memory Size (MiB)  | integer        | mebibytes of RAM allocated to the VM                                               |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 3        | Disk image         | check option   | choose either :guilabel:`Create new disk image` or                                 |
+   |          |                    | with custom    | :guilabel:`Use existing disk image`; define the size and datastore for a new disk  |
+   |          |                    | fields         | image or :guilabel:`Browse` to an existing disk with that option                   |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 4        | Adapter Type       | drop-down menu | the default emulates an Intel E1000 (82545) Ethernet card for compatibility with   |
+   |          |                    |                | most operating systems; if the operating system installed in the VM supports       |
+   |          |                    |                | VirtIO paravirtualized network drivers, this can be changed to VirtIO to provide   |
+   |          |                    |                | better performace                                                                  |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 4        | Mac Address        | string         | by default, the VM receives an auto-generated random MAC address; to override the  |
+   |          |                    |                | default with a custom value, enter the desired address into the field              |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 4        | Nic to attach      | drop-down menu | can be used to specify which physical interface to associate with the VM if the    |
+   |          |                    |                | system has multiple physical network cards                                         |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 5        | Choose an          | browse button  | click :guilabel:`Browse` to select the path to the installation media              |
+   |          | installation media |                |                                                                                    |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 5        | Upload an ISO?     | checkbox and   | check to see options to :guilabel:`Browse` to a location to save the ISO file and  |
+   |          |                    | buttons        | :guilabel:`Upload` the ISO file from the local system                              |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+
+The final screen of the Wizard displays the chosen options for the new
+VM. Click :guilabel:`Submit` to create the VM or :guilabel:`Back` to
+change any settings.
+
+.. index:: Docker VM
+.. _Creating Docker VMs:
+
+Creating Docker VMs
+~~~~~~~~~~~~~~~~~~~
+
+Select
+:menuselection:`VMs --> Add DockerVM` for the
+:guilabel:`Docker VM Wizard` shown in
+:numref:`Figure %s <vms_add_docker_fig>`:
+
+
+.. _vms_add_docker_fig:
+
+.. figure:: images/vms-add-docker.png
+
+   Add VM
+
+
+Docker VM configuration options are described in
+:numref:`Table %s <vms_add_docker_opts_tab>`.
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _vms_add_docker_opts_tab:
+
+.. table:: Docker VM Options
+   :class: longtable
+
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | Screen # | Setting            | Value          | Description                                                                        |
+   |          |                    |                |                                                                                    |
+   +==========+====================+================+====================================================================================+
+   | 1        | Name of the VM     | string         | enter a descriptive name for the Docker VM                                         |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 1        | Start on Boot      | checkbox       | check to start this VM when the %brand% system boots                               |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 2        | Virtual CPUs       | integer        | quantity of virtual CPUs allocated to the VM, up to 16; although these are         |
+   |          |                    |                | virtual and not strictly related to host processor cores, the host CPU might       |
+   |          |                    |                | limit the maximum number; the operating system used in the VM might also have      |
+   |          |                    |                | operational or licensing restrictions on the number of CPUs allowed                |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 2        | Memory Size (MiB)  | integer        | mebibytes of RAM allocated to the VM                                               |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 3        | Adapter Type       | drop-down menu | the default emulates an Intel E1000 (82545) Ethernet card for compatibility with   |
+   |          |                    |                | most operating systems; if the operating system installed in the VM supports       |
+   |          |                    |                | VirtIO paravirtualized network drivers, this can be changed to VirtIO to provide   |
+   |          |                    |                | better performace                                                                  |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 3        | Mac Address        | string         | by default, the VM receives an auto-generated random MAC address; to override the  |
+   |          |                    |                | default with a custom value, enter the desired address into the field              |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 3        | Nic to attach      | drop-down menu | can be used to specify which physical interface to associate with the VM if the    |
+   |          |                    |                | system has multiple physical network cards                                         |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 4        | filename           | string         | provide a filename, this file will be created at the location specified in         |
+   |          |                    |                | :guilabel:`RAW file location`                                                      |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 4        | Define the size    | integer        | type a number of GiB to allocate to the new RAW file                               |
+   |          | for the raw file   |                |                                                                                    |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 4        | Select a directory | browse button  | choose a path to an existing directory to store the new RAW file                   |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 4        | sectorsize         | integer        | define the disk sectorsize in bytes; entering *0* leaves the sector size unset     |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+
+
+The final screen of the Wizard displays the chosen options for the new
+Docker VM. Click :guilabel:`Submit` to create the VM or :guilabel:`Back`
+to change any settings.
 
 
 .. index:: Adding Devices to a VM
