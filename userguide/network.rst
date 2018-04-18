@@ -117,7 +117,7 @@ but can be changed to meet requirements of the local network.
    | Netwait IP list        | string     | If :guilabel:`Enable netwait feature` is checked, list of IP addresses to ping. Otherwise,         |
    |                        |            | ping the default gateway                                                                           |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
-   | Host name data base    | string     | Used to add one entry per line which will be appended to :file:`/etc/hosts`. Use the format        |
+   | Host name database     | string     | Used to add one entry per line which will be appended to :file:`/etc/hosts`. Use the format        |
    |                        |            | *IP_address space hostname* where multiple hostnames can be used if separated by a space.          |
    |                        |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
@@ -128,7 +128,7 @@ realm's DNS server in the :guilabel:`Nameserver 1` field.
 
 If the network does not have a DNS server, or NFS, SSH, or FTP users
 are receiving "reverse DNS" or timeout errors, add an entry for the IP
-address of the %brand% system in the :guilabel:`Host name data base`
+address of the %brand% system in the :guilabel:`Host name database`
 field.
 
 .. _Gateway Note:
@@ -172,7 +172,7 @@ shows the screen that opens on clicking
 :menuselection:`Interfaces --> Add Interface`.
 :numref:`Table %s <net_interface_config_tab>`
 summarizes the configuration options shown when adding an interface or
-editing an already configured interface.
+editing an existing interface.
 
 
 .. _add_net_interface_fig:
@@ -522,13 +522,13 @@ solution for link redundancy or for one server and many clients.
 Creating a Link Aggregation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Before** creating a link aggregation, double-check that no
-interfaces to be used with the lagg are manually configured in
+**Before** creating a link aggregation, make sure that all interfaces to
+be used in the lagg have not been manually configured in
 :menuselection:`Network --> Interfaces`.
 
-If any manually-configured interfaces to be included with the lagg
-exist, delete them as **lagg creation fails if any of the included**
-**interfaces are manually configured**.
+If any manually-configured interfaces to be included in the lagg exist,
+delete them. **lagg creation fails if any of the included interfaces
+have been manually configured**.
 
 .. warning:: Creating or editing link aggregations can disconnect
    clients using the %brand% computer. Please verify that clients have
@@ -631,31 +631,30 @@ GUI from the new lagg interface.
    |                     |                |                                                                                  |
    +---------------------+----------------+----------------------------------------------------------------------------------+
 
-.. TODO (#31701) "Edit members" and all related lists/popups are missing
-   in the angular UI.
+#ifdef comment
 
- Click the :guilabel:`Edit Members` button, click the entry for a
- member, then click its :guilabel:`Edit` button to see the
- configuration screen shown in
- :numref:`Figure %s <lagg_member_edit_fig>`.
- The configurable options are summarized in
- :numref:`Table %s <lagg_config_member_tab>`.
+Click the :guilabel:`Edit Members` button, click the entry for a
+member, then click its :guilabel:`Edit` button to see the
+configuration screen shown in
+:numref:`Figure %s <lagg_member_edit_fig>`.
+The configurable options are summarized in
+:numref:`Table %s <lagg_config_member_tab>`.
 
 
- .. _lagg_member_edit_fig:
+.. _lagg_member_edit_fig:
 
- .. figure:: images/lagg3.png
+.. figure:: images/lagg3.png
 
    Editing a Member Interface
 
 
- .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
- .. _lagg_config_member_tab:
+.. _lagg_config_member_tab:
 
- .. table:: Configuring a Member Interface
+.. table:: Configuring a Member Interface
    :class: longtable
 
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
@@ -681,43 +680,42 @@ GUI from the new lagg interface.
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
 
 
- Options can be set at the lagg level using the :guilabel:`Edit`
- button, or at the individual parent interface level using the
- :guilabel:`Edit Members` button. Changes are typically made at the
- lagg level
- (:numref:`Figure %s <lagg_edit_fig>`)
- as each interface member will inherit from the lagg. To configure at
- the interface level
- (:numref:`Figure %s <lagg_member_edit_fig>`)
- instead, the configuration must be repeated for each interface within
- the lagg.
+Options can be set at the lagg level using the :guilabel:`Edit`
+button, or at the individual parent interface level using the
+:guilabel:`Edit Members` button. Changes are typically made at the
+lagg level
+(:numref:`Figure %s <lagg_edit_fig>`)
+as each interface member will inherit from the lagg. To configure at
+the interface level
+(:numref:`Figure %s <lagg_member_edit_fig>`)
+instead, the configuration must be repeated for each interface within
+the lagg.
 
 
- .. _LAGG_MTU:
+.. _LAGG_MTU:
 
- Some options can only be set on the parent interfaces and are
- inherited by the lagg interface. For example, to set the MTU on a
- lagg, use :guilabel:`Edit Members` to set the MTU for each parent
- interface.
+Some options can only be set on the parent interfaces and are
+inherited by the lagg interface. For example, to set the MTU on a
+lagg, use :guilabel:`Edit Members` to set the MTU for each parent
+interface.
 
- If the MTU settings on the lagg member interfaces are not identical,
- the smallest value is used for the MTU of the entire lagg.
+If the MTU settings on the lagg member interfaces are not identical,
+the smallest value is used for the MTU of the entire lagg.
 
- .. note:: A reboot is required after changing the MTU to create a
+.. note:: A reboot is required after changing the MTU to create a
    jumbo frame lagg.
 
 
- To see if the link aggregation is properly load balancing, run this
- command from :ref:`Shell`:
+Link aggregation load balancing can be tested with:
 
- .. code-block:: none
+.. code-block:: none
 
- systat -ifstat
+   systat -ifstat
 
 
- More information about this command can be found at
- `systat(1) <http://www.freebsd.org/cgi/man.cgi?query=systat>`__.
-
+More information about this command can be found at
+`systat(1) <http://www.freebsd.org/cgi/man.cgi?query=systat>`__.
+#endif comment
 
 .. index:: Route, Static Route
 .. _Static Routes:
@@ -854,18 +852,18 @@ summarizes the configurable fields.
 The parent interface of a VLAN must be up, but it can either have an IP
 address or be unconfigured, depending upon the requirements of the VLAN
 configuration. This makes it difficult for the GUI to do the right thing
-without trampling the configuration. To remedy this, after adding the
-VLAN, go to
+without trampling the configuration. To remedy this, add the VLAN, then
+select
 :menuselection:`Network --> Interfaces --> Add Interface`.
-Select the parent interface from the :guilabel:`NIC` drop-down menu
+Choose the parent interface from the :guilabel:`NIC` drop-down menu
 and in the :guilabel:`Options` field, type :command:`up`. This will
 bring up the parent interface. If an IP address is required, it can be
 configured using the rest of the options in the
 :guilabel:`Add Interface` screen.
 
 #ifdef freenas
-.. warning:: Creating a vlan will cause network connectivity to be
-   interrupted.
+.. warning:: Creating a VLAN causes an interruption to network
+   connectivity. The GUI provides a warning about this interruption.
 #endif freenas
 #ifdef truenas
 .. warning:: Creating a vlan will cause network connectivity to be
