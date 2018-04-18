@@ -2056,10 +2056,6 @@ complete the following fields:
   issue that describes the problem, and if applicable, what steps can
   be taken to reproduce it.
 
-* **Attachments:** this is the only optional field. It is useful
-  for including configuration files or screenshots of any errors or
-  tracebacks.
-
 Once you have finished completing the fields, click the
 :guilabel:`Submit` button to automatically generate and upload the
 report to https://redmine.ixsystems.com/projects/freenas/issues.
