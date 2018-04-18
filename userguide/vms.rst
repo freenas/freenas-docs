@@ -254,8 +254,9 @@ available:
 
 * :ref:`VNC Interface <vms-vnc>`
 
-:numref:`Figure %s <vms-nic_fig>` shows the fields that appear when
-:guilabel:`Network Interface` is the selected :guilabel:`Type`.
+:numref:`Figure %s <vms-nic_fig>` shows the fields that appear after
+navigating
+:menuselection:`VMs --> Devices --> Add Device --> Add NIC` for a VM.
 
 
 .. _vms-network-interface:
@@ -282,7 +283,9 @@ physical interface to associate with the VM.
 
 By default, the VM receives an auto-generated random MAC address. To
 override the default with a custom value, enter the desired address
-into the :guilabel:`MAC Address` field.
+into the :guilabel:`MAC Address` field. Click
+:guilabel:`Generate MAC ADDRESS` to automatically populate
+:guilabel:`MAC Address` with another random MAC address.
 
 
 .. _vms-disk-device:
@@ -292,11 +295,12 @@ Disk Devices
 
 :ref:`Zvols <Create zvol>` are typically used as virtual hard drives.
 After :ref:`creating a zvol <Create zvol>`, associate it with the VM
-by selecting :guilabel:`Add device`, choose the *VM*, select a
-:guilabel:`Type` of *Disk*, select the created zvol, then set the
-:guilabel:`Mode`. If a specific sector size is required, enter the
-number of bytes into :guilabel:`Disk sectorsize`. The default of *0*
-leaves the sector size unset.
+by navigating
+:menuselection:`VMs --> Devices --> Add Device --> Add Disk` for the VM.
+Select the created ZVol, then set the :guilabel:`Mode`. If a specific
+sector size is required, enter the number of bytes into
+:guilabel:`Disk sectorsize`. The default of *0* leaves the sector size
+unset.
 
 
 .. figure:: images/vms-disk1.png
@@ -321,8 +325,9 @@ existing read-only binary images of drives, like an installer disk
 image file meant to be copied onto a USB stick.
 
 After obtaining and copying the image file to the %brand% system,
-select :guilabel:`Add device`, choose the *VM*, select a
-:guilabel:`Type` of *Raw File*, browse to the image file, then set the
+navigate
+:menuselection:`VMs --> Devices --> Add Device --> Add RawFile` for the
+VM. Browse to the image file, then set the
 :guilabel:`Mode`. *AHCI* emulates an AHCI hard disk for best software
 compatibility. *VirtIO* uses paravirtualized drivers and can provide
 better performance, but requires the operating system installed in the
