@@ -40,18 +40,19 @@ support within %brand%.  It is strongly recommended to update the
 system to the latest %brand% |release| before attempting Active
 Directory integration.
 
-Before configuring the Active Directory service, ensure name resolution
-is properly configured by :command:`ping` ing the domain name of the
+Ensure name resolution is properly configured before configuring the
+Active Directory service. :command:`ping` the domain name of the
 Active Directory domain controller from :ref:`Shell` on the %brand%
 system. If the :command:`ping` fails, check the DNS server and default
-gateway settings in :menuselection:`Network --> Global Configuration` on
-the %brand% system.
+gateway settings in
+:menuselection:`Network --> Global Configuration`
+on the %brand% system.
 
-Next, add a DNS record for the %brand% system on the Windows server and
+Add a DNS record for the %brand% system on the Windows server and
 verify the hostname of the %brand% system can be pinged from the domain
 controller.
 
-Active Directory relies on Kerberos, which is a time sensitive protocol.
+Active Directory relies on Kerberos, which is a time-sensitive protocol.
 The time on both the %brand% system and the Active Directory
 Domain Controller cannot be out of sync by more than a few minutes. The
 best way to ensure the same time is running on both systems is to
@@ -100,7 +101,7 @@ these settings by checking
    |                          |               | Mode     |                                                                                                                               |
    +==========================+===============+==========+===============================================================================================================================+
    | Domain Name              | string        |          | Name of Active Directory domain (*example.com*) or child domain (*sales.example.com*). This setting is mandatory and the GUI  |
-   | (DNS/Realm-Name)         |               |          | will refuse to save the settings if the domain controller for the specified domain cannot be found.                           |
+   | (DNS/Realm-Name)         |               |          | will refuse to save the settings if the domain controller for the domain cannot be found.                                     |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Domain Account Name      | string        |          | Name of the Active Directory administrator account. This setting is mandatory and the GUI will refuse to save the settings    |
@@ -161,9 +162,9 @@ these settings by checking
    | Site Name                | string        | ✓        | The relative distinguished name of the site object in Active Directory.                                                       |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Domain Controller        | string        | ✓        | Will automatically be added to the SRV record for the domain and, when multiple controllers are                               |
-   |                          |               |          | specified, %brand% selects the closest DC which responds. Uses the short form of the FQDN                                     |
-   |                          |               |          | (Example: *sampleserver*)                                                                                                     |
+   | Domain Controller        | string        | ✓        | Automatically be added to the SRV record for the domain and, when multiple controllers are                                    |
+   |                          |               |          | specified, %brand% selects the closest DC which responds. Uses the short form of the FQDN.                                    |
+   |                          |               |          | An example is *sampleserver*.                                                                                                 |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Global Catalog Server    | string        | ✓        | If the hostname of the global catalog server to use is specified, make sure it is resolvable.                                 |
@@ -320,15 +321,15 @@ successful, shows a message similar to:
 To manually check that a specified user can authenticate, enter
 :samp:`net ads join -S dcname -U username`.
 
-If no users or groups are listed in the output, :command:`getent passwd`
-and :command:`getent group` can provide more troubleshooting information.
+:command:`getent passwd` and :command:`getent group` can provide more
+troubleshooting information if no users or groups are listed in the
+output.
 
-.. tip:: Sometimes network users will not appear in the drop-down menu
-   of a :guilabel:`Permissions` screen but the :command:`wbinfo`
+.. tip:: Sometimes network users do not appear in the drop-down menu of
+   a :guilabel:`Permissions` screen but the :command:`wbinfo`
    commands display these users. This is typically due to the %brand%
    system taking longer than the default ten seconds to join Active
-   Directory. Try increasing the value of :guilabel:`AD timeout` to 60
-   seconds.
+   Directory. Increase the value of :guilabel:`AD timeout` to 60 seconds.
 
 
 To change a certificate, set the :guilabel:`Encryption Mode` to *Off*,
@@ -422,7 +423,8 @@ Next, only run these two commands **if** the
  service sssd start
 
 
-Finally, run these commands. The :command:`echo` will return a *0*:
+Finally, run these commands. :command:`echo` returns a *0* unless
+something has gone wrong:
 
 .. code-block:: none
 
@@ -487,7 +489,7 @@ display these settings by checking the box
 :guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
 
-It is recommended that those new to LDAP terminology skim through the
+Those new to LDAP terminology should read the
 `OpenLDAP Software 2.4 Administrator's Guide
 <http://www.openldap.org/doc/admin24/>`__.
 
@@ -674,7 +676,7 @@ after navigating :menuselection:`Directory Service --> NIS`.
    | NIS domain  | string    | Name of NIS domain.                                                                          |
    |             |           |                                                                                              |
    +-------------+-----------+----------------------------------------------------------------------------------------------+
-   | NIS servers | string    | Comma delimited list of hostnames or IP addresses.                                           |
+   | NIS servers | string    | Comma-delimited list of hostnames or IP addresses.                                           |
    |             |           |                                                                                              |
    +-------------+-----------+----------------------------------------------------------------------------------------------+
    | Secure mode | checkbox  | If checked,                                                                                  |
@@ -699,8 +701,8 @@ Kerberos Realms
 A default Kerberos realm is created for the local system in %brand%.
 :menuselection:`Directory Service --> Kerberos Realms`
 can be used to view and add Kerberos realms.  If the network contains
-a KDC, click :guilabel:`Add Kerberos Realm` to add the Kerberos realm.
-This configuration screen is shown in
+a KDC, click :guilabel:`Add Kerberos Realm` to add the realm. This
+configuration screen is shown in
 :numref:`Figure %s <ker_realm_fig>`.
 
 
