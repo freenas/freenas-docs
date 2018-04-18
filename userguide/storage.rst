@@ -677,6 +677,8 @@ clicking the :guilabel:`Edit Options` button in
    | Read-Only                | drop-down menu      | only available in :guilabel:`Advanced Mode`; choices are *Inherit (off)*, *On*, or *Off*                  |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
+   | Exec                     | drop-down menu      | only available in :guilabel:`Advanced Mode`; choices are *Inherit (on)*, *On*, or *Off*                   |
+   +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    | Record Size              | drop-down menu      | only available in :guilabel:`Advanced Mode`; while ZFS automatically adapts the record                    |
    |                          |                     | size dynamically to adapt to data, if the data has a fixed size (e.g. a database), matching               |
    |                          |                     | that size may result in better performance                                                                |
