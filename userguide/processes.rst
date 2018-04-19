@@ -16,5 +16,4 @@ An example is shown in
    System Processes Running on %brand%
 
 
-The display automatically refreshes itself. Note the display is
-read-only and unresponsive to commands.
+The display automatically refreshes itself. The display is read-only.
