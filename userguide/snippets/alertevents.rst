@@ -1,3 +1,4 @@
+#ifdef comment
 .. index:: Alert
 
 .. _Alert:
@@ -132,3 +133,4 @@ Some of the conditions that trigger an alert include:
    change, a multipath failure, a failed S.M.A.R.T. test, and a failed
    re-key operation.
 #endif truenas
+#endif comment

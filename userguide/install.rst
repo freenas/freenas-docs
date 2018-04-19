@@ -492,8 +492,11 @@ Be aware of these caveats **before** attempting an upgrade to
 
 * **Warning: upgrading the ZFS pool can make it impossible to go back
   to a previous version.** For this reason, the update process does
-  not automatically upgrade the ZFS pool, though the :ref:`Alert`
-  system shows when newer feature flags are available for a pool.
+  not automatically upgrade the ZFS pool, though the
+#ifdef comment
+  :ref:`Alert`
+#endif comment
+  alert system shows when newer feature flags are available for a pool.
   Unless a new feature flag is needed, it is safe to leave the pool at
   the current version and uncheck the alert. If the pool is upgraded,
   it will not be possible to boot into a previous version that does
