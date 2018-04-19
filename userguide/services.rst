@@ -1308,7 +1308,7 @@ summarizes the options in the S.M.A.R.T configuration screen.
    |                 |                            | if the temperature is higher than specified degrees in Celsius.                                             |
    |                 |                            |                                                                                                             |
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Email to report | string                     | Email address of person or alias to receive S.M.A.R.T. alerts.                                              |
+   | Email to report | string                     | Email address to receive S.M.A.R.T. alerts; use a space to separate multiple email addresses.               |
    |                 |                            |                                                                                                             |
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
 
