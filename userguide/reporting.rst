@@ -84,11 +84,14 @@ over time. This data is preserved across system upgrades and restarts.
 Data files are saved in :file:`/var/db/collectd/rrd/`.
 
 The reporting data file recording method is controlled by the
-:menuselection:`System --> System Dataset`.
+:menuselection:`System --> System Dataset`
+:guilabel:`Reporting database` checkbox. When unchecked, data files
+are recorded in a temporary filesystem and copied hourly to on-disk
+files.
 
 When
 :menuselection:`System --> System Dataset`
-:guilabel:`Syslog` is checked, data files are written
+:guilabel:`Reporting database` is checked, data files are written
 directly to the :ref:`System Dataset`.
 
 .. warning:: Reporting data is frequently written and should not be
