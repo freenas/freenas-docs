@@ -145,10 +145,6 @@ which are described in
    | Max Connections         | integer        | Maximum number of simultaneous connections.                                                                     |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Enable home directories | checkbox       | If checked, any user home directories located under :guilabel:`Home directories` will be available              |
-   |                         |                | over the share.                                                                                                 |
-   |                         |                |                                                                                                                 |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
    | Database Path           | browse button  | Select the path to store the CNID databases used by AFP (default is the root of the volume). The path must be   |
    |                         |                | writable.                                                                                                       |
    |                         |                |                                                                                                                 |
@@ -168,18 +164,6 @@ which are described in
    |                         |                | :guilabel:`Available` list and use the :guilabel:`>>` button to add to the :guilabel:`Selected` list.           |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-
-
-When configuring home directories, it is recommended to create a
-dataset to hold the home directories which contains a child dataset
-for each user. As an example, create a dataset named
-:file:`volume1/homedirs` and browse to this dataset when configuring
-the :guilabel:`Home directories` field of the AFP service. Then, when
-creating a new user, first create a child dataset for that user. For
-example, create a dataset named :file:`volume1/homedirs/user1`. When
-creating *user1*, browse to the :file:`volume1/homedirs/user1` dataset
-in the :guilabel:`Home Directory` field of the :guilabel:`Add New User`
-screen.
 
 
 .. _Troubleshooting AFP:

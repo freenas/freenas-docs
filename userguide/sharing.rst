@@ -159,6 +159,8 @@ information given when the share was created.
    |                              |               |          | this path because Netatalk does not fully support that                                                        |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   | Use as home share            | checkbox      |          | check this box if the share will hold home directories; only one share can be used as the home share          |
+   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Name                         | string        |          | volume name which appears in the Mac computer's :guilabel:`connect to server` dialog; limited to              |
    |                              |               |          | 27 characters and cannot contain a period                                                                     |
    |                              |               |          |                                                                                                               |
@@ -185,10 +187,6 @@ information given when the share was created.
    | Time Machine                 | checkbox      |          | when checked, %brand% advertises itself as a Time Machine disk so it can be found by Macs; due to a           |
    |                              |               |          | limitation in how the Mac deals with low-diskspace issues when multiple Macs share the same volume,           |
    |                              |               |          | checking :guilabel:`Time Machine` on multiple shares could result in intermittent failed backups              |
-   |                              |               |          |                                                                                                               |
-   +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Time Machine Quota           | checkbox      |          | only appears when *Time Machine* is checked; when checked, each time machine backup on the share has its own  |
-   |                              |               |          | quota                                                                                                         |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Zero Device Numbers          | checkbox      | ✓        | enable when the device number is not constant across a reboot                                                 |
