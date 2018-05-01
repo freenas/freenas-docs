@@ -1922,7 +1922,7 @@ Starting the TFTP service opens UDP port 69.
    |                 |               |                                                                                                                          |
    |                 |               |                                                                                                                          |
    +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | File Permission | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write. Some devices     |
+   | File Permissions| checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write. Some devices     |
    |                 |               | require less strict permissions.                                                                                         |
    |                 |               |                                                                                                                          |
    +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
