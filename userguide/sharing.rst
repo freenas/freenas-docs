@@ -153,7 +153,7 @@ information given when the share was created.
    |                              |               |          | 27 characters and cannot contain a period                                                                     |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Share Comment                | string        | ✓        | optional comment                                                                                              |
+   | Comment                      | string        | ✓        | optional comment                                                                                              |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Allow List                   | string        | ✓        | comma-delimited list of allowed users and/or groups where groupname begins with a :literal:`@`; note          |
@@ -164,11 +164,11 @@ information given when the share was created.
    |                              |               |          | that adding an entry will allow all users/groups that are not specified                                       |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Read-only Access             | string        | ✓        | comma-delimited list of users and/or groups who only have read access where groupname begins with a           |
+   | Read Only Access             | string        | ✓        | comma-delimited list of users and/or groups who only have read access where groupname begins with a           |
    |                              |               |          | :literal:`@`                                                                                                  |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Read-write Access            | string        | ✓        | comma-delimited list of users and/or groups who have read and write access where groupname begins with a      |
+   | Read/Write Access            | string        | ✓        | comma-delimited list of users and/or groups who have read and write access where groupname begins with a      |
    |                              |               |          | :literal:`@`                                                                                                  |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
@@ -177,8 +177,7 @@ information given when the share was created.
    |                              |               |          | checking :guilabel:`Time Machine` on multiple shares could result in intermittent failed backups              |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Time Machine Quota           | checkbox      |          | only appears when *Time Machine* is checked; when checked, each time machine backup on the share has its own  |
-   |                              |               |          | quota                                                                                                         |
+   | Use as home share            | checkbox      |          | check this box if the share will hold home directories; only one share can be used as the home share          |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Zero Device Numbers          | checkbox      | ✓        | enable when the device number is not constant across a reboot                                                 |
@@ -192,11 +191,11 @@ information given when the share was created.
    |                              |               |          | Mac OS X 10.4 clients or lower as they do not support this feature                                            |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Default file permission      | checkboxes    | ✓        | only works with Unix ACLs; new files created on the share are set with the selected permissions               |
+   | Default file permissions     | checkboxes    | ✓        | only works with Unix ACLs; new files created on the share are set with the selected permissions               |
    |                              |               |          |                                                                                                               |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Default directory permission | checkboxes    | ✓        | only works with Unix ACLs; new directories created on the share are set with the selected permissions         |
+   | Default directory permissions| checkboxes    | ✓        | only works with Unix ACLs; new directories created on the share are set with the selected permissions         |
    |                              |               |          |                                                                                                               |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+

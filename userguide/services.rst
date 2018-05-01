@@ -163,16 +163,6 @@ which are described in
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
 
-When configuring home directories, it is recommended to create a
-dataset to hold the home directories which contains a child dataset
-for each user. As an example, create a dataset named
-:file:`pool1/homedirs`. Then, when creating a new user, first create a
-child dataset for that user. For example, create a dataset named
-:file:`pool1/homedirs/user1`. When creating *user1*, browse to the
-:file:`pool1/homedirs/user1` dataset in the
-:guilabel:`Home Directory` field of the :guilabel:`Add New User`
-screen.
-
 
 .. _Troubleshooting AFP:
 
