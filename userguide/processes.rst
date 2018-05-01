@@ -16,7 +16,4 @@ An example is shown in
    System Processes Running on %brand%
 
 
-The display will automatically refresh itself. Click the :guilabel:`X`
-in the upper right corner to close the display. Note that the display
-is read-only, meaning that you will not be able to issue a
-:command:`kill` command within it.
+The display automatically refreshes itself. The display is read-only.
