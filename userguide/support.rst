@@ -148,12 +148,12 @@ To get the most out of the IRC channel, keep these points in mind:
   cannot help you if you disappear.
 
 * If no one answers, the question may be difficult to answer or it has
-been asked before. Research other resources while waiting for the
-question to be answered.
+  been asked before. Research other resources while waiting for the
+  question to be answered.
 
 * Do not post error messages in the channel. Instead, use a pasting
-service such as `pastebin <http://www.pastebin.com/>`_ and paste the
-resulting URL into the IRC discussion.
+  service such as `pastebin <http://www.pastebin.com/>`_ and paste the
+  resulting URL into the IRC discussion.
 
 .. _Videos:
 
