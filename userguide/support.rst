@@ -10,7 +10,7 @@ the details are available on the Internet. If you get stuck using
 *FreeNAS* with some keywords that describe the error message or the
 function you are trying to implement.
 
-The rest of this section discusses the following resources which are
+The rest of this section discusses these resources which are
 available to %brand% users:
 
 * :ref:`Website and Social Media`
@@ -65,8 +65,7 @@ The
 are an active online resource where people can ask questions, receive
 help, and share findings with other %brand% users. New users are
 encouraged to post a brief message about themselves and how they use
-or are considering using %brand% in the
-`Introductions
+%brand% in the `Introductions
 <https://forums.freenas.org/index.php?forums/introductions.25/>`__
 forum.
 
@@ -75,9 +74,7 @@ The
 section contains categorized, user-contributed guides on many aspects
 of building and using %brand% systems.
 
-Language-specific categories are available under **International**,
-allowing %brand% users to interact with each other in their native
-language:
+Language-specific categories are available under **International**.
 
 * `Chinese
   <https://forums.freenas.org/index.php?forums/chinese-%E4%B8%AD%E6%96%87.60/>`__
@@ -117,7 +114,7 @@ To join the forums, create an account with the
 
 Before asking a question on the forum, check the
 `Resources <https://forums.freenas.org/index.php?resources/>`__
-to see if the information is already there. Then see the
+to see if the information is already there. See the
 `Forum Rules
 <https://forums.freenas.org/index.php?threads/updated-forum-rules-4-11-17.45124/>`__
 for guidelines on posting your hardware information and how to ask
@@ -145,23 +142,18 @@ from a web browser.
 
 To get the most out of the IRC channel, keep these points in mind:
 
-* Do not ask "can anyone help me?". Just ask the question. If someone
-  knows the answer, they will try to help.
+* Do not ask "can anyone help me?". Just ask the question.
 
 * Do not ask a question and then leave. Users who know the answer
   cannot help you if you disappear.
 
-* Do not take it personally if no one answers or demand that someone
-  answers your question. Maybe no one who knows the answer is
-  available, maybe your question is really difficult, or maybe it is a
-  question that has already been answered many times in the other
-  support resources. Try asking again in a few hours or research the
-  other resources to see if you have missed anything.
+* If no one answers, the question may be difficult to answer or it has
+been asked before. Research other resources while waiting for the
+question to be answered.
 
-* Do not post error messages in the channel as the IRC software will
-  probably kick you out. Instead, use a pasting service such as
-  `pastebin <http://www.pastebin.com/>`_
-  and paste the resulting URL into the IRC discussion.
+* Do not post error messages in the channel. Instead, use a pasting
+service such as `pastebin <http://www.pastebin.com/>`_ and paste the
+resulting URL into the IRC discussion.
 
 .. _Videos:
 
@@ -197,10 +189,10 @@ A series of instructional videos are available for %brand%:
 Professional Support
 --------------------
 
-In addition to the freely available community resources, professional
-support may be available through iXsystem's network of third-party
-consultants. Submit a support inquiry using the form at
-`<https://www.ixsystems.com/freenas-commercial-support/>`_.
+In addition to free community resources, support might be available in
+your area through third-party consultants. Submit a support
+inquiry using the form at
+`<https://www.ixsystems.com/freenas-commercial-support/>`__.
 
 
 #ifdef commented
