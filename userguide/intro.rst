@@ -150,6 +150,9 @@ The following screen options have changed:
   replaced by
   :menuselection:`Sharing --> Apple (AFP) Shares --> Use as home share`.
 
+* The :guilabel:`Umask` field in :menuselection:`Services --> TFTP` has
+  changed to a :guilabel:`File Permissions` selector.
+
 * Disk temperature graphs have been added to
   :menuselection:`Reporting --> Disk`.
 
