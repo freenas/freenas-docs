@@ -10,15 +10,16 @@ on the network, security requirements, and expectations for network
 transfer speeds.
 
 .. note:: Shares are created to provide and control access to an area
-   of storage. Before creating shares, it is recommended to make a
+   of storage. Before creating shares, making a
    list of the users that need access to storage data, which operating
    systems these users are using, whether all users should have the
    same permissions to the stored data, and whether these users should
-   authenticate before accessing the data. This information can help
-   determine which type of shares are needed, whether multiple
-   datasets are needed to divide the storage into areas with different
-   access and permissions, and how complex it will be to set up those
-   permission requirements. Note that shares are used to provide
+   authenticate before accessing the data is recommended.
+   This information can help determine which type of shares are
+   needed, whether multiple datasets are needed to divide the storage
+   into areas with different access and permissions, and how complex
+   it will be to set up those permission requirements.
+   Note that shares are used to provide
    access to data. When a share is deleted, it removes access to data
    but does not delete the data itself.
 
@@ -309,15 +310,15 @@ Creating Authenticated and Time Machine Shares
 macOS includes the Time Machine application which can be used to
 schedule automatic backups. In this configuration example, a Time
 Machine user will be configured to backup to an AFP share on a
-%brand% system. It is recommended to create a separate Time Machine
+%brand% system. Creating a separate Time Machine
 share for each user that will be using Time Machine to backup their
-macOS system to %brand%. The process for creating an authenticated
-share for a user is the same as creating a Time Machine share for that
-user.
+macOS system to %brand% is recommended. The process for creating an
+authenticated share for a user is the same as creating a Time Machine
+share for that user.
 
 Before creating a Time Machine or authenticated share, go to
 :menuselection:`Storage --> Pools` to make a dataset for the share.
-For more information about how creating a dataset,
+For more information about dataset creation,
 refer to :ref:`create dataset <Create Dataset>` in this guide.
 
 After creating the dataset, go to
@@ -342,7 +343,7 @@ Enter the following information as shown in
 
 Go to :menuselection:`Sharing --> AFP --> Add Apple (AFP) Share` and
 :guilabel:`Browse` to the dataset created for the share.
-When creating a Time Machine share, tick the 
+When creating a Time Machine share, tick the
 :guilabel:`Time Machine` checkbox.
 Press :guilabel:`Save` to create the share.
 
@@ -450,15 +451,27 @@ application.
    <http://blog.laspina.ca/ubiquitous/running-zfs-over-nfs-as-a-vmware-store>`_.
 #endif freenas
 
-.. Add instructions for creating NFS share in new UI
+Before creating an NFS share, go to
+:menuselection:`Services --> NFS` and click the power button to
+turn on the service.
+
+Next, go to :menuselection:`Storage --> Pools` to create a dataset
+for the share. Refer to
+:ref:`create dataset <Create Dataset>` in this guide for more
+information about dataset creation.
 
 To create an NFS share, navigate to
-:menuselection:`Sharing -> Unix (NFS) Shares` and click
-:guilabel:`Add Unix (NFS) Share`.
+:menuselection:`Sharing -> Unix (NFS) Shares
+--> Add Unix (NFS) Share`.
 
 :numref:`Figure %s <nfs_share_wiz_fig>` shows an example of creating an
-NFS Share.
+NFS share.
 
+From the :guilabel:`Path` field, :guilabel:`Browse` to the dataset
+created for the share.
+In the :guilabel:`Comment` field enter a share name, note that
+if left empty, the share name is the list of selected Path entries.
+Click the :guilabel:`Save` button to create the share.
 
 .. _nfs_share_wiz_fig:
 
@@ -469,7 +482,7 @@ NFS Share.
 
 NFS shares are edited by clicking
 :menuselection:`Sharing --> Unix (NFS)`,
-highlighting the entry for the share, and clicking its
+and clicking the
 :guilabel:`Edit` button. In the example shown in
 :numref:`Figure %s <nfs_share_settings_fig>`,
 the configuration screen is open for the *nfs_share1* share.
@@ -724,12 +737,12 @@ Windows NFS client support varies with versions and releases. For
 best results, use :ref:`Windows (SMB) Shares`.
 
 
-.. _From Mac OS X:
+.. _From macOS:
 
-From Mac OS X
+From macOS
 ^^^^^^^^^^^^^
 
-To mount the NFS share from a Mac OS X client, click on
+To mount the NFS share from a macOS client, click on
 :menuselection:`Go --> Connect to Server`.
 In the :guilabel:`Server Address` field, enter *nfs://* followed by
 the IP address of the %brand% system and the name of the
@@ -750,7 +763,7 @@ now copy files to and from the share.
 
 .. figure:: images/nfs3a.png
 
-   Mounting the NFS Share from Mac OS X
+   Mounting the NFS Share from macOS
 
 
 .. _view_nfs_finder_fig:
@@ -794,7 +807,7 @@ the client IP address and hostname to the
 Some older versions of NFS clients default to UDP instead of TCP and
 do not auto-negotiate for TCP. By default, %brand% uses TCP. To
 support UDP connections, go to
-:menuselection:`Services --> NFS`
+:menuselection:`Services --> NFS --> Configure`
 and check the box :guilabel:`Serve UDP NFS clients`.
 
 The :samp:`nfsstat -c` or :samp:`nfsstat -s` commands can be helpful
@@ -828,7 +841,7 @@ where:
 * **protocol:** is either
   *http* or
   *https*, depending upon the :guilabel:`Protocol` configured in
-  :menuselection:`Services --> WebDAV`.
+  :menuselection:`Services --> WebDAV --> Configure`.
 
 * **IP address:** is the IP address or hostname of the %brand%
   system. Take care when configuring a public IP address to ensure
@@ -836,17 +849,17 @@ where:
   systems.
 
 * **port_number:** is configured in
-  :menuselection:`Services --> WebDAV`. If the %brand% system is to
-  be accessed using a public IP address, consider changing the default
-  port number and ensure that the network's firewall only allows
-  access to authorized systems.
+  :menuselection:`Services --> WebDAV --> Configure`. If the %brand%
+  system is to be accessed using a public IP address, consider
+  changing the default port number and ensure that the network
+  firewall only allows access to authorized systems.
 
 * **share_name:** is configured in
-  :menuselection:`Sharing --> WebDAV Shares`.
+  :menuselection:`Sharing --> WebDAV Shares --> Add WebDAV Share`.
 
 Entering the URL in a web browser brings up an authentication pop-up
 message. Enter a username of *webdav* and the password configured in
-:menuselection:`Services --> WebDAV`.
+:menuselection:`Services --> WebDAV --> Configure`.
 
 .. warning:: At this time, only the *webdav* user is supported. For
    this reason, it is important to set a good password for this
@@ -900,9 +913,12 @@ summarizes the available options.
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
 
 
-After clicking :guilabel:`OK`, a pop-up asks about enabling the
-service. Once the service starts, review the settings in
-:menuselection:`Services --> WebDAV`
+Click :guilabel:`Save` to create the share. Then,
+go to :menuselection:`Services --> WebDAV` and click the power button
+to turn on the service.
+
+After the service starts, review the settings in
+:menuselection:`Services --> WebDAV --> Configure`
 as they are used to determine which URL is used to access the WebDAV
 share and whether or not authentication is required to access the
 share. These settings are described in :ref:`WebDAV`.
@@ -915,13 +931,13 @@ Windows (SMB) Shares
 ---------------------
 
 %brand% uses `Samba <https://www.samba.org/>`_ to share pools using
-Microsoft's SMB protocol. SMB is built into the Windows and Mac OS X
+Microsoft's SMB protocol. SMB is built into the Windows and macOS
 operating systems and most Linux and BSD systems pre-install the Samba
-client in order to provide support for SMB. If your distro did not,
-install the Samba client using the distro's software repository.
+client in order to provide support for SMB. If the distro did not,
+install the Samba client using the distro software repository.
 
 The SMB protocol supports many different types of configuration
-scenarios, ranging from the very simple to quite complex. The
+scenarios, ranging from the simple to complex. The
 complexity of the scenario depends upon the types and versions of the
 client operating systems that will connect to the share, whether the
 network has a Windows server, and whether Active Directory is being
@@ -937,10 +953,10 @@ copying with
 
 This chapter starts by summarizing the available configuration
 options. It demonstrates some common configuration scenarios as well
-as offering some troubleshooting tips. It is recommended to first read
-through this entire chapter before creating any SMB shares to get a
-better idea of the configuration scenario that best meets your
-network's needs.
+as offering some troubleshooting tips. Reading
+through this entire chapter before creating any SMB shares is
+recommended to gain a better understanding of the configuration
+scenario that meets your specific network requirements.
 
 .. tip:: `SMB Tips and Tricks
    <https://forums.freenas.org/index.php?resources/smb-tips-and-tricks.15/>`__
@@ -1002,16 +1018,16 @@ provides more details for each configurable option.
    | Path                           | browse button |          | select pool or dataset/directory to share                                                                   |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Use as home share              | checkbox      |          | check this box if the share is meant to hold user home directories; only one share can be the homes share   |
+   | Name                           | string        |          | mandatory; name of share                                                                                    |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Name                           | string        |          | mandatory; name of share                                                                                    |
+   | Use as home share              | checkbox      |          | check this box if the share is meant to hold user home directories; only one share can be the homes share   |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
    | Comment                        | string        | ✓        | optional description                                                                                        |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Apply Default Permissions      | checkbox      |          | sets the ACLs to allow read/write for owner/group and read-only for others; should only be unchecked when   |
+   | Default Permissions            | checkbox      |          | sets the ACLs to allow read/write for owner/group and read-only for others; should only be unchecked when   |
    |                                |               |          | creating a share on a system that already has custom ACLs set                                               |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
@@ -1067,7 +1083,7 @@ settings:
 * Hostname lookups add some time to accessing the SMB share. If you
   only use IP addresses, uncheck the :guilabel:`Hostnames lookups` box
   in
-  :menuselection:`Services --> SMB`.
+  :menuselection:`Services --> SMB --> Configure`.
 
 * When the :guilabel:`Browsable to Network Clients` box is checked
   (the default), the share is visible through Windows File Explorer or
@@ -1099,7 +1115,7 @@ has information about the security implications and ways to enable
 NTLMv2 on those clients. If changing the client configuration is not
 possible, NTLMv1 authentication can be enabled by checking the box
 :guilabel:`NTLMv1 auth` in
-:menuselection:`Services --> SMB`.
+:menuselection:`Services --> SMB --> Configure`.
 
 
 :numref:`Table %s <avail_vfs_modules_tab>`
@@ -1261,10 +1277,10 @@ for more details.
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. note:: Be careful when using multiple SMB shares, some with and some
-   without *fruit*. OS X clients negotiate SMB2 AAPL protocol extensions
+   without *fruit*. macOS clients negotiate SMB2 AAPL protocol extensions
    on the first connection to the server, so mixing shares with and
    without fruit will globally disable AAPL if the first connection occurs
-   without fruit. To resolve this, all OS X clients need to disconnect
+   without fruit. To resolve this, all macOS clients need to disconnect
    from all SMB shares and the first reconnection to the server has to be
    to a fruit-enabled share.
 
@@ -1299,15 +1315,19 @@ modified the data on the share. This type of configuration is best
 suited for small networks where quick and easy access to the share is
 more important than the security of the data on the share.
 
-.. TODO add instructions for creating an unauthenticated SMB share
-   separately from the now removed wizard.
 
 To configure an unauthenticated SMB share, navigate to
-:menuselection:`Sharing -> Windows (SMB) Shares` and click
-:guilabel:`Add Windows (SMB) Share`.
+:menuselection:`Sharing -> Windows (SMB) Shares
+--> Add Windows (SMB) Share`.
 
-:numref:`Figure %s <create_unauth_smb_share_fig>` shows the
-configuration form.
+Fill out the the fields as shown in
+:numref:`Figure %s <create_unauth_smb_share_fig>`, ensuring the
+:guilabel:`Allow guest access` checkbox is ticked.
+Press :guilabel:`Save` to create the guest share.
+
+.. note:: If a dataset for the share has not been created,
+   refer to :ref:`create dataset <Create Dataset>` in this
+   guide to find out more about dataset creation.
 
 
 .. _create_unauth_smb_share_fig:
@@ -1317,7 +1337,7 @@ configuration form.
    Creating an Unauthenticated SMB Share
 
 
-The new share will also be added to
+The new share will appear in
 :menuselection:`Sharing --> Windows (SMB) Shares`.
 
 Users can now access the share from any SMB client and will not be
@@ -1355,25 +1375,53 @@ The simpler configuration is to make one share per user as it does not
 require the creation of groups, adding the correct users to the
 groups, and ensuring that group permissions are set correctly.
 
-.. TODO add instructions to create an authenticated SMB share apart
-   from the now removed wizard.
+Before creating an authenticated SMB share, go to
+:menuselection:`Storage --> Pools` to make a dataset for the share.
+For more information about dataset creation,
+refer to :ref:`create dataset <Create Dataset>` in this guide.
+
+After creating the dataset, go to
+:menuselection:`Storage --> Pools` and click the
+:guilabel:`Edit Permissions` button for the desired dataset.
+
+Enter the following information, as shown in the example in
+:numref:`Figure %s <edit_permissions_smb_share_fig>`.
+
+#. **ACL Type:** Select :guilabel:`Windows`.
+#. **User:** If the user does not yet exist on the %brand% system, go to
+   :menuselection:`Accounts --> Users` to create one. Refer to
+   :ref:`users <Users>` in this guide for more information
+   about creating a user. After the user has been created,
+   use the drop-down to select the user account.
+#. **Group:** Use the drop-down to select the desired group name.
+   If the group does not yet exist on the %brand% system, go to
+   :menuselection:`Accounts --> Groups` to create one. Refer to
+   :ref:`groups <Groups>` in this guide for more information about
+   creating a group.
+#. Click :guilabel:`Save`.
+
+.. _edit_permissions_smb_share_fig:
+
+.. figure:: images/cifs3a.png
+
+   Editing Dataset Permissions for Authenticated SMB Share
 
 To create an authenticated SMB share, navigate to
-:menuselection:`Sharing -> Windows (SMB) Shares` and click
-:guilabel:`Add Windows (SMB) Share`.
-
-:numref:`Figure %s <create_auth_smb_share_fig>` shows the creation
-process.
-
-To configure multiple authenticated shares, repeat for each user. The
-new shares are also added to :menuselection:`Sharing --> Windows (SMB)`.
-
+:menuselection:`Sharing --> Windows (SMB) Shares
+--> Add Windows (SMB) Share`, as shown in
+:numref:`Figure %s <create_auth_smb_share_fig>`.
+:guilabel:`Browse` to the dataset created for the share and enter a
+name for the share. Press :guilabel:`Save` to craete the share.
 
 .. _create_auth_smb_share_fig:
 
 .. figure:: images/cifs3a.png
 
    Creating an Authenticated SMB Share
+
+To configure multiple authenticated shares, repeat for each user. The
+new shares are also added to
+:menuselection:`Sharing --> Windows (SMB) Shares`.
 
 
 The authenticated share can now be tested from any SMB client. For
@@ -1481,7 +1529,7 @@ caveats:
 * The periodic snapshot task should be created and at least one
   snapshot should exist **before** creating the SMB share. If the
   SMB share was created first, restart the SMB service in
-  :menuselection:`Services --> Control Services`.
+  :menuselection:`Services`.
 
 * Appropriate permissions must be configured on the pool or dataset
   being shared by SMB.
@@ -1501,7 +1549,7 @@ account has their own share. The first share is named *user1* and the
 second share is named *user2*. Then:
 
 #. Use
-   :menuselection:`Storage --> Periodic Snapshot Tasks
+   :menuselection:`Tasks --> Periodic Snapshot Tasks
    --> Add Periodic Snapshot`
    to create at least one periodic snapshot task. You can either
    create a snapshot task for each user's dataset, in this example the
@@ -1517,7 +1565,7 @@ second share is named *user2*. Then:
 
 #. Go to
    :menuselection:`Sharing --> Windows (SMB) Shares`.
-   Highlight a share and click :guilabel:`Edit`, then
+   and click :guilabel:`Edit`, then
    :guilabel:`Advanced Mode`. Click the
    :guilabel:`Periodic Snapshot Task` drop-down menu and select the
    periodic snapshot task to use for that share. Repeat for each share
@@ -1529,8 +1577,8 @@ second share is named *user2*. Then:
    task that was configured to take snapshots of the
    :file:`/mnt/pool1/user2` dataset.
 
-#. Verify that the SMB service is set to :guilabel:`ON` in
-   :menuselection:`Services --> Control Services`.
+#. Verify that the SMB service is running in
+   :menuselection:`Services`.
 
 :numref:`Figure %s <view_shadow_explorer_fig>`
 provides an example of using shadow copies while logged in as *user1*
@@ -1660,7 +1708,7 @@ To configure iSCSI:
 #.  Associate a target with an extent.
 
 #.  Start the iSCSI service in
-    :menuselection:`Services --> Control Services`.
+    :menuselection:`Services`.
 
 The rest of this section describes these steps in more detail.
 
@@ -1822,13 +1870,13 @@ a system with four interfaces configured with the following addresses:
 
 192.168.4.1/24
 
-You could create a portal containing the first two IP addresses (group
+A portal containing the first two IP addresses (group
 ID 1) and a portal containing the remaining two IP addresses (group ID
-2). You could then create a target named A with a Portal Group ID of 1
-and a second target named B with a Portal Group ID of 2. In this
-scenario, the iSCSI service would listen on all four interfaces, but
-connections to target A would be limited to the first two networks and
-connections to target B would be limited to the last two networks.
+2) could be created. Then, a target named A with a Portal Group ID of 1
+and a second target named B with a Portal Group ID of 2 could be created.
+In this scenario, the iSCSI service would listen on all four interfaces,
+but connections to target A would be limited to the first two networks
+and connections to target B would be limited to the last two networks.
 
 Another scenario would be to create a portal which includes every IP
 address **except** for the one used by a management interface. This
@@ -1886,7 +1934,7 @@ initiator.
 
 In the example shown in
 :numref:`Figure %s <iscsi_initiator_conf_sample_fig>`,
-two groups have been created. Group 1 allows connections from any
+two groups are created. Group 1 allows connections from any
 initiator on any network. Group 2 allows connections from any
 initiator on the *10.10.1.0/24* network. Click an initiator's entry to
 display its :guilabel:`Edit` and :guilabel:`Delete` buttons.
@@ -1909,10 +1957,10 @@ display its :guilabel:`Edit` and :guilabel:`Delete` buttons.
 Authorized Accesses
 ~~~~~~~~~~~~~~~~~~~
 
-If you will be using CHAP or mutual CHAP to provide authentication,
-you must create an authorized access in
+When using CHAP or mutual CHAP to provide authentication,
+creating an authorized access in
 :menuselection:`Sharing --> Block (iSCSI) --> Authorized Accesses
---> Add Authorized Access`. This screen is shown in
+--> Add Authorized Access` is recommended. This screen is shown in
 :numref:`Figure %s <iscsi_add_auth_access_fig>`.
 
 .. note:: This screen sets login authentication. This is different
@@ -1964,7 +2012,7 @@ authorized access:
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
 
 
-.. note:: CHAP does not work with GlobalSAN initiators on Mac OS X.
+.. note:: CHAP does not work with GlobalSAN initiators on macOS.
 
 
 As authorized accesses are added, they will be listed under
@@ -2206,7 +2254,7 @@ The last step is associating an extent to a target within
 --> Add Target/Extent`. This screen is shown in
 :numref:`Figure %s <iscsi_target_extent_fig>`.
 Use the drop-down menus to select the existing target and extent.
-Click :guilabel:`OK` to add an entry for the LUN.
+Click :guilabel:`Save` to add an entry for the LUN.
 
 
 .. _iscsi_target_extent_fig:
@@ -2246,22 +2294,20 @@ targets and extents.
    +-------------+----------------+--------------------------------------------------------------------------------------------------------+
 
 
-It is recommended to always associate extents to targets in a
-one-to-one manner, even though the GUI will allow multiple extents to
-be associated with the same target.
+Always associating extents to targets in a
+one-to-one manner is recommended, even though the GUI will allow
+multiple extents to be associated with the same target.
 
 .. note:: Each LUN entry has :guilabel:`Edit` and :guilabel:`Delete`
    buttons for modifying the settings or deleting the LUN entirely.
    A verification popup appears when the :guilabel:`Delete` button is
    clicked. If an initiator has an active connection to the LUN, it is
-   indicated in red text. It is recommended to clear initiator
-   connections to a LUN before deleting it.
+   indicated in red text. Clearing the initiator
+   connections to a LUN before deleting it is recommended.
 
-After iSCSI has been configured, remember to start it in
-:menuselection:`Services --> Control Services`.
-Click the red :guilabel:`OFF` button next to iSCSI. After a second or
-so, it will change to a blue :guilabel:`ON`, indicating that the
-service has started.
+After iSCSI has been configured, remember to start the service in
+:menuselection:`Services --> iSCSI` by clicking the power button.
+
 
 
 #ifdef truenas
@@ -2502,7 +2548,7 @@ Zvol Based LUN
 
 To grow a zvol based LUN, go to
 :menuselection:`Storage --> Pools --> View Pools`,
-highlight the zvol to be grown, and click :guilabel:`Edit zvol`. In
+and click :guilabel:`Edit zvol` on the zvol to be grown. In
 the example shown in
 :numref:`Figure %s <iscsi_zvol_lun_fig>`,
 the current size of the zvol named *zvol1* is 4GB.
