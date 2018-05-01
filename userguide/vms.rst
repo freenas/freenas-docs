@@ -230,19 +230,17 @@ to change any settings.
 Adding Devices to a VM
 ----------------------
 
-After creating the VM, click it to select it, then click
-:guilabel:`Devices` and :guilabel:`Add Device` to add virtual hardware
-to it:
+After creating a VM, click :guilabel:`Devices` on the new VM card to
+open the :guilabel:`Devices` menu for that VM:
 
 
 .. figure:: images/vms-devices1.png
 
-   Add Devices to a VM
+   VM Devices Menu
 
 
-Select the name of the VM from the :guilabel:`VM` drop-down menu, then
-select the :guilabel:`Type` of device to add. These types are
-available:
+Select the new device to add from the expanding button in the upper
+right. These devices are available:
 
 * :ref:`Network Interfaces <vms-network-interface>`
 
@@ -256,7 +254,7 @@ available:
 
 :numref:`Figure %s <vms-nic_fig>` shows the fields that appear after
 navigating
-:menuselection:`VMs --> Devices --> Add Device --> Add NIC` for a VM.
+:menuselection:`VMs --> Devices --> Add NIC` for a VM.
 
 
 .. _vms-network-interface:
@@ -296,9 +294,9 @@ Disk Devices
 :ref:`Zvols <Create zvol>` are typically used as virtual hard drives.
 After :ref:`creating a zvol <Create zvol>`, associate it with the VM
 by navigating
-:menuselection:`VMs --> Devices --> Add Device --> Add Disk` for the VM.
-Select the created ZVol, then set the :guilabel:`Mode`. If a specific
-sector size is required, enter the number of bytes into
+:menuselection:`VMs --> Devices --> Add Disk` for the VM.
+:guilabel:`Browse` to the created ZVol, then set the :guilabel:`Mode`.
+If a specific sector size is required, enter the number of bytes into
 :guilabel:`Disk sectorsize`. The default of *0* leaves the sector size
 unset.
 
@@ -326,8 +324,8 @@ image file meant to be copied onto a USB stick.
 
 After obtaining and copying the image file to the %brand% system,
 navigate
-:menuselection:`VMs --> Devices --> Add Device --> Add RawFile` for the
-VM. Browse to the image file, then set the
+:menuselection:`VMs --> Devices --> Add Raw File` for the
+VM. :guilabel:`Browse` to the image file, then set the
 :guilabel:`Mode`. *AHCI* emulates an AHCI hard disk for best software
 compatibility. *VirtIO* uses paravirtualized drivers and can provide
 better performance, but requires the operating system installed in the
@@ -383,7 +381,7 @@ client can connect to the VM to provide screen output and keyboard and
 mouse input.
 
 :numref:`Figure %s <vms-vnc_fig>` shows the fields that appear when
-:guilabel:`VNC` is the selected :guilabel:`Type`.
+:guilabel:`Add VNC` is clicked.
 
 
 .. _vms-vnc_fig:
@@ -392,20 +390,19 @@ mouse input.
 
    VM VNC Device
 
-
-The :guilabel:`Resolution` drop-down menu can be used to
-modify the default screen resolution used by the VNC session.
-
 The :guilabel:`VNC port` can be set to *0*, left empty for
 %brand% to assign a port when the VM is started, or set to a fixed,
 preferred port number.
 
-Select the IP address for VNC to listen on with the
-:guilabel:`Bind to` drop-down menu.
-
 Check the :guilabel:`Wait to boot` checkbox to indicate that the VNC
 client should wait until the VM has booted before attempting the
 connection.
+
+The :guilabel:`Resolution` drop-down menu can be used to
+modify the default screen resolution used by the VNC session.
+
+Select the IP address for VNC to listen on with the
+:guilabel:`Bind` drop-down menu.
 
 To automatically pass the VNC password, enter it into the
 :guilabel:`Password` field. Note that the password is limited to 8
@@ -455,49 +452,45 @@ Running VMs
 
 Select
 :menuselection:`VMs`
-to see a list of configured VMs. Configuration and control buttons
-appear at the bottom of the screen when an individual VM is selected
-with a mouse click:
+to see a card list of configured VMs. Configuration and control buttons
+appear at the bottom and top of each VM card:
 
 
 .. figure:: images/vms-control1.png
 
-   VM Configuration and Control Buttons
+   VM Cards
 
 
 The name, description, running state, VNC port (if present), and other
-configuration values are shown. Click on an individual VM for
-additional options.
+configuration values are shown. Click the :guilabel:`More Options`
+button in the upper right corner of a VM card for additional options.
 
-Some standard buttons are shown for all VMs:
-
-* :guilabel:`Edit` changes VM settings.
+Some standard buttons are available for all VMs:
 
 * :guilabel:`Delete` :ref:`removes the VM <Deleting VMs>`.
 
 * :guilabel:`Devices` is used to add and remove devices to this VM.
 
 
-When a VM is not running, these buttons are shown:
+When a VM is not running, these buttons are available:
 
-* :guilabel:`Start` starts the VM.
+* :guilabel:`Power (Red)` starts the VM.
 
-* :guilabel:`Clone` *clones* or copies the VM to a new VM. The new VM
+* :guilabel:`Edit` changes VM settings. This includes the option to
+  :guilabel:`Clone` a VM. This copies the VM to a new VM. The new VM
   is given the same name as the original, with *_cloneN* appended.
 
 
-When a VM is already running, these buttons are shown:
+When a VM is already running, these buttons are available:
 
-* :guilabel:`Stop` shuts down the VM.
+* :guilabel:`Power (Green)` shuts down the VM.
 
 * :guilabel:`Power off` immediately halts the VM, equivalent to
   disconnecting the power on a physical computer.
 
-* :guilabel:`Restart` restarts the VM.
-
-* :guilabel:`Vnc via Web` starts a web VNC connection to the VM. The
+* :guilabel:`Connect` starts a web VNC connection to the VM. The
   VM must have a VNC device, and :guilabel:`VNC Web` enabled in that
-  device.
+  device. There is also an option to open a :guilabel:`VM Serial Shell`.
 
 
 .. index:: Deleting VMs
@@ -506,9 +499,8 @@ When a VM is already running, these buttons are shown:
 Deleting VMs
 ------------
 
-When a VM is no longer needed, it can be deleted by clicking on the
-VM, then clicking :guilabel:`Delete` at the bottom of the screen. A
-dialog will show any related devices that will also be deleted and ask
+When a VM is no longer needed, it can be deleted by clicking
+:guilabel:`More Options`, then :guilabel:`Delete`. A dialog asks
 for confirmation.
 
 .. tip:: :ref:`Zvols <Create zvol>` used in
@@ -536,79 +528,84 @@ is a GUI tool for managing Docker containers.
 
 %brand% runs the Rancher GUI as a separate VM.
 
+.. note:: While %brand% installs Rancher as a VM to manage Docker,
+   The rest of this section refers to this VM as a "Docker VM" as
+   this is the intended usage of this type of VM.
 
-.. index: Rancher VM Requirements
-.. _Rancher VM Requirements:
 
-Rancher VM Requirements
-~~~~~~~~~~~~~~~~~~~~~~~
+.. index: Docker VM Requirements
+.. _Docker VM Requirements:
 
-20 GiB of storage space is required for the Rancher VM. For setup, the
+Docker VM Requirements
+~~~~~~~~~~~~~~~~~~~~~~
+
+20 GiB of storage space is required for the Docker VM. For setup, the
 :ref:`SSH` service must be enabled.
 
-The Rancher VM requires 2 GiB of RAM while running.
+The Docker VM requires 2 GiB of RAM while running.
 
 
-.. index: Create the Rancher VM
-.. _Create the Rancher VM:
+.. index: Create the Docker VM
+.. _Create the Docker VM:
 
-Create the Rancher VM
-~~~~~~~~~~~~~~~~~~~~~
+Create the Docker VM
+~~~~~~~~~~~~~~~~~~~~
 
-Click :guilabel:`VMs`, then the :guilabel:`Add VM` button. Set the
-:guilabel:`VM Type` to *Docker VM*. Enter *RancherUI* for the name,
-*Rancher UI VM* for the :guilabel:`Description`, leave the number of
-:guilabel:`Virtual CPUs` at *1*, and enter *2048* for the
-:guilabel:`Memory Size`. To have the Rancher VM start when the %brand%
-system boots, check the :guilabel:`Autostart` checkbox. Click
-:guilabel:`OK` to create the virtual machine.
+Click :guilabel:`VMs`, then the :guilabel:`Add DockerVM` button. The
+wizard described in :ref:`Creating Docker VMs` opens. Choose the base
+options for the VM at each step of the wizard. Make sure
+:guilabel:`Virtual CPUs` is set to *1* and :guilabel:`Memory Size` is a
+minimum of *2048*.
 
 
 .. figure:: images/vms-add-rancher.png
 
-   Rancher VM Configuration
+   Docker VM Configuration
 
 
-A location to store the disk image must now be chosen. In this
-example, a :ref:`dataset <Create Dataset>` called *vm-storage* has
-already been created as a location to store VM data. Click
-:guilabel:`VMs`, then click on the *RancherUI* line to select it.
-Click on the :guilabel:`Devices` button to show the devices attached
-to that VM. Click on the *RAW* device to select it, then click the
-:guilabel:`Edit` button. In the :guilabel:`Raw File` field, browse to
-the dataset and select it. Then add a filename by typing
-*/rancherui.img* at the end of the path in the text box.
+The :guilabel:`Storage Files` section of the wizard contains options to
+create, size, and store a raw file. Add a filename by typing an *.img*
+name in the :guilabel:`RAW filename` field. Enter a number of bytes for
+the :guilabel:`RAW file size` and set the :guilabel:`Disk sector size`,
+also in bytes. Set the raw file save location using :guilabel:`Browse`
+with the :guilabel:`RAW File location` field.
+
+#ifdef comment
+Devices/Edit is missing in new UI - see Redmine issue 32823.
+
 
 Set the :guilabel:`Disk boot` checkbox, enter a password for the
 :literal:`rancher` user in the :guilabel:`Password` field, then enter
 *20G* in the :guilabel:`Disk size` field. Click :guilabel:`OK` to save
 the device.
-
+#endif comment
 
 .. figure:: images/vms-rancher-storage.png
 
    Rancher Image Storage
 
 
-Start the Rancher VM
-~~~~~~~~~~~~~~~~~~~~
+Start the Docker VM
+~~~~~~~~~~~~~~~~~~~
 
-Click :guilabel:`VMs`, then click on the *RancherUI* line to select
-it. Click the :guilabel:`Start` button and then :guilabel:`Yes` to
-start the VM.
+Click :guilabel:`VMs`, then click on the red :guilabel:`Power` button
+to start the VM.
 
-The first time the Rancher VM is started, it downloads the Rancher
+The first time the Docker VM is started, it downloads the Rancher
 disk image file. How long this takes to complete depends on the speed
 of the network connection. A status dialog reports the progress of the
 download.
 
 After the image is downloaded, the VM is started.
 
+#ifdef comment
+Continue editing after turning on the DockerVM is possible: #32415
+#endif comment
 
 Installing the Rancher Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Click :guilabel:`VMs` and locate the line for the RancherUI VM. The
+Click :guilabel:`VMs` and locate the card for the Docker VM. The
 :guilabel:`Info` column shows the :literal:`Com Port` for the
 Rancher VM. In this example, :literal:`/dev/nmdm3B` is used.
 
