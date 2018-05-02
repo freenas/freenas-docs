@@ -245,7 +245,7 @@ The completed dialog is shown in
 Cron Jobs
 ---------
 
-`cron(8) <http://www.freebsd.org/cgi/man.cgi?query=cron>`_
+`cron(8) <https://www.freebsd.org/cgi/man.cgi?query=cron>`__
 is a daemon that runs a command or script on a regular schedule as a
 specified user.
 
@@ -395,7 +395,7 @@ has been fully tested to ensure it achieves the desired results.
 Rsync Tasks
 -----------
 
-`Rsync <http://www.samba.org/ftp/rsync/rsync.html>`_
+`Rsync <https://www.samba.org/ftp/rsync/rsync.html>`__
 is a utility that copies specified data from one system to another
 over a network. Once the initial data is copied, rsync reduces the
 amount of data sent over the network by sending only the differences
@@ -406,7 +406,7 @@ between systems.
 Rsync is most effective when only a relatively small amount of the
 data has changed. There are also
 `some limitations when using Rsync with Windows files
-<https://forums.freenas.org/index.php?threads/impaired-rsync-permissions-support-for-windows-datasets.43973/>`_.
+<https://forums.freenas.org/index.php?threads/impaired-rsync-permissions-support-for-windows-datasets.43973/>`__.
 For large amounts of data, data that has many changes from the
 previous copy, or Windows files, :ref:`Replication Tasks` are often
 the faster and better solution.
@@ -438,7 +438,7 @@ on the rsync client.
   server. It can be defined in the %brand% GUI under
   :menuselection:`Services --> Rsync --> Rsync Modules`.
   In other operating systems, the module is defined in
-  `rsyncd.conf(5) <http://www.samba.org/ftp/rsync/rsyncd.conf.html>`_.
+  `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__.
 
 * **rsync over SSH:** synchronizes over an encrypted connection.
   Requires the configuration of SSH user and host public keys.
@@ -502,7 +502,7 @@ task.
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Remote Module Name               | string                      | only appears when using *Rsync module* mode, at least one module must be defined in       |
-   |                                  |                             | `rsyncd.conf(5) <http://www.samba.org/ftp/rsync/rsyncd.conf.html>`_                       |
+   |                                  |                             | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__                     |
    |                                  |                             | of rsync server or in the :guilabel:`Rsync Modules` of another                            |
    |                                  |                             | system                                                                                    |
    |                                  |                             |                                                                                           |
@@ -564,14 +564,14 @@ task.
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Preserve extended attributes     | checkbox                    | both systems must support                                                                 |
-   |                                  |                             | `extended attributes <http://en.wikipedia.org/wiki/Xattr>`_                               |
+   |                                  |                             | `extended attributes <https://en.wikipedia.org/wiki/Xattr>`__                             |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Delay Updates                    | checkbox                    | when checked, the temporary file from each updated file is saved to a holding directory   |
    |                                  |                             | until the end of the transfer, when all transferred files are renamed into place          |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Extra options                    | string                      | `rsync(1) <http://rsync.samba.org/ftp/rsync/rsync.html>`_                                 |
+   | Extra options                    | string                      | `rsync(1) <http://rsync.samba.org/ftp/rsync/rsync.html>`__                                |
    |                                  |                             | options not covered by the GUI; if the :literal:`*` character is used, it                 |
    |                                  |                             | must be escaped with a backslash (:literal:`\\*.txt`)                                     |
    |                                  |                             | or used inside single quotes (:literal:`'*.txt'`)                                         |
@@ -820,7 +820,7 @@ just before the *\n* in the error message.
 S.M.A.R.T. Tests
 ----------------
 
-`S.M.A.R.T. <http://en.wikipedia.org/wiki/S.M.A.R.T.>`_
+`S.M.A.R.T. <https://en.wikipedia.org/wiki/S.M.A.R.T.>`__
 (Self-Monitoring, Analysis and Reporting Technology) is a monitoring
 system for computer hard disk drives to detect and report on various
 indicators of reliability. When a failure is anticipated by
@@ -873,7 +873,7 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
    | Type              | drop-down menu            | select type of test to run; see                                                                            |
-   |                   |                           | `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`_                   |
+   |                   |                           | `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__                  |
    |                   |                           | for a description of each type of test (note that some test types will degrade performance or take disks   |
    |                   |                           | offline; do not schedule S.M.A.R.T. tests at the same time as a scrub or during a resilver operation)      |
    |                   |                           |                                                                                                            |

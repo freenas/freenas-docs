@@ -10,7 +10,7 @@ system.
 Version |release|
 
 Copyright © 2011-2018
-`iXsystems <https://www.ixsystems.com/>`_
+`iXsystems <https://www.ixsystems.com/>`__
 
 
 .. raw:: latex
@@ -149,7 +149,7 @@ These base applications and drivers have been updated or added:
 * `s3cmd <http://s3tools.org/s3cmd>`__
   has been added back as a CLI alternative to :ref:`S3`.
 
-* The `zfs-stats <http://www.vx.sk/zfs-stats/>`_
+* The `zfs-stats <http://www.vx.sk/zfs-stats/>`__
   CLI utility has been added. Type :command:`zfs-stats` to see command
   usage.
 
@@ -359,15 +359,15 @@ U2
   :ref:`Create Dataset` and :ref:`Create zvol`.
 
 * Midnight Commander has been updated to version
-  `4.8.20 <http://midnight-commander.org/wiki/NEWS-4.8.20>`_.
+  `4.8.20 <http://midnight-commander.org/wiki/NEWS-4.8.20>`__.
 
 U3
 ~~
 
 * Samba has been patched to address
-  `CVE-2018-1050 <https://www.samba.org/samba/security/CVE-2018-1050.html>`_
+  `CVE-2018-1050 <https://www.samba.org/samba/security/CVE-2018-1050.html>`__
   and
-  `CVE-2018-1057 <https://wiki.samba.org/index.php/CVE-2018-1057>`_.
+  `CVE-2018-1057 <https://wiki.samba.org/index.php/CVE-2018-1057>`__.
 
 
 .. index:: Path and Name Lengths
@@ -388,10 +388,10 @@ Hardware Recommendations
 %brand% |release| is based on FreeBSD 11.1 and supports the same
 hardware found in the
 `FreeBSD Hardware Compatibility List
-<http://www.freebsd.org/releases/11.1R/hardware.html>`__.
+<https://www.freebsd.org/releases/11.1R/hardware.html>`__.
 Supported processors are listed in section
 `2.1 amd64
-<https://www.freebsd.org/releases/11.1R/hardware.html#proc>`_.
+<https://www.freebsd.org/releases/11.1R/hardware.html#proc>`__.
 %brand% is only available for 64-bit processors. This architecture is
 called *amd64* by AMD and *Intel 64* by Intel.
 
@@ -402,7 +402,7 @@ called *amd64* by AMD and *Intel 64* by Intel.
 Actual hardware requirements vary depending on the usage of the
 %brand% system. This section provides some starter guidelines. The
 `FreeNAS® Hardware Forum
-<https://forums.freenas.org/index.php?forums/hardware.18/>`_
+<https://forums.freenas.org/index.php?forums/hardware.18/>`__
 has performance tips from %brand% users and is a place to post
 questions regarding the hardware best suited to meet specific
 requirements.
@@ -410,10 +410,10 @@ requirements.
 <https://forums.freenas.org/index.php?resources/hardware-recommendations-guide.12/>`__
 gives detailed recommendations for system components, with the
 `FreeNAS® Quick Hardware Guide
-<https://forums.freenas.org/index.php?resources/freenas-quick-hardware-guide.7>`__
+<https://forums.freenas.org/index.php?resources/freenas%C2%AE-quick-hardware-guide.7/>`__
 providing short lists of components for various configurations.
 `Building, Burn-In, and Testing your FreeNAS® system
-<https://forums.freenas.org/index.php?threads/building-burn-in-and-testing-your-freenas-system.17750/>`_
+<https://forums.freenas.org/index.php?threads/building-burn-in-and-testing-your-freenas-system.17750/>`__
 has detailed instructions on testing new hardware.
 
 
@@ -471,7 +471,7 @@ thus providing consistency for the checksumming and parity
 calculations performed by ZFS. If your data is important, use ECC RAM.
 This
 `Case Study
-<http://research.cs.wisc.edu/adsl/Publications/zfs-corruption-fast10.pdf>`_
+<http://research.cs.wisc.edu/adsl/Publications/zfs-corruption-fast10.pdf>`__
 describes the risks associated with memory corruption.
 
 Do not use %brand% to store data without at least 8 GB of RAM. Many
@@ -545,7 +545,7 @@ Storage Disks and Controllers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The `Disk section
-<http://www.freebsd.org/releases/11.1R/hardware.html#DISK>`_
+<https://www.freebsd.org/releases/11.1R/hardware.html#disk>`__
 of the FreeBSD Hardware List lists the supported disk controllers. In
 addition, support for 3ware 6 Gbps RAID controllers has been added
 along with the CLI utility :command:`tw_cli` for managing 3ware RAID
@@ -585,7 +585,7 @@ Suggestions for testing disks before adding them to a RAID array can
 be found in this
 `forum post
 <https://forums.freenas.org/index.php?threads/checking-new-hdds-in-raid.12082/#post-55936>`__.
-Additionally, `badblocks <https://linux.die.net/man/8/badblocks>`_ is
+Additionally, `badblocks <https://linux.die.net/man/8/badblocks>`__ is
 installed with %brand% for testing disks.
 
 If the budget allows optimization of the disk subsystem, consider the
@@ -599,7 +599,7 @@ read/write needs and RAID requirements:
 
 For ZFS,
 `Disk Space Requirements for ZFS Storage Pools
-<http://docs.oracle.com/cd/E19253-01/819-5461/6n7ht6r12/index.html>`_
+<https://docs.oracle.com/cd/E19253-01/819-5461/6n7ht6r12/index.html>`__
 recommends a minimum of 16 GB of disk space. Due to the way that ZFS
 creates swap,
 **it is not possible to format less than 3 GB of space with ZFS**.
@@ -609,7 +609,7 @@ drive, 2 GB will be reserved for swap.
 
 Users new to ZFS who are purchasing hardware should read through
 `ZFS Storage Pools Recommendations
-<https://web.archive.org/web/20161028084224/http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide#ZFS_Storage_Pools_Recommendations>`_
+<https://web.archive.org/web/20161028084224/http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide#ZFS_Storage_Pools_Recommendations>`__
 first.
 
 ZFS *vdevs*, groups of disks that act like a single device, can be
@@ -622,7 +622,7 @@ performance.
 
 The
 `ZFS Drive Size and Cost Comparison spreadsheet
-<https://forums.freenas.org/index.php?threads/zfs-drive-size-and-cost-comparison-spreadsheet.38092/>`_
+<https://forums.freenas.org/index.php?threads/zfs-drive-size-and-cost-comparison-spreadsheet.38092/>`__
 is available to compare usable space provided by different quantities
 and sizes of disks.
 
@@ -633,7 +633,7 @@ Network Interfaces
 ~~~~~~~~~~~~~~~~~~
 
 The `Ethernet section
-<http://www.freebsd.org/releases/11.1R/hardware.html#ethernet>`_
+<https://www.freebsd.org/releases/11.1R/hardware.html#ethernet>`__
 of the FreeBSD Hardware Notes indicates which interfaces are supported
 by each driver. While many interfaces are supported, %brand% users
 have seen the best performance from Intel and Chelsio interfaces, so
@@ -662,12 +662,12 @@ for more information.
 Both hardware and the type of shares can affect network performance.
 On the same hardware, SMB is slower than FTP or NFS because Samba is
 `single-threaded
-<https://www.samba.org/samba/docs/man/Samba-Developers-Guide/architecture.html>`__.
+<https://www.samba.org/samba/docs/old/Samba3-Developers-Guide/architecture.html>`__.
 So a fast CPU can help with SMB performance.
 
 Wake on LAN (WOL) support depends on the FreeBSD driver for the
 interface. If the driver supports WOL, it can be enabled using
-`ifconfig(8) <http://www.freebsd.org/cgi/man.cgi?query=ifconfig>`_. To
+`ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__. To
 determine if WOL is supported on a particular interface, use the
 interface name with the following command. In this example, the
 capabilities line indicates that WOL is supported for the *re0*

@@ -57,9 +57,9 @@ verify the checksum varies by operating system:
   :samp:`shasum -a 256 {name_of_file}`
 
 * Windows or Mac users can install additional utilities like
-  `HashCalc <http://www.slavasoft.com/hashcalc/>`_
+  `HashCalc <http://www.slavasoft.com/hashcalc/>`__
   or
-  `HashTab <http://implbits.com/products/hashtab/>`_
+  `HashTab <http://implbits.com/products/hashtab/>`__
 
 The value produced by running the command must match the value shown
 in the :file:`sha256.txt` file.  Checksum values that do not match
@@ -151,13 +151,13 @@ On Windows
 Microsoft provides the USB/DVD Download Tool to create a USB bootable
 image from an :file:`.iso` file. Follow
 `these instructions
-<https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool>`_,
+<https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool>`__,
 but enter the name of the downloaded :file:`.iso` into the
 :guilabel:`SOURCE FILE` box.
 
-`Image Writer <https://launchpad.net/win32-image-writer/>`_
+`Image Writer <https://launchpad.net/win32-image-writer/>`__
 and
-`Rufus <http://rufus.akeo.ie/>`_
+`Rufus <http://rufus.akeo.ie/>`__
 are alternate programs for writing images to USB sticks on a computer
 running Windows. When using Rufus, check
 :guilabel:`Create a bootable disk using` and select *DD Image* from
@@ -438,12 +438,12 @@ again.
 If the system starts to boot but hangs at a *mountroot>* prompt,
 follow the instructions in
 `Workaround/Semi-Fix for Mountroot Issues with 9.3
-<https://forums.freenas.org/index.php?threads/workaround-semi-fix-for-mountroot-issues-with-9-3.26071/>`_.
+<https://forums.freenas.org/index.php?threads/workaround-semi-fix-for-mountroot-issues-with-9-3.26071/>`__.
 
 If the burned image fails to boot and the image was burned using a
 Windows system, wipe the USB stick before trying a second burn using a
 utility such as
-`Active@ KillDisk <http://how-to-erase-hard-drive.com/>`_.
+`Active@ KillDisk <http://how-to-erase-hard-drive.com/>`__.
 Otherwise, the second burn attempt will fail as Windows does not
 understand the partition which was written from the image file. Be
 very careful to specify the correct USB stick when using a wipe
@@ -574,7 +574,7 @@ Upgrading Using the ISO
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 To perform an upgrade using this method,
-`download <http://download.freenas.org/latest/>`_
+`download <http://download.freenas.org/latest/>`__
 the :file:`.iso` to the computer that will be used to prepare the
 installation media. Burn the downloaded :file:`.iso` file to a CD or
 USB thumb drive using the instructions in
@@ -747,10 +747,10 @@ Virtualization
 %brand% can be run inside a virtual environment for development,
 experimentation, and educational purposes. Please note that running
 %brand% in production as a virtual machine is `not recommended
-<https://forums.freenas.org/index.php?threads/please-do-not-run-freenas-in-production-as-a-virtual-machine.12484/>`_.
+<https://forums.freenas.org/index.php?threads/please-do-not-run-freenas-in-production-as-a-virtual-machine.12484/>`__.
 If you decide to use %brand% within a virtual environment,
 `read this post first
-<https://forums.freenas.org/index.php?threads/absolutely-must-virtualize-freenas-a-guide-to-not-completely-losing-your-data.12714/>`_
+<https://forums.freenas.org/index.php?threads/absolutely-must-virtualize-freenas-a-guide-to-not-completely-losing-your-data.12714/>`__
 as it contains useful guidelines for minimizing the risk of losing
 data.
 
@@ -776,7 +776,7 @@ within VirtualBox and VMware ESXi environments.
 VirtualBox
 ~~~~~~~~~~
 
-`VirtualBox <https://www.virtualbox.org/>`__
+`VirtualBox <https://www.virtualbox.org/>`___
 is an open source virtualization program originally created by Sun
 Microsystems. VirtualBox runs on Windows, BSD, Linux, Macintosh, and
 OpenSolaris. It can be configured to use a downloaded %brand%
@@ -984,14 +984,14 @@ VMware ESXi
 ~~~~~~~~~~~
 
 Before using ESXi, read `this post
-<https://forums.freenas.org/index.php?threads/sync-writes-or-why-is-my-esxi-nfs-so-slow-and-why-is-iscsi-faster.12506/>`_
+<https://forums.freenas.org/index.php?threads/sync-writes-or-why-is-my-esxi-nfs-so-slow-and-why-is-iscsi-faster.12506/>`__
 for an explanation of why iSCSI will be faster than NFS.
 
 ESXi is a bare-metal hypervisor architecture created by VMware Inc.
 Commercial and free versions of the VMware vSphere Hypervisor
 operating system (ESXi) are available from the
 `VMware website
-<http://www.vmware.com/products/esxi-and-esx/overview>`_.
+<https://www.vmware.com/products/esxi-and-esx.html>`__.
 After the operating system is installed on supported hardware, use a
 web browser to connect to its IP address. The welcome screen provides
 a link to download the VMware vSphere client which is used to create

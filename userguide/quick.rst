@@ -111,7 +111,7 @@ entered in a browser:
   missing menu items, try a different web browser. IE9 has known
   issues and does not display the graphical administrative interface
   correctly if compatibility mode is turned on.
-  `Firefox <https://www.mozilla.org/en-US/firefox/all/>`_ is
+  `Firefox <https://www.mozilla.org/en-US/firefox/all/>`__ is
   recommended.
 
 * If :guilabel:`An error occurred!` messages are shown when attempting
@@ -119,7 +119,7 @@ entered in a browser:
   to allow cookies from the %brand% system.
 
 This `blog post
-<http://fortysomethinggeek.blogspot.com/2012/10/ipad-iphone-connect-with-freenas-or-any.html>`_
+<http://fortysomethinggeek.blogspot.com/2012/10/ipad-iphone-connect-with-freenas-or-any.html>`__
 describes some applications which can be used to access the %brand%
 system from an iPad or iPhone.
 

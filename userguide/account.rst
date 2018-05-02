@@ -91,8 +91,8 @@ summarizes the available options when creating a group.
    | Group Name          | string    | mandatory                                                                                                                |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Permit Sudo         | checkbox  | if checked, members of the group have permission to use `sudo <http://www.sudo.ws/>`_; when using sudo, a user will      |
-   |                     |           | be prompted for their own password                                                                                       |
+   | Permit Sudo         | checkbox  | if checked, members of the group have permission to use `sudo <https://www.sudo.ws/>`__; when using sudo, a user         |
+   |                     |           | will be prompted for their own password                                                                                  |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
    | Allow repeated GIDs | checkbox  | allows multiple groups to share the same group id (GID); this is useful when a GID is already associated with the        |
@@ -195,7 +195,7 @@ Except for the *root* user, the accounts that come with %brand%
 are system accounts. Each system account is used by a service and
 should not be used as a login account. For this reason, the default
 shell on system accounts is
-`nologin(8) <http://www.freebsd.org/cgi/man.cgi?query=nologin>`__.
+`nologin(8) <https://www.freebsd.org/cgi/man.cgi?query=nologin>`__.
 For security reasons, and to prevent breakage of system services, do
 not modify the system accounts.
 
@@ -287,7 +287,7 @@ created or modified.
    |                            |                 |          | box will gray out :guilabel:`Disable password login` which is mutually exclusive                                                           |
    |                            |                 |          |                                                                                                                                            |
    +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Permit Sudo                | checkbox        |          | if checked, members of the group have permission to use `sudo <http://www.sudo.ws/>`_; when using sudo, a user will be prompted for        |
+   | Permit Sudo                | checkbox        |          | if checked, members of the group have permission to use `sudo <https://www.sudo.ws/>`__; when using sudo, a user will be prompted for      |
    |                            |                 |          | their own password                                                                                                                         |
    |                            |                 |          |                                                                                                                                            |
    +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
@@ -324,42 +324,42 @@ created or modified.
    |              | root permissions (effective user ID 0, like *toor*)                                                                  |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | csh          | `C shell <https://en.wikipedia.org/wiki/C_shell>`_                                                                   |
+   | csh          | `C shell <https://en.wikipedia.org/wiki/C_shell>`__                                                                  |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | sh           | `Bourne shell <https://en.wikipedia.org/wiki/Bourne_shell>`_                                                         |
+   | sh           | `Bourne shell <https://en.wikipedia.org/wiki/Bourne_shell>`__                                                        |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | tcsh         | `Enhanced C shell <https://en.wikipedia.org/wiki/Tcsh>`_                                                             |
+   | tcsh         | `Enhanced C shell <https://en.wikipedia.org/wiki/Tcsh>`__                                                            |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
    | nologin      | use when creating a system account or to create a user account that can authenticate with shares but which cannot    |
    |              | login to the FreeNAS system using :command:`ssh`                                                                     |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | bash         | `Bourne Again shell <https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29>`_                                          |
+   | bash         | `Bourne Again shell <https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29>`__                                         |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | ksh93        | `Korn shell <http://www.kornshell.com/>`_                                                                            |
+   | ksh93        | `Korn shell <http://www.kornshell.com/>`__                                                                           |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | mksh         | `mirBSD Korn shell <https://www.mirbsd.org/mksh.htm>`_                                                               |
+   | mksh         | `mirBSD Korn shell <https://www.mirbsd.org/mksh.htm>`__                                                              |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | rbash        | `Restricted bash <http://www.gnu.org/software/bash/manual/html_node/The-Restricted-Shell.html>`_                     |
+   | rbash        | `Restricted bash <http://www.gnu.org/software/bash/manual/html_node/The-Restricted-Shell.html>`__                    |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | rzsh         | `Restricted zsh <http://www.csse.uwa.edu.au/programming/linux/zsh-doc/zsh_14.html>`_                                 |
+   | rzsh         | `Restricted zsh <http://www.csse.uwa.edu.au/programming/linux/zsh-doc/zsh_14.html>`__                                |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | scponly      | select `scponly <https://github.com/scponly/scponly/wiki>`_ to restrict the user's SSH usage to only the             |
+   | scponly      | select `scponly <https://github.com/scponly/scponly/wiki>`__ to restrict the user's SSH usage to only the            |
    |              | :command:`scp` and :command:`sftp` commands                                                                          |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | zsh          | `Z shell <http://www.zsh.org/>`_                                                                                     |
+   | zsh          | `Z shell <http://www.zsh.org/>`__                                                                                    |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | git-shell    | `restricted git shell <http://git-scm.com/docs/git-shell>`_                                                          |
+   | git-shell    | `restricted git shell <https://git-scm.com/docs/git-shell>`__                                                        |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
 

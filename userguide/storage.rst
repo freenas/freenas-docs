@@ -104,7 +104,7 @@ summarizes the configuration options of this screen.
    |                  |                |                                                                                            |
    +==================+================+============================================================================================+
    | Volume name      | string         | ZFS volumes must conform to these                                                          |
-   |                  |                | `naming conventions <http://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`__;     |
+   |                  |                | `naming conventions <https://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`__;    |
    |                  |                | choosing a name that will stick out in the logs (e.g. **not** a generic term like          |
    |                  |                | :file:`data` or :file:`freenas`) is recommended                                            |
    |                  |                |                                                                                            |
@@ -207,7 +207,7 @@ Encryption
 
 
 %brand% supports
-`GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`_
+`GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
 full disk encryption for ZFS volumes. It is important to understand
 the details when considering whether encryption is right for your
 %brand% system:
@@ -281,7 +281,7 @@ such volumes before using them in production.
 
 #ifdef freenas
 .. note:: Processors with support for the
-   `AES-NI <https://en.wikipedia.org/wiki/AES-NI#Supporting_CPUs>`__
+   `AES-NI <https://en.wikipedia.org/wiki/AES_instruction_set#Supporting_x86_CPUs>`__
    instruction set are strongly recommended. These processors can
    handle encryption of a small number of disks with negligible
    performance impact. They also retain performance better as the
@@ -342,7 +342,7 @@ shows the available options.
    |               |                  |                                                                                                |
    +===============+==================+================================================================================================+
    | Volume name   | string           | ZFS volumes must conform to these                                                              |
-   |               |                  | `naming conventions <http://docs.oracle.com/cd/E19082-01/817-2271/gbcpt/index.html>`__;        |
+   |               |                  | `naming conventions <https://docs.oracle.com/cd/E53394_01/index.html>`__;                      |
    |               |                  | choose a name that will stand out in the logs (e.g. **not** :file:`data` or :file:`freenas`)   |
    |               |                  |                                                                                                |
    +---------------+------------------+------------------------------------------------------------------------------------------------+
@@ -735,7 +735,7 @@ system does not have the needed RAM, it will panic. The only solution
 is to add more RAM or recreate the pool.
 **Think carefully before enabling dedup!**
 This `article
-<http://constantin.glez.de/blog/2011/07/zfs-dedupe-or-not-dedupe>`_
+<https://constantin.glez.de/2011/07/27/zfs-to-dedupe-or-not-dedupe/>`__
 provides a good description of the value versus cost considerations
 for deduplication.
 
@@ -1091,14 +1091,14 @@ configurable options are described in
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Acoustic Level                     | drop-down menu | default is *Disabled*; can be modified for disks that understand                                                         |
-   |                                    |                | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`_                                                     |
+   |                                    |                | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`__                                                    |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Enable S.M.A.R.T.                  | checkbox       | enabled by default if the disk supports S.M.A.R.T.; unchecking this box will disable any configured                      |
    |                                    |                | :ref:`S.M.A.R.T. Tests` for the disk                                                                                     |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | S.M.A.R.T. extra options           | string         | additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`_  options             |
+   | S.M.A.R.T. extra options           | string         | additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options            |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
@@ -1353,7 +1353,7 @@ Encryption applies to a volume, not individual users. When a volume is
 unlocked, data is accessible to all users with permissions to access
 it.
 
-.. note:: `GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`__
+.. note:: `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
    uses *two* randomized encryption keys for each disk. The first has
    been discussed here. The second, the disk's "master key", is
    encrypted and stored in the on-disk GELI metadata. Loss of a disk
@@ -1499,9 +1499,9 @@ View Multipaths
 ~~~~~~~~~~~~~~~
 
 %brand% uses
-`gmultipath(8) <http://www.freebsd.org/cgi/man.cgi?query=gmultipath>`_
+`gmultipath(8) <https://www.freebsd.org/cgi/man.cgi?query=gmultipath>`__
 to provide
-`multipath I/O <https://en.wikipedia.org/wiki/Multipath_I/O>`_
+`multipath I/O <https://en.wikipedia.org/wiki/Multipath_I/O>`__
 support on systems containing hardware that is capable of multipath.
 An example would be a dual SAS expander backplane in the chassis or an
 external JBOD.

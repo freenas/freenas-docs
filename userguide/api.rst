@@ -5,7 +5,7 @@ Using the API
 =============
 
 A `REST
-<https://en.wikipedia.org/wiki/Representational_state_transfer>`_ API
+<https://en.wikipedia.org/wiki/Representational_state_transfer>`__ API
 is provided to be used as an alternate mechanism for remotely
 controlling a %brand% system.
 
@@ -17,7 +17,7 @@ such as GET, PUT, POST, or DELETE.
 As shown in
 :numref:`Figure %s <api_fig>`,
 an online version of the API is available at
-`api.freenas.org <http://api.freenas.org>`_.
+`api.freenas.org <http://api.freenas.org>`__.
 
 .. _api_fig:
 
@@ -47,7 +47,7 @@ A Simple API Example
 
 
 The `api directory of the FreeNAS® github repository
-<https://github.com/freenas/freenas/tree/master/examples/api>`_
+<https://github.com/freenas/freenas/tree/master/examples/api>`__
 contains some API usage examples. This section provides a walk-through
 of the :file:`newuser.py` script, shown below, as it provides a simple
 example that creates a user.
@@ -118,7 +118,7 @@ SSL certificate, change *False* to *True*.
 
 **Lines 8-16:** set the values for the user being created. The
 `Users
-resource <http://api.freenas.org/resources/account.html#users>`_
+resource <http://api.freenas.org/resources/account.html#users>`__
 describes this in more detail. Allowed parameters are listed in the
 JSON Parameters section of that resource. Since this resource creates
 a FreeBSD user, the values entered must be valid for a FreeBSD user

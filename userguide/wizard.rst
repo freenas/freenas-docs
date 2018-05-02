@@ -67,7 +67,7 @@ been formatted.
 
 Enter a name for the ZFS pool that conforms to these
 `naming conventions
-<http://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`_.
+<https://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`__.
 It is recommended to choose a name that will stick out in the logs
 #ifdef freenas
 (e.g. **not** :file:`data` or :file:`freenas`).
@@ -233,7 +233,7 @@ through
    |                         |                |                                                                                                       |
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Secure mode             | checkbox       | if checked,                                                                                           |
-   |                         |                | `ypbind(8) <http://www.freebsd.org/cgi/man.cgi?query=ypbind>`_                                        |
+   |                         |                | `ypbind(8) <https://www.freebsd.org/cgi/man.cgi?query=ypbind>`__                                      |
    |                         |                | will refuse to bind to any NIS server that is not running as root on a TCP port number over 1024      |
    |                         |                |                                                                                                       |
    +-------------------------+----------------+-------------------------------------------------------------------------------------------------------+

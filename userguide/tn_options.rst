@@ -16,7 +16,7 @@ Display System Processes
 
 Clicking :guilabel:`Display System Processes` opens a screen showing
 the output of
-`top(1) <http://www.freebsd.org/cgi/man.cgi?query=top>`_.
+`top(1) <https://www.freebsd.org/cgi/man.cgi?query=top>`__.
 An example is shown in
 :numref:`Figure %s <process>`.
 

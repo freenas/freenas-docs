@@ -17,7 +17,7 @@ Requirements
 1. A %brand% 11.0 or newer system to provide storage.
 
 2. A computer running the
-   `Newton release <https://docs.openstack.org/newton/>`_
+   `Newton release <https://docs.openstack.org/newton/>`__
    of OpenStack or newer, with these minimum hardware requirements:
 
    * 4 GiB of RAM
@@ -132,7 +132,7 @@ Here is an example of typical additional parameter settings for a
 
 
 .. tip:: The
-   `OpenStack documentation <https://docs.openstack.org/mitaka/config-reference/block-storage/block-storage-sample-configuration-files.html>`_
+   `OpenStack documentation <https://docs.openstack.org/mitaka/config-reference/block-storage/block-storage-sample-configuration-files.html>`__
    also provides examples of :file:`cinder.conf` configurations.
 
 

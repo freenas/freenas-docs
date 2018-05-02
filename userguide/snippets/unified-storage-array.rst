@@ -216,7 +216,7 @@ network.
 
 The
 `Out-of-Band Management
-<https://support.ixsystems.com/truenasguide/truenas.html#out-of-band-management>`__
+<https://support.ixsystems.com/truenasguide/tn_initial.html#out-of-band-management>`__
 feature requires connection and configuration of the out-of-band
 management port before turning on the %brand% Storage Array. Refer to
 :numref:`Figure %s <appliance11>`
@@ -232,11 +232,11 @@ the out-of-band management port.
 
 
 Storage cabling instructions are shown in the
-`E16/E16F Expansion Shelf
-<https://support.ixsystems.com/truenasguide/tn_hardware.html#e16-e16f-expansion-shelf>`__
+`ES12 Expansion Shelf
+<https://support.ixsystems.com/truenasguide/tn_hardware.html#es12-expansion-shelf>`__
 and
-`E24 Expansion Shelf
-<https://support.ixsystems.com/truenasguide/tn_hardware.html#e24-expansion-shelf>`__
+`ES24 Expansion Shelf
+<https://support.ixsystems.com/truenasguide/tn_hardware.html#es24-expansion-shelf>`__
 setup instructions.
 
 

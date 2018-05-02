@@ -48,7 +48,7 @@ These types of shares and services are available:
 
 * :ref:`WebDAV <WebDAV Shares>`: WebDAV shares are accessible using an
   authenticated web browser (read-only) or
-  `WebDAV client <https://en.wikipedia.org/wiki/WebDAV#Clients>`_
+  `WebDAV client <https://en.wikipedia.org/wiki/WebDAV#Client_support>`__
   running on any operating system.
 
 * :ref:`SMB <Windows (SMB) Shares>`: Server Message Block shares, also
@@ -67,12 +67,12 @@ These types of shares and services are available:
 Fast access from any operating system can be obtained by configuring
 the :ref:`FTP` service instead of a share and using a cross-platform
 FTP file manager application such as
-`Filezilla <https://filezilla-project.org/>`_.
+`Filezilla <https://filezilla-project.org/>`__.
 Secure FTP can be configured if the data needs to be encrypted.
 
 When data security is a concern and the network users are familiar
 with SSH command line utilities or
-`WinSCP <http://winscp.net/eng/index.php>`_,
+`WinSCP <https://winscp.net/eng/index.php>`__,
 consider using the :ref:`SSH` service instead of a share. It is slower
 than unencrypted FTP due to the encryption overhead, but the data
 passing through the network is encrypted.
@@ -106,7 +106,7 @@ Apple (AFP) Shares
 ------------------
 
 %brand% uses the
-`Netatalk <http://netatalk.sourceforge.net/>`_
+`Netatalk <http://netatalk.sourceforge.net/>`__
 AFP server to share data with Apple systems. This section describes
 the configuration screen for fine-tuning AFP shares created using the
 :ref:`Wizard`. It then provides configuration examples for using the
@@ -138,7 +138,7 @@ information given when the share was created.
    advanced option without fully understanding the function of that
    option. Refer to
    `Setting up Netatalk
-   <http://netatalk.sourceforge.net/2.2/htmldocs/configuration.html>`_
+   <http://netatalk.sourceforge.net/2.2/htmldocs/configuration.html>`__
    for a more detailed explanation of these options.
 
 
@@ -219,7 +219,7 @@ information given when the share was created.
    | Hosts Deny                   | string        |  ✓       | Comma-, space-, or tab-delimited list of denied hostnames or IP addresses.                                    |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters         | string        |          | Additional `afp.conf <http://netatalk.sourceforge.net/3.1/htmldocs/afp.conf.5.html>`_ parameters              |
+   | Auxiliary Parameters         | string        |          | Additional `afp.conf <http://netatalk.sourceforge.net/3.1/htmldocs/afp.conf.5.html>`__ parameters             |
    |                              |               |          | not covered by other option fields.                                                                           |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
@@ -418,7 +418,7 @@ Time Machine share is restricted to 200 GB.
 .. note:: An alternative is to create a global quota using the
    instructions in
    `Set up Time Machine for multiple machines with OSX Server-Style Quotas
-   <https://forums.freenas.org/index.php?threads/how-to-set-up-time-machine-for-multiple-machines-with-osx-server-style-quotas.47173/>`_.
+   <https://forums.freenas.org/index.php?threads/how-to-set-up-time-machine-for-multiple-machines-with-osx-server-style-quotas.47173/>`__.
 
 To configure Time Machine on the macOS client, go to
 :menuselection:`System Preferences --> Time Machine`
@@ -444,13 +444,13 @@ backup disk image could not be created (error 45)` is shown when
 backing up to the %brand% system, a sparsebundle
 image must be created using
 `these instructions
-<http://forum1.netgear.com/showthread.php?t=49482>`_.
+<https://community.netgear.com/t5/Stora-Legacy/Solution-to-quot-Time-Machine-could-not-complete-the-backup/td-p/294697>`__.
 
 If :guilabel:`Time Machine completed a verification of
 your backups. To improve reliability, Time Machine must create a new
 backup for you.` is shown, follow the instructions in
 `this post
-<http://www.garth.org/archives/2011,08,27,169,fix-time-machine-sparsebundle-nas-based-backup-errors.html>`_
+<http://www.garth.org/archives/2011,08,27,169,fix-time-machine-sparsebundle-nas-based-backup-errors.html>`__
 to avoid making another backup or losing past backups.
 
 
@@ -473,7 +473,7 @@ application.
    when %brand% is installed on ESXi. When considering creating NFS
    shares on ESXi, read through the performance analysis at
    `Running ZFS over NFS as a VMware Store
-   <http://blog.laspina.ca/ubiquitous/running-zfs-over-nfs-as-a-vmware-store>`_.
+   <http://blog.laspina.ca/ubiquitous/running-zfs-over-nfs-as-a-vmware-store>`__.
 #endif freenas
 
 To create an NFS share using the :ref:`Wizard`, click the
@@ -554,7 +554,7 @@ button.
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
    | Quiet               | checkbox       | ✓        | Inhibit otherwise-useful syslog diagnostics to avoid some annoying error messages. See                     |
-   |                     |                |          | `exports(5) <http://www.freebsd.org/cgi/man.cgi?query=exports>`_ for examples.                             |
+   |                     |                |          | `exports(5) <https://www.freebsd.org/cgi/man.cgi?query=exports>`__ for examples.                           |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
    | Maproot User        | drop-down menu | ✓        | When a user is selected, the *root* user is limited to that user's permissions.                            |
@@ -725,7 +725,7 @@ A successful mounting of the share returns to the command prompt
 without any status or error messages.
 
 .. note:: If this command fails on a Linux system, make sure that the
-   `nfs-utils <http://sourceforge.net/projects/nfs/files/nfs-utils/>`_
+   `nfs-utils <https://sourceforge.net/projects/nfs/files/nfs-utils/>`__
    package is installed.
 
 
@@ -944,7 +944,7 @@ share. These settings are described in :ref:`WebDAV`.
 Windows (SMB) Shares
 ---------------------
 
-%brand% uses `Samba <https://www.samba.org/>`_ to share volumes using
+%brand% uses `Samba <https://www.samba.org/>`__ to share volumes using
 Microsoft's SMB protocol. SMB is built into the Windows and macOS
 operating systems and most Linux and BSD systems pre-install the Samba
 client in order to provide support for SMB. If the distro did not,
@@ -963,7 +963,7 @@ clients from Windows 8 and higher. Copying between two different
 shares is not server-side. Windows 7 clients support server-side
 copying with
 `Robocopy
-<https://technet.microsoft.com/en-us/library/cc733145>`_.
+<https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc733145(v=ws.11)>`__.
 
 This chapter starts by summarizing the available configuration
 options. It demonstrates some common configuration scenarios as well
@@ -976,14 +976,14 @@ scenario that meets your specific network requirements.
    <https://forums.freenas.org/index.php?resources/smb-tips-and-tricks.15/>`__
    shows helpful hints for configuring and managing SMB networking.
    The `FreeNAS and Samba (CIFS) permissions
-   <https://www.youtube.com/watch?v=RxggaE935PM>`_
+   <https://www.youtube.com/watch?v=RxggaE935PM>`__
    and
    `Advanced Samba (CIFS) permissions on FreeNAS
-   <https://www.youtube.com/watch?v=QhwOyLtArw0>`_
+   <https://www.youtube.com/watch?v=QhwOyLtArw0>`__
    videos clarify setting up permissions on SMB shares. Another
    helpful reference is
    `Methods For Fine-Tuning Samba Permissions
-   <https://forums.freenas.org/index.php?threads/methods-for-fine-tuning-samba-permissions.50739/>`_.
+   <https://forums.freenas.org/index.php?threads/methods-for-fine-tuning-samba-permissions.50739/>`__.
 
 
 .. tip:: Run :command:`smbstatus` from the :ref:`Shell` for a list of
@@ -1011,7 +1011,7 @@ not needed. For more complex sharing scenarios, only change an
 :guilabel:`Advanced Mode` option after fully understanding the
 function of that option.
 `smb.conf(5)
-<https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+11.0-RELEASE+and+Ports>`_
+<https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+11.0-RELEASE+and+Ports>`__
 provides more details for each configurable option.
 
 
@@ -1124,7 +1124,7 @@ Samba disables NTLMv1 authentication by default for security. Standard
 configurations of Windows XP and some configurations of later clients
 like Windows 7 will not be able to connect with NTLMv1 disabled.
 `Security guidance for NTLMv1 and LM network authentication
-<https://support.microsoft.com/en-us/help/2793313/security-guidance-for-ntlmv1-and-lm-network-authentication>`_
+<https://support.microsoft.com/en-us/help/2793313/security-guidance-for-ntlmv1-and-lm-network-authentication>`__
 has information about the security implications and ways to enable
 NTLMv2 on those clients. If changing the client configuration is not
 possible, NTLMv1 authentication can be enabled by checking the box
@@ -1139,9 +1139,9 @@ each module **before** adding or deleting it from the
 the share. Some modules need additional configuration after they are
 added. Refer to
 `Stackable VFS modules
-<https://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/VFS.html>`_
+<https://www.samba.org/samba/docs/old/Samba3-HOWTO/VFS.html>`__
 and the
-`vfs_* man pages <https://www.samba.org/samba/docs/man/manpages/>`_
+`vfs_* man pages <https://www.samba.org/samba/docs/current/man-html/>`__
 for more details.
 
 
@@ -1260,7 +1260,7 @@ for more details.
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | streams_depot       | **Experimental** module to store alternate data streams in a central directory; the association with the primary file can be lost due      |
-   |                     | to inode numbers changing when a directory is copied to a new location (see `<http://marc.info/?l=samba&m=132542069802160&w=2>`_).         |
+   |                     | to inode numbers changing when a directory is copied to a new location (see `<https://marc.info/?l=samba&m=132542069802160&w=2>`__).       |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | streams_xattr       | Enables storing of NTFS alternate data streams in the file system.                                                                         |
    |                     |                                                                                                                                            |
@@ -1521,14 +1521,14 @@ prompt to authenticate will occur.
 Configuring Shadow Copies
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`Shadow Copies <https://en.wikipedia.org/wiki/Shadow_copy>`_,
+`Shadow Copies <https://en.wikipedia.org/wiki/Shadow_copy>`__,
 also known as the Volume Shadow Copy Service (VSS) or Previous
 Versions, is a Microsoft service for creating volume snapshots. Shadow
 copies can be used to restore previous versions of files from
 within Windows Explorer. Shadow Copy support is built into Vista and
 Windows 7. Windows XP or 2000 users need to install the
 `Shadow Copy client
-<http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=16220>`_.
+<http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=16220>`__.
 
 When a periodic snapshot task is created on a ZFS volume that is
 configured as a SMB share in %brand%, it is automatically configured
@@ -1709,7 +1709,7 @@ automatically switch back to that better path to the storage.
 In %brand%, iSCSI is built into the kernel. This version of iSCSI
 supports
 `Microsoft Offloaded Data Transfer (ODX)
-<https://technet.microsoft.com/en-us/library/hh831628>`_,
+<https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831628(v=ws.11)>`__,
 meaning that file copies happen locally, rather than over the network.
 It also supports the :ref:`VAAI` (vStorage APIs for Array Integration)
 primitives for efficient operation of storage tasks directly on the
@@ -1816,7 +1816,7 @@ for iSNS requests is 5 seconds.
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
 #ifdef truenas
    | Enable iSCSI ALUA               | checkbox                     | Enable ALUA for automatic best path discovery when supported by clients. This option      |
-   |                                 |                              | is only available on HA systems.                                                           |
+   |                                 |                              | is only available on HA systems.                                                          |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
 #endif truenas
 
@@ -2145,7 +2145,7 @@ There are two types of extents: *device* and *file*.
 snapshots, or physical devices like a disk, an SSD, a hardware RAID
 volume, or a
 `HAST device
-<http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/disks-hast.html>`_.
+<https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/disks-hast.html>`__.
 
 **File extents** provide virtual storage access to an individual file.
 
@@ -2483,34 +2483,33 @@ To access the iSCSI target, clients must use iSCSI initiator software.
 
 An iSCSI Initiator client is pre-installed with Windows 7. A detailed
 how-to for this client can be found
-`here
-<http://www.windowsnetworking.com/articles-tutorials/windows-7/Connecting-Windows-7-iSCSI-SAN.html>`__.
+`here <http://techgenix.com/Connecting-Windows-7-iSCSI-SAN/>`__.
 A client for Windows 2000, XP, and 2003 can be found `here
 <http://www.microsoft.com/en-us/download/details.aspx?id=18986>`__.
 This
 `how-to
-<http://blog.pluralsight.com/freenas-8-iscsi-target-windows-7>`_
+<https://www.pluralsight.com/blog/software-development/freenas-8-iscsi-target-windows-7>`__
 shows how to create an iSCSI target for a Windows 7 system.
 
 Mac OS X does not include an initiator.
 `globalSAN
-<http://www.studionetworksolutions.com/globalsan-iscsi-initiator/>`_
+<http://www.studionetworksolutions.com/globalsan-iscsi-initiator/>`__
 is a commercial, easy-to-use Mac initiator.
 
 BSD systems provide command line initiators:
-`iscontrol(8) <http://www.freebsd.org/cgi/man.cgi?query=iscontrol>`_
+`iscontrol(8) <https://www.freebsd.org/cgi/man.cgi?query=iscontrol>`__
 comes with FreeBSD versions 9.x and lower,
-`iscsictl(8) <https://www.freebsd.org/cgi/man.cgi?query=iscsictl>`_
+`iscsictl(8) <https://www.freebsd.org/cgi/man.cgi?query=iscsictl>`__
 comes with FreeBSD versions 10.0 and higher,
 `iscsi-initiator(8)
-<http://netbsd.gw.com/cgi-bin/man-cgi?iscsi-initiator++NetBSD-current>`_
+<http://netbsd.gw.com/cgi-bin/man-cgi?iscsi-initiator++NetBSD-current>`__
 comes with NetBSD, and
 `iscsid(8)
-<http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/./man8/iscsid.8?query=iscsid>`_
+<http://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man8/iscsid.8?query=iscsid>`__
 comes with OpenBSD.
 
 Some Linux distros provide the command line utility
-:command:`iscsiadm` from `Open-iSCSI <http://www.open-iscsi.com/>`_.
+:command:`iscsiadm` from `Open-iSCSI <http://www.open-iscsi.com/>`__.
 Use a web search to see if a package exists for your distribution
 should the command not exist on your Linux system.
 
@@ -2523,14 +2522,14 @@ to log into the LUN.
 
 Instructions for connecting from a VMware ESXi Server can be found at
 `How to configure FreeNAS 8 for iSCSI and connect to ESX(i)
-<http://www.vladan.fr/how-to-configure-freenas-8-for-iscsi-and-connect-to-esxi/>`_.
+<https://www.vladan.fr/how-to-configure-freenas-8-for-iscsi-and-connect-to-esxi/>`__.
 Note that the requirements for booting vSphere 4.x off iSCSI differ
 between ESX and ESXi. ESX requires a hardware iSCSI adapter while ESXi
 requires specific iSCSI boot firmware support. The magic is on the
 booting host side, meaning that there is no difference to the %brand%
 configuration. See the
 `iSCSI SAN Configuration Guide
-<http://www.vmware.com/pdf/vsphere4/r41/vsp_41_iscsi_san_cfg.pdf>`_
+<https://www.vmware.com/pdf/vsphere4/r41/vsp_41_iscsi_san_cfg.pdf>`__
 for details.
 
 The VMware firewall only allows iSCSI connections on port 3260 by

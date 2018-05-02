@@ -27,7 +27,7 @@ VAAI for iSCSI supports these operations:
 * *Clone Blocks* (*XCOPY*) copies disk blocks on the NAS. Copies occur
   locally rather than over the network. The operation is similar to
   `Microsoft ODX
-  <https://technet.microsoft.com/en-us/library/hh831628>`_.
+  <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831628(v=ws.11)>`__.
 
 * *LUN Reporting* allows a hypervisor to query the NAS to determine
   whether a LUN is using thin provisioning.
@@ -63,7 +63,7 @@ VAAI for iSCSI supports these operations:
 VAAI for NAS
 ------------
 
-`VAAI for NAS <https://code.vmware.com/programs/vaai-nas>`_
+`VAAI for NAS <https://code.vmware.com/programs/vaai-nas>`__
 is automatically enabled on %brand% when the :ref:`NFS` service is
 running. These operations are supported:
 

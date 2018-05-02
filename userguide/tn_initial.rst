@@ -318,7 +318,7 @@ check these things:
   issues and will not display the graphical administrative interface
   correctly if compatibility mode is turned on. If the GUI cannot
   be accessed with Internet Explorer, use
-  `Firefox <https://www.mozilla.org/en-US/firefox/all/>`_
+  `Firefox <https://www.mozilla.org/en-US/firefox/all/>`__
   instead.
 
 * If "An error occurred!" messages are shown when attempting to
@@ -326,7 +326,7 @@ check these things:
   to allow cookies from the %brand% system.
 
 This
-`blog post <http://fortysomethinggeek.blogspot.com/2012/10/ipad-iphone-connect-with-freenas-or-any.html>`_
+`blog post <http://fortysomethinggeek.blogspot.com/2012/10/ipad-iphone-connect-with-freenas-or-any.html>`__
 describes some applications which can be used to access the %brand%
 system from an iPad or iPhone.
 
