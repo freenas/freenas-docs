@@ -7,10 +7,10 @@ Plugins
 %brand% 8.2.0 introduced the ability to extend the built-in NAS
 services by providing a mechanism for installing additional software.
 This mechanism was known as the Plugins architecture and is based on
-`FreeBSD jails <https://en.wikipedia.org/wiki/Freebsd_jail>`_
+`FreeBSD jails <https://en.wikipedia.org/wiki/Freebsd_jail>`__
 and
 `PC-BSD 9.x PBIs
-<http://wiki.pcbsd.org/index.php/AppCafe%C2%AE/9.2>`_.
+<http://wiki.pcbsd.org/index.php/AppCafe%C2%AE/9.2>`__.
 This allowed
 users to install and configure additional applications once they had
 created and configured a plugins jail.
@@ -256,59 +256,59 @@ Available Plugins
 
 These plugins are available for %brand% |release|:
 
-* `bacula-sd (storage daemon) <http://bacula.org/>`_
+* `bacula-sd (storage daemon) <http://blog.bacula.org/>`__
 
-* `CouchPotato <https://couchpota.to/>`_
+* `CouchPotato <https://couchpota.to/>`__
 
-* `crashplan <http://www.code42.com/crashplan/>`_
+* `crashplan <https://www.crashplan.com/en-us/>`__
 
-* `Emby <http://emby.media/>`_
+* `Emby <https://emby.media/>`__
 
-* `firefly <https://en.wikipedia.org/wiki/Firefly_Media_Server>`_
+* `firefly <https://en.wikipedia.org/wiki/Firefly_Media_Server>`__
 
-* `Headphones <https://github.com/rembo10/headphones>`_
+* `Headphones <https://github.com/rembo10/headphones>`__
 
-* `HTPC-Manager <http://htpc.io/>`_
+* `HTPC-Manager <http://htpc.io/>`__
 
-* `LazyLibrarian <https://github.com/lazylibrarian/LazyLibrarian>`_
+* `LazyLibrarian <https://github.com/lazylibrarian/LazyLibrarian>`__
 
-* `Madsonic <http://madsonic.org/>`_
+* `Madsonic <http://beta.madsonic.org/pages/index.jsp>`__
 
-* `Maraschino <http://www.maraschinoproject.com/>`_
+* `Maraschino <http://www.maraschinoproject.com/>`__
 
-* `MineOS <http://minecraft.codeemo.com/>`_
+* `MineOS <http://minecraft.codeemo.com/>`__
 
-* `Mylar <https://github.com/evilhero/mylar>`_
+* `Mylar <https://github.com/evilhero/mylar>`__
 
-* `Nextcloud <https://nextcloud.com/>`_
+* `Nextcloud <https://nextcloud.com/>`__
 
-* `NZBHydra <https://github.com/theotherp/nzbhydra>`_
+* `NZBHydra <https://github.com/theotherp/nzbhydra>`__
 
-* `ownCloud <https://owncloud.org/>`_
+* `ownCloud <https://owncloud.org/>`__
 
-* `PlexMediaServer <https://plex.tv/>`_
+* `PlexMediaServer <https://www.plex.tv/>`__
 
-* `Resilio <https://www.resilio.com/>`_
+* `Resilio <https://www.resilio.com/>`__
 
-* `s3cmd <http://s3tools.org/s3cmd>`_
+* `s3cmd <http://s3tools.org/s3cmd>`__
 
-* `SABnzbd <http://sabnzbd.org/>`_
+* `SABnzbd <https://sabnzbd.org/>`__
 
-* `SickBeard <http://sickbeard.com/>`_
+* `SickBeard <http://sickbeard.com/>`__
 
-* `SickRage <https://github.com/SiCKRAGETV/SickRage>`_
+* `SickRage <https://github.com/SiCKRAGETV/SickRage>`__
 
-* `Sonarr <https://sonarr.tv/>`_
+* `Sonarr <https://sonarr.tv/>`__
 
-* `Subsonic <http://www.subsonic.org/pages/index.jsp>`_
+* `Subsonic <http://www.subsonic.org/pages/index.jsp>`__
 
-* `Syncthing <https://syncthing.net/>`_
+* `Syncthing <https://syncthing.net/>`__
 
-* `Transmission <http://www.transmissionbt.com/>`_
+* `Transmission <https://transmissionbt.com/>`__
 
-* `XDM <https://github.com/lad1337/XDM>`_
+* `XDM <https://github.com/lad1337/XDM>`__
 
-* `XMRig <https://github.com/xmrig/xmrig>`_
+* `XMRig <https://github.com/xmrig/xmrig>`__
 
 While the %brand% Plugins system makes it easy to install software,
 it is still up to you to know how to configure and use the installed

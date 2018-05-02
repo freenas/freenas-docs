@@ -1779,7 +1779,7 @@ display these settings by checking the box
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Extra Options                 | string         | ✓        | Additional                                                                                          |
-   |                               |                |          | `sshd_config(5) <http://www.freebsd.org/cgi/man.cgi?query=sshd_config>`__                           |
+   |                               |                |          | `sshd_config(5) <https://www.freebsd.org/cgi/man.cgi?query=sshd_config>`__                          |
    |                               |                |          | options not covered in this screen, one per line. These options are case-sensitive                  |
    |                               |                |          | and misspellings can prevent the SSH service from starting.                                         |
    |                               |                |          |                                                                                                     |

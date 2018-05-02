@@ -29,14 +29,14 @@ user interface into native languages can make %brand% much more useful
 to communities around the world.
 
 %brand% uses
-`Weblate <https://weblate.org/>`_
+`Weblate <https://weblate.org/en/>`__
 to manage the translation of text shown in the %brand% graphical
 administrative interface. Weblate provides an easy-to-use web-based
 editor and commenting system, making it possible for individuals to
 assist with translation or comment on existing translations.
 
 To see the status of translations, open
-`<http://weblate.trueos.org/projects/freenas/>`_, as shown in
+`<https://weblate.trueos.org/projects/freenas/>`__, as shown in
 :numref:`Figure %s <contribute_weblate_fig>`.
 
 

@@ -8,7 +8,7 @@ vCenter Plugin
 The %brand% vCenter Plugin integrates the control and operation of
 %brand% into
 `VMware vCenter Server
-<https://www.vmware.com/products/vcenter-server>`_.
+<https://www.vmware.com/products/vcenter-server.html>`__.
 
 
 New Features in 2.1.0

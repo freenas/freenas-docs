@@ -33,7 +33,7 @@ jails as needed and to customize the operating system and installed
 software within each jail.
 
 By default, a
-`FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`_
+`FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`__
 is created. This provides a very light-weight, operating system-level
 virtualization. Consider it as another independent instance of FreeBSD
 running on the same hardware, without all of the overhead usually
@@ -359,7 +359,7 @@ display these settings by checking the box
 
 
 .. note:: The IPv4 and IPv6 bridge interface is used to bridge the
-   `epair(4) <http://www.freebsd.org/cgi/man.cgi?query=epair>`_
+   `epair(4) <https://www.freebsd.org/cgi/man.cgi?query=epair>`__
    device, which is automatically created for each started jail, to a
    physical network device. The default network device is the one that
    is configured with a default gateway. So, if *em0* is the FreeBSD
@@ -454,7 +454,7 @@ storage as described in :ref:`Add Storage`.
 
 **Upload Plugin:** manually upload a plugin previously downloaded from
 the
-`plugins repository <http://download.freenas.org/plugins/9/x64/>`_.
+`plugins repository <http://download.freenas.org/plugins/9/x64/>`__.
 
 **Start/Stop:** this icon changes appearance depending on the current
 :guilabel:`Status` of the jail. When the jail is not running, the icon
@@ -550,7 +550,7 @@ large amount of data or if an application in a jail needs access to
 the data stored on the %brand% system. One example is transmission,
 which stores torrents. The storage is added using the
 `mount_nullfs(8)
-<http://www.freebsd.org/cgi/man.cgi?query=mount_nullfs>`_
+<https://www.freebsd.org/cgi/man.cgi?query=mount_nullfs>`__
 mechanism, which links data that resides outside of the jail as a
 storage area within the jail.
 
@@ -697,7 +697,7 @@ software to run on a FreeBSD system.
 A huge amount of software has been ported to FreeBSD, currently over
 24,000 applications, and most of that software is available as a
 package. One way to find FreeBSD software is to use the search bar at
-`FreshPorts.org <http://www.freshports.org/>`_.
+`FreshPorts.org <https://www.freshports.org/>`__.
 
 After finding the name of the desired package, use the
 :command:`pkg install` command to install it. For example, to install
@@ -805,7 +805,7 @@ Compiling a port has these disadvantages:
    :command:`pkg install` command instead.
 
 The
-`FreshPorts.org <http://www.freshports.org/>`_
+`FreshPorts.org <https://www.freshports.org/>`__
 listing shows whether a port has any configurable compile options.
 :numref:`Figure %s <config_opts_audiotag_fig>`
 shows the :guilabel:`Configuration Options` for audiotag.
@@ -1123,7 +1123,7 @@ Using iocage
 ------------
 
 Beginning with %brand% 9.10.1, the
-`iocage <https://github.com/iocage/iocage>`_
+`iocage <https://github.com/iocage/iocage>`__
 command line utility is included for creating and managing jails. Click
 the :guilabel:`Shell` option to open the command line and begin using
 iocage.
@@ -1152,7 +1152,7 @@ Iocage has several options to help users:
 * The iocage manual page is accessed by typing :samp:`man iocage`.
 
 * The iocage project also has documentation available on
-  `readthedocs.io <http://iocage.readthedocs.io/en/latest/index.html>`_.
+  `readthedocs.io <http://iocage.readthedocs.io/en/latest/index.html>`__.
 
 
 Managing iocage Jails

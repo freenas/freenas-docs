@@ -102,6 +102,6 @@ or monthly. The :guilabel:`<<` and :guilabel:`>>` buttons can be
 used to scroll through the output.
 
 `Update on using Graphite with FreeNAS
-<http://cmhramblings.blogspot.com/2015/12/update-on-using-graphite-with-freenas.html>`_
+<http://cmhramblings.blogspot.com/2015/12/update-on-using-graphite-with-freenas.html>`__
 contains instructions for sending the collected information to a
-`Graphite <http://graphite.wikidot.com/>`__ server.
+`Graphite <http://graphiteapp.org/>`__ server.
