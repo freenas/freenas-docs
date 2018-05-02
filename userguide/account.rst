@@ -49,11 +49,11 @@ to see a screen like
 
 The :guilabel:`Groups` pages lists all groups, including those installed
 by the operating system. Each group has an entry indicating the group
-name, group ID (GID), and whether or not it is a built-in group which
-was installed with %brand%. Clicking the :guilabel:`More Options` icon
-for a group entry displays :guilabel:`Members`, :guilabel:`Edit`, and
-:guilabel:`Delete` options. Click :guilabel:`Members` to view and modify
-the group membership.
+name, group ID (GID), whether or not it is a built-in group which was
+installed with %brand%, and if :command:`sudo` is permitted. Clicking
+the :guilabel:`More Options` icon for a group entry displays
+:guilabel:`Members`, :guilabel:`Edit`, and :guilabel:`Delete` options.
+Click :guilabel:`Members` to view and modify the group membership.
 
 .. index:: Add Group, New Group, Create Group
 
@@ -128,7 +128,8 @@ added as a member of the group.
 .. index:: Delete Group, Remove Group
 
 The :guilabel:`Delete` button deletes a group. The pop-up message asks
-to confirm the action. Note that the built-in groups do not provide a
+if users that have this group as primary should also be deleted, and to
+confirm the action. Note that the built-in groups do not provide a
 :guilabel:`Delete` button.
 
 
@@ -167,11 +168,12 @@ accounts installed with the %brand% operating system, as shown in
    Managing User Accounts
 
 
-Each account entry indicates the username, user ID, primary group ID,
-home directory, default shell, and whether it is a built-in user that
-came with the %brand% installation. Clicking a column name will resort
-the list by that value. An arrow indicates which column controls the
-view sort order. Click the arrow to reverse the sort order.
+Each user entry indicates the username, user ID, primary group ID,
+home directory, default shell, whether it is a built-in user that
+came with the %brand% installation, and other configured options.
+Clicking a column name will resort the list by that value. An arrow
+indicates which column controls the view sort order. Click the arrow to
+reverse the sort order.
 
 Highlight a user account and click :guilabel:`More Options` to cause
 the :guilabel:`Edit` and :guilabel:`Delete` buttons to appear.
@@ -352,4 +354,6 @@ created or modified.
 
 Built-in user accounts needed by the system cannot be removed. A
 :guilabel:`Delete` button appears for custom users that have been added
-by the system administrator.
+by the system administrator. Clicking :guilabel:`Delete` opens a popup
+window to confirm the action and present the option to not delete the
+user primary group when the user is deleted.
