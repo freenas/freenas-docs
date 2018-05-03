@@ -162,8 +162,8 @@ information given when the share was created.
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Use as home share            | checkbox      |          | Check this box if the share will hold home directories. Only one share can be used as the home share          |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Name                         | string        |          | Volume name which appears in the Mac computer's :guilabel:`connect to server` dialog. Limited to              |
-   |                              |               |          | 27 characters and cannot contain a period.                                                                    |
+   | Name                         | string        |          | Volume name that appears in in macOS after selecting :menuselection:`Go --> Connect to server` in the Finder  |
+   |                              |               |          | menu. Limited to 27 characters and cannot contain a period.                                                   |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Share Comment                | string        | ✓        | Optional comment.                                                                                             |
@@ -1095,7 +1095,7 @@ Note the following regarding some of the :guilabel:`Advanced Mode`
 settings:
 
 * Hostname lookups add some time to accessing the SMB share. If
-  only us IP addresses, uncheck the :guilabel:`Hostnames lookups` box
+  only using IP addresses, uncheck the :guilabel:`Hostnames lookups` box
   in
   :menuselection:`Services --> SMB`.
 
@@ -1162,7 +1162,7 @@ for more details.
    | acl_xattr           | Stores NTFS ACLs in Extended Attributes (EAs) to enable the full mapping of Windows ACLs.                                                  |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | aio_fork            | Eenables async I/O.                                                                                                                        |
+   | aio_fork            | Enables async I/O.                                                                                                                         |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | aio_pthread         | Implements async I/O in Samba vfs using a pthread pool instead of the internal Posix AIO interface.                                        |
@@ -1468,9 +1468,9 @@ the drop-down menu and click the :guilabel:`Finish` button.
 
 Note that Windows systems cache a user's credentials. This can cause
 issues when testing or accessing multiple authenticated shares as only
-one authentication is allowed at a time. When problems
-authenticating to a share occur and the
-username and password is correct, type **cmd** in the
+one authentication is allowed at a time. When
+authenticating to a share, if problems occur and the
+username and password are correct, type **cmd** in the
 :guilabel:`Search programs and files` box and use the following
 command to see if the share is already authenticated. In this
 example, the user has already authenticated to the *smb_user1*
@@ -1582,7 +1582,7 @@ second share is named *user2*. Then:
    to create at least one periodic snapshot task. There are two
    options for snapshot tasks. One is to create a snapshot task for
    each user's dataset. In this example the
-   datasets are :file:`/mnt/volume1/user1` and :file:`/mnt/volume1/user2`,
+   datasets are :file:`/mnt/volume1/user1` and :file:`/mnt/volume1/user2`.
    Another option is to create one periodic snapshot task for the
    entire volume,:file:`/mnt/volume1` in this case.
    **Before continuing to the next step,** confirm that at least one
