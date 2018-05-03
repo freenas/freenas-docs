@@ -1582,7 +1582,7 @@ second share is named *user2*. Then:
    to create at least one periodic snapshot task. There are two
    options for snapshot tasks. One is to create a snapshot task for
    each user's dataset. In this example the
-   datasets are :file:`/mnt/volume1/user1` and :file:`/mnt/volume1/user2`
+   datasets are :file:`/mnt/volume1/user1` and :file:`/mnt/volume1/user2`.
    Another option is to create one periodic snapshot task for the
    entire volume,:file:`/mnt/volume1` in this case.
    **Before continuing to the next step,** confirm that at least one
