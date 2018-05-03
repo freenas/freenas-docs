@@ -234,7 +234,6 @@ summarizes the available options.
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
-.. TODO update "Setting" column when #32244 is resolved.
 
 .. _domain_controller_opts_tab:
 
@@ -251,18 +250,18 @@ summarizes the available options.
    | Domain                  | string         | Capitalized domain name.                                                                                                  |
    |                         |                |                                                                                                                           |
    +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Server Roll             | drop-down menu | At this time, the only supported role is as the domain controller for a new domain.                                       |
+   | Server Role             | drop-down menu | At this time, the only supported role is as the domain controller for a new domain.                                       |
    |                         |                |                                                                                                                           |
    +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
    | DNS Forwarder           | string         | IP address of DNS forwarder. Required for recursive queries when *SAMBA_INTERNAL* is selected.                            |
    |                         |                |                                                                                                                           |
    +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Forest Level            | drop-down menu | Choices are *2000*, *2003*, *2008*, *2008_R2*, *2012*, or *2012_R2*. Refer to                                             |
+   | Domain Forest Level     | drop-down menu | Choices are *2000*, *2003*, *2008*, *2008_R2*, *2012*, or *2012_R2*. Refer to                                             |
    |                         |                | `Understanding Active Directory Domain Services (AD DS) Functional Levels                                                 |
    |                         |                | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754918(v=ws.10)>`__. |
    |                         |                |                                                                                                                           |
    +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Administration Password | string         | Password to be used for the :ref:`Active Directory` administrator account.                                                |
+   | Administrator Password  | string         | Password to be used for the :ref:`Active Directory` administrator account.                                                |
    |                         |                |                                                                                                                           |
    +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
    | Kerberos Realm          | drop-down menu | Auto-populates with information from the :guilabel:`Realm` when the settings in this screen are saved.                    |
@@ -308,7 +307,7 @@ service in :menuselection:`Services --> Control Services`.
 
    Configuring DDNS
 
-.. TODO UPDATE WHEN 31890 IS RESOLVED
+
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
@@ -1964,7 +1963,7 @@ UPS Configuration screen.
    | (upsd.conf)                   |                | `upsd.conf(5) <http://networkupstools.org/docs/man/upsd.conf.html>`__.                    |
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
-   | Description                   | string         | (optional) Enter any notes about the UPS service.                                         |
+   | Description                   | string         | Optional. Enter any notes about the UPS service.                                          |
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Shutdown Mode                 | drop-down menu | Choices are *UPS goes on battery* and *UPS reaches low battery*.                          |
@@ -2115,9 +2114,10 @@ available options.
    |                           |                | certificate, use :menuselection:`System --> Certificates`.                                            |
    |                           |                |                                                                                                       |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | HTTP Authentication       | drop-down menu | Choices are *Basic Authentication* (unencrypted) or *Digest Authentication* (encrypted).              |
+   | HTTP Authentication       | drop-down menu | Choices are *No Authentication*, *Basic Authentication* (unencrypted) or                              |
+   |                           |                | *Digest Authentication* (encrypted).                                                                  |
    |                           |                |                                                                                                       |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Webdav Password           | string         | default is *davtest*; this should be changed as it is a known value                                   |
+   | Webdav Password           | string         | Default is *davtest*. Change this password as it is a known value.                                    |
    |                           |                |                                                                                                       |
    +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
