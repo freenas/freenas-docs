@@ -1,4 +1,4 @@
-%brand% X Series Unified Storage Array Basic Setup Guide
+%brand% X-Series Unified Storage Array Basic Setup Guide
 ==================================================================
 
 .. toctree::
