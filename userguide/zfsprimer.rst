@@ -56,31 +56,31 @@ multiple disks are required in order to provide redundancy and data
 correction, ZFS will still provide data corruption detection to a
 system with one disk. %brand% automatically schedules a monthly scrub
 for each ZFS pool and the results of the scrub are displayed by
-selecting the :ref:`Volume <Volumes>` then clicking the
-:guilabel:`Volume Status` button. Checking scrub results can provide
-an early indication of potential disk problems.
+selecting the :ref:`Volume <Volumes>` and clicking
+:guilabel:`Volume Status`. Checking scrub results provides an early
+indication of potential disk problems.
 
-Unlike traditional UNIX filesystems, **it is not necessary to define
-partition sizes when filesystems are created**. Instead, a group of
-disks, known as a *vdev*, are built into a ZFS *pool*. Filesystems are
-created from the pool as needed. As more capacity is needed, identical
-vdevs can be striped into the pool. In %brand%, :ref:`Volume Manager`
-can be used to create or extend ZFS pools. After a pool is created, it
-can be divided into dynamically-sized datasets or fixed-size zvols as
-needed. Datasets can be used to optimize storage for the type of data
-being stored as permissions and properties such as quotas and
-compression can be set on a per-dataset level. A zvol is essentially a
-raw, virtual block device which can be used for applications that need
-raw-device semantics such as iSCSI device extents.
+Unlike traditional UNIX filesystems,
+**it is not necessary to define partition sizes when filesystems are
+created**.
+Instead, a group of disks, known as a *vdev*, are built into a ZFS
+*pool*. Filesystems are created from the pool as needed. As more
+capacity is needed, identical vdevs can be striped into the pool. In
+%brand%, :ref:`Volume Manager` can be used to create or extend ZFS pools.
+After a pool is created, it can be divided into dynamically-sized
+datasets or fixed-size zvols as needed. Datasets can be used to optimize
+storage for the type of data being stored as permissions and properties
+such as quotas and compression can be set on a per-dataset level. A zvol
+is essentially a raw, virtual block device which can be used for
+applications that need raw-device semantics such as iSCSI device extents.
 
 **ZFS supports real-time data compression**. Compression happens when
 a block is written to disk, but only if the written data will benefit
 from compression. When a compressed block is accessed, it is
 automatically decompressed. Since compression happens at the block
 level, not the file level, it is transparent to any applications
-accessing the compressed data. By default, ZFS pools made using
-%brand% version 9.2.1 or later will use the recommended LZ4
-compression algorithm.
+accessing the compressed data. ZFS pools created on %brand% version
+9.2.1 or later use the recommended LZ4 compression algorithm.
 
 **ZFS provides low-cost, instantaneous snapshots** of the specified
 pool, dataset, or zvol. Due to COW, snapshots initially take no
