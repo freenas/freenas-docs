@@ -5,11 +5,16 @@ System
 
 The System section of the administrative GUI contains these entries:
 
-* :ref:`Information` provides general %brand% system information
-  such as hostname, operating system version, platform, and uptime
+#ifdef truenas
+* :ref:`Information` provides general %brand% system information such as
+  hostname, operating system version, platform, and uptime
+#endif truenas
 
 * :ref:`General` configures general settings such as HTTPS access, the
   language, and the timezone
+
+* :ref:`NTP Servers` adds, edits, and deletes Network Time Protocol
+  servers
 
 * :ref:`Boot` creates, renames, and deletes boot environments
 
@@ -21,17 +26,17 @@ The System section of the administrative GUI contains these entries:
 * :ref:`System Dataset` configures the location where logs and
   reporting graphs are stored
 
+* :ref:`Alert Services` configures services used to notify the
+  administrator about system events.
+
+* :ref:`Cloud Credentials` is used to enter connection credentials for
+  remote cloud service providers
+
 * :ref:`Tunables` provides a front-end for tuning in real-time and to
   load additional kernel modules at boot time
 
 * :ref:`Update` performs upgrades and checks for system
   updates
-
-* :ref:`Cloud Credentials` is used to enter connection credentials for
-  remote cloud service providers
-
-* :ref:`Alert Services` configures services used to notify the
-  administrator about system events.
 
 * :ref:`CAs`: import or create internal or intermediate CAs
   (Certificate Authorities)
@@ -63,7 +68,7 @@ The System section of the administrative GUI contains these entries:
 
 Each of these is described in more detail in this section.
 
-
+#ifdef truenas
 .. _Information:
 
 Information
@@ -90,12 +95,7 @@ add *.local* after the hostname.
 
 .. _system_info_fig:
 
-#ifdef freenas
-.. figure:: images/system-information.png
 
-   System Information Tab
-#endif freenas
-#ifdef truenas
 .. figure:: images/truenas/system-information.png
 
    System Information Tab
@@ -148,9 +148,6 @@ can be configured using the General tab:
    |                      |                | create a CA (in `CAs`_), then the certificate itself (in `Certificates`_)                                                |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Certificate          | drop-down menu | required for *HTTPS*; browse to the location of the certificate to use for encrypted connections                         |
-   |                      |                |                                                                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI IPv4 Address  | drop-down menu | choose from a list of recent IP addresses to limit the one to use when accessing the administrative GUI; the             |
    |                      |                | built-in HTTP server will automatically bind to the wildcard address of *0.0.0.0* (any address) and will issue an        |
    |                      |                | alert if the specified address becomes unavailable                                                                       |
@@ -169,7 +166,10 @@ can be configured using the General tab:
    | WebGUI HTTPS Port    | integer        | allows configuring a non-standard port for accessing the administrative GUI over HTTPS                                   |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTP -->      | checkbox       | when this box is checked, *HTTP* connections are automatically redirected to                                             |
+   | GUI SSL Certificate  | drop-down menu | required for *HTTPS*; browse to the location of the certificate to use for encrypted connections                         |
+   |                      |                |                                                                                                                          |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | WebGUI HTTP ->       | checkbox       | when this box is checked, *HTTP* connections are automatically redirected to                                             |
    | HTTPS Redirect       |                | *HTTPS* if                                                                                                               |
    |                      |                | *HTTPS* is selected in :guilabel:`Protocol`, otherwise such connections will fail                                        |
    |                      |                |                                                                                                                          |
@@ -198,13 +198,6 @@ After making any changes, click the :guilabel:`Save` button.
 
 This screen also contains these buttons:
 
-**Reset Configuration to Defaults:** reset the configuration database
-to the default base version. This does not delete user SSH keys or any
-other data stored in a user's home directory. Since configuration
-changes stored in the configuration database are erased, this option
-is useful when a mistake has been made or to return a test system to
-the original configuration.
-
 **Save Config:** save a backup copy of the current configuration
 database in the format *hostname-version-architecture* to the computer
 accessing the administrative interface. Saving the configuration after
@@ -229,7 +222,7 @@ backup. Other passwords, like iSCSI CHAP passwords or Active Directory
 bind credentials, are stored in an encrypted form to prevent them from
 being visible as plain text in the saved system configuration. The key
 or *seed* for this encryption is normally stored only on the boot
-device. When :guilabel:`Save Config` is chosen, a dialog gives the
+device. When :guilabel:`Save Config` is chosen, a new screen gives the
 option to :guilabel:`Export Password Secret Seed` with the saved
 configuration, allowing the configuration file to be restored to
 a different boot device where the decryption seed is not already
@@ -247,14 +240,26 @@ saved configuration file to restore that configuration. The screen
 turns red as an indication that the system will need to reboot to load
 the restored configuration.
 
-**NTP Servers:** The network time protocol (NTP) is used to
-synchronize the time on the computers in a network. Accurate time is
-necessary for the successful operation of time sensitive applications
-such as Active Directory or other directory services. By default,
-%brand% is pre-configured to use three public NTP servers. If your
-network is using a directory service, ensure that the %brand% system
-and the server running the directory service have been configured to
-use the same NTP servers.
+**Reset Config:** reset the configuration database
+to the default base version. This does not delete user SSH keys or any
+other data stored in a user's home directory. Since configuration
+changes stored in the configuration database are erased, this option
+is useful when a mistake has been made or to return a test system to
+the original configuration.
+
+.. index:: NTP Servers,
+.. _NTP Servers:
+
+NTP Servers
+-----------
+
+The network time protocol (NTP) is used to synchronize the time on the
+computers in a network. Accurate time is necessary for the successful
+operation of time sensitive applications such as Active Directory or
+other directory services. By default, %brand% is pre-configured to use
+three public NTP servers. If your network is using a directory service,
+ensure that the %brand% system and the server running the directory
+service have been configured to use the same NTP servers.
 
 Available NTP servers can be found at
 `<https://support.ntp.org/bin/view/Servers/NTPPoolServers>`_.
@@ -262,11 +267,11 @@ For time accuracy, choose NTP servers that are geographically close to
 the %brand% system's physical location.
 
 NTP servers are added by clicking on
-:menuselection:`NTP Servers --> Add NTP Server`
+:menuselection:`System --> NTP Servers --> Add NTP Server`
 to open the screen shown in
 :numref:`Figure %s <ntp_server_fig>`.
 :numref:`Table %s <ntp_server_conf_opts_tab>`
-summarizes the options available when adding an NTP server.
+summarizes the options available when adding or editing an NTP server.
 `ntp.conf(5) <http://www.freebsd.org/cgi/man.cgi?query=ntp.conf>`_
 explains these options in more detail.
 
@@ -343,13 +348,13 @@ instruct the system to go back to that system state.
    :menuselection:`System --> General --> Save Config`.
 
 As seen in
-:numref:`Figure %s <view_boot_env_fig>`,
-two boot environments are created when %brand% is installed. The
-system will boot into the *default* boot environment and users can
-make their changes and update from this version. The other boot
-environment, named *Initial-Install* can be booted into if the system
-needs to be returned to a pristine, non-configured version of the
-installation.
+:numref:`Figure %s <view_boot_env_fig>`, %brand% displays the condition
+and statisctics of the *Boot Volume*. It also shows how two boot
+environments are created when %brand% is installed. The system will boot
+into the *default* boot environment and users can make their changes and
+update from this version. The other boot environment, named
+*Initial-Install* can be booted into if the system needs to be returned
+to a pristine, non-configured version of the installation.
 
 
 .. _view_boot_env_fig:
@@ -376,22 +381,15 @@ Each boot environment entry contains this information:
 
 * **Created:** indicates the date and time the boot entry was created.
 
+* **Space:** displays the size of the boot environment.
+
 * **Keep:** indicates whether or not this boot environment can be
   pruned if an update does not have enough space to proceed. Click the
   entry's :guilabel:`Keep` button if that boot environment should not
   be automatically pruned.
 
-Highlight an entry to view the configuration buttons for it.  These
-configuration buttons are shown:
-
-* **Rename:** used to change the name of the boot environment.
-
-* **Keep/Unkeep:** used to toggle whether or not the updater can prune
-  (automatically delete) this boot environment if there is not enough
-  space to proceed with the update.
-
-* **Clone:** used to create a copy of the highlighted boot
-  environment.
+Click :guilabel:`More Options` for an entry to view the configuration
+buttons for it.  These configuration buttons are shown:
 
 * **Delete:** used to delete the highlighted entry, which also removes
   that entry from the boot menu. Since you cannot delete an entry that
@@ -403,6 +401,11 @@ configuration buttons are shown:
   this entry is needed in order to return the system to the original
   installation state.
 
+* **Clone:** used to create a copy of the highlighted boot
+  environment.
+
+* **Rename:** used to change the name of the boot environment.
+
 * **Activate:** only appears on entries which are not currently set to
   :guilabel:`Active`. Changes the selected entry to the default boot
   entry on next boot. Its status changes to :guilabel:`On Reboot` and
@@ -410,19 +413,24 @@ configuration buttons are shown:
   :guilabel:`On Reboot, Now` to :guilabel:`Now`, indicating that it
   was used on the last boot but will not be used on the next boot.
 
-The buttons above the boot entries can be used to:
+* **Keep:** used to toggle whether or not the updater can prune
+  (automatically delete) this boot environment if there is not enough
+  space to proceed with the update.
 
-* **Create:** a manual boot environment. A pop-up menu prompts for
+The button above the boot entries can be used to:
+
+* **Create:** a manual boot environment. A new screen prompts for
   entry of a :guilabel:`Name` for the boot environment. When entering
   the name, only alphanumeric characters, underscores, and dashes are
   allowed.
 
-* **Scrub Boot:** can be used to perform a manual scrub of the boot
+* **Scrub:** can be used to perform a manual scrub of the boot
   devices. By default, the boot device is scrubbed every 7 days. To
   change the default interval, change the number in the
-  :guilabel:`Automatic scrub interval (in days)` field. The date and
-  results of the last scrub are also listed in this screen. The
-  condition of the boot device should be listed as *HEALTHY*.
+  :guilabel:`Automatic scrub interval (in days)` field of the
+  :guilabel:`Boot Environments` screen. The date and results of the last
+  scrub are also listed in this screen. The condition of the boot device
+  should be listed as *HEALTHY*.
 
 * **Status:** click this button to see the status of the boot devices.
   :numref:`Figure %s <status_boot_dev_fig>`,
@@ -446,9 +454,9 @@ The buttons above the boot entries can be used to:
 #ifdef freenas
 If the system has a mirrored boot pool, there will be a
 :guilabel:`Detach` button in addition to the :guilabel:`Replace` button.
-To remove a device from the boot pool, highlight the device and click
-its :guilabel:`Detach` button. Alternately, if one of the boot devices
-has an *OFFLINE* :guilabel:`Status`, click the device to replace,
+To remove a device from the boot pool, click :guilabel:`More Options`
+for the device and click :guilabel:`Detach`. Alternately, if one of the
+boot devices has an *OFFLINE* :guilabel:`Status`, click the device to replace,
 then click :guilabel:`Replace` to rebuild the boot mirror.
 #endif freenas
 #ifdef truenas
@@ -483,13 +491,8 @@ shows a sample boot menu.
 
 The first entry is the active boot environment, or the one that the
 system has been configured to boot into. To boot into a different boot
-environment, press the :kbd:`spacebar` to pause this screen, use the
-down arrow to select :guilabel:`Boot Environment Menu`, and press
-:kbd:`Enter`. A menu displays the other available boot environments.
-Use the up/down arrows to select the desired boot environment and
-press :kbd:`Enter` to boot into it. To always boot into that boot
-environment, go to :menuselection:`System --> Boot`, highlight that
-entry, and click the :guilabel:`Activate` button.
+environment, click :guilabel:`More Options` and :guilabel:`Activate` for
+the desired boot environment.
 
 
 #ifdef freenas
@@ -519,11 +522,10 @@ the user has clicked
 to display the current status of the boot device. The example
 indicates that there is currently one device, *ada0p2*, its status is
 *ONLINE*, and it is currently the only boot device as indicated by the
-word *stripe*. To create a mirrored boot device, click either the
-entry called *freenas-boot* or *stripe*, then click the
-:guilabel:`Attach` button. If another device is available, it appears
-in the :guilabel:`Member disk` drop-down menu. Select the desired
-device.
+word *stripe*. To create a mirrored boot device, click
+:guilabel:`More Options` then :guilabel:`Attach`. If another device is
+available, it appears in the :guilabel:`Member disk` drop-down menu.
+Select the desired device.
 
 The :guilabel:`Use all disk space` checkbox gives control of how much
 of the new device is made available to ZFS. The default is unchecked,
@@ -537,7 +539,7 @@ removed, the boot mirror will consist of just the newer drive, and
 will grow to whatever capacity it provides. However, new devices added
 to this mirror must now be as large as the new capacity.
 
-Click :guilabel:`Attach Disk` to attach the new disk to the mirror.
+Click :guilabel:`Save` to attach the new disk to the mirror.
 
 
 .. _mirror_boot_dev_fig:
@@ -599,23 +601,16 @@ The configurable settings are summarized in
    | Setting                                  | Value                            | Description                                                                  |
    |                                          |                                  |                                                                              |
    +==========================================+==================================+==============================================================================+
-   | Show Text Console Without Password Prompt| checkbox                         | unchecking this box replaces the console menu shown in                       |
+   | Enable Console Menu                      | checkbox                         | unchecking this box replaces the console menu shown in                       |
    |                                          |                                  | :numref:`Figure %s <console_setup_menu_fig>` with a login prompt             |
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Use Serial Console                       | checkbox                         | **do not** check this box if the serial port is disabled                     |
+   | Enable Serial Conso                      | checkbox                         | **do not** check this box if the serial port is disabled                     |
    |                                          |                                  |                                                                              |
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Serial Port Address                      | string                           | serial port address in hex                                                   |
    |                                          |                                  |                                                                              |
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Serial Port Speed                        | drop-down menu                   | select the speed used by the serial port                                     |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable screen saver                      | checkbox                         | enable or disable the console screen saver                                   |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable powerd (Power Saving Daemon)      | checkbox                         | `powerd(8) <http://www.freebsd.org/cgi/man.cgi?query=powerd>`_               |
-   |                                          |                                  | monitors the system state and sets the CPU frequency accordingly             |
+   | Serial Speed                             | drop-down menu                   | select the speed used by the serial port                                     |
    |                                          |                                  |                                                                              |
    #ifdef freenas
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
@@ -625,24 +620,34 @@ The configurable settings are summarized in
    |                                          |                                  |                                                                              |
    #endif freenas
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Show console messages in the footer      | checkbox                         | display console messages in real time at bottom of browser; click the        |
-   |                                          |                                  | console to bring up a scrollable screen; check the :guilabel:`Stop refresh`  |
-   |                                          |                                  | box in the scrollable screen to pause updating and uncheck the box           |
-   |                                          |                                  | to continue to watch the messages as they occur                              |
+   | Enable Console Screensaver               | checkbox                         | enable or disable the console screen saver                                   |
    |                                          |                                  |                                                                              |
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Show tracebacks in case of fatal errors  | checkbox                         | provides a pop-up of diagnostic information when a fatal error occurs        |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Show advanced fields by default          | checkbox                         | several GUI menus provide an :guilabel:`Advanced Mode` button to access      |
-   |                                          |                                  | additional features; enabling this shows these features by default           |
+   | Enable Power Saving Daemon               | checkbox                         | `powerd(8) <http://www.freebsd.org/cgi/man.cgi?query=powerd>`_               |
+   |                                          |                                  | monitors the system state and sets the CPU frequency accordingly             |
    |                                          |                                  |                                                                              |
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Enable autotune                          | checkbox                         | enables :ref:`autotune` which attempts to optimize the system depending      |
    |                                          |                                  | upon the hardware which is installed                                         |
    |                                          |                                  |                                                                              |
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable debug kernel                      | checkbox                         | when checked, next boot uses a debug version of the kernel                   |
+   | Enable Debug Kernel                      | checkbox                         | when checked, next boot uses a debug version of the kernel                   |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Show console messages                    | checkbox                         | display console messages in real time at bottom of browser; click the        |
+   |                                          |                                  | console to bring up a scrollable screen; check the :guilabel:`Stop refresh`  |
+   |                                          |                                  | box in the scrollable screen to pause updating and uncheck the box           |
+   |                                          |                                  | to continue to watch the messages as they occur                              |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | MOTD banner                              | string                           | message to be shown when a user logs in with SSH                             |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Show tracebacks in case of fatal error   | checkbox                         | provides a pop-up of diagnostic information when a fatal error occurs        |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Show advanced fields by default          | checkbox                         | several GUI menus provide an :guilabel:`Advanced Mode` button to access      |
+   |                                          |                                  | additional features; enabling this shows these features by default           |
    |                                          |                                  |                                                                              |
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Enable automatic upload of kernel        | checkbox                         | when checked, kernel crash dumps and telemetry (some system stats, collectd  |
@@ -650,23 +655,21 @@ The configurable settings are summarized in
    |                                          |                                  | team for diagnosis                                                           |
    |                                          |                                  |                                                                              |
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | MOTD banner                              | string                           | message to be shown when a user logs in with SSH                             |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Periodic Notification User               | drop-down menu                   | user to receive security output emails; this output runs nightly             |
    |                                          |                                  | but only sends an email when the system reboots or encounters an error       |
    |                                          |                                  |                                                                              |
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Report CPU usage in percentage           | checkbox                         | when checked, CPU usage is reported as percentages in :ref:`Reporting`       |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Remote Graphite Server hostname          | string                           | IP address or hostname of a remote server running                            |
+   | Remote Graphite Server Hostname          | string                           | IP address or hostname of a remote server running                            |
    |                                          |                                  | `Graphite <http://graphite.wikidot.com/>`_                                   |
    |                                          |                                  |                                                                              |
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Use FQDN for logging                     | checkbox                         | when checked, include the Fully-Qualified Domain Name in logs to precisely   |
    |                                          |                                  | identify systems with similar hostnames                                      |
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | Report CPU usage in percentage           | checkbox                         | when checked, CPU usage is reported as percentages in :ref:`Reporting`       |
+   |                                          |                                  |                                                                              |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+
 
 Click the :guilabel:`Save` button after making any changes.
 
@@ -759,11 +762,10 @@ status changes.
 
 The first step is to set the remote address where email will be sent.
 Select
-:menuselection:`Account --> Users`, click on *root* to highlight
-that user, then click :guilabel:`Modify User`. In the
-:guilabel:`E-mail` field, enter the email address on the remote system
-where email is to be sent, like *admin@example.com*. Click
-:guilabel:`OK` to save the settings.
+:menuselection:`Account --> Users`, click :guilabel:`More Options` for
+*root*, then click :guilabel:`Edit`. In the :guilabel:`Email` field,
+enter the email address on the remote system where email is to be sent,
+like *admin@example.com*. Click :guilabel:`Save` to save the settings.
 
 Additional configuration is performed with
 :menuselection:`System --> Email`,
@@ -799,25 +801,25 @@ shown in
    | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
-   | From email           | string               | the envelope **From** address shown in the email; this can be set to assist with filtering      |
+   | From E-mail          | string               | the envelope **From** address shown in the email; this can be set to assist with filtering      |
    |                      |                      | mail on the receiving system                                                                    |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Outgoing mail server | string or IP address | hostname or IP address of SMTP server to use for sending this email                             |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Port to connect to   | integer              | SMTP port number, typically *25*,                                                               |
+   | Mail Server Port     | integer              | SMTP port number, typically *25*,                                                               |
    |                      |                      | *465* (secure SMTP), or                                                                         |
    |                      |                      | *587* (submission)                                                                              |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | TLS/SSL              | drop-down menu       | encryption type; choices are *Plain*,                                                           |
+   | Security             | drop-down menu       | encryption type; choices are *Plain*,                                                           |
    |                      |                      | *SSL*, or                                                                                       |
    |                      |                      | *TLS*                                                                                           |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Use                  | checkbox             | enable/disable                                                                                  |
-   | SMTP                 |                      | `SMTP AUTH <http://en.wikipedia.org/wiki/SMTP_Authentication>`_                                 |
-   | Authentication       |                      | using PLAIN SASL; if checked, enter the required :guilabel:`Username` and                       |
+   | SMTP                 | checkbox             | enable/disable                                                                                  |
+   | Authentication       |                      | `SMTP AUTH <http://en.wikipedia.org/wiki/SMTP_Authentication>`_                                 |
+   |                      |                      | using PLAIN SASL; if checked, enter the required :guilabel:`Username` and                       |
    |                      |                      | :guilabel:`Password`                                                                            |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Username             | string               | enter the username if the SMTP server requires authentication                                   |
@@ -826,23 +828,23 @@ shown in
    | Password             | string               | enter the password if the SMTP server requires authentication                                   |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Password             | string               | enter the same password again for confirmation                                                  |
-   | Confirmation         |                      |                                                                                                 |
+   | Confirm Password     | string               | enter the same password again for confirmation                                                  |
+   |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
 
-Click the :guilabel:`Send Test Mail` button to verify that the
+Click the :guilabel:`Send Mail` button to verify that the
 configured email settings are working. If the test email fails,
-double-check that the :guilabel:`E-mail` field of the *root* user is
-correctly configured by clicking the :guilabel:`Modify User` button for
-the *root* account in :menuselection:`Account --> Users --> View Users`.
+double-check that the :guilabel:`Email` field of the *root* user is
+correctly configured by clicking the :guilabel:`Edit` button for
+the *root* account in :menuselection:`Account --> Users`.
 
 Configuring email for TLS/SSL email providers is described in
 `Are you having trouble getting FreeNAS to email you in Gmail?
 <https://forums.freenas.org/index.php?threads/are-you-having-trouble-getting-freenas-to-email-you-in-gmail.22517/>`_.
 
 
-.. note: The %brand% user who receives periodic email can be set with
+.. note:: The %brand% user who receives periodic email can be set with
    :menuselection:`System --> Advanced` in the
    :guilabel:`Periodic Notification User` field.
 
@@ -893,15 +895,11 @@ will prevent :file:`/var/` on the device holding the operating system
 from filling up as :file:`/var/` has limited space.
 
 Use the drop-down menu to select the pool to contain the system
-dataset. Whenever the location of the system dataset is changed, a
-pop-up warning indicates that the SMB service must be restarted,
-causing a temporary outage of any active SMB connections.
+dataset.
 
 #ifdef truenas
 .. note:: It is recommended to store the system dataset on the
-   :file:`freenas-boot` pool. For this reason, a yellow system alert
-   will be generated when the system dataset is configured to
-   use another pool.
+   :file:`freenas-boot` pool.
 #endif truenas
 
 To store the system log on the system dataset, check the
@@ -923,6 +921,136 @@ location.
    large amount of space and receive frequent writes. Do not put the
    system dataset on a flash drive or other media with limited space
    or write life.
+
+
+.. index:: Alert Services
+.. _Alert Services:
+
+Alert Services
+--------------
+
+%brand% can use a number of methods to notify the administrator of
+system events that require attention. These events are system
+:ref:`Alerts <Alert>` marked *WARN* or *CRITICAL*.
+
+Currently available alert services:
+
+* Test Alerts
+
+* `AWS-SNS <https://aws.amazon.com/sns/>`_
+
+* `Hipchat <https://www.hipchat.com/>`_
+
+* `InfluxDB <https://www.influxdata.com/>`_
+
+* `Mattermost <https://about.mattermost.com/>`_
+
+* `OpsGenie <https://www.opsgenie.com/>`_
+
+* `PagerDuty <https://www.pagerduty.com/>`_
+
+* `Slack <https://slack.com/>`_
+
+* `VictorOps <https://victorops.com/>`_
+
+
+.. warning:: These alert services might use a third party commercial
+   vendor not directly affiliated with iXsystems. Please investigate
+   and fully understand that vendor's pricing policies and services
+   before using their alert service. iXsystems is not responsible for
+   any charges incurred from the use of third party vendors with the
+   Alert Services feature.
+
+
+Select
+:menuselection:`System --> Alert Services` to go to the Alert Services
+screen. Hover :guilabel:`Add Service` to display the different service
+options. Click an option to open a screen with the specific
+configurables for that chosen service. Enter the required information,
+check the :guilabel:`Enabled` checkbox, then click :guilabel:`Save` to
+save the settings.
+
+System alerts marked *WARN* or *CRITICAL* are sent to each alert
+service that has been configured and enabled.
+
+Alert services can be deleted from this list by clicking
+:guilabel:`More Options` and then clicking the :guilabel:`Delete`
+button. To disable an alert service temporarily, click :guilabel:`Edit`
+and remove the checkmark from the :guilabel:`Enabled` checkbox.
+
+.. note:: To send a test alert, expand the :guilabel:`Add Alert Service`
+   menu and click the :guilabel:`Test Alerts` button.
+
+How it Works
+~~~~~~~~~~~~
+
+A *nas-health* service is registered with Consul. This service runs
+:file:`/usr/local/etc/consul-checks/freenas_health.sh` periodically,
+currently every two minutes. If an alert marked *WARNING* or
+*CRITICAL* is found, the *nas-health* service is marked as
+"unhealthy", triggering :command:`consul-alerts` to notify configured
+alert services.
+
+
+.. index:: Cloud Credentials
+.. _Cloud Credentials:
+
+Cloud Credentials
+-----------------
+
+%brand% can use cloud services for features like :ref:`Cloud Sync`.
+The credentials to provide secure connections with cloud services
+are entered here. Amazon S3, Azure Blob Storage, Backblaze B2, and
+Google Cloud Storage are supported.
+
+Select
+:menuselection:`System --> Cloud Credentials` and hover over the
+:guilabel:`Add Cloud Credential` button to show the different options.
+Click any option to open a configuration screen tailored to that
+specific service.
+
+Enter a descriptive name for the cloud credential in the
+:guilabel:`Account Name` field. The remaining options vary by provider,
+and are shown in :numref:`Table %s <cloud_cred_tab>`.
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
+
+.. _cloud_cred_tab:
+
+.. table:: Cloud Credential Options
+   :class: longtable
+
+   +----------------------+----------------------+-------------------------------------------------------------+
+   | Provider             | Setting              | Description                                                 |
+   |                      |                      |                                                             |
+   +======================+======================+=============================================================+
+   | Amazon S3            | Access Key,          | paste the Amazon account access key and secret key in the   |
+   |                      | Secret Key           | fields                                                      |
+   +----------------------+----------------------+-------------------------------------------------------------+
+   | Azure Blob Storage   | Account Name,        | enter the Azure Blob Storage account name and key in the    |
+   |                      | Account Key          | fields                                                      |
+   +----------------------+----------------------+-------------------------------------------------------------+
+   | Backblaze B2         | Access Key,          | paste the account access key and secret key in the provided |
+   |                      | Secret Key           | fields                                                      |
+   |                      |                      |                                                             |
+   +----------------------+----------------------+-------------------------------------------------------------+
+   | Google Cloud Storage | JSON Server Account  | browse to the location of the saved Google Cloud Storage    |
+   |                      | Key                  | key and select it                                           |
+   +----------------------+----------------------+-------------------------------------------------------------+
+
+
+For Amazon S3, :guilabel:`Access Key` and
+:guilabel:`Secret Key` values can be can be found on the Amazon AWS
+website by clicking on the account name, then
+:guilabel:`My Security Credentials` and
+:guilabel:`Access Keys (Access Key ID and Secret Access Key)`.
+Copy the Access Key value to the %brand% Cloud Credential
+:guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
+value saved when the key pair was created. If the Secret Key value is
+not known, a new key pair can be created on the same Amazon screen.
 
 
 .. index:: Tunables
@@ -1026,8 +1154,9 @@ summarizes the options when adding a tunable.
 
 Any added tunables are listed in
 :menuselection:`System --> Tunables`.
-To change the value of an existing tunable, click its :guilabel:`Edit`
-button. To remove a tunable, click its :guilabel:`Delete` button.
+To change the value of an existing tunable, click
+:guilabel:`More Options` and :guilabel:`Edit`. To remove a tunable,
+click :guilabel:`More Options` and :guilabel:`Delete`.
 
 Restarting the %brand% system after making sysctl changes is
 recommended. Some sysctls only take effect at system startup, and
@@ -1267,10 +1396,8 @@ By default, the system automatically checks for updates and issues an
 alert when a new update becomes available. The automatic check can be
 disabled by unchecking :guilabel:`Automatically check for updates`.
 
-This screen lists the URL of the official update server in case that
-information is needed in a network with outbound firewall
-restrictions. It also shows which software branch, or *train*, is
-being tracked for updates.
+This screen shows which software branch, or *train*, is being tracked
+for updates.
 
 Several trains are available for updates.
 
@@ -1331,9 +1458,6 @@ selection.
    used to check for updates that train.
 
 
-This screen also shows the URL of the official update server. That
-information can be required when using a network with outbound
-firewall restrictions.
 #endif freenas
 #ifdef truenas
 **For Production Use**
@@ -1356,13 +1480,8 @@ firewall restrictions.
   this train only at the recommendation of an iX support engineer.
 #endif truenas
 
-The :guilabel:`Verify Install` button verifies that the operating
-system files in the current installation do not have any
-inconsistencies. If any problems are found, a pop-up menu lists the
-files with checksum mismatches or permission errors.
 
-
-.. Checking for Updates:
+.. _Checking for Updates:
 
 Checking for Updates
 ~~~~~~~~~~~~~~~~~~~~
@@ -1372,12 +1491,9 @@ Checking for updates by making sure the desired train is selected and
 clicking the :guilabel:`Check Now` button. Any available updates are
 listed. In the example shown in
 :numref:`Figure %s <review_updates_fig>`,
-the numbers which begin with a *#* represent the issue number from
-`the issue tracker <https://redmine.ixsystems.com/projects/freenas/issues>`__.
-Numbers which do not begin with a *#* represent a git commit. Click
-the :guilabel:`ChangeLog` link to open the log of changes in a web
-browser. Click the :guilabel:`ReleaseNotes` link to open the Release
-Notes in the browser.
+upgrades for different components of %brand% are displayed. The numeric
+string is a date stamp. Click the :guilabel:`Check Release Notes` button
+to open the Release Notes in the browser.
 
 
 .. _review_updates_fig:
@@ -1399,9 +1515,9 @@ Applying Updates
 Make sure the system is in a low-usage state as described above in
 :ref:`Preparing for Updates`.
 
-Click the :guilabel:`OK` button to download and apply the updates. Be
-aware that some updates automatically reboot the system after they are
-applied.
+Click the :guilabel:`Update and Reboot` button to download and apply the
+updates. Be aware that updates automatically reboot the system after
+they are applied.
 
 .. warning:: Each update creates a boot environment. If the update
    process needs more space, it attempts to remove old boot
@@ -1412,36 +1528,6 @@ applied.
    :menuselection:`System --> Boot`.
    Review the boot environments and remove the *Keep* attribute or
    delete any boot environments that are no longer needed.
-
-Updates can also be downloaded and applied later. To do so, uncheck
-the :guilabel:`Apply updates after downloading` box before pressing
-:guilabel:`OK`. In this case, this screen closes after updates are
-downloaded. Downloaded updates are listed in the
-:guilabel:`Pending Updates` section of the screen shown in
-:numref:`Figure %s <update_options_fig>`.
-When ready to apply the previously downloaded updates, click the
-:guilabel:`Apply Pending Updates` button. Remember that the system
-might reboot after the updates are applied.
-
-.. warning:: After updates have completed, reboot the system.
-   Configuration changes made after an update but before that final
-   reboot will not be saved.
-
-
-Manual Updates
-~~~~~~~~~~~~~~
-
-Updates can be manually downloaded as a file. These updates are then
-applied with the :guilabel:`Manual Update` button. After obtaining the
-update file, click :guilabel:`Manual Update` and choose a location to
-temporarily store the file on the %brand% system. Use the file browser
-to locate the update file, then click :guilabel:`Apply Update` to
-apply it.
-
-Manual update files can be identified by their filenames, which end in
-:file:`-manual-update-unsigned.tar`.
-
-Manual updates cannot be used to upgrade from older major versions.
 
 
 #ifdef truenas
@@ -1496,154 +1582,6 @@ the update was applied.
 
 #include snippets/upgradingazfspool.rst
 #endif truenas
-
-
-.. index:: Cloud Credentials
-.. _Cloud Credentials:
-
-Cloud Credentials
------------------
-
-%brand% can use cloud services for features like :ref:`Cloud Sync`.
-The credentials to provide secure connections with cloud services
-are entered here. Amazon S3, Azure Blob Storage, Backblaze B2, and
-Google Cloud Storage are supported.
-
-Select
-:menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
-to display the dialog shown in
-:numref:`Figure %s <cloud_cred_fig>`.
-
-
-.. _cloud_cred_fig:
-
-.. figure:: images/system-cloud-cred.png
-
-   Adding Cloud Credentials
-
-
-Enter a descriptive name for the cloud credential in the
-:guilabel:`Account Name` field, then select a provider. The
-remaining options vary by provider, and are shown in
-:numref:`Table %s <cloud_cred_tab>`.
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.64\linewidth-2\tabcolsep}|
-
-.. _cloud_cred_tab:
-
-.. table:: Cloud Credential Options
-   :class: longtable
-
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Provider             | Setting              | Description                                                 |
-   |                      |                      |                                                             |
-   +======================+======================+=============================================================+
-   | Amazon S3            | Access Key,          | paste the Amazon account access key and secret key in the   |
-   |                      | Secret Key           | fields                                                      |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Azure Blob Storage   | Account Name,        | enter the Azure Blob Storage account name and key in the    |
-   |                      | Account Key          | fields                                                      |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Backblaze B2         | Account ID,          | enter the Backblaze account ID and paste the application    |
-   |                      | Application Key      | in the fields                                               |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Google Cloud Storage | JSON Server Account  | browse to the location of the saved Google Cloud Storage    |
-   |                      | Key                  | key and select it                                           |
-   +----------------------+----------------------+-------------------------------------------------------------+
-
-
-Additional fields are displayed after :guilabel:`Provider` is
-selected. For Amazon S3, :guilabel:`Access Key` and
-:guilabel:`Secret Key` are shown. These values can be can be found on
-the Amazon AWS website by clicking on the account name, then
-:guilabel:`My Security Credentials` and
-:guilabel:`Access Keys (Access Key ID and Secret Access Key)`.
-Copy the Access Key value to the %brand% Cloud Credential
-:guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
-value saved when the key pair was created. If the Secret Key value is
-not known, a new key pair can be created on the same Amazon screen.
-
-
-.. index:: Alert Services
-.. _Alert Services:
-
-Alert Services
---------------
-
-%brand% can use a number of methods to notify the administrator of
-system events that require attention. These events are system
-:ref:`Alerts <Alert>` marked *WARN* or *CRITICAL*.
-
-Currently available alert services:
-
-* `AWS-SNS <https://aws.amazon.com/sns/>`_
-
-* `Hipchat <https://www.hipchat.com/>`_
-
-* `InfluxDB <https://www.influxdata.com/>`_
-
-* `Slack <https://slack.com/>`_
-
-* `Mattermost <https://about.mattermost.com/>`_
-
-* `OpsGenie <https://www.opsgenie.com/>`_
-
-* `PagerDuty <https://www.pagerduty.com/>`_
-
-* `VictorOps <https://victorops.com/>`_
-
-
-.. warning:: These alert services might use a third party commercial
-   vendor not directly affiliated with iXsystems. Please investigate
-   and fully understand that vendor's pricing policies and services
-   before using their alert service. iXsystems is not responsible for
-   any charges incurred from the use of third party vendors with the
-   Alert Services feature.
-
-
-Select
-:menuselection:`System --> Alert Services` to go to the Alert Services
-screen. Click :guilabel:`Add Service` to display the dialog shown in
-:numref:`Figure %s <alertservices_add_fig>`.
-
-
-.. _alertservices_add_fig:
-
-.. figure:: images/system-alertservices-add.png
-
-   Add Alert Service
-
-
-The :guilabel:`Service Name` drop-down menu is used to pick a specific
-alert service. The fields shown in the rest of the dialog change to
-those required by that service. Enter the required information, check
-the :guilabel:`Enabled` checkbox, then click :guilabel:`OK` to save
-the settings.
-
-System alerts marked *WARN* or *CRITICAL* are sent to each alert
-service that has been configured and enabled.
-
-Alert services can be deleted from this list by clicking them and then
-clicking the :guilabel:`Delete` button at the bottom of the window. To
-disable an alert service temporarily, click :guilabel:`Edit` and
-remove the checkmark from the :guilabel:`Enabled` checkbox.
-
-.. note:: To send a test alert, highlight an alert entry, click
-   :guilabel:`Edit`, and click the :guilabel:`Send Test Alert` button.
-
-How it Works
-~~~~~~~~~~~~
-
-A *nas-health* service is registered with Consul. This service runs
-:file:`/usr/local/etc/consul-checks/freenas_health.sh` periodically,
-currently every two minutes. If an alert marked *WARNING* or
-*CRITICAL* is found, the *nas-health* service is marked as
-"unhealthy", triggering :command:`consul-alerts` to notify configured
-alert services.
 
 
 .. index:: CA, Certificate Authority
@@ -1790,7 +1728,7 @@ information for your organization.
    | Organization            | string               | required; enter the name of the company or organization                                         |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Email Address           | string               | required; enter the email address for the person responsible for the CA                         |
+   | Email                   | string               | required; enter the email address for the person responsible for the CA                         |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Common Name             | string               | required; enter the fully-qualified hostname (FQDN) of the system; the :guilabel:`Common Name`  |
@@ -1815,16 +1753,16 @@ screen adds one more option to the screen shown in
 Any CAs that you import or create will be added as entries in
 :menuselection:`System --> CAs`.
 The columns in this screen indicate the name of the CA, whether it is
-an internal CA, whether the issuer is self-signed, the number of
-certificates that have been issued by the CA, the distinguished name
-of the CA, the date and time the CA was created, and the date and time
-the CA expires.
+an internal CA, whether the issuer is self-signed, the CA lifetime (in
+days), the common name of the CA, the date and time the CA was created,
+and the date and time the CA expires.
 
-Clicking the entry for a CA causes these buttons to become available:
+Clicking :guilabel:`More Options` for a CA causes these buttons to
+become available:
 
-* **Sign CSR:** used to sign internal Certificate Signing Requests created
-  using
-  :menuselection:`System --> Certificates --> Create Certificate Signing Request`.
+* **Sign CSR:** used to sign internal Certificate Signing Requests
+  created using
+  :menuselection:`System --> Certificates --> Create CSR`.
 
 * **Export Certificate:** prompts to browse to the location to save a
   copy of the CA's X.509 certificate on the computer being used to
@@ -1926,8 +1864,7 @@ The configurable options are summarized in
 
 
 To instead create a new self-signed certificate, click the
-:guilabel:`Create Internal Certificate` button to see the screen shown
-in
+:guilabel:`Create Internal` button to see the screen shown in
 :numref:`Figure %s <create_new_cert_fig>`.
 The configurable options are summarized in
 :numref:`Table %s <cert_create_opts_tab>`.
@@ -1985,7 +1922,7 @@ as the signing authority.
    | Organization            | string               | required; enter the name of the company or organization                                         |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Email Address           | string               | required; enter the email address for the person responsible for the CA                         |
+   | Email                   | string               | required; enter the email address for the person responsible for the CA                         |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Common Name             | string               | required; enter the fully-qualified hostname (FQDN) of the system; the :guilabel:`Common Name`  |
@@ -1996,6 +1933,7 @@ as the signing authority.
    |                         |                      | space to separate domain names                                                                  |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+
 
 If you need to use a certificate that is signed by an external CA,
 such as Verisign, instead create a certificate signing request. To do
@@ -2026,9 +1964,10 @@ configurable option for encrypting connections.
    Managing Certificates
 
 
-Clicking an entry activates these configuration buttons:
+Click :guilabel:`More Options` for an entry shows these configuration
+buttons:
 
-* **View:** use this option to view or edit the contents of an existing
+* **Edit:** use this option to view or edit the contents of an existing
   certificate. These fields can be edited: :guilabel:`Identifier` (name),
   :guilabel:`Certificate`, and :guilabel:`Private Key`.
 
@@ -2099,16 +2038,15 @@ complete the following fields:
   requesting a new feature.
 
 * **Category:** this drop-down menu is empty a registered "Username"
-  and "Password" are entered. An error message is displayed if either
+  and "Password" are entered. The field remains grayed out if either
   value is incorrect. After the *Username* and *Password* are
   validated, possible categories are populated to the drop-down menu.
   Select the one that best describes the bug or feature being
   reported.
 
-* **Attach Debug Info:** it is recommended to leave this box
-  checked so that an overview of the system's hardware, build
-  string, and configuration is automatically generated and included
-  with the ticket.
+* **Attach Debug:** it is recommended to check this box so that an
+  overview of the system's hardware, build string, and configuration is
+  automatically generated and included with the ticket.
 
 * **Subject:** enter a descriptive title for the ticket. A good
   *Subject* makes it easy for you and other users to find similar
@@ -2118,15 +2056,11 @@ complete the following fields:
   issue that describes the problem, and if applicable, what steps can
   be taken to reproduce it.
 
-* **Attachments:** this is the only optional field. It is useful
-  for including configuration files or screenshots of any errors or
-  tracebacks.
-
 Once you have finished completing the fields, click the
 :guilabel:`Submit` button to automatically generate and upload the
 report to https://redmine.ixsystems.com/projects/freenas/issues.
-A pop-up menu provides a clickable URL so to view status or add
-additional information to the report.
+A pop-up menu provides a URL so to view status or add additional
+information to the report.
 #endif freenas
 
 #ifdef truenas
