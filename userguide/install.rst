@@ -3,13 +3,13 @@
 Installing and Upgrading
 ========================
 
-Please note that the %brand% operating system must be installed on a
+The %brand% operating system must be installed on a
 separate device from the drives which hold the storage data. In other
 words, with only one disk drive, the %brand% graphical interface is
 available, but there is no place to store any data. And storing data
 is, after all, the whole point of a NAS system. Home users
 experimenting with %brand% can install %brand% on an inexpensive USB
-thumb drive and use the computer's disks for storage.
+thumb drive and use the computer disks for storage.
 
 This section describes:
 
@@ -92,7 +92,7 @@ for several common operating systems are shown below.
    might also be necessary to adjust the BIOS configuration to boot
    from the new %brand% USB stick.
 
-Make sure that the boot device order in the BIOS is set to boot from
+Ensure the boot device order in the BIOS is set to boot from
 the device containing the %brand% installer media, then boot the
 system to start the installation.
 
@@ -102,7 +102,7 @@ system to start the installation.
 On FreeBSD or Linux
 ~~~~~~~~~~~~~~~~~~~
 
-On a FreeBSD or Linux system, the :command:`dd` command can be used to
+On a FreeBSD or Linux system, the :command:`dd` command is used to
 write the :file:`.iso` file to an inserted USB thumb drive. This
 example demonstrates writing the image to the first USB device
 (*/dev/da0*) connected to a FreeBSD system. Substitute the filename of
@@ -111,8 +111,8 @@ the :file:`.iso` file and the device name of the device to write.
 .. warning:: The :command:`dd` command is very powerful and can
    destroy any existing data on the specified device. Make
    **absolutely sure** of the device name to write to and do not
-   mistype the device name when using :command:`dd`! If you are
-   uncomfortable using this command, write the :file:`.iso` file to a
+   mistype the device name when using :command:`dd`! The use of this
+   command can be avoided by writing the :file:`.iso` file to a
    CD instead.
 
 .. code-block:: none
@@ -164,9 +164,9 @@ running Windows. When using Rufus, check
 the drop-down menu.
 
 
-.. _On OS X:
+.. _macOS:
 
-On OS X
+macOS
 ~~~~~~~
 
 Insert the USB thumb drive. In the Finder, go to
@@ -198,8 +198,8 @@ TERMINAL, navigate to the Desktop, then type this command:
 
 
 This shows which devices are available to the system. Locate the
-target USB stick and record the path. If you are not sure which path
-is the correct one for the USB stick, remove the device, run the
+target USB stick and record the path. To determine the correct path
+for the USB stick, remove the device, run the
 command again, and compare the difference. Once sure of the device
 name, navigate to the Desktop from TERMINAL, unmount the USB stick,
 and use the :command:`dd` command to write the image to the USB stick.
@@ -226,7 +226,7 @@ the USB thumb drive.
    "dd: /dev/disk1: Permission denied" is shown, run the :command:`dd`
    command by typing
    :command:`sudo dd if=FreeNAS-11.0-RELEASE.iso of=/dev/rdisk1 bs=64k`.
-   This will prompt for your password.
+   This will prompt for the password.
 
 The :command:`dd` command can take some minutes to complete. Wait
 until the prompt returns and a message is displayed with information
@@ -431,7 +431,7 @@ message:
    run_interrupt_driven_hooks: still waiting after 60 seconds for xpt_config
 
 
-go into the system BIOS and look for an onboard device configuration
+Go into the system BIOS and look for an onboard device configuration
 for a 1394 Controller. If present, disable that device and try booting
 again.
 
@@ -526,7 +526,7 @@ Be aware of these caveats **before** attempting an upgrade to
   hardware supports 64-bit, the system can be upgraded.  Any
   archived reporting graphs will be lost during the upgrade.
 
-* **UFS is no longer supported.** If your data currently resides on
+* **UFS is no longer supported.** If the data currently resides on
   **one** UFS-formatted disk, create a ZFS volume using **other**
   disks after the upgrade, then use the instructions in
   :ref:`Import Disk` to mount the UFS-formatted disk and copy the data
@@ -554,15 +554,15 @@ Before upgrading the operating system, perform the following steps:
 #.  **Back up the** %brand% **configuration** in
     :menuselection:`System --> General --> Save Config`.
 
-#.  If any volumes are encrypted, **make sure** that you have set the
-    passphrase and have a copy of the encryption key and the latest
+#.  If any volumes are encrypted, **remember** to set the
+    passphrase and download a copy of the encryption key and the latest
     recovery key. After the upgrade is complete, use the instructions
     in :ref:`Importing an Encrypted Pool` to import the encrypted
     volume.
 
 #.  Warn users that the %brand% shares will be unavailable during the
-    upgrade; you should schedule the upgrade for a time that will
-    least impact users.
+    upgrade; scheduling the upgrade for a time that will
+    least impact users is recommended.
 
 #.  Stop all services in
     :menuselection:`Services --> Control Services`.
@@ -611,15 +611,14 @@ boot drive or drives and presents the message shown in
    Upgrading a %brand% Installation
 
 
-.. note:: If you choose a :guilabel:`Fresh Install`, the backup of
-   your configuration data must be restored using
+.. note:: If :guilabel:`Fresh Install` is chosen, the backup of
+   the configuration data must be restored using
    :menuselection:`System --> General --> Upload Config`
    after booting into the new operating system.
 
 To perform an upgrade, press :kbd:`Enter` to accept the default of
-:guilabel:`Upgrade Install`. Again, the installer will remind you that
-the operating system should be installed on a disk that is not used
-for storage.
+:guilabel:`Upgrade Install`. The installer recommends installing
+the operating system on a disk not used for storage.
 
 
 .. _install_new_boot_environment_fig:
@@ -640,7 +639,7 @@ options and press :kbd:`Enter` to start the upgrade.
 
 The installer unpacks the new image and displays the menu shown in
 :numref:`Figure %s <preserve_migrate_fig>`.
-The database file that is preserved and migrated contains your %brand%
+The database file that is preserved and migrated contains the %brand%
 configuration settings.
 
 
@@ -656,17 +655,17 @@ a reboot is required. Press :guilabel:`OK`, highlight
 :guilabel:`3 Reboot System`, then press :kbd:`Enter` to reboot the
 system. If the upgrade installer was booted from CD, remove the CD.
 
-During the reboot there may be a conversion of the previous
+During the reboot there can be a conversion of the previous
 configuration database to the new version of the database. This
 happens during the "Applying database schema changes" line in the
 reboot cycle. This conversion can take a long time to finish,
-sometimes fifteen minutes or more, and might have to reboot the system
-again afterwards. Please be patient and the system will start
-normally. If database errors are shown but the graphical
+sometimes fifteen minutes or more, and can cause the system to
+reboot again. The system will start
+normally afterwards. If database errors are shown but the graphical
 administrative interface is accessible, go to
 :menuselection:`Settings --> General`
 and use the :guilabel:`Upload Config` button to upload the
-configuration that you saved before starting the upgrade.
+configuration that was saved before starting the upgrade.
 
 
 .. _Upgrading From the GUI:
@@ -677,11 +676,11 @@ Upgrading From the GUI
 To perform an upgrade using this method, go to
 :menuselection:`System --> Update`.
 
-After the update is complete, you will temporarily lose your
-connection as the %brand% system reboots into the new version of the
+After the update is complete, the connection will be lost temporarily
+as the %brand% system reboots into the new version of the
 operating system. The %brand% system will normally receive the same
-IP address from the DHCP server. Refresh your browser after a moment
-to see if you can access the system.
+IP address from the DHCP server. Refresh the browser after a moment
+to see if the system is accessible.
 
 
 .. _If Something Goes Wrong:
@@ -729,9 +728,10 @@ configuration. The system can be recovered with a few steps:
     :menuselection:`System --> General --> Upload Config`.
 
 .. note:: It is not possible to restore a saved configuration that is
-   newer than the installed version. For example, if you reboot into
-   an older version of the operating system, you cannot restore a
-   configuration that was created in a later version.
+   newer than the installed version. For example, if a reboot into
+   an older version of the operating system is performed,
+   a configuration that was created in a later version cannot be
+   restored.
 
 #ifdef freenas
 #include snippets/upgradingazfspool.rst
@@ -745,11 +745,11 @@ Virtualization
 --------------
 
 %brand% can be run inside a virtual environment for development,
-experimentation, and educational purposes. Please note that running
+experimentation, and educational purposes. Note that running
 %brand% in production as a virtual machine is `not recommended
 <https://forums.freenas.org/index.php?threads/please-do-not-run-freenas-in-production-as-a-virtual-machine.12484/>`__.
-If you decide to use %brand% within a virtual environment,
-`read this post first
+Before using FreeNAS within a virtual environment for the first time,
+`read this post
 <https://forums.freenas.org/index.php?threads/absolutely-must-virtualize-freenas-a-guide-to-not-completely-losing-your-data.12714/>`__
 as it contains useful guidelines for minimizing the risk of losing
 data.
@@ -947,7 +947,7 @@ possible to boot the VM from :file:`.iso`. If
 the :file:`.iso`, the host CPU either does not have the required
 extension or AMD-V/VT-x is disabled in the system BIOS.
 
-.. note:: If you receive a kernel panic when booting into the ISO,
+.. note:: If there is a kernel panic when booting into the ISO,
    stop the virtual machine. Then, go to :guilabel:`System` and check
    the box :guilabel:`Enable IO APIC`.
 
@@ -973,8 +973,8 @@ After configuration is complete, click the :guilabel:`Start` arrow and
 install %brand% as described in `Performing the Installation`_. Once
 %brand% is installed, press :kbd:`F12` when the VM starts to boot to
 access the boot menu. Select the primary hard disk as the boot option.
-You can permanently boot from disk by removing the :guilabel:`CD/DVD`
-device in :guilabel:`Storage` or by unchecking :guilabel:`CD/DVD-ROM`
+To permanently boot from disk, remove the :guilabel:`CD/DVD`
+device in :guilabel:`Storage` or uncheck :guilabel:`CD/DVD-ROM`
 in the :guilabel:`Boot Order` section of :guilabel:`System`.
 
 
@@ -1086,7 +1086,7 @@ For ESX 5.0, Workstation 8.0, or Fusion 4.0 or higher, additional
 configuration is needed so that the virtual HPET setting does not
 prevent the virtual machine from booting.
 
-If you are running ESX, while in :guilabel:`Edit Settings`, click
+If ESX is running, while in :guilabel:`Edit Settings`, click
 :menuselection:`Options --> Advanced --> General
 --> Configuration Parameters`.
 Change :guilabel:`hpet0.present` from *true* to *false*, then click
