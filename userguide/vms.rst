@@ -463,6 +463,8 @@ Set the :guilabel:`Disk boot` checkbox, enter a password for the
 *20G* in the :guilabel:`Disk size` field. Click :guilabel:`OK` to save
 the device.
 
+.. note:: The :guilabel:`Password` will fail if it contains a space.
+
 
 .. figure:: images/vms-rancher-storage.png
 
