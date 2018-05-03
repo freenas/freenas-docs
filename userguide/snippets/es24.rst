@@ -25,10 +25,10 @@ Carefully unpack the shipping boxes and locate these components:
    :class: longtable
 
    +--------------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es24_bare.png               | .. image:: images/tn_es24_bezel.png         |
-   |                                                  |    :width: 10%                              |
+   | .. image:: images/tn_es24_bare.png               |                                             |
    |                                                  |                                             |
-   | ES24 Expansion Shelf                             | ES24 Bezel                                  |
+   |                                                  |                                             |
+   | ES24 Expansion Shelf                             |                                             |
    +--------------------------------------------------+---------------------------------------------+
    | .. image:: images/tn_es24_rails.png              | .. image:: images/tn_es24_drivetray.png     |
    |                                                  |    :width: 30%                              |
@@ -263,14 +263,6 @@ next unused SAS ports on the Z-Series as shown:
 
 After all SAS cables have been connected, plug the Z-Series power
 cords into power outlets.
-
-
-Install Bezel (Optional)
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-The included bezel is not required for operation. If desired, install
-the bezel by aligning it with the pins on the bezel ears and pressing
-it into place.
 
 .. raw:: latex
 
