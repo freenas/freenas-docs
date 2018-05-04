@@ -137,10 +137,21 @@ These applications have been added or updated:
   Upgrades will continue to use the :command:`csh` shell as the default
   root shell.
 
-The following screens have changed:
+The following screen options have changed:
 
 * The :guilabel:`Exec` field has been added to
   :menuselection:`Storage --> Volumes --> Create Dataset --> Advanced Mode`.
+
+* The :guilabel:`Enable home directories`, :guilabel:`Home directories`,
+  :guilabel:`Home share name`, and :guilabel:`Home Share Time Machine`
+  fields have been removed from :menuselection:`Services --> AFP` and
+  the :guilabel:`Time Machine Quota` field has been removed from
+  :menuselection:`Sharing --> Apple (AFP) Shares`. These fields have been
+  replaced by
+  :menuselection:`Sharing --> Apple (AFP) Shares --> Use as home share`.
+
+* The :guilabel:`Umask` field in :menuselection:`Services --> TFTP` has
+  changed to a :guilabel:`File Permissions` selector.
 
 * Disk temperature graphs have been added to
   :menuselection:`Reporting --> Disk`.

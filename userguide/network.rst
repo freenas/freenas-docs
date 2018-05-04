@@ -223,13 +223,10 @@ editing an existing interface.
    | Options             | string         | Additional parameters from                                                                                |
    |                     |                | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.                                     |
    |                     |                | Separate multiple parameters with a space. For example: *mtu 9000* increases the MTU for interfaces       |
-   |                     |                | which support jumbo frames.                                                                               |
+   |                     |                | which support jumbo frames. See :ref:`this note <LAGG_MTU>` about MTU and lagg interfaces.                |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
 
-
-.. TODO add (but see :ref:`this note <LAGG_MTU>` about MTU and lagg interfaces)
-   back to line 221 when that section can be uncommented.
 
 #ifdef truenas
 .. note:: The ability to delete interfaces is disabled if
@@ -631,11 +628,14 @@ GUI from the new lagg interface.
    |                     |                |                                                                                  |
    +---------------------+----------------+----------------------------------------------------------------------------------+
 
-#ifdef comment
 
-Click the :guilabel:`Edit Members` button, click the entry for a
-member, then click its :guilabel:`Edit` button to see the
-configuration screen shown in
+There are also buttons to *Add* and *Remove* any extra IPv4 or IPv6
+aliases.
+
+From the :guilabel:`Link Aggregations` screen, click
+:guilabel:`More options` and :guilabel:`Edit Members`. Click
+:guilabel:`More options` entry for an interface group and
+:guilabel:`Edit` to see the configuration screen shown in
 :numref:`Figure %s <lagg_member_edit_fig>`.
 The configurable options are summarized in
 :numref:`Table %s <lagg_config_member_tab>`.
@@ -662,31 +662,31 @@ The configurable options are summarized in
    |                      |                |                                                                                                |
    |                      |                |                                                                                                |
    +======================+================+================================================================================================+
-   | LAGG Interface group | drop-down menu | select the member interface to configure                                                       |
+   | LAGG Interface Group | drop-down menu | Select the member interface to configure.                                                      |
    |                      |                |                                                                                                |
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
-   | LAGG Priority Number | integer        | order of selected interface within the lagg; configure a failover to set the master interface  |
-   |                      |                | to *0* and the other interfaces to                                                             |
-   |                      |                | *1*,                                                                                           |
-   |                      |                | *2*, etc.                                                                                      |
+   | LAGG Priority Number | integer        | Order of selected interface within the lagg. Configure a failover to set the master interface  |
+   |                      |                | to *0* and the other interfaces to *1*, *2*, etc.                                              |
    |                      |                |                                                                                                |
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
-   | LAGG Physical NIC    | drop-down menu | physical interface of the selected member                                                      |
+   | LAGG Physical NIC    | drop-down menu | Physical interface of the selected member.                                                     |
    |                      |                |                                                                                                |
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
-   | Options              | string         | additional parameters from                                                                     |
-   |                      |                | `ifconfig(8) <http://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__                            |
+   | Options              | string         | Additional parameters from                                                                     |
+   |                      |                | `ifconfig(8) <http://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.                           |
    |                      |                |                                                                                                |
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
 
 
-Options can be set at the lagg level using the :guilabel:`Edit`
-button, or at the individual parent interface level using the
-:guilabel:`Edit Members` button. Changes are typically made at the
-lagg level
+Options can be set at the lagg level with
+:menuselection:`Network --> Link Aggregations --> More options
+--> Edit Members`
+or at the individual parent interface level with the
+:menuselection:`Network --> Interfaces --> More options --> Edit`
+:guilabel:`Options` field. Changes are typically made at the lagg level
 (:numref:`Figure %s <lagg_edit_fig>`)
-as each interface member will inherit from the lagg. To configure at
-the interface level
+as each interface member inherits settings from the lagg. To configure
+at the interface level
 (:numref:`Figure %s <lagg_member_edit_fig>`)
 instead, the configuration must be repeated for each interface within
 the lagg.
@@ -696,8 +696,9 @@ the lagg.
 
 Some options can only be set on the parent interfaces and are
 inherited by the lagg interface. For example, to set the MTU on a
-lagg, use :guilabel:`Edit Members` to set the MTU for each parent
-interface.
+lagg, use
+:menuselection:`Network --> Interfaces --> More options --> Edit`
+to set the MTU for each parent interface.
 
 If the MTU settings on the lagg member interfaces are not identical,
 the smallest value is used for the MTU of the entire lagg.
@@ -715,7 +716,7 @@ Link aggregation load balancing can be tested with:
 
 More information about this command can be found at
 `systat(1) <http://www.freebsd.org/cgi/man.cgi?query=systat>`__.
-#endif comment
+
 
 .. index:: Route, Static Route
 .. _Static Routes:

@@ -164,9 +164,9 @@ running Windows. When using Rufus, check
 the drop-down menu.
 
 
-.. _On OS X:
+.. _macOS:
 
-On OS X
+macOS
 ~~~~~~~
 
 Insert the USB thumb drive. In the Finder, go to
@@ -198,8 +198,8 @@ TERMINAL, navigate to the Desktop, then type this command:
 
 
 This shows which devices are available to the system. Locate the
-target USB stick and record the path. If unsure which path
-is the correct one for the USB stick, remove the device, run the
+target USB stick and record the path. To determine the correct path
+for the USB stick, remove the device, run the
 command again, and compare the difference. Once sure of the device
 name, navigate to the Desktop from TERMINAL, unmount the USB stick,
 and use the :command:`dd` command to write the image to the USB stick.
@@ -226,7 +226,7 @@ the USB thumb drive.
    "dd: /dev/disk1: Permission denied" is shown, run the :command:`dd`
    command by typing
    :command:`sudo dd if=FreeNAS-11.0-RELEASE.iso of=/dev/rdisk1 bs=64k`.
-   This will prompt for your password.
+   This will prompt for the password.
 
 The :command:`dd` command can take some minutes to complete. Wait
 until the prompt returns and a message is displayed with information
@@ -502,7 +502,7 @@ Be aware of these caveats **before** attempting an upgrade to
 * Upgrading the firmware of Broadcom SAS HBAs to the latest version is
   recommended.
 
-* If upgrading from 9.3.x, please read the
+* If upgrading from 9.3.x, read the
   `FAQ: Updating from 9.3 to 9.10
   <https://forums.freenas.org/index.php?threads/faq-updating-from-9-3-to-9-10.54260/>`__
   first.
@@ -653,13 +653,13 @@ a reboot is required. Press :guilabel:`OK`, highlight
 :guilabel:`3 Reboot System`, then press :kbd:`Enter` to reboot the
 system. If the upgrade installer was booted from CD, remove the CD.
 
-During the reboot there may be a conversion of the previous
+During the reboot there can be a conversion of the previous
 configuration database to the new version of the database. This
 happens during the "Applying database schema changes" line in the
 reboot cycle. This conversion can take a long time to finish,
-sometimes fifteen minutes or more, and might have to reboot the system
-again afterwards. Please be patient and the system will start
-normally. If database errors are shown but the graphical
+sometimes fifteen minutes or more, and can cause the system
+to reboot again. The system will start
+normally afterwards. If database errors are shown but the graphical
 administrative interface is accessible, go to
 :menuselection:`Settings --> General`
 and use the :guilabel:`Upload Config` button to upload the
@@ -674,8 +674,8 @@ Upgrading From the GUI
 To perform an upgrade using this method, go to
 :menuselection:`System --> Update`.
 
-After the update is complete, the connection will be lost temporarily
-as the %brand% system reboots into the new version of the
+The connection is lost temporarily when the update is complete. It
+will return after the %brand% system reboots into the new version of the
 operating system. The %brand% system will normally receive the same
 IP address from the DHCP server. Refresh the browser after a moment
 to see if the system can be accessed.
