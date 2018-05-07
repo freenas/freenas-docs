@@ -49,7 +49,7 @@ example, it can be used to test the speed of different types of shares
 to determine which type performs best on the network.
 
 %brand% includes the Iperf server. To perform network testing,
-an Iperf client must be installed on a desktop system that has
+install an Iperf client on a desktop system that has
 network access to the %brand% system. This section demonstrates
 how to use the
 `xjperf GUI client
@@ -61,7 +61,7 @@ Since this client is Java-based, the appropriate
 <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
 must be installed on the client computer.
 
-Linux and BSD users will need to install the iperf package using the
+Linux and BSD users will need to install the Iperf package using the
 package management system for their operating system.
 
 To start xjperf on Windows: unzip the downloaded file, start Command
@@ -72,8 +72,8 @@ To start xjperf on Mac OS X, Linux, or BSD, unzip the downloaded file,
 :command:`cd` to the unzipped directory, type
 :command:`chmod u+x jperf.sh`, and run :command:`./jperf.sh`.
 
-Once the client is ready, the Iperf server on
-%brand% must be started.
+Once the client is ready, start the Iperf server on
+%brand%.
 
 .. note:: Beginning with %brand% version 11.1, both `iperf2
    <https://sourceforge.net/projects/iperf2/>`_ and `iperf3
@@ -107,9 +107,9 @@ For example, to perform a TCP test and start the server in daemon mode
    The Iperf daemon process ID: 4842
 
 
-.. note:: When :ref:`Shell` closes the daemon process stops.
+.. note:: The daemon process stops when :ref:`Shell` closes.
    Set up the environment (e.g. shares configured and started)
-   **before** starting the iperf process.
+   **before** starting the Iperf process.
 
 From the desktop, open the client. Enter the IP of address of the
 %brand% system, specify the running time for the test under
@@ -189,8 +189,8 @@ performing tests with the :command:`netperf` command. The
 <http://www.netperf.org/svn/netperf2/tags/netperf-2.6.0/doc/netperf.html>`_
 describes each option in more detail and explains how to perform many
 types of tests. It is the best reference for understanding how each
-test works and how to interpret your results. When you are finished
-with your tests, type :command:`killall netserver` to stop the server
+test works and how to interpret your results. When testing is
+finished, type :command:`killall netserver` to stop the server
 process.
 
 .. code-block:: none
@@ -774,7 +774,7 @@ meaning of unfamiliar acronyms is required.
 **Do not change a tunable's value without researching it first.**
 If the tunable takes a numeric value (rather than 0 for no or 1 for
 yes), do not make one up. Instead, research examples of beneficial
-values that match your workload.
+values that match the workload.
 
 If any of the ZFS tunables are changed, continue to monitor
 the system to determine the effect of the change. It is recommended
@@ -790,7 +790,7 @@ disable to *1* or yes):
 
 The output will indicate the old value followed by the new value. If
 the change is not beneficial, change it back to the original value. If
-the change turns out to be beneficial, you can make it permanent by
+the change turns out to be beneficial, it can be made permanent by
 creating a *sysctl* using the instructions in :ref:`Tunables`.
 
 
@@ -814,7 +814,7 @@ Before using this command, read its
 as it describes the terminology and provides some usage examples.
 
 When :command:`tw_cli` in Shell is entered, the prompt will change,
-indicating that ineractive mode has been enabled where
+indicating that interactive mode is enabled where
 all sorts of maintenance commands on the controller and its arrays
 can be run.
 
@@ -1023,7 +1023,7 @@ lists all of the key bindings and commands for interacting with
 :command:`tmux` windows and sessions.
 
 If :ref:`Shell` is closed while :command:`tmux` is running, it will
-detach its session. The next time Shell is, run
+detach its session. The next time Shell is open, run
 :command:`tmux attach` to return to the previous session. To leave the
 :command:`tmux` session entirely, type :command:`exit`. If
 multiple windows are running, it is required to :command:`exit` out 
