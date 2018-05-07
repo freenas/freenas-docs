@@ -1650,9 +1650,10 @@ summarizes the options in this screen.
 Review the default selections and, if necessary, modify them to meet
 the needs of the environment. Note that the :guilabel:`Threshold`
 field is used to prevent scrubs from running too often, and overrides
-the schedule chosen in the other fields.
+the schedule chosen in the other fields. Also, if a pool is locked or
+unmounted when a scrub is scheduled to occur, it will not be scrubbed.
 
-Scheduled crubs can be deleted with the :guilabel:`Delete` button, but
+Scheduled scrubs can be deleted with the :guilabel:`Delete` button, but
 this is not recommended. **Scrubs can provide an early indication of
 disk issues before a disk failure.** If a scrub is too intensive for
 the hardware, consider temporarily unchecking the :guilabel:`Enabled`
