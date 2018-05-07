@@ -112,6 +112,14 @@ if tags.has('bsg-es24'):
     master_doc = 'bsg-es24'
     cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_es24_front.png}'
 
+if tags.has('bsg-mseries'):
+    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    tags.remove('freenas')
+    project = brand + ' ' + six.u('M-Series Unified Storage Array')
+    projtype = 'Basic Setup Guide'
+    master_doc = 'bsg-mseries'
+    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_m_front.png}'
+
 if tags.has('bsg-es60'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
     tags.remove('freenas')
@@ -495,6 +503,12 @@ if tags.has('bsg-es12'):
 if tags.has('bsg-es24'):
     latex_documents = [
       ('bsg-es24', 'BSG-ES24.tex', texproject, 'iXsystems', 'howto'),
+    ]
+    latex_elements.update({'printindex': ''})
+
+if tags.has('bsg-mseries'):
+    latex_documents = [
+      ('bsg-mseries', 'BSG-M-Series.tex', texproject, 'iXsystems', 'howto'),
     ]
     latex_elements.update({'printindex': ''})
 
