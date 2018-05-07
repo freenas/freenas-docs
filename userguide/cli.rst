@@ -6,7 +6,7 @@ Command Line Utilities
 Several command line utilities which are provided with %brand% are
 demonstrated in this section.
 
-The following utilities can be used for benchmarking and performance
+These utilities are used for benchmarking and performance
 testing:
 
 * :ref:`Iperf`: used for measuring maximum TCP and UDP bandwidth
@@ -19,7 +19,7 @@ testing:
 
 * :ref:`arcstat`: used to gather ZFS ARC statistics
 
-The following utilities are specific to RAID controllers:
+These utilities are specific to RAID controllers:
 
 * :ref:`tw_cli`:_used to monitor and maintain 3ware RAID controllers
 
@@ -45,34 +45,34 @@ Iperf
 
 Iperf is a utility for measuring maximum TCP and UDP bandwidth
 performance. It can be used to chart network throughput over time. For
-example, you can use it to test the speed of different types of shares
-to determine which type best performs on your network.
+example, it can be used to test the speed of different types of shares
+to determine which type best performs on the network.
 
-%brand% includes the Iperf server. To perform network testing, you
-will need to install an Iperf client on a desktop system that has
-network access to the %brand% system. This section will demonstrate
+%brand% includes the Iperf server. To perform network testing, install
+an Iperf client on a desktop system that has
+network access to the %brand% system. This section demonstrates
 how to use the
 `xjperf GUI client
 <https://code.google.com/archive/p/xjperf/downloads>`__
-as it works on Windows, Mac OS X, Linux, and BSD systems.
+as it works on Windows, macOS, Linux, and BSD systems.
 
 Since this client is Java-based, the appropriate
 `JRE
 <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`__
 must be installed on the client computer.
 
-Linux and BSD users will need to install the iperf package using their
-operating system's package management system.
+Linux and BSD users can install the Iperf package using the
+package management system for their operating system.
 
 To start xjperf on Windows: unzip the downloaded file, start Command
 Prompt in Run as administrator mode, :command:`cd` to the unzipped
 folder, and run :command:`jperf.bat`.
 
-To start xjperf on Mac OS X, Linux, or BSD, unzip the downloaded file,
+To start xjperf on macOS, Linux, or BSD, unzip the downloaded file,
 :command:`cd` to the unzipped directory, type
 :command:`chmod u+x jperf.sh`, and run :command:`./jperf.sh`.
 
-Once the client is ready, you need to start the Iperf server on
+Once the client is ready, start the Iperf server on
 %brand%.
 
 .. note:: Beginning with %brand% version 11.1, both `iperf2
@@ -107,11 +107,11 @@ For example, to perform a TCP test and start the server in daemon mode
    The Iperf daemon process ID: 4842
 
 
-.. note:: If you close :ref:`Shell`, the daemon process will stop.
-   Have your environment set up (e.g. shares configured and started)
-   **before** starting the iperf process.
+.. note:: The daemon process stops when :ref:`Shell` closes.
+   Set up the environment, for example, shares configured
+   and started, **before** starting the Iperf process.
 
-From your desktop, open the client. Enter the IP of address of the
+From the desktop, open the client. Enter the IP of address of the
 %brand% system, specify the running time for the test under
 :menuselection:`Application layer options --> Transmit`
 (the default test time is 10 seconds), and click the
@@ -128,12 +128,12 @@ Windows system while an SFTP transfer is occurring on the network.
    Viewing Bandwidth Statistics Using xjperf
 
 
-Depending upon the traffic being tested (e.g. the type of share
-running on your network), you may need to test UDP instead of TCP. To
-start the iperf server in UDP mode, use :command:`iperf -sDu` as the
+Depending upon the traffic being tested, for example, the type of share
+running on the network, UDP may need to be tested instead of TCP. To
+start the Iperf server in UDP mode, use :command:`iperf -sDu` as the
 **u** specifies UDP; the startup message should indicate that the
-server is listening for UDP datagrams. If you are not sure if the
-traffic that you wish to test is UDP or TCP, run this command to
+server is listening for UDP datagrams. If unsure whether the
+traffic to be tested is UDP or TCP, run this command to
 determine which services are running on the %brand% system:
 
 .. code-block:: none
@@ -162,8 +162,8 @@ determine which services are running on the %brand% system:
    root     syslogd 1089    6  udp4         127.0.0.1:514   *:*
 
 
-When you are finished testing, either type :command:`killall iperf` or
-close Shell to terminate the iperf server process.
+When testing is finished, either type :command:`killall iperf` or
+close Shell to terminate the Iperf server process.
 
 
 .. index:: Netperf
@@ -175,22 +175,22 @@ Netperf
 Netperf is a benchmarking utility that can be used to measure the
 performance of unidirectional throughput and end-to-end latency.
 
-Before you can use the :command:`netperf` command, you must start its
-server process using this command:
+Before using the :command:`netperf` command, start its
+server process with this command:
 
 .. code-block:: none
 
    netserver
    Starting netserver with host 'IN(6)ADDR_ANY' port '12865' and family AF_UNSPEC
 
-The following command will display the available options for
+The following command displays the available options for
 performing tests with the :command:`netperf` command. The
 `Netperf Manual
 <https://hewlettpackard.github.io/netperf/>`__
 describes each option in more detail and explains how to perform many
 types of tests. It is the best reference for understanding how each
-test works and how to interpret your results. When you are finished
-with your tests, type :command:`killall netserver` to stop the server
+test works and how to interpret the results. When you are finished
+with the tests, type :command:`killall netserver` to stop the server
 process.
 
 .. code-block:: none
@@ -243,7 +243,7 @@ comma.
 For these options taking two parms, specifying one value with no comma
 will only set the first parms and will leave the second at the default
 value. To set the second value it must be preceded with a comma or be
-a comma-separated pair. This is to retain previous netperf behaviour.
+a comma-separated pair. This is to retain previous netperf behavior.
 
 
 .. index:: IOzone
@@ -259,16 +259,16 @@ read, pread, mmap, aio_read, and aio_write.
 
 %brand% ships with IOzone, meaning that it can be run from Shell.
 When using IOzone on %brand%, :command:`cd` to a directory in a
-volume that you have permission to write to, otherwise you will get an
-error about being unable to write the temporary file.
+volume that you have permission to write to, otherwise an
+error about being unable to write the temporary file will occur.
 
 Before using IOzone, read through the `IOzone documentation PDF
 <http://www.iozone.org/docs/IOzone_msword_98.pdf>`__ as it describes
-the tests, the many command line switches, and how to interpret your
+the tests, the many command line switches, and how to interpret the
 results.
 
-If you have never used this tool before, these resources provide good
-starting points on which tests to run, when to run them, and how to
+These resources provide good starting points on which tests to run,
+when to run them, and how to
 interpret the results:
 
 * `How To Measure Linux Filesystem I/O Performance With iozone
@@ -280,9 +280,9 @@ interpret the results:
 * `10 iozone Examples for Disk I/O Performance Measurement on Linux
   <https://www.thegeekstuff.com/2011/05/iozone-examples>`__
 
-You can receive a summary of the available switches by typing the
-following command. As you can see from the number of options, IOzone
-is comprehensive and it may take some time to learn how to use the
+Type the following command to receive a summary of the available
+switches. As you can see from the number of options, IOzone
+is comprehensive so it can take some time to learn how to use the
 tests effectively.
 
 Starting with version 9.2.1, %brand% enables compression on newly
@@ -294,8 +294,8 @@ generate incompressible test data, include the options
 Alternatively, consider temporarily disabling compression on the ZFS
 pool or dataset when running IOzone benchmarks.
 
-.. note:: If you prefer to visualize the collected data, scripts are
-   available to render IOzone's output in
+.. note:: If a visual representation of the collected data is preferred,
+   scripts are available to render IOzone's output in
    `Gnuplot <http://www.gnuplot.info/>`__.
 
 ::
@@ -419,11 +419,12 @@ script was ported to FreeBSD and was then ported as a Python script
 for use on %brand%.
 
 Watching ARC hits/misses and percentages will provide an indication of
-how well your ZFS pool is fetching from the ARC rather than using disk
-I/O. Ideally, you want as many things fetching from cache as possible.
-Keep your load in mind as you review the stats. For random reads,
-expect a miss and having to go to disk to fetch the data. For cached
-reads, expect it to pull out of the cache and have a hit.
+how well the ZFS pool is fetching from the ARC rather than using disk
+I/O. Ideally, there will be as many things fetching from cache as
+possible. Keep the load in mind while reviewing the stats.
+For random reads, expect a miss and having to go to disk to fetch the
+data. For cached reads, expect it to pull out of the cache and have a
+hit.
 
 Like all cache systems, the ARC takes time to fill with data. This
 means that it will have a lot of misses until the pool has been in use
@@ -435,7 +436,7 @@ The
 `FreeBSD ZFS Tuning Guide <https://wiki.freebsd.org/ZFSTuningGuide>`__
 provides some suggestions for commonly tuned :command:`sysctl` values.
 It should be noted that performance tuning is more of an art than a
-science and that any changes you make will probably require several
+science and that any changes made will probably require several
 iterations of tune and test. Be aware that what needs to be tuned will
 vary depending upon the type of workload and that what works for one
 person's network may not benefit yours.
@@ -766,17 +767,17 @@ example:
 
 
 The ZFS tunables require a fair understanding of how ZFS works,
-meaning that you will be reading man pages and searching for the
-meaning of acronyms you are unfamiliar with.
+meaning that reading man pages and searching for the
+meaning of acronyms is required.
 **Do not change a tunable's value without researching it first.**
 If the tunable takes a numeric value (rather than 0 for no or 1 for
 yes), do not make one up. Instead, research examples of beneficial
 values that match your workload.
 
-If you decide to change any of the ZFS tunables, continue to monitor
-the system to determine the effect of the change. It is recommended
-that you test your changes first at the command line using
-:command:`sysctl`. For example, to disable pre-fetch (i.e. change
+If any of the ZFS tunables are changed, continue to monitor
+the system to determine the effect of the change.
+Using :command:`sysctl` at the command line to test the changes first
+is recommended. For example, to disable pre-fetch (i.e. change
 disable to *1* or yes):
 
 .. code-block:: none
@@ -787,7 +788,7 @@ disable to *1* or yes):
 
 The output will indicate the old value followed by the new value. If
 the change is not beneficial, change it back to the original value. If
-the change turns out to be beneficial, you can make it permanent by
+the change turns out to be beneficial, it can be made permanent by
 creating a *sysctl* using the instructions in :ref:`Tunables`.
 
 
@@ -810,9 +811,10 @@ Before using this command, read its
 `man page <https://www.cyberciti.biz/files/tw_cli.8.html>`__
 as it describes the terminology and provides some usage examples.
 
-If you type :command:`tw_cli` in Shell, the prompt will change,
-indicating that you have entered interactive mode where you can run
-all sorts of maintenance commands on the controller and its arrays.
+When :command:`tw_cli` is entered in Shell, the prompt will change,
+indicating interactive mode is enabled where
+all sorts of maintenance commands on the controller and its arrays
+can be run.
 
 Alternately, you can specify one command to run. For example, to view
 the disks in the array:
@@ -882,7 +884,7 @@ Or, to review the event log:
  c0	[Sat Mar 10 2012 15:58:15]	INFO		Verify completed: unit=0
 
 
-If you add some disks to the array and they are not showing up in the
+If the disks added to the array do not appear in the
 GUI, try running this command:
 
 .. code-block:: none
@@ -1018,11 +1020,11 @@ a window, type :command:`exit` within the window.
 lists all of the key bindings and commands for interacting with
 :command:`tmux` windows and sessions.
 
-If you close :ref:`Shell` while :command:`tmux` is running, it will
-detach its session. The next time you open Shell, run
+If :ref:`Shell` is closed while :command:`tmux` is running, it will
+detach its session. The next time Shell is open, run
 :command:`tmux attach` to return to the previous session. To leave the
-:command:`tmux` session entirely, type :command:`exit`. If you have
-multiple windows running, you will need to :command:`exit` out of each
+:command:`tmux` session entirely, type :command:`exit`. If
+multiple windows are running, :command:`exit` out of each
 first.
 
 These resources provide more information about using :command:`tmux`:
