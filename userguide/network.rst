@@ -74,7 +74,7 @@ but can be changed to meet requirements of the local network.
    |                        |            |                                                                                                                      |
    +========================+============+======================================================================================================================+
 #ifdef freenas
-   | Hostname               | string     | System host name.                                                                                                    |
+   | Hostname               | string     | System host name. Cannot contain the underscore character.                                                           |
    |                        |            |                                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
 #endif freenas
