@@ -161,6 +161,10 @@ These applications have been added or updated:
   system and can be used to modify file extended attributes from the
   command line. Type :command:`xattr -h` to view the available options.
 
+* `convmv <https://www.j3e.de/linux/convmv/man/>`_ has been added to the
+  base system and can be used to convert the encoding of filenames from
+  the command line. Type :command:`convmv` to view the available options.
+
 The following screen options have changed:
 
 * The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
