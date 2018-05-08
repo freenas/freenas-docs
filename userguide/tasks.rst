@@ -712,7 +712,9 @@ the name of the drive. For example, to see the results for disk
 If an email address is entered in the :guilabel:`Email to report`
 field of
 :menuselection:`Services --> S.M.A.R.T.`,
-the system will send email to that address when a test fails.
+the system will send email to that address when a test fails. Logging
+information for S.M.A.R.T. tests can be found in
+:file:`/var/log/daemon.log`.
 
 
 .. index:: Periodic Snapshot, Snapshot
