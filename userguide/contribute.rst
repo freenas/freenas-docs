@@ -1,16 +1,16 @@
-.. _Contributing to FreeNAS®:
+.. _Contributing to FreeNAS:
 
-Contributing to FreeNAS®
-========================
+Contributing to FreeNAS :sup:`®`
+================================
 
-FreeNAS® is an open source community, relying on the input and
+FreeNAS :sup:`®` is an open source community, relying on the input and
 expertise of users to grow and improve. When users take time to assist
 the community, their contributions benefit everyone.
 
-This section describes how to participate and contribute to FreeNAS®. It
-is by no means an exhaustive list. If you have an idea that will benefit
-the community, bring it up on one of the resources mentioned in
-:ref:`Support Resources`.
+This section describes how to participate and contribute to
+FreeNAS :sup:`®`. It is by no means an exhaustive list. If you have an
+idea that will benefit the community, bring it up on one of the
+resources mentioned in :ref:`Support Resources`.
 
 This section demonstrates how to:
 
@@ -24,19 +24,19 @@ Translation
 -----------
 
 Not everyone speaks English, and having a complete translation of the
-user interface into native languages can make FreeNAS® much more useful
-to communities around the world.
+user interface into native languages can make FreeNAS :sup:`®` much more
+useful to communities around the world.
 
-FreeNAS® uses :file:`.po` files stored in the FreeNAS®
+FreeNAS :sup:`®` uses :file:`.po` files stored in the
 `webui GitHub repository
 <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__
-to manage the translation of text shown in the FreeNAS® graphical
-administrative interface. GitHub provides an easy to use web-based
-editor, making it possible for individuals to assist with translation or
-comment on existing translations.
+to manage the translation of text shown in the FreeNAS :sup:`®`
+graphical administrative interface. GitHub provides an easy to use
+web-based editor, making it possible for individuals to assist with
+translation or comment on existing translations.
 
 To view translation files, open the :file:`/src/assets/i18n` directory
-of the FreeNAS® `webui repository
+of the FreeNAS :sup:`®` `webui repository
 <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__, as
 shown in :numref:`Figure %s <contribute_po_fig>`.
 
@@ -45,11 +45,11 @@ shown in :numref:`Figure %s <contribute_po_fig>`.
 
 .. figure:: images/contribute-po.png
 
-   FreeNAS® Translation Files
+   FreeNAS :sup:`®` Translation Files
 
 
-To assist with translating FreeNAS®, first create an account with
-`GitHub <https://github.com/>`__.
+To assist with translating FreeNAS :sup:`®`, first create an account
+with `GitHub <https://github.com/>`__.
 
 There are two methods to contribute translations to the project:
 
@@ -95,7 +95,7 @@ between the :literal:`msgstr` quotes.
 Scroll to the bottom of the page when finished entering translations.
 Enter a descriptive title and summary of changes for the edits and leave
 :guilabel:`Create a new branch` set. Click :guilabel:`Commit changes` to
-submit the translations to the FreeNAS® project.
+submit the translations to the FreeNAS :sup:`®` project.
 
 
 Download and translate offline
@@ -169,10 +169,10 @@ Click this, then review the changes and click
 Translation pull requests
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The FreeNAS® project automatically tests pull requests for compatibility.
-If there any issues with a pull request, either the automated system
-will update the request or a FreeNAS® team member will leave a message
-in the comment section of the request.
+The FreeNAS :sup:`®` project automatically tests pull requests for
+compatibility. If there any issues with a pull request, either the
+automated system will update the request or a FreeNAS :sup:`®` team
+member will leave a message in the comment section of the request.
 
-All assistance with translations helps to benefit the FreeNAS® community.
-Thank you!
+All assistance with translations helps to benefit the FreeNAS :sup:`®`
+community. Thank you!
