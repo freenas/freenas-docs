@@ -1178,7 +1178,7 @@ bottom of the screen.
 
 
 **Detach Volume:** allows exporting the pool or deleting the contents
-of the pool, depending upon the choice made in thescreen shown in
+of the pool, depending upon the choice made in the screen shown in
 :numref:`Figure %s <zfs_detach_vol_fig>`.
 The :guilabel:`Detach Volume` screen displays the current used space
 and indicates whether there are any shares, provides checkboxes to
