@@ -2894,6 +2894,42 @@ leaving the define filter screen. After a filter is selected, the
 pop-up message indicates that this removes the filter and all
 available snapshots are listed.
 
+.. warning:: A snapshot and any files it contains will not be accessible or
+   searchable if the snapshot's mount path is longer than 88 characters. The data 
+   within the snapshot will be safe, and the snapshot will become accessible again
+   when the mount path is shortened. For details of this limitation, and how
+   to shorten a long mount path, see :ref:`Path and Name Lengths`.
+
+Browsing a snapshot collection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All snapshots for a dataset are accessible as an ordinary hierarchical file
+system, which can be reached from a hidden :file:`.zfs` file located at the
+root of every dataset. A user with permission to access that file can view
+and explore all snapshots for a dataset like any other files - from the
+:command:`CLI` or via :menuselection:`File Sharing` services such as
+:menuselection:`Samba`, :menuselection:`NFS` and :menuselection:`FTP`. This 
+is an advanced capability which requires some :command:`command line` actions
+to achieve. In summary, the main changes to settings that are required are: 
+
+* Snapshot visibility must be manually enabled in the ZFS properties of the dataset.
+* In Samba auxillary setitngs, the :command:`veto files` command must be modified 
+  to not hide the :file:`.zfs` file, and the setting :command:`zfsacl:expose_snapdir=true` 
+  must be added.
+
+The effect will be that any user who can access the dataset contents, will 
+also be able to view the list of snapshots by navigating to the dataset's :file:`.zfs` 
+directory, and to browse and search any files they have permission to access throughout 
+the dataset's entire snapshot collection. A user's ability to view files within a snapshot 
+will be limited by any permissions or ACLs set on the files when the snapshot was taken. 
+Snapshots are fixed as "read-only", so this access does not permit the user to change 
+any files in the snapshots, or to modify or delete any snapshot, even if they had write 
+permission at the time when the snapshot was taken. 
+
+.. note:: ZFS has a :command:`zfs diff` command which can list the files that have 
+changed between any two snapshot versions within a dataset, or between any snapshot and 
+the current data.
+
 
 .. index:: VMware Snapshot
 .. _VMware-Snapshot:
