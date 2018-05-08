@@ -129,6 +129,11 @@ These major features are new in this version:
   :ref:`Jails` using the new UI to ensure that they are running the latest
   supported application versions.
 
+* :ref:`VMs` are more crash-resistant. When a guest is started, the amount
+  of available memory is checked and an initialization error will occur
+  if there is insufficient system resources. When a guest is stopped, its
+  resources are returned to the system.
+
 These applications have been added or updated:
 
 * `ncdu <https://dev.yorhel.nl/ncdu>`_ has been added to the base system.
