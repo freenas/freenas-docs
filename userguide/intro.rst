@@ -157,6 +157,10 @@ These applications have been added or updated:
   Upgrades will continue to use the :command:`csh` shell as the default
   root shell.
 
+* `xattr <https://github.com/xattr/xattr>`_ has been added to the base
+  system and can be used to modify file extended attributes from the
+  command line. Type :command:`xattr -h` to view the available options.
+
 The following screen options have changed:
 
 * The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
