@@ -134,6 +134,10 @@ These major features are new in this version:
   if there is insufficient system resources. When a guest is stopped, its
   resources are returned to the system.
 
+* :ref:`Cloud Sync` provides configuration options to encrypt data before
+  it is transmitted and to keep it in the encrypted format while stored
+  on the cloud. The filenames can also be encrypted.
+
 These applications have been added or updated:
 
 * `ncdu <https://dev.yorhel.nl/ncdu>`_ has been added to the base system.
@@ -154,6 +158,11 @@ These applications have been added or updated:
   root shell.
 
 The following screen options have changed:
+
+* The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
+  :guilabel:`Encryption password`, and :guilabel:`Encryption salt` fields
+  have been added to
+  :menuselection:`Tasks --> Cloud Syncs --> Add Cloud Sync`. 
 
 * The :guilabel:`Exec` field has been added to
   :menuselection:`Storage --> Volumes --> Create Dataset --> Advanced Mode`.
