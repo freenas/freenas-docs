@@ -145,11 +145,11 @@ The following software has been added or updated:
 
 * OpenZFS is up-to-date with Illumos and slightly ahead due to support
   for sorted scrubs which were ported from ZFS on Linux. Notable
-  improvements include channel programs, SLOG/L2ARC device removal, more
+  improvements include channel programs, data disk removal, more
   resilient volume import, the ability to import a pool with missing
   vdevs, pool checkpoints, improved compressed ARC performance, and ZIL
-  batching. Note that many of these improvements have not yet been
-  integrated into the UI.
+  batching. Note that many of these improvements need further testing so
+  have not yet been integrated into the UI.
 
 * `ncdu <https://dev.yorhel.nl/ncdu>`_ has been added to the base system.
   This CLI utility can be used to analyze disk usage from the console or
