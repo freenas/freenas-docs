@@ -121,6 +121,14 @@ These major features are new in this version:
   GRUB. GRUB was introduced as a temporary solution until the FreeBSD
   boot loader had full support for boot environments, which it now has.
 
+* The :ref:`Plugins` and :ref:`Jails` backend has switched from
+  :command:`warden` to :command:`iocage` and :command:`warden` will no
+  longer receive bug fixes. The new UI will automatically use
+  :command:`iocage` to create and manage :ref:`Plugins` and :ref:`Jails`.
+  Users are encouraged to recreate any existing :ref:`Plugins` and
+  :ref:`Jails` using the new UI to ensure that they are running the latest
+  supported application versions.
+
 These applications have been added or updated:
 
 * `ncdu <https://dev.yorhel.nl/ncdu>`_ has been added to the base system.
@@ -132,6 +140,9 @@ These applications have been added or updated:
 
 * Minio has been updated to
   `version 2018-04-04T05 <https://github.com/minio/minio/releases/tag/RELEASE.2018-04-04T05-20-54Z>`_.
+
+* The updated version of iocage provides many bug fixes and improved
+  IPv6 support.
 
 * `zsh <http://www.zsh.org/>`_ is the root shell for new installations.
   Upgrades will continue to use the :command:`csh` shell as the default
