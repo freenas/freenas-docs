@@ -234,7 +234,7 @@ them in production.
 
 .. _Adding Cache or Log Devices:
 
-Adding Cache or LOG Devices
+Adding Cache or Log Devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 :ref:`Pools` can be used either during or after pool creation to add an
@@ -250,9 +250,39 @@ To add a device during pool creation, click the :guilabel:`Add Cache` or
 
 To add a device to an existing pool, click the pool's name then the
 :guilabel:`Standard Volume Operations` (gear) icon and select
-:guilabel:`Extend`. Click the :guilabel`Confirm` checkbox and click
+:guilabel:`Extend`. Click the :guilabel:`Confirm` checkbox and click
 :guilabel:`Ok` to bypass the warning message. This will reopen the pool
-creation screen but with the pool name displayed as read-only.
+creation screen described in the previous sentence, but with the pool name
+displayed as read-only.
+
+.. index:: Hot Spares, Spares
+.. _Adding Spare Devices:
+
+Adding Spare Devices
+~~~~~~~~~~~~~~~~~~~~
+
+ZFS provides the ability to have "hot" *spares*. These are drives that
+are connected to a pool, but not in use. If the pool experiences
+the failure of a data drive, the system uses the hot spare as a
+temporary replacement. If the failed drive is replaced with a new
+drive, the hot spare drive is no longer needed and reverts to being a
+hot spare. If the failed drive is instead removed from the pool, the
+spare is promoted to a full member of the pool.
+
+Hot spares can be added to a pool during or after creation. On
+%brand%, hot spare actions are implemented by
+`zfsd(8) <https://www.freebsd.org/cgi/man.cgi?query=zfsd>`__.
+
+To add a spare during pool creation, click the :guilabel:`Add Spare`.
+button. Check the box for the disk to use in :guilabel:`Available Disks`
+and use the left arrow to add it to the :guilabel:`Spare VDev` section.
+
+To add a device to an existing pool, click the pool's name then the
+:guilabel:`Standard Volume Operations` (gear) icon and select
+:guilabel:`Extend`. Click the :guilabel:`Confirm` checkbox and click
+:guilabel:`Ok` to bypass the warning message. This will reopen the pool
+creation screen described in the previous sentence, but with the pool name
+displayed as read-only.
 
 .. _Extending a Pool:
 
@@ -1592,25 +1622,6 @@ a time and wait for the resilver process to complete on the replaced
 drive before replacing the next drive. After all the drives are
 replaced and the final resilver completes, the added space will appear
 in the pool.
-
-
-.. index:: Hot Spares, Spares
-.. _Hot Spares:
-
-Hot Spares
-~~~~~~~~~~
-
-ZFS provides the ability to have "hot" *spares*. These are drives that
-are connected to a pool, but not in use. If the pool experiences
-the failure of a data drive, the system uses the hot spare as a
-temporary replacement. If the failed drive is replaced with a new
-drive, the hot spare drive is no longer needed and reverts to being a
-hot spare. If the failed drive is instead removed from the pool, the
-spare is promoted to a full member of the pool.
-
-Hot spares can be added to a pool during or after creation. On
-%brand%, hot spare actions are implemented by
-`zfsd(8) <https://www.freebsd.org/cgi/man.cgi?query=zfsd>`__.
 
 .. index:: Snapshots
 .. _Snapshots:
