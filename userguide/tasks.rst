@@ -23,13 +23,15 @@ repetitive tasks:
 * :ref:`Replication Tasks` automate the replication of snapshots to
   a remote system
 
-* :ref:`Scrubs` schedules scrubs as part of ongoing disk maintenance
+* :ref:`Resilver Priority` controls the priority of resilvers.
 
-* :ref:`Cloud Sync` schedules data synchronization to cloud providers
+* :ref:`Scrub Tasks` schedules scrubs as part of ongoing disk maintenance
+
+* :ref:`Cloud Sync Tasks` schedules data synchronization to cloud providers
 
 Each of these tasks is described in more detail in this section.
 
-.. note:: By default, :ref:`Scrubs` are run once a month by an
+.. note:: By default, :ref:`Scrub Tasks` are run once a month by an
    automatically-created task. :ref:`S.M.A.R.T. Tests` and
    :ref:`Periodic Snapshot Tasks` must be set up manually.
 
@@ -1355,8 +1357,8 @@ The :guilabel:`Begin` and :guilabel:`End` times in a replication task
 make it possible to restrict when replication is allowed. These times
 can be set to only allow replication after business hours, or at other
 times when disk or network activity will not slow down other
-operations like snapshots or :ref:`Scrubs`. The default settings allow
-replication to occur at any time.
+operations like snapshots or :ref:`Scrub Tasks`. The default settings
+allow replication to occur at any time.
 
 These times control when replication task are allowed to start, but
 will not stop a replication task that is already running. Once a
@@ -1553,12 +1555,65 @@ system, *Beta*, can be listed from the :ref:`Shell` with
 
 Error messages here can indicate any remaining problems.
 
+.. index: Resilver Priority
+.. _Resilver Priority:
+
+Resilver Priority
+-----------------
+
+Resilvering, or the process of copying data to a replacement disk, is
+best completed as quickly as possible. Increasing the priority of
+resilvers can help them to complete more quickly. The
+:guilabel:`Resilver Priority` tab makes it possible to increase the
+priority of resilvering at times where the additional I/O or CPU usage
+will not affect normal usage. Select
+:menuselection:`Storage --> Resilver Priority`
+to display the screen shown in
+:numref:`Figure %s <storage_resilver_pri_fig>`.
+:numref:`Table %s <storage_resilver_pri_opts_tab>`
+describes the fields on this screen.
+
+
+.. _storage_resilver_pri_fig:
+
+.. figure:: images/storage-resilver-priority.png
+
+   Resilver Priority
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.3\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.2\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+
+.. _storage_resilver_pri_opts_tab:
+
+.. table:: Resilver Priority Options
+   :class: longtable
+
+   +----------------------+-------------+-------------------------------------------------------------+
+   | Setting              | Value       | Description                                                 |
+   |                      |             |                                                             |
+   +======================+=============+=============================================================+
+   | Enabled              | checkbox    | check to enable higher-priority resilvering                 |
+   |                      |             |                                                             |
+   +----------------------+-------------+-------------------------------------------------------------+
+   | Begin higher         | drop-down   | start time to begin higher-priority resilvering             |
+   | priority resilvering |             |                                                             |
+   | at this time         |             |                                                             |
+   +----------------------+-------------+-------------------------------------------------------------+
+   | End higher priority  | drop-down   | end time to begin higher-priority resilvering               |
+   | resilvering at this  |             |                                                             |
+   | time                 |             |                                                             |
+   +----------------------+-------------+-------------------------------------------------------------+
+   | Weekday              | checkboxes  | use higher-priority resilvering on these days of the week   |
+   +----------------------+-------------+-------------------------------------------------------------+
+
 
 .. index:: Scrub
-.. _Scrubs:
+.. _Scrub Tasks:
 
-Scrubs
-----------
+Scrub Tasks
+-----------
 
 A scrub is the process of ZFS scanning through the data on a pool.
 Scrubs help to identify data integrity problems, detect silent data
@@ -1662,13 +1717,13 @@ the hardware, consider temporarily unchecking the :guilabel:`Enabled`
 button for the scrub until the hardware can be upgraded.
 
 .. index:: Cloud Sync
-.. _Cloud Sync:
+.. _Cloud Sync Tasks:
 
-Cloud Sync
-----------
+Cloud Sync Tasks
+----------------
 
 Files or directories can be synchronized to remote cloud storage
-providers with the :guilabel:`Cloud Sync` feature.
+providers with the :guilabel:`Cloud Sync Tasks` feature.
 
 .. warning:: This Cloud Sync task might go to a third party
    commercial vendor not directly affiliated with iXsystems. Please

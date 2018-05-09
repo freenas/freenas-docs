@@ -8,8 +8,6 @@ these options:
 
 * :ref:`Pools` creates and manages storage pools.
 
-* :ref:`Resilver Priority` controls the priority of resilvers.
-
 * :ref:`Snapshots` manages local snapshots.
 
 * :ref:`VMware-Snapshot` coordinates ZFS snapshots with a
@@ -1202,7 +1200,7 @@ be backed up to another disk or device before using this option.**
 
 
 **Scrub Pool:** scrubs and scheduling them are described in more
-detail in :ref:`Scrubs`. This button allows manually initiating a
+detail in :ref:`Scrub Tasks`. This button allows manually initiating a
 scrub. Scrubs are I/O intensive and can negatively impact performance.
 Avoid initiating a scrub when the system is busy.
 
@@ -1751,60 +1749,6 @@ spare is promoted to a full member of the pool.
 Hot spares can be added to a pool during or after creation. On
 %brand%, hot spare actions are implemented by
 `zfsd(8) <https://www.freebsd.org/cgi/man.cgi?query=zfsd>`__.
-
-.. index: Resilver Priority
-.. _Resilver Priority:
-
-Resilver Priority
------------------
-
-Resilvering, or the process of copying data to a replacement disk, is
-best completed as quickly as possible. Increasing the priority of
-resilvers can help them to complete more quickly. The
-:guilabel:`Resilver Priority` tab makes it possible to increase the
-priority of resilvering at times where the additional I/O or CPU usage
-will not affect normal usage. Select
-:menuselection:`Storage --> Resilver Priority`
-to display the screen shown in
-:numref:`Figure %s <storage_resilver_pri_fig>`.
-:numref:`Table %s <storage_resilver_pri_opts_tab>`
-describes the fields on this screen.
-
-
-.. _storage_resilver_pri_fig:
-
-.. figure:: images/storage-resilver-priority.png
-
-   Resilver Priority
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.3\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.2\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
-
-.. _storage_resilver_pri_opts_tab:
-
-.. table:: Resilver Priority Options
-   :class: longtable
-
-   +----------------------+-------------+-------------------------------------------------------------+
-   | Setting              | Value       | Description                                                 |
-   |                      |             |                                                             |
-   +======================+=============+=============================================================+
-   | Enabled              | checkbox    | check to enable higher-priority resilvering                 |
-   |                      |             |                                                             |
-   +----------------------+-------------+-------------------------------------------------------------+
-   | Begin higher         | drop-down   | start time to begin higher-priority resilvering             |
-   | priority resilvering |             |                                                             |
-   | at this time         |             |                                                             |
-   +----------------------+-------------+-------------------------------------------------------------+
-   | End higher priority  | drop-down   | end time to begin higher-priority resilvering               |
-   | resilvering at this  |             |                                                             |
-   | time                 |             |                                                             |
-   +----------------------+-------------+-------------------------------------------------------------+
-   | Weekday              | checkboxes  | use higher-priority resilvering on these days of the week   |
-   +----------------------+-------------+-------------------------------------------------------------+
-
 
 .. index:: Snapshots
 .. _Snapshots:
