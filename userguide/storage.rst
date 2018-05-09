@@ -6,12 +6,12 @@ Storage
 The Storage section of the graphical interface allows configuration of
 these options:
 
-* :ref:`Pools` creates and manages storage pools.
+* :ref:`Pools`: create and manage storage pools.
 
-* :ref:`Snapshots` manages local snapshots.
+* :ref:`Snapshots`: manage local snapshots.
 
-* :ref:`VMware-Snapshot` coordinates ZFS snapshots with a
-  VMware datastore.
+* :ref:`VMware-Snapshot`: coordinate OpenZFS snapshots with a VMware
+  datastore.
 
 
 #ifdef truenas
@@ -29,16 +29,8 @@ these options:
 Pools
 -----
 
-The :guilabel:`Pools` section of the %brand% graphical interface can
-be used to format pools, attach a disk to copy data onto an existing
-pool, or import an external ZFS pool. It can also be used to create
-ZFS datasets and zvols and to manage their permissions.
-
-
-.. note:: In ZFS terminology, groups of storage devices managed by ZFS
-   are referred to as a *pool*. Prior versions of the %brand%
-   graphical interface referred to ZFS pools as *volumes*.
-
+:menuselection:`Storage --> Pools` can be used to create and manage ZFS
+pools, datasets and zvols.
 
 Proper storage design is important for any NAS.
 **Please read through this entire chapter before configuring storage
@@ -47,25 +39,18 @@ beneficial for particular uses, and caveats or hardware restrictions
 which limit usefulness.**
 
 
-.. _Pool Manager:
+.. _Creating Pools:
 
-Pool Manager
-~~~~~~~~~~~~
+Creating Pools
+~~~~~~~~~~~~~~
 
+Before creating a pool, determine the level of required redundancy, how
+many disks will be added, and if any data exists on those disks. Creating
+a pool overwrites disk data, so save any required data to different
+media before adding disks to a pool.
 
-The :guilabel:`Pool Manager` is used to add disks to a ZFS pool. Any
-old data on added disks is overwritten, so save it elsewhere before
-reusing a disk. Please see the :ref:`ZFS Primer` for information on
-ZFS redundancy with multiple disks before using
-:guilabel:`Pool Manager`. It is important to realize that different
-layouts of virtual devices (*vdevs*) affect which operations can be
-performed on that pool later. For example, drives can be added to a
-mirror to increase redundancy, but that is not possible with RAIDZ
-arrays.
-
-Selecting
-:menuselection:`Storage --> Pools --> Pool Manager` opens a screen
-like the example shown in
+To create a pool, click the :menuselection:`menu icon --> Create Pool`.
+This opens a screen similar to the example shown in
 :numref:`Figure %s <create_pool_poolman_fig>`.
 
 
@@ -73,72 +58,44 @@ like the example shown in
 
 .. figure:: images/storage-volman.png
 
-   Creating a Pool with Pool Manager
+   Creating a Pool
 
+Click the :guilabel:`Name *` field and input a name for the pool. Ensure
+that the chosen name conforms to these
+`naming conventions <http://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`__.
+It is recommended to choose a name that will stick out in the logs rather
+than a generic name like :file:`data` or :file:`freenas`.
 
-:numref:`Table %s <zfs_pool_opts_tab>`
-shows the configuration options of this screen.
+If the underlying disks need to be encrypted as a protection against
+physical theft, check the :guilabel:`Encryption` box.
 
+.. warning:: Refer to the warnings in :ref:`Encryption` before enabling
+   encryption! Be aware that this form of encryption will be replaced by
+   OpenZFS native encryption in a future version. Pools created with the
+   current encryption mechanism will need to be backed up and destroyed
+   in order to be recreated with native encryption when it becomes available.
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+In the :guilabel:`Available Disks` section, check the boxes for the disks
+to add to the pool. Click :guilabel:`Filter disks by name` or
+:guilabel:`Filter disks by capacity` to change the order of displayed
+disks.
 
-.. _zfs_pool_opts_tab:
+After selecting the desired disks, click the right arrow to add them to
+the :guilabel:`Data VDevs` section. Any disks that appear in
+:guilabel:`Data VDevs` will be used to create the pool. To remove a disk
+from that section, check its box and use the left arrow to return it to
+the :guilabel:`Available Disks` section.
 
-.. table:: Pool Creation Options
-   :class: longtable
+Alternately, click the :guilabel:`Suggest Layout` button which will
+add all of the disks and suggest an optimal layout for both redundancy
+and capacity.
 
-   +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Setting          | Value          | Description                                                                                |
-   |                  |                |                                                                                            |
-   +==================+================+============================================================================================+
-   | Pool name        | string         | pools must conform to these                                                                |
-   |                  |                | `naming conventions <http://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`__;     |
-   |                  |                | choosing a name that will stick out in the logs (e.g. **not** a generic term like          |
-   |                  |                | :file:`data` or :file:`freenas`) is recommended                                            |
-   |                  |                |                                                                                            |
-   +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Pool to extend   | drop-down menu | extend an existing pool; see :ref:`Extending a Pool` for more details                      |
-   |                  |                |                                                                                            |
-   +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Encryption       | checkbox       | IMPORTANT: see the warnings in :ref:`Encryption` before enabling encryption                |
-   |                  |                |                                                                                            |
-   +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Available disks  | display        | display the number and size of available disks; hover over :guilabel:`show` to             |
-   |                  |                | list the available device names; click the *+* to add all of the disks to the pool         |
-   |                  |                |                                                                                            |
-   +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Pool layout      | drag and drop  | click and drag the icon to select the desired number of disks for a vdev; when at least    |
-   |                  |                | one disk is selected, the layouts supported by the selected number of disks are added to   |
-   |                  |                | the drop-down menu                                                                         |
-   |                  |                |                                                                                            |
-   +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Add Extra Device | button         | configure multiple vdevs or add log or cache devices during pool creation                  |
-   |                  |                |                                                                                            |
-   +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Manual setup     | button         | create a pool manually (not recommended); see :ref:`Manual Setup` for details              |
-   |                  |                |                                                                                            |
-   +------------------+----------------+--------------------------------------------------------------------------------------------+
-
-
-Drag the slider to select the desired number of disks.
-:guilabel:`Pool Manager` displays the resulting storage capacity,
-taking reserved swap space into account. To change the layout or the
-number of disks, drag the slider to the desired pool layout. The
-:guilabel:`Pool layout` drop-down menu can also be clicked if a
-different level of redundancy is required.
-
-
-.. note:: For performance and capacity reasons, this screen does not
-   allow creating a pool from disks of differing sizes. While it is
-   not recommended, it is possible to create a pool of
-   differently-sized disks with the :guilabel:`Manual setup` button.
-   Follow the instructions in :ref:`Manual Setup`.
-
-
-:guilabel:`Pool Manager` only allows choosing a configuration if
-enough disks have been selected to create that configuration. These
+The pool layout is dependent upon the number of disks added to
+:guilabel:`Data VDevs` and the number of available layouts increases as
+disks are added. To view the available layouts, ensure that at least one
+disk appears in :guilabel:`Data VDevs` and select the drop-down menu
+under this section. The UI will automatically update the
+:guilabel:Estimated raw capacity` when a layout is selected. These
 layouts are supported:
 
 * **Stripe:** requires at least one disk
@@ -151,32 +108,49 @@ layouts are supported:
 
 * **RAIDZ3:** requires at least five disks
 
+.. warning:: Refer to the :ref:`ZFS Primer` for more information on
+   redundancy and disk layouts. When more than five disks are used,
+   consideration must be given to the optimal layout for the best
+   performance and scalability.It is important to realize that different
+   layouts of virtual devices (*vdevs*) affect which operations can be
+   performed on that pool later. For example, drives can be added to a
+   mirror to increase redundancy, but that is not possible with RAIDZ
+   arrays.
+
+Once the desired layout is configured, click :guilabel:`Save`. A pop-up
+warning servers as a reminder that all disk contents will be erased.
+Check the :guilabel:`Confirm` box then click :guilabel:`Ok` to create
+the pool. 
+
+.. note:: To instead preserve existing data, click the :guilabel:`Cancel`
+   button and refer to :ref:`Import Disk` and :ref:`Import Pool` to see
+   if the existing format is supported. If so, perform that action
+   instead. If the current storage format is not supported, it is
+   necessary to back up the data to external media, create the pool,
+   then restore the data to the new pool.
+
+Depending on the size and number of disks, the type of controller, and
+whether encryption is selected, creating the pool may take some
+time. After the pool is created, the screen refreshes and the new
+pool is listed in :menuselection:`Storage --> Pools`.
+
+
+
+   | Add Extra Device | button         | configure multiple vdevs or add log or cache devices during pool creation                  |
+
+.. note:: For performance and capacity reasons, this screen does not
+   allow creating a pool from disks of differing sizes. While it is
+   not recommended, it is possible to create a pool of
+   differently-sized disks with the :guilabel:`Manual setup` button.
+   Follow the instructions in :ref:`Manual Setup`.
+
+
 * **log device:** requires at least one dedicated device,
   a fast, low-latency, power-protected SSD is recommended
 
 * **cache device:** requires at least one dedicated device,
   SSD is recommended
 
-When more than five disks are used, consideration must be given
-to the optimal layout for the best performance and scalability. An
-overview of the recommended disk group sizes as well as more
-information about log and cache devices can be found in the
-:ref:`ZFS Primer`.
-
-The :guilabel:`Add Pool` button warns that
-**existing data will be cleared**. In other words, creating a new
-pool **reformats the selected disks**. To preserve existing data,
-click the :guilabel:`Cancel` button and refer to :ref:`Import Disk`
-and :ref:`Import Pool` to see if the existing format is supported.
-If so, perform that action instead. If the current storage format is
-not supported, it is necessary to back up the data to external media,
-format the disks, then restore the data to the new pool.
-
-Depending on the size and number of disks, the type of controller, and
-whether encryption is selected, creating the pool may take some
-time. After the pool is created, the screen refreshes and the new
-pool is listed in the tree under
-:menuselection:`Storage --> Pools`.
 Click the *+* next to the pool name to access
 :ref:`Change Permissions`, :ref:`Create Dataset`, and
 :ref:`Create zvol` options for that pool.
@@ -243,8 +217,8 @@ the details when considering whether encryption is right for your
   backup restored to the new pool.
 
 * Hybrid pools are not supported. Added vdevs must match the existing
-  encryption scheme. The :ref:`Pool Manager` automatically encrypts
-  a new vdev being added to an existing encrypted pool.
+  encryption scheme. :ref:`Pools` automatically encrypts a new vdev being
+  added to an existing encrypted pool.
 
 
 To create an encrypted pool, check the :guilabel:`Encryption` box
@@ -297,8 +271,7 @@ pool containing disks of different sizes.
 
 .. note:: The usable space of each disk in a pool is limited to the
    size of the smallest disk in the pool. Because of this, creating
-   pools with disks of the same size through the
-   :guilabel:`Pool Manager` is recommended.
+   pools with disks of the same size is recommended.
 
 
 :numref:`Figure %s <zfs_create_nonopt_pool_fig>`
@@ -424,12 +397,12 @@ continue.
 Adding L2ARC or SLOG Devices
 """"""""""""""""""""""""""""
 
-The :ref:`Pool Manager` is also used to add L2ARC or SLOG SSDs to
+:ref:`Pools` is also used to add L2ARC or SLOG SSDs to
 improve specific types of pool performance. This is described in more
 detail in the :ref:`ZFS Primer`.
 
-After the SSDs have been physically installed, click the
-:guilabel:`Pool Manager` button and choose the pool from the
+After the SSDs have been physically installed, click
+:guilabel:`Pools` and choose the pool from the
 :guilabel:`Pool to extend` drop-down menu. Click the
 :guilabel:`+` next to the SSD in the :guilabel:`Available disks` list.
 In the :guilabel:`Pool layout` drop-down menu, select
@@ -1602,7 +1575,7 @@ a failed disk is being replaced by disk *ada5* in the pool named
    Replacing a Failed Disk
 
 
-After the resilver is complete, :guilabel:`Pool Status` shows a
+After the resilver is complete, :guilabel:`Pools` shows a
 :guilabel:`Completed` resilver status and indicates any errors.
 :numref:`Figure %s <zfs_disk_replacement_fig>`
 indicates that the disk replacement was successful in this example.
@@ -1692,7 +1665,7 @@ Replacing Drives to Grow a Pool
 
 The recommended method for expanding the size of a ZFS pool is to
 pre-plan the number of disks in a vdev and to stripe additional vdevs
-using :ref:`Pool Manager` as additional capacity is needed.
+using :ref:`Pools` as additional capacity is needed.
 
 However, this is not an option if there are no open drive ports and a
 SAS/SATA HBA card cannot be added. In this case, one disk at a time
