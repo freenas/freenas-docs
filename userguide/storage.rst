@@ -67,7 +67,11 @@ It is recommended to choose a name that will stick out in the logs rather
 than a generic name like :file:`data` or :file:`freenas`.
 
 If the underlying disks need to be encrypted as a protection against
-physical theft, check the :guilabel:`Encryption` box.
+physical theft, check the :guilabel:`Encryption` box. A pop-up message
+shows a reminder that
+**it is extremely important to make a backup of the key**. Without
+the key, the data on the disks is inaccessible. See
+:ref:`Managing Encrypted Pools` for key management instructions.
 
 .. warning:: Refer to the warnings in :ref:`Encryption` before enabling
    encryption! Be aware that this form of encryption will be replaced by
@@ -79,6 +83,10 @@ In the :guilabel:`Available Disks` section, check the boxes for the disks
 to add to the pool. Click :guilabel:`Filter disks by name` or
 :guilabel:`Filter disks by capacity` to change the order of displayed
 disks.
+
+.. note:: The usable space of each disk in a pool is limited to the
+   size of the smallest disk in the pool. Because of this, creating
+   pools with disks of the same size is recommended.
 
 After selecting the desired disks, click the right arrow to add them to
 the :guilabel:`Data VDevs` section. Any disks that appear in
@@ -134,33 +142,11 @@ whether encryption is selected, creating the pool may take some
 time. After the pool is created, the screen refreshes and the new
 pool is listed in :menuselection:`Storage --> Pools`.
 
-
-
-   | Add Extra Device | button         | configure multiple vdevs or add log or cache devices during pool creation                  |
-
-.. note:: For performance and capacity reasons, this screen does not
-   allow creating a pool from disks of differing sizes. While it is
-   not recommended, it is possible to create a pool of
-   differently-sized disks with the :guilabel:`Manual setup` button.
-   Follow the instructions in :ref:`Manual Setup`.
-
-
-* **log device:** requires at least one dedicated device,
-  a fast, low-latency, power-protected SSD is recommended
-
-* **cache device:** requires at least one dedicated device,
-  SSD is recommended
-
-Click the *+* next to the pool name to access
-:ref:`Change Permissions`, :ref:`Create Dataset`, and
-:ref:`Create zvol` options for that pool.
-
-
 .. index:: Encryption
 .. _Encryption:
 
 Encryption
-^^^^^^^^^^
+~~~~~~~~~~
 
 .. note:: The encryption facility used by %brand% is designed to
    protect against physical theft of the disks. It is not designed to
@@ -220,23 +206,8 @@ the details when considering whether encryption is right for your
   encryption scheme. :ref:`Pools` automatically encrypts a new vdev being
   added to an existing encrypted pool.
 
-
-To create an encrypted pool, check the :guilabel:`Encryption` box
-shown in
-:numref:`Figure %s <create_pool_poolman_fig>`.
-A pop-up message shows a reminder that
-**it is extremely important to make a backup of the key**. Without
-the key, the data on the disks is inaccessible. See
-:ref:`Managing Encrypted Pools` for instructions.
-
-
-.. _Encryption Performance:
-
-Encryption Performance
-^^^^^^^^^^^^^^^^^^^^^^
-
-Performance depends upon the number of disks encrypted. The more
-drives in an encrypted pool, the more encryption and decryption
+Encryption performance depends upon the number of disks encrypted. The
+more drives in an encrypted pool, the more encryption and decryption
 overhead, and the greater the impact on performance.
 **Encrypted pools composed of more than eight drives can suffer severe
 performance penalties**.
@@ -257,85 +228,28 @@ them in production.
    compares the performance of various processors.
 #endif freenas
 
+.. _Adding Cache or Log Devices:
 
-.. _Manual Setup:
+Adding Cache or LOG Devices
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Manual Setup
-^^^^^^^^^^^^
+:ref:`Pools` can be used to add an SSD as a cache or log device to
+improve pool performance for specific use cases. Before adding a cache or
+log device, refer to the :ref:`ZFS Primer` to determine if the system
+will benefit or suffer from the addition of the device.
 
-The :guilabel:`Manual Setup` button shown in
-:numref:`Figure %s <create_pool_poolman_fig>`
-can be used to create a ZFS pool manually. While this is **not**
-recommended, it can, for example, be used to create a non-optimal
-pool containing disks of different sizes.
-
-.. note:: The usable space of each disk in a pool is limited to the
-   size of the smallest disk in the pool. Because of this, creating
-   pools with disks of the same size is recommended.
-
-
-:numref:`Figure %s <zfs_create_nonopt_pool_fig>`
-shows the :guilabel:`Manual Setup` screen.
-:numref:`Table %s <zfs_manual_opts_tab>`
-shows the available options.
-
-
-.. _zfs_create_nonopt_pool_fig:
-
-.. figure:: images/manual.png
-
-   Manually Creating a ZFS Pool
-
-
-.. note:: Because of the disadvantages of creating pools with disks of
-   different sizes, the displayed list of disks is sorted by size.
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _zfs_manual_opts_tab:
-
-.. table:: Manual Setup Options
-   :class: longtable
-
-   +---------------+------------------+------------------------------------------------------------------------------------------------+
-   | Setting       | Value            | Description                                                                                    |
-   |               |                  |                                                                                                |
-   |               |                  |                                                                                                |
-   +===============+==================+================================================================================================+
-   | Pool name     | string           | pools must conform to these                                                                    |
-   |               |                  | `naming conventions <http://docs.oracle.com/cd/E19082-01/817-2271/gbcpt/index.html>`__;        |
-   |               |                  | choose a name that will stand out in the logs (e.g. **not** :file:`data` or :file:`freenas`)   |
-   |               |                  |                                                                                                |
-   +---------------+------------------+------------------------------------------------------------------------------------------------+
-   | Encryption    | checkbox         | see the warnings in :ref:`Encryption` before using encryption                                  |
-   |               |                  |                                                                                                |
-   +---------------+------------------+------------------------------------------------------------------------------------------------+
-   | Member disks  | list             | highlight desired number of disks from list of available disks                                 |
-   |               |                  |                                                                                                |
-   +---------------+------------------+------------------------------------------------------------------------------------------------+
-   #ifdef freenas
-   | Deduplication | drop-down menu   | choices are *Off*,                                                                             |
-   |               |                  | *Verify*, and                                                                                  |
-   |               |                  | *On*; carefully consider the section on :ref:`Deduplication` before changing this setting      |
-   |               |                  |                                                                                                |
-   #endif freenas
-   #ifdef truenas
-   | Deduplication | drop-down menu   | do not change this setting unless instructed to do so by an iXsystems support engineer         |
-   |               |                  |                                                                                                |
-   #endif truenas
-   +---------------+------------------+------------------------------------------------------------------------------------------------+
-   | ZFS Extra     | bullet selection | specify disk usage: storage (*None*), a log device, a cache device, or a spare                 |
-   |               |                  |                                                                                                |
-   +---------------+------------------+------------------------------------------------------------------------------------------------+
-
+Once the SSD has been physically installed, click
+:menuselection:`Storage --> Pools` and choose the pool from the
+:guilabel:`Pool to extend` drop-down menu. Click the
+:guilabel:`+` next to the SSD in the :guilabel:`Available disks` list.
+In the :guilabel:`Pool layout` drop-down menu, select
+*Cache (L2ARC)* to add a cache device, or *Log (ZIL)* to add a
+log device. Finally, click :guilabel:`Extend Pool` to add the SSD.
 
 .. _Extending a Pool:
 
 Extending a Pool
-^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 The :guilabel:`Pool to extend` drop-down menu in
 :menuselection:`Storage --> Pools --> Pool Manager`,
@@ -390,24 +304,6 @@ If an attempt is made to add a non-matching number of disks to the
 existing vdev, an error message appears, indicating the number of
 disks that are required. Select the correct number of disks to
 continue.
-
-
-.. _Adding L2ARC or SLOG Devices:
-
-Adding L2ARC or SLOG Devices
-""""""""""""""""""""""""""""
-
-:ref:`Pools` is also used to add L2ARC or SLOG SSDs to
-improve specific types of pool performance. This is described in more
-detail in the :ref:`ZFS Primer`.
-
-After the SSDs have been physically installed, click
-:guilabel:`Pools` and choose the pool from the
-:guilabel:`Pool to extend` drop-down menu. Click the
-:guilabel:`+` next to the SSD in the :guilabel:`Available disks` list.
-In the :guilabel:`Pool layout` drop-down menu, select
-*Cache (L2ARC)* to add a cache device, or *Log (ZIL)* to add a
-log device. Finally, click :guilabel:`Extend Pool` to add the SSD.
 
 
 .. _Change Permissions:
