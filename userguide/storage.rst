@@ -299,131 +299,12 @@ Here are some examples:
 .. warning:: Make sure to select the same number of disks and disk
    layout when extending the pool!
 
-.. _Change Permissions:
-
-Change Permissions
-~~~~~~~~~~~~~~~~~~
-
-Setting permissions is an important aspect of configuring pools. The
-graphical administrative interface is meant to set the **initial**
-permissions for a pool or dataset in order to make it available as a
-share. Once a share is available, the client operating system should
-be used to fine-tune the permissions of the files and directories that
-are created by the client.
-
-The chapter on :ref:`Sharing` contains configuration examples for
-several types of permission scenarios. This section provides an
-overview of the screen that is used to set permissions.
-
-.. note:: For users and groups to be available, they must either be
-   first created using the instructions in :ref:`Account` or imported
-   from a directory service using the instructions in
-   :ref:`Directory Services`. If more than 50 users or groups are
-   available, the drop-down menus described in this section will
-   automatically truncate their display to 50 for performance reasons.
-   In this case, start to type in the desired user or group name so
-   that the display narrows its search to matching results.
-
-
-After a pool or dataset is created, it is listed by mount point name
-in
-:menuselection:`Storage --> Pools`.
-Clicking the :guilabel:`Change Permissions` icon for a specific pool
-or dataset displays the screen shown in
-:numref:`Figure %s <storage_permissions_fig>`.
-:numref:`Table %s <storage_permissions_tab>`
-lists the options in this screen.
-
-
-.. _storage_permissions_fig:
-
-.. figure:: images/perms1.png
-
-   Changing Permissions on a Pool or Dataset
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _storage_permissions_tab:
-
-.. table:: Permission Options
-   :class: longtable
-
-   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Setting                    | Value            | Description                                                                                                |
-   |                            |                  |                                                                                                            |
-   |                            |                  |                                                                                                            |
-   +============================+==================+============================================================================================================+
-   | Apply Owner (user)         | checkbox         | uncheck to prevent new permission change from being applied to :guilabel:`Owner (user)`,                   |
-   |                            |                  | see Note below                                                                                             |
-   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Owner (user)               | drop-down menu   | user to control the pool or dataset; users which were manually created or imported from a directory        |
-   |                            |                  | service appear in the drop-down menu                                                                       |
-   |                            |                  |                                                                                                            |
-   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply Owner (group)        | checkbox         | uncheck to prevent new permission change from being applied to :guilabel:`Owner (group)`,                  |
-   |                            |                  | see note below                                                                                             |
-   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Owner (group)              | drop-down menu   | group to own the pool or dataset; groups which were manually created or imported from a directory          |
-   |                            |                  | service appear in the drop-down menu                                                                       |
-   |                            |                  |                                                                                                            |
-   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply Mode                 | checkbox         | uncheck to prevent new permission change from being applied to :guilabel:`Mode`,                           |
-   |                            |                  | see note below                                                                                             |
-   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Mode                       | checkboxes       | only applies to the *Unix*                                                                                 |
-   |                            |                  | or *Mac* "Permission Type", grayed out if                                                                  |
-   |                            |                  | *Windows* is selected                                                                                      |
-   |                            |                  |                                                                                                            |
-   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Permission Type            | bullet selection | choices are *Unix*,                                                                                        |
-   |                            |                  | *Mac* or                                                                                                   |
-   |                            |                  | *Windows*; select the type which matches the type of client accessing the pool or dataset                  |
-   |                            |                  |                                                                                                            |
-   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Set permission recursively | checkbox         | if checked, permissions will also apply to subdirectories of the pool or dataset; if data is already       |
-   |                            |                  | present on the pool or dataset, change the permissions on the **client side** to prevent a performance     |
-   |                            |                  | lag                                                                                                        |
-   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-
-
-.. note:: The :guilabel:`Apply Owner (user)`,
-   :guilabel:`Apply Owner (group)`, and :guilabel:`Apply Mode`
-   checkboxes allow fine-tuning of the change permissions behavior. By
-   default, all boxes are checked and %brand% resets the owner, group,
-   and mode when the :guilabel:`Change` button is clicked. These
-   checkboxes allow choosing which settings to change. For example, to
-   change just the :guilabel:`Owner (group)` setting, uncheck the
-   boxes :guilabel:`Apply Owner (user)` and :guilabel:`Apply Mode`.
-
-
-The *Windows* :guilabel:`Permission Type` is used for SMB shares or
-when the %brand% system is a member of an Active Directory domain.
-This adds ACLs to traditional *Unix* permissions. When the *Windows*
-:guilabel:`Permission Type` is set, ACLs are set to Windows defaults
-for new files and directories. A Windows client can be used to further
-fine-tune permissions as needed.
-
-The *Unix* :guilabel:`Permission Type` is usually used with NFS
-shares. These permissions are compatible with most network clients and
-generally work well with a mix of operating systems or clients.
-However, *Unix* permissions do not support Windows ACLs and should not
-be used with SMB shares.
-
-The *Mac* :guilabel:`Permission Type` is used with AFP shares.
-
-After a pool or dataset has been set to *Windows*, it cannot be
-changed to *Unix* permissions because that would remove extended
-permissions provided by *Windows* ACLs.
-
 
 .. index:: Create Dataset
-.. _Create Dataset:
+.. _Adding Datasets:
 
-Create Dataset
-~~~~~~~~~~~~~~
+Adding Datasets
+~~~~~~~~~~~~~~~
 
 An existing pool can be divided into datasets. Permissions,
 compression, deduplication, and quotas can be set on a per-dataset
@@ -663,10 +544,10 @@ impact and allows for more storage capacity.
 
 
 .. index:: ZVOL
-.. _Create zvol:
+.. _Adding Zvols:
 
-Create zvol
-~~~~~~~~~~~
+Adding Zvols
+~~~~~~~~~~~~
 
 A zvol is a feature of ZFS that creates a raw block device over ZFS.
 This allows you to use a zvol as an :ref:`iSCSI` device extent.
@@ -732,6 +613,125 @@ configure the system to always display these settings by checking
    |                    |                | can be set to match the block size of the filesystem which will be formatted onto the iSCSI target                   |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+
+.. _Change Permissions:
+
+Change Permissions
+~~~~~~~~~~~~~~~~~~
+
+Setting permissions is an important aspect of configuring pools. The
+graphical administrative interface is meant to set the **initial**
+permissions for a pool or dataset in order to make it available as a
+share. Once a share is available, the client operating system should
+be used to fine-tune the permissions of the files and directories that
+are created by the client.
+
+The chapter on :ref:`Sharing` contains configuration examples for
+several types of permission scenarios. This section provides an
+overview of the screen that is used to set permissions.
+
+.. note:: For users and groups to be available, they must either be
+   first created using the instructions in :ref:`Account` or imported
+   from a directory service using the instructions in
+   :ref:`Directory Services`. If more than 50 users or groups are
+   available, the drop-down menus described in this section will
+   automatically truncate their display to 50 for performance reasons.
+   In this case, start to type in the desired user or group name so
+   that the display narrows its search to matching results.
+
+
+After a pool or dataset is created, it is listed by mount point name
+in
+:menuselection:`Storage --> Pools`.
+Clicking the :guilabel:`Change Permissions` icon for a specific pool
+or dataset displays the screen shown in
+:numref:`Figure %s <storage_permissions_fig>`.
+:numref:`Table %s <storage_permissions_tab>`
+lists the options in this screen.
+
+
+.. _storage_permissions_fig:
+
+.. figure:: images/perms1.png
+
+   Changing Permissions on a Pool or Dataset
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _storage_permissions_tab:
+
+.. table:: Permission Options
+   :class: longtable
+
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Setting                    | Value            | Description                                                                                                |
+   |                            |                  |                                                                                                            |
+   |                            |                  |                                                                                                            |
+   +============================+==================+============================================================================================================+
+   | Apply Owner (user)         | checkbox         | uncheck to prevent new permission change from being applied to :guilabel:`Owner (user)`,                   |
+   |                            |                  | see Note below                                                                                             |
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Owner (user)               | drop-down menu   | user to control the pool or dataset; users which were manually created or imported from a directory        |
+   |                            |                  | service appear in the drop-down menu                                                                       |
+   |                            |                  |                                                                                                            |
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Apply Owner (group)        | checkbox         | uncheck to prevent new permission change from being applied to :guilabel:`Owner (group)`,                  |
+   |                            |                  | see note below                                                                                             |
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Owner (group)              | drop-down menu   | group to own the pool or dataset; groups which were manually created or imported from a directory          |
+   |                            |                  | service appear in the drop-down menu                                                                       |
+   |                            |                  |                                                                                                            |
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Apply Mode                 | checkbox         | uncheck to prevent new permission change from being applied to :guilabel:`Mode`,                           |
+   |                            |                  | see note below                                                                                             |
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Mode                       | checkboxes       | only applies to the *Unix*                                                                                 |
+   |                            |                  | or *Mac* "Permission Type", grayed out if                                                                  |
+   |                            |                  | *Windows* is selected                                                                                      |
+   |                            |                  |                                                                                                            |
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Permission Type            | bullet selection | choices are *Unix*,                                                                                        |
+   |                            |                  | *Mac* or                                                                                                   |
+   |                            |                  | *Windows*; select the type which matches the type of client accessing the pool or dataset                  |
+   |                            |                  |                                                                                                            |
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+   | Set permission recursively | checkbox         | if checked, permissions will also apply to subdirectories of the pool or dataset; if data is already       |
+   |                            |                  | present on the pool or dataset, change the permissions on the **client side** to prevent a performance     |
+   |                            |                  | lag                                                                                                        |
+   +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
+
+
+.. note:: The :guilabel:`Apply Owner (user)`,
+   :guilabel:`Apply Owner (group)`, and :guilabel:`Apply Mode`
+   checkboxes allow fine-tuning of the change permissions behavior. By
+   default, all boxes are checked and %brand% resets the owner, group,
+   and mode when the :guilabel:`Change` button is clicked. These
+   checkboxes allow choosing which settings to change. For example, to
+   change just the :guilabel:`Owner (group)` setting, uncheck the
+   boxes :guilabel:`Apply Owner (user)` and :guilabel:`Apply Mode`.
+
+
+The *Windows* :guilabel:`Permission Type` is used for SMB shares or
+when the %brand% system is a member of an Active Directory domain.
+This adds ACLs to traditional *Unix* permissions. When the *Windows*
+:guilabel:`Permission Type` is set, ACLs are set to Windows defaults
+for new files and directories. A Windows client can be used to further
+fine-tune permissions as needed.
+
+The *Unix* :guilabel:`Permission Type` is usually used with NFS
+shares. These permissions are compatible with most network clients and
+generally work well with a mix of operating systems or clients.
+However, *Unix* permissions do not support Windows ACLs and should not
+be used with SMB shares.
+
+The *Mac* :guilabel:`Permission Type` is used with AFP shares.
+
+After a pool or dataset has been set to *Windows*, it cannot be
+changed to *Unix* permissions because that would remove extended
+permissions provided by *Windows* ACLs.
 
 
 .. _Import Disk:

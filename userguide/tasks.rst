@@ -867,7 +867,7 @@ computers.
 
 *Alpha* is the source computer with the data to be replicated. It is
 at IP address *10.0.0.102*. A :ref:`pool <Pools>` named *alphapool*
-has already been created, and a :ref:`dataset <Create Dataset>` named
+has already been created, and a :ref:`dataset <Adding Datasets>` named
 *alphadata* has been created on that pool. This dataset contains the
 files which will be snapshotted and replicated onto *Beta*.
 
