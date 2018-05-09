@@ -70,8 +70,8 @@ If the underlying disks need to be encrypted as a protection against
 physical theft, check the :guilabel:`Encryption` box. A pop-up message
 shows a reminder that
 **it is extremely important to make a backup of the key**. Without
-the key, the data on the disks is inaccessible. See
-:ref:`Managing Encrypted Pools` for key management instructions.
+the key, the data on the disks is inaccessible. Check the
+:guilabel:`Confirm` box then click :guilabel:`Ok`.
 
 .. warning:: Refer to the warnings in :ref:`Encryption` before enabling
    encryption! Be aware that this form of encryption will be replaced by
@@ -138,8 +138,12 @@ the pool.
    then restore the data to the new pool.
 
 Depending on the size and number of disks, the type of controller, and
-whether encryption is selected, creating the pool may take some
-time. After the pool is created, the screen refreshes and the new
+whether encryption is selected, creating the pool may take some time.
+If the :guilabel:`Encryption` checkbox was selected, a popup message will
+provide a link to :guilabel:`Download Recovery Key`. Click the link and
+save the key to a safe location. When finished, click :guilabel:`Done`.
+
+Once the pool is created, the screen refreshes and the new
 pool is listed in :menuselection:`Storage --> Pools`.
 
 .. index:: Encryption
@@ -233,46 +237,38 @@ them in production.
 Adding Cache or LOG Devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:ref:`Pools` can be used to add an SSD as a cache or log device to
-improve pool performance for specific use cases. Before adding a cache or
-log device, refer to the :ref:`ZFS Primer` to determine if the system
-will benefit or suffer from the addition of the device.
+:ref:`Pools` can be used either during or after pool creation to add an
+SSD as a cache or log device to improve that pool's performance under
+specific use cases. Before adding a cache or log device, refer to the
+:ref:`ZFS Primer` to determine if the system will benefit or suffer from
+the addition of the device.
 
-Once the SSD has been physically installed, click
-:menuselection:`Storage --> Pools` and choose the pool from the
-:guilabel:`Pool to extend` drop-down menu. Click the
-:guilabel:`+` next to the SSD in the :guilabel:`Available disks` list.
-In the :guilabel:`Pool layout` drop-down menu, select
-*Cache (L2ARC)* to add a cache device, or *Log (ZIL)* to add a
-log device. Finally, click :guilabel:`Extend Pool` to add the SSD.
+To add a device during pool creation, click the :guilabel:`Add Cache` or
+:guilabel:`Add Log` button. Check the box for the SSD to use in
+:guilabel:`Available Disks` and use the left arrow to add it to the
+:guilabel:`Cache Vdev` or :guilabel:`Log Vdev` section.
+
+To add a device to an existing pool, click the pool's name then the
+:guilabel:`Standard Volume Operations` (gear) icon and select
+:guilabel:`Extend`. Click the :guilabel`Confirm` checkbox and click
+:guilabel:`Ok` to bypass the warning message. This will reopen the pool
+creation screen but with the pool name displayed as read-only.
 
 .. _Extending a Pool:
 
 Extending a Pool
 ~~~~~~~~~~~~~~~~
 
-The :guilabel:`Pool to extend` drop-down menu in
-:menuselection:`Storage --> Pools --> Pool Manager`,
-shown in
-:numref:`Figure %s <create_pool_poolman_fig>`,
-is used to add disks to an existing pool to increase capacity. This
-menu is empty if there are no pools yet.
+To increase the capacity of an existing pool, click the pool's name then
+the :guilabel:`Standard Volume Operations` (gear) icon and select
+:guilabel:`Extend`. A popup warning displays a reminder to stripe vdevs
+of the same size and type. Click the :guilabel:`Confirm` checkbox and click
+:guilabel:`Ok` to continue.
 
-If more than one disk is added, the arrangement of the new disks into
-stripes, mirrors, or RAIDZ vdevs can be specified. Mirrors and RAIDZ
-arrays provide redundancy for data protection if an individual drive
-fails.
-
-
-.. note:: If the existing pool is encrypted, a warning message shows
-   a reminder that **extending a pool resets the passphrase and
+.. note:: If the existing pool is encrypted, an addition warning message 
+   shows a reminder that **extending a pool resets the passphrase and
    recovery key**. After extending the pool, immediately recreate
    both using the instructions in :ref:`Managing Encrypted Pools`.
-
-
-After an existing pool has been selected from the drop-down menu,
-drag and drop the desired disks and select the desired pool layout.
-For example, disks can be added to increase the capacity of the pool.
 
 When adding disks to increase the capacity of a pool, ZFS supports
 the addition of virtual devices, or *vdevs*, to an existing ZFS
@@ -300,11 +296,8 @@ Here are some examples:
 * to extend a RAIDZ2 requires a minimum of four additional drives. The
   result is a RAIDZ2+0, similar to RAID 60 on a hardware controller.
 
-If an attempt is made to add a non-matching number of disks to the
-existing vdev, an error message appears, indicating the number of
-disks that are required. Select the correct number of disks to
-continue.
-
+.. warning:: Make sure to select the same number of disks and disk
+   layout when extending the pool!
 
 .. _Change Permissions:
 
