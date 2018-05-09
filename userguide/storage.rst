@@ -94,6 +94,9 @@ the :guilabel:`Data VDevs` section. Any disks that appear in
 from that section, check its box and use the left arrow to return it to
 the :guilabel:`Available Disks` section.
 
+To add multiple :guilabel:`Data VDevs`, click :guilabel:`Add Data` for
+each required additional vdev.
+
 Alternately, click the :guilabel:`Suggest Layout` button which will
 add all of the disks and suggest an optimal layout for both redundancy
 and capacity.
@@ -145,6 +148,26 @@ save the key to a safe location. When finished, click :guilabel:`Done`.
 
 Once the pool is created, the screen refreshes and the new
 pool is listed in :menuselection:`Storage --> Pools`.
+
+In the example shown in :numref:`Figure %s <zfs_vol_fig>`, a pool has
+been created named *pool1*. Its description indicates that it is HEALTHY
+and its :guilabel:`Used` and :guilabel:`Free` entries reflect the total
+size of the pool, including disk parity. 
+
+Click the down arrow to see more details about the pool. This second
+entry has the same name and represents the implicit or root dataset. Its
+:guilabel:`Used` and :guilabel:`Available` entries indicate the amount of
+disk space available for storage, after disk parity. It also indicates the
+type of :guilabel:`Compression`, the :guilabel:`Compression Ratio`,
+whether it is mounted as read-only, whether :guilabel:`Deduplication` has
+been enabled, its mountpoint path, and any :guilabel:`Comments` entered
+for the pool.
+
+.. _zfs_vol_fig:
+
+.. figure:: images/storage-volumes.png
+
+   Viewing Pools
 
 .. index:: Encryption
 .. _Encryption:
@@ -330,7 +353,7 @@ Here are some examples:
    layout when extending the pool!
 
 
-.. index:: Create Dataset
+.. index:: Add Dataset
 .. _Adding Datasets:
 
 Adding Datasets
@@ -1013,47 +1036,10 @@ large disk can take several hours, and a *Full with random data* takes
 longer. A progress bar is displayed during the wipe to track status.
 
 
-.. _View Pools:
+.. _Detaching Pools:
 
 Pools
 ~~~~~
-
-:menuselection:`Storage --> Pools`
-is used to view and further configure existing ZFS pools, datasets,
-and zvols. The example shown in
-:numref:`Figure %s <zfs_vol_fig>`
-shows one ZFS pool (*pool1*) with two datasets (the one
-automatically created with the pool, *pool1*, and *dataset1*) and
-one zvol (*zvol1*).
-
-Note that in this example, there are two datasets named *pool1*. The
-first represents the ZFS pool and its :guilabel:`Used` and
-:guilabel:`Available` entries reflect the total size of the pool,
-including disk parity. The second represents the implicit or root
-dataset and its :guilabel:`Used` and :guilabel:`Available` entries
-indicate the amount of disk space available for storage.
-
-Buttons are provided for quick access to :guilabel:`Pool Manager`,
-:guilabel:`Import Disk`, :guilabel:`Import Pool`, and
-:guilabel:`View Disks`. If the system has multipath-capable hardware,
-an extra button will be added, :guilabel:`View Multipaths`. For each
-entry, the columns indicate the :guilabel:`Name`, how much disk space
-is :guilabel:`Used`, how much disk space is :guilabel:`Available`, the
-type of :guilabel:`Compression`, the :guilabel:`Compression Ratio`,
-the :guilabel:`Status`, whether it is mounted as read-only, and any
-:guilabel:`Comments` entered for the pool.
-
-
-.. _zfs_vol_fig:
-
-.. figure:: images/storage-volumes.png
-
-   Viewing Pools
-
-
-Clicking the entry for a pool causes several buttons to appear at the
-bottom of the screen.
-
 
 #ifdef truenas
 .. note:: When the system has :ref:`High Availability (HA) <Failover>`
