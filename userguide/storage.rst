@@ -106,7 +106,7 @@ The pool layout is dependent upon the number of disks added to
 disks are added. To view the available layouts, ensure that at least one
 disk appears in :guilabel:`Data VDevs` and select the drop-down menu
 under this section. The UI will automatically update the
-:guilabel:Estimated raw capacity` when a layout is selected. These
+:guilabel:`Estimated raw capacity` when a layout is selected. These
 layouts are supported:
 
 * **Stripe:** requires at least one disk
@@ -134,8 +134,8 @@ Check the :guilabel:`Confirm` box then click :guilabel:`Ok` to create
 the pool. 
 
 .. note:: To instead preserve existing data, click the :guilabel:`Cancel`
-   button and refer to :ref:`Import Disk` and :ref:`Import Pool` to see
-   if the existing format is supported. If so, perform that action
+   button and refer to :ref:`Import Disk` and :ref:`Importing a Pool` to
+   see if the existing format is supported. If so, perform that action
    instead. If the current storage format is not supported, it is
    necessary to back up the data to external media, create the pool,
    then restore the data to the new pool.
@@ -255,6 +255,187 @@ them in production.
    compares the performance of various processors.
 #endif freenas
 
+.. _Managing Encrypted Pools:
+
+Managing Encrypted Pools
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+%brand% generates and stores a randomized *encryption key* whenever
+a new encrypted pool is created. This key is required to read and
+decrypt any data on the pool.
+
+Encryption keys can also be downloaded as a safety measure, to allow
+decryption on a different system in the event of failure, or to allow
+the locally stored key to be deleted for extra security. Encryption
+keys can also be optionally protected with a *passphrase* for
+additional security. The combination of encryption key location and
+whether a passphrase is used provide several different security
+scenarios:
+
+* *Key stored locally, no passphrase*: the encrypted pool is
+  decrypted and accessible when the system running. Protects "data at
+  rest" only.
+
+* *Key stored locally, with passphrase*: the encrypted pool is not
+  accessible until the passphrase is entered by the %brand%
+  administrator.
+
+* *Key not stored locally*: the encrypted pool is not accessible
+  until the %brand% administrator provides the key. If a passphrase is
+  set on the key, it must also be entered before the encrypted pool
+  can be accessed (`two factor authentication
+  <https://en.wikipedia.org/wiki/Multi-factor_authentication>`__).
+
+Encrypted data cannot be accessed when the disks are removed or the
+system has been shut down. On a running system, encrypted data
+cannot be accessed when the pool is locked (see below) and the key
+is not available. If the key is protected with a passphrase, both the
+key and passphrase are required for decryption.
+
+Encryption applies to a pool, not individual users. When a pool is
+unlocked, data is accessible to all users with permissions to access
+it.
+
+.. note:: `GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`__
+   uses *two* randomized encryption keys for each disk. The first has
+   been discussed here. The second, the disk's "master key", is
+   encrypted and stored in the on-disk GELI metadata. Loss of a disk
+   master key due to disk corruption is equivalent to any other disk
+   failure, and in a redundant pool, other disks will contain
+   accessible copies of the uncorrupted data. While it is *possible*
+   to separately back up disk master keys, it is usually not necessary
+   or useful.
+
+
+.. _Additional Controls for Encrypted Pools:
+
+Additional Controls for Encrypted Pools
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the :guilabel:`Encryption` box is checked during the creation of a
+pool, additional buttons appear in the entry for the pool in
+:menuselection:`Storage --> Pools`.
+An example is shown in
+:numref:`Figure %s <zfs_encrypt_pool_icons_fig>`.
+
+
+.. _zfs_encrypt_pool_icons_fig:
+
+.. figure:: images/storage-encrypted.png
+
+   Encryption Icons Associated with an Encrypted Pool
+
+
+These additional encryption buttons are used to:
+
+**Create/Change Passphrase:** set and confirm a passphrase
+associated with the GELI encryption key. The desired passphrase is
+entered and repeated for verification. A red warning is a reminder to
+:guilabel:`Remember to add a new recovery key as this action
+invalidates the previous recovery key`. Unlike a password, a
+passphrase can contain spaces and is typically a series of words. A
+good passphrase is easy to remember (like the line to a song or piece
+of literature) but hard to guess (people you know should not be
+able to guess the passphrase).
+**Remember this passphrase. An encrypted pool cannot be reimported
+without it.**
+In other words, if the passphrase is forgotten, the data on the pool
+can become inaccessible if it becomes necessary to reimport the pool.
+Protect this passphrase, as anyone who knows it could reimport the
+encrypted pool, thwarting the reason for encrypting the disks in the
+first place.
+
+
+.. _zfs_encrypt_passphrase_fig:
+
+.. figure:: images/encrypt-passphrase.png
+
+   Add or Change a Passphrase to an Encrypted Pool
+
+
+After the passphrase is set, the name of this button changes to
+:guilabel:`Change Passphrase`. After setting or changing the
+passphrase, it is important to *immediately* create a new recovery key
+by clicking the :guilabel:`Add recovery key` button. This way, if the
+passphrase is forgotten, the associated recovery key can be used
+instead.
+
+Encrypted pools with a passphrase display an additional lock button:
+
+.. _zfs_encrypt_lock_fig:
+
+.. figure:: images/encrypt-lock.png
+
+   Lock Button
+
+These encrypted pools can be *locked*. The data is not accessible
+until the pool is unlocked by suppying the passphrase or encryption
+key, and the button changes to an unlock button:
+
+.. _zfs_encrypt_unlock_fig:
+
+.. figure:: images/encrypt-unlock.png
+
+   Unlock Button
+
+To unlock the pool, click the unlock button to display the Unlock
+dialog:
+
+.. zfs_encrypt_unlock_dialog_fig:
+
+.. figure:: images/encrypt-unlock-dialog.png
+
+   Unlock Locked Pool
+
+Unlock the pool by entering a passphrase *or* using the
+:guilabel:`Browse` button to load the recovery key. If both a
+passphrase and a recovery key are entered, only the passphrase is
+used.  By default, the services listed will restart when the pool is
+unlocked. This allows them to see the new pool and share or access
+data on it. Individual services can be prevented from restarting by
+unchecking them. However, a service that is not restarted might not be
+able to access the unlocked pool.
+
+**Download Key:** download a backup copy of the GELI encryption key.
+The encryption key is saved to the client system, not on the %brand%
+system. The %brand% administrative password must be entered,
+then the directory in which to store the key is chosen. Since the GELI
+encryption key is separate from the %brand% configuration database,
+**it is highly recommended to make a backup of the key. If the key is
+ever lost or destroyed and there is no backup key, the data on the
+disks is inaccessible.**
+
+**Encryption Re-key:** generate a new GELI encryption key. Typically
+this is only performed when the administrator suspects that the
+current key may be compromised. This action also removes the current
+passphrase.
+#ifdef truenas
+
+.. note:: A re-key is not allowed if :ref:`Failover`
+   (High Availability) has been enabled and the standby node is down.
+#endif truenas
+
+**Add recovery key:** generate a new recovery key. This screen
+prompts for the %brand% administrative password and then the directory
+in which to save the key. Note that the recovery key is saved to the
+client system, not on the %brand% system. This recovery key can be
+used if the passphrase is forgotten. **Always immediately add a
+recovery key whenever the passphrase is changed.**
+
+**Remove recovery key:** Typically this is only performed when the
+administrator suspects that the current recovery key may be
+compromised. **Immediately** create a new passphrase and recovery key.
+
+.. note:: The passphrase, recovery key, and encryption key must be
+   protected. Do not reveal the passphrase to others. On the system
+   containing the downloaded keys, take care that the system and its
+   backups are protected. Anyone who has the keys has the ability to
+   re-import the disks if they are discarded or stolen.
+
+.. warning:: If a re-key fails on a multi-disk system, an alert is
+   generated. **Do not ignore this alert** as doing so may result in
+   the loss of data.
+
 .. _Adding Cache or Log Devices:
 
 Adding Cache or Log Devices
@@ -275,8 +456,8 @@ To add a device to an existing pool, click the pool's name then the
 :guilabel:`Standard Volume Operations` (gear) icon and select
 :guilabel:`Extend`. Click the :guilabel:`Confirm` checkbox and click
 :guilabel:`Ok` to bypass the warning message. This will reopen the pool
-creation screen described in the previous sentence, but with the pool name
-displayed as read-only.
+creation screen described in the previous paragraph, but with the pool
+name displayed as read-only.
 
 .. index:: Hot Spares, Spares
 .. _Adding Spare Devices:
@@ -304,8 +485,8 @@ To add a device to an existing pool, click the pool's name then the
 :guilabel:`Standard Volume Operations` (gear) icon and select
 :guilabel:`Extend`. Click the :guilabel:`Confirm` checkbox and click
 :guilabel:`Ok` to bypass the warning message. This will reopen the pool
-creation screen described in the previous sentence, but with the pool name
-displayed as read-only.
+creation screen described in the previous paragraph, but with the pool
+name displayed as read-only.
 
 .. _Extending a Pool:
 
@@ -318,10 +499,11 @@ the :guilabel:`Standard Volume Operations` (gear) icon and select
 of the same size and type. Click the :guilabel:`Confirm` checkbox and click
 :guilabel:`Ok` to continue.
 
-.. note:: If the existing pool is encrypted, an addition warning message 
+.. note:: If the existing pool is encrypted, an additional warning message 
    shows a reminder that **extending a pool resets the passphrase and
-   recovery key**. After extending the pool, immediately recreate
-   both using the instructions in :ref:`Managing Encrypted Pools`.
+   recovery key**. After extending the pool, another popup message will
+   provide a link to :guilabel:`Download Recovery Key`. Click the link and
+   save the key to a safe location. When finished, click :guilabel:`Done`.
 
 When adding disks to increase the capacity of a pool, ZFS supports
 the addition of virtual devices, or *vdevs*, to an existing ZFS
@@ -352,6 +534,255 @@ Here are some examples:
 .. warning:: Make sure to select the same number of disks and disk
    layout when extending the pool!
 
+.. _Detaching a Pool:
+
+Detaching a Pool
+~~~~~~~~~~~~~~~~
+
+To export or destroy an existing pool, click the pool's name then
+the :guilabel:`Standard Volume Operations` (gear) icon and select
+:guilabel:`Detach`. The choice to retain or delete the contents of the
+pool depends upon the selections made in the screen shown in
+:numref:`Figure %s <zfs_detach_vol_fig>`.
+
+  .. _zfs_detach_vol_fig:
+
+  .. figure:: images/storage-detach.png
+
+     Detach or Delete a Pool
+
+#ifdef truenas
+.. note:: When the system has :ref:`High Availability (HA) <Failover>`
+   active, pools cannot be exported or destroyed.
+#endif truenas
+
+The :guilabel:`Detach Pool` screen provides checkboxes to
+:guilabel:`Destroy data on this pool?` and to
+:guilabel:`Confirm this detach procedure`. 
+
+To detach the pool while retaining the data on the pool, check the
+:guilabel:`Confirm this detach procedure` box and click the
+:guilabel:`Detach` button. This operation allows the pool to be
+re-imported at a later time. For example, when moving a pool from one
+system to another, perform this detach action first to flush any unwritten
+data to disk, write data to the disk indicating that the export was done,
+and remove all knowledge of the pool from this system.
+
+To instead destroy the data on the pool, check both boxes. This instructs
+the system to destroy the data on the pool, its datasets, zvols, and
+shares and to return its individual disks are to their raw state. 
+
+.. warning:: Before destroying a pool, ensure that any needed data has
+   been backed up to a different pool or system.
+
+.. _Importing a Pool:
+
+Importing a Pool
+~~~~~~~~~~~~~~~~
+
+This action can be used to reimport a detached pool, import a pool that
+was created on another system, or to import a pool after reinstalling an
+existing %brand% system.
+
+To import a pool, click the :guilabel:`Import Pools` (down arrow) icon.
+This will open the screen shown in :numref:`Figure %s <zfs_import_vol_fig>`.
+
+.. _zfs_import_vol_fig:
+
+.. figure:: images/auto1.png
+
+   Initial Import Pool Windows
+
+Select the pool from the drop-down menu and click the :guilabel:`Save`
+button.
+
+When importing an unencrypted ZFS pool, select
+:guilabel:`No: Skip to import` to open the screen shown in
+:numref:`Figure %s <zfs_import_nonencrypt_fig>`.
+
+
+.. _zfs_import_nonencrypt_fig:
+
+.. figure:: images/auto2.png
+
+   Importing an Unencrypted Pool
+
+
+Existing pools are available for selection from the drop-down
+menu. In the example shown in
+:numref:`Figure %s <zfs_import_nonencrypt_fig>`,
+the %brand% system has an existing, unencrypted ZFS pool. Select the
+pool and click the :guilabel:`OK` button to import it.
+
+If an existing pool does not show in the drop-down menu, run
+:command:`zpool import` from :ref:`Shell` to import it.
+
+When physically installing ZFS pool disks from another system, use the
+:samp:`zpool export {poolname}` command or a GUI equivalent to export
+the pool on that system. Then shut it down and connect the drives to
+the %brand% system. This prevents an "in use by another machine" error
+during the import to %brand%.
+
+#ifdef freenas
+If hardware is not being detected, run
+:command:`camcontrol devlist` from :ref:`Shell`. If the disk does not
+appear in the output, check to see if the controller driver is
+supported or if it needs to be loaded using :ref:`Tunables`.
+#endif freenas
+
+
+.. _Importing an Encrypted Pool:
+
+Importing an Encrypted Pool
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Disks in existing GELI-encrypted pools must be decrypted before they
+can be imported. In the Import Pool dialog shown in
+:numref:`Figure %s <zfs_import_vol_fig>`,
+select :guilabel:`Yes: Decrypt disks`. The screen shown in
+:numref:`Figure %s <zfs_decrypt_import_fig>`
+is then displayed.
+
+
+.. _zfs_decrypt_import_fig:
+
+.. figure:: images/decrypt.png
+
+   Decrypting Disks Before Importing a Pool
+
+
+Select the disks in the encrypted pool, browse to the location of the
+saved encryption key, enter the passphrase associated with the key,
+then click :guilabel:`OK` to decrypt the disks.
+
+.. note:: The encryption key is required to decrypt the pool. If the
+   pool cannot be decrypted, it cannot be re-imported after a failed
+   upgrade or lost configuration. This means that it is
+   **very important** to save a copy of the key and to remember the
+   passphrase that was configured for the key. Refer to
+   :ref:`Managing Encrypted Pools` for instructions on managing keys.
+
+After the pool is decrypted, it appears in the drop-down menu of
+:numref:`Figure %s <zfs_import_nonencrypt_fig>`.
+Click the :guilabel:`OK` button to finish the pool import.
+
+.. note:: For security reasons, GELI keys for encrypted pools are
+   not saved in a configuration backup file. When %brand% has been
+   installed to a new device and a saved configuration file restored
+   to it, the GELI keys for encrypted disks will not be present, and
+   the system will not request them. To correct this, export the
+   encrypted pool with Detach Pool, making sure that the checkboxes
+   which clear data are **not** selected (there are no check marks on
+   :guilabel:`Mark the disks as new (destroy data)` or
+   :guilabel:`Also delete the share's configuration`). Then import the
+   pool again. During the import, the GELI keys can be entered as
+   described above.
+
+
+**Scrub Pool:** scrubs and scheduling them are described in more
+detail in :ref:`Scrub Tasks`. This button allows manually initiating a
+scrub. Scrubs are I/O intensive and can negatively impact performance.
+Avoid initiating a scrub when the system is busy.
+
+A :guilabel:`Cancel` button is provided to cancel a scrub. When a
+scrub is cancelled, it is abandoned. The next scrub to run starts
+from the beginning, not where the cancelled scrub left off.
+
+The status of a running scrub or the statistics from the last
+completed scrub can be seen by clicking the :guilabel:`Pool Status`
+button.
+
+**Pool Status:** as shown in the example in
+:numref:`Figure %s <volume_status_fig>`,
+this screen shows the device name and status of each disk in the ZFS
+pool as well as any read, write, or checksum errors. It also indicates
+the status of the latest ZFS scrub. Clicking the entry for a device
+causes buttons to appear to edit the device's options (shown in
+:numref:`Figure %s <zfs_edit_disk_fig>`),
+offline or online the device, or replace the device (as described in
+:ref:`Replacing a Failed Drive`).
+
+**Upgrade:** used to upgrade the pool to the latest ZFS features, as
+described in :ref:`Upgrading a ZFS Pool`. This button does not appear
+if the pool is running the latest version of feature flags.
+
+
+.. _volume_status_fig:
+
+#ifdef freenas
+.. figure:: images/storage-volstatus.png
+
+   Pool Status
+#endif freenas
+#ifdef truenas
+.. figure:: images/truenas/volume2.png
+
+   Pool Status
+#endif truenas
+
+
+Selecting a disk in :guilabel:`Pool Status` and clicking the
+:guilabel:`Edit Disk` button shows the screen in
+:numref:`Figure %s <zfs_edit_disk_fig>`.
+:numref:`Table %s <zfs_disk_opts_tab>`
+lists the configurable options.
+
+
+.. _zfs_edit_disk_fig:
+
+.. figure:: images/disk.png
+
+   Editing a Disk
+
+
+#ifdef freenas
+.. note:: Versions of %brand% prior to 8.3.1 required a reboot to
+   apply changes to the :guilabel:`HDD Standby`,
+   :guilabel:`Advanced Power Management`, and
+   :guilabel:`Acoustic Level` settings. As of 8.3.1, changes to these
+   settings are applied immediately.
+#endif freenas
+
+Clicking a dataset in
+:menuselection:`Storage --> Pools`
+causes buttons to appear at the bottom of the screen, providing these
+options:
+
+**Change Permissions:** edit the dataset's permissions as described in
+:ref:`Change Permissions`.
+
+**Create Snapshot:** create a one-time snapshot. To schedule the
+regular creation of snapshots, instead use
+:ref:`Periodic Snapshot Tasks`.
+
+**Promote Dataset:** only applies to clones. When a clone is promoted,
+the origin filesystem becomes a clone of the clone making it possible
+to destroy the filesystem that the clone was created from. Otherwise,
+a clone cannot be destroyed while the origin filesystem exists.
+
+**Destroy Dataset:** clicking the :guilabel:`Destroy Dataset` button
+causes the browser window to turn red to indicate that this is a
+destructive action. The :guilabel:`Destroy Dataset` screen forces you
+to check the box
+:guilabel:`I'm aware this will destroy all child datasets and
+snapshots within this dataset` before it will perform this action.
+
+**Edit Options:** edit the pool properties described in
+:numref:`Table %s <zfs_create_dataset>`.
+Note that changing the dataset name is not allowed.
+
+**Create Dataset:** used to create a child dataset within this
+dataset.
+
+**Create zvol:** create a child zvol within this
+dataset.
+
+Clicking a zvol in
+:menuselection:`Storage --> Pools` causes
+icons to appear at the bottom of the screen:
+:guilabel:`Create Snapshot`, :guilabel:`Edit zvol`, and
+:guilabel:`Destroy zvol`. Similar to datasets, a zvol's name cannot be
+changed, and destroying a zvol requires confirmation.
 
 .. index:: Add Dataset
 .. _Adding Datasets:
@@ -826,116 +1257,6 @@ is mounted, its contents are copied to the specified dataset, and the
 disk is unmounted after the copy operation completes.
 
 
-.. _Import Pool:
-
-Import Pool
-~~~~~~~~~~~
-
-Clicking
-:menuselection:`Storage --> Pools --> Import Pool`
-allows %brand% to use an **existing** ZFS pool. This action is
-typically performed when an existing %brand% system is re-installed.
-Since the operating system is separate from the storage disks, a new
-installation does not affect the data on the disks. However, the new
-operating system needs to be configured to use the existing pool.
-
-This option can also be used to attach pools that have been created on
-other systems.
-
-:numref:`Figure %s <zfs_import_vol_fig>`
-shows the initial window that appears when importing a pool.
-
-
-.. _zfs_import_vol_fig:
-
-.. figure:: images/auto1.png
-
-   Initial Import Pool Windows
-
-
-When importing an unencrypted ZFS pool, select
-:guilabel:`No: Skip to import` to open the screen shown in
-:numref:`Figure %s <zfs_import_nonencrypt_fig>`.
-
-
-.. _zfs_import_nonencrypt_fig:
-
-.. figure:: images/auto2.png
-
-   Importing an Unencrypted Pool
-
-
-Existing pools are available for selection from the drop-down
-menu. In the example shown in
-:numref:`Figure %s <zfs_import_nonencrypt_fig>`,
-the %brand% system has an existing, unencrypted ZFS pool. Select the
-pool and click the :guilabel:`OK` button to import it.
-
-If an existing pool does not show in the drop-down menu, run
-:command:`zpool import` from :ref:`Shell` to import it.
-
-When physically installing ZFS pool disks from another system, use the
-:samp:`zpool export {poolname}` command or a GUI equivalent to export
-the pool on that system. Then shut it down and connect the drives to
-the %brand% system. This prevents an "in use by another machine" error
-during the import to %brand%.
-
-#ifdef freenas
-If hardware is not being detected, run
-:command:`camcontrol devlist` from :ref:`Shell`. If the disk does not
-appear in the output, check to see if the controller driver is
-supported or if it needs to be loaded using :ref:`Tunables`.
-#endif freenas
-
-
-.. _Importing an Encrypted Pool:
-
-Importing an Encrypted Pool
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Disks in existing GELI-encrypted pools must be decrypted before they
-can be imported. In the Import Pool dialog shown in
-:numref:`Figure %s <zfs_import_vol_fig>`,
-select :guilabel:`Yes: Decrypt disks`. The screen shown in
-:numref:`Figure %s <zfs_decrypt_import_fig>`
-is then displayed.
-
-
-.. _zfs_decrypt_import_fig:
-
-.. figure:: images/decrypt.png
-
-   Decrypting Disks Before Importing a Pool
-
-
-Select the disks in the encrypted pool, browse to the location of the
-saved encryption key, enter the passphrase associated with the key,
-then click :guilabel:`OK` to decrypt the disks.
-
-.. note:: The encryption key is required to decrypt the pool. If the
-   pool cannot be decrypted, it cannot be re-imported after a failed
-   upgrade or lost configuration. This means that it is
-   **very important** to save a copy of the key and to remember the
-   passphrase that was configured for the key. Refer to
-   :ref:`Managing Encrypted Pools` for instructions on managing keys.
-
-After the pool is decrypted, it appears in the drop-down menu of
-:numref:`Figure %s <zfs_import_nonencrypt_fig>`.
-Click the :guilabel:`OK` button to finish the pool import.
-
-.. note:: For security reasons, GELI keys for encrypted pools are
-   not saved in a configuration backup file. When %brand% has been
-   installed to a new device and a saved configuration file restored
-   to it, the GELI keys for encrypted disks will not be present, and
-   the system will not request them. To correct this, export the
-   encrypted pool with Detach Pool, making sure that the checkboxes
-   which clear data are **not** selected (there are no check marks on
-   :guilabel:`Mark the disks as new (destroy data)` or
-   :guilabel:`Also delete the share's configuration`). Then import the
-   pool again. During the import, the GELI keys can be entered as
-   described above.
-
-
 .. _View Disks:
 
 View Disks
@@ -1034,336 +1355,6 @@ overwrites the entire disk with random binary data.
 Quick wipes take only a few seconds. A *Full with zeros* wipe of a
 large disk can take several hours, and a *Full with random data* takes
 longer. A progress bar is displayed during the wipe to track status.
-
-
-.. _Detaching Pools:
-
-Pools
-~~~~~
-
-#ifdef truenas
-.. note:: When the system has :ref:`High Availability (HA) <Failover>`
-   active, pools cannot be exported or destroyed.
-#endif truenas
-
-
-**Detach Pool:** allows exporting the pool or deleting the contents
-of the pool, depending upon the choice made in thescreen shown in
-:numref:`Figure %s <zfs_detach_vol_fig>`.
-The :guilabel:`Detach Pool` screen displays the current used space
-and indicates whether there are any shares, provides checkboxes to
-:guilabel:`Mark the disks as new (destroy data)` and to
-:guilabel:`Also delete the share's configuration`, and asks if you are
-sure about doing this. The browser window turns red to indicate that
-some choices will make the data inaccessible.
-**When the box to mark the disks as new is left unchecked, the pool
-is exported.**
-The data is not destroyed and the pool can be re-imported at a later
-time. When moving a pool from one system to another, perform this
-export action first to flush any unwritten data to disk, write
-data to the disk indicating that the export was done, and remove all
-knowledge of the pool from the system.
-
-**When the box to mark the disks as new is checked, the pool and all
-the data in its datasets, zvols, and shares is destroyed and the
-individual disks are returned to their raw state. Desired data must
-be backed up to another disk or device before using this option.**
-
-
-  .. _zfs_detach_vol_fig:
-
-  .. figure:: images/storage-detach.png
-
-     Detach or Delete a Pool
-
-
-**Scrub Pool:** scrubs and scheduling them are described in more
-detail in :ref:`Scrub Tasks`. This button allows manually initiating a
-scrub. Scrubs are I/O intensive and can negatively impact performance.
-Avoid initiating a scrub when the system is busy.
-
-A :guilabel:`Cancel` button is provided to cancel a scrub. When a
-scrub is cancelled, it is abandoned. The next scrub to run starts
-from the beginning, not where the cancelled scrub left off.
-
-The status of a running scrub or the statistics from the last
-completed scrub can be seen by clicking the :guilabel:`Pool Status`
-button.
-
-**Pool Status:** as shown in the example in
-:numref:`Figure %s <volume_status_fig>`,
-this screen shows the device name and status of each disk in the ZFS
-pool as well as any read, write, or checksum errors. It also indicates
-the status of the latest ZFS scrub. Clicking the entry for a device
-causes buttons to appear to edit the device's options (shown in
-:numref:`Figure %s <zfs_edit_disk_fig>`),
-offline or online the device, or replace the device (as described in
-:ref:`Replacing a Failed Drive`).
-
-**Upgrade:** used to upgrade the pool to the latest ZFS features, as
-described in :ref:`Upgrading a ZFS Pool`. This button does not appear
-if the pool is running the latest version of feature flags.
-
-
-.. _volume_status_fig:
-
-#ifdef freenas
-.. figure:: images/storage-volstatus.png
-
-   Pool Status
-#endif freenas
-#ifdef truenas
-.. figure:: images/truenas/volume2.png
-
-   Pool Status
-#endif truenas
-
-
-Selecting a disk in :guilabel:`Pool Status` and clicking the
-:guilabel:`Edit Disk` button shows the screen in
-:numref:`Figure %s <zfs_edit_disk_fig>`.
-:numref:`Table %s <zfs_disk_opts_tab>`
-lists the configurable options.
-
-
-.. _zfs_edit_disk_fig:
-
-.. figure:: images/disk.png
-
-   Editing a Disk
-
-
-#ifdef freenas
-.. note:: Versions of %brand% prior to 8.3.1 required a reboot to
-   apply changes to the :guilabel:`HDD Standby`,
-   :guilabel:`Advanced Power Management`, and
-   :guilabel:`Acoustic Level` settings. As of 8.3.1, changes to these
-   settings are applied immediately.
-#endif freenas
-
-Clicking a dataset in
-:menuselection:`Storage --> Pools`
-causes buttons to appear at the bottom of the screen, providing these
-options:
-
-**Change Permissions:** edit the dataset's permissions as described in
-:ref:`Change Permissions`.
-
-**Create Snapshot:** create a one-time snapshot. To schedule the
-regular creation of snapshots, instead use
-:ref:`Periodic Snapshot Tasks`.
-
-**Promote Dataset:** only applies to clones. When a clone is promoted,
-the origin filesystem becomes a clone of the clone making it possible
-to destroy the filesystem that the clone was created from. Otherwise,
-a clone cannot be destroyed while the origin filesystem exists.
-
-**Destroy Dataset:** clicking the :guilabel:`Destroy Dataset` button
-causes the browser window to turn red to indicate that this is a
-destructive action. The :guilabel:`Destroy Dataset` screen forces you
-to check the box
-:guilabel:`I'm aware this will destroy all child datasets and
-snapshots within this dataset` before it will perform this action.
-
-**Edit Options:** edit the pool properties described in
-:numref:`Table %s <zfs_create_dataset>`.
-Note that changing the dataset name is not allowed.
-
-**Create Dataset:** used to create a child dataset within this
-dataset.
-
-**Create zvol:** create a child zvol within this
-dataset.
-
-Clicking a zvol in
-:menuselection:`Storage --> Pools` causes
-icons to appear at the bottom of the screen:
-:guilabel:`Create Snapshot`, :guilabel:`Edit zvol`, and
-:guilabel:`Destroy zvol`. Similar to datasets, a zvol's name cannot be
-changed, and destroying a zvol requires confirmation.
-
-
-.. _Managing Encrypted Pools:
-
-Managing Encrypted Pools
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-%brand% generates and stores a randomized *encryption key* whenever
-a new encrypted pool is created. This key is required to read and
-decrypt any data on the pool.
-
-Encryption keys can also be downloaded as a safety measure, to allow
-decryption on a different system in the event of failure, or to allow
-the locally stored key to be deleted for extra security. Encryption
-keys can also be optionally protected with a *passphrase* for
-additional security. The combination of encryption key location and
-whether a passphrase is used provide several different security
-scenarios:
-
-* *Key stored locally, no passphrase*: the encrypted pool is
-  decrypted and accessible when the system running. Protects "data at
-  rest" only.
-
-* *Key stored locally, with passphrase*: the encrypted pool is not
-  accessible until the passphrase is entered by the %brand%
-  administrator.
-
-* *Key not stored locally*: the encrypted pool is not accessible
-  until the %brand% administrator provides the key. If a passphrase is
-  set on the key, it must also be entered before the encrypted pool
-  can be accessed (`two factor authentication
-  <https://en.wikipedia.org/wiki/Multi-factor_authentication>`__).
-
-Encrypted data cannot be accessed when the disks are removed or the
-system has been shut down. On a running system, encrypted data
-cannot be accessed when the pool is locked (see below) and the key
-is not available. If the key is protected with a passphrase, both the
-key and passphrase are required for decryption.
-
-Encryption applies to a pool, not individual users. When a pool is
-unlocked, data is accessible to all users with permissions to access
-it.
-
-.. note:: `GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`__
-   uses *two* randomized encryption keys for each disk. The first has
-   been discussed here. The second, the disk's "master key", is
-   encrypted and stored in the on-disk GELI metadata. Loss of a disk
-   master key due to disk corruption is equivalent to any other disk
-   failure, and in a redundant pool, other disks will contain
-   accessible copies of the uncorrupted data. While it is *possible*
-   to separately back up disk master keys, it is usually not necessary
-   or useful.
-
-
-.. _Additional Controls for Encrypted Pools:
-
-Additional Controls for Encrypted Pools
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If the :guilabel:`Encryption` box is checked during the creation of a
-pool, additional buttons appear in the entry for the pool in
-:menuselection:`Storage --> Pools`.
-An example is shown in
-:numref:`Figure %s <zfs_encrypt_pool_icons_fig>`.
-
-
-.. _zfs_encrypt_pool_icons_fig:
-
-.. figure:: images/storage-encrypted.png
-
-   Encryption Icons Associated with an Encrypted Pool
-
-
-These additional encryption buttons are used to:
-
-**Create/Change Passphrase:** set and confirm a passphrase
-associated with the GELI encryption key. The desired passphrase is
-entered and repeated for verification. A red warning is a reminder to
-:guilabel:`Remember to add a new recovery key as this action
-invalidates the previous recovery key`. Unlike a password, a
-passphrase can contain spaces and is typically a series of words. A
-good passphrase is easy to remember (like the line to a song or piece
-of literature) but hard to guess (people you know should not be
-able to guess the passphrase).
-**Remember this passphrase. An encrypted pool cannot be reimported
-without it.**
-In other words, if the passphrase is forgotten, the data on the pool
-can become inaccessible if it becomes necessary to reimport the pool.
-Protect this passphrase, as anyone who knows it could reimport the
-encrypted pool, thwarting the reason for encrypting the disks in the
-first place.
-
-
-.. _zfs_encrypt_passphrase_fig:
-
-.. figure:: images/encrypt-passphrase.png
-
-   Add or Change a Passphrase to an Encrypted Pool
-
-
-After the passphrase is set, the name of this button changes to
-:guilabel:`Change Passphrase`. After setting or changing the
-passphrase, it is important to *immediately* create a new recovery key
-by clicking the :guilabel:`Add recovery key` button. This way, if the
-passphrase is forgotten, the associated recovery key can be used
-instead.
-
-Encrypted pools with a passphrase display an additional lock button:
-
-.. _zfs_encrypt_lock_fig:
-
-.. figure:: images/encrypt-lock.png
-
-   Lock Button
-
-These encrypted pools can be *locked*. The data is not accessible
-until the pool is unlocked by suppying the passphrase or encryption
-key, and the button changes to an unlock button:
-
-.. _zfs_encrypt_unlock_fig:
-
-.. figure:: images/encrypt-unlock.png
-
-   Unlock Button
-
-To unlock the pool, click the unlock button to display the Unlock
-dialog:
-
-.. zfs_encrypt_unlock_dialog_fig:
-
-.. figure:: images/encrypt-unlock-dialog.png
-
-   Unlock Locked Pool
-
-Unlock the pool by entering a passphrase *or* using the
-:guilabel:`Browse` button to load the recovery key. If both a
-passphrase and a recovery key are entered, only the passphrase is
-used.  By default, the services listed will restart when the pool is
-unlocked. This allows them to see the new pool and share or access
-data on it. Individual services can be prevented from restarting by
-unchecking them. However, a service that is not restarted might not be
-able to access the unlocked pool.
-
-**Download Key:** download a backup copy of the GELI encryption key.
-The encryption key is saved to the client system, not on the %brand%
-system. The %brand% administrative password must be entered,
-then the directory in which to store the key is chosen. Since the GELI
-encryption key is separate from the %brand% configuration database,
-**it is highly recommended to make a backup of the key. If the key is
-ever lost or destroyed and there is no backup key, the data on the
-disks is inaccessible.**
-
-**Encryption Re-key:** generate a new GELI encryption key. Typically
-this is only performed when the administrator suspects that the
-current key may be compromised. This action also removes the current
-passphrase.
-#ifdef truenas
-
-.. note:: A re-key is not allowed if :ref:`Failover`
-   (High Availability) has been enabled and the standby node is down.
-#endif truenas
-
-**Add recovery key:** generate a new recovery key. This screen
-prompts for the %brand% administrative password and then the directory
-in which to save the key. Note that the recovery key is saved to the
-client system, not on the %brand% system. This recovery key can be
-used if the passphrase is forgotten. **Always immediately add a
-recovery key whenever the passphrase is changed.**
-
-**Remove recovery key:** Typically this is only performed when the
-administrator suspects that the current recovery key may be
-compromised. **Immediately** create a new passphrase and recovery key.
-
-.. note:: The passphrase, recovery key, and encryption key must be
-   protected. Do not reveal the passphrase to others. On the system
-   containing the downloaded keys, take care that the system and its
-   backups are protected. Anyone who has the keys has the ability to
-   re-import the disks if they are discarded or stolen.
-
-.. warning:: If a re-key fails on a multi-disk system, an alert is
-   generated. **Do not ignore this alert** as doing so may result in
-   the loss of data.
-
 
 .. _View Multipaths:
 
