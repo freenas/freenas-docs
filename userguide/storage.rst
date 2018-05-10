@@ -10,8 +10,13 @@ these options:
 
 * :ref:`Snapshots`: manage local snapshots.
 
-* :ref:`VMware-Snapshot`: coordinate OpenZFS snapshots with a VMware
+* :ref:`VMware-Snapshots`: coordinate OpenZFS snapshots with a VMware
   datastore.
+
+* :ref:`Disks:`: view and manage disk options.
+
+* :ref:`Import Disk`: import a **single** disk that has been formatted
+  with the UFS, NTFS, MSDOS, or EXT2 filesystem.
 
 
 #ifdef truenas
@@ -605,112 +610,27 @@ After the pool is decrypted, it can be imported.
    pool again. During the import, the GELI keys can be entered as
    described above.
 
+.. index:: Scrubs
+.. _Viewing a Pool's Scrub Status:
 
+Viewing a Pool's Scrub Status
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Scrub Pool:** scrubs and scheduling them are described in more
-detail in :ref:`Scrub Tasks`. This button allows manually initiating a
+Scrubs and how to set their schedule are described in more
+detail in :ref:`Scrub Tasks`.
+
+To view a pool's scrub status, click the pool's name, then the
+:guilabel:`Standard Volume Operations` button, then :guilabel:`Status`.
+The resulting screen will display the status of a running scrub or the
+statistics from the last completed scrub.
+
+This button allows manually initiating a
 scrub. Scrubs are I/O intensive and can negatively impact performance.
 Avoid initiating a scrub when the system is busy.
 
 A :guilabel:`Cancel` button is provided to cancel a scrub. When a
 scrub is cancelled, it is abandoned. The next scrub to run starts
 from the beginning, not where the cancelled scrub left off.
-
-The status of a running scrub or the statistics from the last
-completed scrub can be seen by clicking the :guilabel:`Pool Status`
-button.
-
-**Pool Status:** as shown in the example in
-:numref:`Figure %s <volume_status_fig>`,
-this screen shows the device name and status of each disk in the ZFS
-pool as well as any read, write, or checksum errors. It also indicates
-the status of the latest ZFS scrub. Clicking the entry for a device
-causes buttons to appear to edit the device's options (shown in
-:numref:`Figure %s <zfs_edit_disk_fig>`),
-offline or online the device, or replace the device (as described in
-:ref:`Replacing a Failed Drive`).
-
-**Upgrade:** used to upgrade the pool to the latest ZFS features, as
-described in :ref:`Upgrading a ZFS Pool`. This button does not appear
-if the pool is running the latest version of feature flags.
-
-
-.. _volume_status_fig:
-
-#ifdef freenas
-.. figure:: images/storage-volstatus.png
-
-   Pool Status
-#endif freenas
-#ifdef truenas
-.. figure:: images/truenas/volume2.png
-
-   Pool Status
-#endif truenas
-
-
-Selecting a disk in :guilabel:`Pool Status` and clicking the
-:guilabel:`Edit Disk` button shows the screen in
-:numref:`Figure %s <zfs_edit_disk_fig>`.
-:numref:`Table %s <zfs_disk_opts_tab>`
-lists the configurable options.
-
-
-.. _zfs_edit_disk_fig:
-
-.. figure:: images/disk.png
-
-   Editing a Disk
-
-
-#ifdef freenas
-.. note:: Versions of %brand% prior to 8.3.1 required a reboot to
-   apply changes to the :guilabel:`HDD Standby`,
-   :guilabel:`Advanced Power Management`, and
-   :guilabel:`Acoustic Level` settings. As of 8.3.1, changes to these
-   settings are applied immediately.
-#endif freenas
-
-Clicking a dataset in
-:menuselection:`Storage --> Pools`
-causes buttons to appear at the bottom of the screen, providing these
-options:
-
-**Change Permissions:** edit the dataset's permissions as described in
-:ref:`Change Permissions`.
-
-**Create Snapshot:** create a one-time snapshot. To schedule the
-regular creation of snapshots, instead use
-:ref:`Periodic Snapshot Tasks`.
-
-**Promote Dataset:** only applies to clones. When a clone is promoted,
-the origin filesystem becomes a clone of the clone making it possible
-to destroy the filesystem that the clone was created from. Otherwise,
-a clone cannot be destroyed while the origin filesystem exists.
-
-**Destroy Dataset:** clicking the :guilabel:`Destroy Dataset` button
-causes the browser window to turn red to indicate that this is a
-destructive action. The :guilabel:`Destroy Dataset` screen forces you
-to check the box
-:guilabel:`I'm aware this will destroy all child datasets and
-snapshots within this dataset` before it will perform this action.
-
-**Edit Options:** edit the pool properties described in
-:numref:`Table %s <zfs_create_dataset>`.
-Note that changing the dataset name is not allowed.
-
-**Create Dataset:** used to create a child dataset within this
-dataset.
-
-**Create zvol:** create a child zvol within this
-dataset.
-
-Clicking a zvol in
-:menuselection:`Storage --> Pools` causes
-icons to appear at the bottom of the screen:
-:guilabel:`Create Snapshot`, :guilabel:`Edit zvol`, and
-:guilabel:`Destroy zvol`. Similar to datasets, a zvol's name cannot be
-changed, and destroying a zvol requires confirmation.
 
 .. index:: Add Dataset
 .. _Adding Datasets:
@@ -851,6 +771,29 @@ When creating datasets, double-check that you are using the
 If you get confused when creating a dataset on a pool, click all
 existing datasets to close them. The remaining
 :guilabel:`Create Dataset` will be for the pool.
+
+**Create Snapshot:** create a one-time snapshot. To schedule the
+regular creation of snapshots, instead use
+:ref:`Periodic Snapshot Tasks`.
+
+**Promote Dataset:** only applies to clones. When a clone is promoted,
+the origin filesystem becomes a clone of the clone making it possible
+to destroy the filesystem that the clone was created from. Otherwise,
+a clone cannot be destroyed while the origin filesystem exists.
+
+**Destroy Dataset:** clicking the :guilabel:`Destroy Dataset` button
+causes the browser window to turn red to indicate that this is a
+destructive action. The :guilabel:`Destroy Dataset` screen forces you
+to check the box
+:guilabel:`I'm aware this will destroy all child datasets and
+snapshots within this dataset` before it will perform this action.
+
+**Edit Options:** edit the pool properties described in
+:numref:`Table %s <zfs_create_dataset>`.
+Note that changing the dataset name is not allowed.
+
+**Create Dataset:** used to create a child dataset within this
+dataset.
 
 
 #ifdef freenas
@@ -1026,6 +969,16 @@ configure the system to always display these settings by checking
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
 
+**Create zvol:** create a child zvol within this
+dataset.
+
+Clicking a zvol in
+:menuselection:`Storage --> Pools` causes
+icons to appear at the bottom of the screen:
+:guilabel:`Create Snapshot`, :guilabel:`Edit zvol`, and
+:guilabel:`Destroy zvol`. Similar to datasets, a zvol's name cannot be
+changed, and destroying a zvol requires confirmation.
+
 .. _Change Permissions:
 
 Change Permissions
@@ -1144,145 +1097,6 @@ The *Mac* :guilabel:`Permission Type` is used with AFP shares.
 After a pool or dataset has been set to *Windows*, it cannot be
 changed to *Unix* permissions because that would remove extended
 permissions provided by *Windows* ACLs.
-
-
-.. _Import Disk:
-
-Import Disk
-~~~~~~~~~~~~~
-
-The
-:menuselection:`Pool --> Import Disk`
-screen, shown in
-:numref:`Figure %s <zfs_import_disk_fig>`,
-is used to import a **single** disk that has been formatted with the
-UFS, NTFS, MSDOS, or EXT2 filesystem. The import is meant to be a
-temporary measure to copy the data from a disk to an existing ZFS
-dataset. Only one disk can be imported at a time.
-
-.. note:: Imports of EXT3 or EXT4 filesystems are possible in some
-   cases, although neither is fully supported.  EXT3 journaling is not
-   supported, so those filesystems must have an external *fsck*
-   utility, like the one provided by
-   `E2fsprogs utilities <http://e2fsprogs.sourceforge.net/>`__,
-   run on them before import.  EXT4 filesystems with extended
-   attributes or inodes greater than 128 bytes are not supported.
-   EXT4 filesystems with EXT3 journaling must have an *fsck* run on
-   them before import, as described above.
-
-
-.. _zfs_import_disk_fig:
-
-.. figure:: images/storage-import.png
-
-   Importing a Disk
-
-
-Use the drop-down menu to select the disk to import, select the type
-of filesystem on the disk, and browse to the ZFS dataset that will
-hold the copied data. When you click :guilabel:`Import Pool`, the disk
-is mounted, its contents are copied to the specified dataset, and the
-disk is unmounted after the copy operation completes.
-
-
-.. _View Disks:
-
-View Disks
-~~~~~~~~~~
-
-:menuselection:`Storage --> Pools --> View Disks`
-shows all of the disks recognized by the %brand% system. An example is
-shown in
-:numref:`Figure %s <viewing_disks_fig>`.
-
-
-.. _viewing_disks_fig:
-
-#ifdef freenas
-.. figure:: images/view.png
-
-   Viewing Disks
-#endif freenas
-#ifdef truenas
-.. figure:: images/truenas/view.png
-
-   Viewing Disks
-#endif truenas
-
-
-The current configuration of each device is displayed. Click a disk
-entry and the :guilabel:`Edit` button to change its configuration. The
-configurable options are described in
-:numref:`Table %s <zfs_disk_opts_tab>`.
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _zfs_disk_opts_tab:
-
-.. table:: Disk Options
-   :class: longtable
-
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Setting                            | Value          | Description                                                                                                              |
-   |                                    |                |                                                                                                                          |
-   +====================================+================+==========================================================================================================================+
-   | Name                               | string         | read-only value showing FreeBSD device name for disk                                                                     |
-   |                                    |                |                                                                                                                          |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Serial                             | string         | read-only value showing the disk's serial number                                                                         |
-   |                                    |                |                                                                                                                          |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Description                        | string         | optional                                                                                                                 |
-   |                                    |                |                                                                                                                          |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | HDD Standby                        | drop-down menu | indicates the time of inactivity (in minutes) before the drive enters standby mode in order to conserve energy; this     |
-   |                                    |                | `forum post <https://forums.freenas.org/index.php?threads/how-to-find-out-if-a-drive-is-spinning-down-properly.2068/>`__ |
-   |                                    |                | demonstrates how to determine if a drive has spun down                                                                   |
-   |                                    |                |                                                                                                                          |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Advanced Power Management          | drop-down menu | default is *Disabled*, can select a power management profile from the menu                                               |
-   |                                    |                |                                                                                                                          |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Acoustic Level                     | drop-down menu | default is *Disabled*; can be modified for disks that understand                                                         |
-   |                                    |                | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`_                                                     |
-   |                                    |                |                                                                                                                          |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Enable S.M.A.R.T.                  | checkbox       | enabled by default if the disk supports S.M.A.R.T.; unchecking this box will disable any configured                      |
-   |                                    |                | :ref:`S.M.A.R.T. Tests` for the disk                                                                                     |
-   |                                    |                |                                                                                                                          |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | S.M.A.R.T. extra options           | string         | additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`_  options             |
-   |                                    |                |                                                                                                                          |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-
-
-.. note:: If a disk's serial number is not displayed in this screen,
-   use the :command:`smartctl` command from :ref:`Shell`. For example,
-   to determine the serial number of disk *ada0*, type
-   :command:`smartctl -a /dev/ada0 | grep Serial`.
-
-The :guilabel:`Wipe` function is provided for when an unused disk is
-to be discarded.
-
-.. warning:: Make certain that all data has been backed up and that
-   the disk is no longer in use. Triple-check that the correct disk is
-   being selected to be wiped, as recovering data from a wiped disk is
-   usually impossible. If there is any doubt, physically remove the
-   disk, verify that all data is still present on the %brand% system,
-   and wipe the disk in a separate computer.
-
-Clicking :guilabel:`Wipe` offers several choices. *Quick* erases only
-the partitioning information on a disk, making it easy to reuse but
-without clearing other old data. For more security, *Full with zeros*
-overwrites the entire disk with zeros, while *Full with random data*
-overwrites the entire disk with random binary data.
-
-Quick wipes take only a few seconds. A *Full with zeros* wipe of a
-large disk can take several hours, and a *Full with random data* takes
-longer. A progress bar is displayed during the wipe to track status.
 
 .. _View Multipaths:
 
@@ -1706,10 +1520,10 @@ was taken.
    or between any snapshot and the current data.
 
 .. index:: VMware Snapshot
-.. _VMware-Snapshot:
+.. _VMware-Snapshots:
 
-VMware-Snapshot
----------------
+VMware-Snapshots
+----------------
 
 :menuselection:`Storage --> VMware-Snapshot`
 allows you to coordinate ZFS snapshots when using %brand% as a VMware
@@ -1764,3 +1578,191 @@ summarizes the available options.
    |                |                             | :guilabel:`Fetch Datastores` to populate the menu and select the datastore with which to synchronize        |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
+
+.. _Disks:
+
+Disks
+-----
+
+**Pool Status:** as shown in the example in
+:numref:`Figure %s <volume_status_fig>`,
+this screen shows the device name and status of each disk in the ZFS
+pool as well as any read, write, or checksum errors. It also indicates
+the status of the latest ZFS scrub. Clicking the entry for a device
+causes buttons to appear to edit the device's options (shown in
+:numref:`Figure %s <zfs_edit_disk_fig>`),
+offline or online the device, or replace the device (as described in
+:ref:`Replacing a Failed Drive`).
+
+**Upgrade:** used to upgrade the pool to the latest ZFS features, as
+described in :ref:`Upgrading a ZFS Pool`. This button does not appear
+if the pool is running the latest version of feature flags.
+
+
+.. _volume_status_fig:
+
+#ifdef freenas
+.. figure:: images/storage-volstatus.png
+
+   Pool Status
+#endif freenas
+#ifdef truenas
+.. figure:: images/truenas/volume2.png
+
+   Pool Status
+#endif truenas
+
+
+Selecting a disk in :guilabel:`Pool Status` and clicking the
+:guilabel:`Edit Disk` button shows the screen in
+:numref:`Figure %s <zfs_edit_disk_fig>`.
+:numref:`Table %s <zfs_disk_opts_tab>`
+lists the configurable options.
+
+
+.. _zfs_edit_disk_fig:
+
+.. figure:: images/disk.png
+
+   Editing a Disk
+
+
+#ifdef freenas
+.. note:: Versions of %brand% prior to 8.3.1 required a reboot to
+   apply changes to the :guilabel:`HDD Standby`,
+   :guilabel:`Advanced Power Management`, and
+   :guilabel:`Acoustic Level` settings. As of 8.3.1, changes to these
+   settings are applied immediately.
+#endif freenas
+
+:menuselection:`Storage --> Pools --> View Disks`
+shows all of the disks recognized by the %brand% system. An example is
+shown in
+:numref:`Figure %s <viewing_disks_fig>`.
+
+
+.. _viewing_disks_fig:
+
+#ifdef freenas
+.. figure:: images/view.png
+
+   Viewing Disks
+#endif freenas
+#ifdef truenas
+.. figure:: images/truenas/view.png
+
+   Viewing Disks
+#endif truenas
+
+
+The current configuration of each device is displayed. Click a disk
+entry and the :guilabel:`Edit` button to change its configuration. The
+configurable options are described in
+:numref:`Table %s <zfs_disk_opts_tab>`.
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
+.. _zfs_disk_opts_tab:
+
+.. table:: Disk Options
+   :class: longtable
+
+   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Setting                            | Value          | Description                                                                                                              |
+   |                                    |                |                                                                                                                          |
+   +====================================+================+==========================================================================================================================+
+   | Name                               | string         | read-only value showing FreeBSD device name for disk                                                                     |
+   |                                    |                |                                                                                                                          |
+   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Serial                             | string         | read-only value showing the disk's serial number                                                                         |
+   |                                    |                |                                                                                                                          |
+   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Description                        | string         | optional                                                                                                                 |
+   |                                    |                |                                                                                                                          |
+   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | HDD Standby                        | drop-down menu | indicates the time of inactivity (in minutes) before the drive enters standby mode in order to conserve energy; this     |
+   |                                    |                | `forum post <https://forums.freenas.org/index.php?threads/how-to-find-out-if-a-drive-is-spinning-down-properly.2068/>`__ |
+   |                                    |                | demonstrates how to determine if a drive has spun down                                                                   |
+   |                                    |                |                                                                                                                          |
+   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Advanced Power Management          | drop-down menu | default is *Disabled*, can select a power management profile from the menu                                               |
+   |                                    |                |                                                                                                                          |
+   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Acoustic Level                     | drop-down menu | default is *Disabled*; can be modified for disks that understand                                                         |
+   |                                    |                | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`_                                                     |
+   |                                    |                |                                                                                                                          |
+   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Enable S.M.A.R.T.                  | checkbox       | enabled by default if the disk supports S.M.A.R.T.; unchecking this box will disable any configured                      |
+   |                                    |                | :ref:`S.M.A.R.T. Tests` for the disk                                                                                     |
+   |                                    |                |                                                                                                                          |
+   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | S.M.A.R.T. extra options           | string         | additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`_  options             |
+   |                                    |                |                                                                                                                          |
+   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+
+
+.. note:: If a disk's serial number is not displayed in this screen,
+   use the :command:`smartctl` command from :ref:`Shell`. For example,
+   to determine the serial number of disk *ada0*, type
+   :command:`smartctl -a /dev/ada0 | grep Serial`.
+
+The :guilabel:`Wipe` function is provided for when an unused disk is
+to be discarded.
+
+.. warning:: Make certain that all data has been backed up and that
+   the disk is no longer in use. Triple-check that the correct disk is
+   being selected to be wiped, as recovering data from a wiped disk is
+   usually impossible. If there is any doubt, physically remove the
+   disk, verify that all data is still present on the %brand% system,
+   and wipe the disk in a separate computer.
+
+Clicking :guilabel:`Wipe` offers several choices. *Quick* erases only
+the partitioning information on a disk, making it easy to reuse but
+without clearing other old data. For more security, *Full with zeros*
+overwrites the entire disk with zeros, while *Full with random data*
+overwrites the entire disk with random binary data.
+
+Quick wipes take only a few seconds. A *Full with zeros* wipe of a
+large disk can take several hours, and a *Full with random data* takes
+longer. A progress bar is displayed during the wipe to track status.
+
+.. _Import Disk:
+
+Import Disk
+-----------
+
+The
+:menuselection:`Pool --> Import Disk`
+screen, shown in
+:numref:`Figure %s <zfs_import_disk_fig>`,
+is used to import a **single** disk that has been formatted with the
+UFS, NTFS, MSDOS, or EXT2 filesystem. The import is meant to be a
+temporary measure to copy the data from a disk to an existing ZFS
+dataset. Only one disk can be imported at a time.
+
+.. note:: Imports of EXT3 or EXT4 filesystems are possible in some
+   cases, although neither is fully supported.  EXT3 journaling is not
+   supported, so those filesystems must have an external *fsck*
+   utility, like the one provided by
+   `E2fsprogs utilities <http://e2fsprogs.sourceforge.net/>`__,
+   run on them before import.  EXT4 filesystems with extended
+   attributes or inodes greater than 128 bytes are not supported.
+   EXT4 filesystems with EXT3 journaling must have an *fsck* run on
+   them before import, as described above.
+
+
+.. _zfs_import_disk_fig:
+
+.. figure:: images/storage-import.png
+
+   Importing a Disk
+
+
+Use the drop-down menu to select the disk to import, select the type
+of filesystem on the disk, and browse to the ZFS dataset that will
+hold the copied data. When you click :guilabel:`Import Pool`, the disk
+is mounted, its contents are copied to the specified dataset, and the
+disk is unmounted after the copy operation completes.

@@ -72,7 +72,7 @@ Some of the conditions that trigger an alert include:
 
 * a periodic snapshot or replication task fails
 
-* a VMware login or a :ref:`VMware-Snapshot` task fails
+* a VMware login or a :ref:`VMware-Snapshots` task fails
 
 * deleting a VMware snapshot fails
 
