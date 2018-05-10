@@ -542,8 +542,15 @@ This action can be used to reimport a detached pool, import a pool that
 was created on another system, or to import a pool after reinstalling an
 existing %brand% system.
 
-To import a pool, click the :guilabel:`Import Pools` (down arrow) icon.
-This will open the screen shown in :numref:`Figure %s <zfs_import_vol_fig>`.
+When physically installing ZFS pool disks from another system, use the
+:samp:`zpool export {poolname}` command or a GUI equivalent to export
+the pool on that system. Then shut it down and connect the drives to
+the %brand% system. This prevents an "in use by another machine" error
+during the import to %brand%.
+
+To import an unencrypted pool, click the :guilabel:`Import Pools` (down
+arrow) icon. This will open the screen shown in
+:numref:`Figure %s <zfs_import_vol_fig>`.
 
 .. _zfs_import_vol_fig:
 
@@ -552,34 +559,7 @@ This will open the screen shown in :numref:`Figure %s <zfs_import_vol_fig>`.
    Initial Import Pool Windows
 
 Select the pool from the drop-down menu and click the :guilabel:`Save`
-button.
-
-When importing an unencrypted ZFS pool, select
-:guilabel:`No: Skip to import` to open the screen shown in
-:numref:`Figure %s <zfs_import_nonencrypt_fig>`.
-
-
-.. _zfs_import_nonencrypt_fig:
-
-.. figure:: images/auto2.png
-
-   Importing an Unencrypted Pool
-
-
-Existing pools are available for selection from the drop-down
-menu. In the example shown in
-:numref:`Figure %s <zfs_import_nonencrypt_fig>`,
-the %brand% system has an existing, unencrypted ZFS pool. Select the
-pool and click the :guilabel:`OK` button to import it.
-
-If an existing pool does not show in the drop-down menu, run
-:command:`zpool import` from :ref:`Shell` to import it.
-
-When physically installing ZFS pool disks from another system, use the
-:samp:`zpool export {poolname}` command or a GUI equivalent to export
-the pool on that system. Then shut it down and connect the drives to
-the %brand% system. This prevents an "in use by another machine" error
-during the import to %brand%.
+button to import it.
 
 #ifdef freenas
 If hardware is not being detected, run
@@ -588,19 +568,9 @@ appear in the output, check to see if the controller driver is
 supported or if it needs to be loaded using :ref:`Tunables`.
 #endif freenas
 
-
-.. _Importing an Encrypted Pool:
-
-Importing an Encrypted Pool
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Disks in existing GELI-encrypted pools must be decrypted before they
-can be imported. In the Import Pool dialog shown in
-:numref:`Figure %s <zfs_import_vol_fig>`,
-select :guilabel:`Yes: Decrypt disks`. The screen shown in
-:numref:`Figure %s <zfs_decrypt_import_fig>`
-is then displayed.
-
+Before importing a GELI-encrypted pool, its disks must first be decrypted.
+Click the :guilabel:`Decrypt Exported Pools` (unlock) icon. This will
+open the screen shown in :numref:`Figure %s <zfs_decrypt_import_fig>`.
 
 .. _zfs_decrypt_import_fig:
 
@@ -609,9 +579,10 @@ is then displayed.
    Decrypting Disks Before Importing a Pool
 
 
-Select the disks in the encrypted pool, browse to the location of the
-saved encryption key, enter the passphrase associated with the key,
-then click :guilabel:`OK` to decrypt the disks.
+Use the :guilabel:`Browse` button to select the location of the saved
+encryption key, click the :guilabel:`Upload` button to upload the key,
+enter the passphrase associated with the key, then click
+:guilabel:`Decrypt Pool`.
 
 .. note:: The encryption key is required to decrypt the pool. If the
    pool cannot be decrypted, it cannot be re-imported after a failed
@@ -620,9 +591,7 @@ then click :guilabel:`OK` to decrypt the disks.
    passphrase that was configured for the key. Refer to
    :ref:`Managing Encrypted Pools` for instructions on managing keys.
 
-After the pool is decrypted, it appears in the drop-down menu of
-:numref:`Figure %s <zfs_import_nonencrypt_fig>`.
-Click the :guilabel:`OK` button to finish the pool import.
+After the pool is decrypted, it can be imported.
 
 .. note:: For security reasons, GELI keys for encrypted pools are
    not saved in a configuration backup file. When %brand% has been
@@ -635,6 +604,7 @@ Click the :guilabel:`OK` button to finish the pool import.
    :guilabel:`Also delete the share's configuration`). Then import the
    pool again. During the import, the GELI keys can be entered as
    described above.
+
 
 
 **Scrub Pool:** scrubs and scheduling them are described in more

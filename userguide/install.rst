@@ -549,9 +549,8 @@ Before upgrading the operating system, perform the following steps:
 #.  If any pools are encrypted, **remember** to set a passphrase
     and download a copy of the encryption key and the latest
     recovery key.
-    After the upgrade is complete, use the instructions
-    in :ref:`Importing an Encrypted Pool` to import the encrypted
-    pools.
+    After the upgrade is complete, use the instructions in
+    :ref:`Importing a Pool` to import the encrypted pools.
 
 #.  Warn users that the %brand% shares will be unavailable during the
     upgrade; it is recommended to schedule the upgrade for a time
