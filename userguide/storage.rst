@@ -73,11 +73,12 @@ shows a reminder that
 the key, the data on the disks is inaccessible. Check the
 :guilabel:`Confirm` box then click :guilabel:`Ok`.
 
-.. warning:: Refer to the warnings in :ref:`Encryption` before enabling
-   encryption! Be aware that this form of encryption will be replaced by
-   OpenZFS native encryption in a future version. Pools created with the
-   current encryption mechanism will need to be backed up and destroyed
-   in order to be recreated with native encryption when it becomes available.
+.. warning:: Refer to the warnings in :ref:`Managing Encrypted Pools`
+   before enabling encryption! Be aware that this form of encryption will
+   be replaced by OpenZFS native encryption in a future version. Pools
+   created with the current encryption mechanism will need to be backed
+   up and destroyed in order to be recreated with native encryption when
+   it becomes available.
 
 In the :guilabel:`Available Disks` section, check the boxes for the disks
 to add to the pool. Click :guilabel:`Filter disks by name` or
@@ -170,10 +171,10 @@ for the pool.
    Viewing Pools
 
 .. index:: Encryption
-.. _Encryption:
+.. _Managing Encrypted Pools:
 
-Encryption
-~~~~~~~~~~
+Managing Encrypted Pools
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note:: The encryption facility used by %brand% is designed to
    protect against physical theft of the disks. It is not designed to
@@ -182,25 +183,20 @@ Encryption
    proper permissions are set on shares if sensitive data is stored on
    the system.
 
-
-%brand% supports
-`GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`_
-full disk encryption for ZFS pools. It is important to understand
-the details when considering whether encryption is right for your
-%brand% system:
-
+%brand% supports `GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`_
+full disk encryption for ZFS pools. It is important to understand the
+details before creating a pool with encryption:
 
 * %brand% encryption is different from the encryption used in
   Oracle's proprietary, non-open source version of ZFS.
 
 * In %brand%, entire disks are encrypted, not individual filesystems.
   Encrypted devices are created from the underlying drives, then the
-  pool is created on top of the encrypted devices. Data is encrypted
-  as it is written and decrypted as it is read.
+  pool is created on top of the encrypted devices.
 
-* This type of encryption is primarily useful for users storing
-  sensitive data but wanting the ability to remove disks from the pool
-  without having to first wipe the disk contents.
+* This type of encryption is primarily useful for users wanting the
+  ability to remove disks from the pool without having to first wipe the
+  disks of any sensitive data.
 
 * The %brand% encryption design is only suitable for safe disposal of
   disks independent of the encryption key. As long as the key and the
@@ -211,7 +207,7 @@ the details when considering whether encryption is right for your
 * If the encryption key is lost, the data on the disks is
   inaccessible. Always back up the key!
 
-* Encryption keys are per ZFS pool. Each pool has a separate
+* Encryption keys are per ZFS pool and each pool has a separate
   encryption key. Technical details about how encryption keys are
   used, stored, and managed within %brand% are described in this
   `forum post
@@ -224,14 +220,14 @@ the details when considering whether encryption is right for your
   .. warning:: Data stored in Cache (L2ARC) drives is not encrypted.
      Do not use Cache (L2ARC) with encrypted pools.
 
-* At present, there is no one-step way to encrypt an existing,
+* At present, there is no automated method to encrypt an existing,
   unencrypted pool. Instead, the data must be backed up, the
   existing pool destroyed, a new encrypted pool created, and the
   backup restored to the new pool.
 
 * Hybrid pools are not supported. Added vdevs must match the existing
-  encryption scheme. :ref:`Pools` automatically encrypts a new vdev being
-  added to an existing encrypted pool.
+  encryption scheme. :ref:`Extending a Pool` automatically encrypts a new
+  vdev being added to an existing encrypted pool.
 
 Encryption performance depends upon the number of disks encrypted. The
 more drives in an encrypted pool, the more encryption and decryption
@@ -255,11 +251,6 @@ them in production.
    compares the performance of various processors.
 #endif freenas
 
-.. _Managing Encrypted Pools:
-
-Managing Encrypted Pools
-^^^^^^^^^^^^^^^^^^^^^^^^
-
 %brand% generates and stores a randomized *encryption key* whenever
 a new encrypted pool is created. This key is required to read and
 decrypt any data on the pool.
@@ -267,14 +258,12 @@ decrypt any data on the pool.
 Encryption keys can also be downloaded as a safety measure, to allow
 decryption on a different system in the event of failure, or to allow
 the locally stored key to be deleted for extra security. Encryption
-keys can also be optionally protected with a *passphrase* for
-additional security. The combination of encryption key location and
-whether a passphrase is used provide several different security
-scenarios:
+keys can be optionally protected with a *passphrase* for additional
+security. The combination of encryption key location and whether a
+passphrase is used provide several different security scenarios:
 
-* *Key stored locally, no passphrase*: the encrypted pool is
-  decrypted and accessible when the system running. Protects "data at
-  rest" only.
+* *Key stored locally, no passphrase*: the encrypted pool is decrypted
+  and accessible when the system running. Protects "data at rest" only.
 
 * *Key stored locally, with passphrase*: the encrypted pool is not
   accessible until the passphrase is entered by the %brand%
@@ -288,9 +277,9 @@ scenarios:
 
 Encrypted data cannot be accessed when the disks are removed or the
 system has been shut down. On a running system, encrypted data
-cannot be accessed when the pool is locked (see below) and the key
-is not available. If the key is protected with a passphrase, both the
-key and passphrase are required for decryption.
+cannot be accessed when the pool is locked and the key is not available.
+If the key is protected with a passphrase, both the key and passphrase
+are required for decryption.
 
 Encryption applies to a pool, not individual users. When a pool is
 unlocked, data is accessible to all users with permissions to access
@@ -306,31 +295,31 @@ it.
    to separately back up disk master keys, it is usually not necessary
    or useful.
 
+To manage the passphrase and keys on an encrypted pool, select the pool's
+name in :menuselection:`Storage --> Pools`, click the
+:guilabel:`Encryption Operations` (lock) icon, and select one of the
+following operations:
 
-.. _Additional Controls for Encrypted Pools:
+**Lock:** Only appears after a passphrase has been created. When a pool
+is locked, its data is not accessible until the pool is unlocked by
+supplying the passphrase. For this reason, selecting this action will
+prompt to confirm. Once the pool is locked, its status will change to
+*LOCKED (Locked Used / Locked Free)* and the :guilabel:`Lock` menu
+option will change to :guilabel:`Un-Lock`.
 
-Additional Controls for Encrypted Pools
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To unlock the pool, select :guilabel:`Un-Lock`, enter the passphrase
+*or* usie the
+:guilabel:`Browse` button to load the recovery key. If both a
+passphrase and a recovery key are entered, only the passphrase is
+used.  By default, the services listed will restart when the pool is
+unlocked. This allows them to see the new pool and share or access
+data on it. Individual services can be prevented from restarting by
+unchecking them. However, a service that is not restarted might not be
+able to access the unlocked pool.
 
-If the :guilabel:`Encryption` box is checked during the creation of a
-pool, additional buttons appear in the entry for the pool in
-:menuselection:`Storage --> Pools`.
-An example is shown in
-:numref:`Figure %s <zfs_encrypt_pool_icons_fig>`.
-
-
-.. _zfs_encrypt_pool_icons_fig:
-
-.. figure:: images/storage-encrypted.png
-
-   Encryption Icons Associated with an Encrypted Pool
-
-
-These additional encryption buttons are used to:
-
-**Create/Change Passphrase:** set and confirm a passphrase
-associated with the GELI encryption key. The desired passphrase is
-entered and repeated for verification. A red warning is a reminder to
+**Create Passphrase:** set and confirm a passphrase associated with the
+GELI encryption key.
+A red warning is a reminder to
 :guilabel:`Remember to add a new recovery key as this action
 invalidates the previous recovery key`. Unlike a password, a
 passphrase can contain spaces and is typically a series of words. A
@@ -360,69 +349,14 @@ by clicking the :guilabel:`Add recovery key` button. This way, if the
 passphrase is forgotten, the associated recovery key can be used
 instead.
 
-Encrypted pools with a passphrase display an additional lock button:
-
-.. _zfs_encrypt_lock_fig:
-
-.. figure:: images/encrypt-lock.png
-
-   Lock Button
-
-These encrypted pools can be *locked*. The data is not accessible
-until the pool is unlocked by suppying the passphrase or encryption
-key, and the button changes to an unlock button:
-
-.. _zfs_encrypt_unlock_fig:
-
-.. figure:: images/encrypt-unlock.png
-
-   Unlock Button
-
-To unlock the pool, click the unlock button to display the Unlock
-dialog:
-
-.. zfs_encrypt_unlock_dialog_fig:
-
-.. figure:: images/encrypt-unlock-dialog.png
-
-   Unlock Locked Pool
-
-Unlock the pool by entering a passphrase *or* using the
-:guilabel:`Browse` button to load the recovery key. If both a
-passphrase and a recovery key are entered, only the passphrase is
-used.  By default, the services listed will restart when the pool is
-unlocked. This allows them to see the new pool and share or access
-data on it. Individual services can be prevented from restarting by
-unchecking them. However, a service that is not restarted might not be
-able to access the unlocked pool.
-
-**Download Key:** download a backup copy of the GELI encryption key.
-The encryption key is saved to the client system, not on the %brand%
-system. The %brand% administrative password must be entered,
-then the directory in which to store the key is chosen. Since the GELI
-encryption key is separate from the %brand% configuration database,
-**it is highly recommended to make a backup of the key. If the key is
-ever lost or destroyed and there is no backup key, the data on the
-disks is inaccessible.**
-
-**Encryption Re-key:** generate a new GELI encryption key. Typically
-this is only performed when the administrator suspects that the
-current key may be compromised. This action also removes the current
-passphrase.
-#ifdef truenas
-
-.. note:: A re-key is not allowed if :ref:`Failover`
-   (High Availability) has been enabled and the standby node is down.
-#endif truenas
-
-**Add recovery key:** generate a new recovery key. This screen
+**Add Recovery Key:** generate a new recovery key. This screen
 prompts for the %brand% administrative password and then the directory
 in which to save the key. Note that the recovery key is saved to the
 client system, not on the %brand% system. This recovery key can be
 used if the passphrase is forgotten. **Always immediately add a
 recovery key whenever the passphrase is changed.**
 
-**Remove recovery key:** Typically this is only performed when the
+**Delete Recovery Key:** Typically this is only performed when the
 administrator suspects that the current recovery key may be
 compromised. **Immediately** create a new passphrase and recovery key.
 
@@ -435,6 +369,25 @@ compromised. **Immediately** create a new passphrase and recovery key.
 .. warning:: If a re-key fails on a multi-disk system, an alert is
    generated. **Do not ignore this alert** as doing so may result in
    the loss of data.
+
+**Encryption Rekey:** generate a new GELI encryption key. Typically
+this is only performed when the administrator suspects that the
+current key may be compromised. This action also removes the current
+passphrase.
+#ifdef truenas
+
+.. note:: A re-key is not allowed if :ref:`Failover`
+   (High Availability) has been enabled and the standby node is down.
+#endif truenas
+
+**Download Encrypt Key:** download a backup copy of the GELI encryption key.
+The encryption key is saved to the client system, not on the %brand%
+system. The %brand% administrative password must be entered,
+then the directory in which to store the key is chosen. Since the GELI
+encryption key is separate from the %brand% configuration database,
+**it is highly recommended to make a backup of the key. If the key is
+ever lost or destroyed and there is no backup key, the data on the
+disks is inaccessible.**
 
 .. _Adding Cache or Log Devices:
 
@@ -555,6 +508,11 @@ pool depends upon the selections made in the screen shown in
 .. note:: When the system has :ref:`High Availability (HA) <Failover>`
    active, pools cannot be exported or destroyed.
 #endif truenas
+
+.. warning:: Do not detach an encrypted pool if the passphrase has not
+   been set! **An encrypted pool cannot be reimported without a passphrase!**
+   When in doubt, use the instructions in :ref:`Managing Encrypted Pools`
+   to set a passphrase.
 
 The :guilabel:`Detach Pool` screen provides checkboxes to
 :guilabel:`Destroy data on this pool?` and to
@@ -1504,9 +1462,9 @@ If the ZFS pool is encrypted, additional steps are needed when
 replacing a failed drive.
 
 First, make sure that a passphrase has been set using the instructions
-in :ref:`Encryption` **before** attempting to replace the failed
-drive. Then, follow the steps 1 and 2 as described above. During step
-3, you will be prompted to input and confirm the passphrase for the
+in :ref:`Managing Encrypted Pools` **before** attempting to replace the
+failed drive. Then, follow the steps 1 and 2 as described above. During
+step 3, you will be prompted to input and confirm the passphrase for the
 pool. Enter this information then click the :guilabel:`Replace Disk`
 button. Wait until the resilvering is complete.
 
