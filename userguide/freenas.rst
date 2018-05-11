@@ -27,6 +27,7 @@
    shutdown
    alert
    support
+   contribute
    cli
    zfsprimer
    vaai
