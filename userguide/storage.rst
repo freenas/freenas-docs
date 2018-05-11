@@ -668,7 +668,7 @@ To create a dataset, select an existing pool in
 
 .. figure:: images/truenas/storage-dataset.png
 
-   Creating a ZFS Dataset
+   Adding a ZFS Dataset
 #endif truenas
 
 
@@ -781,14 +781,14 @@ the dataset.
 Check the :guilabel:`Confirm` box then the :guilabel:`Ok` button to
 destroy the dataset and all of its contents.
 
-**Create Snapshot:** create a one-time snapshot. To schedule the
-regular creation of snapshots, instead use
-:ref:`Periodic Snapshot Tasks`.
-
-**Promote Dataset:** only applies to clones. When a clone is promoted,
+**Promote Dataset:** only appears on clones. When a clone is promoted,
 the origin filesystem becomes a clone of the clone making it possible
 to destroy the filesystem that the clone was created from. Otherwise,
 a clone cannot be destroyed while the origin filesystem exists.
+
+**Create Snapshot:** create a one-time snapshot. To schedule the
+regular creation of snapshots, instead use
+:ref:`Periodic Snapshot Tasks`.
 
 #ifdef freenas
 .. index:: Deduplication
@@ -808,14 +808,13 @@ comparable to deduplication with less impact on performance.**
 In %brand%, deduplication can be enabled during dataset creation. Be
 forewarned that **there is no way to undedup the data within a dataset
 once deduplication is enabled**, as disabling deduplication has
-**NO EFFECT** on existing data. The more data written to a
-deduplicated dataset, the more RAM it requires. When the system starts
-storing the DDTs (dedup tables) on disk because they no longer fit
-into RAM, performance craters. Further, importing an unclean pool can
-require between 3-5 GB of RAM per terabyte of deduped data, and if the
-system does not have the needed RAM, it will panic. The only solution
-is to add more RAM or recreate the pool.
-**Think carefully before enabling dedup!**
+**NO EFFECT** on existing data. The more data written to a deduplicated
+dataset, the more RAM it requires. When the system starts storing the
+DDTs (dedup tables) on disk because they no longer fit into RAM,
+performance craters. Further, importing an unclean pool can require
+between 3-5 GB of RAM per terabyte of deduped data, and if the system
+does not have the needed RAM, it will panic. The only solution is to add
+more RAM or recreate the pool. **Think carefully before enabling dedup!**
 This `article
 <http://constantin.glez.de/blog/2011/07/zfs-dedupe-or-not-dedupe>`_
 provides a good description of the value versus cost considerations
@@ -827,12 +826,12 @@ For performance reasons, consider using compression rather than
 turning this option on.
 
 If deduplication is changed to *On*, duplicate data blocks are removed
-synchronously. The result is that only unique data is stored and
-common components are shared among files. If deduplication is changed
-to *Verify*, ZFS will do a byte-to-byte comparison when two blocks
-have the same signature to make sure that the block contents are
-identical. Since hash collisions are extremely rare, *Verify* is
-usually not worth the performance hit.
+synchronously. The result is that only unique data is stored and common
+components are shared among files. If deduplication is changed to
+*Verify*, ZFS will do a byte-to-byte comparison when two blocks have the
+same signature to make sure that the block contents are identical. Since
+hash collisions are extremely rare, *Verify* is usually not worth the
+performance hit.
 
 .. note:: After deduplication is enabled, the only way to disable it
    is to use the :samp:`zfs set dedup=off {dataset_name}` command
@@ -842,17 +841,17 @@ usually not worth the performance hit.
    remove existing deduplicated data is to copy all of the data off of
    the dataset, set the property to off, then copy the data back in
    again. Alternately, create a new dataset with
-   :guilabel:`ZFS Deduplication` left disabled, copy the data to the
+   :guilabel:`ZFS Deduplication` left at *Off*, copy the data to the
    new dataset, and destroy the original dataset.
 #endif freenas
 
 .. tip:: Deduplication is often considered when using a group of very
    similar virtual machine images. However, other features of ZFS can
    provide dedup-like functionality more efficiently. For example,
-   create a dataset for a standard VM, then clone that dataset for
-   other VMs. Only the difference between each created VM and the main
-   dataset are saved, giving the effect of deduplication without the
-   overhead.
+   create a dataset for a standard VM, then clone a snapshot of that
+   dataset for other VMs. Only the difference between each created VM and
+   the main dataset are saved, giving the effect of deduplication without
+   the overhead.
 
 
 .. index:: Compression
@@ -868,24 +867,20 @@ compresses data as it is written to a compressed dataset or zvol and
 automatically decompresses that data as it is read. These compression
 algorithms are supported:
 
-* **lz4:** recommended compression method as it allows compressed
-  datasets to operate at near real-time speed. This algorithm only
-  compresses the files that will benefit from compression. By default,
-  ZFS pools made using %brand% 9.2.1 or higher use this compression
-  method, meaning that this algorithm is used if the
-  :guilabel:`Compression level` is left at *Inherit* when creating a
-  dataset or zvol.
+* **LZ4:** default and recommended compression method as it allows
+  compressed datasets to operate at near real-time speed. This algorithm
+  only compresses files that will benefit from compression.
 
-* **gzip:** levels 1, 6, and 9 where *gzip fastest* (level 1)
+* **GZIP:** levels 1, 6, and 9 where *gzip fastest* (level 1)
   gives the least compression and *gzip maximum* (level 9) provides
   the best compression but is discouraged due to its performance
   impact.
 
-* **zle:** fast but simple algorithm to eliminate runs of zeroes.
+* **ZLE:** fast but simple algorithm which eliminates runs of zeroes.
 
-If you select *Off* as the :guilabel:`Compression level` when creating
-a dataset or zvol, compression will not be used on the dataset/zvol.
-This is not recommended as using *lz4* has a negligible performance
+If you select *OFF* as the :guilabel:`Compression level` when creating
+a dataset or zvol, compression will not be used on that dataset/zvol.
+This is not recommended as using *LZ4* has a negligible performance
 impact and allows for more storage capacity.
 
 
@@ -896,10 +891,10 @@ Adding Zvols
 ~~~~~~~~~~~~
 
 A zvol is a feature of ZFS that creates a raw block device over ZFS.
-This allows you to use a zvol as an :ref:`iSCSI` device extent.
+The zvol can be used as an :ref:`iSCSI` device extent.
 
-To create a zvol, select an existing ZFS pool or dataset from the
-tree then click :guilabel:`Create zvol` to open the screen shown in
+To create a zvol, select an existing ZFS pool or dataset, click its 3-dot
+icon, then select :guilabel:`Add Zvol` to open the screen shown in
 :numref:`Figure %s <zfs_create_zvol_fig>`.
 
 
@@ -907,16 +902,11 @@ tree then click :guilabel:`Create zvol` to open the screen shown in
 
 .. figure:: images/storage-zvol.png
 
-   Creating a Zvol
+   Adding a Zvol
 
 
 The configuration options are described in
 :numref:`Table %s <zfs_zvol_config_opts_tab>`.
-Some settings are only available in :guilabel:`Advanced Mode`. To see
-these settings, either click the :guilabel:`Advanced Mode` button or
-configure the system to always display these settings by checking
-:guilabel:`Show advanced fields by default` in
-:menuselection:`System --> Advanced`.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -933,12 +923,24 @@ configure the system to always display these settings by checking
    |                    |                |                                                                                                                      |
    |                    |                |                                                                                                                      |
    +====================+================+======================================================================================================================+
-   | zvol Name          | string         | mandatory; enter a name for the zvol; note that there is a 63-character limit on device path names in devfs,         |
+   | zvol name          | string         | mandatory; enter a name for the zvol; note that there is a 63-character limit on device path names in devfs,         |
    |                    |                | so using long zvol names can prevent accessing zvols as devices; for example, a zvol with a 70-character filename    |
    |                    |                | or path cannot be used as an iSCSI extent                                                                            |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Comments           | string         | short comments or user notes about this zvol                                                                         |
+   | comments           | string         | short comments or user notes about this zvol                                                                         |
    |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Compression level  | drop-down menu | see the section on :ref:`Compression` for a description of the available algorithms                                  |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   #ifdef freenas
+   | ZFS Deduplication  | drop-down menu | read the section on :ref:`Deduplication` before making a change to this setting                                      |
+   |                    |                |                                                                                                                      |
+   #endif freenas
+   #ifdef truenas
+   | ZFS Deduplication  | drop-down menu | do not change this setting unless instructed to do so by your iXsystems support engineer                             |
+   |                    |                |                                                                                                                      |
+   #endif truenas
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Size for this zvol | integer        | specify size and value such as *10Gib*; if the size is more than 80% of the available capacity, the creation will    |
    |                    |                | fail with an "out of space" error unless :guilabel:`Force size` is checked                                           |
@@ -948,26 +950,20 @@ configure the system to always display these settings by checking
    |                    |                | **while NOT recommended**, checking this box will force the creation of the zvol in this situation                   |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Compression level  | drop-down menu | see the section on :ref:`Compression` for a description of the available algorithms                                  |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Sparse pool        | checkbox       | used to provide thin provisioning; use with caution for when this option is selected, writes will fail when the      |
    |                    |                | pool is low on space                                                                                                 |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Block size         | drop-down menu | only available in :guilabel:`Advanced Mode` and by default is based on the number of disks in pool;                  |
+   | Block size         | drop-down menu | by default is based on the number of disks in pool;                                                                  |
    |                    |                | can be set to match the block size of the filesystem which will be formatted onto the iSCSI target                   |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
 
-**Create zvol:** create a child zvol within this
-dataset.
 
-Clicking a zvol in
-:menuselection:`Storage --> Pools` causes
-icons to appear at the bottom of the screen:
-:guilabel:`Create Snapshot`, :guilabel:`Edit zvol`, and
-:guilabel:`Destroy zvol`. Similar to datasets, a zvol's name cannot be
+Once created, the 3-dot icon for that zvol provides options to
+:guilabel:`Delete zvol` or :guilabel:`Edit Zvol`.
+
+Similar to datasets, a zvol's name cannot be
 changed, and destroying a zvol requires confirmation.
 
 .. _Change Permissions:
