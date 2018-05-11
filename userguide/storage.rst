@@ -1104,233 +1104,16 @@ Note that this option is not be displayed in the
 :menuselection:`Storage --> Pools`
 tree on systems that do not contain multipath-capable hardware.
 
-
-.. index:: Replace Failed Drive
-.. _Replacing a Failed Drive:
-
-Replacing a Failed Drive
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-#ifdef freenas
-With any form of redundant RAID, failed drives must be replaced as
-soon as possible to repair the degraded state of the RAID. Depending
-on the hardware's capabilities, it might be necessary to reboot to
-replace the failed drive. Hardware that supports AHCI does not require
-a reboot.
-#endif freenas
-#ifdef truenas
-Replace failed drives as soon as possible to repair the degraded
-state of the RAID.
-#endif truenas
-
-.. note:: Striping (RAID0) does not provide redundancy. If a disk in
-   a stripe fails, the pool will be destroyed and must be recreated
-   and the data restored from backup.
-
-.. note:: If the pool is encrypted with GELI, refer to
-   :ref:`Replacing an Encrypted Drive` before proceeding.
-
-
-Before physically removing the failed device, go to
-:menuselection:`Storage --> Pools`.
-Select the pool name. At the bottom of the interface are several
-icons, one of which is :guilabel:`Pool Status`. Click the
-:guilabel:`Pool Status` icon and locate the failed disk. Then
-perform these steps:
-
-#ifdef freenas
-#.  Click the disk entry, then the :guilabel:`Offline` button to
-    change the disk status to OFFLINE. This step is needed to properly
-    remove the device from the pool and to prevent swap issues.
-    If the hardware supports hot-pluggable disks, click the disk
-    :guilabel:`Offline` button and pull the disk, then skip to step 3.
-    If there is no :guilabel:`Offline` button but only a
-    :guilabel:`Replace` button, the disk is already offlined and this
-    step can be skipped.
-#endif freenas
-#ifdef truenas
-#.  Click the disk entry, then the :guilabel:`Offline` button to
-    change the disk status to OFFLINE. This step is needed to properly
-    remove the device from the pool and to prevent swap issues.
-    Click the disk :guilabel:`Offline` button and pull the disk. If
-    there is no :guilabel:`Offline` button but only a
-    :guilabel:`Replace` button, the disk is already offlined and this
-    step can be skipped.
-#endif truenas
-
-    .. note:: If the process of changing the disk status to OFFLINE
-       fails with a "disk offline failed - no valid replicas" message,
-       the pool must be scrubbed first with the :guilabel:`Scrub Pool`
-       button in
-       :menuselection:`Storage --> Pools`.
-       After the scrub completes, try :guilabel:`Offline` again before
-       proceeding.
-
-#ifdef freenas
-#.  If the hardware is not AHCI capable, shut down the system to
-    physically replace the disk. When finished, return to the GUI
-    and locate the OFFLINE disk.
-#endif freenas
-
-#.  After the disk has been replaced and is showing as OFFLINE, click
-    the disk again and then click the :guilabel:`Replace` button.
-    Select the replacement disk from the drop-down menu and click the
-    :guilabel:`Replace Disk` button.  After clicking the
-    :guilabel:`Replace Disk` button, the pool begins resilvering.
-
-#. After the drive replacement process is complete, re-add the
-   replaced disk in the :ref:`S.M.A.R.T. Tests` screen.
-
-In the example shown in
-:numref:`Figure %s <zfs_replace_failed_fig>`,
-a failed disk is being replaced by disk *ada5* in the pool named
-:file:`pool1`.
-
-
-.. _zfs_replace_failed_fig:
-
-.. figure:: images/replace.png
-
-   Replacing a Failed Disk
-
-
-After the resilver is complete, :guilabel:`Pools` shows a
-:guilabel:`Completed` resilver status and indicates any errors.
-:numref:`Figure %s <zfs_disk_replacement_fig>`
-indicates that the disk replacement was successful in this example.
-
-.. note:: A disk that is failing but has not completely failed can be
-   replaced in place, without first removing it. Whether this is a
-   good idea depends on the overall condition of the failing disk. A
-   disk with a few newly-bad blocks that is otherwise functional can
-   be left in place during the replacement to provide data redundancy.
-   A drive that is experiencing continuous errors can actually slow
-   down the replacement. In extreme cases, a disk with serious
-   problems might spend so much time retrying failures that it could
-   prevent the replacement resilvering from completing before another
-   drive fails.
-
-
-.. _zfs_disk_replacement_fig:
-
-.. figure:: images/replace2.png
-
-   Disk Replacement is Complete
-
-
-.. _Replacing an Encrypted Drive:
-
-Replacing an Encrypted Drive
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If the ZFS pool is encrypted, additional steps are needed when
-replacing a failed drive.
-
-First, make sure that a passphrase has been set using the instructions
-in :ref:`Managing Encrypted Pools` **before** attempting to replace the
-failed drive. Then, follow the steps 1 and 2 as described above. During
-step 3, you will be prompted to input and confirm the passphrase for the
-pool. Enter this information then click the :guilabel:`Replace Disk`
-button. Wait until the resilvering is complete.
-
-Next, restore the encryption keys to the pool.
-**If the following additional steps are not performed before the next
-reboot, access to the pool might be permanently lost.**
-
-#.  Highlight the pool that contains the disk that was just replaced
-    and click the :guilabel:`Encryption Re-key` button in the GUI.
-    Entry of the *root* password will be required.
-    #ifdef truenas
-
-    .. note:: A re-key is not allowed if :ref:`Failover`
-       (High Availability) has been enabled and the standby node is
-       down.
-    #endif truenas
-
-#.  Highlight the pool that contains the disk you just replaced and
-    click :guilabel:`Create Passphrase` and enter the new passphrase.
-    The old passphrase can be reused if desired.
-
-#.  Highlight the pool that contains the disk you just replaced and
-    click the :guilabel:`Download Key` button to save the new
-    encryption key. Since the old key will no longer function, any old
-    keys can be safely discarded.
-
-#.  Highlight the pool that contains the disk that was just replaced
-    and click the :guilabel:`Add Recovery Key` button to save the new
-    recovery key. The old recovery key will no longer function, so it
-    can be safely discarded.
-
-
-.. _Removing a Log or Cache Device:
-
-Removing a Log or Cache Device
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Added log or cache devices appear in
-:menuselection:`Storage --> Pools --> Pool Status`.
-Clicking the device enables the :guilabel:`Replace` and
-:guilabel:`Remove` buttons.
-
-Log and cache devices can be safely removed or replaced with these
-buttons. Both types of devices improve performance, and throughput can
-be impacted by their removal.
-
-
-.. _Replacing Drives to Grow a Pool:
-
-Replacing Drives to Grow a Pool
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The recommended method for expanding the size of a ZFS pool is to
-pre-plan the number of disks in a vdev and to stripe additional vdevs
-using :ref:`Pools` as additional capacity is needed.
-
-However, this is not an option if there are no open drive ports and a
-SAS/SATA HBA card cannot be added. In this case, one disk at a time
-can be replaced with a larger disk, waiting for the resilvering
-process to incorporate the new disk into the pool, then repeating with
-another disk until all of the original disks have been replaced.
-
-The safest way to perform this is to use a spare drive port or an
-eSATA port and a hard drive dock. The process follows these steps:
-
-#. Shut down the system.
-
-#. Install one new disk.
-
-#. Start up the system.
-
-#. Go to
-   :menuselection:`Storage --> Pools`,
-   select the pool to expand and click the :guilabel:`Pool Status`
-   button. Select a disk and click the :guilabel:`Replace` button.
-   Choose the new disk as the replacement.
-
-#. The status of the resilver process can be viewed by running
-   :command:`zpool status`. When the new disk has resilvered, the old
-   one will be automatically offlined. The system is then shut down to
-   physically remove the replaced disk. One advantage of this approach
-   is that there is no loss of redundancy during the resilver.
-
-If a spare drive port is not available, a drive can be replaced with a
-larger one using the instructions in :ref:`Replacing a Failed Drive`.
-This process is slow and places the system in a degraded state. Since
-a failure at this point could be disastrous, **do not attempt this
-method unless the system has a reliable backup.** Replace one drive at
-a time and wait for the resilver process to complete on the replaced
-drive before replacing the next drive. After all the drives are
-replaced and the final resilver completes, the added space will appear
-in the pool.
-
 .. index:: Snapshots
 .. _Snapshots:
 
 Snapshots
 -------------
 
-The :guilabel:`Snapshots` tab is used to review the listing of
-available snapshots. An example is shown in
+Snapshots are scheduled using
+:menuselection:`Tasks --> Periodic Snapshot Tasks`. To view and manage
+the listing of created snapshots, use
+:menuselection:`Storage --> Snapshots`. An example is shown in
 :numref:`Figure %s <zfs_view_avail_snapshots_fig>`.
 
 .. note:: If snapshots do not appear, check that the current time
@@ -1348,22 +1131,22 @@ available snapshots. An example is shown in
    Viewing Available Snapshots
 
 
-The listing includes the name of the pool or dataset, the name
-of each snapshot, and the amount of used and referenced data.
+Each entry in the listing includes the name of the snapshot, based on
+the volume/dataset name and time of the snapshot, and the amount of used
+and referenced data, where:
 
 **Used** is the amount of space consumed by this dataset and all of
 its descendants. This value is checked against the dataset's quota and
-reservation. The space used does not include the dataset's
-reservation, but does take into account the reservations of any
-descendent datasets. The amount of space that a dataset consumes from
-its parent, as well as the amount of space that are freed if this
-dataset is recursively destroyed, is the greater of its space used and
-its reservation. When a snapshot is created, the space is initially
-shared between the snapshot and the filesystem, and possibly with
-previous snapshots. As the filesystem changes, space that was
-previously shared becomes unique to the snapshot, and is counted in
-the snapshot's space used. Additionally, deleting snapshots can
-increase the amount of space unique to (and used by) other snapshots.
+reservation. The space used does not include the dataset's reservation,
+but does take into account the reservations of any descendent datasets.
+The amount of space that a dataset consumes from its parent, as well as
+the amount of space freed if this dataset is recursively destroyed, is
+the greater of its space used and its reservation. When a snapshot is
+created, the space is initially shared between the snapshot and the
+filesystem, and possibly with previous snapshots. As the filesystem
+changes, space that was previously shared becomes unique to the snapshot,
+and is counted in the snapshot's used space. Deleting a snapshot can
+increase the amount of space unique to, and used by, other snapshots.
 The amount of space used, available, or referenced does not take into
 account pending changes. While pending changes are generally accounted
 for within a few seconds, disk changes do not necessarily guarantee
@@ -1377,19 +1160,13 @@ that the space usage information is updated immediately.
 **Refer** indicates the amount of data accessible by this dataset,
 which may or may not be shared with other datasets in the pool. When a
 snapshot or clone is created, it initially references the same amount
-of space as the file system or snapshot it was created from, since its
+of space as the filesystem or snapshot it was created from, since its
 contents are identical.
 
-Snapshots have icons on the right side for several actions.
+To manage a snapshot, click the 3-dot icon next to its entry. The
+following actions are available from that menu:
 
-**Clone Snapshot** prompts for the name of the clone to create. A
-clone is a writable copy of the snapshot. Since a clone is actually a
-dataset which can be mounted, it appears in the :guilabel:`Pools`
-tab rather than the :guilabel:`Snapshots` tab. By default,
-:literal:`-clone` is added to the name of a snapshot when a clone is
-created.
-
-**Destroy Snapshot** a pop-up message asks for confirmation. Child
+**Delete** a pop-up message asks for confirmation. Child
 clones must be destroyed before their parent snapshot can be
 destroyed. While creating a snapshot is instantaneous, deleting a
 snapshot can be I/O intensive and can take a long time, especially
@@ -1397,7 +1174,18 @@ when deduplication is enabled. In order to delete a block in a
 snapshot, ZFS has to walk all the allocated blocks to see if that
 block is used anywhere else; if it is not, it can be freed.
 
-The most recent snapshot also has a **Rollback Snapshot** icon.
+**Clone** prompts for the name of the clone to create. A default name
+is provided that is based upon the name of the original snapshot but
+can be edited. Click the :guilabel:`Save` button to finish cloing the
+snapshot.
+
+A clone is a writable copy of the snapshot. Since a clone is actually a
+dataset which can be mounted, it appears in the :guilabel:`Pools`
+tab rather than the :guilabel:`Snapshots` tab. By default,
+:literal:`-clone` is added to the name of a snapshot when a clone is
+created.
+
+**Rollback:** only appears on the most recent snapshot.
 Clicking the icon asks for confirmation before rolling back to this
 snapshot state. Confirming by clicking :guilabel:`Yes` causes any
 files that have changed since the snapshot was taken to be reverted
@@ -1709,6 +1497,224 @@ overwrites the entire disk with random binary data.
 Quick wipes take only a few seconds. A *Full with zeros* wipe of a
 large disk can take several hours, and a *Full with random data* takes
 longer. A progress bar is displayed during the wipe to track status.
+
+.. index:: Replace Failed Drive
+.. _Replacing a Failed Drive:
+
+Replacing a Failed Drive
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+#ifdef freenas
+With any form of redundant RAID, failed drives must be replaced as
+soon as possible to repair the degraded state of the RAID. Depending
+on the hardware's capabilities, it might be necessary to reboot to
+replace the failed drive. Hardware that supports AHCI does not require
+a reboot.
+#endif freenas
+#ifdef truenas
+Replace failed drives as soon as possible to repair the degraded
+state of the RAID.
+#endif truenas
+
+.. note:: Striping (RAID0) does not provide redundancy. If a disk in
+   a stripe fails, the pool will be destroyed and must be recreated
+   and the data restored from backup.
+
+.. note:: If the pool is encrypted with GELI, refer to
+   :ref:`Replacing an Encrypted Drive` before proceeding.
+
+
+Before physically removing the failed device, go to
+:menuselection:`Storage --> Pools`.
+Select the pool name. At the bottom of the interface are several
+icons, one of which is :guilabel:`Pool Status`. Click the
+:guilabel:`Pool Status` icon and locate the failed disk. Then
+perform these steps:
+
+#ifdef freenas
+#.  Click the disk entry, then the :guilabel:`Offline` button to
+    change the disk status to OFFLINE. This step is needed to properly
+    remove the device from the pool and to prevent swap issues.
+    If the hardware supports hot-pluggable disks, click the disk
+    :guilabel:`Offline` button and pull the disk, then skip to step 3.
+    If there is no :guilabel:`Offline` button but only a
+    :guilabel:`Replace` button, the disk is already offlined and this
+    step can be skipped.
+#endif freenas
+#ifdef truenas
+#.  Click the disk entry, then the :guilabel:`Offline` button to
+    change the disk status to OFFLINE. This step is needed to properly
+    remove the device from the pool and to prevent swap issues.
+    Click the disk :guilabel:`Offline` button and pull the disk. If
+    there is no :guilabel:`Offline` button but only a
+    :guilabel:`Replace` button, the disk is already offlined and this
+    step can be skipped.
+#endif truenas
+
+    .. note:: If the process of changing the disk status to OFFLINE
+       fails with a "disk offline failed - no valid replicas" message,
+       the pool must be scrubbed first with the :guilabel:`Scrub Pool`
+       button in
+       :menuselection:`Storage --> Pools`.
+       After the scrub completes, try :guilabel:`Offline` again before
+       proceeding.
+
+#ifdef freenas
+#.  If the hardware is not AHCI capable, shut down the system to
+    physically replace the disk. When finished, return to the GUI
+    and locate the OFFLINE disk.
+#endif freenas
+
+#.  After the disk has been replaced and is showing as OFFLINE, click
+    the disk again and then click the :guilabel:`Replace` button.
+    Select the replacement disk from the drop-down menu and click the
+    :guilabel:`Replace Disk` button.  After clicking the
+    :guilabel:`Replace Disk` button, the pool begins resilvering.
+
+#. After the drive replacement process is complete, re-add the
+   replaced disk in the :ref:`S.M.A.R.T. Tests` screen.
+
+In the example shown in
+:numref:`Figure %s <zfs_replace_failed_fig>`,
+a failed disk is being replaced by disk *ada5* in the pool named
+:file:`pool1`.
+
+
+.. _zfs_replace_failed_fig:
+
+.. figure:: images/replace.png
+
+   Replacing a Failed Disk
+
+
+After the resilver is complete, :guilabel:`Pools` shows a
+:guilabel:`Completed` resilver status and indicates any errors.
+:numref:`Figure %s <zfs_disk_replacement_fig>`
+indicates that the disk replacement was successful in this example.
+
+.. note:: A disk that is failing but has not completely failed can be
+   replaced in place, without first removing it. Whether this is a
+   good idea depends on the overall condition of the failing disk. A
+   disk with a few newly-bad blocks that is otherwise functional can
+   be left in place during the replacement to provide data redundancy.
+   A drive that is experiencing continuous errors can actually slow
+   down the replacement. In extreme cases, a disk with serious
+   problems might spend so much time retrying failures that it could
+   prevent the replacement resilvering from completing before another
+   drive fails.
+
+
+.. _zfs_disk_replacement_fig:
+
+.. figure:: images/replace2.png
+
+   Disk Replacement is Complete
+
+
+.. _Replacing an Encrypted Drive:
+
+Replacing an Encrypted Drive
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the ZFS pool is encrypted, additional steps are needed when
+replacing a failed drive.
+
+First, make sure that a passphrase has been set using the instructions
+in :ref:`Managing Encrypted Pools` **before** attempting to replace the
+failed drive. Then, follow the steps 1 and 2 as described above. During
+step 3, you will be prompted to input and confirm the passphrase for the
+pool. Enter this information then click the :guilabel:`Replace Disk`
+button. Wait until the resilvering is complete.
+
+Next, restore the encryption keys to the pool.
+**If the following additional steps are not performed before the next
+reboot, access to the pool might be permanently lost.**
+
+#.  Highlight the pool that contains the disk that was just replaced
+    and click the :guilabel:`Encryption Re-key` button in the GUI.
+    Entry of the *root* password will be required.
+    #ifdef truenas
+
+    .. note:: A re-key is not allowed if :ref:`Failover`
+       (High Availability) has been enabled and the standby node is
+       down.
+    #endif truenas
+
+#.  Highlight the pool that contains the disk you just replaced and
+    click :guilabel:`Create Passphrase` and enter the new passphrase.
+    The old passphrase can be reused if desired.
+
+#.  Highlight the pool that contains the disk you just replaced and
+    click the :guilabel:`Download Key` button to save the new
+    encryption key. Since the old key will no longer function, any old
+    keys can be safely discarded.
+
+#.  Highlight the pool that contains the disk that was just replaced
+    and click the :guilabel:`Add Recovery Key` button to save the new
+    recovery key. The old recovery key will no longer function, so it
+    can be safely discarded.
+
+
+.. _Removing a Log or Cache Device:
+
+Removing a Log or Cache Device
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Added log or cache devices appear in
+:menuselection:`Storage --> Pools --> Pool Status`.
+Clicking the device enables the :guilabel:`Replace` and
+:guilabel:`Remove` buttons.
+
+Log and cache devices can be safely removed or replaced with these
+buttons. Both types of devices improve performance, and throughput can
+be impacted by their removal.
+
+
+.. _Replacing Drives to Grow a Pool:
+
+Replacing Drives to Grow a Pool
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The recommended method for expanding the size of a ZFS pool is to
+pre-plan the number of disks in a vdev and to stripe additional vdevs
+using :ref:`Pools` as additional capacity is needed.
+
+However, this is not an option if there are no open drive ports and a
+SAS/SATA HBA card cannot be added. In this case, one disk at a time
+can be replaced with a larger disk, waiting for the resilvering
+process to incorporate the new disk into the pool, then repeating with
+another disk until all of the original disks have been replaced.
+
+The safest way to perform this is to use a spare drive port or an
+eSATA port and a hard drive dock. The process follows these steps:
+
+#. Shut down the system.
+
+#. Install one new disk.
+
+#. Start up the system.
+
+#. Go to
+   :menuselection:`Storage --> Pools`,
+   select the pool to expand and click the :guilabel:`Pool Status`
+   button. Select a disk and click the :guilabel:`Replace` button.
+   Choose the new disk as the replacement.
+
+#. The status of the resilver process can be viewed by running
+   :command:`zpool status`. When the new disk has resilvered, the old
+   one will be automatically offlined. The system is then shut down to
+   physically remove the replaced disk. One advantage of this approach
+   is that there is no loss of redundancy during the resilver.
+
+If a spare drive port is not available, a drive can be replaced with a
+larger one using the instructions in :ref:`Replacing a Failed Drive`.
+This process is slow and places the system in a degraded state. Since
+a failure at this point could be disastrous, **do not attempt this
+method unless the system has a reliable backup.** Replace one drive at
+a time and wait for the resilver process to complete on the replaced
+drive before replacing the next drive. After all the drives are
+replaced and the final resilver completes, the added space will appear
+in the pool.
 
 .. _Import Disk:
 
