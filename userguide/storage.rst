@@ -650,8 +650,9 @@ quotas and compression can be set, and snapshots created.
    provisioning using reserved space.
 
 
-Selecting an existing pool in the tree and clicking
-:guilabel:`Create Dataset` shows the screen in
+To create a dataset, select an existing pool in
+:menuselection:`Storage --> Pools`, click the 3-dot icon, and select
+:guilabel:`Add Dataset` This will display the screen shown in
 :numref:`Figure %s <zfs_create_dataset>`.
 
 
@@ -678,12 +679,6 @@ either click the :guilabel:`Advanced Mode` button, or configure the
 system to always display advanced settings by checking the box
 :guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
-Most attributes, except for the :guilabel:`Dataset Name`,
-:guilabel:`Case Sensitivity`, and :guilabel:`Record Size`, can be
-changed after dataset creation by highlighting the dataset name and
-clicking the :guilabel:`Edit Options` button in
-:menuselection:`Storage --> Pools`.
-
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
@@ -698,7 +693,7 @@ clicking the :guilabel:`Edit Options` button in
    | Setting                  | Value               | Description                                                                                               |
    |                          |                     |                                                                                                           |
    +==========================+=====================+===========================================================================================================+
-   | Dataset Name             | string              | mandatory; enter a unique name for the dataset                                                            |
+   | Name                     | string              | mandatory; enter a unique name for the dataset                                                            |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    | Comments                 | string              | short comments or user notes about this dataset                                                           |
@@ -764,13 +759,27 @@ clicking the :guilabel:`Edit Options` button in
 
 
 After a dataset is created, you can click on that dataset and select
-:guilabel:`Create Dataset`, thus creating a nested dataset, or a
-dataset within a dataset. A zvol can also be created within a dataset.
-When creating datasets, double-check that you are using the
-:guilabel:`Create Dataset` option for the intended pool or dataset.
-If you get confused when creating a dataset on a pool, click all
-existing datasets to close them. The remaining
-:guilabel:`Create Dataset` will be for the pool.
+the following actions from its 3-dot icon:
+
+**Add Dataset:** create a nested dataset, or a dataset within a dataset. 
+
+**Add Zvol:** add a zvol to the dataset. Refer to :ref:`Adding Zvols`
+for more information about zvols.
+
+**Edit Options:** edit the pool properties described in
+:numref:`Table %s <zfs_create_dataset>`. Note that the
+:guilabel:`Dataset Name`, :guilabel:`Case Sensitivity`, and
+:guilabel:`Record Size` are read-only as they cannot be edited after
+dataset creation.
+
+**Edit Permissions:** refer to :ref:`Change Permissions` for more
+information about permissions.
+
+**Delete Dataset:** clicking this option will popup a warning as a
+reminder that this irreversible action will also delete all snapshots for
+the dataset.
+Check the :guilabel:`Confirm` box then the :guilabel:`Ok` button to
+destroy the dataset and all of its contents.
 
 **Create Snapshot:** create a one-time snapshot. To schedule the
 regular creation of snapshots, instead use
@@ -780,21 +789,6 @@ regular creation of snapshots, instead use
 the origin filesystem becomes a clone of the clone making it possible
 to destroy the filesystem that the clone was created from. Otherwise,
 a clone cannot be destroyed while the origin filesystem exists.
-
-**Destroy Dataset:** clicking the :guilabel:`Destroy Dataset` button
-causes the browser window to turn red to indicate that this is a
-destructive action. The :guilabel:`Destroy Dataset` screen forces you
-to check the box
-:guilabel:`I'm aware this will destroy all child datasets and
-snapshots within this dataset` before it will perform this action.
-
-**Edit Options:** edit the pool properties described in
-:numref:`Table %s <zfs_create_dataset>`.
-Note that changing the dataset name is not allowed.
-
-**Create Dataset:** used to create a child dataset within this
-dataset.
-
 
 #ifdef freenas
 .. index:: Deduplication
@@ -882,15 +876,12 @@ algorithms are supported:
   :guilabel:`Compression level` is left at *Inherit* when creating a
   dataset or zvol.
 
-* **gzip:** varies from levels 1 to 9 where *gzip fastest* (level 1)
+* **gzip:** levels 1, 6, and 9 where *gzip fastest* (level 1)
   gives the least compression and *gzip maximum* (level 9) provides
   the best compression but is discouraged due to its performance
   impact.
 
 * **zle:** fast but simple algorithm to eliminate runs of zeroes.
-
-* **lzjb:** provides decent data compression, but is considered
-  deprecated as *lz4* provides much better performance.
 
 If you select *Off* as the :guilabel:`Compression level` when creating
 a dataset or zvol, compression will not be used on the dataset/zvol.
