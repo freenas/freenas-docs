@@ -29,7 +29,7 @@ Carefully unpack the shipping boxes and locate these components:
    |                                            |                                                 |
    | M-Series Unified Storage Array             | M-Series Bezel                                  |
    +--------------------------------------------+-------------------------------------------------+
-   | .. image:: images/tn_es24m_rails.png       | .. image:: images/tn_es24m_drivetrays.png       |
+   | .. image:: images/tn_es24m_rails.png       | .. image:: images/tn_es24m_drivetray.png        |
    |                                            |                                                 |
    | Set of rackmount rails.                    |                                                 |
    +--------------------------------------------+-------------------------------------------------+

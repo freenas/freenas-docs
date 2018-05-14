@@ -30,7 +30,7 @@ Carefully unpack the shipping boxes and locate these components:
    |                                                  |                                             |
    | ES24 Expansion Shelf                             |                                             |
    +--------------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es24m_rails.png             | .. image:: images/tn_es24_drivetray.png     |
+   | .. image:: images/tn_es24m_rails.png             | .. image:: images/tn_es24m_drivetray.png    |
    |                                                  |    :width: 30%                              |
    |                                                  |                                             |
    | Set of rackmount rails                           | Up to 24 drive trays populated with drives  |
