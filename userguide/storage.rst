@@ -169,9 +169,11 @@ whether it is mounted as read-only, whether :guilabel:`Deduplication` has
 been enabled, its mountpoint path, and any :guilabel:`Comments` entered
 for the pool.
 
+#ifdef comment
 **Upgrade:** used to upgrade the pool to the latest ZFS features, as
 described in :ref:`Upgrading a ZFS Pool`. This button does not appear
 if the pool is running the latest version of feature flags.
+#endif comment
 
 .. _zfs_vol_fig:
 
@@ -328,13 +330,17 @@ able to access the unlocked pool.
 
 **Create Passphrase:** set and confirm a passphrase associated with the
 GELI encryption key.
+
+#ifdef comment
 A red warning is a reminder to
 :guilabel:`Remember to add a new recovery key as this action
-invalidates the previous recovery key`. Unlike a password, a
-passphrase can contain spaces and is typically a series of words. A
-good passphrase is easy to remember (like the line to a song or piece
-of literature) but hard to guess (people you know should not be
-able to guess the passphrase).
+invalidates the previous recovery key`. 
+#endif comment
+
+Unlike a password, a passphrase can contain spaces and is typically a
+series of words. A good passphrase is easy to remember (like the line to
+a song or piece of literature) but hard to guess (people you know should
+not be able to guess the passphrase).
 **Remember this passphrase. An encrypted pool cannot be reimported
 without it.**
 In other words, if the passphrase is forgotten, the data on the pool
@@ -628,6 +634,7 @@ To view a pool's scrub status, click the pool's name, then the
 The resulting screen will display the status of a running scrub or the
 statistics from the last completed scrub.
 
+#ifdef comment
 This button allows manually initiating a
 scrub. Scrubs are I/O intensive and can negatively impact performance.
 Avoid initiating a scrub when the system is busy.
@@ -635,6 +642,7 @@ Avoid initiating a scrub when the system is busy.
 A :guilabel:`Cancel` button is provided to cancel a scrub. When a
 scrub is cancelled, it is abandoned. The next scrub to run starts
 from the beginning, not where the cancelled scrub left off.
+#endif comment
 
 .. index:: Add Dataset
 .. _Adding Datasets:
@@ -677,12 +685,16 @@ To create a dataset, select an existing pool in
 
 
 :numref:`Table %s <zfs_dataset_opts_tab>`
-shows the options available when creating a dataset. Some settings are
+shows the options available when creating a dataset. 
+
+#ifdef comment
+Some settings are
 only available in :guilabel:`Advanced Mode`. To see these settings,
 either click the :guilabel:`Advanced Mode` button, or configure the
 system to always display advanced settings by checking the box
 :guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
+#endif comment
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
@@ -697,67 +709,65 @@ system to always display advanced settings by checking the box
    | Setting                  | Value               | Description                                                                                               |
    |                          |                     |                                                                                                           |
    +==========================+=====================+===========================================================================================================+
-   | Name                     | string              | mandatory; enter a unique name for the dataset                                                            |
+   | Name                     | string              | This setting is mandatory. Input a unique name for the dataset.                                           |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Comments                 | string              | short comments or user notes about this dataset                                                           |
+   | Comments                 | string              | Used to input optional comments or user notes about this dataset.                                         |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Sync                     | drop-down menu      | data write synchronization: *Inherit* inherits the sync settings from the parent dataset; *Standard*      |
-   |                          |                     | uses the sync settings that have been requested by the client software; *Always* always waits for         |
-   |                          |                     | data writes to complete; *Disabled* never waits for writes to complete                                    |
+   | Sync                     | drop-down menu      | Sets the data write synchronization. *Inherit* inherits the sync settings from the parent dataset,        |
+   |                          |                     | *Standard* uses the sync settings that have been requested by the client software, *Always* waits for     |
+   |                          |                     | data writes to complete, and *Disabled* never waits for writes to complete.                               |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Compression Level        | drop-down menu      | see the section on :ref:`Compression` for a description of the available algorithms                       |
+   | Compression Level        | drop-down menu      | Refer to the section on :ref:`Compression` for a description of the available algorithms.                 |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Share type               | drop-down menu      | select the type of share that will be used on the dataset; choices are *UNIX* for an NFS share,           |
-   |                          |                     | *Windows* for a SMB share, or                                                                             |
-   |                          |                     | *Mac* for an AFP share                                                                                    |
+   | Share type               | drop-down menu      | Select the type of share that will be used on the dataset. Choices are *UNIX* for an NFS share,           |
+   |                          |                     | *Windows* for a SMB share, or *Mac* for an AFP share                                                      |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Enable atime             | Inherit, On, or Off | controls whether the access time for files is updated when they are read; setting this property to *Off*  |
-   |                          |                     | avoids producing log traffic when reading files and can result in significant performance gains           |
+   | Enable atime             | Inherit, On, or Off | Controls whether the access time for files is updated when they are read. Setting this property to *Off*  |
+   |                          |                     | avoids producing log traffic when reading files and can result in significant performance gains.          |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota for this dataset   | integer             | only available in :guilabel:`Advanced Mode`; default of *0* disables quotas; specifying a                 |
-   |                          |                     | value means to use no more than the specified size and is suitable for user datasets to                   |
-   |                          |                     | prevent users from hogging available space                                                                |
+   | Quota for this dataset   | integer             | Only available in :guilabel:`Advanced Mode`. Default of *0* disables quotas. Specifying a value means to  |
+   |                          |                     | use no more than the specified size and is suitable for user datasets to prevent users from hogging       |
+   |                          |                     | available space.                                                                                          |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota for this dataset   | integer             | only available in :guilabel:`Advanced Mode`; a specified value applies to both this dataset               |
-   | and all children         |                     | and any child datasets                                                                                    |
+   | Quota for this dataset   | integer             | Only available in :guilabel:`Advanced Mode`. A specified value applies to both this dataset and any       |
+   | and all children         |                     | child datasets.                                                                                           |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Reserved space for this  | integer             | only available in :guilabel:`Advanced Mode`; default of *0* is unlimited; specifying a value              |
-   | dataset                  |                     | means to keep at least this much space free and is suitable for datasets containing logs which            |
-   |                          |                     | could take up all available free space                                                                    |
+   | Reserved space for this  | integer             | Only available in :guilabel:`Advanced Mode`. Default of *0* is unlimited. Specifying a value means to     |
+   | dataset                  |                     | keep at least this much space free and is suitable for datasets containing logs which could otherwise     |
+   |                          |                     | take up all available free space.                                                                         |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Reserved space for this  | integer             | only available in :guilabel:`Advanced Mode`; a specified value applies to both this dataset               |
-   | dataset and all children |                     | and any child datasets                                                                                    |
+   | Reserved space for this  | integer             | Only available in :guilabel:`Advanced Mode`. A specified value applies to both this dataset and any       |
+   | dataset and all children |                     | child datasets.                                                                                           |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    #ifdef freenas
-   | ZFS Deduplication        | drop-down menu      | read the section on :ref:`Deduplication` before making a change to this setting                           |
+   | ZFS Deduplication        | drop-down menu      | Read the section on :ref:`Deduplication` before making a change to this setting.                          |
    |                          |                     |                                                                                                           |
    #endif freenas
    #ifdef truenas
-   | ZFS Deduplication        | drop-down menu      | do not change this setting unless instructed to do so by your iXsystems support engineer                  |
+   | ZFS Deduplication        | drop-down menu      | Do not change this setting unless instructed to do so by your iXsystems support engineer.                 |
    |                          |                     |                                                                                                           |
    #endif truenas
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Read-Only                | drop-down menu      | only available in :guilabel:`Advanced Mode`; choices are *Inherit (off)*, *On*, or *Off*                  |
+   | Read-Only                | drop-down menu      | Only available in :guilabel:`Advanced Mode`. Choices are *Inherit (off)*, *On*, or *Off*.                 |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Exec                     | drop-down menu      | only available in :guilabel:`Advanced Mode`; choices are *Inherit (on)*, *On*, or *Off*                   |
+   | Exec                     | drop-down menu      | Only available in :guilabel:`Advanced Mode`. Choices are *Inherit (on)*, *On*, or *Off*.                  |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Record Size              | drop-down menu      | only available in :guilabel:`Advanced Mode`; while ZFS automatically adapts the record                    |
-   |                          |                     | size dynamically to adapt to data, if the data has a fixed size (e.g. a database), matching               |
-   |                          |                     | that size may result in better performance                                                                |
+   | Record Size              | drop-down menu      | Only available in :guilabel:`Advanced Mode`. While ZFS automatically adapts the record size               |
+   |                          |                     | dynamically to adapt to data, if the data has a fixed size (such as database records), matching its size  |
+   |                          |                     | may result in better performance.                                                                         |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Case Sensitivity         | drop-down menu      | choices are *sensitive* (default, assumes filenames are case sensitive),                                  |
-   |                          |                     | *insensitive* (assumes filenames are not case sensitive), or                                              |
-   |                          |                     | *mixed* (understands both types of filenames)                                                             |
+   | Case Sensitivity         | drop-down menu      | Choices are *sensitive* (default, assumes filenames are case sensitive), *insensitive* (assumes filenames |
+   |                          |                     |  are not case sensitive), or *mixed* (understands both types of filenames).                               |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
 
@@ -790,9 +800,11 @@ the origin filesystem becomes a clone of the clone making it possible
 to destroy the filesystem that the clone was created from. Otherwise,
 a clone cannot be destroyed while the origin filesystem exists.
 
+#ifdef comment
 **Create Snapshot:** create a one-time snapshot. To schedule the
 regular creation of snapshots, instead use
 :ref:`Periodic Snapshot Tasks`.
+#endif comment
 
 #ifdef freenas
 .. index:: Deduplication
@@ -927,39 +939,38 @@ The configuration options are described in
    |                    |                |                                                                                                                      |
    |                    |                |                                                                                                                      |
    +====================+================+======================================================================================================================+
-   | zvol name          | string         | mandatory; enter a name for the zvol; note that there is a 63-character limit on device path names in devfs,         |
-   |                    |                | so using long zvol names can prevent accessing zvols as devices; for example, a zvol with a 70-character filename    |
-   |                    |                | or path cannot be used as an iSCSI extent                                                                            |
+   | zvol name          | string         | This setting is mandatory. Input a name for the zvol; note that there is a 63-character limit on device path names   |
+   |                    |                | in devfs,  so using long zvol names can prevent accessing zvols as devices; for example, a zvol with a 70-character  |
+   |                    |                | filename or path cannot be used as an iSCSI extent.                                                                  |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | comments           | string         | short comments or user notes about this zvol                                                                         |
+   | comments           | string         | Input optional short comments or user notes about this zvol.                                                         |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Compression level  | drop-down menu | see the section on :ref:`Compression` for a description of the available algorithms                                  |
+   | Compression level  | drop-down menu | Refer to :ref:`Compression` for a description of the available algorithms.                                           |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    #ifdef freenas
-   | ZFS Deduplication  | drop-down menu | read the section on :ref:`Deduplication` before making a change to this setting                                      |
+   | ZFS Deduplication  | drop-down menu | Read the section on :ref:`Deduplication` before making a change to this setting.                                     |
    |                    |                |                                                                                                                      |
    #endif freenas
    #ifdef truenas
-   | ZFS Deduplication  | drop-down menu | do not change this setting unless instructed to do so by your iXsystems support engineer                             |
+   | ZFS Deduplication  | drop-down menu | Do not change this setting unless instructed to do so by your iXsystems support engineer.                            |
    |                    |                |                                                                                                                      |
    #endif truenas
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Size for this zvol | integer        | specify size and value such as *10Gib*; if the size is more than 80% of the available capacity, the creation will    |
-   |                    |                | fail with an "out of space" error unless :guilabel:`Force size` is checked                                           |
+   | Size for this zvol | integer        | Specify size and value such as *10Gib*. If the size is more than 80% of the available capacity, the creation will    |
+   |                    |                | fail with an "out of space" error unless :guilabel:`Force size` is also checked.                                     |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Force size         | checkbox       | by default, the system will not let you create a zvol if that operation will bring the pool to over 80% capacity;    |
-   |                    |                | **while NOT recommended**, checking this box will force the creation of the zvol in this situation                   |
+   | Force size         | checkbox       | By default, the system will not create a zvol if that operation will bring the pool to over 80% capacity.            |
+   |                    |                | **While NOT recommended**, checking this box will force the creation of the zvol.                                    |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Sparse pool        | checkbox       | used to provide thin provisioning; use with caution for when this option is selected, writes will fail when the      |
-   |                    |                | pool is low on space                                                                                                 |
+   | Sparse pool        | checkbox       | Used to provide thin provisioning. Use with caution as writes will fail when the pool is low on space.               |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Block size         | drop-down menu | by default is based on the number of disks in pool;                                                                  |
-   |                    |                | can be set to match the block size of the filesystem which will be formatted onto the iSCSI target                   |
+   | Block size         | drop-down menu | The default is based on the number of disks in the pool. This can be set to match the block size of the filesystem   |
+   |                    |                | which will be formatted onto the iSCSI target.                                                                       |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
 
@@ -1211,12 +1222,14 @@ back to their state at the time of the snapshot.
    This approach does not destroy any on-disk data and has no impact
    on replication.
 
+#ifdef comment
 A range of snapshots can be selected with the mouse. Click on the
 checkbox in the left column of the first snapshot, then press and hold
 :kbd:`Shift` and click on the checkbox for the end snapshot. This can
 be used to select a range of obsolete snapshots to be deleted with the
 :guilabel:`Destroy` icon at the bottom. Be cautious and careful when
 deleting ranges of snapshots.
+#endif comment
 
 Periodic snapshots can be configured to appear as shadow copies in
 newer versions of Windows Explorer, as described in
@@ -1370,8 +1383,10 @@ To edit a disk's options, click the 3-dot icon for its entry and
 select :guilabel:`Edit` to open the screen shown in
 :numref:`Figure %s <zfs_edit_disk_fig>`).
 
+#ifdef comment
 offline or online the device, or replace the device (as described in
 :ref:`Replacing a Failed Disk`).
+#endif comment
 
 :numref:`Table %s <zfs_disk_opts_tab>`
 lists the configurable options.
@@ -1432,6 +1447,7 @@ lists the configurable options.
    to determine the serial number of disk *ada0*, type
    :command:`smartctl -a /dev/ada0 | grep Serial`.
 
+#ifdef comment
 The :guilabel:`Wipe` function is provided for when an unused disk is
 to be discarded.
 
@@ -1451,6 +1467,7 @@ overwrites the entire disk with random binary data.
 Quick wipes take only a few seconds. A *Full with zeros* wipe of a
 large disk can take several hours, and a *Full with random data* takes
 longer. A progress bar is displayed during the wipe to track status.
+#endif comment
 
 .. index:: Replace Failed Drive
 .. _Replacing a Failed Disk:
@@ -1675,14 +1692,12 @@ in the pool.
 Importing a Disk
 ----------------
 
-The
-:menuselection:`Pool --> Import Disk`
-screen, shown in
-:numref:`Figure %s <zfs_import_disk_fig>`,
-is used to import a **single** disk that has been formatted with the
-UFS, NTFS, MSDOS, or EXT2 filesystem. The import is meant to be a
-temporary measure to copy the data from a disk to an existing ZFS
-dataset. Only one disk can be imported at a time.
+The :menuselection:`Pool --> Import Disk` screen, shown in
+:numref:`Figure %s <zfs_import_disk_fig>`, is used to import a **single**
+disk that has been formatted with the UFS, NTFS, MSDOS, or EXT2
+filesystem. The import is meant to be a temporary measure to copy the data
+from a disk to an existing ZFS dataset. Only one disk can be imported at
+a time.
 
 .. note:: Imports of EXT3 or EXT4 filesystems are possible in some
    cases, although neither is fully supported.  EXT3 journaling is not
@@ -1704,6 +1719,6 @@ dataset. Only one disk can be imported at a time.
 
 Use the drop-down menu to select the disk to import, select the type
 of filesystem on the disk, and browse to the ZFS dataset that will
-hold the copied data. When you click :guilabel:`Import Pool`, the disk
-is mounted, its contents are copied to the specified dataset, and the
-disk is unmounted after the copy operation completes.
+hold the copied data. When you click :guilabel:`Save`, the disk is
+mounted, its contents are copied to the specified dataset, and the disk
+is unmounted after the copy operation completes.
