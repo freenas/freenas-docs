@@ -1220,29 +1220,13 @@ newer versions of Windows Explorer, as described in
 shadow copy using Explorer without requiring any interaction with the
 %brand% graphical administrative interface.
 
-The ZFS Snapshots screen allows the creation of filters to view
-snapshots by selected criteria. To create a filter, click the
-:guilabel:`Define filter` icon
-(near the text :guilabel:`No filter applied`). When creating a filter:
+To quickly search through the snapshots list by name, type a matching
+criteria into the :guilabel:`Filter Snapshots` text area. The listing will
+change to only display the snapshot names that match the filter text.
 
-* Select the column or leave the default of :guilabel:`Any Column`.
-
-* Select the condition. Possible conditions are: *contains* (default),
-  *is*, *starts with*, *ends with*, *does not contain*, *is not*,
-  *does not start with*, *does not end with*, and *is empty*.
-
-* Enter a value that meets your view criteria.
-
-* Click the :guilabel:`Filter` button to save the filter and exit the
-  define filter screen. Alternately, click the :guilabel:`+` button to
-  add another filter.
-
-When creating multiple filters, select the filter to use before
-leaving the define filter screen. After a filter is selected, the
-:guilabel:`No filter applied` text changes to
-:guilabel:`Clear filter`. Clicking :guilabel:`Clear filter` produces a
-pop-up message indicates that this removes the filter and all
-available snapshots are listed.
+The :guilabel:`Iterms per page` drop-down menu can be used to reduce or
+increase the amount of entries per page. Use the left or right arrows
+to scroll through a multi-page listing.
 
 .. warning:: A snapshot and any files it contains will not be accessible
    or searchable if the snapshot's mount path is longer than 88 characters.
@@ -1294,8 +1278,8 @@ was taken.
 VMware-Snapshots
 ----------------
 
-:menuselection:`Storage --> VMware-Snapshot`
-allows you to coordinate ZFS snapshots when using %brand% as a VMware
+:menuselection:`Storage --> VMware-Snapshots`
+is used to coordinate ZFS snapshots when using %brand% as a VMware
 datastore. Once this type of snapshot is created, %brand% will
 automatically snapshot any running VMware virtual machines before
 taking a scheduled or manual ZFS snapshot of the dataset or zvol
@@ -1331,20 +1315,21 @@ summarizes the available options.
    |                |                             |                                                                                                             |
    |                |                             |                                                                                                             |
    +================+=============================+=============================================================================================================+
-   | Hostname       | string                      | IP address or hostname of VMware host; when clustering, this is the vCenter server for the cluster          |
+   | Hostname       | string                      | Input the IP address or hostname of the VMware host. When clustering, use the IP of the vCenter server for  |
+   |                |                             | the cluster.                                                                                                |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Username       | string                      | user on VMware host with enough permission to snapshot virtual machines                                     |
+   | Username       | string                      | Input the username which exists on the VMware host that has enough permission to snapshot virtual machines. |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Password       | string                      | password associated with :guilabel:`Username`                                                               |
+   | Password       | string                      | Input the password associated with :guilabel:`Username`.                                                    |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | ZFS Filesystem | drop-down menu              | the filesystem to snapshot                                                                                  |
+   | ZFS Filesystem | browse button               | Select the filesystem to snapshot.                                                                          |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Datastore      | drop-down menu              | after entering the :guilabel:`Hostname`, :guilabel:`Username`, and :guilabel:`Password`, click              |
-   |                |                             | :guilabel:`Fetch Datastores` to populate the menu and select the datastore with which to synchronize        |
+   | Datastore      | drop-down menu              | After entering the :guilabel:`Hostname`, :guilabel:`Username`, and :guilabel:`Password`, click              |
+   |                |                             | :guilabel:`Fetch Datastores` to populate the menu, then select the datastore to be synchronized.            |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
 
