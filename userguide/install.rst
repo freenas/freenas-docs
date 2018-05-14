@@ -518,21 +518,19 @@ Be aware of these caveats **before** attempting an upgrade to
   hardware supports 64-bit, the system can be upgraded.  Any
   archived reporting graphs will be lost during the upgrade.
 
-* **UFS is no longer supported.** If the data currently resides on
-  **one** UFS-formatted disk, create a ZFS pool using **other**
-  disks after the upgrade, then use the instructions in
-  :ref:`Import Disk` to mount the UFS-formatted disk and copy the data
-  to the ZFS pool. With only one disk, back up its data to another
-  system or media before the upgrade, format the disk as ZFS after the
-  upgrade, then restore the backup. If the data currently resides on a
-  UFS RAID of disks, it is not possible to directly import that data
-  to the ZFS pool. Instead, back up the data before the upgrade,
-  create a ZFS pool after the upgrade, then restore the data from
-  the backup.
+* **UFS is not supported.** If the data currently resides on **one**
+  UFS-formatted disk, create a ZFS pool using **other** disks after the
+  upgrade, then use the instructions in :ref:`Importing a Disk` to moun
+  t the UFS-formatted disk and copy the data to the ZFS pool. With only
+  one disk, back up its data to another system or media before the
+  upgrade, format the disk as ZFS after the upgrade, then restore the
+  backup. If the data currently resides on a UFS RAID of disks, it is not
+  possible to directly import that data to the ZFS pool. Instead, back up
+  the data before the upgrade, create a ZFS pool after the upgrade, then
+  restore the data from the backup.
 
-* **The VMware Tools VMXNET3 drivers are no longer supported**.
-  Configure and use the
-  `vmx(4) <https://www.freebsd.org/cgi/man.cgi?query=vmx>`__
+* **The VMware Tools VMXNET3 drivers are not supported**. Configure and
+  use the `vmx(4) <https://www.freebsd.org/cgi/man.cgi?query=vmx>`__
   driver instead.
 
 

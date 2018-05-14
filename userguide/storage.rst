@@ -15,7 +15,7 @@ these options:
 
 * :ref:`Disks:`: view and manage disk options.
 
-* :ref:`Import Disk`: import a **single** disk that has been formatted
+* :ref:`Importing a Disk`: import a **single** disk that has been formatted
   with the UFS, NTFS, MSDOS, or EXT2 filesystem.
 
 
@@ -140,8 +140,8 @@ Check the :guilabel:`Confirm` box then click :guilabel:`Ok` to create
 the pool. 
 
 .. note:: To instead preserve existing data, click the :guilabel:`Cancel`
-   button and refer to :ref:`Import Disk` and :ref:`Importing a Pool` to
-   see if the existing format is supported. If so, perform that action
+   button and refer to :ref:`Importing a Disk` and :ref:`Importing a Pool`
+   to see if the existing format is supported. If so, perform that action
    instead. If the current storage format is not supported, it is
    necessary to back up the data to external media, create the pool,
    then restore the data to the new pool.
@@ -168,6 +168,10 @@ type of :guilabel:`Compression`, the :guilabel:`Compression Ratio`,
 whether it is mounted as read-only, whether :guilabel:`Deduplication` has
 been enabled, its mountpoint path, and any :guilabel:`Comments` entered
 for the pool.
+
+**Upgrade:** used to upgrade the pool to the latest ZFS features, as
+described in :ref:`Upgrading a ZFS Pool`. This button does not appear
+if the pool is running the latest version of feature flags.
 
 .. _zfs_vol_fig:
 
@@ -1338,61 +1342,14 @@ summarizes the available options.
 Disks
 -----
 
-**Pool Status:** as shown in the example in
-:numref:`Figure %s <volume_status_fig>`,
-this screen shows the device name and status of each disk in the ZFS
-pool as well as any read, write, or checksum errors. It also indicates
-the status of the latest ZFS scrub. Clicking the entry for a device
-causes buttons to appear to edit the device's options (shown in
-:numref:`Figure %s <zfs_edit_disk_fig>`),
-offline or online the device, or replace the device (as described in
-:ref:`Replacing a Failed Drive`).
+To view all of the disks recognized by the %brand% system, use
+:menuselection:`Storage --> Disks`. As seen in the example in
+:numref:`Figure %s <viewing_disks_fig>`, each disk entry displays its
+device name, its pool membership, its status, serial number, size,
+description, transfer mode, standby mode, APM status, acoustic level,
+S.M.A.R.T. status, and configured S.M.A.R.T. options.
 
-**Upgrade:** used to upgrade the pool to the latest ZFS features, as
-described in :ref:`Upgrading a ZFS Pool`. This button does not appear
-if the pool is running the latest version of feature flags.
-
-
-.. _volume_status_fig:
-
-#ifdef freenas
-.. figure:: images/storage-volstatus.png
-
-   Pool Status
-#endif freenas
-#ifdef truenas
-.. figure:: images/truenas/volume2.png
-
-   Pool Status
-#endif truenas
-
-
-Selecting a disk in :guilabel:`Pool Status` and clicking the
-:guilabel:`Edit Disk` button shows the screen in
-:numref:`Figure %s <zfs_edit_disk_fig>`.
-:numref:`Table %s <zfs_disk_opts_tab>`
-lists the configurable options.
-
-
-.. _zfs_edit_disk_fig:
-
-.. figure:: images/disk.png
-
-   Editing a Disk
-
-
-#ifdef freenas
-.. note:: Versions of %brand% prior to 8.3.1 required a reboot to
-   apply changes to the :guilabel:`HDD Standby`,
-   :guilabel:`Advanced Power Management`, and
-   :guilabel:`Acoustic Level` settings. As of 8.3.1, changes to these
-   settings are applied immediately.
-#endif freenas
-
-:menuselection:`Storage --> Pools --> View Disks`
-shows all of the disks recognized by the %brand% system. An example is
-shown in
-:numref:`Figure %s <viewing_disks_fig>`.
+as well as any read, write, or checksum errors.
 
 
 .. _viewing_disks_fig:
@@ -1409,10 +1366,22 @@ shown in
 #endif truenas
 
 
-The current configuration of each device is displayed. Click a disk
-entry and the :guilabel:`Edit` button to change its configuration. The
-configurable options are described in
-:numref:`Table %s <zfs_disk_opts_tab>`.
+To edit a disk's options, click the 3-dot icon for its entry and
+select :guilabel:`Edit` to open the screen shown in
+:numref:`Figure %s <zfs_edit_disk_fig>`).
+
+offline or online the device, or replace the device (as described in
+:ref:`Replacing a Failed Disk`).
+
+:numref:`Table %s <zfs_disk_opts_tab>`
+lists the configurable options.
+
+
+.. _zfs_edit_disk_fig:
+
+.. figure:: images/disk.png
+
+   Editing a Disk
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -1428,32 +1397,32 @@ configurable options are described in
    | Setting                            | Value          | Description                                                                                                              |
    |                                    |                |                                                                                                                          |
    +====================================+================+==========================================================================================================================+
-   | Name                               | string         | read-only value showing FreeBSD device name for disk                                                                     |
+   | Name                               | string         | Read-only value showing FreeBSD device name of the disk.                                                                 |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Serial                             | string         | read-only value showing the disk's serial number                                                                         |
+   | Serial                             | string         | Read-only value showing the disk's serial number.                                                                        |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Description                        | string         | optional                                                                                                                 |
+   | Description                        | string         | Input an optional description to display with the disk entry.                                                            |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | HDD Standby                        | drop-down menu | indicates the time of inactivity (in minutes) before the drive enters standby mode in order to conserve energy; this     |
+   | HDD Standby                        | drop-down menu | Indicates the time of inactivity (in minutes) before the drive enters standby mode in order to conserve energy; this     |
    |                                    |                | `forum post <https://forums.freenas.org/index.php?threads/how-to-find-out-if-a-drive-is-spinning-down-properly.2068/>`__ |
-   |                                    |                | demonstrates how to determine if a drive has spun down                                                                   |
+   |                                    |                | demonstrates how to determine if a drive has spun down.                                                                  |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Advanced Power Management          | drop-down menu | default is *Disabled*, can select a power management profile from the menu                                               |
+   | Advanced Power Management          | drop-down menu | Select a power management profile from the menu. The default value is *Disabled*.                                        |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Acoustic Level                     | drop-down menu | default is *Disabled*; can be modified for disks that understand                                                         |
-   |                                    |                | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`_                                                     |
+   | Acoustic Level                     | drop-down menu | Default is *Disabled*. Other values can be selected for disks that understand                                            |
+   |                                    |                | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`_.                                                    |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Enable S.M.A.R.T.                  | checkbox       | enabled by default if the disk supports S.M.A.R.T.; unchecking this box will disable any configured                      |
-   |                                    |                | :ref:`S.M.A.R.T. Tests` for the disk                                                                                     |
+   | Enable S.M.A.R.T.                  | checkbox       | Enabled by default if the disk supports S.M.A.R.T. Unchecking this box will disable any configured                       |
+   |                                    |                | :ref:`S.M.A.R.T. Tests` for the disk.                                                                                    |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | S.M.A.R.T. extra options           | string         | additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`_  options             |
+   | S.M.A.R.T. extra options           | string         | Input additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`_  options.      |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
@@ -1484,10 +1453,10 @@ large disk can take several hours, and a *Full with random data* takes
 longer. A progress bar is displayed during the wipe to track status.
 
 .. index:: Replace Failed Drive
-.. _Replacing a Failed Drive:
+.. _Replacing a Failed Disk:
 
-Replacing a Failed Drive
-~~~~~~~~~~~~~~~~~~~~~~~~
+Replacing a Failed Disk
+~~~~~~~~~~~~~~~~~~~~~~~
 
 #ifdef freenas
 With any form of redundant RAID, failed drives must be replaced as
@@ -1506,7 +1475,7 @@ state of the RAID.
    and the data restored from backup.
 
 .. note:: If the pool is encrypted with GELI, refer to
-   :ref:`Replacing an Encrypted Drive` before proceeding.
+   :ref:`Replacing an Encrypted Disk` before proceeding.
 
 
 Before physically removing the failed device, go to
@@ -1596,10 +1565,10 @@ indicates that the disk replacement was successful in this example.
    Disk Replacement is Complete
 
 
-.. _Replacing an Encrypted Drive:
+.. _Replacing an Encrypted Disk:
 
-Replacing an Encrypted Drive
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Replacing an Encrypted Disk
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If the ZFS pool is encrypted, additional steps are needed when
 replacing a failed drive.
@@ -1655,10 +1624,10 @@ buttons. Both types of devices improve performance, and throughput can
 be impacted by their removal.
 
 
-.. _Replacing Drives to Grow a Pool:
+.. _Replacing Disks to Grow a Pool:
 
-Replacing Drives to Grow a Pool
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Replacing Disks to Grow a Pool
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The recommended method for expanding the size of a ZFS pool is to
 pre-plan the number of disks in a vdev and to stripe additional vdevs
@@ -1692,7 +1661,7 @@ eSATA port and a hard drive dock. The process follows these steps:
    is that there is no loss of redundancy during the resilver.
 
 If a spare drive port is not available, a drive can be replaced with a
-larger one using the instructions in :ref:`Replacing a Failed Drive`.
+larger one using the instructions in :ref:`Replacing a Failed Disk`.
 This process is slow and places the system in a degraded state. Since
 a failure at this point could be disastrous, **do not attempt this
 method unless the system has a reliable backup.** Replace one drive at
@@ -1701,10 +1670,10 @@ drive before replacing the next drive. After all the drives are
 replaced and the final resilver completes, the added space will appear
 in the pool.
 
-.. _Import Disk:
+.. _Importing a Disk:
 
-Import Disk
------------
+Importing a Disk
+----------------
 
 The
 :menuselection:`Pool --> Import Disk`
