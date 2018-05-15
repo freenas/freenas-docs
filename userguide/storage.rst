@@ -6,21 +6,21 @@ Storage
 The Storage section of the graphical interface allows configuration of
 these options:
 
-* :ref:`Volumes` creates and manages storage volumes.
+* :ref:`Volumes` create and manage storage volumes.
 
-* :ref:`Periodic Snapshot Tasks` schedules automatic creation of
+* :ref:`Periodic Snapshot Tasks` schedule automatic creation of
   filesystem snapshots.
 
 * :ref:`Replication Tasks` automate the replication of snapshots to
   a remote system.
 
-* :ref:`Resilver Priority` controls the priority of resilvers.
+* :ref:`Resilver Priority` control the priority of resilvers.
 
-* :ref:`Scrubs` schedules scrubs as part of ongoing disk maintenance.
+* :ref:`Scrubs` schedule scrubs as part of ongoing disk maintenance.
 
-* :ref:`Snapshots` manages local snapshots.
+* :ref:`Snapshots` manage local snapshots.
 
-* :ref:`VMware-Snapshot` coordinates ZFS snapshots with a
+* :ref:`VMware-Snapshot` coordinate OpenZFS snapshots with a
   VMware datastore.
 
 
@@ -63,18 +63,19 @@ Volume Manager
 ~~~~~~~~~~~~~~
 
 
-The :guilabel:`Volume Manager` is used to add disks to a ZFS pool. Any
-old data on added disks is overwritten, so save it elsewhere before
-reusing a disk. Please see the :ref:`ZFS Primer` for information on
-ZFS redundancy with multiple disks before using
+Before creating a volume, determine the level of required redundancy, how
+many disks will be added, and if any data exists on those disks. Creating
+a volume overwrites disk data, so save any required data to different
+media before adding disks to a pool. Refer to the :ref:`ZFS Primer` for
+information on ZFS redundancy with multiple disks before using
 :guilabel:`Volume Manager`. It is important to realize that different
 layouts of virtual devices (*vdevs*) affect which operations can be
 performed on that volume later. For example, drives can be added to a
 mirror to increase redundancy, but that is not possible with RAIDZ
 arrays.
 
-Selecting
-:menuselection:`Storage --> Volumes --> Volume Manager` opens
+To create a volume, click
+:menuselection:`Storage --> Volumes --> Volume Manager`. This opens
 a screen like the example shown in
 :numref:`Figure %s <create_zfs_pool_volman_fig>`.
 
@@ -131,6 +132,21 @@ summarizes the configuration options of this screen.
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
 
+
+Click the :guilabel:`Volume name *` field and input a name for the pool.
+Ensure that the chosen name conforms to these
+`naming conventions <http://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`__.
+It is recommended to choose a name that will stick out in the logs rather
+than a generic name like :file:`data` or :file:`freenas`.
+
+If the underlying disks need to be encrypted as a protection against
+physical theft, check the :guilabel:`Encryption` box.
+
+.. warning:: Refer to the warnings in :ref:`Encryption` before enabling
+   encryption! Be aware that this form of encryption will be replaced by
+   OpenZFS native encryption in a future version. Pools created with the
+   current encryption mechanism will need to be backed up and destroyed
+   in order to be recreated with native encryption when it becomes available.
 
 Drag the slider to select the desired number of disks.
 :guilabel:`Volume Manager` displays the resulting storage capacity,
@@ -253,8 +269,8 @@ the details when considering whether encryption is right for your
   backup restored to the new volume.
 
 * Hybrid pools are not supported. Added vdevs must match the existing
-  encryption scheme. The :ref:`Volume Manager` automatically encrypts
-  a new vdev being added to an existing encrypted pool.
+  encryption scheme. :ref:`Volume Manager` automatically encrypts a new
+  vdev being added to an existing encrypted pool.
 
 
 To create an encrypted volume, check the :guilabel:`Encryption` box
@@ -271,8 +287,8 @@ the key, the data on the disks is inaccessible. See
 Encryption Performance
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Performance depends upon the number of disks encrypted. The more
-drives in an encrypted volume, the more encryption and decryption
+Encryption performance depends upon the number of disks encrypted. The
+more drives in an encrypted volume, the more encryption and decryption
 overhead, and the greater the impact on performance. **Encrypted
 volumes composed of more than eight drives can suffer severe
 performance penalties**. If encryption is desired, please benchmark
@@ -433,13 +449,13 @@ continue.
 Adding L2ARC or SLOG Devices
 """"""""""""""""""""""""""""
 
-:menuselection:`Storage --> Volumes --> Volume Manager`
-(see :numref:`Figure %s <create_zfs_pool_volman_fig>`)
-is also used to add L2ARC or SLOG SSDs to improve specific types of
-volume performance. This is described in more detail in the
-:ref:`ZFS Primer`.
+:menuselection:`Storage --> Volumes --> Volume Manager` (see
+:numref:`Figure %s <create_zfs_pool_volman_fig>`) is also used to add
+L2ARC or SLOG SSDs to improve volume performance for specific use cases.
+Refer to the :ref:`ZFS Primer` to determine if the system will benefit or
+suffer from the addition of the device.
 
-After the SSDs have been physically installed, click the
+Once the SSD has been physically installed, click the
 :guilabel:`Volume Manager` button and choose the volume from the
 :guilabel:`Volume to extend` drop-down menu. Click the
 :guilabel:`+` next to the SSD in the :guilabel:`Available disks` list.
@@ -453,16 +469,16 @@ log device. Finally, click :guilabel:`Extend Volume` to add the SSD.
 Change Permissions
 ~~~~~~~~~~~~~~~~~~
 
-Setting permissions is an important aspect of configuring volumes. The
+Setting permissions is an important aspect of managing data access. The
 graphical administrative interface is meant to set the **initial**
 permissions for a volume or dataset in order to make it available as a
 share. Once a share is available, the client operating system should
 be used to fine-tune the permissions of the files and directories that
 are created by the client.
 
-The chapter on :ref:`Sharing` contains configuration examples for
-several types of permission scenarios. This section provides an
-overview of the screen that is used to set permissions.
+:ref:`Sharing` contains configuration examples for several types of
+permission scenarios. This section provides an overview of the options
+available for configuring the initial set of permissions.
 
 .. note:: For users and groups to be available, they must either be
    first created using the instructions in :ref:`Account` or imported
@@ -548,25 +564,24 @@ summarizes the options in this screen.
    boxes :guilabel:`Apply Owner (user)` and :guilabel:`Apply Mode`.
 
 
-The *Windows* :guilabel:`Permission Type` is used for SMB shares or
-when the %brand% system is a member of an Active Directory domain.
-This adds ACLs to traditional *Unix* permissions. When the *Windows*
-:guilabel:`Permission Type` is set, ACLs are set to Windows defaults
-for new files and directories. A Windows client can be used to further
-fine-tune permissions as needed.
+The *Windows* :guilabel:`Permission Type` is used for 
+:ref:`Windows (SMB) Shares` or when the %brand% system is a member of an
+Active Directory domain. This type adds ACLs to traditional *Unix*
+permissions. When the *Windows* :guilabel:`Permission Type` is set, ACLs
+are set to the Windows defaults for new files and directories. A Windows
+client can be used to further fine-tune permissions as needed. After a
+volume or dataset has been set to *Windows*, it cannot be changed to
+*Unix* permissions because that would clobber the extended permissions
+provided by *Windows* ACLs.
 
-The *Unix* :guilabel:`Permission Type` is usually used with NFS
-shares. These permissions are compatible with most network clients and
-generally work well with a mix of operating systems or clients.
-However, *Unix* permissions do not support Windows ACLs and should not
-be used with SMB shares.
+The *Unix* :guilabel:`Permission Type` is usually used with
+:ref:`Unix (NFS) Shares`. Unix permissions are compatible with most
+network clients and generally work well with a mix of operating systems
+or clients. However, *Unix* permissions do not support Windows ACLs and
+should not be used with :ref:`Windows (SMB) Shares`.
 
-The *Mac* :guilabel:`Permission Type` is used with AFP shares.
-
-After a volume or dataset has been set to *Windows*, it cannot be
-changed to *Unix* permissions because that would remove extended
-permissions provided by *Windows* ACLs.
-
+The *Mac* :guilabel:`Permission Type` can be used with 
+:ref:`Apple (AFP) Shares`.
 
 .. index:: Create Dataset
 .. _Create Dataset:
@@ -637,14 +652,14 @@ clicking the :guilabel:`Edit Options` button in
    | Dataset Name             | string              | mandatory; enter a unique name for the dataset                                                            |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Comments                 | string              | short comments or user notes about this dataset                                                           |
+   | Comments                 | string              | used to input optional comments or user notes about this dataset                                          |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Sync                     | drop-down menu      | data write synchronization: *Inherit* inherits the sync settings from the parent dataset; *Standard*      |
-   |                          |                     | uses the sync settings that have been requested by the client software; *Always* always waits for         |
-   |                          |                     | data writes to complete; *Disabled* never waits for writes to complete                                    |
+   | Sync                     | drop-down menu      | sets the data write synchronization: *Inherit* inherits the sync settings from the parent dataset;        |
+   |                          |                     | *Standard* uses the sync settings that have been requested by the client software; *Always* always waits  |
+   |                          |                     | for data writes to complete; *Disabled* never waits for writes to complete                                |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Compression Level        | drop-down menu      | see the section on :ref:`Compression` for a description of the available algorithms                       |
+   | Compression Level        | drop-down menu      | refer to the section on :ref:`Compression` for a description of the available algorithms                  |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    | Share type               | drop-down menu      | select the type of share that will be used on the dataset; choices are *UNIX* for an NFS share,           |
@@ -766,8 +781,8 @@ usually not worth the performance hit.
 
 .. tip:: Deduplication is often considered when using a group of very
    similar virtual machine images. However, other features of ZFS can
-   provide dedup-like functionality more efficiently. For example,
-   create a dataset for a standard VM, then clone that dataset for
+   provide dedup-like functionality more efficiently. For example, create
+   a dataset for a standard VM, then clone a snapshot of that dataset for
    other VMs. Only the difference between each created VM and the main
    dataset are saved, giving the effect of deduplication without the
    overhead.
@@ -786,26 +801,22 @@ compresses data as it is written to a compressed dataset or zvol and
 automatically decompresses that data as it is read. These compression
 algorithms are supported:
 
-* **lz4:** recommended compression method as it allows compressed
-  datasets to operate at near real-time speed. This algorithm only
-  compresses the files that will benefit from compression. By default,
-  ZFS pools made using %brand% 9.2.1 or higher use this compression
-  method, meaning that this algorithm is used if the
-  :guilabel:`Compression level` is left at *Inherit* when creating a
-  dataset or zvol.
+* **lz4:** default and recommended compression method as it allows
+  compressed datasets to operate at near real-time speed. This algorithm
+  only compresses the files that will benefit from compression.
 
 * **gzip:** varies from levels 1 to 9 where *gzip fastest* (level 1)
   gives the least compression and *gzip maximum* (level 9) provides
   the best compression but is discouraged due to its performance
   impact.
 
-* **zle:** fast but simple algorithm to eliminate runs of zeroes.
+* **zle:** fast but simple algorithm which eliminates runs of zeroes.
 
 * **lzjb:** provides decent data compression, but is considered
   deprecated as *lz4* provides much better performance.
 
 If you select *Off* as the :guilabel:`Compression level` when creating
-a dataset or zvol, compression will not be used on the dataset/zvol.
+a dataset or zvol, compression will not be used on that dataset/zvol.
 This is not recommended as using *lz4* has a negligible performance
 impact and allows for more storage capacity.
 
@@ -817,7 +828,7 @@ Create zvol
 ~~~~~~~~~~~
 
 A zvol is a feature of ZFS that creates a raw block device over ZFS.
-This allows you to use a zvol as an :ref:`iSCSI` device extent.
+The zvol can be used as an :ref:`iSCSI` device extent.
 
 To create a zvol, select an existing ZFS volume or dataset from the
 tree then click :guilabel:`Create zvol` to open the screen shown in
@@ -858,7 +869,7 @@ configure the system to always display these settings by checking
    |                    |                | so using long zvol names can prevent accessing zvols as devices; for example, a zvol with a 70-character filename    |
    |                    |                | or path cannot be used as an iSCSI extent                                                                            |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Comments           | string         | short comments or user notes about this zvol                                                                         |
+   | Comments           | string         | optional short comments or user notes about this zvol                                                                |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Size for this zvol | integer        | specify size and value such as *10Gib*; if the size is more than 80% of the available capacity, the creation will    |
@@ -869,7 +880,7 @@ configure the system to always display these settings by checking
    |                    |                | **while NOT recommended**, checking this box will force the creation of the zvol in this situation                   |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Compression level  | drop-down menu | see the section on :ref:`Compression` for a description of the available algorithms                                  |
+   | Compression level  | drop-down menu | refer to the section on :ref:`Compression` for a description of the available algorithms                             |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Sparse volume      | checkbox       | used to provide thin provisioning; use with caution for when this option is selected, writes will fail when the      |
@@ -1073,13 +1084,13 @@ configurable options are described in
    | Setting                            | Value          | Description                                                                                                              |
    |                                    |                |                                                                                                                          |
    +====================================+================+==========================================================================================================================+
-   | Name                               | string         | read-only value showing FreeBSD device name for disk                                                                     |
+   | Name                               | string         | read-only value showing FreeBSD device name of the disk                                                                  |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Serial                             | string         | read-only value showing the disk's serial number                                                                         |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Description                        | string         | optional                                                                                                                 |
+   | Description                        | string         | input an optional description to display with the disk entry                                                             |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | HDD Standby                        | drop-down menu | indicates the time of inactivity (in minutes) before the drive enters standby mode in order to conserve energy; this     |
@@ -1087,10 +1098,10 @@ configurable options are described in
    |                                    |                | demonstrates how to determine if a drive has spun down                                                                   |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Advanced Power Management          | drop-down menu | default is *Disabled*, can select a power management profile from the menu                                               |
+   | Advanced Power Management          | drop-down menu | select a power management profile from the menu; default is *Disabled*                                                   |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Acoustic Level                     | drop-down menu | default is *Disabled*; can be modified for disks that understand                                                         |
+   | Acoustic Level                     | drop-down menu | default is *Disabled*; other values can be selected for disks that understand                                            |
    |                                    |                | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`__                                                    |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
@@ -1098,7 +1109,7 @@ configurable options are described in
    |                                    |                | :ref:`S.M.A.R.T. Tests` for the disk                                                                                     |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | S.M.A.R.T. extra options           | string         | additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options            |
+   | S.M.A.R.T. extra options           | string         | input additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options      |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
@@ -2767,8 +2778,10 @@ button for the scrub until the hardware can be upgraded.
 Snapshots
 -------------
 
-The :guilabel:`Snapshots` tab is used to review the listing of
-available snapshots. An example is shown in
+Snapshots are scheduled using
+:menuselection:`Storage --> Periodic Snapshot Tasks`. To view and
+manage the listing of created snapshots, use
+:menuselection:`Storage --> Snapshots`. An example listing is shown in
 :numref:`Figure %s <zfs_view_avail_snapshots_fig>`.
 
 .. note:: If snapshots do not appear, check that the current time
@@ -2815,7 +2828,7 @@ that the space usage information is updated immediately.
 **Refer** indicates the amount of data accessible by this dataset,
 which may or may not be shared with other datasets in the pool. When a
 snapshot or clone is created, it initially references the same amount
-of space as the file system or snapshot it was created from, since its
+of space as the filesystem or snapshot it was created from, since its
 contents are identical.
 
 Snapshots have icons on the right side for several actions.
@@ -2982,13 +2995,13 @@ summarizes the available options.
    | Hostname       | string                      | IP address or hostname of VMware host; when clustering, this is the vCenter server for the cluster          |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Username       | string                      | user on VMware host with enough permission to snapshot virtual machines                                     |
+   | Username       | string                      | input the username which exists on the VMware host that has enough permission to snapshot virtual machines  |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Password       | string                      | password associated with :guilabel:`Username`                                                               |
+   | Password       | string                      | input the password associated with :guilabel:`Username`                                                     |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | ZFS Filesystem | drop-down menu              | the filesystem to snapshot                                                                                  |
+   | ZFS Filesystem | drop-down menu              | select the filesystem to snapshot                                                                           |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Datastore      | drop-down menu              | after entering the :guilabel:`Hostname`, :guilabel:`Username`, and :guilabel:`Password`, click              |
