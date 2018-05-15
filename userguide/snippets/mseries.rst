@@ -26,16 +26,17 @@ Carefully unpack the shipping boxes and locate these components:
 
    +--------------------------------------------+-------------------------------------------------+
    | .. image:: images/tn_m.png                 | .. image:: images/tn_m_bezel.png                |
+   |                                            |    :width: 89%                                  |
    |                                            |                                                 |
    | M-Series Unified Storage Array             | M-Series Bezel                                  |
    +--------------------------------------------+-------------------------------------------------+
    | .. image:: images/tn_es24m_rails.png       | .. image:: images/tn_es24m_drivetray.png        |
-   |                                            |                                                 |
+   |                                            |    :width: 30%                                  |
    | Set of rackmount rails.                    |                                                 |
    +--------------------------------------------+-------------------------------------------------+
    |                                            |                                                 |
    | .. image:: images/tn_m_acckit.png          |                                                 |
-   |    :width: 80%                             |                                                 |
+   |    :width: 30%                             |                                                 |
    |                                            |                                                 |
    | Accessory kit with 2 IEC C13 to NEMA 5-15P |                                                 |
    | power cords, 2 IEC C14 to C14 cords, and   |                                                 |
@@ -62,10 +63,15 @@ fault. The fault indicator is on during the initial power-on self-test
 <https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
 
 
-.. _x_indicators:
+.. _m_indicators:
 
 .. figure:: images/tn_m_indicators.png
-   :width: 50%
+   :width: 25%
+
+
+.. raw:: latex
+
+   \newpage
 
 
 The M-Series contains one or two storage controllers in an
@@ -78,9 +84,31 @@ storage controller are:
 .. table::
    :class: longtable
 
-   +------------------------------------------------+-----------------------------------------------------+
-   |                                                |                                                     |
-   +------------------------------------------------+-----------------------------------------------------+
+   +------------------------------------------------------------------------+
+   | 1: Redundant power supplies                                            |
+   +------------------------------------------------------------------------+
+   | 2: Serial port                                                         |
+   +------------------------------------------------------------------------+
+   | 3: 1Gb Ethernet Out of Band (OOB) management port, dual USB 2.0 ports  |
+   +------------------------------------------------------------------------+
+   | 4: Dual USB 3.0 ports                                                  |
+   +------------------------------------------------------------------------+
+   | 5: 10Gb Ethernet port                                                  |
+   +------------------------------------------------------------------------+
+   | 6: 10Gb Ethernet port                                                  |
+   +------------------------------------------------------------------------+
+   | 7: VGA monitor port                                                    |
+   +------------------------------------------------------------------------+
+   | 8: ID LED                                                              |
+   +------------------------------------------------------------------------+
+   | 9: HD Mini SAS3 connectors                                             |
+   +------------------------------------------------------------------------+
+   | 10: Networking port                                                    |
+   +------------------------------------------------------------------------+
+   | 11: Asterisk slot: Fibre Channel or additional networking              |
+   +------------------------------------------------------------------------+
+   | 12: Storage controller management port                                 |
+   +------------------------------------------------------------------------+
 
 
 .. _m_back:
@@ -98,18 +126,7 @@ storage controller are:
 
 #include snippets/es24m_rails.rst
 
-
-.. raw:: latex
-
-   \newpage
-
-
 #include snippets/es24m_drivetrays.rst
-
-
-.. raw:: latex
-
-   \newpage
 
 
 Connect Expansion Shelves
@@ -155,11 +172,6 @@ Install Bezel (Optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 The included bezel is not required for operation.
-
-
-.. raw:: latex
-
-   \newpage
 
 
 Perform %brand% Initial Software Configuration
