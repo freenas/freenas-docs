@@ -32,15 +32,16 @@ Carefully unpack the shipping boxes and locate these components:
    +--------------------------------------------+-------------------------------------------------+
    | .. image:: images/tn_es24m_rails.png       | .. image:: images/tn_es24m_drivetray.png        |
    |                                            |    :width: 30%                                  |
-   | Set of rackmount rails.                    |                                                 |
+   |                                            |                                                 |
+   | Set of rackmount rails                     | Up to 24 drive trays populated with drives      |
    +--------------------------------------------+-------------------------------------------------+
    |                                            |                                                 |
-   | .. image:: images/tn_m_acckit.png          |                                                 |
-   |    :width: 30%                             |                                                 |
+   | .. image:: images/tn_es24m_serialcable.png | .. image:: images/tn_m_acckit.png               |
+   |    :width: 30%                             |    :width: 60%                                  |
    |                                            |                                                 |
-   | Accessory kit with 2 IEC C13 to NEMA 5-15P |                                                 |
-   | power cords, 2 IEC C14 to C14 cords, and   |                                                 |
-   | velcro cable ties                          |                                                 |
+   | DB9 to 3.5mm serial cable                  | Accessory kit with 2 IEC C13 to NEMA 5-15P      |
+   |                                            | power cords, 2 IEC C14 to C13 cords, velcro     |
+   |                                            | cable ties, alternate pins for round hole racks |
    +--------------------------------------------+-------------------------------------------------+
 
 
@@ -69,11 +70,6 @@ fault. The fault indicator is on during the initial power-on self-test
    :width: 25%
 
 
-.. raw:: latex
-
-   \newpage
-
-
 The M-Series contains one or two storage controllers in an
 over-and-under configuration. The connectors and features on each
 storage controller are:
@@ -84,31 +80,19 @@ storage controller are:
 .. table::
    :class: longtable
 
-   +------------------------------------------------------------------------+
-   | 1: Redundant power supplies                                            |
-   +------------------------------------------------------------------------+
-   | 2: Serial port                                                         |
-   +------------------------------------------------------------------------+
-   | 3: 1Gb Ethernet Out of Band (OOB) management port, dual USB 2.0 ports  |
-   +------------------------------------------------------------------------+
-   | 4: Dual USB 3.0 ports                                                  |
-   +------------------------------------------------------------------------+
-   | 5: 10Gb Ethernet port                                                  |
-   +------------------------------------------------------------------------+
-   | 6: 10Gb Ethernet port                                                  |
-   +------------------------------------------------------------------------+
-   | 7: VGA monitor port                                                    |
-   +------------------------------------------------------------------------+
-   | 8: ID LED                                                              |
-   +------------------------------------------------------------------------+
-   | 9: HD Mini SAS3 connectors                                             |
-   +------------------------------------------------------------------------+
-   | 10: Networking port                                                    |
-   +------------------------------------------------------------------------+
-   | 11: Asterisk slot: Fibre Channel or additional networking              |
-   +------------------------------------------------------------------------+
-   | 12: Storage controller management port                                 |
-   +------------------------------------------------------------------------+
+   +------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | 1: Redundant power supplies                                            | 7: VGA monitor port                                                    |
+   +------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | 2: Serial port                                                         | 8: ID LED                                                              |
+   +------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | 3: 1Gb Ethernet Out of Band (OOB) management port, dual USB 2.0 ports  | 9: HD Mini SAS3 connectors                                             |
+   +------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | 4: Dual USB 3.0 ports                                                  | 10: Networking port                                                    |
+   +------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | 5: 10Gb Ethernet port                                                  | 11: Asterisk slot: Fibre Channel or additional networking              |
+   +------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | 6: 10Gb Ethernet port                                                  | 12: Storage controller management port                                 |
+   +------------------------------------------------------------------------+------------------------------------------------------------------------+
 
 
 .. _m_back:
@@ -125,6 +109,12 @@ storage controller are:
 
 
 #include snippets/es24m_rails.rst
+
+
+.. raw:: latex
+
+   \newpage
+
 
 #include snippets/es24m_drivetrays.rst
 
@@ -190,9 +180,4 @@ web interface, *192.168.100.231* in this example:
 
 Enter the IP address into a browser on a computer on the same network
 to access the web user interface.
-
-
-.. raw:: latex
-
-   \newpage
 

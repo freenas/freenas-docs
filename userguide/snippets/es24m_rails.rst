@@ -11,7 +11,7 @@ press the white release tab to the right while pulling the cabinet
 rail.
 
 .. _cabinet_rail_removal:
-.. figure:: images/tn_es24_cabinet_rail1.png
+.. figure:: images/tn_es24m_cabinet_rail1.png
 
 
 Mount Cabinet Rails
@@ -24,7 +24,7 @@ the post is wedged in the keyhole slot of the rail.
 
 
 .. _cabinet_rail2:
-.. figure:: images/tn_es24_cabinet_rail2.png
+.. figure:: images/tn_es24m_cabinet_rail2.png
 
 
 Align the rail hole with the screw hole and secure the rail with one
@@ -69,7 +69,7 @@ process for the second rail.
 
 
 .. _rack_rail_to_cabinet_rail:
-.. figure:: images/tn_es24_cabinet_meets_rack.png
+.. figure:: images/tn_es24m_cabinet_meets_rack.png
    :width: 60%
 
 
@@ -80,7 +80,7 @@ pushing the unit in until it is flush with the front of the rack.
 
 
 .. _es24m_mount_system_in_rack:
-.. figure:: images/tn_es24_mount_system.png
+.. figure:: images/tn_es24m_mount_system.png
    :width: 60%
 
 
