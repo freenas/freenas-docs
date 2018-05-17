@@ -7,7 +7,7 @@
 M-Series Unified Storage Array
 ------------------------------
 
-The %brand% M-Series Unified Storage Array is a 2U, 12-bay, hybrid
+The %brand% M-Series Unified Storage Array is a 4U, 24-bay, hybrid
 unified data storage array.
 
 
@@ -41,7 +41,8 @@ Carefully unpack the shipping boxes and locate these components:
    |                                            |                                                 |
    | DB9 to 3.5mm serial cable                  | Accessory kit with 2 IEC C13 to NEMA 5-15P      |
    |                                            | power cords, 2 IEC C14 to C13 cords, velcro     |
-   |                                            | cable ties, alternate pins for round hole racks |
+   |                                            | cable ties, M4x4L screws, M5x18 screws, screw   |
+   |                                            | posts, and alternate pins for round hole racks  |
    +--------------------------------------------+-------------------------------------------------+
 
 
