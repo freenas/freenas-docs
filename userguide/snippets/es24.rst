@@ -111,7 +111,7 @@ into the plastic clamp and press the tab into the latch to lock it in
 place. Repeat the process for the second power supply and cord.
 
 .. _power_cord_connection:
-.. figure:: images/tn_es24_power_cord.png
+.. figure:: images/tn_es24_powerclip.png
   :width: 35%
 
 
