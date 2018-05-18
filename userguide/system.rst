@@ -745,7 +745,7 @@ Email
 An automatic script sends a nightly email to the *root* user account
 containing important information such as the health of the disks.
 :ref:`Alert` events are also emailed to the *root* user account.
-Problems with :ref:`Scrub Tasks` are reported separately in an email sent
+Problems with :ref:`Scrubs` are reported separately in an email sent
 at 03:00AM.
 
 
@@ -998,7 +998,7 @@ alert services.
 Cloud Credentials
 -----------------
 
-%brand% can use cloud services for features like :ref:`Cloud Sync Tasks`.
+%brand% can use cloud services for features like :ref:`Cloud Sync`.
 The credentials to provide secure connections with cloud services
 are entered here. Amazon S3, Azure Blob Storage, Backblaze B2, and
 Google Cloud Storage are supported.
