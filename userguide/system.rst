@@ -744,11 +744,8 @@ Email
 
 An automatic script sends a nightly email to the *root* user account
 containing important information such as the health of the disks.
-#ifdef comment
-:ref:`Alert`
-#endif comment
-alert events are also emailed to the *root* user account.
-Problems with :ref:`Scrubs` are reported separately in an email sent
+:ref:`Alert` events are also emailed to the *root* user account.
+Problems with :ref:`Scrub Tasks` are reported separately in an email sent
 at 03:00AM.
 
 
@@ -933,11 +930,8 @@ Alert Services
 --------------
 
 %brand% can use a number of methods to notify the administrator of
-system events that require attention. These events are system alerts
-#ifdef comment
-:ref:`Alerts <Alert>`
-#endif comment
-marked *WARN* or *CRITICAL*.
+system events that require attention. These events are system
+:ref:`Alerts <Alert>` marked *WARN* or *CRITICAL*.
 
 Currently available alert services:
 
@@ -1004,7 +998,7 @@ alert services.
 Cloud Credentials
 -----------------
 
-%brand% can use cloud services for features like :ref:`Cloud Sync`.
+%brand% can use cloud services for features like :ref:`Cloud Sync Tasks`.
 The credentials to provide secure connections with cloud services
 are entered here. Amazon S3, Azure Blob Storage, Backblaze B2, and
 Google Cloud Storage are supported.
@@ -1353,11 +1347,7 @@ shown, use :ref:`Boot` to remove unneeded boot environments.
 Operating system updates only modify the boot devices and do not
 affect end-user data on storage drives.
 
-Available ZFS version upgrades are indicated by an
-#ifdef comment
-:ref:`Alert`
-#endif comment
-alert in the
+Available ZFS version upgrades are indicated by an :ref:`Alert` in the
 graphical user interface. However, upgrading the ZFS version on
 storage drives is not recommended until after verifying that rolling
 back to previous versions of the operating system will not be

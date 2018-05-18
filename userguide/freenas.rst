@@ -25,9 +25,7 @@
    logout
    restart
    shutdown
-#ifdef comment
    alert
-#endif comment
    support
    cli
    zfsprimer
