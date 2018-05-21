@@ -176,6 +176,10 @@ The following software has been added or updated:
   base system and can be used to convert the encoding of filenames from
   the command line. Type :command:`convmv` to view the available options.
 
+* Several new switches have been added to :ref:`freenas-debug`, including
+  :command:`-M` for dumping SATADOM info and :command:`-Z` to delete old
+  debug information.
+
 The following screen options have changed:
 
 * The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
