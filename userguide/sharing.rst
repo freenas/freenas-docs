@@ -234,17 +234,14 @@ or imported into the %brand% system.
    authenticated users to a guest group and set the permissions to
    *77x*.
 
-Before creating a guest share, go to
-:menuselection:`Services --> AFP` and click the power button to
-turn on the service. Then, click
-:guilabel:`Configure`.
-In the :guilabel:`Guest Account` field use the drop-down
-to select :guilabel:`Nobody`, tick
-the :guilabel:`Guest Access` box, and press :guilabel:`Save`.
+Before creating a guest share, go to :menuselection:`Services --> AFP`
+and click the power button to turn on the service. Then, click
+:guilabel:`Configure`. In the :guilabel:`Guest Account` field use the
+drop-down to select :guilabel:`Nobody`, tick the :guilabel:`Guest Access`
+box, and press :guilabel:`Save`.
 
 Next, create a dataset for the guest share. Refer to
-:ref:`create dataset <Create Dataset>` in this guide for more
-information about dataset creation.
+:ref:`Adding Datasets` for more information about dataset creation.
 
 After creating the dataset for the guest share, go to
 :menuselection:`Storage --> Pools` and click the
@@ -317,12 +314,11 @@ share for that user.
 
 Before creating a Time Machine or authenticated share, go to
 :menuselection:`Storage --> Pools` to make a dataset for the share.
-For more information about dataset creation,
-refer to :ref:`create dataset <Create Dataset>` in this guide.
+For more information about dataset creation, refer to
+:ref:`Adding Datasets`.
 
-After creating the dataset, go to
-:menuselection:`Storage --> Pools` and click the
-:guilabel:`Edit Permissions` button for the desired dataset.
+After creating the dataset, go to :menuselection:`Storage --> Pools` and
+click the :guilabel:`Edit Permissions` button for the desired dataset.
 
 Enter the following information as shown in
 :numref:`Figure %s <creating_an_authenticated_share_fig>`.
@@ -455,9 +451,8 @@ Before creating an NFS share, go to
 turn on the service.
 
 Next, go to :menuselection:`Storage --> Pools` to create a dataset
-for the share. Refer to
-:ref:`create dataset <Create Dataset>` in this guide for more
-information about dataset creation.
+for the share. Refer to :ref:`Adding Datasets` for more information about
+dataset creation.
 
 To create an NFS share, navigate to
 :menuselection:`Sharing -> Unix (NFS) Shares
@@ -1324,9 +1319,8 @@ Fill out the the fields as shown in
 :guilabel:`Allow guest access` checkbox is ticked.
 Press :guilabel:`Save` to create the guest share.
 
-.. note:: If a dataset for the share has not been created,
-   refer to :ref:`create dataset <Create Dataset>` in this
-   guide to find out more about dataset creation.
+.. note:: If a dataset for the share has not been created, refer to
+   :ref:`Adding Datasets` to find out more about dataset creation.
 
 
 .. _create_unauth_smb_share_fig:
@@ -1376,8 +1370,7 @@ groups, and ensuring that group permissions are set correctly.
 
 Before creating an authenticated SMB share, go to
 :menuselection:`Storage --> Pools` to make a dataset for the share.
-For more information about dataset creation,
-refer to :ref:`create dataset <Create Dataset>` in this guide.
+For more information about dataset creation, refer to :ref:`Adding Datasets`.
 
 After creating the dataset, go to
 :menuselection:`Storage --> Pools` and click the
@@ -1685,7 +1678,7 @@ meaning that file copies happen locally, rather than over the network.
 It also supports the :ref:`VAAI` (vStorage APIs for Array Integration)
 primitives for efficient operation of storage tasks directly on the
 NAS. To take advantage of the VAAI primitives, create a zvol using the
-instructions in :ref:`Create zvol` and use it to create a device
+instructions in :ref:`Adding Zvols` and use it to create a device
 extent, as described in :ref:`Extents`.
 
 To configure iSCSI:

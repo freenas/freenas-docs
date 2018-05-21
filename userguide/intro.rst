@@ -121,7 +121,35 @@ These major features are new in this version:
   GRUB. GRUB was introduced as a temporary solution until the FreeBSD
   boot loader had full support for boot environments, which it now has.
 
-These applications have been added or updated:
+* The :ref:`Plugins` and :ref:`Jails` backend has switched from
+  :command:`warden` to :command:`iocage` and :command:`warden` will no
+  longer receive bug fixes. The new UI will automatically use
+  :command:`iocage` to create and manage :ref:`Plugins` and :ref:`Jails`.
+  Users are encouraged to recreate any existing :ref:`Plugins` and
+  :ref:`Jails` using the new UI to ensure that they are running the latest
+  supported application versions.
+
+* :ref:`VMs` are more crash-resistant. When a guest is started, the amount
+  of available memory is checked and an initialization error will occur
+  if there is insufficient system resources. When a guest is stopped, its
+  resources are returned to the system.
+
+* :ref:`Cloud Sync Tasks` provides configuration options to encrypt data
+  before it is transmitted and to keep it in the encrypted format while
+  stored on the cloud. The filenames can also be encrypted.
+
+The following software has been added or updated:
+
+* The base operating system has been updated to FreeBSD 11.1-STABLE as of
+  April 19, 2018.
+
+* OpenZFS is up-to-date with Illumos and slightly ahead due to support
+  for sorted scrubs which were ported from ZFS on Linux. Notable
+  improvements include channel programs, data disk removal, more
+  resilient volume import, the ability to import a pool with missing
+  vdevs, pool checkpoints, improved compressed ARC performance, and ZIL
+  batching. Note that many of these improvements need further testing so
+  have not yet been integrated into the UI.
 
 * `ncdu <https://dev.yorhel.nl/ncdu>`_ has been added to the base system.
   This CLI utility can be used to analyze disk usage from the console or
@@ -133,11 +161,27 @@ These applications have been added or updated:
 * Minio has been updated to
   `version 2018-04-04T05 <https://github.com/minio/minio/releases/tag/RELEASE.2018-04-04T05-20-54Z>`_.
 
+* The updated version of iocage provides many bug fixes and improved
+  IPv6 support.
+
 * `zsh <http://www.zsh.org/>`_ is the root shell for new installations.
   Upgrades will continue to use the :command:`csh` shell as the default
   root shell.
 
+* `xattr <https://github.com/xattr/xattr>`_ has been added to the base
+  system and can be used to modify file extended attributes from the
+  command line. Type :command:`xattr -h` to view the available options.
+
+* `convmv <https://www.j3e.de/linux/convmv/man/>`_ has been added to the
+  base system and can be used to convert the encoding of filenames from
+  the command line. Type :command:`convmv` to view the available options.
+
 The following screen options have changed:
+
+* The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
+  :guilabel:`Encryption password`, and :guilabel:`Encryption salt` fields
+  have been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> Add Cloud Sync`. 
 
 * The :guilabel:`Exec` field has been added to
   :menuselection:`Storage --> Volumes --> Create Dataset --> Advanced Mode`.

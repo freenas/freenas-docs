@@ -1186,7 +1186,7 @@ performance, so they should be scheduled at times when the system is
 not busy or in normal use. It is very important to avoid scheduling
 disk-intensive tests at the same time. For example, do not schedule
 S.M.A.R.T. tests to run at the same time, or preferably, even on the
-same days as :ref:`Scrubs`.
+same days as :ref:`Scrub Tasks`.
 
 Of particular interest in a NAS environment are the *Short* and *Long*
 S.M.A.R.T. tests. Details vary between drive manufacturers, but a
