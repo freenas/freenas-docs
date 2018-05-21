@@ -103,6 +103,8 @@ Some of the conditions that trigger an alert include:
   as this condition could block future configuration changes from
   being applied to the standby node
 
+* the boot volume of the passive node is not HEALTHY
+
 * 30 days before the license expires, and when the license expires
 
 * the usage of a HA link goes above 10MB/s
