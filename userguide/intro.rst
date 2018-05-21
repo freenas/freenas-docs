@@ -132,7 +132,8 @@ These major features are new in this version:
 * :ref:`VMs` are more crash-resistant. When a guest is started, the amount
   of available memory is checked and an initialization error will occur
   if there is insufficient system resources. When a guest is stopped, its
-  resources are returned to the system.
+  resources are returned to the system. In addition, the UEFI boot menu
+  fix allows Linux kernels 4.15 and higher to boot properly.
 
 * :ref:`Cloud Sync Tasks` provides configuration options to encrypt data
   before it is transmitted and to keep it in the encrypted format while
@@ -175,6 +176,10 @@ The following software has been added or updated:
 * `convmv <https://www.j3e.de/linux/convmv/man/>`_ has been added to the
   base system and can be used to convert the encoding of filenames from
   the command line. Type :command:`convmv` to view the available options.
+
+* Several new switches have been added to :ref:`freenas-debug`, including
+  :command:`-M` for dumping SATADOM info and :command:`-Z` to delete old
+  debug information.
 
 The following screen options have changed:
 
