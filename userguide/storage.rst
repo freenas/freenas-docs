@@ -13,7 +13,7 @@ these options:
 * :ref:`VMware-Snapshots`: coordinate OpenZFS snapshots with a VMware
   datastore.
 
-* :ref:`Disks:`: view and manage disk options.
+* :ref:`Disks`: view and manage disk options.
 
 * :ref:`Importing a Disk`: import a **single** disk that has been formatted
   with the UFS, NTFS, MSDOS, or EXT2 filesystem.
@@ -1350,6 +1350,7 @@ summarizes the available options.
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
 
+.. index:: Disks
 .. _Disks:
 
 Disks
