@@ -940,32 +940,37 @@ run the command without any options:
    freenas-debug
    Usage: /usr/local/bin/freenas-debug <options>
    Where options are:
-       -e  Email debug log to this comma-delimited list of email addresses
-       -A  Dump all debug information
 
-       -a  Dump Active Directory Configuration
-       -f  Dump AFP Configuration
-       -c  Dump (AD|LDAP) Cache
-       -B  Dump System Configuration Database
-       -D  Dump Domain Controller Configuration
-       -d  Dump DTrace Scripts
-       -g  Dump GEOM Configuration
-       -G  Dump Grub Configuration
-       -h  Dump Hardware Configuration
-       -I  Dump IPMI Configuration
-       -i  Dump iSCSI Configuration
-       -j  Dump Jail Information
-       -l  Dump LDAP Configuration
-       -T  Loader Configuration Information
-       -n  Dump Network Configuration
-       -N  Dump NFS Configuration
-       -S  Dump SMART Information
-       -C  Dump SMB Configuration
-       -s  Dump SSL Configuration
-       -y  Dump Sysctl Configuration
-       -t  Dump System Information
-       -v  Dump Boot System File Verification Status and Inconsistencies
-       -z  Dump ZFS Configuration
+    -A  Dump all debug information
+    -B  Dump System Configuration Database
+    -C  Dump SMB Configuration
+    -D  Dump Domain Controller Configuration
+    -E  flame graphs for user and kernel profiling
+    -I  Dump IPMI Configuration
+    -L  disk latency via dtrace 
+    -M  Dump SATA DOMs Information
+    -N  Dump NFS Configuration
+    -S  Dump SMART Information
+    -T  Loader Configuration Information
+    -Z  Remove old debug information
+    -a  Dump Active Directory Configuration
+    -b  slow operations zfslower DTrace Scripts
+    -c  Dump (AD|LDAP) Cache
+    -d  Dump DTrace Scripts
+    -e  Email debug log to this comma-delimited list of email addresses
+    -f  Dump AFP Configuration
+    -g  Dump GEOM Configuration
+    -h  Dump Hardware Configuration
+    -i  Dump iSCSI Configuration
+    -j  Dump Jail Information
+    -l  Dump LDAP Configuration
+    -n  Dump Network Configuration
+    -s  Dump SSL Configuration
+    -t  Dump System Information
+    -v  Dump Boot System File Verification Status and Inconsistencies
+    -y  Dump Sysctl Configuration
+    -z  Dump ZFS Configuration
+
 
 
 Individual tests can be run alone. For example, when troubleshooting
