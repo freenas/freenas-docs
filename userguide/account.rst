@@ -94,11 +94,11 @@ summarizes the available options when creating a group.
    | Name                | string    | Enter a name for the new group.                                                                                          |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Permit Sudo         | checkbox  | Check to allow group members to use `sudo <http://www.sudo.ws/>`__. When using :command:`sudo`, a user is                |
+   | Permit Sudo         | checkbox  | Set to allow group members to use `sudo <http://www.sudo.ws/>`__. When using :command:`sudo`, a user is                  |
    |                     |           | prompted for their own password.                                                                                         |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Allow repeated GIDs | checkbox  | Check to allow multiple groups to share the same group id (GID). This is useful when a GID is already associated         |
+   | Allow repeated GIDs | checkbox  | Set to allow multiple groups to share the same group id (GID). This is useful when a GID is already associated           |
    |                     |           | with the UNIX permissions for existing data.                                                                             |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
@@ -255,7 +255,7 @@ created or modified.
    | Shell                      | drop-down menu  | Select the shell to use for local and SSH logins. See :numref:`Table %s <shells_tab>` for an overview of available shells.    |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Full Name                  | string          | Mandatory. This field may contain spaces.                                                                                     |
+   | Full Name                  | string          | This field is mandatory and may contain spaces.                                                                               |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | Email                      | string          | The email address associated with the account.                                                                                |
@@ -264,11 +264,11 @@ created or modified.
    | Password                   | string          | Mandatory unless :guilabel:`Disable password login` is set. Cannot contain a :literal:`?`.                                    |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Confirm Password           | string          | This must match the value of :guilabel:`Password`.                                                                            |
+   | Confirm Password           | string          | Required to match the value of :guilabel:`Password`.                                                                          |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | Disable password login     | checkbox        | Set to disable password logins and authentication to SMB shares. To undo this setting, set a password for the                 |
-   |                            |                 | user with the :guilabel:`Edit` button for the user in :guilabel:`Users`. Setting thos option grays out                        |
+   |                            |                 | user with the :guilabel:`Edit` button for the user in :guilabel:`Users`. Setting this option grays out                        |
    |                            |                 | :guilabel:`Lock user` and :guilabel:`Permit Sudo`, which are mutually exclusive.                                              |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
