@@ -24,6 +24,8 @@ Expansion Shelves is described below.
 
 #include snippets/contact.rst
 
+#include snippets/mseries.rst
+
 #include snippets/xseries.rst
 
 #include snippets/es12.rst
