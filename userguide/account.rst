@@ -25,8 +25,8 @@ Groups
 The Groups interface provides management of UNIX-style groups on the
 %brand% system.
 
-.. note:: If a directory service is running on the network, it is not
-   necessary to recreate the network's users or groups. Instead,
+.. note:: It is unnecessary to recreate the network users or groups
+   when a directory service is running on the same network. Instead,
    import the existing account information into %brand%. Refer to
    :ref:`Directory Services` for details.
 
@@ -47,12 +47,11 @@ to see a screen like
    Group Management
 
 
-All groups that came with the operating system will be listed. Each
-group has an entry indicating the group ID, group name, whether or not
-it is a built-in group which was installed with %brand%, and whether
-or not the group members are allowed to use :command:`sudo`. Clicking
-a group entry causes a :guilabel:`Members` button to appear. Click the
-button to view and modify the group membership.
+The :guilabel:`Groups` page lists all groups, including those built-in
+and used by the operating system. The table displays group names,
+group IDs (GID), built-in groups, and if :command:`sudo` is permitted.
+Clicking a group entry causes a :guilabel:`Members` button to appear.
+Click the button to view and modify the group membership
 
 .. index:: Add Group, New Group, Create Group
 
@@ -90,7 +89,7 @@ summarizes the available options when creating a group.
    | Group Name          | string    | Required. Enter a descriptive name for the new group.                                                                    |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Permit Sudo         | checkbox  | Set to give members of the group permission to use `sudo <https://www.sudo.ws/>`__. When using :command:`sudo`, a user   |
+   | Permit Sudo         | checkbox  | Set to allow group members to use `sudo <https://www.sudo.ws/>`__. When using :command:`sudo`, a user                    |
    |                     |           | is prompted for their own password.                                                                                      |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
@@ -108,12 +107,8 @@ system. Click :guilabel:`>>` to move that user to the right frame.
 The user accounts which appear in the right frame are added as members
 of the group.
 
-In the example shown in
-:numref:`Figure %s <user_group_fig>`,
-the *data1* group has been created and the *user1* user account has
-been created with a primary group of *user1*. The :guilabel:`Members`
-button for the *data1* group has been selected and *user1* has been
-added as a member of the group.
+:numref:`Figure %s <user_group_fig>`, shows user1 added as a member
+of group data1.
 
 
 .. _user_group_fig:
@@ -137,25 +132,25 @@ Note that the built-in groups do not provide a
 Users
 -----
 
-%brand% supports users, groups, and permissions, allowing great
+%brand% supports users, groups, and permissions, allowing
 flexibility in configuring which users have access to the data stored
 on %brand%. To assign permissions to shares,
 **one of these options** must be done:
 
-#.  Create a guest account for all users to use, or create a user
+#.  Create a guest account for all users, or create a user
     account for every user in the network where the name of each
-    account is the same as a logon name used on a computer. For
+    account is the same as a login name used on a computer. For
     example, if a Windows system has a login name of *bobsmith*,
     create a user account with the name *bobsmith* on %brand%.
     A common strategy is to create groups with different sets of
     permissions on shares, then assign users to those groups.
 
-#.  If your network uses a directory service, import the existing
+#.  If the network uses a directory service, import the existing
     account information using the instructions in
     :ref:`Directory Services`.
 
-:menuselection:`Account --> Users --> View Users` provides a listing
-of all system accounts installed with the %brand% operating system, as
+:menuselection:`Account --> Users --> View Users` lists
+all system accounts installed with the %brand% operating system, as
 shown in :numref:`Figure %s <managing_user_fig>`.
 
 
@@ -183,10 +178,11 @@ Click a user account to cause these buttons to appear:
 * **Change E-mail:** used to change the email address associated with
   the account.
 
-.. note:: It is recommended to set the email address for the built-in
-   *root* user account as important system messages are sent to the
-   *root* user. For security reasons, password logins are disabled for
-   the *root* account and changing this setting is highly discouraged.
+.. note:: Setting the the email address for the built-in
+   *root* user account is recommended as important system messages are
+   sent to the *root* user. For security reasons, password logins are
+   disabled for the *root* account and changing this setting is
+   discouraged.
 
 
 Except for the *root* user, the accounts that come with %brand%
@@ -361,7 +357,7 @@ created or modified.
 .. index:: Remove User, Delete User
 
 Built-in user accounts needed by the system cannot be removed. A
-:guilabel:`Remove User` button appears for custom users that have been
+:guilabel:`Remove User` button appears for custom users that were
 added by the system administrator. If the user to be removed is the
 last user in a custom group, an option is presented to delete the
 group as well.
