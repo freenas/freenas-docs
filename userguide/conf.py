@@ -166,10 +166,10 @@ roles.register_local_role("menuselection", patched_menusel_role)
 # Use roles for specific Angular UI icons
 
 rst_prolog = """
-.. |settings| replace:: """u'\u2699'""" (Settings)
-.. |options| replace:: """u'\u205D'""" (Options)
-.. |add| replace::  """u'\uFF0B'""" (Add/Create)
-.. |menu| replace:: """u'\u2AF6'""""""u'\u2630'""" (Menu)
+.. |ui-settings| replace:: """u'\u2699'""" (Settings)
+.. |ui-options| replace:: """u'\u205D'""" (Options)
+.. |ui-add| replace::  """u'\uFF0B'""" (Add/Create)
+.. |ui-menu| replace:: """u'\u2AF6'""""""u'\u2630'""" (Menu)
 """
 
 # -- Options for HTML output ---------------------------------------------------
