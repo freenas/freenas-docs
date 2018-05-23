@@ -56,7 +56,7 @@ multiple disks are required in order to provide redundancy and data
 correction, ZFS will still provide data corruption detection to a
 system with one disk. %brand% automatically schedules a monthly scrub
 for each ZFS pool and the results of the scrub are displayed by
-selecting the :ref:`Pool <Pools>`, clicking the
+selecting the :ref:`Pools`, clicking the
 :guilabel:`Gear icon`, then the :guilabel:`Status` button. Checking
 scrub results can provide an early indication of potential disk
 problems.
@@ -67,7 +67,7 @@ created**.
 Instead, a group of disks, known as a *vdev*, are built into a ZFS
 *pool*. Filesystems are created from the pool as needed. As more
 capacity is needed, identical vdevs can be striped into the pool. In
-%brand%, :ref:`Pool Manager` can be used to create or extend pools.
+%brand%, :ref:`Pools` can be used to create or extend pools.
 After a pool is created, it can be divided into dynamically-sized
 datasets or fixed-size zvols as needed. Datasets can be used to
 optimize storage for the type of data being stored as permissions and

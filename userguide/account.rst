@@ -25,8 +25,8 @@ Groups
 The Groups interface provides management of UNIX-style groups on the
 %brand% system.
 
-.. note:: If a directory service is running on the network, it is not
-   necessary to recreate the network's users or groups. Instead,
+.. note:: It is unnecessary to recreate the network users or groups
+   when a directory service is running on the same network. Instead,
    import the existing account information into %brand%. Refer to
    :ref:`Directory Services` for details.
 
@@ -46,14 +46,16 @@ to see a screen like
 
    Group Management
 
+The :guilabel:`Groups` page lists all groups, including those built in
+and used by the operating system. The table displays group names, group IDs (GID),
+built-in groups, and if :command:`sudo` is permitted. Clicking
+the :guilabel:`More Options` icon on a user created group entry displays
+:guilabel:`Members`, :guilabel:`Edit`, and :guilabel:`Delete` options.
+Click :guilabel:`Members` to view and modify the group membership.
+Note built-in groups are required by the %brand% system so they
+do not have :guilabel:`Edit`, and :guilabel:`Delete`
+buttons.
 
-The :guilabel:`Groups` pages lists all groups, including those installed
-by the operating system. Each group has an entry indicating the group
-name, group ID (GID), and whether or not it is a built-in group which
-was installed with %brand%. Clicking the :guilabel:`More Options` icon
-for a group entry displays :guilabel:`Members`, :guilabel:`Edit`, and
-:guilabel:`Delete` options. Click :guilabel:`Members` to view and modify
-the group membership.
 
 .. index:: Add Group, New Group, Create Group
 
@@ -85,38 +87,37 @@ summarizes the available options when creating a group.
    |                     |           |                                                                                                                          |
    +=====================+===========+==========================================================================================================================+
    | GID                 | string    | The next available group ID is suggested. By convention, UNIX groups containing user accounts have an ID greater than    |
-   |                     |           | 1000 and groups required by a service have an ID equal to the default port number used by the service. For example,      |
+   |                     |           | 1000 and groups required by a service have an ID equal to the default port number used by the service. Example:          |
    |                     |           | the :literal:`sshd` group has an ID of 22.                                                                               |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Name                | string    | Enter a name for the new group. This is required.                                                                        |
+   | Name                | string    | Enter a name for the new group.                                                                                          |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Permit Sudo         | checkbox  | Check to allow members of the group to use `sudo <http://www.sudo.ws/>`__. When using :command:`sudo`, a user is         |
+   | Permit Sudo         | checkbox  | Set to allow group members to use `sudo <http://www.sudo.ws/>`__. When using :command:`sudo`, a user is                  |
    |                     |           | prompted for their own password.                                                                                         |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Allow repeated GIDs | checkbox  | Check to allow multiple groups to share the same group id (GID). This is useful when a GID is already associated         |
+   | Allow repeated GIDs | checkbox  | Set to allow multiple groups to share the same group id (GID). This is useful when a GID is already associated           |
    |                     |           | with the UNIX permissions for existing data.                                                                             |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
 
+#ifdef comment
+Adding a member to a group is not possible right now. Will
+update this section when the issue is resolved:
+https://redmine.ixsystems.com/issues/33888
+#endif comment
 
 After a group and users are created, users can be added to a group.
-Highlight the group where users will be assigned and click the
-:guilabel:`More Options` then :guilabel:`Members` buttons. Click the
-desired users in the :guilabel:`Members` list. This list shows all user
-accounts on the system. Next, click :guilabel:`>` to move those users to
-the right frame. The user accounts which appear in the right frame are
-added as members of the group.
+Click :guilabel:`More Options` on the desired group then
+:guilabel:`Members`. Select the users in the :guilabel:`Members` list.
+This list shows all user accounts on the system. Next, click :guilabel:`>`
+to move the users to the right frame. The user accounts which appear
+in the right frame are added as members of the group.
 
-In the example shown in
 :numref:`Figure %s <user_group_fig>`,
-the *data1* group has been created and the *user1* user account has
-been created with a primary group of *user1*. The :guilabel:`Members`
-button for the *data1* group has been selected and *user1* has been
-added as a member of the group.
-
+shows *user1* added as a member of group *data1*.
 
 .. _user_group_fig:
 
@@ -128,7 +129,8 @@ added as a member of the group.
 .. index:: Delete Group, Remove Group
 
 The :guilabel:`Delete` button deletes a group. The pop-up message asks
-to confirm the action. Note that the built-in groups do not provide a
+if all users with this primary group should also be deleted, and to
+confirm the action. Note built-in groups do not have a
 :guilabel:`Delete` button.
 
 
@@ -138,24 +140,24 @@ to confirm the action. Note that the built-in groups do not provide a
 Users
 -----
 
-%brand% supports users, groups, and permissions, allowing great
+%brand% supports users, groups, and permissions, allowing
 flexibility in configuring which users have access to the data stored
 on %brand%. To assign permissions to shares,
-one of these options must be done:
+select one of these options:
 
-#.  Create a guest account for all users to use, or create a user
+#.  Create a guest account for all users, or create a user
     account for every user in the network where the name of each
-    account is the same as a logon name used on a computer. For
+    account is the same as a login name used on a computer. For
     example, if a Windows system has a login name of *bobsmith*,
     create a user account with the name *bobsmith* on %brand%.
     A common strategy is to create groups with different sets of
     permissions on shares, then assign users to those groups.
 
-#.  If your network uses a directory service, import the existing
+#.  If the network uses a directory service, import the existing
     account information using the instructions in
     :ref:`Directory Services`.
 
-:menuselection:`Account --> Users` provides a listing of all system
+:menuselection:`Account --> Users` lists all system
 accounts installed with the %brand% operating system, as shown in
 :numref:`Figure %s <managing_user_fig>`.
 
@@ -167,19 +169,22 @@ accounts installed with the %brand% operating system, as shown in
    Managing User Accounts
 
 
-Each account entry indicates the username, user ID, primary group ID,
-home directory, default shell, and whether it is a built-in user that
-came with the %brand% installation. Clicking a column name will resort
-the list by that value. An arrow indicates which column controls the
-view sort order. Click the arrow to reverse the sort order.
+Each user entry displays the username, user ID, primary group ID,
+home directory, default shell, built-in user, and other
+configured options.
+Clicking a column name sorts the list by that value. An arrow
+indicates which column controls the view sort order. Click the arrow to
+reverse the sort order.
 
-Highlight a user account and click :guilabel:`More Options` to cause
-the :guilabel:`Edit` and :guilabel:`Delete` buttons to appear.
+Click :guilabel:`More Options` on the user created account to display
+the :guilabel:`Edit` and :guilabel:`Delete` buttons. Note built-in users
+do not have a :guilabel:`Delete` button.
 
-.. note:: It is recommended to set the email address for the built-in
-   *root* user account as important system messages are sent to the
-   *root* user. For security reasons, password logins are disabled for
-   the *root* account and changing this setting is highly discouraged.
+.. note:: Setting the email address for the built-in
+   *root* user account is recommended as important system messages
+   are sent to the *root* user. For security reasons, password logins
+   are disabled for the *root* account and changing this setting is
+   highly discouraged.
 
 
 Except for the *root* user, the accounts that come with %brand%
@@ -187,8 +192,8 @@ are system accounts. Each system account is used by a service and
 should not be used as a login account. For this reason, the default
 shell on system accounts is
 `nologin(8) <http://www.freebsd.org/cgi/man.cgi?query=nologin>`__.
-For security reasons and to prevent breakage of system services, do
-not modify the system accounts.
+For security reasons and to prevent breakage of system services,
+modifying the system accounts is discouraged.
 
 .. index:: Add User, Create User, New User
 
@@ -232,11 +237,11 @@ created or modified.
    |                            |                 | space, tab, or the characters :literal:`, : + & # % ^ \ & ( ) ! @ ~ * ? < > =`                                                |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Create a new primary group | checkbox        | By default, a primary group with the same name as the user will be created. Uncheck to select a different                     |
+   | Create a new primary group | checkbox        | Set by default to create a new a primary group with the same name as the user. Unset to select a different                    |
    |                            |                 | primary group name.                                                                                                           |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Primary Group              | drop-down menu  | Uncheck :guilabel:`Create a new primary group` to access this menu. For security reasons, FreeBSD will not give a user        |
+   | Primary Group              | drop-down menu  | Unset :guilabel:`Create a new primary group` to access this menu. For security reasons, FreeBSD will not give a user          |
    |                            |                 | :command:`su` permissions if *wheel* is their primary group. To give a user :command:`su` access, add them to the             |
    |                            |                 | *wheel* group in :guilabel:`Auxiliary groups`.                                                                                |
    |                            |                 |                                                                                                                               |
@@ -250,42 +255,41 @@ created or modified.
    | Shell                      | drop-down menu  | Select the shell to use for local and SSH logins. See :numref:`Table %s <shells_tab>` for an overview of available shells.    |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Full Name                  | string          | Mandatory. This field may contain spaces                                                                                      |
+   | Full Name                  | string          | This field is mandatory and may contain spaces.                                                                               |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | Email                      | string          | The email address associated with the account.                                                                                |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Password                   | string          | Mandatory unless :guilabel:`Disable password login` is checked. Cannot contain a :literal:`?`.                                |
+   | Password                   | string          | Mandatory unless :guilabel:`Disable password login` is set. Cannot contain a :literal:`?`.                                    |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Confirm Password           | string          | This must match the value of :guilabel:`Password`.                                                                            |
+   | Confirm Password           | string          | Required to match the value of :guilabel:`Password`.                                                                          |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Disable password login     | checkbox        | When checked, disables password logins and authentication to SMB shares. To undo this setting, set a password for the         |
-   |                            |                 | user using the :guilabel:`Edit` button for the user in :guilabel:`Users`. Checking this box grays out                         |
+   | Disable password login     | checkbox        | Set to disable password logins and authentication to SMB shares. To undo this setting, set a password for the                 |
+   |                            |                 | user with the :guilabel:`Edit` button for the user in :guilabel:`Users`. Setting this option grays out                        |
    |                            |                 | :guilabel:`Lock user` and :guilabel:`Permit Sudo`, which are mutually exclusive.                                              |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Lock user                  | checkbox        | Check to prevent the user from logging in until the account is unlocked (box is unchecked). Checking this                     |
-   |                            |                 | box will gray out :guilabel:`Disable password login`, which is mutually exclusive.                                            |
+   | Lock user                  | checkbox        | Set to prevent the user from logging in until the account is unlocked. Setting this                                           |
+   |                            |                 | option grays out :guilabel:`Disable password login`, which is mutually exclusive.                                             |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Permit Sudo                | checkbox        | Check to allow members of the group to use `sudo <http://www.sudo.ws/>`__. When using sudo, a user is                         |
+   | Permit Sudo                | checkbox        | Set to allow members of the group to use `sudo <http://www.sudo.ws/>`__. When using sudo, a user is                           |
    |                            |                 | prompted for their own password.                                                                                              |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Microsoft Account          | checkbox        | Check if the user will be connecting from a Windows 8 or higher system.                                                       |
+   | Microsoft Account          | checkbox        | Set if the user is connecting from a Windows 8 or higher system.                                                              |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | SSH Public Key             | string          | Paste the user's **public** SSH key to be used for key-based authentication.                                                  |
    |                            |                 | **Do not paste the private key!**                                                                                             |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Auxiliary groups           | drop-down menu  | Check which groups the user will be added to.                                                                                 |
+   | Auxiliary groups           | drop-down menu  | Select which groups the user will be added to.                                                                                |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-
 
 .. note:: Some fields cannot be changed for built-in users and are
    grayed out.
@@ -351,5 +355,7 @@ created or modified.
 .. index:: Remove User, Delete User
 
 Built-in user accounts needed by the system cannot be removed. A
-:guilabel:`Delete` button appears for custom users that have been added
-by the system administrator.
+:guilabel:`Delete` button appears for custom users that were added
+by the system administrator. Clicking :guilabel:`Delete` opens a popup
+window to confirm the action and present the option to not delete the
+user primary group when the user is deleted.

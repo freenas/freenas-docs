@@ -4,7 +4,8 @@
 Log Out
 =======
 
-Click the :guilabel:`Log Out` entry in the %brand% GUI to log out.
+Click :guilabel:`Settings` in the upper right, then
+:guilabel:`Log out` to log out.
 
-After logging out, a message appears with a link to log back in. When
-logging back in, the *root* password is required.
+Confirm the choice to log out. The window returns to the %brand%
+log in screen when finished.

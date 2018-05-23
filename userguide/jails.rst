@@ -55,8 +55,8 @@ Jail Configuration
 
 Jails and FreeBSD releases are stored in a dataset named
 :file:`iocage/`. If the pool or dataset to be used with
-:command:`iocage` does not already exist, it can be created with the
-:ref:`Pool Manager`.
+:command:`iocage` does not already exist, create it in
+:ref:`Pools`.
 
 .. note:: The :literal:`iocage` dataset cannot be created on a
    :ref:`Share <Sharing>`.
@@ -76,11 +76,10 @@ already installed in an existing pool.
    Initial Jail Configuration
 
 
-Click :guilabel:`Create a pool` to open the :ref:`Pool Manager`.
-Create a new pool for the jail system. Allocating at least 10 GiB of
-space for this pool is recommended. More space might be required,
-depending on the number of jails to be created or versions of FreeBSD
-to store on the pool.
+Click :guilabel:`Create a pool` to create a new pool for the jail system.
+Allocating at least 10 GiB of space for this pool is recommended. More
+space might be required, depending on the number of jails to be created
+or versions of FreeBSD to store on the pool.
 
 Click :guilabel:`Save` and %brand% automatically configures
 :literal:`iocage` in the new pool. Jails can now be created by

@@ -72,7 +72,7 @@ Some of the conditions that trigger an alert include:
 
 * a periodic snapshot or replication task fails
 
-* a VMware login or a :ref:`VMware-Snapshot` task fails
+* a VMware login or a :ref:`VMware-Snapshots` task fails
 
 * deleting a VMware snapshot fails
 
@@ -102,6 +102,8 @@ Some of the conditions that trigger an alert include:
 * one node of an HA pair gets stuck applying its configuration journal
   as this condition could block future configuration changes from
   being applied to the standby node
+
+* the boot volume of the passive node is not HEALTHY
 
 * 30 days before the license expires, and when the license expires
 

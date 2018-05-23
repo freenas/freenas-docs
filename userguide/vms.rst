@@ -11,7 +11,7 @@ computer. Operating systems running inside a VM see emulated virtual
 hardware rather than the actual hardware of the host computer. This
 provides more isolation than :ref:`Jails`, although there is
 additional overhead. A portion of system RAM is assigned to each VM,
-and each VM uses a :ref:`zvol <Create zvol>` for storage. While a VM
+and each VM uses a :ref:`zvol <Adding Zvols>` for storage. While a VM
 is running, these resources are not available to the host computer or
 other VMs.
 
@@ -291,6 +291,7 @@ into the :guilabel:`MAC Address` field. Click
 Disk Devices
 ~~~~~~~~~~~~
 
+<<<<<<< HEAD
 :ref:`Zvols <Create zvol>` are typically used as virtual hard drives.
 After :ref:`creating a zvol <Create zvol>`, associate it with the VM
 by navigating
@@ -299,6 +300,15 @@ by navigating
 If a specific sector size is required, enter the number of bytes into
 :guilabel:`Disk sectorsize`. The default of *0* leaves the sector size
 unset.
+=======
+:ref:`Zvols <Adding Zvols>` are typically used as virtual hard drives.
+After :ref:`creating a zvol <Adding Zvols>`, associate it with the VM
+by selecting :guilabel:`Add device`, choose the *VM*, select a
+:guilabel:`Type` of *Disk*, select the created zvol, then set the
+:guilabel:`Mode`. If a specific sector size is required, enter the
+number of bytes into :guilabel:`Disk sectorsize`. The default of *0*
+leaves the sector size unset.
+>>>>>>> 880b845402d449fa92db2498e39e701094ba00bd
 
 
 .. figure:: images/vms-disk1.png
@@ -317,7 +327,7 @@ support VirtIO disk devices.
 Raw Files
 ~~~~~~~~~
 
-*Raw Files* are similar to :ref:`Zvol <Create zvol>` disk devices,
+*Raw Files* are similar to :ref:`Zvol <Adding Zvols>` disk devices,
 but the disk image comes from a file. These are typically used with
 existing read-only binary images of drives, like an installer disk
 image file meant to be copied onto a USB stick.
@@ -360,7 +370,7 @@ installation image is shown:
 .. note:: VMs from other virtual machine systems can be recreated for
    use in %brand%. Back up the original VM, then create a new %brand%
    VM with virtual hardware as close as possible to the original VM.
-   Binary-copy the disk image data into the :ref:`zvol <Create zvol>`
+   Binary-copy the disk image data into the :ref:`zvol <Adding Zvols>`
    created for the %brand% VM with a tool that operates at the level
    of disk blocks, like
    `dd(1) <https://www.freebsd.org/cgi/man.cgi?query=dd>`__.
@@ -503,7 +513,7 @@ When a VM is no longer needed, it can be deleted by clicking
 :guilabel:`More Options`, then :guilabel:`Delete`. A dialog asks
 for confirmation.
 
-.. tip:: :ref:`Zvols <Create zvol>` used in
+.. tip:: :ref:`Zvols <Adding Zvols>` used in
    :ref:`disk devices <vms-disk-device>` and image files used in
    :ref:`raw file <vms-raw-file>` devices are *not* removed when a VM
    is deleted. These resources can be removed manually after it is
@@ -511,7 +521,7 @@ for confirmation.
    needed.
 
 
-.. index: Docker/Rancher VM
+.. index:: Docker/Rancher VM
 .. _Docker/Rancher VM:
 
 Docker/Rancher VM
@@ -533,7 +543,7 @@ is a GUI tool for managing Docker containers.
    this is the intended usage of this type of VM.
 
 
-.. index: Docker VM Requirements
+.. index:: Docker VM Requirements
 .. _Docker VM Requirements:
 
 Docker VM Requirements
@@ -545,7 +555,7 @@ Docker VM Requirements
 The Docker VM requires 2 GiB of RAM while running.
 
 
-.. index: Create the Docker VM
+.. index:: Create the Docker VM
 .. _Create the Docker VM:
 
 Create the Docker VM
@@ -573,12 +583,25 @@ with the :guilabel:`RAW File location` field.
 #ifdef comment
 Devices/Edit is missing in new UI - see Redmine issue 32823.
 
+A location to store the disk image must now be chosen. In this
+example, a :ref:`dataset <Adding Datasets>` called *vm-storage* has
+already been created as a location to store VM data. Click
+:guilabel:`VMs`, then click on the *RancherUI* line to select it.
+Click on the :guilabel:`Devices` button to show the devices attached
+to that VM. Click on the *RAW* device to select it, then click the
+:guilabel:`Edit` button. In the :guilabel:`Raw File` field, browse to
+the dataset and select it. Then add a filename by typing
+*/rancherui.img* at the end of the path in the text box.
 
 Set the :guilabel:`Disk boot` checkbox, enter a password for the
 :literal:`rancher` user in the :guilabel:`Password` field, then enter
 *20G* in the :guilabel:`Disk size` field. Click :guilabel:`OK` to save
 the device.
+
 #endif comment
+
+.. note:: The :guilabel:`Password` will fail if it contains a space.
+
 
 .. figure:: images/vms-rancher-storage.png
 
