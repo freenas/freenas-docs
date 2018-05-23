@@ -10,37 +10,9 @@ Storage service for OpenStack. Detection and management of connected
 %brand% iSCSI resources is available from within the OpenStack web
 interface.
 
-
-Requirements
-------------
-
-1. A %brand% 11.0 or newer system to provide storage.
-
-2. A computer running the
-   `Newton release <https://docs.openstack.org/newton/>`__
-   of OpenStack or newer, with these minimum hardware requirements:
-
-   * 4 GiB of RAM
-   * 4-core CPU
-   * 40 GiB storage disk
-
-
-Installation
-------------
-
-The Cinder driver is packaged as a :file:`.zip` file for simple
-download and extraction. To obtain the driver, please contact
-iXsystems Customer Support at
-:literal:`truenas-support@ixsystems.com`.
-
-Log in to a console on the OpenStack system. Switch user to *stack*
-with :command:`su - stack`. Extract the contents of the Cinder driver
-:file:`.zip` file to :file:`/opt/stack/cinder/cinder/volume/drivers/`.
-
-
-.. note:: Be sure the *stack* user has ownership or permissions for
-   all the extracted Cinder files.
-
+To install and configure the driver, refer to the instructions in the
+open source repository for the driver:
+https://github.com/iXsystems/cinder/blob/master/README.md.
 
 Log in to the %brand% system and
 :ref:`create a new dataset <Create Dataset>` named :literal:`cinder`.
