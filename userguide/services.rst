@@ -903,11 +903,6 @@ are specific to each configured NFS Share. In contrast, global
 settings which apply to all NFS shares are configured in
 :menuselection:`Services --> NFS`.
 
-#ifdef truenas
-*VAAI for NAS* is supported through the NFS service. See
-:ref:`VAAI_for_NAS` for more details.
-#endif truenas
-
 :numref:`Figure %s <config_nfs_fig>`
 shows the configuration screen and
 :numref:`Table %s <nfs_config_opts_tab>`
