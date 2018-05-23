@@ -139,6 +139,13 @@ These major features are new in this version:
   before it is transmitted and to keep it in the encrypted format while
   stored on the cloud. The filenames can also be encrypted.
 
+* Preliminary support has been added for Self-Encrypting Drives (SEDs)
+  using the TCG OPAL and ATA Security standards. The
+  :guilabel:`ATA Security User` and :guilabel:`SED Password` fields
+  have been added to :menuselection:`System --> Advanced` and the
+  `sedutil-cli <https://www.mankier.com/8/sedutil-cli>`_ command can be
+  used for additional SED management.
+
 The following software has been added or updated:
 
 * The base operating system has been updated to FreeBSD 11.1-STABLE as of
