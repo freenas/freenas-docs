@@ -56,19 +56,3 @@ VAAI for iSCSI supports these operations:
   is done locally, rather than over the network. This makes virtual
   machine creation and any other zeroing of disk regions much quicker.
 
-#ifdef truenas
-.. index:: VAAI for NAS
-.. _VAAI_for_NAS:
-
-VAAI for NAS
-------------
-
-`VAAI for NAS <https://code.vmware.com/programs/vaai-nas>`__
-is automatically enabled on %brand% when the :ref:`NFS` service is
-running. These operations are supported:
-
-* *Extended Statistics* provides extended statistics on NFS shares.
-
-* *Full File Clone* efficiently clones a file on the NAS without
-  copying the data over the network.
-#endif truenas
