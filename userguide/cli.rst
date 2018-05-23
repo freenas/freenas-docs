@@ -45,7 +45,7 @@ Iperf
 
 Iperf is a utility for measuring maximum TCP and UDP bandwidth
 performance. It can be used to chart network throughput over time. For
-example, it can be used to test the speed of different types of shares
+example, it is used to test the speed of different types of shares
 to determine which type performs best on the network.
 
 %brand% includes the Iperf server. To perform network testing,
@@ -68,12 +68,11 @@ To start xjperf on Windows: unzip the downloaded file, start Command
 Prompt in Run as administrator mode, :command:`cd` to the unzipped
 folder, and run :command:`jperf.bat`.
 
-To start xjperf on Mac OS X, Linux, or BSD, unzip the downloaded file,
+To start xjperf on macOS, Linux, or BSD, unzip the downloaded file,
 :command:`cd` to the unzipped directory, type
 :command:`chmod u+x jperf.sh`, and run :command:`./jperf.sh`.
 
-Once the client is ready, start the Iperf server on
-%brand%.
+Start the Iperf server on %brand% when the client is ready.
 
 .. note:: Beginning with %brand% version 11.1, both `iperf2
    <https://sourceforge.net/projects/iperf2/>`_ and `iperf3
@@ -108,7 +107,7 @@ For example, to perform a TCP test and start the server in daemon mode
 
 
 .. note:: The daemon process stops when :ref:`Shell` closes.
-   Set up the environment (e.g. shares configured and started)
+   Set up the environment with shares configured and started
    **before** starting the Iperf process.
 
 From the desktop, open the client. Enter the IP of address of the
@@ -127,14 +126,13 @@ Windows system while an SFTP transfer is occurring on the network.
 
    Viewing Bandwidth Statistics Using xjperf
 
-
-Depending upon the traffic being tested (e.g. the type of share
-running on your network), UDP may need to be tested instead of TCP. To
-start the iperf server in UDP mode, use :command:`iperf -sDu` as the
-**u** specifies UDP; the startup message should indicate that the
-server is listening for UDP datagrams. If unsure whether the
-traffic to be tested is UDP or TCP, run this command to
-determine which services are running on the %brand% system:
+Check the type of traffic before testing UPD or TCP.
+The iperf server is used to get additional details for
+services using TCP :command:`iperf -sD` or UDP :command:`iperf -sDu`.
+The startup message indicates when the server is listening for TCP or UDP.
+The :command:`sockstat -4 | more` command gives an overview of the services
+running on the %brand% system. This helps to determine if the traffic
+to test is UDP or TCP.
 
 .. code-block:: none
 
@@ -165,7 +163,6 @@ determine which services are running on the %brand% system:
 When testing is finished, either type :command:`killall iperf` or
 close Shell to terminate the iperf server process.
 
-
 .. index:: Netperf
 .. _Netperf:
 
@@ -175,8 +172,8 @@ Netperf
 Netperf is a benchmarking utility that can be used to measure the
 performance of unidirectional throughput and end-to-end latency.
 
-Before using the :command:`netperf` command, its
-server process must be started using this command:
+Before using the :command:`netperf` command, start its
+server process with this command:
 
 .. code-block:: none
 
@@ -189,7 +186,7 @@ performing tests with the :command:`netperf` command. The
 <http://www.netperf.org/svn/netperf2/tags/netperf-2.6.0/doc/netperf.html>`_
 describes each option in more detail and explains how to perform many
 types of tests. It is the best reference for understanding how each
-test works and how to interpret your results. When testing is
+test works and how to interpret the results. When testing is
 finished, type :command:`killall netserver` to stop the server
 process.
 
@@ -233,11 +230,11 @@ process.
      -V			Display the netperf version and exit
 
 
-For those options taking two parms, at least one must be specified;
-specifying one value without a comma will set both parms to that
+For those options taking two parms, at least one must be specified.
+Specifying one value without a comma will set both parms to that
 value, specifying a value with a leading comma will set just the
-second parm, a value with a trailing comma will set just the first. To
-set each parm to unique values, specify both and separate them with a
+second parm, and specifying a value with a trailing comma will set the first.
+To set each parm to unique values, specify both and separate them with a
 comma.
 
 For these options taking two parms, specifying one value with no comma
@@ -257,7 +254,7 @@ test file I/O performance for the following operations: read, write,
 re-read, re-write, read backwards, read strided, fread, fwrite, random
 read, pread, mmap, aio_read, and aio_write.
 
-%brand% ships with IOzone, meaning that it can be run from Shell.
+%brand% ships with IOzone so it can be run from Shell.
 When using IOzone on %brand%, :command:`cd` to a directory in a
 pool that you have permission to write to, otherwise an
 error about being unable to write the temporary file will occur.
@@ -414,10 +411,10 @@ arcstat
 Arcstat is a script that prints out ZFS
 `ARC <https://en.wikipedia.org/wiki/Adaptive_replacement_cache>`_
 statistics. Originally it was a perl script created by Sun. That perl
-script was ported to FreeBSD and was then ported as a Python script
+script was ported to FreeBSD and then ported as a Python script
 for use on %brand%.
 
-Watching ARC hits/misses and percentages will provide an indication of
+Watching ARC hits/misses and percentages shows 
 how well the ZFS pool is fetching from the ARC rather than using disk
 I/O. Ideally, there will be as many things fetching from cache as possible.
 Keep the load in mind while reviewing the stats. For random reads,
@@ -437,7 +434,7 @@ It should be noted that performance tuning is more of an art than a
 science and that any changes made will probably require several
 iterations of tune and test. Be aware that what needs to be tuned will
 vary depending upon the type of workload and that what works for one
-person's network may not benefit yours.
+one network may not benefit another.
 
 In particular, the value of pre-fetching depends upon the amount of
 memory and the type of workload, as seen in these two examples:
@@ -455,7 +452,7 @@ from :ref:`Shell`:
 
 * :command:`arcstat.py`: used to watch the statistics in real time
 
-The advantage of these scripts is that they can be used to provide
+The advantage of these scripts is that they provide
 real time (right now) information, whereas the current GUI reporting
 mechanism is designed to only provide graphs charted over time.
 
@@ -899,7 +896,7 @@ should now be available in the %brand% GUI.
 
 This `forum post
 <https://forums.freenas.org/index.php?threads/3ware-drive-monitoring.13835/>`__
-contains a handy wrapper script that will notify you of errors.
+contains a handy wrapper script that will give error notifications.
 
 
 .. index:: MegaCli
@@ -997,8 +994,8 @@ tmux
 :screen. :command:`tmux` is an alternative to GNU :command:`screen`.
 Similar to screen, :command:`tmux` can be detached from a screen and
 continue running in the background, then later reattached. Unlike
-:ref:`Shell`, :command:`tmux` allows you to have access to a command
-prompt while still providing access to the graphical administration
+:ref:`Shell`, :command:`tmux` provides access to a command
+prompt while still giving access to the graphical administration
 screens.
 
 To start a session, simply type :command:`tmux`. As seen in
