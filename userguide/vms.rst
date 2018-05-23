@@ -15,6 +15,12 @@ and each VM uses a :ref:`zvol <Adding Zvols>` for storage. While a VM
 is running, these resources are not available to the host computer or
 other VMs.
 
+:guilabel:`⁝☰`
+:guilabel:`⚙`
+:guilabel:`⁝`
+:guilabel:`＋`
+
+
 %brand% VMs use the
 `bhyve(8)
 <https://www.freebsd.org/cgi/man.cgi?query=bhyve&manpath=FreeBSD+11.0-RELEASE+and+Ports>`__
@@ -549,8 +555,14 @@ is a GUI tool for managing Docker containers.
 Docker VM Requirements
 ~~~~~~~~~~~~~~~~~~~~~~
 
-20 GiB of storage space is required for the Docker VM. For setup, the
-:ref:`SSH` service must be enabled.
+The system BIOS **must** have virtualization support enabled for a
+Docker VM to run properly after installation. On Intel systems this is
+typically an option called *VT-x*. AMD systems generally have an *SVM*
+option.
+
+20 GiB of storage space is required for the Docker VM.
+
+For setup, the :ref:`SSH` service must be enabled.
 
 The Docker VM requires 2 GiB of RAM while running.
 
