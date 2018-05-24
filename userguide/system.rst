@@ -670,6 +670,11 @@ The configurable settings are summarized in
    | Use FQDN for logging                     | checkbox                         | when checked, include the Fully-Qualified Domain Name in logs to precisely   |
    |                                          |                                  | identify systems with similar hostnames                                      |
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | ATA Security User                        | drop-down menu                   | choices are *User* (limited SED actions) or *Master* (has access to all SED  |
+   |                                          |                                  | actions)                                                                     |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | SED Password                             | string                           | global password used to unlock Self-Encrypting Drives                        |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
 
 Click the :guilabel:`Save` button after making any changes.
 
