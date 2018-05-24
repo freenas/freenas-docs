@@ -13,10 +13,13 @@ Obtaining an IP Address
 
 During boot, %brand% automatically attempts to connect to a DHCP
 server from all live network interfaces. After %brand% successfully
-recieves an IP address, the address is displayed so it can be used 
+recieves an IP address, the address is displayed so it can be used
 to access the graphical user interface. The example in
 :numref:`Figure %s <console_setup_menu_fig>` shows a
 %brand% system that is accessible at *http://192.168.1.119*.
+#ifdef comment
+Update the above IP address to reflect the new console-menu.png screenshot.
+#endif comment
 
 Some %brand% systems are set up without a monitor, making it
 challenging to determine which IP address has been assigned. On
@@ -76,12 +79,10 @@ The password for the root user is requested as shown in
    Enter the Root Password
 
 
-.. note:: The %brand% UI is in the process of being rewritten in
-   Angular, with a new, asynchronous middleware. To see a preview of
-   the new UI, click the :guilabel:`Try the Beta UI!` link in the
-   login box. Note that the new UI is not expected to be feature
-   complete until version 11.2. Until then, this Guide will only
-   demonstrate the classic UI.
+.. note:: The %brand% UI now uses Angular and a new, asynchronous
+   middleware. To use the legacy Django UI that was used before
+   version 11.2, click :guilabel:`Legacy UI`. This Guide only
+   demonstrates the new, Angular UI.
 
 
 Enter the password chosen during the installation. The administrative
@@ -108,17 +109,15 @@ entered in a browser:
   range, it can only be accessed from within that private network.
 
 * If the user interface loads but is unresponsive or seems to be
-  missing menu items, try a different web browser. IE9 has known
-  issues and does not display the graphical administrative interface
-  correctly if compatibility mode is turned on.
-  `Firefox <https://www.mozilla.org/en-US/firefox/all/>`_ is
+  missing menu items, try a different web browser.
+  `Firefox <https://www.mozilla.org/en-US/firefox/all/>`__ is
   recommended.
 
-* If :guilabel:`An error occurred!` messages are shown when attempting
-  to configure an item in the GUI, make sure that the browser is set
-  to allow cookies from the %brand% system.
+* If error messages are shown when attempting to configure an item in
+  the GUI, make sure that the browser is set to allow cookies from the
+  %brand% system.
 
 This `blog post
-<http://fortysomethinggeek.blogspot.com/2012/10/ipad-iphone-connect-with-freenas-or-any.html>`_
+<http://fortysomethinggeek.blogspot.com/2012/10/ipad-iphone-connect-with-freenas-or-any.html>`__
 describes some applications which can be used to access the %brand%
 system from an iPad or iPhone.
