@@ -49,7 +49,7 @@ to see a screen like
 The :guilabel:`Groups` page lists all groups, including those built in
 and used by the operating system. The table displays group names, group IDs (GID),
 built-in groups, and if :command:`sudo` is permitted. Clicking
-the :guilabel:`More Options` icon on a user created group entry displays
+the |ui-options| icon on a user created group entry displays
 :guilabel:`Members`, :guilabel:`Edit`, and :guilabel:`Delete` options.
 Click :guilabel:`Members` to view and modify the group membership.
 Note built-in groups are required by the %brand% system so they
@@ -59,7 +59,7 @@ buttons.
 
 .. index:: Add Group, New Group, Create Group
 
-The :guilabel:`Add Group` button opens the screen shown in
+The |ui-add| button opens the screen shown in
 :numref:`Figure %s <new_group_fig>`.
 :numref:`Table %s <new_group_tab>`
 summarizes the available options when creating a group.
@@ -110,7 +110,7 @@ https://redmine.ixsystems.com/issues/33888
 #endif comment
 
 After a group and users are created, users can be added to a group.
-Click :guilabel:`More Options` on the desired group then
+Click |ui-options| on the desired group then
 :guilabel:`Members`. Select the users in the :guilabel:`Members` list.
 This list shows all user accounts on the system. Next, click :guilabel:`>`
 to move the users to the right frame. The user accounts which appear
@@ -176,7 +176,7 @@ Clicking a column name sorts the list by that value. An arrow
 indicates which column controls the view sort order. Click the arrow to
 reverse the sort order.
 
-Click :guilabel:`More Options` on the user created account to display
+Click |ui-options| on the user created account to display
 the :guilabel:`Edit` and :guilabel:`Delete` buttons. Note built-in users
 do not have a :guilabel:`Delete` button.
 
@@ -197,10 +197,10 @@ modifying the system accounts is discouraged.
 
 .. index:: Add User, Create User, New User
 
-The :guilabel:`Add User` button opens the screen shown in
+The |ui-add| button opens the screen shown in
 :numref:`Figure %s <add_user_fig>`.
 :numref:`Table %s <user_account_conf_tab>`
-summarizes the options which are available when user accounts are
+summarizes the options that are available when user accounts are
 created or modified.
 
 .. warning:: When using :ref:`Active Directory`, Windows user
