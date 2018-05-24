@@ -277,21 +277,18 @@ Enter the default password of *abcd1234*.
 On the first login, the EULA found in :ref:`Appendix A` is displayed,
 along with a box where the license key for the %brand% array can be
 pasted. Read the EULA, paste in the license key, then click
-:guilabel:`OK`. The administrative GUI appears, as shown in the
-example in
-:numref:`Figure %s <tn_initial>`.
+:guilabel:`OK` to accept the EULA and apply the license.
+
+Alternately, press :guilabel:`Cancel` if the license key is not yet
+available or you wish to discuss the EULA with an iXsystems
+representative before agreeing to it. Pressing :guilabel:`Cancel`
+will still allow access to the administrative GUI but this initial screen
+will display at every login until the EULA is agreed to and the license
+applied.
 
 .. note:: Entering the license key for a High Availability pair is
    not allowed unless both the active and standby computers are up.
    The key is entered on the active computer.
-
-
-.. _tn_initial:
-
-.. figure:: images/tn_initial1c.png
-
-   %brand% Graphical Configuration Menu
-
 
 .. note:: If the storage devices have been encrypted, a prompt appears
    for the passphrase. It must be correctly entered for the data on
@@ -301,6 +298,16 @@ example in
    powered off, the passphrase must be re-entered when the first node
    powers back up.
 
+
+Once the user has pressed :guilabel:`OK` or :guilabel:`Cancel`, the
+administrative GUI appears, as shown in the example in
+:numref:`Figure %s <tn_initial>`.
+
+.. _tn_initial:
+
+.. figure:: images/tn_initial1c.png
+
+   %brand% Graphical Configuration Menu
 
 If the user interface is not accessible by IP address from a browser,
 check these things:
