@@ -53,8 +53,7 @@ the |ui-options| icon on a user created group entry displays
 :guilabel:`Members`, :guilabel:`Edit`, and :guilabel:`Delete` options.
 Click :guilabel:`Members` to view and modify the group membership.
 Note built-in groups are required by the %brand% system so they
-do not have :guilabel:`Edit`, and :guilabel:`Delete`
-buttons.
+do not have :guilabel:`Edit`, and :guilabel:`Delete` buttons.
 
 
 .. index:: Add Group, New Group, Create Group
@@ -103,18 +102,13 @@ summarizes the available options when creating a group.
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
 
-#ifdef comment
-Adding a member to a group is not possible right now. Will
-update this section when the issue is resolved:
-https://redmine.ixsystems.com/issues/33888
-#endif comment
 
 After a group and users are created, users can be added to a group.
 Click |ui-options| on the desired group then
 :guilabel:`Members`. Select the users in the :guilabel:`Members` list.
 This list shows all user accounts on the system. Next, click :guilabel:`>`
-to move the users to the right frame. The user accounts which appear
-in the right frame are added as members of the group.
+to move the users to the right frame. Press
+:guilabel:`Save` to add the users on the right frame to the group.
 
 :numref:`Figure %s <user_group_fig>`,
 shows *user1* added as a member of group *data1*.
