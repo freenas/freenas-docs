@@ -167,7 +167,7 @@ roles.register_local_role("menuselection", patched_menusel_role)
 
 rst_prolog = """
 .. |ui-settings| replace:: **"""u'\u2699'"""** (Settings)
-.. |ui-options| replace:: **"""u'\u205D'"""** (Options)
+.. |ui-options| replace:: **"""u'\u2AF6'"""** (Options)
 .. |ui-add| replace::  **"""u'\uFF0B'"""** (Add/Create)
 .. |ui-menu| replace:: **"""u'\u2AF6'""""""u'\u2630'"""** (Menu)
 """
