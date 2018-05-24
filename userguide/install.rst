@@ -3,9 +3,9 @@
 Installing and Upgrading
 ========================
 
-The %brand% operating system must be installed on a
-separate device from the drives which hold the storage data. In other
-words, with only one disk drive, the %brand% graphical interface is
+The %brand% operating system has to be installed on a
+separate device from the drives which hold the storage data. With only
+one disk drive, the %brand% graphical interface is
 available, but there is no place to store any data. And storing data
 is, after all, the whole point of a NAS system. Home users
 experimenting with %brand% can install %brand% on an inexpensive USB
@@ -32,8 +32,8 @@ This section describes:
 Getting %brand%
 -------------------------
 
-The latest STABLE version of %brand% |release| can be downloaded from
-`<https://download.freenas.org/latest/>`__.
+The latest STABLE version of %brand% |release| is available for download
+from `<https://download.freenas.org/latest/>`__.
 
 .. note:: %brand% requires 64-bit hardware.
 
@@ -164,12 +164,12 @@ running Windows. When using Rufus, check
 the drop-down menu.
 
 
-.. _macOS:
+.. _On macOS:
 
-macOS
-~~~~~~~
+On macOS
+~~~~~~~~
 
-Insert the USB thumb drive. In the Finder, go to
+Insert the USB thumb drive. In Finder, go to
 :menuselection:`Applications --> Utilities --> Disk Utility`.
 Unmount any mounted partitions on the USB thumb drive. Check that the
 USB thumb drive has only one partition, or partition table errors will
@@ -355,7 +355,7 @@ which is used to log in to the administrative graphical interface.
 
 Setting a password is mandatory and the password cannot be blank.
 Since this password provides access to the administrative GUI, it
-should be hard to guess. Enter the password, press the down arrow key,
+needs to be hard to guess. Enter the password, press the down arrow key,
 and confirm the password. Then press :kbd:`Enter` to continue with the
 installation.
 
@@ -363,8 +363,8 @@ installation.
    are disabled by default. Unless these are set, the only way to
    access a shell as *root* is to gain physical access to the console
    menu or to access the web shell within the administrative GUI. This
-   means that the %brand% system should be kept physically secure and
-   that the administrative GUI should be behind a properly configured
+   means that the %brand% system needs to be kept physically secure and
+   that the administrative GUI needs to be behind a properly configured
    firewall and protected by a secure password.
 
 
@@ -672,10 +672,10 @@ To perform an upgrade using this method, go to
 :menuselection:`System --> Update`.
 
 The connection is lost temporarily when the update is complete. It
-will return after the %brand% system reboots into the new version of the
-operating system. The %brand% system will normally receive the same
+returns after the %brand% system reboots into the new version of the
+operating system. The %brand% system normally receives the same
 IP address from the DHCP server. Refresh the browser after a moment
-to see if the system can be accessed.
+to see if the system is accessible.
 
 
 .. _If Something Goes Wrong:
@@ -710,7 +710,7 @@ environment was created.
 To boot into the previous version of the operating system, use the up
 or down arrow to select it and press :kbd:`Enter`.
 
-If a boot device fails and the system no longer boots, don't panic.
+If a boot device fails and the system no longer boots, do not panic.
 The data is still on the disks and there is still a copy of the saved
 configuration. The system can be recovered with a few steps:
 
