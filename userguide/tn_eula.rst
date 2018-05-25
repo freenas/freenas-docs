@@ -211,7 +211,8 @@ TrueNAS Software may collect information relating to Your use of the
 Product, including information that has been provided directly or
 indirectly through automated means. Usage of TrueNAS Software, geolocation
 information, user login credentials, and device and operating system
-identification are allowed according to iXsystems’ privacy policy. By
+identification are allowed according to iXsystems’
+`privacy policy <https://www.ixsystems.com/privacy-policy/>`_. By
 accepting this  Agreement and continuing to use the Product, you agree
 that iXsystems may use any information provided through direct or indirect
 means in accordance with our privacy policy and as permitted by applicable
