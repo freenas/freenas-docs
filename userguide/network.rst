@@ -688,7 +688,7 @@ the desired interface. Select :guilabel:`Edit`, and scroll to the
 as each interface member inherits settings from the lagg. To configure
 at the interface level
 (:numref:`Figure %s <lagg_member_edit_fig>`)
-instead, repeat the configuration must for each interface within
+instead, repeat the configuration for each interface within
 the lagg.
 
 
@@ -801,7 +801,7 @@ interfaces provided they have different tags.
 #endif truenas
 
 Go to
-:menuselection:`Network --> VLANs` and click |ui-add|
+:menuselection:`Network --> VLANs`, and click |ui-add|
 to see the screen shown in
 :numref:`Figure %s <adding_vlan_fig>`.
 
