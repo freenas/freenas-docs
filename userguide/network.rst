@@ -116,11 +116,11 @@ but can be changed to meet requirements of the local network.
    |                        |            | *http://user:password@my.proxy.server:3128*.                                                                         |
    |                        |            |                                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-   | Enable netwait feature | checkbox   | If enabled, network services are not started at boot until the interface is able to ping the addresses               |
+   | Enable netwait feature | checkbox   | If enabled, network services do not start at boot until the interface is able to ping the addresses                  |
    |                        |            | listed in the :guilabel:`Netwait IP list`.                                                                           |
    |                        |            |                                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
-   | Netwait IP list        | string     | If :guilabel:`Enable netwait feature` is checked, list of IP addresses to ping. Otherwise, ping the                  |
+   | Netwait IP list        | string     | If :guilabel:`Enable netwait feature` is unset, list of IP addresses to ping. Otherwise, ping the                    |
    |                        |            | default gateway.                                                                                                     |
    |                        |            |                                                                                                                      |
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
@@ -130,7 +130,7 @@ but can be changed to meet requirements of the local network.
    +------------------------+------------+----------------------------------------------------------------------------------------------------------------------+
 
 
-When Active Directory is being used, set the IP address of the
+When using Active Directory, set the IP address of the
 realm's DNS server in the :guilabel:`Nameserver 1` field.
 
 If the network does not have a DNS server, or NFS, SSH, or FTP users
@@ -212,16 +212,16 @@ interrupted while the changes are applied.
    | Interface Name      | string         | Description of interface.                                                                                 |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | DHCP                | checkbox       | Requires static IPv4 or IPv6 configuration if unchecked. Only one interface can be configured for DHCP.   |
+   | DHCP                | checkbox       | Requires static IPv4 or IPv6 configuration if unselected. Only one interface can be configured for DHCP.  |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | IPv4 Address        | IP address     | Enter a static IP address if :guilabel:`DHCP` is unchecked.                                               |
+   | IPv4 Address        | IP address     | Enter a static IP address if :guilabel:`DHCP` is unset.                                                   |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | IPv4 Netmask        | drop-down menu | Enter a netmask if :guilabel:`DHCP` is unchecked.                                                         |
+   | IPv4 Netmask        | drop-down menu | Enter a netmask if :guilabel:`DHCP` is unset.                                                             |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
-   | Auto configure IPv6 | checkbox       | Only one interface can be configured for this option. If unchecked, manual configuration is               |
+   | Auto configure IPv6 | checkbox       | Only one interface can be configured for this option. If unset, manual configuration is                   |
    |                     |                | required to use IPv6.                                                                                     |
    |                     |                |                                                                                                           |
    +---------------------+----------------+-----------------------------------------------------------------------------------------------------------+
@@ -282,8 +282,8 @@ system hardware includes a Baseboard Management Controller (BMC).
 IPMI provides side-band management if the graphical administrative
 interface becomes unresponsive. This allows for a few vital functions,
 such as checking the log, accessing the BIOS setup, and powering on
-the system without requiring physical access to the system. IPMI can
-also be used to allow another person remote access to the system to
+the system without requiring physical access to the system. IPMI is
+also used to give another person remote access to the system to
 assist with a configuration or troubleshooting issue. Before
 configuring IPMI, ensure that the management interface is physically
 connected to the network. The IPMI device may share the primary
@@ -353,7 +353,7 @@ summarizes the options available when configuring IPMI with the
    | Password             | string         | Enter the password used to connect to the IPMI interface from a web browser. |
    |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
-   | DHCP                 | checkbox       | If left unchecked, the next three fields must be set.                        |
+   | DHCP                 | checkbox       | If left unset, the next three fields must be set.                            |
    |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | IPv4 Address         | string         | IP address used to connect to the IPMI web GUI.                              |
@@ -634,16 +634,16 @@ GUI from the new lagg interface.
    |                     |                | more descriptive value.                                                          |
    |                     |                |                                                                                  |
    +---------------------+----------------+----------------------------------------------------------------------------------+
-   | DHCP                | checkbox       | Check if the lagg device will get IP address info from DHCP server.              |
+   | DHCP                | checkbox       | Enable if the lagg device will get IP address info from DHCP server.             |
    |                     |                |                                                                                  |
    +---------------------+----------------+----------------------------------------------------------------------------------+
-   | IPv4 Address        | string         | Enter a static IP address if :guilabel:`DHCP` is left unchecked.                 |
+   | IPv4 Address        | string         | Enter a static IP address if :guilabel:`DHCP` is unset.                          |
    |                     |                |                                                                                  |
    +---------------------+----------------+----------------------------------------------------------------------------------+
-   | IPv4 Netmask        | drop-down menu | Enter a netmask if :guilabel:`DHCP` is left unchecked.                           |
+   | IPv4 Netmask        | drop-down menu | Enter a netmask if :guilabel:`DHCP` is unset.                                    |
    |                     |                |                                                                                  |
    +---------------------+----------------+----------------------------------------------------------------------------------+
-   | Auto configure IPv6 | checkbox       | Check only if DHCP server available to provide IPv6 address info                 |
+   | Auto configure IPv6 | checkbox       | Set only if DHCP server available to provide IPv6 address info                   |
    |                     |                |                                                                                  |
    +---------------------+----------------+----------------------------------------------------------------------------------+
    | IPv6 Address        | string         | This is optional.                                                                |
@@ -716,7 +716,7 @@ lagg level
 as each interface member will inherit from the lagg. To configure at
 the interface level
 (:numref:`Figure %s <lagg_member_edit_fig>`)
-instead, the configuration must be repeated for each interface within
+instead, repeat the configuration for each interface within
 the lagg.
 
 
@@ -872,7 +872,7 @@ summarizes the configurable fields.
    |                     |                |                                                                                            |
    +---------------------+----------------+--------------------------------------------------------------------------------------------+
    | Parent Interface    | drop-down menu | Usually an Ethernet card connected to a properly configured switch port. Newly created     |
-   |                     |                | :ref:`Link Aggregations` will not appear in the drop-down until the system is rebooted.    |
+   |                     |                | :ref:`Link Aggregations` do not appear in the drop-down until the system is rebooted.      |
    |                     |                |                                                                                            |
    +---------------------+----------------+--------------------------------------------------------------------------------------------+
    | VLAN Tag            | integer        | Enter a number between *1* and *4095* which matches a numeric tag set up in the            |
@@ -906,7 +906,7 @@ configured using the rest of the options in the
 #endif freenas
 #ifdef truenas
 .. warning:: Creating a VLAN causes an interruption to network
-   connectivity and, if :ref:`Failover` has been configured, a
+   connectivity and, if :ref:`Failover` is configured, a
    failover event. The GUI provides a warning and an opportunity to
    cancel the VLAN creation.
 #endif truenas
