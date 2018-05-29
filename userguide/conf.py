@@ -163,6 +163,15 @@ def patched_menusel_role(typ, rawtext, text, lineno, inliner, options={}, conten
 # Use 'patched_menusel_role' function for processing the 'menuselection' role
 roles.register_local_role("menuselection", patched_menusel_role)
 
+# Use roles for specific Angular UI icons
+
+rst_prolog = """
+.. |ui-settings| replace:: **"""u'\u2699'"""** (Settings)
+.. |ui-options| replace:: **"""u'\u2AF6'"""** (Options)
+.. |ui-add| replace::  **"""u'\uFF0B'"""** (Add/Create)
+.. |ui-menu| replace:: **"""u'\u2AF6'""""""u'\u2630'"""** (Menu)
+"""
+
 # -- Options for HTML output ---------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
