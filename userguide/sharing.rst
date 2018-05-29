@@ -440,10 +440,7 @@ application.
 
 #ifdef freenas
 .. note:: For performance reasons, iSCSI is preferred to NFS shares
-   when %brand% is installed on ESXi. When considering creating NFS
-   shares on ESXi, read through the performance analysis at
-   `Running ZFS over NFS as a VMware Store
-   <http://blog.laspina.ca/ubiquitous/running-zfs-over-nfs-as-a-vmware-store>`_.
+   when %brand% is installed on ESXi.
 #endif freenas
 
 Before creating an NFS share, go to
