@@ -17,21 +17,21 @@ will negatively impact current users of the %brand% system.
   Reboot Warning Message
 
 
-If a scrub or resilver is in progress when a reboot is requested, an
-additional warning will ask you to make sure that you wish to proceed.
+An additional warning message appears when a restart is attempted
+on a system with a scrub or resilver in progress.
 In this case, it is recommended to :guilabel:`Cancel` the reboot
 request and to periodically run :command:`zpool status` from Shell
 until it is verified that the scrub or resilver process is complete.
-Once complete, the reboot request can be re-issued.
+Once complete, the reboot request can be reissued.
 
 Click the :guilabel:`Cancel` button to cancel the reboot request.
 Otherwise, click the :guilabel:`Reboot` button to reboot the system.
 Rebooting the system disconnects all clients, including the web
 administration GUI. The URL in the web browser changes to add
 */system/reboot/* to the end of the IP address. Wait a few minutes for
-the system to boot, then use your browser's "back" button to return to
-the %brand% system's IP address. If all went well, the GUI login
-screen will appear. If the login screen does not appear, physical
-access to the %brand% system's monitor and keyboard is needed to
-determine what problem is preventing the system from resuming normal
+the system to boot, then use the back button in the browser to return to
+the IP address of the %brand% system. The GUI login screen appears after
+a successful reboot. If the login screen does not appear, using a monitor
+and keyboard to physically access the %brand% system is required to
+determine the problem that is preventing the system from resuming normal
 operation.
