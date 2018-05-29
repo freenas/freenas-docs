@@ -27,10 +27,10 @@ Click the :guilabel:`Cancel` button to cancel the restart request.
 Otherwise, click the :guilabel:`Restart` button to restart the
 system. Restarting the system disconnects all clients, including
 the web administration GUI. Wait a few minutes for
-the system to boot, then use the back browser button in the browser
+the system to boot, then use the back button in the browser
 to return to the IP address of the %brand% system. The GUI login
 screen appears after a successful reboot.
-If the login screen does not appear, physical
-access to the %brand% system using monitor and keyboard is required to
-determine the problem preventing the system from resuming normal
+If the login screen does not appear, using a monitor and keyboard to
+physically access the %brand% system is required to
+determine the issue preventing the system from resuming normal
 operation.
