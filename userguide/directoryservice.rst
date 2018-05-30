@@ -61,16 +61,8 @@ To ensure both systems are set to the same time:
 
 * set either localtime or universal time at the BIOS level
 
-:numref:`Figure %s <ad_fig>` shows the screen that appears when
-:menuselection:`Directory Service --> Active Directory` is chosen.
-:numref:`Table %s <ad_tab>`
-describes the configurable options. Some settings are only available
-in Advanced Mode. To see these settings, either click
-:guilabel:`Advanced Mode` or configure the system to always display
-these settings by checking
-:guilabel:`Show advanced fields by default` in
-:menuselection:`System --> Advanced`.
-
+:numref:`Figure %s <ad_fig>` shows
+:menuselection:`Directory Service --> Active Directory` settings.
 
 .. _ad_fig:
 
@@ -78,6 +70,12 @@ these settings by checking
 
    Configuring Active Directory
 
+:numref:`Table %s <ad_tab>` describes the configurable options. Some
+settings are only available in Advanced Mode. Click the
+:guilabel:`Advanced Mode` button to show the Advanced Mode settings. Go
+to :menuselection:`System --> Advanced` and set the
+:guilabel:`Show advanced fields by default` option to always show
+advanced options.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
