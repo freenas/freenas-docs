@@ -11,12 +11,11 @@ Directory Services
 
 * :ref:`NIS`
 
-It also supports :ref:`Kerberos Realms`, :ref:`Kerberos Keytabs`, and
-the ability to add more parameters to :ref:`Kerberos Settings`.
+%brand% also supports :ref:`Kerberos Realms`, :ref:`Kerberos Keytabs`,
+and the ability to add more parameters to :ref:`Kerberos Settings`.
 
-This section summarizes each of these services and their available
-configurations within the %brand% GUI.
-
+This section summarizes each of these services and the available
+configuration options within the %brand% GUI.
 
 .. _Active Directory:
 
@@ -29,23 +28,20 @@ Windows Server 2000 or higher or on a Unix-like operating system that
 is running `Samba version 4
 <https://wiki.samba.org/index.php/Setting_up_Samba_as_an_Active_Directory_Domain_Controller#Provisioning_a_Samba_Active_Directory>`__.
 Since AD provides authentication and authorization services for the
-users in a network, it is not necessary to recreate these user
-accounts on the %brand% system. Instead, configure the Active
-Directory service so that it can import the account information and
-imported users can be authorized to access the SMB shares on the
-%brand% system.
+users in a network, it is not necessary to recreate the same user
+accounts on the %brand% system. Instead, configure the Active Directory
+service so account information and imported users can be authorized to
+access the SMB shares on the %brand% system.
 
-Many changes and improvements have been made to Active Directory
-support within %brand%.  It is strongly recommended to update the
-system to the latest %brand% |release| before attempting Active
-Directory integration.
+Many changes and improvements have been made to Active Directory support
+within %brand%. It is strongly recommended to update the system to the
+latest %brand% |release| before attempting Active Directory integration.
 
 Ensure name resolution is properly configured before configuring the
 Active Directory service. :command:`ping` the domain name of the
 Active Directory domain controller from :ref:`Shell` on the %brand%
 system. If the :command:`ping` fails, check the DNS server and default
-gateway settings in
-:menuselection:`Network --> Global Configuration`
+gateway settings in :menuselection:`Network --> Global Configuration`
 on the %brand% system.
 
 Add a DNS record for the %brand% system on the Windows server and
@@ -58,18 +54,15 @@ Domain Controller cannot be out of sync by more than a few minutes. The
 best way to ensure the same time is running on both systems is to
 configure both systems to:
 
-* use the same NTP server (set in
-  :menuselection:`System --> NTP Servers`
+* use the same NTP server (set in :menuselection:`System --> NTP Servers`
   on the %brand% system)
 
 * have the same timezone
 
 * be set to either localtime or universal time at the BIOS level
 
-:numref:`Figure %s <ad_fig>`
-shows the screen that appears when
-:menuselection:`Directory Service --> Active Directory`
-is chosen.
+:numref:`Figure %s <ad_fig>` shows the screen that appears when
+:menuselection:`Directory Service --> Active Directory` is chosen.
 :numref:`Table %s <ad_tab>`
 describes the configurable options. Some settings are only available
 in Advanced Mode. To see these settings, either click
