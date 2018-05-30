@@ -44,22 +44,22 @@ system. If the :command:`ping` fails, check the DNS server and default
 gateway settings in :menuselection:`Network --> Global Configuration`
 on the %brand% system.
 
-Add a DNS record for the %brand% system on the Windows server and
-verify the hostname of the %brand% system can be pinged from the domain
+Add a DNS record for the %brand% system on the Windows server and verify
+the hostname of the %brand% system can be pinged from the domain
 controller.
 
-Active Directory relies on Kerberos, which is a time-sensitive protocol.
-The time on both the %brand% system and the Active Directory
-Domain Controller cannot be out of sync by more than a few minutes. The
-best way to ensure the same time is running on both systems is to
-configure both systems to:
+Active Directory relies on Kerberos, a time-sensitive protocol. The time
+on both the %brand% system and the Active Directory Domain Controller
+cannot be out of sync by more than a few minutes.
+
+To ensure both systems are set to the same time:
 
 * use the same NTP server (set in :menuselection:`System --> NTP Servers`
   on the %brand% system)
 
-* have the same timezone
+* set the same timezone
 
-* be set to either localtime or universal time at the BIOS level
+* set either localtime or universal time at the BIOS level
 
 :numref:`Figure %s <ad_fig>` shows the screen that appears when
 :menuselection:`Directory Service --> Active Directory` is chosen.
