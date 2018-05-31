@@ -13,31 +13,30 @@ service, while jails can provide multiple services.
 
 By default, a
 `FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`__
-is created. This is another independent instance of FreeBSD
-running on the same hardware without all of the overhead usually
-associated with virtualization.  The jail installs FreeBSD software
-management utilities so FreeBSD ports can be compiled and FreeBSD
-packages can be installed from the command line of the jail.
+is created. A jail is an independent instance of FreeBSD, using the host
+kernel, running on the same hardware without all of the overhead
+usually associated with virtualization. The jail installs FreeBSD
+software management utilities so FreeBSD ports can be compiled and
+FreeBSD packages can be installed from the command line of the jail.
 
 It is important to understand that users, groups, installed software,
 and configurations within a jail are isolated from both the %brand%
 host operating system and any other jails running on that system.
-During creation, the :guilabel:`VirtIO Virtual Networking` option can
-be checked to provide the jail with an independent networking stack.
-The jail can then do its own IP broadcasting, which is required by
-some applications.
+During creation, the :guilabel:`VNET` option can be checked to provide
+the jail with an independent networking stack. The jail can then do its
+own IP broadcasting, which is required by some applications.
 
 Advanced users can also create custom templates to automate the
 creation of pre-installed and customized operating systems.
 
 The ability to create multiple jails offers great flexibility
-regarding software management. For example, the administrator can
+regarding software management. For example, an administrator can
 choose to provide application separation by installing different
 applications in each jail, to create one jail for all installed
 applications, or to mix and match how software is installed into each
 jail.
 
-The rest of this section describes:
+This section will discuss:
 
 * :ref:`Jail Configuration`
 
