@@ -21,18 +21,17 @@ is meant for users who prefer to browse for, install, and configure
 available software using the GUI. This method is very easy to use, but
 is limited in the amount of software that is available. Each
 application will automatically be installed into its own jail, meaning
-that this method may not be suitable for users who wish to run
-multiple applications within the same jail.
+this method may not be suitable for users who wish to run multiple
+applications within the same jail.
 
 The Jails method provides much more control over software installation
 but assumes that the user is comfortable working from the command line
 can and has a good understanding of networking basics and software
 installation on FreeBSD-based systems.
 
-It is recommended that users skim through both the :ref:`Plugins` and
-:ref:`Jails` sections in order to become familiar with the features
-and limitations of each and to choose the method that best meets their
-software needs.
+Look through the :ref:`Plugins` and :ref:`Jails` sections to become
+familiar with the features and limitations of each. Choose the best
+method that meets the software needs.
 
 
 .. note:: Plugins created for %brand% 9.3 or later are expected to
@@ -59,9 +58,9 @@ advantages:
   the %brand% GUI so that these options can be configured from the
   GUI
 
-To install a plugin, click :guilabel:`Plugins`. As seen in
-:numref:`Figure %s <view_list_plugins_fig>`,
-the list of available plugins will be displayed.
+To install a plugin, click :guilabel:`Plugins`.
+:numref:`Figure %s <view_list_plugins_fig>` shows the list of available
+plugins.
 
 
 .. _view_list_plugins_fig:
@@ -77,11 +76,11 @@ the list of available plugins will be displayed.
    default gateway address and/or DNS server address in
    :menuselection:`Network --> Global Configuration`.
 
-Highlight the plugin you would like to install, click its
-:guilabel:`Install` button, then click :guilabel:`OK`. In the example
-shown in
-:numref:`Figure %s <installing_plugin_fig>`,
-SABnzbd is selected for installation.
+
+Highlight the plugin toinstall, click :guilabel:`Install`, then click
+:guilabel:`OK`. In the example shown in
+:numref:`Figure %s <installing_plugin_fig>`, SABnzbd is selected for
+installation.
 
 
 .. _installing_plugin_fig:
@@ -92,7 +91,7 @@ SABnzbd is selected for installation.
 
 
 The installation will take a few minutes as the system will first
-download and configure a jail to contain the installed software. It
+download and configure a jail to store the plugin application. It
 will then install the plugin and add it to the :guilabel:`Installed`
 tab as shown in
 :numref:`Figure %s <view_installed_plugins_fig>`.
@@ -111,7 +110,7 @@ tab as shown in
 
 As seen in the example shown in
 :numref:`Figure %s <view_installed_plugins_fig>`,
-entries for the installed PBI will appear in the following locations:
+entries for the installed PBI will appear in these locations:
 
 * the :guilabel:`Installed` tab of :guilabel:`Plugins`
 
