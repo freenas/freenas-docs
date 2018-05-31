@@ -769,24 +769,22 @@ menu in :menuselection:`Directory Services --> LDAP` Advanced Mode.
 Kerberos Settings
 -----------------
 
-To configure additional Kerberos parameters, use
-:menuselection:`Directory Service --> Kerberos Settings`.
+Configure additional Kerberos parameters in the
+:menuselection:`Directory Services --> Kerberos Settings` section.
 :numref:`Figure %s <ker_setting_fig>` shows the fields available:
-
-* **Appdefaults Auxiliary Parameters:** contains settings used by some
-  Kerberos applications. The available settings and their syntax are
-  listed in the
-  `[appdefaults] section of krb.conf(5)
-  <http://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html#appdefaults>`__.
-
-* **Libdefaults Auxiliary Parameters:** contains settings used by the
-  Kerberos library. The available settings and their syntax are listed
-  in the
-  `[libdefaults] section of krb.conf(5)
-  <http://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html#libdefaults>`__.
 
 .. _ker_setting_fig:
 
 .. figure:: images/directoryservice-kerberos-settings.png
 
    Additional Kerberos Settings
+
+* **Appdefaults Auxiliary Parameters:** Define any additional settings
+  for use by some Kerberos applications. The available settings and
+  syntax is listed in the `[appdefaults] section of krb.conf(5)
+  <http://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html#appdefaults>`__.
+
+* **Libdefaults Auxiliary Parameters:** Define any settings used by the
+  Kerberos library. The available settings and their syntax are listed in
+  the `[libdefaults] section of krb.conf(5)
+  <http://web.mit.edu/kerberos/krb5-1.12/doc/admin/conf_files/krb5_conf.html#libdefaults>`__.
