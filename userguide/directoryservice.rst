@@ -661,19 +661,17 @@ once a day as a cron job.
    |             |           |                                                                                              |
    +-------------+-----------+----------------------------------------------------------------------------------------------+
 
-
 .. _Kerberos Realms:
 
 Kerberos Realms
 ---------------
 
 A default Kerberos realm is created for the local system in %brand%.
-:menuselection:`Directory Service --> Kerberos Realms`
-can be used to view and add Kerberos realms.  If the network contains
-a KDC, click :guilabel:`Add Kerberos Realm` to add the realm. This
-configuration screen is shown in
+:menuselection:`Directory Services --> Kerberos Realms`
+can be used to view and add Kerberos realms. If the network contains
+a Key Distribution Center (KDC), click :guilabel:`Add Kerberos Realm`
+to add the realm. The configuration screen is shown in
 :numref:`Figure %s <ker_realm_fig>`.
-
 
 .. _ker_realm_fig:
 
@@ -681,17 +679,12 @@ configuration screen is shown in
 
    Adding a Kerberos Realm
 
-
 :numref:`Table %s <ker_realm_config_tab>` summarizes the configurable
 options. Some settings are only available in Advanced Mode. To see these
 settings, either click :guilabel:`Advanced Mode` or configure the system
-to always display these settings by checking the box
+to always display these settings by setting
 :guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
-
-Click the :guilabel:`Rebuild Directory Service Cache` button after
-adding a user to NIS who needs immediate access to %brand%. Otherwise
-this occurs automatically once a day as a cron job.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
