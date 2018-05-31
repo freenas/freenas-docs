@@ -381,7 +381,6 @@ and back online, resync the cache using
    that includes the commands in the order in which they were run and
    the exact wording of the error message or traceback.
 
-
 .. code-block:: none
 
    sqlite3 /data/freenas-v1.db "update directoryservice_activedirectory set ad_enable=1;"
@@ -404,7 +403,6 @@ Next, only run these two commands **if** the
  service ix-sssd start
  service sssd start
 
-
 Finally, run these commands. :command:`echo` returns a *0* unless
 something has gone wrong:
 
@@ -418,14 +416,12 @@ something has gone wrong:
    service ix-pam start
    service ix-cache start &
 
-
 .. _LDAP:
 
 LDAP
 ----
 
-%brand% includes an
-`OpenLDAP <http://www.openldap.org/>`__
+%brand% includes an `OpenLDAP <http://www.openldap.org/>`__
 client for accessing information from an LDAP server. An LDAP server
 provides directory services for finding network resources such as
 users and their associated permissions. Examples of LDAP servers
@@ -439,23 +435,21 @@ authorized access to the data stored on the %brand% system.
    the LDAP directory has been configured for and populated with Samba
    attributes. The most popular script for performing this task is
    `smbldap-tools <https://wiki.samba.org/index.php/4.1_smbldap-tools>`__.
-   In addition, the LDAP server must support SSL/TLS and the
-   certificate for the LDAP server CA must be imported with
-   :menuselection:`System --> Certificates --> Import Certificate`. Note
-   that non-CA certificates are not supported at this time.
+   The LDAP server must support SSL/TLS and the certificate for the LDAP
+   server CA must be imported with :menuselection:`System -->
+   Certificates --> Import Certificate`. Non-CA certificates are not
+   currently supported.
 
-.. tip:: Apple's
-   `Open Directory
+.. tip:: Apple's `Open Directory
    <https://manuals.info.apple.com/MANUALS/0/MA954/en_US/Open_Directory_Admin_v10.5_3rd_Ed.pdf>`__
    is an LDAP-compatible directory service into which %brand% can be
-   integrated. See
+   integrated. The forum post
    `FreeNAS with Open Directory in Mac OS X environments
-   <https://forums.freenas.org/index.php?threads/howto-freenas-with-open-directory-in-mac-os-x-environments.46493/>`__.
+   <https://forums.freenas.org/index.php?threads/howto-freenas-with-open-directory-in-mac-os-x-environments.46493/>`__
+   has more information.
 
-
-:numref:`Figure %s <ldap_config_fig>`
-shows the LDAP Configuration screen that is seen after clicking
-:menuselection:`Directory Service --> LDAP`.
+:numref:`Figure %s <ldap_config_fig>` shows the LDAP Configuration
+section from :menuselection:`Directory Services --> LDAP`.
 
 .. _ldap_config_fig:
 
