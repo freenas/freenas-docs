@@ -264,6 +264,7 @@ shows the screen that opens after clicking
 :numref:`Table %s <tasks_cron_job_opts_tab>`
 lists the configurable options for a cron job.
 
+
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
@@ -399,21 +400,20 @@ Rsync Tasks
 is a utility that copies specified data from one system to another
 over a network. Once the initial data is copied, rsync reduces the
 amount of data sent over the network by sending only the differences
-between the source and destination files. Rsync can be used for
-backups, mirroring data on multiple systems, or for copying files
-between systems.
+between the source and destination files. Rsync can be used for backups,
+mirroring data on multiple systems, or for copying files between systems.
 
-Rsync is most effective when only a relatively small amount of the
-data has changed. There are also
+Rsync is most effective when only a relatively small amount of the data
+has changed. There are also
 `some limitations when using Rsync with Windows files
 <https://forums.freenas.org/index.php?threads/impaired-rsync-permissions-support-for-windows-datasets.43973/>`__.
 For large amounts of data, data that has many changes from the
 previous copy, or Windows files, :ref:`Replication Tasks` are often
 the faster and better solution.
 
-Rsync is single-threaded, so gains little from multiple processor
-cores. To see whether rsync is currently running, use
-:samp:`pgrep rsync` from the :ref:`Shell`.
+Rsync is single-threaded and gains little from multiple processor cores.
+To see whether rsync is currently running, use :samp:`pgrep rsync` from
+the :ref:`Shell`.
 
 Both ends of an rsync connection must be configured:
 
@@ -423,12 +423,12 @@ Both ends of an rsync connection must be configured:
 * **the rsync client:** this system pushes (sends) the data. This
   system is referred to as *PUSH* in the configuration examples.
 
-%brand% can be configured as either an rsync client or an rsync
-server. The opposite end of the connection can be another %brand%
-system or any other system running rsync. In %brand% terminology, an
-rsync task defines which data is synchronized between the two systems.
-To synchronize data between two %brand% systems, create the rsync task
-on the rsync client.
+%brand% can be configured as either an *rsync client* or an
+*rsync server*. The opposite end of the connection can be another
+%brand% system or any other system running rsync. In %brand% terminology,
+an *rsync task* defines which data is synchronized between the two
+systems. To synchronize data between two %brand% systems, create the
+*rsync task* on the *rsync client*.
 
 %brand% supports two modes of rsync operation:
 
@@ -443,13 +443,14 @@ on the rsync client.
 * **rsync over SSH:** synchronizes over an encrypted connection.
   Requires the configuration of SSH user and host public keys.
 
-This section summarizes the options when creating an Rsync Task. It
-then provides a configuration example between two %brand% systems for
-each mode of rsync operation.
+This section summarizes the options when creating an rsync task. It then
+provides a configuration example between two %brand% systems for each
+mode of rsync operation.
 
 .. note:: If there is a firewall between the two systems or if the
    other system has a built-in firewall, make sure that TCP port 873
    is allowed.
+
 
 :numref:`Figure %s <tasks_add_rsync_fig>`
 shows the screen that appears after selecting
@@ -825,7 +826,7 @@ S.M.A.R.T. Tests
 system for computer hard disk drives to detect and report on various
 indicators of reliability. When a failure is anticipated by
 S.M.A.R.T., the drive should be replaced. Most modern ATA, IDE, and
-SCSI-3 hard drives support S.M.A.R.T.--refer to the drive
+SCSI-3 hard drives support S.M.A.R.T. -- refer to the drive
 documentation for confirmation.
 
 :numref:`Figure %s <tasks_add_smart_test_fig>`
@@ -921,6 +922,6 @@ the name of the drive. For example, to see the results for disk
 If an email address is entered in the :guilabel:`Email to report`
 field of
 :menuselection:`Services --> S.M.A.R.T.`,
-the system will send email to that address when a test fails. Logging
+the system will send an email to that address when a test fails. Logging
 information for S.M.A.R.T. tests can be found in
 :file:`/var/log/daemon.log`.

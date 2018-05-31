@@ -261,12 +261,11 @@ Available NTP servers can be found at
 For time accuracy, choose NTP servers that are geographically close to
 the %brand% system's physical location.
 
-NTP servers are added by clicking on
+NTP servers are added by clicking
 :menuselection:`NTP Servers --> Add NTP Server`
-to open the screen shown in
-:numref:`Figure %s <ntp_server_fig>`.
-:numref:`Table %s <ntp_server_conf_opts_tab>`
-summarizes the options available when adding an NTP server.
+to open the screen shown in :numref:`Figure %s <ntp_server_fig>`.
+:numref:`Table %s <ntp_server_conf_opts_tab>` summarizes the options
+available when adding an NTP server.
 `ntp.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=ntp.conf>`__
 explains these options in more detail.
 
@@ -380,11 +379,11 @@ Each boot environment entry contains this information:
 * **Created:** indicates the date and time the boot entry was created.
 
 * **Keep:** indicates whether or not this boot environment can be
-  pruned if an update does not have enough space to proceed. Click the
-  entry's :guilabel:`Keep` button if that boot environment should not
+  pruned if an update does not have enough space to proceed. Click
+  :guilabel:`Keep` for an entry if that boot environment should not
   be automatically pruned.
 
-Highlight an entry to view the configuration buttons for it.  These
+Highlight an entry to view the configuration buttons for it. These
 configuration buttons are shown:
 
 * **Rename:** used to change the name of the boot environment.
@@ -768,11 +767,11 @@ status changes.
 
 The first step is to set the remote address where email will be sent.
 Select
-:menuselection:`Account --> Users`, click on *root* to highlight
-that user, then click :guilabel:`Modify User`. In the
-:guilabel:`E-mail` field, enter the email address on the remote system
-where email is to be sent, like *admin@example.com*. Click
-:guilabel:`OK` to save the settings.
+:menuselection:`Account --> Users`,
+click on *root* to highlight that user, then click
+:guilabel:`Modify User`. In the :guilabel:`E-mail` field, enter the
+email address on the remote system where email is to be sent, like
+*admin@example.com*. Click :guilabel:`OK` to save the settings.
 
 Additional configuration is performed with
 :menuselection:`System --> Email`,
@@ -979,7 +978,7 @@ page for the specific driver and in many sections of the
 
 To add a loader, sysctl, or :file:`rc.conf` option, go to
 :menuselection:`System --> Tunables --> Add Tunable`,
-to access the screen shown in seen in
+to access the screen shown in
 :numref:`Figure %s <add_tunable_fig>`.
 
 
@@ -988,6 +987,7 @@ to access the screen shown in seen in
 .. figure:: images/system-tunables-add.png
 
    Adding a Tunable
+
 
 :numref:`Table %s <add_tunable_tab>`
 summarizes the options when adding a tunable.
@@ -1814,9 +1814,8 @@ information for your organization.
 
 
 To instead create an intermediate CA which is part of a certificate
-chain, click the :guilabel:`Create Intermediate CA` button. This
-screen adds one more option to the screen shown in
-:numref:`Figure %s <create_ca_fig>`:
+chain, click :guilabel:`Create Intermediate CA`. This screen adds one
+more option to the screen shown in :numref:`Figure %s <create_ca_fig>`:
 
 * **Signing Certificate Authority:** this drop-down menu is used to
   specify the root CA in the certificate chain. This CA must first be
@@ -1832,8 +1831,8 @@ the CA expires.
 
 Clicking the entry for a CA causes these buttons to become available:
 
-* **Sign CSR:** used to sign internal Certificate Signing Requests created
-  using
+* **Sign CSR:** used to sign internal Certificate Signing Requests
+  created using
   :menuselection:`System --> Certificates --> Create Certificate Signing Request`.
 
 * **Export Certificate:** prompts to browse to the location to save a
@@ -1877,9 +1876,8 @@ shows the initial screen after clicking
 #endif truenas
 
 
-To import an existing certificate, click the
-:guilabel:`Import Certificate` button to open the configuration screen
-shown in
+To import an existing certificate, click :guilabel:`Import Certificate`
+to open the configuration screen shown in
 :numref:`Figure %s <import_cert_fig>`.
 When importing a certificate chain, paste the primary certificate,
 followed by any intermediate certificates, followed by the root CA
@@ -2009,10 +2007,9 @@ as the signing authority.
 
 If you need to use a certificate that is signed by an external CA,
 such as Verisign, instead create a certificate signing request. To do
-so, click the :guilabel:`Create Certificate Signing Request` button.
-A screen like the one in
-:numref:`Figure %s <create_new_cert_fig>` opens,
-but without the :guilabel:`Signing Certificate Authority` field.
+so, click :guilabel:`Create Certificate Signing Request`. A screen like
+the one in :numref:`Figure %s <create_new_cert_fig>` opens, but without
+the :guilabel:`Signing Certificate Authority` field.
 
 Certificates that are imported, self-signed, or for which a
 certificate signing request is created are added as entries to
@@ -2024,9 +2021,9 @@ created for the fictional organization *My Company*. The self-signed
 certificate was issued by the internal CA named *My Company* and the
 administrator has not yet sent the certificate signing request to
 Verisign so that it can be signed. Once that certificate is signed
-and returned by the external CA, it should be imported using the
-:guilabel:`Import Certificate` button so that is available as a
-configurable option for encrypting connections.
+and returned by the external CA, it should be imported using
+:guilabel:`Import Certificate` so it is available as a configurable
+option for encrypting connections.
 
 
 .. _manage_cert_fig:
@@ -2108,17 +2105,18 @@ complete the following fields:
 * **Type:** select *Bug* when reporting an issue or *Feature* when
   requesting a new feature.
 
-* **Category:** this drop-down menu is empty a registered "Username"
-  and "Password" are entered. An error message is displayed if either
-  value is incorrect. After the *Username* and *Password* are
-  validated, possible categories are populated to the drop-down menu.
-  Select the one that best describes the bug or feature being
-  reported.
+* **Category:** this drop-down menu is empty until a registered
+  :guilabel:`Username` and :guilabel:`Password` are entered. An error
+  message is displayed if either value is incorrect. After the
+  :guilabel:`Username` and :guilabel:`Password` are validated, possible
+  categories are populated to the drop-down menu. Select the one that
+  best describes the bug or feature being reported.
 
 * **Attach Debug Info:** it is recommended to leave this box
   checked so that an overview of the system's hardware, build
   string, and configuration is automatically generated and included
-  with the ticket.
+  with the ticket. Generating and attaching a debug to the ticket can
+  take some time.
 
 * **Subject:** enter a descriptive title for the ticket. A good
   *Subject* makes it easy for you and other users to find similar

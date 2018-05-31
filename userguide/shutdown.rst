@@ -19,11 +19,11 @@ will negatively impact current users of the %brand% system.
 
 
 If a scrub or resilver is running, a warning is shown. Clicking
-:guilabel:`Cancel` is reocommended. :command:`zpool status` can be
+:guilabel:`Cancel` is recommended. :command:`zpool status` can be
 run from the :ref:`Shell` to watch for the scrub or resilver to
 complete. Then the system can be shut down normally.
 
-Check the :guilabel:`Confirm` check box and click the
-:guilabel:`Shutdown` button to shutdown the system. Shutting down the
-system disconnects all clients, including the web administration GUI.
-Physical access to the %brand% system is required to turn it back on.
+:guilabel:`Confirm` the command and click :guilabel:`Shutdown` to
+shutdown the system. Shutting down the system disconnects all clients,
+including the web administration GUI. Physical access to the %brand%
+system is required to turn it back on.
