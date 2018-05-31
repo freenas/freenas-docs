@@ -302,7 +302,6 @@ successful, shows a message similar to:
 
    checking the trust secret for domain YOURDOMAIN via RPC calls succeeded
 
-
 To manually check that a specified user can authenticate, enter
 :samp:`net ads join -S dcname -U username`.
 
@@ -316,13 +315,12 @@ output.
    system taking longer than the default ten seconds to join Active
    Directory. Increase the value of :guilabel:`AD timeout` to 60 seconds.
 
-
-To change a certificate, set the :guilabel:`Encryption Mode` to *Off*,
-then disable AD by unchecking :guilabel:`Enable`. Click :guilabel:`Save`.
-Select the new :guilabel:`Certificate`, set the
-:guilabel:`Encryption Mode` as desired, check :guilabel:`Enable` to
-re-enable AD, and click :guilabel:`Save` to restart AD.
-
+To change a certificate, enable Advanced Mode, set the
+:guilabel:`Encryption Mode` to *Off*, then disable AD by unchecking
+:guilabel:`Enable`. Click :guilabel:`Save`. Select the new
+:guilabel:`Certificate`, set the :guilabel:`Encryption Mode` as desired,
+check :guilabel:`Enable` to re-enable AD, and click :guilabel:`Save`
+to restart AD.
 
 .. _Troubleshooting Tips:
 
