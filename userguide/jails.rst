@@ -47,70 +47,41 @@ This section will discuss:
 * :ref:`Using iocage`
 
 
-.. index:: Jail Configuration
-.. _Jail Configuration:
+.. index:: Jail Storage
+.. _Jail Storage:
 
-Jail Configuration
--------------------
+Jail Storage
+------------
 
-Jails and FreeBSD releases are stored in a dataset named :file:`iocage/`.
-If the pool or dataset to be used with :command:`iocage` does not already
-exist, create it in :ref:`Pools`.
+Jails and FreeBSD releases are stored in a single
+:ref:`dataset <Dataset>` named :file:`iocage`.
 
-.. note:: The :literal:`iocage` dataset cannot be created on a
-   :ref:`Share <Sharing>`.
+.. note:: Notes on the :file:`iocate` dataset:
 
+          * At least 10 GiB of free space is recommended.
 
-If there are no pools on the %brand% system yet, selecting
-:menuselection:`Jails` will prompt to create a pool as shown in
-:numref:`Figure %s <initial_jail_config_fig>`.
+          * Cannot be located on a :ref:`Share <Sharing>`.
 
-
-.. _initial_jail_config_fig:
-
-.. figure:: images/jails1.png
-
-   Initial Jail Configuration
-
-Click :guilabel:`Create Pool` to open the
-:menuselection:`Storage --> Pools --> Create Pool` section of %brand%
-to create a new pool for the jail system. Allocating at least 10 GiB of
-space for the jail pool is recommended. More space might be required,
-depending on the number of jails to be created or versions of FreeBSD to
-store on the pool.
-
-
-Click :guilabel:`Save` and %brand% automatically configures
-:literal:`iocage` in the new pool. Jails can now be created by
-returning to :menuselection:`Jails`, hovering over the
-:guilabel:`Action` button and clicking either :guilabel:`Add Jail` or
-:guilabel:`Jail Wizard`.
-
-This screen is only shown
-if the :literal:`iocage` dataset is not already installed in an existing
-pool.
-
-.. note:: Jails are automatically installed into their own dataset
-   under the specified path as they are created. For example, if the
-   :literal:`iocage` dataset is installed to :file:`/mnt/pool1/` and
-   *jail1* is created, this jail is installed into a new dataset
-   named :file:`/mnt/pool1/iocage/jails/jail1`.
-
+          * Each jail is installed into a unique dataset in
+            :file:`iocage` when created. For example, with
+            the :file:`iocage` dataset in
+            :file:`/mnt/pool1/`, a new jail called *jail1*
+            is installed in a new dataset named
+            :file:`/mnt/pool1/iocage/jails/jail1`.
 
 .. index:: Add Jail, New Jail, Create Jail
-.. _Adding Jails:
+.. _Creating Jails:
 
-Adding Jails
-------------
+Creating Jails
+--------------
 
 
 %brand% has two options to create a jail. The :guilabel:`Jail Wizard`
-is designed to guide the user to quickly create a jail with networking
-configured. Click :guilabel:`Add Jail` to view the full jail creation
-form. It has numerous configurables spread across four different
-primary sections. This form is recommended more for advanced users
-with very specific requirements for a jail.
-
+makes it easy to quickly create a jail. :guilabel:`Add Jail` is the
+second jail creation method, where every possible jail option can be
+configured. There are numerous configurables spread across four different
+primary sections. This form is recommended more for advanced users with
+very specific requirements for a jail.
 
 .. _Jail Wizard:
 
