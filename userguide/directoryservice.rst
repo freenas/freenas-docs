@@ -210,14 +210,13 @@ advanced options.
    #endif truenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
 
-:numref:`Table %s <id_map_backends_tab>`
-summarizes the backends which are available in the
-:guilabel:`Idmap backend` drop-down menu. Each backend has its own
-`man page <http://samba.org.ru/samba/docs/man/manpages/>`__
-which gives implementation details. Since selecting the wrong backend
-will break Active Directory integration, a pop-up menu will appear
-whenever changes are made to this setting.
-
+:numref:`Table %s <id_map_backends_tab>` summarizes the backends which
+are available in the :guilabel:`Idmap backend` drop-down menu. Each
+backend has its own
+`man page <http://samba.org.ru/samba/docs/man/manpages/>`__ that gives
+implementation details. Since selecting the wrong backend will **break**
+Active Directory integration, a pop-up menu will appear whenever changes
+are made to this setting.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.66\linewidth-2\tabcolsep}|
@@ -267,24 +266,22 @@ whenever changes are made to this setting.
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
 
-
 Click the :guilabel:`Rebuild Directory Service Cache` button if a new
 Active Directory user needs immediate access to %brand%. This occurs
 automatically once a day as a cron job.
 
 .. note:: Active Directory places restrictions on which characters are
-   allowed in Domain and NetBIOS names, a limits the length of those
+   allowed in Domain and NetBIOS names, and limits the length of those
    names to 15 characters. If there are problems connecting to the
    realm,
    `verify
    <https://support.microsoft.com/en-us/help/909264/naming-conventions-in-active-directory-for-computers-domains-sites-and>`__
-   the settings do not include any disallowed characters. Also,
-   the Administrator account password cannot contain the *$*
-   character. If a *$* exists in the domain administrator's password,
+   the settings do not include any disallowed characters. The
+   Administrator account password cannot contain the *$* character. If a
+   *$* exists in the domain administrator password,
    :command:`kinit` will report a "Password Incorrect" error and
    :command:`ldap_bind` will report an "Invalid credentials (49)"
    error.
-
 
 It can take a few minutes after configuring the Active Directory
 service for the AD information to be populated to the %brand% system.
