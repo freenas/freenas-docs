@@ -62,7 +62,7 @@ To ensure both systems are set to the same time:
 * set either localtime or universal time at the BIOS level
 
 :numref:`Figure %s <ad_fig>` shows
-:menuselection:`Directory Service --> Active Directory` settings.
+:menuselection:`Directory Services --> Active Directory` settings.
 
 .. _ad_fig:
 
@@ -457,13 +457,12 @@ section from :menuselection:`Directory Services --> LDAP`.
 
    Configuring LDAP
 
-:numref:`Table %s <ldap_config_tab>`
-summarizes the available configuration options. Some settings are only
-available in Advanced Mode. To see these settings, either click the
-:guilabel:`Advanced Mode` button or configure the system to always
-display these settings by checking the box
-:guilabel:`Show advanced fields by default` in
-:menuselection:`System --> Advanced`.
+:numref:`Table %s <ldap_config_tab>` summarizes the available
+configuration options. Some settings are only available in Advanced Mode.
+Click the :guilabel:`Advanced Mode` button to show the Advanced Mode
+settings. Go to :menuselection:`System --> Advanced` and set the
+:guilabel:`Show advanced fields by default` option to always show
+advanced options.
 
 Those new to LDAP terminology should read the
 `OpenLDAP Software 2.4 Administrator's Guide
@@ -484,80 +483,78 @@ Those new to LDAP terminology should read the
    | Setting                 | Value          | Advanced | Description                                                                                         |
    |                         |                | Mode     |                                                                                                     |
    +=========================+================+==========+=====================================================================================================+
-   | Hostname                | string         |          | Hostname or IP address of LDAP server.                                                              |
+   | Hostname                | string         |          | Hostname or IP address of the LDAP server.                                                          |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Base DN                 | string         |          | Top level of the LDAP directory tree to be used when searching for resources (Example:              |
    |                         |                |          | *dc=test,dc=org*).                                                                                  |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Bind DN                 | string         |          | Name of administrative account on LDAP server (Example: *cn=Manager,dc=test,dc=org*).               |
+   | Bind DN                 | string         |          | Administrative account name on the LDAP server (Example: *cn=Manager,dc=test,dc=org*).              |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Bind password           | string         |          | Password for :guilabel:`Bind DN`.                                                                   |
+   | Bind password           | string         |          | Password for the :guilabel:`Bind DN`.                                                               |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Allow Anonymous         | checkbox       | ✓        | Instructs LDAP server to not provide authentication and allow read and write access                 |
-   | Binding                 |                |          | to any client.                                                                                      |
+   | Allow Anonymous         | checkbox       | ✓        | Instruct the LDAP server to disable authentication and allow read and write access to any client    |
+   | Binding                 |                |          |                                                                                                     |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | User Suffix             | string         | ✓        | Optional. Can be added to the name when the user account is added to the LDAP directory (Example:   |
+   | User Suffix             | string         | ✓        | Optional suffix to add to a name when the user account is added to the LDAP directory (Example:     |
    |                         |                |          | dept. company name).                                                                                |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Group Suffix            | string         | ✓        | Optional. Can be added to the name when the group is added to the LDAP directory (Example: dept. or |
+   | Group Suffix            | string         | ✓        | Optional suffix to add to a name when the group is added to the LDAP directory (Example: dept. or   |
    |                         |                |          | company name).                                                                                      |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Password Suffix         | string         | ✓        | Optional. Can be added to the password when the password is added to the LDAP directory.            |
+   | Password Suffix         | string         | ✓        | Optional suffix to add to the password when the password is added to the LDAP directory.            |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Machine Suffix          | string         | ✓        | Optional. Can be added to the name when the system is added to the LDAP directory (Example: server, |
+   | Machine Suffix          | string         | ✓        | Optional suffix to add to the name when the system is added to the LDAP directory (Example: server, |
    |                         |                |          | accounting).                                                                                        |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | SUDO Suffix             | string         | ✓        | Use if LDAP-based users need superuser access.                                                      |
+   | SUDO Suffix             | string         | ✓        | The suffix for LDAP-based users that need superuser access.                                         |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Kerberos Realm          | drop-down menu | ✓        | Select the realm created using the instructions in :ref:`Kerberos Realms`.                          |
+   | Kerberos Realm          | drop-down menu | ✓        | The realm created using the instructions in :ref:`Kerberos Realms`.                                 |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Kerberos Principal      | drop-down menu | ✓        | Browse to the location of the principal in the keytab created as described in                       |
-   |                         |                |          | :ref:`Kerberos Keytabs`.                                                                            |
+   | Kerberos Principal      | drop-down menu | ✓        | The location of the principal in the keytab created as described in :ref:`Kerberos Keytabs`.        |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Encryption Mode         | drop-down menu | ✓        | Choices are *Off*, *SSL*, or *TLS*. Note that either *SSL* or *TLS* and a                           |
-   |                         |                |          | :guilabel:`Certificate` must be selected for authentication to work.                                |
+   | Encryption Mode         | drop-down menu | ✓        | Choices are *Off*, *SSL*, or *TLS*. Note: *SSL* or *TLS* and a :guilabel:`Certificate` must be      |
+   |                         |                |          | selected for authentication to work.                                                                |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Certificate             | drop-down menu | ✓        | Select the certificate of the LDAP CA (required if authentication is used). The certificate for the |
-   |                         |                |          | LDAP server CA must first be imported with                                                          |
-   |                         |                |          | :menuselection:`System --> Certificates --> Import Certificate`                                     |
+   | Certificate             | drop-down menu | ✓        | The LDAP CA certificate. The certificate for the LDAP server CA must first be imported using the    |
+   |                         |                |          | :menuselection:`System --> Certificates` menu. A certificate is required to use authentication      |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | LDAP timeout            | integer        | ✓        | Increase this value (in seconds) if obtaining a Kerberos ticket times out.                          |
+   | LDAP timeout            | integer        | ✓        | Increase this value in seconds if obtaining a Kerberos ticket times out.                            |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | DNS timeout             | integer        | ✓        | Increase this value (in seconds) if DNS queries timeout.                                            |
+   | DNS timeout             | integer        | ✓        | Increase this value in seconds if DNS queries timeout.                                              |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Idmap backend           | drop-down menu | ✓        | Select the backend to use to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs. See     |
-   |                         | and Edit Idmap |          | :numref:`Table %s <id_map_backends_tab>` for a summary of the available backends. Click             |
-   |                         | button         |          | :guilabel:`Edit Idmap` to configure the selected backend.                                           |
+   | Idmap backend           | drop-down menu | ✓        | The backend used to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs. See              |
+   |                         |                |          | :numref:`Table %s <id_map_backends_tab>` for a summary of the available backends. Click             |
+   |                         |                |          | :guilabel:`Edit Idmap` to configure the selected backend.                                           |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Samba Schema            | checkbox       | ✓        | Check if LDAP authentication for SMB shares is required **and** the LDAP server is **already**      |
+   | Samba Schema            | checkbox       | ✓        | Set if LDAP authentication for SMB shares is required **and** the LDAP server is **already**        |
    |                         |                |          | configured with Samba attributes.                                                                   |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters    | string         | ✓        | Additional options for                                                                              |
    |                         |                |          | `sssd.conf(5) <https://jhrozek.fedorapeople.org/sssd/1.11.6/man/sssd.conf.5.html>`__.               |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Schema                  | drop-down menu | ✓        | If :guilabel:`Samba Schema` is checked, select the schema to use. Choices are *rfc2307* and         |
+   | Schema                  | drop-down menu | ✓        | If :guilabel:`Samba Schema` is set, select the schema to use. Choices are *rfc2307* and             |
    |                         |                |          | *rfc2307bis*.                                                                                       |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Enable                  | checkbox       |          | Uncheck to disable the configuration without deleting it.                                           |
+   | Enable                  | checkbox       |          | Unset to disable the configuration without deleting it.                                             |
    |                         |                |          |                                                                                                     |
    #ifdef freenas
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
@@ -583,7 +580,6 @@ Those new to LDAP terminology should read the
    |                         |                |          |                                                                                                     |
    #endif truenas
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-
 
 .. note:: %brand% automatically appends the root DN. This means the
    scope and root DN are not to be included when configuring the
