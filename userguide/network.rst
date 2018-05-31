@@ -57,7 +57,7 @@ shown in :numref:`Figure %s <global_net_config_fig>`,
 but can be changed to meet requirements of the local network.
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.17\linewidth-2\tabcolsep}
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
@@ -182,7 +182,7 @@ editing an existing interface.
    Adding or Editing an Interface
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.17\linewidth-2\tabcolsep}
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
@@ -307,7 +307,7 @@ summarizes the options available when configuring IPMI with the
    IPMI Configuration
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.17\linewidth-2\tabcolsep}
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
@@ -582,7 +582,7 @@ GUI from the new lagg interface.
    Editing a lagg
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.17\linewidth-2\tabcolsep}
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
@@ -645,7 +645,7 @@ The configurable options are summarized in :numref:`Table %s <lagg_config_member
    Editing a Member Interface
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.17\linewidth-2\tabcolsep}
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
@@ -741,7 +741,7 @@ The available options are summarized in
 :numref:`Table %s <static_route_opts_tab>`.
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.17\linewidth-2\tabcolsep}
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
@@ -817,7 +817,7 @@ to see the screen shown in
 summarizes the configurable fields.
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.17\linewidth-2\tabcolsep}
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 

@@ -630,7 +630,7 @@ once a day as a cron job.
 
    NIS Configuration
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.17\linewidth-2\tabcolsep}
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
 
