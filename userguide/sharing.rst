@@ -590,8 +590,7 @@ When creating NFS shares, keep these points in mind:
 #.  Each volume or dataset is considered to be its own filesystem and
     NFS is not able to cross filesystem boundaries.
 
-#.  The network or host must be unique per share and per filesystem or
-    directory.
+#.  The network must be unique per share and per filesystem or directory.
 
 #.  The :guilabel:`All directories` option can only be used once per
     share per filesystem.
