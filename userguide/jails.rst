@@ -47,25 +47,23 @@ This section will discuss:
 * :ref:`Using iocage`
 
 
+.. index:: Jail Configuration
 .. _Jail Configuration:
 
 Jail Configuration
 -------------------
 
-Jails and FreeBSD releases are stored in a dataset named
-:file:`iocage/`. If the pool or dataset to be used with
-:command:`iocage` does not already exist, create it in
-:ref:`Pools`.
+Jails and FreeBSD releases are stored in a dataset named :file:`iocage/`.
+If the pool or dataset to be used with :command:`iocage` does not already
+exist, create it in :ref:`Pools`.
 
 .. note:: The :literal:`iocage` dataset cannot be created on a
    :ref:`Share <Sharing>`.
 
 
 If there are no pools on the %brand% system yet, selecting
-:menuselection:`Jails`
-shows the screen in :numref:`Figure %s <initial_jail_config_fig>`.
-This screen is only shown if the :literal:`iocage` dataset is not
-already installed in an existing pool.
+:menuselection:`Jails` will prompt to create a pool as shown in
+:numref:`Figure %s <initial_jail_config_fig>`.
 
 
 .. _initial_jail_config_fig:
@@ -74,17 +72,23 @@ already installed in an existing pool.
 
    Initial Jail Configuration
 
+Click :guilabel:`Create Pool` to open the
+:menuselection:`Storage --> Pools --> Create Pool` section of %brand%
+to create a new pool for the jail system. Allocating at least 10 GiB of
+space for the jail pool is recommended. More space might be required,
+depending on the number of jails to be created or versions of FreeBSD to
+store on the pool.
 
-Click :guilabel:`Create a pool` to create a new pool for the jail system.
-Allocating at least 10 GiB of space for this pool is recommended. More
-space might be required, depending on the number of jails to be created
-or versions of FreeBSD to store on the pool.
 
 Click :guilabel:`Save` and %brand% automatically configures
 :literal:`iocage` in the new pool. Jails can now be created by
 returning to :menuselection:`Jails`, hovering over the
 :guilabel:`Action` button and clicking either :guilabel:`Add Jail` or
 :guilabel:`Jail Wizard`.
+
+This screen is only shown
+if the :literal:`iocage` dataset is not already installed in an existing
+pool.
 
 .. note:: Jails are automatically installed into their own dataset
    under the specified path as they are created. For example, if the
