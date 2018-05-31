@@ -23,7 +23,7 @@ This section demonstrates how to:
 Translation
 -----------
 
-FreeNAS :sup:`®` is developed and documented in English. Having a
+FreeNAS :sup:`®` is developed and documented in English. Having
 complete translations of the user interface into other languages helps
 make FreeNAS :sup:`®` much more useful to communities around the world.
 
