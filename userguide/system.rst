@@ -796,7 +796,7 @@ shown in
 #endif truenas
 
 
-.. tabularcolumns:: |p{1.2in}|p{1.2in}|p{3.6in}|
+
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.60\linewidth-2\tabcolsep}|
