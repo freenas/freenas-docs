@@ -609,9 +609,9 @@ aliases, and other text-based tables of information. If an NIS server is
 running on the network, the %brand% system can be configured to import
 the users and groups from the NIS directory.
 
-Click the :guilabel:`Rebuild Directory Service Cache` button after
-adding a user to LDAP who needs immediate access to %brand%. Otherwise
-this occurs automatically once a day as a cron job.
+Click the :guilabel:`Rebuild Directory Service Cache` button if a new
+NIS user needs immediate access to %brand%. This occurs automatically
+once a day as a cron job.
 
 .. note:: In Windows Server 2016, Microsoft removed the Identity
    Management for Unix (IDMU) and NIS Server Role. See
@@ -620,8 +620,8 @@ this occurs automatically once a day as a cron job.
    and beyond
    <https://blogs.technet.microsoft.com/activedirectoryua/2016/02/09/identity-management-for-unix-idmu-is-deprecated-in-windows-server/>`__.
 
-:numref:`Figure %s <nis_fig>` shows the configuration screen which opens
-after navigating :menuselection:`Directory Service --> NIS`.
+:numref:`Figure %s <nis_fig>` shows the
+:menuselection:`Directory Services --> NIS` section.
 :numref:`Table %s <nis_config_tab>` summarizes the configuration options.
 
 .. _nis_fig:
@@ -629,7 +629,6 @@ after navigating :menuselection:`Directory Service --> NIS`.
 .. figure:: images/directoryservice-nis.png
 
    NIS Configuration
-
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -643,7 +642,6 @@ after navigating :menuselection:`Directory Service --> NIS`.
    +-------------+-----------+----------------------------------------------------------------------------------------------+
    | Setting     | Value     | Description                                                                                  |
    |             |           |                                                                                              |
-   |             |           |                                                                                              |
    +=============+===========+==============================================================================================+
    | NIS domain  | string    | Name of NIS domain.                                                                          |
    |             |           |                                                                                              |
@@ -651,16 +649,15 @@ after navigating :menuselection:`Directory Service --> NIS`.
    | NIS servers | string    | Comma-delimited list of hostnames or IP addresses.                                           |
    |             |           |                                                                                              |
    +-------------+-----------+----------------------------------------------------------------------------------------------+
-   | Secure mode | checkbox  | If checked,                                                                                  |
-   |             |           | `ypbind(8) <https://www.freebsd.org/cgi/man.cgi?query=ypbind>`__                             |
-   |             |           | will refuse to bind to any NIS server not running as root on a TCP port number over 1024.    |
+   | Secure mode | checkbox  | Set to have `ypbind(8) <https://www.freebsd.org/cgi/man.cgi?query=ypbind>`__ refuse to bind  |
+   |             |           | to any NIS server not running as root on a TCP port over 1024.                               |
    |             |           |                                                                                              |
    +-------------+-----------+----------------------------------------------------------------------------------------------+
-   | Manycast    | checkbox  | If checked, :command:`ypbind` will bind to the server that responds the fastest.             |
+   | Manycast    | checkbox  | Set to have :command:`ypbind` to bind to the server that responds the fastest.               |
    |             |           | This is useful when no local NIS server is available on the same subnet.                     |
    |             |           |                                                                                              |
    +-------------+-----------+----------------------------------------------------------------------------------------------+
-   | Enable      | checkbox  | Uncheck to disable the configuration without deleting it.                                    |
+   | Enable      | checkbox  | Unset to disable the configuration without deleting it.                                      |
    |             |           |                                                                                              |
    +-------------+-----------+----------------------------------------------------------------------------------------------+
 
