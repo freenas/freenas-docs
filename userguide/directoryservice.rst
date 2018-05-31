@@ -700,7 +700,7 @@ to always display these settings by setting
    | Setting                | Value     | Advanced | Description                                                 |
    |                        |           | Mode     |                                                             |
    +========================+===========+==========+=============================================================+
-   | Realm                  | string    |          | Mandatory. Name of the realm.                               |
+   | Realm                  | string    |          | Name of the realm.                                          |
    |                        |           |          |                                                             |
    +------------------------+-----------+----------+-------------------------------------------------------------+
    | KDC                    | string    | ✓        | Name of the Key Distribution Center.                        |
@@ -712,7 +712,6 @@ to always display these settings by setting
    | Password Server        | string    | ✓        | Server where all password changes are performed.            |
    |                        |           |          |                                                             |
    +------------------------+-----------+----------+-------------------------------------------------------------+
-
 
 .. _Kerberos Keytabs:
 
@@ -727,8 +726,9 @@ configuration database, which is a security risk in some environments.
 When using a keytab, it is recommended to create and use a less
 privileged account for performing the required queries as the password
 for that account will be stored in the %brand% configuration
-database.  To create the keytab on a Windows system, use these
-commands:
+database.
+
+Create a keytab on a Windows system:
 
 .. code-block:: none
 
@@ -736,40 +736,33 @@ commands:
 
    setspn -A host/ hostname@DOMAINNAME DOMAIN\username
 
+* **hostname**: the fully qualified hostname of the domain controller.
 
-where:
+* **DOMAINNAME**: the domain name in all caps.
 
-* **hostname** is the fully qualified hostname of the domain
-  controller.
+* **DOMAIN** the pre-Windows 2000 short name for the domain.
 
-* **DOMAINNAME** is the domain name in all caps.
+* **username** the privileged account name.
 
-* **DOMAIN** is the pre-Windows 2000 short name for the domain.
-
-* **username** is the privileged account name.
-
-* **userpass** is the password associated with username.
+* **userpass** the password associated with username.
 
 This will create a keytab with sufficient privileges to grant tickets.
 
-After the keytab is generated, use
-:menuselection:`Directory Service --> Kerberos Keytabs
---> Add kerberos keytab` to add it to the %brand% system.
+After the keytab is generated, add it to the %brand% system using
+:menuselection:`Directory Services --> Kerberos Keytabs
+--> Add Kerberos Keytab`.
 
 To instruct the Active Directory service to use the keytab, select the
 installed keytab using the drop-down :guilabel:`Kerberos Principal` menu
 in
-:menuselection:`Directory Service --> Active Directory --> Advanced`.
-When using a keytab with Active Directory, make sure that the
-"username" and "userpass" in the keytab matches the
-"Domain Account Name" and "Domain Account Password" fields in
-:menuselection:`Directory Service --> Active Directory`.
+:menuselection:`Directory Services --> Active Directory` Advanced Mode.
+When using a keytab with Active Directory, make sure that username and
+userpass in the keytab matches the Domain Account Name and Domain Account
+Password fields in :menuselection:`Directory Services --> Active Directory`.
 
 To instruct LDAP to use a principal from the keytab, select the
 principal from the drop-down :guilabel:`Kerberos Principal`
-menu in
-:menuselection:`Directory Service --> LDAP --> Advanced`.
-
+menu in :menuselection:`Directory Services --> LDAP` Advanced Mode.
 
 .. _Kerberos Settings:
 
