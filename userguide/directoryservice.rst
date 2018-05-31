@@ -587,16 +587,16 @@ Those new to LDAP terminology should read the
 
 LDAP users and groups appear in the drop-down menus of the
 :guilabel:`Permissions` screen of a dataset after configuring the LDAP
-service. Type :command:`getent passwd` from :ref:`Shell` to verify the
-users have been imported. Type :command:`getent group` to verify the
-groups have been imported.
+service. Type :command:`getent passwd` in the %brand% :ref:`Shell` to
+verify the users have been imported. Type :command:`getent group` to
+verify the groups have been imported.
 
 If the users and groups are not listed, refer to
 `Common errors encountered when using OpenLDAP Software
 <http://www.openldap.org/doc/admin24/appendix-common-errors.html>`__
 for common errors and how to fix them. When troubleshooting LDAP, open
-:ref:`Shell` and look for error messages in :file:`/var/log/auth.log`.
-
+the %brand% :ref:`Shell` and look for error messages in
+:file:`/var/log/auth.log`.
 
 .. _NIS:
 
