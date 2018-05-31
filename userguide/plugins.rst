@@ -21,11 +21,11 @@ applications within the same jail is desired.
 
 The Jails method provides much more control over software installation.
 It requires working from the command line and a good understanding of
-networking basics and software  installation on FreeBSD-based systems.
+networking basics and software installation on FreeBSD-based systems.
 
 Look through the :ref:`Plugins` and :ref:`Jails` sections to become
-familiar with the features and limitations of each. Choose the
-best method that meets the software needs.
+familiar with the features and limitations of each. Choose the best
+method that meets the software needs.
 
 
 .. note:: Plugins created for %brand% 9.3 or later are expected to
@@ -35,8 +35,8 @@ best method that meets the software needs.
 
 .. _Installing Plugins:
 
-Installing
-----------
+Install
+-------
 
 A plugin is a self-contained application installer designed to
 integrate into the %brand% GUI. A plugin offers several advantages:
@@ -52,8 +52,8 @@ integrate into the %brand% GUI. A plugin offers several advantages:
 
 To install a plugin, click
 :menuselection:`Plugins --> Available`.
-As seen in :numref:`Figure %s <view_list_plugins_fig>`. The list of
-available plugins is displayed.
+:numref:`Figure %s <view_list_plugins_fig>` shows some of the available
+plugins.
 
 .. _view_list_plugins_fig:
 
@@ -68,35 +68,35 @@ available plugins is displayed.
    address and/or DNS server address in
    :menuselection:`Network --> Global Configuration`.
 
-CLick the
-:menuselection:`menu icon --> install`.
-Check the :guilabel:`dhcp` checkbox to automatically configure IP
-settings, or manually enter the IPv4 or IPv6 addresses. Click
-:guilabel:`Save`. In the example shown in
-:numref:`Figure %s <installing_plugin_fig>`, Plex Media Server is
-selected for installation.
+CLick |ui-options| and :guilabel:`install` for the desired plugin.
+Set :guilabel:`DHCP` to automatically configure IP settings, or manually
+enter an IPv4 or IPv6 address. Click :guilabel:`Save`. In the example
+shown in :numref:`Figure %s <installing_plugin_fig>`, Plex Media Server
+is selected for installation.
 
-.. Have the screenshot showing the menu icon dropdown with "install"
-   highlighted. Perhaps add another screenshot showing the network
-   form that appears after clicking install.
 
 .. _installing_plugin_fig:
 
 .. figure:: images/plugins2.png
 
-   Installing a Plugin
+   Installing the Plex Plugin
 
 The installation takes a few minutes because the system
-downloads and configures a jail to contain the installed software. It
+downloads and configures a jail to store the plugin application. It
 then installs the plugin and adds it to the
 :menuselection:`Plugins --> Installed`
-section as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
+page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
+
+
+.. tip:: Installed plugins are also added to the :menuselection:`Jails`
+   page. This page is also used to manage plugins.
+
 
 .. _view_installed_plugins_fig:
 
 .. figure:: images/plugins3a.png
 
-   Viewing Installed PBIs
+   Viewing Installed Plugins
 
 The entry in the
 :menuselection:`Plugins --> Installed`
@@ -104,50 +104,51 @@ section displays the
 plugin name, boot status, state, release, IP4 and IP6 addresses, and if
 it is a template.
 
-.. note:: The :guilabel:`Service status` of a plugin must be turned to
-   :guilabel:`ON` before the installed application is available.
-   Before starting the service, check to see if it has a configuration
-   menu by clicking its entry in the :guilabel:`Plugins` section of
-   the tree. If the application is configurable, this will open a
-   screen that contains the available configuration options. Plugins
-   which are not configurable will instead display a message with a
-   hyperlink for accessing the software. However, that hyperlink does
-   **not** work until the plugin is started.
+The plugin must be started before the installed application is
+available. Click |ui-options| and :guilabel:`Start`. The plugin
+:guilabel:`State` updates to *up* when it starts successfully.
+
+Click |ui-options| and :guilabel:`Management` to open a management
+or configuration screen for the application. For example, clicking
+:guilabel:`Management` for an installed Plex plugin opens the Plex
+web interface in a new browser tab.
+
+
+.. note:: Not all plugins have a functional management option. See
+   :ref:`Managing Jails` for more instructions about interacting with
+   a plugin jail with the shell.
+
 
 Always review plugin configuration options before attempting to
 start it. Some plugins have options that need to be set before their
 service will successfully start. To help with installing a new
 application, check the website of the application to see what
-documentation is available. A link to the website for each available
-plugin is found in :ref:`Available Plugins`.
+documentation is available.
 
 If the application requires access to the data stored on the %brand%
 system, click the entry for the associated jail in the
-:guilabel:`Jails` section of the tree and add a storage as described
-in :ref:`Add Storage`.
+:menuselection:`Jails` page and add a storage as described in
+:ref:`Add Storage`.
 
-Click the entry for the associated jail in the :guilabel:`Jails`
-section of the tree. This will give access to the shell of the jail
-containing the application to complete or test the configuration.
-Then, click the "shell" icon as described in :ref:`Managing Jails`.
+Click |ui-options| and :guilabel:`Shell` for the plugin jail in the
+:menuselection:`Jails` page. This will give access to the shell of the
+jail containing the application to complete or test the configuration.
 
-Once the configuration is complete, click the red :guilabel:`OFF`
-button for the entry for the plugin. If the service starts
-successfully, it will change to a blue :guilabel:`ON`. If it fails to
-start, click the jail's :guilabel:`Shell` icon and type
-:command:`tail /var/log/messages` to see if any errors were logged.
+If a plugin jail fails to start, open the plugin jail shell from the
+:menuselection:`Jail` page and type :command:`tail /var/log/messages` to
+see if any errors were logged.
 
 
 .. _Updating Plugins:
 
-Updating
---------
+Update
+------
 
 When a newer version of a plugin becomes available in the official
-repository, an :guilabel:`Update` button is added to the entry for the
-plugin in the :guilabel:`Installed` tab. In the example shown in
-:numref:`Figure %s <updating_installed_plugin_fig>`,
-a newer version of Transmission is available.
+repository, update the plugin jail by navigating to the
+:menuselection:`Jails` page and clicking |ui-options| and
+:guilabel:`Update`. :numref:`Figure %s <updating_installed_plugin_fig>`
+shows updating plugin jail.
 
 
 .. _updating_installed_plugin_fig:
@@ -157,50 +158,10 @@ a newer version of Transmission is available.
    Updating an Installed Plugin
 
 
-Click the :guilabel:`OK` button to start the download and installation
-of the latest version of the plugin. Once the update is complete, the
-entry for the plugin will be refreshed to show the new version number
-and the :guilabel:`Update` button will disappear.
-
-
-.. _Uploading Plugins:
-
-Uploading
----------
-
-The :guilabel:`Available` tab of :guilabel:`Plugins` contains an
-:guilabel:`Upload` button. This button allows installation of plugins
-that are not yet available in the official repository or which are
-still being tested. These plugins must be manually downloaded and
-end in a :file:`.pbi` extension. When downloading a plugin,
-make sure that it is 64-bit and that it was developed for 9.x. as 8.x
-and 10.x applications will not work on a 9.x %brand% system.
-
-Click the :guilabel:`Upload` button to upload the new plugin. The
-example in :numref:`Figure %s <install_pbi_plugin_fig>` shows how to
-browse to the location of the plugin file. Select the file and click
-:guilabel:`Upload` to begin the installation.
-
-
-.. _install_pbi_plugin_fig:
-
-.. figure:: images/plugins5.png
-
-   Installing a Previously Downloaded *.pbi File*
-
-
-When the installation is complete, an entry for the plugin will be
-added to the :guilabel:`Installed` tab and its associated jail is
-listed under :guilabel:`Jails`. However, if it is not a %brand%
-plugin, it will not be added to :guilabel:`Plugins` in the tree. In
-this case, any required jail configuration must be done from the
-command line of the jail's shell instead of from the GUI.
-
-
 .. _Deleting Plugins:
 
-Deleting
---------
+Delete
+------
 
 Installing a plugin creates an associated jail. Deleting a plugin
 deletes the associated jail because it is no longer required.
@@ -210,10 +171,11 @@ that data **first** if needed.
 
 In the example shown in
 :numref:`Figure %s <deleting_installed_plugin_fig>`,
-Sabnzbd has been installed and the :guilabel:`Delete` button has been
-clicked. A pop-up message asks the user if they are sure that they want
-to delete. **This is the only warning.** The plugin and the associated
-jail are permanently deleted when :guilabel:`Yes` is clicked.
+Quasselcore has been installed and the :guilabel:`Delete` button has
+been clicked. A pop-up message asks the user if they are sure that they
+want to delete. **This is the only warning.** The plugin and the
+associated jail are permanently deleted when :guilabel:`Confirm` is set
+and :guilabel:`Delete` is clicked.
 
 
 .. _deleting_installed_plugin_fig:
@@ -222,52 +184,54 @@ jail are permanently deleted when :guilabel:`Yes` is clicked.
 
    Deleting an Installed Plugin
 
+
 .. _Creating Plugins:
 
-Creating
---------
+Create a Plugin
+---------------
 
-Create a plugin for FreeNAS\ :sup:`®` by follwing these steps:
+Create a new plugin for %brand% in a few steps:
 
-* create an artifact repo
+**Create a new artifact repository on `GitHub <https://github.com>`__.**
 
-The correct port must be used. Find the correct port by searching for
-the plugin at `<https://www.freshports.org/>`__ .
+Refer to :numref:`table %s <plugin-artifact-files>` and add these
+files to the artifact repository:
 
-Refer to :numref:`table %s <Artifact Files>` and add the necessary files
-to the artifact repo.
 
-.. _Artifact Files:
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.33\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.67\linewidth-2\tabcolsep}|
 
-.. table:: Artifact Files
+.. _plugin-artifact-files:
+
+.. table:: %brand% Plugin Artifact Files
    :class: longtable
 
    +-------------------------+----------------------------------------------------------------------+
-   | File                    | Description                                                          |
+   | Directory/File          | Description                                                          |
    +=========================+======================================================================+
-   | :file:`post_install.sh` | This script is run *inside* the jail after                           |
-   |                         | it has been created and packages installed.                          |
-   |                         | Enable services in /etc/rc.conf that need to start                   |
-   |                         | with the jail startup, apply configuration settings,                 |
-   |                         | and more.                                                            |
+   | :file:`post_install.sh` | This script is run *inside* the jail after it is created and any     |
+   |                         | packages installed. Enable services in :file:`/etc/rc.conf` that     |
+   |                         | need to start with the jail and apply any configuration              |
+   |                         | customizations with this this script.                                |
+   |                         |                                                                      |
    +-------------------------+----------------------------------------------------------------------+
-   | :file:`ui.json`         | JSON file that accepts the  key or value options:                    |
+   | :file:`ui.json`         | JSON file that accepts the  key or value options. For example:       |
    |                         |                                                                      |
    |                         | :samp:`adminportal: "http://%%IP%%/"`                                |
    |                         |                                                                      |
-   |                         | The web-interface of the plugin for control and                      |
-   |                         | configuration .                                                      |
+   |                         | designates the web-interface of the plugin.                          |
+   |                         |                                                                      |
    +-------------------------+----------------------------------------------------------------------+
    | :file:`overlay/`        | Directory of files overlaid on the jail after install.               |
    |                         | For example, :file:`usr/local/bin/myfile` is placed in the           |
-   |                         | /usr/local/bin/myfile locationof the jail. Can be used to            |
+   |                         | :file:`/usr/local/bin/myfile` location of the jail. Can be used to   |
    |                         | supply custom files and configuration data, scripts, and             |
-   |                         | any other type of customized files.                                  |
+   |                         | any other type of customized files to the plugin jail.               |
    +-------------------------+----------------------------------------------------------------------+
    | :file:`settings.json`   | JSON file that manages the settings interface of the plugin.         |
-   |                         | The required fields include:                                         |
+   |                         | Required fields include:                                             |
    |                         |                                                                      |
-   |                         | * :samp:`"servicerestart" : "service plexmediaserver restart"`       |
+   |                         | * :samp:`"servicerestart" : "service foo restart"`                   |
    |                         |                                                                      |
    |                         | Command to run when restarting the plugin service after              |
    |                         | changing settings.                                                   |
@@ -275,7 +239,7 @@ to the artifact repo.
    |                         | * :samp:`"serviceget" : "/usr/local/bin/myget"`                      |
    |                         |                                                                      |
    |                         | Command used to get values for plugin configuration.                 |
-   |                         | Provided by the plugin creator. The command accpets                  |
+   |                         | Provided by the plugin creator. The command accepts                  |
    |                         | two arguments for key or value pair.                                 |
    |                         |                                                                      |
    |                         | * :samp:`"options" : { }`                                            |
@@ -288,191 +252,316 @@ to the artifact repo.
    |                         |                                                                      |
    +-------------------------+----------------------------------------------------------------------+
 
+
+This example :file:`settings.json` file is used for the
+:guilabel:`Quasselcore` plugin. It is also available online in the
+`iocage-plugin-quassel artifact repository
+<https://github.com/freenas/iocage-plugin-quassel/blob/master/settings.json>`__.
+
+
 .. _plugin-json-options:
 
-.. code-block:: none
+.. code-block:: json
 
-   "options": {
-			"adduser": {
-				"type": "add",
-				"name": "Add User",
-				"description": "Add new quasselcore user",
-				"requiredargs": {
-					"username": {
-						"type": "string",
-						"description": Quassel Client Username",
-						},
-						"password": {
-							"type": "password",
-							"description": "Quassel Client Password",
-						},
-						"fullname": {
-							"type": "string",
-							"description": "Quassel Client Full Name",
-						}
-				},
-				"optionalargs": {
-						"adminuser": {
-							"type": "bool",
-							"description": "Can this user administrate quasselcore?",
-						}
-				}
-			},
-			"port": {
-				"type": "int",
-				"name": "Quassel Core Port",
-				"description": "Port for incoming quassel connections",
-				"range": "1024-32000",
-				"default": "4242",
-				"requirerestart": true,
-			},
-			"sslmode": {
-				"type": "combo",
-				"name": "SSL Options",
-				"description": "SSL Connection Options",
-				"requirerestart": true,
-				"default": "tlsallow",
-				"options": {
-							"tlsrequire": "Require TLS",
-							"tlsallow": "Allow TLS",
-							"tlsdisable": "Disable TLS",
-				}
-			},
-			"deluser": {
-				"type": "delete",
-				"name": "Delete User",
-				"description": "Remove a quasselcore user",
-			}
+   {
+	   "servicerestart":"service quasselcore restart",
+	   "serviceget": "/usr/local/bin/quasselget",
+	   "serviceset": "/usr/local/bin/quasselset",
+	   "options": {
+		   "adduser": {
+			   "type": "add",
+			   "name": "Add User",
+			   "description": "Add new quasselcore user",
+			   "requiredargs": {
+				   "username": {
+					   "type": "string",
+					   "description": "Quassel Client Username"
+				   },
+				   "password": {
+					   "type": "password",
+					   "description": "Quassel Client Password"
+				   },
+				   "fullname": {
+					   "type": "string",
+					   "description": "Quassel Client Full Name"
+				   }
+			   },
+			   "optionalargs": {
+				   "adminuser": {
+					   "type": "bool",
+					   "description": "Can this user administrate quasselcore?"
+				   }
+			   }
+		   },
+		   "port": {
+			   "type": "int",
+			   "name": "Quassel Core Port",
+			   "description": "Port for incoming quassel connections",
+			   "range": "1024-32000",
+			   "default": "4242",
+			   "requirerestart": true
+		   },
+		   "sslmode": {
+			   "type": "bool",
+			   "name": "SSL Only",
+			   "description": "Only accept SSL connections",
+			   "default": true,
+			   "requirerestart": true
+
+		   },
+		   "ssloption": {
+			   "type": "combo",
+			   "name": "SSL Options",
+			   "description": "SSL Connection Options",
+			   "requirerestart": true,
+			   "default": "tlsallow",
+			   "options": {
+					   "tlsrequire": "Require TLS",
+					   "tlsallow": "Allow TLS",
+					   "tlsdisable": "Disable TLS"
+			   }
+		   },
+		   "deluser": {
+			   "type": "delete",
+			   "name": "Delete User",
+			   "description": "Remove a quasselcore user"
+		   }
+
+	   }
    }
 
-Refer to the quassel
-`artifact repo <https://github.com/freenas/iocage-plugin-quassel>`__
-for an example.
 
-* create the JSON file for the plugin
+**Create and submit a new JSON file for the plugin:**
 
-The naming convention is :file:`{pluginname}.json`. For example, a
-json file for the plugin transmission has the name
-:file:`transmission.json`. Refer to :numref:`table %s <json contents>`
-for the data fields and a description of each.
+Clone the
+`iocage-ix-plugins <https://github.com/freenas/iocage-ix-plugins>`__
+GitHub repository.
 
-.. _json contents:
 
-.. table:: Json File Contents
+.. tip:: Full tutorials and documentation for GitHub and :command:`git`
+   commands are available on
+   `GitHub Guides <https://guides.github.com/>`__.
+
+
+On the local copy of :file:`iocage-ix-plugins`, create a new file for
+the plugin to be added to %brand%. The naming convention is
+:file:`pluginname.json`. For example, the :guilabel:`Transmission`
+plugin has a .json file named :file:`transmission.json`.
+
+Add fields to this .json file.
+:numref:`table %s <plugins-plugin-jsonfile-contents>` lists and
+describes each required entry.
+
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.33\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.67\linewidth-2\tabcolsep}|
+
+.. _plugins-plugin-jsonfile-contents:
+
+.. table:: Plugin json File Contents
    :class: longtable
 
-   +-------------------------+------------------------------------------------------------------+
-   | Data Field              | Description                                                      |
-   +=========================+==================================================================+
-   | :samp:`"name":`         | Name of the plugin.                                              |
-   +-------------------------+------------------------------------------------------------------+
-   | :samp:`"release":`      | Release used for the plugin.                                     |
-   +-------------------------+------------------------------------------------------------------+
-   | :samp:`"artifact":`     | URL of the artifact repo                                         |
-   +-------------------------+------------------------------------------------------------------+
-   | :samp:`"pkgs":`         | Port of the plugin                                               |
-   +-------------------------+------------------------------------------------------------------+
-   | :samp:`"packagesite":`  | CDN the plugins use. Default                                     |
-   |                         | for the TrueOS CDN is                                            |
-   |                         | `<http://pkg.cdn.trueos.org/iocage>`__.                          |
-   +-------------------------+------------------------------------------------------------------+
-   | :samp:`"fingerprints":` | :samp:`"function":`                                              |
-   |                         |                                                                  |
-   |                         | Default is *sha256*.                                             |
-   |                         |                                                                  |
-   |                         | :samp:`"fingerprint":`                                           |
-   |                         |                                                                  |
-   |                         | The pkg fingerprint for the artifact repo.                       |
-   |                         | Default is                                                       |
-   |                         | 226efd3a126fb86e71d60a37353d17f57af816d1c7ecad0623c21f0bf73eb0c7 |
-   +-------------------------+------------------------------------------------------------------+
+   +-------------------------+--------------------------------------------------------------------+
+   | Data Field              | Description                                                        |
+   +=========================+====================================================================+
+   | :samp:`"name":`         | Name of the plugin.                                                |
+   |                         |                                                                    |
+   +-------------------------+--------------------------------------------------------------------+
+   | :samp:`"release":`      | FreeBSD release to use for the plugin jail.                        |
+   |                         |                                                                    |
+   +-------------------------+--------------------------------------------------------------------+
+   | :samp:`"artifact":`     | URL of the plugin artifact repo.                                   |
+   |                         |                                                                    |
+   +-------------------------+--------------------------------------------------------------------+
+   | :samp:`"pkgs":`         | Port of the plugin.                                                |
+   |                         |                                                                    |
+   +-------------------------+--------------------------------------------------------------------+
+   | :samp:`"packagesite":`  | CDN the plugin jail uses. Default for the TrueOS CDN is            |
+   |                         | http://pkg.cdn.trueos.org/iocage .                                 |
+   |                         |                                                                    |
+   +-------------------------+--------------------------------------------------------------------+
+   | :samp:`"fingerprints":` | :samp:`"function":`                                                |
+   |                         |                                                                    |
+   |                         | Default is *sha256*.                                               |
+   |                         |                                                                    |
+   |                         | :samp:`"fingerprint":`                                             |
+   |                         |                                                                    |
+   |                         | The pkg fingerprint for the artifact repo. Default is              |
+   |                         | *226efd3a126fb86e71d60a37353d17f57af816d1c7ecad0623c21f0bf73eb0c7* |
+   |                         |                                                                    |
+   +-------------------------+--------------------------------------------------------------------+
+   | :samp:`"official":`     | Defines if this an official iXsystems supported plugin.            |
+   |                         | Enter *true* or *false*.                                           |
+   |                         |                                                                    |
+   +-------------------------+--------------------------------------------------------------------+
 
-Update the :file:`INDEX` file when adding a new JSON file. Refer to the
+
+Here is :file:`quasselcore.json` reproduced as an example:
+
+.. code-block:: json
+
+   {
+     "name": "Quasselcore",
+     "release": "11.1-RELEASE",
+     "artifact": "https://github.com/freenas/iocage-plugin-quassel.git",
+     "pkgs": [
+       "irc/quassel-core"
+     ],
+     "packagesite": "http://pkg.cdn.trueos.org/iocage",
+     "fingerprints": {
+             "iocage-plugins": [
+                     {
+                     "function": "sha256",
+                     "fingerprint": "226efd3a126fb86e71d60a37353d17f57af816d1c7ecad0623c21f0bf73eb0c7"
+             }
+             ]
+     },
+     "official": true
+   }
+
+
+The correct directory and package name of the plugin application must be
+used for the :samp:`"pkgs":` value. Find the package name and directory
+by searching `FreshPorts <https://www.freshports.org/>`__ and checking
+the "To install the port:" line. For example, the *Quasselcore* plugin
+uses the directory and package name :file:`/irc/quassel-core`.
+
+Now edit :file:`iocage-ix-plugins/INDEX`. Add an entry for the new
+plugin that includes these fields:
+
+* "MANIFEST": Add the newly created :file:`plugin.json` file here.
+
+* "name": Use the same name from the :file:`.json` file.
+
+* "icon": Most plugins will have a specific icon. Search the web and
+  save the icon to the :file:`icons/` directory as a :file:`.png`. The
+  naming convention is :file:`pluginname.png`. For example, the
+  :guilabel:`Transmission` plugin has the icon file
+  :file:`transmission.png`.
+
+* "description": Add any notes about the plugin.
+
+* "official": Specify if the plugin is supported by iXsystems. Enter
+  *false*.
+
+See the
 `INDEX <https://github.com/freenas/iocage-ix-plugins/blob/master/INDEX>`__
-file as an example.
+for examples of :file:`INDEX` entries.
 
-* save the icon for the plugin
+**Submit the plugin**
 
-Most plugins will have a specific icon. Search the web and save the icon
-as a png file. The naming convention for the png file is
-:file:`{pluginname}.png`. For example, the plugin transmisison has the
-icon file :file:`transmission.png`.
-
-* submit a pull request
-
-Lastly, submit a pull request to the
+Open a pull request for the
 `iocage-ix-plugins repo <https://github.com/freenas/iocage-ix-plugins>`__.
 Make sure the pull request contains:
 
-* the new JSON file created
+* the new :file:`plugin.json` file.
 
-* the addition of an icon to the :file:`icons` directory
+* the plugin icon :file:`.png` added to the :file:`icons/` directory.
 
 * an update to the :file:`INDEX` file with an entry for the new plugin.
 
-* a link to the artifact repository with the built form of the plugin.
+* a link to the artifact repository populated with all required plugin
+  files.
 
-.. _Available Plugins:
+.. _Official Plugins:
 
-Available Plugins
------------------
+Official Plugins
+----------------
 
-These plugins are available for %brand% |release|:
+:numref:`table %s <plugins-official-plugins>` lists and describes all
+plugins supported by iXsystems. Adding "unofficial" plugins to %brand%
+is supported by following the process outlined in
+:ref:`Create a Plugin <Creating Plugins>`.
 
-* `bacula-sd (storage daemon) <http://bacula.org/>`_
 
-* `CouchPotato <https://couchpota.to/>`_
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.33\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.67\linewidth-2\tabcolsep}|
 
-* `crashplan <http://www.code42.com/crashplan/>`_
+.. _plugins-official-plugins:
 
-* `Emby <http://emby.media/>`_
+.. table:: Official %brand% plugins
+   :class: longtable
 
-* `firefly <https://en.wikipedia.org/wiki/Firefly_Media_Server>`_
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | Name                                                                    | Description                                                            |
+   |                                                                         |                                                                        |
+   +=========================================================================+========================================================================+
+   | `BackupPC                                                               | BackupPC is a high-performance, enterprise-grade system for backing up |
+   | <http://backuppc.sourceforge.net/>`__                                   | Linux, WinXX and MacOSX PCs and laptops to a server's disk.            |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `BRU Server                                                             | BRU Server™ Backup and Recovery Software by TOLIS Group, Inc.          |
+   | <http://www.tolisgroup.com/client-server-cross-platform-backup.html>`__ |                                                                        |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `BitTorrentSync <https://www.resilio.com/>`__                           | Resilient, fast and scalable file sync software for enterprises and    |
+   |                                                                         | individuals.                                                           |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `ClamAV <https://www.clamav.net/>`__                                    | ClamAV® is an open source antivirus engine for detecting trojans,      |
+   |                                                                         | viruses, malware & other malicious threats.                            |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `CouchPotato <https://couchpota.to/>`__                                 | CouchPotato is an automatic NZB and torrent downloader.                |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Deluge <https://deluge-torrent.org/>`__                                | Bittorrent client using Python, and libtorrent-rasterbar.              |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Emby <https://emby.media/>`__                                          | Home media server built using mono and other open source technologies. |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `GitLab <https://about.gitlab.com/>`__                                  | GitLab is a fully integrated software development platform.            |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Jenkins <https://jenkins.io/>`__                                       | Jenkins is a self-contained, open source automation server which can   |
+   |                                                                         | be used to automate all sorts of tasks related to building, testing,   |
+   |                                                                         | and delivering or deploying software.                                  |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Jenkins (LTS) <https://jenkins.io/download/lts/>`__                    | Jenkins Long-Term Support releases.                                    |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Madsonic <http://beta.madsonic.org/pages/index.jsp>`__                 | Open-source web-based media streamer and jukebox.                      |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Nextcloud <https://nextcloud.com/>`__                                  | Access, share and protect your files, calendars, contacts,             |
+   |                                                                         | communication & more at home and in your enterprise.                   |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `PlexMediaServer <https://www.plex.tv/>`__                              | The Plex media server system.                                          |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Plex Media Server (PlexPass) <https://www.plex.tv/plex-pass/>`__       | Premium service for Plex media server system.                          |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Quasselcore <https://quassel-irc.org/>`__                              | Quassel Core is a daemon/headless IRC client, part of Quassel, that    |
+   |                                                                         | supports 24/7 connectivity. Quassel Client can also be attached to it. |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `SickRage <https://github.com/SiCKRAGETV/SickRage>`__                   | Automatic Video Library Manager for TV Shows.                          |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Sonarr <https://sonarr.tv/>`__                                         | PVR for Usenet and BitTorrent users.                                   |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Subsonic <http://www.subsonic.org/pages/index.jsp>`__                  | Open-source web-based media streamer and jukebox.                      |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Syncthing <https://syncthing.net/>`__                                  | Personal cloud sync.                                                   |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Tarsnap <https://www.tarsnap.com/>`__                                  | Online encrypted backup service (client).                              |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Transmission <https://transmissionbt.com/>`__                          | Fast and lightweight daemon BitTorrent client.                         |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `TinyTinyRSS <https://tt-rss.org/>`__                                   | Open source web-based news feed (RSS/Atom) aggregator, designed to     |
+   |                                                                         | allow you to read news from any location.                              |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
 
-* `Headphones <https://github.com/rembo10/headphones>`_
 
-* `HTPC-Manager <http://htpc.io/>`_
-
-* `LazyLibrarian <https://github.com/lazylibrarian/LazyLibrarian>`_
-
-* `Madsonic <http://madsonic.org/>`_
-
-* `Maraschino <http://www.maraschinoproject.com/>`_
-
-* `MineOS <http://minecraft.codeemo.com/>`_
-
-* `Mylar <https://github.com/evilhero/mylar>`_
-
-* `Nextcloud <https://nextcloud.com/>`_
-
-* `NZBHydra <https://github.com/theotherp/nzbhydra>`_
-
-* `ownCloud <https://owncloud.org/>`_
-
-* `PlexMediaServer <https://plex.tv/>`_
-
-* `Resilio <https://www.resilio.com/>`_
-
-* `s3cmd <http://s3tools.org/s3cmd>`_
-
-* `SABnzbd <http://sabnzbd.org/>`_
-
-* `SickBeard <http://sickbeard.com/>`_
-
-* `SickRage <https://github.com/SiCKRAGETV/SickRage>`_
-
-* `Sonarr <https://sonarr.tv/>`_
-
-* `Subsonic <http://www.subsonic.org/pages/index.jsp>`_
-
-* `Syncthing <https://syncthing.net/>`_
-
-* `Transmission <http://www.transmissionbt.com/>`_
-
-* `XDM <https://github.com/lad1337/XDM>`_
-
-* `XMRig <https://github.com/xmrig/xmrig>`_
-
-The %brand% Plugins system makes it simple to install software.
-However, refer to the documentation for that application if there are
-troubles.
+If there are any difficulties using a plugin application, refer to the
+application documentation.
