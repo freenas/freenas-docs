@@ -138,6 +138,11 @@ available:
 
 * :ref:`VNC Interface <vms-vnc>`
 
+
+.. note:: :ref:`Docker VMs <Docker/Rancher VM>` are not compatible with
+   VNC connections.
+
+
 :numref:`Figure %s <vms-nic_fig>` shows the fields that appear when
 :guilabel:`Network Interface` is the selected :guilabel:`Type`.
 
@@ -154,11 +159,10 @@ Network Interfaces
    VM Network Interface Device
 
 
-The default :guilabel:`Adapter Type` emulates an Intel E1000 (82545)
-Ethernet card for compatibility with most operating systems. This can
-be changed to *VirtIO* to provide better performance when the
-operating system installed in the VM supports VirtIO paravirtualized
-network drivers.
+The default :guilabel:`Adapter Type` emulates an Intel e82545 (e1000)
+Ethernet card for compatibility with most operating systems. *VirtIO*
+can provide better performance when the operating system installed in
+the VM supports VirtIO paravirtualized network drivers.
 
 If the system has multiple physical network interface cards, the
 :guilabel:`Nic to attach` drop-down menu can be used to specify which
@@ -282,15 +286,14 @@ preferred port number.
 Select the IP address for VNC to listen on with the
 :guilabel:`Bind to` drop-down menu.
 
-Check the :guilabel:`Wait to boot` checkbox to indicate that the VNC
-client should wait until the VM has booted before attempting the
-connection.
+Set :guilabel:`Wait to boot` to indicate that the VNC client should wait
+until the VM has booted before attempting the connection.
 
 To automatically pass the VNC password, enter it into the
 :guilabel:`Password` field. Note that the password is limited to 8
 characters.
 
-To use the VNC web interface, check the :guilabel:`VNC Web` checkbox.
+To use the VNC web interface, set :guilabel:`VNC Web`.
 
 
 .. tip:: If a RealVNC 5.X Client shows the error
@@ -314,7 +317,15 @@ VMs automatically include a virtual serial port.
 * :file:`/dev/nmdm2B` is assigned to the second VM
 
 And so on. These virtual serial ports allow connecting to the VM
-console from the :ref:`Shell`. To connect to the first VM:
+console from the :ref:`Shell`.
+
+
+.. tip:: The `nmdm <https://www.freebsd.org/cgi/man.cgi?query=nmdm&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__
+   device is dynamically created. The actual :literal:`nmdm` name can
+   differ on each system.
+
+
+To connect to the first VM:
 
 .. code-block:: none
 
@@ -357,7 +368,7 @@ Some standard buttons are shown for all VMs:
 * :guilabel:`Devices` is used to add and remove devices to this VM.
 
 
-When a VM is not running, these buttons are shown:
+When a VM is not running, these buttons are available:
 
 * :guilabel:`Start` starts the VM.
 
@@ -365,7 +376,7 @@ When a VM is not running, these buttons are shown:
   is given the same name as the original, with *_cloneN* appended.
 
 
-When a VM is already running, these buttons are shown:
+When a VM is already running, these buttons are available:
 
 * :guilabel:`Stop` shuts down the VM.
 
@@ -375,7 +386,7 @@ When a VM is already running, these buttons are shown:
 * :guilabel:`Restart` restarts the VM.
 
 * :guilabel:`Vnc via Web` starts a web VNC connection to the VM. The
-  VM must have a VNC device, and :guilabel:`VNC Web` enabled in that
+  VM must have a VNC device and :guilabel:`VNC Web` enabled in that
   device.
 
 
@@ -398,14 +409,14 @@ for confirmation.
    needed.
 
 
-.. index: Docker/Rancher VM
+.. index:: Docker/Rancher VM
 .. _Docker/Rancher VM:
 
 Docker/Rancher VM
 -----------------
 
 `Docker <https://www.docker.com/what-docker>`__
-is open source software for automating application deployment
+is Open Source software for automating application deployment
 inside containers. A container provides a complete filesystem,
 runtime, system tools, and system libraries, so applications always
 see the same environment.
@@ -416,11 +427,16 @@ is a GUI tool for managing Docker containers.
 %brand% runs the Rancher GUI as a separate VM.
 
 
-.. index: Rancher VM Requirements
+.. index:: Rancher VM Requirements
 .. _Rancher VM Requirements:
 
 Rancher VM Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~
+
+The system BIOS **must** have virtualization support enabled for a
+Docker VM to run properly after installation. On Intel systems this is
+typically an option called *VT-x*. AMD systems generally have an *SVM*
+option.
 
 20 GiB of storage space is required for the Rancher VM. For setup, the
 :ref:`SSH` service must be enabled.
@@ -428,7 +444,7 @@ Rancher VM Requirements
 The Rancher VM requires 2 GiB of RAM while running.
 
 
-.. index: Create the Rancher VM
+.. index:: Create the Rancher VM
 .. _Create the Rancher VM:
 
 Create the Rancher VM
@@ -482,7 +498,7 @@ disk image file. How long this takes to complete depends on the speed
 of the network connection. A status dialog reports the progress of the
 download.
 
-After the image is downloaded, the VM is started.
+After the image is downloaded, the VM starts.
 
 
 Installing the Rancher Server
@@ -517,6 +533,11 @@ password that was entered when the raw file was created above and
 press :kbd:`Enter` again. After logging in, a
 :literal:`[rancher@rancher ~]$` prompt is displayed.
 
+Ensure Rancher has functional networking and can :command:`ping` an
+outside website. Adjust the VM
+:ref:`Network Interface <vms-network-interface>` and reboot the VM
+if necessary.
+
 Download and install the Rancher system with this command:
 
 .. code-block:: none
@@ -540,8 +561,8 @@ command prompt is shown, type this command:
 
 
 The first value is the IP address of the Rancher server. Enter the IP
-address and port 8080 as the URL in a web browser. For example, if the
-IP address was :literal:`10.231.3.208`, enter
+address and port :literal:`8080` as the URL in a web browser. For
+example, if the IP address was :literal:`10.231.3.208`, enter
 :literal:`10.231.3.208:8080` as the URL in the web browser.
 
 The Rancher server takes a few minutes to start. The web browser might
