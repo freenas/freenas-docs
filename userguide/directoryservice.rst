@@ -327,9 +327,9 @@ to restart AD.
 Troubleshooting Tips
 ~~~~~~~~~~~~~~~~~~~~
 
-When running AD in a 2003/2008 mixed domain, `see this posting
+When running AD in a 2003/2008 mixed domain, `this forum post
 <https://forums.freenas.org/index.php?threads/2008r2-2003-mixed-domain.1931/>`__
-for instructions to prevent the secure channel key from becoming corrupt.
+has instructions to prevent the secure channel key from becoming corrupt.
 
 Active Directory uses DNS to determine the location of the domain
 controllers and global catalog servers in the network. Use
@@ -340,27 +340,26 @@ can be found in the Technet article
 `How DNS Support for Active Directory Works
 <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc759550(v=ws.10)>`__.
 
-The realm used depends upon the priority in the SRV DNS record. DNS can
+The realm used depends on the priority in the SRV DNS record. DNS can
 override the system Active Directory settings. When unable to connect to
 the correct realm, check the SRV records on the DNS server.
 
 An expired password for the administrator account will cause
-:command:`kinit` to fail. Ensure the password is still valid. Also,
+:command:`kinit` to fail. Ensure the password is still valid and
 double-check the password on the AD account being used does not include
 any spaces, special symbols, and is not unusually long.
 
 If the Windows server version is lower than 2008 R2, try creating a
-:guilabel:`Computer` entry on the Windows server's OU. When creating
-this entry, enter the %brand% hostname in the :guilabel:`name` field.
-Make sure it is under 15 characters, the same name as the one set in
-the :guilabel:`Hostname` field in
+:guilabel:`Computer` entry on the Windows server Organizational Unit (OU).
+When creating this entry, enter the %brand% hostname in the
+:guilabel:`name` field. Make sure it is under 15 characters, the same
+name as the one set in the :guilabel:`Hostname` field in
 :menuselection:`Network --> Global Configuration`, and the same
 :guilabel:`NetBIOS alias` in
 :menuselection:`Directory Service --> Active Directory --> Advanced`
-settings. Make sure the hostname of the domain controller is set in
-the :guilabel:`Domain Controller` field of
+settings. Make sure the hostname of the domain controller is set in the
+:guilabel:`Domain Controller` field of
 :menuselection:`Directory Service --> Active Directory --> Advanced`.
-
 
 .. _If the System Will not Join the Domain:
 
