@@ -38,9 +38,9 @@ jail.
 
 This section will discuss:
 
-* :ref:`Jail Configuration`
+* :ref:`Jail Storage`
 
-* :ref:`Adding Jails`
+* :ref:`Creating Jails`
 
 * :ref:`Managing Jails`
 
@@ -56,7 +56,7 @@ Jail Storage
 Jails and FreeBSD releases are stored in a single
 :ref:`dataset <Dataset>` named :file:`iocage`.
 
-.. note:: Notes on the :file:`iocate` dataset:
+.. note:: Notes on the :file:`iocage` dataset:
 
           * At least 10 GiB of free space is recommended.
 
