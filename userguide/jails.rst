@@ -62,12 +62,12 @@ Jails and FreeBSD releases are stored in a single
 
           * Cannot be located on a :ref:`Share <Sharing>`.
 
-          * Each jail is installed into a unique dataset in
-            :file:`iocage` when created. For example, with
-            the :file:`iocage` dataset in
-            :file:`/mnt/pool1/`, a new jail called *jail1*
-            is installed in a new dataset named
-            :file:`/mnt/pool1/iocage/jails/jail1`.
+          * Each new jail installs into a new child dataset
+	    of :file:`iocage`. For example, with the
+	    :file:`iocage` dataset in :file:`/mnt/pool1/`,
+	    a new jail called *jail1* installs into a new
+	    dataset named :file:`/mnt/pool1/iocage/jails/jail1`.
+
 
 .. index:: Add Jail, New Jail, Create Jail
 .. _Creating Jails:
@@ -77,11 +77,11 @@ Creating Jails
 
 
 %brand% has two options to create a jail. The :guilabel:`Jail Wizard`
-makes it easy to quickly create a jail. :guilabel:`Add Jail` is the
-second jail creation method, where every possible jail option can be
-configured. There are numerous configurables spread across four different
-primary sections. This form is recommended more for advanced users with
-very specific requirements for a jail.
+makes it easy to quickly create a jail. :guilabel:`Advanced Jail Creation`
+is the second method, where every possible jail option is configurable.
+There are numerous configurables spread across four different primary
+sections. This form is recommended for advanced users with very
+specific requirements for a jail.
 
 .. _Jail Wizard:
 
@@ -89,8 +89,8 @@ Jail Wizard
 ~~~~~~~~~~~
 
 
-To quickly create a new jail, click
-:menuselection:`Jails --> Jail Wizard`. This opens the wizard screens
+To quickly create a new jail, navigate to
+:menuselection:`Jails` and click |ui-add|. This opens the wizard screens
 seen in :numref:`Figure %s <jail_wizard_fig>`.
 
 
