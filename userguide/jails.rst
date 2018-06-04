@@ -79,18 +79,19 @@ Creating Jails
 makes it easy to quickly create a jail. :guilabel:`Advanced Jail Creation`
 is the second method, where every possible jail option is configurable.
 There are numerous configurables spread across four different primary
-sections. This form is recommended for advanced users with very
-specific requirements for a jail.
+sections. This form is recommended for advanced users with very specific
+requirements for a jail.
 
+.. index:: Jail Wizard
 .. _Jail Wizard:
 
 Jail Wizard
 ~~~~~~~~~~~
 
 
-To quickly create a new jail, navigate to
-:menuselection:`Jails` and click |ui-add|. This opens the wizard screens
-seen in :numref:`Figure %s <jail_wizard_fig>`.
+To quickly create a new jail, navigate to :menuselection:`Jails` and
+click |ui-add|. This opens the wizard screens seen in
+:numref:`Figure %s <jail_wizard_fig>`.
 
 
 .. _jail_wizard_fig:
@@ -105,17 +106,17 @@ networking for a new jail. Enter a :guilabel:`Jail Name`. Jail names can
 only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),
 dashes (:literal:`-`), and underscores (:literal:`_`). Choose the version
 of FreeBSD to install for this jail. Previously downloaded versions
-display :literal:`(fetched)` next to their entry in the list. These
-settings are the minimum required settings for a new jail, but
-configuring recommended to also configure networking for the jail.
+display :literal:`(fetched)` next to their entry in the list. These are
+the minimum required settings for a new jail but it is also recommended
+to configure networking for the jail.
 
 Click :guilabel:`Next` to see a simplified list of networking options.
-The jail can be set to automatically configure IPv4 with
-:guilabel:`DHCP` and :guilabel:`VirtIO` or IPv4 and IPv6 can be
-configured manually. Multiple interfaces are supported in the
-:guilabel:`IPv4 Address` and :guilabel:`IPv6 Address` fields by
-entering a comma delimited list of interfaces, addresses, and netmask
-in the format :literal:`interface|ipaddress/netmask`.
+The jail can be set to automatically configure IPv4 with :guilabel:`DHCP`
+and :guilabel:`VNET` or IPv4 and IPv6 can be configured manually.
+Multiple interfaces are supported in the :guilabel:`IPv4 Address` and
+:guilabel:`IPv6 Address` fields by entering a comma delimited list of
+interfaces, addresses, and netmask in the format
+:literal:`interface|ipaddress/netmask`.
 
 Click :guilabel:`Next` to view a summary screen of the chosen jail
 options. Click :guilabel:`Submit` to create the new jail. After a few
