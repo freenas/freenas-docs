@@ -82,6 +82,7 @@ There are numerous configurables spread across four different primary
 sections. This form is recommended for advanced users with very specific
 requirements for a jail.
 
+
 .. index:: Jail Wizard
 .. _Jail Wizard:
 
@@ -128,6 +129,7 @@ moments, the new jail is added to the primary jails list.
    completed.
 
 
+.. index:: Advanced Jail Creation
 .. _Advanced Jail Creation:
 
 Advanced Jail Creation
@@ -148,10 +150,10 @@ To open the full jail creation form, click
 
 :numref:`Table %s <jail_basic_props_tab>` summarizes the available
 options of the :guilabel:`Basic Properties` of a new jail. By default,
-the only required values to create a jail is the :guilabel:`Jail Name`
-and :guilabel:`Release`. However, it is recommended to configure these
-basic properties as a simple method to quickly create an immediately
-usable jail. Many more advanced settings are available in the
+the only required values to create a jail are the :guilabel:`Jail Name`
+and :guilabel:`Release`. It is recommended to configure these basic
+properties as a simple method to quickly create an immediately usable
+jail. Many more advanced settings are available in the
 :guilabel:`Jail Properties`, :guilabel:`Network Properties`, and
 :guilabel:`Custom Properties` sections.
 
