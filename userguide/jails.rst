@@ -172,33 +172,34 @@ jail. Many more advanced settings are available in the
    |                           |                |                                                                                                         |
    |                           |                |                                                                                                         |
    +===========================+================+=========================================================================================================+
-   | Jail Name                 | string         | Required. Name can only contain letters, numbers, dashes (:kbd:`-`), or the underscore character        |
-   |                           |                | (:kbd:`_`).                                                                                             |
+   | Jail Name                 | string         | Required. Jail names can only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),       |
+   |                           |                | dashes (:literal:`-`), and underscores (:literal:`_`).                                                  |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
-   | Release                   | drop-down menu | Required. Choose the version of FreeBSD to download and install for the jail.                           |
+   | Release                   | drop-down menu | Required. Choose the version of FreeBSD to download and install for the jail. Previously downloaded     |
+   |                           |                | versions of FreeBSD display :literal:`(fetched)` next to the entry in the list and do not need to be    |
+   |                           |                | fetched again.                                                                                          |
+   |                           |                |                                                                                                         |
+   +---------------------------+----------------+---------------------------------------------------------------------------------------------------------|
+   | DHCP autoconfigure IPv4   | checkbox       | Set to automatically configure IPv4 networking with an independent VNET stack. :guilabel:`VNET` and     |
+   |                           |                | guilabel:`Berkeley Packet Filter` must also be checked. If not set, ensure the defined address          |
+   |                           |                | in :guilabel:`IPv4 Address` does not conflict with an existing address.                                 |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
-   | DHCP autoconfigure IPv4   | checkbox       | Check to automatically configure IPv4 networking with an independent Virtual Networking stack.          |
-   |                           |                | :guilabel:`VirtIO Virtual Networking` and :guilabel:`Berkeley Packet Filter` must also be checked.      |
-   |                           |                | If unchecked, ensure the defined address in :guilabel:`IPv4 Address` does not conflict with an          |
-   |                           |                | existing address.                                                                                       |
-   |                           |                |                                                                                                         |
-   +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
-   | VirtIO Virtual Networking | checkbox       | Check to use VirtIO to emulate network devices for this jail and a create a fully virtualized per-jail  |
-   |                           |                | network stack. See                                                                                      |
-   |                           |                | `VIRTIO(4) <https://www.freebsd.org/cgi/man.cgi?query=virtio&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__ |
+   | VNET network subsystem    | checkbox       | Set to use VNET to emulate network devices for this jail and a create a fully virtualized per-jail      |
+   | virtualization            |                | network stack. See                                                                                      |
+   | infrastructure            |                | `VNET(9) <https://www.freebsd.org/cgi/man.cgi?query=vnet&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__     |
    |                           |                | for more details.                                                                                       |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
-   | Berkeley Packet Filter    | checkbox       | Check for the jail to use the Berkeley Packet Filter to data link layers in a protocol                  |
-   |                           |                | independent fashion. See                                                                                |
+   | Berkeley Packet Filter    | checkbox       | Set to use the Berkeley Packet Filter to data link layers in a protocol independent fashion             |
+   |                           |                | See                                                                                                     |
    |                           |                | `BPF(4) <https://www.freebsd.org/cgi/man.cgi?query=bpf&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__       |
    |                           |                | for more details.                                                                                       |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
-   | IPv4 address              | string         | This and the other IPv4 settings are grayed out if :guilabel:`DHCP autoconfigure IPv4`                  |
-   |                           |                | is checked. Configures network or internet access for the jail.                                         |
+   | IPv4 address              | string         | This and the other IPv4 settings are grayed out if :guilabel:`DHCP autoconfigure IPv4` is set.          |
+   |                           |                | Configures the interface to use for network or internet access for the jail.                            |
    |                           |                |                                                                                                         |
    |                           |                | Type the IPv4 address for VNET and shared IP jails.                                                     |
    |                           |                | Single interface format: *interface|ip-address/netmask*. Multiple interface format:                     |
