@@ -53,20 +53,19 @@ This section will discuss:
 Jail Storage
 ------------
 
-Jails and FreeBSD releases are stored in a single
-:ref:`dataset <Dataset>` named :file:`iocage`.
+Jails and FreeBSD releases are stored in a single dataset named
+:file:`iocage`.
 
 .. note:: Notes on the :file:`iocage` dataset:
 
-          * At least 10 GiB of free space is recommended.
+   * At least 10 GiB of free space is recommended.
 
-          * Cannot be located on a :ref:`Share <Sharing>`.
+   * Cannot be located on a :ref:`Share <Sharing>`.
 
-          * Each new jail installs into a new child dataset
-	    of :file:`iocage`. For example, with the
-	    :file:`iocage` dataset in :file:`/mnt/pool1/`,
-	    a new jail called *jail1* installs into a new
-	    dataset named :file:`/mnt/pool1/iocage/jails/jail1`.
+   * Each new jail installs into a new child dataset of :file:`iocage`.
+     For example, with the :file:`iocage` dataset in :file:`/mnt/pool1/`,
+     a new jail called *jail1* installs into a new dataset named
+     :file:`/mnt/pool1/iocage/jails/jail1`.
 
 
 .. index:: Add Jail, New Jail, Create Jail
@@ -102,13 +101,13 @@ seen in :numref:`Figure %s <jail_wizard_fig>`.
 
 
 The wizard demonstrates the simplest process to create and configure
-networking for a new jail. Enter a :guilabel:`Jail Name`. It can only
-contain alphanumeric characters (:kbd:`abc`..., :kbd:`123`...), dashes
-(:kbd:`-`), and underscores (:kbd:`_`). Choose the version of FreeBSD
-to install for this jail. Previously downloaded versions display
-:literal:`(fetched)` next to their entry in the list. These settings
-are the minimum required settings for a new jail, but configuring
-recommended to also configure networking for the jail.
+networking for a new jail. Enter a :guilabel:`Jail Name`. Jail names can
+only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),
+dashes (:literal:`-`), and underscores (:literal:`_`). Choose the version
+of FreeBSD to install for this jail. Previously downloaded versions
+display :literal:`(fetched)` next to their entry in the list. These
+settings are the minimum required settings for a new jail, but
+configuring recommended to also configure networking for the jail.
 
 Click :guilabel:`Next` to see a simplified list of networking options.
 The jail can be set to automatically configure IPv4 with
