@@ -18,7 +18,7 @@ the system is warning that a pool is degraded.
 
 .. figure:: images/alert2a.png
 
-   Example Alert Messageor 
+   Example Alert Message 
 
 
 A blue and white :literal:`i` icon is displayed next to informational
