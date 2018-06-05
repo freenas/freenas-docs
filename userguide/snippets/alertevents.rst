@@ -5,10 +5,11 @@
 Alert
 -----
 
-%brand% provides an alert system to provide a visual warning of any
+The %brand% alert system provides a visual warning of any
 conditions that require administrative attention. The
-:guilabel:`Alerts` icon in the upper right corner displays a red circle
-when there is an outstanding alert. In the example alert shown in
+:guilabel:`Alert` icon in the upper right corner has a red
+notification badge that displays the total number of unread alerts.
+In the example alert shown in
 :numref:`Figure %s <alert2a>`,
 the system is warning that a pool is degraded.
 
@@ -20,22 +21,24 @@ the system is warning that a pool is degraded.
    Example Alert Message
 
 
-Alert messages have a blue and white :literal:`i` icon. Messages
-identified as CRITICAL in the middleware are also emailed to the root
-user account. If you are aware of a critical condition but wish to
-remove the alert message until it can be dealt with, click the alert
-message to close it. There is also an option to
-:guilabel:`Clear All Alerts`.
+A :literal:`i` icon is displayed next to informational
+messages, warning messages show a red clock icon, and a red exclamation
+icon is displayed next to :guilabel:`CRITICAL` messages.
+Messages identified as CRITICAL in the middleware are also emailed
+to the root user account. To close an alert message, hover over it
+until :guilabel:`Click to Dismiss` appears. Click the button. Close all
+messages to remove the notification badge from the alerts icon. There is
+also an option to :guilabel:`Clear All Alerts`.
 
 Behind the scenes, an alert daemon checks for various alert
 conditions, such as pool and disk status, and writes the current
 conditions to the system RAM. These messages are flushed to the SQLite
 database periodically and then published to the user interface.
 
-Current alerts can also be viewed from the Shell option of the Console
+Current alerts are viewed from the Shell option of the Console
 Setup Menu
 (:numref:`Figure %s <console_setup_menu_fig>`)
-or from the Web Shell
+or the Web Shell
 (:numref:`Figure %s <web_shell_fig>`)
 by running :command:`midclt call alert.list`.
 #ifdef truenas
@@ -43,7 +46,7 @@ This can be useful when the alert originates from the standby node of
 a :ref:`High Availability (HA) <Failover>` system.
 #endif truenas
 
-Notifications for specific alerts can be adjusted in the
+Notifications for specific alerts are adjusted in the
 :guilabel:`Alert Settings` menu. An alert message can be set to publish
 :guilabel:`IMMEDIATELY`, :guilabel:`HOURLY`, :guilabel:`DAILY`, or
 :guilabel:`NEVER`.
