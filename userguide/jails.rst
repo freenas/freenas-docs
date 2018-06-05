@@ -234,7 +234,7 @@ Similar to the :ref:`Jail Wizard`, configuring the basic properties then
 clicking :guilabel:`Save` is often all that is needed to quickly create
 and begin using a new jail. To continue configuring more settings, click
 :guilabel:`Next` to proceed to the :guilabel:`Jail Properties` section of
-the form. :numref:`Table %s <jail_jail_props_tab>` describes each of
+the form.  :numref:`Table %s <jail_jail_props_tab>` describes each of
 these options.
 
 
@@ -422,7 +422,7 @@ these options.
    |                       |           | value lower than *2*.                                                                                               |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | allow.mount.zfs       | checkbox  | Set to allow privileged users inside the jail to mount and unmount the ZFS file system. This permission is only     |                          |
+   | allow.mount.zfs       | checkbox  | Set to allow privileged users inside the jail to mount and unmount the ZFS file system. This permission is only     |
    |                       |           | effective when :guilabel:`allow_mount` is set and :guilabel:`enforce_statfs` is set to a value lower than *2*.      |
    |                       |           | The `ZFS(8)                                                                                                         |
    |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=zfs&sektion=8&apropos=0&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__       |
