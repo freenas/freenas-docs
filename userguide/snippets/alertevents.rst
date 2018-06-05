@@ -21,14 +21,22 @@ the system is warning that a pool is degraded.
    Example Alert Message
 
 
-A :literal:`i` icon is displayed next to informational
-messages, warning messages show a red clock icon, and a red exclamation
-icon is displayed next to :guilabel:`CRITICAL` messages.
-Messages identified as CRITICAL in the middleware are also emailed
-to the root user account. To close an alert message, hover over it
-until :guilabel:`Click to Dismiss` appears. Click the button. Close all
-messages to remove the notification badge from the alerts icon. There is
-also an option to :guilabel:`Clear All Alerts`.
+:numref:`Figure %s <alert-icons>` shows the different icons that display
+to show informational, warning, and :guilabel:`CRITICAL` messages.
+Critical messages are emailed to the root account.
+
+
+.. _alert-icons:
+
+.. figure:: images/alert-icons.png
+
+   %brand% alert icons
+
+
+Close an alert message by hovering over it until
+:guilabel:`Click to Dismiss`. There is also an option to
+:guilabel:`Clear All Alerts`. Close all messages to remove any
+notification badge from the alerts icon.
 
 Behind the scenes, an alert daemon checks for various alert
 conditions, such as pool and disk status, and writes the current
