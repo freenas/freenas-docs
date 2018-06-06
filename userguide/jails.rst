@@ -527,47 +527,46 @@ The final set of jail properties are contained in the
    | Setting             | Value     | Description                                                                                                   |
    |                     |           |                                                                                                               |
    +=====================+===========+===============================================================================================================+
-   | owner               | string    | Type the owner of the jail. Can be any string.                                                                |
+   | owner               | string    | The owner of the jail. Can be any string.                                                                     |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | priority            | integer   | Enter a numeric start priority for the jail at boot time. Smaller values mean a higher priority. At           |
-   |                     |           | system shutdown, the priority is reversed. Example: 99                                                        |
+   | priority            | integer   | The numeric start priority for the jail at boot time. **Smaller** values mean a **higher** priority. At       |
+   |                     |           | system shutdown, the priority is *reversed*. Example: 99                                                      |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | hostid              | string    | Enter a new a jail hostid, if necessary. Example hostid: *1a2bc345-678d-90e1-23fa-4b56c78901de*.              |
+   | hostid              | string    | A new a jail hostid, if necessary. Example hostid: *1a2bc345-678d-90e1-23fa-4b56c78901de*.                    |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | comment             | string    | Type any comments about the jail.                                                                             |
+   | comment             | string    | Comments about the jail.                                                                                      |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | depends             | string    | Specify any jails this jail depends on. When this jail begins to be created, any jails it                     |
-   |                     |           | depends on must already exist.                                                                                |
+   | depends             | string    | Specify any jails the jail depends on. Child jails must already exist before the parent jail can be created.  |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | mount_procfs        | checkbox  | Check to allow mounting of a                                                                                  |
+   | mount.procfs        | checkbox  | Set to allow mounting of a                                                                                    |
    |                     |           | `procfs(5) <https://www.freebsd.org/cgi/man.cgi?query=procfs&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__       |
    |                     |           | filesystems in the jail :file:`/dev/proc` directory.                                                          |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | mount_linprocfs     | checkbox  | Check to allow mounting of a                                                                                  |
+   | mount_linprocfs     | checkbox  | Set to allow mounting of a                                                                                    |
    |                     |           | `linprocfs(5) <https://www.freebsd.org/cgi/man.cgi?query=linprocfs&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__ |
    |                     |           | filesystem in the jail.                                                                                       |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | host_time           | checkbox  | Check to synchronize the time between jail and host.                                                          |
+   | host_time           | checkbox  | Set to synchronize the time between jail and host.                                                            |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | jail_zfs            | checkbox  | Check to enable automatic ZFS jailing inside the jail. The assigned ZFS dataset is fully                      |
+   | jail_zfs            | checkbox  | Set to enable automatic ZFS jailing inside the jail. The assigned ZFS dataset is fully                        |
    |                     |           | controlled by the jail.                                                                                       |
    |                     |           |                                                                                                               |
    |                     |           | Note: :guilabel:`allow_mount`, :guilabel:`enforce_statfs`, and :guilabel:`allow_mount_zfs` must all be        |
-   |                     |           | checked for ZFS management inside the jail to work correctly.                                                 |
+   |                     |           | set for ZFS management inside the jail to work correctly.                                                     |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | jail_zfs_dataset    | string    | :guilabel:`jail_zfs` must be checked for this option to work. Define the dataset to be jailed and             |
-   |                     |           | fully handed over to a jail. Takes the ZFS filesystem name without pool name.                                 |
+   | jail_zfs_dataset    | string    | Define the dataset to be jailed and fully handed over to a jail. Enter a ZFS filesystem name without a pool   |
+   |                     |           | name. :guilabel:`jail_zfs` must be set for this option to work.                                               |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | jail_zfs_mountpoint | string    | Enter the mountpoint for the :guilabel:`jail_zfs_dataset`. Example: */data/example-dataset-name*              |
+   | jail_zfs_mountpoint | string    | The mountpoint for the :guilabel:`jail_zfs_dataset`. Example: */data/example-dataset-name*                    |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
 
