@@ -457,54 +457,54 @@ Click :guilabel:`Next` to view all jail
    | Setting         | Value     | Description                                                                                             |
    |                 |           |                                                                                                         |
    +=================+===========+=========================================================================================================+
-   | interfaces      | string    | List up to four interface configurations in the format *interface:bridge*, separated by a comma         |
+   | interfaces      | string    | Enter up to four interface configurations in the format *interface:bridge*, separated by a comma        |
    |                 |           | (:kbd:`,`). The left value is the virtual VNET interface name and the right value is the bridge name    |
    |                 |           | where the virtual interface is attached.                                                                |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
    | host_domainname | string    | Enter an `NIS Domain name <https://www.freebsd.org/doc/handbook/network-nis.html>`__ for the jail.      |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | host_hostname   | string    | Enter a hostname for the jail. By default, the system uses the jail UUID.                               |
+   | host.hostname   | string    | Enter a hostname for the jail. By default, the system uses the jail UUID.                               |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | exec_fib        | integer   | Enter a number to define the routing table (FIB) to set when running commands inside the jail.          |
+   | exec.fib        | integer   | Enter a number to define the routing table (FIB) to set when running commands inside the jail.          |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | ip4_saddrsel    | checkbox  | This is only availabled when the jail is not configured to use VNET. Check to disable                   |
-   |                 |           | IPv4 source address selection for the prison in favor of the primary IPv4 address of the jail.          |
+   | ip4.saddrsel    | checkbox  | Only available when the jail is not configured to use VNET. Disables IPv4 source address selection for  |
+   |                 |           | the jail in favor of the primary IPv4 address of the jail.                                              |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | ip4             | drop-down | This setting controls the availability of IPv4 addresses. Possible values are *inherit* to allow        |
-   |                 |           | unrestricted access to all system addresses, *new* to restrict addresses with :guilabel:`ip4_addr`, and |
-   |                 |           | *disable* to stop the jail from using IPv4 entirely.                                                    |
+   | ip4             | drop-down | Control the availability of IPv4 addresses. Set to *Inherit*: allow unrestricted access to all system   |
+   |                 |           | addresses. Set to *New*: restrict addresses with :guilabel:`ip4_addr`. Set to *Disable*: stop the jail  |
+   |                 |           | from using IPv4 entirely.                                                                               |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | ip6_saddrsel    | string    | Check to disable IPv6 source address selection for the prison in favor of the primary IPv6 address      |
-   |                 |           | of the jail.                                                                                            |
+   | ip6.saddrsel    | string    | Only available when the jail is not configured to use VNET. Disables IPv6 source address selection for  |
+   |                 |           | the jail in favor of the primary IPv6 address of the jail.                                              |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | ip6             | drop-down | This controls the availability of IPv6 addresses. Possible values are *inherit* to allow                |
-   |                 |           | unrestricted access to all system addresses, *new* to restrict addresses with :guilabel:`ip4_addr`,     |
-   |                 |           | and *disable* to stop the jail from using IPv6 entirely.                                                |
+   | ip6             | drop-down | Control the availability of IPv6 addresses. Set to *Inherit*: allow unrestricted access to all system   |
+   |                 |           | addresses. Set to *New*: restrict addresses with :guilabel:`ip6_addr`. Set to *Disable*: stop the jail  |
+   |                 |           | from using IPv6 entirely.                                                                               |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
    | resolver        | string    | Add lines to :file:`resolv.conf` in file. Example: *nameserver IP;search domain.local*. Fields must be  |
-   |                 |           | delimited with a semicolon (:kbd:`;`), which are translated as new lines in :file:`resolv.conf`. Enter  |
+   |                 |           | delimited with a semicolon (:kbd:`;`), this is translated as new lines in :file:`resolv.conf`. Enter    |
    |                 |           | :literal:`none` to inherit :file:`resolv.conf` from the host.                                           |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
    | mac_prefix      | string    | Optional. Enter a valid MAC address vendor prefix. Example: *E4F4C6*                                    |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | vnet0_mac       | string    | Optional. Enter a valid MAC address for this VNET interface.                                            |
+   | vnet0_mac       | string    | Optional. Enter a valid MAC address for the VNET0 interface.                                            |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | vnet1_mac       | string    | Optional. Enter a valid MAC address for this VNET interface.                                            |
+   | vnet1_mac       | string    | Optional. Enter a valid MAC address for the VNET1 interface.                                            |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | vnet2_mac       | string    | Optional. Enter a valid MAC address for this VNET interface.                                            |
+   | vnet2_mac       | string    | Optional. Enter a valid MAC address for the VNET2 interface.                                            |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | vnet3_mac       | string    | Optional. Enter a valid MAC address for this VNET interface.                                            |
+   | vnet3_mac       | string    | Optional. Enter a valid MAC address for the VNET3 interface.                                            |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
 
