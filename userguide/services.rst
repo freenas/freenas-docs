@@ -931,7 +931,7 @@ summarizes the configuration options for the NFS service.
    | Setting                | Value      | Description                                                                                                         |
    |                        |            |                                                                                                                     |
    +========================+============+=====================================================================================================================+
-   | Number of servers      | integer    | Specify how man servers to create. Increase if NFS client responses are slow. To limit CPU context switching, keep  |
+   | Number of servers      | integer    | Specify how many servers to create. Increase if NFS client responses are slow. To limit CPU context switching, keep  |
    |                        |            | this number less than or equal to the number of CPUs reported by :samp:`sysctl -n kern.smp.cpus`.                   |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
