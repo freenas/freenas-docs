@@ -277,7 +277,7 @@ Enter the default password of *abcd1234*.
 On the first login, the EULA found in :ref:`Appendix A` is displayed,
 along with a box where the license key for the %brand% array can be
 pasted. Read the EULA, paste in the license key, then click
-:guilabel:`OK` to accept the EULA and apply the license.
+:guilabel:`I agree` to accept the EULA and apply the license.
 
 Alternately, press :guilabel:`Cancel` if the license key is not yet
 available or you wish to discuss the EULA with an iXsystems
@@ -299,7 +299,7 @@ applied.
    powers back up.
 
 
-Once the user has pressed :guilabel:`OK` or :guilabel:`Cancel`, the
+Once the user has pressed :guilabel:`I agree` or :guilabel:`Cancel`, the
 administrative GUI appears, as shown in the example in
 :numref:`Figure %s <tn_initial>`.
 
