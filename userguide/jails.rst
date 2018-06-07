@@ -575,66 +575,176 @@ Click :guilabel:`Save` when satisfied with all the different jail
 properties. New jails are added to the primary list in the
 :guilabel:`Jails` menu.
 
+
+.. index:: Managing Jails
 .. _Managing Jails:
 
 Managing Jails
 --------------
 
-Click :guilabel:`Jails` to view and configure existing jails. In the
-example shown in
-:numref:`Figure %s <view_added_jails_fig>`,
-:guilabel:`More Actions` (three vertical dots) is clicked for the jail
-named *xdm_1* has been clicked to show the available actions. The
-entry indicates the jail name, IP address, current status, type of
-jail, and the FreeBSD release used by the jail.
+Click :menuselection:`Jails` to see an overview of installed jails as
+shown in :numref:`Figure %s <jail_overview_fig>`.
 
-.. note:: :ref:`Plugins` are also listed here. The :guilabel:`Type`
-   shows *pluginv2*.
-
-
-.. _view_added_jails_fig:
+.. _jail_overview_fig:
 
 .. figure:: images/jails4b.png
 
+   Jail Overview Section
+
+
+:numref:`Table %s <jail_overview_tab>` describes each column.
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.75\linewidth-2\tabcolsep}|
+
+.. _jail_overview_tab:
+
+.. table:: Jail Overview Information
+   :class: longtable
+
+   +-----------------+-------------------------------------------------+
+   | Column Name     | Description                                     |
+   +=================+=================================================+
+   | Jail Name       | The name of the jail.                           |
+   |                 |                                                 |
+   +-----------------+-------------------------------------------------+
+   | IPv4 addresses  | Each of the configured IPv4 addresses.          |
+   |                 |                                                 |
+   +-----------------+-------------------------------------------------+
+   | IPv6 addresses  | Each of the configured IPv6 addresses.          |
+   |                 |                                                 |
+   +-----------------+-------------------------------------------------+
+   | Status          | **up**: jail is running                         |
+   |                 |                                                 |
+   |                 +-------------------------------------------------+
+   |                 | **down**: jail is stopped.                      |
+   |                 |                                                 |
+   +-----------------+-------------------------------------------------+
+   | Type            | Currently 2 supported jail types                |
+   |                 |                                                 |
+   |                 +-------------------------------------------------+
+   |                 | **jail**: A jail for general use.               |
+   |                 |                                                 |
+   |                 +-------------------------------------------------+
+   |                 | **pluginv2**: A jail installed by or used for a |
+   |                 | plugin. A plugin jail contains and isolates a   |
+   |                 | plugin from the %brand% system                  |
+   |                 | limiting exposure in the event of an issue and  |
+   |                 | allows resources to be easily managed.          |
+   +-----------------+-------------------------------------------------+
+   | Release         | The FreeBSD version the jail is based on.       |
+   |                 |                                                 |
+   +-----------------+-------------------------------------------------+
+   | |ui-options|    | Click to open the jail options menu as shown in |
+   |                 | :numref:`Figure %s <jail_option_menu_fig>`.     |
+   |                 |                                                 |
+   +-----------------+-------------------------------------------------+
+
+
+.. _jail_option_menu_fig:
+
+.. figure:: images/jails4b.png
+
+   Jail Option Menu
+
+#ifdef comment
+I updated/renamed the "Viewing Jails" figure to "The Jail Overview Figure"
+
+Old
+.. _view_added_jails_fig:
+.. figure:: images/jails4b.png
    Viewing Jails
 
+New
+.. _jail_overview_fig:
+.. figure:: images/jails4b.png
+   Jail Overview Section
 
-Here are the actions available to jails:
+I think this name is more appropriate. This is using the same screenshot
+as used in the legacy UI userguide, so this image name should be fine.
 
-.. note:: Some of these actions may not display, depending on the type
-   of jail and current status.
+I added the jail_option_menu_fig. I used "jails4b.png" as the placeholder
+image only as this screenshot doesn't currently exist. If it does exist,
+I need to know what the name of the screenshot is. If there isn't a
+screenshot showing the open options menu, we need one. Once we have a
+screenshot name, let me know so I can get jail_option_menu_fig updated.
+
+After the screenshot showing the menu option open, each option is
+described. It wasn't a bulleted list but kinda was. Each entry was listed
+in bold but no bullet.
+
+This page is already a bit table heavy but I think these options fit
+better in a table with the description of each of the Jail Option Menu
+items.
+
+#endif comment
+
+.. note:: The |ui-options| menu is jail state sensitive meaning menu
+          entries change depending on the jail state. For example, a
+          stopped jail does not have a Stop option and cannot be accessed
+          via Shell; these options are not available when a jail is
+          stopped.
 
 
-**Edit:** Opens the :guilabel:`Edit` form for the jail. This has all
-the same configurables as the :ref:`Add Jail <Advanced Jail Creation>`
-form. After a jail has been created, the jail name cannot be changed,
-so this field will be grayed out.
+:numref:`Table %s <jail_option_menu_tab>` describes the option menu
+entries available for a jail.
 
-.. note:: To modify the IP address information for a jail, use the
-   :guilabel:`Edit Jail` button instead of the associated networking
-   commands from the command line of the jail.
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.75\linewidth-2\tabcolsep}|
+
+.. _jail_option_menu_tab:
+
+.. table:: Jail Option Menu Entry Descriptions
+   :class: longtable
 
 
-**Mount points:** Opens the :guilabel:`Mount Points` list. This is
-used to give a jail access to storage located elsewhere on the %brand%
-system. See :ref:`Add Storage` for more details.
+   +--------------+------------------------------------------------------------+
+   | Menu Options | Description                                                |
+   +==============+============================================================+
+   | Edit         | Open the :menuselection:`Jails --> Edit` section to edit   |
+   |              | the jail. Jail Edit has the same configurables as the      |
+   |              | :ref:`Add Jail <Advanced Jail Creation>` section. A jail   |
+   |              | name cannot be changed after creation, so the UUID/Jail    |
+   |              | Name field will be grayed out.                             |
+   |              |                                                            |
+   +--------------+------------------------------------------------------------+
+   |Mount points  | Open the :guilabel:`Mount Points` list. Select an existing |
+   |              | mount point or click |ui-add| to open the Add New Mount    |
+   |              | Point section to create a new mount point to add. Adding a |
+   |              | mount point gives a jail access to storage located         |
+   |              | elsewhere on the %brand% system. See                       |
+   |              | f:ref:`Add Storage` or more details.                       |
+   |              |                                                            |
+   +--------------+------------------------------------------------------------+
+   | Start        | Start a jail. Running jails are indicated as **up**.       |
+   |              |                                                            |
+   +--------------+------------------------------------------------------------+
+   | Stop         | Stop a jail. Stopped jails are indicated as **down**.      |
+   |              |                                                            |
+   +--------------+------------------------------------------------------------+
+   | Update       | Updates any packages installed in the jail to the latest   |
+   |              | version available in the installed FreeBSD RELEASE.        |
+   |              |                                                            |
+   +--------------+------------------------------------------------------------+
+   | Shell        | Access a *root* command prompt to interact with a jail     |
+   |              | directly from the command line. Type :command:`exit` to    |
+   |              | close the shell and return to the Jails Overview section.  |
+   |              |                                                            |
+   +--------------+------------------------------------------------------------+
+   | Delete       | Delete the jail and any periodic snapshots. The contents   |
+   |              | of the jail are **entirely removed**.                      |
+   |              |                                                            |
+   +--------------+------------------------------------------------------------+
 
-**Start:** Activate the jail.
 
-**Stop:** Deactivate the jail.
+.. note:: To modify the IP address information for a jail, use
+   |ui-options| :guilabel:`Edit` instead of issuing the networking
+   commands directly from the command line of the jail. This ensures
+   the changes will survive a jail or %brand% reboot.
 
-**Update:** Updates any packages installed in the jail to the latest
-version available on the installed FreeBSD RELEASE.
 
-**Shell:** Access a *root* command prompt to configure the selected
-jail from the command line. When finished, type :command:`exit` to
-close the shell.
-
-**Delete:** Delete the jail and any periodic snapshots of it. The
-contents of the jail are entirely removed.
-
-.. warning:: Back up data and programs in the jail before deleting
-   it. There is no way to recover the contents of a jail after
+.. warning:: Back up data and programs in a jail **before** clicking
+   delete. There is no way to recover the contents of a jail *after*
    deletion.
 
 
