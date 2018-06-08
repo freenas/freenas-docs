@@ -4,8 +4,8 @@
 Services
 ========
 
-The :guilabel:`Services` section of the GUI is where various services
-that ship with the %brand%  system are configured, started, or stopped.
+Services that ship with %brand% are configured, started, or stopped
+in :guilabel:`Services`.
 %brand% includes these built-in services:
 
 * :ref:`AFP`
@@ -250,7 +250,7 @@ summarizes the available options.
    | Server Role             | drop-down menu | At this time, the only supported role is as the domain controller for a new domain.                                       |
    |                         |                |                                                                                                                           |
    +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | DNS Forwarder           | string         | Enter the IP address of DNS forwarder. Required for recursive queries when *SAMBA_INTERNAL* is selected.                  |
+   | DNS Forwarder           | string         | Enter the IP address of the DNS forwarder. Required for recursive queries when *SAMBA_INTERNAL* is selected.              |
    |                         |                |                                                                                                                           |
    +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
    | Domain Forest Level     | drop-down menu | Choices are *2000*, *2003*, *2008*, *2008_R2*, *2012*, or *2012_R2*. Refer to                                             |
@@ -473,7 +473,7 @@ summarizes the available options when configuring the FTP server.
    | `FXP <https://en.wikipedia.org/wiki/File_eXchange_Protocol>`__ |                |          | server vulnerable to FTP bounce attacks.                                            |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | Require IDENT Authentication                                   | checkbox       | ✓        | Setting this option result in timeouts if :command:`identd` is not                  |
+   | Require IDENT Authentication                                   | checkbox       | ✓        | Setting this option results in timeouts if :command:`identd` is not                 |
    |                                                                |                |          | running on the client.                                                              |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
    | Minimum passive port                                           | integer        | ✓        | Used by clients in PASV mode, default of *0* means any port above 1023.             |
@@ -601,7 +601,7 @@ To configure anonymous FTP:
     :menuselection:`Services --> FTP --> Configure`
     by setting the following attributes:
 
-    * setting this option :guilabel:`Allow Anonymous Login`
+    * :guilabel:`Allow Anonymous Login`: set this option
 
     * :guilabel:`Path`: browse to the pool/dataset/directory to be
       shared
@@ -758,7 +758,7 @@ running, open :ref:`Shell` and issue the command:
 If there is nothing listening on port 21, the FTP service is not
 running. To see the error message that occurs when %brand% tries to
 start the FTP service, go to :menuselection:`System --> Advanced`,
-check :guilabel:`Show console messages`, and click :guilabel:`Save`.
+enable :guilabel:`Show console messages`, and click :guilabel:`Save`.
 Go to :guilabel:`Services` and switch the FTP service off, then back on.
 Watch the console messages at the bottom of the browser for errors.
 
@@ -912,7 +912,7 @@ summarizes the configuration options for the NFS service.
    | Setting                | Value      | Description                                                                                                         |
    |                        |            |                                                                                                                     |
    +========================+============+=====================================================================================================================+
-   | Number of servers      | integer    | Specify how many servers to create. Increased if NFS client responses are slow. To limit CPU context switching,     |
+   | Number of servers      | integer    | Specify how many servers to create. Increase if NFS client responses are slow. To limit CPU context switching,      |
    |                        |            | keep this number less than or equal to the number of CPUs reported by :samp:`sysctl -n kern.smp.cpus`.              |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
@@ -1380,7 +1380,7 @@ This configuration screen is really a front-end to
    |                                  |                | to access the shared pool or dataset. If Guest Account user is deleted, resets to *nobody*.           |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | File Mask                        | integer        | Overrides default file creation mask of 0666 which creates files with read and write access for       |
+   | File Mask                        | integer        | Overrides default file creation mask of *0666* which creates files with read and write access for     |
    |                                  |                | everybody.                                                                                            |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
@@ -1412,9 +1412,9 @@ This configuration screen is really a front-end to
    |                                  |                | to execute.                                                                                           |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Obey Pam Restrictions            | checkbox       | Set to allow cross-domain authentication, users and groups to be managed on                           |
-   |                                  |                | another forest, or to allow permissions to be delegated from :ref:`Active Directory` users and        |
-   |                                  |                | groups to domain admins on another forest.                                                            |
+   | Obey Pam Restrictions            | checkbox       | Unset to allow cross-domain authentication, and users and groups to be managed on                     |
+   |                                  |                | another forest. Unsetting this option also allows permissions to be delegated from                    |
+   |                                  |                | :ref:`Active Directory` users and groups to domain admins on another forest.                          |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | NTLMv1 Auth                      | checkbox       | Set to allow NTLMv1 authentication. Required by Windows XP clients and sometimes by clients           |
