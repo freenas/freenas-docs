@@ -89,7 +89,7 @@ Some of the conditions that trigger an alert include:
 
 #ifdef freenas
 * the status of an Avago MegaRAID SAS controller has changed;
-  `mfiutil(8) <http://www.freebsd.org/cgi/man.cgi?query=mfiutil>`_
+  `mfiutil(8) <https://www.freebsd.org/cgi/man.cgi?query=mfiutil>`__
   is included for managing these devices
 #endif freenas
 
