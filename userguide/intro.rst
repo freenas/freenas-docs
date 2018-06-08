@@ -142,12 +142,9 @@ These major features are new in this version:
   before it is transmitted and to keep it in the encrypted format while
   stored on the cloud. The filenames can also be encrypted.
 
-* Preliminary support has been added for Self-Encrypting Drives (SEDs)
-  using the TCG OPAL and ATA Security standards. The
-  :guilabel:`ATA Security User` and :guilabel:`SED Password` fields
-  have been added to :menuselection:`System --> Advanced` and the
-  `sedutil-cli <https://www.mankier.com/8/sedutil-cli>`__ command can be
-  used for additional SED management.
+* Preliminary support has been added for :ref:`Self-Encrypting Drives`
+  (SEDs).
+
 
 The following software has been added or updated:
 
@@ -195,6 +192,9 @@ The following software has been added or updated:
 
 The following screen options have changed:
 
+* The :guilabel:`ATA Security User` and :guilabel:`SED Password` fields
+  have been added to :menuselection:`System --> Advanced`.
+
 * The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
   :guilabel:`Encryption password`, and :guilabel:`Encryption salt`
   fields have been added to
@@ -202,6 +202,9 @@ The following screen options have changed:
 
 * The :guilabel:`Exec` field has been added to
   :menuselection:`Storage --> Volumes --> Create Dataset --> Advanced Mode`.
+
+* The :guilabel:`Password for SED` column has been added to
+  :menuselection:`Storage --> Volumes --> View Disks`.
 
 * The :guilabel:`Enable home directories`, :guilabel:`Home directories`,
   :guilabel:`Home share name`, and :guilabel:`Home Share Time Machine`

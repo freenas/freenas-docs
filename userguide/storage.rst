@@ -1450,6 +1450,9 @@ lists the configurable options.
    | S.M.A.R.T. extra options           | string         | Input additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`_  options.      |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Password for SED                   | string         | input and confirm the password which will be used for this device instead of the global SED password; refer to           |
+   |                                    |                | :ref:`Self-Encrypting Drives` for more information                                                                       |
+   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
 .. note:: If a disk's serial number is not displayed in this screen,

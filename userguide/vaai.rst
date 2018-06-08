@@ -32,17 +32,17 @@ VAAI for iSCSI supports these operations:
 * *LUN Reporting* allows a hypervisor to query the NAS to determine
   whether a LUN is using thin provisioning.
 
-* *Stun* pauses running virtual machines when a pool runs out of
+* *Stun* pauses virtual machines when a pool runs out of
   space. The space issue can then be fixed and the virtual machines
   can continue rather than reporting write errors.
 
 * *Threshold Warning* the system reports a warning when a
-  configurable capacity is reached. In %brand%, this threshold can be
+  configurable capacity is reached. In %brand%, this threshold is
   configured at the pool level when using zvols
   (see :numref:`Table %s <iscsi_targ_global_config_tab>`)
   or at the extent level
   (see :numref:`Table %s <iscsi_extent_conf_tab>`)
-  for both file- and device-based extents. Typically, the warning is
+  for both file and device based extents. Typically, the warning is
   set at the pool level, unless file extents are used, in which case
   it must be set at the extent level.
 
