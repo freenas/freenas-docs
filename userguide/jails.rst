@@ -748,17 +748,24 @@ entries available for a jail.
    deletion.
 
 
+.. index:: Accessing a Jail Using SSH, SSH
 .. _Accessing a Jail Using SSH:
 
 Accessing a Jail Using SSH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:command:`ssh` can be used to access a jail instead of the jail's
-:guilabel:`Shell` icon. This requires starting the :command:`ssh`
-service and creating a user account for :command:`ssh` access. Start
-by clicking the :guilabel:`Shell` icon for the desired jail. Another
-method to access the shell of a jail is to click :guilabel:`Shell` and
-type :samp:`iocage console UUID | NAME`. Here is an example:
+Accessing a jail is not limited to using Jail Add, the Jail Wizard, or
+using one of the Shells that are built in to the UI. Enable the ssh
+daemon `sshd(8)
+<https://www.freebsd.org/cgi/man.cgi?query=sshd&apropos=0&sektion=8>`__
+in a jail, create a user account to log in with, and ssh access to
+the jail via any computer that has network access to the %brand% server
+is now possible.
+
+Log in to a shell to get :guilabel:`cli` access to the jail to enable SSH
+on. To use the Jails Shell click |ui-options| --> :guilabel:`Shell` on
+the desired jail. A root shell will open as shown in this example:
+
 
 .. code-block:: none
 
@@ -787,57 +794,106 @@ type :samp:`iocage console UUID | NAME`. Here is an example:
    Edit /etc/motd to change this login announcement.
    root@jailexamp:~ #
 
-Add or find the :samp:`sshd_enable=` line in the jail's
-:file:`/etc/rc.conf` and set it to *"YES"*:
+.. tip:: A root shell can also be opened for a jail using
+   :guilabel:`Shell`. Open the :guilabel:`Shell`, then type
+   :samp:`iocage console Jail Name`. Note: :guilabel:`Jail Name` and
+   :guilabel:`UUID` are the same thing.
+
+
+Enable sshd:
 
 .. code-block:: none
 
-   sshd_enable="YES"
+   sysrc sshd_enable="YES"
+
+   No existing entry or already set to NO:
+   sshd_enable: NO -> YES
+
+   Existing entry set to YES
+   sshd_enable: YES -> YES
 
 
-Then start the SSH daemon:
+.. tip:: Using :command:`sysrc` to enable sshd will verify sshd gets
+   enabled even if there is an existing entry.
+
+Start the SSH daemon: :samp:`service sshd start`
+
+The first time the service runs, the jail RSA key pair is generated and
+the key fingerprint is displayed.
+
+Add a user account with :command:`adduser`. Follow the prompts,
+:kbd:`Enter` will accept the default value offered. Users that require
+*root* access must also be a member of the *wheel* group. Enter *wheel*
+when prompted to *invite user into other groups? []:*
+
 
 .. code-block:: none
 
-   service sshd start
+   root@jailexamp:~ # adduser
+   Username: jailuser
+   Full name: Jail User
+   Uid (Leave empty for default):
+   Login group [jailuser]:
+   Login group is jailuser. Invite jailuser into other groups? []: wheel
+   Login class [default]:
+   Shell (sh csh tcsh git-shell zsh rzsh nologin) [sh]: csh
+   Home directory [/home/jailuser]:
+   Home directory permissions (Leave empty for default):
+   Use password-based authentication? [yes]:
+   Use an empty password? (yes/no) [no]:
+   Use a random password? (yes/no) [no]:
+   Enter password:
+   Enter password again:
+   Lock out the account after creation? [no]:
+   Username   : jailuser
+   Password   : *****
+   Full Name  : Jail User
+   Uid        : 1002
+   Class      :
+   Groups     : jailuser wheel
+   Home       : /home/jailuser
+   Home Mode  :
+   Shell      : /bin/csh
+   Locked     : no
+   OK? (yes/no): yes
+   adduser: INFO: Successfully added (jailuser) to the user database.
+   Add another user? (yes/no): no
+   Goodbye!
+   root@jailexamp:~
 
 
-The first time the service runs, the jail RSA key pair is generated
-and the key fingerprint and random art image displayed.
-
-Add a user account by typing :command:`adduser` and following the
-prompts. Users who need superuser privileges must be added to
-the *wheel* group. For those users, enter *wheel* at this prompt:
+After creating the user, set the jail *root* password to allow users to
+use :command:`su` to gain superuser privileges. To set the jail *root*
+password, use :command:`passwd`. Nothing is echoed back when using
+*passwd*
 
 .. code-block:: none
 
-   Login group is user1. Invite user1 into other groups? []: wheel
+   root@jailexamp:~ # passwd
+   Changing local password for root
+   New Password:
+   Retype New Password:
+   root@jailexamp:~ #
 
-
-After creating the user, set the *root* password so that the new user
-will be able to use the :command:`su` command to gain superuser
-privilege. To set the password, type :command:`passwd` then enter and
-confirm the desired password.
 
 Finally, test from another system that the user can successfully
-:command:`ssh` in and become the superuser. In this example, a user
-named *user1* uses :command:`ssh` to access the jail at 192.168.2.3.
-The first time the user logs in, they will be asked to verify the
-fingerprint of the host:
+:command:`ssh` in to the jail and gain superuser priviledges. In the
+example, a user named *jailuser* uses :command:`ssh` to access the jail
+at 192.168.2.3. The host RSA key fingerprint must be verified the first
+time a user logs in.
 
 .. code-block:: none
 
-   ssh user1@192.168.2.3
+   ssh jailuser@192.168.2.3
    The authenticity of host '192.168.2.3 (192.168.2.3)' can't be established.
    RSA key fingerprint is 6f:93:e5:36:4f:54:ed:4b:9c:c8:c2:71:89:c1:58:f0.
    Are you sure you want to continue connecting (yes/no)? yes
    Warning: Permanently added '192.168.2.3' (RSA) to the list of known hosts.
-   Password: type_password_here
+   Password:
 
 
-.. note:: Each jail has its own user accounts and service
-   configuration. These steps must be repeated for each jail that
-   requires SSH access.
+.. note:: Every jail has its own user accounts and service configuration.
+   These steps must be repeated for each jail that requires SSH access.
 
 
 .. _Add Storage:
