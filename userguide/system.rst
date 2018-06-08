@@ -163,7 +163,7 @@ can be configured using the General tab:
    | WebGUI HTTP Port     | integer        | allows configuring a non-standard port for accessing the administrative GUI over HTTP; changing this setting             |
    |                      |                | might also require                                                                                                       |
    |                      |                | `changing a Firefox configuration setting                                                                                |
-   |                      |                | <http://www.redbrick.dcu.ie/%7Ed_fens/articles/Firefox:_This_Address_is_Restricted>`__                                   |
+   |                      |                | <https://www.redbrick.dcu.ie/~d_fens/articles/Firefox:_This_Address_is_Restricted>`__                                    |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTPS Port    | integer        | allows configuring a non-standard port for accessing the administrative GUI over HTTPS                                   |
    |                      |                |                                                                                                                          |
@@ -178,7 +178,7 @@ can be configured using the General tab:
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Language             | drop-down menu | select the localization from the drop-down menu and reload the browser; view the status of localization at               |
-   |                      |                | `pootle.freenas.org <http://pootle.freenas.org/>`__                                                                      |
+   |                      |                | `pootle.freenas.org <https://weblate.trueos.org/projects/freenas/>`__                                                    |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Console Keyboard Map | drop-down menu | select the keyboard layout                                                                                               |
@@ -272,7 +272,7 @@ and clicking |ui-add|. :numref:`Figure %s <ntp_server_fig>` shows the
 configuration options.
 :numref:`Table %s <ntp_server_conf_opts_tab>`
 summarizes the options available when adding or editing an NTP server.
-`ntp.conf(5) <http://www.freebsd.org/cgi/man.cgi?query=ntp.conf>`__
+`ntp.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=ntp.conf>`__
 explains these options in more detail.
 
 
@@ -624,7 +624,7 @@ The configurable settings are summarized in
    | Enable Console Screensaver               | checkbox                         | enable or disable the console screen saver                                                       |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Enable Power Saving Daemon               | checkbox                         | `powerd(8) <http://www.freebsd.org/cgi/man.cgi?query=powerd>`__ monitors the system state and    |
+   | Enable Power Saving Daemon               | checkbox                         | `powerd(8) <https://www.freebsd.org/cgi/man.cgi?query=powerd>`__ monitors the system state and   |
    |                                          |                                  | sets the CPU frequency accordingly                                                               |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
@@ -658,7 +658,7 @@ The configurable settings are summarized in
    |                                          |                                  | the system reboots or encounters an error                                                        |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Remote Graphite Server Hostname          | string                           | IP address or hostname of a remote server running `Graphite <http://graphite.wikidot.com/>`__    |
+   | Remote Graphite Server Hostname          | string                           | IP address or hostname of a remote server running `Graphite <http://graphiteapp.org/>`__         |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
    | Use FQDN for logging                     | checkbox                         | when checked, include the Fully-Qualified Domain Name in logs to precisely identify systems      |
@@ -827,7 +827,7 @@ shown in
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | SMTP                 | checkbox             | enable/disable                                                                                  |
-   | Authentication       |                      | `SMTP AUTH <http://en.wikipedia.org/wiki/SMTP_Authentication>`__                                |
+   | Authentication       |                      | `SMTP AUTH <https://en.wikipedia.org/wiki/SMTP_Authentication>`__                               |
    |                      |                      | using PLAIN SASL; if checked, enter the required :guilabel:`Username` and                       |
    |                      |                      | :guilabel:`Password`                                                                            |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
@@ -948,7 +948,7 @@ Currently available alert services:
 
 * E-mail
 
-* `Hipchat <https://www.hipchat.com/>`__
+* `Hipchat <https://www.stride.com>`__
 
 * `InfluxDB <https://www.influxdata.com/>`__
 
@@ -1081,7 +1081,7 @@ Tunables
 can be used to manage the following:
 
 #. **FreeBSD sysctls:** a
-   `sysctl(8) <http://www.freebsd.org/cgi/man.cgi?query=sysctl>`__
+   `sysctl(8) <https://www.freebsd.org/cgi/man.cgi?query=sysctl>`__
    makes changes to the FreeBSD kernel running on a %brand% system
    and can be used to tune the system.
 
@@ -1111,7 +1111,8 @@ Since sysctl, loader, and rc.conf values are specific to the kernel
 parameter to be tuned, the driver to be loaded, or the service to
 configure, descriptions and suggested values can be found in the man
 page for the specific driver and in many sections of the
-`FreeBSD Handbook <http://www.freebsd.org/handbook>`__.
+`FreeBSD Handbook
+<https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/>`__.
 
 To add a loader, sysctl, or :file:`rc.conf` option, go to
 :menuselection:`System --> Tunables`
@@ -2155,7 +2156,7 @@ generate and send the support ticket to iXsystems. A pop-up menu
 provides a clickable URL to view the status of or add additional
 information to that support ticket.
 When not already logged into the
-`iXsystems Support page <https://support.ixsystems.com/>`_, clicking
+`iXsystems Support page <https://support.ixsystems.com/>`__, clicking
 this URL prompts for a login, or to register a new login.
 
 
@@ -2275,7 +2276,7 @@ seconds rather than the minutes of other configurations, significantly
 reducing the chance of a client timeout.
 
 The Common Address Redundancy Protocol
-(`CARP <http://www.openbsd.org/faq/pf/carp.html>`_)
+(`CARP <http://www.openbsd.org/faq/pf/carp.html>`__)
 is used to provide high availability and failover. CARP was originally
 developed by the OpenBSD project and provides an open source, non
 patent-encumbered alternative to the VRRP and HSRP protocols.

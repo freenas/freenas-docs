@@ -1401,7 +1401,7 @@ This configuration screen is really a front-end to
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | Auxiliary parameters             | string         | Add any :file:`smb.conf` options not covered elsewhere in this screen. See                            |
-   |                                  |                | `the Samba Guide <http://www.oreilly.com/openbook/samba/book/appb_02.html>`__                         |
+   |                                  |                | `the Samba Guide <https://www.oreilly.com/openbook/samba/book/appb_02.html>`__                        |
    |                                  |                | for additional settings.                                                                              |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
@@ -1500,7 +1500,7 @@ the client computers.
 Where possible, avoid using a mix of case in filenames as this can
 cause confusion for Windows users. `Representing and resolving
 filenames with Samba
-<http://www.oreilly.com/openbook/samba/book/ch05_04.html>`__ explains
+<https://www.oreilly.com/openbook/samba/book/ch05_04.html>`__ explains
 in more detail.
 
 If a particular user cannot connect to a SMB share, make sure that
@@ -1657,7 +1657,7 @@ summarizes the configuration options.
    | Log Level            | drop-down menu | Choices range from the least log entries (:guilabel:`Emergency`) to the most (:guilabel:`Debug`) |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters | string         | additional `snmpd.conf(5) <http://net-snmp.sourceforge.net/docs/man/snmpd.conf.html>`_ options   |
+   | Auxiliary Parameters | string         | additional `snmpd.conf(5) <http://net-snmp.sourceforge.net/docs/man/snmpd.conf.html>`__ options  |
    |                      |                | not covered in this screen, one per line                                                         |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
@@ -1911,7 +1911,7 @@ UPS
 ---
 
 
-%brand% uses `NUT <http://networkupstools.org/>`__ (Network UPS Tools)
+%brand% uses `NUT <https://networkupstools.org/>`__ (Network UPS Tools)
 to provide UPS support. If the %brand% system is connected to a UPS
 device, configure the UPS service then start it in :guilabel:`Services`.
 
@@ -1949,18 +1949,18 @@ UPS Configuration screen.
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Driver                        | drop-down menu | Supported UPS devices are listed at                                                       |
-   |                               |                | `<http://networkupstools.org/stable-hcl.html>`__.                                         |
+   |                               |                | `<https://networkupstools.org/stable-hcl.html>`__.                                        |
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Port                          | drop-down menu | Select the serial or USB port the UPS is plugged into (see :ref:`NOTE <UPS USB>`).        |
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Auxiliary Parameters          | string         | Additional options from                                                                   |
-   | (ups.conf)                    |                | `ups.conf(5) <http://networkupstools.org/docs/man/ups.conf.html>`__.                      |
+   | (ups.conf)                    |                | `ups.conf(5) <https://networkupstools.org/docs/man/ups.conf.html>`__.                     |
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Auxiliary Parameters          | string         | Additional options from                                                                   |
-   | (upsd.conf)                   |                | `upsd.conf(5) <http://networkupstools.org/docs/man/upsd.conf.html>`__.                    |
+   | (upsd.conf)                   |                | `upsd.conf(5) <https://networkupstools.org/docs/man/upsd.conf.html>`__.                   |
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Description                   | string         | Optional. Enter any notes about the UPS service.                                          |
@@ -1988,7 +1988,7 @@ UPS Configuration screen.
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Extra users                   | string         | Defines the accounts with administrative access. See `upsd.users(5)                       |
-   |                               |                | <http://networkupstools.org/docs/man/upsd.users.html>`__ for examples.                    |
+   |                               |                | <https://networkupstools.org/docs/man/upsc.html>`__ for examples.                         |
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Remote Monitor                | checkbox       | If enabled, be aware the default is to listen on all interfaces and to use the            |
@@ -2020,7 +2020,7 @@ UPS Configuration screen.
    device name in the console messages.
 
 
-`upsc(8) <http://networkupstools.org/docs/man/upsc.html>`__ can be used
+`upsc(8) <https://networkupstools.org/docs/man/upsc.html>`__ can be used
 to get status variables from the UPS daemon such as the current charge
 and input voltage. It can be run from :ref:`Shell` using this syntax:
 
@@ -2031,7 +2031,7 @@ and input voltage. It can be run from :ref:`Shell` using this syntax:
 
 The *upsc(8)* man page gives some other usage examples.
 
-`upscmd(8) <http://networkupstools.org/docs/man/upscmd.html>`__
+`upscmd(8) <https://networkupstools.org/docs/man/upscmd.html>`__
 can be used to send commands directly to the UPS, assuming the
 hardware supports the command being sent. Only users with administrative
 rights can use this command. These users are created in the
@@ -2050,10 +2050,10 @@ cable. This *master* makes UPS status available on the network for
 other computers. These *slave* computers are powered by the UPS, but
 receive UPS status data from the master computer. See the
 `NUT User Manual
-<http://networkupstools.org/docs/user-manual.chunked/index.html>`__
+<https://networkupstools.org/docs/user-manual.chunked/index.html>`__
 and
 `NUT User Manual Pages
-<http://networkupstools.org/docs/man/index.html#User_man>`__.
+<https://networkupstools.org/docs/man/index.html#User_man>`__.
 
 
 .. index:: WebDAV

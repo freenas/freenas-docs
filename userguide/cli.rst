@@ -53,7 +53,7 @@ install an Iperf client on a desktop system that has
 network access to the %brand% system. This section demonstrates
 how to use the
 `xjperf GUI client
-<http://code.google.com/p/xjperf/downloads/detail?name=jperf-2.0.2.zip>`_
+<https://code.google.com/archive/p/xjperf/downloads>`__
 as it works on Windows, macOS, Linux, and BSD systems.
 
 Since this client is Java-based, the appropriate
@@ -182,8 +182,7 @@ server process with this command:
 
 The following command displays the available options for
 performing tests with the :command:`netperf` command. The
-`Netperf Manual
-<http://www.netperf.org/svn/netperf2/tags/netperf-2.6.0/doc/netperf.html>`_
+`Netperf Manual <https://hewlettpackard.github.io/netperf/>`__
 describes each option in more detail and explains how to perform many
 types of tests. It is the best reference for understanding how each
 test works and how to interpret the results. When testing is
@@ -233,9 +232,9 @@ process.
 For those options taking two parms, at least one must be specified.
 Specifying one value without a comma will set both parms to that
 value, specifying a value with a leading comma will set just the
-second parm, and specifying a value with a trailing comma will set the first.
-To set each parm to unique values, specify both and separate them with a
-comma.
+second parm, and specifying a value with a trailing comma will set the
+first. To set each parm to unique values, specify both and separate them
+with a comma.
 
 For these options taking two parms, specifying one value with no comma
 will only set the first parms and will leave the second at the default
@@ -269,13 +268,13 @@ starting points on which tests to run, when to run them, and how to
 interpret the results:
 
 * `How To Measure Linux Filesystem I/O Performance With iozone
-  <http://www.cyberciti.biz/tips/linux-filesystem-benchmarking-with-iozone.html>`_
+  <https://www.cyberciti.biz/tips/linux-filesystem-benchmarking-with-iozone.html>`__
 
 * `Analyzing NFS Client Performance with IOzone
   <http://www.iozone.org/docs/NFSClientPerf_revised.pdf>`_
 
 * `10 iozone Examples for Disk I/O Performance Measurement on Linux
-  <http://www.thegeekstuff.com/2011/05/iozone-examples/>`_
+  <https://www.thegeekstuff.com/2011/05/iozone-examples/>`_
 
 Type the following command to receive a summary of the available
 switches. IOzone is comprehensive so it may take some time
@@ -409,17 +408,17 @@ arcstat
 -------
 
 Arcstat is a script that prints out ZFS
-`ARC <https://en.wikipedia.org/wiki/Adaptive_replacement_cache>`_
+`ARC <https://en.wikipedia.org/wiki/Adaptive_replacement_cache>`__
 statistics. Originally it was a perl script created by Sun. That perl
 script was ported to FreeBSD and then ported as a Python script
 for use on %brand%.
 
-Watching ARC hits/misses and percentages shows 
-how well the ZFS pool is fetching from the ARC rather than using disk
-I/O. Ideally, there will be as many things fetching from cache as possible.
-Keep the load in mind while reviewing the stats. For random reads,
-expect a miss and having to go to disk to fetch the data. For cached
-reads, expect it to pull out of the cache and have a hit.
+Watching ARC hits/misses and percentages shows how well the ZFS pool is
+fetching from the ARC rather than using disk I/O. Ideally, there will be
+as many things fetching from cache as possible. Keep the load in mind
+while reviewing the stats. For random reads, expect a miss and having to
+go to disk to fetch the data. For cached reads, expect it to pull out of
+the cache and have a hit.
 
 Like all cache systems, the ARC takes time to fill with data. This
 means that it will have a lot of misses until the pool has been in use
@@ -428,7 +427,7 @@ on cached reads, there is cause to investigate further and tune the
 system.
 
 The
-`FreeBSD ZFS Tuning Guide <https://wiki.FreeBSD.org/ZFSTuningGuide>`_
+`FreeBSD ZFS Tuning Guide <https://wiki.freebsd.org/ZFSTuningGuide>`__
 provides some suggestions for commonly tuned :command:`sysctl` values.
 It should be noted that performance tuning is more of an art than a
 science and that any changes made will probably require several
@@ -437,13 +436,9 @@ vary depending upon the type of workload and that what works for one
 one network may not benefit another.
 
 In particular, the value of pre-fetching depends upon the amount of
-memory and the type of workload, as seen in these two examples:
-
-* `Understanding ZFS: Prefetch
-  <http://www.cuddletech.com/blog/pivot/entry.php?id=1040>`_
-
-* `ZFS prefetch algorithm can cause performance drawbacks
-  <http://southbrain.com/south/2008/04/the-nightmare-comes-slowly-zfs.html>`_
+memory and the type of workload, as seen in
+`Understanding ZFS: Prefetch
+<http://cuddletech.com/?page_id=834&id=1040>`__
 
 %brand% provides two command line scripts which can be manually run
 from :ref:`Shell`:
@@ -801,13 +796,13 @@ tw_cli
 providing controller, logical unit, and drive management for
 AMCC/3ware ATA RAID Controllers. The supported models are listed in
 the man pages for the
-`twe(4) <http://www.freebsd.org/cgi/man.cgi?query=twe>`_
+`twe(4) <https://www.freebsd.org/cgi/man.cgi?query=twe>`__
 and
-`twa(4) <http://www.freebsd.org/cgi/man.cgi?query=twa>`_
+`twa(4) <https://www.freebsd.org/cgi/man.cgi?query=twa>`__
 drivers.
 
 Before using this command, read its
-`man page <http://www.cyberciti.biz/files/tw_cli.8.html>`_
+`man page <https://www.cyberciti.biz/files/tw_cli.8.html>`__
 as it describes the terminology and provides some usage examples.
 
 When :command:`tw_cli` in Shell is entered, the prompt will change,
@@ -907,7 +902,7 @@ MegaCli
 
 :command:`MegaCli` is the command line interface for the Broadcom
 :MegaRAID SAS family of RAID controllers. %brand% also includes the
-`mfiutil(8) <http://www.freebsd.org/cgi/man.cgi?query=mfiutil>`_
+`mfiutil(8) <https://www.freebsd.org/cgi/man.cgi?query=mfiutil>`__
 utility which can be used to configure and manage connected storage
 devices.
 
@@ -1016,7 +1011,7 @@ To create a second window, press :kbd:`Ctrl+b` then :kbd:`"`. To close
 a window, type :command:`exit` within the window.
 
 `tmux(1)
-<http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/./man1/tmux.1?query=tmux>`_
+<http://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man1/tmux.1?query=tmux>`__
 lists all of the key bindings and commands for interacting with
 :command:`tmux` windows and sessions.
 
@@ -1024,16 +1019,16 @@ If :ref:`Shell` is closed while :command:`tmux` is running, it will
 detach its session. The next time Shell is open, run
 :command:`tmux attach` to return to the previous session. To leave the
 :command:`tmux` session entirely, type :command:`exit`. If
-multiple windows are running, it is required to :command:`exit` out 
+multiple windows are running, it is required to :command:`exit` out
 of each first.
 
 These resources provide more information about using :command:`tmux`:
 
 * `A tmux Crash Course
-  <https://robots.thoughtbot.com/a-tmux-crash-course>`_
+  <https://robots.thoughtbot.com/a-tmux-crash-course>`__
 
 * `TMUX - The Terminal Multiplexer
-  <http://blog.hawkhost.com/2010/06/28/tmux-the-terminal-multiplexer/>`_
+  <http://blog.hawkhost.com/2010/06/28/tmux-the-terminal-multiplexer/>`__
 
 
 .. index:: Dmidecode
@@ -1045,7 +1040,7 @@ Dmidecode
 Dmidecode reports hardware information as reported by the system BIOS.
 Dmidecode does not scan the hardware, it only reports what the BIOS
 told it to. A sample output can be seen
-`here <http://www.nongnu.org/dmidecode/sample/dmidecode.txt>`_.
+`here <http://www.nongnu.org/dmidecode/sample/dmidecode.txt>`__.
 
 To view the BIOS report, type the command with no arguments:
 
@@ -1054,5 +1049,5 @@ To view the BIOS report, type the command with no arguments:
    dmidecode | more
 
 
-`dmidecode(8) <http://linux.die.net/man/8/dmidecode>`_
+`dmidecode(8) <https://linux.die.net/man/8/dmidecode>`__
 describes the supported strings and types.

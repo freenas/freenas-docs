@@ -468,7 +468,7 @@ inside containers. A container provides a complete filesystem,
 runtime, system tools, and system libraries, so applications always
 see the same environment.
 
-`Rancher <http://rancher.com/>`__
+`Rancher <https://rancher.com/>`__
 is a GUI tool for managing Docker containers.
 
 %brand% runs the Rancher GUI as a separate VM.

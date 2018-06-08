@@ -151,7 +151,7 @@ On Windows
 Microsoft provides the USB/DVD Download Tool to create a USB bootable
 image from an :file:`.iso` file. Follow
 `these instructions
-<https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool>`_,
+<https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool>`__,
 but enter the name of the downloaded :file:`.iso` into the
 :guilabel:`SOURCE FILE` box.
 
@@ -438,7 +438,7 @@ again.
 If the system starts to boot but hangs at a *mountroot>* prompt,
 follow the instructions in
 `Workaround/Semi-Fix for Mountroot Issues with 9.3
-<https://forums.freenas.org/index.php?threads/workaround-semi-fix-for-mountroot-issues-with-9-3.26071/>`_.
+<https://forums.freenas.org/index.php?threads/workaround-semi-fix-for-mountroot-issues-with-9-3.26071/>`__.
 
 If the burned image fails to boot and the image was burned using a
 Windows system, wipe the USB stick before trying a second burn using a
@@ -524,10 +524,10 @@ Be aware of these caveats **before** attempting an upgrade to
   t the UFS-formatted disk and copy the data to the ZFS pool. With only
   one disk, back up its data to another system or media before the
   upgrade, format the disk as ZFS after the upgrade, then restore the
-  backup. If the data currently resides on a UFS RAID of disks, it is not
-  possible to directly import that data to the ZFS pool. Instead, back up
-  the data before the upgrade, create a ZFS pool after the upgrade, then
-  restore the data from the backup.
+  backup. If the data currently resides on a UFS RAID of disks, it is
+  not possible to directly import that data to the ZFS pool. Instead,
+  back up the data before the upgrade, create a ZFS pool after the
+  upgrade, then restore the data from the backup.
 
 * **The VMware Tools VMXNET3 drivers are not supported**. Configure and
   use the `vmx(4) <https://www.freebsd.org/cgi/man.cgi?query=vmx>`__
@@ -741,10 +741,10 @@ Virtualization
 %brand% can be run inside a virtual environment for development,
 experimentation, and educational purposes. Note that running
 %brand% in production as a virtual machine is `not recommended
-<https://forums.freenas.org/index.php?threads/please-do-not-run-freenas-in-production-as-a-virtual-machine.12484/>`_.
+<https://forums.freenas.org/index.php?threads/please-do-not-run-freenas-in-production-as-a-virtual-machine.12484/>`__.
 When using %brand% within a virtual environment,
 `read this post first
-<https://forums.freenas.org/index.php?threads/absolutely-must-virtualize-freenas-a-guide-to-not-completely-losing-your-data.12714/>`_
+<https://forums.freenas.org/index.php?threads/absolutely-must-virtualize-freenas-a-guide-to-not-completely-losing-your-data.12714/>`__
 as it contains useful guidelines for minimizing the risk of losing
 data.
 
@@ -986,7 +986,7 @@ ESXi is a bare-metal hypervisor architecture created by VMware Inc.
 Commercial and free versions of the VMware vSphere Hypervisor
 operating system (ESXi) are available from the
 `VMware website
-<http://www.vmware.com/products/esxi-and-esx/overview>`__.
+<https://www.vmware.com/products/esxi-and-esx.html?ClickID=bldvs6vzfq1svvmyezgusneeezqfl6qddgne>`__.
 After the operating system is installed on the supported hardware,
 use a web browser to connect to its IP address. The welcome screen
 provides a link to download the VMware vSphere client which is used
