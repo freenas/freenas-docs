@@ -62,10 +62,14 @@ Jails and FreeBSD releases are stored in a single dataset named
 
    * Cannot be located on a :ref:`Share <Sharing>`.
 
+   * `iocage <http://iocage.readthedocs.io/en/latest/index.html>`__
+     automatically uses the first zpool that is not a root pool for the
+     %brand% system.
+
    * Each new jail installs into a new child dataset of :file:`iocage`.
-     For example, with the :file:`iocage` dataset in :file:`/mnt/pool1/`,
+     For example, with the :file:`iocage/jails` dataset in :file:`pool1`,
      a new jail called *jail1* installs into a new dataset named
-     :file:`/mnt/pool1/iocage/jails/jail1`.
+     :file:`pool1/iocage/jails/jail1`.
 
 
 .. index:: Add Jail, New Jail, Create Jail
