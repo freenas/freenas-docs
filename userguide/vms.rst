@@ -82,28 +82,28 @@ VM configuration options are described in
    | Setting           | Value          | Description                                                                        |
    |                   |                |                                                                                    |
    +===================+================+====================================================================================+
-   | VM Type           | drop-down menu | type of VM, either *Virtual Machine* for a typical instance, or *Docker VM*        |
-   |                   |                | for a special VM to run Docker                                                     |
+   | VM Type           | drop-down menu | Select the VM type. Choices are: *Virtual Machine* for a typical instance,         |
+   |                   |                | or *Docker VM*  for a special VM to run Docker.                                    |
    +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Name              | string         | a name to identify the VM                                                          |
+   | Name              | string         | Enter a name to identify the VM.                                                   |
    |                   |                |                                                                                    |
    +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Description       | string         | a short description of the VM or its purpose                                       |
+   | Description       | string         | Enter a short description of the VM or its purpose.                                |
    |                   |                |                                                                                    |
    +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Virtual CPUs      | integer        | quantity of virtual CPUs allocated to the VM, up to 16; although these are         |
-   |                   |                | virtual and not strictly related to host processor cores, the host CPU might       |
-   |                   |                | limit the maximum number; the operating system used in the VM might also have      |
-   |                   |                | operational or licensing restrictions on the number of CPUs allowed                |
-   +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Memory Size (MiB) | integer        | megabytes of RAM allocated to the VM                                               |
+   | Virtual CPUs      | integer        | Select the number of virtual CPUs to allocate to the VM. The maximum is 16         |
+   |                   |                | unless the host CPU limits the maximum. The VM operating system might also have    |
+   |                   |                | operational or licensing restrictions on the number of CPUs.                       |
    |                   |                |                                                                                    |
    +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Boot Method       | drop-down menu | *UEFI* for newer operating systems, or *UEFI-CSM* (Compatibility Support Mode) for |
-   |                   |                | older operating systems that only understand BIOS booting                          |
-   |                   |                |                                                                                    |
+   | Memory Size (MiB) | integer        | Allocate the amount of RAM in                                                      |
+   |                   |                | `mebibytes <https://simple.wikipedia.org/wiki/Mebibyte>`__ for the VM.             |
    +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Autostart         | checkbox       | when checked, start the VM automatically on boot                                   |
+   | Boot Method       | drop-down menu | Select *UEFI* for newer operating systems, or *UEFI-CSM* for                       |
+   |                   |                | (Compatibility Support Mode)  older operating systems that only understand         |
+   |                   |                | BIOS booting.                                                                      |
+   +-------------------+----------------+------------------------------------------------------------------------------------+
+   | Autostart         | checkbox       | Set to start the VM automatically when the system boots.                           |
    |                   |                |                                                                                    |
    +-------------------+----------------+------------------------------------------------------------------------------------+
 
@@ -164,8 +164,8 @@ Ethernet card for compatibility with most operating systems. *VirtIO*
 can provide better performance when the operating system installed in
 the VM supports VirtIO paravirtualized network drivers.
 
-If the system has multiple physical network interface cards, the
-:guilabel:`Nic to attach` drop-down menu can be used to specify which
+If the system has multiple physical network interface cards, use the
+:guilabel:`Nic to attach` drop-down menu to specify which
 physical interface to associate with the VM.
 
 By default, the VM receives an auto-generated random MAC address. To
@@ -183,7 +183,7 @@ After :ref:`creating a zvol <Create zvol>`, associate it with the VM
 by selecting :guilabel:`Add device`, choose the *VM*, select a
 :guilabel:`Type` of *Disk*, select the created zvol, then set the
 :guilabel:`Mode`. If a specific sector size is required, enter the
-number of bytes into :guilabel:`Disk sectorsize`. The default of *0*
+number of bytes into :guilabel:`Disk sector size`. The default of *0*
 leaves the sector size unset.
 
 
@@ -396,8 +396,8 @@ When a VM is already running, these buttons are available:
 Deleting VMs
 ------------
 
-When a VM is no longer needed, it can be deleted by clicking on the
-VM, then clicking :guilabel:`Delete` at the bottom of the screen. A
+A VM is deleted by clicking the
+VM, then :guilabel:`Delete` at the bottom of the screen. A
 dialog will show any related devices that will also be deleted and ask
 for confirmation.
 
@@ -455,7 +455,7 @@ Click :guilabel:`VMs`, then the :guilabel:`Add VM` button. Set the
 *Rancher UI VM* for the :guilabel:`Description`, leave the number of
 :guilabel:`Virtual CPUs` at *1*, and enter *2048* for the
 :guilabel:`Memory Size`. To have the Rancher VM start when the %brand%
-system boots, check the :guilabel:`Autostart` checkbox. Click
+system boots, enable the :guilabel:`Autostart` option. Click
 :guilabel:`OK` to create the virtual machine.
 
 
@@ -474,7 +474,7 @@ to that VM. Click on the *RAW* device to select it, then click the
 the dataset and select it. Then add a filename by typing
 */rancherui.img* at the end of the path in the text box.
 
-Set the :guilabel:`Disk boot` checkbox, enter a password for the
+Set the :guilabel:`Disk boot` option, enter a password for the
 :literal:`rancher` user in the :guilabel:`Password` field, then enter
 *20G* in the :guilabel:`Disk size` field. Click :guilabel:`OK` to save
 the device.
