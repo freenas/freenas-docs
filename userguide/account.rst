@@ -47,9 +47,9 @@ to see a screen like
    Group Management
 
 The :guilabel:`Groups` page lists all groups, including those built in
-and used by the operating system. The table displays group names, group IDs (GID),
-built-in groups, and if :command:`sudo` is permitted. Clicking
-the |ui-options| icon on a user created group entry displays
+and used by the operating system. The table displays group names, group
+IDs (GID), built-in groups, and if :command:`sudo` is permitted.
+Clicking the |ui-options| icon on a user created group entry displays
 :guilabel:`Members`, :guilabel:`Edit`, and :guilabel:`Delete` options.
 Click :guilabel:`Members` to view and modify the group membership.
 Note built-in groups are required by the %brand% system so they
@@ -93,7 +93,7 @@ summarizes the available options when creating a group.
    | Name                | string    | Enter a name for the new group.                                                                                          |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Permit Sudo         | checkbox  | Set to allow group members to use `sudo <http://www.sudo.ws/>`__. When using :command:`sudo`, a user is                  |
+   | Permit Sudo         | checkbox  | Set to allow group members to use `sudo <https://www.sudo.ws/>`__. When using :command:`sudo`, a user is                 |
    |                     |           | prompted for their own password.                                                                                         |
    |                     |           |                                                                                                                          |
    +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
@@ -185,7 +185,7 @@ Except for the *root* user, the accounts that come with %brand%
 are system accounts. Each system account is used by a service and
 should not be used as a login account. For this reason, the default
 shell on system accounts is
-`nologin(8) <http://www.freebsd.org/cgi/man.cgi?query=nologin>`__.
+`nologin(8) <https://www.freebsd.org/cgi/man.cgi?query=nologin>`__.
 For security reasons and to prevent breakage of system services,
 modifying the system accounts is discouraged.
 
@@ -208,10 +208,9 @@ created or modified.
    Adding or Editing a User Account
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
-                    |>{\Centering}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.54\linewidth-2\tabcolsep}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.55\linewidth-2\tabcolsep}|
 
 .. _user_account_conf_tab:
 
@@ -270,7 +269,7 @@ created or modified.
    |                            |                 | option grays out :guilabel:`Disable password login`, which is mutually exclusive.                                             |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Permit Sudo                | checkbox        | Set to allow members of the group to use `sudo <http://www.sudo.ws/>`__. When using sudo, a user is                           |
+   | Permit Sudo                | checkbox        | Set to allow members of the group to use `sudo <https://www.sudo.ws/>`__. When using sudo, a user is                          |
    |                            |                 | prompted for their own password.                                                                                              |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
@@ -341,7 +340,7 @@ created or modified.
    | zsh          | `Z shell <http://www.zsh.org/>`__                                                                                    |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | git-shell    | `restricted git shell <http://git-scm.com/docs/git-shell>`__                                                         |
+   | git-shell    | `restricted git shell <https://git-scm.com/docs/git-shell>`__                                                        |
    |              |                                                                                                                      |
    +--------------+----------------------------------------------------------------------------------------------------------------------+
 

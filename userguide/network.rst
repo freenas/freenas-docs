@@ -670,7 +670,7 @@ The configurable options are summarized in :numref:`Table %s <lagg_config_member
    |                      |                |                                                                                                |
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
    | Options              | string         | Additional parameters from                                                                     |
-   |                      |                | `ifconfig(8) <http://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.                           |
+   |                      |                | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.                          |
    |                      |                |                                                                                                |
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
 
@@ -715,7 +715,7 @@ Link aggregation load balancing can be tested with:
 
 
 More information about this command can be found at
-`systat(1) <http://www.freebsd.org/cgi/man.cgi?query=systat>`__.
+`systat(1) <https://www.freebsd.org/cgi/man.cgi?query=systat>`__.
 
 
 .. index:: Route, Static Route

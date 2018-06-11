@@ -23,9 +23,9 @@ This section demonstrates how to:
 Translation
 -----------
 
-Not everyone speaks English, and having a complete translation of the
-user interface into native languages can make FreeNAS :sup:`®` much more
-useful to communities around the world.
+FreeNAS :sup:`®` is developed and documented in English. Having
+complete translations of the user interface into other languages helps
+make FreeNAS :sup:`®` much more useful to communities around the world.
 
 FreeNAS :sup:`®` uses :file:`.po` files stored in the
 `webui GitHub repository
@@ -67,9 +67,11 @@ Translate with GitHub
 ~~~~~~~~~~~~~~~~~~~~~
 
 Navigate to the `freenas/webui <https://github.com/freenas/webui>`__
-repository and click through the :file:`src`, :file:`assets`, and
-`i18n <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__
-directories. Click on the desired :file:`po` file to begin
+repository and navigate from
+:menuselection:`src --> assets`,
+and click the `i18n
+<https://github.com/freenas/webui/tree/master/src/assets/i18n>`__
+directory. Click on the desired language :file:`po` file to begin
 translating.
 
 
@@ -77,9 +79,9 @@ translating.
    <https://www.abbreviations.com/acronyms/LANGUAGES2L>`__
 
 
-Click the :guilabel:`Pencil` icon to open the online file editor.
-:numref:`Figure %s <contribute_github_editor_fig>` shows the page that
-appears:
+Click the :guilabel:`Pencil` icon in the upper right area to open the
+online file editor. :numref:`Figure %s <contribute_github_editor_fig>`
+shows the page that appears:
 
 
 .. _contribute_github_editor_fig:
@@ -88,25 +90,26 @@ appears:
 
    GitHub online editor
 
+
 There are numerous :literal:`msgid ""` and :literal:`msgstr ""` entries
 in the file. Read  the :literal:`msgid` text and enter the translation
 between the :literal:`msgstr` quotes.
 
 Scroll to the bottom of the page when finished entering translations.
-Enter a descriptive title and summary of changes for the edits and leave
-:guilabel:`Create a new branch` set. Click :guilabel:`Commit changes` to
-submit the translations to the FreeNAS :sup:`®` project.
+Enter a descriptive title and summary of changes for the edits and set
+:guilabel:`Create a new branch`. Click :guilabel:`Propose file change`
+to submit the translations to the FreeNAS :sup:`®` project.
 
 
 Download and translate offline
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 `Install Git
 <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>`__.
 There are numerous examples in these instructions of using
 :command:`git`, but full documentation for :command:`git` is
 `available online <https://git-scm.com/doc>`__.
-
 
 Open a Command Line Interface (CLI). Navigate to or create a suitable
 location to store the local copy of the :literal:`webui` repository.
@@ -163,7 +166,7 @@ Open a web browser and navigate to the
 `freenas/webui <https://github.com/freenas/webui>`__ repository. GitHub
 automatically detects when a new branch is pushed to the repository and
 displays a message with an option to :guilabel:`Compare & pull request`.
-Click this, then review the changes and click
+Click this, review the changes, and click
 :guilabel:`Create pull request`.
 
 Translation pull requests

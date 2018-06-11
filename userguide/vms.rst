@@ -68,9 +68,10 @@ VM configuration options are described in
 :numref:`Table %s <vms_add_opts_tab>`.
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.08\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+                    |>{\RaggedRight}p{\dimexpr 0.60\linewidth-2\tabcolsep}|
 
 .. _vms_add_opts_tab:
 
@@ -467,7 +468,7 @@ inside containers. A container provides a complete filesystem,
 runtime, system tools, and system libraries, so applications always
 see the same environment.
 
-`Rancher <http://rancher.com/>`__
+`Rancher <https://rancher.com/>`__
 is a GUI tool for managing Docker containers.
 
 %brand% runs the Rancher GUI as a separate VM.
@@ -513,9 +514,10 @@ Docker VM configuration options are described in
 :numref:`Table %s <vms_add_docker_opts_tab>`.
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.08\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+                    |>{\RaggedRight}p{\dimexpr 0.60\linewidth-2\tabcolsep}|
 
 .. _vms_add_docker_opts_tab:
 

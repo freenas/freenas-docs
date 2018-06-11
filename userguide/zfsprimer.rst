@@ -35,7 +35,7 @@ successfully. ZFS has direct access to disks and bundles multiple read
 and write requests into transactions. Most filesystems cannot do this,
 as they only have access to disk blocks. A transaction either
 completes or fails, meaning there will never be a
-`write-hole <https://blogs.oracle.com/bonwick/entry/raid_z>`__
+`write-hole <https://blogs.oracle.com/bonwick/raid-z>`__
 and a filesystem checker utility is not necessary. Because of the
 transactional design, as additional storage capacity is added, it
 becomes immediately available for writes. To rebalance the data, one
@@ -119,12 +119,9 @@ configuration changes. This way, the system can be rebooted into a
 snapshot of the system that did not include the new configuration
 changes.
 
-**ZFS provides a write cache** in RAM as well as a ZFS Intent Log
-(`ZIL
-<https://blogs.oracle.com/realneel/entry/the_zfs_intent_log>`__).
-The ZIL is a storage area that
-`temporarily holds *synchronous* writes until they are written to the
-ZFS pool
+**ZFS provides a write cache** in RAM as well as a ZFS Intent Log (ZIL).
+The ZIL is a storage area that `temporarily holds *synchronous* writes
+until they are written to the ZFS pool
 <https://pthree.org/2013/04/19/zfs-administration-appendix-a-visualizing-the-zfs-intent-log/>`__.
 Adding a fast (low-latency), power-protected SSD as a SLOG
 (*Separate Log*) device permits much higher performance. This is a
@@ -166,11 +163,11 @@ value of *-* means the ZFS pool is version 5000 (also known as
 
 **ZFS provides a read cache** in RAM, known as the ARC, which reduces
 read latency. %brand% adds ARC stats to
-`top(1) <http://www.freebsd.org/cgi/man.cgi?query=top>`__
+`top(1) <https://www.freebsd.org/cgi/man.cgi?query=top>`__
 and includes the :command:`arc_summary.py` and :command:`arcstat.py`
 tools for monitoring the efficiency of the ARC. If an SSD is dedicated
 as a cache device, it is known as an
-`L2ARC <https://blogs.oracle.com/brendan/entry/test>`__.
+`L2ARC <http://www.brendangregg.com/blog/2008-07-22/zfs-l2arc.html>`__.
 Additional read data is cached here, which can increase random read
 performance. L2ARC does *not* reduce the need for sufficient RAM. In
 fact, L2ARC needs RAM to function. If there is not enough RAM for a
@@ -234,7 +231,7 @@ the goal is to maximize disk space or performance:
   for %brand% 9.2.1 and higher, this is no longer true. See
   `ZFS RAIDZ stripe width, or: How I Learned to Stop Worrying and Love
   RAIDZ
-  <http://blog.delphix.com/matt/2014/06/06/zfs-stripe-width/>`__
+  <https://www.delphix.com/blog/delphix-engineering/zfs-raidz-stripe-width-or-how-i-learned-stop-worrying-and-love-raidz>`__
   for details.
 
 These resources can also help determine the RAID configuration best
@@ -244,7 +241,7 @@ suited to your storage needs:
   <https://forums.freenas.org/index.php?threads/getting-the-most-out-of-zfs-pools.16/>`__
 
 * `A Closer Look at ZFS, Vdevs and Performance
-  <http://constantin.glez.de/blog/2010/06/closer-look-zfs-vdevs-and-performance>`__
+  <https://constantin.glez.de/2010/06/04/a-closer-look-zfs-vdevs-and-performance/>`__
 
 .. warning:: RAID AND DISK REDUNDANCY ARE NOT A SUBSTITUTE FOR A
    RELIABLE BACKUP STRATEGY. BAD THINGS HAPPEN AND A GOOD BACKUP
@@ -291,13 +288,13 @@ provides an excellent starting point to learn more about its features.
 These resources are also useful for reference:
 
 * `FreeBSD ZFS Tuning Guide
-  <https://wiki.FreeBSD.org/ZFSTuningGuide>`__
+  <https://wiki.freebsd.org/ZFSTuningGuide>`__
 
 * `ZFS Administration Guide
-  <http://docs.oracle.com/cd/E19253-01/819-5461/index.html>`__
+  <https://docs.oracle.com/cd/E19253-01/819-5461/index.html>`__
 
 * `Becoming a ZFS Ninja (video)
-  <https://blogs.oracle.com/video/entry/becoming_a_zfs_ninja>`__
+  <https://www.youtube.com/watch?v=6_K55Ira1Cs>`__
 
 * `Slideshow explaining VDev, zpool, ZIL and L2ARC and other
   newbie mistakes!

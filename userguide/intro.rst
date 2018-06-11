@@ -10,7 +10,7 @@ system.
 Version |release|
 
 Copyright © 2011-2018
-`iXsystems <https://www.ixsystems.com/>`_
+`iXsystems <https://www.ixsystems.com/>`__
 
 
 .. raw:: latex
@@ -101,55 +101,55 @@ These major features are new in this version:
   the login screen.
 
 * Beginning with this release, the screenshots that appear in the
-  `published version of the Guide <http://doc.freenas.org/11/freenas.html>`_
+  `published version of the Guide <http://doc.freenas.org/11/freenas.html>`__
   and in the :guilabel:`Guide` icon within the new UI are for the new UI.
-  However, users who click on the :guilabel:`Guide` icon while logged into
-  the classic UI will continue to see screenshots for the old UI. The
-  availability of both versions of the Guide is to assist users as they
-  become familiar with the new UI during the transition period before the
-  classic UI is deprecated in a future release.
+  However, users who click on the :guilabel:`Guide` icon while logged
+  into the classic UI will continue to see screenshots for the old UI.
+  The availability of both versions of the Guide is to assist users as
+  they become familiar with the new UI during the transition period
+  before the classic UI is deprecated in a future release.
 
-* The rewrite from the old API to the new middlewared continues. Once the
-  rewrite is complete, `api.freenas.org <http://api.freenas.org/>`_ will
-  be deprecated and replaced by the new API documentation. In the mean
-  time, to see the API documentation for the new middleware, log into the
-  new UI, click on the URL for the FreeNAS system in your browser's
-  location bar, and add :guilabel:`:api/docs` to the end of that URL.
+* The rewrite from the old API to the new middlewared continues. Once
+  the rewrite is complete, `api.freenas.org <http://api.freenas.org/>`__
+  will be deprecated and replaced by the new API documentation. In the
+  mean time, to see the API documentation for the new middleware, log
+  into the new UI, click on the URL for the FreeNAS system in your
+  browser's location bar, and add :guilabel:`:api/docs` to the end of
+  that URL.
 
-* The boot loader has changed from GRUB to the native FreeBSD boot loader.
-  This should resolve several issues that some users experienced with
-  GRUB. GRUB was introduced as a temporary solution until the FreeBSD
-  boot loader had full support for boot environments, which it now has.
+* The boot loader has changed from GRUB to the native FreeBSD boot
+  loader. This should resolve several issues that some users experienced
+  with GRUB. GRUB was introduced as a temporary solution until the
+  FreeBSD boot loader had full support for boot environments, which it
+  now has.
 
 * The :ref:`Plugins` and :ref:`Jails` backend has switched from
   :command:`warden` to :command:`iocage` and :command:`warden` will no
   longer receive bug fixes. The new UI will automatically use
   :command:`iocage` to create and manage :ref:`Plugins` and :ref:`Jails`.
   Users are encouraged to recreate any existing :ref:`Plugins` and
-  :ref:`Jails` using the new UI to ensure that they are running the latest
-  supported application versions.
+  :ref:`Jails` using the new UI to ensure that they are running the
+  latest supported application versions.
 
-* :ref:`VMs` are more crash-resistant. When a guest is started, the amount
-  of available memory is checked and an initialization error will occur
-  if there is insufficient system resources. When a guest is stopped, its
-  resources are returned to the system. In addition, the UEFI boot menu
-  fix allows Linux kernels 4.15 and higher to boot properly.
+* :ref:`VMs` are more crash-resistant. When a guest is started, the
+  amount of available memory is checked and an initialization error will
+  occur if there is insufficient system resources. When a guest is
+  stopped, its resources are returned to the system. In addition, the
+  UEFI boot menu fix allows Linux kernels 4.15 and higher to boot
+  properly.
 
 * :ref:`Cloud Sync Tasks` provides configuration options to encrypt data
   before it is transmitted and to keep it in the encrypted format while
   stored on the cloud. The filenames can also be encrypted.
 
-* Preliminary support has been added for Self-Encrypting Drives (SEDs)
-  using the TCG OPAL and ATA Security standards. The
-  :guilabel:`ATA Security User` and :guilabel:`SED Password` fields
-  have been added to :menuselection:`System --> Advanced` and the
-  `sedutil-cli <https://www.mankier.com/8/sedutil-cli>`_ command can be
-  used for additional SED management.
+* Preliminary support has been added for :ref:`Self-Encrypting Drives`
+  (SEDs).
+
 
 The following software has been added or updated:
 
-* The base operating system has been updated to FreeBSD 11.1-STABLE as of
-  April 19, 2018.
+* The base operating system has been updated to FreeBSD 11.1-STABLE as
+  of April 19, 2018.
 
 * OpenZFS is up-to-date with Illumos and slightly ahead due to support
   for sorted scrubs which were ported from ZFS on Linux. Notable
@@ -159,30 +159,31 @@ The following software has been added or updated:
   batching. Note that many of these improvements need further testing so
   have not yet been integrated into the UI.
 
-* `ncdu <https://dev.yorhel.nl/ncdu>`_ has been added to the base system.
-  This CLI utility can be used to analyze disk usage from the console or
-  an SSH session.
+* `ncdu <https://dev.yorhel.nl/ncdu>`__ has been added to the base
+  system. This CLI utility can be used to analyze disk usage from the
+  console or an SSH session.
 
 * rsync has been updated to
-  `version 3.1.3 <https://download.samba.org/pub/rsync/src/rsync-3.1.3-NEWS>`_.
+  `version 3.1.3 <https://download.samba.org/pub/rsync/src/rsync-3.1.3-NEWS>`__.
 
 * Minio has been updated to
-  `version 2018-04-04T05 <https://github.com/minio/minio/releases/tag/RELEASE.2018-04-04T05-20-54Z>`_.
+  `version 2018-04-04T05 <https://github.com/minio/minio/releases/tag/RELEASE.2018-04-04T05-20-54Z>`__.
 
 * The updated version of iocage provides many bug fixes and improved
   IPv6 support.
 
-* `zsh <http://www.zsh.org/>`_ is the root shell for new installations.
+* `zsh <http://www.zsh.org/>`__ is the root shell for new installations.
   Upgrades will continue to use the :command:`csh` shell as the default
   root shell.
 
-* `xattr <https://github.com/xattr/xattr>`_ has been added to the base
+* `xattr <https://github.com/xattr/xattr>`__ has been added to the base
   system and can be used to modify file extended attributes from the
   command line. Type :command:`xattr -h` to view the available options.
 
-* `convmv <https://www.j3e.de/linux/convmv/man/>`_ has been added to the
-  base system and can be used to convert the encoding of filenames from
-  the command line. Type :command:`convmv` to view the available options.
+* `convmv <https://www.j3e.de/linux/convmv/man/>`__ has been added to
+  the base system and can be used to convert the encoding of filenames
+  from the command line. Type :command:`convmv` to view the available
+  options.
 
 * These switches have been added to :ref:`freenas-debug`:
   :command:`-M` for dumping SATADOM info and :command:`-Z` to delete old
@@ -191,20 +192,26 @@ The following software has been added or updated:
 
 The following screen options have changed:
 
+* The :guilabel:`ATA Security User` and :guilabel:`SED Password` fields
+  have been added to :menuselection:`System --> Advanced`.
+
 * The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
-  :guilabel:`Encryption password`, and :guilabel:`Encryption salt` fields
-  have been added to
-  :menuselection:`Tasks --> Cloud Sync Tasks --> Add Cloud Sync`. 
+  :guilabel:`Encryption password`, and :guilabel:`Encryption salt`
+  fields have been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> Add Cloud Sync`.
 
 * The :guilabel:`Exec` field has been added to
   :menuselection:`Storage --> Volumes --> Create Dataset --> Advanced Mode`.
+
+* The :guilabel:`Password for SED` column has been added to
+  :menuselection:`Storage --> Volumes --> View Disks`.
 
 * The :guilabel:`Enable home directories`, :guilabel:`Home directories`,
   :guilabel:`Home share name`, and :guilabel:`Home Share Time Machine`
   fields have been removed from :menuselection:`Services --> AFP` and
   the :guilabel:`Time Machine Quota` field has been removed from
-  :menuselection:`Sharing --> Apple (AFP) Shares`. These fields have been
-  replaced by
+  :menuselection:`Sharing --> Apple (AFP) Shares`. These fields have
+  been replaced by
   :menuselection:`Sharing --> Apple (AFP) Shares --> Use as home share`.
 
 * The :guilabel:`Umask` field in :menuselection:`Services --> TFTP` has
@@ -230,10 +237,10 @@ Hardware Recommendations
 %brand% |release| is based on FreeBSD 11.1 and supports the same
 hardware found in the
 `FreeBSD Hardware Compatibility List
-<http://www.freebsd.org/releases/11.1R/hardware.html>`__.
+<https://www.freebsd.org/releases/11.1R/hardware.html>`__.
 Supported processors are listed in section
 `2.1 amd64
-<https://www.freebsd.org/releases/11.1R/hardware.html#proc>`_.
+<https://www.freebsd.org/releases/11.1R/hardware.html#proc>`__.
 %brand% is only available for 64-bit processors. This architecture is
 called *amd64* by AMD and *Intel 64* by Intel.
 
@@ -244,7 +251,7 @@ called *amd64* by AMD and *Intel 64* by Intel.
 Actual hardware requirements vary depending on the usage of the
 %brand% system. This section provides some starter guidelines. The
 `FreeNAS® Hardware Forum
-<https://forums.freenas.org/index.php?forums/hardware.18/>`_
+<https://forums.freenas.org/index.php?forums/hardware.18/>`__
 has performance tips from %brand% users and is a place to post
 questions regarding the hardware best suited to meet specific
 requirements.
@@ -252,10 +259,10 @@ requirements.
 <https://forums.freenas.org/index.php?resources/hardware-recommendations-guide.12/>`__
 gives detailed recommendations for system components, with the
 `FreeNAS® Quick Hardware Guide
-<https://forums.freenas.org/index.php?resources/freenas-quick-hardware-guide.7>`__
+<https://forums.freenas.org/index.php?resources/freenas%C2%AE-quick-hardware-guide.7/>`__
 providing short lists of components for various configurations.
 `Building, Burn-In, and Testing your FreeNAS® system
-<https://forums.freenas.org/index.php?threads/building-burn-in-and-testing-your-freenas-system.17750/>`_
+<https://forums.freenas.org/index.php?threads/building-burn-in-and-testing-your-freenas-system.17750/>`__
 has detailed instructions on testing new hardware.
 
 
@@ -313,7 +320,7 @@ thus providing consistency for the checksumming and parity
 calculations performed by ZFS. If your data is important, use ECC RAM.
 This
 `Case Study
-<http://research.cs.wisc.edu/adsl/Publications/zfs-corruption-fast10.pdf>`_
+<http://research.cs.wisc.edu/adsl/Publications/zfs-corruption-fast10.pdf>`__
 describes the risks associated with memory corruption.
 
 Do not use %brand% to store data without at least 8 GB of RAM. Many
@@ -387,7 +394,7 @@ Storage Disks and Controllers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The `Disk section
-<http://www.freebsd.org/releases/11.1R/hardware.html#DISK>`_
+<https://www.freebsd.org/releases/11.1R/hardware.html#disk>`__
 of the FreeBSD Hardware List lists the supported disk controllers. In
 addition, support for 3ware 6 Gbps RAID controllers has been added
 along with the CLI utility :command:`tw_cli` for managing 3ware RAID
@@ -427,7 +434,7 @@ Suggestions for testing disks before adding them to a RAID array can
 be found in this
 `forum post
 <https://forums.freenas.org/index.php?threads/checking-new-hdds-in-raid.12082/#post-55936>`__.
-Additionally, `badblocks <https://linux.die.net/man/8/badblocks>`_ is
+Additionally, `badblocks <https://linux.die.net/man/8/badblocks>`__ is
 installed with %brand% for testing disks.
 
 If the budget allows optimization of the disk subsystem, consider the
@@ -441,7 +448,7 @@ read/write needs and RAID requirements:
 
 For ZFS,
 `Disk Space Requirements for ZFS Storage Pools
-<http://docs.oracle.com/cd/E19253-01/819-5461/6n7ht6r12/index.html>`_
+<https://docs.oracle.com/cd/E19253-01/819-5461/6n7ht6r12/index.html>`__
 recommends a minimum of 16 GB of disk space. Due to the way that ZFS
 creates swap,
 **it is not possible to format less than 3 GB of space with ZFS**.
@@ -451,7 +458,7 @@ drive, 2 GB will be reserved for swap.
 
 Users new to ZFS who are purchasing hardware should read through
 `ZFS Storage Pools Recommendations
-<https://web.archive.org/web/20161028084224/http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide#ZFS_Storage_Pools_Recommendations>`_
+<https://web.archive.org/web/20161028084224/http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide#ZFS_Storage_Pools_Recommendations>`__
 first.
 
 ZFS *vdevs*, groups of disks that act like a single device, can be
@@ -464,7 +471,7 @@ performance.
 
 The
 `ZFS Drive Size and Cost Comparison spreadsheet
-<https://forums.freenas.org/index.php?threads/zfs-drive-size-and-cost-comparison-spreadsheet.38092/>`_
+<https://forums.freenas.org/index.php?threads/zfs-drive-size-and-cost-comparison-spreadsheet.38092/>`__
 is available to compare usable space provided by different quantities
 and sizes of disks.
 
@@ -475,7 +482,7 @@ Network Interfaces
 ~~~~~~~~~~~~~~~~~~
 
 The `Ethernet section
-<http://www.freebsd.org/releases/11.1R/hardware.html#ethernet>`_
+<https://www.freebsd.org/releases/11.1R/hardware.html#ethernet>`__
 of the FreeBSD Hardware Notes indicates which interfaces are supported
 by each driver. While many interfaces are supported, %brand% users
 have seen the best performance from Intel and Chelsio interfaces, so
@@ -504,12 +511,12 @@ for more information.
 Both hardware and the type of shares can affect network performance.
 On the same hardware, SMB is slower than FTP or NFS because Samba is
 `single-threaded
-<https://www.samba.org/samba/docs/man/Samba-Developers-Guide/architecture.html>`__.
+<https://www.samba.org/samba/docs/old/Samba3-Developers-Guide/architecture.html>`__.
 So a fast CPU can help with SMB performance.
 
 Wake on LAN (WOL) support depends on the FreeBSD driver for the
 interface. If the driver supports WOL, it can be enabled using
-`ifconfig(8) <http://www.freebsd.org/cgi/man.cgi?query=ifconfig>`_. To
+`ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__. To
 determine if WOL is supported on a particular interface, use the
 interface name with the following command. In this example, the
 capabilities line indicates that WOL is supported for the *re0*

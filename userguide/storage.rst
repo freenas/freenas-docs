@@ -15,8 +15,8 @@ these options:
 
 * :ref:`Disks`: view and manage disk options.
 
-* :ref:`Importing a Disk`: import a **single** disk that has been formatted
-  with the UFS, NTFS, MSDOS, or EXT2 filesystem.
+* :ref:`Importing a Disk`: import a **single** disk that has been
+  formatted with the UFS, NTFS, MSDOS, or EXT2 filesystem.
 
 
 #ifdef truenas
@@ -50,9 +50,9 @@ Creating Pools
 ~~~~~~~~~~~~~~
 
 Before creating a pool, determine the level of required redundancy, how
-many disks will be added, and if any data exists on those disks. Creating
-a pool overwrites disk data, so save any required data to different
-media before adding disks to a pool.
+many disks will be added, and if any data exists on those disks.
+Creating a pool overwrites disk data, so save any required data to
+different media before adding disks to a pool.
 
 To create a pool, click the :menuselection:`menu icon --> Create Pool`.
 This opens a screen similar to the example shown in
@@ -65,11 +65,12 @@ This opens a screen similar to the example shown in
 
    Creating a Pool
 
+
 Click the :guilabel:`Name *` field and input a name for the pool. Ensure
 that the chosen name conforms to these
-`naming conventions <http://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`__.
-It is recommended to choose a name that will stick out in the logs rather
-than a generic name like :file:`data` or :file:`freenas`.
+`naming conventions <https://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`__.
+It is recommended to choose a name that will stick out in the logs
+rather than a generic name like :file:`data` or :file:`freenas`.
 
 If the underlying disks need to be encrypted as a protection against
 physical theft, check the :guilabel:`Encryption` box. A pop-up message
@@ -79,20 +80,22 @@ the key, the data on the disks is inaccessible. Check the
 :guilabel:`Confirm` box then click :guilabel:`Ok`.
 
 .. warning:: Refer to the warnings in :ref:`Managing Encrypted Pools`
-   before enabling encryption! Be aware that this form of encryption will
-   be replaced by OpenZFS native encryption in a future version. Pools
-   created with the current encryption mechanism will need to be backed
-   up and destroyed in order to be recreated with native encryption when
-   it becomes available.
+   before enabling encryption! Be aware that this form of encryption
+   will be replaced by OpenZFS native encryption in a future version.
+   Pools created with the current encryption mechanism will need to be
+   backed up and destroyed in order to be recreated with native
+   encryption when it becomes available.
 
-In the :guilabel:`Available Disks` section, check the boxes for the disks
-to add to the pool. Click :guilabel:`Filter disks by name` or
+
+In the :guilabel:`Available Disks` section, check the boxes for the
+disks to add to the pool. Click :guilabel:`Filter disks by name` or
 :guilabel:`Filter disks by capacity` to change the order of displayed
 disks.
 
 .. note:: The usable space of each disk in a pool is limited to the
    size of the smallest disk in the pool. Because of this, creating
    pools with disks of the same size is recommended.
+
 
 After selecting the desired disks, click the right arrow to add them to
 the :guilabel:`Data VDevs` section. Any disks that appear in
@@ -134,40 +137,43 @@ layouts are supported:
    mirror to increase redundancy, but that is not possible with RAIDZ
    arrays.
 
+
 Once the desired layout is configured, click :guilabel:`Save`. A pop-up
 warning servers as a reminder that all disk contents will be erased.
 Check the :guilabel:`Confirm` box then click :guilabel:`Ok` to create
-the pool. 
+the pool.
 
-.. note:: To instead preserve existing data, click the :guilabel:`Cancel`
-   button and refer to :ref:`Importing a Disk` and :ref:`Importing a Pool`
-   to see if the existing format is supported. If so, perform that action
-   instead. If the current storage format is not supported, it is
-   necessary to back up the data to external media, create the pool,
-   then restore the data to the new pool.
+.. note:: To instead preserve existing data, click the
+   :guilabel:`Cancel` button and refer to :ref:`Importing a Disk` and
+   :ref:`Importing a Pool` to see if the existing format is supported.
+   If so, perform that action instead. If the current storage format is
+   not supported, it is necessary to back up the data to external media,
+   create the pool, then restore the data to the new pool.
+
 
 Depending on the size and number of disks, the type of controller, and
 whether encryption is selected, creating the pool may take some time.
-If the :guilabel:`Encryption` checkbox was selected, a popup message will
-provide a link to :guilabel:`Download Recovery Key`. Click the link and
-save the key to a safe location. When finished, click :guilabel:`Done`.
+If the :guilabel:`Encryption` checkbox was selected, a popup message
+will provide a link to :guilabel:`Download Recovery Key`. Click the link
+and save the key to a safe location. When finished, click
+:guilabel:`Done`.
 
-Once the pool is created, the screen refreshes and the new
-pool is listed in :menuselection:`Storage --> Pools`.
+Once the pool is created, the screen refreshes and the new pool is
+listed in :menuselection:`Storage --> Pools`.
 
 In the example shown in :numref:`Figure %s <zfs_vol_fig>`, a pool has
 been created named *pool1*. Its description indicates that it is HEALTHY
 and its :guilabel:`Used` and :guilabel:`Free` entries reflect the total
-size of the pool, including disk parity. 
+size of the pool, including disk parity.
 
 Click the down arrow to see more details about the pool. This second
 entry has the same name and represents the implicit or root dataset. Its
-:guilabel:`Used` and :guilabel:`Available` entries indicate the amount of
-disk space available for storage, after disk parity. It also indicates the
-type of :guilabel:`Compression`, the :guilabel:`Compression Ratio`,
-whether it is mounted as read-only, whether :guilabel:`Deduplication` has
-been enabled, its mountpoint path, and any :guilabel:`Comments` entered
-for the pool.
+:guilabel:`Used` and :guilabel:`Available` entries indicate the amount
+of disk space available for storage, after disk parity. It also
+indicates the type of :guilabel:`Compression`, the
+:guilabel:`Compression Ratio`, whether it is mounted as read-only,
+whether :guilabel:`Deduplication` has been enabled, its mountpoint path,
+and any :guilabel:`Comments` entered for the pool.
 
 #ifdef comment
 **Upgrade:** used to upgrade the pool to the latest ZFS features, as
@@ -194,9 +200,11 @@ Managing Encrypted Pools
    proper permissions are set on shares if sensitive data is stored on
    the system.
 
-%brand% supports `GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`_
-full disk encryption for ZFS pools. It is important to understand the
-details before creating a pool with encryption:
+
+%brand% supports `GELI
+<https://www.freebsd.org/cgi/man.cgi?query=geli>`__ full disk encryption
+for ZFS pools. It is important to understand the details before creating
+a pool with encryption:
 
 * %brand% encryption is different from the encryption used in
   Oracle's proprietary, non-open source version of ZFS.
@@ -231,14 +239,15 @@ details before creating a pool with encryption:
   .. warning:: Data stored in Cache (L2ARC) drives is not encrypted.
      Do not use Cache (L2ARC) with encrypted pools.
 
+
 * At present, there is no automated method to encrypt an existing,
   unencrypted pool. Instead, the data must be backed up, the
   existing pool destroyed, a new encrypted pool created, and the
   backup restored to the new pool.
 
 * Hybrid pools are not supported. Added vdevs must match the existing
-  encryption scheme. :ref:`Extending a Pool` automatically encrypts a new
-  vdev being added to an existing encrypted pool.
+  encryption scheme. :ref:`Extending a Pool` automatically encrypts a
+  new vdev being added to an existing encrypted pool.
 
 Encryption performance depends upon the number of disks encrypted. The
 more drives in an encrypted pool, the more encryption and decryption
@@ -247,11 +256,10 @@ overhead, and the greater the impact on performance.
 performance penalties**.
 If encryption is desired, please benchmark such pools before using
 them in production.
-
-
 #ifdef freenas
+
 .. note:: Processors with support for the
-   `AES-NI <https://en.wikipedia.org/wiki/AES-NI#Supporting_CPUs>`__
+   `AES-NI <https://en.wikipedia.org/wiki/AES_instruction_set>`__
    instruction set are strongly recommended. These processors can
    handle encryption of a small number of disks with negligible
    performance impact. They also retain performance better as the
@@ -260,6 +268,7 @@ them in production.
    encrypted disk. This `forum post
    <https://forums.freenas.org/index.php?threads/encryption-performance-benchmarks.12157/>`__
    compares the performance of various processors.
+
 #endif freenas
 
 %brand% generates and stores a randomized *encryption key* whenever
@@ -296,7 +305,7 @@ Encryption applies to a pool, not individual users. When a pool is
 unlocked, data is accessible to all users with permissions to access
 it.
 
-.. note:: `GELI <http://www.freebsd.org/cgi/man.cgi?query=geli>`__
+.. note:: `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
    uses *two* randomized encryption keys for each disk. The first has
    been discussed here. The second, the disk's "master key", is
    encrypted and stored in the on-disk GELI metadata. Loss of a disk
@@ -306,8 +315,9 @@ it.
    to separately back up disk master keys, it is usually not necessary
    or useful.
 
-To manage the passphrase and keys on an encrypted pool, select the pool's
-name in :menuselection:`Storage --> Pools`, click the
+
+To manage the passphrase and keys on an encrypted pool, select the
+pool's name in :menuselection:`Storage --> Pools`, click the
 :guilabel:`Encryption Operations` (lock) icon, and select one of the
 following operations:
 
@@ -319,9 +329,8 @@ prompt to confirm. Once the pool is locked, its status will change to
 option will change to :guilabel:`Un-Lock`.
 
 To unlock the pool, select :guilabel:`Un-Lock`, enter the passphrase
-*or* usie the
-:guilabel:`Browse` button to load the recovery key. If both a
-passphrase and a recovery key are entered, only the passphrase is
+*or* use the :guilabel:`Browse` button to load the recovery key. If both
+a passphrase and a recovery key are entered, only the passphrase is
 used.  By default, the services listed will restart when the pool is
 unlocked. This allows them to see the new pool and share or access
 data on it. Individual services can be prevented from restarting by
@@ -333,8 +342,8 @@ GELI encryption key.
 
 #ifdef comment
 A red warning is a reminder to
-:guilabel:`Remember to add a new recovery key as this action
-invalidates the previous recovery key`. 
+:guilabel:`Remember to add a new recovery key` as this action
+invalidates the previous recovery key`.
 #endif comment
 
 Unlike a password, a passphrase can contain spaces and is typically a
@@ -832,7 +841,7 @@ between 3-5 GB of RAM per terabyte of deduped data, and if the system
 does not have the needed RAM, it will panic. The only solution is to add
 more RAM or recreate the pool. **Think carefully before enabling dedup!**
 This `article
-<http://constantin.glez.de/blog/2011/07/zfs-dedupe-or-not-dedupe>`_
+<https://constantin.glez.de/2011/07/27/zfs-to-dedupe-or-not-dedupe/>`__
 provides a good description of the value versus cost considerations
 for deduplication.
 
@@ -1100,7 +1109,7 @@ View Multipaths
 ~~~~~~~~~~~~~~~
 
 %brand% uses
-`gmultipath(8) <http://www.freebsd.org/cgi/man.cgi?query=gmultipath>`_
+`gmultipath(8) <https://www.freebsd.org/cgi/man.cgi?query=gmultipath>`_
 to provide
 `multipath I/O <https://en.wikipedia.org/wiki/Multipath_I/O>`_
 support on systems containing hardware that is capable of multipath.
@@ -1440,6 +1449,9 @@ lists the configurable options.
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | S.M.A.R.T. extra options           | string         | Input additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`_  options.      |
    |                                    |                |                                                                                                                          |
+   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Password for SED                   | string         | input and confirm the password which will be used for this device instead of the global SED password; refer to           |
+   |                                    |                | :ref:`Self-Encrypting Drives` for more information                                                                       |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
 

@@ -5,13 +5,13 @@ Support Resources
 
 %brand% has a large installation base and an active user community.
 This means that many usage questions have already been answered and
-the details are available on the Internet. If you get stuck using
-%brand%, spend a few moments searching the Internet for the word
-*FreeNAS* with some keywords that describe the error message or the
-function you are trying to implement.
+the details are available on the Internet. If an issue occurs while
+using %brand%, it can be helpful to spend a few
+minutes searching the Internet for the word *FreeNAS* with some
+keywords that describe the error message or fuction that is being
+implemented.
 
-The rest of this section discusses these resources which are
-available to %brand% users:
+The section discusses resources available to %brand% users:
 
 * :ref:`Website and Social Media`
 
@@ -41,7 +41,7 @@ main page.
 
 Users are welcome to network on the %brand% social media sites:
 
-* `LinkedIn <http://www.linkedin.com/groups/FreeNAS8-3903140>`__
+* `LinkedIn <https://www.linkedin.com/groups/3903140/profile>`__
 
 * `Google+ <https://plus.google.com/110373675402281849911/posts>`__
 
@@ -51,7 +51,7 @@ Users are welcome to network on the %brand% social media sites:
 * `Facebook FreeNAS Consortium (please request to be added)
   <https://www.facebook.com/groups/1707686686200221>`__
 
-* `Twitter <https://twitter.com/freenasteam>`__
+* `Twitter <https://mobile.twitter.com/freenas>`__
 
 
 .. index:: Forums
@@ -112,7 +112,7 @@ Language-specific categories are available under **International**.
 To join the forums, create an account with the
 :guilabel:`Sign Up Now!` link.
 
-Before asking a question on the forum, check the
+Before asking a question on the forums, check the
 `Resources <https://forums.freenas.org/index.php?resources/>`__
 to see if the information is already there. See the
 `Forum Rules
@@ -126,23 +126,23 @@ questions that will get a response.
 IRC
 ---
 
-To ask a question in real time, you can use the *#freenas* channel on
+To ask a question in real time, use the *#freenas* channel on
 IRC
-`Freenode <http://freenode.net/>`_.
-Depending on the time of day and your time zone, %brand% developers or
+`Freenode <http://freenode.net/>`__.
+Depending on the time of day and the time zone, %brand% developers or
 other users may be available to provide assistance. If no one answers
 right away, remain on the channel, as other users tend to read the
 channel history to answer questions as time permits.
 
 Typically, an IRC `client
-<http://en.wikipedia.org/wiki/Comparison_of_Internet_Relay_Chat_clients>`_
+<https://en.wikipedia.org/wiki/Comparison_of_Internet_Relay_Chat_clients>`__
 is used to access the *#freenas* IRC channel. Alternately, use
-`webchat <http://webchat.freenode.net/?channels=freenas>`_
+`webchat <http://webchat.freenode.net/?channels=freenas>`__
 from a web browser.
 
 To get the most out of the IRC channel, keep these points in mind:
 
-* Do not ask "can anyone help me?". Just ask the question.
+* Do not ask "Can anyone help me?". Just ask the question.
 
 * Do not ask a question and leave. Users who know the answer cannot
   help you if you disappear.
@@ -152,7 +152,7 @@ To get the most out of the IRC channel, keep these points in mind:
   question to be answered.
 
 * Do not post error messages in the channel. Instead, use a pasting
-  service such as `pastebin <http://www.pastebin.com/>`_ and paste the
+  service such as `pastebin <https://pastebin.com/>`__ and paste the
   resulting URL into the IRC discussion.
 
 .. _Videos:
@@ -163,19 +163,19 @@ Videos
 A series of instructional videos are available for %brand%:
 
 * `Install Murmur (Mumble server) on FreeNAS/FreeBSD
-  <https://www.youtube.com/watch?v=aAeZRNfarJc>`_
+  <https://www.youtube.com/watch?v=aAeZRNfarJc>`__
 
 * `FreeNAS® 9.10 - Certificate Authority & SSL Certificates
-  <https://www.youtube.com/watch?v=OT1Le5VQIc0>`_
+  <https://www.youtube.com/watch?v=OT1Le5VQIc0>`__
 
 * `How to Update FreeNAS® 9.10
-  <https://www.youtube.com/watch?v=2nvb90AhgL8>`_
+  <https://www.youtube.com/watch?v=2nvb90AhgL8>`__
 
 * `FreeNAS® 9.10 LAGG & VLAN Overview
-  <https://www.youtube.com/watch?v=wqSH_uQSArQ>`_
+  <https://www.youtube.com/watch?v=wqSH_uQSArQ>`__
 
 * `FreeNAS 9.10 and Samba (SMB) Permissions
-  <https://www.youtube.com/watch?v=RxggaE935PM>`_
+  <https://www.youtube.com/watch?v=RxggaE935PM>`__
 
 * `FreeNAS® 11 - What's New
   <https://www.youtube.com/watch?v=-uJ_7eG88zk>`__
@@ -203,11 +203,11 @@ Training
 --------
 
 iXsystems also offers professional training modules. Each module is
-designed to accelerate your %brand% learning curve and to save you
+designed to accelerate the %brand% learning curve and to save
 hours of learning by trial and error. %brand% training classes are
-1-4 hours in length, topic-specific, and provide the information you
-need to quickly get up to speed in %brand% and ZFS. Refer to the
+1-4 hours in length, topic-specific, and provide the information
+needed to quickly get up to speed in %brand% and ZFS. Refer to the
 `FreeNAS® Training and Certification website
-<http://www.freenas.org/freenas-zfs-training/>`_ for more information
+<http://www.freenas.org/freenas-zfs-training/>`__ for more information
 about the courses, pricing, and availability.
 #endif commented
