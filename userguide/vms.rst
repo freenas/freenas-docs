@@ -52,7 +52,7 @@ output shows the POPCNT feature, this processor can be used with
 Creating VMs
 ------------
 
-Hover over |ui-menu| and click :guilabel:`Add VM` to open the Wizard
+Navigate to :menuselection:`VMs`, and click |ui-add| to open the Wizard
 shown in
 :numref:`Figure %s <vms_add_fig>`:
 
@@ -82,56 +82,63 @@ VM configuration options are described in
    | Screen # | Setting            | Value          | Description                                                                        |
    |          |                    |                |                                                                                    |
    +==========+====================+================+====================================================================================+
-   | 1        | Guest Operating    | drop-down menu | operating system for the VM, either *Windows*, *Linux*, or *FreeBSD*               |
-   |          | System             |                |                                                                                    |
+   | 1        | Guest Operating    | drop-down menu | Choose the VM operating system type. Choices are: *Windows*, *Linux*, or           |
+   |          | System             |                | *FreeBSD*.                                                                         |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 1        | VM Name            | string         | a name to identify the VM                                                          |
+   | 1        | VM Name            | string         | Enter an alphanumeric name to identify the VM.                                     |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 1        | Boot Method        | drop-down menu | *UEFI* for newer operating systems, or *UEFI-CSM* (Compatibility Support Mode) for |
-   |          |                    |                | older operating systems that only understand BIOS booting                          |
+   | 1        | Boot Method        | drop-down menu | Select *UEFI* for newer operating systems, or *UEFI-CSM* for                       |
+   |          |                    |                | (Compatibility Support Mode) older operating systems that only understand          |
+   |          |                    |                | BIOS booting.                                                                      |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 1        | Start on Boot      | checkbox       | Set to start the VM when the system boots.                                         |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 1        | Start on Boot      | checkbox       | when checked, start the VM automatically on boot                                   |
+   | 1        | Enable VNC         | checkbox       | Set to to activate a Virtual Network Computing (VNC) remote connection.            |
+   |          |                    |                | Requires *UEFI* booting.                                                           |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 1        | Enable VNC         | checkbox       | check to activate a Virtual Network Computing (VNC) remote connection for a VM set |
-   |          |                    |                | to *UEFI* booting                                                                  |
+   | 2        | Virtual CPUs       | integer        | Select the number of virtual CPUs to allocate to the VM. The maximum is 16 unless  |
+   |          |                    |                | the host CPU limits the maximum. The VM operating system might also have           |
+   |          |                    |                | operational or licensing restrictions on the number of CPUs.                       |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 2        | Virtual CPUs       | integer        | quantity of virtual CPUs allocated to the VM, up to 16; although these are         |
-   |          |                    |                | virtual and not strictly related to host processor cores, the host CPU might       |
-   |          |                    |                | limit the maximum number; the operating system used in the VM might also have      |
-   |          |                    |                | operational or licensing restrictions on the number of CPUs allowed                |
+   | 2        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in                                                      |
+   |          |                    |                | `mebibytes <https://simple.wikipedia.org/wiki/Mebibyte>`__ for the VM.             |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 2        | Memory Size (MiB)  | integer        | mebibytes of RAM allocated to the VM                                               |
+   | 3        | Disk image         | check option   | Select :guilabel:`Create new disk image` to create a new zvol on an existing       |
+   |          |                    | with custom    | dataset. This is used as a virtual hard drive for the VM. Select                   |
+   |          |                    | fields         | :guilabel:`Use existing disk image` to :guilabel:`Browse` to an existing zvol or   |
+   |          |                    |                | file for the VM.                                                                   |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 3        | Zvol size (GiB)    | integer        | Allocate the amount of storage in                                                  |
+   |          |                    |                | `gibibytes <https://simple.wikipedia.org/wiki/Gibibyte>`__ for the new zvol.       |
+   |          |                    |                | Only appears if :guilabel:`Create new disk image` is selected.                     |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 3        | Select datastore   | drop-down menu | Choose a datastore for the new zvol.                                               |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Disk image         | check option   | choose either :guilabel:`Create new disk image` and define the size and datastore  |
-   |          |                    | with custom    | for the new Zvol or click :guilabel:`Use existing disk image` and                  |
-   |          |                    | fields         | :guilabel:`Browse` to an existing disk with the necessary space                    |
+   | 4        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This       |
+   |          |                    |                | provides compatibility with most operating systems. :guilabel:`VirtIO` provides    |
+   |          |                    |                | better performance when the operating system installed in the VM supports VirtIO   |
+   |          |                    |                | paravirtualized network drivers.                                                   |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | Adapter Type       | drop-down menu | the default emulates an :guilabel:`Intel e82545 (e1000)` Ethernet card for         |
-   |          |                    |                | compatibility with most operating systems; if the operating system installed in    |
-   |          |                    |                | the VM supports VirtIO paravirtualized network drivers, this can be changed to     |
-   |          |                    |                | VirtIO to provide better performace                                                |
+   | 4        | MAC Address        | string         | Enter the desired MAC address to override the auto-generated                       |
+   |          |                    |                | randomized MAC address.                                                            |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | Mac Address        | string         | by default, the VM receives an auto-generated random MAC address; to override the  |
-   |          |                    |                | default with a custom value, enter the desired address into the field              |
+   | 4        | Attach NIC         | drop-down menu | Select the physical interface to associate with the VM.                            |
+   |          |                    |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | Attach NIC         | drop-down menu | can be used to specify which physical interface to associate with the VM if the    |
-   |          |                    |                | system has multiple physical network cards                                         |
-   |          |                    |                |                                                                                    |
-   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | Choose an          | browse button  | click :guilabel:`Browse` to select the path to the installation media              |
+   | 5        | Choose an          | browse button  | :guilabel:`Browse` to the operating system installation media.                     |
    |          | installation media |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | Upload an ISO?     | checkbox and   | set to see options to :guilabel:`Browse` to a location to save the ISO file and    |
-   |          |                    | buttons        | :guilabel:`Upload` the ISO file from the local system                              |
+   | 5        | Upload an ISO?     | checkbox and   | Set to display image upload options.                                               |
+   |          |                    | buttons        |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
 
@@ -146,8 +153,9 @@ change any settings.
 Adding Devices to a VM
 ----------------------
 
-After creating a VM, click :guilabel:`Devices` on the new VM card to
-open the :guilabel:`Devices` page for that VM:
+
+To add a device to a VM, click :guilabel:`Devices` on the new VM card,
+and |ui-add|.
 
 
 .. figure:: images/vms-devices1.png
@@ -155,8 +163,8 @@ open the :guilabel:`Devices` page for that VM:
    VM Devices Page
 
 
-Select the new device to add from the |ui-menu| icon in the upper
-right. These devices are available:
+Select the new device from the :guilabel:`Type` field.
+These devices are available:
 
 * :ref:`CD-ROMs <vms-cd-rom>`
 
@@ -212,9 +220,8 @@ NIC (Network Interfaces)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 :numref:`Figure %s <vms-nic_fig>` shows the fields that appear after
-navigating
-:menuselection:`VMs --> Devices`,
-hovering |ui-menu|, and clicking :guilabel:`Add NIC` for a VM.
+navigating :menuselection:`VMs --> Devices`, clicking |ui-add|,
+and selecting :guilabel:`NIC` as the :guilabel:`Type`.
 
 .. _vms-nic_fig:
 
@@ -230,12 +237,12 @@ the VM supports VirtIO paravirtualized network drivers.
 
 By default, the VM receives an auto-generated random MAC address. To
 override the default with a custom value, enter the desired address
-into the :guilabel:`MAC Address` field. Click
+in :guilabel:`MAC Address`. Click
 :guilabel:`Generate MAC Address` to automatically populate
 :guilabel:`MAC Address` with another randomized MAC address.
 
-If the system has multiple physical network interface cards, the
-:guilabel:`Nic to attach` drop-down menu can be used to specify which
+If the system has multiple physical network interface cards, use the
+:guilabel:`Nic to attach` drop-down menu to specify which
 physical interface to associate with the VM.
 
 
@@ -246,9 +253,8 @@ Disk Devices
 
 :ref:`Zvols <adding zvols>` are typically used as virtual hard drives.
 After :ref:`creating a zvol <adding zvols>`, associate it with the VM
-by navigating
-:menuselection:`VMs --> Devices`,
-hovering |ui-menu|, and clicking :guilabel:`Add Disk` for the VM.
+by navigating :menuselection:`VMs --> Devices`, clicking |ui-add|,
+and selecting :guilabel:`Disk` as the :guilabel:`Type`.
 
 
 .. figure:: images/vms-disk1.png
@@ -264,7 +270,7 @@ performance, but requires the operating system installed in the VM to
 support VirtIO disk devices.
 
 If a specific sector size is required, enter the number of bytes into
-:guilabel:`Disk sectorsize`. The default of *0* leaves the sector size
+:guilabel:`Disk sector size`. The default of *0* leaves the sector size
 unset.
 
 
@@ -280,8 +286,9 @@ image file meant to be copied onto a USB stick.
 
 After obtaining and copying the image file to the %brand% system,
 navigate
-:menuselection:`VMs --> Devices`,
-hover |ui-menu|, and click :guilabel:`Add RawFile`  for the VM.
+:menuselection:`VMs --> Devices`, click |ui-add|,
+and select :guilabel:`Raw File` as the :guilabel:`Type`.
+
 
 
 .. figure:: images/vms-raw-file.png
@@ -311,8 +318,10 @@ Computing) remote connection. A standard
 client can connect to the VM to provide screen output and keyboard and
 mouse input.
 
-:numref:`Figure %s <vms-vnc_fig>` shows the fields that appear when
-:guilabel:`Add VNC` is clicked.
+:numref:`Figure %s <vms-vnc_fig>` shows the fields that appear
+after navigating
+:menuselection:`VMs --> Devices`, clicking |ui-add|,
+and selecting :guilabel:`VNC` as the :guilabel:`Type`.
 
 
 .. _vms-vnc_fig:
@@ -324,11 +333,11 @@ mouse input.
 The :guilabel:`Port` can be set to *0*, left empty for %brand% to assign
 a port when the VM is started, or set to a fixed, preferred port number.
 
-Set :guilabel:`Wait to boot` to indicate that the VNC client should wait
+Set :guilabel:`Wait to boot` to force the VNC client to wait
 until the VM has booted before attempting the connection.
 
-The :guilabel:`Resolution` drop-down menu can be used to
-modify the default screen resolution used by the VNC session.
+Use the :guilabel:`Resolution` drop-down menu to
+choose the default screen resolution used by the VNC session.
 
 Select the IP address for VNC to listen on with the
 :guilabel:`Bind` drop-down menu.
@@ -391,8 +400,7 @@ Select
 :menuselection:`VMs`
 to see cards of installed VMs. There are options to :guilabel:`Connect`,
 view :guilabel:`Devices`, and :guilabel:`Edit` the VM across the bottom
-of the card. The top of the card has the :guilabel:`Power` and
-|ui-options| buttons:
+of the card.
 
 
 .. figure:: images/vms-control1.png
@@ -401,8 +409,8 @@ of the card. The top of the card has the :guilabel:`Power` and
 
 
 The name, description, running state, Com Port (if present), and other
-configuration values are shown. Click |ui-options| for power and
-:guilabel:`Delete` options.
+configuration values are shown on the card. Click |ui-options| for the
+:guilabel:`Start`, power, and :guilabel:`Delete` options.
 
 
 .. tip:: The :guilabel:`VMs` page view can switch between the
@@ -445,8 +453,9 @@ When a VM is already running, these buttons are available:
 Deleting VMs
 ------------
 
-When a VM is no longer needed, it can be deleted by clicking
-|ui-options| and :guilabel:`Delete`. A dialog asks for confirmation.
+A VM is deleted by clicking |ui-options| on the desired VM card,
+then :guilabel:`Delete`. A dialog will prompt for
+confirmation.
 
 .. tip:: :ref:`Zvols <Adding Zvols>` used in
    :ref:`disk devices <vms-disk-device>` and image files used in
@@ -498,9 +507,10 @@ The Docker VM requires 2 GiB of RAM while running.
 Creating Docker VMs
 ~~~~~~~~~~~~~~~~~~~
 
-Hover over |ui-menu| and click :guilabel:`Add DockerVM` to open the
-Wizard shown in
-:numref:`Figure %s <vms_add_docker_fig>`:
+:numref:`Figure %s <vms_add_docker_fig>` shows the Wizard that appears
+after navigating :menuselection:`VMs --> Devices`, clicking |ui-add|,
+and selecting :guilabel:`Docker Host` as the
+:guilabel:`Virtual Machine (VM) Wizard type`.
 
 
 .. _vms_add_docker_fig:
@@ -528,45 +538,45 @@ Docker VM configuration options are described in
    | Screen # | Setting            | Value          | Description                                                                        |
    |          |                    |                |                                                                                    |
    +==========+====================+================+====================================================================================+
-   | 1        | Name of the VM     | string         | enter a descriptive name for the Docker VM                                         |
+   | 1        | Name of the VM     | string         | Enter a descriptive name for the Docker VM.                                        |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 1        | Start on Boot      | checkbox       | check to start this VM when the %brand% system boots                               |
+   | 1        | Start on Boot      | checkbox       | Set to start this VM when the %brand% system boots.                                |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 2        | Virtual CPUs       | integer        | quantity of virtual CPUs allocated to the VM, up to 16; although these are         |
-   |          |                    |                | virtual and not strictly related to host processor cores, the host CPU might       |
-   |          |                    |                | limit the maximum number; the operating system used in the VM might also have      |
-   |          |                    |                | operational or licensing restrictions on the number of CPUs allowed                |
+   | 2        | Virtual CPUs       | integer        | Enter the number of virtual CPUs to allocate to the Docker VM. The maximum is 16   |
+   |          |                    |                | unless the host CPU also limits the maximum.                                       |
+   |          |                    |                | The VM operating system can also have operational or licensing restrictions on     |
+   |          |                    |                | the number of CPUs.                                                                |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 2        | Memory Size (MiB)  | integer        | mebibytes of RAM allocated to the VM                                               |
+   | 2        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in mebibytes for the Docker VM.                         |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Adapter Type       | drop-down menu | the default emulates an Intel E1000 (82545) Ethernet card for compatibility with   |
-   |          |                    |                | most operating systems; if the operating system installed in the VM supports       |
-   |          |                    |                | VirtIO paravirtualized network drivers, this can be changed to VirtIO to provide   |
-   |          |                    |                | better performace                                                                  |
+   | 3        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This       |
+   |          |                    |                | provides compatibility with most operating systems. :guilabel:`VirtIO` provides    |
+   |          |                    |                | better performance when the operating system installed in the VM supports VirtIO   |
+   |          |                    |                | paravirtualized network drivers.                                                   |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Mac Address        | string         | by default, the VM receives an auto-generated random MAC address; to override the  |
-   |          |                    |                | default with a custom value, enter the desired address into the field              |
+   | 3        | MAC Address        | string         | Enter the desired MAC address to override the auto-generated                       |
+   |          |                    |                | randomized MAC address.                                                            |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Attach NIC         | drop-down menu | can be used to specify which physical interface to associate with the VM if the    |
-   |          |                    |                | system has multiple physical network cards                                         |
+   | 3        | Attach NIC         | drop-down menu | Select the physical interface to associate with the VM.                            |
+   |          |                    |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | RAW filename       | string         | provide a filename, this file will be created at the location specified in         |
-   |          |                    |                | :guilabel:`RAW file location`                                                      |
+   | 4        | RAW filename       | string         | Enter a name for the new raw file.                                                 |
+   |          |                    |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | RAW file size      | integer        | type a number of GiB to allocate to the new RAW file                               |
+   | 4        | RAW file size      | integer        | Allocate storage size in gibibytes (GiB) for the new RAW file.                     |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | RAW file location  | browse button  | choose a path to an existing directory to store the new RAW file                   |
+   | 4        | RAW file location  | browse button  | :guilabel:`Browse` to an existing directory to store the new RAW file.             |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | Disk sector size   | integer        | define the disk sectorsize in bytes; entering *0* leaves the sector size unset     |
+   | 4        | Disk sector size   | integer        | Define the disk sectorsize in bytes. Enter *0* to leave the sector size unset.     |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
 
@@ -631,8 +641,8 @@ Docker VM. In this example, :literal:`/dev/nmdm12B` is used.
 Further setup of the Rancher VM is done from the command line. Use an
 SSH client to connect to the %brand% server. Remember that this
 requires the :ref:`SSH` service to be running. Depending on local
-configuration, it might also require changes to the setting of the
-service, like allowing root user login with a password.
+configuration, it might also require changes to service settings,
+like allowing root user login with a password.
 
 At the %brand% console prompt, connect to the Rancher VM with
 `cu <https://www.freebsd.org/cgi/man.cgi?query=cu>`__, replacing
