@@ -899,23 +899,33 @@ time a user logs in.
 .. note:: Every jail has its own user accounts and service configuration.
    These steps must be repeated for each jail that requires SSH access.
 
+.. index:: Additional Storage, Add Storage, Adding Storage
+.. _Additional Storage:
 
-.. _Add Storage:
+Additional Storage
+~~~~~~~~~~~~~~~~~~
 
-Add Storage
-~~~~~~~~~~~
+
+Jails can be given access to an area of storage outside of the jail that
+is configured on the %brand% system.
 
 It is possible to give a FreeBSD jail access to an area of storage on
-the %brand% system. This is useful for applications that store a
-large amount of data or if an application in a jail needs access to
-the data stored on the %brand% system. One example is transmission,
-which stores torrents. The storage is added using the
+the %brand% system. This is useful for applications or plugins that store
+large amount of data or if an application in a jail needs access to data
+stored on the %brand% system. One example is transmission, a plugin that
+stores data using BitTorrent. The storage is added using the
 `mount_nullfs(8)
-<https://www.freebsd.org/cgi/man.cgi?query=mount_nullfs>`__
-mechanism, which links data that resides outside of the jail as a
-storage area within the jail.
+<https://www.freebsd.org/cgi/man.cgi?query=mount_nullfs>`__ mechanism,
+which links data that resides outside of the jail as a storage area
+within a jail.
 
-To add storage, navigate
+The Mount Points section of a jail shows the all additional storage
+currently added and allows new additional storage to be added.
+
+add storage, click |ui-options| --> :guilabel:`Mount points`. In the
+Mount points section is a list of all of the currently defined
+
+To add storage, navigate to
 :menuselection:`More Actions --> Mount points --> Add Mount Point` for
 the desired jail. This opens the screen shown in
 :numref:`Figure %s <adding_storage_jail_fig>`.
