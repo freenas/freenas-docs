@@ -13,111 +13,90 @@ service, while jails can provide multiple services.
 
 By default, a
 `FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`__
-is created. This is another independent instance of FreeBSD
-running on the same hardware without all of the overhead usually
-associated with virtualization.  The jail installs FreeBSD software
-management utilities so FreeBSD ports can be compiled and FreeBSD
-packages can be installed from the command line of the jail.
+is created. A jail is an independent instance of FreeBSD, using the host
+kernel, running on the same hardware without all of the overhead
+usually associated with virtualization. The jail installs FreeBSD
+software management utilities so FreeBSD ports can be compiled and
+FreeBSD packages can be installed from the command line of the jail.
 
 It is important to understand that users, groups, installed software,
 and configurations within a jail are isolated from both the %brand%
 host operating system and any other jails running on that system.
-During creation, the :guilabel:`VirtIO Virtual Networking` option can
-be checked to provide the jail with an independent networking stack.
-The jail can then do its own IP broadcasting, which is required by
-some applications.
+During creation, the :guilabel:`VNET` option can be checked to provide
+the jail with an independent networking stack. The jail can then do its
+own IP broadcasting, which is required by some applications.
 
 Advanced users can also create custom templates to automate the
 creation of pre-installed and customized operating systems.
 
 The ability to create multiple jails offers great flexibility
-regarding software management. For example, the administrator can
+regarding software management. For example, an administrator can
 choose to provide application separation by installing different
 applications in each jail, to create one jail for all installed
 applications, or to mix and match how software is installed into each
 jail.
 
-The rest of this section describes:
+This section will discuss:
 
-* :ref:`Jail Configuration`
+* :ref:`Jail Storage`
 
-* :ref:`Adding Jails`
+* :ref:`Creating Jails`
 
 * :ref:`Managing Jails`
 
 * :ref:`Using iocage`
 
 
-.. _Jail Configuration:
+.. index:: Jail Storage
+.. _Jail Storage:
 
-Jail Configuration
--------------------
+Jail Storage
+------------
 
-Jails and FreeBSD releases are stored in a dataset named
-:file:`iocage/`. If the pool or dataset to be used with
-:command:`iocage` does not already exist, create it in
-:ref:`Pools`.
+Jails and FreeBSD releases are stored in a single dataset named
+:file:`iocage`.
 
-.. note:: The :literal:`iocage` dataset cannot be created on a
-   :ref:`Share <Sharing>`.
+.. note:: Notes on the :file:`iocage` dataset:
 
+   * At least 10 GiB of free space is recommended.
 
-If there are no pools on the %brand% system yet, selecting
-:menuselection:`Jails`
-shows the screen in :numref:`Figure %s <initial_jail_config_fig>`.
-This screen is only shown if the :literal:`iocage` dataset is not
-already installed in an existing pool.
+   * Cannot be located on a :ref:`Share <Sharing>`.
 
+   * `iocage <http://iocage.readthedocs.io/en/latest/index.html>`__
+     automatically uses the first zpool that is not a root pool for the
+     %brand% system.
 
-.. _initial_jail_config_fig:
-
-.. figure:: images/jails1.png
-
-   Initial Jail Configuration
-
-
-Click :guilabel:`Create a pool` to create a new pool for the jail system.
-Allocating at least 10 GiB of space for this pool is recommended. More
-space might be required, depending on the number of jails to be created
-or versions of FreeBSD to store on the pool.
-
-Click :guilabel:`Save` and %brand% automatically configures
-:literal:`iocage` in the new pool. Jails can now be created by
-returning to :menuselection:`Jails`, hovering over the
-:guilabel:`Action` button and clicking either :guilabel:`Add Jail` or
-:guilabel:`Jail Wizard`.
-
-.. note:: Jails are automatically installed into their own dataset
-   under the specified path as they are created. For example, if the
-   :literal:`iocage` dataset is installed to :file:`/mnt/pool1/` and
-   *jail1* is created, this jail is installed into a new dataset
-   named :file:`/mnt/pool1/iocage/jails/jail1`.
+   * Each new jail installs into a new child dataset of :file:`iocage`.
+     For example, with the :file:`iocage/jails` dataset in :file:`pool1`,
+     a new jail called *jail1* installs into a new dataset named
+     :file:`pool1/iocage/jails/jail1`.
 
 
 .. index:: Add Jail, New Jail, Create Jail
-.. _Adding Jails:
+.. _Creating Jails:
 
-Adding Jails
-------------
+Creating Jails
+--------------
 
 
 %brand% has two options to create a jail. The :guilabel:`Jail Wizard`
-is designed to guide the user to quickly create a jail with networking
-configured. Click :guilabel:`Add Jail` to view the full jail creation
-form. It has numerous configurables spread across four different
-primary sections. This form is recommended more for advanced users
-with very specific requirements for a jail.
+makes it easy to quickly create a jail. :guilabel:`Advanced Jail Creation`
+is the second method, where every possible jail option is configurable.
+There are numerous configurables spread across four different primary
+sections. This form is recommended for advanced users with very specific
+requirements for a jail.
 
 
+.. index:: Jail Wizard
 .. _Jail Wizard:
 
 Jail Wizard
 ~~~~~~~~~~~
 
 
-To quickly create a new jail, click
-:menuselection:`Jails --> Jail Wizard`. This opens the wizard screens
-seen in :numref:`Figure %s <jail_wizard_fig>`.
+To quickly create a new jail, navigate to :menuselection:`Jails` and
+click |ui-add|. This opens the wizard screens seen in
+:numref:`Figure %s <jail_wizard_fig>`.
 
 
 .. _jail_wizard_fig:
@@ -128,21 +107,21 @@ seen in :numref:`Figure %s <jail_wizard_fig>`.
 
 
 The wizard demonstrates the simplest process to create and configure
-networking for a new jail. Enter a :guilabel:`Jail Name`. It can only
-contain alphanumeric characters (:kbd:`abc`..., :kbd:`123`...), dashes
-(:kbd:`-`), and underscores (:kbd:`_`). Choose the version of FreeBSD
-to install for this jail. Previously downloaded versions display
-:literal:`(fetched)` next to their entry in the list. These settings
-are the minimum required settings for a new jail, but configuring
-recommended to also configure networking for the jail.
+networking for a new jail. Enter a :guilabel:`Jail Name`. Jail names can
+only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),
+dashes (:literal:`-`), and underscores (:literal:`_`). Choose the version
+of FreeBSD to install for this jail. Previously downloaded versions
+display :literal:`(fetched)` next to their entry in the list. These are
+the minimum required settings for a new jail but it is also recommended
+to configure networking for the jail.
 
 Click :guilabel:`Next` to see a simplified list of networking options.
-The jail can be set to automatically configure IPv4 with
-:guilabel:`DHCP` and :guilabel:`VirtIO` or IPv4 and IPv6 can be
-configured manually. Multiple interfaces are supported in the
-:guilabel:`IPv4 Address` and :guilabel:`IPv6 Address` fields by
-entering a comma delimited list of interfaces, addresses, and netmask
-in the format :literal:`interface|ipaddress/netmask`.
+The jail can be set to automatically configure IPv4 with :guilabel:`DHCP`
+and :guilabel:`VNET` or IPv4 and IPv6 can be configured manually.
+Multiple interfaces are supported in the :guilabel:`IPv4 Address` and
+:guilabel:`IPv6 Address` fields by entering a comma delimited list of
+interfaces, addresses, and netmask in the format
+:literal:`interface|ipaddress/netmask`.
 
 Click :guilabel:`Next` to view a summary screen of the chosen jail
 options. Click :guilabel:`Submit` to create the new jail. After a few
@@ -154,6 +133,7 @@ moments, the new jail is added to the primary jails list.
    completed.
 
 
+.. index:: Advanced Jail Creation
 .. _Advanced Jail Creation:
 
 Advanced Jail Creation
@@ -174,10 +154,10 @@ To open the full jail creation form, click
 
 :numref:`Table %s <jail_basic_props_tab>` summarizes the available
 options of the :guilabel:`Basic Properties` of a new jail. By default,
-the only required values to create a jail is the :guilabel:`Jail Name`
-and :guilabel:`Release`. However, it is recommended to configure these
-basic properties as a simple method to quickly create an immediately
-usable jail. Many more advanced settings are available in the
+the only required values to create a jail are the :guilabel:`Jail Name`
+and :guilabel:`Release`. It is recommended to configure these basic
+properties as a simple method to quickly create an immediately usable
+jail. Many more advanced settings are available in the
 :guilabel:`Jail Properties`, :guilabel:`Network Properties`, and
 :guilabel:`Custom Properties` sections.
 
@@ -196,33 +176,34 @@ usable jail. Many more advanced settings are available in the
    |                           |                |                                                                                                         |
    |                           |                |                                                                                                         |
    +===========================+================+=========================================================================================================+
-   | Jail Name                 | string         | Required. Name can only contain letters, numbers, dashes (:kbd:`-`), or the underscore character        |
-   |                           |                | (:kbd:`_`).                                                                                             |
+   | Jail Name                 | string         | Required. Jail names can only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),       |
+   |                           |                | dashes (:literal:`-`), and underscores (:literal:`_`).                                                  |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
-   | Release                   | drop-down menu | Required. Choose the version of FreeBSD to download and install for the jail.                           |
+   | Release                   | drop-down menu | Required. Choose the version of FreeBSD to download and install for the jail. Previously downloaded     |
+   |                           |                | versions of FreeBSD display :literal:`(fetched)` next to the entry in the list and do not need to be    |
+   |                           |                | fetched again.                                                                                          |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
-   | DHCP autoconfigure IPv4   | checkbox       | Check to automatically configure IPv4 networking with an independent Virtual Networking stack.          |
-   |                           |                | :guilabel:`VirtIO Virtual Networking` and :guilabel:`Berkeley Packet Filter` must also be checked.      |
-   |                           |                | If unchecked, ensure the defined address in :guilabel:`IPv4 Address` does not conflict with an          |
-   |                           |                | existing address.                                                                                       |
+   | DHCP autoconfigure IPv4   | checkbox       | Set to automatically configure IPv4 networking with an independent VNET stack. :guilabel:`VNET` and     |
+   |                           |                | guilabel:`Berkeley Packet Filter` must also be checked. If not set, ensure the defined address          |
+   |                           |                | in :guilabel:`IPv4 Address` does not conflict with an existing address.                                 |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
-   | VirtIO Virtual Networking | checkbox       | Check to use VirtIO to emulate network devices for this jail and a create a fully virtualized per-jail  |
-   |                           |                | network stack. See                                                                                      |
-   |                           |                | `VIRTIO(4) <https://www.freebsd.org/cgi/man.cgi?query=virtio&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__ |
+   | VNET network subsystem    | checkbox       | Set to use VNET to emulate network devices for this jail and a create a fully virtualized per-jail      |
+   | virtualization            |                | network stack. See                                                                                      |
+   | infrastructure            |                | `VNET(9) <https://www.freebsd.org/cgi/man.cgi?query=vnet&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__     |
    |                           |                | for more details.                                                                                       |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
-   | Berkeley Packet Filter    | checkbox       | Check for the jail to use the Berkeley Packet Filter to data link layers in a protocol                  |
-   |                           |                | independent fashion. See                                                                                |
+   | Berkeley Packet Filter    | checkbox       | Set to use the Berkeley Packet Filter to data link layers in a protocol independent fashion             |
+   |                           |                | See                                                                                                     |
    |                           |                | `BPF(4) <https://www.freebsd.org/cgi/man.cgi?query=bpf&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__       |
    |                           |                | for more details.                                                                                       |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
-   | IPv4 address              | string         | This and the other IPv4 settings are grayed out if :guilabel:`DHCP autoconfigure IPv4`                  |
-   |                           |                | is checked. Configures network or internet access for the jail.                                         |
+   | IPv4 address              | string         | This and the other IPv4 settings are grayed out if :guilabel:`DHCP autoconfigure IPv4` is set.          |
+   |                           |                | Configures the interface to use for network or internet access for the jail.                            |
    |                           |                |                                                                                                         |
    |                           |                | Type the IPv4 address for VNET and shared IP jails.                                                     |
    |                           |                | Single interface format: *interface|ip-address/netmask*. Multiple interface format:                     |
@@ -253,12 +234,12 @@ usable jail. Many more advanced settings are available in the
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
 
 
-Similar to the :ref:`Jail Wizard`, configuring these basic properties
-then clicking :guilabel:`Save` is often all that is needed to quickly
-create and begin using a new jail. To continue configuring more
-settings, click :guilabel:`Next` to proceed to the
-:guilabel:`Jail Properties` section of the form.
-:numref:`Table %s <jail_jail_props_tab>` describes each of these options.
+Similar to the :ref:`Jail Wizard`, configuring the basic properties then
+clicking :guilabel:`Save` is often all that is needed to quickly create
+and begin using a new jail. To continue configuring more settings, click
+:guilabel:`Next` to proceed to the :guilabel:`Jail Properties` section of
+the form.  :numref:`Table %s <jail_jail_props_tab>` describes each of
+these options.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -274,72 +255,71 @@ settings, click :guilabel:`Next` to proceed to the
    | Setting               | Value     | Description                                                                                                         |
    |                       |           |                                                                                                                     |
    +=======================+===========+=====================================================================================================================+
-   | devfs_ruleset         | integer   | Enter the number of the devfs ruleset that is enforced for mounting devfs in this jail. A value of *0*              |
-   |                       |           | (default) means no ruleset is enforced.                                                                             |
-   |                       |           |                                                                                                                     |
-   |                       |           | Mounting devfs inside a jail is possible only if the :guilabel:`allow_mount` and :guilabel:`allow_mount_devfs`      |
-   |                       |           | permissions are effective and :guilabel:`enforce_statfs` is set to a value lower than *2*.                          |
+   | devfs_ruleset         | integer   | The number of the `devfs(8)                                                                                         |
+   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=devfs&apropos=0&sektion=0&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__     |
+   |                       |           | ruleset to enforce when mounting **devfs** in the jail. The default value of *0* means no ruleset is enforced.      |
+   |                       |           | Mounting **devfs** inside a jail is only possible when the :guilabel:`allow_mount` and                              |
+   |                       |           | :guilabel:`allow_mount_devfs` permissions are enabled and :guilabel:`enforce_statfs` is set to a value lower than   |
+   |                       |           | *2*.                                                                                                                |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | exec_start            | string    | Commands to run in the prison environment when a jail is created. Example: :samp:`sh /etc/rc`. See                  |
+   | exec.start            | string    | Commands to run in the jail environment when a jail is created. Example: :samp:`sh /etc/rc`. See                    |
    |                       |           | `jail(8) <https://www.freebsd.org/cgi/man.cgi?query=jail&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__                 |
    |                       |           | for more details.                                                                                                   |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | exec_stop             | string    | Commands to run in the prison environment before a jail is removed and after any :guilabel:`exec_prestop`           |
-   |                       |           | commands have completed. Example: :samp:`sh /etc/rc.shutdown`.                                                      |
+   | exec.stop             | string    | Commands to run in the jail environment before a jail is removed and after any :guilabel:`exec_prestop` commands    |
+   |                       |           | are complete. Example: :samp:`sh /etc/rc.shutdown`.                                                                 |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | exec_prestart         | string    | List any commands to run in the system environment before a jail is started.                                        |
+   | exec_prestart         | string    | Commands to run in the system environment before a jail is started.                                                 |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | exec_poststart        | string    | List any commands to run in the system environment after a jail is started and after any                            |
-   |                       |           | :guilabel:`exec_start` commands are finished.                                                                       |
+   | exec_poststart        | string    | Commands to run in the system environment after a jail is started and after any :guilabel:`exec_start` commands are |
+   |                       |           | finished.                                                                                                           |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | exec_prestop          | string    | List any commands to run in the system environment before a jail is stopped.                                        |
+   | exec_prestop          | string    | Commands to run in the system environment before a jail is stopped.                                                 |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | exec_poststop         | string    | List any commands to run in the system environment after a jail is started and after any                            |
-   |                       |           | :guilabel:`exec_start` commands are finished.                                                                       |
+   | exec_poststop         | string    | Commands to run in the system environment after a jail is started and after any :guilabel:`exec_start` commands are |
+   |                       |           | finished.                                                                                                           |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | exec_clean            | checkbox  | Run commands in a clean environment. The current environment is discarded except for                                |
-   |                       |           | HOME, SHELL, TERM and USER.                                                                                         |
+   | exec.clean            | checkbox  | Run commands in a clean environment. The current environment is discarded except for $HOME, $SHELL, $TERM and       |
+   |                       |           | $USER.                                                                                                              |
    |                       |           |                                                                                                                     |
-   |                       |           | HOME and SHELL are set to the target login default values.                                                          |
-   |                       |           | USER is set to the target login. TERM is imported from the current environment. The environment                     |
-   |                       |           | variables from the login class capability database for the target login are also set.                               |
-   |                       |           |                                                                                                                     |
-   +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | exec_timeout          | integer   | Define the maximum amount of time in seconds to wait for a command to complete. If a command is                     |
-   |                       |           | still running after the allotted time, the jail will be terminated.                                                 |
+   |                       |           | $HOME and $SHELL are set to the target login. $USER is set to the target login. $TERM is imported from the current  |
+   |                       |           | environment. The environment variables from the login class capability database for the target login are also set.  |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | stop_timeout          | integer   | Define the maximum amount of time in seconds to wait for the jail processes to exit after sending a                 |
-   |                       |           | SIGTERM signal. This happens after any :guilabel:`exec_stop` commands are complete. After the defined time, the     |
-   |                       |           | jail is removed, killing any remaining processes. If this is set to *0*, no SIGTERM is sent and the                 |
-   |                       |           | jail is immediately removed.                                                                                        |
+   | exec_timeout          | integer   | The maximum amount of time in seconds to wait for a command to complete. If a command is still running after the    |
+   |                       |           | allotted time, the jail is terminated.                                                                              |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | exec_jail_user        | string    | Enter either :literal:`root` or a valid username. In the jail environment, commands run as this defined user.       |
+   | stop_timeout          | integer   | The maximum amount of time in seconds to wait for the jail processes to exit after sending a SIGTERM signal. This   |
+   |                       |           | happens after any :guilabel:`exec_stop` commands are complete. After the specified time, the jail is removed,       |
+   |                       |           | killing any remaining processes. If set to *0*, no SIGTERM is sent and the jail is immeadility removed.             |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | exec_system_jail_user | string    | This boolean option looks for the :guilabel:`exec_jail_user` in the system                                          |
+   | exec_jail_user        | string    | Enter either :literal:`root` or a valid *username*. Inside the jail, commands run as this user.                     |
+   |                       |           |                                                                                                                     |
+   +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
+   | exec.system_jail_user | string    | Set this boolean option to *True* to look for the :guilabel:`exec.jail_user` in the system                          |
    |                       |           | `passwd(5) <https://www.freebsd.org/cgi/man.cgi?query=passwd&sektion=5&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__   |
-   |                       |           | file instead of the file from the jail.                                                                             |
+   |                       |           | file *instead* of the jail passwd.                                                                                  |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | exec_system_user      | string    | Define either :literal`root` or an existing username. Commands are run as this user in the system environment.      |
+   | exec.system_user      | string    | Run comands in the jail as this user. By default, commands are run as the current user.                             |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | mount_devfs           | checkbox  | Mount a                                                                                                             |
+   | mount.devfs           | checkbox  | Mount a                                                                                                             |
    |                       |           | `devfs(5) <https://www.freebsd.org/cgi/man.cgi?query=devfs&sektion=5&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__     |
-   |                       |           | filesystem on the chrooted :file:`/dev` directory and apply the ruleset in the                                      |
-   |                       |           | :guilabel:`devfs_ruleset` parameter to restrict the devices visible inside the jail.                                |
+   |                       |           | filesystem on the chrooted :file:`/dev` directory and apply the ruleset in the :guilabel:`devfs_ruleset` parameter  |
+   |                       |           | to restrict the devices visible inside the jail.                                                                    |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | mount_fdescfs         | checkbox  | Mount an                                                                                                            |
+   | mount.fdescfs         | checkbox  | Mount an                                                                                                            |
    |                       |           | `fdescfs(5) <https://www.freebsd.org/cgi/man.cgi?query=fdescfs&sektion=5&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__ |
    |                       |           | filesystem in the jail :file:`/dev/fd` directory.                                                                   |
    |                       |           |                                                                                                                     |
@@ -352,91 +332,113 @@ settings, click :guilabel:`Next` to proceed to the
    |                       |           | `fhstatfs(2) <https://www.freebsd.org/cgi/man.cgi?query=fhstatfs&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__,        |
    |                       |           | and other similar compatibility syscalls.                                                                           |
    |                       |           |                                                                                                                     |
-   |                       |           | When set to *0*, all mount points are available without any                                                         |
-   |                       |           | restrictions. When set to *1*, only mount points below the jail chroot directory are visible. When set              |
-   |                       |           | to *2*, the syscalls above can operate only on a mountpoint where the jail chroot directory is located.             |
+   |                       |           | Set to *0*, all mount points are available without any restriction.                                                 |
+   |                       |           | Set to *1*, only mount points below the jail chroot directory are available.                                        |
+   |                       |           | Set to *2*, the default option only mount points where the jail chroot directory is located are available.          |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | children_max          | integer   | Enter the number of child jails allowed to be created by this jail (or by other jails under this jail).             |
-   |                       |           | This limit is *0* by default, indicating the jail is not allowed to create child jails.                             |
+   | children.max          | integer   | The number of child jails allowed to be created by the jail or other jails under this jail. A limit of *0*          |
+   |                       |           | restricts the jail from creating child jails. **Hierarchical Jails** in the `JAIL(8)                                |
+   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=jail&apropos=0&sektion=0&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__      |
+   |                       |           | man page explains the finer details.                                                                                |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | login_flags           | string    | List any flags to be passed to                                                                                      |
-   |                       |           | `login(1) <https://www.freebsd.org/cgi/man.cgi?query=login&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__               |
-   |                       |           | when logging in to jails with the console function.                                                                 |
+   | login_flags           | string    | The flags to pass to                                                                                                |
+   |                       |           | `LOGIN(1) <https://www.freebsd.org/cgi/man.cgi?query=login&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__               |
+   |                       |           | when logging in to the jail using the **console** function.                                                         |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | securelevel           | integer   | Options are *3*, *2*, *1*, *0*, and *-1*. Enter a value for the kernsecurelevel sysctl of the jail. A jail is       |
-   |                       |           | only allowed to have a higher securelevel than the default system.                                                  |
+   | securelevel           | integer   | The value of the jail `securelevel <https://www.freebsd.org/doc/faq/security.html#idp60325448>`__ sysctl. A jail    |
+   |                       |           | never has a lower securelevel than the host system. Setting this parameter allows a higher securelevel. If the host |
+   |                       |           | system securelevel is changed, jail securelevel will be at least as secure.                                         |
+   |                       |           | Securelevel options are 3, 2, 1, 0, and -1.                                                                         |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | sysvmsg               | drop-down | Allow access to SYSV IPC message primitives. When set to *inherit*, all IPC objects on the system                   |
-   |                       |           | are visible to this jail. When set to *new*, the jail has its own key namespace and can only see the                |
-   |                       |           | objects it has created. The system or parent jail has access to the jail objects, but not its keys.                 |
-   |                       |           | When set to *disable*, the jail cannot perform any sysvmsg related system calls.                                    |
+   | sysvmsg               | drop-down | Allow or deny access to SYSV IPC message primitives.                                                                |
+   |                       |           | Set to *Inherit*: All IPC objects on the system are visible to the jail.                                            |
+   |                       |           | Set to *New*: Only objects the jail created using the private key namespace are visible. The system and parent      |
+   |                       |           | jails have access to the jail objects but not private keys.                                                         |
+   |                       |           | Set to *Disable*: The jail cannot perform any sysvmsg related system calls.                                         |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | sysvsem               | drop-down | Allow access to SYSV IPC semaphore primitives in the same manner as sysvmsg.                                        |
+   | sysvsem               | drop-down | Allow or deny access to SYSV IPC semaphore primitives.                                                              |
+   |                       |           | Set to *Inherit*: All IPC objects on the system are visible to the jail.                                            |
+   |                       |           | Set to *New*: Only objects the jail creates using the private key namespace are visible. The system and parent      |
+   |                       |           | jails have access to the jail objects but not private keys.                                                         |
+   |                       |           | Set to *Disable*: The jail cannot perform any **sysvmem** related system calls.                                     |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | sysvshm               | drop-down | Allow access to SYSV IPC shared memory primitives in the same manner as sysvmsg.                                    |
+   | sysvshm               | drop-down | Allow or deny access to SYSV IPC shared memory primitives.                                                          |
+   |                       |           | Set to *Inherit*: All IPC objects on the system are visible to the jail.                                            |
+   |                       |           | Set to *New*: Only objects the jail creates using the private key namespace are visible. The system and parent      |
+   |                       |           | jails have access to the jail objects but not private keys.                                                         |
+   |                       |           | Set to *Disable*: The jail cannot perform any sysvshm related system calls.                                         |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | allow_set_hostname    | checkbox  | Allow the jail hostname to be changed with                                                                          |
+   | allow.set_hostname    | checkbox  | Allow the jail hostname to be changed with                                                                          |
    |                       |           | `hostname(1) <https://www.freebsd.org/cgi/man.cgi?query=hostname&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__         |
    |                       |           | or                                                                                                                  |
    |                       |           | `sethostname(3) <https://www.freebsd.org/cgi/man.cgi?query=sethostname&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__.  |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | allow_sysvipc         | checkbox  | In FreeBSD 11.0 and later, this setting is deprecated. Use :guilabel:`sysvmsg`, :guilabel:`sysvsem`, and            |
-   |                       |           | :guilabel:`sysvshm` instead. Choose if a process in the jail has access to System V IPC primitives.                 |
+   | ***allow.sysvipc**    | checkbox  | Choose whether a process in the jail has access to System V IPC primitives. Equivalent to setting                   |
+   |                       |           | :guilabel:`sysvmsg`, :guilabel:`sysvsem`, and :guilabel:`sysvshm` to *Inherit*.                                     |
+   |                       |           |                                                                                                                     |
+   |                       |           | ***Deprecated in FreeBSD 11.0 and later!** Use :guilabel:`sysvmsg`, :guilabel:`sysvsem`,and :guilabel:`sysvshm`     |
+   |                       |           | instead.                                                                                                            |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | allow_raw_sockets     | checkbox  | Select this to allow utilities like                                                                                 |
+   | allow.raw_sockets     | checkbox  | Set to allow raw sockets. Utilities like                                                                            |
    |                       |           | `ping(8) <https://www.freebsd.org/cgi/man.cgi?query=ping&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__ and             |
    |                       |           | `traceroute(8) <https://www.freebsd.org/cgi/man.cgi?query=traceroute&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__     |
-   |                       |           | to operate inside the jail. When checked, the source IP addresses are enforced to comply with the IP address        |
-   |                       |           | bound to the jail, ignoring the the IP_HDRINCL flag on the socket.                                                  |
+   |                       |           | require raw sockets to operate inside a jail. When set, the source IP addresses are enforced to comply with the     |
+   |                       |           | IP address bound to the jail, ignoring the the IP_HDRINCL flag on the socket.                                       |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | allow_chflags         | checkbox  | Check this to treat jail users as privileged and allowed to manipulate system file flags subject to the usual       |
-   |                       |           | constraints on kern.securelevel.                                                                                    |
+   | allow.chflags         | checkbox  | Set to treat jail users as privileged and allow the manipulation of system file flags. **securelevel** constraints  |
+   |                       |           | are still enforced.                                                                                                 |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | allow_mount           | checkbox  | Check to allow privileged users inside the jail to mount and unmount filesystem types marked as jail-friendly.      |
+   | allow.mount           | checkbox  | Set to allow privileged users inside the jail to mount and unmount filesystem types marked as jail-friendly.        |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | allow_mount_devfs     | checkbox  | Check to allow privileged users inside the jail to mount and unmount the devfs file system. This permission is      |
-   |                       |           | effective only together with :guilabel:`allow_mount` and if :guilabel:`enforce_statfs` is set to a value lower      |
-   |                       |           | than *2*.                                                                                                           |
+   | allow.mount.devfs     | checkbox  | Set to allow privileged users inside the jail to mount and unmount the `devfs(5) device filesystem                  |
+   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=devfs&sektion=5&apropos=0&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__.    |
+   |                       |           | This permission is only effective when :guilabel:`allow_mount` is set and :guilabel:`enforce_statfs` is set to a    |
+   |                       |           | value lower than *2*.                                                                                               |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | allow_mount_nullfs    | checkbox  | Check to allow privileged users inside the jail to mount and unmount the nullfs file system.                        |
-   |                       |           | This permission is effective only together with :guilabel:`allow_mount` and if :guilabel:`enforce_statfs`           |
-   |                       |           | is set to a value lower than *2*.                                                                                   |
+   | allow.mount.nullfs    | checkbox  | Set to allow privileged users inside the jail to mount and unmount the `nullfs(5) file system                       |
+   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=nullfs&apropos=0&sektion=5&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__.   |
+   |                       |           | This permission is only effective when :guilabel:`allow_mount` is set and :guilabel:`enforce_statfs` is set to a    |
+   |                       |           | value lower than *2*.                                                                                               |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | allow_mount_procfs    | checkbox  | Check to allow privileged users inside the jail to mount and unmount the procfs file system. This permission is     |
-   |                       |           | effective only together with :guilabel:`allow_mount` and if :guilabel:`enforce_statfs`                              |
-   |                       |           | is set to a value lower than *2*.                                                                                   |
+   | allow.mount.procfs    | checkbox  | Set to allow privileged users inside the jail to mount and unmount the `procfs(5) file system                       |
+   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=procfs&apropos=0&sektion=5&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__.   |
+   |                       |           | This permission is only effective when :guilabel:`allow_mount` is set and :guilabel:`enforce_statfs` is set to a    |
+   |                       |           | value lower than *2*.                                                                                               |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | allow_mount_tmpfs     | checkbox  | Check to allow privileged users inside the jail to mount and unmount the tmpfs file system. This permission is      |
-   |                       |           | effective only together with :guilabel:`allow_mount` and if :guilabel:`enforce_statfs`                              |
-   |                       |           | is set to a value lower than *2*.                                                                                   |
+   | allow.mount.tmpfs     | checkbox  | Set to allow privileged users inside the jail to mount and unmount the `tmpfs(5) file system                        |
+   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=tmpfs&apropos=0&sektion=5&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__.    |
+   |                       |           | This permission is only effective when :guilabel:`allow_mount` is set and :guilabel:`enforce_statfs` is set to a    |
+   |                       |           | value lower than *2*.                                                                                               |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | allow_mount_zfs       | checkbox  | Check to allow privileged users inside the jail to mount and unmount the ZFS file system. This permission is        |
-   |                       |           | effective only together with :guilabel:`allow_mount` and if :guilabel:`enforce_statfs`                              |
-   |                       |           | is set to a value lower than *2*.                                                                                   |
+   | allow.mount.zfs       | checkbox  | Set to allow privileged users inside the jail to mount and unmount the ZFS file system. This permission is only     |
+   |                       |           | effective when :guilabel:`allow_mount` is set and :guilabel:`enforce_statfs` is set to a value lower than *2*.      |
+   |                       |           | The `ZFS(8)                                                                                                         |
+   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=zfs&sektion=8&apropos=0&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__       |
+   |                       |           | man page has information on how to configure the ZFS filesystem to operate from within a jail.                      |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | allow_quotas          | checkbox  | Check to allow the jail root to administer quotas on the jail filesystems. This includes filesystems the jail may   |
-   |                       |           | share with other jails or with non-jailed parts of the system.                                                      |
+   | allow.quotas          | checkbox  | Set to allow the jail root to administer quotas on the jail filesystems. This includes filesystems the jail shares  |
+   |                       |           | with other jails or with non-jailed parts of the system.                                                            |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | allow_socket_af       | checkbox  | Check to allow access to other protocol stacks beyond IPv4, IPv6, local (UNIX), and route. Warning:                 |
-   |                       |           | jail functionality may not exist for other protocal stacks.                                                         |
+   | allow.socket_af       | checkbox  | Check to allow access to other protocol stacks beyond IPv4, IPv6, local (UNIX), and route. **Warning**: jail        |
+   |                       |           | functionality does not exist for all protocal stacks.                                                               |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
 
@@ -459,54 +461,54 @@ Click :guilabel:`Next` to view all jail
    | Setting         | Value     | Description                                                                                             |
    |                 |           |                                                                                                         |
    +=================+===========+=========================================================================================================+
-   | interfaces      | string    | List up to four interface configurations in the format *interface:bridge*, separated by a comma         |
+   | interfaces      | string    | Enter up to four interface configurations in the format *interface:bridge*, separated by a comma        |
    |                 |           | (:kbd:`,`). The left value is the virtual VNET interface name and the right value is the bridge name    |
    |                 |           | where the virtual interface is attached.                                                                |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
    | host_domainname | string    | Enter an `NIS Domain name <https://www.freebsd.org/doc/handbook/network-nis.html>`__ for the jail.      |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | host_hostname   | string    | Enter a hostname for the jail. By default, the system uses the jail UUID.                               |
+   | host.hostname   | string    | Enter a hostname for the jail. By default, the system uses the jail UUID.                               |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | exec_fib        | integer   | Enter a number to define the routing table (FIB) to set when running commands inside the jail.          |
+   | exec.fib        | integer   | Enter a number to define the routing table (FIB) to set when running commands inside the jail.          |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | ip4_saddrsel    | checkbox  | This is only availabled when the jail is not configured to use VNET. Check to disable                   |
-   |                 |           | IPv4 source address selection for the prison in favor of the primary IPv4 address of the jail.          |
+   | ip4.saddrsel    | checkbox  | Only available when the jail is not configured to use VNET. Disables IPv4 source address selection for  |
+   |                 |           | the jail in favor of the primary IPv4 address of the jail.                                              |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | ip4             | drop-down | This setting controls the availability of IPv4 addresses. Possible values are *inherit* to allow        |
-   |                 |           | unrestricted access to all system addresses, *new* to restrict addresses with :guilabel:`ip4_addr`, and |
-   |                 |           | *disable* to stop the jail from using IPv4 entirely.                                                    |
+   | ip4             | drop-down | Control the availability of IPv4 addresses. Set to *Inherit*: allow unrestricted access to all system   |
+   |                 |           | addresses. Set to *New*: restrict addresses with :guilabel:`ip4_addr`. Set to *Disable*: stop the jail  |
+   |                 |           | from using IPv4 entirely.                                                                               |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | ip6_saddrsel    | string    | Check to disable IPv6 source address selection for the prison in favor of the primary IPv6 address      |
-   |                 |           | of the jail.                                                                                            |
+   | ip6.saddrsel    | string    | Only available when the jail is not configured to use VNET. Disables IPv6 source address selection for  |
+   |                 |           | the jail in favor of the primary IPv6 address of the jail.                                              |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | ip6             | drop-down | This controls the availability of IPv6 addresses. Possible values are *inherit* to allow                |
-   |                 |           | unrestricted access to all system addresses, *new* to restrict addresses with :guilabel:`ip4_addr`,     |
-   |                 |           | and *disable* to stop the jail from using IPv6 entirely.                                                |
+   | ip6             | drop-down | Control the availability of IPv6 addresses. Set to *Inherit*: allow unrestricted access to all system   |
+   |                 |           | addresses. Set to *New*: restrict addresses with :guilabel:`ip6_addr`. Set to *Disable*: stop the jail  |
+   |                 |           | from using IPv6 entirely.                                                                               |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
    | resolver        | string    | Add lines to :file:`resolv.conf` in file. Example: *nameserver IP;search domain.local*. Fields must be  |
-   |                 |           | delimited with a semicolon (:kbd:`;`), which are translated as new lines in :file:`resolv.conf`. Enter  |
+   |                 |           | delimited with a semicolon (:kbd:`;`), this is translated as new lines in :file:`resolv.conf`. Enter    |
    |                 |           | :literal:`none` to inherit :file:`resolv.conf` from the host.                                           |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
    | mac_prefix      | string    | Optional. Enter a valid MAC address vendor prefix. Example: *E4F4C6*                                    |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | vnet0_mac       | string    | Optional. Enter a valid MAC address for this VNET interface.                                            |
+   | vnet0_mac       | string    | Optional. Enter a valid MAC address for the VNET0 interface.                                            |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | vnet1_mac       | string    | Optional. Enter a valid MAC address for this VNET interface.                                            |
+   | vnet1_mac       | string    | Optional. Enter a valid MAC address for the VNET1 interface.                                            |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | vnet2_mac       | string    | Optional. Enter a valid MAC address for this VNET interface.                                            |
+   | vnet2_mac       | string    | Optional. Enter a valid MAC address for the VNET2 interface.                                            |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
-   | vnet3_mac       | string    | Optional. Enter a valid MAC address for this VNET interface.                                            |
+   | vnet3_mac       | string    | Optional. Enter a valid MAC address for the VNET3 interface.                                            |
    |                 |           |                                                                                                         |
    +-----------------+-----------+---------------------------------------------------------------------------------------------------------+
 
@@ -529,47 +531,46 @@ The final set of jail properties are contained in the
    | Setting             | Value     | Description                                                                                                   |
    |                     |           |                                                                                                               |
    +=====================+===========+===============================================================================================================+
-   | owner               | string    | Type the owner of the jail. Can be any string.                                                                |
+   | owner               | string    | The owner of the jail. Can be any string.                                                                     |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | priority            | integer   | Enter a numeric start priority for the jail at boot time. Smaller values mean a higher priority. At           |
-   |                     |           | system shutdown, the priority is reversed. Example: 99                                                        |
+   | priority            | integer   | The numeric start priority for the jail at boot time. **Smaller** values mean a **higher** priority. At       |
+   |                     |           | system shutdown, the priority is *reversed*. Example: 99                                                      |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | hostid              | string    | Enter a new a jail hostid, if necessary. Example hostid: *1a2bc345-678d-90e1-23fa-4b56c78901de*.              |
+   | hostid              | string    | A new a jail hostid, if necessary. Example hostid: *1a2bc345-678d-90e1-23fa-4b56c78901de*.                    |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | comment             | string    | Type any comments about the jail.                                                                             |
+   | comment             | string    | Comments about the jail.                                                                                      |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | depends             | string    | Specify any jails this jail depends on. When this jail begins to be created, any jails it                     |
-   |                     |           | depends on must already exist.                                                                                |
+   | depends             | string    | Specify any jails the jail depends on. Child jails must already exist before the parent jail can be created.  |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | mount_procfs        | checkbox  | Check to allow mounting of a                                                                                  |
+   | mount.procfs        | checkbox  | Set to allow mounting of a                                                                                    |
    |                     |           | `procfs(5) <https://www.freebsd.org/cgi/man.cgi?query=procfs&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__       |
    |                     |           | filesystems in the jail :file:`/dev/proc` directory.                                                          |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | mount_linprocfs     | checkbox  | Check to allow mounting of a                                                                                  |
+   | mount_linprocfs     | checkbox  | Set to allow mounting of a                                                                                    |
    |                     |           | `linprocfs(5) <https://www.freebsd.org/cgi/man.cgi?query=linprocfs&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__ |
    |                     |           | filesystem in the jail.                                                                                       |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | host_time           | checkbox  | Check to synchronize the time between jail and host.                                                          |
+   | host_time           | checkbox  | Set to synchronize the time between jail and host.                                                            |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | jail_zfs            | checkbox  | Check to enable automatic ZFS jailing inside the jail. The assigned ZFS dataset is fully                      |
+   | jail_zfs            | checkbox  | Set to enable automatic ZFS jailing inside the jail. The assigned ZFS dataset is fully                        |
    |                     |           | controlled by the jail.                                                                                       |
    |                     |           |                                                                                                               |
    |                     |           | Note: :guilabel:`allow_mount`, :guilabel:`enforce_statfs`, and :guilabel:`allow_mount_zfs` must all be        |
-   |                     |           | checked for ZFS management inside the jail to work correctly.                                                 |
+   |                     |           | set for ZFS management inside the jail to work correctly.                                                     |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | jail_zfs_dataset    | string    | :guilabel:`jail_zfs` must be checked for this option to work. Define the dataset to be jailed and             |
-   |                     |           | fully handed over to a jail. Takes the ZFS filesystem name without pool name.                                 |
+   | jail_zfs_dataset    | string    | Define the dataset to be jailed and fully handed over to a jail. Enter a ZFS filesystem name without a pool   |
+   |                     |           | name. :guilabel:`jail_zfs` must be set for this option to work.                                               |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | jail_zfs_mountpoint | string    | Enter the mountpoint for the :guilabel:`jail_zfs_dataset`. Example: */data/example-dataset-name*              |
+   | jail_zfs_mountpoint | string    | The mountpoint for the :guilabel:`jail_zfs_dataset`. Example: */data/example-dataset-name*                    |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
 
@@ -578,80 +579,197 @@ Click :guilabel:`Save` when satisfied with all the different jail
 properties. New jails are added to the primary list in the
 :guilabel:`Jails` menu.
 
+
+.. index:: Managing Jails
 .. _Managing Jails:
 
 Managing Jails
 --------------
 
-Click :guilabel:`Jails` to view and configure existing jails. In the
-example shown in
-:numref:`Figure %s <view_added_jails_fig>`,
-:guilabel:`More Actions` (three vertical dots) is clicked for the jail
-named *xdm_1* has been clicked to show the available actions. The
-entry indicates the jail name, IP address, current status, type of
-jail, and the FreeBSD release used by the jail.
+Click :menuselection:`Jails` to see an overview of installed jails as
+shown in :numref:`Figure %s <jail_overview_fig>`.
 
-.. note:: :ref:`Plugins` are also listed here. The :guilabel:`Type`
-   shows *pluginv2*.
-
-
-.. _view_added_jails_fig:
+.. _jail_overview_fig:
 
 .. figure:: images/jails4b.png
 
+   Jail Overview Section
+
+
+:numref:`Table %s <jail_overview_tab>` describes each column.
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.75\linewidth-2\tabcolsep}|
+
+.. _jail_overview_tab:
+
+.. table:: Jail Overview Information
+   :class: longtable
+
+   +-----------------+-------------------------------------------------+
+   | Column Name     | Description                                     |
+   +=================+=================================================+
+   | Jail Name       | The name of the jail.                           |
+   |                 |                                                 |
+   +-----------------+-------------------------------------------------+
+   | IPv4 addresses  | Each of the configured IPv4 addresses.          |
+   |                 |                                                 |
+   +-----------------+-------------------------------------------------+
+   | IPv6 addresses  | Each of the configured IPv6 addresses.          |
+   |                 |                                                 |
+   +-----------------+-------------------------------------------------+
+   | Status          | **up**: jail is running                         |
+   |                 |                                                 |
+   |                 +-------------------------------------------------+
+   |                 | **down**: jail is stopped.                      |
+   |                 |                                                 |
+   +-----------------+-------------------------------------------------+
+   | Type            | Currently 2 supported jail types                |
+   |                 |                                                 |
+   |                 +-------------------------------------------------+
+   |                 | **jail**: A jail for general use.               |
+   |                 |                                                 |
+   |                 +-------------------------------------------------+
+   |                 | **pluginv2**: A jail installed by or used for a |
+   |                 | plugin. A plugin jail contains and isolates a   |
+   |                 | plugin from the %brand% system                  |
+   |                 | limiting exposure in the event of an issue and  |
+   |                 | allows resources to be easily managed.          |
+   +-----------------+-------------------------------------------------+
+   | Release         | The FreeBSD version the jail is based on.       |
+   |                 |                                                 |
+   +-----------------+-------------------------------------------------+
+   | |ui-options|    | Click to open the jail options menu as shown in |
+   |                 | :numref:`Figure %s <jail_option_menu_fig>`.     |
+   |                 |                                                 |
+   +-----------------+-------------------------------------------------+
+
+
+.. _jail_option_menu_fig:
+
+.. figure:: images/jails4b.png
+
+   Jail Option Menu
+
+#ifdef comment
+I updated/renamed the "Viewing Jails" figure to "The Jail Overview Figure"
+
+Old
+.. _view_added_jails_fig:
+.. figure:: images/jails4b.png
    Viewing Jails
 
+New
+.. _jail_overview_fig:
+.. figure:: images/jails4b.png
+   Jail Overview Section
 
-Here are the actions available to jails:
+I think this name is more appropriate. This is using the same screenshot
+as used in the legacy UI userguide, so this image name should be fine.
 
-.. note:: Some of these actions may not display, depending on the type
-   of jail and current status.
+I added the jail_option_menu_fig. I used "jails4b.png" as the placeholder
+image only as this screenshot doesn't currently exist. If it does exist,
+I need to know what the name of the screenshot is. If there isn't a
+screenshot showing the open options menu, we need one. Once we have a
+screenshot name, let me know so I can get jail_option_menu_fig updated.
+
+After the screenshot showing the menu option open, each option is
+described. It wasn't a bulleted list but kinda was. Each entry was listed
+in bold but no bullet.
+
+This page is already a bit table heavy but I think these options fit
+better in a table with the description of each of the Jail Option Menu
+items.
+
+#endif comment
+
+.. note:: The |ui-options| menu is jail state sensitive meaning menu
+          entries change depending on the jail state. For example, a
+          stopped jail does not have a Stop option and cannot be accessed
+          via Shell; these options are not available when a jail is
+          stopped.
 
 
-**Edit:** Opens the :guilabel:`Edit` form for the jail. This has all
-the same configurables as the :ref:`Add Jail <Advanced Jail Creation>`
-form. After a jail has been created, the jail name cannot be changed,
-so this field will be grayed out.
+:numref:`Table %s <jail_option_menu_tab>` describes the option menu
+entries available for a jail.
 
-.. note:: To modify the IP address information for a jail, use the
-   :guilabel:`Edit Jail` button instead of the associated networking
-   commands from the command line of the jail.
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.75\linewidth-2\tabcolsep}|
+
+.. _jail_option_menu_tab:
+
+.. table:: Jail Option Menu Entry Descriptions
+   :class: longtable
 
 
-**Mount points:** Opens the :guilabel:`Mount Points` list. This is
-used to give a jail access to storage located elsewhere on the %brand%
-system. See :ref:`Add Storage` for more details.
+   +--------------+------------------------------------------------------------+
+   | Menu Options | Description                                                |
+   +==============+============================================================+
+   | Edit         | Open the :menuselection:`Jails --> Edit` section to edit   |
+   |              | the jail. Jail Edit has the same configurables as the      |
+   |              | :ref:`Add Jail <Advanced Jail Creation>` section. A jail   |
+   |              | name cannot be changed after creation, so the UUID/Jail    |
+   |              | Name field will be grayed out.                             |
+   |              |                                                            |
+   +--------------+------------------------------------------------------------+
+   |Mount points  | Open the :guilabel:`Mount Points` list. Select an existing |
+   |              | mount point or click |ui-add| to open the Add New Mount    |
+   |              | Point section to create a new mount point to add. Adding a |
+   |              | mount point gives a jail access to storage located         |
+   |              | elsewhere on the %brand% system. See                       |
+   |              | f:ref:`Add Storage` or more details.                       |
+   |              |                                                            |
+   +--------------+------------------------------------------------------------+
+   | Start        | Start a jail. Running jails are indicated as **up**.       |
+   |              |                                                            |
+   +--------------+------------------------------------------------------------+
+   | Stop         | Stop a jail. Stopped jails are indicated as **down**.      |
+   |              |                                                            |
+   +--------------+------------------------------------------------------------+
+   | Update       | Updates any packages installed in the jail to the latest   |
+   |              | version available in the installed FreeBSD RELEASE.        |
+   |              |                                                            |
+   +--------------+------------------------------------------------------------+
+   | Shell        | Access a *root* command prompt to interact with a jail     |
+   |              | directly from the command line. Type :command:`exit` to    |
+   |              | close the shell and return to the Jails Overview section.  |
+   |              |                                                            |
+   +--------------+------------------------------------------------------------+
+   | Delete       | Delete the jail and any periodic snapshots. The contents   |
+   |              | of the jail are **entirely removed**.                      |
+   |              |                                                            |
+   +--------------+------------------------------------------------------------+
 
-**Start:** Activate the jail.
 
-**Stop:** Deactivate the jail.
+.. note:: To modify the IP address information for a jail, use
+   |ui-options| :guilabel:`Edit` instead of issuing the networking
+   commands directly from the command line of the jail. This ensures
+   the changes will survive a jail or %brand% reboot.
 
-**Update:** Updates any packages installed in the jail to the latest
-version available on the installed FreeBSD RELEASE.
 
-**Shell:** Access a *root* command prompt to configure the selected
-jail from the command line. When finished, type :command:`exit` to
-close the shell.
-
-**Delete:** Delete the jail and any periodic snapshots of it. The
-contents of the jail are entirely removed.
-
-.. warning:: Back up data and programs in the jail before deleting
-   it. There is no way to recover the contents of a jail after
+.. warning:: Back up data and programs in a jail **before** clicking
+   delete. There is no way to recover the contents of a jail *after*
    deletion.
 
 
+.. index:: Accessing a Jail Using SSH, SSH
 .. _Accessing a Jail Using SSH:
 
 Accessing a Jail Using SSH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:command:`ssh` can be used to access a jail instead of the jail's
-:guilabel:`Shell` icon. This requires starting the :command:`ssh`
-service and creating a user account for :command:`ssh` access. Start
-by clicking the :guilabel:`Shell` icon for the desired jail. Another
-method to access the shell of a jail is to click :guilabel:`Shell` and
-type :samp:`iocage console UUID | NAME`. Here is an example:
+Accessing a jail is not limited to using Jail Add, the Jail Wizard, or
+using one of the Shells that are built in to the UI. Enable the ssh
+daemon `sshd(8)
+<https://www.freebsd.org/cgi/man.cgi?query=sshd&apropos=0&sektion=8>`__
+in a jail, create a user account to log in with, and ssh access to
+the jail via any computer that has network access to the %brand% server
+is now possible.
+
+Log in to a shell to get :guilabel:`cli` access to the jail to enable SSH
+on. To use the Jails Shell click |ui-options| --> :guilabel:`Shell` on
+the desired jail. A root shell will open as shown in this example:
+
 
 .. code-block:: none
 
@@ -680,75 +798,134 @@ type :samp:`iocage console UUID | NAME`. Here is an example:
    Edit /etc/motd to change this login announcement.
    root@jailexamp:~ #
 
-Add or find the :samp:`sshd_enable=` line in the jail's
-:file:`/etc/rc.conf` and set it to *"YES"*:
+.. tip:: A root shell can also be opened for a jail using
+   :guilabel:`Shell`. Open the :guilabel:`Shell`, then type
+   :samp:`iocage console Jail Name`. Note: :guilabel:`Jail Name` and
+   :guilabel:`UUID` are the same thing.
+
+
+Enable sshd:
 
 .. code-block:: none
 
-   sshd_enable="YES"
+   sysrc sshd_enable="YES"
+
+   No existing entry or already set to NO:
+   sshd_enable: NO -> YES
+
+   Existing entry set to YES
+   sshd_enable: YES -> YES
 
 
-Then start the SSH daemon:
+.. tip:: Using :command:`sysrc` to enable sshd will verify sshd gets
+   enabled even if there is an existing entry.
+
+Start the SSH daemon: :samp:`service sshd start`
+
+The first time the service runs, the jail RSA key pair is generated and
+the key fingerprint is displayed.
+
+Add a user account with :command:`adduser`. Follow the prompts,
+:kbd:`Enter` will accept the default value offered. Users that require
+*root* access must also be a member of the *wheel* group. Enter *wheel*
+when prompted to *invite user into other groups? []:*
+
 
 .. code-block:: none
 
-   service sshd start
+   root@jailexamp:~ # adduser
+   Username: jailuser
+   Full name: Jail User
+   Uid (Leave empty for default):
+   Login group [jailuser]:
+   Login group is jailuser. Invite jailuser into other groups? []: wheel
+   Login class [default]:
+   Shell (sh csh tcsh git-shell zsh rzsh nologin) [sh]: csh
+   Home directory [/home/jailuser]:
+   Home directory permissions (Leave empty for default):
+   Use password-based authentication? [yes]:
+   Use an empty password? (yes/no) [no]:
+   Use a random password? (yes/no) [no]:
+   Enter password:
+   Enter password again:
+   Lock out the account after creation? [no]:
+   Username   : jailuser
+   Password   : *****
+   Full Name  : Jail User
+   Uid        : 1002
+   Class      :
+   Groups     : jailuser wheel
+   Home       : /home/jailuser
+   Home Mode  :
+   Shell      : /bin/csh
+   Locked     : no
+   OK? (yes/no): yes
+   adduser: INFO: Successfully added (jailuser) to the user database.
+   Add another user? (yes/no): no
+   Goodbye!
+   root@jailexamp:~
 
 
-The first time the service runs, the jail RSA key pair is generated
-and the key fingerprint and random art image displayed.
-
-Add a user account by typing :command:`adduser` and following the
-prompts. Users who need superuser privileges must be added to
-the *wheel* group. For those users, enter *wheel* at this prompt:
+After creating the user, set the jail *root* password to allow users to
+use :command:`su` to gain superuser privileges. To set the jail *root*
+password, use :command:`passwd`. Nothing is echoed back when using
+*passwd*
 
 .. code-block:: none
 
-   Login group is user1. Invite user1 into other groups? []: wheel
+   root@jailexamp:~ # passwd
+   Changing local password for root
+   New Password:
+   Retype New Password:
+   root@jailexamp:~ #
 
-
-After creating the user, set the *root* password so that the new user
-will be able to use the :command:`su` command to gain superuser
-privilege. To set the password, type :command:`passwd` then enter and
-confirm the desired password.
 
 Finally, test from another system that the user can successfully
-:command:`ssh` in and become the superuser. In this example, a user
-named *user1* uses :command:`ssh` to access the jail at 192.168.2.3.
-The first time the user logs in, they will be asked to verify the
-fingerprint of the host:
+:command:`ssh` in to the jail and gain superuser priviledges. In the
+example, a user named *jailuser* uses :command:`ssh` to access the jail
+at 192.168.2.3. The host RSA key fingerprint must be verified the first
+time a user logs in.
 
 .. code-block:: none
 
-   ssh user1@192.168.2.3
+   ssh jailuser@192.168.2.3
    The authenticity of host '192.168.2.3 (192.168.2.3)' can't be established.
    RSA key fingerprint is 6f:93:e5:36:4f:54:ed:4b:9c:c8:c2:71:89:c1:58:f0.
    Are you sure you want to continue connecting (yes/no)? yes
    Warning: Permanently added '192.168.2.3' (RSA) to the list of known hosts.
-   Password: type_password_here
+   Password:
 
 
-.. note:: Each jail has its own user accounts and service
-   configuration. These steps must be repeated for each jail that
-   requires SSH access.
+.. note:: Every jail has its own user accounts and service configuration.
+   These steps must be repeated for each jail that requires SSH access.
+
+.. index:: Additional Storage, Add Storage, Adding Storage
+.. _Additional Storage:
+
+Additional Storage
+~~~~~~~~~~~~~~~~~~
 
 
-.. _Add Storage:
-
-Add Storage
-~~~~~~~~~~~
+Jails can be given access to an area of storage outside of the jail that
+is configured on the %brand% system.
 
 It is possible to give a FreeBSD jail access to an area of storage on
-the %brand% system. This is useful for applications that store a
-large amount of data or if an application in a jail needs access to
-the data stored on the %brand% system. One example is transmission,
-which stores torrents. The storage is added using the
+the %brand% system. This is useful for applications or plugins that store
+large amount of data or if an application in a jail needs access to data
+stored on the %brand% system. One example is transmission, a plugin that
+stores data using BitTorrent. The storage is added using the
 `mount_nullfs(8)
-<https://www.freebsd.org/cgi/man.cgi?query=mount_nullfs>`__
-mechanism, which links data that resides outside of the jail as a
-storage area within the jail.
+<https://www.freebsd.org/cgi/man.cgi?query=mount_nullfs>`__ mechanism,
+which links data that resides outside of the jail as a storage area
+within a jail.
 
-To add storage, navigate
+The Mount Points section of a jail shows the all additional storage
+currently added and allows new additional storage to be added.
+
+add storage, click |ui-options| --> :guilabel:`Mount points`. In the
+Mount points section is a list of all of the currently defined
+
+To add storage, navigate to
 :menuselection:`More Actions --> Mount points --> Add Mount Point` for
 the desired jail. This opens the screen shown in
 :numref:`Figure %s <adding_storage_jail_fig>`.
