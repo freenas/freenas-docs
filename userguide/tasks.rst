@@ -23,11 +23,13 @@ repetitive tasks:
 * :ref:`Replication Tasks` automate the replication of snapshots to
   a remote system
 
-* :ref:`Resilver Priority` controls the priority of resilvers.
+* :ref:`Resilver Priority` controls the priority of resilvers
 
-* :ref:`Scrub Tasks` schedules scrubs as part of ongoing disk maintenance
+* :ref:`Scrub Tasks` schedules scrubs as part of ongoing disk
+  maintenance
 
-* :ref:`Cloud Sync Tasks` schedules data synchronization to cloud providers
+* :ref:`Cloud Sync Tasks` schedules data synchronization to cloud
+  providers
 
 Each of these tasks is described in more detail in this section.
 
@@ -1719,11 +1721,12 @@ field is used to prevent scrubs from running too often, and overrides
 the schedule chosen in the other fields. Also, if a pool is locked or
 unmounted when a scrub is scheduled to occur, it will not be scrubbed.
 
-Scheduled scrubs can be deleted with the :guilabel:`Delete` button, but
-this is not recommended. **Scrubs can provide an early indication of
-disk issues before a disk failure.** If a scrub is too intensive for
-the hardware, consider temporarily unchecking the :guilabel:`Enabled`
-button for the scrub until the hardware can be upgraded.
+Scheduled scrubs can be deleted with the :guilabel:`Delete` button,
+but this is not recommended. **Scrubs can provide an early indication
+of disk issues before a disk failure.** If a scrub is too intensive
+for the hardware, consider temporarily unchecking the
+:guilabel:`Enabled` button for the scrub until the hardware can be
+upgraded.
 
 .. index:: Cloud Sync
 .. _Cloud Sync Tasks:
@@ -1804,32 +1807,33 @@ shows the configuration options for Cloud Syncs.
    | Setting             | Value Type          | Description                                                                                             |
    |                     |                     |                                                                                                         |
    +=====================+=====================+=========================================================================================================+
-   | Description         | string              | Input a descriptive name for this Cloud Sync.                                                           |
+   | Description         | string              | Enter a descriptive name of this task.                                                                  |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Direction           | drop-down menu      | Select *Push* to send data to cloud storage or *Pull* to pull data from the cloud storage               |
+   | Direction           | drop-down menu      | *Push* sends data to cloud storage. *Pull* receives data from cloud storage.                            |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Credential          | drop-down menu      | Select the cloud storage provider. The list of providers is defined by :ref:`Cloud Credentials`.        |
+   | Credential          | drop-down menu      | Choose the cloud storage provider credentials from the list of entered :ref:`Cloud Credentials`.        |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Bucket              | drop-down menu      | Only appears when an S3 credential is the *Provider*. Select the pre-defined bucket to use.             |
+   | Bucket              | drop-down menu      | Only appears when an S3 credential is the *Provider*. Select the pre-defined S3 bucket to use.          |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Folder              | string              | Only appears when an S3 credential is the *Provider*. Optionally input the name of the pre-defined      |
+   | Folder              | string              | Only appears when an S3 credential is the *Provider*. Optionally enter the name of the pre-defined      |
    |                     |                     | folder within the selected bucket.                                                                      |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Server Side         | drop-down menu      | Only appears when an S3 credential is the *Provider*. Choices are *None* (no encryption) or             |
    | Encryption          |                     | *AES-256* (encrypted).                                                                                  |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Directory/Files     | browse button       | Select the path to the directories or files to be sent to the cloud for *Push* syncs or written as the  |
-   |                     |                     | destination for *Pull* syncs. Be cautious about the destination of *Pull* jobs to avoid overwriting     |
+   | Directory/Files     | browse button       | Select the directories or files to be sent to the cloud for *Push* syncs, or the destination to be      |
+   |                     |                     | written for *Pull* syncs. Be cautious about the destination of *Pull* jobs to avoid overwriting         |
    |                     |                     | existing files.                                                                                         |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Transfer Mode       | drop-down menu      | *Sync* (default): make files on destination system identical to those on the source. Files removed from |
-   |                     |                     | the source are removed from the destination, similar to :command:`rsync --delete`.                      |
+   | Transfer Mode       | drop-down menu      | *Sync* (default): make files on the destination system identical to those on the source. Files that     |
+   |                     |                     | have been removed from the source are removed from the destination, similar to                          |
+   |                     |                     | :command:`rsync --delete`.                                                                              |
    |                     |                     |                                                                                                         |
    |                     |                     | *Copy*: copy files from the source to the destination, skipping files that are identical, similar to    |
    |                     |                     | :command:`rsync`.                                                                                       |
@@ -1838,39 +1842,40 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | similar to :command:`mv`.                                                                               |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Remote encryption   | checkbox            | When checked, files will be encrypted before transfer and will be stored encrypted on the remote system.|
+   | Remote encryption   | checkbox            | Set to encrypt files before transfer and store the encrypted files on the remote system.                |
+   |                     |                     | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                   |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Filename encryption | checkbox            | Only appears when :guilabel:`Remote encryption` is checked. Set to encrypt the shared file names.       |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Filename encryption | checkbox            | Only appears when :guilabel:`Remote encryption` is checked. If this box is also checked, the filenames  | 
-   |                     |                     | will also be encrypted.                                                                                 |
+   | Encryption password | string              | Only appears when :guilabel:`Remote encryption` is checked. Enter the password for encrypting and       |
+   |                     |                     | and decrypting remote data. *Warning*: Always save and back up this password. Losing the encryption     |
+   |                     |                     | password can result in data loss.                                                                       |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Encryption password | string              | Only appears when :guilabel:`Remote encryption` is checked. Input the password to use for encrypting    |
-   |                     |                     | the files                                                                                               |
+   | Encryption salt     | string              | Only appears when :guilabel:`Remote encryption` is checked. Enter a long string of random characters    |
+   |                     |                     | for use as `salt <https://searchsecurity.techtarget.com/definition/salt>`__ for the encryption          |
+   |                     |                     | password. *Warning*: Save and back up the encryption salt value. Losing the salt value can result in    |
+   |                     |                     | data loss.                                                                                              |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Encryption salt     | string              | Only appears when :guilabel:`Remote encryption` is checked. Input a long string of random characters    |
-   |                     |                     | for use by the encryption algorithm.                                                                    |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Quick Schedule      | drop-down menu      | Selecting a :guilabel:`Quick Schedule` other than :guilabel:`-----` limits other scheduling options.    |
-   |                     |                     | Choose :guilabel:`-----`, :guilabel:`Hourly`, :guilabel:`Daily`, :guilabel:`Weekly`,                    |
-   |                     |                     | or :guilabel:`Monthly`.                                                                                 |
+   | Quick Schedule      | drop-down menu      | Choose how often to run the task. An empty value allows defining a custom schedule.                     |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Minute              | integer             | Define the minute to run the task.                                                                      |
+   | Minute              | integer             | Minute to run the task.                                                                                 |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Hour                | integer             | Define the hour to run the task.                                                                        |
+   | Hour                | integer             | Hour to run the task.                                                                                   |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of month        | integer             | Define the days of the month to run the task.                                                           |
+   | Day of month        | integer             | Day of the month to run the task.                                                                       |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Month               | checkboxes          | Define the months to run the Cloud Sync.                                                                |
+   | Month               | checkboxes          | Months when the task runs.                                                                              |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of week         | checkboxes          | Define the days of the week to run the Cloud Sync.                                                      |
+   | Day of week         | checkboxes          | Days of the week to run the task.                                                                       |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Enabled             | checkbox            | Uncheck to temporarily disable this Cloud Sync.                                                         |
+   | Enabled             | checkbox            | Unset to temporarily disable this Cloud Sync task.                                                      |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
 
