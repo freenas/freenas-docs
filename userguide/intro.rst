@@ -169,6 +169,9 @@ The following software has been added or updated:
 * Minio has been updated to
   `version 2018-04-04T05 <https://github.com/minio/minio/releases/tag/RELEASE.2018-04-04T05-20-54Z>`__.
 
+* Netdata as been updated to
+  `version 1.10.1 <https://github.com/firehol/netdata/releases/tag/v1.10.0>`__.
+
 * The updated version of iocage provides many bug fixes and improved
   IPv6 support.
 
