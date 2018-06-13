@@ -225,12 +225,12 @@ viewed or set using
 There are two types of passwords. User account passwords for the base
 operating system are stored as hashed values, do not need to be
 encrypted to be secure, and are saved in the system configuration
-backup. Other passwords, like iSCSI CHAP passwords or Active Directory
-bind credentials, are stored in an encrypted form to prevent them from
-being visible as plain text in the saved system configuration. The key
-or *seed* for this encryption is normally stored only on the boot
-device. When :guilabel:`Save Config` is chosen, a dialog gives the
-option to :guilabel:`Export Password Secret Seed` with the saved
+backup. Other passwords, like iSCSI CHAP passwords, Active Directory
+bind credentials, and cloud credentials are stored in an encrypted form
+to prevent them from being visible as plain text in the saved system
+configuration. The key or *seed* for this encryption is normally stored
+only on the boot device. When :guilabel:`Save Config` is chosen, a dialog
+gives the option to :guilabel:`Export Password Secret Seed` with the saved
 configuration, allowing the configuration file to be restored to
 a different boot device where the decryption seed is not already
 present. Configuration backups containing the seed must be physically
