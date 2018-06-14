@@ -163,6 +163,9 @@ The following software has been added or updated:
   system. This CLI utility can be used to analyze disk usage from the
   console or an SSH session.
 
+* Netatalk has been updated to the 3.1.12 development version which
+  addresses known issues with Time Machine timeouts.
+
 * rsync has been updated to
   `version 3.1.3 <https://download.samba.org/pub/rsync/src/rsync-3.1.3-NEWS>`__.
 
