@@ -209,6 +209,9 @@ The following screen options have changed:
 * The :guilabel:`Password for SED` column has been added to
   :menuselection:`Storage --> Volumes --> View Disks`.
 
+* The :guilabel:`MSDOSFS locale` drop-down menu has been added to
+  :menuselection:`Storage --> Import Disk`.
+
 * The :guilabel:`Enable home directories`, :guilabel:`Home directories`,
   :guilabel:`Home share name`, and :guilabel:`Home Share Time Machine`
   fields have been removed from :menuselection:`Services --> AFP` and
