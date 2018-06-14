@@ -163,11 +163,17 @@ The following software has been added or updated:
   system. This CLI utility can be used to analyze disk usage from the
   console or an SSH session.
 
+* Netatalk has been updated to the 3.1.12 development version which
+  addresses known issues with Time Machine timeouts.
+
 * rsync has been updated to
   `version 3.1.3 <https://download.samba.org/pub/rsync/src/rsync-3.1.3-NEWS>`__.
 
 * Minio has been updated to
   `version 2018-04-04T05 <https://github.com/minio/minio/releases/tag/RELEASE.2018-04-04T05-20-54Z>`__.
+
+* Netdata as been updated to
+  `version 1.10.1 <https://github.com/firehol/netdata/releases/tag/v1.10.0>`__.
 
 * The updated version of iocage provides many bug fixes and improved
   IPv6 support.
@@ -205,6 +211,9 @@ The following screen options have changed:
 
 * The :guilabel:`Password for SED` column has been added to
   :menuselection:`Storage --> Volumes --> View Disks`.
+
+* The :guilabel:`MSDOSFS locale` drop-down menu has been added to
+  :menuselection:`Storage --> Import Disk`.
 
 * The :guilabel:`Enable home directories`, :guilabel:`Home directories`,
   :guilabel:`Home share name`, and :guilabel:`Home Share Time Machine`

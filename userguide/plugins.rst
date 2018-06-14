@@ -128,7 +128,7 @@ documentation is available.
 If the application requires access to the data stored on the %brand%
 system, click the entry for the associated jail in the
 :menuselection:`Jails` page and add a storage as described in
-:ref:`Add Storage`.
+:ref:`Additional Storage`.
 
 Click |ui-options| and :guilabel:`Shell` for the plugin jail in the
 :menuselection:`Jails` page. This will give access to the shell of the

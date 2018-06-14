@@ -1732,6 +1732,11 @@ a time.
 
 Use the drop-down menu to select the disk to import, select the type
 of filesystem on the disk, and browse to the ZFS dataset that will
-hold the copied data. When you click :guilabel:`Save`, the disk is
-mounted, its contents are copied to the specified dataset, and the disk
-is unmounted after the copy operation completes.
+hold the copied data. If the :guilabel:`MSDOSFS` filesystem is selected,
+an additional :guilabel:`MSDOSFS locale` drop-down menu will display. Use
+this menu to select the locale if non-ascii characters are present on the
+disk.
+
+Once you click :guilabel:`Save`, the disk is mounted, its contents are
+copied to the specified dataset, and the disk is unmounted after the copy
+operation completes.
