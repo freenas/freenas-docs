@@ -927,9 +927,13 @@ dataset. Only one disk can be imported at a time.
 
 Use the drop-down menu to select the disk to import, select the type
 of filesystem on the disk, and browse to the ZFS dataset that will
-hold the copied data. When you click :guilabel:`Import Volume`, the
-disk is mounted, its contents are copied to the specified ZFS dataset,
-and the disk is unmounted after the copy operation completes.
+hold the copied data. If the :guilabel:`MSDOSFS` filesystem is selected,
+the :guilabel:`MSDOSFS locale` drop-down menu can be used to select the
+locale when non-ascii characters are present on the disk.
+
+Once :guilabel:`Import Disk` is clicked, the disk is mounted, its contents
+are copied to the specified ZFS dataset, and the disk is unmounted after
+the copy operation completes.
 
 
 .. _Import Volume:
