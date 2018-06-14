@@ -591,7 +591,6 @@ To configure anonymous FTP:
     * :guilabel:`Mode`: review that the permissions are appropriate
       for the share
 
-
     .. note:: For FTP, the type of client does not matter when it
        comes to the type of ACL. This means that Unix
        ACLs are used even if Windows clients are accessing %brand% via
@@ -606,9 +605,9 @@ To configure anonymous FTP:
     * :guilabel:`Path`: browse to the pool/dataset/directory to be
       shared
 
-#.  Start the FTP service in :guilabel:`Services --> FTP`. Click the red
-    :guilabel:`Power` button on the :guilabel:`FTP` card. The FTP
-    service takes a second or so to start. The :guilabel:`Power`
+#.  Start the FTP service in :menuselection:`Services --> FTP`. Click
+    the red :guilabel:`Power` button on the :guilabel:`FTP` card.
+    The FTP service takes a second or so to start. The :guilabel:`Power`
     button changes to green when the service is running.
 
 #.  Test the connection from a client using a utility such as
@@ -694,9 +693,9 @@ To configure this scenario:
 
     * Select the :guilabel:`Always Chroot` option to enable it.
 
-#.  Start the FTP service in :guilabel:`Services --> FTP`. Click the red
-    :guilabel:`Power` button in the :guilabel:`FTP` card. The FTP
-    service takes a second or so to start. The :guilabel:`Power`
+#.  Start the FTP service in :menuselection:`Services --> FTP`. Click
+    the red :guilabel:`Power` button in the :guilabel:`FTP` card. The
+    FTP service takes a second or so to start. The :guilabel:`Power`
     button changes to green to show the service is running.
 
 #.  Test the connection from a client using a utility such as
@@ -775,7 +774,7 @@ iSCSI
 -----
 
 Refer to :ref:`Block (iSCSI)` for instructions on configuring iSCSI.
-Start the iSCSI service in :guilabel:`Services --> iSCSI`.
+Start the iSCSI service in :menuselection:`Services --> iSCSI`.
 Click the red :guilabel:`Power` button. The :guilabel:`Power` button
 changes to green to show the service is running.
 
@@ -847,7 +846,7 @@ Netdata
 Netdata is a real-time performance and monitoring system. It displays
 data as web dashboards.
 
-Go to :guilabel:`Services --> Netdata` and click the power button to
+Go to :menuselection:`Services --> Netdata` and click the power button to
 turn on the netdata service. The :guilabel:`Power` button changes to
 green to show the service is running. Click :guilabel:`Configure` to
 view the web dashboard as shown in
@@ -1029,7 +1028,7 @@ Rsync Modules
 
 
 :numref:`Figure %s <add_rsync_module_fig>`
-shows the configuration screen that appears after navigating to
+shows the configuration screen that appears after navigating
 :menuselection:`Services --> Rsync --> Configure --> Rsync Module`,
 and clicking |ui-add|.
 
