@@ -801,7 +801,7 @@ interfaces provided they have different tags.
 #endif truenas
 
 Go to
-:menuselection:`Network --> VLANs`, and click |ui-add|
+:menuselection:`Network --> VLANs` and click |ui-add|
 to see the screen shown in
 :numref:`Figure %s <adding_vlan_fig>`.
 
@@ -850,7 +850,7 @@ summarizes the configurable fields.
    +---------------------+----------------+---------------------------------------------------------------------------------------------------+
 
 
-The parent interface of a VLAN must be <i>up</i>, but it can either have an IP
+The parent interface of a VLAN must be up, but it can either have an IP
 address or be unconfigured, depending upon the requirements of the VLAN
 configuration. This makes it difficult for the GUI to do the right thing
 without trampling the configuration. To remedy this, add the VLAN, then
