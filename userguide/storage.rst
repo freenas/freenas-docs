@@ -15,7 +15,7 @@ these options:
 
 * :ref:`Disks`: view and manage disk options.
 
-* :ref:`Importing a Disk`: import a **single** disk that has been
+* :ref:`Importing a Disk`: import a **single** disk that is
   formatted with the UFS, NTFS, MSDOS, or EXT2 filesystem.
 
 
@@ -34,8 +34,8 @@ these options:
 Pools
 -----
 
-:menuselection:`Storage --> Pools` can be used to create and manage ZFS
-pools, datasets and zvols.
+:menuselection:`Storage --> Pools` is used to create and manage ZFS
+pools, datasets, and zvols.
 
 Proper storage design is important for any NAS.
 **Please read through this entire chapter before configuring storage
@@ -54,8 +54,8 @@ many disks will be added, and if any data exists on those disks.
 Creating a pool overwrites disk data, so save any required data to
 different media before adding disks to a pool.
 
-To create a pool, click the :menuselection:`menu icon --> Create Pool`.
-This opens a screen similar to the example shown in
+Navigate :menuselection:`Storage --> Pools`
+and click |ui-add| to open the screen shown in
 :numref:`Figure %s <create_pool_poolman_fig>`.
 
 
@@ -65,19 +65,21 @@ This opens a screen similar to the example shown in
 
    Creating a Pool
 
+Select :guilabel:`Create new pool` and click :guilabel:`Create Pool`
+to continue.
 
-Click the :guilabel:`Name *` field and input a name for the pool. Ensure
+Enter a name for the pool in the :guilabel:`Name *` field. Ensure
 that the chosen name conforms to these
 `naming conventions <https://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`__.
-It is recommended to choose a name that will stick out in the logs
-rather than a generic name like :file:`data` or :file:`freenas`.
+Choosing a name that will stick out in the logs is recommended,
+rather than generic names like :file:`data` or :file:`freenas`.
 
 If the underlying disks need to be encrypted as a protection against
-physical theft, check the :guilabel:`Encryption` box. A pop-up message
-shows a reminder that
-**it is extremely important to make a backup of the key**. Without
-the key, the data on the disks is inaccessible. Check the
-:guilabel:`Confirm` box then click :guilabel:`Ok`.
+physical theft, set the :guilabel:`Encryption` option. A pop-up message
+shows a reminder to
+**Always back up the key!**. Without
+the key, the data on the disks is inaccessible. Select
+:guilabel:`Confirm` then click :guilabel:`Ok`.
 
 .. warning:: Refer to the warnings in :ref:`Managing Encrypted Pools`
    before enabling encryption! Be aware that this form of encryption
@@ -87,8 +89,8 @@ the key, the data on the disks is inaccessible. Check the
    encryption when it becomes available.
 
 
-In the :guilabel:`Available Disks` section, check the boxes for the
-disks to add to the pool. Click :guilabel:`Filter disks by name` or
+In the :guilabel:`Available Disks` section, select the disks that will be
+added to the pool. Click :guilabel:`Filter disks by name` or
 :guilabel:`Filter disks by capacity` to change the order of displayed
 disks.
 
@@ -99,8 +101,8 @@ disks.
 
 After selecting the desired disks, click the right arrow to add them to
 the :guilabel:`Data VDevs` section. Any disks that appear in
-:guilabel:`Data VDevs` will be used to create the pool. To remove a disk
-from that section, check its box and use the left arrow to return it to
+:guilabel:`Data VDevs` are used to create the pool. To remove a disk
+from that section, select the disk and use the left arrow to return it to
 the :guilabel:`Available Disks` section.
 
 To add multiple :guilabel:`Data VDevs`, click :guilabel:`Add Data` for
@@ -138,9 +140,9 @@ layouts are supported:
    arrays.
 
 
-Once the desired layout is configured, click :guilabel:`Save`. A pop-up
+Once the desired layout is configured, click :guilabel:`Create`. A pop-up
 warning servers as a reminder that all disk contents will be erased.
-Check the :guilabel:`Confirm` box then click :guilabel:`Ok` to create
+Enable the :guilabel:`Confirm` option then click :guilabel:`Ok` to create
 the pool.
 
 .. note:: To instead preserve existing data, click the
@@ -153,7 +155,7 @@ the pool.
 
 Depending on the size and number of disks, the type of controller, and
 whether encryption is selected, creating the pool may take some time.
-If the :guilabel:`Encryption` checkbox was selected, a popup message
+If the :guilabel:`Encryption` option was selected, a popup message
 will provide a link to :guilabel:`Download Recovery Key`. Click the link
 and save the key to a safe location. When finished, click
 :guilabel:`Done`.
@@ -161,8 +163,8 @@ and save the key to a safe location. When finished, click
 Once the pool is created, the screen refreshes and the new pool is
 listed in :menuselection:`Storage --> Pools`.
 
-In the example shown in :numref:`Figure %s <zfs_vol_fig>`, a pool has
-been created named *pool1*. Its description indicates that it is HEALTHY
+In the example shown in :numref:`Figure %s <zfs_vol_fig>`, the created
+pool is named *pool1*. Its description indicates that it is HEALTHY
 and its :guilabel:`Used` and :guilabel:`Free` entries reflect the total
 size of the pool, including disk parity.
 
@@ -307,7 +309,7 @@ it.
 
 .. note:: `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
    uses *two* randomized encryption keys for each disk. The first has
-   been discussed here. The second, the disk's "master key", is
+   been discussed here. The second, the disk "master key", is
    encrypted and stored in the on-disk GELI metadata. Loss of a disk
    master key due to disk corruption is equivalent to any other disk
    failure, and in a redundant pool, other disks will contain
@@ -317,9 +319,9 @@ it.
 
 
 To manage the passphrase and keys on an encrypted pool, select the
-pool's name in :menuselection:`Storage --> Pools`, click the
-:guilabel:`Encryption Operations` (lock) icon, and select one of the
-following operations:
+pool name in :menuselection:`Storage --> Pools`, click the
+:guilabel:`Encryption Operations` (lock) icon, and select one of
+these operations:
 
 **Lock:** Only appears after a passphrase has been created. When a pool
 is locked, its data is not accessible until the pool is unlocked by
@@ -334,7 +336,7 @@ a passphrase and a recovery key are entered, only the passphrase is
 used.  By default, the services listed will restart when the pool is
 unlocked. This allows them to see the new pool and share or access
 data on it. Individual services can be prevented from restarting by
-unchecking them. However, a service that is not restarted might not be
+deselected them. However, a service that is not restarted might not be
 able to access the unlocked pool.
 
 **Create Passphrase:** set and confirm a passphrase associated with the
@@ -384,8 +386,8 @@ recovery key whenever the passphrase is changed.**
 administrator suspects that the current recovery key may be
 compromised. **Immediately** create a new passphrase and recovery key.
 
-.. note:: The passphrase, recovery key, and encryption key must be
-   protected. Do not reveal the passphrase to others. On the system
+.. note:: Protect the passphrase, recovery key, and encryption key.
+   Do not reveal the passphrase to others. On the system
    containing the downloaded keys, take care that the system and its
    backups are protected. Anyone who has the keys has the ability to
    re-import the disks if they are discarded or stolen.
@@ -419,22 +421,22 @@ Adding Cache or Log Devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 :ref:`Pools` can be used either during or after pool creation to add an
-SSD as a cache or log device to improve that pool's performance under
+SSD as a cache or log device to improve performance of the pool under
 specific use cases. Before adding a cache or log device, refer to the
 :ref:`ZFS Primer` to determine if the system will benefit or suffer from
 the addition of the device.
 
-To add a device during pool creation, click the :guilabel:`Add Cache` or
-:guilabel:`Add Log` button. Check the box for the SSD to use in
-:guilabel:`Available Disks` and use the left arrow to add it to the
-:guilabel:`Cache Vdev` or :guilabel:`Log Vdev` section.
+To add a Cache or Log device during pool creation, click the
+:guilabel:`Add Cache` or :guilabel:`Add Log` button. Select the disk from
+:guilabel:`Available Disks` and use the :guilabel:`right arrow` next to
+:guilabel:`Cache VDev` or :guilabel:`Log VDev` to add it to that section.
 
-To add a device to an existing pool, click the pool's name then the
-:guilabel:`Standard Volume Operations` (gear) icon and select
-:guilabel:`Extend`. Click the :guilabel:`Confirm` checkbox and click
-:guilabel:`Ok` to bypass the warning message. This will reopen the pool
-creation screen described in the previous paragraph, but with the pool
-name displayed as read-only.
+To add a device to an existing pool in
+:menuselection:`Storage --> Pools`, click the pool name,
+|ui-settings|, then :guilabel:`Extend`. Click
+:guilabel:`Confirm` and :guilabel:`Ok` to bypass the warning message.
+This will reopen the pool creation screen described in the previous
+paragraph, but with the pool name displayed as read-only.
 
 .. index:: Hot Spares, Spares
 .. _Adding Spare Devices:
@@ -455,12 +457,13 @@ Hot spares can be added to a pool during or after creation. On
 `zfsd(8) <https://www.freebsd.org/cgi/man.cgi?query=zfsd>`__.
 
 To add a spare during pool creation, click the :guilabel:`Add Spare`.
-button. Check the box for the disk to use in :guilabel:`Available Disks`
-and use the left arrow to add it to the :guilabel:`Spare VDev` section.
+button. Select the disk from :guilabel:`Available Disks` and use the
+:guilabel:`right arrow` next to :guilabel:`Spare VDev` to add it to
+the section.
 
-To add a device to an existing pool, click the pool's name then the
-:guilabel:`Standard Volume Operations` (gear) icon and select
-:guilabel:`Extend`. Click the :guilabel:`Confirm` checkbox and click
+To add a device to an existing pool, click the pool name,
+|ui-settings| icon, then
+:guilabel:`Extend`. Click :guilabel:`Confirm` and
 :guilabel:`Ok` to bypass the warning message. This will reopen the pool
 creation screen described in the previous paragraph, but with the pool
 name displayed as read-only.
@@ -470,10 +473,10 @@ name displayed as read-only.
 Extending a Pool
 ~~~~~~~~~~~~~~~~
 
-To increase the capacity of an existing pool, click the pool's name then
-the :guilabel:`Standard Volume Operations` (gear) icon and select
+To increase the capacity of an existing pool, click the pool name,
+|ui-settings|, then
 :guilabel:`Extend`. A popup warning displays a reminder to stripe vdevs
-of the same size and type. Click the :guilabel:`Confirm` checkbox and click
+of the same size and type. Click :guilabel:`Confirm` and
 :guilabel:`Ok` to continue.
 
 .. note:: If the existing pool is encrypted, an additional warning message 
@@ -516,8 +519,8 @@ Here are some examples:
 Detaching a Pool
 ~~~~~~~~~~~~~~~~
 
-To export or destroy an existing pool, click the pool's name then
-the :guilabel:`Standard Volume Operations` (gear) icon and select
+To export or destroy an existing pool, click the pool name,
+|ui-settings|, then
 :guilabel:`Detach`. The choice to retain or delete the contents of the
 pool depends upon the selections made in the screen shown in
 :numref:`Figure %s <zfs_detach_vol_fig>`.
@@ -538,24 +541,28 @@ pool depends upon the selections made in the screen shown in
    When in doubt, use the instructions in :ref:`Managing Encrypted Pools`
    to set a passphrase.
 
-The :guilabel:`Detach Pool` screen provides checkboxes to
+The :guilabel:`Detach Pool` screen provides options to
 :guilabel:`Destroy data on this pool?` and to
-:guilabel:`Confirm this detach procedure`. 
+:guilabel:`Confirm detach`.
 
-To detach the pool while retaining the data on the pool, check the
-:guilabel:`Confirm this detach procedure` box and click the
+To detach the pool while retaining the data on the pool, select the
+:guilabel:`Confirm detach` option and click the
 :guilabel:`Detach` button. This operation allows the pool to be
 re-imported at a later time. For example, when moving a pool from one
 system to another, perform this detach action first to flush any unwritten
 data to disk, write data to the disk indicating that the export was done,
 and remove all knowledge of the pool from this system.
 
-To instead destroy the data on the pool, check both boxes. This instructs
+To instead destroy the data on the pool, set both options. This instructs
 the system to destroy the data on the pool, its datasets, zvols, and
-shares and to return its individual disks are to their raw state. 
+shares and to return its individual disks are to their raw state.
 
 .. warning:: Before destroying a pool, ensure that any needed data has
    been backed up to a different pool or system.
+
+#ifdef comment
+Did not have time to test the importing the geli-encrypted pool section.
+#endif comment
 
 .. _Importing a Pool:
 
@@ -572,18 +579,29 @@ the pool on that system. Then shut it down and connect the drives to
 the %brand% system. This prevents an "in use by another machine" error
 during the import to %brand%.
 
-To import an unencrypted pool, click the :guilabel:`Import Pools` (down
-arrow) icon. This will open the screen shown in
-:numref:`Figure %s <zfs_import_vol_fig>`.
+Configure %brand% to import an existing ZFS pool by navigating
+:menuselection:`Storage --> Pools` and clicking |ui-add|. Select
+:guilabel:`Import existing pool` then :guilabel:`Next` as
+shown in :numref:`Figure %s <zfs_import_vol_fig>`.
 
 .. _zfs_import_vol_fig:
 
 .. figure:: images/auto1.png
 
-   Initial Import Pool Windows
+   Initial Pool Import
 
-Select the pool from the drop-down menu and click the :guilabel:`Save`
-button to import it.
+To import an unencrypted pool, click
+:guilabel:`No, continue with import` then :guilabel:`Next` as shown
+in :numref:`Figure %s <zfs_import_vol_fig2>`.
+
+.. _zfs_import_vol_fig2:
+
+.. figure:: images/auto1.png
+
+   Importing an Unencrypted Pool
+
+Select the pool from the :guilabel:`Pool *` drop-down menu and
+click :guilabel:`Next` to import it.
 
 #ifdef freenas
 If hardware is not being detected, run
@@ -592,9 +610,9 @@ appear in the output, check to see if the controller driver is
 supported or if it needs to be loaded using :ref:`Tunables`.
 #endif freenas
 
-Before importing a GELI-encrypted pool, its disks must first be decrypted.
-Click the :guilabel:`Decrypt Exported Pools` (unlock) icon. This will
-open the screen shown in :numref:`Figure %s <zfs_decrypt_import_fig>`.
+Before importing a GELI-encrypted pool, disks must first be decrypted.
+Click :guilabel:`Yes, decrypt the disks`. This is
+shown in :numref:`Figure %s <zfs_decrypt_import_fig>`.
 
 .. _zfs_decrypt_import_fig:
 
@@ -603,10 +621,10 @@ open the screen shown in :numref:`Figure %s <zfs_decrypt_import_fig>`.
    Decrypting Disks Before Importing a Pool
 
 
-Use the :guilabel:`Browse` button to select the location of the saved
-encryption key, click the :guilabel:`Upload` button to upload the key,
-enter the passphrase associated with the key, then click
-:guilabel:`Decrypt Pool`.
+Use the :guilabel:`Disks *` dropdown menu to select the disk to decrypt.
+Click :guilabel:`Browse` to select an encryption key to upload.
+Enter the passphrase associated with the key, then click
+:guilabel:`Next`.
 
 .. note:: The encryption key is required to decrypt the pool. If the
    pool cannot be decrypted, it cannot be re-imported after a failed
@@ -622,24 +640,23 @@ After the pool is decrypted, it can be imported.
    installed to a new device and a saved configuration file restored
    to it, the GELI keys for encrypted disks will not be present, and
    the system will not request them. To correct this, export the
-   encrypted pool with Detach Pool, making sure that the checkboxes
-   which clear data are **not** selected (there are no check marks on
+   encrypted pool with Detach Pool, making sure that the options
    :guilabel:`Mark the disks as new (destroy data)` or
-   :guilabel:`Also delete the share's configuration`). Then import the
-   pool again. During the import, the GELI keys can be entered as
-   described above.
+   :guilabel:`Also delete the share's configuration` are **not**
+   selected. Then import the pool again. During the import, the GELI
+   keys can be entered as described above.
 
 .. index:: Scrubs
-.. _Viewing a Pool's Scrub Status:
+.. _Viewing Pool Scrub Status:
 
-Viewing a Pool's Scrub Status
+Viewing Pool Scrub Status
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Scrubs and how to set their schedule are described in more
 detail in :ref:`Scrub Tasks`.
 
-To view a pool's scrub status, click the pool's name, then the
-:guilabel:`Standard Volume Operations` button, then :guilabel:`Status`.
+To view the scrub status of a pool, click the pool name, |ui-settings|,
+then :guilabel:`Status`.
 The resulting screen will display the status of a running scrub or the
 statistics from the last completed scrub.
 
@@ -672,7 +689,7 @@ quotas and compression can be set, and snapshots created.
 
 
 To create a dataset, select an existing pool in
-:menuselection:`Storage --> Pools`, click the 3-dot icon, and select
+:menuselection:`Storage --> Pools`, click |ui-options|, then select
 :guilabel:`Add Dataset` This will display the screen shown in
 :numref:`Figure %s <zfs_create_dataset>`.
 
@@ -700,8 +717,8 @@ shows the options available when creating a dataset.
 Some settings are
 only available in :guilabel:`Advanced Mode`. To see these settings,
 either click the :guilabel:`Advanced Mode` button, or configure the
-system to always display advanced settings by checking the box
-:guilabel:`Show advanced fields by default` in
+system to always display advanced settings by enabling the
+:guilabel:`Show advanced fields by default` option in
 :menuselection:`System --> Advanced`.
 #endif comment
 
@@ -718,10 +735,10 @@ system to always display advanced settings by checking the box
    | Setting                  | Value               | Description                                                                                               |
    |                          |                     |                                                                                                           |
    +==========================+=====================+===========================================================================================================+
-   | Name                     | string              | This setting is mandatory. Input a unique name for the dataset.                                           |
+   | Name                     | string              | This setting is mandatory. Enter a unique name for the dataset.                                           |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Comments                 | string              | Used to input optional comments or user notes about this dataset.                                         |
+   | Comments                 | string              | Enter any additional comments or user notes about this dataset.                                           |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    | Sync                     | drop-down menu      | Sets the data write synchronization. *Inherit* inherits the sync settings from the parent dataset,        |
@@ -732,11 +749,11 @@ system to always display advanced settings by checking the box
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    | Share type               | drop-down menu      | Select the type of share that will be used on the dataset. Choices are *UNIX* for an NFS share,           |
-   |                          |                     | *Windows* for a SMB share, or *Mac* for an AFP share                                                      |
+   |                          |                     | *Windows* for a SMB share, or *Mac* for an AFP share.                                                     |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Enable atime             | Inherit, On, or Off | Controls whether the access time for files is updated when they are read. Setting this property to *Off*  |
-   |                          |                     | avoids producing log traffic when reading files and can result in significant performance gains.          |
+   | Enable atime             | Inherit, On, or Off | Choose *On* to update the access time for files when they are read. Choose *Off* to prevent               |
+   |                          |                     | producing log traffic when reading files. This can result in significant performance gains.               |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    | Quota for this dataset   | integer             | Only available in :guilabel:`Advanced Mode`. Default of *0* disables quotas. Specifying a value means to  |
@@ -776,15 +793,15 @@ system to always display advanced settings by checking the box
    |                          |                     | may result in better performance.                                                                         |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    | Case Sensitivity         | drop-down menu      | Choices are *sensitive* (default, assumes filenames are case sensitive), *insensitive* (assumes filenames |
-   |                          |                     |  are not case sensitive), or *mixed* (understands both types of filenames).                               |
+   |                          |                     | are not case sensitive), or *mixed* (understands both types of filenames).                                |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
 
 
-After a dataset is created, you can click on that dataset and select
-the following actions from its 3-dot icon:
+After a dataset is created it appears in :menuselection:`Storage --> Pools.`
+Click |ui-options| on an existing dataset to configure these options:
 
-**Add Dataset:** create a nested dataset, or a dataset within a dataset. 
+**Add Dataset:** create a nested dataset, or a dataset within a dataset.
 
 **Add Zvol:** add a zvol to the dataset. Refer to :ref:`Adding Zvols`
 for more information about zvols.
@@ -801,7 +818,7 @@ information about permissions.
 **Delete Dataset:** clicking this option will popup a warning as a
 reminder that this irreversible action will also delete all snapshots for
 the dataset.
-Check the :guilabel:`Confirm` box then the :guilabel:`Ok` button to
+Set the :guilabel:`Confirm` option then click :guilabel:`Ok` to
 destroy the dataset and all of its contents.
 
 **Promote Dataset:** only appears on clones. When a clone is promoted,
@@ -885,9 +902,9 @@ performance hit.
 Compression
 ^^^^^^^^^^^
 
-When selecting a compression type, you need to balance performance
-with the amount of disk space saved by compression. Compression is
-transparent to the client and applications as ZFS automatically
+When selecting a compression type, balancing performance
+with the amount of disk space saved by compression is recommended.
+Compression is transparent to the client and applications as ZFS automatically
 compresses data as it is written to a compressed dataset or zvol and
 automatically decompresses that data as it is read. These compression
 algorithms are supported:
@@ -903,7 +920,7 @@ algorithms are supported:
 
 * **ZLE:** fast but simple algorithm which eliminates runs of zeroes.
 
-If you select *OFF* as the :guilabel:`Compression level` when creating
+If *OFF* is selected as the :guilabel:`Compression level` when creating
 a dataset or zvol, compression will not be used on that dataset/zvol.
 This is not recommended as using *LZ4* has a negligible performance
 impact and allows for more storage capacity.
@@ -918,8 +935,8 @@ Adding Zvols
 A zvol is a feature of ZFS that creates a raw block device over ZFS.
 The zvol can be used as an :ref:`iSCSI` device extent.
 
-To create a zvol, select an existing ZFS pool or dataset, click its 3-dot
-icon, then select :guilabel:`Add Zvol` to open the screen shown in
+To create a zvol, select an existing ZFS pool or dataset, click
+|ui-options|, then :guilabel:`Add Zvol` to open the screen shown in
 :numref:`Figure %s <zfs_create_zvol_fig>`.
 
 
@@ -948,11 +965,11 @@ The configuration options are described in
    |                    |                |                                                                                                                      |
    |                    |                |                                                                                                                      |
    +====================+================+======================================================================================================================+
-   | zvol name          | string         | This setting is mandatory. Input a name for the zvol; note that there is a 63-character limit on device path names   |
-   |                    |                | in devfs,  so using long zvol names can prevent accessing zvols as devices; for example, a zvol with a 70-character  |
-   |                    |                | filename or path cannot be used as an iSCSI extent.                                                                  |
+   | zvol name          | string         | Enter a short name for the zvol. Using a zvol name longer than 63-characters                                         |
+   |                    |                | can prevent accessing the zvol as a devices. For example, a zvol with a 70-character                                 |
+   |                    |                | filename or path cannot be used as an iSCSI extent. This setting is mandatory.                                       |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | comments           | string         | Input optional short comments or user notes about this zvol.                                                         |
+   | comments           | string         | Enter any notes about this zvol.                                                                                     |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Compression level  | drop-down menu | Refer to :ref:`Compression` for a description of the available algorithms.                                           |
@@ -967,12 +984,12 @@ The configuration options are described in
    |                    |                |                                                                                                                      |
    #endif truenas
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Size for this zvol | integer        | Specify size and value such as *10Gib*. If the size is more than 80% of the available capacity, the creation will    |
-   |                    |                | fail with an "out of space" error unless :guilabel:`Force size` is also checked.                                     |
+   | Size for this zvol | integer        | Specify size and value such as *10 Gib*. If the size is more than 80% of the available capacity, the creation will   |
+   |                    |                | fail with an "out of space" error unless :guilabel:`Force size` is also enabled.                                     |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Force size         | checkbox       | By default, the system will not create a zvol if that operation will bring the pool to over 80% capacity.            |
-   |                    |                | **While NOT recommended**, checking this box will force the creation of the zvol.                                    |
+   |                    |                | **While NOT recommended**, enabling this option will force the creation of the zvol.                                 |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Sparse pool        | checkbox       | Used to provide thin provisioning. Use with caution as writes will fail when the pool is low on space.               |
@@ -984,10 +1001,11 @@ The configuration options are described in
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
 
 
-Once created, the 3-dot icon for that zvol provides options to
-:guilabel:`Delete zvol` or :guilabel:`Edit Zvol`.
+Click |ui-options| next to the desired zvol in
+:menuselection:`Storage --> Pools` to access the
+:guilabel:`Delete zvol` and :guilabel:`Edit zvol` options.
 
-Similar to datasets, a zvol's name cannot be
+Similar to datasets, a zvol name cannot be
 changed, and destroying a zvol requires confirmation.
 
 .. _Setting Permissions:
@@ -997,9 +1015,9 @@ Setting Permissions
 
 Setting permissions is an important aspect of managing data access. The
 graphical administrative interface is meant to set the **initial**
-permissions for a pool or dataset in order to make it available as a
-share. Once a share is available, the client operating system should
-be used to fine-tune the permissions of the files and directories that
+permissions for a pool or dataset to make it available as a
+share. Once a share is available, the client operating system is
+used to fine-tune the permissions of the files and directories that
 are created by the client.
 
 :ref:`Sharing` contains configuration examples for several types of
@@ -1017,7 +1035,7 @@ available for configuring the initial set of permissions.
 
 
 To set the permissions on a pool or dataset, select its entry in
-:menuselection:`Storage --> Pools`, click its 3-dot icon, and select
+:menuselection:`Storage --> Pools`, click |ui-options|, then
 :guilabel:`Edit Permissions`. This displays the screen shown in
 :numref:`Figure %s <storage_permissions_fig>`.
 :numref:`Table %s <storage_permissions_tab>` lists the options in this
@@ -1044,44 +1062,44 @@ screen.
    |                               |                  |                                                                                                            |
    |                               |                  |                                                                                                            |
    +===============================+==================+============================================================================================================+
-   | ACL Type                      | bullet selection | Choices are *Unix*, *Windows* or *Mac*. Select the type which matches the type of share (see description   |
-   |                               |                  | below this table).                                                                                         |
+   | ACL Type                      | bullet selection | Select the type that matches the type of client accessing. Choices are *Unix*, *Windows* or *Mac*.         |
+   |                               |                  | See description below this table.                                                                          |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply User                    | checkbox         | Uncheck to prevent new permission change from being applied to :guilabel:`User`, as described in the Note  |
+   | Apply User                    | checkbox         | Deselect to prevent new permission change from being applied to :guilabel:`User`, as described in the Note |
    |                               |                  | below this table.                                                                                          |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | User                          | drop-down menu   | User to control the permisions. Users which were manually created or imported from a directory service     |
-   |                               |                  | appear in the drop-down menu.                                                                              |
+   | User                          | drop-down menu   | Select the user to control the permisions. Users manually created or imported from a directory service     |
+   |                               |                  | will appear in the drop-down menu.                                                                         |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply Group                   | checkbox         | Uncheck to prevent new permission change from being applied to :guilabel:`Group`, as described in the Note |
-   |                               |                  | below this table.                                                                                          |
+   | Apply Group                   | checkbox         | Deselect to prevent new permission change from being applied to :guilabel:`Group`, as described in the     |
+   |                               |                  | Note below this table.                                                                                     |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Group                         | drop-down menu   | Group to own the pool or dataset. Groups which were manually created or imported from a directory          |
-   |                               |                  | service appear in the drop-down menu.                                                                      |
+   | Group                         | drop-down menu   | Select the group to own the pool or dataset. Groups manually created or imported from a                    |
+   |                               |                  | directory service will appear in the drop-down menu.                                                       |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply Mode                    | checkbox         | Uncheck to prevent new permission change from being applied to :guilabel:`Mode`, as described in the Note  |
+   | Apply Mode                    | checkbox         | Unset to prevent new permission change from being applied to :guilabel:`Mode`, as described in the Note    |
    |                               |                  | below this table.                                                                                          |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
    | Mode                          | checkboxes       | Only applies to the *Unix* or *Mac* :guilabel:`ACL Type` so does not appear if *Windows* is selected. Sets |
    |                               |                  | the Unix-style permissions for owner, group, and other.                                                    |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply permissions recursively | checkbox         | If checked, permissions will also apply to subdirectories. If data is already present on the pool or       |
-   |                               |                  | dataset, it is recommended to instead change the permissions on the **client side** to prevent a           |
+   | Apply permissions recursively | checkbox         | If set, permissions will also apply to subdirectories. If data is already present on the pool or           |
+   |                               |                  | dataset, changing the permissions on the **client side** is recommended to prevent a                       |
    |                               |                  | performance lag.                                                                                           |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
 
 
 .. note:: The :guilabel:`Apply User`, :guilabel:`Apply Group`, and
-   :guilabel:`Apply Mode` checkboxes allow fine-tuning of the change
-   permissions behavior. By default, all three boxes are checked and
+   :guilabel:`Apply Mode` options allow fine-tuning of the change
+   permissions behavior. By default, all three options are enabled and
    %brand% resets the :guilabel:`User`, :guilabel:`Group`, and
    :guilabel:`Mode` when the :guilabel:`Save` button is clicked. These
-   checkboxes allow choosing which settings to change. For example, to
-   change just the :guilabel:`Group` setting, uncheck the boxes for
+   options allow choosing which settings to change. For example, to
+   change just the :guilabel:`Group` setting, unset the options for
    :guilabel:`Apply User` and :guilabel:`Apply Mode`.
 
 
@@ -1103,15 +1121,21 @@ be used with:ref:` Windows (SMB) Shares`.
 
 The *Mac* :guilabel:`ACL Type` can be used with :ref:`Apple (AFP) Shares`.
 
+#ifdef comment
+Did not have time to test View Multipaths section. To test this section
+we will need to contact QA to see if they have a multipath system
+available that is running the latest nightly.
+#endif comment
+
 .. _View Multipaths:
 
 View Multipaths
 ~~~~~~~~~~~~~~~
 
 %brand% uses
-`gmultipath(8) <https://www.freebsd.org/cgi/man.cgi?query=gmultipath>`_
+`gmultipath(8) <https://www.freebsd.org/cgi/man.cgi?query=gmultipath>`__
 to provide
-`multipath I/O <https://en.wikipedia.org/wiki/Multipath_I/O>`_
+`multipath I/O <https://en.wikipedia.org/wiki/Multipath_I/O>`__
 support on systems containing hardware that is capable of multipath.
 An example would be a dual SAS expander backplane in the chassis or an
 external JBOD.
@@ -1160,8 +1184,8 @@ the volume/dataset name and time of the snapshot, and the amount of used
 and referenced data, where:
 
 **Used** is the amount of space consumed by this dataset and all of
-its descendants. This value is checked against the dataset's quota and
-reservation. The space used does not include the dataset's reservation,
+its descendants. This value is checked against the dataset quota and
+reservation. The space used does not include the dataset reservation,
 but does take into account the reservations of any descendent datasets.
 The amount of space that a dataset consumes from its parent, as well as
 the amount of space freed if this dataset is recursively destroyed, is
@@ -1169,7 +1193,7 @@ the greater of its space used and its reservation. When a snapshot is
 created, the space is initially shared between the snapshot and the
 filesystem, and possibly with previous snapshots. As the filesystem
 changes, space that was previously shared becomes unique to the snapshot,
-and is counted in the snapshot's used space. Deleting a snapshot can
+and is counted in the used space of the snapshot. Deleting a snapshot can
 increase the amount of space unique to, and used by, other snapshots.
 The amount of space used, available, or referenced does not take into
 account pending changes. While pending changes are generally accounted
@@ -1233,8 +1257,8 @@ back to their state at the time of the snapshot.
 
 #ifdef comment
 A range of snapshots can be selected with the mouse. Click on the
-checkbox in the left column of the first snapshot, then press and hold
-:kbd:`Shift` and click on the checkbox for the end snapshot. This can
+option in the left column of the first snapshot, then press and hold
+:kbd:`Shift` and click on the option for the end snapshot. This can
 be used to select a range of obsolete snapshots to be deleted with the
 :guilabel:`Destroy` icon at the bottom. Be cautious and careful when
 deleting ranges of snapshots.
@@ -1250,12 +1274,12 @@ To quickly search through the snapshots list by name, type a matching
 criteria into the :guilabel:`Filter Snapshots` text area. The listing will
 change to only display the snapshot names that match the filter text.
 
-The :guilabel:`Iterms per page` drop-down menu can be used to reduce or
+The :guilabel:`Items per page` drop-down menu is used to reduce or
 increase the amount of entries per page. Use the left or right arrows
 to scroll through a multi-page listing.
 
 .. warning:: A snapshot and any files it contains will not be accessible
-   or searchable if the snapshot's mount path is longer than 88 characters.
+   or searchable if the mount path of the snapshot is longer than 88 characters.
    The data  within the snapshot will be safe, and the snapshot will
    become accessible again when the mount path is shortened. For details
    of this limitation, and how to shorten a long mount path, see
@@ -1283,10 +1307,10 @@ to settings that are required are:
   modified  to not hide the :file:`.zfs` file, and the setting
   :command:`zfsacl:expose_snapdir=true` must be added.
 
-The effect will be that any user who can access the dataset contents, will 
-also be able to view the list of snapshots by navigating to the dataset's
-:file:`.zfs`  directory, and to browse and search any files they have
-permission to access throughout the dataset's entire snapshot collection.
+The effect will be that any user who can access the dataset contents, will
+also be able to view the list of snapshots by navigating to
+:file:`.zfs`  directory of teh dataset, and to browse and search any files they have
+permission to access throughout the entire snapshot collection of the dataset.
 A user's ability to view files within a snapshot will be limited by any
 permissions or ACLs set on the files when the snapshot was taken.
 Snapshots are fixed as "read-only", so this access does not permit the
@@ -1341,17 +1365,17 @@ summarizes the available options.
    |                |                             |                                                                                                             |
    |                |                             |                                                                                                             |
    +================+=============================+=============================================================================================================+
-   | Hostname       | string                      | Input the IP address or hostname of the VMware host. When clustering, use the IP of the vCenter server for  |
+   | Hostname       | string                      | Enter the IP address or hostname of the VMware host. When clustering, use the IP of the vCenter server for  |
    |                |                             | the cluster.                                                                                                |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Username       | string                      | Input the username which exists on the VMware host that has enough permission to snapshot virtual machines. |
+   | Username       | string                      | Enter the username on the VMware host with permission to snapshot virtual machines.                         |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Password       | string                      | Input the password associated with :guilabel:`Username`.                                                    |
+   | Password       | string                      | Enter the password associated with :guilabel:`Username`.                                                    |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | ZFS Filesystem | browse button               | Select the filesystem to snapshot.                                                                          |
+   | ZFS Filesystem | browse button               | :guilabel:`Browse` to the filesystem to snapshot.                                                           |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Datastore      | drop-down menu              | After entering the :guilabel:`Hostname`, :guilabel:`Username`, and :guilabel:`Password`, click              |
@@ -1389,8 +1413,8 @@ as well as any read, write, or checksum errors.
 #endif truenas
 
 
-To edit a disk's options, click the 3-dot icon for its entry and
-select :guilabel:`Edit` to open the screen shown in
+To edit the options for a disk, click |ui-options| on a disk, then
+:guilabel:`Edit` to open the screen shown in
 :numref:`Figure %s <zfs_edit_disk_fig>`).
 
 #ifdef comment
@@ -1422,16 +1446,16 @@ lists the configurable options.
    | Setting                            | Value          | Description                                                                                                              |
    |                                    |                |                                                                                                                          |
    +====================================+================+==========================================================================================================================+
-   | Name                               | string         | Read-only value showing FreeBSD device name of the disk.                                                                 |
+   | Name                               | string         | This is the FreeBSD device name for the disk.                                                                            |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Serial                             | string         | Read-only value showing the disk's serial number.                                                                        |
+   | Serial                             | string         | This is the serial number of the disk.                                                                                   |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Description                        | string         | Input an optional description to display with the disk entry.                                                            |
+   | Description                        | string         | Enter any notes about this disk.                                                                                         |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | HDD Standby                        | drop-down menu | Indicates the time of inactivity (in minutes) before the drive enters standby mode in order to conserve energy; this     |
+   | HDD Standby                        | drop-down menu | Indicates the time of inactivity in minutes before the drive enters standby mode to conserve energy. This                |
    |                                    |                | `forum post <https://forums.freenas.org/index.php?threads/how-to-find-out-if-a-drive-is-spinning-down-properly.2068/>`__ |
    |                                    |                | demonstrates how to determine if a drive has spun down.                                                                  |
    |                                    |                |                                                                                                                          |
@@ -1440,31 +1464,30 @@ lists the configurable options.
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Acoustic Level                     | drop-down menu | Default is *Disabled*. Other values can be selected for disks that understand                                            |
-   |                                    |                | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`_.                                                    |
+   |                                    |                | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`__.                                                   |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Enable S.M.A.R.T.                  | checkbox       | Enabled by default if the disk supports S.M.A.R.T. Unchecking this box will disable any configured                       |
+   | Enable S.M.A.R.T.                  | checkbox       | Enabled by default if the disk supports S.M.A.R.T. Unsetting this option will disable any configured                     |
    |                                    |                | :ref:`S.M.A.R.T. Tests` for the disk.                                                                                    |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | S.M.A.R.T. extra options           | string         | Input additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`_  options.      |
+   | S.M.A.R.T. extra options           | string         | Enter additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options.     |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Password for SED                   | string         | input and confirm the password which will be used for this device instead of the global SED password; refer to           |
-   |                                    |                | :ref:`Self-Encrypting Drives` for more information                                                                       |
+   | Password for SED                   | string         | Enter and confirm the password which will be used for this device instead of the global SED password. Refer to           |
+   |                                    |                | :ref:`Self-Encrypting Drives` for more information.                                                                      |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
-.. note:: If a disk's serial number is not displayed in this screen,
+.. note:: If the serial number for a disk is not displayed in this screen,
    use the :command:`smartctl` command from :ref:`Shell`. For example,
    to determine the serial number of disk *ada0*, type
    :command:`smartctl -a /dev/ada0 | grep Serial`.
 
 #ifdef comment
-The :guilabel:`Wipe` function is provided for when an unused disk is
-to be discarded.
+The :guilabel:`Wipe` function is used to discard an unused disk.
 
-.. warning:: Make certain that all data has been backed up and that
+.. warning:: Ensure all data is backed up and
    the disk is no longer in use. Triple-check that the correct disk is
    being selected to be wiped, as recovering data from a wiped disk is
    usually impossible. If there is any doubt, physically remove the
@@ -1491,7 +1514,7 @@ Replacing a Failed Disk
 #ifdef freenas
 With any form of redundant RAID, failed drives must be replaced as
 soon as possible to repair the degraded state of the RAID. Depending
-on the hardware's capabilities, it might be necessary to reboot to
+on the hardware capabilities, it might be necessary to reboot to
 replace the failed drive. Hardware that supports AHCI does not require
 a reboot.
 #endif freenas
@@ -1510,15 +1533,14 @@ state of the RAID.
 
 Before physically removing the failed device, go to
 :menuselection:`Storage --> Pools`.
-Select the pool name. At the bottom of the interface are several
-icons, one of which is :guilabel:`Pool Status`. Click the
-:guilabel:`Pool Status` icon and locate the failed disk. Then
+Select the pool name then click |ui-settings|. Select
+:guilabel:`Status` and locate the failed disk. Then
 perform these steps:
 
 #ifdef freenas
-#.  Click the disk entry, then the :guilabel:`Offline` button to
-    change the disk status to OFFLINE. This step is needed to properly
-    remove the device from the pool and to prevent swap issues.
+#.  Click |ui-options| on the disk entry, then :guilabel:`Offline` to
+    change the disk status to OFFLINE. This step
+    removes the device from the pool and to prevent swap issues.
     If the hardware supports hot-pluggable disks, click the disk
     :guilabel:`Offline` button and pull the disk, then skip to step 3.
     If there is no :guilabel:`Offline` button but only a
@@ -1527,8 +1549,8 @@ perform these steps:
 #endif freenas
 #ifdef truenas
 #.  Click the disk entry, then the :guilabel:`Offline` button to
-    change the disk status to OFFLINE. This step is needed to properly
-    remove the device from the pool and to prevent swap issues.
+    change the disk status to OFFLINE. This step
+    removes the device from the pool and to prevent swap issues.
     Click the disk :guilabel:`Offline` button and pull the disk. If
     there is no :guilabel:`Offline` button but only a
     :guilabel:`Replace` button, the disk is already offlined and this
@@ -1549,8 +1571,8 @@ perform these steps:
     and locate the OFFLINE disk.
 #endif freenas
 
-#.  After the disk has been replaced and is showing as OFFLINE, click
-    the disk again and then click the :guilabel:`Replace` button.
+#.  After the disk is replaced and is showing as OFFLINE, click
+    |ui-options| on the disk again and then :guilabel:`Replace`.
     Select the replacement disk from the drop-down menu and click the
     :guilabel:`Replace Disk` button.  After clicking the
     :guilabel:`Replace Disk` button, the pool begins resilvering.
@@ -1606,7 +1628,7 @@ replacing a failed drive.
 First, make sure that a passphrase has been set using the instructions
 in :ref:`Managing Encrypted Pools` **before** attempting to replace the
 failed drive. Then, follow the steps 1 and 2 as described above. During
-step 3, you will be prompted to input and confirm the passphrase for the
+step 3, there will be a prompt to input and confirm the passphrase for the
 pool. Enter this information then click the :guilabel:`Replace Disk`
 button. Wait until the resilvering is complete.
 
@@ -1624,17 +1646,17 @@ reboot, access to the pool might be permanently lost.**
        down.
     #endif truenas
 
-#.  Highlight the pool that contains the disk you just replaced and
-    click :guilabel:`Create Passphrase` and enter the new passphrase.
+#.  Highlight the pool that contains the recently replaced disk.
+    Click :guilabel:`Create Passphrase` and enter the new passphrase.
     The old passphrase can be reused if desired.
 
-#.  Highlight the pool that contains the disk you just replaced and
-    click the :guilabel:`Download Key` button to save the new
+#.  Highlight the pool that contains the recently replaced disk and
+    click :guilabel:`Download Key` to save the new
     encryption key. Since the old key will no longer function, any old
     keys can be safely discarded.
 
-#.  Highlight the pool that contains the disk that was just replaced
-    and click the :guilabel:`Add Recovery Key` button to save the new
+#.  Highlight the pool that contains the recently replaced disk
+    and click :guilabel:`Add Recovery Key` to save the new
     recovery key. The old recovery key will no longer function, so it
     can be safely discarded.
 
@@ -1680,8 +1702,8 @@ eSATA port and a hard drive dock. The process follows these steps:
 
 #. Go to
    :menuselection:`Storage --> Pools`,
-   select the pool to expand and click the :guilabel:`Pool Status`
-   button. Select a disk and click the :guilabel:`Replace` button.
+   select the pool to expand. Click |ui-settings| then :guilabel:`Status`
+   Select a disk, click |ui-options|, then :guilabel:`Replace`.
    Choose the new disk as the replacement.
 
 #. The status of the resilver process can be viewed by running
@@ -1707,7 +1729,7 @@ Importing a Disk
 
 The :menuselection:`Pool --> Import Disk` screen, shown in
 :numref:`Figure %s <zfs_import_disk_fig>`, is used to import a **single**
-disk that has been formatted with the UFS, NTFS, MSDOS, or EXT2
+disk that is formatted with the UFS, NTFS, MSDOS, or EXT2
 filesystem. The import is meant to be a temporary measure to copy the data
 from a disk to an existing ZFS dataset. Only one disk can be imported at
 a time.
@@ -1731,12 +1753,12 @@ a time.
 
 
 Use the drop-down menu to select the disk to import, select the type
-of filesystem on the disk, and browse to the ZFS dataset that will
-hold the copied data. If the :guilabel:`MSDOSFS` filesystem is selected,
-an additional :guilabel:`MSDOSFS locale` drop-down menu will display. Use
-this menu to select the locale if non-ascii characters are present on the
-disk.
+of filesystem on the disk, and :guilabel:`Browse` to the ZFS dataset
+that will hold the copied data. If the :guilabel:`MSDOSFS` filesystem
+is selected, an additional :guilabel:`MSDOSFS locale` drop-down menu
+will display. Use this menu to select the locale if non-ascii characters
+are present on thedisk.
 
-Once you click :guilabel:`Save`, the disk is mounted, its contents are
-copied to the specified dataset, and the disk is unmounted after the copy
+After clicking :guilabel:`Save`, the disk is mounted and its contents are
+copied to the specified dataset. The disk uafter the copy
 operation completes.
