@@ -336,7 +336,7 @@ a passphrase and a recovery key are entered, only the passphrase is
 used.  By default, the services listed will restart when the pool is
 unlocked. This allows them to see the new pool and share or access
 data on it. Individual services can be prevented from restarting by
-deselected them. However, a service that is not restarted might not be
+deselecting them. However, a service that is not restarted might not be
 able to access the unlocked pool.
 
 **Create Passphrase:** set and confirm a passphrase associated with the
