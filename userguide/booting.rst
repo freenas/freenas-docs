@@ -16,10 +16,7 @@ server from all live network interfaces. After %brand% successfully
 recieves an IP address, the address is displayed so it can be used
 to access the graphical user interface. The example in
 :numref:`Figure %s <console_setup_menu_fig>` shows a
-%brand% system that is accessible at *http://192.168.1.119*.
-#ifdef comment
-Update the above IP address to reflect the new console-menu.png screenshot.
-#endif comment
+%brand% system that is accessible at *http://10.0.0.102*.
 
 Some %brand% systems are set up without a monitor, making it
 challenging to determine which IP address has been assigned. On
@@ -35,7 +32,7 @@ system has one network interface, *em0*.
 
 .. code-block:: none
 
-   Enter an option from 1-12: 1
+   Enter an option from 1-11: 1
    1) em0
    Select an interface (q to quit): 1
    Reset network configuration (y/n) n
@@ -69,12 +66,12 @@ Logging In
 ^^^^^^^^^^
 
 The password for the root user is requested as shown in
-:numref:`Figure %s <quick_enter_root_pass_fig>`.
+:numref:`Figure %s <booting_enter_root_pass_fig>`.
 
 
-.. _quick_enter_root_pass_fig:
+.. _booting_enter_root_pass_fig:
 
-.. figure:: images/quick-login.png
+.. figure:: images/log-in.png
 
    Enter the Root Password
 
@@ -87,12 +84,12 @@ The password for the root user is requested as shown in
 
 Enter the password chosen during the installation. The administrative
 GUI is displayed as shown in
-:numref:`Figure %s <quick_graphic_config_menu_fig>`.
+:numref:`Figure %s <booting_graphic_config_menu_fig>`.
 
 
-.. _quick_graphic_config_menu_fig:
+.. _booting_graphic_config_menu_fig:
 
-.. figure:: images/initial1c.png
+.. figure:: images/dashboard.png
 
    %brand% Graphical Configuration Menu
 

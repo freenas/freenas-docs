@@ -7,7 +7,7 @@
 
    intro
    install
-   quick
+   booting
    account
    system
    tasks

@@ -35,8 +35,8 @@ prompts for IP addresses for both :guilabel:`(This Node)` and
 :guilabel:`2) Configure Link Aggregation` is for creating or deleting
 link aggregations.
 
-:guilabel:`3) Configure VLAN Interface` is used to create or delete VLAN
-interfaces.
+:guilabel:`3) Configure VLAN Interface` is used to create or delete
+VLAN interfaces.
 
 :guilabel:`4) Configure Default Route` is used to set the IPv4 or IPv6
 default gateway. When prompted, enter the IP address of the default
@@ -46,21 +46,22 @@ gateway.
 network and gateway IP address. Re-enter this option for each static
 route needed.
 
-:guilabel:`6) Configure DNS` prompts for the name of the DNS domain and
-the IP address of the first DNS server. When adding multiple DNS servers,
-press :kbd:`Enter` to enter the next one. Press :kbd:`Enter` twice to
-leave this option.
+:guilabel:`6) Configure DNS` prompts for the name of the DNS domain
+and the IP address of the first DNS server. When adding multiple DNS
+servers, press :kbd:`Enter` to enter the next one. Press :kbd:`Enter`
+twice to leave this option.
 
-:guilabel:`7) Reset Root Password` is used to reset a lost or forgotten
-:literal:`root` password. Select this option and follow the prompts to
-set the password.
+:guilabel:`7) Reset Root Password` is used to reset a lost or
+forgotten :literal:`root` password. Select this option and follow the
+prompts to set the password.
 
-:guilabel:`8) Reset Configuration to Defaults` **Caution**! This option
-deletes *all* of the configuration settings made in the administrative
-GUI and is used to reset a %brand% system back to defaults. **Before
-selecting this option, make a full backup of all data and make sure
-all encryption keys and passphrases are known!** After this option is
-selected, the configuration is reset to defaults and the system reboots.
+:guilabel:`8) Reset Configuration to Defaults` **Caution**! This
+option deletes *all* of the configuration settings made in the
+administrative GUI and is used to reset a %brand% system back to
+defaults. **Before selecting this option, make a full backup of all
+data and make sure all encryption keys and passphrases are known!**
+After this option is selected, the configuration is reset to defaults
+and the system reboots.
 :menuselection:`Storage --> Pools --> Import Pool`
 can be used to re-import pools.
 
