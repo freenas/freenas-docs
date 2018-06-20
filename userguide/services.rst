@@ -63,7 +63,7 @@ Other services default to off until started.
 
 .. _control_services_fig:
 
-.. figure:: images/services1f.png
+.. figure:: images/services.png
 
    Configure Services
 
@@ -384,7 +384,7 @@ system to always display these settings by setting the
 
 .. _configuring_ftp_fig:
 
-.. figure:: images/ftp1.png
+.. figure:: images/services-ftp.png
 
    Configuring FTP
 
@@ -807,7 +807,7 @@ summarizes the configuration options for the LLDP service.
 
 .. _config_lldp_fig:
 
-.. figure:: images/lldp.png
+.. figure:: images/services-lldp.png
 
    Configuring LLDP
 
@@ -990,7 +990,7 @@ shows the rsyncd configuration screen which is accessed from
 
 .. _rsyncd_config_tab:
 
-.. figure:: images/rsyncd.png
+.. figure:: images/services-rsync.png
 
    Rsyncd Configuration
 
@@ -1213,7 +1213,7 @@ shows the configuration screen that appears after clicking
 
 .. _smart_config_opts_fig:
 
-.. figure:: images/smart2.png
+.. figure:: images/services-smart.png
 
    S.M.A.R.T Configuration Options
 
@@ -1684,7 +1684,7 @@ screen.
 
 .. _ssh_config_fig:
 
-.. figure:: images/ssh1.png
+.. figure:: images/services-ssh.png
 
    SSH Configuration
 
@@ -1854,7 +1854,7 @@ available options.
 
 .. _tftp_config_fig:
 
-.. figure:: images/tftp.png
+.. figure:: images/services-tftp.png
 
    TFTP Configuration
 
@@ -2072,7 +2072,7 @@ available options.
 
 .. _webdav_config_fig:
 
-.. figure:: images/webdav2.png
+.. figure:: images/services-webdav.png
 
    WebDAV Configuration Screen
 
