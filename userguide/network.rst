@@ -41,7 +41,7 @@ network interface.
 .. _global_net_config_fig:
 
 #ifdef freenas
-.. figure:: images/network-global.png
+.. figure:: images/network-global-configuration.png
 #endif freenas
 #ifdef truenas
 .. figure:: images/truenas/network-global.png
@@ -177,7 +177,7 @@ editing an existing interface.
 
 .. _add_net_interface_fig:
 
-.. figure:: images/interface.png
+.. figure:: images/network-interfaces-add.png
 
    Adding or Editing an Interface
 
@@ -538,7 +538,7 @@ from the :menuselection:`Network --> Link Aggregations` page.
 
 .. _create_lagg_fig:
 
-.. figure:: images/network-lagg-add.png
+.. figure:: images/network-link-aggregations-add.png
 
    Creating a lagg Interface
 
@@ -732,7 +732,7 @@ going to :menuselection:`Network --> Static Routes`, and clicking
 
 .. _add_static_route_fig:
 
-.. figure:: images/static.png
+.. figure:: images/network-static-routes-add.png
 
    Adding a Static Route
 
@@ -808,7 +808,7 @@ to see the screen shown in
 
 .. _adding_vlan_fig:
 
-.. figure:: images/network-vlan-add.png
+.. figure:: images/network-vlans-add.png
 
    Adding a VLAN
 
