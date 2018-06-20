@@ -30,7 +30,6 @@
    alert
    support
    cli
-   cinder
    contribute
    zfsprimer
    vaai
