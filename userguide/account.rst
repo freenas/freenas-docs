@@ -113,9 +113,10 @@ to move the users to the right frame. Press
 :numref:`Figure %s <user_group_fig>`,
 shows *user1* added as a member of group *data1*.
 
+
 .. _user_group_fig:
 
-.. figure:: images/group3.png
+.. figure:: images/account-users-member-example.png
 
    Assigning a User to a Group
 
