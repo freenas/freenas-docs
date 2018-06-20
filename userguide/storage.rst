@@ -1069,7 +1069,7 @@ screen.
    | Apply User                    | checkbox         | Deselect to prevent new permission change from being applied to :guilabel:`User`, as described in the Note |
    |                               |                  | below this table.                                                                                          |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | User                          | drop-down menu   | Select the user to control the permissions. Users manually created or imported from a directory service     |
+   | User                          | drop-down menu   | Select the user to control the permissions. Users manually created or imported from a directory service    |
    |                               |                  | will appear in the drop-down menu.                                                                         |
    |                               |                  |                                                                                                            |
    +-------------------------------+------------------+------------------------------------------------------------------------------------------------------------+
