@@ -42,7 +42,7 @@ to see a screen like
 
 .. _group_man_fig:
 
-.. figure:: images/group1.png
+.. figure:: images/account-groups.png
 
    Group Management
 
@@ -66,7 +66,7 @@ summarizes the available options when creating a group.
 
 .. _new_group_fig:
 
-.. figure:: images/group2.png
+.. figure:: images/account-groups-add.png
 
    Creating a New Group
 
@@ -203,7 +203,7 @@ created or modified.
 
 .. _add_user_fig:
 
-.. figure:: images/user2.png
+.. figure:: images/account-users-add.png
 
    Adding or Editing a User Account
 
