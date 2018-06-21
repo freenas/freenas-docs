@@ -695,6 +695,7 @@ instead, repeat the configuration for each interface within
 the lagg.
 #endif comment
 
+
 .. _LAGG_MTU:
 
 Some options can only be set on the parent interfaces and are
