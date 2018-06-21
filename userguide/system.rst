@@ -278,7 +278,7 @@ explains these options in more detail.
 
 .. _ntp_server_fig:
 
-.. figure:: images/system-general-ntp.png
+.. figure:: images/system-ntp-servers-add.png
 
    Add an NTP Server
 
@@ -360,7 +360,7 @@ to a pristine, non-configured version of the installation.
 .. _view_boot_env_fig:
 
 #ifdef freenas
-.. figure:: images/system-bootenv1a.png
+.. figure:: images/system-boot.png
 
    Viewing Boot Environments
 #endif freenas
@@ -417,31 +417,30 @@ it.  These configuration buttons are shown:
   (automatically delete) this boot environment if there is not enough
   space to proceed with the update.
 
-Hovering over the |ui-menu| icon above the boot environments list shows
-these options:
+There are also other options available.
 
-* **Create:** a manual boot environment. A new screen prompts for
-  entry of a :guilabel:`Name` for the boot environment. When entering
-  the name, only alphanumeric characters, underscores, and dashes are
-  allowed.
+* **Create:** Click |ui-add| (Add/Create) to add a manual boot
+  environment. A new screen prompts for entry of a :guilabel:`Name` for
+  the boot environment. When entering the name, only alphanumeric
+  characters, underscores, and dashes are allowed.
 
-* **Scrub:** can be used to perform a manual scrub of the boot
-  devices. By default, the boot device is scrubbed every 7 days. To
-  change the default interval, change the number in the
-  :guilabel:`Automatic scrub interval (in days)` field of the
-  :guilabel:`Boot Environments` screen. The date and results of the last
-  scrub are also listed in this screen. The condition of the boot device
-  should be listed as *HEALTHY*.
+* **Scrub:** :guilabel:`Scrub Boot Pool` is used to perform a
+  manual scrub of the boot devices. By default, the boot device is
+  scrubbed every 7 days. To change the default interval, change the
+  number in the :guilabel:`Automatic scrub interval (in days)` field of
+  the :guilabel:`Boot Environments` screen. The date and results of the
+  last scrub are also listed in this screen. The condition of the boot
+  device should be listed as *HEALTHY*.
 
-* **Status:** click this button to see the status of the boot devices.
-  :numref:`Figure %s <status_boot_dev_fig>`,
+* **Status:** click :guilabel:`Boot Pool Status` to see the status of
+  the boot devices. :numref:`Figure %s <status_boot_dev_fig>`,
   shows only one boot device, which is *ONLINE*.
 
 
 .. _status_boot_dev_fig:
 
 #ifdef freenas
-.. figure:: images/be2.png
+.. figure:: images/system-boot-status.png
 
    Viewing the Status of the Boot Device
 #endif freenas
@@ -517,10 +516,9 @@ can be configured to boot from the remaining device in the mirror.
    boot device is recommended.
 
 In the example shown in
-:numref:`Figure %s <mirror_boot_dev_fig>`,
-the user has navigated
+:numref:`Figure %s <mirror_boot_dev_fig>`, the user has navigated
 :menuselection:`System --> Boot`,
-hovered |ui-menu|, and clicked the :guilabel:`Status` option to display
+and clicked the :guilabel:`Boot Pool Status` button to display
 the current status of the boot device. The example indicates that there
 is currently one device, *ada0p2*, its status is *ONLINE*, and it is
 currently the only boot device as indicated by the word *stripe*. To
@@ -578,7 +576,7 @@ The configurable settings are summarized in
 .. _system_adv_fig:
 
 #ifdef freenas
-.. figure:: images/system-advanced1b.png
+.. figure:: images/system-advanced.png
 
    Advanced Screen
 #endif freenas
@@ -882,7 +880,7 @@ shown in
 .. _email_conf_fig:
 
 #ifdef freenas
-.. figure:: images/system-email1.png
+.. figure:: images/system-email.png
 
    Email Screen
 #endif freenas
@@ -981,7 +979,7 @@ controller users and groups.
 .. _system_dataset_fig:
 
 #ifdef freenas
-.. figure:: images/system-system-dataset1.png
+.. figure:: images/system-system-dataset.png
 
    System Dataset Screen
 #endif freenas
@@ -1498,7 +1496,7 @@ screen.
 .. _update_options_fig:
 
 #ifdef freenas
-.. figure:: images/system-update1a.png
+.. figure:: images/system-update.png
 
    Update Options
 #endif freenas
@@ -1724,7 +1722,7 @@ shows the screen after clicking
 .. _cas_fig:
 
 #ifdef freenas
-.. figure:: images/system-cas1.png
+.. figure:: images/system-cas.png
 
    Initial CA Screen
 #endif freenas
@@ -1745,7 +1743,7 @@ The configurable options are summarized in
 
 .. _import_ca_fig:
 
-.. figure:: images/system-import-ca.png
+.. figure:: images/system-cas-add-import-ca.png
 
    Importing a CA
 
@@ -1794,7 +1792,7 @@ shows the available options.
 
 .. _create_ca_fig:
 
-.. figure:: images/system-create-internal-ca1.png
+.. figure:: images/system-cas-add-internal-ca.png
 
    Creating an Internal CA
 
@@ -1912,7 +1910,7 @@ shows the initial screen after clicking
 .. _initial_cert_scr_fig:
 
 #ifdef freenas
-.. figure:: images/system-cert1.png
+.. figure:: images/system-certificates.png
 
    Initial Certificates Screen
 #endif freenas
@@ -1946,7 +1944,7 @@ The configurable options are summarized in
 
 .. _import_cert_fig:
 
-.. figure:: images/system-import-cert.png
+.. figure:: images/system-certificates-add-import-certificate.png
 
    Importing a Certificate
 
@@ -1997,7 +1995,7 @@ as the signing authority.
 
 .. _create_new_cert_fig:
 
-.. figure:: images/system-create-internal-cert1.png
+.. figure:: images/system-certificates-add-internal-certificate.png
 
    Creating a New Certificate
 
@@ -2122,7 +2120,7 @@ for generating bug reports and feature requests.
 
 .. _support_fig:
 
-.. figure:: images/system-support1.png
+.. figure:: images/system-support.png
 
    Support Tab
 
