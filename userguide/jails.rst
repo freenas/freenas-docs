@@ -1501,7 +1501,7 @@ Jails are deleted with :command:`iocage destroy`:
    This will destroy jail examplejail
 
    Are you sure? [y/N]: y
-   Destroying newjail01
+   Destroying examplejail
 
 To adjust the properties of a jail, use :command:`iocage set` and
 :command:`iocage get`. All properties of a jail are viewed with
