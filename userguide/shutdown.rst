@@ -11,7 +11,7 @@ opens the warning message shown in
 
 .. _shutdown_warning_fig:
 
-.. figure:: images/shutdown.png
+.. figure:: images/power-shut-down.png
 
    Shutdown Warning Message
 
