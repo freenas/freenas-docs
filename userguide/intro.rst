@@ -97,11 +97,11 @@ fixes.
 These major features are new in this version:
 
 * The login screen defaults to the new, Angular-based UI. Users who wish
-  to continue to use the classic UI can select "Back to the Old UI" in
-  the login screen.
+  to continue to use the classic UI can select "Legacy UI" in the login
+  screen.
 
 * Beginning with this release, the screenshots that appear in the
-  `published version of the Guide <http://doc.freenas.org/11/freenas.html>`__
+  `published version of the Guide <http://doc.freenas.org/11.2/freenas.html>`__
   and in the :guilabel:`Guide` icon within the new UI are for the new UI.
   However, users who click on the :guilabel:`Guide` icon while logged
   into the classic UI will continue to see screenshots for the old UI.
