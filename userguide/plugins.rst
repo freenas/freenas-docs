@@ -68,7 +68,7 @@ plugins.
    address and/or DNS server address in
    :menuselection:`Network --> Global Configuration`.
 
-CLick |ui-options| and :guilabel:`install` for the desired plugin.
+Click |ui-options| and :guilabel:`install` for the desired plugin.
 Set :guilabel:`DHCP` to automatically configure IP settings, or manually
 enter an IPv4 or IPv6 address. Click :guilabel:`Save`. In the example
 shown in :numref:`Figure %s <installing_plugin_fig>`, Plex Media Server
@@ -490,6 +490,10 @@ is supported by following the process outlined in
    | <http://backuppc.sourceforge.net/>`__                                   | Linux, WinXX and MacOSX PCs and laptops to a server's disk.            |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Bacula <https://www.baculasystems.com/>`__                             | Bacula is an open-source, enterprise-level computer backup system for  |
+   |                                                                         | heterogeneous networks.                                                |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `BRU Server                                                             | BRU Server™ Backup and Recovery Software by TOLIS Group, Inc.          |
    | <http://www.tolisgroup.com/client-server-cross-platform-backup.html>`__ |                                                                        |
    |                                                                         |                                                                        |
@@ -514,6 +518,9 @@ is supported by following the process outlined in
    | `GitLab <https://about.gitlab.com/>`__                                  | GitLab is a fully integrated software development platform.            |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `irssi <https://irssi.org/>`__                                          | Irssi is an IRC client.                                                |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Jenkins <https://jenkins.io/>`__                                       | Jenkins is a self-contained, open source automation server which can   |
    |                                                                         | be used to automate all sorts of tasks related to building, testing,   |
    |                                                                         | and delivering or deploying software.                                  |
@@ -525,14 +532,18 @@ is supported by following the process outlined in
    | `Madsonic <http://beta.madsonic.org/pages/index.jsp>`__                 | Open-source web-based media streamer and jukebox.                      |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Nextcloud <https://nextcloud.com/>`__                                  | Access, share and protect your files, calendars, contacts,             |
-   |                                                                         | communication & more at home and in your enterprise.                   |
+   | `Nextcloud <https://nextcloud.com/>`__                                  | Access, share and protect files, calendars, contacts, communication &  |
+   |                                                                         | more at home and in the enterprise environment.                        |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `PlexMediaServer <https://www.plex.tv/>`__                              | The Plex media server system.                                          |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Plex Media Server (PlexPass) <https://www.plex.tv/plex-pass/>`__       | Premium service for Plex media server system.                          |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `qBittorrent <http://qbittorrent.org/>`__                               | qBittorrent is a cross-platform client for the BitTorrent protocol     |
+   |                                                                         | that is released under the GNU GPL, version 2.                         |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Quasselcore <https://quassel-irc.org/>`__                              | Quassel Core is a daemon/headless IRC client, part of Quassel, that    |
@@ -558,10 +569,16 @@ is supported by following the process outlined in
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `TinyTinyRSS <https://tt-rss.org/>`__                                   | Open source web-based news feed (RSS/Atom) aggregator, designed to     |
-   |                                                                         | allow you to read news from any location.                              |
+   |                                                                         | allow reading news from any location.                                  |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-
+   | `WeeChat <weechat.org/>`__                                              | WeeChat is a free and open-source Internet Relay Chat client, which is |
+   |                                                                         | designed to be light and fast.                                         |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `XMRig <https://github.com/xmrig/xmrig>`__                              | XMRig is a high performance Monero (XMR) CPU miner                     |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
 
 If there are any difficulties using a plugin application, refer to the
 application documentation.
