@@ -57,7 +57,7 @@ plugins.
 
 .. _view_list_plugins_fig:
 
-.. figure:: images/plugins1b.png
+.. figure:: images/plugins-available.png
 
    Viewing the List of Available Plugins
 
@@ -94,7 +94,7 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
 .. _view_installed_plugins_fig:
 
-.. figure:: images/plugins3a.png
+.. figure:: images/plugins-installed.png
 
    Viewing Installed Plugins
 
