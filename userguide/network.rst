@@ -630,12 +630,15 @@ GUI from the new lagg interface.
 There are also buttons to *Add* and *Remove* any extra IPv4 or IPv6
 aliases.
 
+#ifdef comment
+# not available yet in the new UI
 From the :guilabel:`Link Aggregations` screen, click
 |ui-options| on the desired lagg interface, and :guilabel:`Edit Members`.
 Click |ui-options| for an existing lagg interface group, and
 :guilabel:`Edit` to see the configuration screen shown in
 :numref:`Figure %s <lagg_member_edit_fig>`.
-The configurable options are summarized in :numref:`Table %s <lagg_config_member_tab>`.
+The configurable options are summarized in
+:numref:`Table %s <lagg_config_member_tab>`.
 
 
 .. _lagg_member_edit_fig:
@@ -690,6 +693,7 @@ at the interface level
 (:numref:`Figure %s <lagg_member_edit_fig>`)
 instead, repeat the configuration for each interface within
 the lagg.
+#endif comment
 
 
 .. _LAGG_MTU:
