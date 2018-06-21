@@ -245,9 +245,10 @@ in :numref:`Figure %s <creating_guest_afp_share_fig>`. In
 :guilabel:`Guest Account` use the drop-down to select :guilabel:`Nobody`,
 enable the :guilabel:`Guest Access` option, and press :guilabel:`Save`.
 
+
 .. _creating_guest_afp_share_fig:
 
-.. figure:: images/afp6a.png
+.. figure:: images/services-afp.png
 
    Creating a Guest AFP Share
 
@@ -267,7 +268,7 @@ Complete the fields shown in
 
 .. _creating_guest_afp_dataset_fig:
 
-.. figure:: images/afp6a.png
+.. figure:: images/storage-pools-edit-permissions.png
 
 
    Editing Dataset Permissions for Guest AFP Share
@@ -363,7 +364,7 @@ this process for each user. The new shares will appear in
 
 .. _creating_an_authenticated_share_fig:
 
-.. figure:: images/afp2a.png
+.. figure:: images/sharing-apple-afp-add.png
 
    Creating an Authenticated or Time Machine Share
 
@@ -393,7 +394,7 @@ Time Machine share is restricted to 200 GB.
 
 .. _set_quota_fig:
 
-.. figure:: images/afp9a.png
+.. figure:: images/sharing-apple-afp-add-example.png
 
    Setting a Quota
 
