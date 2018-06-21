@@ -1228,12 +1228,13 @@ Jails are deleted with :command:`iocage destroy`:
 
 .. code-block:: none
 
-   [root@freenas ~]# iocage stop examplejail
-   * Stopping examplejail2
-     + Running prestop OK
-     + Stopping services OK
-     + Removing jail process OK
-     + Running poststop OK
+   [root@freenas ~]# iocage destroy examplejail
+
+   This will destroy jail examplejail
+
+   Are you sure? [y/N]: y
+   Destroying examplejail
+
 
 To adjust the properties of a jail, use :command:`iocage set` and
 :command:`iocage get`. All properties of a jail are viewed with
