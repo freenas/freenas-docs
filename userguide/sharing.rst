@@ -119,7 +119,7 @@ information given when the share was created.
 
 .. _creating_afp_share_fig:
 
-.. figure:: images/afp2a.png
+.. figure:: images/sharing-apple-afp-add.png
 
    Creating an AFP Share
 
@@ -240,9 +240,17 @@ or imported into the %brand% system.
 
 Before creating a guest share, go to :menuselection:`Services --> AFP`
 and click the power button to turn on the service. Then, click
-:guilabel:`Configure`. In :guilabel:`Guest Account` use the
-drop-down to select :guilabel:`Nobody`, enable the :guilabel:`Guest Access`
-option, and press :guilabel:`Save`.
+:guilabel:`Configure` which opens the screen shown
+in :numref:`Figure %s <creating_guest_afp_share_fig>`. In
+:guilabel:`Guest Account` use the drop-down to select :guilabel:`Nobody`,
+enable the :guilabel:`Guest Access` option, and press :guilabel:`Save`.
+
+.. _creating_guest_afp_share_fig:
+
+.. figure:: images/afp6a.png
+
+   Creating a Guest AFP Share
+
 
 Next, create a dataset for the guest share. Refer to
 :ref:`Adding Datasets` for more information about dataset creation.
@@ -269,16 +277,9 @@ To create a guest AFP share:
 
 #. Go to :menuselection:`Sharing --> Apple (AFP) Shares` and
    click |ui-add|.
-#. :guilabel:`Browse` to the dataset created for the guest share
-   as shown in :numref:`Figure %s <creating_guest_afp_share_fig>`.
+#. :guilabel:`Browse` to the dataset created for the guest share.
 #. Fill out the other required fields, then press :guilabel:`Save`.
 
-.. _creating_guest_afp_share_fig:
-
-.. figure:: images/afp2a.png
-
-
-   Creating a Guest AFP Share
 
 macOS users can connect to the guest AFP share by navigating
 :menuselection:`Go --> Connect to Server`. In the example shown in
@@ -294,7 +295,7 @@ share is displayed in the right frame.
 
 .. _afp_connect_server_fig:
 
-.. figure:: images/afp3.png
+.. figure:: images/sharing-afp-connect-server.png
 
 
    Connect to Server Dialogue
@@ -416,7 +417,7 @@ set for the *user1* account.
 
 .. _config_tm_osx:
 
-.. figure:: images/afp5.png
+.. figure:: images/sharing-apple-afp-time-machine-mac.png
 
    Configuring Time Machine on macOS
 
@@ -477,7 +478,7 @@ Click the :guilabel:`Save` button to create the share.
 
 .. _nfs_share_wiz_fig:
 
-.. figure:: images/nfs6a.png
+.. figure:: images/sharing-unix-nfs-add.png
 
    NFS Share Creation
 
@@ -761,7 +762,7 @@ now copy files to and from the share.
 
 .. _mount_nfs_osx_fig:
 
-.. figure:: images/nfs3a.png
+.. figure:: images/sharing-nfs-connect-server-mac.png
 
    Mounting the NFS Share from macOS
 
@@ -874,7 +875,7 @@ which will open the screen shown in
 
 .. _add_webdav_share_fig:
 
-.. figure:: images/webdav.png
+.. figure:: images/sharing-webdav-add.png
 
    Adding a WebDAV Share
 
@@ -983,7 +984,7 @@ shows the configuration screen that appears after navigating
 
 .. _adding_smb_share_fig:
 
-.. figure:: images/cifs2a.png
+.. figure:: images/sharing-windows-smb-add.png
 
    Adding an SMB Share
 
@@ -1378,9 +1379,8 @@ For more information about dataset creation, refer to :ref:`Adding Datasets`.
 
 After creating the dataset, go to
 :menuselection:`Storage --> Pools` and click the
-|ui-options| button for the desired dataset.
-
-Enter the following information, as shown in the example in
+|ui-options| button for the desired dataset. Click :guilabel:`Edit
+Permissions` and fill out the information as shown in
 :numref:`Figure %s <edit_permissions_smb_share_fig>`.
 
 #. **ACL Type:** Select :guilabel:`Windows`.
@@ -1411,7 +1411,7 @@ name for the share. Press :guilabel:`Save` to create the share.
 
 .. _create_auth_smb_share_fig:
 
-.. figure:: images/cifs3a.png
+.. figure:: images/sharing-windows-smb-add.png
 
    Creating an Authenticated SMB Share
 
@@ -1743,7 +1743,7 @@ for iSNS requests is 5 seconds.
 
 #ifdef freenas
 .. _iscsi_targ_global_var_fig:
-.. figure:: images/global1c.png
+.. figure:: images/sharing-block-iscsi-global-configuration.png
 
    iSCSI Target Global Configuration Variables
 #endif freenas
@@ -1807,7 +1807,7 @@ link :guilabel:`Add extra Portal IP`.
 
 .. _iscsi_add_portal_fig:
 
-.. figure:: images/portal1a.png
+.. figure:: images/sharing-block-iscsi-portals-add.png
 
    Adding an iSCSI Portal
 
@@ -1893,7 +1893,7 @@ and click |ui-add| as shown in
 
 .. _iscsi_add_initiator_fig:
 
-.. figure:: images/initiator1.png
+.. figure:: images/sharing-block-iscsi-initiators-add.png
 
    Adding an iSCSI Initiator
 
@@ -1967,7 +1967,7 @@ clicking |ui-add| is recommended. This screen is shown in
 
 .. _iscsi_add_auth_access_fig:
 
-.. figure:: images/authorized1.png
+.. figure:: images/sharing-block-iscsi-authorized-access-add.png
 
    Adding an iSCSI Authorized Access
 
@@ -2058,7 +2058,7 @@ summarizes the settings that can be configured when creating a Target.
 
 .. _iscsi_add_target_fig:
 
-.. figure:: images/sharing-iscsi-targets-add.png
+.. figure:: images/sharing-block-iscsi-targets-add.png
 
    Adding an iSCSI Target
 
@@ -2169,7 +2169,7 @@ file to be created is appended to the pool or dataset name.**
 
 .. _iscsi_adding_extent_fig:
 
-.. figure:: images/sharing-iscsi-extent-add.png
+.. figure:: images/sharing-block-iscsi-extents-add.png
 
    Adding an iSCSI Extent
 
@@ -2257,7 +2257,7 @@ Click :guilabel:`Save` to add an entry for the LUN.
 
 .. _iscsi_target_extent_fig:
 
-.. figure:: images/target2b.png
+.. figure:: images/sharing-block-iscsi-associated-targets-add.png
 
    Associating a Target With an Extent
 
@@ -2583,7 +2583,8 @@ File Extent Based LUN
 To grow a file extent based LUN:
 
 Navigate :menuselection:`Services --> iSCSI --> Configure --> Extents`.
-Click |ui-options| then :guilabel:`Edit` to determine the
+Click |ui-options| then :guilabel:`Edit`. Ensure the
+:guilabel:`Extent Type` is set to file and determine the
 :guilabel:`Path to the extent`.
 Open the :ref:`Shell` to grow the file extent. This example
 grows :file:`/mnt/pool1/data` by 2 GB:
