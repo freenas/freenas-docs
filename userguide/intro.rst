@@ -101,7 +101,7 @@ These major features are new in this version:
   screen.
 
 * Beginning with this release, the screenshots that appear in the
-  `published version of the Guide <http://doc.freenas.org/11/freenas.html>`__
+  `published version of the Guide <http://doc.freenas.org/11.2/freenas.html>`__
   and in the :guilabel:`Guide` icon within the new UI are for the new UI.
   However, users who click on the :guilabel:`Guide` icon while logged
   into the classic UI will continue to see screenshots for the old UI.
