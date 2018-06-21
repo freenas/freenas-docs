@@ -268,7 +268,7 @@ Complete the fields shown in
 
 .. _creating_guest_afp_dataset_fig:
 
-.. figure:: images/storage-pools-edit-permissions.png
+.. figure:: images/sharing-afp-dataset-permissions.png
 
 
    Editing Dataset Permissions for Guest AFP Share
