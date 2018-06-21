@@ -10,7 +10,7 @@ type to see those specific graphs.
 
 .. _reporting_graphs_fig:
 
-.. figure:: images/reporting3.png
+.. figure:: images/reporting.png
 
    Reporting Graphs
 
