@@ -59,7 +59,7 @@ shown in
 
 .. _vms_add_fig:
 
-.. figure:: images/vms-add.png
+.. figure:: images/vms-add-wizard-type.png
 
    Add VM
 
@@ -515,7 +515,7 @@ and selecting :guilabel:`Docker Host` as the
 
 .. _vms_add_docker_fig:
 
-.. figure:: images/vms-add-docker.png
+.. figure:: images/vms-add-wizard-docker.png
 
    Add DockerVM
 
@@ -600,7 +600,7 @@ Docker VM. Click :guilabel:`Submit` to create the VM or :guilabel:`Back`
 to change any settings:
 
 
-.. figure:: images/vms-add-rancher.png
+.. figure:: images/vms-add-wizard-docker-summary.png
 
    Docker VM Configuration
 
