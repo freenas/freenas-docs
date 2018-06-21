@@ -63,7 +63,7 @@ clicking with the mouse.
    Cloud Sync Status
 
 
-:ref:`Cloud Credentials` must be defined before a cloud sync is
+:ref:`Cloud Credentials` must be pre-defined before a cloud sync is
 created. One set of credentials can be used for more than one cloud
 sync. For example, a single set of credentials for Amazon S3 can be
 used for separate cloud syncs that push different sets of files or
@@ -73,10 +73,11 @@ A cloud storage area must also exist. With Amazon S3, these are called
 *buckets*. The bucket must be created before a sync task can be
 created.
 
-After the credentials and receiving bucket have been created, a cloud
-sync task is created with
-:menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
-The :guilabel:`Add Cloud Sync` dialog is shown in
+After the credentials and receiving bucket have been configured,
+:menuselection:`Tasks --> Cloud Sync` is used to define the schedule for
+running a cloud sync task.
+
+Click :guilabel:`Add Cloud Sync` to display the menu shown in
 :numref:`Figure %s <tasks_cloudsync_add_fig>`.
 
 
@@ -99,89 +100,81 @@ shows the configuration options for Cloud Syncs.
 .. table:: Cloud Sync Options
    :class: longtable
 
-   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Setting           | Value Type          | Description                                                                                             |
-   |                   |                     |                                                                                                         |
-   +===================+=====================+=========================================================================================================+
-   | Description       | string              | a descriptive name for this Cloud Sync                                                                  |
-   |                   |                     |                                                                                                         |
-   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Direction         | string              | *Push* to send data to cloud storage, or *Pull* to pull data from the cloud storage                     |
-   |                   |                     |                                                                                                         |
-   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Provider          | drop-down menu      | select the cloud storage provider; the list of providers is defined by :ref:`Cloud Credentials`         |
-   |                   |                     |                                                                                                         |
-   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Amazon S3 Buckets | drop-down menu      | only appears when an S3 credential is the *Provider*; select the bucket to use                          |
-   |                   |                     |                                                                                                         |
-   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Folder            | string              | only appears when an S3 credential is the *Provider*; input the name of the folder to sync to           |
-   |                   |                     |                                                                                                         |
-   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Server Side       | drop-down menu      | only appears when an S3 credential is the *Provider*; choices are *None* (no encryption) or             |
-   | Encryption        |                     | *AES-256* (encrypted)                                                                                   |
-   |                   |                     |                                                                                                         |
-   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Path              | browse button       | select the directories or files to be sent for *Push* syncs or the destinations for *Pull* syncs        |
-   |                   |                     |                                                                                                         |
-   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Transfer Mode     | drop-down menu      | *Sync* (default): make files on destination system identical to those on the source; files removed from |
-   |                   |                     | the source are removed from the destination (like :command:`rsync --delete`)                            |
-   |                   |                     |                                                                                                         |
-   |                   |                     | *Copy*: copy files from the source to the destination, skipping files that are identical                |
-   |                   |                     | (like :command:`rsync`)                                                                                 |
-   |                   |                     |                                                                                                         |
-   |                   |                     | *Move*: copy files from the source to the destination, deleting files from the source after the copy    |
-   |                   |                     | (like :command:`mv`)                                                                                    |
-   |                   |                     |                                                                                                         |
-   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Minute            | slider or minute    | select :guilabel:`Every N minutes` and use the slider to choose a value, or select                      |
-   |                   | selections          | :guilabel:`Each selected minute` and choose specific minutes                                            |
-   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Hour              | slider or hour      | select :guilabel:`Every N hours` and use the slider to choose a value, or select                        |
-   |                   | selections          | :guilabel:`Each selected hour` and choose specific hours                                                |
-   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of month      | slider or day of    | select :guilabel:`Every N days of month` and use the slider to choose a value, or select                |
-   |                   | month selections    | :guilabel:`Each selected day of month` and choose specific days                                         |
-   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Month             | checkboxes          | months when the Cloud Sync runs                                                                         |
-   |                   |                     |                                                                                                         |
-   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of week       | checkboxes          | days of the week when the Cloud Sync runs                                                               |
-   |                   |                     |                                                                                                         |
-   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Enabled           | checkbox            | uncheck to temporarily disable this Cloud Sync                                                          |
-   |                   |                     |                                                                                                         |
-   +-------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Setting             | Value Type          | Description                                                                                             |
+   |                     |                     |                                                                                                         |
+   +=====================+=====================+=========================================================================================================+
+   | Description         | string              | Input a descriptive name for this Cloud Sync.                                                           |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Direction           | string              | *Push* sends data to cloud storage. *Pull* receives data from cloud storage.                            |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Provider            | drop-down menu      | Choose the cloud storage provider credentials from the list of entered :ref:`Cloud Credentials`.        |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Amazon S3 Buckets   | drop-down menu      | Only appears when an S3 credential is the *Provider*. Select the pre-defined S3 bucket to use.          |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Folder              | string              | Only appears when an S3 credential is the *Provider*. Optionally enter the name of the folder within    |
+   |                     |                     | the selected bucket.                                                                                    |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Server Side         | drop-down menu      | Only appears when an S3 credential is the *Provider*. Choices are *None* (no encryption) or             |
+   | Encryption          |                     | *AES-256* (encrypted).                                                                                  |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Path                | browse button       | Select the directories or files to be sent to the cloud for *Push* syncs, or the destination to be      |
+   |                     |                     | written as the destinations for *Pull* syncs. Be cautious about the destination of *Pull* jobs to avoid |
+   |                     |                     | overwriting existing files.                                                                             |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Transfer Mode       | drop-down menu      | *Sync* (default): make files on destination system identical to those on the source. Files that have    |
+   |                     |                     | been removed from the source are removed from the destination, similar to :command:`rsync --delete`.    |
+   |                     |                     |                                                                                                         |
+   |                     |                     | *Copy*: copy files from the source to the destination, skipping files that are identical,               |
+   |                     |                     | similar to :command:`rsync`.                                                                            |
+   |                     |                     |                                                                                                         |
+   |                     |                     | *Move*: copy files from the source to the destination, deleting files from the source after the copy,   |
+   |                     |                     | similar to :command:`mv`.                                                                               |
+   |                     |                     |                                                                                                         |
+   #ifdef freenas
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Remote encryption   | checkbox            | Set to encrypt files before transfer and store the encrypted files on the remote system.                |
+   |                     |                     | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                   |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Filename encryption | checkbox            | Only appears when :guilabel:`Remote encryption` is checked. Set to encrypt the shared file names        |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Encryption password | string              | Only appears when :guilabel:`Remote encryption` is checked. Enter the password for encrypting           |
+   |                     |                     | and decrypting remote data.  *Warning*: Always save and back up this password. Losing the encryption    |
+   |                     |                     | password can result in data loss.                                                                       |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Encryption salt     | string              | Only appears when :guilabel:`Remote encryption` is checked. Enter a long string of random characters    |
+   |                     |                     | for use as `salt <https://searchsecurity.techtarget.com/definition/salt>`__ for the encryption          |
+   |                     |                     | password. *Warning*: Save and back up the encryption salt value. Losing the salt value can result in    |
+   |                     |                     | data loss.                                                                                              |
+   #endif freenas
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Minute              | slider or minute    | Select :guilabel:`Every N minutes` and use the slider to choose a value, or select                      |
+   |                     | selections          | :guilabel:`Each selected minute` and choose specific minutes to run the task.                           |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Hour                | slider or hour      | Select :guilabel:`Every N hours` and use the slider to choose a value, or select                        |
+   |                     | selections          | :guilabel:`Each selected hour` and choose specific hours to run the task.                               |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Day of month        | slider or day of    | Select :guilabel:`Every N days of month` and use the slider to choose a value, or select                |
+   |                     | month selections    | :guilabel:`Each selected day of month` and choose specific days to run the task.                        |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Month               | checkboxes          | Months when the task runs.                                                                              |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Day of week         | checkboxes          | Days of the week to run the task.                                                                       |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Enabled             | checkbox            | Unset to temporarily disable this Cloud Sync.                                                           |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
 
-
-Take care when choosing a :guilabel:`Direction`. Most of the time,
-*Push* will be used to send data to the cloud storage. *Pull*
-retrieves data from cloud storage, but be careful: files retrieved
-from cloud storage will overwrite local files with the same names in
-the destination directory.
-
-:guilabel:`Provider` is the name of the cloud storage provider. These
-providers are defined by entering credentials in
-:ref:`Cloud Credentials`.
-
-After the :guilabel:`Provider` is chosen, a list of available cloud
-storage areas from that provider is shown. With Amazon AWS, this is a
-drop-down with names of existing buckets. Choose a bucket, and a
-folder inside that bucket if desired.
-
-:guilabel:`Path` is the path to the directories or files on the
-%brand% system. On *Push* jobs, this is the source location for files
-sent to cloud storage. On *Pull* jobs, the :guilabel:`Path` is where
-the retrieved files are written. Again, be cautious about the
-destination of *Pull* jobs to avoid overwriting existing files.
-
-The :guilabel:`Minute`, :guilabel:`Hour`, :guilabel:`Days of month`,
-guilabel:`Months`, and :guilabel:`Days of week` fields permit creating
-a flexible schedule of when the cloud synchronization takes place.
-
-Finally, the :guilabel:`Enabled` field makes it possible temporarily
-disable a cloud sync job without deleting it.
 
 
 .. _Cloud Sync Example:
