@@ -12,7 +12,7 @@ to see a confirmation screen like
 
 .. _reboot_warning_fig:
 
-.. figure:: images/reboot.png
+.. figure:: images/power-restart.png
 
   Restart Warning Message
 
