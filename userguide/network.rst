@@ -577,7 +577,7 @@ GUI from the new lagg interface.
 
 .. _lagg_edit_fig:
 
-.. figure:: images/lagg2.png
+.. figure:: images/network-link-aggregations-edit.png
 
    Editing a lagg
 
@@ -643,7 +643,7 @@ The configurable options are summarized in
 
 .. _lagg_member_edit_fig:
 
-.. figure:: images/lagg3.png
+.. figure:: images/network-link-aggregations-members-edit.png
 
    Editing a Member Interface
 
@@ -694,7 +694,6 @@ at the interface level
 instead, repeat the configuration for each interface within
 the lagg.
 #endif comment
-
 
 .. _LAGG_MTU:
 
