@@ -61,9 +61,10 @@ and click |ui-add| to open the screen shown in
 
 .. _create_pool_poolman_fig:
 
-.. figure:: images/storage-volman.png
+.. figure:: images/storage-pools-pool-create.png
 
    Creating a Pool
+
 
 Select :guilabel:`Create new pool` and click :guilabel:`Create Pool`
 to continue.
@@ -183,11 +184,13 @@ described in :ref:`Upgrading a ZFS Pool`. This button does not appear
 if the pool is running the latest version of feature flags.
 #endif comment
 
+
 .. _zfs_vol_fig:
 
-.. figure:: images/storage-volumes.png
+.. figure:: images/storage-pools.png
 
    Viewing Pools
+
 
 .. index:: Encryption
 .. _Managing Encrypted Pools:
@@ -386,15 +389,18 @@ recovery key whenever the passphrase is changed.**
 administrator suspects that the current recovery key may be
 compromised. **Immediately** create a new passphrase and recovery key.
 
+
 .. note:: Protect the passphrase, recovery key, and encryption key.
    Do not reveal the passphrase to others. On the system
    containing the downloaded keys, take care that the system and its
    backups are protected. Anyone who has the keys has the ability to
    re-import the disks if they are discarded or stolen.
 
+
 .. warning:: If a re-key fails on a multi-disk system, an alert is
    generated. **Do not ignore this alert** as doing so may result in
    the loss of data.
+
 
 **Encryption Rekey:** generate a new GELI encryption key. Typically
 this is only performed when the administrator suspects that the
@@ -511,8 +517,10 @@ Here are some examples:
 * to extend a RAIDZ2 requires a minimum of four additional drives. The
   result is a RAIDZ2+0, similar to RAID 60 on a hardware controller.
 
+
 .. warning:: Make sure to select the same number of disks and disk
    layout when extending the pool!
+
 
 .. _Detaching a Pool:
 
@@ -525,21 +533,25 @@ To export or destroy an existing pool, click the pool name,
 pool depends upon the selections made in the screen shown in
 :numref:`Figure %s <zfs_detach_vol_fig>`.
 
+
   .. _zfs_detach_vol_fig:
 
-  .. figure:: images/storage-detach.png
+  .. figure:: images/storage-pools-actions-detach.png
 
      Detach or Delete a Pool
+
 
 #ifdef truenas
 .. note:: When the system has :ref:`High Availability (HA) <Failover>`
    active, pools cannot be exported or destroyed.
 #endif truenas
 
+
 .. warning:: Do not detach an encrypted pool if the passphrase has not
    been set! **An encrypted pool cannot be reimported without a passphrase!**
    When in doubt, use the instructions in :ref:`Managing Encrypted Pools`
    to set a passphrase.
+
 
 The :guilabel:`Detach Pool` screen provides options to
 :guilabel:`Destroy data on this pool?` and to
@@ -557,8 +569,10 @@ To instead destroy the data on the pool, set both options. This instructs
 the system to destroy the data on the pool, its datasets, zvols, and
 shares and to return its individual disks are to their raw state.
 
+
 .. warning:: Before destroying a pool, ensure that any needed data has
    been backed up to a different pool or system.
+
 
 #ifdef comment
 Did not have time to test the importing the geli-encrypted pool section.
@@ -584,21 +598,25 @@ Configure %brand% to import an existing ZFS pool by navigating
 :guilabel:`Import existing pool` then :guilabel:`Next` as
 shown in :numref:`Figure %s <zfs_import_vol_fig>`.
 
+
 .. _zfs_import_vol_fig:
 
-.. figure:: images/auto1.png
+.. figure:: images/storage-pools-import.png
 
-   Initial Pool Import
+   Pool Import
 
-To import an unencrypted pool, click
+
+To import a pool, click
 :guilabel:`No, continue with import` then :guilabel:`Next` as shown
 in :numref:`Figure %s <zfs_import_vol_fig2>`.
 
+
 .. _zfs_import_vol_fig2:
 
-.. figure:: images/auto1.png
+.. figure:: images/storage-pools-import-no-encryption.png
 
-   Importing an Unencrypted Pool
+   Importing a Pool
+
 
 Select the pool from the :guilabel:`Pool *` drop-down menu and
 click :guilabel:`Next` to import it.
@@ -610,6 +628,9 @@ appear in the output, check to see if the controller driver is
 supported or if it needs to be loaded using :ref:`Tunables`.
 #endif freenas
 
+#ifdef comment
+# disks are not decrypted separately, the import wizard handles them
+# incorporate this into Import Pool
 Before importing a GELI-encrypted pool, disks must first be decrypted.
 Click :guilabel:`Yes, decrypt the disks`. This is
 shown in :numref:`Figure %s <zfs_decrypt_import_fig>`.
@@ -626,6 +647,7 @@ Click :guilabel:`Browse` to select an encryption key to upload.
 Enter the passphrase associated with the key, then click
 :guilabel:`Next`.
 
+
 .. note:: The encryption key is required to decrypt the pool. If the
    pool cannot be decrypted, it cannot be re-imported after a failed
    upgrade or lost configuration. This means that it is
@@ -633,7 +655,9 @@ Enter the passphrase associated with the key, then click
    passphrase that was configured for the key. Refer to
    :ref:`Managing Encrypted Pools` for instructions on managing keys.
 
+
 After the pool is decrypted, it can be imported.
+
 
 .. note:: For security reasons, GELI keys for encrypted pools are
    not saved in a configuration backup file. When %brand% has been
@@ -645,6 +669,8 @@ After the pool is decrypted, it can be imported.
    :guilabel:`Also delete the share's configuration` are **not**
    selected. Then import the pool again. During the import, the GELI
    keys can be entered as described above.
+#endif comment
+
 
 .. index:: Scrubs
 .. _Viewing Pool Scrub Status:
@@ -697,7 +723,7 @@ To create a dataset, select an existing pool in
 .. _zfs_create_dataset:
 
 #ifdef freenas
-.. figure:: images/storage-dataset.png
+.. figure:: images/storage-pools-add-dataset.png
 
    Creating a ZFS Dataset
 #endif freenas
@@ -711,7 +737,7 @@ To create a dataset, select an existing pool in
 
 
 :numref:`Table %s <zfs_dataset_opts_tab>`
-shows the options available when creating a dataset. 
+shows the options available when creating a dataset.
 
 #ifdef comment
 Some settings are
@@ -809,8 +835,8 @@ for more information about zvols.
 **Edit Options:** edit the pool properties described in
 :numref:`Table %s <zfs_create_dataset>`. Note that the
 :guilabel:`Dataset Name`, :guilabel:`Case Sensitivity`, and
-:guilabel:`Record Size` are read-only as they cannot be edited after
-dataset creation.
+:guilabel:`Record Size` are read-only as they cannot be edited
+after dataset creation.
 
 **Edit Permissions:** refer to :ref:`Setting Permissions` for more
 information about permissions.
@@ -942,7 +968,7 @@ To create a zvol, select an existing ZFS pool or dataset, click
 
 .. _zfs_create_zvol_fig:
 
-.. figure:: images/storage-zvol.png
+.. figure:: images/storage-pools-add-zvol.png
 
    Adding a Zvol
 
@@ -1041,16 +1067,18 @@ To set the permissions on a pool or dataset, select its entry in
 :numref:`Table %s <storage_permissions_tab>` lists the options in this
 screen.
 
+
 .. _storage_permissions_fig:
 
-.. figure:: images/perms1.png
+.. figure:: images/storage-pools-edit-permissions.png
 
-   Changing Permissions on a Pool or Dataset
+   Changing Permissions on a Dataset
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 
 .. _storage_permissions_tab:
 
@@ -1174,7 +1202,7 @@ the listing of created snapshots, use
 
 .. _zfs_view_avail_snapshots_fig:
 
-.. figure:: images/storage-snapshots1.png
+.. figure:: images/storage-snapshots.png
 
    Viewing Available Snapshots
 
@@ -1346,7 +1374,7 @@ summarizes the available options.
 
 .. _zfs_add_vmware_snapshot_fig:
 
-.. figure:: images/vmware1a.png
+.. figure:: images/storage-vmware-snapshots-add.png
 
    Adding a VMware Snapshot
 
@@ -1354,6 +1382,7 @@ summarizes the available options.
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+
 
 .. _zfs_vmware_snapshot_opts_tab:
 
@@ -1402,7 +1431,7 @@ as well as any read, write, or checksum errors.
 .. _viewing_disks_fig:
 
 #ifdef freenas
-.. figure:: images/view.png
+.. figure:: images/storage-disks.png
 
    Viewing Disks
 #endif freenas
@@ -1413,10 +1442,12 @@ as well as any read, write, or checksum errors.
 #endif truenas
 
 
+#ifdef comment
+# disks options are under Storage/Pool/Status/Edit
 To edit the options for a disk, click |ui-options| on a disk, then
 :guilabel:`Edit` to open the screen shown in
 :numref:`Figure %s <zfs_edit_disk_fig>`).
-
+#endif comment
 #ifdef comment
 offline or online the device, or replace the device (as described in
 :ref:`Replacing a Failed Disk`).
@@ -1428,7 +1459,7 @@ lists the configurable options.
 
 .. _zfs_edit_disk_fig:
 
-.. figure:: images/disk.png
+.. figure:: images/storage-disks-actions-edit.png
 
    Editing a Disk
 
@@ -1598,6 +1629,7 @@ After the resilver is complete, :guilabel:`Pools` shows a
 :numref:`Figure %s <zfs_disk_replacement_fig>`
 indicates that the disk replacement was successful in this example.
 
+
 .. note:: A disk that is failing but has not completely failed can be
    replaced in place, without first removing it. Whether this is a
    good idea depends on the overall condition of the failing disk. A
@@ -1747,7 +1779,7 @@ a time.
 
 .. _zfs_import_disk_fig:
 
-.. figure:: images/storage-import.png
+.. figure:: images/storage-import-disk.png
 
    Importing a Disk
 
