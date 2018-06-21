@@ -94,280 +94,140 @@ applications, and drivers. Users are encouraged to :ref:`Update` to
 this release in order to take advantage of these improvements and bug
 fixes.
 
-These base applications and drivers have been updated or added:
-
-* The base operating system has been updated to FreeBSD 11.1-STABLE.
-  This brings in many new
-  `features and drivers
-  <https://www.freebsd.org/releases/11.1R/relnotes.html>`__.
-  Improvements have been made to the
-  `em(4) <https://www.freebsd.org/cgi/man.cgi?query=en>`__,
-  `ixl(4) <https://www.freebsd.org/cgi/man.cgi?query=ixl>`__,
-  `ixgbe(4) <https://www.freebsd.org/cgi/man.cgi?query=ixgbe>`__,
-  and `mps(4) <https://www.freebsd.org/cgi/man.cgi?query=mps>`__
-  drivers. Additionally, the
-  `netmap(4) <https://www.freebsd.org/cgi/man.cgi?query=netmap>`__
-  kernel module has been added to the build as some NIC drivers depend
-  upon it.
-
-* There have been many improvements to OpenZFS, including a
-  significant speed improvement when listing a large number of
-  snapshots and deleting multiple snapshots or large files.
-
-* The algorithm used for scrubs and resilvers has received many
-  improvements which are most noticeable on fragmented pools.
-
-* Samba has been patched to address
-  `these security vulnerabilities
-  <https://www.samba.org/samba/history/samba-4.7.3>`__.
-
-* The Dojo Toolkit has been updated to version 1.12.2.
-
-* OpenVPN has been updated to version
-  `2.4.3
-  <https://github.com/OpenVPN/openvpn/blob/release/2.4/Changes.rst#version-243>`__.
-
-* `Iperf version 3.2 <http://software.es.net/iperf/>`__
-  has been added. To use this version, specify :command:`iperf3`
-  instead of :command:`iperf`.
-
-* Iocage has been updated to version 0.9.10.
-
-* The new middleware now uses Python asyncio which simplifies
-  asynchronous code and makes it more readable.
-
-* The SNMP MIB has many improvements, including the ability to send
-  SNMP traps for new alerts.
-
-* The system now sends an email when a scrub finishes.
-
-* `mmv <https://packages.debian.org/unstable/utils/mmv>`__
-  has been added. It can be used from the command line to safely move
-  or copy multiple files using patterns, without any unexpected
-  deletion of files due to target name collisions.
-
-* `s3cmd <http://s3tools.org/s3cmd>`__
-  has been added back as a CLI alternative to :ref:`S3`.
-
-* The `zfs-stats <http://www.vx.sk/zfs-stats/>`__
-  CLI utility has been added. Type :command:`zfs-stats` to see command
-  usage.
-
-* The hardware watchdog has been reenabled for recent firmware
-  versions of AsrockRack C2750D4I. The BMC bug which required the
-  watchdog to be disabled is resolved with the 00.35.00 or newer BMC
-  firmware version.
-
-* The system issues an alert if the system reboots itself.
-
 These major features are new in this version:
 
-* Scrubs can be paused and resumed from the command line. Scrub pause
-  state and progress are periodically synced to disk. If the system is
-  restarted or the pool is exported during a paused scrub, the scrub
-  remains paused until it is resumed. When resumed, the scrub picks up
-  from the place where it was last checkpointed to disk. Paused scrubs
-  can be resumed with :command:`zpool scrub`. Scrubs can be paused
-  manually with :command:`zpool scrub -p`.  A future version of
-  %brand% will add a button to the UI to resume or pause a scrub.
+* The login screen defaults to the new, Angular-based UI. Users who wish
+  to continue to use the classic UI can select "Legacy UI" in the login
+  screen.
 
-* :ref:`Cloud Credentials` has been added to :ref:`System`. This can
-  be used to provide a secure connection to a cloud service providers.
-  Supported services include Amazon S3, Azure Blob Storage, Backblaze
-  B2, and Google Cloud Storage.
+* Beginning with this release, the screenshots that appear in the
+  `published version of the Guide <http://doc.freenas.org/11.2/freenas.html>`__
+  and in the :guilabel:`Guide` icon within the new UI are for the new UI.
+  However, users who click on the :guilabel:`Guide` icon while logged
+  into the classic UI will continue to see screenshots for the old UI.
+  The availability of both versions of the Guide is to assist users as
+  they become familiar with the new UI during the transition period
+  before the classic UI is deprecated in a future release.
 
-* :ref:`Cloud Sync` has been added to :ref:`Tasks` and can be used to
-  synchronize files or directories to remote cloud storage providers
-  with a specified transfer mode.
+* The rewrite from the old API to the new middlewared continues. Once
+  the rewrite is complete, `api.freenas.org <http://api.freenas.org/>`__
+  will be deprecated and replaced by the new API documentation. In the
+  mean time, to see the API documentation for the new middleware, log
+  into the new UI, click on the URL for the FreeNAS system in your
+  browser's location bar, and add :guilabel:`:api/docs` to the end of
+  that URL.
 
-* The :guilabel:`Server Side Encryption` drop-down menu appears on
-  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`
-  when an S3 provider is selected.
+* The boot loader has changed from GRUB to the native FreeBSD boot
+  loader. This should resolve several issues that some users experienced
+  with GRUB. GRUB was introduced as a temporary solution until the
+  FreeBSD boot loader had full support for boot environments, which it
+  now has.
 
-* :ref:`Resilver Priority` has been added to :ref:`Storage`. This
-  provides the ability to run resilvering at a higher priority at
-  configurable times and days of the week.
+* The :ref:`Plugins` and :ref:`Jails` backend has switched from
+  :command:`warden` to :command:`iocage` and :command:`warden` will no
+  longer receive bug fixes. The new UI will automatically use
+  :command:`iocage` to create and manage :ref:`Plugins` and :ref:`Jails`.
+  Users are encouraged to recreate any existing :ref:`Plugins` and
+  :ref:`Jails` using the new UI to ensure that they are running the
+  latest supported application versions.
 
-* The :ref:`Netdata` real-time performance and monitoring system has
-  been added to :ref:`Services`.
+* :ref:`VMs` are more crash-resistant. When a guest is started, the
+  amount of available memory is checked and an initialization error will
+  occur if there is insufficient system resources. When a guest is
+  stopped, its resources are returned to the system. In addition, the
+  UEFI boot menu fix allows Linux kernels 4.15 and higher to boot
+  properly.
 
-* :ref:`VMs` have received significant improvements, including:
+* :ref:`Cloud Sync` provides configuration options to encrypt data
+  before it is transmitted and to keep it in the encrypted format while
+  stored on the cloud. The filenames can also be encrypted.
 
-  * support for non-US keyboards.
-
-  * the ability to restart a VM and to clone a VM.
-
-  * the ability to specify the NIC used by the VM as well as the MAC
-    address for the VM NIC. These options can be set with
-    :menuselection:`VMs --> Devices --> Network Interface`.
-
-  * the ability to specify the sector size used by the emulated disk
-    has been added to :menuselection:`VMs --> Devices --> Disk`.
-
-  * the ability to edit the VNC screen resolution, select the IP
-    address to bind to, set the VNC password, and select the option to
-    use the Web version of VNC. These options can be set with
-    :menuselection:`VMs --> Devices --> VNC`.
+* Preliminary support has been added for :ref:`Self-Encrypting Drives`
+  (SEDs).
 
 
-These screens have changed:
+The following software has been added or updated:
 
-* The :guilabel:`Change E-mail` button has been removed from
-  :menuselection:`Account --> Users`.
+* The base operating system has been updated to FreeBSD 11.1-STABLE as
+  of April 19, 2018.
 
-* Each device in a mirrored boot pool now displays a
-  :guilabel:`Detach` button in
-  :menuselection:`System --> Boot --> Status`.
-  This can be used to remove a device from the boot pool.
+* OpenZFS is up-to-date with Illumos and slightly ahead due to support
+  for sorted scrubs which were ported from ZFS on Linux. Notable
+  improvements include channel programs, data disk removal, more
+  resilient volume import, the ability to import a pool with missing
+  vdevs, pool checkpoints, improved compressed ARC performance, and ZIL
+  batching. Note that many of these improvements need further testing so
+  have not yet been integrated into the UI.
 
-* The :guilabel:`Enable Console Menu` in
-  :menuselection:`System --> Advanced` has been renamed to
-  :guilabel:`Show Text Console Without Password Prompt`.
+* `ncdu <https://dev.yorhel.nl/ncdu>`__ has been added to the base
+  system. This CLI utility can be used to analyze disk usage from the
+  console or an SSH session.
 
-* The :guilabel:`Report CPU usage in percentage` checkbox has been
-  added to
-  :menuselection:`System --> Advanced`.
+* Netatalk has been updated to the 3.1.12 development version which
+  addresses known issues with Time Machine timeouts.
 
-* The :guilabel:`FreeNAS-11-Nightlies-SDK` train has been added and
-  the :guilabel:`FreeNAS-9.3-STABLE` train has been removed from
-  :menuselection:`System --> Update`.
+* rsync has been updated to
+  `version 3.1.3 <https://download.samba.org/pub/rsync/src/rsync-3.1.3-NEWS>`__.
 
-* The :guilabel:`Send Test Alert` button has been added to
-  :menuselection:`System --> Alert Services --> Edit`.
+* Minio has been updated to
+  `version 2018-04-04T05 <https://github.com/minio/minio/releases/tag/RELEASE.2018-04-04T05-20-54Z>`__.
 
-* The :guilabel:`Subject Alternate Names` field has been added to
-  :menuselection:`System --> CAs --> Create Internal CA`,
-  :menuselection:`System --> CAs --> Create Intermediate CA`,
-  :menuselection:`System --> Certificates --> Create Internal Certificate`,
-  and
-  :menuselection:`System --> Certificates --> Create Certificate Signing Request`
-  screens.
+* Netdata as been updated to
+  `version 1.10.1 <https://github.com/firehol/netdata/releases/tag/v1.10.0>`__.
 
-* The :guilabel:`Sign CSR` button has been added to
-  :menuselection:`System --> CAs`.
+* The updated version of iocage provides many bug fixes and improved
+  IPv6 support.
 
-* The ability to edit an existing certificate's :guilabel:`Name`,
-  :guilabel:`Certificate`, and :guilabel:`Private Key` fields has been
-  added to :menuselection:`System --> Certificates --> View`.
+* `zsh <http://www.zsh.org/>`__ is the root shell for new installations.
+  Upgrades will continue to use the :command:`csh` shell as the default
+  root shell.
 
-* An :guilabel:`Enabled` checkbox has been added to
-  :menuselection:`Tasks --> Init/Shutdown Scripts`.
+* `xattr <https://github.com/xattr/xattr>`__ has been added to the base
+  system and can be used to modify file extended attributes from the
+  command line. Type :command:`xattr -h` to view the available options.
 
-* The :guilabel:`Additional domains` field has been added to
-  :menuselection:`Network --> Global Configuration`. This allows up to
-  six additional DNS search domains with the caveat that adding more
-  domains may negatively impact DNS lookup time.
+* `convmv <https://www.j3e.de/linux/convmv/man/>`__ has been added to
+  the base system and can be used to convert the encoding of filenames
+  from the command line. Type :command:`convmv` to view the available
+  options.
 
-* The :guilabel:`Identify Light` button has been added to
-  :menuselection:`Network --> IPMI` to make it easier to identify a
-  system in a rack by flashing its IPMI LED light.
+* These switches have been added to :ref:`freenas-debug`:
+  :command:`-M` for dumping SATADOM info and :command:`-Z` to delete old
+  debug information. The :command:`-G` switch has been removed as the
+  system no longer uses GRUB.
 
-* The :guilabel:`Priority Code Point (CoS)` field has been added to
-  :menuselection:`Network --> VLANs --> Add VLAN`.
-  This can be useful in datacenter environments to classify storage
-  traffic on a given VLAN interface using IEEE 802.1p Class of Service
-  (COS).
+The following screen options have changed:
 
-* The :guilabel:`Read-Only` drop-down menu has been added to
-  :menuselection:`Storage --> Datasets --> Add Dataset --> Advanced Mode`.
+* The :guilabel:`ATA Security User` and :guilabel:`SED Password` fields
+  have been added to :menuselection:`System --> Advanced`.
 
-* The :guilabel:`Promote Dataset` button has been added to
-  :menuselection:`Storage --> Volumes`.
+* The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
+  :guilabel:`Encryption password`, and :guilabel:`Encryption salt`
+  fields have been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> Add Cloud Sync`.
 
-* The :guilabel:`Replication` column has been removed from
-  :menuselection:`Storage --> Snapshots`.
+* The :guilabel:`Exec` field has been added to
+  :menuselection:`Storage --> Volumes --> Create Dataset --> Advanced Mode`.
 
-* The :guilabel:`Time Machine Quota` checkbox has been added to
-  :menuselection:`Sharing --> Apple (AFP) Shares --> Add Apple (AFP) Share`.
+* The :guilabel:`Password for SED` column has been added to
+  :menuselection:`Storage --> Volumes --> View Disks`.
 
-* The :guilabel:`Access Based Share Enumeration` checkbox has been
-  added to
-  :menuselection:`Sharing --> SMB (Windows) Shares --> Add SMB (Windows) Share`.
+* The :guilabel:`MSDOSFS locale` drop-down menu has been added to
+  :menuselection:`Storage --> Import Disk`.
 
-* The :guilabel:`Home Share Time Machine` checkbox has been added to
-  :menuselection:`Services --> AFP`.
+* The :guilabel:`Enable home directories`, :guilabel:`Home directories`,
+  :guilabel:`Home share name`, and :guilabel:`Home Share Time Machine`
+  fields have been removed from :menuselection:`Services --> AFP` and
+  the :guilabel:`Time Machine Quota` field has been removed from
+  :menuselection:`Sharing --> Apple (AFP) Shares`. These fields have
+  been replaced by
+  :menuselection:`Sharing --> Apple (AFP) Shares --> Use as home share`.
 
-* The :guilabel:`CheckIP Server SSL`, :guilabel:`CheckIP Server`,
-  :guilabel:`CheckIP Path`, and :guilabel:`Use SSL` fields have been
-  added to :menuselection:`Services --> DDNS`. The
-  :guilabel:`Forced update period` and
-  :guilabel:`Auxiliary parameters` fields have been removed. In
-  addition, several dozen DDNS providers have been added to the
-  :guilabel:`Provider` drop-down menu.
+* The :guilabel:`Umask` field in :menuselection:`Services --> TFTP` has
+  changed to a :guilabel:`File Permissions` selector.
 
-* The :guilabel:`Certificate` drop-down menu has been added to
-  :menuselection:`Services --> S3` in order to configure encrypted S3
-  connections.
-
-* The :guilabel:`Server minimum protocol` and
-  :guilabel:`Server maximum protocol` fields have been removed
-  from :menuselection:`Services --> SMB`.
-
-* The :guilabel:`Log Level` drop-down menu has been added to
-  :menuselection:`Services --> SNMP`. It defaults to the
-  :guilabel:`Error` log level.
-
-* The :guilabel:`No Communication Warning Time` field has been added
-  to
-  :menuselection:`Services --> UPS`.
-  This can be used to configure the frequency of email notifications
-  during the loss of UPS communications.
-
-* The :guilabel:`No Authentication` choice has been added to the
-  :menuselection:`Services --> WebDAV --> HTTP Authentication`
-  drop-down menu.
-
-.. _Changes Since |release|:
-
-Changes Since |release|
------------------------
-
-%brand% uses a "rolling release" model instead of point releases. The
-:ref:`Update` mechanism makes it easy to keep up-to-date with the
-latest security fixes, bug fixes, and new features. Some updates
-affect the user interface, so this section lists any functional
-changes that have occurred since |release| was released.
-
-.. note:: The screenshots in this documentation assume that the system
-   has been fully updated to the latest STABLE version of %brand%
-   |version|. If a screen on the system is not the same as shown in
-   this guide, make sure that all updates have been applied.
-
-U1
-~~
-
-* RancherOS has been updated to version
-  `1.1.3 <https://github.com/rancher/os/releases/tag/v1.1.3>`__.
-
-* Smartmontools has been updated to
-  `6.6 <https://www.smartmontools.org/browser/tags/RELEASE_6_6/smartmontools/NEWS>`__.
-
-* The :guilabel:`Factory Restore` button in
-  :menuselection:`System --> General` has been renamed to
-  :guilabel:`Reset Configuration to Defaults`.
-
-U2
-~~
-
-* :literal:`System Update` has been removed from the
-  :ref:`Console Setup Menu <Booting>`.
-
-* :menuselection:`System -> Information` shows the system serial
-  number on systems supplied or certified by iXsystems.
-
-* ZFS Sync write synchronization settings have been added to
-  :ref:`Create Dataset` and :ref:`Create zvol`.
-
-* Midnight Commander has been updated to version
-  `4.8.20 <http://midnight-commander.org/wiki/NEWS-4.8.20>`__.
-
-U3
-~~
-
-* Samba has been patched to address
-  `CVE-2018-1050 <https://www.samba.org/samba/security/CVE-2018-1050.html>`__
-  and
-  `CVE-2018-1057 <https://wiki.samba.org/index.php/CVE-2018-1057>`__.
+* Disk temperature graphs have been added to
+  :menuselection:`Reporting --> Disk`.
 
 
 .. index:: Path and Name Lengths
