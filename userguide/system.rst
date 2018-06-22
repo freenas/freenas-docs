@@ -673,6 +673,9 @@ The configurable settings are summarized in
    | SED Password                             | string                           | global password used to unlock :ref:`Self-Encrypting Drives`                                     |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
+   | Reset SED Password                       | checkbox                         | select to clear the :guilabel:`Password for SED` column of                                       |
+   |                                          |                                  | :menuselection:`Storage --> View Disks`                                                          |
+   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
 
 
 Click the :guilabel:`Save` button after making any changes.
