@@ -2135,7 +2135,7 @@ option for encrypting connections.
 Clicking an entry activates these configuration buttons:
 
 * **View:** use this option to view the contents of an existing
-  certificate or to edit the :guilabel:`Identifier` (name).
+  certificate or to edit the :guilabel:`Identifier`.
 
 * **Export Certificate** saves a copy of the certificate or
   certificate signing request to the system being used to access the
