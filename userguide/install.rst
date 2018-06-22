@@ -690,27 +690,38 @@ If Something Goes Wrong
 If an update fails, an alert is issued and the details are written to
 :file:`/data/update.failed`.
 
-To return to a previous version of the operating system, physical or
-IPMI access to the %brand% console is needed. Reboot the system and
-watch for the boot menu. In the example shown in
-:numref:`Figure %s <boot_menu_fig>`, the first boot entry,
-*FreeNAS-1415259326*, refers to the current version of the operating
-system, after the update was applied. Since it is the first entry, it
-is the default selection. The next entry, *Initial-Install*, refers
-to the initial installation. Since there are no other entries between
-the initial installation and the first entry, only one update has been
-applied to this system since its initial installation.
-
+To return to a previous version of the operating system, physical or IPMI
+access to the %brand% console is needed. Reboot the system and watch for
+the boot menu:
 
 .. _boot_menu_fig:
 
-.. figure:: images/boot1.png
+.. figure:: images/boot-menu.png
 
    Boot Menu
 
 
-To boot into the previous version of the operating system, use
-down arrow to select it and press :kbd:`Enter`.
+Press :kbd:`3` to display the available boot environments and
+press :kbd:`3` again as needed to scroll through multiple pages.
+
+.. _boot_env_fig:
+
+.. figure:: images/boot-env.png
+
+   Boot Environments
+
+In the example shown in :numref:`Figure %s <boot_env_fig>`, the first
+boot entry, :literal:`FreeNAS-1415259326`, refers to the current version
+of the operating system, after the update was applied. Since it is the
+first entry, it is the default selection.
+
+The next entry, :literal:`Initial-Install`, is the original boot environment
+created when %brand% was first installed. Since there are no other entries
+between the initial installation and the first entry, only one update has
+been applied to this system since its initial installation.
+
+To boot into another version of the operating system, use the down arrow
+to select its entry and press :kbd:`Enter`.
 
 If a boot device fails and the system no longer boots, don't panic.
 The data is still on the disks and there is still a copy of the saved
