@@ -4,64 +4,30 @@
 Jails
 =====
 
-The previous section described how to find, install, and configure
-software using :ref:`Plugins`.
-
 This section describes how to use Jails, which allow users who are
 comfortable with the command line to have more control over software
-installation and management. Any software installed using Jails must
-be managed from the command line of the jail. If you prefer to use a
-GUI to manage software, use :ref:`Plugins` instead.
+installation and management.
 
-.. note:: The jails infrastructure is transitioning from the old
-   warden backend to the new iocage backend. This transition process
-   requires the middleware API calls to be rewritten for the new UI. It
-   is expected that the transition will be complete with %brand% version
-   11.2. Since jails created in the old UI use the warden backend, jails
-   created in the new UI use the iocage backend, and both use different
-   API versions, they are not compatible. While a migration script will
-   be made available when the transition is complete, it will not be able
-   to anticipate every configuration scenario for every application
-   installed in jails. At that time, the recommendation will be to: create
-   new jails using the new UI, copy over any existing configurations, and
-   delete the old jail datasets once the new jails are working as expected.
-
-%brand% automatically creates a jail whenever a plugin is
-installed, but does not let the user install multiple plugins into the
-same jail. In contrast, using Jails allows users to create as many
-jails as needed and to customize the operating system and installed
-software within each jail.
+.. note:: The jails infrastructure now uses uses the iocage backend and
+   the warden backend has been deprecated and is no longer supported.
+   Jail creation has been removed from the legacy UI but it can still
+   be used to manage existing warden jails. It is recommended to
+   recreate all legacy jails using the new UI, copy over any existing
+   configurations, and delete the old jail datasets once the new jails
+   are working as expected. To create new Jails, log into the new UI.
 
 By default, a
 `FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`__
 is created. This provides a very light-weight, operating system-level
 virtualization. Consider it as another independent instance of FreeBSD
 running on the same hardware, without all of the overhead usually
-associated with virtualization.  The jail will install the FreeBSD
+associated with virtualization.  The jail installs the FreeBSD
 software management utilities so FreeBSD ports can be compiled and
 FreeBSD packages can be installed from the command line of the jail.
 
 It is important to understand that any users, groups, installed
 software, and configurations within a jail are isolated from both the
 %brand% operating system and any other jails running on that system.
-During creation, the *VIMAGE* option can be selected to provide the
-jail with an independent networking stack. The jail can then do its
-own IP broadcasting, which is required by some applications.
-
-Advanced users can also create custom templates to automate the
-creation of pre-installed and customized operating systems.
-
-The ability to create multiple jails running different operating
-systems offers great flexibility regarding software management. For
-example, the administrator can choose to provide application
-separation by installing different applications in each jail, or to
-create one jail for all installed applications, or to mix and match
-how software is installed into each jail.
-
-
-.. note:: Jails created with %brand% 9.3 or later are expected to work
-   with the current release. Jails created on older versions of
-   %brand% must be reinstalled due to ABI changes.
 
 
 The rest of this section describes:
@@ -107,7 +73,7 @@ named :file:`/mnt/volume1/dataset1/jail1`.
    Global Jail Configuration
 
 
-.. warning:: If any :ref:`Plugins` have already been installed, the
+.. warning:: If any :ref:`Plugins` are already installed, the
    :guilabel:`Jail Root`, :guilabel:`IPv4 Network`,
    :guilabel:`IPv4 Network Start Address`, and
    :guilabel:`IPv4 Network End Address` are automatically filled.
@@ -183,36 +149,33 @@ to be installed as well as any software, log files, and data to be
 stored within each jail. At a bare minimum, budget at least 2 GB per
 jail and do not select a dataset that is less than 2 GB in size.
 
-.. note:: If you plan to add storage to a jail, be aware that the path
+.. note:: When adding storage to a jail, be aware that the path
    size is limited to 88 characters. Make sure that the length of the
    volume name plus the dataset name plus the jail name does not
    exceed this limit.
 
 If the network contains a DHCP server, it is recommended to check the
 box :guilabel:`IPv4 DHCP` (or :guilabel:`IPv6 Autoconfigure`, for a
-properly configured IPv6 network). This will prevent IP address
-conflicts on the network as the DHCP server will automatically assign
-the jail the next available lease and record the lease as in use.
+properly configured IPv6 network). This prevents IP address
+conflicts on the network as the DHCP server automatically assigns
+the jail the next available lease and records the lease as in use.
 
 If a static IP address is needed so that users always know the IP
 address of the jail, enter the start and end address for the IPv4
 and/or IPv6 network. The range defined by the start and end addresses
-will be automatically assigned as jails are created. For example, if
-you plan to create 5 jails on the 192.168.1.0 network, enter a
+will be automatically assigned as jails are created. For example,
+when creating 5 jails on the 192.168.1.0 network, enter a
 :guilabel:`IPv4 Network Start Address` of *192.168.1.100* and a
 :guilabel:`IPv4 Network End Address` of *192.168.1.104*.
 
-**If you create a start and end range on a network that contains a
-DHCP server, it is very important that you also reserve those
+**When creating a start and end range on a network that contains a
+DHCP server, it is important to also reserve those
 addresses on the DHCP server.**
-Otherwise, the DHCP server will not be aware that those addresses are
-being used by jails and there will be IP address conflicts and weird
-networking errors on the network. When troubleshooting jails that do
-not install or which are unavailable, double-check that the IP address
-being used by the jail is not also being used by another jail or
-system in the network.
+Otherwise, the DHCP server is not aware that those addresses are
+being used by jails. This lead to IP address conflicts and weird
+networking errors on the network.
 
-%brand% will automatically detect and display the
+%brand% automatically detects and displays the
 :guilabel:`IPv4 Network` to which the administrative interface is
 connected. This setting is important. The IP addresses used by the
 jails must be pingable from the %brand% system for the jails and any
@@ -223,39 +186,12 @@ value, ensure that the subnet mask value is correct, as an incorrect
 mask can make the IP network unreachable. When in doubt, keep the
 default setting for :guilabel:`IPv4 Network`. With VMware, make sure
 that the vswitch is set to "promiscuous mode". With VirtualBox, make sure
-:menuselection:`Network -> Advanced -> Promiscuous Mode` is not set to
-"Deny".
+:menuselection:`Network -> Advanced -> Promiscuous Mode`
+is not set to "Deny".
 
 After clicking the :guilabel:`Save` button to save the configuration,
 the system is ready to create and manage jails as described in the
 rest of this chapter.
-
-
-.. index:: Add Jail, New Jail, Create Jail
-.. _Adding Jails:
-
-Adding Jails
-------------
-
-To create a jail, click
-:menuselection:`Jails --> Add Jail`
-to access the screen shown in
-:numref:`Figure %s <creating_jail_fig>`.
-
-.. note:: the :guilabel:`Add Jail` menu item will not appear until
-   after you configure
-   :menuselection:`Jails --> Configuration`.
-
-
-.. _creating_jail_fig:
-
-.. figure:: images/jails3a.png
-
-   Creating a Jail
-
-
-By default, the only required value to create a jail is a name.
-FreeBSD jails are created by default.
 
 :numref:`Table %s <jail_config_opts_tab>`
 summarizes the available options. Most settings are only available in
@@ -370,50 +306,11 @@ display these settings by checking the box
    *epair1a*, and
    *epair2a.* The physical interface
    *em0* will be added to the bridge, as well as each epair device.
-   The other half of the epair will be placed inside the jail and will
-   be assigned the IP address specified for that jail. The bridge
-   interface will be assigned an alias of the default gateway for that
-   jail, if configured, or the bridge IP, if configured; either is
+   The other half of the epair is placed inside the jail and is
+   assigned the IP address specified for that jail. The bridge
+   interface is assigned an alias of the default gateway for that
+   jail or the bridge IP, if configured; either is
    correct.
-
-   The only time an IP address and mask are required for the bridge is
-   when the jail will be on a different network than the %brand%
-   system. For example, if the %brand% system is on the *10.0.0.0/24*
-   network and the jail will be on the *192.168.0.0/24* network, set
-   the :guilabel:`IPv4 bridge address` and
-   :guilabel:`IPv4 bridge netmask` fields for the jail.
-
-If both the :guilabel:`VIMAGE` and :guilabel:`NAT` boxes are
-unchecked, the jail must be configured with an IP address within the
-same network as the interface it is bound to, and that address will be
-assigned as an alias on that interface. To use a :guilabel:`VIMAGE`
-jail on the same subnet, uncheck :guilabel:`NAT` and configure an IP
-address within the same network. In both of these cases, configure
-only an IP address and do not configure a bridge or a gateway address.
-
-After making selections, click the :guilabel:`OK` button. The jail is
-created and added to the :guilabel:`Jails` tab as well as in the tree
-menu under :guilabel:`Jails`. Jails start automatically.  To prevent
-this, uncheck the :guilabel:`Autostart` box.
-
-The first time a jail is added or used as a template, the GUI
-automatically downloads the necessary components from the internet. A
-progress bar indicates the status of the download and provides an
-estimated time for the process to complete. If it is unable to connect
-to the internet, jail creation fails.
-
-#ifdef freenas
-.. warning:: Failure to download is often caused by the default
-   gateway not being set, preventing internet access. See the Network
-   :ref:`Global Configuration` section for information on setting the
-   default gateway.
-#endif freenas
-
-After the first jail is created or a template has been used,
-subsequent jails will be added very quickly because the downloaded
-base for creating the jail has been saved to the
-:guilabel:`Jail Root`.
-
 
 .. _Managing Jails:
 
@@ -443,7 +340,7 @@ From left to right, these configuration icons are available:
 :numref:`Table %s <jail_config_opts_tab>`.
 
 After a jail has been created, the jail name and type cannot be
-changed, so these fields will be grayed out.
+changed. These fields are grayed out.
 
 .. note:: To modify the IP address information for a jail, use the
    :guilabel:`Edit Jail` button instead of the associated networking
@@ -451,10 +348,6 @@ changed, so these fields will be grayed out.
 
 **Add Storage:** configure the jail to access an area of
 storage as described in :ref:`Add Storage`.
-
-**Upload Plugin:** manually upload a plugin previously downloaded from
-the
-`plugins repository <http://download.freenas.org/plugins/9/x64/>`__.
 
 **Start/Stop:** this icon changes appearance depending on the current
 :guilabel:`Status` of the jail. When the jail is not running, the icon
@@ -555,7 +448,7 @@ mechanism, which links data that resides outside of the jail as a
 storage area within the jail.
 
 To add storage, click the :guilabel:`Add Storage` button for a
-highlighted jail's entry to open the screen shown in
+highlighted jail entry to open the screen shown in
 :numref:`Figure %s <adding_storage_jail_fig>`.
 This screen can also be accessed by expanding the jail name in the
 tree view and clicking
@@ -663,14 +556,14 @@ storage was added to the *freenas1* entry in the tree as
 Storage is normally mounted as it is created. To unmount the storage,
 uncheck the :guilabel:`Mounted?` box.
 
-.. note:: A mounted dataset will not automatically mount any of its
+.. note:: A mounted dataset does not automatically mount any of its
    child datasets. While the child datasets may appear to be browsable
-   inside the jail, any changes will not be visible. Since each
+   inside the jail, any changes are not visible. Since each
    dataset is considered to be its own filesystem, each child dataset
-   must have its own mount point, so separate storage must be created
+   must have its own mount point. Separate storage must be created
    for any child datasets which need to be mounted.
 
-To delete the storage, click its :guilabel:`Delete` button.
+To delete the storage, click the :guilabel:`Delete` button.
 
 .. warning:: It is important to realize that added storage is really
    just a pointer to the selected storage directory on the %brand%
@@ -682,205 +575,6 @@ To delete the storage, click its :guilabel:`Delete` button.
    **directory on the** %brand% **system.**
    However, removing the jail storage entry only removes the pointer,
    leaving the data intact but not accessible from the jail.
-
-
-.. _Installing FreeBSD Packages:
-
-Installing FreeBSD Packages
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The quickest and easiest way to install software inside the jail is to
-install a FreeBSD package. FreeBSD packages are pre-compiled.  They
-contains all the binaries and a list of dependencies required for the
-software to run on a FreeBSD system.
-
-A huge amount of software has been ported to FreeBSD, currently over
-24,000 applications, and most of that software is available as a
-package. One way to find FreeBSD software is to use the search bar at
-`FreshPorts.org <https://www.freshports.org/>`__.
-
-After finding the name of the desired package, use the
-:command:`pkg install` command to install it. For example, to install
-the audiotag package, use this command:
-
-.. code-block:: none
-
-   pkg install audiotag
-
-
-When prompted, type **y** to complete the installation. The
-installation messages will indicate if the package and its
-dependencies successfully download and install.
-
-.. warning:: Some older versions of FreeBSD used package systems
-   which are now obsolete. Do not use commands from those obsolete
-   package systems in a %brand% jail, as they will cause
-   inconsistencies in the jail's package management database. Use the
-   current FreeBSD package system as shown in these examples.
-
-A successful installation can be confirmed by querying the package
-database:
-
-.. code-block:: none
-
- pkg info -f audiotag
- audiotag-0.19_1
- Name:		 audiotag
- Version:	 0.19_1
- Installed on:   Fri Nov 21 10:10:34 PST 2014
- Origin:	 audio/audiotag
- Architecture:	 freebsd:9:x86:64
- Prefix:	 /usr/local
- Categories:	 multimedia audio
- Licenses:	 GPLv2
- Maintainer:	 ports@FreeBSD.org
- WWW:		 http://github.com/Daenyth/audiotag
- Comment:	 Command-line tool for mass tagging/renaming of audio files
- Options:
-   DOCS:	 on
-   FLAC:	 on
-   ID3:		 on
-   MP4:		 on
-   VORBIS:	 on
- Annotations:
-   repo_type:    binary
-   repository:   FreeBSD
- Flat size:	 62.8KiB
- Description:	Audiotag is a command-line tool for mass tagging/renaming of audio files
-		it supports the vorbis comment, id3 tags, and MP4 tags.
- WWW:		http://github.com/Daenyth/audiotag
-
-
-To show what was installed by the package:
-
-.. code-block:: none
-
-   pkg info -l audiotag
-   audiotag-0.19_1:
-   /usr/local/bin/audiotag
-   /usr/local/share/doc/audiotag/COPYING
-   /usr/local/share/doc/audiotag/ChangeLog
-   /usr/local/share/doc/audiotag/README
-   /usr/local/share/licenses/audiotag-0.19_1/GPLv2
-   /usr/local/share/licenses/audiotag-0.19_1/LICENSE
-   /usr/local/share/licenses/audiotag-0.19_1/catalog.mk
-
-In FreeBSD, third-party software is always stored in
-:file:`/usr/local` to differentiate it from the software that came
-with the operating system. Binaries are almost always located in a
-subdirectory called :file:`bin` or :file:`sbin` and configuration
-files in a subdirectory called :file:`etc`.
-
-
-.. _Compiling FreeBSD Ports:
-
-Compiling FreeBSD Ports
-~~~~~~~~~~~~~~~~~~~~~~~
-
-Software is typically installed into FreeBSD jails using packages. But
-sometimes there are good reasons to compile a port instead. Compiling
-ports offers these advantages:
-
-* Not every port has an available package. This is usually due to
-  licensing restrictions or known, unaddressed security
-  vulnerabilities.
-
-* Sometimes the package is out-of-date and a feature is needed that
-  only became available in the newer version.
-
-* Some ports provide compile options that are not available in the
-  pre-compiled package. These options are used to add or remove
-  features or options.
-
-Compiling a port has these disadvantages:
-
-* It takes time. Depending upon the size of the application, the
-  amount of dependencies, the speed of the CPU, the amount of RAM
-  available, and the current load on the %brand% system, the time
-  needed can range from a few minutes to a few hours or even to a few
-  days.
-
-.. note:: If the port does not provide any compile options, it saves
-   time and preserves the %brand% system's resources to just use the
-   :command:`pkg install` command instead.
-
-The
-`FreshPorts.org <https://www.freshports.org/>`__
-listing shows whether a port has any configurable compile options.
-:numref:`Figure %s <config_opts_audiotag_fig>`
-shows the :guilabel:`Configuration Options` for audiotag.
-
-
-.. _config_opts_audiotag_fig:
-
-.. figure:: images/ports1a.png
-
-   Configuration Options for Audiotag
-
-
-This port has five configurable options (DOCS, FLAC, ID3, MP4,
-and VORBIS) and each option is enabled (on) by default.
-
-FreeBSD packages are always built using the default options. When
-compiling a port yourself, those options are presented in a menu,
-allowing the default values to be changed.
-
-The Ports Collection must be installed in a jail before ports can be
-compiled. Inside the jail, use the :command:`portsnap`
-utility. This command downloads the ports collection and extracts
-it to the jail's :file:`/usr/ports/` directory:
-
-.. code-block:: none
-
-   portsnap fetch extract
-
-
-.. note:: To install additional software at a later date, make sure
-   the ports collection is updated with
-   :command:`portsnap fetch update`.
-
-To compile a port, :command:`cd` into a subdirectory of
-:file:`/usr/ports/`. The entry for the port at FreshPorts provides the
-location to :command:`cd` into and the :command:`make` command to run.
-This example compiles and installs the audiotag port:
-
-.. code-block:: none
-
-   cd /usr/ports/audio/audiotag
-   make install clean
-
-
-Since this port has configurable options, the first time this command
-is run, the configure screen shown in
-:numref:`Figure %s <config_set_audiotag_fig>`
-is displayed:
-
-
-.. _config_set_audiotag_fig:
-
-.. figure:: images/ports2.png
-
-   Configuration Options for Audiotag Port
-
-
-Use the arrow keys to select an option and press :kbd:`spacebar`
-to toggle the value. When all the values are as desired, press
-:kbd:`Enter`.  The port will begin to compile and install.
-
-.. note:: The configuration screen will not be shown again, even
-   if the build is stopped and restarted. It can be redisplayed
-   by typing :command:`make config`.  Change the settings, then
-   rebuild with :command:`make clean install clean`.
-
-Many ports depend on other ports. Those other ports can also have
-configuration screens that will be shown before compiling begins. It
-is a good idea to keep an eye on the compile until it finishes and the
-command prompt returns.
-
-When the port is installed, it is registered in the same package
-database that manages packages. The same :command:`pkg info` command
-can be used to determine what was installed, as described in the
-previous section.
 
 
 .. _Starting Installed Software:
@@ -983,138 +677,6 @@ available:
    # --config file
    # NAME_dir="/usr/local/etc/openvpn"
    # --cd directory
-
-
-.. _Managing Jail Templates:
-
-Managing Jail Templates
------------------------
-
-%brand% supports the ability to add custom templates to the
-:guilabel:`Templates` drop-down menu described in
-:numref:`Table %s <jail_config_opts_tab>`.
-
-To create a custom template, first install the desired operating
-system and configure it as needed. The installation can be either to
-an existing jail or on another system.
-
-Next, create an mtree specification using this command, replacing
-*/path/to/jail* with the actual path to the jail:
-
-.. code-block:: none
-
-   mtree -c -p /path/to/jail -k sha256digest > file.mtree
-
-
-After configuration is complete, create a tarball of the entire
-operating system to be used as a template. This tarball needs to be
-compressed with :command:`gzip` and end in a :file:`.tgz` extension.
-Be careful when creating the tarball as it is possible to end up in a
-recursive loop. In other words, the resulting tarball must be saved
-outside of the operating system being tarballed, such as to an
-external USB drive or network share. Alternately, create a temporary
-directory within the operating system and use the *--exclude* switch
-to :command:`tar` to exclude this directory from the tarball. The
-exact :command:`tar` command to use will vary, depending upon the
-operating system being used to create the tarball.
-
-Save the generated :file:`.mtree` and :file:`.tgz` files to either an
-FTP share or an HTTP server. The FTP or HTTP URL is needed to add the
-template to the list of available templates.
-
-To add the template, click
-:menuselection:`Jails --> Templates --> Add Jail Templates`
-which opens the screen shown in
-:numref:`Figure %s <adding_custom_jail_template_fig>`.
-
-
-.. _adding_custom_jail_template_fig:
-
-.. figure:: images/jails11b.png
-
-   Adding A Custom Jail Template
-
-
-:numref:`Table %s <jail_template_opts_tab>`
-summarizes the fields in this screen.
-
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
-
-.. _jail_template_opts_tab:
-
-.. table:: Jail Template Options
-   :class: longtable
-
-   +--------------+----------------+-----------------------------------------------------------------------------------------------+
-   | Setting      | Value          | Description                                                                                   |
-   |              |                |                                                                                               |
-   +==============+================+===============================================================================================+
-   | Name         | string         | value appears in the :guilabel:`Name` column of :guilabel:`View Jail Templates`               |
-   |              |                |                                                                                               |
-   +--------------+----------------+-----------------------------------------------------------------------------------------------+
-   | OS           | drop-down menu | choices are  *FreeBSD* or                                                                     |
-   |              |                | *Linux*                                                                                       |
-   |              |                |                                                                                               |
-   |              |                |                                                                                               |
-   +--------------+----------------+-----------------------------------------------------------------------------------------------+
-   | Architecture | drop-down menu | choices are *x86* (32-bit) or                                                                 |
-   |              |                | *x64* (64-bit)                                                                                |
-   |              |                |                                                                                               |
-   +--------------+----------------+-----------------------------------------------------------------------------------------------+
-   | URL          | string         | enter the full URL to the :file:`.tgz` file, including the protocol (*ftp://* or              |
-   |              |                | or *http://*)                                                                                 |
-   |              |                |                                                                                               |
-   +--------------+----------------+-----------------------------------------------------------------------------------------------+
-   | Mtree        | string         | paste the mtree specification for the template                                                |
-   |              |                |                                                                                               |
-   +--------------+----------------+-----------------------------------------------------------------------------------------------+
-
-Added templates appear in
-:menuselection:`Jails --> Templates`.
-An example is shown in
-:numref:`Figure %s <default_jail_templates_fig>`.
-
-
-.. _default_jail_templates_fig:
-
-.. figure:: images/jails9a.png
-
-   Viewing Available Templates
-
-
-The listing contains these columns:
-
-* **Name:** appears in the :guilabel:`Template` drop-down menu when
-  adding a new jail.
-
-* **URL:** when adding a new jail using this template, the template
-  is downloaded from this location.
-
-* **Instances:** indicates if the template has been used to create a
-  jail. In this example, the template has not yet been used, so
-  :guilabel:`Instances` shows as *0*.
-
-Click the entry for a template to access its :guilabel:`Edit` and
-:guilabel:`Delete` buttons. Clicking a template's :guilabel:`Edit`
-button opens the configuration screen shown in
-:numref:`Figure %s <edit_jail_template_fig>`.
-
-
-.. _edit_jail_template_fig:
-
-.. figure:: images/jails10b.png
-
-   Editing Template Options
-
-
-Clicking a template's :guilabel:`Delete` button shows a warning
-message that prompts for confirmation of the deletion. Note that once
-a template is deleted, it is removed from the :guilabel:`Templates`
-drop-down menu and will no longer be available for creating new jails.
-
 
 .. index:: iocage
 .. _Using iocage:
