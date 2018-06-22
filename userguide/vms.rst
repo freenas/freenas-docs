@@ -82,62 +82,66 @@ VM configuration options are described in
    | Screen # | Setting            | Value          | Description                                                                        |
    |          |                    |                |                                                                                    |
    +==========+====================+================+====================================================================================+
-   | 1        | Guest Operating    | drop-down menu | Choose the VM operating system type. Choices are: *Windows*, *Linux*, or           |
-   |          | System             |                | *FreeBSD*.                                                                         |
-   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 1        | VM Name            | string         | Enter an alphanumeric name to identify the VM.                                     |
+   | 1        | Virtual Machine    | drop-down menu | Choose to create either a standard VM or a Docker Host.                            |
+   |          | (VM) Wizard type   |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 1        | Boot Method        | drop-down menu | Select *UEFI* for newer operating systems, or *UEFI-CSM* for                       |
+   | 2        | Guest Operating    | drop-down menu | Choose the VM operating system type. Choices are: *Windows*, *Linux*, or           |
+   |          | System             |                | *FreeBSD*.                                                                         |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 2        | VM Name            | string         | Enter an alphanumeric name to identify the VM.                                     |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 2        | Boot Method        | drop-down menu | Select *UEFI* for newer operating systems, or *UEFI-CSM* for                       |
    |          |                    |                | (Compatibility Support Mode) older operating systems that only understand          |
    |          |                    |                | BIOS booting.                                                                      |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 1        | Start on Boot      | checkbox       | Set to start the VM when the system boots.                                         |
+   | 2        | Start on Boot      | checkbox       | Set to start the VM when the system boots.                                         |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 1        | Enable VNC         | checkbox       | Set to to activate a Virtual Network Computing (VNC) remote connection.            |
+   | 2        | Enable VNC         | checkbox       | Set to to activate a Virtual Network Computing (VNC) remote connection.            |
    |          |                    |                | Requires *UEFI* booting.                                                           |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 2        | Virtual CPUs       | integer        | Select the number of virtual CPUs to allocate to the VM. The maximum is 16 unless  |
+   | 3        | Virtual CPUs       | integer        | Select the number of virtual CPUs to allocate to the VM. The maximum is 16 unless  |
    |          |                    |                | the host CPU limits the maximum. The VM operating system might also have           |
    |          |                    |                | operational or licensing restrictions on the number of CPUs.                       |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 2        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in                                                      |
+   | 3        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in                                                      |
    |          |                    |                | `mebibytes <https://simple.wikipedia.org/wiki/Mebibyte>`__ for the VM.             |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Disk image         | check option   | Select :guilabel:`Create new disk image` to create a new zvol on an existing       |
+   | 4        | Disk image         | check option   | Select :guilabel:`Create new disk image` to create a new zvol on an existing       |
    |          |                    | with custom    | dataset. This is used as a virtual hard drive for the VM. Select                   |
    |          |                    | fields         | :guilabel:`Use existing disk image` to :guilabel:`Browse` to an existing zvol or   |
    |          |                    |                | file for the VM.                                                                   |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Zvol size (GiB)    | integer        | Allocate the amount of storage in                                                  |
+   | 4        | Zvol size (GiB)    | integer        | Allocate the amount of storage in                                                  |
    |          |                    |                | `gibibytes <https://simple.wikipedia.org/wiki/Gibibyte>`__ for the new zvol.       |
    |          |                    |                | Only appears if :guilabel:`Create new disk image` is selected.                     |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Select datastore   | drop-down menu | Choose a datastore for the new zvol.                                               |
+   | 4        | Select datastore   | drop-down menu | Choose a datastore for the new zvol.                                               |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This       |
+   | 5        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This       |
    |          |                    |                | provides compatibility with most operating systems. :guilabel:`VirtIO` provides    |
    |          |                    |                | better performance when the operating system installed in the VM supports VirtIO   |
    |          |                    |                | paravirtualized network drivers.                                                   |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | MAC Address        | string         | Enter the desired MAC address to override the auto-generated                       |
+   | 5        | MAC Address        | string         | Enter the desired MAC address to override the auto-generated                       |
    |          |                    |                | randomized MAC address.                                                            |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | Attach NIC         | drop-down menu | Select the physical interface to associate with the VM.                            |
+   | 5        | Attach NIC         | drop-down menu | Select the physical interface to associate with the VM.                            |
    |          |                    |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | Choose an          | browse button  | :guilabel:`Browse` to the operating system installation media.                     |
+   | 6        | Choose an          | browse button  | :guilabel:`Browse` to the operating system installation media.                     |
    |          | installation media |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | Upload an ISO?     | checkbox and   | Set to display image upload options.                                               |
+   | 6        | Upload an ISO?     | checkbox and   | Set to display image upload options.                                               |
    |          |                    | buttons        |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
@@ -145,6 +149,45 @@ VM configuration options are described in
 The final screen of the Wizard displays the chosen options for the new
 VM. Click :guilabel:`Submit` to create the VM or :guilabel:`Back` to
 change any settings.
+
+For example, a user is creating a FreeBSD VM. They click |ui-add| on the
+:guilabel:`VMs` page and progress through the steps of the Wizard:
+
+1. :guilabel:`Wizard type` is set to **Virtual Machine**.
+
+2. :guilabel:`Guest Operating System` is set to **FreeBSD**.
+   **freebsd-test** is entered as the :guilabel:`Name`. The other
+   options are left at their defaults.
+
+3. :guilabel:`Virtual CPUs` and :guilabel:`Memory Size` are left at
+   their default values.
+
+4. :guilabel:`Create new disk image` is selected. The zvol size is set
+   to **50**. The user clicks :guilabel:`Browse` and stores the new disk
+   image in the **tank** pool.
+
+5. All networking settings are left at their default values.
+
+6. The user sets :guilabel:`Upload an installer image file` and clicks
+   :guilabel:`Browse` to set the save location for the :file:`iso` file.
+   Now the user uploads an :file:`iso` by clicking :guilabel:`Browse`
+   under :guilabel:`ISO upload location`, choosing a local FreeBSD
+   :file:`iso` file, and clicking :guilabel:`Upload`. %brand% starts the
+   upload and populates the :guilabel:`Choose installation media image`
+   field when finished.
+
+7. After verifying the :guilabel:`VM Summary` is correct, the user
+   clicks :guilabel:`Submit`.
+
+:numref:`Figure %s <vms_create_example>` shows the confirmation step
+and basic settings for the FreeBSD VM *freebsd-test*:
+
+
+.. _vms_create_example:
+
+.. figure:: images/vms-create-example.png
+
+   Creating *freebsd-test*
 
 
 .. index:: Adding Devices to a VM
@@ -538,47 +581,52 @@ Docker VM configuration options are described in
    | Screen # | Setting            | Value          | Description                                                                        |
    |          |                    |                |                                                                                    |
    +==========+====================+================+====================================================================================+
-   | 1        | Name of the VM     | string         | Enter a descriptive name for the Docker VM.                                        |
+   | 1        | Virtual Machine    | drop-down menu | Choose to create either a standard VM or a Docker Host.                            |
+   |          | (VM) Wizard type   |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 1        | Start on Boot      | checkbox       | Set to start this VM when the %brand% system boots.                                |
+   | 2        | Name of the VM     | string         | Enter a descriptive name for the Docker VM.                                        |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 2        | Virtual CPUs       | integer        | Enter the number of virtual CPUs to allocate to the Docker VM. The maximum is 16   |
+   | 2        | Start on Boot      | checkbox       | Set to start this VM when the %brand% system boots.                                |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 3        | Virtual CPUs       | integer        | Enter the number of virtual CPUs to allocate to the Docker VM. The maximum is 16   |
    |          |                    |                | unless the host CPU also limits the maximum.                                       |
    |          |                    |                | The VM operating system can also have operational or licensing restrictions on     |
    |          |                    |                | the number of CPUs.                                                                |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 2        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in mebibytes for the Docker VM.                         |
+   | 3        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in mebibytes for the Docker VM.                         |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This       |
+   | 4        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This       |
    |          |                    |                | provides compatibility with most operating systems. :guilabel:`VirtIO` provides    |
    |          |                    |                | better performance when the operating system installed in the VM supports VirtIO   |
    |          |                    |                | paravirtualized network drivers.                                                   |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | MAC Address        | string         | Enter the desired MAC address to override the auto-generated                       |
+   | 4        | MAC Address        | string         | Enter the desired MAC address to override the auto-generated                       |
    |          |                    |                | randomized MAC address.                                                            |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Attach NIC         | drop-down menu | Select the physical interface to associate with the VM.                            |
+   | 4        | Attach NIC         | drop-down menu | Select the physical interface to associate with the VM.                            |
    |          |                    |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | RAW filename       | string         | Enter a name for the new raw file.                                                 |
+   | 5        | RAW filename       | string         | Enter a name for the new raw file.                                                 |
    |          |                    |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | RAW file size      | integer        | Allocate storage size in gibibytes (GiB) for the new RAW file.                     |
+   | 5        | RAW file size      | integer        | Allocate storage size in gibibytes (GiB) for the new RAW file.                     |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | RAW file location  | browse button  | :guilabel:`Browse` to an existing directory to store the new RAW file.             |
+   | 5        | RAW file location  | browse button  | :guilabel:`Browse` to an existing directory to store the new RAW file.             |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 4        | Disk sector size   | integer        | Define the disk sectorsize in bytes. Enter *0* to leave the sector size unset.     |
+   | 5        | Disk sector size   | integer        | Define the disk sectorsize in bytes. Enter *0* to leave the sector size unset.     |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+
 
 Choose the base options for the VM at each step of the wizard. Make sure
 :guilabel:`Virtual CPUs` is set to *1* and :guilabel:`Memory Size` is a
