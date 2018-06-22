@@ -34,11 +34,9 @@ The rest of this section describes:
 
 * :ref:`Jails Configuration`
 
-* :ref:`Adding Jails`
+* :ref:`Managing Jails`
 
-* :ref:`Managing Jail Templates`
-
-* :ref:`Using iocage`
+* :ref:`Starting Installed Software`
 
 
 .. _Jails Configuration:
@@ -221,7 +219,7 @@ display these settings by checking the box
    | Jail Name                 | string         |          | mandatory; can only contain letters, numbers, dashes, or the underscore character        |
    |                           |                |          |                                                                                          |
    +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | Template                  | drop-down menu | ✓        | contains any created custom templates as described in `Managing Jail Templates`_         |
+   | Template                  | drop-down menu | ✓        | contains any created custom templates                                                    |
    |                           |                |          |                                                                                          |
    +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
    | IPv4 DHCP                 | checkbox       | ✓        | if unchecked, make sure that the defined address does not conflict with the DHCP         |
@@ -315,7 +313,7 @@ display these settings by checking the box
 .. _Managing Jails:
 
 Managing Jails
-~~~~~~~~~~~~~~
+--------------
 
 Click :guilabel:`Jails` to view and configure the added jails. In the
 example shown in
@@ -580,7 +578,7 @@ To delete the storage, click the :guilabel:`Delete` button.
 .. _Starting Installed Software:
 
 Starting Installed Software
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 After packages or ports are installed, they need to be configured and
 started. If you are familiar with the software, look for the
