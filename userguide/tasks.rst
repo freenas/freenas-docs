@@ -566,7 +566,7 @@ if necessary, remove any extra spaces representing line breaks.
 
 .. _tasks_pasting_sshkey_fig:
 
-.. figure:: images/rsync2.png
+.. figure:: images/account-users-edit-ssh-key.png
 
    Pasting the User's SSH Public Key
 
@@ -1660,7 +1660,7 @@ screen.
 
 .. _zfs_view_volume_scrub_fig:
 
-.. figure:: images/tasks-scrub-tasks.png
+.. figure:: images/tasks-scrub-tasks-actions-edit.png
 
    Viewing Pool Default Scrub Settings
 
