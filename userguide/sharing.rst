@@ -298,8 +298,7 @@ share is displayed in the right frame.
 
 .. figure:: images/sharing-afp-connect-server.png
 
-
-   Connect to Server Dialogue
+   Connect to Server Dialog
 
 
 To disconnect from the pool, click the :guilabel:`eject` button in the
@@ -424,6 +423,7 @@ set for the *user1* account.
 
 .. TODO Take screenshot on macOS client
 
+
 If :guilabel:`Time Machine could not complete the backup. The
 backup disk image could not be created (error 45)` is shown when
 backing up to the %brand% system, a sparsebundle
@@ -493,7 +493,7 @@ the configuration screen is open for the *nfs_share1* share.
 
 .. _nfs_share_settings_fig:
 
-.. figure:: images/nfs2.png
+.. figure:: images/sharing-unix-nfs-edit-example.png
 
    NFS Share Settings
 
@@ -1332,9 +1332,10 @@ To configure an unauthenticated SMB share:
 
 .. _create_unauth_smb_share_fig:
 
-.. figure:: images/cifs7a.png
+.. figure:: images/sharing-windows-smb-guest-example.png
 
    Creating an Unauthenticated SMB Share
+
 
 The new share will appear in
 :menuselection:`Sharing --> Windows (SMB) Shares`.
@@ -1380,8 +1381,8 @@ For more information about dataset creation, refer to :ref:`Adding Datasets`.
 
 After creating the dataset, go to
 :menuselection:`Storage --> Pools` and click the
-|ui-options| button for the desired dataset. Click :guilabel:`Edit
-Permissions` and fill out the information as shown in
+|ui-options| button for the desired dataset. Click
+:guilabel:`Edit Permissions` and fill out the information as shown in
 :numref:`Figure %s <edit_permissions_smb_share_fig>`.
 
 #. **ACL Type:** Select :guilabel:`Windows`.
@@ -1397,11 +1398,13 @@ Permissions` and fill out the information as shown in
    creating a group.
 #. Click :guilabel:`Save`.
 
+
 .. _edit_permissions_smb_share_fig:
 
-.. figure:: images/cifs3a.png
+.. figure:: images/storage-pools-edit-permissions.png
 
    Editing Dataset Permissions for Authenticated SMB Share
+
 
 To create an authenticated SMB share, navigate
 :menuselection:`Sharing --> Windows (SMB) Shares` and click |ui-add|,
@@ -1410,11 +1413,13 @@ as shown in
 :guilabel:`Browse` to the dataset created for the share and enter a
 name for the share. Press :guilabel:`Save` to create the share.
 
+
 .. _create_auth_smb_share_fig:
 
 .. figure:: images/sharing-windows-smb-add.png
 
    Creating an Authenticated SMB Share
+
 
 To configure multiple authenticated shares, repeat for each user. The
 new shares are also added to
@@ -1945,7 +1950,7 @@ buttons.
 
 .. _iscsi_initiator_conf_sample_fig:
 
-.. figure:: images/initiator2a.png
+.. figure:: images/sharing-block-iscsi-initiators-example.png
 
    Sample iSCSI Initiator Configuration
 
@@ -2025,7 +2030,7 @@ Click an authorized access entry to display its :guilabel:`Edit` and
 
 .. _iscsi_view_auth_access_fig:
 
-.. figure:: images/authorized2a.png
+.. figure:: images/sharing-block-iscsi-authorized-access-example.png
 
    Viewing Authorized Accesses
 
@@ -2555,7 +2560,7 @@ the current size of the zvol named *zvol1* is 4GB.
 .. _iscsi_zvol_lun_fig:
 
 #ifdef freenas
-.. figure:: images/grow1.png
+.. figure:: images/storage-pools-zvol-edit.png
 
    Editing an Existing Zvol
 #endif freenas
