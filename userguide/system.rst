@@ -327,9 +327,19 @@ Boot
 With multiple boot environments, the process of updating the operating
 system becomes a low-risk operation. The updater automatically creates
 a snapshot of the current boot environment and adds it to the boot
-menu before applying the update. If the update fails, reboot the
-system and select the previous boot environment from the boot menu to
-instruct the system to go back to that system state.
+menu before applying the update. 
+
+#ifdef freenas
+If an update fails, reboot the system and select the previous boot
+environment, using the instructions in :ref:`If Something Goes Wrong`,
+to instruct the system to go back to that system state.
+#endif freenas
+
+#ifdef truenas
+If an update fails, reboot the system and select the previous boot
+environment, using the instructions in :ref:`If Something Goes Wrong`,
+to instruct the system to go back to that system state.
+#endif truenas
 
 .. note:: Boot environments are separate from the configuration
    database. Boot environments are a snapshot of the
@@ -464,34 +474,6 @@ Note that
 **you cannot replace the boot device if it is the only boot device**
 as it contains the operating system itself.
 #endif freenas
-
-:numref:`Figure %s <be_in_menu_fig>`
-shows a sample boot menu.
-
-
-.. _be_in_menu_fig:
-
-#ifdef freenas
-.. figure:: images/be3c.png
-
-   Boot Environments in Boot Menu
-#endif freenas
-#ifdef truenas
-.. figure:: images/tn_be3b.png
-
-   Boot Environments in Boot Menu
-#endif truenas
-
-
-The first entry is the active boot environment, or the one that the
-system has been configured to boot into. To boot into a different boot
-environment, press the :kbd:`spacebar` to pause this screen, use the
-down arrow to select :guilabel:`Boot Environment Menu`, and press
-:kbd:`Enter`. A menu displays the other available boot environments.
-Use the up/down arrows to select the desired boot environment and
-press :kbd:`Enter` to boot into it. To always boot into that boot
-environment, go to :menuselection:`System --> Boot`, highlight that
-entry, and click the :guilabel:`Activate` button.
 
 
 #ifdef freenas
