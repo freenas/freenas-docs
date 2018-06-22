@@ -195,7 +195,7 @@ Create a Plugin
 
 Create a new plugin for %brand% in a few steps:
 
-**Create a new artifact repository on `GitHub <https://github.com>`__.**
+**Create a new artifact repository on** `GitHub <https://github.com>`__.
 
 Refer to :numref:`table %s <plugin-artifact-files>` and add these
 files to the artifact repository:
