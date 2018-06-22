@@ -780,7 +780,7 @@ A password-protected SED device protects the data stored on the device
 when the device is physically removed from the %brand% system. This allows
 secure disposal of the device without having to first wipe its contents.
 If the device is instead removed to be repurposed on another system, it
-can only be unlocked if the password is known. 
+can only be unlocked if the password is known.
 
 .. warning:: It is important to remember the password! Without it, the
    device is unlockable and its data remains unavailable. While it is
@@ -2090,11 +2090,14 @@ available as a configurable option for encrypting connections.
 
 
 Clicking |ui-options| for an entry shows these configuration buttons:
+#ifdef comment
+Edit is changing to View to reflect the current state of Certificates
+Docs needs to be updated once the change is made.
+#endif comment
 
-* **Edit:** use this option to view or edit the contents of an existing
-  certificate. These fields can be edited: :guilabel:`Identifier` (name),
-  :guilabel:`Certificate`, :guilabel:`Private Key`, and
-  :guilabel:`Signing Request`.
+* **Edit:** use this option to view the contents of an existing
+  :guilabel:`Certificate`, :guilabel:`Private Key`, or to edit the
+  :guilabel:`Identifier`.
 
 * **Export Certificate** saves a copy of the certificate or
   certificate signing request to the system being used to access the
