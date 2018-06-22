@@ -902,7 +902,7 @@ configured periodic snapshot.
 
 .. _zfs_create_periodic_replication_fig:
 
-.. figure:: images/replication3a.png
+.. figure:: images/tasks-replication-tasks-semiauto-snapshot.png
 
    Create a Periodic Snapshot for Replication
 
@@ -931,11 +931,12 @@ Example: %brand% to %brand% Semi-Automatic Setup
 
 %brand% offers a special semi-automatic setup mode that simplifies
 setting up replication.  Create the replication task on *Alpha* by
-clicking :guilabel:`Replication Tasks`, hovering |ui-menu| and clicking
-:guilabel:`Replication`. *alphapool/alphadata* is selected as the
-dataset to replicate. *betapool* is the destination pool where
-*alphadata* snapshots are replicated. The :guilabel:`Setup mode`
-dropdown is set to *Semi-Automatic* as shown in
+clicking :guilabel:`Replication Tasks` and then |ui-add|.
+
+Select *alphapool/alphadata* as the dataset to replicate.
+*betapool* is the destination pool where *alphadata* snapshots are
+replicated. The :guilabel:`Setup mode` dropdown is set to
+*Semi-Automatic* as shown in
 :numref:`Figure %s <zfs_create_repl2_fig>`.
 The IP address of *Beta* is entered in the :guilabel:`Remote Hostname`
 field. A hostname can be entered here if local DNS resolves for that
@@ -952,13 +953,13 @@ hostname.
 
 .. _zfs_create_repl2_fig:
 
-.. figure:: images/replication6.png
+.. figure:: images/tasks-replication-tasks-semiauto.png
 
    Add Replication Dialog, Semi-Automatic
 
 
 The :guilabel:`Remote Auth Token` field expects a special token from
-the *Beta* computer. On *Beta*, navigate
+the *Beta* computer. On *Beta*, navigate to
 :menuselection:`Tasks --> Replication Tasks`,
 and click :guilabel:`Replication Token`. A dialog
 showing the temporary authorization token is shown as in
@@ -970,7 +971,7 @@ copy it.
 
 .. _zfs_auth_token_fig:
 
-.. figure:: images/tasks-replication-tasks-replication-token.png
+.. figure:: images/tasks-replication-tasks-semiauto-token.png
 
    Temporary Authentication Token on Destination
 
@@ -982,7 +983,7 @@ string into the :guilabel:`Remote Auth Token` field as shown in
 
 .. _zfs_auth_token_paste_fig:
 
-.. figure:: images/replication8.png
+.. figure:: images/tasks-replication-tasks-semiauto-complete.png
 
    Temporary Authentication Token Pasted to Source
 
@@ -1162,12 +1163,12 @@ it.
 
 .. _zfs_copy_replication_key_fig:
 
-.. figure:: images/tasks-replication-tasks-replication-keys.png
+.. figure:: images/tasks-replication-tasks-manual-key.png
 
    Copy the Replication Key
 
 
-On *Beta*, navigate
+On *Beta*, navigate to
 :menuselection:`Account --> Users`.
 Click |ui-options| for the *root* account, then click :guilabel:`Edit`.
 Paste the copied key into the :guilabel:`SSH Public Key` field and click
@@ -1177,17 +1178,16 @@ Paste the copied key into the :guilabel:`SSH Public Key` field and click
 
 .. _zfs_paste_replication_key_fig:
 
-.. figure:: images/replication4.png
+.. figure:: images/tasks-replication-tasks-manual-key-root.png
 
    Paste the Replication Key
 
 
 Back on *Alpha*, create the replication task by clicking
-:guilabel:`Replication Tasks`, hovering |ui-menu|, and clicking
-:guilabel:`Replication`. *alphapool/alphadata* is selected as the
-dataset to replicate. The destination pool is *betapool*. The
-*alphadata* dataset and snapshots are replicated there. The IP address
-of *Beta* is entered in the
+:guilabel:`Replication Tasks` and |ui-add|. *alphapool/alphadata* is
+selected as the dataset to replicate. The destination pool is
+*betapool*. The *alphadata* dataset and snapshots are replicated
+there. The IP address of *Beta* is entered in the
 :guilabel:`Remote Hostname` field as shown in
 :numref:`Figure %s <zfs_create_repl1_fig>`. A hostname can be entered
 here if local DNS resolves for that hostname.
@@ -1202,8 +1202,7 @@ information about restricting when replication is allowed to run.
 
 .. _zfs_create_repl1_fig:
 
-.. figure:: images/replication5.png
-   :width: 90%
+.. figure:: images/tasks-replication-tasks-manual-complete.png
 
    Add Replication Dialog
 
@@ -1901,7 +1900,7 @@ account. The credential is given the name *S3 Storage*, as shown in
 
 .. _tasks_cloudsync_example_cred_fig:
 
-.. figure:: images/cloudsync-example-cred.png
+.. figure:: images/system-cloud-credentials-example.png
 
    Example: Adding Cloud Credentials
 
@@ -1933,6 +1932,6 @@ The completed dialog is shown in
 
 .. _tasks_cloudsync_example_fig:
 
-.. figure:: images/cloudsync-example-cropped.png
+.. figure:: images/tasks-cloud-sync-tasks-example.png
 
    Example: Adding a Cloud Sync
