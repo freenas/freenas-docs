@@ -26,13 +26,14 @@ The prompt indicates that the current user is *root*, the hostname is
 The :guilabel:`Set font size` slider adjusts the size of text
 displayed in the Shell.
 
-Highlight the text and use :command:`ctrl c` to copy text from
-the Shell. :command:`ctrl v` is used to paste text into the Shell.
+If using Firefox, highlight the text and use the Open menu in the top
+right of the browser to copy the text from the Shell. Use the edit
+option in the Open menu again to paste text into the Shell.
 
-Shell provides history (use the up arrow to see previously entered
+Shell provides history, use the up arrow to see previously entered
 commands and press :kbd:`Enter` to repeat the currently displayed
-command) and tab completion (type a few letters and press tab to
-complete a command name or filename in the current directory).
+command. It also provides tab completion, type a few letters and press tab to
+complete a command name or filename in the current directory.
 Type :command:`exit` to leave the
 session.
 
