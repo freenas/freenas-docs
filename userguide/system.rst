@@ -2094,7 +2094,7 @@ Docs needs to be updated once the change is made.
 
 * **Edit:** use this option to view the contents of an existing
   :guilabel:`Certificate`, :guilabel:`Private Key`, or to edit the
-  :guilabel:`Identifier` (name).
+  :guilabel:`Identifier`.
 
 * **Export Certificate** saves a copy of the certificate or
   certificate signing request to the system being used to access the
