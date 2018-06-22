@@ -693,15 +693,13 @@ If an update fails, an alert is issued and the details are written to
 To return to a previous version of the operating system, physical or
 IPMI access to the %brand% console is needed. Reboot the system and
 watch for the boot menu. In the example shown in
-:numref:`Figure %s <boot_menu_fig>`,
-the first boot menu entry, *FreeNAS (default)*, refers to the initial
-installation, before the update was applied. The second boot entry,
+:numref:`Figure %s <boot_menu_fig>`, the first boot entry,
 *FreeNAS-1415259326*, refers to the current version of the operating
-system, after the update was applied. This second entry is highlighted
-and begins with a star, indicating that this is the environment the
-system will boot unless another entry is manually selected. Both
-entries include a date and timestamp showing when that boot
-environment was created.
+system, after the update was applied. Since it is the first entry, it
+is the default selection. The next entry, *Initial-Install*, refers
+to the initial installation. Since there are no other entries between
+the initial installation and the first entry, only one update has been
+applied to this system since its initial installation.
 
 
 .. _boot_menu_fig:
@@ -711,8 +709,8 @@ environment was created.
    Boot Menu
 
 
-To boot into the previous version of the operating system, use the up
-or down arrow to select it and press :kbd:`Enter`.
+To boot into the previous version of the operating system, use
+down arrow to select it and press :kbd:`Enter`.
 
 If a boot device fails and the system no longer boots, don't panic.
 The data is still on the disks and there is still a copy of the saved
