@@ -118,10 +118,16 @@ which are described in
 
 .. _global_afp_config_fig:
 
+#ifdef freenas
 .. figure:: images/services-afp.png
 
    Global AFP Configuration
+#endif freenas
+#ifdef truenas
+.. figure:: images/tn_services-afp.png
 
+   Global AFP Configuration
+#endif truenas
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -146,6 +152,18 @@ which are described in
    | Max Connections         | integer        | Maximum number of simultaneous connections.                                                                     |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   #ifdef truenas
+   | Enable home directories | checkbox       | If checked, any user home directories located under :guilabel:`Home directories` will be available over the     |
+   |                         |                | share.                                                                                                          |
+   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Home directories        | browse button  | Select the volume or dataset which contains user home directories.                                              |
+   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Home share name         | string         | Overrides default home folder name with the specified value.                                                    |
+   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Home Share Time Machine | checkbox       | When checked, enables Time Machine lock stealing. Apple recommends that shares designated for Time Machine      |
+   |                         |                | backups be used exclusively for Time Machine backups.                                                           |
+   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   #endif truenas
    | Database Path           | browse button  | Sets the database information to be stored in the path. Default is the root of the volume. The path must be     |
    |                         |                | writable even if the volume is read only.                                                                       |
    |                         |                |                                                                                                                 |
