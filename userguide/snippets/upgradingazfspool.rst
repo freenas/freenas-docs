@@ -31,8 +31,8 @@ first:
   support those feature flags.
 
 To perform the ZFS pool upgrade, go to
-:menuselection:`Storage --> Pools` and click the :guilabel:`Gear` icon
-under the pool to upgrade. Click the
+:menuselection:`Storage --> Pools` and click |ui-settings|
+to upgrade. Click the
 :guilabel:`Upgrade Pool` button as shown in
 :numref:`Figure %s <upgrading_pool_fig>`.
 
