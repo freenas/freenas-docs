@@ -125,10 +125,16 @@ information given when the share was created.
 
 .. _creating_afp_share_fig:
 
+#ifdef freenas
 .. figure:: images/afp2a.png
 
    Creating an AFP Share
+#endif freenas
+#ifdef truenas
+.. figure:: images/tn_afp2a.png
 
+   Creating an AFP Share
+#endif truenas
 
 .. note:: :numref:`Table %s <afp_share_config_opts_tab>`
    summarizes the options available to fine-tune an AFP share. Leaving
@@ -160,8 +166,10 @@ information given when the share was created.
    |                              |               |          | symbolic links beneath this path because Netatalk does not fully support that.                                |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   #ifdef freenas
    | Use as home share            | checkbox      |          | Set to allow the share to host user home directories. Only one share can be used as the home share.           |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
+   #endif freenas
    | Name                         | string        |          | Enter the volume name that appears in in macOS after selecting :menuselection:`Go --> Connect to server`      |
    |                              |               |          | in the Finder  menu. Limited to 27 characters and cannot contain a period.                                    |
    |                              |               |          |                                                                                                               |
