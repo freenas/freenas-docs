@@ -34,10 +34,6 @@ The rest of this section describes:
 
 * :ref:`Jails Configuration`
 
-* :ref:`Adding Jails`
-
-* :ref:`Managing Jail Templates`
-
 * :ref:`Using iocage`
 
 
@@ -221,7 +217,7 @@ display these settings by checking the box
    | Jail Name                 | string         |          | mandatory; can only contain letters, numbers, dashes, or the underscore character        |
    |                           |                |          |                                                                                          |
    +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | Template                  | drop-down menu | ✓        | contains any created custom templates as described in `Managing Jail Templates`_         |
+   | Template                  | drop-down menu | ✓        | contains any created custom templates                                                    |
    |                           |                |          |                                                                                          |
    +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
    | IPv4 DHCP                 | checkbox       | ✓        | if unchecked, make sure that the defined address does not conflict with the DHCP         |
