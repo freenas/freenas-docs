@@ -1336,9 +1336,9 @@ to settings that are required are:
   :command:`zfsacl:expose_snapdir=true` must be added.
 
 The effect will be that any user who can access the dataset contents, will
-also be able to view the list of snapshots by navigating to
-:file:`.zfs`  directory of the dataset, and to browse and search any
-files they have permission to access throughout the entire snapshot
+be able to view the list of snapshots by navigating to the
+:file:`.zfs` directory of the dataset. They will also be able to browse and
+search any files they have permission to access throughout the entire snapshot
 collection of the dataset.
 A user's ability to view files within a snapshot will be limited by any
 permissions or ACLs set on the files when the snapshot was taken.
