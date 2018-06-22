@@ -55,7 +55,7 @@ and clicking |ui-add|.
 
 .. _tasks_create_cron_job_fig:
 
-.. figure:: images/tasks-cron.png
+.. figure:: images/tasks-cron-jobs-add.png
 
    Creating a Cron Job
 
@@ -154,7 +154,7 @@ has been fully tested to ensure it achieves the desired results.
 
 .. _tasks_init_script_fig:
 
-.. figure:: images/tasks-initshutdown.png
+.. figure:: images/tasks-init-shutdown-scripts-add.png
 
    Add an Init/Shutdown Script
 
@@ -554,7 +554,9 @@ Next, view and copy the contents of the generated public key:
 
 Go to *PULL* and paste (or append) the copied key into the
 :guilabel:`SSH Public Key` field of
-:menuselection:`Account --> Users --> root --> Edit`,
+:menuselection:`Account --> Users --> root -->`
+|ui-options|
+:menuselection:`--> Edit`,
 or the username of the specified rsync user account. The paste for the
 above example is shown in
 :numref:`Figure %s <tasks_pasting_sshkey_fig>`.
@@ -657,7 +659,7 @@ are no pools.
 
 .. _tasks_add_smart_test_fig:
 
-.. figure:: images/tasks-smart.png
+.. figure:: images/tasks-smart-tests-add.png
 
    Adding a S.M.A.R.T. Test
 
@@ -775,7 +777,7 @@ summarizes the fields in this screen.
 
 .. _zfs_periodic_snapshot_fig:
 
-.. figure:: images/storage-periodic-snapshot.png
+.. figure:: images/tasks-periodic-snapshot-tasks-add.png
 
    Creating a Periodic Snapshot
 
@@ -958,7 +960,7 @@ hostname.
 The :guilabel:`Remote Auth Token` field expects a special token from
 the *Beta* computer. On *Beta*, navigate
 :menuselection:`Tasks --> Replication Tasks`,
-hover |ui-menu|, then click :guilabel:`Replication Token`. A dialog
+and click :guilabel:`Replication Token`. A dialog
 showing the temporary authorization token is shown as in
 :numref:`Figure %s <zfs_auth_token_fig>`.
 
@@ -968,7 +970,7 @@ copy it.
 
 .. _zfs_auth_token_fig:
 
-.. figure:: images/replication7.png
+.. figure:: images/tasks-replication-tasks-replication-token.png
 
    Temporary Authentication Token on Destination
 
@@ -1152,7 +1154,7 @@ A public encryption key must be copied from *Alpha* to *Beta* to
 allow a secure connection without a password prompt. On *Alpha*,
 navigate
 :menuselection:`Tasks --> Replication Tasks`,
-hover |ui-menu|, and click :guilabel:`Replication Keys`. This produces
+and click :guilabel:`Replication Keys`. This produces
 the window shown in :numref:`Figure %s <zfs_copy_replication_key_fig>`.
 Use the mouse to highlight the key data shown in the window, then copy
 it.
@@ -1160,7 +1162,7 @@ it.
 
 .. _zfs_copy_replication_key_fig:
 
-.. figure:: images/replication1c.png
+.. figure:: images/tasks-replication-tasks-replication-keys.png
 
    Copy the Replication Key
 
@@ -1321,7 +1323,7 @@ the latest status.
 
 .. _zfs_repl_task_list_fig:
 
-.. figure:: images/replication9a.png
+.. figure:: images/tasks-replication-tasks.png
    :width: 90%
 
    Replication Task List
@@ -1577,7 +1579,7 @@ describes the fields on this screen.
 
 .. _storage_resilver_pri_fig:
 
-.. figure:: images/storage-resilver-priority.png
+.. figure:: images/tasks-resilver-priority.png
 
    Resilver Priority
 
@@ -1658,7 +1660,7 @@ screen.
 
 .. _zfs_view_volume_scrub_fig:
 
-.. figure:: images/storage-scrub.png
+.. figure:: images/tasks-scrub-tasks.png
 
    Viewing Pool Default Scrub Settings
 
@@ -1750,9 +1752,6 @@ Selecting
 :menuselection:`Tasks --> Cloud Sync Tasks`
 shows the screen in
 :numref:`Figure %s <tasks_cloudsync_status_fig>`.
-This screen shows a single cloud sync called *backup-acctg* that
-"pushes" a file to cloud storage. The last run finished with a status
-of *SUCCESS*.
 
 Existing cloud syncs can be run manually, edited, or deleted with the
 buttons that appear when a single cloud sync line is selected by
@@ -1761,7 +1760,7 @@ clicking with the mouse.
 
 .. _tasks_cloudsync_status_fig:
 
-.. figure:: images/tasks-cloudsync-status.png
+.. figure:: images/tasks-cloud-sync-tasks.png
 
    Cloud Sync Status
 
@@ -1786,7 +1785,7 @@ Click |ui-add| to display the :guilabel:`Add Cloud Sync` menu shown in
 
 .. _tasks_cloudsync_add_fig:
 
-.. figure:: images/tasks-cloudsync.png
+.. figure:: images/tasks-cloud-sync-tasks-add.png
 
    Adding a Cloud Sync
 
