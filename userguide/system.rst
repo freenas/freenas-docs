@@ -335,12 +335,6 @@ environment, using the instructions in :ref:`If Something Goes Wrong`,
 to instruct the system to go back to that system state.
 #endif freenas
 
-#ifdef truenas
-If an update fails, reboot the system and select the previous boot
-environment, using the instructions in :ref:`If Something Goes Wrong`,
-to instruct the system to go back to that system state.
-#endif truenas
-
 .. note:: Boot environments are separate from the configuration
    database. Boot environments are a snapshot of the
    *operating system* at a specified time. When a %brand% system
