@@ -65,9 +65,9 @@ the %brand% system.
 Logging In
 ^^^^^^^^^^
 
-The password for the root user is requested as shown in
-:numref:`Figure %s <quick_enter_root_pass_fig>`.
-
+By default, the login screen shown in
+:numref:`Figure %s <quick_enter_root_pass_fig>` prompts to log into the
+new UI. 
 
 .. _quick_enter_root_pass_fig:
 
@@ -75,10 +75,11 @@ The password for the root user is requested as shown in
 
    Enter the Root Password
 
+To instead log into the legacy UI, click the :guilabel:`Legacy UI` link.
 
-Enter the password chosen during the installation. The administrative
-GUI is displayed as shown in
-:numref:`Figure %s <quick_graphic_config_menu_fig>`.
+Enter the password for the root user that was chosen during the
+installation. The administrative GUI for the legacy UI is displayed as
+shown in :numref:`Figure %s <quick_graphic_config_menu_fig>`.
 
 
 .. _quick_graphic_config_menu_fig:
@@ -87,6 +88,9 @@ GUI is displayed as shown in
 
    %brand% Graphical Configuration Menu
 
+.. note:: The rest of this Guide describes the legacy UI. To access the
+   Guide for the new UI, log into the new UI and click :guilabel:`Guide`
+   or access it online at doc.freenas.org/11.2/freenas.html.
 
 If the %brand% system does not respond to the IP address or mDNS name
 entered in a browser:
