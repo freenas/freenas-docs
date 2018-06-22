@@ -83,9 +83,16 @@ Click :guilabel:`Add Cloud Sync` to display the menu shown in
 
 .. _tasks_cloudsync_add_fig:
 
+#ifdef freenas
 .. figure:: images/tasks-cloudsync.png
 
    Adding a Cloud Sync
+#endif freenas
+#ifdef truenas
+.. figure:: images/tn_tasks-cloudsync.png
+
+   Adding a Cloud Sync
+#endif truenas
 
 
 :numref:`Table %s <tasks_cloudsync_opts_tab>`
