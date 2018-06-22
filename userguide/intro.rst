@@ -198,8 +198,9 @@ The following software has been added or updated:
 
 The following screen options have changed:
 
-* The :guilabel:`ATA Security User` and :guilabel:`SED Password` fields
-  have been added to :menuselection:`System --> Advanced`.
+* The :guilabel:`ATA Security User`, :guilabel:`SED Password`, and
+  :guilabel:`Reset SED Password` fields have been added to 
+  :menuselection:`System --> Advanced`.
 
 * The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
   :guilabel:`Encryption password`, and :guilabel:`Encryption salt`
