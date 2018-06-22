@@ -54,7 +54,7 @@ many disks will be added, and if any data exists on those disks.
 Creating a pool overwrites disk data, so save any required data to
 different media before adding disks to a pool.
 
-Navigate :menuselection:`Storage --> Pools`
+Navigate to :menuselection:`Storage --> Pools`
 and click |ui-add| to open the screen shown in
 :numref:`Figure %s <create_pool_poolman_fig>`.
 
@@ -69,7 +69,7 @@ and click |ui-add| to open the screen shown in
 Select :guilabel:`Create new pool` and click :guilabel:`Create Pool`
 to continue.
 
-Enter a name for the pool in the :guilabel:`Name *` field. Ensure
+Enter a name for the pool in the :guilabel:`Name` field. Ensure
 that the chosen name conforms to these
 `naming conventions <https://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`__.
 Choosing a name that will stick out in the logs is recommended,
@@ -642,7 +642,7 @@ shown in :numref:`Figure %s <zfs_decrypt_import_fig>`.
    Decrypting Disks Before Importing a Pool
 
 
-Use the :guilabel:`Disks *` dropdown menu to select the disk to decrypt.
+Use the :guilabel:`Disks` dropdown menu to select the disk to decrypt.
 Click :guilabel:`Browse` to select an encryption key to upload.
 Enter the passphrase associated with the key, then click
 :guilabel:`Next`.
@@ -992,7 +992,7 @@ The configuration options are described in
    |                    |                |                                                                                                                      |
    +====================+================+======================================================================================================================+
    | zvol name          | string         | Enter a short name for the zvol. Using a zvol name longer than 63-characters                                         |
-   |                    |                | can prevent accessing the zvol as a devices. For example, a zvol with a 70-character                                 |
+   |                    |                | can prevent accessing zvols as devices. For example, a zvol with a 70-character                                      |
    |                    |                | filename or path cannot be used as an iSCSI extent. This setting is mandatory.                                       |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | comments           | string         | Enter any notes about this zvol.                                                                                     |
@@ -1321,7 +1321,7 @@ Browsing a Snapshot Collection
 All snapshots for a dataset are accessible as an ordinary hierarchical
 filesystem, which can be reached from a hidden :file:`.zfs` file located
 at the root of every dataset. A user with permission to access that file
-can view and explore all snapshots for a dataset like any other files - 
+can view and explore all snapshots for a dataset like any other files -
 from the :command:`CLI` or via :menuselection:`File Sharing` services such
 as :menuselection:`Samba`, :menuselection:`NFS` and :menuselection:`FTP`.
 This  is an advanced capability which requires some
@@ -1336,15 +1336,16 @@ to settings that are required are:
   :command:`zfsacl:expose_snapdir=true` must be added.
 
 The effect will be that any user who can access the dataset contents, will
-also be able to view the list of snapshots by navigating to
-:file:`.zfs`  directory of teh dataset, and to browse and search any files they have
-permission to access throughout the entire snapshot collection of the dataset.
+be able to view the list of snapshots by navigating to the
+:file:`.zfs` directory of the dataset. They will also be able to browse and
+search any files they have permission to access throughout the entire snapshot
+collection of the dataset.
 A user's ability to view files within a snapshot will be limited by any
 permissions or ACLs set on the files when the snapshot was taken.
 Snapshots are fixed as "read-only", so this access does not permit the
 user to change any files in the snapshots, or to modify or delete any
 snapshot, even if they had write permission at the time when the snapshot
-was taken. 
+was taken.
 
 .. note:: ZFS has a :command:`zfs diff` command which can list the files
    that have changed between any two snapshot versions within a dataset,
@@ -1571,7 +1572,7 @@ perform these steps:
 #ifdef freenas
 #.  Click |ui-options| on the disk entry, then :guilabel:`Offline` to
     change the disk status to OFFLINE. This step
-    removes the device from the pool and to prevent swap issues.
+    removes the device from the pool and prevents swap issues.
     If the hardware supports hot-pluggable disks, click the disk
     :guilabel:`Offline` button and pull the disk, then skip to step 3.
     If there is no :guilabel:`Offline` button but only a
@@ -1581,7 +1582,7 @@ perform these steps:
 #ifdef truenas
 #.  Click the disk entry, then the :guilabel:`Offline` button to
     change the disk status to OFFLINE. This step
-    removes the device from the pool and to prevent swap issues.
+    removes the device from the pool and prevents swap issues.
     Click the disk :guilabel:`Offline` button and pull the disk. If
     there is no :guilabel:`Offline` button but only a
     :guilabel:`Replace` button, the disk is already offlined and this
@@ -1792,5 +1793,5 @@ will display. Use this menu to select the locale if non-ascii characters
 are present on thedisk.
 
 After clicking :guilabel:`Save`, the disk is mounted and its contents are
-copied to the specified dataset. The disk uafter the copy
+copied to the specified dataset. The disk is unmounted after the copy
 operation completes.
