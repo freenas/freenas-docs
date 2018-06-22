@@ -68,16 +68,16 @@ plugins.
    address and/or DNS server address in
    :menuselection:`Network --> Global Configuration`.
 
-Click |ui-options| and :guilabel:`install` for the desired plugin.
-Set :guilabel:`DHCP` to automatically configure IP settings, or manually
+Click |ui-options| and :guilabel:`install` for the desired plugin. Set
+:guilabel:`DHCP` to automatically configure IP settings, or manually
 enter an IPv4 or IPv6 address. Click :guilabel:`Save`. In the example
-shown in :numref:`Figure %s <installing_plugin_fig>`, Plex Media Server
-is selected for installation.
+shown in :numref:`Figure %s <installing_plugin_fig>`, Plex Media
+Server is selected for installation.
 
 
 .. _installing_plugin_fig:
 
-.. figure:: images/plugins2.png
+.. figure:: images/plugins-install-example.png
 
    Installing the Plex Plugin
 
@@ -88,7 +88,8 @@ then installs the plugin and adds it to the
 page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
 
-.. tip:: Installed plugins are also added to the :menuselection:`Jails`
+.. tip:: Installed plugins are also added to the
+   :menuselection:`Jails`
    page. This page is also used to manage plugins.
 
 
@@ -100,9 +101,8 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
 The entry in the
 :menuselection:`Plugins --> Installed`
-section displays the
-plugin name, boot status, state, release, IP4 and IP6 addresses, and if
-it is a template.
+section displays the plugin name, boot status, state, release, IP4 and
+IP6 addresses, and whether it is a template.
 
 The plugin must be started before the installed application is
 available. Click |ui-options| and :guilabel:`Start`. The plugin
@@ -147,8 +147,11 @@ Update
 When a newer version of a plugin becomes available in the official
 repository, update the plugin jail by navigating to the
 :menuselection:`Jails` page and clicking |ui-options| and
-:guilabel:`Update`. :numref:`Figure %s <updating_installed_plugin_fig>`
-shows updating plugin jail.
+:guilabel:`Update`.
+#ifdef comment
+# jails/update shows nothing unless an update is available
+:numref:`Figure %s <updating_installed_plugin_fig>`
+shows updating a plugin jail.
 
 
 .. _updating_installed_plugin_fig:
@@ -156,7 +159,7 @@ shows updating plugin jail.
 .. figure:: images/plugins4.png
 
    Updating an Installed Plugin
-
+#endif comment
 
 .. _Deleting Plugins:
 
@@ -180,7 +183,7 @@ and :guilabel:`Delete` is clicked.
 
 .. _deleting_installed_plugin_fig:
 
-.. figure:: images/plugins6.png
+.. figure:: images/plugins-delete-example.png
 
    Deleting an Installed Plugin
 
