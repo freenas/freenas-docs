@@ -4,10 +4,10 @@
 Plugins
 =======
 
-The legacy plugins infrastructure has been deprecated and is no longer
-supported. Plugins installation has been removed from the legacy UI but
-it can still be used to manage existing plugins. It is recommended to
-reinstall all legacy plugins using the new UI.
+.. warning:: The legacy plugins infrastructure has been deprecated and
+   is no longer supported. Plugins installation has been removed from
+   the legacy UI but it can still be used to manage existing plugins.
+   It is recommended to reinstall all legacy plugins using the new UI.
 
 .. _Installed Plugins:
 
