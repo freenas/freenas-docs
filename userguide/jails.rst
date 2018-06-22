@@ -8,7 +8,7 @@ This section describes how to use Jails, which allow users who are
 comfortable with the command line to have more control over software
 installation and management.
 
-.. note:: The jails infrastructure now uses uses the iocage backend and
+.. warning:: The jails infrastructure now uses uses the iocage backend and
    the warden backend has been deprecated and is no longer supported.
    Jail creation has been removed from the legacy UI but it can still
    be used to manage existing warden jails. It is recommended to
@@ -34,11 +34,9 @@ The rest of this section describes:
 
 * :ref:`Jails Configuration`
 
-* :ref:`Adding Jails`
+* :ref:`Managing Jails`
 
-* :ref:`Managing Jail Templates`
-
-* :ref:`Using iocage`
+* :ref:`Starting Installed Software`
 
 
 .. _Jails Configuration:
@@ -221,7 +219,7 @@ display these settings by checking the box
    | Jail Name                 | string         |          | mandatory; can only contain letters, numbers, dashes, or the underscore character        |
    |                           |                |          |                                                                                          |
    +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | Template                  | drop-down menu | ✓        | contains any created custom templates as described in `Managing Jail Templates`_         |
+   | Template                  | drop-down menu | ✓        | contains any created custom templates                                                    |
    |                           |                |          |                                                                                          |
    +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
    | IPv4 DHCP                 | checkbox       | ✓        | if unchecked, make sure that the defined address does not conflict with the DHCP         |
@@ -315,7 +313,7 @@ display these settings by checking the box
 .. _Managing Jails:
 
 Managing Jails
-~~~~~~~~~~~~~~
+--------------
 
 Click :guilabel:`Jails` to view and configure the added jails. In the
 example shown in
@@ -580,7 +578,7 @@ To delete the storage, click the :guilabel:`Delete` button.
 .. _Starting Installed Software:
 
 Starting Installed Software
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 After packages or ports are installed, they need to be configured and
 started. If you are familiar with the software, look for the
@@ -677,163 +675,3 @@ available:
    # --config file
    # NAME_dir="/usr/local/etc/openvpn"
    # --cd directory
-
-.. index:: iocage
-.. _Using iocage:
-
-Using iocage
-------------
-
-Beginning with %brand% 9.10.1, the
-`iocage <https://github.com/iocage/iocage>`__
-command line utility is included for creating and managing jails. Click
-the :guilabel:`Shell` option to open the command line and begin using
-iocage.
-
-.. note:: The jails infrastructure is transitioning from the old
-   warden backend to the new iocage backend. This transition process
-   requires the middleware API calls to be rewritten for the new UI. It
-   is expected that the transition will be complete with %brand% version
-   11.2. Since jails created in the old UI use the warden backend, jails
-   created in the new UI use the iocage backend, and both use different
-   API versions, they are not compatible. While a migration script will
-   be made available when the transition is complete, it will not be able
-   to anticipate every configuration scenario for every application
-   installed in jails. At that time, the recommendation will be to: create
-   new jails using the new UI, copy over any existing configurations, and
-   delete the old jail datasets once the new jails are working as expected.
-
-Iocage has several options to help users:
-
-* There is built-in help displayed by entering
-  :samp:`iocage --help | more`. Each subcommand also has help, displayed
-  by giving the subcommand name followed by the :literal:`--help` flag.
-  For example, help for the :command:`activate` subcommand displays with
-  :samp:`iocage activate --help`.
-
-* The iocage manual page is accessed by typing :samp:`man iocage`.
-
-* The iocage project also has documentation available on
-  `readthedocs.io <http://iocage.readthedocs.io/en/latest/index.html>`__.
-
-
-Managing iocage Jails
-~~~~~~~~~~~~~~~~~~~~~
-
-Creating a jail automatically starts the iocage configuration process for
-the %brand% system. Jail properties can also be specified with the
-:command:`iocage create` command.
-
-In this example a new jail named *examplejail* is created. Additional
-properties are a manually designated IP address of *192.168.1.10*, a
-netmask of */24* on the *em0* interface, and using the FreeBSD
-11.1-RELEASE:
-
-.. code-block:: none
-
-   [root@freenas ~]# iocage create -n examplejail ip4_addr="em0|192.168.1.10/24" -r
-   11.1-RELEASE
-   ...
-   examplejail successfully created!
-
-Jail creation may take a few moments. After completion, start the new
-jail with :command:`iocage start`:
-
-.. code-block:: none
-
-   [root@freenas ~]# iocage start examplejail
-   * Starting examplejail
-   + Started OK
-   + Starting services OK
-
-To open the console in the started jail, use :command:`iocage console`
-
-.. code-block:: none
-
-   [root@freenas ~]# iocage console examplejail
-   FreeBSD 11.1-STABLE (FreeNAS.amd64) #0 35e0ef284(freenas/11-stable): Wed Oct 18
-   17:44:36 UTC 2017
-
-   Welcome to FreeBSD!
-
-   Release Notes, Errata: https://www.FreeBSD.org/releases/
-   Security Advisories:   https://www.FreeBSD.org/security/
-   FreeBSD Handbook:      https://www.FreeBSD.org/handbook/
-   FreeBSD FAQ:           https://www.FreeBSD.org/faq/
-   Questions List: https://lists.FreeBSD.org/mailman/listinfo/freebsd-questions/
-   FreeBSD Forums:        https://forums.FreeBSD.org/
-
-   Documents installed with the system are in the /usr/local/share/doc/freebsd/
-   directory, or can be installed later with:  pkg install en-freebsd-doc
-   For other languages, replace "en" with a language code like de or fr.
-
-   Show the version of FreeBSD installed:  freebsd-version ; uname -a
-   Please include that output and any error messages when posting questions.
-   Introduction to manual pages:  man man
-   FreeBSD directory layout:      man hier
-
-   Edit /etc/motd to change this login announcement.
-   root@examplejail:~ #
-
-Jails can be shut down with :command:`iocage stop`:
-
-.. code-block:: none
-
-   [root@freenas ~]# iocage stop examplejail
-   * Stopping examplejail
-     + Running prestop OK
-     + Stopping services OK
-     + Removing jail process OK
-     + Running poststop OK
-
-Jails are deleted with :command:`iocage destroy`:
-
-.. code-block:: none
-
-   [root@freenas ~]# iocage destroy examplejail
-
-   This will destroy jail examplejail
-
-   Are you sure? [y/N]: y
-   Destroying examplejail
-
-
-To adjust the properties of a jail, use :command:`iocage set` and
-:command:`iocage get`. All properties of a jail are viewed with
-:command:`iocage get all`:
-
-.. tip:: This example shows an abbreviated list of **examplejail**'s
-   properties. The iocage manual page (:command:`man iocage`) describes
-   even more configurable properties for jails.
-
-.. code-block:: none
-
-   [root@freenas ~]# iocage get all examplejail | less
-   allow_mount:0
-   allow_mount_devfs:0
-   allow_sysvipc:0
-   available:readonly
-   basejail:no
-   boot:off
-   bpf:no
-   children_max:0
-   cloned_release:11.1-RELEASE
-   comment:none
-   compression:lz4
-   compressratio:readonly
-   coredumpsize:off
-   count:1
-   cpuset:off
-   cputime:off
-   datasize:off
-   dedup:off
-   defaultrouter:none
-   defaultrouter6:none
-   ...
-
-To adjust a jail property, use :command:`iocage set`:
-
-.. code-block:: none
-
-   [root@freenas ~]# iocage set notes="This is a testing jail." examplejail
-   Property: notes has been updated to This is a testing jail.
