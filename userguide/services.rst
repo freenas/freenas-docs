@@ -1904,10 +1904,16 @@ available options.
 
 .. _tftp_config_fig:
 
+#ifdef freenas
 .. figure:: images/tftp.png
 
    TFTP Configuration
+#endif freenas
+#ifdef truenas
+.. figure:: images/tn_tftp.png
 
+   TFTP Configuration
+#endif truenas
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
@@ -1937,10 +1943,18 @@ available options.
    |                 |               |                                                                                                                          |
    |                 |               |                                                                                                                          |
    +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
+   #ifdef freenas
    | File Permissions| checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write. Some devices     |
    |                 |               | require less strict permissions.                                                                                         |
    |                 |               |                                                                                                                          |
    +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
+   #endif freenas
+   #ifdef truenas
+   | Umask           | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write. Some devices     |
+   |                 |               | require less strict permissions.                                                                                         |
+   |                 |               |                                                                                                                          |
+   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
+   #endif truenas
    | Extra options   | string        | Add any additional `tftpd(8) <https://www.freebsd.org/cgi/man.cgi?query=tftpd>`__                                        |
    |                 |               | options not shown in this screen. Add one option on each line.                                                           |
    |                 |               |                                                                                                                          |
