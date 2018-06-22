@@ -95,13 +95,13 @@ Jail Wizard
 
 
 To quickly create a new jail, navigate to :menuselection:`Jails` and
-click |ui-add|. This opens the wizard screens seen in
+click |ui-add|. This opens the wizard screen seen in
 :numref:`Figure %s <jail_wizard_fig>`.
 
 
 .. _jail_wizard_fig:
 
-.. figure:: images/jail-wizard.png
+.. figure:: images/jails-add-wizard-name.png
 
    Jail Creation Wizard
 
@@ -140,8 +140,9 @@ Advanced Jail Creation
 ~~~~~~~~~~~~~~~~~~~~~~
 
 
-To open the full jail creation form, click
-:menuselection:`Jails --> Add Jail` to access the screen shown in
+To open the full jail creation form, navigate
+:menuselection:`Jails --> Add Jail` and click
+:guilabel:` Advanced Jail Creation` to access the screen shown in
 :numref:`Figure %s <creating_jail_fig>`.
 
 
@@ -922,12 +923,14 @@ within a jail.
 The Mount Points section of a jail shows the all additional storage
 currently added and allows new additional storage to be added.
 
-add storage, click |ui-options| --> :guilabel:`Mount points`. In the
-Mount points section is a list of all of the currently defined
+Navigate :menuselection:`Jails`, click |ui-options| on the desired
+jail, then :guilabel:`Mount points`. In the
+Mount points section is a list of all of the currently defined mount
+points.
 
 To add storage, navigate to
-:menuselection:`More Actions --> Mount points --> Add Mount Point` for
-the desired jail. This opens the screen shown in
+:menuselection:`Mount points` and click |ui-add|.
+This opens the screen shown in
 :numref:`Figure %s <adding_storage_jail_fig>`.
 
 
@@ -950,7 +953,7 @@ Browse to the :guilabel:`Source` and :guilabel:`Destination`, where:
 * **Destination:** select an **existing, empty** directory within the
   jail to link to the :guilabel:`Source` storage area. If that
   directory does not exist yet, enter the desired directory name and
-  check the :guilabel:`Create directory` box.
+  enable the :guilabel:`Create directory` option.
 
 Storage is typically added because the user and group account
 associated with an application installed inside of a jail needs to
@@ -1222,7 +1225,7 @@ shows the :guilabel:`Configuration Options` for audiotag.
 
 .. _config_opts_audiotag_fig:
 
-.. figure:: images/ports1a.png
+.. figure:: images/jails-audio-tag.png
 
    Configuration Options for Audiotag
 
@@ -1267,7 +1270,7 @@ is displayed:
 
 .. _config_set_audiotag_fig:
 
-.. figure:: images/ports2.png
+.. figure:: images/jails-audio-tag-port.png
 
    Configuration Options for Audiotag Port
 
