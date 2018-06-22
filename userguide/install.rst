@@ -686,11 +686,9 @@ If Something Goes Wrong
 If an update fails, an alert is issued and the details are written to
 :file:`/data/update.failed`.
 
-Previous versions of the %brand% system are installed in
-:ref:`boot environments <Boot>`. To return to a previous version,
-physical or IPMI access to the %brand% console is needed. Reboot the
-system and watch for the boot menu:
-
+To return to a previous version of the operating system, physical or IPMI
+access to the %brand% console is needed. Reboot the system and watch for
+the boot menu:
 
 .. _boot_menu_fig:
 
@@ -699,8 +697,8 @@ system and watch for the boot menu:
    Boot Menu
 
 
-Press :literal:`3` to select a boot environment:
-
+Press :kbd:`3` to display the available boot environments and
+press :kbd:`3` again as needed to scroll through multiple pages.
 
 .. _boot_env_fig:
 
@@ -708,26 +706,18 @@ Press :literal:`3` to select a boot environment:
 
    Boot Environments
 
+In the example shown in :numref:`Figure %s <boot_env_fig>`, the first
+boot entry, :literal:`FreeNAS-1415259326`, refers to the current version
+of the operating system, after the update was applied. Since it is the
+first entry, it is the default selection.
 
-Boot environments are listed starting with option :kbd:`4`.
-:literal:`Initial-Install` is the original boot environment created
-when %brand% was first installed. Each time the system is updated, a
-new boot environment is created. All available boot environments are
-listed here. Press :kbd:`3` to scroll through multiple pages.
+The next entry, :literal:`Initial-Install`, is the original boot environment
+created when %brand% was first installed. Since there are no other entries
+between the initial installation and the first entry, only one update has
+been applied to this system since its initial installation.
 
-The :literal:`default` boot environment is a special case. This is the
-environment that the system will boot from unless a different boot
-environment is chosen by the user. The :literal:`2. bootfs` entry
-shows the default boot environment which will be used unless a
-different one has been chosen.
-
-Additional boot environment names include the version of the operating
-system and the date and time they were installed.
-
-To boot from a previous version, press the number before that boot
-environment. The :literal:`1. Active` choice changes to show the
-selection. After choosing an alternate boot environment, press
-:kbd:`1` to return to the boot menu, then press Enter to boot.
+To boot into another version of the operating system, use the down arrow
+to select its entry and press :kbd:`Enter`.
 
 If a boot device fails and the system no longer boots, do not panic.
 The data is still on the disks and there is still a copy of the saved
