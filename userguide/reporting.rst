@@ -85,7 +85,7 @@ Data files are saved in :file:`/var/db/collectd/rrd/`.
 
 The reporting data file recording method is controlled by the
 :menuselection:`System --> System Dataset`
-:guilabel:`Reporting database` option. When enabled, data files
+:guilabel:`Reporting database` option. When deselected, data files
 are recorded in a temporary filesystem and copied hourly to on-disk
 files.
 
