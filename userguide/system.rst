@@ -333,9 +333,13 @@ Boot
 With multiple boot environments, the process of updating the operating
 system becomes a low-risk operation. The updater automatically creates
 a snapshot of the current boot environment and adds it to the boot
-menu before applying the update. If the update fails, reboot the
-system and select the previous boot environment from the boot menu to
-instruct the system to go back to that system state.
+menu before applying the update. 
+
+#ifdef freenas
+If an update fails, reboot the system and select the previous boot
+environment, using the instructions in :ref:`If Something Goes Wrong`,
+to instruct the system to go back to that system state.
+#endif freenas
 
 .. note:: Boot environments are separate from the configuration
    database. Boot environments are a snapshot of the
@@ -471,31 +475,7 @@ Note that
 as it contains the operating system itself.
 #endif freenas
 
-:numref:`Figure %s <be_in_menu_fig>`
-shows a sample boot menu.
 
-
-.. _be_in_menu_fig:
-
-#ifdef freenas
-.. figure:: images/be3c.png
-
-   Boot Environments in Boot Menu
-#endif freenas
-#ifdef truenas
-.. figure:: images/truenas/be3b.png
-
-   Boot Environments in Boot Menu
-#endif truenas
-
-
-The first entry is the active boot environment, or the one that the
-system has been configured to boot into. To boot into a different boot
-environment, click |ui-options| and :guilabel:`Activate` for
-the desired boot environment.
-
-
-#ifdef freenas
 .. index:: Mirroring the Boot Device
 .. _Mirroring the Boot Device:
 
