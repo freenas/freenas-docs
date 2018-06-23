@@ -178,11 +178,10 @@ indicates the type of :guilabel:`Compression`, the
 whether :guilabel:`Deduplication` has been enabled, its mountpoint path,
 and any :guilabel:`Comments` entered for the pool.
 
-#ifdef comment
-**Upgrade:** used to upgrade the pool to the latest ZFS features, as
-described in :ref:`Upgrading a ZFS Pool`. This button does not appear
-if the pool is running the latest version of feature flags.
-#endif comment
+There is an option to :guilabel:`Upgrade Pool`. This upgrades the pool
+to the latest ZFS features, as described in :ref:`Upgrading a ZFS Pool`.
+This button does not appear if the pool is running the latest version of
+feature flags.
 
 
 .. _zfs_vol_fig:
@@ -346,6 +345,7 @@ able to access the unlocked pool.
 GELI encryption key.
 
 #ifdef comment
+# not visible in UI yet
 A red warning is a reminder to
 :guilabel:`Remember to add a new recovery key` as this action
 invalidates the previous recovery key`.
@@ -366,7 +366,7 @@ first place.
 
 .. _zfs_encrypt_passphrase_fig:
 
-.. figure:: images/encrypt-passphrase.png
+.. figure:: images/storage-encrypt-passphrase.png
 
    Add or Change a Passphrase to an Encrypted Pool
 
@@ -1614,13 +1614,13 @@ perform these steps:
 
 In the example shown in
 :numref:`Figure %s <zfs_replace_failed_fig>`,
-a failed disk is being replaced by disk *ada5* in the pool named
+a failed disk is being replaced by disk *ada1* in the pool named
 :file:`pool1`.
 
 
 .. _zfs_replace_failed_fig:
 
-.. figure:: images/replace.png
+.. figure:: images/storage-replace.png
 
    Replacing a Failed Disk
 
@@ -1645,7 +1645,7 @@ indicates that the disk replacement was successful in this example.
 
 .. _zfs_disk_replacement_fig:
 
-.. figure:: images/replace2.png
+.. figure:: images/storage-replace-finished.png
 
    Disk Replacement is Complete
 
@@ -1661,8 +1661,8 @@ replacing a failed drive.
 First, make sure that a passphrase has been set using the instructions
 in :ref:`Managing Encrypted Pools` **before** attempting to replace the
 failed drive. Then, follow the steps 1 and 2 as described above. During
-step 3, there will be a prompt to input and confirm the passphrase for the
-pool. Enter this information then click the :guilabel:`Replace Disk`
+step 3, there will be a prompt to input and confirm the passphrase for
+the pool. Enter this information then click the :guilabel:`Replace Disk`
 button. Wait until the resilvering is complete.
 
 Next, restore the encryption keys to the pool.
@@ -1763,9 +1763,9 @@ Importing a Disk
 The :menuselection:`Pool --> Import Disk` screen, shown in
 :numref:`Figure %s <zfs_import_disk_fig>`, is used to import a **single**
 disk that is formatted with the UFS, NTFS, MSDOS, or EXT2
-filesystem. The import is meant to be a temporary measure to copy the data
-from a disk to an existing ZFS dataset. Only one disk can be imported at
-a time.
+filesystem. The import is meant to be a temporary measure to copy the
+data from a disk to an existing ZFS dataset. Only one disk can be
+imported at a time.
 
 .. note:: Imports of EXT3 or EXT4 filesystems are possible in some
    cases, although neither is fully supported.  EXT3 journaling is not
