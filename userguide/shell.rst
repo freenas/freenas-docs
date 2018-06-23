@@ -14,7 +14,7 @@ the link has been clicked and Shell is open.
 
 .. _web_shell_fig:
 
-.. figure:: images/shell.png
+.. figure:: images/shell-tmux.png
 
    Web Shell
 
