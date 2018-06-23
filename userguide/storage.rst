@@ -49,8 +49,8 @@ which limit usefulness.**
 Creating Pools
 ~~~~~~~~~~~~~~
 
-Before creating a pool, determine the level of required redundancy, how
-many disks will be added, and if any data exists on those disks.
+Before creating a pool, determine the level of required redundancy,
+how many disks will be added, and if any data exists on those disks.
 Creating a pool overwrites disk data, so save any required data to
 different media before adding disks to a pool.
 
@@ -178,11 +178,10 @@ indicates the type of :guilabel:`Compression`, the
 whether :guilabel:`Deduplication` has been enabled, its mountpoint path,
 and any :guilabel:`Comments` entered for the pool.
 
-#ifdef comment
-**Upgrade:** used to upgrade the pool to the latest ZFS features, as
-described in :ref:`Upgrading a ZFS Pool`. This button does not appear
+There is an option to :guilabel:`Upgrade Pool`. This upgrades the
+pool to the latest ZFS features, as described in
+:ref:`Upgrading a ZFS Pool`. This button does not appear
 if the pool is running the latest version of feature flags.
-#endif comment
 
 
 .. _zfs_vol_fig:
@@ -346,30 +345,28 @@ able to access the unlocked pool.
 GELI encryption key.
 
 #ifdef comment
+# not visible in UI yet
 A red warning is a reminder to
 :guilabel:`Remember to add a new recovery key` as this action
 invalidates the previous recovery key`.
 #endif comment
 
 Unlike a password, a passphrase can contain spaces and is typically a
-series of words. A good passphrase is easy to remember (like the line to
-a song or piece of literature) but hard to guess (people you know should
-not be able to guess the passphrase).
-**Remember this passphrase. An encrypted pool cannot be reimported
-without it.**
-In other words, if the passphrase is forgotten, the data on the pool
-can become inaccessible if it becomes necessary to reimport the pool.
+series of words. A good passphrase is easy to remember (like the line
+to a song or piece of literature) but hard to guess (people you know
+should not be able to guess the passphrase). **Remember this
+passphrase. An encrypted pool cannot be reimported without it.** In
+other words, if the passphrase is forgotten, the data on the pool can
+become inaccessible if it becomes necessary to reimport the pool.
 Protect this passphrase, as anyone who knows it could reimport the
 encrypted pool, thwarting the reason for encrypting the disks in the
 first place.
 
-
 .. _zfs_encrypt_passphrase_fig:
 
-.. figure:: images/encrypt-passphrase.png
+.. figure:: images/storage-pools-encrypt-passphrase.png
 
    Add or Change a Passphrase to an Encrypted Pool
-
 
 After the passphrase is set, the name of this button changes to
 :guilabel:`Change Passphrase`. After setting or changing the
@@ -1448,10 +1445,8 @@ To edit the options for a disk, click |ui-options| on a disk, then
 :guilabel:`Edit` to open the screen shown in
 :numref:`Figure %s <zfs_edit_disk_fig>`).
 #endif comment
-#ifdef comment
-offline or online the device, or replace the device (as described in
-:ref:`Replacing a Failed Disk`).
-#endif comment
+To offline or online the device, or replace the device (as described
+in :ref:`Replacing a Failed Disk`).
 
 :numref:`Table %s <zfs_disk_opts_tab>`
 lists the configurable options.
@@ -1571,7 +1566,7 @@ perform these steps:
 #ifdef freenas
 #.  Click |ui-options| on the disk entry, then :guilabel:`Offline` to
     change the disk status to OFFLINE. This step
-    removes the device from the pool and to prevent swap issues.
+    removes the device from the pool and prevents swap issues.
     If the hardware supports hot-pluggable disks, click the disk
     :guilabel:`Offline` button and pull the disk, then skip to step 3.
     If there is no :guilabel:`Offline` button but only a
@@ -1613,13 +1608,13 @@ perform these steps:
 
 In the example shown in
 :numref:`Figure %s <zfs_replace_failed_fig>`,
-a failed disk is being replaced by disk *ada5* in the pool named
+a failed disk is being replaced by disk *ada3* in the pool named
 :file:`pool1`.
 
 
 .. _zfs_replace_failed_fig:
 
-.. figure:: images/replace.png
+.. figure:: images/storage-disks-replace.png
 
    Replacing a Failed Disk
 
@@ -1644,7 +1639,7 @@ indicates that the disk replacement was successful in this example.
 
 .. _zfs_disk_replacement_fig:
 
-.. figure:: images/replace2.png
+.. figure:: images/storage-disks-resilvered.png
 
    Disk Replacement is Complete
 
@@ -1658,11 +1653,11 @@ If the ZFS pool is encrypted, additional steps are needed when
 replacing a failed drive.
 
 First, make sure that a passphrase has been set using the instructions
-in :ref:`Managing Encrypted Pools` **before** attempting to replace the
-failed drive. Then, follow the steps 1 and 2 as described above. During
-step 3, there will be a prompt to input and confirm the passphrase for the
-pool. Enter this information then click the :guilabel:`Replace Disk`
-button. Wait until the resilvering is complete.
+in :ref:`Managing Encrypted Pools` **before** attempting to replace
+the failed drive. Then, follow steps 1 and 2 as described above.
+During step 3, there will be a prompt to enter and confirm the
+passphrase for the pool. Enter this information, then click
+:guilabel:`Replace Disk`. Wait until resilvering is complete.
 
 Next, restore the encryption keys to the pool.
 **If the following additional steps are not performed before the next
@@ -1760,11 +1755,11 @@ Importing a Disk
 ----------------
 
 The :menuselection:`Pool --> Import Disk` screen, shown in
-:numref:`Figure %s <zfs_import_disk_fig>`, is used to import a **single**
-disk that is formatted with the UFS, NTFS, MSDOS, or EXT2
-filesystem. The import is meant to be a temporary measure to copy the data
-from a disk to an existing ZFS dataset. Only one disk can be imported at
-a time.
+:numref:`Figure %s <zfs_import_disk_fig>`, is used to import a
+**single** disk that is formatted with a UFS, NTFS, MSDOS, or EXT2
+filesystem. The import is meant to be a temporary measure to copy the
+data from a disk to an existing ZFS dataset. Only one disk can be
+imported at a time.
 
 .. note:: Imports of EXT3 or EXT4 filesystems are possible in some
    cases, although neither is fully supported.  EXT3 journaling is not
@@ -1788,8 +1783,8 @@ Use the drop-down menu to select the disk to import, select the type
 of filesystem on the disk, and :guilabel:`Browse` to the ZFS dataset
 that will hold the copied data. If the :guilabel:`MSDOSFS` filesystem
 is selected, an additional :guilabel:`MSDOSFS locale` drop-down menu
-will display. Use this menu to select the locale if non-ascii characters
-are present on thedisk.
+will display. Use this menu to select the locale if non-ASCII
+characters are present on thedisk.
 
 After clicking :guilabel:`Save`, the disk is mounted and its contents are
 copied to the specified dataset. The disk uafter the copy
