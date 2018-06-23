@@ -240,6 +240,8 @@ Performing the Installation
 ---------------------------
 
 With the installation media inserted, boot the system from that media.
+
+#ifdef comment
 The %brand% installer GRUB menu is displayed as is shown in
 :numref:`Figure %s <grub_menu_fig>`.
 
@@ -253,6 +255,7 @@ The %brand% installer GRUB menu is displayed as is shown in
 .. tip:: The Serial Enabled option is useful on systems which do not
    have a keyboard or monitor, but are accessed through a serial port,
    *Serial over LAN*, or :ref:`IPMI`.
+#endif comment
 
 .. note:: If the installer does not boot, verify that the installation
    device is listed first in the boot order in the BIOS. When booting
@@ -263,11 +266,8 @@ The %brand% installer GRUB menu is displayed as is shown in
    file. If the hash is correct, burn the CD again at a lower speed or
    write the file to a different USB stick.
 
-The installer will start automatically after a few seconds, or an
-option can be chosen by moving the highlight bar to it with the up and
-down arrow keys and pressing :kbd:`Enter`. After booting, the
-installer menu is displayed as shown in
-:numref:`Figure %s <installer_menu_fig>`.
+Once the installer has finished booting, the installer menu is displayed
+as shown in :numref:`Figure %s <installer_menu_fig>`.
 
 
 .. _installer_menu_fig:
@@ -324,8 +324,7 @@ the screen shown in
    the mirror is limited to the size of the smaller device.
 
 The installer recognizes existing installations of previous versions
-of %brand% 8.x or 9.x. When an existing installation is present, the
-menu shown in
+of %brand%. When an existing installation is present, the menu shown in
 :numref:`Figure %s <fresh_install_fig>`
 is displayed.  To overwrite an existing installation, use the arrows
 to move to :guilabel:`Fresh Install` and press :kbd:`Enter` twice to
@@ -398,8 +397,7 @@ is shown after the installation is complete.
    Installation Complete
 
 
-Press :kbd:`Enter` to return to the first menu, shown in
-:numref:`Figure %s <grub_menu_fig>`.
+Press :kbd:`Enter` to return to :ref:`installer_menu_fig`.
 Highlight :guilabel:`3 Reboot System` and press :kbd:`Enter`. If
 booting from CD, remove the CDROM. As the system reboots, make sure
 that the device where %brand% was installed is listed as the first
