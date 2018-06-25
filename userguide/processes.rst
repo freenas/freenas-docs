@@ -9,9 +9,10 @@ the output of
 An example is shown in
 :numref:`Figure %s <system_processes_fig>`.
 
+
 .. _system_processes_fig:
 
-.. figure:: images/process.png
+.. figure:: images/display-system-processes.png
 
    System Processes Running on %brand%
 
