@@ -2298,7 +2298,7 @@ options in the replication task dialog.
    |                           |                | *Off* (no compression). Selecting a compression algorithm can reduce the size of the data being replicated.  |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Limit (kbps)              | integer        | Limit replication speed to the specified value in klobits/second. Default of *0* is unlimited.               |
+   | Limit (kbps)              | integer        | Limit replication speed to the specified value in kilobits/second. Default of *0* is unlimited.              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | Begin                     | drop-down menu | Define a time to start the replication task.                                                                 |
