@@ -529,18 +529,16 @@ means that the directory will automatically be created under the
 specified :guilabel:`Destination` path if the directory does not
 already exist.
 
-After storage has been added or created, it appears in the tree
-under the specified jail. In the example shown in
-:numref:`Figure %s <jail_example_storage_fig>`,
-a dataset named :file:`volume1/data` has been chosen as the
-:guilabel:`Source` as it contains the files stored on the %brand%
-system. When the storage was created, the user browsed to
-:file:`volume1/jails/freebsd1/usr/local` in the
-:guilabel:`Destination` field, then entered *test* as the directory.
-Since this directory did not already exist, it was created, because
-the :guilabel:`Create directory` box was left checked. The resulting
-storage was added to the *freenas1* entry in the tree as
-:file:`/usr/local/test`. The user has clicked this
+After storage has been added or created, it appears in the tree under the
+specified jail. In the example shown in
+:numref:`Figure %s <jail_example_storage_fig>`, a dataset named
+:file:`tank/data` has been chosen as the :guilabel:`Source` as it contains
+the files stored on the %brand% system. When the storage was created, the
+user browsed to :file:`/usr/local/` in the :guilabel:`Destination` field,
+then entered *test* as the directory. Since this directory did not already
+exist, it was created, because the :guilabel:`Create directory` box was
+left checked. The resulting storage was added to the *freebsd1* entry in
+the tree as :file:`/usr/local/test`. The user has clicked this
 :file:`/usr/local/test` entry to access the :guilabel:`Edit` screen.
 
 
