@@ -598,7 +598,10 @@ When creating NFS shares, keep these points in mind:
 #.  Each volume or dataset is considered to be its own filesystem and
     NFS is not able to cross filesystem boundaries.
 
-#.  The network must be unique per share and per filesystem or directory.
+#.  The network and host must be unique per share and per filesystem or
+    directory. Since :file:`/etc/exports` does not act like an ACL, the
+    rule to apply is undefined among overlapping networks or when using
+    the same share with multiple hosts.
 
 #.  The :guilabel:`All directories` option can only be used once per
     share per filesystem.
@@ -763,7 +766,7 @@ best results, use :ref:`Windows (SMB) Shares`.
 From macOS
 ^^^^^^^^^^^^^
 
-To mount the NFS volume from a macOS client, go to 
+To mount the NFS volume from a macOS client, go to
 :menuselection:`Go --> Connect to Server`.
 In the :guilabel:`Server Address` field, enter *nfs://* followed by
 the IP address of the %brand% system and the name of the
@@ -1543,7 +1546,7 @@ caveats:
 
 * If the Windows system is not fully patched to the latest service
   pack, Shadow Copies may not work. If no
-  previous versions of files to restore are visible, use Windows Update 
+  previous versions of files to restore are visible, use Windows Update
   to make sure that the system is fully up-to-date.
 
 * Shadow copy support only works for ZFS pools or datasets. This means
