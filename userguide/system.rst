@@ -1,4 +1,4 @@
-.. _System:
+. _System:
 
 System
 ======
@@ -2088,7 +2088,7 @@ available as a configurable option for encrypting connections.
 
 .. _manage_cert_fig:
 
-.. figure:: images/system-certs-manage1.png
+.. figure:: images/system-certificates-manage.png
 
    Managing Certificates
 
