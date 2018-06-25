@@ -335,7 +335,7 @@ Boot
 With multiple boot environments, the process of updating the operating
 system becomes a low-risk operation. The updater automatically creates
 a snapshot of the current boot environment and adds it to the boot
-menu before applying the update. 
+menu before applying the update.
 
 #ifdef freenas
 If an update fails, reboot the system and select the previous boot
@@ -498,15 +498,16 @@ can be configured to boot from the remaining device in the mirror.
    boot device is recommended.
 
 In the example shown in
-:numref:`Figure %s <mirror_boot_dev_fig>`, the user has navigated
+:numref:`Figure %s <mirror_boot_dev_fig>`, the user has navigated to
 :menuselection:`System --> Boot`,
 and clicked the :guilabel:`Boot Pool Status` button to display
-the current status of the boot device. The example indicates that there
-is currently one device, *ada0p2*, its status is *ONLINE*, and it is
-currently the only boot device as indicated by the word *stripe*. To
-create a mirrored boot device, click |ui-options| then
-:guilabel:`attach`. If another device is available, it appears in the
-:guilabel:`Member disk` drop-down menu. Select the desired device.
+the current status of the boot device. As shown in
+:numref:`Figure %s <status_boot_dev_fig>`, the *freenas-boot* pool
+is made of a single device, *ada0p2*. There is only one disk,
+indicated by the word *stripe*. To create a mirrored boot device,
+click |ui-options| then :guilabel:`attach`. If another device is
+available, it appears in the :guilabel:`Member disk` drop-down menu.
+Select the desired device.
 
 The :guilabel:`Use all disk space` checkbox gives control of how much
 of the new device is made available to ZFS. The default is unchecked,
@@ -525,7 +526,7 @@ Click :guilabel:`Save` to attach the new disk to the mirror.
 
 .. _mirror_boot_dev_fig:
 
-.. figure:: images/system-boot-mirror1.png
+.. figure:: images/system-boot-attach.png
 
    Mirroring a Boot Device
 
@@ -537,7 +538,7 @@ shown, as seen in the example in
 
 .. _mirror_boot_status_fig:
 
-.. figure:: images/system-boot-mirror2.png
+.. figure:: images/system-boot-mirror.png
 
    Viewing the Status of a Mirrored Boot Device
 #endif freenas
@@ -1603,13 +1604,17 @@ Checking for Updates
 ~~~~~~~~~~~~~~~~~~~~
 
 #ifdef freenas
-Checking for updates by making sure the desired train is selected and
+Check for updates by making sure the desired train is selected and
 clicking the :guilabel:`Check Now` button. Any available updates are
-listed. In the example shown in
+listed.
+#ifdef comment
+# not available yet
+In the example shown in
 :numref:`Figure %s <review_updates_fig>`,
-upgrades for different components of %brand% are displayed. The numeric
-string is a date stamp. Click the :guilabel:`Check Release Notes` button
-to open the Release Notes in the browser.
+upgrades for different components of %brand% are displayed. The
+numeric string is a date stamp. Click the
+:guilabel:`Check Release Notes` button to open the Release Notes in
+the browser.
 
 
 .. _review_updates_fig:
@@ -1617,6 +1622,7 @@ to open the Release Notes in the browser.
 .. figure:: images/update2a.png
 
    Reviewing Updates
+#endif comment
 #endif freenas
 
 #ifdef truenas
