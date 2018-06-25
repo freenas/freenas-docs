@@ -207,8 +207,8 @@ The following screen options have changed:
   frequency on a per-alert basis.
 
 * The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
-  :guilabel:`Encryption password`, and :guilabel:`Encryption salt`
-  fields have been added to
+  :guilabel:`Encryption password`, :guilabel:`Encryption salt`, and
+  :guilabel:`Auxiliary arguments` fields have been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> Add Cloud Sync`.
 
 * The :guilabel:`Exec` field has been added to
