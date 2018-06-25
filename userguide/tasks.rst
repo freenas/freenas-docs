@@ -1250,7 +1250,7 @@ options in the replication task dialog.
    |                           |                | *Off* (no compression); selecting a compression algorithm can reduce the size of the data being replicated   |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Limit (KB/s)              | integer        | limit replication speed to the specified value in kilobytes/second; default of *0* is unlimited              |
+   | Limit (kbps)              | integer        | Limit replication speed to the specified value in kilobits/second; default of *0* is unlimited              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | Begin Time                | drop-down menu | replication is not allowed to start before this time; times entered in the :guilabel:`Begin` and             |
