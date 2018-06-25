@@ -25,7 +25,8 @@ Translation
 
 FreeNAS :sup:`®` is developed and documented in English. Having
 complete translations of the user interface into other languages helps
-make FreeNAS :sup:`®` much more useful to communities around the world.
+make FreeNAS :sup:`®` much more useful to communities around the
+world.
 
 FreeNAS :sup:`®` uses :file:`.po` files stored in the
 `webui GitHub repository
@@ -36,9 +37,10 @@ web-based editor, making it possible for individuals to assist with
 translation or comment on existing translations.
 
 To view translation files, open the :file:`/src/assets/i18n` directory
-of the FreeNAS :sup:`®` `webui repository
-<https://github.com/freenas/webui/tree/master/src/assets/i18n>`__, as
-shown in :numref:`Figure %s <contribute_po_fig>`.
+of the FreeNAS :sup:`®`
+`webui repository
+<https://github.com/freenas/webui/tree/master/src/assets/i18n>`__,
+as shown in :numref:`Figure %s <contribute_po_fig>`.
 
 
 .. _contribute_po_fig:
@@ -49,7 +51,8 @@ shown in :numref:`Figure %s <contribute_po_fig>`.
 
 
 To assist with translating FreeNAS :sup:`®`, first create an account
-with `GitHub <https://github.com/>`__.
+with
+`GitHub <https://github.com/>`__.
 
 There are two methods to contribute translations to the project:
 
@@ -58,18 +61,21 @@ There are two methods to contribute translations to the project:
 
 OR
 
-2. Copy the `freenas/webui <https://github.com/freenas/webui>`__
-   repository, make changes using a :file:`po` editor, and submit these
-   changes back "upstream" to the *freenas/webui* repository.
+2. Copy the
+   `freenas/webui <https://github.com/freenas/webui>`__
+   repository, make changes using a :file:`po` editor, and submit
+   these changes back "upstream" to the *freenas/webui* repository.
 
 
 Translate with GitHub
 ~~~~~~~~~~~~~~~~~~~~~
 
-Navigate to the `freenas/webui <https://github.com/freenas/webui>`__
-repository and navigate from
-:menuselection:`src --> assets`,
-and click the `i18n
+Go to the
+`freenas/webui <https://github.com/freenas/webui>`__
+repository. Select
+:menuselection:`src --> assets`
+and click the
+`i18n
 <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__
 directory. Click on the desired language :file:`po` file to begin
 translating.
@@ -88,12 +94,12 @@ shows the page that appears:
 
 .. figure:: images/contribute-github-editor.png
 
-   GitHub online editor
+   GitHub Online Editor
 
 
-There are numerous :literal:`msgid ""` and :literal:`msgstr ""` entries
-in the file. Read  the :literal:`msgid` text and enter the translation
-between the :literal:`msgstr` quotes.
+There are numerous :literal:`msgid ""` and :literal:`msgstr ""`
+entries in the file. Read  the :literal:`msgid` text and enter the
+translation between the :literal:`msgstr` quotes.
 
 Scroll to the bottom of the page when finished entering translations.
 Enter a descriptive title and summary of changes for the edits and set
@@ -101,7 +107,7 @@ Enter a descriptive title and summary of changes for the edits and set
 to submit the translations to the FreeNAS :sup:`®` project.
 
 
-Download and translate offline
+Download and Translate Offline
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -115,14 +121,14 @@ Open a Command Line Interface (CLI). Navigate to or create a suitable
 location to store the local copy of the :literal:`webui` repository.
 Download the repository with :command:`git clone`:
 
-:samp:`[tmoore@Observer] ~/GitHub% git clone https://github.com/freenas/webui.git`
+:samp:`% git clone https://github.com/freenas/webui.git`
 
 The download can take several minutes, depending on connection speed.
 
 :command:`cd` into the :file:`webui` directory and create a new branch
 of the repository to store the translation changes:
 
-:samp:`[tmoore@Observer] ~/GitHub/webui% git checkout -b new_translations`
+:samp:`% git checkout -b new_translations`
 
 
 .. tip:: Type :command:`git status` at any time to see which branch of
@@ -131,16 +137,18 @@ of the repository to store the translation changes:
 
 Navigate to the :file:`i18n` directory:
 
-:samp:`[tmoore@Observer] ~/GitHub/webui% cd src/assets/i18n/`
+:samp:`% cd src/assets/i18n/`
 
 Use a :file:`po` editor to add translations to the desired language
-file. Any capable editor will work, but `poedit <https://poedit.net/>`__
-and `gtranslator <https://wiki.gnome.org/Apps/Gtranslator>`__ are two
-common options.
+file. Any capable editor will work, but
+`poedit <https://poedit.net/>`__
+and
+`gtranslator <https://wiki.gnome.org/Apps/Gtranslator>`__
+are two common options.
 
 Commit any file changes with :command:`git commit`:
 
-:samp:`[tmoore@Observer] ~/GitHub/webui/src/assets/i18n% git commit ar.po`
+:samp:`% git commit ar.po`
 
 Enter a descriptive message about the changes and save the commit.
 
@@ -149,7 +157,7 @@ branch to the online :literal:`freenas/webui` repository:
 
 .. code-block:: none
 
-   [tmoore@Observer] ~/GitHub/webui/src/assets/i18n% git push origin new_translations
+   % git push origin new_translations
    Username for `https://github.com`:
    Password for `https://account@github.com`:
    Counting objects: 6, done.
@@ -163,13 +171,14 @@ branch to the online :literal:`freenas/webui` repository:
 
 
 Open a web browser and navigate to the
-`freenas/webui <https://github.com/freenas/webui>`__ repository. GitHub
-automatically detects when a new branch is pushed to the repository and
-displays a message with an option to :guilabel:`Compare & pull request`.
-Click this, review the changes, and click
-:guilabel:`Create pull request`.
+`freenas/webui <https://github.com/freenas/webui>`__
+repository. GitHub automatically detects when a new branch is pushed
+to the repository and displays a message with an option to
+:guilabel:`Compare & pull request`. Click this, review the changes,
+and click :guilabel:`Create pull request`.
 
-Translation pull requests
+
+Translation Pull Requests
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The FreeNAS :sup:`®` project automatically tests pull requests for
