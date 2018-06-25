@@ -142,13 +142,13 @@ Advanced Jail Creation
 
 To open the full jail creation form, navigate
 :menuselection:`Jails --> Add Jail` and click
-:guilabel:` Advanced Jail Creation` to access the screen shown in
+:guilabel:`Advanced Jail Creation` to access the screen shown in
 :numref:`Figure %s <creating_jail_fig>`.
 
 
 .. _creating_jail_fig:
 
-.. figure:: images/jails3a.png
+.. figure:: images/jails-add-advanced.png
 
    Creating a Jail
 
@@ -592,7 +592,7 @@ shown in :numref:`Figure %s <jail_overview_fig>`.
 
 .. _jail_overview_fig:
 
-.. figure:: images/jails4b.png
+.. figure:: images/jails.png
 
    Jail Overview Section
 
@@ -648,7 +648,7 @@ shown in :numref:`Figure %s <jail_overview_fig>`.
 
 .. _jail_option_menu_fig:
 
-.. figure:: images/jails4b.png
+.. figure:: images/jails-jail-options.png
 
    Jail Option Menu
 
@@ -936,7 +936,7 @@ This opens the screen shown in
 
 .. _adding_storage_jail_fig:
 
-.. figure:: images/jails5a.png
+.. figure:: images/jails-jail-mount-add.png
 
    Adding Storage to a Jail
 
@@ -1021,7 +1021,7 @@ screen.
 
 .. _jail_example_storage_fig:
 
-.. figure:: images/jails6a.png
+.. figure:: images/jails-jail-mount-example.png
 
    Example Storage
 
