@@ -29,8 +29,10 @@ The System section of the administrative GUI contains these entries:
 * :ref:`Alert Services` configures services used to notify the
   administrator about system events.
 
-* :ref:`Alert Settings` configures the default notification timing for
-  each alert message. See :ref:`Alert` for more information.
+#ifdef freenas
+* :ref:`Alert Settings` lists the available :ref:`Alert` conditions and
+  provides configuration of the notification frequency for each alert.
+#endif freenas
 
 * :ref:`Cloud Credentials` is used to enter connection credentials for
   remote cloud service providers
@@ -1070,7 +1072,7 @@ page. Alert services can be deleted from this list by clicking
 temporarily, click |ui-options| and :guilabel:`Edit`, then unset the
 :guilabel:`Enabled` checkbox.
 
-
+#ifdef freenas
 .. index:: Alert Settings
 
 .. _Alert Settings:
@@ -1078,10 +1080,21 @@ temporarily, click |ui-options| and :guilabel:`Edit`, then unset the
 Alert Settings
 --------------
 
-:menuselection:`System --> Alert Settings` displays default notification
-settings for each alert. For an alert, open the drop-down menu and
-choose when the alert is triggered in %brand%. Choices are *IMMEDIATELY*,
-*HOURLY*, *DAILY*, or *NEVER*
+:menuselection:`System --> Alert Settings` displays the default notification
+frequency for each type of :ref:`Alert`. An example is seen in
+:numref:`Figure %s <alert_settings_fig>`.
+
+.. _alert_settings_fig:
+
+.. figure:: images/system-alert-settings.png
+
+   Configure Alert Notification Frequency
+
+To change the notification frequency of an alert, click its drop-down
+menu and select *IMMEDIATELY*, *HOURLY*, *DAILY*, or *NEVER*.
+
+.. note:: To configure where to send alerts, use :ref:`Alert Services`.
+#endif freenas
 
 .. index:: Cloud Credentials
 .. _Cloud Credentials:
