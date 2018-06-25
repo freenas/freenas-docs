@@ -2220,7 +2220,8 @@ complete the following fields:
   checked so that an overview of the system's hardware, build
   string, and configuration is automatically generated and included
   with the ticket. Generating and attaching a debug to the ticket can
-  take some time.
+  take some time. An error will occur if the debug is more than the file
+  size limit of 20M.
 
 * **Subject:** enter a descriptive title for the ticket. A good
   *Subject* makes it easy for you and other users to find similar
