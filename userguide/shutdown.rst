@@ -1,10 +1,10 @@
 .. index:: Shutdown
 .. _Shutdown:
 
-Shutdown
-========
+Shut Down
+=========
 
-Clicking |ui-settings| and :guilabel:`Shutdown`
+Clicking |ui-settings| and :guilabel:`Shut down`
 opens the warning message shown in
 :numref:`Figure %s <shutdown_warning_fig>`.
 
@@ -17,6 +17,6 @@ opens the warning message shown in
 
 
 :guilabel:`Confirm` the command and click :guilabel:`Ok` to shutdown
-the system. Shutting down the system disconnects all clients, including
-the web administration GUI. Physical access to the %brand% system is
-required to turn it back on.
+the system. Shutting down the system disconnects all clients,
+including the web administration GUI. Physical access to the %brand%
+system is required to turn it back on.

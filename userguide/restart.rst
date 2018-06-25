@@ -10,11 +10,13 @@ to see a confirmation screen like
 :guilabel:`Confirm` the action and click
 :guilabel:`Ok` to restart the system.
 
+
 .. _reboot_warning_fig:
 
 .. figure:: images/power-restart.png
 
   Restart Warning Message
+
 
 An additional warning message appears when a restart is attempted
 on a system with a scrub or resilver in progress.
