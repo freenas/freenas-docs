@@ -1002,7 +1002,7 @@ session and is used to enter interactive commands.
 
 .. _cli_tmux_fig:
 
-.. figure:: images/tmux.png
+.. figure:: images/shell-tmux.png
 
    tmux Session
 
