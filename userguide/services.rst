@@ -972,8 +972,8 @@ Rsync
 -----
 
 :menuselection:`Services --> Rsync`
-is used to configure an rsync server when using rsync module mode. Refer
-to :ref:`Rsync Module Mode` for a configuration example.
+is used to configure an rsync server when using rsync module mode.
+Refer to :ref:`Rsync Module Mode` for a configuration example.
 
 This section describes the configurable options for the
 :command:`rsyncd` service and rsync modules.
@@ -990,7 +990,7 @@ shows the rsyncd configuration screen which is accessed from
 
 .. _rsyncd_config_tab:
 
-.. figure:: images/services-rsync.png
+.. figure:: images/services-rsync-configure.png
 
    Rsyncd Configuration
 
@@ -1039,7 +1039,7 @@ module.
 
 .. _add_rsync_module_fig:
 
-.. figure:: images/rsync3.png
+.. figure:: images/services-rsync-rsync-module.png
 
    Adding an Rsync Module
 
