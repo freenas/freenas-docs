@@ -16,13 +16,14 @@ the system is warning that a pool is degraded.
 
 .. _alert2a:
 
-.. figure:: images/alert2a.png
+.. figure:: images/alert-example.png
 
    Example Alert Message
 
 
-:numref:`Figure %s <alert-icons>` shows the different icons that display
-to show informational, warning, and :guilabel:`CRITICAL` messages.
+#ifdef comment
+:numref:`Figure %s <alert-icons>` shows the different icons that
+indicate informational, warning, and :guilabel:`CRITICAL` messages.
 Critical messages are emailed to the root account.
 
 
@@ -32,6 +33,8 @@ Critical messages are emailed to the root account.
 
    %brand% alert icons
 
+
+#endif comment
 
 Close an alert message by hovering over it until
 :guilabel:`Click to Dismiss`. There is also an option to
@@ -55,9 +58,9 @@ a :ref:`High Availability (HA) <Failover>` system.
 #endif truenas
 
 Notifications for specific alerts are adjusted in the
-:guilabel:`Alert Settings` menu. An alert message can be set to publish
-:guilabel:`IMMEDIATELY`, :guilabel:`HOURLY`, :guilabel:`DAILY`, or
-:guilabel:`NEVER`.
+:guilabel:`Alert Settings` menu. An alert message can be set to
+publish :guilabel:`IMMEDIATELY`, :guilabel:`HOURLY`,
+:guilabel:`DAILY`, or :guilabel:`NEVER`.
 
 Some of the conditions that trigger an alert include:
 
