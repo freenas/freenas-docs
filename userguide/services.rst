@@ -298,7 +298,7 @@ service in :menuselection:`Services --> Dynamic DNS`.
 
 .. _config_ddns_fig:
 
-.. figure:: images/services-ddns.png
+.. figure:: images/services-dynamic-dns.png
 
    Configuring DDNS
 
