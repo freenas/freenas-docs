@@ -272,7 +272,7 @@ as shown in :numref:`Figure %s <installer_menu_fig>`.
 
 .. _installer_menu_fig:
 
-.. figure:: images/install2c.png
+.. figure:: images/installer-install.png
 
    Installer Menu
 
