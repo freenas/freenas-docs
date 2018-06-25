@@ -1381,11 +1381,16 @@ These trains are available:
 #ifdef freenas
 **For Production Use**
 
-* **FreeNAS-11-STABLE** (Recommended)
+* **FreeNAS-11-STABLE: Recommended.** After testing, new fixes and
+  features are added to this train. Selecting this train and applying any
+  pending updates is recommended.
 
-  After testing, new fixes and features are added to this train.
-  Selecting this train and applying any pending updates is
-  recommended.
+* **FreeNAS-11.2-STABLE: Recommended for Jails/Plugins/VM users.**
+  This train provides the latest updates to the new UI, the new iocage
+  backend for Jails and Plugins, and the latest fixes for VMs. Users who
+  rely on these features are encouraged to upgrade to this train and to
+  use the :ref:`Support Icon` to report any issues.
+
 
 **For Pre-Production Testing**
 
@@ -1660,7 +1665,7 @@ Copy the Access Key value to the %brand% Cloud Credential
 value saved when the key pair was created. If the Secret Key value is
 not known, a new key pair can be created on the same Amazon screen.
 
-
+#ifdef freenas
 .. index:: Alerts
 
 .. _Alerts:
@@ -1682,6 +1687,7 @@ To change the notification frequency of an alert, click its drop-down
 menu and select *IMMEDIATELY*, *HOURLY*, *DAILY*, or *NEVER*.
 
 .. note:: To configure where to send alerts, use :ref:`Alert Services`.
+#endif freenas
 
 .. index:: Alert Services
 .. _Alert Services:
