@@ -30,6 +30,9 @@ The System section of the administrative GUI contains these entries:
 * :ref:`Cloud Credentials` is used to enter connection credentials for
   remote cloud service providers
 
+* :ref:`Alerts` lists the available :ref:`Alert` conditions and provides
+  configuration of the notification frequency for each alert.
+
 * :ref:`Alert Services` configures services used to notify the
   administrator about system events.
 
@@ -1655,6 +1658,28 @@ Copy the Access Key value to the %brand% Cloud Credential
 value saved when the key pair was created. If the Secret Key value is
 not known, a new key pair can be created on the same Amazon screen.
 
+
+.. index:: Alerts
+
+.. _Alerts:
+
+Alerts
+--------------
+
+:menuselection:`System --> Alerts` displays the default notification
+frequency for each type of :ref:`Alert`. An example is seen in
+:numref:`Figure %s <alerts_fig>`.
+
+.. _alerts_fig:
+
+.. figure:: images/system-alerts.png
+
+   Configure Alert Notification Frequency
+
+To change the notification frequency of an alert, click its drop-down
+menu and select *IMMEDIATELY*, *HOURLY*, *DAILY*, or *NEVER*.
+
+.. note:: To configure where to send the alert, use :ref:`Alert Services`.
 
 .. index:: Alert Services
 .. _Alert Services:

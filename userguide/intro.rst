@@ -202,6 +202,10 @@ The following screen options have changed:
   :guilabel:`Reset SED Password` fields have been added to 
   :menuselection:`System --> Advanced`.
 
+* :guilabel:`Alerts` has been added to :guilabel:`System` and can be used
+  to list the available alert conditions and to configure the notification
+  frequency on a per-alert basis.
+
 * The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
   :guilabel:`Encryption password`, and :guilabel:`Encryption salt`
   fields have been added to
