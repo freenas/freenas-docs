@@ -2172,7 +2172,8 @@ complete the following fields:
 * **Attach Debug:** it is recommended to check this box so that an
   overview of the system's hardware, build string, and configuration is
   automatically generated and included with the ticket. Generating and
-  attaching a debug to the ticket can take some time.
+  attaching a debug to the ticket can take some time. An error will occur
+  if the debug is more than the file size limit of 20M.
 
 * **Subject:** enter a descriptive title for the ticket. A good
   *Subject* makes it easy for you and other users to find similar
@@ -2237,9 +2238,11 @@ To generate a support ticket, fill in the fields:
   level. Choices are *Inquiry*, *Loss of Functionality*, or
   *Total Down*.
 
-* **Attach Debug Info** allows an overview of the system hardware
-  and configuration to be automatically generated and included with
-  the ticket. It is recommended to leave this box checked.
+* **Attach Debug Info** it is recommended to leave this box checked so
+  that an overview of the system’s hardware, build string, and
+  configuration is automatically generated and included with the ticket.
+  Generating and attaching a debug to the ticket can take some time. An
+  error will occur if the debug is more than the file size limit of 20M.
 
 * **Subject** is a descriptive title for the ticket.
 
