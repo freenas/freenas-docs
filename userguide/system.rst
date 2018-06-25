@@ -1532,11 +1532,15 @@ These trains are available:
 #ifdef freenas
 **For Production Use**
 
-* **FreeNAS-11-STABLE** (Recommended)
+* **FreeNAS-11-STABLE: Recommended.** After testing, new fixes and
+  features are added to this train. Selecting this train and applying any
+  pending updates is recommended.
 
-  After testing, new fixes and features are added to this train.
-  Selecting this train and applying any pending updates is
-  recommended.
+* **FreeNAS-11.2-STABLE: Recommended for Jails/Plugins/VM users.**
+  This train provides the latest updates to the new UI, the new iocage
+  backend for Jails and Plugins, and the latest fixes for VMs. Users who
+  rely on these features are encouraged to upgrade to this train and to
+  use the :ref:`Support` to report any issues.
 
 **For Pre-Production Testing**
 
