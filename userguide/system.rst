@@ -30,8 +30,10 @@ The System section of the administrative GUI contains these entries:
 * :ref:`Cloud Credentials` is used to enter connection credentials for
   remote cloud service providers
 
+#ifdef freenas
 * :ref:`Alerts` lists the available :ref:`Alert` conditions and provides
   configuration of the notification frequency for each alert.
+#endif freenas
 
 * :ref:`Alert Services` configures services used to notify the
   administrator about system events.
@@ -1679,7 +1681,7 @@ frequency for each type of :ref:`Alert`. An example is seen in
 To change the notification frequency of an alert, click its drop-down
 menu and select *IMMEDIATELY*, *HOURLY*, *DAILY*, or *NEVER*.
 
-.. note:: To configure where to send the alert, use :ref:`Alert Services`.
+.. note:: To configure where to send alerts, use :ref:`Alert Services`.
 
 .. index:: Alert Services
 .. _Alert Services:
