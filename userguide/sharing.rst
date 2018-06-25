@@ -578,7 +578,10 @@ When creating NFS shares, keep these points in mind:
 #.  Each pool or dataset is considered to be its own filesystem and
     NFS is not able to cross filesystem boundaries.
 
-#.  The network must be unique per share and per filesystem or directory.
+#.  The network and host must be unique per share and per filesystem or
+    directory. Since :file:`/etc/exports` does not act like an ACL, the
+    rule to apply is undefined among overlapping networks or when using
+    the same share with multiple hosts.
 
 #.  The :guilabel:`All directories` option can only be used once per
     share per filesystem.
@@ -1513,7 +1516,7 @@ caveats:
 
 * If the Windows system is not fully patched to the latest service
   pack, Shadow Copies may not work. If no
-  previous versions of files to restore are visible, use Windows Update 
+  previous versions of files to restore are visible, use Windows Update
   to ensure the system is fully up-to-date.
 
 * Shadow copy support only works for ZFS pools or datasets. This means
@@ -1524,7 +1527,7 @@ caveats:
   filesystems. To see the shadow copies in the
   child datasets, create separate shares for them.
 
-* Shadow copies will not work with a manual snapshot. Creating 
+* Shadow copies will not work with a manual snapshot. Creating
   a periodic snapshot task for the pool or dataset being shared by
   SMB or a recursive task for a parent dataset is recommended.
 
