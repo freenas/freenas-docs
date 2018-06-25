@@ -578,7 +578,7 @@ network clients and generally work well with a mix of operating systems
 or clients. However, *Unix* permissions do not support Windows ACLs and
 should not be used with :ref:`Windows (SMB) Shares`.
 
-The *Mac* :guilabel:`Permission Type` can be used with 
+The *Mac* :guilabel:`Permission Type` can be used with
 :ref:`Apple (AFP) Shares`.
 
 .. index:: Create Dataset
@@ -2298,7 +2298,7 @@ options in the replication task dialog.
    |                           |                | *Off* (no compression). Selecting a compression algorithm can reduce the size of the data being replicated.  |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Limit (kB/s)              | integer        | Limit replication speed to the specified value in kB/s. Default of *0* is unlimited.                         |
+   | Limit (kbps)              | integer        | Limit replication speed to the specified value in kilobits/second. Default of *0* is unlimited.              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | Begin                     | drop-down menu | Define a time to start the replication task.                                                                 |
