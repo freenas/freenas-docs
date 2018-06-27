@@ -7,7 +7,7 @@ Alert
 
 The %brand% alert system provides a visual warning of any
 conditions that require administrative attention. The
-:guilabel:`Alert` icon in the upper right corner has a red
+:guilabel:`Alert` icon in the upper right corner has a
 notification badge that displays the total number of unread alerts.
 In the example alert shown in
 :numref:`Figure %s <alert2a>`,
@@ -21,20 +21,33 @@ the system is warning that a pool is degraded.
    Example Alert Message
 
 
-#ifdef comment
-:numref:`Figure %s <alert-icons>` shows the different icons that
-indicate informational, warning, and :guilabel:`CRITICAL` messages.
-Critical messages are emailed to the root account.
+:numref:`Table %s <alert-icons>` shows the different icons that
+indicate notification, warning, and critical alerts. Critical messages
+are also emailed to the root account.
 
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}|
 
 .. _alert-icons:
 
-.. figure:: images/alert-icons.png
+.. table:: %brand% alert icons
+   :class: longtable
 
-   %brand% alert icons
+   +------------------+--------------------------------------------------+
+   | Alert Level      | Icon                                             |
+   |                  |                                                  |
+   +==================+==================================================+
+   | Notification     | .. image:: images/alert-icon-info.png            |
+   |                  |                                                  |
+   +------------------+--------------------------------------------------+
+   | Warning          | .. image:: images/alert-icon-watch-later.png     |
+   |                  |                                                  |
+   +------------------+--------------------------------------------------+
+   | Critical         | .. image:: images/alert-icon-error.png           |
+   |                  |                                                  |
+   +------------------+--------------------------------------------------+
 
-
-#endif comment
 
 Close an alert message by hovering over it until
 :guilabel:`Click to Dismiss`. There is also an option to
