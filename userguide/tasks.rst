@@ -1844,12 +1844,12 @@ shows the configuration options for Cloud Syncs.
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Encryption password | string              | Only appears when :guilabel:`Remote encryption` is enabled. Enter the password for encrypting and       |
-   |                     |                     | and decrypting remote data. *Warning* always saves and back ups this password. Losing the encryption    |
+   |                     |                     | and decrypting remote data. *Warning* always saves and backs up this password. Losing the encryption    |
    |                     |                     | password can result in data loss.                                                                       |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Encryption salt     | string              | Only appears when :guilabel:`Remote encryption` is enabled. Enter a long string of random characters    |
    |                     |                     | for use as `salt <https://searchsecurity.techtarget.com/definition/salt>`__ for the encryption          |
-   |                     |                     | password. *Warning* saves and back ups the encryption salt value. Losing the salt value can result in   |
+   |                     |                     | password. *Warning* saves and backs up the encryption salt value. Losing the salt value can result in   |
    |                     |                     | data loss.                                                                                              |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Quick Schedule      | drop-down menu      | Choose how often to run the task. An empty value allows defining a custom schedule.                     |
