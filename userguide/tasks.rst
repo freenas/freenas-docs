@@ -111,7 +111,7 @@ shows the configuration options for Cloud Syncs.
    | Setting             | Value Type          | Description                                                                                             |
    |                     |                     |                                                                                                         |
    +=====================+=====================+=========================================================================================================+
-   | Description         | string              | Input a descriptive name for this Cloud Sync.                                                           |
+   | Description         | string              | Enter a descriptive name for this Cloud Sync.                                                           |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Direction           | string              | *Push* sends data to cloud storage. *Pull* receives data from cloud storage.                            |
@@ -136,13 +136,13 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | overwriting existing files.                                                                             |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Transfer Mode       | drop-down menu      | *Sync* (default): make files on destination system identical to those on the source. Files that have    |
-   |                     |                     | been removed from the source are removed from the destination, similar to :command:`rsync --delete`.    |
+   | Transfer Mode       | drop-down menu      | *Sync* (default) makes files on destination system identical to those on the source. Files              |
+   |                     |                     | removed from the source are also removed from the destination, similar to :command:`rsync --delete`.    |
    |                     |                     |                                                                                                         |
-   |                     |                     | *Copy*: copy files from the source to the destination, skipping files that are identical,               |
+   |                     |                     | *Copy* copies files from the source to the destination, skipping files that are identical,              |
    |                     |                     | similar to :command:`rsync`.                                                                            |
    |                     |                     |                                                                                                         |
-   |                     |                     | *Move*: copy files from the source to the destination, deleting files from the source after the copy,   |
+   |                     |                     | *Move* copies files from the source to the destination, deleting files from the source after the copy,  |
    |                     |                     | similar to :command:`mv`.                                                                               |
    |                     |                     |                                                                                                         |
    #ifdef freenas
@@ -151,13 +151,13 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                   |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Filename encryption | checkbox            | Only appears when :guilabel:`Remote encryption` is checked. Set to encrypt the shared file names        |
+   | Filename encryption | checkbox            | Only appears when :guilabel:`Remote encryption` is enabled. Set to encrypt the shared file names.       |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Encryption password | string              | Only appears when :guilabel:`Remote encryption` is checked. Enter the password for encrypting           |
+   | Encryption password | string              | Only appears when :guilabel:`Remote encryption` is enabled. Enter the password for encrypting           |
    |                     |                     | and decrypting remote data.  *Warning*: Always save and back up this password. Losing the encryption    |
    |                     |                     | password can result in data loss.                                                                       |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Encryption salt     | string              | Only appears when :guilabel:`Remote encryption` is checked. Enter a long string of random characters    |
+   | Encryption salt     | string              | Only appears when :guilabel:`Remote encryption` is enabled. Enter a long string of random characters    |
    |                     |                     | for use as `salt <https://searchsecurity.techtarget.com/definition/salt>`__ for the encryption          |
    |                     |                     | password. *Warning*: Save and back up the encryption salt value. Losing the salt value can result in    |
    |                     |                     | data loss.                                                                                              |
@@ -218,7 +218,7 @@ cloud sync job is created with
 The :guilabel:`Description` is set to *backup-acctg* to describe the
 job. This data is being sent to cloud storage, so this is a *Push*.
 The provider comes from the cloud credentials defined in the previous
-step, and the destination bucket *cloudsync-bucket* has been chosen.
+step, and the destination bucket *cloudsync-bucket* is selected.
 
 The :guilabel:`Path` to the data file is selected.
 
@@ -227,7 +227,7 @@ send the data to cloud storage once an hour, every day. The options
 provide great versatility in configuring when a cloud sync runs,
 anywhere from once a minute to once a year.
 
-The :guilabel:`Enabled` field is checked by default, so this cloud
+The :guilabel:`Enabled` option is set by default, so this cloud
 sync will run at the next scheduled time.
 
 The completed dialog is shown in
@@ -280,41 +280,41 @@ lists the configurable options for a cron job.
    | Setting           | Value                       | Description                                                                                             |
    |                   |                             |                                                                                                         |
    +===================+=============================+=========================================================================================================+
-   | User              | drop-down menu              | make sure the selected user has permission to run the specified command or script                       |
+   | User              | drop-down menu              | Choose a user account to run the command or script. The user must have permissions to run               |
+   |                   |                             | the command.                                                                                            |
+   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   | Command           | string                      | Enter the **full path** to the command or script to be run. If it is a script, test it                  |
+   |                   |                             | at the command line first to make sure that it works as expected.                                       |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Command           | string                      | the **full path** to the command or script to be run; if it is a script, test it at the command line    |
-   |                   |                             | first to make sure that it works as expected                                                            |
+   | Short description | string                      | Optional. Describe the new cron job.                                                                    |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Short description | string                      | optional                                                                                                |
+   | Minute            | slider or minute selections | With the slider, the cron job occurs every N minutes.                                                   |
+   |                   |                             | With minute selections, the cron job occurs at the highlighted minutes                                  |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Minute            | slider or minute selections | with the slider, the cron job occurs every N minutes;                                                   |
-   |                   |                             | with minute selections, the cron job occurs at the highlighted minutes                                  |
+   | Hour              | slider or hour selections   | With the slider, the cron job occurs every N hours.                                                     |
+   |                   |                             | With hour selections, the cron job occurs at the highlighted hours.                                     |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Hour              | slider or hour selections   | with the slider, the cron job occurs every N hours;                                                     |
-   |                   |                             | with hour selections, the cron job occurs at the highlighted hours                                      |
+   | Day of month      | slider or month selections  | With the slider, the cron job occurs every N days.                                                      |
+   |                   |                             | With day selections, the cron job occurs on the highlighted days each month.                            |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of month      | slider or month selections  | with the slider, cron job occurs every N days;                                                          |
-   |                   |                             | with day selections, cron job occurs on the highlighted days each month                                 |
+   | Month             | checkboxes                  | Cron job occurs on the selected months.                                                                 |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Month             | checkboxes                  | cron job occurs on the selected months                                                                  |
+   | Day of week       | checkboxes                  | Cron job occurs on the selected days.                                                                   |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of week       | checkboxes                  | cron job occurs on the selected days                                                                    |
+   | Redirect Stdout   | checkbox                    | Disables emailing standard output to the *root* user account.                                           |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Redirect Stdout   | checkbox                    | disables emailing standard output to the *root* user account                                            |
+   | Redirect Stderr   | checkbox                    | Disables emailing errors to the *root* user account.                                                    |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Redirect Stderr   | checkbox                    | disables emailing errors to the *root* user account                                                     |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Enabled           | checkbox                    | uncheck disable the cron job without deleting it                                                        |
+   | Enabled           | checkbox                    | Deselect disable the cron job without deleting it.                                                      |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
 
@@ -375,20 +375,20 @@ has been fully tested to ensure it achieves the desired results.
    |             |                |                                                                                   |
    |             |                |                                                                                   |
    +=============+================+===================================================================================+
-   | Type        | drop-down menu | select from *Command* (for an executable) or                                      |
-   |             |                | *Script* (for an executable script)                                               |
+   | Type        | drop-down menu | Select *Command* for an executable or                                             |
+   |             |                | *Script* for an executable script.                                                |
    |             |                |                                                                                   |
    +-------------+----------------+-----------------------------------------------------------------------------------+
-   | Command     | string         | if *Command* is selected, enter the command plus any desired options; if          |
-   |             |                | *Script* is selected, browse to the location of the script                        |
+   | Command     | string         | If *Command* is selected, enter the command plus any desired options. If          |
+   |             |                | *Script* is selected, :guilabel:`Browse` to the location of the script.           |
    |             |                |                                                                                   |
    +-------------+----------------+-----------------------------------------------------------------------------------+
-   | When        | drop-down menu | select when the command/script will run; choices are *Pre Init*                   |
-   |             |                | (very early in boot process before filesystems are mounted), *Post Init*          |
-   |             |                | (towards end of boot process before FreeNAS services are started), or *Shutdown*  |
+   | When        | drop-down menu | Select when the command or script runs. *Pre Init*                                |
+   |             |                | is very early in boot process before mounting filesystems, *Post Init*            |
+   |             |                | is towards end of boot process before FreeNAS services start, or at *Shutdown*.   |
    |             |                |                                                                                   |
    +-------------+----------------+-----------------------------------------------------------------------------------+
-   | Enabled     | checkbox       | uncheck to disable the task                                                       |
+   | Enabled     | checkbox       | Unset to disable the task.                                                        |
    |             |                |                                                                                   |
    +-------------+----------------+-----------------------------------------------------------------------------------+
 
@@ -402,7 +402,7 @@ Rsync Tasks
 is a utility that copies specified data from one system to another
 over a network. Once the initial data is copied, rsync reduces the
 amount of data sent over the network by sending only the differences
-between the source and destination files. Rsync can be used for backups,
+between the source and destination files. Rsync is used for backups,
 mirroring data on multiple systems, or for copying files between systems.
 
 Rsync is most effective when only a relatively small amount of the data
@@ -483,113 +483,113 @@ task.
    |                                  |                             |                                                                                           |
    |                                  |                             |                                                                                           |
    +==================================+=============================+===========================================================================================+
-   | Path                             | browse button               | browse to the path that to be copied; note that a path length greater than 255            |
-   |                                  |                             | characters will fail                                                                      |
+   | Path                             | browse button               | :guilabel:`Browse` to the path to be copied. Path lengths cannot be greater than 255      |
+   |                                  |                             | characters.                                                                               |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | User                             | drop-down menu              | specified user must have permission to write to the specified directory on the remote     |
-   |                                  |                             | system; due to a limitation in FreeBSD, the user name cannot contain spaces or exceed 17  |
-   |                                  |                             | characters                                                                                |
+   | User                             | drop-down menu              | The chosen user must have permissions to write to the specified directory on the remote   |
+   |                                  |                             | system. The user name cannot contain spaces or exceed 17                                  |
+   |                                  |                             | characters.                                                                               |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote Host                      | string                      | IP address or hostname of the remote system that will store the copy; use the format      |
-   |                                  |                             | *username@remote_host* if the username differs on the remote host                         |
+   | Remote Host                      | string                      | Enter the IP address or hostname of the remote system that will store the copy.           |
+   |                                  |                             | Use the format *username@remote_host* if the username differs on the remote host.         |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote SSH Port                  | integer                     | only available in  *Rsync over SSH* mode; allows specifying an SSH port                   |
-   |                                  |                             | other than the default of *22*                                                            |
+   | Remote SSH Port                  | integer                     | Only available in  *Rsync over SSH* mode. Allows specifying an SSH port                   |
+   |                                  |                             | other than the default of *22*.                                                           |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Rsync mode                       | drop-down menu              | choices are *Rsync module* or                                                             |
-   |                                  |                             | *Rsync over SSH*                                                                          |
+   | Rsync mode                       | drop-down menu              | Choices are *Rsync module* or                                                             |
+   |                                  |                             | *Rsync over SSH*.                                                                         |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote Module Name               | string                      | only appears when using *Rsync module* mode, at least one module must be defined in       |
+   | Remote Module Name               | string                      | At least one module must be defined in                                                    |
    |                                  |                             | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__                     |
-   |                                  |                             | of rsync server or in the :guilabel:`Rsync Modules` of another                            |
-   |                                  |                             | system                                                                                    |
+   |                                  |                             | of the rsync server or in the :guilabel:`Rsync Modules` of another                        |
+   |                                  |                             | system.                                                                                   |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote Path                      | string                      | only appears when using *Rsync over SSH* mode, enter the **existing** path on the remote  |
-   |                                  |                             | host to sync with (e.g. */mnt/volume*); note that maximum path length is 255 characters   |
+   | Remote Path                      | string                      | Only appears when using *Rsync over SSH* mode, enter the **existing** path on the remote  |
+   |                                  |                             | host to sync with, example: */mnt/volume*. Note that maximum path length is               |
+   |                                  |                             | 255 characters.                                                                           |
+   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
+   | Validate Remote Path             | checkbox                    | If the :guilabel:`Remote Path` does not yet exist, enable this option to have it          |
+   |                                  |                             | automatically created.                                                                    |
+   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
+   | Direction                        | drop-down menu              | Direct the flow of the data to the remote host. Choices are *Push* or                     |
+   |                                  |                             | *Pull*. Default is to push to a remote host.                                              |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Validate Remote Path             | checkbox                    | if the :guilabel:`Remote Path` does not yet exist, check this box to have it              |
-   |                                  |                             | automatically created                                                                     |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Direction                        | drop-down menu              | choices are *Push* or                                                                     |
-   |                                  |                             | *Pull*; default is to push to a remote host                                               |
+   | Short Description                | string                      | Enter an optional description of the new rsync task.                                      |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Short Description                | string                      | optional                                                                                  |
+   | Minute                           | slider or minute selections | When the slider is used the sync occurs every N minutes. When                             |
+   |                                  |                             | :guilabel:`Each selected minute` is used, the sync occurs at the highlighted minutes.     |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Minute                           | slider or minute selections | if use the slider, sync occurs every N minutes; if use minute selections, sync occurs at  |
-   |                                  |                             | the highlighted minutes                                                                   |
+   | Hour                             | slider or hour selections   | When the slider is used the sync occurs every N hours. When :guilabel:`Each selected hour`|
+   |                                  |                             | is used, the sync occurs at the highlighted hours.                                        |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Hour                             | slider or hour selections   | if use the slider, sync occurs every N hours; if use hour selections, sync occurs at the  |
-   |                                  |                             | highlighted hours                                                                         |
+   | Day of month                     | slider or day selections    | When the slider is used the sync occurs every N days.                                     |
+   |                                  |                             | When :guilabel:`Each selected day of the month` is used, the sync occurs on the           |
+   |                                  |                             | highlighted days.                                                                         |
+   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
+   | Month                            | checkboxes                  | Define which months to run the task.                                                      |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Day of month                     | slider or day selections    | if use the slider, sync occurs every N days; if use day selections, sync occurs on the    |
-   |                                  |                             | highlighted days                                                                          |
+   | Day of week                      | checkboxes                  | Define which days of the week to run the task.                                            |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Month                            | checkboxes                  | task occurs on the selected months                                                        |
+   | Recursive                        | checkbox                    | Set to include all subdirectories of the specified volume during the rsync task.          |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Day of week                      | checkboxes                  | task occurs on the selected days of the week                                              |
+   | Times                            | checkbox                    | Set to preserve the modification times of the files.                                      |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Recursive                        | checkbox                    | if checked, copy will include all subdirectories of the specified volume                  |
+   | Compress                         | checkbox                    | Set to reduce the size of data to transmit. Recommended for slower connections.           |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Times                            | checkbox                    | preserve modification times of files                                                      |
+   | Archive                          | checkbox                    | Equivalent to :command:`-rlptgoD`. This will run the task as recursive, copy symlinks     |
+   |                                  |                             | as symlinks, preserve permissions, preserve modification times, preserve group,           |
+   |                                  |                             | preserve owner (root only), and preserve device files, and special files.                 |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Compress                         | checkbox                    | recommended on slow connections as reduces size of data to be transmitted                 |
+   | Delete                           | checkbox                    | Set to delete files in the destination directory that do not exist in                     |
+   |                                  |                             | the sending directory.                                                                    |
+   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
+   | Quiet                            | checkbox                    | Set to suppresses informational messages from the remote server.                          |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Archive                          | checkbox                    | equivalent to :command:`-rlptgoD` (recursive, copy symlinks as symlinks, preserve         |
-   |                                  |                             | permissions, preserve modification times, preserve group, preserve owner (super-user      |
-   |                                  |                             | only), and preserve device files (super-user only) and special files)                     |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Delete                           | checkbox                    | delete files in destination directory that do not exist in sending directory              |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Quiet                            | checkbox                    | suppresses informational messages from the remote server                                  |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Preserve permissions             | checkbox                    | preserves original file permissions; useful if User is set to *root*                      |
+   | Preserve permissions             | checkbox                    | Set to preserve original file permissions. Useful if User is set to *root*.               |
    |                                  |                             |                                                                                           |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Preserve extended attributes     | checkbox                    | both systems must support                                                                 |
-   |                                  |                             | `extended attributes <https://en.wikipedia.org/wiki/Xattr>`__                             |
+   | Preserve extended attributes     | checkbox                    | Both systems must support                                                                 |
+   |                                  |                             | `extended attributes. <https://en.wikipedia.org/wiki/Xattr>`__                            |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Delay Updates                    | checkbox                    | when checked, the temporary file from each updated file is saved to a holding directory   |
-   |                                  |                             | until the end of the transfer, when all transferred files are renamed into place          |
+   | Delay Updates                    | checkbox                    | Set to save the temporary file from each updated file to a holding directory              |
+   |                                  |                             | until the end of the transfer, when all transferred files are renamed into place.         |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Extra options                    | string                      | `rsync(1) <http://rsync.samba.org/ftp/rsync/rsync.html>`__                                |
-   |                                  |                             | options not covered by the GUI; if the :literal:`*` character is used, it                 |
+   | Extra options                    | string                      | Add any other `rsync(1) <http://rsync.samba.org/ftp/rsync/rsync.html>`__                  |
+   |                                  |                             | options. The :literal:`*` character                                                       |
    |                                  |                             | must be escaped with a backslash (:literal:`\\*.txt`)                                     |
-   |                                  |                             | or used inside single quotes (:literal:`'*.txt'`)                                         |
+   |                                  |                             | or used inside single quotes (:literal:`'*.txt'`).                                        |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Enabled                          | checkbox                    | uncheck to disable the rsync task without deleting it; note that when the :ref:`Rsync`    |
+   | Enabled                          | checkbox                    | Unset to disable the rsync task without deleting it. When the :ref:`Rsync`                |
    |                                  |                             | service is OFF, the rsync task will continue to look for the server unless this           |
-   |                                  |                             | checkbox is unchecked                                                                     |
+   |                                  |                             | option is unset.                                                                          |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
 
 
 If the rysnc server requires password authentication, enter
 :samp:`--password-file={/PATHTO/FILENAME}` in the
-:guilabel:`Extra options` box, replacing :literal:`/PATHTO/FILENAME`
+:guilabel:`Extra options` option, replacing :literal:`/PATHTO/FILENAME`
 with the appropriate path to the file containing the password.
 
 Created rsync tasks will be listed in :guilabel:`View Rsync Tasks`.
@@ -603,7 +603,7 @@ Rsync Module Mode
 ~~~~~~~~~~~~~~~~~
 
 This configuration example configures rsync module mode between
-the two following %brand% systems:
+these two %brand% systems:
 
 * *192.168.2.2* has existing data in :file:`/mnt/local/images`. It
   will be the rsync client, meaning that an rsync task needs to be
@@ -637,7 +637,7 @@ In this example:
 * the :guilabel:`User` is set to *root* so it has permission to write
   anywhere
 
-* the :guilabel:`Preserve Permissions` checkbox is checked so that the
+* the :guilabel:`Preserve Permissions` option is enabled so that the
   original permissions are not overwritten by the *root* user
 
 On *PULL*, an rsync module is defined in
@@ -760,15 +760,15 @@ if necessary, remove any extra spaces representing line breaks.
 
 .. figure:: images/rsync2.png
 
-   Pasting the User's SSH Public Key
+   Pasting the User SSH Public Key
 
 
 While on *PULL*, verify that the SSH service is running in
 :menuselection:`Services --> Control Services`
 and start it if it is not.
 
-Next, copy the host key of *PULL* using Shell on *PUSH*. The following
-command copies the RSA host key of the *PULL* server used in our
+Next, copy the host key of *PULL* using Shell on *PUSH*. The
+command below copies the RSA host key of the *PULL* server used in our
 previous example. Be sure to include the double bracket *>>* to
 prevent overwriting any existing entries in the :file:`known_hosts`
 file:
@@ -787,8 +787,7 @@ file:
 
 
 The rsync task can now be created on *PUSH*. To configure rsync SSH
-mode using the systems in our previous example, the configuration is
-as follows:
+mode using the systems in the previous example, use this configuration:
 
 * the :guilabel:`Path` points to :file:`/mnt/local/images`, the
   directory to be copied
@@ -804,7 +803,7 @@ as follows:
   anywhere; the public key for this user must be generated on *PUSH*
   and copied to *PULL*
 
-* the :guilabel:`Preserve Permissions` checkbox is checked so that the
+* the :guilabel:`Preserve Permissions` option is enabled so that the
   original permissions are not overwritten by the *root* user
 
 Save the rsync task and the rsync will automatically occur according
@@ -872,28 +871,28 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
    | Setting           | Value                     | Description                                                                                                |
    |                   |                           |                                                                                                            |
    +===================+===========================+============================================================================================================+
-   | Disks             | list                      | highlight disks to monitor                                                                                 |
+   | Disks             | list                      | Select the disks to monitor.                                                                               |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Type              | drop-down menu            | select type of test to run; see                                                                            |
+   | Type              | drop-down menu            | Choose the test type. See                                                                                  |
    |                   |                           | `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__                  |
-   |                   |                           | for a description of each type of test (note that some test types will degrade performance or take disks   |
-   |                   |                           | offline; do not schedule S.M.A.R.T. tests at the same time as a scrub or during a resilver operation)      |
+   |                   |                           | for descriptions of each type of test. Some test types will degrade performance or take disks              |
+   |                   |                           | offline. Avoid scheduling S.M.A.R.T. tests simultaneously with scrub or resilver operations.               |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Short description | string                    | optional                                                                                                   |
+   | Short description | string                    | Optional. Enter a short description of this test.                                                          |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Hour              | slider or hour selections | if use the slider, test occurs every N hours; if use hour selections, test occurs at the highlighted hours |
+   | Hour              | slider or hour selections | When the slider is used the sync occurs every N hours. When :guilabel:`Each selected hour` is used, the    |
+   |                   |                           | test occurs at the highlighted hours.                                                                      |
+   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
+   | Day of month      | slider or day selections  | When the slider is used the sync occurs every N days. When :guilabel:`Each selected day of the month` is   |
+   |                   |                           | used, the sync occurs on the highlighted days.                                                             |
+   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
+   | Month             | checkboxes                | Select which months to run the test.                                                                       |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Day of month      | slider or day selections  | if use the slider, test occurs every N days; if use day selections, test occurs on the highlighted days    |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Month             | checkboxes                | select the months for the test to occur                                                                    |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Day of week       | checkboxes                | select the days of the week for the test to occur                                                          |
+   | Day of week       | checkboxes                | Select which days of the week to run the test.                                                             |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
 
