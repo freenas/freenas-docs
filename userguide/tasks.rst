@@ -83,7 +83,7 @@ lists the configurable options for a cron job.
    |                   |                             | command line is recommended to ensure it works.                                                         |
    |                   |                             |                                                                                                         |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Run As User       | string                      | Choose a user account to run the *command*. The user must have permission to run the specified          |
+   | Run As User       | string                      | Choose a user account to run the *command*. The user must have permissions to run the specified         |
    |                   |                             | command or script.                                                                                      |
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Quick Schedule    | value                       | Select how often to run the cron job. Choose the empty value to define a custom schedule.               |
@@ -293,7 +293,7 @@ task.
    |                                  |                             | than 255 characters.                                                                      |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | User                             | drop-down menu              | The chosen user must have permission to write to the specified directory on the remote    |
+   | User                             | drop-down menu              | The chosen user must have permissions to write to the specified directory on the remote   |
    |                                  |                             | system. The user name cannot contain spaces or exceed 17                                  |
    |                                  |                             | characters.                                                                               |
    |                                  |                             |                                                                                           |
