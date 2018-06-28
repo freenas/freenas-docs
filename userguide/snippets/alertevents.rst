@@ -31,7 +31,7 @@ emailed to the root account.
 
 .. _alert_icons_tab:
 
-.. table:: %brand% alert icons
+.. table:: %brand% Alert Icons
    :class: longtable
 
    +------------------+--------------------------------------------------+
