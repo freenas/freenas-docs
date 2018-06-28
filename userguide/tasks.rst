@@ -357,7 +357,7 @@ task.
    | Compress                         | checkbox                    | Set to reduce the size of the data to transmit. Recommended for slow connections.         |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Archive                          | checkbox                    | Equivalent to :command:`-rlptgoD`. This will reun the task as recursive, copy symlinks    |
+   | Archive                          | checkbox                    | Equivalent to :command:`-rlptgoD`. This will run the task as recursive, copy symlinks     |
    |                                  |                             | as symlinks, preserve permissions, preserve modification times, preserve group, preserve  |
    |                                  |                             | owner (root only), preserve device files, and preserve special files.                     |
    |                                  |                             |                                                                                           |
