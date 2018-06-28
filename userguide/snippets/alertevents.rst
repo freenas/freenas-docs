@@ -21,15 +21,15 @@ the system is warning that a pool is degraded.
    Example Alert Message
 
 
-:numref:`Table %s <alert-icons>` shows the different icons that
-indicate notification, warning, and critical alerts. Critical messages
-are also emailed to the root account.
+:numref:`Table %s <alert_icons_tab>` shows the icons that indicate
+notification, warning, and critical alerts. Critical messages are also
+emailed to the root account.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.15\linewidth-2\tabcolsep}|
 
-.. _alert-icons:
+.. _alert_icons_tab:
 
 .. table:: %brand% alert icons
    :class: longtable
@@ -50,7 +50,7 @@ are also emailed to the root account.
 
 
 Close an alert message by hovering over it until
-:guilabel:`Click to Dismiss`. There is also an option to
+:guilabel:`Click to Dismiss` appears. There is also an option to
 :guilabel:`Clear All Alerts`. Close all messages to remove any
 notification badge from the alerts icon.
 
