@@ -699,7 +699,8 @@ clicking the :guilabel:`Edit Options` button in
    | Read-Only                | drop-down menu      | Only available in :guilabel:`Advanced Mode`. Choices are *Inherit (off)*, *On*, or *Off*.                 |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Exec                     | drop-down menu      | Only available in :guilabel:`Advanced Mode`. Choices are *Inherit (on)*, *On*, or *Off*.                  |
+   | Exec                     | drop-down menu      | Only available in :guilabel:`Advanced Mode`. Choices are *Inherit (on)*, *On*, or *Off*. Setting to       |
+   |                          |                     | *Off* will prevent the installation of :ref:`Plugins` or :ref:`Jails`.                                    |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    | Record Size              | drop-down menu      | Only available in :guilabel:`Advanced Mode`. While ZFS automatically adapts the record                    |
    |                          |                     | size dynamically to adapt to data, if the data has a fixed size, matching                                 |
