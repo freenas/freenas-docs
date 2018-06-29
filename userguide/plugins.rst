@@ -4,33 +4,22 @@
 Plugins
 =======
 
-%brand% 8.2.0 introduced the ability to extend the built-in NAS
-services by providing a mechanism for installing additional software.
-This mechanism is known as the Plugins architecture and is based on
-`FreeBSD jails <https://en.wikipedia.org/wiki/Freebsd_jail>`__.
-This allows the installation and configuration of additional
-applications of a created jail.
+%brand% provides the ability to extend the built-in NAS
+services by providing two methods for installing additional software.
 
-%brand% 9.x simplifies this procedure by providing two methods for
-software installation. The Plugins method is used to browse for,
-install, and configure available software using the GUI.
-This method is very easy to use, but is limited in the amount of
-software that is available. Each application is automatically installed
-into a jail. This method may not be suitable if running multiple
-applications within the same jail is desired.
+:ref:`Plugins` allow the user to browse, install, and configure
+pre-packaged software from the GUI. This method is easy to use, but
+provides a limited amount of available software. Each plugin is
+automatically installed into its own
+`FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`__.
 
-The Jails method provides much more control over software installation.
-It requires working from the command line and a good understanding of
+:ref:`Jails` provide more control over software installation but
+require working from the command line and a good understanding of
 networking basics and software installation on FreeBSD-based systems.
 
 Look through the :ref:`Plugins` and :ref:`Jails` sections to become
-familiar with the features and limitations of each. Choose the best
-method that meets the software needs.
-
-
-.. note:: Plugins created for %brand% 9.3 or later are expected to
-   work on the current release. Plugins created for earlier releases
-   of %brand% must be reinstalled.
+familiar with the features and limitations of each. Choose the method
+that best meets that application's needs.
 
 
 .. _Installing Plugins:
@@ -90,7 +79,7 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
 .. tip:: Installed plugins are also added to the
    :menuselection:`Jails`
-   page. This page is also used to manage plugins.
+   page. This page is also used to manage installed software.
 
 
 .. _view_installed_plugins_fig:
@@ -193,12 +182,14 @@ and :guilabel:`Delete` is clicked.
 Create a Plugin
 ---------------
 
-Create a new plugin for %brand% in a few steps:
+If an application is not available as a plugin, it is possible to
+create a new plugin for %brand% in a few steps. This requires an
+existing `GitHub <https://github.com>`__ account.
 
 **Create a new artifact repository on** `GitHub <https://github.com>`__.
 
-Refer to :numref:`table %s <plugin-artifact-files>` and add these
-files to the artifact repository:
+Refer to :numref:`table %s <plugin-artifact-files>` for the files to add
+to the artifact repository.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.33\linewidth-2\tabcolsep}
@@ -583,5 +574,5 @@ is supported by following the process outlined in
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
 
-If there are any difficulties using a plugin application, refer to the
-application documentation.
+If there are any difficulties using a plugin, refer to the official
+documentation for that application.
