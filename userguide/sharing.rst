@@ -994,7 +994,7 @@ shows the configuration screen that appears after navigating
 
 
 :numref:`Table %s <smb_share_opts_tab>`
-summarizes the options avaialable when creating a SMB share. Some settings are
+summarizes the options available when creating a SMB share. Some settings are
 only configurable after clicking the :guilabel:`Advanced Mode` button.
 For simple sharing scenarios, :guilabel:`Advanced Mode` options are
 not needed. For more complex sharing scenarios, only change an
