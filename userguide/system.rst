@@ -152,12 +152,12 @@ settings in the General tab:
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI IPv4 Address  | drop-down menu | Choose a recent IP addresses to limit the one to use when accessing the administrative GUI. The                          |
-   |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and isses an                               |
+   |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an                              |
    |                      |                | alert if the specified address becomes unavailable.                                                                      |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI IPv6 Address  | drop-down menu | Choose a recent IPv6 addresses to limit the one to use when accessing the administrative GUI. The                        |
-   |                      |                | built-in HTTP server will automatically bind to any address and will issue an alert                                      |
+   |                      |                | built-in HTTP server binds to any address and issues an alert                                                            |
    |                      |                | if the specified address becomes unavailable.                                                                            |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
