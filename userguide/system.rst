@@ -650,7 +650,7 @@ The configurable settings are summarized in
    | Report CPU usage in percentage           | checkbox                         | Enable to display CPU usage as percentages in :ref:`Reporting`.                                  |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | ATA Security User                        | drop-down menu                   | User passed to camcontrol security -u for unlicking SEDs. Choices are                            |
+   | ATA Security User                        | drop-down menu                   | User passed to camcontrol security -u for unlocking SEDs. Choices are                            |
    |                                          |                                  | *User* or *Master*.                                                                              |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
@@ -658,7 +658,7 @@ The configurable settings are summarized in
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
    | Reset SED Password                       | checkbox                         | Select to clear the :guilabel:`Password for SED` column of                                       |
-   |                                          |                                  | :menuselection:`Storage --> View Disks`.                                                         |
+   |                                          |                                  | :menuselection:`Storage --> Disks`.                                                              |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
 
