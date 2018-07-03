@@ -582,7 +582,7 @@ The configurable settings are summarized in
    | Setting                                  | Value                            | Description                                                                                      |
    |                                          |                                  |                                                                                                  |
    +==========================================+==================================+==================================================================================================+
-   | Enable Console Menu                      | checkbox                         | Deselect this option to replace to add a login prompt to the system before the console           |
+   | Enable Console Menu                      | checkbox                         | Deselect this option to add a login prompt to the system before the console                      |
    |                                          |                                  | menu is shown.                                                                                   |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
