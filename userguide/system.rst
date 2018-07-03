@@ -151,12 +151,12 @@ settings in the General tab:
    |                      |                | create a CA in :ref:`CAs`, then a certificate in :ref:`Certificates`.                                                    |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv4 Address  | drop-down menu | Choose a recent IP addresses to limit the one to use when accessing the administrative GUI. The                          |
+   | WebGUI IPv4 Address  | drop-down menu | Choose a recent IP addresses to limit the usage when accessing the administrative GUI. The                               |
    |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an                              |
    |                      |                | alert if the specified address becomes unavailable.                                                                      |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv6 Address  | drop-down menu | Choose a recent IPv6 addresses to limit the one to use when accessing the administrative GUI. The                        |
+   | WebGUI IPv6 Address  | drop-down menu | Choose a recent IPv6 addresses to limit the usage when accessing the administrative GUI. The                             |
    |                      |                | built-in HTTP server binds to any address and issues an alert                                                            |
    |                      |                | if the specified address becomes unavailable.                                                                            |
    |                      |                |                                                                                                                          |
