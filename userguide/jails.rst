@@ -4,39 +4,41 @@
 Jails
 =====
 
-Jails are a very light-weight, operating system-level virtualization,
+
+Jails are a light-weight, operating system-level virtualization,
 and the basis for the %brand% :ref:`plugin system <Plugins>`. Jails
-can also be created by the user. While plugins generally are
+are created by the user. While plugins generally are
 preconfigured and use a GUI for configuration, jails are often managed
-from the command line. Plugins provide a single application or
-service, while jails can provide multiple services.
+from the command line. Plugins provide only a single application or
+service. Jails provide multiple services.
 
 By default, a
 `FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`__
 is created. A jail is an independent instance of FreeBSD, using the host
 kernel, running on the same hardware without all of the overhead
 usually associated with virtualization. The jail installs FreeBSD
-software management utilities so FreeBSD ports can be compiled and
-FreeBSD packages can be installed from the command line of the jail.
+software management utilities. This allows for FreeBSD ports to be
+compiled and FreeBSD packages to be installed from the command line of
+the jail.
 
 It is important to understand that users, groups, installed software,
 and configurations within a jail are isolated from both the %brand%
 host operating system and any other jails running on that system.
-During creation, the :guilabel:`VNET` option can be checked to provide
-the jail with an independent networking stack. The jail can then do its
-own IP broadcasting, which is required by some applications.
+During creation, check the :guilabel:`VNET` option to provide
+the jail with an independent networking stack. This allows the IP of the
+jail to be broadcasted, which is required by some applications.
 
 Advanced users can also create custom templates to automate the
 creation of pre-installed and customized operating systems.
 
-The ability to create multiple jails offers great flexibility
+The ability to create multiple jails offers flexibility
 regarding software management. For example, an administrator can
 choose to provide application separation by installing different
 applications in each jail, to create one jail for all installed
 applications, or to mix and match how software is installed into each
 jail.
 
-This section will discuss:
+This section discusses:
 
 * :ref:`Jail Storage`
 
@@ -52,6 +54,7 @@ This section will discuss:
 
 Jail Storage
 ------------
+
 
 Jails and FreeBSD releases are stored in a single dataset named
 :file:`iocage`.
@@ -79,12 +82,11 @@ Creating Jails
 --------------
 
 
-%brand% has two options to create a jail. The :guilabel:`Jail Wizard`
-makes it easy to quickly create a jail. :guilabel:`Advanced Jail Creation`
-is the second method, where every possible jail option is configurable.
-There are numerous configurables spread across four different primary
-sections. This form is recommended for advanced users with very specific
-requirements for a jail.
+%brand% has two options to create a jail. First, the
+:guilabel:`Jail Wizard` makes it easy to quickly create a jail.
+Next, :guilabel:`Advanced Jail Creation` allows for every
+possible jail option to be configured. There are many configurables
+spread across four different primary sections.
 
 
 .. index:: Jail Wizard
@@ -94,8 +96,8 @@ Jail Wizard
 ~~~~~~~~~~~
 
 
-To quickly create a new jail, navigate to :menuselection:`Jails` and
-click |ui-add|. This opens the wizard screen seen in
+Quickly create a new jail by navigating to :guilabel:`Jails` and
+clicking |ui-add|. This opens the wizard screen seen in
 :numref:`Figure %s <jail_wizard_fig>`.
 
 
@@ -108,12 +110,12 @@ click |ui-add|. This opens the wizard screen seen in
 
 The wizard demonstrates the simplest process to create and configure
 networking for a new jail. Enter a :guilabel:`Jail Name`. Jail names can
-only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),
-dashes (:literal:`-`), and underscores (:literal:`_`). Choose the version
+only contain alphanumeric characters ( :literal:`Aa-Zz`, :literal:`123`),
+dashes (:literal:`-`), and underscores ( :literal:`_`). Choose the version
 of FreeBSD to install for this jail. Previously downloaded versions
 display :literal:`(fetched)` next to their entry in the list. These are
-the minimum required settings for a new jail but it is also recommended
-to configure networking for the jail.
+the minimum required settings for a new jail. However, it is also
+recommended to configure networking for the jail.
 
 Click :guilabel:`Next` to see a simplified list of networking options.
 The jail can be set to automatically configure IPv4 with :guilabel:`DHCP`
@@ -140,8 +142,8 @@ Advanced Jail Creation
 ~~~~~~~~~~~~~~~~~~~~~~
 
 
-To open the full jail creation form, navigate
-:menuselection:`Jails --> Add Jail` and click
+Open the full jail creation form by navigating to
+:menuselection:`Jails --> Add Jail`. Click
 :guilabel:`Advanced Jail Creation` to access the screen shown in
 :numref:`Figure %s <creating_jail_fig>`.
 
@@ -157,10 +159,10 @@ To open the full jail creation form, navigate
 options of the :guilabel:`Basic Properties` of a new jail. By default,
 the only required values to create a jail are the :guilabel:`Jail Name`
 and :guilabel:`Release`. It is recommended to configure these basic
-properties as a simple method to quickly create an immediately usable
-jail. Many more advanced settings are available in the
-:guilabel:`Jail Properties`, :guilabel:`Network Properties`, and
-:guilabel:`Custom Properties` sections.
+properties as a simple method to create a usable jail. More
+advanced settings are available in the :guilabel:`Jail Properties`,
+:guilabel:`Network Properties`, and :guilabel:`Custom Properties`
+sections.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -237,7 +239,7 @@ jail. Many more advanced settings are available in the
 
 Similar to the :ref:`Jail Wizard`, configuring the basic properties then
 clicking :guilabel:`Save` is often all that is needed to quickly create
-and begin using a new jail. To continue configuring more settings, click
+and use a jail. To continue configuring more settings, click
 :guilabel:`Next` to proceed to the :guilabel:`Jail Properties` section of
 the form.  :numref:`Table %s <jail_jail_props_tab>` describes each of
 these options.
@@ -311,7 +313,7 @@ these options.
    |                       |           | file *instead* of the jail passwd.                                                                                  |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | exec.system_user      | string    | Run comands in the jail as this user. By default, commands are run as the current user.                             |
+   | exec.system_user      | string    | Run commands in the jail as this user. By default, commands are run as the current user.                            |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | mount.devfs           | checkbox  | Mount a                                                                                                             |
@@ -393,7 +395,7 @@ these options.
    |                       |           | `ping(8) <https://www.freebsd.org/cgi/man.cgi?query=ping&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__ and             |
    |                       |           | `traceroute(8) <https://www.freebsd.org/cgi/man.cgi?query=traceroute&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__     |
    |                       |           | require raw sockets to operate inside a jail. When set, the source IP addresses are enforced to comply with the     |
-   |                       |           | IP address bound to the jail, ignoring the the IP_HDRINCL flag on the socket.                                       |
+   |                       |           | IP address bound to the jail, ignoring the IP_HDRINCL flag on the socket.                                           |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | allow.chflags         | checkbox  | Set to treat jail users as privileged and allow the manipulation of system file flags. **securelevel** constraints  |
@@ -576,7 +578,7 @@ The final set of jail properties are contained in the
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
 
 
-Click :guilabel:`Save` when satisfied with all the different jail
+Click :guilabel:`Save` when satisfied with the different jail
 properties. New jails are added to the primary list in the
 :guilabel:`Jails` menu.
 
@@ -587,7 +589,8 @@ properties. New jails are added to the primary list in the
 Managing Jails
 --------------
 
-Click :menuselection:`Jails` to see an overview of installed jails as
+
+Click :guilabel:`Jails` to see a list of installed jails as
 shown in :numref:`Figure %s <jail_overview_fig>`.
 
 .. _jail_overview_fig:
@@ -652,44 +655,6 @@ shown in :numref:`Figure %s <jail_overview_fig>`.
 
    Jail Option Menu
 
-#ifdef comment
-I updated/renamed the "Viewing Jails" figure to "The Jail Overview Figure"
-
-Old
-.. _view_added_jails_fig:
-.. figure:: images/jails4b.png
-   Viewing Jails
-
-New
-.. _jail_overview_fig:
-.. figure:: images/jails4b.png
-   Jail Overview Section
-
-I think this name is more appropriate. This is using the same screenshot
-as used in the legacy UI userguide, so this image name should be fine.
-
-I added the jail_option_menu_fig. I used "jails4b.png" as the placeholder
-image only as this screenshot doesn't currently exist. If it does exist,
-I need to know what the name of the screenshot is. If there isn't a
-screenshot showing the open options menu, we need one. Once we have a
-screenshot name, let me know so I can get jail_option_menu_fig updated.
-
-After the screenshot showing the menu option open, each option is
-described. It wasn't a bulleted list but kinda was. Each entry was listed
-in bold but no bullet.
-
-This page is already a bit table heavy but I think these options fit
-better in a table with the description of each of the Jail Option Menu
-items.
-
-#endif comment
-
-.. note:: The |ui-options| menu is jail state sensitive meaning menu
-          entries change depending on the jail state. For example, a
-          stopped jail does not have a Stop option and cannot be accessed
-          via Shell; these options are not available when a jail is
-          stopped.
-
 
 :numref:`Table %s <jail_option_menu_tab>` describes the option menu
 entries available for a jail.
@@ -718,7 +683,7 @@ entries available for a jail.
    |              | Point section to create a new mount point to add. Adding a |
    |              | mount point gives a jail access to storage located         |
    |              | elsewhere on the %brand% system. See                       |
-   |              | f:ref:`Add Storage` or more details.                       |
+   |              | :ref:`Additional Storage` for more details.                |
    |              |                                                            |
    +--------------+------------------------------------------------------------+
    | Start        | Start a jail. Running jails are indicated as **up**.       |
@@ -742,15 +707,22 @@ entries available for a jail.
    +--------------+------------------------------------------------------------+
 
 
-.. note:: To modify the IP address information for a jail, use
-   |ui-options| :guilabel:`Edit` instead of issuing the networking
-   commands directly from the command line of the jail. This ensures
-   the changes will survive a jail or %brand% reboot.
+.. note:: The |ui-options| menu is jail state sensitive. This means menu
+          entries change depending on the jail state. For example, a
+          stopped jail does not have a Stop option and cannot be accessed
+          via Shell. These options are not available when a jail is
+          stopped.
+
+
+.. note:: Modify the IP address information for a jail by using
+          |ui-options| :guilabel:`Edit` instead of issuing the networking
+          commands directly from the command line of the jail. This
+          ensures the changes survive a jail or %brand% reboot.
 
 
 .. warning:: Back up data and programs in a jail **before** clicking
-   delete. There is no way to recover the contents of a jail *after*
-   deletion.
+             delete. There is no way to recover the contents of a jail
+             *after* deletion.
 
 
 .. index:: Accessing a Jail Using SSH, SSH
@@ -759,17 +731,18 @@ entries available for a jail.
 Accessing a Jail Using SSH
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Accessing a jail is not limited to using Jail Add, the Jail Wizard, or
-using one of the Shells that are built in to the UI. Enable the ssh
-daemon `sshd(8)
-<https://www.freebsd.org/cgi/man.cgi?query=sshd&apropos=0&sektion=8>`__
-in a jail, create a user account to log in with, and ssh access to
-the jail via any computer that has network access to the %brand% server
-is now possible.
 
-Log in to a shell to get :guilabel:`cli` access to the jail to enable SSH
-on. To use the Jails Shell click |ui-options| --> :guilabel:`Shell` on
-the desired jail. A root shell will open as shown in this example:
+The ssh daemon
+`sshd(8) <https://www.freebsd.org/cgi/man.cgi?query=sshd&apropos=0&sektion=8>`__
+must be enabled to access a jail from another system using SSH.
+
+Access the shell of the jail in the %brand% UI to enable SSH. Log into
+the UI. Click
+:menuselection:`Jails -->` |ui-options| :menuselection:`--> Shell`
+for the desired jail. The jail status must be :guilabel:`up` for
+:guilabel:`Shell` to be available. Start the jail by clicking
+|ui-options| and :guilabel:`Start`. The jail root shell is shown in this
+example:
 
 
 .. code-block:: none
@@ -799,10 +772,9 @@ the desired jail. A root shell will open as shown in this example:
    Edit /etc/motd to change this login announcement.
    root@jailexamp:~ #
 
-.. tip:: A root shell can also be opened for a jail using
+.. tip:: A root shell can also be opened for a jail using %brand% UI
    :guilabel:`Shell`. Open the :guilabel:`Shell`, then type
-   :samp:`iocage console Jail Name`. Note: :guilabel:`Jail Name` and
-   :guilabel:`UUID` are the same thing.
+   :samp:`iocage console <Jail Name>`.
 
 
 Enable sshd:
@@ -810,16 +782,11 @@ Enable sshd:
 .. code-block:: none
 
    sysrc sshd_enable="YES"
-
-   No existing entry or already set to NO:
    sshd_enable: NO -> YES
 
-   Existing entry set to YES
-   sshd_enable: YES -> YES
 
-
-.. tip:: Using :command:`sysrc` to enable sshd will verify sshd gets
-   enabled even if there is an existing entry.
+.. tip:: Using :command:`sysrc` to enable sshd verifies sshd is
+   enabled even if there is an existing sshd entry.
 
 Start the SSH daemon: :samp:`service sshd start`
 
@@ -882,7 +849,7 @@ password, use :command:`passwd`. Nothing is echoed back when using
 
 
 Finally, test from another system that the user can successfully
-:command:`ssh` in to the jail and gain superuser priviledges. In the
+:command:`ssh` in to the jail and gain superuser privileges. In the
 example, a user named *jailuser* uses :command:`ssh` to access the jail
 at 192.168.2.3. The host RSA key fingerprint must be verified the first
 time a user logs in.
@@ -913,23 +880,22 @@ is configured on the %brand% system.
 It is possible to give a FreeBSD jail access to an area of storage on
 the %brand% system. This is useful for applications or plugins that store
 large amount of data or if an application in a jail needs access to data
-stored on the %brand% system. One example is transmission, a plugin that
-stores data using BitTorrent. The storage is added using the
-`mount_nullfs(8)
-<https://www.freebsd.org/cgi/man.cgi?query=mount_nullfs>`__ mechanism,
-which links data that resides outside of the jail as a storage area
-within a jail.
+stored on the %brand% system. One example is transmission. It is a
+plugin that stores data using BitTorrent. The storage is added using the
+`mount_nullfs(8) <https://www.freebsd.org/cgi/man.cgi?query=mount_nullfs>`__ 
+mechanism, which links data that resides outside of the jail as a
+storage area within a jail.
 
-The Mount Points section of a jail shows the all additional storage
-currently added and allows new additional storage to be added.
+The :guilabel:`Mount points` section of a jail shows all additional
+storage currently added and allows new additional storage to be added.
 
-Navigate :menuselection:`Jails`, click |ui-options| on the desired
-jail, then :guilabel:`Mount points`. In the
-Mount points section is a list of all of the currently defined mount
-points.
+Navigate to
+:menuselection:`Jails -->` |ui-options| :menuselection:`--> Mount points`
+for the desired jail. In the :guilabel:`Mount points` section is a list
+of all of the currently defined mount points.
 
 To add storage, navigate to
-:menuselection:`Mount points` and click |ui-add|.
+:menuselection:`Mount points -->` |ui-add|.
 This opens the screen shown in
 :numref:`Figure %s <adding_storage_jail_fig>`.
 
@@ -951,9 +917,7 @@ Browse to the :guilabel:`Source` and :guilabel:`Destination`, where:
   used for storage on the %brand% system.
 
 * **Destination:** select an **existing, empty** directory within the
-  jail to link to the :guilabel:`Source` storage area. If that
-  directory does not exist yet, enter the desired directory name and
-  enable the :guilabel:`Create directory` option.
+  jail to link to the :guilabel:`Source` storage area.
 
 Storage is typically added because the user and group account
 associated with an application installed inside of a jail needs to
@@ -986,10 +950,10 @@ The workflow for adding storage usually goes like this:
     that match the user and group names used by the application in
     the jail.
 
-#.  Decide if the jail will have access to existing data or if
-    a new area of storage will be set aside for the jail to use.
+#.  Decide if the jail has access to existing data or if
+    a new area of storage is set aside for the jail to use.
 
-#.  If the jail will access existing data, edit the permissions of
+#.  If the jail accesses existing data, edit the permissions of
     the pool or dataset so the user and group accounts have the
     desired read and write access. If multiple applications or jails
     are to have access to the same data, create a new group and add
@@ -1000,8 +964,9 @@ The workflow for adding storage usually goes like this:
     that dataset so the user and group account has the desired read
     and write access.
 
-#.  Use the :menuselection:`Mount points --> Add Mount Point` options
-    of the jail and select the configured pool or dataset as the
+#.  Use the
+    :menuselection:`Mount points -->` |ui-add|
+    options of the jail and select the configured pool or dataset as the
     :guilabel:`Source`.
 
 To prevent writes to the storage, check :guilabel:`Read-Only`.
@@ -1028,17 +993,19 @@ screen.
 
 Storage is automatically mounted as it is created.
 
-.. note:: A mounted dataset will not automatically mount any of its
+.. note:: A mounted dataset does not automatically mount any of its
    child datasets. While the child datasets may appear to be browsable
-   inside the jail, any changes will not be visible. Since each
+   inside the jail, any changes are not visible. Since each
    dataset is considered to be its own filesystem, each child dataset
    must have its own mount point, so separate storage must be created
    for any child datasets which need to be mounted.
 
 
-To delete the storage, click its :guilabel:`Delete` button.
+Click
+|ui-options| :menuselection:`--> Delete`
+to delete the storage.
 
-.. warning:: It is important to realize that added storage is really
+.. warning:: It is important to realize that added storage is
    just a pointer to the selected storage directory on the %brand%
    system. It does **not** copy that data to the jail.
    **Files that are deleted from the**
@@ -1046,8 +1013,8 @@ To delete the storage, click its :guilabel:`Delete` button.
    **directory in the jail are really deleted from the**
    :guilabel:`Source`
    **directory on the** %brand% **system.**
-   However, removing the jail storage entry only removes the pointer,
-   leaving the data intact but not accessible from the jail.
+   However, removing the jail storage entry only removes the pointer.
+   This leaves the data intact, but not accessible from the jail.
 
 
 .. _Jail Software:
@@ -1089,7 +1056,7 @@ the user has logged into *testjail01*:
 
 
 .. tip:: See :ref:`Using iocage` for more details about different
-   :command:`iocage` commands simple jail manipulation.
+   :command:`iocage` commands.
 
 The next sections detail two different options to install software
 inside a jail using :command:`pkg` or compiling the port directly.
@@ -1103,32 +1070,27 @@ Installing FreeBSD Packages
 
 The quickest and easiest way to install software inside the jail is to
 install a FreeBSD package. FreeBSD packages are pre-compiled.  They
-contains all the binaries and a list of dependencies required for the
+contain all the binaries and a list of dependencies required for the
 software to run on a FreeBSD system.
 
-A huge amount of software has been ported to FreeBSD, currently over
-24,000 applications, and most of that software is available as a
-package. One way to find FreeBSD software is to use the search bar at
+A huge amount of software has been ported to FreeBSD, and most of that
+software is available as a package. One way to find FreeBSD software is
+to use the search bar at
 `FreshPorts.org <https://www.freshports.org/>`__.
 
 After finding the name of the desired package, use the
 :command:`pkg install` command to install it. For example, to install
-the audiotag package, use this command:
-
-.. code-block:: none
-
-   pkg install audiotag
-
+the audiotag package, use the command :command:`pkg install audiotag`
 
 When prompted, type **y** to complete the installation. The
-installation messages will indicate if the package and its
+installation messages indicate if the package and the
 dependencies successfully download and install.
 
 .. warning:: Some older versions of FreeBSD used package systems
    which are now obsolete. Do not use commands from those obsolete
-   package systems in a %brand% jail, as they will cause
-   inconsistencies in the jail's package management database. Use the
-   current FreeBSD package system as shown in these examples.
+   package systems in a %brand% jail, as they cause
+   inconsistencies in the package management database of the jail. Use
+   the current FreeBSD package system as shown in these examples.
 
 A successful installation can be confirmed by querying the package
 database:
@@ -1189,9 +1151,9 @@ files in a subdirectory called :file:`etc`.
 Compiling FreeBSD Ports
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Software is typically installed into FreeBSD jails using packages. But
-sometimes there are good reasons to compile a port instead. Compiling
-ports offers these advantages:
+Software is typically installed into FreeBSD jails using packages.
+Sometimes there are good reasons to compile a port instead. Compiling
+ports offer these advantages:
 
 * Not every port has an available package. This is usually due to
   licensing restrictions or known, unaddressed security
@@ -1204,7 +1166,7 @@ ports offers these advantages:
   pre-compiled package. These options are used to add or remove
   features or options.
 
-Compiling a port has these disadvantages:
+Compiling a port has some disadvantages:
 
 * It takes time. Depending upon the size of the application, the
   amount of dependencies, the speed of the CPU, the amount of RAM
@@ -1213,7 +1175,7 @@ Compiling a port has these disadvantages:
   days.
 
 .. note:: If the port does not provide any compile options, it saves
-   time and preserves the %brand% system's resources to just use the
+   time and preserves the %brand% system resources to just use the
    :command:`pkg install` command instead.
 
 The
@@ -1233,14 +1195,14 @@ shows the :guilabel:`Configuration Options` for audiotag.
 This port has five configurable options (DOCS, FLAC, ID3, MP4,
 and VORBIS) and each option is enabled (on) by default.
 
-FreeBSD packages are always built using the default options. When
-compiling a port, those options are presented in a menu, allowing the
-default values to be changed.
+FreeBSD packages are always built using the default options. Compiling
+a port, those options are presented in a menu when compiling a port.
+The default values are able to be changed.
 
 The Ports Collection must be installed in a jail before ports can be
 compiled. Inside the jail, use the :command:`portsnap`
 utility. This command downloads the ports collection and extracts
-it to the jail's :file:`/usr/ports/` directory:
+it to the :file:`/usr/ports/` directory of the jail:
 
 .. code-block:: none
 
@@ -1262,7 +1224,7 @@ This example compiles and installs the audiotag port:
    make install clean
 
 
-Since this port has configurable options, the first time this command
+This port has configurable options. The first time this command
 is run, the configure screen shown in
 :numref:`Figure %s <config_set_audiotag_fig>`
 is displayed:
@@ -1276,24 +1238,21 @@ is displayed:
 
 
 Use the arrow keys to select an option and press :kbd:`spacebar`
-to toggle the value. When all the values are as desired, press
-:kbd:`Enter`.  The port will begin to compile and install.
+to toggle the value. Press :kbd:`Enter` when all the values are as
+desired. The port will begin to compile and install.
 
-.. note:: The configuration screen will not be shown again, even
-   if the build is stopped and restarted. It can be redisplayed
-   by typing :command:`make config`.  Change the settings, then
-   rebuild with :command:`make clean install clean`.
+.. note:: The configuration screen will not be shown again. It can be
+   redisplayed by typing :command:`make config`.  Change the settings,
+   then rebuild with :command:`make clean install clean`.
 
-Many ports depend on other ports. Those other ports can also have
-configuration screens that will be shown before compiling begins. It
-is a good idea to keep an eye on the compile until it finishes and the
+Many ports depend on other ports. Those other ports also have
+configuration screens that are shown before compiling begins. It
+is a good idea to watch the compile until it finishes and the
 command prompt returns.
 
-When the port is installed, it is registered in the same package
-database that manages packages. The same :command:`pkg info` command
-can be used to determine what was installed, as described in the
-previous section.
-
+The port is registered in the same package database that manages
+packages when it is installed. The :command:`pkg info`
+command can be used to determine what was installed.
 
 .. _Starting Installed Software:
 
@@ -1301,20 +1260,18 @@ Starting Installed Software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After packages or ports are installed, they must be configured and
-started. If familiar with the software, look for the configuration
-file in :file:`/usr/local/etc` or a subdirectory of it. Many FreeBSD
-packages contain a sample configuration file as a reference. If
-unfamiliar with the software, spend some time reading the software
-documentation to learn which configuration options are available and
-which configuration files require editing.
+started. Look for the configuration file in :file:`/usr/local/etc` or a
+subdirectory of it. Many FreeBSD packages contain a sample configuration
+file as a reference. Spend some time reading the software documentation
+to learn which configuration options are available and which
+configuration files require editing.
 
 Most FreeBSD packages that contain a startable service include a
 startup script which is automatically installed to
-:file:`/usr/local/etc/rc.d/`. After the configuration is complete, the
-starting of the service can be tested by running the script with the
-:command:`onestart` option. As an example, if openvpn is installed
-into the jail, these commands run its startup script and verify that
-the service started:
+:file:`/usr/local/etc/rc.d/`. After the configuration is complete, test
+starting the service by running the script with the :command:`onestart`
+option. For example, openvpn is installed into the jail and these
+commands are run to verify that the service started:
 
 .. code-block:: none
 
@@ -1339,8 +1296,7 @@ If it produces an error:
 
 Run :command:`tail /var/log/messages` to see if any error messages
 hint at the problem. Most startup failures are related to a
-misconfiguration: either a typo or a missing option in a
-configuration file.
+misconfiguration in a configuration file.
 
 After verifying that the service starts and is working as intended,
 add a line to :file:`/etc/rc.conf` to start the
@@ -1413,8 +1369,8 @@ using :command:`iocage`.
 :command:`iocage` has several options to help users:
 
 * There is built-in help displayed by entering
-  :samp:`iocage --help | less`. Each subcommand also has help,
-  displayed by giving the subcommand name followed by the
+  :samp:`iocage --help | less`. Each subcommand also has help.
+  Display them by giving the subcommand name followed by the
   :literal:`--help` flag. For example, help for the
   :command:`activate` subcommand displays with
   :samp:`iocage activate --help`.
@@ -1430,7 +1386,7 @@ Managing iocage Jails
 ~~~~~~~~~~~~~~~~~~~~~
 
 Creating a jail automatically starts the iocage configuration process
-for the %brand% system. Jail properties can also be specified with the
+for the %brand% system. Jail properties are also specified with the
 :command:`iocage create` command.
 
 In this example a new jail named *examplejail* is created. Additional
@@ -1484,7 +1440,7 @@ To open the console in the started jail, use :command:`iocage console`
    Edit /etc/motd to change this login announcement.
    root@examplejail:~ #
 
-Jails can be shut down with :command:`iocage stop`:
+Jails are shut down with :command:`iocage stop`:
 
 .. code-block:: none
 
@@ -1511,7 +1467,7 @@ To adjust the properties of a jail, use :command:`iocage set` and
 :command:`iocage get all`:
 
 .. tip:: This example shows an abbreviated list of the properties for
-   **examplejail**. The iocage manual page (:command:`man iocage`)
+   **examplejail**. The iocage manual page ( :command:`man iocage`)
    describes even more configurable properties for jails.
 
 .. code-block:: none
