@@ -24,7 +24,7 @@ the jail.
 It is important to understand that users, groups, installed software,
 and configurations within a jail are isolated from both the %brand%
 host operating system and any other jails running on that system.
-During creation, check the :guilabel:`VNET` option to provide
+During creation, set the :guilabel:`VNET` option to provide
 the jail with an independent networking stack. This allows the IP of the
 jail to be broadcasted, which is required by some applications.
 
@@ -85,7 +85,7 @@ Creating Jails
 %brand% has two options to create a jail. First, the
 :guilabel:`Jail Wizard` makes it easy to quickly create a jail.
 Next, :guilabel:`Advanced Jail Creation` allows for every
-possible jail option to be configured. There are many configurables
+possible jail option to be configured. There are many options
 spread across four different primary sections.
 
 
@@ -108,13 +108,13 @@ clicking |ui-add|. This opens the wizard screen seen in
    Jail Creation Wizard
 
 
-The wizard demonstrates the simplest process to create and configure
+The wizard provides the simplest process to create and configure
 networking for a new jail. Enter a :guilabel:`Jail Name`. Jail names can
-only contain alphanumeric characters ( :literal:`Aa-Zz`, :literal:`123`),
-dashes (:literal:`-`), and underscores ( :literal:`_`). Choose the version
+only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),
+dashes (:literal:`-`), and underscores (:literal:`_`). Choose the version
 of FreeBSD to install for this jail. Previously downloaded versions
 display :literal:`(fetched)` next to their entry in the list. These are
-the minimum required settings for a new jail. However, it is also
+the minimum required settings for a new jail. It is also
 recommended to configure networking for the jail.
 
 Click :guilabel:`Next` to see a simplified list of networking options.
@@ -707,22 +707,22 @@ entries available for a jail.
    +--------------+------------------------------------------------------------+
 
 
-.. note:: The |ui-options| menu is jail state sensitive. This means menu
-          entries change depending on the jail state. For example, a
-          stopped jail does not have a Stop option and cannot be accessed
-          via Shell. These options are not available when a jail is
-          stopped.
+.. note:: The |ui-options| menu is jail state sensitive. Menu
+   entries change depending on the jail state. For example, a
+   stopped jail does not have a Stop option and cannot be accessed
+   with the Shell. These options are not available when a jail is
+   stopped.
 
 
 .. note:: Modify the IP address information for a jail by using
-          |ui-options| :guilabel:`Edit` instead of issuing the networking
-          commands directly from the command line of the jail. This
-          ensures the changes survive a jail or %brand% reboot.
+   |ui-options| :guilabel:`Edit` instead of issuing the networking
+   commands directly from the command line of the jail. This
+   ensures the changes survive a jail or %brand% reboot.
 
 
 .. warning:: Back up data and programs in a jail **before** clicking
-             delete. There is no way to recover the contents of a jail
-             *after* deletion.
+   delete. There is no way to recover the contents of a jail
+   *after* deletion.
 
 
 .. index:: Accessing a Jail Using SSH, SSH
@@ -772,7 +772,7 @@ example:
    Edit /etc/motd to change this login announcement.
    root@jailexamp:~ #
 
-.. tip:: A root shell can also be opened for a jail using %brand% UI
+.. tip:: A root shell can also be opened for a jail using the %brand% UI
    :guilabel:`Shell`. Open the :guilabel:`Shell`, then type
    :samp:`iocage console <Jail Name>`.
 
@@ -786,7 +786,7 @@ Enable sshd:
 
 
 .. tip:: Using :command:`sysrc` to enable sshd verifies sshd is
-   enabled even if there is an existing sshd entry.
+   enabled.
 
 Start the SSH daemon: :samp:`service sshd start`
 
@@ -849,7 +849,7 @@ password, use :command:`passwd`. Nothing is echoed back when using
 
 
 Finally, test from another system that the user can successfully
-:command:`ssh` in to the jail and gain superuser privileges. In the
+:command:`ssh` into the jail and gain superuser privileges. In the
 example, a user named *jailuser* uses :command:`ssh` to access the jail
 at 192.168.2.3. The host RSA key fingerprint must be verified the first
 time a user logs in.
@@ -880,22 +880,23 @@ is configured on the %brand% system.
 It is possible to give a FreeBSD jail access to an area of storage on
 the %brand% system. This is useful for applications or plugins that store
 large amount of data or if an application in a jail needs access to data
-stored on the %brand% system. One example is transmission. It is a
+stored on the %brand% system. For example, transmission is a
 plugin that stores data using BitTorrent. The storage is added using the
 `mount_nullfs(8) <https://www.freebsd.org/cgi/man.cgi?query=mount_nullfs>`__ 
 mechanism, which links data that resides outside of the jail as a
 storage area within a jail.
 
-The :guilabel:`Mount points` section of a jail shows all additional
-storage currently added and allows new additional storage to be added.
+The :guilabel:`Mount points` section of a jail shows any added storage
+and allows adding more storage to the jail.
 
-Navigate to
+Go to
 :menuselection:`Jails -->` |ui-options| :menuselection:`--> Mount points`
-for the desired jail. In the :guilabel:`Mount points` section is a list
+for the desired jail. The :guilabel:`Mount points` section is a list
 of all of the currently defined mount points.
 
-To add storage, navigate to
-:menuselection:`Mount points -->` |ui-add|.
+Go to
+:menuselection:`Mount points -->` |ui-add|
+to add storage to a jail.
 This opens the screen shown in
 :numref:`Figure %s <adding_storage_jail_fig>`.
 
@@ -966,7 +967,7 @@ The workflow for adding storage usually goes like this:
 
 #.  Use the
     :menuselection:`Mount points -->` |ui-add|
-    options of the jail and select the configured pool or dataset as the
+    option of the jail and select the configured pool or dataset as the
     :guilabel:`Source`.
 
 To prevent writes to the storage, check :guilabel:`Read-Only`.
@@ -1002,7 +1003,7 @@ Click
 |ui-options| :menuselection:`--> Delete`
 to delete the storage.
 
-.. warning:: It is important to realize that added storage is
+.. warning:: Remember that added storage is
    just a pointer to the selected storage directory on the %brand%
    system. It does **not** copy that data to the jail.
    **Files that are deleted from the**
@@ -1011,7 +1012,7 @@ to delete the storage.
    :guilabel:`Source`
    **directory on the** %brand% **system.**
    However, removing the jail storage entry only removes the pointer.
-   This leaves the data intact, but not accessible from the jail.
+   This leaves the data intact but not accessible from the jail.
 
 
 .. _Jail Software:
@@ -1066,11 +1067,11 @@ Installing FreeBSD Packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The quickest and easiest way to install software inside the jail is to
-install a FreeBSD package. FreeBSD packages are pre-compiled.  They
+install a FreeBSD package. FreeBSD packages are pre-compiled. They
 contain all the binaries and a list of dependencies required for the
 software to run on a FreeBSD system.
 
-A huge amount of software has been ported to FreeBSD, and most of that
+A huge amount of software is ported to FreeBSD. Most of that
 software is available as a package. One way to find FreeBSD software is
 to use the search bar at
 `FreshPorts.org <https://www.freshports.org/>`__.
@@ -1080,7 +1081,7 @@ After finding the name of the desired package, use the
 the audiotag package, use the command :command:`pkg install audiotag`
 
 When prompted, type **y** to complete the installation. The
-installation messages indicate if the package and the
+installation messages indicate if the package and
 dependencies successfully download and install.
 
 .. warning:: Some older versions of FreeBSD used package systems
@@ -1148,8 +1149,7 @@ files in a subdirectory called :file:`etc`.
 Compiling FreeBSD Ports
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Software is typically installed into FreeBSD jails using packages.
-Sometimes there are good reasons to compile a port instead. Compiling
+Compiling a port is another option. Compiling
 ports offer these advantages:
 
 * Not every port has an available package. This is usually due to
@@ -1163,7 +1163,7 @@ ports offer these advantages:
   pre-compiled package. These options are used to add or remove
   features or options.
 
-Compiling a port has some disadvantages:
+Compiling a port has these disadvantages:
 
 * It takes time. Depending upon the size of the application, the
   amount of dependencies, the speed of the CPU, the amount of RAM
@@ -1172,7 +1172,7 @@ Compiling a port has some disadvantages:
   days.
 
 .. note:: If the port does not provide any compile options, it saves
-   time and preserves the %brand% system resources to just use the
+   time and preserves the %brand% system resources to use the
    :command:`pkg install` command instead.
 
 The
@@ -1192,9 +1192,9 @@ shows the :guilabel:`Configuration Options` for audiotag.
 This port has five configurable options (DOCS, FLAC, ID3, MP4,
 and VORBIS) and each option is enabled (on) by default.
 
-FreeBSD packages are always built using the default options. Compiling
-a port, those options are presented in a menu when compiling a port.
-The default values are able to be changed.
+FreeBSD packages are always built using the default options. Those
+options are presented in a menu when compiling a port. The default
+values can be changed.
 
 The Ports Collection must be installed in a jail before ports can be
 compiled. Inside the jail, use the :command:`portsnap`
@@ -1221,8 +1221,7 @@ This example compiles and installs the audiotag port:
    make install clean
 
 
-This port has configurable options. The first time this command
-is run, the configure screen shown in
+The first time this command is run, the configure screen shown in
 :numref:`Figure %s <config_set_audiotag_fig>`
 is displayed:
 
@@ -1235,11 +1234,11 @@ is displayed:
 
 
 Use the arrow keys to select an option and press :kbd:`spacebar`
-to toggle the value. Press :kbd:`Enter` when all the values are as
-desired. The port will begin to compile and install.
+to toggle the value. Press :kbd:`Enter` when satisfied with the jail
+options. The port begin to compile and install.
 
-.. note:: The configuration screen will not be shown again. It can be
-   redisplayed by typing :command:`make config`.  Change the settings,
+.. note:: The configuration screen is not shown again. Redisplay it by
+   typing :command:`make config`. Change the settings,
    then rebuild with :command:`make clean install clean`.
 
 Many ports depend on other ports. Those other ports also have
