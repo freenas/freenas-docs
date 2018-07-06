@@ -993,12 +993,9 @@ screen.
 
 Storage is automatically mounted as it is created.
 
-.. note:: A mounted dataset does not automatically mount any of its
-   child datasets. While the child datasets may appear to be browsable
-   inside the jail, any changes are not visible. Since each
-   dataset is considered to be its own filesystem, each child dataset
-   must have its own mount point, so separate storage must be created
-   for any child datasets which need to be mounted.
+.. note:: Mounting a dataset does not automatically mount any
+   child datasets inside it. Each dataset is a separate filesystem, so
+   child datasets must each have separate mount points.
 
 
 Click
