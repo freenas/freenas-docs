@@ -1256,9 +1256,9 @@ Starting Installed Software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After packages or ports are installed, they must be configured and
-started. Look for the configuration file in :file:`/usr/local/etc` or a
+started. The configuration file is in :file:`/usr/local/etc` or a
 subdirectory of it. Many FreeBSD packages contain a sample configuration
-file as a reference. Spend some time reading the software documentation
+file as a reference. Take some time to read the software documentation
 to learn which configuration options are available and which
 configuration files require editing.
 
@@ -1290,8 +1290,8 @@ If it produces an error:
    /usr/local/etc/rc.d/openvpn: WARNING: failed to start openvpn
 
 
-Run :command:`tail /var/log/messages` to see if any error messages
-hint at the problem. Most startup failures are related to a
+Run :command:`tail /var/log/messages` to see any error messages
+if an issue is found. Most startup failures are related to a
 misconfiguration in a configuration file.
 
 After verifying that the service starts and is working as intended,
