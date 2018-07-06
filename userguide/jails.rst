@@ -96,7 +96,7 @@ Jail Wizard
 ~~~~~~~~~~~
 
 
-Quickly create a new jail by navigating to :guilabel:`Jails` and
+Quickly create a new jail by going to :guilabel:`Jails` and
 clicking |ui-add|. This opens the wizard screen seen in
 :numref:`Figure %s <jail_wizard_fig>`.
 
@@ -142,7 +142,7 @@ Advanced Jail Creation
 ~~~~~~~~~~~~~~~~~~~~~~
 
 
-Open the full jail creation form by navigating to
+Open the full jail creation form by going to
 :menuselection:`Jails --> Add Jail`. Click
 :guilabel:`Advanced Jail Creation` to access the screen shown in
 :numref:`Figure %s <creating_jail_fig>`.
@@ -1022,7 +1022,7 @@ Jail Software
 
 A jail is created with no software aside from the core packages
 installed as part of the selected version of FreeBSD. Software in a
-jail is managed by navigating to the :guilabel:`Shell` and logging
+jail is managed by going to the :guilabel:`Shell` and logging
 into the jail with :command:`iocage console`. In this example,
 the user has logged into *testjail01*:
 
