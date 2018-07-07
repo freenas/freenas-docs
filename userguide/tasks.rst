@@ -163,8 +163,6 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | data loss.                                                                                              |
    #endif freenas
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Auxiliary arguments | string              | Enter additional arguments to pass to rclone. Refer to https://rclone.org/docs/ for help.               |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Minute              | slider or minute    | Select :guilabel:`Every N minutes` and use the slider to choose a value, or select                      |
    |                     | selections          | :guilabel:`Each selected minute` and choose specific minutes to run the task.                           |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
