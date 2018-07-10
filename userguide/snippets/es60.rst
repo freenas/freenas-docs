@@ -208,8 +208,8 @@ the rest of the way until it locks into place.
    :width: 100%
 
 
-ES60 Cable Managment Arm
-~~~~~~~~~~~~~~~~~~~~~~~~
+ES60 Cable Management Arm
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The included cable management arm (CMA) is not required for operation.
 If desired, the CMA can be used to help organize the ES60 power and
