@@ -117,7 +117,7 @@ the :file:`.iso` file and the device name of the device to write.
 
 .. code-block:: none
 
-   dd if=FreeNAS-11.0-RELEASE.iso of=/dev/da0 bs=64k
+   dd if=FreeNAS-11.2-BETA1.iso of=/dev/da0 bs=64k
    6117+0 records in
    6117+0 records out
    400883712 bytes transferred in 88.706398 secs (4519220 bytes/sec)
