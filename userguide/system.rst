@@ -355,7 +355,7 @@ to instruct the system to go back to that system state.
 
 As seen in
 :numref:`Figure %s <view_boot_env_fig>`, %brand% displays the condition
-and statisctics of the *Boot Volume*. It also shows how two boot
+and statistics of the *Boot Volume*. It also shows how two boot
 environments are created when %brand% is installed. The system will boot
 into the *default* boot environment and users can make their changes and
 update from this version. The other boot environment, named

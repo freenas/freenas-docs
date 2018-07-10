@@ -311,7 +311,7 @@ these options.
    |                       |           | file *instead* of the jail passwd.                                                                                  |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | exec.system_user      | string    | Run comands in the jail as this user. By default, commands are run as the current user.                             |
+   | exec.system_user      | string    | Run commands in the jail as this user. By default, commands are run as the current user.                            |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | mount.devfs           | checkbox  | Mount a                                                                                                             |
@@ -339,13 +339,13 @@ these options.
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | children.max          | integer   | The number of child jails allowed to be created by the jail or other jails under this jail. A limit of *0*          |
-   |                       |           | restricts the jail from creating child jails. **Hierarchical Jails** in the `JAIL(8)                                |
+   |                       |           | restricts the jail from creating child jails. **Hierarchical Jails** in the `jail(8)                                |
    |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=jail&apropos=0&sektion=0&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__      |
    |                       |           | man page explains the finer details.                                                                                |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | login_flags           | string    | The flags to pass to                                                                                                |
-   |                       |           | `LOGIN(1) <https://www.freebsd.org/cgi/man.cgi?query=login&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__               |
+   |                       |           | `login(1) <https://www.freebsd.org/cgi/man.cgi?query=login&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__               |
    |                       |           | when logging in to the jail using the **console** function.                                                         |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
@@ -882,7 +882,7 @@ password, use :command:`passwd`. Nothing is echoed back when using
 
 
 Finally, test from another system that the user can successfully
-:command:`ssh` in to the jail and gain superuser priviledges. In the
+:command:`ssh` in to the jail and gain superuser privileges. In the
 example, a user named *jailuser* uses :command:`ssh` to access the jail
 at 192.168.2.3. The host RSA key fingerprint must be verified the first
 time a user logs in.
