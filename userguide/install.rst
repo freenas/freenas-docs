@@ -215,7 +215,7 @@ the USB thumb drive.
    diskutil unmountDisk /dev/disk1
    Unmount of all volumes on disk1 was successful
 
-   dd if=FreeNAS-11.0-RELEASE.iso of=/dev/rdisk1 bs=64k
+   dd if=FreeNAS-11.2-BETA1.iso of=/dev/rdisk1 bs=64k
 
 
 .. note:: If the error "Resource busy" is shown when the
