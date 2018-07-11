@@ -341,13 +341,13 @@ these options.
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | children.max          | integer   | The number of child jails allowed to be created by the jail or other jails under this jail. A limit of *0*          |
-   |                       |           | restricts the jail from creating child jails. **Hierarchical Jails** in the `JAIL(8)                                |
+   |                       |           | restricts the jail from creating child jails. **Hierarchical Jails** in the `jail(8)                                |
    |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=jail&apropos=0&sektion=0&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__      |
    |                       |           | man page explains the finer details.                                                                                |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | login_flags           | string    | The flags to pass to                                                                                                |
-   |                       |           | `LOGIN(1) <https://www.freebsd.org/cgi/man.cgi?query=login&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__               |
+   |                       |           | `login(1) <https://www.freebsd.org/cgi/man.cgi?query=login&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__               |
    |                       |           | when logging in to the jail using the **console** function.                                                         |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
