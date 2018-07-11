@@ -5,28 +5,28 @@ Jails
 =====
 
 
-Jails are a light-weight, operating system-level virtualization,
-and the basis for the %brand% :ref:`plugin system <Plugins>`. Jails
-are created by the user. While plugins generally are
-preconfigured and use a GUI for configuration, jails are often managed
-from the command line. Plugins provide only a single application or
-service. Jails provide multiple services.
+Jails are a lightweight, operating-system-level virtualization.
+Jails are also used as the basis for the %brand%
+:ref:`plugin system <Plugins>`. Jails are created by the user and can
+provide multiple services, while plugins are preconfigured for a single
+application.
 
-By default, a
-`FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`__
-is created. A jail is an independent instance of FreeBSD, using the host
-kernel, running on the same hardware without all of the overhead
-usually associated with virtualization. The jail installs FreeBSD
-software management utilities. This allows for FreeBSD ports to be
-compiled and FreeBSD packages to be installed from the command line of
-the jail.
+`FreeBSD jails <https://en.wikipedia.org/wiki/Freebsd_jail>`__
+are created bby default. These jails are independent instances of
+FreeBSD. The jail uses the host hardware and runs on the host kernel,
+avoiding most of the overhead usually associated with virtualization.
+The jail installs FreeBSD software management utilities so FreeBSD
+packages or ports can be installed from the jail command line. This
+allows for FreeBSD ports to be compiled and FreeBSD packages to be
+installed from the command line of the jail.
 
 It is important to understand that users, groups, installed software,
 and configurations within a jail are isolated from both the %brand%
 host operating system and any other jails running on that system.
+
 During creation, set the :guilabel:`VNET` option to provide
-the jail with an independent networking stack. This allows the IP of the
-jail to be broadcasted, which is required by some applications.
+the jail with an independent networking stack. The jail is then able to
+broadcast an IP address, which is required by some applications.
 
 Advanced users can also create custom templates to automate the
 creation of pre-installed and customized operating systems.
@@ -38,9 +38,6 @@ applications in each jail, to create one jail for all installed
 applications, or to mix and match how software is installed into each
 jail.
 
-This section discusses:
-
-* :ref:`Jail Storage`
 
 * :ref:`Creating Jails`
 
@@ -82,11 +79,12 @@ Creating Jails
 --------------
 
 
-%brand% has two options to create a jail. First, the
-:guilabel:`Jail Wizard` makes it easy to quickly create a jail.
-Next, :guilabel:`Advanced Jail Creation` allows for every
-possible jail option to be configured. There are many options
-spread across four different primary sections.
+%brand% has two options to create a jail. The :guilabel:`Jail Wizard`
+makes it easy to quickly create a jail. :guilabel:`Advanced Jail Creation`
+is the second method, where every possible jail option is configurable.
+There are numerous options spread across four different primary
+sections. This form is recommended for advanced users with very specific
+requirements for a jail.
 
 
 .. index:: Jail Wizard
@@ -96,8 +94,9 @@ Jail Wizard
 ~~~~~~~~~~~
 
 
-Quickly create a new jail by going to :guilabel:`Jails` and
-clicking |ui-add|. This opens the wizard screen seen in
+New jails can be created quickly by going to
+:menuselection:`Jails -->` |ui-add|.
+This opens the wizard screen shown in
 :numref:`Figure %s <jail_wizard_fig>`.
 
 
@@ -109,13 +108,11 @@ clicking |ui-add|. This opens the wizard screen seen in
 
 
 The wizard provides the simplest process to create and configure
-networking for a new jail. Enter a :guilabel:`Jail Name`. Jail names can
+a new jail. Enter a :guilabel:`Jail Name`. Jail names can
 only contain alphanumeric characters (:literal:`Aa-Zz`, :literal:`123`),
 dashes (:literal:`-`), and underscores (:literal:`_`). Choose the version
 of FreeBSD to install for this jail. Previously downloaded versions
-display :literal:`(fetched)` next to their entry in the list. These are
-the minimum required settings for a new jail. It is also
-recommended to configure networking for the jail.
+display :literal:`(fetched)` next to their entry in the list.
 
 Click :guilabel:`Next` to see a simplified list of networking options.
 The jail can be set to automatically configure IPv4 with :guilabel:`DHCP`
@@ -142,10 +139,10 @@ Advanced Jail Creation
 ~~~~~~~~~~~~~~~~~~~~~~
 
 
-Open the full jail creation form by going to
-:menuselection:`Jails --> Add Jail`. Click
-:guilabel:`Advanced Jail Creation` to access the screen shown in
-:numref:`Figure %s <creating_jail_fig>`.
+The advanced jail creation form is opened by clicking
+:menuselection:`Jails -->` |ui-add|
+then :guilabel:`Advanced Jail Creation`. The screen in
+:numref:`Figure %s <creating_jail_fig>` is shown.
 
 
 .. _creating_jail_fig:
@@ -155,14 +152,13 @@ Open the full jail creation form by going to
    Creating a Jail
 
 
-:numref:`Table %s <jail_basic_props_tab>` summarizes the available
-options of the :guilabel:`Basic Properties` of a new jail. By default,
-the only required values to create a jail are the :guilabel:`Jail Name`
-and :guilabel:`Release`. It is recommended to configure these basic
-properties as a simple method to create a usable jail. More
-advanced settings are available in the :guilabel:`Jail Properties`,
+A usable jail can be quickly created by setting only the required
+values, the :guilabel:`Jail Name` and :guilabel:`Release`. Additional
+settings are in the :guilabel:`Jail Properties`,
 :guilabel:`Network Properties`, and :guilabel:`Custom Properties`
-sections.
+sections. :numref:`Table %s <jail_basic_props_tab>`
+summarizes the available options of the :guilabel:`Basic Properties` of
+a new jail.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -189,19 +185,19 @@ sections.
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
    | DHCP autoconfigure IPv4   | checkbox       | Set to automatically configure IPv4 networking with an independent VNET stack. :guilabel:`VNET` and     |
-   |                           |                | guilabel:`Berkeley Packet Filter` must also be checked. If not set, ensure the defined address          |
+   |                           |                | :guilabel:`Berkeley Packet Filter` must also be checked. If not set, ensure the defined address         |
    |                           |                | in :guilabel:`IPv4 Address` does not conflict with an existing address.                                 |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
    | VNET network subsystem    | checkbox       | Set to use VNET to emulate network devices for this jail and a create a fully virtualized per-jail      |
    | virtualization            |                | network stack. See                                                                                      |
-   | infrastructure            |                | `VNET(9) <https://www.freebsd.org/cgi/man.cgi?query=vnet&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__     |
+   | infrastructure            |                | `VNET(9) <https://www.freebsd.org/cgi/man.cgi?query=vnet>`__                                            |
    |                           |                | for more details.                                                                                       |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
    | Berkeley Packet Filter    | checkbox       | Set to use the Berkeley Packet Filter to data link layers in a protocol independent fashion             |
    |                           |                | See                                                                                                     |
-   |                           |                | `BPF(4) <https://www.freebsd.org/cgi/man.cgi?query=bpf&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__       |
+   |                           |                | `BPF(4) <https://www.freebsd.org/cgi/man.cgi?query=bpf>`__                                              |
    |                           |                | for more details.                                                                                       |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
@@ -259,7 +255,7 @@ these options.
    |                       |           |                                                                                                                     |
    +=======================+===========+=====================================================================================================================+
    | devfs_ruleset         | integer   | The number of the `devfs(8)                                                                                         |
-   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=devfs&apropos=0&sektion=0&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__     |
+   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=devfs>`__                                                                |
    |                       |           | ruleset to enforce when mounting **devfs** in the jail. The default value of *0* means no ruleset is enforced.      |
    |                       |           | Mounting **devfs** inside a jail is only possible when the :guilabel:`allow_mount` and                              |
    |                       |           | :guilabel:`allow_mount_devfs` permissions are enabled and :guilabel:`enforce_statfs` is set to a value lower than   |
@@ -267,7 +263,7 @@ these options.
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | exec.start            | string    | Commands to run in the jail environment when a jail is created. Example: :samp:`sh /etc/rc`. See                    |
-   |                       |           | `jail(8) <https://www.freebsd.org/cgi/man.cgi?query=jail&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__                 |
+   |                       |           | `jail(8) <https://www.freebsd.org/cgi/man.cgi?query=jail>`__                                                        |
    |                       |           | for more details.                                                                                                   |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
@@ -309,7 +305,7 @@ these options.
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | exec.system_jail_user | string    | Set this boolean option to *True* to look for the :guilabel:`exec.jail_user` in the system                          |
-   |                       |           | `passwd(5) <https://www.freebsd.org/cgi/man.cgi?query=passwd&sektion=5&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__   |
+   |                       |           | `passwd(5) <https://www.freebsd.org/cgi/man.cgi?query=passwd>`__                                                    |
    |                       |           | file *instead* of the jail passwd.                                                                                  |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
@@ -317,22 +313,22 @@ these options.
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | mount.devfs           | checkbox  | Mount a                                                                                                             |
-   |                       |           | `devfs(5) <https://www.freebsd.org/cgi/man.cgi?query=devfs&sektion=5&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__     |
+   |                       |           | `devfs(5) <https://www.freebsd.org/cgi/man.cgi?query=devfs>`__                                                      |
    |                       |           | filesystem on the chrooted :file:`/dev` directory and apply the ruleset in the :guilabel:`devfs_ruleset` parameter  |
    |                       |           | to restrict the devices visible inside the jail.                                                                    |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | mount.fdescfs         | checkbox  | Mount an                                                                                                            |
-   |                       |           | `fdescfs(5) <https://www.freebsd.org/cgi/man.cgi?query=fdescfs&sektion=5&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__ |
+   |                       |           | `fdescfs(5) <https://www.freebsd.org/cgi/man.cgi?query=fdescfs>`__                                                  |
    |                       |           | filesystem in the jail :file:`/dev/fd` directory.                                                                   |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | enforce_statfs        | drop-down | Determine which information processes in a jail are able to obtain about mount points. The behavior                 |
    |                       |           | of multiple syscalls is affected:                                                                                   |
-   |                       |           | `statfs(2) <https://www.freebsd.org/cgi/man.cgi?query=statfs&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__,            |
-   |                       |           | `fstatfs(2) <https://www.freebsd.org/cgi/man.cgi?query=statfs&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__,           |
-   |                       |           | `getfsstat(2) <https://www.freebsd.org/cgi/man.cgi?query=getfsstat&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__,      |
-   |                       |           | `fhstatfs(2) <https://www.freebsd.org/cgi/man.cgi?query=fhstatfs&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__,        |
+   |                       |           | `statfs(2) <https://www.freebsd.org/cgi/man.cgi?query=statfs>`__,                                                   |
+   |                       |           | `fstatfs(2) <https://www.freebsd.org/cgi/man.cgi?query=statfs>`__,                                                  |
+   |                       |           | `getfsstat(2) <https://www.freebsd.org/cgi/man.cgi?query=getfsstat>`__,                                             |
+   |                       |           | `fhstatfs(2) <https://www.freebsd.org/cgi/man.cgi?query=fhstatfs>`__,                                               |
    |                       |           | and other similar compatibility syscalls.                                                                           |
    |                       |           |                                                                                                                     |
    |                       |           | Set to *0*, all mount points are available without any restriction.                                                 |
@@ -342,16 +338,16 @@ these options.
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | children.max          | integer   | The number of child jails allowed to be created by the jail or other jails under this jail. A limit of *0*          |
    |                       |           | restricts the jail from creating child jails. **Hierarchical Jails** in the `jail(8)                                |
-   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=jail&apropos=0&sektion=0&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__      |
+   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=jail>`__                                                                 |
    |                       |           | man page explains the finer details.                                                                                |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | login_flags           | string    | The flags to pass to                                                                                                |
-   |                       |           | `login(1) <https://www.freebsd.org/cgi/man.cgi?query=login&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__               |
+   |                       |           | `login(1) <https://www.freebsd.org/cgi/man.cgi?query=login>`__                                                      |
    |                       |           | when logging in to the jail using the **console** function.                                                         |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | securelevel           | integer   | The value of the jail `securelevel <https://www.freebsd.org/doc/faq/security.html#idp60325448>`__ sysctl. A jail    |
+   | securelevel           | integer   | The value of the jail `securelevel <https://www.freebsd.org/doc/faq/security.html>`__ sysctl. A jail                |
    |                       |           | never has a lower securelevel than the host system. Setting this parameter allows a higher securelevel. If the host |
    |                       |           | system securelevel is changed, jail securelevel will be at least as secure.                                         |
    |                       |           | Securelevel options are 3, 2, 1, 0, and -1.                                                                         |
@@ -379,9 +375,9 @@ these options.
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | allow.set_hostname    | checkbox  | Allow the jail hostname to be changed with                                                                          |
-   |                       |           | `hostname(1) <https://www.freebsd.org/cgi/man.cgi?query=hostname&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__         |
+   |                       |           | `hostname(1) <https://www.freebsd.org/cgi/man.cgi?query=hostname>`__                                                |
    |                       |           | or                                                                                                                  |
-   |                       |           | `sethostname(3) <https://www.freebsd.org/cgi/man.cgi?query=sethostname&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__.  |
+   |                       |           | `sethostname(3) <https://www.freebsd.org/cgi/man.cgi?query=sethostname>`__.                                         |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | ***allow.sysvipc**    | checkbox  | Choose whether a process in the jail has access to System V IPC primitives. Equivalent to setting                   |
@@ -392,8 +388,8 @@ these options.
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | allow.raw_sockets     | checkbox  | Set to allow raw sockets. Utilities like                                                                            |
-   |                       |           | `ping(8) <https://www.freebsd.org/cgi/man.cgi?query=ping&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__ and             |
-   |                       |           | `traceroute(8) <https://www.freebsd.org/cgi/man.cgi?query=traceroute&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__     |
+   |                       |           | `ping(8) <https://www.freebsd.org/cgi/man.cgi?query=ping>`__ and                                                    |
+   |                       |           | `traceroute(8) <https://www.freebsd.org/cgi/man.cgi?query=traceroute>`__                                            |
    |                       |           | require raw sockets to operate inside a jail. When set, the source IP addresses are enforced to comply with the     |
    |                       |           | IP address bound to the jail, ignoring the IP_HDRINCL flag on the socket.                                           |
    |                       |           |                                                                                                                     |
@@ -406,25 +402,25 @@ these options.
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | allow.mount.devfs     | checkbox  | Set to allow privileged users inside the jail to mount and unmount the `devfs(5) device filesystem                  |
-   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=devfs&sektion=5&apropos=0&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__.    |
+   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=devfs>`__.                                                               |
    |                       |           | This permission is only effective when :guilabel:`allow_mount` is set and :guilabel:`enforce_statfs` is set to a    |
    |                       |           | value lower than *2*.                                                                                               |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | allow.mount.nullfs    | checkbox  | Set to allow privileged users inside the jail to mount and unmount the `nullfs(5) file system                       |
-   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=nullfs&apropos=0&sektion=5&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__.   |
+   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=nullfs>`__.                                                              |
    |                       |           | This permission is only effective when :guilabel:`allow_mount` is set and :guilabel:`enforce_statfs` is set to a    |
    |                       |           | value lower than *2*.                                                                                               |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | allow.mount.procfs    | checkbox  | Set to allow privileged users inside the jail to mount and unmount the `procfs(5) file system                       |
-   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=procfs&apropos=0&sektion=5&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__.   |
+   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=procfs>`__.                                                              |
    |                       |           | This permission is only effective when :guilabel:`allow_mount` is set and :guilabel:`enforce_statfs` is set to a    |
    |                       |           | value lower than *2*.                                                                                               |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
    | allow.mount.tmpfs     | checkbox  | Set to allow privileged users inside the jail to mount and unmount the `tmpfs(5) file system                        |
-   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=tmpfs&apropos=0&sektion=5&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__.    |
+   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=tmpfs>`__.                                                               |
    |                       |           | This permission is only effective when :guilabel:`allow_mount` is set and :guilabel:`enforce_statfs` is set to a    |
    |                       |           | value lower than *2*.                                                                                               |
    |                       |           |                                                                                                                     |
@@ -432,7 +428,7 @@ these options.
    | allow.mount.zfs       | checkbox  | Set to allow privileged users inside the jail to mount and unmount the ZFS file system. This permission is only     |
    |                       |           | effective when :guilabel:`allow_mount` is set and :guilabel:`enforce_statfs` is set to a value lower than *2*.      |
    |                       |           | The `ZFS(8)                                                                                                         |
-   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=zfs&sektion=8&apropos=0&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__       |
+   |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=zfs>`__                                                                  |
    |                       |           | man page has information on how to configure the ZFS filesystem to operate from within a jail.                      |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
@@ -550,12 +546,12 @@ The final set of jail properties are contained in the
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
    | mount.procfs        | checkbox  | Set to allow mounting of a                                                                                    |
-   |                     |           | `procfs(5) <https://www.freebsd.org/cgi/man.cgi?query=procfs&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__       |
+   |                     |           | `procfs(5) <https://www.freebsd.org/cgi/man.cgi?query=procfs>`__                                              |
    |                     |           | filesystems in the jail :file:`/dev/proc` directory.                                                          |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
    | mount_linprocfs     | checkbox  | Set to allow mounting of a                                                                                    |
-   |                     |           | `linprocfs(5) <https://www.freebsd.org/cgi/man.cgi?query=linprocfs&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__ |
+   |                     |           | `linprocfs(5) <https://www.freebsd.org/cgi/man.cgi?query=linprocfs>`__                                        |
    |                     |           | filesystem in the jail.                                                                                       |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
@@ -590,8 +586,10 @@ Managing Jails
 --------------
 
 
-Click :guilabel:`Jails` to see a list of installed jails as
-shown in :numref:`Figure %s <jail_overview_fig>`.
+Clicking
+:menuselection:`Jails`
+shows a list of installed jails like that in
+:numref:`Figure %s <jail_overview_fig>`.
 
 .. _jail_overview_fig:
 
@@ -707,11 +705,9 @@ entries available for a jail.
    +--------------+------------------------------------------------------------+
 
 
-.. note:: The |ui-options| menu is jail state sensitive. Menu
-   entries change depending on the jail state. For example, a
-   stopped jail does not have a Stop option and cannot be accessed
-   with the Shell. These options are not available when a jail is
-   stopped.
+.. note:: Menu entries change depending on the jail state. For example,
+   a stopped jail does not have a Stop option and cannot be accessed
+   with the :ref:`Shell`.
 
 
 .. note:: Modify the IP address information for a jail by using
@@ -721,7 +717,7 @@ entries available for a jail.
 
 
 .. warning:: Back up data and programs in a jail **before** clicking
-   delete. There is no way to recover the contents of a jail
+   :guilabel:`Delete`. There is no way to recover the contents of a jail
    *after* deletion.
 
 
@@ -733,7 +729,7 @@ Accessing a Jail Using SSH
 
 
 The ssh daemon
-`sshd(8) <https://www.freebsd.org/cgi/man.cgi?query=sshd&apropos=0&sektion=8>`__
+`sshd(8) <https://www.freebsd.org/cgi/man.cgi?query=sshd>`__
 must be enabled to access a jail from another system using SSH.
 
 Access the shell of the jail in the %brand% UI to enable SSH. Log into
@@ -774,7 +770,7 @@ example:
 
 .. tip:: A root shell can also be opened for a jail using the %brand% UI
    :guilabel:`Shell`. Open the :guilabel:`Shell`, then type
-   :samp:`iocage console <Jail Name>`.
+   :samp:`iocage console {jailname}`.
 
 
 Enable sshd:
@@ -848,8 +844,8 @@ password, use :command:`passwd`. Nothing is echoed back when using
    root@jailexamp:~ #
 
 
-Finally, test from another system that the user can successfully
-:command:`ssh` into the jail and gain superuser privileges. In the
+Finally, test that the user can successfully :command:`ssh` into the
+jail from another system and gain superuser privileges. In the
 example, a user named *jailuser* uses :command:`ssh` to access the jail
 at 192.168.2.3. The host RSA key fingerprint must be verified the first
 time a user logs in.
@@ -875,21 +871,20 @@ Additional Storage
 
 
 Jails can be given access to an area of storage outside of the jail that
-is configured on the %brand% system.
-
-It is possible to give a FreeBSD jail access to an area of storage on
-the %brand% system. This is useful for applications or plugins that store
-large amount of data or if an application in a jail needs access to data
-stored on the %brand% system. For example, transmission is a
-plugin that stores data using BitTorrent. The storage is added using the
-`mount_nullfs(8) <https://www.freebsd.org/cgi/man.cgi?query=mount_nullfs>`__ 
+is configured on the %brand% system. It is possible to give a FreeBSD
+jail access to an area of storage on the %brand% system. This is useful
+for applications or plugins that store large amounts of data or if an
+application in a jail needs access to data stored on the %brand% system.
+For example, Transmission is a plugin that stores data using BitTorrent.
+The %brand$ external storage is added using the
+`mount_nullfs(8) <https://www.freebsd.org/cgi/man.cgi?query=mount_nullfs>`__
 mechanism, which links data that resides outside of the jail as a
 storage area within a jail.
 
 The :guilabel:`Mount points` section of a jail shows any added storage
-and allows adding more storage to the jail.
+and allows adding more storage.
 
-Go to
+Storage can be added by clicking
 :menuselection:`Jails -->` |ui-options| :menuselection:`--> Mount points`
 for the desired jail. The :guilabel:`Mount points` section is a list
 of all of the currently defined mount points.
@@ -951,8 +946,8 @@ The workflow for adding storage usually goes like this:
     that match the user and group names used by the application in
     the jail.
 
-#.  Decide if the jail has access to existing data or if
-    a new area of storage is set aside for the jail to use.
+#.  Decide whether the jail will be given access to existing data or
+    a new storage area will be allocated.
 
 #.  If the jail accesses existing data, edit the permissions of
     the pool or dataset so the user and group accounts have the
@@ -965,12 +960,12 @@ The workflow for adding storage usually goes like this:
     that dataset so the user and group account has the desired read
     and write access.
 
-#.  Use the
+#.  Use the jail
     :menuselection:`Mount points -->` |ui-add|
-    option of the jail and select the configured pool or dataset as the
+    to select the pool or dataset as the
     :guilabel:`Source`.
 
-To prevent writes to the storage, check :guilabel:`Read-Only`.
+To prevent writes to the storage, click :guilabel:`Read-Only`.
 
 After storage has been added or created, it appears in the
 :guilabel:`Mount points` for that jail. In the example shown in
@@ -1022,9 +1017,10 @@ Jail Software
 
 A jail is created with no software aside from the core packages
 installed as part of the selected version of FreeBSD. Software in a
-jail is managed by going to the :guilabel:`Shell` and logging
-into the jail with :command:`iocage console`. In this example,
-the user has logged into *testjail01*:
+jail is managed by going to the
+:menuselection:`Shell`
+and logging into the jail with :command:`iocage console {jailname}`. In
+this example, the user has logged into *testjail01*:
 
 .. code-block:: none
 
@@ -1056,10 +1052,6 @@ the user has logged into *testjail01*:
 .. tip:: See :ref:`Using iocage` for more details about different
    :command:`iocage` commands.
 
-The next sections detail two different options to install software
-inside a jail using :command:`pkg` or compiling the port directly.
-There are also instructions for starting and using installed software.
-
 
 .. _Installing FreeBSD Packages:
 
@@ -1067,12 +1059,12 @@ Installing FreeBSD Packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The quickest and easiest way to install software inside the jail is to
-install a FreeBSD package. FreeBSD packages are pre-compiled. They
+install a FreeBSD package. FreeBSD packages are precompiled and they
 contain all the binaries and a list of dependencies required for the
 software to run on a FreeBSD system.
 
 A huge amount of software is ported to FreeBSD. Most of that
-software is available as a package. One way to find FreeBSD software is
+software is available as packages. One way to find FreeBSD software is
 to use the search bar at
 `FreshPorts.org <https://www.freshports.org/>`__.
 
@@ -1080,15 +1072,8 @@ After finding the name of the desired package, use the
 :command:`pkg install` command to install it. For example, to install
 the audiotag package, use the command :command:`pkg install audiotag`
 
-When prompted, type **y** to complete the installation. The
-installation messages indicate if the package and
-dependencies successfully download and install.
-
-.. warning:: Some older versions of FreeBSD used package systems
-   which are now obsolete. Do not use commands from those obsolete
-   package systems in a %brand% jail, as they cause
-   inconsistencies in the package management database of the jail. Use
-   the current FreeBSD package system as shown in these examples.
+When prompted, press :kbd:`y` to complete the installation. Messages
+will show the download and installation status.
 
 A successful installation can be confirmed by querying the package
 database:
@@ -1189,14 +1174,12 @@ shows the :guilabel:`Configuration Options` for audiotag.
    Configuration Options for Audiotag
 
 
-This port has five configurable options (DOCS, FLAC, ID3, MP4,
-and VORBIS) and each option is enabled (on) by default.
+This port has five configurable options: *DOCS*, *FLAC*, *ID3*, *MP4*,
+and *VORBIS*. In this port, each option is enabled by defualt.
 
-FreeBSD packages are always built using the default options. Those
-options are presented in a menu when compiling a port. The default
-values can be changed.
+Packages use default options. Ports let the user select options.
 
-The Ports Collection must be installed in a jail before ports can be
+The Ports Collection must be installed in the jail before ports can be
 compiled. Inside the jail, use the :command:`portsnap`
 utility. This command downloads the ports collection and extracts
 it to the :file:`/usr/ports/` directory of the jail:
@@ -1235,20 +1218,21 @@ is displayed:
 
 Use the arrow keys to select an option and press :kbd:`spacebar`
 to toggle the value. Press :kbd:`Enter` when satisfied with the jail
-options. The port begin to compile and install.
+options. The port begins to compile and install.
 
-.. note:: The configuration screen is not shown again. Redisplay it by
-   typing :command:`make config`. Change the settings,
-   then rebuild with :command:`make clean install clean`.
+.. note:: After options have been set, the configuration screen is
+   normally not shown again. Use :command:`make config` to display the
+   screen and change options before rebuilding the port with
+   :command:`make clean` install clean.
 
 Many ports depend on other ports. Those other ports also have
 configuration screens that are shown before compiling begins. It
 is a good idea to watch the compile until it finishes and the
 command prompt returns.
 
-The port is registered in the same package database that manages
-packages when it is installed. The :command:`pkg info`
-command can be used to determine what was installed.
+Installed ports are registered in the same package database that manages
+packages. The :command:`pkg info` can be used to determine which ports
+were installed.
 
 .. _Starting Installed Software:
 
@@ -1256,7 +1240,7 @@ Starting Installed Software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After packages or ports are installed, they must be configured and
-started. The configuration file is in :file:`/usr/local/etc` or a
+started. Configuration files are usually in :file:`/usr/local/etc` or a
 subdirectory of it. Many FreeBSD packages contain a sample configuration
 file as a reference. Take some time to read the software documentation
 to learn which configuration options are available and which
@@ -1266,7 +1250,7 @@ Most FreeBSD packages that contain a startable service include a
 startup script which is automatically installed to
 :file:`/usr/local/etc/rc.d/`. After the configuration is complete, test
 starting the service by running the script with the :command:`onestart`
-option. For example, openvpn is installed into the jail and these
+option. For example, with openvpn installed in the jail, these
 commands are run to verify that the service started:
 
 .. code-block:: none
@@ -1366,10 +1350,9 @@ using :command:`iocage`.
 
 * There is built-in help displayed by entering
   :samp:`iocage --help | less`. Each subcommand also has help.
-  Display them by giving the subcommand name followed by the
-  :literal:`--help` flag. For example, help for the
-  :command:`activate` subcommand displays with
-  :samp:`iocage activate --help`.
+  Display help by adding the :literal:`--help` flag after the subcommand
+  name. For example, :command:`iocage activate --help` shows help for
+  the :command:`activate` subcommand.
 
 * The iocage manual page is accessed by typing
   :samp:`man iocage | less`.
@@ -1382,10 +1365,10 @@ Managing iocage Jails
 ~~~~~~~~~~~~~~~~~~~~~
 
 Creating a jail automatically starts the iocage configuration process
-for the %brand% system. Jail properties are also specified with the
+for the %brand% system. Jail properties can also be specified with the
 :command:`iocage create` command.
 
-In this example a new jail named *examplejail* is created. Additional
+In this example a new jail named *examplejail* has been created. Additional
 properties are a manually designated IP address of *192.168.1.10*, a
 netmask of */24* on the *em0* interface, and using the FreeBSD
 11.1-RELEASE:
@@ -1463,7 +1446,7 @@ To adjust the properties of a jail, use :command:`iocage set` and
 :command:`iocage get all`:
 
 .. tip:: This example shows an abbreviated list of the properties for
-   **examplejail**. The iocage manual page ( :command:`man iocage`)
+   **examplejail**. The iocage manual page (:command:`man iocage`)
    describes even more configurable properties for jails.
 
 .. code-block:: none
