@@ -229,7 +229,7 @@ the correct path to the USB thumb drive:
    :menuselection:`Applications --> Utilities --> Disk Utility`,
    find the USB thumb drive, and click on its partitions to make sure
    all of them are unmounted. If an error similar to
-   "dd: /dev/rdisk1: Permission denied" is shown, add :command:`sudo` in
+   "dd: /dev/disk1: Permission denied" is shown, add :command:`sudo` in
    front of the entire :command:`dd` command:
    :command:`sudo dd if=FreeNAS-RELEASE.iso of=/dev/rdisk1 bs=64k`.
    This will prompt for the password.
