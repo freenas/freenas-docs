@@ -185,18 +185,18 @@ a new jail.
    |                           |                | fetched again.                                                                                          |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
-   | DHCP autoconfigure IPv4   | checkbox       | Set to automatically configure IPv4 networking with an independent VNET stack. :guilabel:`VNET` and     |
+   | DHCP autoconfigure IPv4   | checkbox       | Automatically configure IPv4 networking with an independent VNET stack. :guilabel:`VNET` and            |
    |                           |                | :guilabel:`Berkeley Packet Filter` must also be checked. If not set, ensure the defined address         |
    |                           |                | in :guilabel:`IPv4 Address` does not conflict with an existing address.                                 |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
-   | VNET network subsystem    | checkbox       | Set to use VNET to emulate network devices for this jail and a create a fully virtualized per-jail      |
+   | VNET network subsystem    | checkbox       | Use VNET to emulate network devices for this jail and a create a fully virtualized per-jail             |
    | virtualization            |                | network stack. See                                                                                      |
    | infrastructure            |                | `VNET(9) <https://www.freebsd.org/cgi/man.cgi?query=vnet>`__                                            |
    |                           |                | for more details.                                                                                       |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
-   | Berkeley Packet Filter    | checkbox       | Set to use the Berkeley Packet Filter to data link layers in a protocol independent fashion             |
+   | Berkeley Packet Filter    | checkbox       | Use the Berkeley Packet Filter to data link layers in a protocol independent fashion                    |
    |                           |                | See                                                                                                     |
    |                           |                | `BPF(4) <https://www.freebsd.org/cgi/man.cgi?query=bpf>`__                                              |
    |                           |                | for more details.                                                                                       |
@@ -229,7 +229,7 @@ a new jail.
    | Note                      | string         | Enter any notes or comments about the jail.                                                             |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
-   | Auto-start                | checkbox       | Check to start the jail at system startup.                                                              |
+   | Auto-start                | checkbox       | Start the jail at system startup.                                                                       |
    |                           |                |                                                                                                         |
    +---------------------------+----------------+---------------------------------------------------------------------------------------------------------+
 
@@ -255,7 +255,7 @@ these options.
    | Setting               | Value     | Description                                                                                                         |
    |                       |           |                                                                                                                     |
    +=======================+===========+=====================================================================================================================+
-   | devfs_ruleset         | integer   | The number of the `devfs(8)                                                                                         |
+   | devfs_ruleset         | integer   | Number of the `devfs(8)                                                                                             |
    |                       |           | <https://www.freebsd.org/cgi/man.cgi?query=devfs>`__                                                                |
    |                       |           | ruleset to enforce when mounting **devfs** in the jail. The default value of *0* means no ruleset is enforced.      |
    |                       |           | Mounting **devfs** inside a jail is only possible when the :guilabel:`allow_mount` and                              |
@@ -388,7 +388,7 @@ these options.
    |                       |           | instead.                                                                                                            |
    |                       |           |                                                                                                                     |
    +-----------------------+-----------+---------------------------------------------------------------------------------------------------------------------+
-   | allow.raw_sockets     | checkbox  | Allows raw sockets. Utilities like                                                                                  |
+   | allow.raw_sockets     | checkbox  | Allow raw sockets. Utilities like                                                                                   |
    |                       |           | `ping(8) <https://www.freebsd.org/cgi/man.cgi?query=ping>`__ and                                                    |
    |                       |           | `traceroute(8) <https://www.freebsd.org/cgi/man.cgi?query=traceroute>`__                                            |
    |                       |           | require raw sockets to operate inside a jail. When set, the source IP addresses are enforced to comply with the     |
@@ -546,20 +546,20 @@ The final set of jail properties are contained in the
    | depends             | string    | Specify any jails the jail depends on. Child jails must already exist before the parent jail can be created.  |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | mount.procfs        | checkbox  | Set to allow mounting of a                                                                                    |
+   | mount.procfs        | checkbox  | Allow mounting of a                                                                                           |
    |                     |           | `procfs(5) <https://www.freebsd.org/cgi/man.cgi?query=procfs>`__                                              |
    |                     |           | filesystems in the jail :file:`/dev/proc` directory.                                                          |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | mount_linprocfs     | checkbox  | Set to allow mounting of a                                                                                    |
+   | mount_linprocfs     | checkbox  | Allow mounting of a                                                                                           |
    |                     |           | `linprocfs(5) <https://www.freebsd.org/cgi/man.cgi?query=linprocfs>`__                                        |
    |                     |           | filesystem in the jail.                                                                                       |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | host_time           | checkbox  | Set to synchronize the time between jail and host.                                                            |
+   | host_time           | checkbox  | Synchronize the time between jail and host.                                                                   |
    |                     |           |                                                                                                               |
    +---------------------+-----------+---------------------------------------------------------------------------------------------------------------+
-   | jail_zfs            | checkbox  | Set to enable automatic ZFS jailing inside the jail. The assigned ZFS dataset is fully                        |
+   | jail_zfs            | checkbox  | Enable automatic ZFS jailing inside the jail. The assigned ZFS dataset is fully                               |
    |                     |           | controlled by the jail.                                                                                       |
    |                     |           |                                                                                                               |
    |                     |           | Note: :guilabel:`allow_mount`, :guilabel:`enforce_statfs`, and :guilabel:`allow_mount_zfs` must all be        |
@@ -734,9 +734,8 @@ The ssh daemon
 must be enabled in a jail to allow SSH access to that jail from another
 system.
 
-The jail :guilabel:`Status` must be :guilabel:`up`
-before the :guilabel:`Shell` option is available. Start the jail by
-clicking
+The jail :guilabel:`Status` must be up before the :guilabel:`Shell`
+option is available. If the jail is not up, start it by clicking
 :menuselection:`Jails -->` |ui-options| :menuselection:`--> Start`
 for the desired jail. Click
 |ui-options| :menuselection:`--> Shell`
