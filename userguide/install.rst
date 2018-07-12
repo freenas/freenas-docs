@@ -103,10 +103,7 @@ On FreeBSD or Linux
 ~~~~~~~~~~~~~~~~~~~
 
 On a FreeBSD or Linux system, the :command:`dd` command is used to
-write the :file:`.iso` file to an inserted USB thumb drive. This
-example demonstrates writing the image to the first USB device
-(*/dev/da0*) connected to a FreeBSD system. Substitute the filename of
-the :file:`.iso` file and the device name of the device to write.
+write the :file:`.iso` file to an inserted USB thumb drive.
 
 .. warning:: The :command:`dd` command is very powerful and can
    destroy any existing data on the specified device. Make
@@ -115,9 +112,16 @@ the :file:`.iso` file and the device name of the device to write.
    command can be avoided by writing the :file:`.iso` file to a
    CD instead.
 
+
+This example demonstrates writing the image to the first USB device
+(*/dev/da0*) connected to a FreeBSD system. Substitute
+:literal:`FreeNAS-RELEASE.iso` with the filename of the downloaded
+:file:`.iso` file and :literal:`/dev/da0` with the device name of the
+device to write.
+
 .. code-block:: none
 
-   dd if=FreeNAS-11.2-BETA1.iso of=/dev/da0 bs=64k
+   dd if=FreeNAS-RELEASE.iso of=/dev/da0 bs=64k
    6117+0 records in
    6117+0 records out
    400883712 bytes transferred in 88.706398 secs (4519220 bytes/sec)
@@ -206,26 +210,28 @@ and use the :command:`dd` command to write the image to the USB stick.
 In this example, the USB thumb drive is :file:`/dev/disk1`. It is
 first unmounted. The :command:`dd` command is used to write the
 image to the faster "raw" version of the device (note the extra
-:literal:`r` in :file:`/dev/rdisk1`). When running these commands,
-substitute the name of the installation file and the correct path to
-the USB thumb drive.
+:literal:`r` in :file:`/dev/rdisk1`).
+
+When running these commands, substitute :literal:`FreeNAS-RELEASE.iso`
+with the name of the installation file and :literal:`/dev/rdisk1` with
+the correct path to the USB thumb drive:
 
 .. code-block:: none
 
    diskutil unmountDisk /dev/disk1
    Unmount of all volumes on disk1 was successful
 
-   dd if=FreeNAS-11.2-BETA1.iso of=/dev/rdisk1 bs=64k
+   dd if=FreeNAS-RELEASE.iso of=/dev/rdisk1 bs=64k
 
 
 .. note:: If the error "Resource busy" is shown when the
    :command:`dd` command is run, go to
    :menuselection:`Applications --> Utilities --> Disk Utility`,
    find the USB thumb drive, and click on its partitions to make sure
-   all of them are unmounted. If the error
-   "dd: /dev/disk1: Permission denied" is shown, run the :command:`dd`
-   command by typing
-   :command:`sudo dd if=FreeNAS-11.0-RELEASE.iso of=/dev/rdisk1 bs=64k`.
+   all of them are unmounted. If an error similar to
+   "dd: /dev/rdisk1: Permission denied" is shown, add :command:`sudo` in
+   front of the entire :command:`dd` command:
+   :command:`sudo dd if=FreeNAS-RELEASE.iso of=/dev/rdisk1 bs=64k`.
    This will prompt for the password.
 
 The :command:`dd` command can take some minutes to complete. Wait
