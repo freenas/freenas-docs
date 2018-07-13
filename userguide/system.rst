@@ -1609,23 +1609,19 @@ Checking for Updates
 
 #ifdef freenas
 Check for updates by making sure the desired train is selected and
-clicking :guilabel:`Download update`. Any available updates are
-listed.
+clicking :guilabel:`Download update`.
 
 In the example shown in
-:numref:`Figure %s <review_updates_fig>`,
-upgrades for different components of %brand% are displayed. The
-numeric string is a date stamp. Click the
-:guilabel:`Check Release Notes` button to open the Release Notes in
-the browser.
-
+:numref:`Figure %s <review_updates_fig>`, information about the update
+is displayed. This includes upgrades for different components of %brand%
+and a :guilabel:`Change log`:
 
 .. _review_updates_fig:
 
 .. figure:: images/system-update-review.png
 
    Reviewing Updates
-#endif comment
+
 #endif freenas
 
 #ifdef truenas
@@ -1640,9 +1636,10 @@ Applying Updates
 Make sure the system is in a low-usage state as described above in
 :ref:`Preparing for Updates`.
 
-Click :guilabel:`Update and Reboot` to download and apply the updates.
-Be aware that updates automatically reboot the system after they are
-applied.
+A confirmation window appears before the update is installed. Set
+:guilabel:`Apply updates and reboot system after downloading` and
+click :guilabel:`Ok` to download and apply the update. Be aware that
+updates automatically reboot the system after they are applied.
 
 .. warning:: Each update creates a boot environment. If the update
    process needs more space, it attempts to remove old boot
