@@ -83,10 +83,10 @@ Information
 displays general information about the %brand% system.
 :numref:`Figure %s <system_info_fig>` shows an example.
 
-The information includes the hostname, the build version, type of CPU
-(platform), the amount of memory, the current system time, the
-system uptime, the number of users connected at the console or by
-serial, telnet, or SSH connections, and the current load average. On
+The information includes hostname, build version, type of CPU
+(platform), amount of memory, current system time,
+system uptime, number of users connected at the console or by
+serial, telnet, or SSH connections, and current load average. On
 systems supplied or certified by iXsystems, an additional
 :guilabel:`Serial Number` field showing the hardware serial number is
 displayed.
@@ -145,10 +145,10 @@ settings in the General tab:
    | Setting              | Value          | Description                                                                                                              |
    |                      |                |                                                                                                                          |
    +======================+================+==========================================================================================================================+
-   | Protocol             | drop-down menu | Define the web protocol to use when connecting to the administrative GUI from a browser. To change the default *HTTP* to |
+   | Protocol             | drop-down menu | Set the web protocol to use when connecting to the administrative GUI from a browser. To change the default *HTTP* to    |
    |                      |                | *HTTPS* or to                                                                                                            |
    |                      |                | *HTTP+HTTPS*, select a certificate in :guilabel:`GUI SSL Certificate`. If there are no certificates,                     |
-   |                      |                | create a CA in :ref:`CAs`, then a certificate in :ref:`Certificates`.                                                    |
+   |                      |                | create a :ref:`CA <CAs>` then a :ref:`certificate <Certificates>`.                                                       |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI IPv4 Address  | drop-down menu | Choose a recent IP addresses to limit the usage when accessing the administrative GUI. The                               |
@@ -179,8 +179,9 @@ settings in the General tab:
    |                      |                |                                                                                                                          |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Language             | drop-down menu | Select a localization. View the status of localization at                                                                |
-   |                      |                | `pootle.freenas.org <https://weblate.trueos.org/projects/freenas/>`__                                                    |
+   | Language             | drop-down menu | Select a language. View the status of a language in the                                                                  |
+   |                      |                | `webui GitHub repository <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__                               |
+   |                      |                | Refer to :ref:`Contributing to FreeNAS` for more information about supported languages.                                  |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Console Keyboard Map | drop-down menu | Select a keyboard layout.                                                                                                |
@@ -192,8 +193,8 @@ settings in the General tab:
    | Syslog level         | drop-down menu | When :guilabel:`Syslog server` is defined, only logs matching this level are sent.                                       |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Syslog server        | string         | Define an *IP address_or_hostname:optional_port_number* to send logs to. Once set, log entries                           |
-   |                      |                | are written to both the console and the remote server.                                                                   |
+   | Syslog server        | string         | Select an *IP address_or_hostname:optional_port_number* to send logs to. Set to write log entries                        |
+   |                      |                | to both the console and the remote server.                                                                               |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
@@ -305,22 +306,22 @@ explains these options in more detail.
    |             |           | **Do not** use with a public NTP server.                                                           |
    |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
-   | IBurst      | checkbox  | Speeds up the initial synchronization in seconds instead of minutes.                               |
+   | IBurst      | checkbox  | Speed up the initial synchronization, taking seconds rather than minutes.                          |
    |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
    | Prefer      | checkbox  | This option is only recommended for highly accurate NTP servers, such as those with                |
    |             |           | time monitoring hardware.                                                                          |
    |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
-   | Min. Poll   | integer   | Power of 2 in seconds. Cannot be lower than                                                        |
+   | Min. Poll   | integer   | Minimum polling time in seconds. Must be a power of 2, and cannot be lower than                    |
    |             |           | *4* or higher than :guilabel:`Max. Poll`.                                                          |
    |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
-   | Max. Poll   | integer   | Power of 2 in seconds. Cannot be higher than                                                       |
+   | Max. Poll   | integer   | Maximum polling time in seconds. Must be a power of 2, and cannot be higher than                   |
    |             |           | *17* or lower than :guilabel:`Min. Poll`.                                                          |
    |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
-   | Force       | checkbox  | Forces the addition of the NTP server, even if it is currently unreachable.                        |
+   | Force       | checkbox  | Force the addition of the NTP server, even if it is currently unreachable.                         |
    |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
 
@@ -347,7 +348,7 @@ to instruct the system to go back to that system state.
    database. Boot environments are a snapshot of the
    *operating system* at a specified time. When a %brand% system
    boots, it loads the specified boot environment, or operating
-   system, then reads the configuration database in order to load the
+   system, then reads the configuration database to load the
    current configuration values. If the intent is to make
    configuration changes rather than operating system changes, make a
    backup of the configuration database first using
@@ -397,13 +398,13 @@ Each boot environment entry contains this information:
 Click |ui-options| on an entry to see these configuration buttons:
 
 * **Delete:** used to delete the highlighted entry, which also removes
-  that entry from the boot menu. Since an activated entry 
-  cannot be deleted, this button will not appear for the active boot
+  that entry from the boot menu. Since an activated entry
+  cannot be deleted, this button does not appear for the active boot
   environment. To delete an entry that is currently
   activated, first activate another entry, which will clear the
   *On reboot* field of the currently activated entry. Note that this
-  button will not appear for the *default* boot environment as
-  this entry is needed in order to return the system to the original
+  button does not appear for the *default* boot environment as
+  this entry is needed to return the system to the original
   installation state.
 
 * **Clone:** used to create a copy of the highlighted boot
@@ -426,7 +427,7 @@ There are also other options available.
 
 * **Create:** Click |ui-add| to add a manual boot
   environment. A new screen prompts for entry of a :guilabel:`Name` for
-  the boot environment. When entering the name, only alphanumeric
+  the boot environment. Only alphanumeric
   characters, underscores, and dashes are allowed.
 
 * **Scrub:** :guilabel:`Scrub Boot Pool` is used to perform a
@@ -483,10 +484,10 @@ as it contains the operating system itself.
 Mirroring the Boot Device
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If the system is currently booting from one device, another device can
-be added to create a mirrored boot device. This way, if one
-device fails, the system still has a copy of the boot file system and
-can be configured to boot from the remaining device in the mirror.
+If the system is currently booting from a device, another device can
+be added to create a mirrored boot device. If one
+device in a mirror fails, the remaining device can still be used to boot
+the system.
 
 .. note:: When adding another boot device for a mirror, the new device
    must have at least the same capacity as the existing boot device.
@@ -509,9 +510,10 @@ available, it appears in the :guilabel:`Member disk` drop-down menu.
 Select the desired device.
 
 The :guilabel:`Use all disk space` option gives control of how much
-of the new device is made available to ZFS. The default is deselected,
-and the new device will be partitioned to the same size as the
-existing device. If either device in the mirror fails, it can be
+of the new device is made available to ZFS. The new device is
+partitioned to the same size as the existing device by default. Select
+:guilabel:`Use all disk space` to use all available space on the
+new device. If either device in the mirror fails, it can be
 replaced with another of the same size as the original boot device.
 
 When :guilabel:`Use all disk space` is enabled, the entire capacity of
@@ -532,8 +534,7 @@ Click :guilabel:`Save` to attach the new disk to the mirror.
 
 After the mirror is created, the :guilabel:`Boot Pool Status` screen indicates
 that it is now a *mirror*. The number of devices in the mirror are
-shown, as seen in the example in
-:numref:`Figure %s <mirror_boot_status_fig>`.
+shown as in :numref:`Figure %s <mirror_boot_status_fig>`.
 
 .. _mirror_boot_status_fig:
 
@@ -608,12 +609,12 @@ The configurable settings are summarized in
    |                                          |                                  | sets the CPU frequency accordingly.                                                              |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Enable autotune                          | checkbox                         | Enables the :ref:`autotune` script which attempts to optimize the system depending upon          |
+   | Enable autotune                          | checkbox                         | Enable the :ref:`autotune` script which attempts to optimize the system based on                 |
    |                                          |                                  | the installed  hardware. *Warning*: Autotuning is only used as a temporary measure and is        |
    |                                          |                                  | not a permanent fix for system hardware issues.                                                  |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Enable Debug Kernel                      | checkbox                         | When enabled, the next system boot uses a debug version of the kernel.                           |
+   | Enable Debug Kernel                      | checkbox                         | Use a debug version of the kernel on the next boot.                                              |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
    | Show console messages                    | checkbox                         | Set to display console messages in real time at bottom of browser. Click the console to bring    |
@@ -624,33 +625,32 @@ The configurable settings are summarized in
    | MOTD banner                              | string                           | This message is shown when a user logs in with SSH.                                              |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Show tracebacks in case of fatal error   | checkbox                         | Provides a pop-up window of diagnostic information if a fatal error occurs.                      |
+   | Show tracebacks in case of fatal error   | checkbox                         | Open a pop-up window of diagnostic information if a fatal error occurs.                          |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Show advanced fields by default          | checkbox                         | Several GUI menus provide an :guilabel:`Advanced Mode` button to access additional features.     |
-   |                                          |                                  | Enabling this shows these features by default.                                                   |
+   | Show advanced fields by default          | checkbox                         | Show :guilabel:`Advanced Mode` fields by default.                                                |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
    | Enable automatic upload of kernel        | checkbox                         | Set to report kernel crash dumps and daily performance measurements to iXsystems.                |
    | crash dumps and daily telemetry          |                                  |                                                                                                  |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Periodic Notification User               | drop-down menu                   | Choose a user to receive security output emails. This output runs nightly, but only sends an     |
+   | Periodic Notification User               | drop-down menu                   | Choose a user to receive security output emails. This output runs nightly, but only sends        |
    |                                          |                                  | email when the system reboots or encounters an error.                                            |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Remote Graphite Server Hostname          | string                           | Enter the IP address or hostname of a remote server running                                      |
+   | Remote Graphite Server Hostname          | string                           | IP address or hostname of a remote server running                                                |
    |                                          |                                  | `Graphite. <http://graphiteapp.org/>`__                                                          |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Use FQDN for logging                     | checkbox                         | Enable to include the Fully-Qualified Domain Name (FQDN) in logs to precisely identify systems   |
+   | Use FQDN for logging                     | checkbox                         | Include the Fully-Qualified Domain Name (FQDN) in logs to precisely identify systems             |
    |                                          |                                  | with similar hostnames.                                                                          |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Report CPU usage in percentage           | checkbox                         | Enable to display CPU usage as percentages in :ref:`Reporting`.                                  |
+   | Report CPU usage in percentage           | checkbox                         | Display CPU usage as percentages in :ref:`Reporting`.                                            |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | ATA Security User                        | drop-down menu                   | User passed to camcontrol security -u for unlocking SEDs. Choices are                            |
+   | ATA Security User                        | drop-down menu                   | User passed to :command:`camcontrol security -u` for unlocking SEDs. Values are                  |
    |                                          |                                  | *User* or *Master*.                                                                              |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
@@ -689,8 +689,8 @@ RAM. Autotune will always slow such a system, as it caps the ARC.
 
 The :guilabel:`Enable autotune` option in
 :menuselection:`System --> Advanced`
-is deselected by default. Enable this option to run the autotuner at boot
-time. To run the script immediately, reboot the system.
+is off by default. Enable this option to run the autotuner at boot.
+To run the script immediately, reboot the system.
 
 If the autotune script adjusts any settings, the changed values appear
 in
@@ -710,14 +710,14 @@ script is located in :file:`/usr/local/bin/autotune`.
 %brand% provides an autotune script which optimizes the system. The
 :guilabel:`Enable autotune` option in
 :menuselection:`System --> Advanced` is enabled by default, so this
-script runs automatically. It is recommended to leave autotune enabled
+script runs automatically. Leaving autotune enabled is recommended
 unless advised otherwise by an iXsystems support engineer.
 
 If the autotune script adjusts any settings, the changed values appear
 in
 :menuselection:`System --> Tunables`.
 While these values can be modified and overridden, speak to a
-support engineer beforehand as manual changes can have a negative
+support engineer first. Manual changes can have a negative
 impact on system performance. Note that deleting tunables that
 were created by autotune only affects the current session, as
 autotune-set tunables are recreated at boot.
@@ -736,8 +736,8 @@ Self-Encrypting Drives
 
 Three types of SED devices are supported:
 
-* Legacy interface for older ATA devices, which is not recommended for
-  security-critical environments
+* Legacy interface for older ATA devices. **Not recommended for
+  security-critical environments**
 
 * TCG OPAL 2 standard for newer consumer-grade devices (HDD or SSD over
   PCIe or SATA)
@@ -748,7 +748,7 @@ The %brand% middleware implements the security capabilities of
 `camcontrol <https://www.freebsd.org/cgi/man.cgi?query=camcontrol>`__ (for
 legacy devices) and `sedutil-cli <https://www.mankier.com/8/sedutil-cli>`__
 (for TCG devices). When managing SED devices from the command line, it is
-important to use :command:`sedutil-cli` (rather than camcontrol) in order
+important to use :command:`sedutil-cli` rather than camcontrol
 to access the full capabilities of the device. %brand% provides the
 :command:`sedhelper` wrapper script to ease SED device administration from
 the command line.
@@ -779,8 +779,8 @@ for global and device-specific passwords. Devices with their own password
 are unlocked with their password and any remaining devices, without a
 device-specific password, are unlocked using the global password.
 
-To configure a global password, go to
-:menuselection:`System --> Advanced --> SED Password` and enter the
+To configure a global password, go to :menuselection:`System -->
+Advanced --> SED Password` and enter the
 password. Recording the password and storing it in a safe place is
 recommended.
 
@@ -802,11 +802,10 @@ To specify a password for a device, go to
 confirmed SED device, then :guilabel:`Edit`. Enter and confirm the password
 in the :guilabel:`SED Password` and
 :guilabel:`Confirm SED Password` fields. Disks that have a configured
-password will show bullets in their row of the
-:guilabel:`SED Password` column of
-:menuselection:`Storage --> Disks`. Conversely, the rows in that
-column will be empty for disks that do not support SED or which will be
-unlocked using the global password.
+password show bullets in their row of the
+:guilabel:`SED Password` column of :menuselection:`Storage --> Disks`.
+Conversely, the rows in that column will be empty for disks that do
+not support SED or which are unlocked using the global password.
 
 Next, remember to initialize the devices:
 
@@ -893,11 +892,10 @@ shown in
    | Setting              | Value                | Description                                                                                     |
    |                      |                      |                                                                                                 |
    +======================+======================+=================================================================================================+
-   | From E-mail          | string               | The envelope **From** address shown in the email. This is set to assist with filtering          |
-   |                      |                      | mail on the receiving system.                                                                   |
+   | From E-mail          | string               | Setting a known *From* address can be helpful in filtering mail on the receiving system.        |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Outgoing Mail Server | string or IP address | Hostname or IP address of SMTP server to use for sending this email.                            |
+   | Outgoing Mail Server | string or IP address | Hostname or IP address of SMTP server used for sending this email.                              |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Mail Server Port     | integer              | SMTP port number. Typically *25*,                                                               |
@@ -916,13 +914,13 @@ shown in
    |                      |                      | :guilabel:`Password`.                                                                           |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Username             | string               | Enter the username if the SMTP server requires authentication.                                  |
+   | Username             | string               | Enter the SMTP username if the SMTP server requires authentication.                             |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Password             | string               | Enter the password if the SMTP server requires authentication.                                  |
+   | Password             | string               | Enter the SMTP password if the SMTP server requires authentication.                             |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Confirm Password     | string               | Confirm the previous password.                                                                  |
+   | Confirm Password     | string               | Confirm the AMTP previous password.                                                             |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
@@ -938,9 +936,9 @@ Configuring email for TLS/SSL email providers is described in
 <https://forums.freenas.org/index.php?threads/are-you-having-trouble-getting-freenas-to-email-you-in-gmail.22517/>`__.
 
 
-.. note:: The %brand% user who receives periodic email is set with
-   :menuselection:`System --> Advanced` in the
-   :guilabel:`Periodic Notification User` field.
+.. note:: The %brand% user who receives periodic email is set in the
+   :guilabel:`Periodic Notification User` field in
+   :menuselection:`System --> Advanced`.
 
 
 .. index:: System Dataset
@@ -953,7 +951,7 @@ System Dataset
 :menuselection:`System --> System Dataset`,
 shown in
 :numref:`Figure %s <system_dataset_fig>`,
-is used to select the pool that will contain the persistent system
+is used to select the pool which contains the persistent system
 dataset. The system dataset stores debugging core files and Samba4
 metadata such as the user/group cache and share level permissions. If
 the %brand% system is configured to be a Domain Controller, all of
@@ -962,8 +960,8 @@ controller users and groups.
 
 .. note:: When the system dataset is moved, a new dataset is created
    and set active. The old dataset is intentionally not deleted by
-   the system because the move can be transient or the information
-   in the old dataset can be useful for later recovery.
+   the system because the move might be temporary or the information
+   in the old dataset might be useful for later recovery.
 
 
 .. _system_dataset_fig:
@@ -1050,7 +1048,7 @@ Currently available alert services:
 * `VictorOps <https://victorops.com/>`__
 
 
-.. warning:: These alert services may use a third party commercial
+.. warning:: These alert services might use a third party commercial
    vendor not directly affiliated with iXsystems. Please investigate
    and fully understand that vendor's pricing policies and services
    before using their alert service. iXsystems is not responsible for
@@ -1059,7 +1057,7 @@ Currently available alert services:
 
 
 Select
-:menuselection:`System --> Alert Services` to see the Alert Services
+:menuselection:`System --> Alert Services` to show the Alert Services
 screen. Click |ui-add| to display the :guilabel:`Add Alert Service` form.
 Select the :guilabel:`Type` to choose an alert service to configure. Set
 :guilabel:`Enabled` to activate the service. Enter any other required
@@ -1118,8 +1116,8 @@ are entered here. Amazon S3, Azure Blob Storage, Backblaze B2, and
 Google Cloud Storage are supported.
 
 Click
-:menuselection:`System --> Cloud Credentials` and |ui-add| to add a
-cloud credential. Choose a :guilabel:`Provider` to
+:menuselection:`System --> Cloud Credentials`
+and |ui-add| to add a cloud credential. Choose a :guilabel:`Provider` to
 display any specific options for that provider.
 
 Enter a descriptive name for the cloud credential in the
@@ -1271,7 +1269,7 @@ summarizes the options when adding a tunable.
    *Loader* or *rc.conf* value is changed, it does not take effect
    until the system is rebooted. Regardless of the type of tunable,
    changes persist at each boot and across upgrades unless the tunable
-   is deleted or its :guilabel:`Enabled` option is deselected.
+   is deleted or the :guilabel:`Enabled` option is deselected.
 
 Existing tunables are listed in
 :menuselection:`System --> Tunables`.
@@ -1402,8 +1400,8 @@ installed. %brand% |release| ships with these loaders set:
    hw.ntb.msix_mw_idx="-1"
 #endif truenas
 
-**Do not add or edit the default tunables** as doing so can make the
-system unusable.
+**Do not add or edit the default tunables.** Changing the default
+tunables can make the system unusable.
 
 The ZFS version used in |release| deprecates these tunables:
 
@@ -1590,7 +1588,7 @@ selection.
 * **TrueNAS-11-STABLE** (Recommended)
 
   After new fixes and features have been tested as production-ready,
-  they are added to this train. Following this train  and applying any
+  they are added to this train. Following this train and applying any
   pending updates from it is recommended.
 
 **Legacy Versions**
@@ -2045,19 +2043,19 @@ as the signing authority.
    | Digest Algorithm        | drop-down menu       | The default is acceptable unless the organization requires a different algorithm.               |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Lifetime                | integer              | The lifetime of the cetificate is specified in days.                                            |
+   | Lifetime                | integer              | The lifetime of the certificate is specified in days.                                           |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Country                 | drop-down menu       | Select the country for the organization.                                                        |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | State                   | string               | Enter the state or province for the organization.                                               |
+   | State                   | string               | State or province of the organization.                                                          |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Locality                | string               | Enter the location for the organization.                                                        |
+   | Locality                | string               | Location of the organization.                                                                   |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Organization            | string               | Enter the name of the company or organization.                                                  |
+   | Organization            | string               | Name of the company or organization.                                                            |
    |                         |                      |                                                                                                 |
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Email                   | string               | Enter the email address for the person responsible for the CA.                                  |
@@ -2073,7 +2071,7 @@ as the signing authority.
    +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
 
-If the certificate needs to be signed by an external CA,
+If the certificate is signed by an external CA,
 such as Verisign, instead create a certificate signing request. To do
 so, set the :guilabel:`Type` to *Certificate Signing Request*. The
 options from :numref:`Figure %s <create_new_cert_fig>` display, but
@@ -2155,14 +2153,14 @@ notifications as the reports are actioned.
 Before creating a bug report or feature request, ensure that an
 existing report does not already exist at
 https://redmine.ixsystems.com/projects/freenas/issues.
-If there is a similar issue that is not yet marked as *closed* or
-*resolved*, add a comment to that issue if there is new information
-to provide that can assist in resolving the issue. If there is a
-similar issue that is marked as *closed* or *resolved*,
-create a new issue and refer to the earlier issue number.
+If a similar issue is already present and has not been marked
+*Closed* or *Resolved*, comment on that issue, adding new information
+to help solve it. If similar issues have already been *Closed*
+or *Resolved*, create a new issue and refer to the previous issue.
 
 .. note:: Update the system to the latest version of STABLE
-   first to see if it resolves the issue.
+   and retest before reporting an issue. Newer versions of the software
+   might have already fixed the problem.
 
 To generate a report using the built-in :guilabel:`Support` screen,
 complete the following fields:
@@ -2183,7 +2181,7 @@ complete the following fields:
   categories are populated to the drop-down menu. Select the one that
   best describes the bug or feature being reported.
 
-* **Attach Debug:** it is recommended to enable this option so that an
+* **Attach Debug:** enabling this option is recommended so an
   overview of the system hardware, build string, and configuration is
   automatically generated and included with the ticket. Generating and
   attaching a debug to the ticket can take some time. An error will occur
@@ -2207,7 +2205,7 @@ information to the report.
 #ifdef truenas
 The %brand% :guilabel:`Support` tab, shown in
 :numref:`Figure %s <tn_support1>`,
-is used to view or update the license information of the system. It also
+is used to view or update the system license information. It also
 provides a built-in ticketing system for generating support
 requests.
 
@@ -2226,7 +2224,7 @@ supported hardware.
 
 If the license expires or additional hardware, features, or
 contract type are required, contact an iXsystems support
-engineer. Once the new license string is acquired, click the
+engineer. After a new license string has been provided, click the
 :guilabel:`Update License` button, paste in the new license, and click
 :guilabel:`OK`. The new details will be displayed.
 
@@ -2252,7 +2250,7 @@ To generate a support ticket, fill in the fields:
   level. Choices are *Inquiry*, *Loss of Functionality*, or
   *Total Down*.
 
-* **Attach Debug Info** it is recommended to leave option selected so
+* **Attach Debug Info** leaving this option selected is recommended so
   that an overview of the system hardware, build string, and
   configuration is automatically generated and included with the ticket.
   Generating and attaching a debug to the ticket can take some time. An
@@ -2527,7 +2525,7 @@ and described in
    | Setting        | Value          | Description                                                                                                                                           |
    |                |                |                                                                                                                                                       |
    +================+================+=======================================================================================================================================================+
-   | Disabled       | checkbox       | When enabled, administratively disable failover which changes the :guilabel:`HA Enabled` icon to :guilabel:`HA Disabled` and                          |
+   | Disabled       | checkbox       | Set to disable failover. The :guilabel:`HA Enabled` icon changes to :guilabel:`HA Disabled` and                                                       |
    |                |                | activates the :guilabel:`Master` field. An error message is generated if the standby node is not responding or failover is not                        |
    |                |                | configured.                                                                                                                                           |
    |                |                |                                                                                                                                                       |
