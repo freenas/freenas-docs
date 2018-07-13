@@ -1609,10 +1609,9 @@ Checking for Updates
 
 #ifdef freenas
 Check for updates by making sure the desired train is selected and
-clicking the :guilabel:`Check Now` button. Any available updates are
+clicking :guilabel:`Download update`. Any available updates are
 listed.
-#ifdef comment
-# not available yet
+
 In the example shown in
 :numref:`Figure %s <review_updates_fig>`,
 upgrades for different components of %brand% are displayed. The
@@ -1623,7 +1622,7 @@ the browser.
 
 .. _review_updates_fig:
 
-.. figure:: images/update2a.png
+.. figure:: images/system-update-review.png
 
    Reviewing Updates
 #endif comment
@@ -1641,9 +1640,9 @@ Applying Updates
 Make sure the system is in a low-usage state as described above in
 :ref:`Preparing for Updates`.
 
-Click the :guilabel:`Update and Reboot` button to download and apply the
-updates. Be aware that updates automatically reboot the system after
-they are applied.
+Click :guilabel:`Update and Reboot` to download and apply the updates.
+Be aware that updates automatically reboot the system after they are
+applied.
 
 .. warning:: Each update creates a boot environment. If the update
    process needs more space, it attempts to remove old boot
@@ -1654,6 +1653,27 @@ they are applied.
    :menuselection:`System --> Boot`.
    Review the boot environments and remove the *Keep* attribute or
    delete any boot environments that are no longer needed.
+
+
+Manual Updates
+~~~~~~~~~~~~~~
+
+Updates can be manually downloaded as a file. These updates are then
+applied with the :guilabel:`Manual Update` button. After obtaining the
+update file, click :guilabel:`Manual Update` and choose a location to
+temporarily store the file on the %brand% system. Click
+:guilabel:`Browse` and use the file browser to locate the update file.
+Click :guilabel:`Apply Update` to apply it.
+
+Manual update files can be identified by their filenames, which end in
+:file:`-manual-update-unsigned.tar`.
+
+Manual updates cannot be used to upgrade from older major versions.
+
+There is also an option to back up the system configuration before
+updating. Click :guilabel:`Save Config` and select any options to export
+in the configuration file. Click :guilabel:`Save` to open a popup window
+to download :file:`freenas.db`.
 
 
 #ifdef truenas
