@@ -114,14 +114,14 @@ write the :file:`.iso` file to an inserted USB thumb drive.
 
 
 This example demonstrates writing the image to the first USB device
-(*/dev/da0*) connected to a FreeBSD system. Substitute
-:literal:`FreeNAS-RELEASE.iso` with the filename of the downloaded
-:file:`.iso` file and :literal:`/dev/da0` with the device name of the
-device to write.
+connected to a FreeBSD system. This first device usually reports as
+*/dev/da0*. Replace :literal:`{FreeNAS-RELEASE.iso}` with the filename
+of the downloaded %brand% ISO file. Replace :literal:`{/dev/da0}` with
+the device name of the device to write.
 
 .. code-block:: none
 
-   dd if=FreeNAS-RELEASE.iso of=/dev/da0 bs=64k
+   dd if={FreeNAS-RELEASE.iso} of={/dev/da0} bs=64k
    6117+0 records in
    6117+0 records out
    400883712 bytes transferred in 88.706398 secs (4519220 bytes/sec)
@@ -212,27 +212,27 @@ first unmounted. The :command:`dd` command is used to write the
 image to the faster "raw" version of the device (note the extra
 :literal:`r` in :file:`/dev/rdisk1`).
 
-When running these commands, substitute :literal:`FreeNAS-RELEASE.iso`
-with the name of the installation file and :literal:`/dev/rdisk1` with
-the correct path to the USB thumb drive:
+When running these commands, substitute :literal:`{FreeNAS-RELEASE.iso}`
+with the name of the %brand% ISO and :literal:`{/dev/rdisk1}` with the
+correct path to the USB thumb drive:
 
 .. code-block:: none
 
    diskutil unmountDisk /dev/disk1
    Unmount of all volumes on disk1 was successful
 
-   dd if=FreeNAS-RELEASE.iso of=/dev/rdisk1 bs=64k
+   dd if={FreeNAS-RELEASE.iso} of={/dev/rdisk1} bs=64k
 
 
 .. note:: If the error "Resource busy" is shown when the
    :command:`dd` command is run, go to
    :menuselection:`Applications --> Utilities --> Disk Utility`,
    find the USB thumb drive, and click on its partitions to make sure
-   all of them are unmounted. If an error similar to
-   "dd: /dev/disk1: Permission denied" is shown, add :command:`sudo` in
-   front of the entire :command:`dd` command:
-   :command:`sudo dd if=FreeNAS-11.0-RELEASE.iso of=/dev/rdisk1 bs=64k`.
+   all of them are unmounted. If a "Permission denied" error is shown,
+   use :command:`sudo` for elevated rights:
+   :samp:`sudo dd if={FreeNAS-11.0-RELEASE.iso} of={/dev/rdisk1} bs=64k`.
    This will prompt for the password.
+
 
 The :command:`dd` command can take some minutes to complete. Wait
 until the prompt returns and a message is displayed with information
