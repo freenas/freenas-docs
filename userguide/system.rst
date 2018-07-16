@@ -1480,14 +1480,14 @@ the storage devices will not be accessible by older versions of
 Updates and Trains
 ~~~~~~~~~~~~~~~~~~
 
-%brand% is updated with signed update files. This provides flexibility
-in deciding when to upgrade the system with patches, new drivers, or
-new features. It also allows "test driving" an upcoming release.
-Combined with boot environments, new features or system patches can be
-tested while still being able to revert to a previous version of the
-operating system (see :ref:`If Something Goes Wrong`). Digital signing
-of update files eliminates the need to manually download both an
-upgrade file and the associated checksum to verify file integrity.
+%brand% uses signed update files. This provides flexibility in deciding
+when to upgrade the system with patches, new drivers, or new features.
+It also allows "test driving" an upcoming release. Combined with boot
+environments, new features or system patches can be tested while still
+being able to revert to a previous version of the operating system (see
+:ref:`If Something Goes Wrong`). Digitally signing update files
+eliminates the need to manually download both an upgrade file and the
+associated checksum to verify file integrity.
 
 :numref:`Figure %s <update_options_fig>`
 shows an example of the
@@ -1533,8 +1533,8 @@ These trains are available:
 **For Production Use**
 
 * **FreeNAS-11-STABLE: Recommended.** After testing, new fixes and
-  features are added to this train. Selecting this train and applying any
-  pending updates is recommended.
+  features are added to this train. Selecting this train and applying
+  any pending updates is recommended.
 
 * **FreeNAS-11.2-STABLE: Recommended for Jails/Plugins/VM users.**
   This train provides the latest updates to the new UI, the new iocage
@@ -1635,6 +1635,10 @@ Applying Updates
 
 Make sure the system is in a low-usage state as described above in
 :ref:`Preparing for Updates`.
+
+Click :guilabel:`Apply Pending update` when %brand% has automatically
+detected a new update. To manually check for and download a new update,
+click :guilabel:`Download update`.
 
 A confirmation window appears before the update is installed. Set
 :guilabel:`Apply updates and reboot system after downloading` and
