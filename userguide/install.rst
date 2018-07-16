@@ -115,13 +115,13 @@ write the :file:`.iso` file to an inserted USB thumb drive.
 
 This example demonstrates writing the image to the first USB device
 connected to a FreeBSD system. This first device usually reports as
-*/dev/da0*. Replace :literal:`{FreeNAS-RELEASE.iso}` with the filename
-of the downloaded %brand% ISO file. Replace :literal:`{/dev/da0}` with
+*/dev/da0*. Replace :samp:`{FreeNAS-RELEASE.iso}` with the filename
+of the downloaded %brand% ISO file. Replace :samp:`{/dev/da0}` with
 the device name of the device to write.
 
 .. code-block:: none
 
-   dd if={FreeNAS-RELEASE.iso} of={/dev/da0} bs=64k
+   dd if=FreeNAS-RELEASE.iso of=/dev/da0 bs=64k
    6117+0 records in
    6117+0 records out
    400883712 bytes transferred in 88.706398 secs (4519220 bytes/sec)
@@ -212,8 +212,8 @@ first unmounted. The :command:`dd` command is used to write the
 image to the faster "raw" version of the device (note the extra
 :literal:`r` in :file:`/dev/rdisk1`).
 
-When running these commands, replace :literal:`{FreeNAS-RELEASE.iso}`
-with the name of the %brand% ISO. Replace :literal:`{/dev/rdisk1}` with
+When running these commands, replace :samp:`{FreeNAS-RELEASE.iso}`
+with the name of the %brand% ISO. Replace :samp:`{/dev/rdisk1}` with
 the correct path to the USB thumb drive:
 
 .. code-block:: none
@@ -221,7 +221,7 @@ the correct path to the USB thumb drive:
    diskutil unmountDisk /dev/disk1
    Unmount of all volumes on disk1 was successful
 
-   dd if={FreeNAS-RELEASE.iso} of={/dev/rdisk1} bs=64k
+   dd if=FreeNAS-RELEASE.iso of=/dev/rdisk1 bs=64k
 
 
 .. note:: If the error "Resource busy" is shown when the
