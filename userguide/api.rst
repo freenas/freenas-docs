@@ -29,23 +29,21 @@ an online version of the API is available at
 The rest of this section shows code examples to illustrate the use of
 the API.
 
-.. note:: Beginning with %brand% 11.1, a new API has been added. The
-   old API is still present and is the mainstream one because it is
-   feature complete.
+.. note:: A new API was released with %brand% 11.1. The previous API is
+   still present and in use because it is feature-complete.
    Documentation for the new API is available on the %brand% system
     at the */api/docs/* URL.
    For example, if the %brand% system is at IP address 192.168.1.119,
    enter *http://192.168.1.119/api/docs/* in a browser to see the API
    documentation.
-   New API is not feature complete yet. We are working on it to make it
-   feature complete as soon as we can. Web sockets are used to run the
-   new API ( v2 ).
-   WebSockets are an advanced technology that makes it
-   possible to open an interactive communication session between the
-   user's browser and a server. With this API, one can send messages
-   to a server and receive event-driven responses without having to
-   poll the server for a reply. Once API v2 is feature complete, we will
-   be updating all the docs and examples so that they make use of API v2.
+   Work is under way to make the new API feature-complete.
+   The new API v2 uses `WebSockets
+   <https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API>`__. This
+   advanced technology makes it possible to open interactive communication
+   sessions between web browsers and servers, allowing event-driven responses
+   without the need to poll the server for a reply. When API v2 is feature
+   complete, the %brand% documentation will include relevant examples
+   that make use of the new API.
 
 
 .. _A Simple API Example:
