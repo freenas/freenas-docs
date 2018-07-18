@@ -1327,14 +1327,14 @@ the storage devices will not be accessible by older versions of
 Updates and Trains
 ~~~~~~~~~~~~~~~~~~
 
-%brand% is updated with signed update files. This provides flexibility
-in deciding when to upgrade the system with patches, new drivers, or
-new features. It also allows "test driving" an upcoming release.
-Combined with boot environments, new features or system patches can be
-tested while still being able to revert to a previous version of the
-operating system (see :ref:`If Something Goes Wrong`). Digital signing
-of update files eliminates the need to manually download both an
-upgrade file and the associated checksum to verify file integrity.
+%brand% uses signed update files. This provides flexibility in deciding
+when to upgrade the system with patches, new drivers, or new features.
+It also allows "test driving" an upcoming release. Combined with boot
+environments, new features or system patches can be tested while still
+being able to revert to a previous version of the operating system (see
+:ref:`If Something Goes Wrong`). Digitally signing update files
+eliminates the need to manually download both an upgrade file and the
+associated checksum to verify file integrity.
 
 :numref:`Figure %s <update_options_fig>`
 shows an example of the
@@ -1382,8 +1382,8 @@ These trains are available:
 **For Production Use**
 
 * **FreeNAS-11-STABLE: Recommended.** After testing, new fixes and
-  features are added to this train. Selecting this train and applying any
-  pending updates is recommended.
+  features are added to this train. Selecting this train and applying
+  any pending updates is recommended.
 
 * **FreeNAS-11.2-STABLE: Recommended for Jails/Plugins/VM users.**
   This train provides the latest updates to the new UI, the new iocage
@@ -1459,13 +1459,13 @@ inconsistencies. If any problems are found, a pop-up menu lists the
 files with checksum mismatches or permission errors.
 
 
-.. Checking for Updates:
+.. _Checking for Updates:
 
 Checking for Updates
 ~~~~~~~~~~~~~~~~~~~~
 
 #ifdef freenas
-Checking for updates by making sure the desired train is selected and
+Check for updates by making sure the desired train is selected and
 clicking the :guilabel:`Check Now` button. Any available updates are
 listed. In the example shown in
 :numref:`Figure %s <review_updates_fig>`,
@@ -1540,6 +1540,10 @@ Manual update files can be identified by their filenames, which end in
 
 Manual updates cannot be used to upgrade from older major versions.
 
+There is also an option to back up the system configuration before
+updating. Click :guilabel:`Click here` and select any options to export
+in the configuration file. Click :guilabel:`OK` to open a popup window
+to save the system configuration.
 
 #ifdef truenas
 .. _Updating from the CLI:
