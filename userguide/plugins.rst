@@ -241,7 +241,7 @@ to the artifact repository.
    |                         | This subsection contains arrays of elements, starting with the "key" |
    |                         | name and required arguments for that particular type of setting.     |
    |                         |                                                                      |
-   |                         | See :ref:`options subection example <plugin-json-options>`           |
+   |                         | See :ref:`options subsection example <plugin-json-options>`          |
    |                         | below.                                                               |
    |                         |                                                                      |
    +-------------------------+----------------------------------------------------------------------+

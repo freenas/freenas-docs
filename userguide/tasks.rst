@@ -1067,8 +1067,8 @@ Back on *Alpha*, create a
 configuration.
 
 On *Alpha*, create the replication task by clicking
-:guilabel:`Replication Tasks`, hovering |ui-menu|, and clicking
-:guilabel:`Replication`. *alphapool/alphadata* is selected as the
+:guilabel:`Replication Tasks` and click |ui-add|.
+*alphapool/alphadata* is selected as the
 dataset to replicate. *betapool/alphadata* is the destination pool
 and dataset where *alphadata* snapshots are replicated.
 
@@ -1089,10 +1089,10 @@ hostname.
 
 
 The :guilabel:`Remote Auth Token` field expects a special token from
-the *Beta* computer. On *Beta*, navigate to
+the *Beta* computer. On *Beta*, click
 :menuselection:`Tasks --> Replication Tasks`,
-hover |ui-menu|, and click :guilabel:`Replication Token`. A dialog
-showing the temporary authorization token is shown as in
+then :guilabel:`Replication Token`. A dialog showing the temporary
+authorization token is shown as in
 :numref:`Figure %s <zfs_auth_token_fig>`.
 
 Highlight the temporary authorization token string with the mouse and

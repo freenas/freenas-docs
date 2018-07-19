@@ -163,14 +163,16 @@ def patched_menusel_role(typ, rawtext, text, lineno, inliner, options={}, conten
 # Use 'patched_menusel_role' function for processing the 'menuselection' role
 roles.register_local_role("menuselection", patched_menusel_role)
 
-# Use roles for specific Angular UI icons
+# roles for specific UI icons
+# gear: Unicode F013
+# options: unicode F142
+# plus: unicode FF0B
 
-rst_prolog = """
-.. |ui-settings| replace:: **"""u'\u2699'"""** (Settings)
-.. |ui-options| replace:: **"""u'\u2AF6'"""** (Options)
-.. |ui-add| replace::  **"""u'\uFF0B'"""** (Add/Create)
-.. |ui-menu| replace:: **"""u'\u2AF6'""""""u'\u2630'"""** (Menu)
-"""
+rst_prolog = u'''
+.. |ui-settings| replace:: ⚙ (Settings)
+.. |ui-options|  replace:: ⫶ (Options)
+.. |ui-add|      replace:: **+** (Add/Create)
+'''
 
 # -- Options for HTML output ---------------------------------------------------
 
@@ -343,6 +345,7 @@ if six.PY3:
 else:
     texproject = project.replace(u'®', r'''{\textsuperscript{\textregistered}}''')
 
+
 PREAMBLE = r'''\def\docname{''' + texproject + '}'
 
 PREAMBLE = (PREAMBLE
@@ -429,7 +432,8 @@ if latex_engine == 'xelatex':
                     \newfontfamily\opensansfont{OpenSans-Regular.ttf}[Scale=0.95]%
                     \setmainfont{OpenSans-Regular.ttf}[Scale=0.95]%
                     \setmonofont{FreeMono.otf}[Scale=0.95]%
-                    \defaultfontfeatures{Ligatures=TeX}%'''
+                    \defaultfontfeatures{Ligatures=TeX}%
+                    \newfontfamily{\awesome}[Scale = 0.95, Path = /usr/local/share/texmf-dist/fonts/opentype/public/fontawesome/]{FontAwesome.otf}'''
     title_font = r'''\fontspec{OpenSans-Light.ttf}[Scale=0.95]%'''
 else:
     # pdflatex, can't use fontspec
