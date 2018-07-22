@@ -29,12 +29,21 @@ an online version of the API is available at
 The rest of this section shows code examples to illustrate the use of
 the API.
 
-.. note:: Beginning with %brand% 9.10.2, a new API has been added. The
-   old API is still present for compatibility. Documentation for the
-   new API is available on the %brand% system at the */api/docs/* URL.
+.. note:: A new API was released with %brand% 11.1. The previous API is
+   still present and in use because it is feature-complete.
+   Documentation for the new API is available on the %brand% system
+    at the */api/docs/* URL.
    For example, if the %brand% system is at IP address 192.168.1.119,
    enter *http://192.168.1.119/api/docs/* in a browser to see the API
    documentation.
+   Work is under way to make the new API feature-complete.
+   The new API v2 uses `WebSockets
+   <https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API>`__. This
+   advanced technology makes it possible to open interactive communication
+   sessions between web browsers and servers, allowing event-driven responses
+   without the need to poll the server for a reply. When API v2 is feature
+   complete, the %brand% documentation will include relevant examples
+   that make use of the new API.
 
 
 .. _A Simple API Example:
@@ -214,7 +223,7 @@ username, and password provided by the user via the command line::
         self._user = user
         self._secret = secret
         self._ep = 'http://%s/api/v1.0' % hostname
-  def request(self, resource, method='GET', data=None):
+   def request(self, resource, method='GET', data=None):
         if data is None:
             data = ''
         r = requests.request(
@@ -223,20 +232,19 @@ username, and password provided by the user via the command line::
             data=json.dumps(data),
             headers={'Content-Type': "application/json"},
             auth=(self._user, self._secret),
- )
- if r.ok:
-        try:
-            return r.json()
-        except:
-            return r.text
- raise ValueError(r)
+        )
+        if r.ok:
+            try:
+                return r.json()
+            except:
+                return r.text
+        raise ValueError(r)
 
 A *get_disks* method is defined to get all the disks in the system as
 a *disk_name* response. The *create_pool* method uses this information
 to create a ZFS pool named *tank* which is created as a stripe. The
 *volume_name* and *layout* JSON parameters are described in the
-"Storage Volume" resource of the API documentation.
-::
+"Storage Volume" resource of the API documentation.::
 
  def _get_disks(self):
         disks = self.request('storage/disk')
@@ -264,8 +272,7 @@ The *create_cifs_share* method is used to share
 :file:`/mnt/tank/MyShare` with guest-only access enabled. The
 *cifs_name*, *cifs_path*, *cifs_guestonly* JSON parameters, as well as
 the other allowable parameters, are described in the "Sharing CIFS"
-resource of the API documentation.
-::
+resource of the API documentation.::
 
  def create_cifs_share(self):
         self.request('sharing/cifs', method='POST', data={
