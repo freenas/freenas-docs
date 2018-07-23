@@ -1342,7 +1342,7 @@ available:
 Using iocage
 ------------
 
-Beginning with %brand% 9.10.1, the
+Beginning with %brand% 11.0, the
 `iocage <https://github.com/iocage/iocage>`__
 command line utility is included for creating and managing jails.
 Click the :guilabel:`Shell` option to  open the command line and begin
