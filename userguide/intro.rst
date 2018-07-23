@@ -234,7 +234,7 @@ The following screen options have changed:
 * Disk temperature graphs have been added to
   :menuselection:`Reporting --> Disk`.
 
-.. note:: To keep lists aligned when using zoom in firefox ensure
+.. note:: To keep lists aligned when using zoom in Firefox, ensure
    :menuselection:`View --> Zoom --> Zoom Text Only`
    is not set.
 
