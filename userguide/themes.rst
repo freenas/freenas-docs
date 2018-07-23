@@ -3,14 +3,14 @@
 Themes
 ======
 
-The %brand% User Interface can be customized and adjusted to match the
-user preferences.
+The %brand% User Interface can be adjusted to match the user
+preferences.
 
-The upper-right corner :guilabel:`Paint Bucket` icon (%brand% Themes)
-displays a list of different themes when selected.
+The upper-right corner :guilabel:`Themes` menu, which appears as a
+paint bucket icon, displays a list of different themes when selected.
 :numref:`Figure %s <theme_select>` shows the default themes installed
 with %brand% and any favorited :ref:`custom themes <Create New Themes>`.
-Click a theme to dynamically change the current appearance of the UI.
+Click a theme to activate it.
 
 .. _theme_select:
 
@@ -31,10 +31,9 @@ the |ui-settings| menu in the upper-right and clicking
 User Preferences
 ----------------
 
-This page has options to adjust the current theme, manage
-custom themes, and create new themes.
-:numref:`Figure %s <theme_preferences>` shows the different
-options:
+This page has options to adjust global settings in the UI, manage custom
+themes, and create new themes.
+:numref:`Figure %s <theme_preferences>` shows the different options:
 
 .. _theme_preferences:
 
@@ -66,9 +65,8 @@ selections.
 
 **Manage Custom Themes**
 
-This column displays any custom themes that have been created. Delete
-these themes by setting the checkboxes and clicking
-:guilabel:`Delete Selected`.
+This column displays any created custom themes. Delete these themes by
+setting the checkboxes and clicking :guilabel:`Delete Selected`.
 
 Click :guilabel:`Create New Theme` to go to the
 :guilabel:`Create Custom Theme` page.
@@ -81,7 +79,8 @@ Create New Themes
 -----------------
 
 This page is used to create and preview custom %brand% themes.
-:numref:`Figure %s <theme_custom>` shows many of the themeing and preview options:
+:numref:`Figure %s <theme_custom>` shows many of the theming and
+preview options:
 
 .. _theme_custom:
 
@@ -101,7 +100,7 @@ the starting values for the new custom theme.
 
 .. _custom_theme__general_options:
 
-.. table:: General Options for the Custom Theme
+.. table:: General Options for a New Theme
    :class: longtable
 
    +-------------------+-----------+------------------------------------------------------------------------------------------+
@@ -124,7 +123,7 @@ the starting values for the new custom theme.
    |                   |           | :guilabel:`Paint Bucket` icon.                                                           |
    |                   |           |                                                                                          |
    +-------------------+-----------+------------------------------------------------------------------------------------------+
-   | Choose Logo Type  | checkbox  | (Redmine issue 39253) Set to label this theme as "dark".                                 |
+   | Choose Logo Type  | checkbox  | Set to classify this as a "dark" theme.                                                  |
    |                   |           |                                                                                          |
    +-------------------+-----------+------------------------------------------------------------------------------------------+
    | Choose Primary    | drop-down | Choose from either a generic color or import a specific color setting to use as the      |
