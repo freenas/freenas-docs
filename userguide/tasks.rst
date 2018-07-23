@@ -320,8 +320,7 @@ task.
    |                                  |                             | host to sync with (e.g. */mnt/pool*). Note that the path length cannot be greater than    |
    |                                  |                             | 255 characters.                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Validate Remote Path             | checkbox                    | If the :guilabel:`Remote Path` does not yet exist, enable this option to have it          |
-   |                                  |                             | automatically created.                                                                    |
+   | Validate Remote Path             | checkbox                    | Verifies the existence of the :guilabel:`Remote Path`.                                    |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Direction                        | drop-down menu              | Direct the flow of the data to the remote host. Choices are *Push*                        |
    |                                  |                             | *Pull*. Default is to push to a remote host.                                              |
