@@ -285,7 +285,7 @@ in :guilabel:`MAC Address`. Click
 :guilabel:`MAC Address` with another randomized MAC address.
 
 If the system has multiple physical network interface cards, use the
-:guilabel:`Nic to attach` drop-down menu to specify which
+:guilabel:`NIC to attach` drop-down menu to specify which
 physical interface to associate with the VM.
 
 
