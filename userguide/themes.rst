@@ -45,6 +45,9 @@ options:
 
 **General Preferences**
 
+These options are applied to the entire UI separately from the active
+theme:
+
 :guilabel:`Choose Theme`: Change the active theme. Custom themes can be
 added to this list.
 
@@ -60,12 +63,15 @@ text to each form in the UI.
 Make any changes and click :guilabel:`Update Settings` to save the new
 selections.
 
+
 **Manage Custom Themes**
 
 This column displays any custom themes that have been created. Delete
 these themes by setting the checkboxes and clicking
-:guilabel:`Delete Selected`. Click :guilabel:`Create New Theme` to go to
-the :guilabel:`Create Custom Theme` page.
+:guilabel:`Delete Selected`.
+
+Click :guilabel:`Create New Theme` to go to the
+:guilabel:`Create Custom Theme` page.
 
 
 .. index:: Create New Themes
@@ -142,6 +148,11 @@ Changing any color value automatically updates the
 :guilabel:`Theme Preview` column. This section is completely interactive
 and shows how the custom theme is applied to all the different elements
 in the UI.
+
+Click :guilabel:`Save Custom Theme` when finished with all the
+:guilabel:`General` and :guilabel:`Colors` options. The new theme will
+be immediately added to the list of available themes in
+:guilabel:`User Preferences`.
 
 Click :guilabel:`Global Preview` to apply the unsaved custom theme to
 the current session of the %brand% UI. Activating
