@@ -583,8 +583,8 @@ The configurable settings are summarized in
    | Setting                                  | Value                            | Description                                                                                      |
    |                                          |                                  |                                                                                                  |
    +==========================================+==================================+==================================================================================================+
-   | Enable Console Menu                      | checkbox                         | Deselect this option to add a login prompt to the system before the console                      |
-   |                                          |                                  | menu is shown.                                                                                   |
+   | Show Text Console without Password       | checkbox                         | Set for the system to immediately display the text console after booting. Unset to require       |
+   | Prompt                                   |                                  | logging into the system before the console menu is shown.                                        |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
    | Enable Serial Console                    | checkbox                         | **Do not** enable this option if the serial port is disabled.                                    |
