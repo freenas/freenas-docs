@@ -705,6 +705,11 @@ the boot menu:
    Boot Menu
 
 
+.. tip:: %brand% begins booting into the default boot environment after
+   10 seconds. Press any key except :kbd:`Enter` to stop the automatic
+   boot timer.
+
+
 Press :kbd:`3` to display the available boot environments and
 press :kbd:`3` again as needed to scroll through multiple pages.
 
@@ -713,6 +718,7 @@ press :kbd:`3` again as needed to scroll through multiple pages.
 .. figure:: images/boot-env.png
 
    Boot Environments
+
 
 In the example shown in :numref:`Figure %s <boot_env_fig>`, the first
 boot entry, :literal:`FreeNAS-1415259326`, refers to the current version
