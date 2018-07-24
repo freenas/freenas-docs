@@ -1023,7 +1023,7 @@ The configuration options are described in
    |                    |                |          | **While NOT recommended**, enabling this option will force the creation of the zvol.                                 |
    |                    |                |          |                                                                                                                      |
    +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
-   | Sparse pool        | checkbox       |          | Used to provide thin provisioning. Use with caution as writes will fail when the pool is low on space.               |
+   | Sparse             | checkbox       |          | Used to provide thin provisioning. Use with caution as writes will fail when the pool is low on space.               |
    |                    |                |          |                                                                                                                      |
    +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
    | Block size         | drop-down menu | ✓        | The default is based on the number of disks in the pool. This can be set to match the block size of the filesystem   |
