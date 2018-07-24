@@ -67,7 +67,7 @@ Logging In
 
 By default, the login screen shown in
 :numref:`Figure %s <quick_enter_root_pass_fig>` prompts to log into the
-new UI. 
+new UI.
 
 .. _quick_enter_root_pass_fig:
 

@@ -246,22 +246,28 @@ Performing the Installation
 
 With the installation media inserted, boot the system from that media.
 
-#ifdef comment
-The %brand% installer GRUB menu is displayed as is shown in
-:numref:`Figure %s <grub_menu_fig>`.
-#endif comment
+.. TODO ADD TIMER TEXT, UPDATE SCREENSHOT, VERIFY SERIAL VVV
 
-#ifdef comment
-.. _grub_menu_fig:
+The %brand% installer boot menu is displayed as is shown in
+:numref:`Figure %s <grub_menu_fig>`.
+
+.. _installer_boot_menu_fig:
 
 .. figure:: images/grubmenu.png
 
-   Grub Menu
+   Installer Boot Menu
+
+
+The %brand% installer automatically boots into the default option after
+10 seconds. Press any key except :kbd:`Enter` to stop the timer and
+choose another option.
 
 .. tip:: The Serial Enabled option is useful on systems which do not
    have a keyboard or monitor, but are accessed through a serial port,
    *Serial over LAN*, or :ref:`IPMI`.
-#endif comment
+
+
+.. TODO END REVIEW ^^^
 
 .. note:: If the installer does not boot, verify that the installation
    device is listed first in the boot order in the BIOS. When booting
@@ -407,9 +413,12 @@ Press :kbd:`Enter` to return to :ref:`installer_menu_fig`.
 Highlight :guilabel:`3 Reboot System` and press :kbd:`Enter`. If
 booting from CD, remove the CDROM. As the system reboots, make sure
 that the device where %brand% was installed is listed as the first
-boot entry in the BIOS so the system will boot from it. %brand% boots
-into the :guilabel:`Console Setup` menu described in
-:ref:`Booting`.
+boot entry in the BIOS so the system will boot from it. %brand%
+automatically boots into the default boot environment after 5 seconds.
+%brand% boots into the :guilabel:`Console Setup` menu described in
+:ref:`Booting` after waiting 5 seconds in the
+:ref:`boot menu <boot_menu_fig>`. Press any key except :kbd:`Enter` to
+stop the timer and use the boot menu.
 
 
 .. _Installation Troubleshooting:
@@ -706,7 +715,7 @@ the boot menu:
 
 
 .. tip:: %brand% begins booting into the default boot environment after
-   10 seconds. Press any key except :kbd:`Enter` to stop the automatic
+   5 seconds. Press any key except :kbd:`Enter` to stop the automatic
    boot timer.
 
 
