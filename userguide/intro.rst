@@ -148,8 +148,7 @@ These major features are new in this version:
 
 The following software has been added or updated:
 
-* The base operating system has been updated to FreeBSD 11.1-STABLE as
-  of April 19, 2018.
+* The base operating system has been updated to FreeBSD 11.2.
 
 * OpenZFS is up-to-date with Illumos and slightly ahead due to support
   for sorted scrubs which were ported from ZFS on Linux. Notable

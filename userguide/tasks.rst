@@ -512,8 +512,8 @@ task.
    |                                  |                             | host to sync with, example: */mnt/volume*. Note that maximum path length is               |
    |                                  |                             | 255 characters.                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Validate Remote Path             | checkbox                    | If the :guilabel:`Remote Path` does not yet exist, enable this option to have it          |
-   |                                  |                             | automatically created.                                                                    |
+   | Validate Remote Path             | checkbox                    | Verifies the existence of the :guilabel:`Remote Path`.                                    |
+   |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Direction                        | drop-down menu              | Direct the flow of the data to the remote host. Choices are *Push* or                     |
    |                                  |                             | *Pull*. Default is to push to a remote host.                                              |
