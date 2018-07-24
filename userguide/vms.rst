@@ -88,7 +88,7 @@ VM configuration options are described in
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | Guest Operating    | drop-down menu | Choose the VM operating system type. Choices are: *Windows*, *Linux*, or *FreeBSD*. See       |
    |          | System             |                | `this guide <https://github.com/FreeBSD-UPB/freebsd/wiki/How-to-launch-different-guest-OS>`__ |
-   |          |                    |                | for detailed instructions about using a different Guest OS.                                   |
+   |          |                    |                | for detailed instructions about using a different guest OS.                                   |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | VM Name            | string         | Enter an alphanumeric name to identify the VM.                                                |
