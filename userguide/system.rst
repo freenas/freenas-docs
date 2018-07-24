@@ -1910,6 +1910,10 @@ and the date and time the CA expires.
 Click |ui-options| on an existing CA to access these configuration
 buttons:
 
+* **View:** use this option to view the contents of an existing
+  :guilabel:`Certificate`, :guilabel:`Private Key`, or to edit the
+  :guilabel:`Identifier`.
+
 * **Sign CSR:** used to sign internal Certificate Signing Requests
   created using
   :menuselection:`System --> Certificates --> Create CSR`.
@@ -2121,12 +2125,8 @@ available as a configurable option for encrypting connections.
 
 
 Clicking |ui-options| for an entry shows these configuration buttons:
-#ifdef comment
-Edit is changing to View to reflect the current state of Certificates
-Docs needs to be updated once the change is made.
-#endif comment
 
-* **Edit:** use this option to view the contents of an existing
+* **View:** use this option to view the contents of an existing
   :guilabel:`Certificate`, :guilabel:`Private Key`, or to edit the
   :guilabel:`Identifier`.
 
