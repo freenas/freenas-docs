@@ -1201,8 +1201,8 @@ for more details.
    |                     | but read the caveat in NOTE below table.                                                                                                   |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | full_audit          | Record selected client operations to the system log. If selected, a warning will indicate that Windows 10 clients may experience issues    |
-   |                     | when transferring files to the NAS system when this module is enabled.                                                                     |
+   | full_audit          | Record selected client operations to the system log.                                                                                       |
+   |                     |                                                                                                                                            |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | linux_xfs_sgid      | Used to work around an old Linux XFS bug.                                                                                                  |
