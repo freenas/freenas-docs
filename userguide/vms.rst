@@ -441,9 +441,8 @@ Running VMs
 
 Select
 :menuselection:`VMs`
-to see cards of installed VMs. There are options to :guilabel:`Connect`,
-view :guilabel:`Devices`, and :guilabel:`Edit` the VM across the bottom
-of the card.
+to see cards of installed VMs. There is an option to :guilabel:`Connect`
+to the VM across the bottom of the card.
 
 
 .. figure:: images/vms-control1.png
@@ -453,12 +452,12 @@ of the card.
 
 The name, description, running state, Com Port (if present), and other
 configuration values are shown on the card. Click |ui-options| for the
-:guilabel:`Start`, power, and :guilabel:`Delete` options.
+:guilabel:`Start`, :guilabel:`Power Off`, :guilabel:`Delete`,
+:guilabel:`Devices`, and :guilabel:`Edit` options.
 
 
-.. tip:: The :guilabel:`VMs` page view can switch between the
-   :guilabel:`Cards` and a :guilabel:`Table` view. VM options are the
-   same in each view.
+.. tip:: The :guilabel:`VMs` page view can switch between
+   :guilabel:`Cards`, :guilabel:`Slim`, and :guilabel:`Table` view.
 
 
 Some standard buttons are available for all VMs:
