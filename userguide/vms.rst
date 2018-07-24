@@ -87,7 +87,8 @@ VM configuration options are described in
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
    | 2        | Guest Operating    | drop-down menu | Choose the VM operating system type. Choices are: *Windows*, *Linux*, or           |
-   |          | System             |                | *FreeBSD*.                                                                         |
+   |          | System             |                | *FreeBSD*. See :ref:`this note <different_guest_os>` about using a different       |
+   |          |                    |                | Guest OS.                                                                          |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
    | 2        | VM Name            | string         | Enter an alphanumeric name to identify the VM.                                     |
    |          |                    |                |                                                                                    |
@@ -188,6 +189,15 @@ and basic settings for the FreeBSD VM *freebsd-test*:
 .. figure:: images/vms-create-example.png
 
    Creating *freebsd-test*
+
+
+.. _different_guest_os:
+
+.. note:: It is possible to launch a different guest OS from the
+   :ref:`Shell`. Refer to the
+   `How to launch different guest OS
+   <https://github.com/FreeBSD-UPB/freebsd/wiki/How-to-launch-different-guest-OS>`__
+   guide for detailed instructions.
 
 
 .. index:: Adding Devices to a VM
