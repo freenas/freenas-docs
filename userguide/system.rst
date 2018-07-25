@@ -16,7 +16,8 @@ The System section of the administrative GUI contains these entries:
 * :ref:`NTP Servers` adds, edits, and deletes Network Time Protocol
   servers
 
-* :ref:`Boot` creates, renames, and deletes boot environments
+* :ref:`Boot Environments` creates, renames, and deletes boot
+  environments. It also shows the condition of the Boot Pool.
 
 * :ref:`Advanced` configures advanced settings such as the serial
   console, swap space, and console messages
@@ -327,10 +328,10 @@ explains these options in more detail.
 
 
 .. index:: Boot Environments, Multiple Boot Environments
-.. _Boot:
+.. _Boot Environments:
 
-Boot
-----
+Boot Environments
+-----------------
 
 %brand% supports a ZFS feature known as multiple boot environments.
 With multiple boot environments, the process of updating the operating
@@ -356,7 +357,7 @@ to instruct the system to go back to that system state.
 
 As seen in
 :numref:`Figure %s <view_boot_env_fig>`, %brand% displays the condition
-and statistics of the *Boot Volume*. It also shows how two boot
+and statistics of the *Boot Pool*. It also shows how two boot
 environments are created when %brand% is installed. The system will boot
 into the *default* boot environment and users can make their changes and
 update from this version. The other boot environment, named
@@ -498,8 +499,8 @@ the system.
    boot device is recommended.
 
 In the example shown in
-:numref:`Figure %s <mirror_boot_dev_fig>`, the user has navigated to
-:menuselection:`System --> Boot`,
+:numref:`Figure %s <mirror_boot_dev_fig>`, the user has gone to
+:menuselection:`System --> Boot Environments`,
 and clicked the :guilabel:`Boot Pool Status` button to display
 the current status of the boot device. As shown in
 :numref:`Figure %s <status_boot_dev_fig>`, the *freenas-boot* pool
@@ -532,9 +533,9 @@ Click :guilabel:`Save` to attach the new disk to the mirror.
    Mirroring a Boot Device
 
 
-After the mirror is created, the :guilabel:`Boot Pool Status` screen indicates
-that it is now a *mirror*. The number of devices in the mirror are
-shown as in :numref:`Figure %s <mirror_boot_status_fig>`.
+After the mirror is created, the :guilabel:`Boot Pool Status` screen
+indicates that it is now a *mirror*. The number of devices in the mirror
+are shown as in :numref:`Figure %s <mirror_boot_status_fig>`.
 
 .. _mirror_boot_status_fig:
 
@@ -1440,7 +1441,7 @@ for scheduled maintenance times to avoid disrupting user activities.
 
 The update process will not proceed unless there is enough free space
 in the boot pool for the new update files. If a space warning is
-shown, use :ref:`Boot` to remove unneeded boot environments.
+shown, use :ref:`Boot Environments` to remove unneeded boot environments.
 #endif freenas
 
 #ifdef truenas
@@ -1461,7 +1462,8 @@ with support.
 
 The update process will not proceed unless there is enough free space
 in the boot pool for the new update files. If a space warning is
-shown, use :ref:`Boot` to remove unneeded boot environments.
+shown, use :ref:`Boot <Boot Environments>` to remove unneeded boot
+environments.
 
 Operating system updates only modify the boot devices and do not
 affect end-user data on storage drives.
@@ -1650,10 +1652,10 @@ updates automatically reboot the system after they are applied.
 .. warning:: Each update creates a boot environment. If the update
    process needs more space, it attempts to remove old boot
    environments. Boot environments marked with the *Keep* attribute as
-   shown in :ref:`Boot` will not be removed. If space for a new boot
-   environment is not available, the upgrade fails. Space on the boot
-   device can be manually freed using
-   :menuselection:`System --> Boot`.
+   shown in :ref:`Boot Environments` will not be removed. If space for
+   a new boot environment is not available, the upgrade fails. Space on
+   the boot device can be manually freed using
+   :menuselection:`System --> Boot Environments`.
    Review the boot environments and remove the *Keep* attribute or
    delete any boot environments that are no longer needed.
 
