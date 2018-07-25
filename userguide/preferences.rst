@@ -17,39 +17,65 @@ User Interface Preferences
 
 This page has options to adjust global settings in the UI, manage custom
 themes, and create new themes.
-:numref:`Figure %s <ui_preferences>` shows the different options:
+:numref:`Figure %s <ui_preferences_fig>` shows the different options:
 
-.. _ui_preferences:
+.. _ui_preferences_fig:
 
-.. figure:: images/preferences-ui-preferences.png
+.. figure:: images/settings-preferences.png
 
    User Interface Preferences
 
 
-**General Preferences**
-
-These options are applied to the entire UI separately from the active
-theme:
+These options are applied to the entire UI:
 
 :guilabel:`Choose Theme`: Change the active theme. Custom themes are
 added to this list.
 
-:guilabel:`View Type Preference` is used to select the default view for
-many of the overview pages in the UI. Choose *Cards* to display each
-item on a page in a self-contained "card". *Tables* condenses each item
-into a simplified table. *Auto* dynamically adjusts the view according
-to the number of items visible on the specific page.
+:guilabel:`View Type Preference` selects the default view for many of
+the overview pages in the UI. Choose *Cards* to display each item on a
+page in a self-contained "card". *Tables* condenses each item into a
+simplified table. *Auto* dynamically adjusts the view according to the
+number of items visible on the specific page.
 
 :guilabel:`Enable Helpful Tooltips in Forms`: Set to add viewable help
-text to each form in the UI.
+text to each form in the UI. Unset to hide all help text icons.
 
 Make any changes and click :guilabel:`Update Settings` to save the new
 selections.
 
 
-**Manage Custom Themes**
+.. _Themes:
 
-This column displays any created custom themes. Delete these themes by
+Themes
+------
+
+The %brand% UI supports dynamically changing the active theme and
+creating new, fully customizable themes.
+
+
+.. index:: Change Theme
+.. _Theme Selector:
+
+Theme Selector
+~~~~~~~~~~~~~~
+
+Quickly change the active theme by using the theme selector. Look for
+the paint bucket icon in the upper-right corner of the UI. Click the
+icon to see a list of different default and favorite themes.
+:numref:`Figure %s <themes_select_fig>` shows an example:
+
+.. _themes_select_fig:
+
+.. figure:: images/themes-select.png
+
+   Changing the %brand% UI theme
+
+
+Click a theme to activate it.
+
+Select :guilabel:`Manage Themes` to open the
+:guilabel:`User Preferences` page. The :guilabel:`Manage Custom Themes`
+column displays any created custom themes. Delete these themes by
 setting the checkboxes and clicking :guilabel:`Delete Selected`.
 
 Click :guilabel:`Create New Theme` to go to the
@@ -60,15 +86,15 @@ Click :guilabel:`Create New Theme` to go to the
 .. _Create New Themes:
 
 Create New Themes
------------------
+~~~~~~~~~~~~~~~~~
 
 This page is used to create and preview custom %brand% themes.
-:numref:`Figure %s <theme_custom>` shows many of the theming and
+:numref:`Figure %s <theme_custom_fig>` shows many of the theming and
 preview options:
 
-.. _theme_custom:
+.. _theme_custom_fig:
 
-.. figure:: images/preferences-create-custom-theme.png
+.. figure:: images/settings-preferences-create-custom-theme.png
 
    Create and Preview a Custom Theme
 
@@ -76,13 +102,14 @@ preview options:
 Select an existing theme from the :guilabel:`Load Colors from Theme`
 drop-down menu in the upper-right to use the colors from that theme as
 the starting values for the new custom theme.
-:numref:`Table %s <custom_theme__general_options>` describes each option:
+:numref:`Table %s <custom_theme__general_options_table>` describes each
+option:
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.11\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.68\linewidth-2\tabcolsep}|
 
-.. _custom_theme__general_options:
+.. _custom_theme__general_options_table:
 
 .. table:: General Options for a New Theme
    :class: longtable
@@ -147,26 +174,3 @@ live testing the new custom theme.
    , complete any remaining options, and click
    :guilabel:`Save Custom Theme` to save the current settings as a new
    theme.
-
-
-.. _Theme Selector:
-
-Theme Selector
---------------
-
-Quickly change the active theme by using the theme selector. Look for
-the paint bucket icon in the upper-right corner of the UI. Click the
-icon to see a list of different default and favorite themes.
-:numref:`Figure %s <theme_select>` shows an example:
-
-.. _theme_select:
-
-.. figure:: images/preferences-select-theme.png
-
-   Changing the %brand% UI theme
-
-
-Click a theme to activate it.
-
-Select :guilabel:`Manage Themes` to open the
-:guilabel:`User Preferences` page.
