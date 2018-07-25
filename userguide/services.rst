@@ -168,6 +168,8 @@ which are described in
 Troubleshooting AFP
 ~~~~~~~~~~~~~~~~~~~
 
+Check for error messages in :file:`/var/log/afp.log`.
+
 Determine which users are connected to an AFP share by typing
 :command:`afpusers`.
 
