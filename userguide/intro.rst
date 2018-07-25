@@ -205,6 +205,11 @@ The following screen options have changed:
   be used to list the available alert conditions and to configure the
   notification frequency on a per-alert basis.
 
+*  These :ref:`Cloud Credentials` have been added to
+   :menuselection:`System --> Cloud Credentials`: Amazon Cloud Drive,
+   Box, Dropbox, FTP, Google Drive, HTTP, Hubic, Mega, Microsoft
+   OneDrive, pCloud, SFTP, WebDAV, Yandex.
+
 * The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
   :guilabel:`Encryption password`, and :guilabel:`Encryption salt`
   fields have been added to
