@@ -608,7 +608,8 @@ Docker VM configuration options are described in
    |          |                    |                | the number of CPUs.                                                                |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in mebibytes for the Docker VM.                         |
+   | 3        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in MiB for the Docker VM.                               |
+   |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
    | 4        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This       |
    |          |                    |                | provides compatibility with most operating systems. :guilabel:`VirtIO` provides    |
@@ -624,17 +625,17 @@ Docker VM configuration options are described in
    |          |                    |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | RAW filename       | string         | Enter a name for the new raw file.                                                 |
+   | 5        | Raw filename       | string         | Enter a name for the new raw file.                                                 |
    |          |                    |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | RAW file size      | integer        | Allocate storage size in gibibytes (GiB) for the new RAW file.                     |
+   | 5        | Raw file size      | integer        | Allocate storage size in GiB for the new raw file.                                 |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | RAW file location  | browse button  | :guilabel:`Browse` to an existing directory to store the new RAW file.             |
+   | 5        | Raw file location  | browse button  | Select a directory to store the new raw file.                                      |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | Disk sector size   | integer        | Define the disk sectorsize in bytes. Enter *0* to leave the sector size unset.     |
+   | 5        | Disk sector size   | integer        | Define the disk sector size in bytes. Enter *0* to leave the sector size unset.    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
 
@@ -649,10 +650,11 @@ system defaults. Customize these fields as necessary and press
 
 The :guilabel:`Storage Files` section of the wizard contains options to
 create, size, and store a raw file. Add a filename by typing an *.img*
-name in the :guilabel:`RAW filename` field. Enter a number of bytes for
-the :guilabel:`RAW file size` and set the :guilabel:`Disk sector size`,
-also in bytes. Set the raw file save location using :guilabel:`Browse`
-with the :guilabel:`RAW File location` field.
+name in the :guilabel:`Raw filename` field. Enter a number of gigabytes
+for the :guilabel:`Raw file size`. Set the :guilabel:`Disk sector size`
+in bytes. Set the raw file save location by clicking the
+:guilabel:`Folder` icon and selecting a directory for the
+:guilabel:`Raw file location` field.
 
 The final screen of the Wizard displays the chosen options for the new
 Docker VM. Click :guilabel:`Submit` to create the VM or :guilabel:`Back`
