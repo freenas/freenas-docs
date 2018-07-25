@@ -11,7 +11,8 @@ The System section of the administrative GUI contains these entries:
 * :ref:`General` configures general settings such as HTTPS access, the
   language, and the timezone
 
-* :ref:`Boot` creates, renames, and deletes boot environments
+* :ref:`Boot` creates, renames, and deletes boot environments. It also
+  shows the condition of the Boot Volume.
 
 * :ref:`Advanced` configures advanced settings such as the serial
   console, swap space, and console messages
@@ -332,7 +333,7 @@ Boot
 With multiple boot environments, the process of updating the operating
 system becomes a low-risk operation. The updater automatically creates
 a snapshot of the current boot environment and adds it to the boot
-menu before applying the update. 
+menu before applying the update.
 
 #ifdef freenas
 If an update fails, reboot the system and select the previous boot
