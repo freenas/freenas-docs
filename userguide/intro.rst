@@ -146,7 +146,7 @@ These major features are new in this version:
   (SEDs).
 
 
-The following software has been added or updated:
+Software added or updated:
 
 * The base operating system has been updated to FreeBSD 11.2.
 
@@ -195,7 +195,7 @@ The following software has been added or updated:
   debug information. The :command:`-G` switch has been removed as the
   system no longer uses GRUB.
 
-The following screen options have changed:
+These screen options have changed:
 
 * The :guilabel:`ATA Security User`, :guilabel:`SED Password`, and
   :guilabel:`Reset SED Password` fields have been added to 
@@ -204,6 +204,11 @@ The following screen options have changed:
 * :guilabel:`Alerts` has been added to :guilabel:`System` and can be used
   to list the available alert conditions and to configure the notification
   frequency on a per-alert basis.
+
+* These :ref:`Cloud Credentials` have been added to
+  :menuselection:`System --> Cloud Credentials`: Amazon Cloud Drive,
+  Box, Dropbox, FTP, Google Drive, HTTP, Hubic, Mega, Microsoft
+  OneDrive, pCloud, SFTP, WebDAV, Yandex.
 
 * The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
   :guilabel:`Encryption password`, and :guilabel:`Encryption salt`
