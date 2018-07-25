@@ -8,7 +8,7 @@
    intro
    install
    booting
-   themes
+   preferences
    account
    system
    tasks
