@@ -51,11 +51,15 @@ plugins.
    Viewing the List of Available Plugins
 
 
+The :guilabel:`Available Plugins` page lists the plugin name,
+description, current version, and if the plugin is officially supported.
+
 .. note:: If the list of available plugins is not displayed, open
    :ref:`Shell` and verify that the %brand% system can :command:`ping`
    an address on the Internet. If it cannot, add a default gateway
    address and/or DNS server address in
    :menuselection:`Network --> Global Configuration`.
+
 
 Click |ui-options| and :guilabel:`install` for the desired plugin. Set
 :guilabel:`DHCP` to automatically configure IP settings, or manually
@@ -69,6 +73,7 @@ Server is selected for installation.
 .. figure:: images/plugins-install-example.png
 
    Installing the Plex Plugin
+
 
 The installation takes a few minutes because the system
 downloads and configures a jail to store the plugin application. It
