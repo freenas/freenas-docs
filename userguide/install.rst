@@ -246,22 +246,25 @@ Performing the Installation
 
 With the installation media inserted, boot the system from that media.
 
-#ifdef comment
-The %brand% installer GRUB menu is displayed as is shown in
-:numref:`Figure %s <grub_menu_fig>`.
-#endif comment
+The %brand% installer boot menu is displayed as is shown in
+:numref:`Figure %s <installer_boot_menu_fig>`.
 
-#ifdef comment
-.. _grub_menu_fig:
+.. _installer_boot_menu_fig:
 
-.. figure:: images/grubmenu.png
+.. figure:: images/installermenu.png
 
-   Grub Menu
+   Installer Boot Menu
 
-.. tip:: The Serial Enabled option is useful on systems which do not
-   have a keyboard or monitor, but are accessed through a serial port,
-   *Serial over LAN*, or :ref:`IPMI`.
-#endif comment
+
+The %brand% installer automatically boots into the default option after
+ten seconds. If needed, choose another boot option by pressing the
+:kbd:`Spacebar` to stop the timer and then enter the number of the
+desired option.
+
+.. tip:: The :guilabel:`Serial Console` option is useful on systems
+   which do not have a keyboard or monitor, but are accessed through a
+   serial port, *Serial over LAN*, or :ref:`IPMI`.
+
 
 .. note:: If the installer does not boot, verify that the installation
    device is listed first in the boot order in the BIOS. When booting
@@ -407,9 +410,12 @@ Press :kbd:`Enter` to return to :ref:`installer_menu_fig`.
 Highlight :guilabel:`3 Reboot System` and press :kbd:`Enter`. If
 booting from CD, remove the CDROM. As the system reboots, make sure
 that the device where %brand% was installed is listed as the first
-boot entry in the BIOS so the system will boot from it. %brand% boots
-into the :guilabel:`Console Setup` menu described in
-:ref:`Booting`.
+boot entry in the BIOS so the system will boot from it. %brand%
+automatically boots into the default boot environment after 5 seconds.
+%brand% boots into the :guilabel:`Console Setup` menu described in
+:ref:`Booting` after waiting 5 seconds in the
+:ref:`boot menu <boot_menu_fig>`. Press any key except :kbd:`Enter` to
+stop the timer and use the boot menu.
 
 
 .. _Installation Troubleshooting:
@@ -583,10 +589,14 @@ installation media. Burn the downloaded :file:`.iso` file to a CD or
 USB thumb drive using the instructions in
 :ref:`Preparing the Media`.
 
-Insert the prepared media into the system and boot from it. After the
-media finishes booting into the installation menu, press :kbd:`Enter`
-to select the default option of :guilabel:`1 Install/Upgrade.` The
-installer presents a screen showing all available drives.
+Insert the prepared media into the system and boot from it. The
+installer waits ten seconds in the
+:ref:`installer boot menu <installer_boot_menu_fig>` before booting the
+default option. If needed, press the :kbd:`Spacebar` to stop the timer
+and choose another boot option. After the media finishes booting into
+the installation menu, press :kbd:`Enter` to select the default option
+of :guilabel:`1 Install/Upgrade.` The installer presents a screen
+showing all available drives.
 
 .. warning:: *All* drives are shown, including boot drives and storage
    drives. Only choose boot drives when upgrading. Choosing the wrong
@@ -705,8 +715,10 @@ the boot menu:
    Boot Menu
 
 
-Press :kbd:`3` to display the available boot environments and
-press :kbd:`3` again as needed to scroll through multiple pages.
+%brand% waits five seconds before booting into the default boot
+environment. Press the :kbd:`Spacebar` to stop the automatic
+boot timer. Press :kbd:`4` to display the available boot environments
+and press :kbd:`3` as needed to scroll through multiple pages.
 
 .. _boot_env_fig:
 
@@ -714,18 +726,24 @@ press :kbd:`3` again as needed to scroll through multiple pages.
 
    Boot Environments
 
+
 In the example shown in :numref:`Figure %s <boot_env_fig>`, the first
-boot entry, :literal:`FreeNAS-1415259326`, refers to the current version
-of the operating system, after the update was applied. Since it is the
-first entry, it is the default selection.
+entry in :guilabel:`Boot Environments` is
+:literal:`11.2-MASTER-201807250900`. This is the current version of the
+operating system, after the update was applied. Since it is the first
+entry, it is the default selection.
 
-The next entry, :literal:`Initial-Install`, is the original boot environment
-created when %brand% was first installed. Since there are no other entries
-between the initial installation and the first entry, only one update has
-been applied to this system since its initial installation.
+The next entry is :literal:`Initial-Install`. This is the original boot
+environment created when %brand% was first installed. Since there are no
+other entries between the initial installation and the first entry, only
+one update has been applied to this system since its initial
+installation.
 
-To boot into another version of the operating system, use the down arrow
-to select its entry and press :kbd:`Enter`.
+To boot into another version of the operating system, enter the number
+of the boot environment to set it as :guilabel:`Active`. Press
+:kbd:`Backspace` to return to the :ref:`Boot Menu <boot_menu_fig>` and
+press :kbd:`Enter` to boot into the chosen :guilabel:`Active` boot
+environment.
 
 If a boot device fails and the system no longer boots, don't panic.
 The data is still on the disks and there is still a copy of the saved
@@ -954,7 +972,7 @@ the location of the :file:`.iso` file. If the :file:`.iso` was burned
 to CD, select the detected :guilabel:`Host Drive`.
 
 Depending on the extensions available in the host CPU, it might not be
-possible to boot the VM from :file:`.iso`. If
+possible to boot the VM from an :file:`.iso`. If
 "your CPU does not support long mode" is shown when trying to boot
 the :file:`.iso`, the host CPU either does not have the required
 extension or AMD-V/VT-x is disabled in the system BIOS.
@@ -982,7 +1000,7 @@ device name of *em0*.
 
 
 After configuration is complete, click the :guilabel:`Start` arrow and
-install %brand% as described in `Performing the Installation`_. Once
+install %brand% as described in :ref:`Performing the Installation`. Once
 %brand% is installed, press :kbd:`F12` when the VM starts to boot to
 access the boot menu. Select the primary hard disk as the boot option.
 To permanently boot from disk, remove the :guilabel:`CD/DVD`
