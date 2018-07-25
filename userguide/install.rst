@@ -410,12 +410,12 @@ Press :kbd:`Enter` to return to :ref:`installer_menu_fig`.
 Highlight :guilabel:`3 Reboot System` and press :kbd:`Enter`. If
 booting from CD, remove the CDROM. As the system reboots, make sure
 that the device where %brand% was installed is listed as the first
-boot entry in the BIOS so the system will boot from it. %brand%
-automatically boots into the default boot environment after 5 seconds.
+boot entry in the BIOS so the system will boot from it.
+
 %brand% boots into the :guilabel:`Console Setup` menu described in
-:ref:`Booting` after waiting 5 seconds in the
-:ref:`boot menu <boot_menu_fig>`. Press any key except :kbd:`Enter` to
-stop the timer and use the boot menu.
+:ref:`Booting` after waiting five seconds in the
+:ref:`boot menu <boot_menu_fig>`. Press the :kbd:`Spacebar` to stop the
+timer and use the boot menu.
 
 
 .. _Installation Troubleshooting:
