@@ -1148,7 +1148,10 @@ configuration options. After configuring the S3 service, start it in
    | Confirm S3 Key  | string         | Re-enter the S3 password to confirm.                                                           |
    |                 |                |                                                                                                |
    +-----------------+----------------+------------------------------------------------------------------------------------------------+
-   | Disks           | Browse button  | Browse to the directory for the S3 filesystem.                                                 |
+   | Disk            | browse         | Browse to the directory for the S3 filesystem. This overrides all permissions of that          |
+   |                 |                | directory and all of its subdirectories to *minio:minio*.                                      |
+   |                 |                | :ref:`Create a separate dataset <Adding Datasets>` for Minio to avoid any issues with          |
+   |                 |                | directory permissions.                                                                         |
    |                 |                |                                                                                                |
    +-----------------+----------------+------------------------------------------------------------------------------------------------+
    | Enable Browser  | checkbox       | Set to enable the web user interface for the S3 service.                                       |
