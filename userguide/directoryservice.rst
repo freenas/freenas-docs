@@ -774,28 +774,48 @@ configuration database, which is a security risk in some environments.
 When using a keytab, it is recommended to create and use a less
 privileged account for performing the required queries as the password
 for that account will be stored in the %brand% configuration
-database.  To create the keytab on a Windows system, use these
-commands:
+database.  To create the keytab on a Windows system, use the
+`ktpass
+<https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/ktpass>`__
+command:
 
 .. code-block:: none
 
-   ktpass.exe -out hostname.keytab host/ hostname@DOMAINNAME -ptype KRB5_NT_PRINCIPAL -mapuser DOMAIN\username -pass userpass
-
-   setspn -A host/ hostname@DOMAINNAME DOMAIN\username
+   ktpass.exe /out freenas.keytab /princ http/useraccount@EXAMPLE.COM /mapuser useraccount /ptype KRB5_NT_PRINCIPAL /crypto ALL /pass userpass
 
 
 where:
 
-* **hostname** is the fully qualified hostname of the domain
-  controller.
+* :samp:`{freenas.keytab}` is the file to upload to the %brand% server.
 
-* **DOMAINNAME** is the domain name in all caps.
+* :samp:`{useraccount}` is the name of the user account for the %brand%
+  server generated in `Active Directory Users and Computers
+  <https://technet.microsoft.com/en-us/library/aa998508(v=exchg.65).aspx>`__.
 
-* **DOMAIN** is the pre-Windows 2000 short name for the domain.
+* :samp:`{http/useraccount@EXAMPLE.COM}` is the principal name written
+  in the format *host/user.account@KERBEROS.REALM*. By convention, the
+  kerberos realm is written in all caps, but make sure the case
+  used for the :ref:`Kerberos Realm <Kerberos Realms>` matches the realm
+  name. See `this note
+  <https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/ktpass#BKMK_remarks>`__
+  about using :literal:`/princ` for more details.
 
-* **username** is the privileged account name.
+* :samp:`{userpass}` is the password associated with
+  :samp:`{useraccount}`.
 
-* **userpass** is the password associated with username.
+Setting :literal:`/crypto` to *ALL* allows using all supported
+cryptographic types. These keys can be specified instead of *ALL*:
+
+* *DES-CBC-CRC* is used for compatibility.
+
+* *DES-CBC-MD5* adheres more closely to the MIT implementation and is
+  used for compatibility.
+
+* *RC4-HMAC-NT* uses 128-bit encryption.
+
+* *AES256-SHA1* uses AES256-CTS-HMAC-SHA1-96 encryption.
+
+* *AES128-SHA1* uses AES128-CTS-HMAC-SHA1-96 encryption.
 
 This will create a keytab with sufficient privileges to grant tickets.
 
