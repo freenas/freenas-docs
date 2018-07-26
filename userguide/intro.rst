@@ -174,8 +174,8 @@ The following software has been added or updated:
 * Netdata as been updated to
   `version 1.10.1 <https://github.com/firehol/netdata/releases/tag/v1.10.0>`__.
 
-* The updated version of iocage provides many bug fixes and improved
-  IPv6 support.
+* iocage has been synced with upstream as of July 10, providing many bug
+  fixes and improved IPv6 support.
 
 * `zsh <http://www.zsh.org/>`__ is the root shell for new installations.
   Upgrades will continue to use the :command:`csh` shell as the default
