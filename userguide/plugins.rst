@@ -531,6 +531,9 @@ is supported by following the process outlined in
    | `Madsonic <http://beta.madsonic.org/pages/index.jsp>`__                 | Open-source web-based media streamer and jukebox.                      |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `MineOS <https://minecraft.codeemo.com/>`__                             | Self-contained Minecraft server.                                       |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Nextcloud <https://nextcloud.com/>`__                                  | Access, share and protect files, calendars, contacts, communication &  |
    |                                                                         | more at home and in the enterprise environment.                        |
    |                                                                         |                                                                        |
