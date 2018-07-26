@@ -116,9 +116,12 @@ lists the configurable options for a cron job.
    +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
 
 
-Cron jobs are shown in :menuselection:`Tasks --> Cron Jobs`.
-Click |ui-options| to see the :guilabel:`Edit` and :guilabel:`Delete`
-buttons.
+Cron jobs are shown in :menuselection:`Tasks --> Cron Jobs`. This table
+displays the user, command, description, schedule, and if the job is
+enabled. This table is adjustable by setting the different column
+checkboxes above it. Set :guilabel:`Toggle` to display all options in
+the table. Click |ui-options| for an entry to see the :guilabel:`Edit`
+and :guilabel:`Delete` buttons.
 
 
 .. note:: :literal:`%` symbols are automatically escaped and should
