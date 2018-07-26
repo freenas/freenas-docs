@@ -1280,6 +1280,7 @@ for more details.
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 
+
 .. note:: Be careful when using multiple SMB shares, some with and some
    without *fruit*. macOS clients negotiate SMB2 AAPL protocol extensions
    on the first connection to the server, so mixing shares with and
@@ -1427,7 +1428,6 @@ name for the share. Press :guilabel:`Save` to create the share.
 To configure multiple authenticated shares, repeat for each user. The
 new shares are also added to
 :menuselection:`Sharing --> Windows (SMB) Shares`.
-
 
 The authenticated share can now be tested from any SMB client. For
 example, to test an authenticated share from a Windows system, open
@@ -2222,9 +2222,10 @@ file to be created is appended to the pool or dataset name.**
    | Logical Block Size | drop-down menu | Only override the default if the initiator requires a different block size.                                          |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Disable Physical   | checkbox       | Set if the initiator does not support physical block size values over 4K (MS SQL).                                   |
-   | Block Size         |                |                                                                                                                      |
-   | Reporting          |                |                                                                                                                      |
+   | Disable Physical   | checkbox       | Set if the initiator does not support physical block size values over 4K (MS SQL). Setting can also prevent          |
+   | Block Size         |                | `constant block size warnings                                                                                        |
+   | Reporting          |                | <https://www.virten.net/2016/12/the-physical-block-size-reported-by-the-device-is-not-supported/>`__                 |
+   |                    |                | when using this share with ESXi.                                                                                     |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Available Space    | string         | Only appears if *File* or a zvol is selected. When the specified percentage of free space is reached, the system     |
