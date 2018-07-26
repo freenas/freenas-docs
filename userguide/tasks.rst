@@ -1742,24 +1742,6 @@ providers with the :guilabel:`Cloud Sync Tasks` feature.
    responsible for any charges incurred from the use of third party
    vendors with the Cloud Sync feature.
 
-
-Selecting
-:menuselection:`Tasks --> Cloud Sync Tasks`
-shows the screen in
-:numref:`Figure %s <tasks_cloudsync_status_fig>`.
-
-Existing cloud syncs can be run manually, edited, or deleted with the
-buttons that appear when a single cloud sync line is selected by
-clicking with the mouse.
-
-
-.. _tasks_cloudsync_status_fig:
-
-.. figure:: images/tasks-cloud-sync-tasks.png
-
-   Cloud Sync Status
-
-
 :ref:`Cloud Credentials` must be pre-defined before a cloud sync is
 created. One set of credentials can be used for more than one cloud
 sync. For example, a single set of credentials for Amazon S3 can be
@@ -1772,7 +1754,14 @@ created.
 
 After the cloud credentials have been configured,
 :menuselection:`Tasks --> Cloud Sync Tasks` is used to define the
-schedule for running a cloud sync task.
+schedule for running a cloud sync task. An example is shown in
+:numref:`Figure %s <tasks_cloudsync_status_fig>`.
+
+.. _tasks_cloudsync_status_fig:
+
+.. figure:: images/tasks-cloud-sync-tasks.png
+
+   Cloud Sync Status
 
 Click |ui-add| to display the :guilabel:`Add Cloud Sync` menu shown in
 :numref:`Figure %s <tasks_cloudsync_add_fig>`.
@@ -1874,6 +1863,8 @@ shows the configuration options for Cloud Syncs.
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
 
 
+To modify an existing cloud sync, click its |ui-options| to access the
+:guilabel:`Run Now`, :guilabel:`Edit`, and :guilabel:`Delete` options.
 
 .. _Cloud Sync Example:
 
