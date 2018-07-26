@@ -164,9 +164,11 @@ accounts installed with the %brand% operating system, as shown in
    Managing User Accounts
 
 
-Each user entry displays the username, user ID, primary group ID,
-home directory, default shell, built-in user, and other
-configured options.
+By default, each user entry displays the username, home directory,
+default shell, the user full name, and if the user is locked. This table
+is adjustable by setting the different column checkboxes above it. Set
+:guilabel:`Toggle` to display all options in the table.
+
 Clicking a column name sorts the list by that value. An arrow
 indicates which column controls the view sort order. Click the arrow to
 reverse the sort order.
