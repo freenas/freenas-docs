@@ -96,6 +96,8 @@ Some of the conditions that trigger an alert include:
 
 * the system can not find an IP address configured on an iSCSI portal
 
+* the NTP server cannot be contacted
+
 * a replication task fails
 
 * a VMware login or a :ref:`VMware-Snapshots` task fails
