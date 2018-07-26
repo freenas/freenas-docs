@@ -146,7 +146,7 @@ These major features are new in this version:
   (SEDs).
 
 
-The following software has been added or updated:
+This software has been added or updated:
 
 * The base operating system has been updated to FreeBSD 11.2.
 
@@ -195,7 +195,7 @@ The following software has been added or updated:
   debug information. The :command:`-G` switch has been removed as the
   system no longer uses GRUB.
 
-The following screen options have changed:
+These screen options have changed:
 
 * The :guilabel:`ATA Security User`, :guilabel:`SED Password`, and
   :guilabel:`Reset SED Password` fields have been added to 
