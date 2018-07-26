@@ -42,27 +42,6 @@ providers with the :guilabel:`Cloud Sync` feature.
    responsible for any charges incurred from the use of third party
    vendors with the Cloud Sync feature.
 
-
-Selecting
-:menuselection:`Tasks --> Cloud Sync`
-shows the screen in
-:numref:`Figure %s <tasks_cloudsync_status_fig>`.
-This screen shows a single cloud sync called *backup-acctg* that
-"pushes" a file to cloud storage. The last run finished with a status
-of *SUCCESS*.
-
-Existing cloud syncs can be run manually, edited, or deleted with the
-buttons that appear when a single cloud sync line is selected by
-clicking with the mouse.
-
-
-.. _tasks_cloudsync_status_fig:
-
-.. figure:: images/tasks-cloudsync-status.png
-
-   Cloud Sync Status
-
-
 :ref:`Cloud Credentials` must be pre-defined before a cloud sync is
 created. One set of credentials can be used for more than one cloud
 sync. For example, a single set of credentials for Amazon S3 can be
@@ -74,10 +53,8 @@ A cloud storage area must also exist. With Amazon S3, these are called
 created.
 
 After the credentials and receiving bucket have been configured,
-:menuselection:`Tasks --> Cloud Sync` is used to define the schedule for
-running a cloud sync task.
-
-Click :guilabel:`Add Cloud Sync` to display the menu shown in
+:menuselection:`Tasks --> Cloud Syncs --> Add Cloud Sync` is used to
+define the schedule for running a cloud sync task. An example is shown in
 :numref:`Figure %s <tasks_cloudsync_add_fig>`.
 
 
@@ -183,6 +160,18 @@ shows the configuration options for Cloud Syncs.
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
 
 
+:numref:`Figure %s <tasks_cloudsync_status_fig>` shows a cloud sync called
+*backup-acctg* that "pushes" a file to cloud storage. The last run finished
+with a status of *SUCCESS*.
+
+.. _tasks_cloudsync_status_fig:
+
+.. figure:: images/tasks-cloudsync-status.png
+
+   Cloud Sync Status
+
+To modify an existing cloud sync, click its entry to access its
+:guilabel:`Edit`, and :guilabel:`Delete`, and :guilabel:`Run Now` buttons.
 
 .. _Cloud Sync Example:
 
