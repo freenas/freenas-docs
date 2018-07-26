@@ -146,7 +146,7 @@ These major features are new in this version:
   (SEDs).
 
 
-Software added or updated:
+This software has been added or updated:
 
 * The base operating system has been updated to FreeBSD 11.2.
 
@@ -208,7 +208,7 @@ These screen options have changed:
 * These :ref:`Cloud Credentials` have been added to
   :menuselection:`System --> Cloud Credentials`: Amazon Cloud Drive,
   Box, Dropbox, FTP, Google Drive, HTTP, Hubic, Mega, Microsoft
-  OneDrive, pCloud, SFTP, WebDAV, Yandex.
+  OneDrive, pCloud, SFTP, WebDAV, and Yandex.
 
 * The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
   :guilabel:`Encryption password`, and :guilabel:`Encryption salt`
