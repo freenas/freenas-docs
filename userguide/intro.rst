@@ -206,7 +206,10 @@ This software has been added or updated:
 These screen options have changed:
 
 * The :guilabel:`ATA Security User`, :guilabel:`SED Password`, and
-  :guilabel:`Reset SED Password` fields have been added to 
+  :guilabel:`Reset SED Password` fields have been added to
+  :menuselection:`System --> Advanced`.
+
+* The :guilabel:`Enable screen saver` field has been removed from
   :menuselection:`System --> Advanced`.
 
 * :guilabel:`Alerts` has been added to :guilabel:`System` and can be used

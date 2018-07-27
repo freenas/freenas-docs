@@ -595,9 +595,6 @@ The configurable settings are summarized in
    | Serial Port Speed                        | drop-down menu                   | Select the speed used by the serial port.                                    |
    |                                          |                                  |                                                                              |
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable screen saver                      | checkbox                         | Enable or disable the console screen saver.                                  |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
    | Enable powerd (Power Saving Daemon)      | checkbox                         | `powerd(8) <https://www.freebsd.org/cgi/man.cgi?query=powerd>`__             |
    |                                          |                                  | monitors the system state and sets the CPU frequency accordingly.            |
    |                                          |                                  |                                                                              |
