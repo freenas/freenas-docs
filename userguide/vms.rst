@@ -374,11 +374,16 @@ Computing) remote connection. A standard
 client can connect to the VM to provide screen output and keyboard and
 mouse input.
 
+.. note:: Setting :guilabel:`Enable VNC` during
+   :ref:`VM creation <Creating VMs>` disables adding another VNC device.
+   Click |ui-options| and :guilabel:`Edit` for the existing VNC device
+   to make any changes.
+
+
 :numref:`Figure %s <vms-vnc_fig>` shows the fields that appear
 after navigating
 :menuselection:`VMs --> Devices`, clicking |ui-add|,
 and selecting :guilabel:`VNC` as the :guilabel:`Type`.
-
 
 .. _vms-vnc_fig:
 
