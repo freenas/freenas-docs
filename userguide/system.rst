@@ -603,9 +603,6 @@ The configurable settings are summarized in
    |                                          |                                  |                                                                                                  |
    #endif freenas
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Enable Console Screensaver               | checkbox                         | Enable or disable the console screen saver.                                                      |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
    | Enable Power Saving Daemon               | checkbox                         | `powerd(8) <https://www.freebsd.org/cgi/man.cgi?query=powerd>`__ monitors the system state and   |
    |                                          |                                  | sets the CPU frequency accordingly.                                                              |
    |                                          |                                  |                                                                                                  |
