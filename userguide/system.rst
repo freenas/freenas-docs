@@ -1167,7 +1167,7 @@ and are shown in :numref:`Table %s <cloud_cred_tab>`.
    | FTP                  | Username, Password   | Enter the FTP username and password.                        |
    |                      |                      |                                                             |
    +----------------------+----------------------+-------------------------------------------------------------+
-   | Google Cloud Storage | JSON Server Account  | :guilabel:`Browse` to the location of the saved             |
+   | Google Cloud Storage | JSON Service Account | :guilabel:`Browse` to the location of the saved             |
    |                      | Key                  | Google Cloud Storage key and select it.                     |
    |                      |                      |                                                             |
    +----------------------+----------------------+-------------------------------------------------------------+
@@ -1193,18 +1193,18 @@ and are shown in :numref:`Table %s <cloud_cred_tab>`.
    | pCloud               | Access Token         | Enter the access token.                                     |
    |                      |                      |                                                             |
    +----------------------+----------------------+-------------------------------------------------------------+
-   | SFTP                 | Host, port           | Enter the SFTP host and port.                               |
+   | SFTP                 | Host, Port           | Enter the SFTP host and port.                               |
    |                      |                      |                                                             |
    +----------------------+----------------------+-------------------------------------------------------------+
-   | SFTP                 | Username, password,  | Enter the SFTP username, password, and PEM-encoded          |
+   | SFTP                 | Username, Password,  | Enter the SFTP username, password, and PEM-encoded          |
    |                      | key file path        | private key file path.                                      |
    |                      |                      |                                                             |
    +----------------------+----------------------+-------------------------------------------------------------+
-   | WebDAV               | URL, Name of WebDAV  | Enter the URL and use the dropdown to select the WebDAV     |
-   |                      | site/service/software| service.                                                    |
+   | WebDAV               | URL, WebDAV service  | Enter the URL and use the dropdown to select the WebDAV     |
+   |                      |                      | service.                                                    |
    |                      |                      |                                                             |
    +----------------------+----------------------+-------------------------------------------------------------+
-   | WebDAV               | Username, password   | Enter the username and password.                            |
+   | WebDAV               | Username, Password   | Enter the username and password.                            |
    |                      |                      |                                                             |
    +----------------------+----------------------+-------------------------------------------------------------+
    | Yandex               | Access Token         | Enter the access token.                                     |
@@ -1220,7 +1220,7 @@ Copy the Access Key value to the %brand% Cloud Credential
 :guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
 value saved when the key pair was created. If the Secret Key value is
 unknown, a new key pair can be created on the same Amazon screen.
-The Google Cloud Storage JSON server account key is found on the
+The Google Cloud Storage :guilabel:`JSON Service Account Key` is found on the
 `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
 
 
