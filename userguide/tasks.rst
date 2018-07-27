@@ -94,7 +94,8 @@ shows the configuration options for Cloud Syncs.
    | Direction           | string              | *Push* sends data to cloud storage. *Pull* receives data from cloud storage.                            |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Provider            | drop-down menu      | Choose the cloud storage provider credentials from the list of entered :ref:`Cloud Credentials`.        |
+   | Provider            | drop-down menu      | Choose the cloud storage provider credentials from the list of entered :ref:`Cloud Credentials`. The    |
+   |                     |                     | UI automatically tests the credential and displays an error if a connection cannot be made.             |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Amazon S3 Buckets   | drop-down menu      | Only appears when an S3 credential is the *Provider*. Select the pre-defined S3 bucket to use.          |
