@@ -66,7 +66,7 @@ icon to see a list of different default and favorite themes.
 
 .. _themes_select_fig:
 
-.. figure:: images/themes-select.png
+.. figure:: images/themes-selector.png
 
    Changing the %brand% UI theme
 
