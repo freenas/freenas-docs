@@ -72,56 +72,42 @@ lists the configurable options for a cron job.
 .. table:: Cron Job Options
    :class: longtable
 
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Setting           | Value                       | Description                                                                                             |
-   |                   |                             |                                                                                                         |
-   +===================+=============================+=========================================================================================================+
-   | Description       | string                      | Enter any notes about the cron job.                                                                     |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Command           | drop-down menu              | Enter the **full path** to the command or script to be run. If it is a script, testing it at the        |
-   |                   |                             | command line is recommended to ensure it works.                                                         |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Run As User       | string                      | Choose a user account to run the *command*. The user must have permissions to run the specified         |
-   |                   |                             | command or script.                                                                                      |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Quick Schedule    | value                       | Select how often to run the cron job. Choose the empty value to define a custom schedule.               |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Minute            | value                       | Define the minute of the hour to run the cron job.                                                      |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Hour              | value                       | Define the hour to run the cron job.                                                                    |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of month      | value                       | Define the day of the month to run the cron job.                                                        |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Month             | drop-down menu              | Define which months to run the cron job.                                                                |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of week       | drop-down menu              | Define which days of the week to run the cron job.                                                      |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Redirect Standard | checkbox                    | Set to disable emailing standard output (stdout) to the *root* user account.                            |
-   | Output            |                             |                                                                                                         |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Redirect Errors   | checkbox                    | Set to disable emailing errors (stderr) to the *root* user account.                                     |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Enable            | checkbox                    | Unset to disable the cron job without deleting it.                                                      |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   | Setting             | Value                       | Description                                                                                             |
+   |                     |                             |                                                                                                         |
+   +=====================+=============================+=========================================================================================================+
+   | Description         | string                      | Enter any notes about the cron job.                                                                     |
+   |                     |                             |                                                                                                         |
+   +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   | Command             | drop-down menu              | Enter the **full path** to the command or script to be run. If it is a script, testing it at the        |
+   |                     |                             | command line is recommended to ensure it works.                                                         |
+   |                     |                             |                                                                                                         |
+   +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   | Run As User         | string                      | Choose a user account to run the *command*. The user must have permissions to run the specified         |
+   |                     |                             | command or script.                                                                                      |
+   +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   | Schedule a Cron Job | drop-down menu              | Select how often to run the cron job. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.  |
+   |                     |                             | Select *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week. |
+   |                     |                             |                                                                                                         |
+   +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   | Redirect Standard   | checkbox                    | Set to disable emailing standard output (stdout) to the *root* user account.                            |
+   | Output              |                             |                                                                                                         |
+   |                     |                             |                                                                                                         |
+   +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   | Redirect Errors     | checkbox                    | Set to disable emailing errors (stderr) to the *root* user account.                                     |
+   |                     |                             |                                                                                                         |
+   +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   | Enable              | checkbox                    | Unset to disable the cron job without deleting it.                                                      |
+   |                     |                             |                                                                                                         |
+   +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
 
 
 Cron jobs are shown in :menuselection:`Tasks --> Cron Jobs`. This table
 displays the user, command, description, schedule, and if the job is
 enabled. This table is adjustable by setting the different column
 checkboxes above it. Set :guilabel:`Toggle` to display all options in
-the table. Click |ui-options| for an entry to see the :guilabel:`Edit`
-and :guilabel:`Delete` buttons.
+the table. Click |ui-options| for an entry to see its :guilabel:`Run Now`,
+:guilabel:`Edit` and :guilabel:`Delete` options.
 
 
 .. note:: :literal:`%` symbols are automatically escaped and should
@@ -332,22 +318,9 @@ task.
    | Short Description                | string                      | Enter an optional description of the new rsync task.                                      |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Quick Schedule                   | drop-down menu              | Choose how often to run the task. Choose the empty value to define a custom schedule.     |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Minute                           | integer                     | Define the minute of the hour to run the task.                                            |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Hour                             | integer                     | Define the hour to run the task.                                                          |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Day of month                     | inter                       | Define the day of the month to run the task.                                              |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Month                            | checkboxes                  | Define which months to run the task.                                                      |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Day of week                      | checkboxes                  | Define which days of the week to run the task.                                            |
+   | Schedule the Rsync Task          | drop-down menu              | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or  |
+   |                                  |                             | *Custom*. Select *Custom* to open a visual scheduler for selecting minutes, hours, days,  |
+   |                                  |                             | month, and days of week.                                                                  |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Recursive                        | checkbox                    | Set to include all subdirectories of the specified pool during the rsync task.            |
@@ -693,20 +666,8 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
    | Short description | string                    | Optional. Enter a short description of this test.                                                          |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Quick Schedule    | drop-down menu            | Choose how often to run the task. Choose the empty value to define a custom schedule.                      |
-   |                   |                           |                                                                                                            |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Hour              | integer                   | Define the hour to run the test.                                                                           |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Day of month      | integer                   | Define the day of the month to run the test.                                                               |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Month             | checkboxes                | Define which months to run the test.                                                                       |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Day of week       | checkboxes                | Choose which days of the week to run the test.                                                             |
+   | Schedule  a       | drop-down menu            | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*. Select  |
+   | S.M.A.R.T. Test   |                           | *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week.           |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
 
@@ -1688,26 +1649,8 @@ screen.
    | Description    | string                      | Describe the scrub task.                                                                                    |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Quick Schedule | drop-down menu              | Choose how often to run the scrub task. Choose the empty value to define a custom schedule.                 |
-   |                |                             |                                                                                                             |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Minute         | integer                     | Define the minute to run the scrub task.                                                                    |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Hour           | integer                     | Define the hour to run the scrub task.                                                                      |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Day of month   | integer                     | Choose the day of the month to run the scrub task.                                                          |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Month          | checkboxes                  | Choose which months to run the task.                                                                        |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Day of week    | checkboxes                  | Choose which days of the week to run the task. The default is Sunday to minimize user impact.               |
-   |                |                             |                                                                                                             |
-   |                |                             |                                                                                                             |
-   |                |                             |                                                                                                             |
+   | Schedule the   | drop-down menu              | Choose how often to run the scrub task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.    |
+   | Scrub Task     |                             | Select *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week.     |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Enabled        | checkbox                    | Unset to disable the scheduled scrub without deleting it.                                                   |
@@ -1845,23 +1788,8 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | password. *Warning:* Save and back up the encryption salt value. Losing the salt value can result in    |
    |                     |                     | data loss.                                                                                              |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Quick Schedule      | drop-down menu      | Choose how often to run the task. An empty value allows defining a custom schedule.                     |
-   |                     |                     |                                                                                                         |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Minute              | integer             | Minute to run the task.                                                                                 |
-   |                     |                     |                                                                                                         |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Hour                | integer             | Hour to run the task.                                                                                   |
-   |                     |                     |                                                                                                         |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of month        | integer             | Day of the month to run the task.                                                                       |
-   |                     |                     |                                                                                                         |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Month               | checkboxes          | Months when the task runs.                                                                              |
-   |                     |                     |                                                                                                         |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of week         | checkboxes          | Days of the week to run the task.                                                                       |
-   |                     |                     |                                                                                                         |
+   | Schedule the Cloud  | drop-down menu      | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.      |
+   | Sync Task           |                     | Select *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week. |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Enabled             | checkbox            | Unset to temporarily disable this Cloud Sync task.                                                      |
    |                     |                     |                                                                                                         |
