@@ -161,6 +161,11 @@ This software has been added or updated:
 * The IPsec kernel module has been added. It can be manually loaded with
   :command:`kldload ipsec`.
 
+* The `vt terminal
+  <https://www.freebsd.org/cgi/man.cgi?query=vt&sektion=4&manpath=FreeBSD+11.2-RELEASE+and+Ports>`__
+  is now used by default and the syscons terminal is removed from the
+  kernel.
+
 * `ncdu <https://dev.yorhel.nl/ncdu>`__ has been added to the base
   system. This CLI utility can be used to analyze disk usage from the
   console or an SSH session.
