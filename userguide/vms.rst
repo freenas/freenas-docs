@@ -455,8 +455,9 @@ Running VMs
 
 Select
 :menuselection:`VMs`
-to see cards of installed VMs. There is an option to :guilabel:`Connect`
-to the VM across the bottom of the card.
+to see cards of installed VMs. There are also options to switch the
+default view in this screen to *Slim* and *Table*. There is an option to
+:guilabel:`Connect` to the VM across the bottom of the card.
 
 
 .. figure:: images/vms-control1.png
@@ -469,9 +470,7 @@ configuration values are shown on the card. Click |ui-options| for the
 :guilabel:`Start`, :guilabel:`Power Off`, :guilabel:`Delete`,
 :guilabel:`Devices`, and :guilabel:`Edit` options.
 
-
-.. tip:: The :guilabel:`VMs` page view can switch between
-   :guilabel:`Cards`, :guilabel:`Slim`, and :guilabel:`Table` view.
+.. note:: The UI will show an error message if a VM fails to start.
 
 
 Some standard buttons are available for all VMs:
