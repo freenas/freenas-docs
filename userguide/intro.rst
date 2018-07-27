@@ -148,7 +148,9 @@ These major features are new in this version:
 
 This software has been added or updated:
 
-* The base operating system has been updated to FreeBSD 11.2.
+* The base operating system has been updated to
+  `FreeBSD 11.2 <https://www.freebsd.org/releases/11.2R/announce.html>`__,
+  which brings in many updated drivers and bug fixes.
 
 * OpenZFS is up-to-date with Illumos and slightly ahead due to support
   for sorted scrubs which were ported from ZFS on Linux. Notable
@@ -265,13 +267,13 @@ Path and Name Lengths
 Hardware Recommendations
 ------------------------
 
-%brand% |release| is based on FreeBSD 11.1 and supports the same
+%brand% |release| is based on FreeBSD 11.2 and supports the same
 hardware found in the
 `FreeBSD Hardware Compatibility List
-<https://www.freebsd.org/releases/11.1R/hardware.html>`__.
+<https://www.freebsd.org/releases/11.2R/hardware.html>`__.
 Supported processors are listed in section
 `2.1 amd64
-<https://www.freebsd.org/releases/11.1R/hardware.html#proc>`__.
+<https://www.freebsd.org/releases/11.2R/hardware.html#proc>`__.
 %brand% is only available for 64-bit processors. This architecture is
 called *amd64* by AMD and *Intel 64* by Intel.
 
@@ -425,7 +427,7 @@ Storage Disks and Controllers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The `Disk section
-<https://www.freebsd.org/releases/11.1R/hardware.html#disk>`__
+<https://www.freebsd.org/releases/11.2R/hardware.html#disk>`__
 of the FreeBSD Hardware List lists the supported disk controllers. In
 addition, support for 3ware 6 Gbps RAID controllers has been added
 along with the CLI utility :command:`tw_cli` for managing 3ware RAID
@@ -513,7 +515,7 @@ Network Interfaces
 ~~~~~~~~~~~~~~~~~~
 
 The `Ethernet section
-<https://www.freebsd.org/releases/11.1R/hardware.html#ethernet>`__
+<https://www.freebsd.org/releases/11.2R/hardware.html#ethernet>`__
 of the FreeBSD Hardware Notes indicates which interfaces are supported
 by each driver. While many interfaces are supported, %brand% users
 have seen the best performance from Intel and Chelsio interfaces, so
