@@ -114,7 +114,7 @@ These major features are new in this version:
   will be deprecated and replaced by the new API documentation. In the
   mean time, to see the API documentation for the new middleware, log
   into the new UI, click on the URL for the FreeNAS system in your
-  browser's location bar, and add :guilabel:`:api/docs` to the end of
+  browser's location bar, and add /guilabel:`:api/docs` to the end of
   that URL.
 
 * The boot loader has changed from GRUB to the native FreeBSD boot
