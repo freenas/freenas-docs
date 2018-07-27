@@ -30,7 +30,7 @@ The %brand% Storage Array shipment comes with these components:
 +------------+------------------------------------------+--------------------------------------------+
 | Quantity   | Description                              | Image                                      |
 +============+==========================================+============================================+
-| 1          | %brand% Unified Storage Array            | .. image:: images/truenas_appliance.png    |
+| 1          | %brand% Unified Storage Array            | .. image:: images/truenas/appliance.png    |
 +------------+------------------------------------------+--------------------------------------------+
 | up to 16   | Populated 3.5" drive trays               | .. image:: images/truenas/drive_trays.jpg  |
 +------------+------------------------------------------+--------------------------------------------+

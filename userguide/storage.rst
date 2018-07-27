@@ -640,15 +640,15 @@ shown in :numref:`Figure %s <zfs_decrypt_import_fig>`.
 
 .. _zfs_decrypt_import_fig:
 
-.. figure:: images/decrypt.png
+.. figure:: images/storage-pools-add-decrypt.png
 
    Decrypting Disks Before Importing a Pool
 
 
-Use the :guilabel:`Disks` dropdown menu to select the disk to decrypt.
+Use the :guilabel:`Disks` menu to select the disks to decrypt.
 Click :guilabel:`Browse` to select an encryption key to upload.
-Enter the passphrase associated with the key, then click
-:guilabel:`Next`.
+Enter the :guilabel:`Passphrase` associated with the key, then click
+:guilabel:`Create Pool`.
 
 
 .. note:: The encryption key is required to decrypt the pool. If the
@@ -659,7 +659,7 @@ Enter the passphrase associated with the key, then click
    :ref:`Managing Encrypted Pools` for instructions on managing keys.
 
 
-After the pool is decrypted, it can be imported.
+%brand% automatically creates the pool after decrypting the disks.
 
 
 .. note:: For security reasons, GELI keys for encrypted pools are
@@ -667,12 +667,10 @@ After the pool is decrypted, it can be imported.
    installed to a new device and a saved configuration file restored
    to it, the GELI keys for encrypted disks will not be present, and
    the system will not request them. To correct this, export the
-   encrypted pool with Detach Pool, making sure that the options
-   :guilabel:`Mark the disks as new (destroy data)` or
-   :guilabel:`Also delete the share's configuration` are **not**
-   selected. Then import the pool again. During the import, the GELI
-   keys can be entered as described above.
-#endif comment
+   encrypted pool with Detach Pool, making sure that the
+   :guilabel:`Destroy data on this pool?` is **not** selected. Then
+   import the pool again. During the import, the GELI keys can be
+   entered as described above.
 
 
 .. index:: Scrubs
