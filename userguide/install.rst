@@ -253,7 +253,7 @@ The %brand% installer boot menu is displayed as is shown in
 
 .. _installer_boot_menu_fig:
 
-.. figure:: images/installermenu.png
+.. figure:: images/installer-menu.png
 
    Installer Boot Menu
 

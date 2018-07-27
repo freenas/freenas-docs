@@ -93,6 +93,7 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
    Viewing Installed Plugins
 
+
 The entry in the
 :menuselection:`Plugins --> Installed`
 section displays the plugin name, boot status, state, release, IP4 and
@@ -155,6 +156,7 @@ shows updating a plugin jail.
    Updating an Installed Plugin
 #endif comment
 
+
 .. _Deleting Plugins:
 
 Delete
@@ -169,10 +171,10 @@ that data **first** if needed.
 In the example shown in
 :numref:`Figure %s <deleting_installed_plugin_fig>`,
 Quasselcore has been installed and the :guilabel:`Delete` button has
-been clicked. A pop-up message asks the user if they are sure that they
-want to delete. **This is the only warning.** The plugin and the
-associated jail are permanently deleted when :guilabel:`Confirm` is set
-and :guilabel:`Delete` is clicked.
+been clicked. A pop-up message asks for verification that the plugin
+is to be deleted. **This is the only warning.** The plugin and the
+associated jail are permanently deleted when :guilabel:`Confirm` is
+set and :guilabel:`Delete` is clicked.
 
 
 .. _deleting_installed_plugin_fig:
