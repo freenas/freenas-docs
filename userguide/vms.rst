@@ -91,7 +91,8 @@ VM configuration options are described in
    |          |                    |                | for detailed instructions about using a different guest OS.                                   |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | VM Name            | string         | Enter an alphanumeric name to identify the VM.                                                |
+   | 2        | VM Name            | string         | Enter an alphanumeric name to identify the VM. A popup error will occur if another VM is      |
+   |          |                    |                | using that name.                                                                              |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | Boot Method        | drop-down menu | Select *UEFI* for newer operating systems, or *UEFI-CSM* for (Compatibility Support Mode)     |
