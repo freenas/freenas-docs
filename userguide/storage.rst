@@ -659,7 +659,9 @@ Enter the :guilabel:`Passphrase` associated with the key, then click
    :ref:`Managing Encrypted Pools` for instructions on managing keys.
 
 
-%brand% automatically creates the pool after decrypting the disks.
+Click :guilabel:`Next` after the disks finish decrypting to select the
+pool to import and confirm the settings. Click :guilabel:`Import` to
+finish the process.
 
 
 .. note:: For security reasons, GELI keys for encrypted pools are
