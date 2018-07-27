@@ -355,14 +355,13 @@ to instruct the system to go back to that system state.
    backup of the configuration database first using
    :menuselection:`System --> General --> Save Config`.
 
-As seen in
-:numref:`Figure %s <view_boot_env_fig>`, %brand% displays the condition
-and statistics of the *Boot Pool*. It also shows how two boot
-environments are created when %brand% is installed. The system will boot
-into the *default* boot environment and users can make their changes and
-update from this version. The other boot environment, named
-*Initial-Install* can be booted into if the system needs to be returned
-to a pristine, non-configured version of the installation.
+As seen in :numref:`Figure %s <view_boot_env_fig>`, %brand% displays the
+condition and statistics of the *Boot Pool*. It also shows the two boot
+environments that are created when %brand% is installed. The system will
+boot into the *default* boot environment and users can make their changes
+and update from this version. The *Initial-Install* boot environment can
+be booted into if the system needs to be returned to a non-configured
+version of the installation.
 
 
 .. _view_boot_env_fig:
