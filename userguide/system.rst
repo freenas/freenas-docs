@@ -367,7 +367,7 @@ version of the installation.
 .. _view_boot_env_fig:
 
 #ifdef freenas
-.. figure:: images/system-boot.png
+.. figure:: images/system-boot-environments.png
 
    Viewing Boot Environments
 #endif freenas
@@ -446,7 +446,7 @@ There are also other options available.
 .. _status_boot_dev_fig:
 
 #ifdef freenas
-.. figure:: images/system-boot-status.png
+.. figure:: images/system-boot-environments-status.png
 
    Viewing the Status of the Boot Device
 #endif freenas

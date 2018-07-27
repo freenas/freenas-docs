@@ -64,6 +64,7 @@ the paint bucket icon in the upper-right corner of the UI. Click the
 icon to see a list of different default and favorite themes.
 :numref:`Figure %s <themes_select_fig>` shows an example:
 
+
 .. _themes_select_fig:
 
 .. figure:: images/themes-selector.png
@@ -167,6 +168,7 @@ Click :guilabel:`Global Preview` to apply the unsaved custom theme to
 the current session of the %brand% UI. Activating
 :guilabel:`Global Preview` allows going to other pages in the UI and
 live testing the new custom theme.
+
 
 .. note:: Setting a custom theme as a :guilabel:`Global Preview` does
    **not** save that theme! Be sure to go back to
