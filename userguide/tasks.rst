@@ -318,22 +318,9 @@ task.
    | Short Description                | string                      | Enter an optional description of the new rsync task.                                      |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Quick Schedule                   | drop-down menu              | Choose how often to run the task. Choose the empty value to define a custom schedule.     |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Minute                           | integer                     | Define the minute of the hour to run the task.                                            |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Hour                             | integer                     | Define the hour to run the task.                                                          |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Day of month                     | inter                       | Define the day of the month to run the task.                                              |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Month                            | checkboxes                  | Define which months to run the task.                                                      |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Day of week                      | checkboxes                  | Define which days of the week to run the task.                                            |
+   | Schedule the Rsync Task          | drop-down menu              | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or  |
+   |                                  |                             | *Custom*. Select *Custom* to open a visual scheduler for selecting minutes, hours, days,  |
+   |                                  |                             | month, and days of week.                                                                  |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Recursive                        | checkbox                    | Set to include all subdirectories of the specified pool during the rsync task.            |
@@ -679,20 +666,8 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
    | Short description | string                    | Optional. Enter a short description of this test.                                                          |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Quick Schedule    | drop-down menu            | Choose how often to run the task. Choose the empty value to define a custom schedule.                      |
-   |                   |                           |                                                                                                            |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Hour              | integer                   | Define the hour to run the test.                                                                           |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Day of month      | integer                   | Define the day of the month to run the test.                                                               |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Month             | checkboxes                | Define which months to run the test.                                                                       |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Day of week       | checkboxes                | Choose which days of the week to run the test.                                                             |
+   | Schedule  a       | drop-down menu            | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*. Select  |
+   | S.M.A.R.T. Test   |                           | *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week.           |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
 
@@ -1674,26 +1649,8 @@ screen.
    | Description    | string                      | Describe the scrub task.                                                                                    |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Quick Schedule | drop-down menu              | Choose how often to run the scrub task. Choose the empty value to define a custom schedule.                 |
-   |                |                             |                                                                                                             |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Minute         | integer                     | Define the minute to run the scrub task.                                                                    |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Hour           | integer                     | Define the hour to run the scrub task.                                                                      |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Day of month   | integer                     | Choose the day of the month to run the scrub task.                                                          |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Month          | checkboxes                  | Choose which months to run the task.                                                                        |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Day of week    | checkboxes                  | Choose which days of the week to run the task. The default is Sunday to minimize user impact.               |
-   |                |                             |                                                                                                             |
-   |                |                             |                                                                                                             |
-   |                |                             |                                                                                                             |
+   | Schedule the   | drop-down menu              | Choose how often to run the scrub task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.    |
+   | Scrub Task     |                             | Select *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week.     |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
    | Enabled        | checkbox                    | Unset to disable the scheduled scrub without deleting it.                                                   |
@@ -1831,23 +1788,8 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | password. *Warning:* Save and back up the encryption salt value. Losing the salt value can result in    |
    |                     |                     | data loss.                                                                                              |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Quick Schedule      | drop-down menu      | Choose how often to run the task. An empty value allows defining a custom schedule.                     |
-   |                     |                     |                                                                                                         |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Minute              | integer             | Minute to run the task.                                                                                 |
-   |                     |                     |                                                                                                         |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Hour                | integer             | Hour to run the task.                                                                                   |
-   |                     |                     |                                                                                                         |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of month        | integer             | Day of the month to run the task.                                                                       |
-   |                     |                     |                                                                                                         |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Month               | checkboxes          | Months when the task runs.                                                                              |
-   |                     |                     |                                                                                                         |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of week         | checkboxes          | Days of the week to run the task.                                                                       |
-   |                     |                     |                                                                                                         |
+   | Schedule the Cloud  | drop-down menu      | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.      |
+   | Sync Task           |                     | Select *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week. |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Enabled             | checkbox            | Unset to temporarily disable this Cloud Sync task.                                                      |
    |                     |                     |                                                                                                         |
