@@ -95,6 +95,12 @@ latex:	preproc
 latexpdf pdf:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
+	@echo "Replacing UI icon symbols with FontAwesome characters"
+	#@sed -i '' -e 's%⚙%{\\fontspec{DejaVuSans.ttf}⚙}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#@sed -i '' -e 's%⚙%{\\fontspec[Path = /usr/local/share/texmf-dist/fonts/opentype/public/fontawesome/]{FontAwesome.otf}\\symbol{"F013}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's%⚙%{\\awesome\\symbol{"F013}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's%⫶%{\\awesome\\symbol{"F142}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's%＋%{\\awesome\\symbol{"FF0B}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@echo "Running LaTeX files through $(LATEX_ENGINE)..."
 	# fix missing latex_engine substitution in old versions of Sphinx
 	@sed -i '' -e 's/pdflatex/$(LATEX_ENGINE)/g' $(PREPROCDIR)/$(BUILDDIR)/latex/Makefile

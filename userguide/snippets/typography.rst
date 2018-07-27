@@ -20,11 +20,9 @@
    +----------------------------------------------------------------+---------------------------------------------------+
    | Values entered into fields, or device names                    | Enter *127.0.0.1* in the address field.           |
    +----------------------------------------------------------------+---------------------------------------------------+
-   | Angular UI "Add" icon                                          | Click |ui-add| to create a new thing.             |
+   | *Add* icon                                                     | Click |ui-add| to create a new entry.             |
    +----------------------------------------------------------------+---------------------------------------------------+
-   | Angular UI "Settings" icon                                     | Click |ui-settings| to adjust these things.       |
+   | *Settings* icon                                                | Click |ui-settings| to adjust settings.           |
    +----------------------------------------------------------------+---------------------------------------------------+
-   | Angular UI "Options" icon                                      | Click |ui-options| to view these options.         |
-   +----------------------------------------------------------------+---------------------------------------------------+
-   | Angular UI "Menu" icon                                         | Click |ui-menu| to make this selection.           |
+   | *Options* icon                                                 | Click |ui-options| to set options.                |
    +----------------------------------------------------------------+---------------------------------------------------+

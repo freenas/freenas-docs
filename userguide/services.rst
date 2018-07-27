@@ -168,6 +168,8 @@ which are described in
 Troubleshooting AFP
 ~~~~~~~~~~~~~~~~~~~
 
+Check for error messages in :file:`/var/log/afp.log`.
+
 Determine which users are connected to an AFP share by typing
 :command:`afpusers`.
 
@@ -1136,17 +1138,21 @@ configuration options. After configuring the S3 service, start it in
    | Port            | string         | Enter the TCP port on which to provide the S3 service. Default is 9000.                        |
    |                 |                |                                                                                                |
    +-----------------+----------------+------------------------------------------------------------------------------------------------+
-   | Access Key      | string         | Enter the S3 user name. Must be between 5 and 20 characters long.                              |
+   | Access Key      | string         | Enter the S3 user name. This username must contain **only** alphanumeric characters and be     |
+   |                 |                | between 5 and 20 characters long.                                                              |
    |                 |                |                                                                                                |
    +-----------------+----------------+------------------------------------------------------------------------------------------------+
-   | Secret Key      | string         | Enter the password to be used by connecting S3 systems. Must be at least 8 but no more than 40 |
-   |                 |                | characters long.                                                                               |
+   | Secret Key      | string         | Enter the password to be used by connecting S3 systems. The key must contain **only**          |
+   |                 |                | alphanumeric characters and be at least 8 but no more than 40 characters long.                 |
    |                 |                |                                                                                                |
    +-----------------+----------------+------------------------------------------------------------------------------------------------+
    | Confirm S3 Key  | string         | Re-enter the S3 password to confirm.                                                           |
    |                 |                |                                                                                                |
    +-----------------+----------------+------------------------------------------------------------------------------------------------+
-   | Disks           | Browse button  | Browse to the directory for the S3 filesystem.                                                 |
+   | Disk            | browse         | Browse to the directory for the S3 filesystem. This overrides all permissions of that          |
+   |                 |                | directory and all of its subdirectories to *minio:minio*.                                      |
+   |                 |                | :ref:`Create a separate dataset <Adding Datasets>` for Minio to avoid any issues with          |
+   |                 |                | directory permissions.                                                                         |
    |                 |                |                                                                                                |
    +-----------------+----------------+------------------------------------------------------------------------------------------------+
    | Enable Browser  | checkbox       | Set to enable the web user interface for the S3 service.                                       |

@@ -4,33 +4,22 @@
 Plugins
 =======
 
-%brand% 8.2.0 introduced the ability to extend the built-in NAS
-services by providing a mechanism for installing additional software.
-This mechanism is known as the Plugins architecture and is based on
-`FreeBSD jails <https://en.wikipedia.org/wiki/Freebsd_jail>`__.
-This allows the installation and configuration of additional
-applications of a created jail.
+%brand% provides the ability to extend the built-in NAS
+services by providing two methods for installing additional software.
 
-%brand% 9.x simplifies this procedure by providing two methods for
-software installation. The Plugins method is used to browse for,
-install, and configure available software using the GUI.
-This method is very easy to use, but is limited in the amount of
-software that is available. Each application is automatically installed
-into a jail. This method may not be suitable if running multiple
-applications within the same jail is desired.
+:ref:`Plugins` allow the user to browse, install, and configure
+pre-packaged software from the GUI. This method is easy to use, but
+provides a limited amount of available software. Each plugin is
+automatically installed into its own
+`FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`__.
 
-The Jails method provides much more control over software installation.
-It requires working from the command line and a good understanding of
+:ref:`Jails` provide more control over software installation but
+require working from the command line and a good understanding of
 networking basics and software installation on FreeBSD-based systems.
 
 Look through the :ref:`Plugins` and :ref:`Jails` sections to become
-familiar with the features and limitations of each. Choose the best
-method that meets the software needs.
-
-
-.. note:: Plugins created for %brand% 9.3 or later are expected to
-   work on the current release. Plugins created for earlier releases
-   of %brand% must be reinstalled.
+familiar with the features and limitations of each. Choose the method
+that best meets that application's needs.
 
 
 .. _Installing Plugins:
@@ -62,11 +51,15 @@ plugins.
    Viewing the List of Available Plugins
 
 
+The :guilabel:`Available Plugins` page lists the plugin name,
+description, current version, and if the plugin is officially supported.
+
 .. note:: If the list of available plugins is not displayed, open
    :ref:`Shell` and verify that the %brand% system can :command:`ping`
    an address on the Internet. If it cannot, add a default gateway
    address and/or DNS server address in
    :menuselection:`Network --> Global Configuration`.
+
 
 Click |ui-options| and :guilabel:`install` for the desired plugin. Set
 :guilabel:`DHCP` to automatically configure IP settings, or manually
@@ -81,6 +74,7 @@ Server is selected for installation.
 
    Installing the Plex Plugin
 
+
 The installation takes a few minutes because the system
 downloads and configures a jail to store the plugin application. It
 then installs the plugin and adds it to the
@@ -90,7 +84,7 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
 .. tip:: Installed plugins are also added to the
    :menuselection:`Jails`
-   page. This page is also used to manage plugins.
+   page. This page is also used to manage installed software.
 
 
 .. _view_installed_plugins_fig:
@@ -98,6 +92,7 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 .. figure:: images/plugins-installed.png
 
    Viewing Installed Plugins
+
 
 The entry in the
 :menuselection:`Plugins --> Installed`
@@ -161,6 +156,7 @@ shows updating a plugin jail.
    Updating an Installed Plugin
 #endif comment
 
+
 .. _Deleting Plugins:
 
 Delete
@@ -175,10 +171,10 @@ that data **first** if needed.
 In the example shown in
 :numref:`Figure %s <deleting_installed_plugin_fig>`,
 Quasselcore has been installed and the :guilabel:`Delete` button has
-been clicked. A pop-up message asks the user if they are sure that they
-want to delete. **This is the only warning.** The plugin and the
-associated jail are permanently deleted when :guilabel:`Confirm` is set
-and :guilabel:`Delete` is clicked.
+been clicked. A pop-up message asks for verification that the plugin
+is to be deleted. **This is the only warning.** The plugin and the
+associated jail are permanently deleted when :guilabel:`Confirm` is
+set and :guilabel:`Delete` is clicked.
 
 
 .. _deleting_installed_plugin_fig:
@@ -193,12 +189,14 @@ and :guilabel:`Delete` is clicked.
 Create a Plugin
 ---------------
 
-Create a new plugin for %brand% in a few steps:
+If an application is not available as a plugin, it is possible to
+create a new plugin for %brand% in a few steps. This requires an
+existing `GitHub <https://github.com>`__ account.
 
 **Create a new artifact repository on** `GitHub <https://github.com>`__.
 
-Refer to :numref:`table %s <plugin-artifact-files>` and add these
-files to the artifact repository:
+Refer to :numref:`table %s <plugin-artifact-files>` for the files to add
+to the artifact repository.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.33\linewidth-2\tabcolsep}
@@ -250,7 +248,7 @@ files to the artifact repository:
    |                         | This subsection contains arrays of elements, starting with the "key" |
    |                         | name and required arguments for that particular type of setting.     |
    |                         |                                                                      |
-   |                         | See :ref:`options subection example <plugin-json-options>`           |
+   |                         | See :ref:`options subsection example <plugin-json-options>`          |
    |                         | below.                                                               |
    |                         |                                                                      |
    +-------------------------+----------------------------------------------------------------------+
@@ -535,6 +533,9 @@ is supported by following the process outlined in
    | `Madsonic <http://beta.madsonic.org/pages/index.jsp>`__                 | Open-source web-based media streamer and jukebox.                      |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `MineOS <https://minecraft.codeemo.com/>`__                             | Self-contained Minecraft server.                                       |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Nextcloud <https://nextcloud.com/>`__                                  | Access, share and protect files, calendars, contacts, communication &  |
    |                                                                         | more at home and in the enterprise environment.                        |
    |                                                                         |                                                                        |
@@ -551,6 +552,9 @@ is supported by following the process outlined in
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Quasselcore <https://quassel-irc.org/>`__                              | Quassel Core is a daemon/headless IRC client, part of Quassel, that    |
    |                                                                         | supports 24/7 connectivity. Quassel Client can also be attached to it. |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Redmine <http://www.redmine.org/>`__                                   | Flexible project management web application.                           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `SickRage <https://github.com/SiCKRAGETV/SickRage>`__                   | Automatic Video Library Manager for TV Shows.                          |
@@ -583,5 +587,5 @@ is supported by following the process outlined in
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
 
-If there are any difficulties using a plugin application, refer to the
-application documentation.
+If there are any difficulties using a plugin, refer to the official
+documentation for that application.

@@ -56,10 +56,9 @@ multiple disks are required in order to provide redundancy and data
 correction, ZFS will still provide data corruption detection to a
 system with one disk. %brand% automatically schedules a monthly scrub
 for each ZFS pool and the results of the scrub are displayed by
-selecting the :ref:`Pools`, clicking the
-:guilabel:`Gear icon`, then the :guilabel:`Status` button. Checking
-scrub results can provide an early indication of potential disk
-problems.
+selecting the :ref:`Pools`, clicking |ui-settings|, then the
+:guilabel:`Status` button. Checking scrub results can provide an early
+indication of potential disk problems.
 
 Unlike traditional UNIX filesystems,
 **it is not necessary to define partition sizes when filesystems are
@@ -67,7 +66,7 @@ created**.
 Instead, a group of disks, known as a *vdev*, are built into a ZFS
 *pool*. Filesystems are created from the pool as needed. As more
 capacity is needed, identical vdevs can be striped into the pool. In
-%brand%, :ref:`Pools` can be used to create or extend pools.
+%brand%, :ref:`Pools` is used to create or extend pools.
 After a pool is created, it can be divided into dynamically-sized
 datasets or fixed-size zvols as needed. Datasets can be used to
 optimize storage for the type of data being stored as permissions and
@@ -95,14 +94,14 @@ existing snapshots are not added to the free list until all
 referencing snapshots are removed. This makes snapshots a clever way
 to keep a history of files, useful for recovering an older copy of a
 file or a deleted file. For this reason, many administrators take
-snapshots often (e.g., every 15 minutes), store them for a period of
-time (e.g., for a month), and store them on another system. Such a
+snapshots often, store them for a period of
+time, and store them on another system. Such a
 strategy allows the administrator to roll the system back to a
 specific time. If there is a catastrophic loss, an off-site snapshot
-can restore the system up to the last snapshot interval (e.g., within
-15 minutes of the data loss). Snapshots are stored locally but can
-also be replicated to a remote ZFS pool. During replication, ZFS does
-not do a byte-for-byte copy but instead converts a snapshot into a
+can restore the system up to the last snapshot interval,
+within 15 minutes of the data loss, for example. Snapshots are stored
+locally but can also be replicated to a remote ZFS pool. During replication,
+ZFS does not do a byte-for-byte copy but instead converts a snapshot into a
 stream of data. This design means that the ZFS pool on the receiving
 end does not need to be identical and can use a different RAIDZ level,
 pool size, or compression settings.
@@ -156,7 +155,7 @@ caching functions on the same SSD, or performance will suffer.
 
 In mission-critical systems, a mirrored SLOG device is highly
 recommended. Mirrored SLOG devices are *required* for ZFS pools at
-ZFS version 19 or earlier. ZFS pool version can be checked from the
+ZFS version 19 or earlier. The ZFS pool version is checked from the
 :ref:`Shell` with :samp:`zpool get version {poolname}`. A version
 value of *-* means the ZFS pool is version 5000 (also known as
 *Feature Flags*) or later.
@@ -235,7 +234,7 @@ the goal is to maximize disk space or performance:
   for details.
 
 These resources can also help determine the RAID configuration best
-suited to your storage needs:
+suited to the specific storage requirements:
 
 * `Getting the Most out of ZFS Pools
   <https://forums.freenas.org/index.php?threads/getting-the-most-out-of-zfs-pools.16/>`__
@@ -264,8 +263,8 @@ While ZFS provides many benefits, there are some caveats:
 * At 90% capacity, ZFS switches from performance- to space-based
   optimization, which has massive performance implications. For
   maximum write performance and to prevent problems with drive
-  replacement, add more capacity before a pool reaches 80%. If you
-  are using iSCSI, it is recommended to not let the pool go over 50%
+  replacement, add more capacity before a pool reaches 80%. If
+  using iSCSI, it is recommended to not let the pool go over 50%
   capacity to prevent fragmentation issues.
 
 * When considering the number of disks to use per vdev, consider the
@@ -278,9 +277,9 @@ While ZFS provides many benefits, there are some caveats:
   in the pool will be lost. For this reason, RAIDZ1 is not
   recommended for drives over 1 TB in size.
 
-* It is recommended to use drives of equal sizes when creating a
-  vdev. While ZFS can create a vdev using disks of differing sizes,
-  its capacity will be limited by the size of the smallest disk.
+* Using drives of equal sizes is recommended when
+  creating a vdev. While ZFS can create a vdev using disks of differing
+  sizes, its capacity will be limited by the size of the smallest disk.
 
 For those new to ZFS, the
 `Wikipedia entry on ZFS <https://en.wikipedia.org/wiki/Zfs>`__

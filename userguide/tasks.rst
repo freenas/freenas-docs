@@ -47,11 +47,10 @@ Cron Jobs
 is a daemon that runs a command or script on a regular schedule as a
 specified user.
 
-:numref:`Figure %s <tasks_create_cron_job_fig>`
-shows the screen that opens after navigating
-:menuselection:`Tasks --> Cron Jobs`
-and clicking |ui-add|.
-
+Navigate to :menuselection:`Tasks --> Cron Jobs`
+and click |ui-add| to create a cron job.
+:numref:`Figure %s <tasks_create_cron_job_fig>` shows the
+configuration screen that appears.
 
 .. _tasks_create_cron_job_fig:
 
@@ -73,53 +72,42 @@ lists the configurable options for a cron job.
 .. table:: Cron Job Options
    :class: longtable
 
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Setting           | Value                       | Description                                                                                             |
-   |                   |                             |                                                                                                         |
-   +===================+=============================+=========================================================================================================+
-   | Description       | string                      | notes or a name for the Cron job                                                                        |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Command           | drop-down menu              | the **full path** to the command or script to be run; if it is a script, test it at the command line    |
-   |                   |                             | to ensure it works                                                                                      |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Run As User       | string                      | make sure the selected user has permission to run the specified command or script                       |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Quick Schedule    | value                       | select a time frame for the job. Otherwise, do not select a time frame to customize the schedule        |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Minute            | value                       | the cron job occurs at the specified minutes                                                            |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Hour              | value                       | the cron job occurs at the specified hours                                                              |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of month      | value                       | the cron job occurs on specified days of the month                                                      |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Month             | drop-down menu              | the cron job occurs on the specified months                                                             |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of week       | drop-down menu              | the cron job occurs on the selected days                                                                |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Redirect Standard | checkbox                    | disables emailing standard output to the *root* user account                                            |
-   | Output            |                             |                                                                                                         |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Redirect Errors   | checkbox                    | disables emailing errors to the *root* user account                                                     |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Enable            | checkbox                    | uncheck disable the cron job without deleting it                                                        |
-   |                   |                             |                                                                                                         |
-   +-------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   | Setting             | Value                       | Description                                                                                             |
+   |                     |                             |                                                                                                         |
+   +=====================+=============================+=========================================================================================================+
+   | Description         | string                      | Enter any notes about the cron job.                                                                     |
+   |                     |                             |                                                                                                         |
+   +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   | Command             | drop-down menu              | Enter the **full path** to the command or script to be run. If it is a script, testing it at the        |
+   |                     |                             | command line is recommended to ensure it works.                                                         |
+   |                     |                             |                                                                                                         |
+   +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   | Run As User         | string                      | Choose a user account to run the *command*. The user must have permissions to run the specified         |
+   |                     |                             | command or script.                                                                                      |
+   +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   | Schedule a Cron Job | drop-down menu              | Select how often to run the cron job. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.  |
+   |                     |                             | Select *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week. |
+   |                     |                             |                                                                                                         |
+   +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   | Redirect Standard   | checkbox                    | Set to disable emailing standard output (stdout) to the *root* user account.                            |
+   | Output              |                             |                                                                                                         |
+   |                     |                             |                                                                                                         |
+   +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   | Redirect Errors     | checkbox                    | Set to disable emailing errors (stderr) to the *root* user account.                                     |
+   |                     |                             |                                                                                                         |
+   +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
+   | Enable              | checkbox                    | Unset to disable the cron job without deleting it.                                                      |
+   |                     |                             |                                                                                                         |
+   +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
 
 
-Cron jobs are shown in :menuselection:`Tasks --> Cron Jobs`.
-Click |ui-options| to see the :guilabel:`Edit` and :guilabel:`Delete`
-buttons.
+Cron jobs are shown in :menuselection:`Tasks --> Cron Jobs`. This table
+displays the user, command, description, schedule, and if the job is
+enabled. This table is adjustable by setting the different column
+checkboxes above it. Set :guilabel:`Toggle` to display all options in
+the table. Click |ui-options| for an entry to see its :guilabel:`Run Now`,
+:guilabel:`Edit` and :guilabel:`Delete` options.
 
 
 .. note:: :literal:`%` symbols are automatically escaped and should
@@ -137,7 +125,7 @@ Init/Shutdown Scripts
 at system startup or shutdown.
 
 :numref:`Figure %s <tasks_init_script_fig>`
-shows the screen that opens after navigating
+shows the screen that opens after navigating to
 :menuselection:`Tasks --> Init/Shutdown Scripts`
 and clicking |ui-add|.
 :numref:`Table %s <tasks_init_opt_tab>`
@@ -173,20 +161,20 @@ has been fully tested to ensure it achieves the desired results.
    |             |                |                                                                                   |
    |             |                |                                                                                   |
    +=============+================+===================================================================================+
-   | Type        | drop-down menu | select from *Command* (for an executable) or                                      |
-   |             |                | *Script* (for an executable script)                                               |
+   | Type        | drop-down menu | Select *Command* for an executable or                                             |
+   |             |                | *Script* for an executable script.                                                |
    |             |                |                                                                                   |
    +-------------+----------------+-----------------------------------------------------------------------------------+
-   | Command /   | string         | if *Command* is selected, enter the command plus any desired options; if          |
-   | Script      |                | *Script* is selected, :guilabel:`Browse` to the location of the script            |
+   | Command /   | string         | If *Command* is selected, enter the command plus any desired options. If          |
+   | Script      |                | *Script* is selected, :guilabel:`Browse` to the location of the script.           |
    |             |                |                                                                                   |
    +-------------+----------------+-----------------------------------------------------------------------------------+
-   | When        | drop-down menu | select when the command/script will run; choices are *Pre Init*                   |
-   |             |                | (very early in boot process before filesystems are mounted), *Post Init*          |
-   |             |                | (towards end of boot process before FreeNAS services are started), or *Shutdown*  |
+   | When        | drop-down menu | Select when the command or script runs. *Pre Init* is very early                  |
+   |             |                | in boot process before mounting filesystems, *Post Init* is towards               |
+   |             |                | the end of boot process before FreeNAS services start, or at *Shutdown*.          |
    |             |                |                                                                                   |
    +-------------+----------------+-----------------------------------------------------------------------------------+
-   | Enabled     | checkbox       | uncheck to disable the task                                                       |
+   | Enabled     | checkbox       | Unset to disable the task without deleting it.                                    |
    |             |                |                                                                                   |
    +-------------+----------------+-----------------------------------------------------------------------------------+
 
@@ -207,18 +195,18 @@ Rsync Tasks
 is a utility that copies specified data from one system to another
 over a network. Once the initial data is copied, rsync reduces the
 amount of data sent over the network by sending only the differences
-between the source and destination files. rsync can be used for backups,
+between the source and destination files. Rsync is used for backups,
 mirroring data on multiple systems, or for copying files between systems.
 
-rsync is most effective when only a relatively small amount
+Rsync is most effective when only a relatively small amount
 of the data has changed. There are also
-`some limitations when using Rsync with Windows files
+`some limitations when using rsync with Windows files
 <https://forums.freenas.org/index.php?threads/impaired-rsync-permissions-support-for-windows-datasets.43973/>`__.
 For large amounts of data, data that has many changes from the
 previous copy, or Windows files, :ref:`Replication Tasks` are often
 the faster and better solution.
 
-rsync is single-threaded and gains little from multiple processor cores.
+Rsync is single-threaded and gains little from multiple processor cores.
 To see whether rsync is currently running, use :samp:`pgrep rsync` from
 the :ref:`Shell`.
 
@@ -261,11 +249,11 @@ mode of rsync operation.
 
 
 :numref:`Figure %s <tasks_add_rsync_fig>`
-shows the screen that appears after navigating
+shows the screen that appears after navigating to
 :menuselection:`Tasks --> Rsync Tasks`
 and clicking |ui-add|.
 :numref:`Table %s <tasks_rsync_opts_tab>`
-summarizes the options that can be configured when creating an rsync
+summarizes the configuration options available when creating an rsync
 task.
 
 
@@ -290,106 +278,92 @@ task.
    |                                  |                             |                                                                                           |
    |                                  |                             |                                                                                           |
    +==================================+=============================+===========================================================================================+
-   | Path                             | browse button               | browse to the path that to be copied; note that a path length greater than 255            |
-   |                                  |                             | characters will fail                                                                      |
+   | Path                             | browse button               | :guilabel:`Browse` to the path to be copied. Path lengths cannot be greater               |
+   |                                  |                             | than 255 characters.                                                                      |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | User                             | drop-down menu              | specified user must have permission to write to the specified directory on the remote     |
-   |                                  |                             | system; due to a limitation in FreeBSD, the user name cannot contain spaces or exceed 17  |
-   |                                  |                             | characters                                                                                |
+   | User                             | drop-down menu              | The chosen user must have permissions to write to the specified directory on the remote   |
+   |                                  |                             | system. The user name cannot contain spaces or exceed 17                                  |
+   |                                  |                             | characters.                                                                               |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote Host                      | string                      | IP address or hostname of the remote system that will store the copy; use the format      |
-   |                                  |                             | *username@remote_host* if the username differs on the remote host                         |
+   | Remote Host                      | string                      | Enter the IP address or hostname of the remote system that will store the copy. Use the   |
+   |                                  |                             | format *username@remote_host* if the username differs on the remote host.                 |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote SSH Port                  | integer                     | only available in  *Rsync over SSH* mode; allows specifying an SSH port                   |
-   |                                  |                             | other than the default of *22*                                                            |
+   | Remote SSH Port                  | integer                     | Only available in  *Rsync over SSH* mode. Allows specifying an SSH port                   |
+   |                                  |                             | other than the default of *22*.                                                           |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Rsync mode                       | drop-down menu              | choices are *Rsync module* or                                                             |
-   |                                  |                             | *Rsync over SSH*                                                                          |
+   | Rsync mode                       | drop-down menu              | Choices are *Rsync module* or                                                             |
+   |                                  |                             | *Rsync over SSH*.                                                                         |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote Module Name               | string                      | only appears when using *Rsync module* mode, at least one module must be defined in       |
+   | Remote Module Name               | string                      | At least one module must be defined in                                                    |
    |                                  |                             | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__                     |
-   |                                  |                             | of rsync server or in the :guilabel:`Rsync Modules` of another                            |
-   |                                  |                             | system                                                                                    |
+   |                                  |                             | of the rsync server or in the :guilabel:`Rsync Modules` of another                        |
+   |                                  |                             | system.                                                                                   |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote Path                      | string                      | only appears when using *Rsync over SSH* mode, enter the **existing** path on the remote  |
-   |                                  |                             | host to sync with (e.g. */mnt/pool*); note that maximum path length is 255 characters     |
+   | Remote Path                      | string                      | Only appears when using *Rsync over SSH* mode, enter the **existing** path on the remote  |
+   |                                  |                             | host to sync with (e.g. */mnt/pool*). Note that the path length cannot be greater than    |
+   |                                  |                             | 255 characters.                                                                           |
+   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
+   | Validate Remote Path             | checkbox                    | Verifies the existence of the :guilabel:`Remote Path`.                                    |
+   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
+   | Direction                        | drop-down menu              | Direct the flow of the data to the remote host. Choices are *Push*                        |
+   |                                  |                             | *Pull*. Default is to push to a remote host.                                              |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Validate Remote Path             | checkbox                    | if the :guilabel:`Remote Path` does not yet exist, check this box to have it              |
-   |                                  |                             | automatically created                                                                     |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Direction                        | drop-down menu              | choices are *Push* or                                                                     |
-   |                                  |                             | *Pull*; default is to push to a remote host                                               |
+   | Short Description                | string                      | Enter an optional description of the new rsync task.                                      |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Short Description                | string                      | optional                                                                                  |
+   | Schedule the Rsync Task          | drop-down menu              | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or  |
+   |                                  |                             | *Custom*. Select *Custom* to open a visual scheduler for selecting minutes, hours, days,  |
+   |                                  |                             | month, and days of week.                                                                  |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Quick Schedule                   | drop-down menu              | select a simple repeating schedule for this task                                          |
+   | Recursive                        | checkbox                    | Set to include all subdirectories of the specified pool during the rsync task.            |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Minute                           | integer                     | enter the minute of the hour for the sync to occur                                        |
+   | Times                            | checkbox                    | Set to preserve the modification times of files.                                          |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Hour                             | integer                     | enter the hour of the day for the sync to occur                                           |
+   | Compress                         | checkbox                    | Set to reduce the size of the data to transmit. Recommended for slow connections.         |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Day of month                     | inter                       | enter the day of the month for the sync to occur                                          |
+   | Archive                          | checkbox                    | Equivalent to :command:`-rlptgoD`. This will run the task as recursive, copy symlinks     |
+   |                                  |                             | as symlinks, preserve permissions, preserve modification times, preserve group, preserve  |
+   |                                  |                             | owner (root only), preserve device files, and preserve special files.                     |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Month                            | checkboxes                  | task occurs on the selected months                                                        |
+   | Delete                           | checkbox                    | Set to delete files in the destination directory that do not exist in sending directory.  |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Day of week                      | checkboxes                  | task occurs on the selected days of the week                                              |
+   | Quiet                            | checkbox                    | Set to suppress informational messages from the remote server.                            |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Recursive                        | checkbox                    | if checked, copy will include all subdirectories of the specified pool                    |
+   | Preserve permissions             | checkbox                    | Set to preserve original file permissions. This is useful when the user is set to         |
+   |                                  |                             | *root*.                                                                                   |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Times                            | checkbox                    | preserve modification times of files                                                      |
+   | Preserve extended attributes     | checkbox                    | Both systems must support                                                                 |
+   |                                  |                             | `extended attributes. <https://en.wikipedia.org/wiki/Xattr>`__                            |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Compress                         | checkbox                    | recommended on slow connections as reduces size of data to be transmitted                 |
+   | Delay Updates                    | checkbox                    | Set to save the temporary file from each updated file to a holding directory              |
+   |                                  |                             | until the end of the transfer when all transferred files are renamed into place.          |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Archive                          | checkbox                    | equivalent to :command:`-rlptgoD` (recursive, copy symlinks as symlinks, preserve         |
-   |                                  |                             | permissions, preserve modification times, preserve group, preserve owner (super-user      |
-   |                                  |                             | only), and preserve device files (super-user only) and special files)                     |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Delete                           | checkbox                    | delete files in destination directory that do not exist in sending directory              |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Quiet                            | checkbox                    | suppresses informational messages from the remote server                                  |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Preserve permissions             | checkbox                    | preserves original file permissions; useful if User is set to *root*                      |
-   |                                  |                             |                                                                                           |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Preserve extended attributes     | checkbox                    | both systems must support                                                                 |
-   |                                  |                             | `extended attributes <https://en.wikipedia.org/wiki/Xattr>`__                             |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Delay Updates                    | checkbox                    | when checked, the temporary file from each updated file is saved to a holding directory   |
-   |                                  |                             | until the end of the transfer, when all transferred files are renamed into place          |
-   |                                  |                             |                                                                                           |
-   +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Extra options                    | string                      | `rsync(1) <http://rsync.samba.org/ftp/rsync/rsync.html>`__                                |
-   |                                  |                             | options not covered by the GUI; if the :literal:`*` character is used, it                 |
+   | Extra options                    | string                      | Add any other `rsync(1) <http://rsync.samba.org/ftp/rsync/rsync.html>`__                  |
+   |                                  |                             | options. The :literal:`*` character                                                       |
    |                                  |                             | must be escaped with a backslash (:literal:`\\*.txt`)                                     |
-   |                                  |                             | or used inside single quotes (:literal:`'*.txt'`)                                         |
+   |                                  |                             | or used inside single quotes. (:literal:`'*.txt'`)                                        |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Enabled                          | checkbox                    | uncheck to disable the rsync task without deleting it; note that when the :ref:`Rsync`    |
+   | Enabled                          | checkbox                    | Unset to disable the rsync task without deleting it. When the :ref:`Rsync`                |
    |                                  |                             | service is OFF, the rsync task will continue to look for the server unless this           |
-   |                                  |                             | checkbox is unchecked                                                                     |
+   |                                  |                             | option is unset.                                                                          |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
 
@@ -399,7 +373,7 @@ If the rysnc server requires password authentication, enter
 :guilabel:`Extra options` field, replacing :literal:`/PATHTO/FILENAME`
 with the appropriate path to the file containing the password.
 
-Created rsync tasks will be listed in :guilabel:`Rsync Tasks`.
+Created rsync tasks are listed in :guilabel:`Rsync Tasks`.
 Click |ui-options| for an entry to display buttons for
 :guilabel:`Edit`, :guilabel:`Delete`, or :guilabel:`Run Now`.
 
@@ -444,7 +418,7 @@ In this example:
 * the :guilabel:`User` is set to *root* so it has permission to write
   anywhere
 
-* the :guilabel:`Preserve Permissions` checkbox is checked so that the
+* the :guilabel:`Preserve Permissions` option is enabled so that the
   original permissions are not overwritten by the *root* user
 
 On *PULL*, an rsync module is defined in
@@ -568,12 +542,11 @@ if necessary, remove any extra spaces representing line breaks.
 
 .. figure:: images/account-users-edit-ssh-key.png
 
-   Pasting the User's SSH Public Key
+   Pasting the User SSH Public Key
 
 
 While on *PULL*, verify that the SSH service is running in
-:menuselection:`Services`
-and start it if it is not.
+:menuselection:`Services` and start it if it is not.
 
 Next, copy the host key of *PULL* using Shell on *PUSH*. The following
 command copies the RSA host key of the *PULL* server used in our
@@ -612,7 +585,7 @@ as follows:
   anywhere; the public key for this user must be generated on *PUSH*
   and copied to *PULL*
 
-* the :guilabel:`Preserve Permissions` checkbox is checked so that the
+* the :guilabel:`Preserve Permissions` option is enabled so that the
   original permissions are not overwritten by the *root* user
 
 Save the rsync task and the rsync will automatically occur according
@@ -639,10 +612,10 @@ S.M.A.R.T., the drive should be replaced. Most modern ATA, IDE, and
 SCSI-3 hard drives support S.M.A.R.T. -- refer to the drive
 documentation for confirmation.
 
+Click :menuselection:`Tasks --> S.M.A.R.T. Tests`
+and |ui-add| to add a new scheduled S.M.A.R.T. test. 
 :numref:`Figure %s <tasks_add_smart_test_fig>`
-shows the configuration screen that appears after navigating
-:menuselection:`Tasks --> S.M.A.R.T. Tests`
-and clicking |ui-add|. Tests are listed under
+shows the configuration screen that appears. Tests are listed under
 :guilabel:`S.M.A.R.T. Tests`. After creating tests, check the
 configuration in
 :menuselection:`Services --> S.M.A.R.T.`,
@@ -681,32 +654,20 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
    | Setting           | Value                     | Description                                                                                                |
    |                   |                           |                                                                                                            |
    +===================+===========================+============================================================================================================+
-   | Disks             | drop-down menu            | highlight disks to monitor                                                                                 |
+   | Disks             | drop-down menu            | Select the disks to monitor.                                                                               |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Type              | drop-down menu            | select type of test to run; see                                                                            |
+   | Type              | drop-down menu            | Choose the test type. See                                                                                  |
    |                   |                           | `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__                  |
-   |                   |                           | for a description of each type of test (note that some test types will degrade performance or take disks   |
-   |                   |                           | offline; do not schedule S.M.A.R.T. tests at the same time as a scrub or during a resilver operation)      |
+   |                   |                           | for descriptions of each type. Some test types will degrade performance or take disks                      |
+   |                   |                           | offline. Avoid scheduling S.M.A.R.T. tests simultaneously with scrub or resilver operations.               |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Short description | string                    | optional                                                                                                   |
+   | Short description | string                    | Optional. Enter a short description of this test.                                                          |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Quick Schedule    | drop-down menu            | selecting a :guilabel:`Quick Schedule` other than :guilabel:`-----` limits other scheduling options;       |
-   |                   |                           | choose :guilabel:`-----`, :guilabel:`Daily`, :guilabel:`Weekly`, or :guilabel:`Monthly`                    |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Hour              | integer                   | test occurs at the listed hours                                                                            |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Day of month      | integer                   | test occurs on the listed days                                                                             |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Month             | checkboxes                | select the months for the test to occur                                                                    |
-   |                   |                           |                                                                                                            |
-   +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Day of week       | checkboxes                | select the days of the week for the test to occur                                                          |
+   | Schedule  a       | drop-down menu            | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*. Select  |
+   | S.M.A.R.T. Test   |                           | *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week.           |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
 
@@ -734,9 +695,9 @@ the name of the drive. For example, to see the results for disk
   smartctl -l selftest /dev/ada0
 
 
-If an email address is entered in the :guilabel:`Email` field of
+When an email address is entered in the :guilabel:`Email` field of
 :menuselection:`Services --> S.M.A.R.T. --> Configure`,
-the system will send an email to that address when a test fails. Logging
+the system sends an email to that address when a test fails. Logging
 information for S.M.A.R.T. tests can be found in
 :file:`/var/log/daemon.log`.
 
@@ -754,12 +715,12 @@ very little space. For example, a snapshot where no files have changed
 takes 0 MB of storage, but as changes are made to files, the snapshot
 size changes to reflect the size of the changes.
 
-Snapshots provide a clever way of keeping a history of files,
+Snapshots keep a history of files,
 providing a way to recover an older copy or even a deleted file. For
-this reason, many administrators take snapshots often (perhaps every
-fifteen minutes), store them for a period of time (possibly a month),
-and store them on another system (typically using
-:ref:`Replication Tasks`). Such a strategy allows the administrator to
+this reason, many administrators take snapshots often,
+store them for a period of time,
+and store them on another system, typically using
+:ref:`Replication Tasks`. Such a strategy allows the administrator to
 roll the system back to a specific point in time. If there is a
 catastrophic loss, an off-site snapshot can be used to restore the
 system up to the time of the last snapshot.
@@ -767,7 +728,7 @@ system up to the time of the last snapshot.
 A pool must exist before a snapshot can be created. Creating a pool is
 described in :ref:`Pools`.
 
-To create a periodic snapshot task, navigate
+To create a periodic snapshot task, navigate to
 :menuselection:`Tasks --> Periodic Snapshot Tasks`
 and click |ui-add|. This opens the screen shown in
 :numref:`Figure %s <zfs_periodic_snapshot_fig>`.
@@ -795,44 +756,44 @@ summarizes the fields in this screen.
    | Setting            | Value                      | Description                                                                                                  |
    |                    |                            |                                                                                                              |
    +====================+============================+==============================================================================================================+
-   | Pool/Dataset       | drop-down menu             | select an existing pool, dataset, or zvol                                                                    |
+   | Pool/Dataset       | drop-down menu             | Select an existing pool, dataset, or zvol.                                                                   |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Recursive          | checkbox                   | select this box to take separate snapshots of the pool/dataset and each of its child datasets; if            |
-   |                    |                            | unchecked, a single snapshot is taken of only the specified pool/dataset, but not any child                  |
-   |                    |                            | datasets                                                                                                     |
-   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Snapshot Lifetime  | integer and drop-down menu | length of time to retain the snapshot on this system; if the snapshot is replicated, it is not removed       |
-   |                    |                            | from the receiving system when the lifetime expires                                                          |
+   | Recursive          | checkbox                   | Set this option to take separate snapshots of the pool or dataset and each of its child datasets. Deselect   |
+   |                    |                            | to take a single snapshot of the specified pool or dataset with no child datasets.                           |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Begin              | drop-down menu             | do not create snapshots before this time of day                                                              |
+   | Snapshot Lifetime  | integer and drop-down menu | Define a length of time to retain the snapshot on this system. After the time expires, the snapshot is       |
+   |                    |                            | removed. Snapshots replicated to other systems are not affected.                                             |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | End                | drop-down menu             | do not create snapshots after this time of day                                                               |
+   | Begin              | drop-down menu             | Choose the hour and minute when the system can begin taking snapshots.                                       |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Interval           | drop-down menu             | how often to take snapshot between :guilabel:`Begin` and                                                     |
-   |                    |                            | :guilabel:`End` times                                                                                        |
+   | End                | drop-down menu             | Choose the hour and minute when the system must stop taking snmapshots.                                      |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Day of week        | checkboxes                 | which days of the week to take snapshots                                                                     |
+   | Interval           | drop-down menu             | Define how often the system takes snapshots between :guilabel:`Begin` and                                    |
+   |                    |                            | :guilabel:`End` times.                                                                                       |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Enabled            | checkbox                   | uncheck to disable the scheduled snapshot task without deleting it                                           |
+   | Day of week        | checkboxes                 | Choose the days of the week to take the snapshots.                                                           |
+   |                    |                            |                                                                                                              |
+   +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
+   | Enabled            | checkbox                   | Unset to disable the task without deleting it.                                                               |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
 
 
-If the :guilabel:`Recursive` box is checked, child datasets of this
+If the :guilabel:`Recursive` option is enabled, child datasets of this
 dataset are included in the snapshot and there is no need to create
 snapshots for each child dataset. The downside is that there is no way
 to exclude particular child  datasets from a recursive snapshot.
 
 Click :guilabel:`Save` when finished customizing the task. Entries for
 each task are shown in :guilabel:`Periodic Snapshot Tasks`. Click
-|ui-options| for an entry to display :guilabel:`Edit` and
-:guilabel:`Delete` buttons for it.
+|ui-options| for an entry to display the :guilabel:`Edit` and
+:guilabel:`Delete` buttons.
 
 
 .. index:: Replication
@@ -892,12 +853,11 @@ This new dataset has been created for this example, but a new dataset
 is not required. Most users will already have datasets containing the
 data they wish to replicate.
 
-Create a periodic snapshot of the source dataset by navigating
-:menuselection:`Tasks --> Periodic Snapshot Tasks`
-and clicking |ui-add|. Add the *alphapool/alphadata* dataset to the
-:guilabel:`Pool/Dataset` field.
-:numref:`Figure %s <zfs_create_periodic_replication_fig>` shows the
-configured periodic snapshot.
+Click :menuselection:`Tasks --> Periodic Snapshot Tasks`
+and |ui-add| to create a periodic snapshot of the source dataset.
+Add the *alphapool/alphadata* dataset to the :guilabel:`Pool/Dataset`
+field. :numref:`Figure %s <zfs_create_periodic_replication_fig>` shows
+the configured periodic snapshot.
 
 
 .. _zfs_create_periodic_replication_fig:
@@ -927,7 +887,7 @@ on *Alpha*.
 
 
 Example: %brand% to %brand% Semi-Automatic Setup
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 %brand% offers a special semi-automatic setup mode that simplifies
 setting up replication.  Create the replication task on *Alpha* by
@@ -942,12 +902,12 @@ The IP address of *Beta* is entered in the :guilabel:`Remote Hostname`
 field. A hostname can be entered here if local DNS resolves for that
 hostname.
 
-.. note:: If :guilabel:`WebGUI HTTP -> HTTPS Redirect` has been
+.. note:: If :guilabel:`WebGUI HTTP -> HTTPS Redirect` is
    enabled in
    :menuselection:`System --> General`
    on the destination computer,
-   :guilabel:`Remote HTTP/HTTPS Port` must be set to the HTTPS port
-   (usually *443*) and :guilabel:`Remote HTTPS` must be enabled when
+   set :guilabel:`Remote HTTP/HTTPS Port` to the HTTPS port
+   and ensure :guilabel:`Remote HTTPS` is enabled when
    creating the replication on the source computer.
 
 
@@ -1017,9 +977,9 @@ been created, go to
 click |ui-options| for the task and :guilabel:`Delete` to remove it
 before continuing.
 
-On *Alpha*, select
-:menuselection:`Account --> Users`.
-Click |ui-add|. Enter *repluser* for :guilabel:`Username`,
+On *Alpha*, click
+:menuselection:`Account --> Users` then |ui-add|.
+Enter *repluser* for :guilabel:`Username`,
 enter */mnt/alphapool/repluser* in the :guilabel:`Home Directory` field,
 enter *Replication Dedicated User* for the :guilabel:`Full Name`, and
 set :guilabel:`Enable password login` to *No*. Leave the other fields at
@@ -1027,9 +987,8 @@ their default values, but note the :guilabel:`User ID` number. Click
 :guilabel:`Save` to create the user.
 
 On *Beta*, the same dedicated user must be created as was created on
-the sending computer. Select
-:menuselection:`Account --> Users`.
-Click the :guilabel:`Add User`. Enter the *User ID* number from
+the sending computer. Click
+:menuselection:`Account --> Users` then |ui-add|. Enter the *User ID* number from
 *Alpha*, *repluser* for :guilabel:`Username`, enter
 */mnt/betapool/repluser* in the :guilabel:`Home Directory` field, enter
 *Replication Dedicated User* for the :guilabel:`Full Name`, and set
@@ -1037,13 +996,13 @@ Click the :guilabel:`Add User`. Enter the *User ID* number from
 their default values. Click :guilabel:`Save` to create the user.
 
 A dataset with the same name as the original must be created on the
-destination computer, *Beta*. Navigate
+destination computer, *Beta*. Navigate to
 :menuselection:`Storage --> Pools`,
-click on *betapool*, then click |ui-options| and :guilabel:`Add Dataset`.
+click *betapool*, then |ui-options| and :guilabel:`Add Dataset`.
 Enter *alphadata* as the :guilabel:`Name`, then click :guilabel:`Save`.
 
 The replication user must be given permissions to the destination
-dataset. Still on *Beta*, open a :ref:`Shell` and enter this command:
+dataset. On *Beta*, open a :ref:`Shell` and enter this command:
 
 .. code-block:: none
 
@@ -1058,10 +1017,10 @@ command in the :ref:`Shell`:
    zfs set readonly=on betapool/alphadata
 
 
-The replication user must also be able to mount datasets. Still on
+The replication user must also be able to mount datasets. On
 *Beta*, go to
-:menuselection:`System --> Tunables`.
-Click |ui-add|. Enter *vfs.usermount* for the :guilabel:`Variable`,
+:menuselection:`System --> Tunables` and click |ui-add|.
+Enter *vfs.usermount* for the :guilabel:`Variable`,
 *1* for the :guilabel:`Value`, and choose
 *Sysctl* from the :guilabel:`Type` drop-down. Click :guilabel:`Save`.
 
@@ -1070,9 +1029,9 @@ Back on *Alpha*, create a
 :numref:`Figure %s <zfs_create_periodic_replication_fig>` shows the
 configuration.
 
-Still on *Alpha*, create the replication task by clicking
-:guilabel:`Replication Tasks`, hovering |ui-menu|, and clicking
-:guilabel:`Replication`. *alphapool/alphadata* is selected as the
+On *Alpha*, create the replication task by clicking
+:guilabel:`Replication Tasks` and click |ui-add|.
+*alphapool/alphadata* is selected as the
 dataset to replicate. *betapool/alphadata* is the destination pool
 and dataset where *alphadata* snapshots are replicated.
 
@@ -1083,20 +1042,20 @@ The IP address of *Beta* is entered in the :guilabel:`Remote hostname`
 field. A hostname can be entered here if local DNS resolves for that
 hostname.
 
-.. note:: If :guilabel:`WebGUI HTTP -> HTTPS Redirect` has been
+.. note:: If :guilabel:`WebGUI HTTP -> HTTPS Redirect` is
    enabled in
    :menuselection:`System --> General`
    on the destination computer,
-   :guilabel:`Remote HTTP/HTTPS Port` must be set to the HTTPS port
-   (usually *443*) and :guilabel:`Remote HTTPS` must be enabled when
+   set the :guilabel:`Remote HTTP/HTTPS Port` to the HTTPS port
+   and enable the :guilabel:`Remote HTTPS` when
    creating the replication on the source computer.
 
 
 The :guilabel:`Remote Auth Token` field expects a special token from
-the *Beta* computer. On *Beta*, navigate
+the *Beta* computer. On *Beta*, click
 :menuselection:`Tasks --> Replication Tasks`,
-hover |ui-menu|, and click :guilabel:`Replication Token`. A dialog
-showing the temporary authorization token is shown as in
+then :guilabel:`Replication Token`. A dialog showing the temporary
+authorization token is shown as in
 :numref:`Figure %s <zfs_auth_token_fig>`.
 
 Highlight the temporary authorization token string with the mouse and
@@ -1106,7 +1065,7 @@ On the *Alpha* system, paste the copied temporary authorization token
 string into the :guilabel:`Remote Auth Token` field as shown in
 :numref:`Figure %s <zfs_auth_token_paste_fig>`.
 
-Set the :guilabel:`Dedicated User Enabled` checkbox. Choose *repluser*
+Set the :guilabel:`Dedicated User Enabled` option. Choose *repluser*
 in the :guilabel:`Dedicated User` drop-down.
 
 Click :guilabel:`Save` to create the replication task.
@@ -1119,7 +1078,7 @@ Click :guilabel:`Save` to create the replication task.
 
 
 #ifdef comment
-Still on *Alpha*, hover |ui-menu| and click :guilabel:`Replication Keys`
+Still on *Alpha*, hover |ui-menu| and click :guilabel:`Replication Keys`.
 Copy the key value with the mouse.
 
 This might not be necessary with semi-auto replication
@@ -1153,8 +1112,8 @@ Encryption Keys
 
 A public encryption key must be copied from *Alpha* to *Beta* to
 allow a secure connection without a password prompt. On *Alpha*,
-navigate
-:menuselection:`Tasks --> Replication Tasks`,
+navigate to
+:menuselection:`Tasks --> Replication Tasks`
 and click :guilabel:`Replication Keys`. This produces
 the window shown in :numref:`Figure %s <zfs_copy_replication_key_fig>`.
 Use the mouse to highlight the key data shown in the window, then copy
@@ -1170,7 +1129,7 @@ it.
 
 On *Beta*, navigate to
 :menuselection:`Account --> Users`.
-Click |ui-options| for the *root* account, then click :guilabel:`Edit`.
+Click |ui-options| for the *root* account, then :guilabel:`Edit`.
 Paste the copied key into the :guilabel:`SSH Public Key` field and click
 :guilabel:`Save` as shown in
 :numref:`Figure %s <zfs_paste_replication_key_fig>`.
@@ -1228,64 +1187,65 @@ options in the replication task dialog.
    |                           |                |                                                                                                              |
    |                           |                |                                                                                                              |
    +===========================+================+==============================================================================================================+
-   | Pool/Dataset              | drop-down menu | pool or dataset on the source computer containing the snapshots to be replicated; the                        |
-   |                           |                | drop-down menu is empty if a snapshot does not already exist                                                 |
+   | Pool/Dataset              | drop-down menu | On the source computer with snapshots to replicate, choose an existing pool or dataset with an active        |
+   |                           |                | periodic snapshot task.                                                                                      |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote ZFS Pool/Dataset   | string         | pool on the remote or destination computer which will store the snapshots; if the destination dataset        |
-   |                           |                | is not present, it will be created; :file:`/mnt/` is assumed, do not include it in the path                  |
+   | Remote ZFS Pool/Dataset   | string         | Enter the pool or dataset on the remote or destination computer that will store snapshots. Example:          |
+   |                           |                | poolname/datasetname, not the mountpoint or filesystem path.                                                 |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Recursively Replicate     | checkbox       | when checked, also replicate snapshots of datasets that are children of the main dataset                     |
+   | Recursively Replicate     | checkbox       | Set to include snapshots of child datasets from the primary dataset.                                         |
    | Child Dataset Snapshots   |                |                                                                                                              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Delete Stale Snapshots    | checkbox       | when checked, delete previous snapshots on the remote or destination computer which are no longer present    |
-   | on Remote System          |                | on the source computer                                                                                       |
+   | Delete Stale Snapshots    | checkbox       | Set to delete snapshots from the remote system which are also no longer present                              |
+   | on Remote System          |                | on the source computer.                                                                                      |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Replication Stream        | drop-down menu | choices are *lz4 (fastest)*,                                                                                 |
-   | Compression               |                | *pigz (all rounder)*,                                                                                        |
+   | Replication Stream        | drop-down menu | Select a compression algorithm to reduce the size of the data being replicated. Choices are                  |
+   | Compression               |                | *lz4 (fastest)*, *pigz (all rounder)*,                                                                       |
    |                           |                | *plzip (best compression)*, or                                                                               |
-   |                           |                | *Off* (no compression); selecting a compression algorithm can reduce the size of the data being replicated   |
+   |                           |                | *Off* (no compression).                                                                                      |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Limit (kbps)              | integer        | Limit replication speed to the specified value in kilobits/second; default of *0* is unlimited               |
+   | Limit (kbps)              | integer        | Limit replication speed to the specified value in kbps. Default of *0* is unlimited.                         |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Begin Time                | drop-down menu | replication is not allowed to start before this time; times entered in the :guilabel:`Begin` and             |
-   |                           |                | :guilabel:`End` fields set when replication can occur                                                        |
-   |                           |                |                                                                                                              |
-   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | End Time                  | drop-down menu | replication must start by this time; once started, replication will continue until it is finished            |
+   | Begin Time                | drop-down menu | Set the time to start the replication task.                                                                  |
    |                           |                |                                                                                                              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Enabled                   | checkbox       | uncheck to disable the scheduled replication task without deleting it                                        |
+   | End Time                  | drop-down menu | Define the time the replication must start. A started replication task continues until it is finished.       |
+   |                           |                |                                                                                                              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Setup Mode                | drop-down menu | *Manual* or                                                                                                  |
-   |                           |                | *Semi-automatic*                                                                                             |
+   | Enabled                   | checkbox       | Unset to disable the scheduled replication task without deleting it.                                         |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote Hostname           | string         | IP address or DNS name of remote computer where replication is sent                                          |
+   | Setup Mode                | drop-down menu | Choose the configuration mode for the remote system. Choices are *Manual* or                                 |
+   |                           |                | *Semi-Automatic*. Note *Semi-Automatic* only works with remote version 9.10.2 or later.                      |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote Port               | string         | the port used by the SSH server on the remote or destination computer                                        |
+   | Remote Hostname           | string         | Enter the IP address or DNS name of the remote system to receive the replication data.                       |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Encryption Cipher         | drop-down menu | *Standard*, *Fast*, or *Disabled*                                                                            |
+   | Remote Port               | string         | Enter the port used by the SSH server on the remote system.                                                  |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Dedicated User Enabled    | checkbox       | allow a user account other than root to be used for replication                                              |
+   | Encryption Cipher         | drop-down menu | *Standard* provides the best security. *Fast* is less secure, but has better transfer rates for devices      |
+   |                           |                | with limited cryptographic speed. *Disabled* is for networks where the entire path between                   |
+   |                           |                | sources and destinations is trusted.                                                                         |
+   +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
+   | Dedicated User Enabled    | checkbox       | Set to allow a user account other than root to be used for replication.                                      |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Dedicated User            | drop-down menu | only available if :guilabel:`Dedicated User Enabled` is checked; select the user account                     |
-   |                           |                | to be used for replication                                                                                   |
+   | Dedicated User            | drop-down menu | Select the user account to use for replication.                                                              |
+   |                           |                | Only available if :guilabel:`Dedicated User Enabled` is enabled.                                             |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote Hostkey            | string         | use the :guilabel:`Scan SSH Key` button to retrieve the public host key of the remote or destination         |
-   |                           |                | computer and populate this field with that key                                                               |
+   | Remote Hostkey            | string         | Use the :guilabel:`Scan SSH Key` button to retrieve the public host key of the remote system                 |
+   |                           |                | and enter the key here.                                                                                      |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
 
 
@@ -1313,7 +1273,7 @@ in data.
    new replicated data can be created.
 
 
-Navigating
+Navigating to
 :menuselection:`Tasks --> Replication Tasks` displays
 :numref:`Figure %s <zfs_repl_task_list_fig>`, the list of
 replication tasks. :guilabel:`Status` shows the current status of each
@@ -1385,7 +1345,7 @@ Star Replication
 ^^^^^^^^^^^^^^^^
 
 In a *star* topology, a single %brand% computer replicates data to
-multiple destination computers. This can provide data redundancy with
+multiple destination computers. This provides data redundancy with
 the multiple copies of data, and geographical redundancy if the
 destination computers are located at different sites.
 
@@ -1448,11 +1408,11 @@ replication destination computer. The replicated dataset is replicated
 back to new hardware after an incident caused the source computer to
 fail.
 
-Recovering data onto a replacement computer can be done manually with
+Recovering data onto a replacement computer is done manually with
 the :command:`zfs send` and :command:`zfs recv` commands, or a
 replication task can be defined on the target computer containing the
 backup data. This replication task would normally be disabled.
-If a disaster damages the source computer, the target computer's
+If a disaster damages the source computer, the target computer
 replication task is temporarily enabled, replicating the data onto the
 replacement source computer. After the disaster recovery replication
 completes, the replication task on the target computer is disabled
@@ -1474,7 +1434,7 @@ SSH
 ^^^
 
 :ref:`SSH` must be able to connect from the source system to the
-destination system with an encryption key. This can be tested from
+destination system with an encryption key. This is tested from
 :ref:`Shell` by making an :ref:`SSH` connection from the source
 system to the destination system. From the previous example, this is a
 connection from *Alpha* to *Beta* at *10.0.0.118*.
@@ -1551,8 +1511,8 @@ opening a :ref:`Shell` on *Beta* and running this command:
 
 
 Then send the snapshot manually again. Snapshots on the destination
-system, *Beta*, can be listed from the :ref:`Shell` with
-:samp:`zfs list -t snapshot` or by going to
+system, *Beta*, are listed from the :ref:`Shell` with
+:samp:`zfs list -t snapshot` or from
 :menuselection:`Storage --> Snapshots`.
 
 Error messages here can indicate any remaining problems.
@@ -1596,18 +1556,18 @@ describes the fields on this screen.
    | Setting              | Value       | Description                                                 |
    |                      |             |                                                             |
    +======================+=============+=============================================================+
-   | Enabled              | checkbox    | check to enable higher-priority resilvering                 |
+   | Enabled              | checkbox    | Set to run this task at the configured times.               |
    |                      |             |                                                             |
    +----------------------+-------------+-------------------------------------------------------------+
-   | Begin                | drop-down   | start time to begin higher-priority resilvering             |
-   |                      |             |                                                             |
-   |                      |             |                                                             |
-   +----------------------+-------------+-------------------------------------------------------------+
-   | End                  | drop-down   | end time to begin higher-priority resilvering               |
+   | Begin                | drop-down   | Choose a starting hour and minute for the resilver task.    |
    |                      |             |                                                             |
    |                      |             |                                                             |
    +----------------------+-------------+-------------------------------------------------------------+
-   | Day of week          | checkboxes  | use higher-priority resilvering on these days of the week   |
+   | End                  | drop-down   | Choose an ending hour and minute the resilver task cannot   |
+   |                      |             | begin after.                                                |
+   |                      |             |                                                             |
+   +----------------------+-------------+-------------------------------------------------------------+
+   | Day of week          | checkboxes  | Choose the days of the week to run this task.               |
    |                      |             |                                                             |
    +----------------------+-------------+-------------------------------------------------------------+
 
@@ -1678,40 +1638,22 @@ screen.
    |                |                             |                                                                                                             |
    |                |                             |                                                                                                             |
    +================+=============================+=============================================================================================================+
-   | Pool           | drop-down menu              | pool to be scrubbed                                                                                         |
+   | Pool           | drop-down menu              | Choose a pool to scrub.                                                                                     |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Threshold days | string                      | define the number of days to prevent a scrub from running after the last has completed; this ignores any    |
-   |                |                             | other calendar schedule; the default is a multiple of 7 to ensure the scrub always occurs on the same       |
-   |                |                             | weekday                                                                                                     |
+   | Threshold days | string                      | Define the number of days to prevent a scrub from running after the last has completed. This ignores any    |
+   |                |                             | other calendar schedule. The default is a multiple of 7 to ensure the scrub always occurs on the same       |
+   |                |                             | weekday.                                                                                                    |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Description    | string                      | optional text description of scrub                                                                          |
+   | Description    | string                      | Describe the scrub task.                                                                                    |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Quick Schedule | drop-down menu              | selecting a :guilabel:`Quick Schedule` other than :guilabel:`-----` limits other scheduling options;        |
-   |                |                             | choose :guilabel:`-----`, :guilabel:`Hourly`, :guilabel:`Daily`, :guilabel:`Weekly`, or :guilabel:`Monthly` |
+   | Schedule the   | drop-down menu              | Choose how often to run the scrub task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.    |
+   | Scrub Task     |                             | Select *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week.     |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Minute         | integer                     | a scrub runs only at the defined minute value                                                               |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Hour           | integer                     | a scrub runs only at the defined hour value                                                                 |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Day of month   | integer                     | a scrub runs only on the defined days of the selected :guilabel:`Months`                                    |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Month          | checkboxes                  | a scrub occurs on selected months                                                                           |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Day of week    | checkboxes                  | a scrub occurs on the selected days; the default is *Sunday* to least impact users; note that this field    |
-   |                |                             | and the :guilabel:`Day of Month` field are ORed together: setting :guilabel:`Day of Month` to *01,15* and   |
-   |                |                             | :guilabel:`Day of week` to *Thursday* will cause scrubs to run on the 1st and 15th days of the month, but   |
-   |                |                             | also on any Thursday                                                                                        |
-   |                |                             |                                                                                                             |
-   +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Enabled        | checkbox                    | uncheck to disable the scheduled scrub without deleting it                                                  |
+   | Enabled        | checkbox                    | Unset to disable the scheduled scrub without deleting it.                                                   |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
 
@@ -1725,7 +1667,7 @@ unmounted when a scrub is scheduled to occur, it will not be scrubbed.
 Scheduled scrubs can be deleted with the :guilabel:`Delete` button,
 but this is not recommended. **Scrubs can provide an early indication
 of disk issues before a disk failure.** If a scrub is too intensive
-for the hardware, consider temporarily unchecking the
+for the hardware, consider temporarily deselecting the
 :guilabel:`Enabled` button for the scrub until the hardware can be
 upgraded.
 
@@ -1746,24 +1688,6 @@ providers with the :guilabel:`Cloud Sync Tasks` feature.
    responsible for any charges incurred from the use of third party
    vendors with the Cloud Sync feature.
 
-
-Selecting
-:menuselection:`Tasks --> Cloud Sync Tasks`
-shows the screen in
-:numref:`Figure %s <tasks_cloudsync_status_fig>`.
-
-Existing cloud syncs can be run manually, edited, or deleted with the
-buttons that appear when a single cloud sync line is selected by
-clicking with the mouse.
-
-
-.. _tasks_cloudsync_status_fig:
-
-.. figure:: images/tasks-cloud-sync-tasks.png
-
-   Cloud Sync Status
-
-
 :ref:`Cloud Credentials` must be pre-defined before a cloud sync is
 created. One set of credentials can be used for more than one cloud
 sync. For example, a single set of credentials for Amazon S3 can be
@@ -1776,7 +1700,14 @@ created.
 
 After the cloud credentials have been configured,
 :menuselection:`Tasks --> Cloud Sync Tasks` is used to define the
-schedule for running a cloud sync task.
+schedule for running a cloud sync task. An example is shown in
+:numref:`Figure %s <tasks_cloudsync_status_fig>`.
+
+.. _tasks_cloudsync_status_fig:
+
+.. figure:: images/tasks-cloud-sync-tasks.png
+
+   Cloud Sync Status
 
 Click |ui-add| to display the :guilabel:`Add Cloud Sync` menu shown in
 :numref:`Figure %s <tasks_cloudsync_add_fig>`.
@@ -1811,7 +1742,9 @@ shows the configuration options for Cloud Syncs.
    | Direction           | drop-down menu      | *Push* sends data to cloud storage. *Pull* receives data from cloud storage.                            |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Credential          | drop-down menu      | Choose the cloud storage provider credentials from the list of entered :ref:`Cloud Credentials`.        |
+   | Credential          | drop-down menu      | Choose the cloud storage provider credentials from the list of entered :ref:`Cloud Credentials`. The    |
+   |                     |                     | UI automatically tests the credential and displays an error if a connection cannot be made. The         |
+   |                     |                     | :guilabel:`Save` is disabled until a valid Credential is entered.                                       |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Bucket              | drop-down menu      | Only appears when an S3 credential is the *Provider*. Select the pre-defined S3 bucket to use.          |
@@ -1829,55 +1762,42 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | existing files.                                                                                         |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Transfer Mode       | drop-down menu      | *Sync* (default): make files on the destination system identical to those on the source. Files that     |
-   |                     |                     | have been removed from the source are removed from the destination, similar to                          |
+   | Transfer Mode       | drop-down menu      | *Sync* makes files on the destination system identical to those on the source. Files that               |
+   |                     |                     | are removed from the source are also removed from the destination, similar to                           |
    |                     |                     | :command:`rsync --delete`.                                                                              |
    |                     |                     |                                                                                                         |
-   |                     |                     | *Copy*: copy files from the source to the destination, skipping files that are identical, similar to    |
+   |                     |                     | *Copy* copies files from the source to the destination, skipping files that are identical, similar to   |
    |                     |                     | :command:`rsync`.                                                                                       |
    |                     |                     |                                                                                                         |
-   |                     |                     | *Move*: copy files from the source to the destination, deleting files from the source after the copy,   |
+   |                     |                     | *Move* copies files from the source to the destination, deleting files from the source after the copy,  |
    |                     |                     | similar to :command:`mv`.                                                                               |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Remote encryption   | checkbox            | Set to encrypt files before transfer and store the encrypted files on the remote system.                |
    |                     |                     | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                   |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Filename encryption | checkbox            | Only appears when :guilabel:`Remote encryption` is checked. Set to encrypt the shared file names.       |
+   | Filename encryption | checkbox            | Only appears when :guilabel:`Remote encryption` is enabled. Set to encrypt the shared file names.       |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Encryption password | string              | Only appears when :guilabel:`Remote encryption` is checked. Enter the password for encrypting and       |
-   |                     |                     | and decrypting remote data. *Warning*: Always save and back up this password. Losing the encryption     |
+   | Encryption password | string              | Only appears when :guilabel:`Remote encryption` is enabled. Enter the password for encrypting and       |
+   |                     |                     | and decrypting remote data. *Warning:* Always save and back up this password. Losing the encryption     |
    |                     |                     | password can result in data loss.                                                                       |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Encryption salt     | string              | Only appears when :guilabel:`Remote encryption` is checked. Enter a long string of random characters    |
+   | Encryption salt     | string              | Only appears when :guilabel:`Remote encryption` is enabled. Enter a long string of random characters    |
    |                     |                     | for use as `salt <https://searchsecurity.techtarget.com/definition/salt>`__ for the encryption          |
-   |                     |                     | password. *Warning*: Save and back up the encryption salt value. Losing the salt value can result in    |
+   |                     |                     | password. *Warning:* Save and back up the encryption salt value. Losing the salt value can result in    |
    |                     |                     | data loss.                                                                                              |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Quick Schedule      | drop-down menu      | Choose how often to run the task. An empty value allows defining a custom schedule.                     |
-   |                     |                     |                                                                                                         |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Minute              | integer             | Minute to run the task.                                                                                 |
-   |                     |                     |                                                                                                         |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Hour                | integer             | Hour to run the task.                                                                                   |
-   |                     |                     |                                                                                                         |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of month        | integer             | Day of the month to run the task.                                                                       |
-   |                     |                     |                                                                                                         |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Month               | checkboxes          | Months when the task runs.                                                                              |
-   |                     |                     |                                                                                                         |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Day of week         | checkboxes          | Days of the week to run the task.                                                                       |
-   |                     |                     |                                                                                                         |
+   | Schedule the Cloud  | drop-down menu      | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.      |
+   | Sync Task           |                     | Select *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week. |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Enabled             | checkbox            | Unset to temporarily disable this Cloud Sync task.                                                      |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
 
 
+To modify an existing cloud sync, click its |ui-options| to access the
+:guilabel:`Run Now`, :guilabel:`Edit`, and :guilabel:`Delete` options.
 
 .. _Cloud Sync Example:
 
@@ -1891,9 +1811,9 @@ Before the new cloud sync was added, a bucket called
 *cloudsync-bucket* was created with the Amazon S3 web console for
 storing data from the %brand% system.
 
-Navigate
+Click
 :menuselection:`System --> Cloud Credentials`
-and click |ui-add| to enter the credentials for storage on an Amazon AWS
+and |ui-add| to enter the credentials for storage on an Amazon AWS
 account. The credential is given the name *S3 Storage*, as shown in
 :numref:`Figure %s <tasks_cloudsync_example_cred_fig>`:
 
@@ -1906,15 +1826,14 @@ account. The credential is given the name *S3 Storage*, as shown in
 
 
 The local data to be sent to the cloud is a single file called
-:file:`accounting-backup.bin` on the :file:`smb-storage` dataset. A
-cloud sync job is created by navigating
-:menuselection:`Tasks --> Cloud Sync`
-and clicking |ui-add|.
+:file:`accounting-backup.bin` on the :file:`smb-storage` dataset.
 
-The :guilabel:`Description` is set to *backup-acctg* to describe the
-job. This data is being sent to cloud storage, so this is a *Push*.
-The provider comes from the cloud credentials defined in the previous
-step, and the destination bucket *cloudsync-bucket* has been chosen.
+Click :menuselection:`Tasks --> Cloud Sync` and |ui-add| to create
+a cloud sync job. The :guilabel:`Description` is set to *backup-acctg*
+to describe the job. This data is being sent to cloud storage,
+so this is a *Push*. The provider comes from the cloud credentials
+defined in the previous step, and the destination bucket
+*cloudsync-bucket* has been chosen.
 
 The :guilabel:`Directory/Files` is adjusted to the data file.
 
@@ -1923,7 +1842,7 @@ send the data to cloud storage once an hour, every day. The options
 provide great versatility in configuring when a cloud sync runs,
 anywhere from once a minute to once a year.
 
-The :guilabel:`Enabled` field is checked by default, so this cloud
+The :guilabel:`Enabled` field is enabled by default, so this cloud
 sync will run at the next scheduled time.
 
 The completed dialog is shown in

@@ -114,7 +114,7 @@ These major features are new in this version:
   will be deprecated and replaced by the new API documentation. In the
   mean time, to see the API documentation for the new middleware, log
   into the new UI, click on the URL for the FreeNAS system in your
-  browser's location bar, and add :guilabel:`:api/docs` to the end of
+  browser's location bar, and add :guilabel:`/api/docs` to the end of
   that URL.
 
 * The boot loader has changed from GRUB to the native FreeBSD boot
@@ -146,10 +146,9 @@ These major features are new in this version:
   (SEDs).
 
 
-The following software has been added or updated:
+This software has been added or updated:
 
-* The base operating system has been updated to FreeBSD 11.1-STABLE as
-  of April 19, 2018.
+* The base operating system has been updated to FreeBSD 11.2.
 
 * OpenZFS is up-to-date with Illumos and slightly ahead due to support
   for sorted scrubs which were ported from ZFS on Linux. Notable
@@ -158,6 +157,14 @@ The following software has been added or updated:
   vdevs, pool checkpoints, improved compressed ARC performance, and ZIL
   batching. Note that many of these improvements need further testing so
   have not yet been integrated into the UI.
+
+* The IPsec kernel module has been added. It can be manually loaded with
+  :command:`kldload ipsec`.
+
+* The `vt terminal
+  <https://www.freebsd.org/cgi/man.cgi?query=vt&sektion=4&manpath=FreeBSD+11.2-RELEASE+and+Ports>`__
+  is now used by default and the syscons terminal is removed from the
+  kernel.
 
 * `ncdu <https://dev.yorhel.nl/ncdu>`__ has been added to the base
   system. This CLI utility can be used to analyze disk usage from the
@@ -175,8 +182,8 @@ The following software has been added or updated:
 * Netdata as been updated to
   `version 1.10.1 <https://github.com/firehol/netdata/releases/tag/v1.10.0>`__.
 
-* The updated version of iocage provides many bug fixes and improved
-  IPv6 support.
+* iocage has been synced with upstream as of July 10, providing many bug
+  fixes and improved IPv6 support.
 
 * `zsh <http://www.zsh.org/>`__ is the root shell for new installations.
   Upgrades will continue to use the :command:`csh` shell as the default
@@ -196,15 +203,24 @@ The following software has been added or updated:
   debug information. The :command:`-G` switch has been removed as the
   system no longer uses GRUB.
 
-The following screen options have changed:
+These screen options have changed:
 
 * The :guilabel:`ATA Security User`, :guilabel:`SED Password`, and
-  :guilabel:`Reset SED Password` fields have been added to 
+  :guilabel:`Reset SED Password` fields have been added to
+  :menuselection:`System --> Advanced`.
+
+* The :guilabel:`Enable Console Screensaver` field has been removed
+  from
   :menuselection:`System --> Advanced`.
 
 * :guilabel:`Alert Settings` has been added to :guilabel:`System` and can
   be used to list the available alert conditions and to configure the
   notification frequency on a per-alert basis.
+
+*  These :ref:`Cloud Credentials` have been added to
+   :menuselection:`System --> Cloud Credentials`: Amazon Cloud Drive,
+   Box, Dropbox, FTP, Google Drive, HTTP, Hubic, Mega, Microsoft
+   OneDrive, pCloud, SFTP, WebDAV, and Yandex.
 
 * The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
   :guilabel:`Encryption password`, and :guilabel:`Encryption salt`
@@ -233,6 +249,10 @@ The following screen options have changed:
 
 * Disk temperature graphs have been added to
   :menuselection:`Reporting --> Disk`.
+
+.. note:: To keep lists aligned when using zoom in Firefox, ensure
+   :menuselection:`View --> Zoom --> Zoom Text Only`
+   is not set.
 
 .. _Path and Name Lengths:
 

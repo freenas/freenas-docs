@@ -8,6 +8,7 @@
    intro
    install
    booting
+   preferences
    account
    system
    tasks

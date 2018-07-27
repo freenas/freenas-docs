@@ -329,17 +329,23 @@ these operations:
 is locked, its data is not accessible until the pool is unlocked by
 supplying the passphrase. For this reason, selecting this action will
 prompt to confirm. Once the pool is locked, its status will change to
-*LOCKED (Locked Used / Locked Free)* and the :guilabel:`Lock` menu
-option will change to :guilabel:`Un-Lock`.
+*LOCKED (Locked Used / Locked Free)*, :guilabel:`Pool Operations` are
+limited to *Detach* and *Extend*, and the
+:guilabel:`Encryption Operations` are limited to the :guilabel:`Un-Lock`
+option.
 
 To unlock the pool, select :guilabel:`Un-Lock`, enter the passphrase
 *or* use the :guilabel:`Browse` button to load the recovery key. If both
 a passphrase and a recovery key are entered, only the passphrase is
-used.  By default, the services listed will restart when the pool is
+used. By default, the services listed will restart when the pool is
 unlocked. This allows them to see the new pool and share or access
-data on it. Individual services can be prevented from restarting by
+data on it.
+#ifdef comment
+#not present in new UI yet: Redmine #39852
+ Individual services can be prevented from restarting by
 deselecting them. However, a service that is not restarted might not be
 able to access the unlocked pool.
+#endif comment
 
 **Create Passphrase:** set and confirm a passphrase associated with the
 GELI encryption key.
@@ -809,7 +815,8 @@ system to always display advanced settings by enabling the
    | Read-Only                | drop-down menu      | Only available in :guilabel:`Advanced Mode`. Choices are *Inherit (off)*, *On*, or *Off*.                 |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Exec                     | drop-down menu      | Only available in :guilabel:`Advanced Mode`. Choices are *Inherit (on)*, *On*, or *Off*.                  |
+   | Exec                     | drop-down menu      | Only available in :guilabel:`Advanced Mode`. Choices are *Inherit (on)*, *On*, or *Off*. Setting to       |
+   |                          |                     | *Off* will prevent the installation of :ref:`Plugins` or :ref:`Jails`.                                    |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    | Record Size              | drop-down menu      | Only available in :guilabel:`Advanced Mode`. While ZFS automatically adapts the record size               |
    |                          |                     | dynamically to adapt to data, if the data has a fixed size (such as database records), matching its size  |
@@ -974,54 +981,61 @@ The configuration options are described in
 :numref:`Table %s <zfs_zvol_config_opts_tab>`.
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.10\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.10\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.60\linewidth-2\tabcolsep}|
 
 .. _zfs_zvol_config_opts_tab:
 
 .. table:: zvol Configuration Options
    :class: longtable
 
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Setting            | Value          | Description                                                                                                          |
-   |                    |                |                                                                                                                      |
-   |                    |                |                                                                                                                      |
-   +====================+================+======================================================================================================================+
-   | zvol name          | string         | Enter a short name for the zvol. Using a zvol name longer than 63-characters                                         |
-   |                    |                | can prevent accessing zvols as devices. For example, a zvol with a 70-character                                      |
-   |                    |                | filename or path cannot be used as an iSCSI extent. This setting is mandatory.                                       |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | comments           | string         | Enter any notes about this zvol.                                                                                     |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Compression level  | drop-down menu | Refer to :ref:`Compression` for a description of the available algorithms.                                           |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | Setting            | Value          | Advanced | Description                                                                                                          |
+   |                    |                | Mode     |                                                                                                                      |
+   |                    |                |          |                                                                                                                      |
+   +====================+================+==========+======================================================================================================================+
+   | zvol name          | string         |          | Enter a short name for the zvol. Using a zvol name longer than 63-characters                                         |
+   |                    |                |          | can prevent accessing zvols as devices. For example, a zvol with a 70-character                                      |
+   |                    |                |          | filename or path cannot be used as an iSCSI extent. This setting is mandatory.                                       |
+   +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | Comments           | string         |          | Enter any notes about this zvol.                                                                                     |
+   |                    |                |          |                                                                                                                      |
+   +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | Size for this zvol | integer        |          | Specify size and value such as *10 Gib*. If the size is more than 80% of the available capacity, the creation will   |
+   |                    |                |          | fail with an "out of space" error unless :guilabel:`Force size` is also enabled.                                     |
+   |                    |                |          |                                                                                                                      |
+   +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | Sync               | drop-down menu |          | Sets the data write synchronization. *Inherit* inherits the sync settings from the parent dataset,                   |
+   |                    |                |          | *Standard* uses the sync settings that have been requested by the client software, *Always* waits for                |
+   |                    |                |          | data writes to complete, and *Disabled* never waits for writes to complete.                                          |
+   |                    |                |          |                                                                                                                      |
+   +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | Compression level  | drop-down menu |          | Compress data to save space. Refer to :ref:`Compression` for a description of the available algorithms.              |
+   |                    |                |          |                                                                                                                      |
+   +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
    #ifdef freenas
-   | ZFS Deduplication  | drop-down menu | Read the section on :ref:`Deduplication` before making a change to this setting.                                     |
-   |                    |                |                                                                                                                      |
+   | ZFS Deduplication  | drop-down menu |          | ZFS feature to transparently reuse a single copy of duplicated data to save space. **Warning:** this option is RAM   |
+   |                    |                |          | intensive. Read the section on :ref:`Deduplication` before making a change to this setting.                          |
+   |                    |                |          |                                                                                                                      |
    #endif freenas
    #ifdef truenas
-   | ZFS Deduplication  | drop-down menu | Do not change this setting unless instructed to do so by your iXsystems support engineer.                            |
-   |                    |                |                                                                                                                      |
+   | ZFS Deduplication  | drop-down menu |          | Do not change this setting unless instructed to do so by your iXsystems support engineer.                            |
+   |                    |                |          |                                                                                                                      |
    #endif truenas
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Size for this zvol | integer        | Specify size and value such as *10 Gib*. If the size is more than 80% of the available capacity, the creation will   |
-   |                    |                | fail with an "out of space" error unless :guilabel:`Force size` is also enabled.                                     |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Force size         | checkbox       | By default, the system will not create a zvol if that operation will bring the pool to over 80% capacity.            |
-   |                    |                | **While NOT recommended**, enabling this option will force the creation of the zvol.                                 |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Sparse pool        | checkbox       | Used to provide thin provisioning. Use with caution as writes will fail when the pool is low on space.               |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Block size         | drop-down menu | The default is based on the number of disks in the pool. This can be set to match the block size of the filesystem   |
-   |                    |                | which will be formatted onto the iSCSI target.                                                                       |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | Force size         | checkbox       |          | By default, the system will not create a zvol if that operation will bring the pool to over 80% capacity.            |
+   |                    |                |          | **While NOT recommended**, enabling this option will force the creation of the zvol.                                 |
+   |                    |                |          |                                                                                                                      |
+   +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | Sparse             | checkbox       |          | Used to provide thin provisioning. Use with caution as writes will fail when the pool is low on space.               |
+   |                    |                |          |                                                                                                                      |
+   +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
+   | Block size         | drop-down menu | ✓        | The default is based on the number of disks in the pool. This can be set to match the block size of the filesystem   |
+   |                    |                |          | which will be formatted onto the iSCSI target.                                                                       |
+   |                    |                |          |                                                                                                                      |
+   +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
 
 
 Click |ui-options| next to the desired zvol in
@@ -1419,11 +1433,11 @@ Disks
 To view all of the disks recognized by the %brand% system, use
 :menuselection:`Storage --> Disks`. As seen in the example in
 :numref:`Figure %s <viewing_disks_fig>`, each disk entry displays its
-device name, its pool membership, its status, serial number, size,
-description, transfer mode, standby mode, APM status, acoustic level,
-S.M.A.R.T. status, and configured S.M.A.R.T. options.
-
-as well as any read, write, or checksum errors.
+device name, pool membership, serial number, size, advanced power
+management settings, acoustic level settings, and if :ref:`S.M.A.R.T.`
+testing is enabled. This table is adjustable by setting the different
+column checkboxes above it. Set :guilabel:`Toggle` to display all
+options in the table.
 
 
 .. _viewing_disks_fig:

@@ -994,7 +994,7 @@ shows the configuration screen that appears after navigating
 
 
 :numref:`Table %s <smb_share_opts_tab>`
-summarizes the options avaialable when creating a SMB share. Some settings are
+summarizes the options available when creating a SMB share. Some settings are
 only configurable after clicking the :guilabel:`Advanced Mode` button.
 For simple sharing scenarios, :guilabel:`Advanced Mode` options are
 not needed. For more complex sharing scenarios, only change an
@@ -1201,8 +1201,8 @@ for more details.
    |                     | but read the caveat in NOTE below table.                                                                                                   |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | full_audit          | Record selected client operations to the system log. If selected, a warning will indicate that Windows 10 clients may experience issues    |
-   |                     | when transferring files to the NAS system when this module is enabled.                                                                     |
+   | full_audit          | Record selected client operations to the system log.                                                                                       |
+   |                     |                                                                                                                                            |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | linux_xfs_sgid      | Used to work around an old Linux XFS bug.                                                                                                  |
@@ -1279,6 +1279,7 @@ for more details.
    | zfsacl              | Provide ACL extensions for proper integration with ZFS. Enabled by default.                                                                |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+
 
 .. note:: Be careful when using multiple SMB shares, some with and some
    without *fruit*. macOS clients negotiate SMB2 AAPL protocol extensions
@@ -1427,7 +1428,6 @@ name for the share. Press :guilabel:`Save` to create the share.
 To configure multiple authenticated shares, repeat for each user. The
 new shares are also added to
 :menuselection:`Sharing --> Windows (SMB) Shares`.
-
 
 The authenticated share can now be tested from any SMB client. For
 example, to test an authenticated share from a Windows system, open
@@ -2222,9 +2222,10 @@ file to be created is appended to the pool or dataset name.**
    | Logical Block Size | drop-down menu | Only override the default if the initiator requires a different block size.                                          |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Disable Physical   | checkbox       | Set if the initiator does not support physical block size values over 4K (MS SQL).                                   |
-   | Block Size         |                |                                                                                                                      |
-   | Reporting          |                |                                                                                                                      |
+   | Disable Physical   | checkbox       | Set if the initiator does not support physical block size values over 4K (MS SQL). Setting can also prevent          |
+   | Block Size         |                | `constant block size warnings                                                                                        |
+   | Reporting          |                | <https://www.virten.net/2016/12/the-physical-block-size-reported-by-the-device-is-not-supported/>`__                 |
+   |                    |                | when using this share with ESXi.                                                                                     |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Available Space    | string         | Only appears if *File* or a zvol is selected. When the specified percentage of free space is reached, the system     |

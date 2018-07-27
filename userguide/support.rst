@@ -8,7 +8,7 @@ This means that many usage questions have already been answered and
 the details are available on the Internet. If an issue occurs while
 using %brand%, it can be helpful to spend a few
 minutes searching the Internet for the word *FreeNAS* with some
-keywords that describe the error message or fuction that is being
+keywords that describe the error message or function that is being
 implemented.
 
 The section discusses resources available to %brand% users:
