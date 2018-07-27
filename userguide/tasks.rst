@@ -1800,7 +1800,7 @@ shows the configuration options for Cloud Syncs.
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Credential          | drop-down menu      | Choose the cloud storage provider credentials from the list of entered :ref:`Cloud Credentials`. The    |
-   |                     |                     | UI automatically tests the connection and displays an error if a connection cannot be made. The         |
+   |                     |                     | UI automatically tests the credential and displays an error if a connection cannot be made. The         |
    |                     |                     | :guilabel:`Save` is disabled until a valid Credential is entered.                                       |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
