@@ -372,10 +372,11 @@ first place.
 
 .. figure:: images/storage-pools-encrypt-passphrase.png
 
-   Add or Change a Passphrase to an Encrypted Pool
+   Add a Passphrase to an Encrypted Pool
 
 After the passphrase is set, the name of this button changes to
-:guilabel:`Change Passphrase`. After setting or changing the
+:guilabel:`Change Passphrase` and the :guilabel:`Root Password` is also
+required to change the passphrase. After setting or changing the
 passphrase, it is important to *immediately* create a new recovery key
 by clicking the :guilabel:`Add recovery key` button. This way, if the
 passphrase is forgotten, the associated recovery key can be used
