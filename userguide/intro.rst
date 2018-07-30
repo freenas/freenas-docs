@@ -131,6 +131,9 @@ These major features are new in this version:
   :ref:`Jails` using the new UI to ensure that they are running the
   latest supported application versions.
 
+* :ref:`Plugins` have switched to FreeBSD 11.2-RELEASE and all Plugins
+  have been rebuilt for this version.
+
 * :ref:`VMs` are more crash-resistant. When a guest is started, the
   amount of available memory is checked and an initialization error will
   occur if there is insufficient system resources. When a guest is
