@@ -1658,6 +1658,9 @@ screen.
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
 
 
+.. note:: Srub tasks are run if and only if the threshhold is met or
+   exceeded *and* the task is scheduled to run on the date marked.
+
 Review the default selections and, if necessary, modify them to meet
 the needs of the environment. Note that the :guilabel:`Threshold days`
 field is used to prevent scrubs from running too often, and overrides
