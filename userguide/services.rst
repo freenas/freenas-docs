@@ -138,52 +138,57 @@ which are described in
 .. table:: Global AFP Configuration Options
    :class: longtable
 
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Setting                 | Value          | Description                                                                                                     |
-   |                         |                |                                                                                                                 |
-   +=========================+================+=================================================================================================================+
-   | Guest Access            | checkbox       | Set to disable the password prompt that appears before clients access AFP shares.                               |
-   |                         |                |                                                                                                                 |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Guest account           | drop-down menu | Select an account to use for guest access. The account must have permissions to the volume or dataset           |
-   |                         |                | being shared.                                                                                                   |
-   |                         |                |                                                                                                                 |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Max Connections         | integer        | Maximum number of simultaneous connections.                                                                     |
-   |                         |                |                                                                                                                 |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
+   | Setting                    | Value             | Description                                                                                                  |
+   |                            |                   |                                                                                                              |
+   +============================+===================+==============================================================================================================+
+   | Guest Access               | checkbox          | Set to disable the password prompt that appears before clients access AFP shares.                            |
+   |                            |                   |                                                                                                              |
+   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
+   | Guest account              | drop-down menu    | Select an account to use for guest access. The account must have permissions to the volume or dataset        |
+   |                            |                   | being shared.                                                                                                |
+   |                            |                   |                                                                                                              |
+   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
+   | Max Connections            | integer           | Maximum number of simultaneous connections.                                                                  |
+   |                            |                   |                                                                                                              |
+   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
    #ifdef truenas
-   | Enable home directories | checkbox       | If checked, any user home directories located under :guilabel:`Home directories` will be available over the     |
-   |                         |                | share.                                                                                                          |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Home directories        | browse button  | Select the volume or dataset which contains user home directories.                                              |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Home share name         | string         | Overrides default home folder name with the specified value.                                                    |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Home Share Time Machine | checkbox       | When checked, enables Time Machine lock stealing. Apple recommends that shares designated for Time Machine      |
-   |                         |                | backups be used exclusively for Time Machine backups.                                                           |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Enable home directories    | checkbox          | If checked, any user home directories located under :guilabel:`Home directories`                             |
+   |                            |                   | will be available over the share.                                                                            |
+   |                            |                   |                                                                                                              |
+   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
+   | Home directories           | browse button     | Select the volume or dataset which contains user home directories.                                           |
+   |                            |                   |                                                                                                              |
+   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
+   | Home share name            | string            | Overrides default home folder name with the specified value.                                                 |
+   |                            |                   |                                                                                                              |
+   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
+   | Home Share Time Machine    | checkbox          | When checked, enables Time Machine lock stealing. Apple recommends that shares designated                    |
+   |                            |                   | for Time Machine backups be used exclusively for Time Machine backups.                                       |
+   |                            |                   |                                                                                                              |
+   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
    #endif truenas
-   | Database Path           | browse button  | Sets the database information to be stored in the path. Default is the root of the volume. The path must be     |
-   |                         |                | writable even if the volume is read only.                                                                       |
-   |                         |                |                                                                                                                 |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Global auxiliary        | string         | Add any additional `afp.conf(5) <http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html>`__               |
-   | parameters              |                | parameters not covered elsewhere in this screen.                                                                |
-   |                         |                |                                                                                                                 |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Map ACLs                | drop-down menu | Choose mapping of effective permissions for authenticated users. Choices are: *Rights*                          |
-   |                         |                | (default, Unix-style permissions), *Mode* (ACLs), or *None*                                                     |
-   |                         |                |                                                                                                                 |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Chmod Request           | drop-down menu | Sets how Access Control Lists are handled. *Ignore*: ignores requests and gives the parent directory ACL        |
-   |                         |                | inheritance full control over new items. *Preserve*: preserves ZFS Access Control Entries for named users and   |
-   |                         |                | groups or the POSIX ACL group mask. *Simple*: is set to chmod() as requested without any extra steps.           |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Bind IP Addresses       | selection      | Specify the IP addresses to listen for FTP connections. Highlight the desired IP addresses in the               |
-   |                         |                | :guilabel:`Available` list and use the :guilabel:`>>` button to add to the :guilabel:`Selected` list.           |
-   |                         |                |                                                                                                                 |
-   +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
+   | Database Path              | browse button     | Sets the database information to be stored in the path. Default is the root of the volume.                   |
+   |                            |                   | The path must be writable even if the volume is read only.                                                   |
+   |                            |                   |                                                                                                              |
+   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
+   | Global auxiliary           | string            | Add any additional `afp.conf(5) <http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html>`__            |
+   | parameters                 |                   | parameters not covered elsewhere in this screen.                                                             |
+   |                            |                   |                                                                                                              |
+   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
+   | Map ACLs                   | drop-down menu    | Choose mapping of effective permissions for authenticated users. Choices are: *Rights*                       |
+   |                            |                   | (default, Unix-style permissions), *Mode* (ACLs), or *None*                                                  |
+   |                            |                   |                                                                                                              |
+   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
+   | Chmod Request              | drop-down menu    | Sets how Access Control Lists are handled. *Ignore*: ignores requests and gives the parent directory ACL     |
+   |                            |                   | inheritance full control over new items. *Preserve*: preserves ZFS Access Control Entries for named users    |
+   |                            |                   | and groups or the POSIX ACL group mask. *Simple*: is set to chmod() as requested without any extra steps.    |
+   |                            |                   |                                                                                                              |
+   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
+   | Bind IP Addresses          | selection         | Specify the IP addresses to listen for FTP connections. Highlight the desired IP addresses in the            |
+   |                            |                   | :guilabel:`Available` list and use the :guilabel:`>>` button to add to the :guilabel:`Selected` list.        |
+   |                            |                   |                                                                                                              |
+   +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
 
 
 .. _Troubleshooting AFP:
@@ -262,33 +267,33 @@ summarizes the available options.
 .. table:: Domain Controller Configuration Options
    :class: longtable
 
-   +------------------------+----------------+------------------------------------------------------------------------------------------------------------------------------+
-   | Setting                | Value          | Description                                                                                                                  |
-   |                        |                |                                                                                                                              |
-   +========================+================+==============================================================================================================================+
-   | Realm                  | string         | Enter a capitalized DNS realm name.                                                                                          |
-   |                        |                |                                                                                                                              |
-   +------------------------+----------------+------------------------------------------------------------------------------------------------------------------------------+
-   | Domain                 | string         | Enter a capitalized domain name.                                                                                             |
-   |                        |                |                                                                                                                              |
-   +------------------------+----------------+------------------------------------------------------------------------------------------------------------------------------+
-   | Server Role            | drop-down menu | At this time, the only supported role is as the domain controller for a new domain.                                          |
-   |                        |                |                                                                                                                              |
-   +------------------------+----------------+------------------------------------------------------------------------------------------------------------------------------+
-   | DNS Forwarder          | string         | Enter the IP address of the DNS forwarder. Required for recursive queries when *SAMBA_INTERNAL* is selected.                 |
-   |                        |                |                                                                                                                              |
-   +------------------------+----------------+------------------------------------------------------------------------------------------------------------------------------+
-   | Domain Forest Level    | drop-down menu | Choices are *2000*, *2003*, *2008*, *2008_R2*, *2012*, or *2012_R2*. Refer to                                                |
-   |                        |                | `Understanding Active Directory Domain Services (AD DS) Functional Levels                                                    |
-   |                        |                | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754918(v=ws.10)>`__.    |
-   |                        |                |                                                                                                                              |
-   +------------------------+----------------+------------------------------------------------------------------------------------------------------------------------------+
-   | Administrator password | string         | Enter the password to be used for the :ref:`Active Directory` administrator account.                                         |
-   |                        |                |                                                                                                                              |
-   +------------------------+----------------+------------------------------------------------------------------------------------------------------------------------------+
-   | Kerberos Realm         | drop-down menu | Auto-populates with information from the :guilabel:`Realm` when the settings in this screen are saved.                       |
-   |                        |                |                                                                                                                              |
-   +------------------------+----------------+------------------------------------------------------------------------------------------------------------------------------+
+   +---------------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------+
+   | Setting                   | Value             | Description                                                                                                                  |
+   |                           |                   |                                                                                                                              |
+   +===========================+===================+==============================================================================================================================+
+   | Realm                     | string            | Enter a capitalized DNS realm name.                                                                                          |
+   |                           |                   |                                                                                                                              |
+   +---------------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------+
+   | Domain                    | string            | Enter a capitalized domain name.                                                                                             |
+   |                           |                   |                                                                                                                              |
+   +---------------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------+
+   | Server Role               | drop-down menu    | At this time, the only supported role is as the domain controller for a new domain.                                          |
+   |                           |                   |                                                                                                                              |
+   +---------------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------+
+   | DNS Forwarder             | string            | Enter the IP address of the DNS forwarder. Required for recursive queries when *SAMBA_INTERNAL* is selected.                 |
+   |                           |                   |                                                                                                                              |
+   +---------------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------+
+   | Domain Forest Level       | drop-down menu    | Choices are *2000*, *2003*, *2008*, *2008_R2*, *2012*, or *2012_R2*. Refer to                                                |
+   |                           |                   | `Understanding Active Directory Domain Services (AD DS) Functional Levels                                                    |
+   |                           |                   | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754918(v=ws.10)>`__.    |
+   |                           |                   |                                                                                                                              |
+   +---------------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------+
+   | Administrator password    | string            | Enter the password to be used for the :ref:`Active Directory` administrator account.                                         |
+   |                           |                   |                                                                                                                              |
+   +---------------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------+
+   | Kerberos Realm            | drop-down menu    | Auto-populates with information from the :guilabel:`Realm` when the settings in this screen are saved.                       |
+   |                           |                   |                                                                                                                              |
+   +---------------------------+-------------------+------------------------------------------------------------------------------------------------------------------------------+
 
 
 .. _Samba Domain Controller Backup:
@@ -340,37 +345,38 @@ service in
 .. table:: DDNS Configuration Options
    :class: longtable
 
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Setting              | Value          | Description                                                                                                        |
-   |                      |                |                                                                                                                    |
-   +======================+================+====================================================================================================================+
-   | Provider             | drop-down menu | Several providers are supported. If a specific provider is not listed, select *Custom Provider* and enter the      |
-   |                      |                | information in the *Custom Server* and *Custom Path* fields.                                                       |
-   |                      |                |                                                                                                                    |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | CheckIP Server SSL   | string         | Set to use HTTPS for the connection to the *CheckIP Server*.                                                       |
-   |                      |                |                                                                                                                    |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | CheckIP Server       | string         | Enter the name and port of the server that reports the external IP address. Example: *server.name.org:port*.       |
-   |                      |                |                                                                                                                    |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | CheckIP Path         | string         | Enter the path that is requested by the *CheckIP Server* to determine the user IP address.                         |
-   |                      |                |                                                                                                                    |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Use SSL              | checkbox       | Set to use HTTPS for the connection to the server that updates the DNS record.                                     |
-   |                      |                |                                                                                                                    |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Domain name          | string         | Enter a fully qualified domain name. Example: *yourname.dyndns.org*.                                               |
-   |                      |                |                                                                                                                    |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Username             | string         | Enter the username used to log in to the provider and update the record.                                           |
-   |                      |                |                                                                                                                    |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Password             | string         | Enter the password used to log in to the provider and update the record.                                           |
-   |                      |                |                                                                                                                    |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
-   | Update period        | integer        | How often the IP is checked in seconds.                                                                            |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------+
+   +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Setting               | Value             | Description                                                                                                     |
+   |                       |                   |                                                                                                                 |
+   +=======================+===================+=================================================================================================================+
+   | Provider              | drop-down menu    | Several providers are supported. If a specific provider is not listed, select *Custom Provider*                 |
+   |                       |                   | and enter the information in the *Custom Server* and *Custom Path* fields.                                      |
+   |                       |                   |                                                                                                                 |
+   +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
+   | CheckIP Server SSL    | string            | Set to use HTTPS for the connection to the *CheckIP Server*.                                                    |
+   |                       |                   |                                                                                                                 |
+   +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
+   | CheckIP Server        | string            | Enter the name and port of the server that reports the external IP address. Example: *server.name.org:port*.    |
+   |                       |                   |                                                                                                                 |
+   +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
+   | CheckIP Path          | string            | Enter the path that is requested by the *CheckIP Server* to determine the user IP address.                      |
+   |                       |                   |                                                                                                                 |
+   +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Use SSL               | checkbox          | Set to use HTTPS for the connection to the server that updates the DNS record.                                  |
+   |                       |                   |                                                                                                                 |
+   +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Domain name           | string            | Enter a fully qualified domain name. Example: *yourname.dyndns.org*.                                            |
+   |                       |                   |                                                                                                                 |
+   +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Username              | string            | Enter the username used to log in to the provider and update the record.                                        |
+   |                       |                   |                                                                                                                 |
+   +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Password              | string            | Enter the password used to log in to the provider and update the record.                                        |
+   |                       |                   |                                                                                                                 |
+   +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Update period         | integer           | How often the IP is checked in seconds.                                                                         |
+   |                       |                   |                                                                                                                 |
+   +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
 
 
 When using :literal:`he.net`, enter the domain name for
@@ -430,152 +436,155 @@ summarizes the available options when configuring the FTP server.
 .. table:: FTP Configuration Options
    :class: longtable
 
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Setting                                                       | Value          | Advanced | Description                                                                           |
-   |                                                               |                | Mode     |                                                                                       |
-   +===============================================================+================+==========+=======================================================================================+
-   | Port                                                          | integer        |          | Set the port the FTP service listens on.                                              |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Clients                                                       | integer        |          | Set the maximum number of simultaneous clients.                                       |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Connections                                                   | integer        |          | Set the maximum number of connections per IP address where *0* means unlimited.       |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Login Attempts                                                | integer        |          | Enter the maximum number of attempts before client is disconnected. Increase this if  |
-   |                                                               |                |          | users are prone to typos.                                                             |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Timeout                                                       | integer        |          | Enter the maximum client idle time in seconds before client is disconnected.          |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Allow Root Login                                              | checkbox       |          | Enabling this option is discouraged as increases security risk.                       |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Allow Anonymous Login                                         | checkbox       |          | Set to enable anonymous FTP logins with access to the directory specified in          |
-   |                                                               |                |          | :guilabel:`Path`.                                                                     |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Path                                                          | browse button  |          | Set the root directory for anonymous FTP connections.                                 |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Allow Local User Login                                        | checkbox       |          | Required if :guilabel:`Anonymous Login` is disabled.                                  |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Display Login                                                 | string         |          | Specify the message displayed to local login users after authentication.              |
-   |                                                               |                |          | Not displayed to anonymous login users.                                               |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | File Permission                                               | checkboxes     | ✓        | Set the default permissions for newly created files.                                  |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Directory Permission                                          | checkboxes     | ✓        | Set the default permissions for newly created directories.                            |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Enable `FXP                                                   | checkbox       | ✓        | Set to enable the File eXchange Protocol. This setting makes the server               |
-   | <https://en.wikipedia.org/wiki/File_eXchange_Protocol>`__     |                |          | vulnerable to FTP bounce attacks so it is not recommended                             |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Allow Transfer Resumption                                     | checkbox       |          | Set to allow FTP clients to resume interrupted transfers.                             |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Always Chroot                                                 | checkbox       |          | When set, a local user is only allowed access to their home directory unless the user |
-   |                                                               |                |          | is a member of group *wheel*.                                                         |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Require IDENT Authentication                                  | checkbox       | ✓        | Setting this option results in timeouts if :command:`identd` is not running on        |
-   |                                                               |                |          | the client.                                                                           |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Perform Reverse DNS Lookups                                   | checkbox       |          | Set to perform reverse DNS lookups on client IPs. Can cause long delays if reverse    |
-   |                                                               |                |          | DNS is not configured.                                                                |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Masquerade address                                            | string         |          | Public IP address or hostname. Set if FTP clients cannot connect through a            |
-   |                                                               |                |          | NAT device.                                                                           |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Minimum passive port                                          | integer        | ✓        | Used by clients in PASV mode, default of *0* means any port above 1023.               |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Maximum passive port                                          | integer        | ✓        | Used by clients in PASV mode, default of *0* means any port above 1023.               |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Local user upload bandwidth                                   | integer        | ✓        | Defined in KB/s, default of *0* means unlimited.                                      |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Local user download bandwidth                                 | integer        | ✓        | Defined in KB/s, default of *0* means unlimited.                                      |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Anonymous user upload bandwidth                               | integer        | ✓        | Defined in KB/s, default of *0* means unlimited.                                      |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Anonymous user download bandwidth                             | integer        | ✓        | Defined in KB/s, default of *0* means unlimited.                                      |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Enable TLS                                                    | checkbox       | ✓        | Set to enable encrypted connections. Requires a certificate to be created or          |
-   |                                                               |                |          | imported using :ref:`Certificates`.                                                   |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | TLS policy                                                    | drop-down menu | ✓        | The selected policy defines whether the control channel, data channel,                |
-   |                                                               |                |          | both channels, or neither channel of an FTP session must occur over SSL/TLS.          |
-   |                                                               |                |          | The policies are described                                                            |
-   |                                                               |                |          | `here <http://www.proftpd.org/docs/directives/linked/config_ref_TLSRequired.html>`__. |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | TLS allow client renegotiations                               | checkbox       | ✓        | Enabling this option is **not** recommended as it breaks several                      |
-   |                                                               |                |          | security measures. For this and the rest of the TLS fields, refer to                  |
-   |                                                               |                |          | `mod_tls <http://www.proftpd.org/docs/contrib/mod_tls.html>`__                        |
-   |                                                               |                |          | for more details.                                                                     |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | TLS allow dot login                                           | checkbox       | ✓        | If set, the user home directory is checked for a :file:`.tlslogin` file which         |
-   |                                                               |                |          | contains one or more PEM-encoded certificates. If not found, the user is prompted     |
-   |                                                               |                |          | for password authentication.                                                          |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | TLS allow per user                                            | checkbox       | ✓        | If set, the user password can be sent unencrypted.                                    |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | TLS common name required                                      | checkbox       | ✓        | Set to require the common name in the certificate to match the FQDN of the host.      |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | TLS enable diagnostics                                        | checkbox       | ✓        | If set when troubleshooting a connection, logs more verbosely.                        |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | TLS export certificate data                                   | checkbox       | ✓        | If set, exports the certificate environment variables.                                |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | TLS no certificate request                                    | checkbox       | ✓        | Try enabling this option if the client cannot connect and it is suspected             |
-   |                                                               |                |          | the client software is not properly handling server certificate requests.             |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | TLS no empty fragments                                        | checkbox       | ✓        | Enabling this option is **not** recommended as it bypasses a security mechanism.      |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | TLS no session reuse required                                 | checkbox       | ✓        | Enabling this option reduces the security of the connection, so only use if the       |
-   |                                                               |                |          | client does not understand reused SSL sessions.                                       |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | TLS export standard vars                                      | checkbox       | ✓        | If enabled, sets several environment variables.                                       |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | TLS DNS name required                                         | checkbox       | ✓        | If set, the client DNS name must resolve to its IP address and the cert must          |
-   |                                                               |                |          | contain the same DNS name.                                                            |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | TLS IP address required                                       | checkbox       | ✓        | If set, the client certificate must contain the IP address that matches the           |
-   |                                                               |                |          | IP address of the client.                                                             |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Certificate                                                   | drop-down menu |          | The SSL certificate to be used for TLS FTP connections. To create a                   |
-   |                                                               |                |          | certificate, use :menuselection:`System --> Certificates`.                            |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
-   | Auxiliary parameters                                          | string         | ✓        | Add any additional `proftpd(8) <https://linux.die.net/man/8/proftpd>`__               |
-   |                                                               |                |          | parameters not covered elsewhere in this screen.                                      |
-   |                                                               |                |          |                                                                                       |
-   +---------------------------------------------------------------+----------------+----------+---------------------------------------------------------------------------------------+
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Setting                                                      | Value         | Advanced    | Description                                                                        |
+   |                                                              |               | Mode        |                                                                                    |
+   |                                                              |               |             |                                                                                    |
+   +==============================================================+===============+=============+====================================================================================+
+   | Port                                                         | integer       |             | Set the port the FTP service listens on.                                           |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Clients                                                      | integer       |             | Set the maximum number of simultaneous clients.                                    |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Connections                                                  | integer       |             | Set the maximum number of connections per IP address where *0* means unlimited.    |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Login Attempts                                               | integer       |             | Enter the maximum number of attempts before client is disconnected.                |
+   |                                                              |               |             | Increase this if users are prone to typos.                                         |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Timeout                                                      | integer       |             | Enter the maximum client idle time in seconds before client is disconnected.       |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Allow Root Login                                             | checkbox      |             | Enabling this option is discouraged as increases security risk.                    |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Allow Anonymous Login                                        | checkbox      |             | Set to enable anonymous FTP logins with access to the directory specified in       |
+   |                                                              |               |             | :guilabel:`Path`.                                                                  |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Path                                                         | browse        |             | Set the root directory for anonymous FTP connections.                              |
+   |                                                              | button        |             |                                                                                    |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Allow Local User Login                                       | checkbox      |             | Required if :guilabel:`Anonymous Login` is disabled.                               |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Display Login                                                | string        |             | Specify the message displayed to local login users after authentication.           |
+   |                                                              |               |             | Not displayed to anonymous login users.                                            |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | File Permission                                              | checkboxes    | ✓           | Set the default permissions for newly created files.                               |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Directory Permission                                         | checkboxes    | ✓           | Set the default permissions for newly created directories.                         |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Enable `FXP                                                  | checkbox      | ✓           | Set to enable the File eXchange Protocol. This setting makes the server            |
+   | <https://en.wikipedia.org/wiki/File_eXchange_Protocol>`__    |               |             | vulnerable to FTP bounce attacks so it is not recommended                          |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Allow Transfer Resumption                                    | checkbox      |             | Set to allow FTP clients to resume interrupted transfers.                          |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Always Chroot                                                | checkbox      |             | When set, a local user is only allowed access to their home directory unless       |
+   |                                                              |               |             | the user is a member of group *wheel*.                                             |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Require IDENT Authentication                                 | checkbox      | ✓           | Setting this option results in timeouts if :command:`identd` is not running on     |
+   |                                                              |               |             | the client.                                                                        |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Perform Reverse DNS Lookups                                  | checkbox      |             | Set to perform reverse DNS lookups on client IPs. Can cause long delays            |
+   |                                                              |               |             | if reverse DNS is not configured.                                                  |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Masquerade address                                           | string        |             | Public IP address or hostname. Set if FTP clients cannot connect through a         |
+   |                                                              |               |             | NAT device.                                                                        |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Minimum passive port                                         | integer       | ✓           | Used by clients in PASV mode, default of *0* means any port above 1023.            |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Maximum passive port                                         | integer       | ✓           | Used by clients in PASV mode, default of *0* means any port above 1023.            |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Local user upload bandwidth                                  | integer       | ✓           | Defined in KB/s, default of *0* means unlimited.                                   |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Local user download bandwidth                                | integer       | ✓           | Defined in KB/s, default of *0* means unlimited.                                   |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Anonymous user upload bandwidth                              | integer       | ✓           | Defined in KB/s, default of *0* means unlimited.                                   |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Anonymous user download bandwidth                            | integer       | ✓           | Defined in KB/s, default of *0* means unlimited.                                   |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Enable TLS                                                   | checkbox      | ✓           | Set to enable encrypted connections. Requires a certificate to be created or       |
+   |                                                              |               |             | imported using :ref:`Certificates`.                                                |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | TLS policy                                                   | drop-down     | ✓           | The selected policy defines whether the control channel, data channel,             |
+   |                                                              | menu          |             | both channels, or neither channel of an FTP session must occur over SSL/TLS.       |
+   |                                                              |               |             | The policies are described                                                         |
+   |                                                              |               |             | `here                                                                              |
+   |                                                              |               |             | <http://www.proftpd.org/docs/directives/linked/config_ref_TLSRequired.html>`__.    |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | TLS allow client renegotiations                              | checkbox      | ✓           | Enabling this option is **not** recommended as it breaks several                   |
+   |                                                              |               |             | security measures. For this and the rest of the TLS fields, refer to               |
+   |                                                              |               |             | `mod_tls <http://www.proftpd.org/docs/contrib/mod_tls.html>`__                     |
+   |                                                              |               |             | for more details.                                                                  |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | TLS allow dot login                                          | checkbox      | ✓           | If set, the user home directory is checked for a :file:`.tlslogin` file which      |
+   |                                                              |               |             | contains one or more PEM-encoded certificates. If not found, the user              |
+   |                                                              |               |             | is prompted for password authentication.                                           |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | TLS allow per user                                           | checkbox      | ✓           | If set, the user password can be sent unencrypted.                                 |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | TLS common name required                                     | checkbox      | ✓           | Set to require the certificate common name to match the FQDN of the host.          |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | TLS enable diagnostics                                       | checkbox      | ✓           | If set when troubleshooting a connection, logs more verbosely.                     |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | TLS export certificate data                                  | checkbox      | ✓           | If set, exports the certificate environment variables.                             |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | TLS no certificate request                                   | checkbox      | ✓           | Try enabling this option if the client cannot connect and it is suspected          |
+   |                                                              |               |             | the client software is not properly handling server certificate requests.          |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | TLS no empty fragments                                       | checkbox      | ✓           | Enabling this is **not** recommended as it bypasses a security mechanism.          |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | TLS no session reuse required                                | checkbox      | ✓           | Enabling this reduces the security of the connection. Only use this if the         |
+   |                                                              |               |             | client does not understand reused SSL sessions.                                    |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | TLS export standard vars                                     | checkbox      | ✓           | If enabled, sets several environment variables.                                    |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | TLS DNS name required                                        | checkbox      | ✓           | If set, the client DNS name must resolve to its IP address and the cert must       |
+   |                                                              |               |             | contain the same DNS name.                                                         |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | TLS IP address required                                      | checkbox      | ✓           | If set, the client certificate must contain the IP address that matches the        |
+   |                                                              |               |             | IP address of the client.                                                          |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Certificate                                                  | drop-down     |             | The SSL certificate to be used for TLS FTP connections. To create a                |
+   |                                                              | menu          |             | certificate, use :menuselection:`System --> Certificates`.                         |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
+   | Auxiliary parameters                                         | string        | ✓           | Add any additional `proftpd(8) <https://linux.die.net/man/8/proftpd>`__            |
+   |                                                              |               |             | parameters not covered elsewhere in this screen.                                   |
+   |                                                              |               |             |                                                                                    |
+   +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
 
 
 This example demonstrates the auxiliary parameters that prevent all
@@ -857,19 +866,19 @@ summarizes the configuration options for the LLDP service.
 .. table:: LLDP Configuration Options
    :class: longtable
 
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Setting                | Value      | Description                                                                                                         |
-   |                        |            |                                                                                                                     |
-   +========================+============+=====================================================================================================================+
-   | Interface Description  | checkbox   | Set to enable receive mode and to save received peer information in interface descriptions.                         |
-   |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Country Code           | string     | Required for LLDP location support. Enter a two-letter ISO 3166 country code.                                       |
-   |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Location               | string     | Optional. Specify the physical location of the host.                                                                |
-   |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
+   +--------------------------+-------------+------------------------------------------------------------------------------------------------+
+   | Setting                  | Value       | Description                                                                                    |
+   |                          |             |                                                                                                |
+   +==========================+=============+================================================================================================+
+   | Interface Description    | checkbox    | Set to enable receive mode and to save received peer information in interface descriptions.    |
+   |                          |             |                                                                                                |
+   +--------------------------+-------------+------------------------------------------------------------------------------------------------+
+   | Country Code             | string      | Required for LLDP location support. Enter a two-letter ISO 3166 country code.                  |
+   |                          |             |                                                                                                |
+   +--------------------------+-------------+------------------------------------------------------------------------------------------------+
+   | Location                 | string      | Optional. Specify the physical location of the host.                                           |
+   |                          |             |                                                                                                |
+   +--------------------------+-------------+------------------------------------------------------------------------------------------------+
 
 
 .. index:: Netdata
@@ -946,59 +955,59 @@ summarizes the configuration options for the NFS service.
 .. table:: NFS Configuration Options
    :class: longtable
 
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Setting                | Value      | Description                                                                                                         |
-   |                        |            |                                                                                                                     |
-   +========================+============+=====================================================================================================================+
-   | Number of servers      | integer    | Specify how many servers to create. Increase if NFS client responses are slow. To limit CPU context switching, keep |
-   |                        |            | this number less than or equal to the number of CPUs reported by :samp:`sysctl -n kern.smp.cpus`.                   |
-   |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Serve UDP NFS clients  | checkbox   | Set if NFS clients need to use UDP.                                                                                 |
-   |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Bind IP Addresses      | checkboxes | Select the IP addresses to listen on for NFS requests. When unselected, NFS listens on all available addresses.     |
-   |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Allow non-root mount   | checkbox   | Set only if the NFS client requires it.                                                                             |
-   |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Enable NFSv4           | checkbox   | Set to switch from NFSv3 to NFSv4. The default is NFSv3.                                                            |
-   |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | NFSv3 ownership model  | checkbox   | Grayed out unless :guilabel:`Enable NFSv4` is checked and, in turn, grays out :guilabel:`Support>16 groups`         |
-   | for NFSv4              |            | which is incompatible. Set this option if NFSv4 ACL support is needed without requiring the client and              |
-   |                        |            | the server to sync users and groups.                                                                                |
-   |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Require Kerberos for   | checkbox   | Set to force NFS shares to fail if the Kerberos ticket is unavailable.                                              |
-   | NFSv4                  |            |                                                                                                                     |
-   |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | mountd(8) bind port    | integer    | Optional. Specify the port that                                                                                     |
-   |                        |            | `mountd(8) <https://www.freebsd.org/cgi/man.cgi?query=mountd>`__ binds to.                                          |
-   |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | rpc.statd(8) bind port | integer    | Optional. Specify the port that                                                                                     |
-   |                        |            | `rpc.statd(8) <https://www.freebsd.org/cgi/man.cgi?query=rpc.statd>`__ binds to.                                    |
-   |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | rpc.lockd(8) bind port | integer    | Optional. Specify the port that                                                                                     |
-   |                        |            | `rpc.lockd(8) <https://www.freebsd.org/cgi/man.cgi?query=rpc.lockd>`__ binds to.                                    |
-   |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Support>16 groups      | checkbox   | Set this option if any users are members of more than 16 groups (useful in AD environments). Note this assumes      |
-   |                        |            | group membership is configured correctly on the NFS server.                                                         |
-   |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Log mountd(8) requests | checkbox   | Enable logging of `mountd(8) <https://www.freebsd.org/cgi/man.cgi?query=mountd>`__                                  |
-   |                        |            | requests by syslog.                                                                                                 |
-   |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Log rpc.statd(8)       | checkbox   | Enable logging of `rpc.statd(8) <https://www.freebsd.org/cgi/man.cgi?query=rpc.statd>`__ and                        |
-   | and rpc.lockd(8)       |            | `rpc.lockd(8) <https://www.freebsd.org/cgi/man.cgi?query=rpc.lockd>`__ requests by syslog.                          |
-   |                        |            |                                                                                                                     |
-   +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
+   +--------------------------+---------------+--------------------------------------------------------------------------------------------------------------------+
+   | Setting                  | Value         | Description                                                                                                        |
+   |                          |               |                                                                                                                    |
+   +==========================+===============+====================================================================================================================+
+   | Number of servers        | integer       | Specify how many servers to create. Increase if NFS client responses are slow. To limit CPU context switching,     |
+   |                          |               | keep this number less than or equal to the number of CPUs reported by :samp:`sysctl -n kern.smp.cpus`.             |
+   |                          |               |                                                                                                                    |
+   +--------------------------+---------------+--------------------------------------------------------------------------------------------------------------------+
+   | Serve UDP NFS clients    | checkbox      | Set if NFS clients need to use UDP.                                                                                |
+   |                          |               |                                                                                                                    |
+   +--------------------------+---------------+--------------------------------------------------------------------------------------------------------------------+
+   | Bind IP Addresses        | checkboxes    | Select the IP addresses to listen on for NFS requests. When unselected, NFS listens on all available addresses.    |
+   |                          |               |                                                                                                                    |
+   +--------------------------+---------------+--------------------------------------------------------------------------------------------------------------------+
+   | Allow non-root mount     | checkbox      | Set only if the NFS client requires it.                                                                            |
+   |                          |               |                                                                                                                    |
+   +--------------------------+---------------+--------------------------------------------------------------------------------------------------------------------+
+   | Enable NFSv4             | checkbox      | Set to switch from NFSv3 to NFSv4. The default is NFSv3.                                                           |
+   |                          |               |                                                                                                                    |
+   +--------------------------+---------------+--------------------------------------------------------------------------------------------------------------------+
+   | NFSv3 ownership          | checkbox      | Grayed out unless :guilabel:`Enable NFSv4` is checked and, in turn, grays out :guilabel:`Support>16 groups`        |
+   | model for NFSv4          |               | which is incompatible. Set this option if NFSv4 ACL support is needed without requiring the client and             |
+   |                          |               | the server to sync users and groups.                                                                               |
+   |                          |               |                                                                                                                    |
+   +--------------------------+---------------+--------------------------------------------------------------------------------------------------------------------+
+   | Require Kerberos         | checkbox      | Set to force NFS shares to fail if the Kerberos ticket is unavailable.                                             |
+   | for NFSv4                |               |                                                                                                                    |
+   |                          |               |                                                                                                                    |
+   +--------------------------+---------------+--------------------------------------------------------------------------------------------------------------------+
+   | mountd(8) bind port      | integer       | Optional. Specify the port that                                                                                    |
+   |                          |               | `mountd(8) <https://www.freebsd.org/cgi/man.cgi?query=mountd>`__ binds to.                                         |
+   |                          |               |                                                                                                                    |
+   +--------------------------+---------------+--------------------------------------------------------------------------------------------------------------------+
+   | rpc.statd(8)             | integer       | Optional. Specify the port that                                                                                    |
+   | bind port                |               | `rpc.statd(8) <https://www.freebsd.org/cgi/man.cgi?query=rpc.statd>`__ binds to.                                   |
+   |                          |               |                                                                                                                    |
+   +--------------------------+---------------+--------------------------------------------------------------------------------------------------------------------+
+   | rpc.lockd(8)             | integer       | Optional. Specify the port that                                                                                    |
+   | bind port                |               | `rpc.lockd(8) <https://www.freebsd.org/cgi/man.cgi?query=rpc.lockd>`__ binds to.                                   |
+   |                          |               |                                                                                                                    |
+   +--------------------------+---------------+--------------------------------------------------------------------------------------------------------------------+
+   | Support>16 groups        | checkbox      | Set this option if any users are members of more than 16 groups (useful in AD environments). Note this assumes     |
+   |                          |               | group membership is configured correctly on the NFS server.                                                        |
+   |                          |               |                                                                                                                    |
+   +--------------------------+---------------+--------------------------------------------------------------------------------------------------------------------+
+   | Log mountd(8)            | checkbox      | Enable logging of `mountd(8) <https://www.freebsd.org/cgi/man.cgi?query=mountd>`__                                 |
+   | requests                 |               | requests by syslog.                                                                                                |
+   |                          |               |                                                                                                                    |
+   +--------------------------+---------------+--------------------------------------------------------------------------------------------------------------------+
+   | Log rpc.statd(8)         | checkbox      | Enable logging of `rpc.statd(8) <https://www.freebsd.org/cgi/man.cgi?query=rpc.statd>`__ and                       |
+   | and rpc.lockd(8)         |               | `rpc.lockd(8) <https://www.freebsd.org/cgi/man.cgi?query=rpc.lockd>`__ requests by syslog.                         |
+   |                          |               |                                                                                                                    |
+   +--------------------------+---------------+--------------------------------------------------------------------------------------------------------------------+
 
 
 .. note:: NFSv4 sets all ownership to *nobody:nobody* if user and
@@ -1049,17 +1058,17 @@ summarizes the configuration options for the rsync daemon:
 .. table:: Rsyncd Configuration Options
    :class: longtable
 
-   +----------------------+-----------+------------------------------------------------------------------------+
-   | Setting              | Value     | Description                                                            |
-   |                      |           |                                                                        |
-   +======================+===========+========================================================================+
-   | TCP Port             | integer   | Port for :command:`rsyncd` to listen on. Default is *873*.             |
-   |                      |           |                                                                        |
-   +----------------------+-----------+------------------------------------------------------------------------+
-   | Auxiliary parameters | string    | Enter any additional parameters from                                   |
-   |                      |           | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__. |
-   |                      |           |                                                                        |
-   +----------------------+-----------+------------------------------------------------------------------------+
+   +---------------+------------+---------------------------------------------------------------------------+
+   | Setting       | Value      | Description                                                               |
+   |               |            |                                                                           |
+   +===============+============+===========================================================================+
+   | TCP Port      | integer    | Port for :command:`rsyncd` to listen on. Default is *873*.                |
+   |               |            |                                                                           |
+   +---------------+------------+---------------------------------------------------------------------------+
+   | Auxiliary     | string     | Enter any additional parameters from                                      |
+   | parameters    |            | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__.    |
+   |               |            |                                                                           |
+   +---------------+------------+---------------------------------------------------------------------------+
 
 
 .. _Rsync Modules:
@@ -1094,43 +1103,44 @@ module.
 .. table:: Rsync Module Configuration Options
    :class: longtable
 
-   +----------------------+----------------+-------------------------------------------------------------------------------+
-   | Setting              | Value          | Description                                                                   |
-   |                      |                |                                                                               |
-   |                      |                |                                                                               |
-   +======================+================+===============================================================================+
-   | Module name          | string         | Mandatory. This is required to match the setting on the rsync client.         |
-   |                      |                |                                                                               |
-   +----------------------+----------------+-------------------------------------------------------------------------------+
-   | Comment              | string         | Optional description.                                                         |
-   |                      |                |                                                                               |
-   +----------------------+----------------+-------------------------------------------------------------------------------+
-   | Path                 | browse button  | Browse to the volume or dataset to hold received data.                        |
-   |                      |                |                                                                               |
-   +----------------------+----------------+-------------------------------------------------------------------------------+
-   | Access Mode          | drop-down menu | Choices are *Read and Write*, *Read-only*, or *Write-only*.                   |
-   |                      |                |                                                                               |
-   +----------------------+----------------+-------------------------------------------------------------------------------+
-   | Maximum connections  | integer        | *0* is unlimited.                                                             |
-   |                      |                |                                                                               |
-   +----------------------+----------------+-------------------------------------------------------------------------------+
-   | User                 | drop-down menu | Select the user to control file transfers to and from the module.             |
-   |                      |                |                                                                               |
-   +----------------------+----------------+-------------------------------------------------------------------------------+
-   | Group                | drop-down menu | Select the group to control file transfers to and from the module.            |
-   |                      |                |                                                                               |
-   +----------------------+----------------+-------------------------------------------------------------------------------+
-   | Hosts allow          | string         | See                                                                           |
-   |                      |                | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__         |
-   |                      |                | Enter a list of patterns to match with the hostname and IP address of a       |
-   |                      |                | connecting client. Separate patterns with whitespace or comma.                |
-   +----------------------+----------------+-------------------------------------------------------------------------------+
-   | Hosts deny           | string         | See rsyncd.conf(5) for allowed formats.                                       |
-   |                      |                |                                                                               |
-   +----------------------+----------------+-------------------------------------------------------------------------------+
-   | Auxiliary parameters | string         | Enter any additional parameters from                                          |
-   |                      |                | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__         |
-   +----------------------+----------------+-------------------------------------------------------------------------------+
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Setting                | Value             | Description                                                              |
+   |                        |                   |                                                                          |
+   +========================+===================+==========================================================================+
+   | Module name            | string            | Mandatory. This is required to match the setting on the rsync client.    |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Comment                | string            | Optional description.                                                    |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Path                   | browse button     | Browse to the volume or dataset to hold received data.                   |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Access Mode            | drop-down menu    | Choices are *Read and Write*, *Read-only*, or *Write-only*.              |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Maximum connections    | integer           | *0* is unlimited.                                                        |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | User                   | drop-down menu    | Select the user to control file transfers to and from the module.        |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Group                  | drop-down menu    | Select the group to control file transfers to and from the module.       |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Hosts allow            | string            | See                                                                      |
+   |                        |                   | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__    |
+   |                        |                   | Enter a list of patterns to match with the hostname and IP address       |
+   |                        |                   | of a connecting client. Separate patterns with whitespace or comma.      |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Hosts deny             | string            | See rsyncd.conf(5) for allowed formats.                                  |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
+   | Auxiliary              | string            | Enter any additional parameters from                                     |
+   | parameters             |                   | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__    |
+   |                        |                   |                                                                          |
+   +------------------------+-------------------+--------------------------------------------------------------------------+
 
 
 .. index:: S3, Minio
@@ -1169,39 +1179,39 @@ configuration options. After configuring the S3 service, start it in
 .. table:: S3 Configuration Options
    :class: longtable
 
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Setting         | Value          | Description                                                                                              |
-   |                 |                |                                                                                                          |
-   +=================+================+==========================================================================================================+
-   | IP Address      | drop-down menu | Enter the IP address to run the S3 service. *0.0.0.0* sets the server to listen on all addresses.        |
-   |                 |                |                                                                                                          |
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Port            | string         | Enter the TCP port on which to provide the S3 service. Default is *9000*.                                |
-   |                 |                |                                                                                                          |
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Access Key      | string         | Enter the S3 user name. This username must contain **only** alphanumeric characters and be between       |
-   |                 |                | 5 and 20 characters long.                                                                                |
-   |                 |                |                                                                                                          |
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Secret Key      | string         | Enter the password to be used by connecting S3 systems. The key must contain **only** alphanumeric       |
-   |                 |                | characters and be at least 8 but no more than 40 characters long.                                        |
-   |                 |                |                                                                                                          |
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Confirm S3 Key  | string         | Re-enter the S3 password to confirm.                                                                     |
-   |                 |                |                                                                                                          |
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Disks           | string         | The directory for S3 filesystem directory. This overrides all permissions of that directory and all of   |
-   |                 |                | its subdirectories to *minio:minio*. :ref:`Create a separate dataset <Create Dataset>` for Minio to      |
-   |                 |                | avoid any issues with directory permissions.                                                             |
-   |                 |                |                                                                                                          |
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Certificate     | drop-down menu | The SSL certificate to be used for secure S3 connections. To create a  certificate, use                  |
-   |                 |                | :menuselection:`System --> Certificates`.                                                                |
-   |                 |                |                                                                                                          |
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Enable Browser  | checkbox       | Set to enable the web user interface for the S3 service.                                                 |
-   |                 |                |                                                                                                          |
-   +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
+   +-------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Setting           | Value             | Description                                                                                          |
+   |                   |                   |                                                                                                      |
+   +===================+===================+======================================================================================================+
+   | IP Address        | drop-down menu    | Enter the IP address to run the S3 service. *0.0.0.0* sets the server to listen on all addresses.    |
+   |                   |                   |                                                                                                      |
+   +-------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Port              | string            | Enter the TCP port on which to provide the S3 service. Default is *9000*.                            |
+   |                   |                   |                                                                                                      |
+   +-------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Access Key        | string            | Enter the S3 user name. This username must contain **only** alphanumeric characters                  |
+   |                   |                   | and be between 5 and 20 characters long.                                                             |
+   |                   |                   |                                                                                                      |
+   +-------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Secret Key        | string            | Enter the password to be used by connecting S3 systems. The key must contain **only**                |
+   |                   |                   | alphanumeric characters and be at least 8 but no more than 40 characters long.                       |
+   |                   |                   |                                                                                                      |
+   +-------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Confirm S3 Key    | string            | Re-enter the S3 password to confirm.                                                                 |
+   |                   |                   |                                                                                                      |
+   +-------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Disks             | string            | The directory for S3 filesystem directory. This overrides all permissions of that directory          |
+   |                   |                   | and all of its subdirectories to *minio:minio*. :ref:`Create a separate dataset <Create Dataset>`    |
+   |                   |                   | for Minio to avoid any issues with directory permissions.                                            |
+   |                   |                   |                                                                                                      |
+   +-------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Certificate       | drop-down menu    | The SSL certificate to be used for secure S3 connections. To create a  certificate, use              |
+   |                   |                   | :menuselection:`System --> Certificates`.                                                            |
+   |                   |                   |                                                                                                      |
+   +-------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Enable Browser    | checkbox          | Set to enable the web user interface for the S3 service.                                             |
+   |                   |                   |                                                                                                      |
+   +-------------------+-------------------+------------------------------------------------------------------------------------------------------+
 
 
 .. index:: S.M.A.R.T.
@@ -1288,32 +1298,32 @@ summarizes the options in the S.M.A.R.T configuration screen.
 .. table:: S.M.A.R.T Configuration Options
    :class: longtable
 
-   +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Setting         | Value                      | Description                                                                                                 |
-   |                 |                            |                                                                                                             |
-   +=================+============================+=============================================================================================================+
-   | Check interval  | integer                    | Define in minutes how often :command:`smartd` activates to check if any tests are configured to run.        |
-   |                 |                            |                                                                                                             |
-   +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Power mode      | drop-down menu             | Tests are not performed if the system enters the specified power mode: *Never*, *Sleep*, *Standby*, or      |
-   |                 |                            | *Idle*.                                                                                                     |
-   |                 |                            |                                                                                                             |
-   +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Difference      | integer in degrees Celsius | Enter number of degrees in Celsius. S.M.A.R.T reports if the temperature of a drive has changed by N        |
-   |                 |                            | degrees Celsius since the last report. Default of *0* disables this option.                                 |
-   |                 |                            |                                                                                                             |
-   +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Informational   | integer in degrees Celsius | Enter a threshold temperature in Celsius. S.M.A.R.T will message with a log level of LOG_INFO if the        |
-   |                 |                            | temperature is higher than specified degrees in Celsius. Default of *0* disables this option.               |
-   |                 |                            |                                                                                                             |
-   +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Critical        | integer in degrees Celsius | Enter a threshold temperature in Celsius. S.M.A.R.T will message with a log level of LOG_CRIT and send an   |
-   |                 |                            | email if the temperature is higher than specified degrees in Celsius. Default of *0* disables this option.  |
-   |                 |                            |                                                                                                             |
-   +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Email to report | string                     | Email address to receive S.M.A.R.T. alerts. Use a space to separate multiple email addresses.               |
-   |                 |                            |                                                                                                             |
-   +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
+   +--------------------+-----------------------+---------------------------------------------------------------------------------------------------------------+
+   | Setting            | Value                 | Description                                                                                                   |
+   |                    |                       |                                                                                                               |
+   +====================+=======================+===============================================================================================================+
+   | Check interval     | integer               | Define in minutes how often :command:`smartd` activates to check if any tests are configured to run.          |
+   |                    |                       |                                                                                                               |
+   +--------------------+-----------------------+---------------------------------------------------------------------------------------------------------------+
+   | Power mode         | drop-down menu        | Tests are not performed if the system enters the specified power mode: *Never*, *Sleep*, *Standby*, or        |
+   |                    |                       | *Idle*.                                                                                                       |
+   |                    |                       |                                                                                                               |
+   +--------------------+-----------------------+---------------------------------------------------------------------------------------------------------------+
+   | Difference         | integer in degrees    | Enter number of degrees in Celsius. S.M.A.R.T reports if the temperature of a drive has changed by N          |
+   |                    | Celsius               | degrees Celsius since the last report. Default of *0* disables this option.                                   |
+   |                    |                       |                                                                                                               |
+   +--------------------+-----------------------+---------------------------------------------------------------------------------------------------------------+
+   | Informational      | integer in degrees    | Enter a threshold temperature in Celsius. S.M.A.R.T will message with a log level of LOG_INFO if the          |
+   |                    | Celsius               | temperature is higher than specified degrees in Celsius. Default of *0* disables this option.                 |
+   |                    |                       |                                                                                                               |
+   +--------------------+-----------------------+---------------------------------------------------------------------------------------------------------------+
+   | Critical           | integer in degrees    | Enter a threshold temperature in Celsius. S.M.A.R.T will message with a log level of LOG_CRIT and send an     |
+   |                    | Celsius               | email if the temperature is higher than specified degrees in Celsius. Default of *0* disables this option.    |
+   |                    |                       |                                                                                                               |
+   +--------------------+-----------------------+---------------------------------------------------------------------------------------------------------------+
+   | Email to report    | string                | Email address to receive S.M.A.R.T. alerts. Use a space to separate multiple email addresses.                 |
+   |                    |                       |                                                                                                               |
+   +--------------------+-----------------------+---------------------------------------------------------------------------------------------------------------+
 
 
 .. index:: CIFS, Samba, Windows File Share, SMB
@@ -1367,121 +1377,123 @@ screen is really a front-end to
 .. table:: Global SMB Configuration Options
    :class: longtable
 
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Setting                          | Value          | Description                                                                                           |
-   |                                  |                |                                                                                                       |
-   +==================================+================+=======================================================================================================+
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Setting                     | Value             | Description                                                                                          |
+   |                             |                   |                                                                                                      |
+   +=============================+===================+======================================================================================================+
    #ifdef freenas
-   | NetBIOS Name                     | string         | Automatically populated with the original hostname of the system. Limited to 15 characters. It        |
-   |                                  |                | **must** be different from the *Workgroup* name.                                                      |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias                    | string         | Enter an alias. Limited to 15 characters                                                              |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | NetBIOS Name                | string            | Automatically populated with the original hostname of the system. Limited to 15 characters. It       |
+   |                             |                   | **must** be different from the *Workgroup* name.                                                     |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | NetBIOS Alias               | string            | Enter an alias. Limited to 15 characters                                                             |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    #endif freenas
    #ifdef truenas
-   | NetBIOS Name (This Node)         | string         | Automatically populated with the original hostname of the system. Limited to 15 characters. It        |
-   |                                  |                | **must** be different from the *Workgroup* name.                                                      |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (Node B)            | string         | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the               |
-   |                                  |                | standby node                                                                                          |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NetBIOS Alias                    | string         | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves          |
-   |                                  |                | to either node.                                                                                       |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | NetBIOS Name (This Node)    | string            | Automatically populated with the original hostname of the system. Limited to 15 characters. It       |
+   |                             |                   | **must** be different from the *Workgroup* name.                                                     |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | NetBIOS Name (Node B)       | string            | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the              |
+   |                             |                   | standby node                                                                                         |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | NetBIOS Alias               | string            | Limited to 15 characters. When using :ref:`Failover`, this is the NetBIOS name that resolves         |
+   |                             |                   | to either node.                                                                                      |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    #endif truenas
-   | Workgroup                        | string         | Must match Windows workgroup name. This setting is ignored if the :ref:`Active Directory`             |
-   |                                  |                | or :ref:`LDAP` service is running.                                                                    |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Description                      | string         | Enter an optional server description.                                                                 |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | DOS charset                      | drop-down menu | The character set Samba uses when communicating with DOS and Windows 9x/ME clients. Default is        |
-   |                                  |                | *CP437*.                                                                                              |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | UNIX charset                     | drop-down menu | Default is *UTF-8* which supports all characters in all languages.                                    |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Log level                        | drop-down menu | Choices are *Minimum*, *Normal*, or *Debug*.                                                          |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Use syslog only                  | checkbox       | Set to log authentication failures to :file:`/var/log/messages` instead of the default                |
-   |                                  |                | of :file:`/var/log/samba4/log.smbd`.                                                                  |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Local Master                     | checkbox       | Set to determine if the system will participate in a browser election. Disable when network           |
-   |                                  |                | contains an AD or LDAP server or Vista or Windows 7 machines are present.                             |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Domain logons                    | checkbox       | Set if it is necessary to provide the netlogin service for older Windows clients.                     |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Time Server for Domain           | checkbox       | Determines if the system advertises itself as a time server to Windows clients. Disable when          |
-   |                                  |                | network contains an AD or LDAP server.                                                                |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Guest Account                    | drop-down menu | Select the account to be used for guest access. Default is *nobody*. Account must have permission     |
-   |                                  |                | to access the shared volume/dataset. If Guest Account user is deleted, resets to *nobody*.            |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | File mask                        | integer        | Overrides default file creation mask of 0666 which creates files with read and write access for       |
-   |                                  |                | everybody.                                                                                            |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Directory mask                   | integer        | Overrides default directory creation mask of 0777 which grants directory read, write and execute      |
-   |                                  |                | access for everybody.                                                                                 |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Allow Empty Password             | checkbox       | Set to allow users to press :kbd:`Enter` when prompted for a password. Requires the username/password |
-   |                                  |                | to be the same as the Windows user account.                                                           |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Auxiliary parameters             | string         | Add any :file:`smb.conf` options not covered elsewhere in this screen. See                            |
-   |                                  |                | `the Samba Guide <http://www.oreilly.com/openbook/samba/book/appb_02.html>`__                         |
-   |                                  |                | for additional settings.                                                                              |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Unix Extensions                  | checkbox       | Set to allow non-Windows SMB clients to access symbolic links and hard links, has no effect on        |
-   |                                  |                | Windows clients.                                                                                      |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Zeroconf share discovery         | checkbox       | Enable if Mac clients will be connecting to the SMB share.                                            |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Hostname lookups                 | checkbox       | Set to allow using hostnames rather than IP addresses in the :guilabel:`Hosts Allow` or               |
-   |                                  |                | :guilabel:`Hosts Deny` fields of a SMB share. Unset if IP addresses are used to avoid the             |
-   |                                  |                | delay of a host lookup.                                                                               |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Allow execute always             | checkbox       | If set, Samba will allow the user to execute a file, even if that user's permissions are not set      |
-   |                                  |                | to execute.                                                                                           |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Obey pam restrictions            | checkbox       | Unset this option to allow: Cross-domain authentication. Users and groups to be managed on            |
-   |                                  |                | another forest. Permissions to be delegated from :ref:`Active Directory` users                        |
-   |                                  |                | and groups to domain admins on another forest.                                                        |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | NTLMv1 auth                      | checkbox       | Set to allow NTLMv1 authentication. Required by Windows XP clients and sometimes by clients           |
-   |                                  |                | in later versions of Windows.                                                                         |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Bind IP Addresses                | checkboxes     | Select the IP addresses SMB will listen for.                                                          |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Idmap Range Low                  | integer        | The beginning UID/GID for which this system is authoritative. Any UID/GID lower than this value is    |
-   |                                  |                | ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely defined IDs. |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Idmap Range High                 | integer        | The ending UID/GID for which this system is authoritative. Any UID/GID higher than this value is      |
-   |                                  |                | ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely defined IDs. |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Workgroup                   | string            | Must match Windows workgroup name. This setting is ignored if the :ref:`Active Directory`            |
+   |                             |                   | or :ref:`LDAP` service is running.                                                                   |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Description                 | string            | Enter an optional server description.                                                                |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | DOS charset                 | drop-down menu    | The character set Samba uses when communicating with DOS and Windows 9x/ME clients. Default is       |
+   |                             |                   | *CP437*.                                                                                             |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | UNIX charset                | drop-down menu    | Default is *UTF-8* which supports all characters in all languages.                                   |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Log level                   | drop-down menu    | Choices are *Minimum*, *Normal*, or *Debug*.                                                         |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Use syslog only             | checkbox          | Set to log authentication failures to :file:`/var/log/messages` instead of the default               |
+   |                             |                   | of :file:`/var/log/samba4/log.smbd`.                                                                 |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Local Master                | checkbox          | Set to determine if the system will participate in a browser election. Disable when network          |
+   |                             |                   | contains an AD or LDAP server or Vista or Windows 7 machines are present.                            |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Domain logons               | checkbox          | Set if it is necessary to provide the netlogin service for older Windows clients.                    |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Time Server for Domain      | checkbox          | Determines if the system advertises itself as a time server to Windows clients. Disable when         |
+   |                             |                   | network contains an AD or LDAP server.                                                               |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Guest Account               | drop-down menu    | Select the account to be used for guest access. Default is *nobody*. Account must have permission    |
+   |                             |                   | to access the shared volume/dataset. If Guest Account user is deleted, resets to *nobody*.           |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | File mask                   | integer           | Overrides default file creation mask of 0666 which creates files with read and write access for      |
+   |                             |                   | everybody.                                                                                           |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Directory mask              | integer           | Overrides default directory creation mask of 0777 which grants directory read, write and execute     |
+   |                             |                   | access for everybody.                                                                                |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Allow Empty Password        | checkbox          | Set to allow users to press :kbd:`Enter` when prompted for a password.                               |
+   |                             |                   | Requires the username/password to be the same as the Windows user account.                           |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Auxiliary parameters        | string            | Add any :file:`smb.conf` options not covered elsewhere in this screen. See                           |
+   |                             |                   | `the Samba Guide <http://www.oreilly.com/openbook/samba/book/appb_02.html>`__                        |
+   |                             |                   | for additional settings.                                                                             |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Unix Extensions             | checkbox          | Set to allow non-Windows SMB clients to access symbolic links and hard links, has no effect on       |
+   |                             |                   | Windows clients.                                                                                     |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Zeroconf share discovery    | checkbox          | Enable if Mac clients will be connecting to the SMB share.                                           |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Hostname lookups            | checkbox          | Set to allow using hostnames rather than IP addresses in the :guilabel:`Hosts Allow` or              |
+   |                             |                   | :guilabel:`Hosts Deny` fields of a SMB share. Unset if IP addresses are used to avoid the            |
+   |                             |                   | delay of a host lookup.                                                                              |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Allow execute always        | checkbox          | If set, Samba will allow the user to execute a file, even if that user's permissions are not set     |
+   |                             |                   | to execute.                                                                                          |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Obey pam restrictions       | checkbox          | Unset this option to allow: Cross-domain authentication. Users and groups to be managed on           |
+   |                             |                   | another forest. Permissions to be delegated from :ref:`Active Directory` users                       |
+   |                             |                   | and groups to domain admins on another forest.                                                       |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | NTLMv1 auth                 | checkbox          | Set to allow NTLMv1 authentication. Required by Windows XP clients and sometimes by clients          |
+   |                             |                   | in later versions of Windows.                                                                        |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Bind IP Addresses           | checkboxes        | Select the IP addresses SMB will listen for.                                                         |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Idmap Range Low             | integer           | The beginning UID/GID for which this system is authoritative. Any UID/GID lower than this value      |
+   |                             |                   | is ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely          |
+   |                             |                   | defined IDs.                                                                                         |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Idmap Range High            | integer           | The ending UID/GID for which this system is authoritative. Any UID/GID higher than this value is     |
+   |                             |                   | ignored, providing a way to avoid accidental UID/GID overlaps between local and remotely             |
+   |                             |                   | defined IDs.                                                                                         |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
 
 
 Changes to SMB settings take effect immediately. Changes to share
@@ -1659,51 +1671,53 @@ summarizes the configuration options.
 .. table:: SNMP Configuration Options
    :class: longtable
 
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Setting              | Value          | Description                                                                                      |
-   |                      |                |                                                                                                  |
-   +======================+================+==================================================================================================+
-   | Location             | string         | Optional description of the system location.                                                     |
-   |                      |                |                                                                                                  |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Contact              | string         | Optional. Enter the administrator email address.                                                 |
-   |                      |                |                                                                                                  |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | SNMP v3 Support      | checkbox       | Set to enable support for SNMP version 3.                                                        |
-   |                      |                |                                                                                                  |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Community            | string         | Default is *public*. **Change this for security reasons!** The value can only contain            |
-   |                      |                | alphanumeric characters, underscores, dashes, periods, and spaces. This value can be empty for   |
-   |                      |                | SNMPv3 networks.                                                                                 |
-   |                      |                |                                                                                                  |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Username             | string         | Only applies if :guilabel:`SNMP v3 Support` is set. Specify the username to register             |
-   |                      |                | with this service. Refer to                                                                      |
-   |                      |                | `snmpd.conf(5) <http://net-snmp.sourceforge.net/docs/man/snmpd.conf.html>`__ for more            |
-   |                      |                | information about configuring this and the :guilabel:`Authentication Type`,                      |
-   |                      |                | :guilabel:`Password`, :guilabel:`Privacy Protocol`, and :guilabel:`Privacy Passphrase` fields.   |
-   |                      |                |                                                                                                  |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Authentication Type  | drop-down menu | Only applies if :guilabel:`SNMP v3 Support` is enabled. Choices are: *MD5* or *SHA*.             |
-   |                      |                |                                                                                                  |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Password             | string         | Only applies if :guilabel:`SNMP v3 Support` is enabled. Specify and confirm a password           |
-   |                      |                | of at least eight characters.                                                                    |
-   |                      |                |                                                                                                  |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Privacy Protocol     | drop-down menu | Only applies if :guilabel:`SNMP v3 Support` is enabled. Choices are: *AES* or *DES*.             |
-   |                      |                |                                                                                                  |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Privacy Passphrase   | string         | If not specified, :guilabel:`Password` is used.                                                  |
-   |                      |                |                                                                                                  |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Log Level            | drop-down menu | Choices range from fewest log entries (:guilabel:`Emergency`) to the most (:guilabel:`Debug`).   |
-   |                      |                |                                                                                                  |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters | string         | Enter additional `snmpd.conf(5) <http://net-snmp.sourceforge.net/docs/man/snmpd.conf.html>`__    |
-   |                      |                | options not covered in this screen. One option per line.                                         |
-   |                      |                |                                                                                                  |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
+   +-----------------------+--------------+-------------------------------------------------------------------------------------------+
+   | Setting               | Value        | Description                                                                               |
+   |                       |              |                                                                                           |
+   +=======================+==============+===========================================================================================+
+   | Location              | string       | Optional description of the system location.                                              |
+   |                       |              |                                                                                           |
+   +-----------------------+--------------+-------------------------------------------------------------------------------------------+
+   | Contact               | string       | Optional. Enter the administrator email address.                                          |
+   |                       |              |                                                                                           |
+   +-----------------------+--------------+-------------------------------------------------------------------------------------------+
+   | SNMP v3 Support       | checkbox     | Set to enable support for SNMP version 3.                                                 |
+   |                       |              |                                                                                           |
+   +-----------------------+--------------+-------------------------------------------------------------------------------------------+
+   | Community             | string       | Default is *public*. **Change this for security reasons!** The value can only contain     |
+   |                       |              | alphanumeric characters, underscores, dashes, periods, and spaces.                        |
+   |                       |              | This value can be empty for SNMPv3 networks.                                              |
+   |                       |              |                                                                                           |
+   +-----------------------+--------------+-------------------------------------------------------------------------------------------+
+   | Username              | string       | Only applies if :guilabel:`SNMP v3 Support` is set. Specify the username to register      |
+   |                       |              | with this service. Refer to `snmpd.conf(5)                                                |
+   |                       |              | <http://net-snmp.sourceforge.net/docs/man/snmpd.conf.html>`__ for more information        |
+   |                       |              | about configuring this and the :guilabel:`Authentication Type`, :guilabel:`Password`,     |
+   |                       |              | :guilabel:`Privacy Protocol`, and :guilabel:`Privacy Passphrase` fields.                  |
+   |                       |              |                                                                                           |
+   +-----------------------+--------------+-------------------------------------------------------------------------------------------+
+   | Authentication        | drop-down    | Only applies if :guilabel:`SNMP v3 Support` is enabled. Choices are: *MD5* or *SHA*.      |
+   | Type                  | menu         |                                                                                           |
+   +-----------------------+--------------+-------------------------------------------------------------------------------------------+
+   | Password              | string       | Only applies if :guilabel:`SNMP v3 Support` is enabled. Specify and confirm a password    |
+   |                       |              | of at least eight characters.                                                             |
+   |                       |              |                                                                                           |
+   +-----------------------+--------------+-------------------------------------------------------------------------------------------+
+   | Privacy Protocol      | drop-down    | Only applies if :guilabel:`SNMP v3 Support` is enabled.                                   |
+   |                       | menu         | Choices are: *AES* or *DES*.                                                              |
+   +-----------------------+--------------+-------------------------------------------------------------------------------------------+
+   | Privacy Passphrase    | string       | If not specified, :guilabel:`Password` is used.                                           |
+   |                       |              |                                                                                           |
+   +-----------------------+--------------+-------------------------------------------------------------------------------------------+
+   | Log Level             | drop-down    | Choices range from fewest log entries (:guilabel:`Emergency`)                             |
+   |                       | menu         | to the most (:guilabel:`Debug`).                                                          |
+   |                       |              |                                                                                           |
+   +-----------------------+--------------+-------------------------------------------------------------------------------------------+
+   | Auxiliary             | string       | Enter additional `snmpd.conf(5)                                                           |
+   | Parameters            |              | <http://net-snmp.sourceforge.net/docs/man/snmpd.conf.html>`__                             |
+   |                       |              | options not covered in this screen. One option per line.                                  |
+   |                       |              |                                                                                           |
+   +-----------------------+--------------+-------------------------------------------------------------------------------------------+
 
 
 .. index:: SSH, Secure Shell
@@ -1756,53 +1770,53 @@ display these settings by enabling the
 .. table:: SSH Configuration Options
    :class: longtable
 
-   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Setting                       | Value          | Advanced | Description                                                                                         |
-   |                               |                | Mode     |                                                                                                     |
-   +===============================+================+==========+=====================================================================================================+
-   | Bind Interfaces               | selection      | ✓        | By default, SSH listens on all interfaces unless specific interfaces are highlighted in the         |
-   |                               |                |          | :guilabel:`Available` field and added to the :guilabel:`Selected` field.                            |
-   |                               |                |          |                                                                                                     |
-   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | TCP Port                      | integer        |          | Port to open for SSH connection requests. *22* by default.                                          |
-   |                               |                |          |                                                                                                     |
-   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Login as Root with password   | checkbox       |          | **As a security precaution, root logins are discouraged and disabled by default.** If enabled,      |
-   |                               |                |          | a password must be set for the *root* user in :guilabel:`View Users`.                               |
-   |                               |                |          |                                                                                                     |
-   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Allow Password Authentication | checkbox       |          | Unset to require key-based authentication for all users. Requires                                   |
-   |                               |                |          | `additional setup <http://the.earth.li/~sgtatham/putty/0.55/htmldoc/Chapter8.html>`__               |
-   |                               |                |          | on both the SSH client and server.                                                                  |
-   |                               |                |          |                                                                                                     |
-   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Allow Kerberos Authentication | checkbox       | ✓        | Before setting this option, ensure :ref:`Kerberos Realms` and :ref:`Kerberos Keytabs` are           |
-   |                               |                |          | configured and %brand% can communicate with the Kerberos Domain Controller (KDC).                   |
-   |                               |                |          |                                                                                                     |
-   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Allow TCP Port Forwarding     | checkbox       |          | Set to allow users to bypass firewall restrictions using the SSH                                    |
-   |                               |                |          | `port forwarding feature <https://www.symantec.com/connect/articles/ssh-port-forwarding>`__.        |
-   |                               |                |          |                                                                                                     |
-   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Compress Connections          | checkbox       |          | Set to attempt to reduce latency over slow networks.                                                |
-   |                               |                |          |                                                                                                     |
-   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | SFTP Log Level                | drop-down menu | ✓        | Select the                                                                                          |
-   |                               |                |          | `syslog(3) <https://www.freebsd.org/cgi/man.cgi?query=syslog>`__                                    |
-   |                               |                |          | level of the SFTP server.                                                                           |
-   |                               |                |          |                                                                                                     |
-   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | SFTP Log Facility             | drop-down menu | ✓        | Select the                                                                                          |
-   |                               |                |          | `syslog(3) <https://www.freebsd.org/cgi/man.cgi?query=syslog>`__                                    |
-   |                               |                |          | facility of the SFTP server.                                                                        |
-   |                               |                |          |                                                                                                     |
-   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Extra Options                 | string         | ✓        | Add any additional                                                                                  |
-   |                               |                |          | `sshd_config(5) <https://www.freebsd.org/cgi/man.cgi?query=sshd_config>`__                          |
-   |                               |                |          | options not covered in this screen, one per line. These options are case-sensitive                  |
-   |                               |                |          | and misspellings can prevent the SSH service from starting.                                         |
-   |                               |                |          |                                                                                                     |
-   +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
+   +-------------------------+--------------+-------------+----------------------------------------------------------------------------------------------+
+   | Setting                 | Value        | Advanced    | Description                                                                                  |
+   |                         |              | Mode        |                                                                                              |
+   +=========================+==============+=============+==============================================================================================+
+   | Bind Interfaces         | selection    | ✓           | By default, SSH listens on all interfaces unless specific interfaces are highlighted         |
+   |                         |              |             | in the :guilabel:`Available` field and added to the :guilabel:`Selected` field.              |
+   |                         |              |             |                                                                                              |
+   +-------------------------+--------------+-------------+----------------------------------------------------------------------------------------------+
+   | TCP Port                | integer      |             | Port to open for SSH connection requests. *22* by default.                                   |
+   |                         |              |             |                                                                                              |
+   +-------------------------+--------------+-------------+----------------------------------------------------------------------------------------------+
+   | Login as Root           | checkbox     |             | **As a security precaution, root logins are discouraged and disabled by default.**           |
+   | with password           |              |             | If enabled, a password must be set for the *root* user in :guilabel:`View Users`.            |
+   |                         |              |             |                                                                                              |
+   +-------------------------+--------------+-------------+----------------------------------------------------------------------------------------------+
+   | Allow Password          | checkbox     |             | Unset to require key-based authentication for all users. Requires `additional setup          |
+   | Authentication          |              |             | <http://the.earth.li/~sgtatham/putty/0.55/htmldoc/Chapter8.html>`__                          |
+   |                         |              |             | on both the SSH client and server.                                                           |
+   |                         |              |             |                                                                                              |
+   +-------------------------+--------------+-------------+----------------------------------------------------------------------------------------------+
+   | Allow Kerberos          | checkbox     | ✓           | Before setting this option, ensure :ref:`Kerberos Realms` and :ref:`Kerberos Keytabs` are    |
+   | Authentication          |              |             | configured and %brand% can communicate with the Kerberos Domain Controller (KDC).            |
+   |                         |              |             |                                                                                              |
+   +-------------------------+--------------+-------------+----------------------------------------------------------------------------------------------+
+   | Allow TCP Port          | checkbox     |             | Set to allow users to bypass firewall restrictions using the SSH `port forwarding feature    |
+   | Forwarding              |              |             | <https://www.symantec.com/connect/articles/ssh-port-forwarding>`__.                          |
+   |                         |              |             |                                                                                              |
+   +-------------------------+--------------+-------------+----------------------------------------------------------------------------------------------+
+   | Compress Connections    | checkbox     |             | Set to attempt to reduce latency over slow networks.                                         |
+   |                         |              |             |                                                                                              |
+   +-------------------------+--------------+-------------+----------------------------------------------------------------------------------------------+
+   | SFTP Log Level          | drop-down    | ✓           | Select the `syslog(3)                                                                        |
+   |                         | menu         |             | <https://www.freebsd.org/cgi/man.cgi?query=syslog>`__                                        |
+   |                         |              |             | level of the SFTP server.                                                                    |
+   |                         |              |             |                                                                                              |
+   +-------------------------+--------------+-------------+----------------------------------------------------------------------------------------------+
+   | SFTP Log Facility       | drop-down    | ✓           | Select the `syslog(3)                                                                        |
+   |                         | menu         |             | <https://www.freebsd.org/cgi/man.cgi?query=syslog>`__                                        |
+   |                         |              |             | facility of the SFTP server.                                                                 |
+   |                         |              |             |                                                                                              |
+   +-------------------------+--------------+-------------+----------------------------------------------------------------------------------------------+
+   | Extra Options           | string       | ✓           | Add any additional `sshd_config(5)                                                           |
+   |                         |              |             | <https://www.freebsd.org/cgi/man.cgi?query=sshd_config>`__                                   |
+   |                         |              |             | options not covered in this screen, one per line. These options are case-sensitive           |
+   |                         |              |             | and misspellings can prevent the SSH service from starting.                                  |
+   |                         |              |             |                                                                                              |
+   +-------------------------+--------------+-------------+----------------------------------------------------------------------------------------------+
 
 
 A few `sshd_config(5)
@@ -1928,41 +1942,40 @@ available options.
 .. table:: TFTP Configuration Options
    :class: longtable
 
-   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Setting         | Value         | Description                                                                                                              |
-   |                 |               |                                                                                                                          |
-   +=================+===============+==========================================================================================================================+
-   | Directory       | browse button | Browse to an **existing** directory to be used for storage. Some devices require a specific directory name, refer to the |
-   |                 |               | device documentation for details.                                                                                        |
-   |                 |               |                                                                                                                          |
-   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Allow New Files | checkbox      | Enable if network devices need to send files to the system (for example, to back up their configuration).                |
-   |                 |               |                                                                                                                          |
-   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Port            | integer       | Enter the UDP port to listen for TFTP requests. Default is *69*.                                                         |
-   |                 |               |                                                                                                                          |
-   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Username        | drop-down     | Select the account to be used for TFTP requests. The account must have permission to the :guilabel:`Directory`.          |
-   |                 | menu          |                                                                                                                          |
-   |                 |               |                                                                                                                          |
-   |                 |               |                                                                                                                          |
-   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
+   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Setting             | Value         | Description                                                                                                    |
+   |                     |               |                                                                                                                |
+   +=====================+===============+================================================================================================================+
+   | Directory           | browse        | Browse to an **existing** directory to be used for storage. Some devices require a specific directory name.    |
+   |                     | button        | Refer to the device documentation for details.                                                                 |
+   |                     |               |                                                                                                                |
+   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Allow New Files     | checkbox      | Enable if network devices need to send files to the system (for example, to back up their configuration).      |
+   |                     |               |                                                                                                                |
+   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Port                | integer       | Enter the UDP port to listen for TFTP requests. Default is *69*.                                               |
+   |                     |               |                                                                                                                |
+   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Username            | drop-down     | Select the account to be used for TFTP requests. The account must have permission to access                    |
+   |                     | menu          | the :guilabel:`Directory`.                                                                                     |
+   |                     |               |                                                                                                                |
+   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
    #ifdef freenas
-   | File Permissions| checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write. Some devices     |
-   |                 |               | require less strict permissions.                                                                                         |
-   |                 |               |                                                                                                                          |
-   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
+   | File Permissions    | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write.        |
+   |                     |               | Some devices require less strict permissions.                                                                  |
+   |                     |               |                                                                                                                |
+   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
    #endif freenas
    #ifdef truenas
-   | Umask           | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write. Some devices     |
-   |                 |               | require less strict permissions.                                                                                         |
-   |                 |               |                                                                                                                          |
-   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Umask               | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write.        |
+   |                     |               | Some devices require less strict permissions.                                                                  |
+   |                     |               |                                                                                                                |
+   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
    #endif truenas
-   | Extra options   | string        | Add any additional `tftpd(8) <https://www.freebsd.org/cgi/man.cgi?query=tftpd>`__                                        |
-   |                 |               | options not shown in this screen. Add one option on each line.                                                           |
-   |                 |               |                                                                                                                          |
-   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Extra options       | string        | Add any additional `tftpd(8) <https://www.freebsd.org/cgi/man.cgi?query=tftpd>`__                              |
+   |                     |               | options not shown in this screen. Add one option on each line.                                                 |
+   |                     |               |                                                                                                                |
+   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
 
 
 .. index:: UPS, Uninterruptible Power Supply
@@ -2000,76 +2013,82 @@ UPS Configuration screen.
 .. table:: UPS Configuration Options
    :class: longtable
 
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Setting                       | Value          | Description                                                                                           |
-   |                               |                |                                                                                                       |
-   +===============================+================+=======================================================================================================+
-   | UPS Mode                      | drop-down menu | Select *Master* if the UPS is plugged directly into the system serial port. The UPS will remain the   |
-   |                               |                | last item to shut down. Select *Slave* to have the system shut down before *Master*.                  |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Identifier                    | string         | Describe the UPS device. Can contain alphanumeric, period, comma, hyphen, and underscore characters.  |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Driver                        | drop-down menu | Supported UPS devices are listed at `<http://networkupstools.org/stable-hcl.html>`__.                 |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Port                          | drop-down menu | Select the serial or USB port the UPS is plugged into (see :ref:`NOTE <UPS USB>`).                    |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters          | string         | Enter any additional options from                                                                     |
-   | (ups.conf)                    |                | `ups.conf(5) <http://networkupstools.org/docs/man/ups.conf.html>`__.                                  |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters          | string         | Enter any additional options from                                                                     |
-   | (upsd.conf)                   |                | `upsd.conf(5) <http://networkupstools.org/docs/man/upsd.conf.html>`__.                                |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Description                   | string         | Optional. Enter any notes about the UPS service.                                                      |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Shutdown mode                 | drop-down menu | Choose when the UPS initiates shutdown. Choices are *UPS goes on battery* and                         |
-   |                               |                | *UPS reaches low battery*.                                                                            |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Shutdown timer                | integer        | Select a value in seconds for the UPS to wait before initiating shutdown. Shutdown will not occur if  |
-   |                               |                | the power is restored while the timer is counting down. The value only applies when *Shutdown Mode*   |
-   |                               |                | is set to *UPS goes on battery*.                                                                      |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Shutdown Command              | string         | Enter the command to run to shut down the computer when battery power is low or shutdown timer        |
-   |                               |                | runs out.                                                                                             |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | No Communication Warning Time | string         | Enter a value in seconds to wait before alerting that the service cannot reach any UPS.               |
-   |                               |                | Warnings continue until the situation is fixed.                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Monitor User                  | string         | Enter a user to associate with this service. The recommended default user is *upsmon*.                |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Monitor Password              | string         | Default is the known value *fixmepass*. Change this to enhance system security. Cannot contain a      |
-   |                               |                | space or :literal:`#`.                                                                                |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Extra users                   | string         | Enter the accounts with administrative access. See                                                    |
-   |                               |                | `upsd.users(5) <http://networkupstools.org/docs/man/upsd.users.html>`__ for examples.                 |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Remote monitor                | checkbox       | Set for the default configuration to listen on all interfaces using the known values of user          |
-   |                               |                | *upsmon* and password *fixmepass*.                                                                    |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Send Email Status Updates     | checkbox       | Set to enable the %brand% system to send email updates to the configured                              |
-   |                               |                | :guilabel:`To email` address.                                                                         |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | To email                      | email address  | Enter the email address to receive status updates.                                                    |
-   |                               |                | Separate multiple email addresses with a semicolon (:literal:`;`).                                    |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Email Subject                 | string         | Enter a subject line to be used in email status updates.                                              |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Power Off UPS                 | checkbox       | Set to power off the UPS after shutting down the FreeNAS system.                                      |
-   |                               |                |                                                                                                       |
-   +-------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Setting                 | Value        | Description                                                                                |
+   |                         |              |                                                                                            |
+   +=========================+==============+============================================================================================+
+   | UPS Mode                | drop-down    | Select *Master* if the UPS is plugged directly into the system serial port.                |
+   |                         | menu         | The UPS will remain the last item to shut down.                                            |
+   |                         |              | Select *Slave* to have the system shut down before *Master*.                               |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Identifier              | string       | Describe the UPS device. Can contain alphanumeric, period, comma, hyphen,                  |
+   |                         |              | and underscore characters.                                                                 |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Driver                  | drop-down    | Supported UPS devices are listed at `<http://networkupstools.org/stable-hcl.html>`__.      |
+   |                         | menu         |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Port                    | drop-down    | Select the serial or USB port the UPS is plugged into (see :ref:`NOTE <UPS USB>`).         |
+   |                         | menu         |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Auxiliary Parameters    | string       | Enter any additional options from `ups.conf(5)                                             |
+   | (ups.conf)              |              | <http://networkupstools.org/docs/man/ups.conf.html>`__.                                    |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Auxiliary Parameters    | string       | Enter any additional options from `upsd.conf(5)                                            |
+   | (upsd.conf)             |              | <http://networkupstools.org/docs/man/upsd.conf.html>`__.                                   |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Description             | string       | Optional. Enter any notes about the UPS service.                                           |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Shutdown mode           | drop-down    | Choose when the UPS initiates shutdown. Choices are *UPS goes on battery* and              |
+   |                         | menu         | *UPS reaches low battery*.                                                                 |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Shutdown timer          | integer      | Select a value in seconds for the UPS to wait before initiating shutdown.                  |
+   |                         |              | Shutdown will not occur if the power is restored while the timer is counting down.         |
+   |                         |              | The value only applies when *Shutdown Mode* is set to *UPS goes on battery*.               |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Shutdown Command        | string       | Enter the command to run to shut down the computer when battery power is low               |
+   |                         |              | or shutdown timer runs out.                                                                |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | No Communication        | string       | Enter a value in seconds to wait before alerting that the service cannot reach any UPS.    |
+   | Warning Time            |              | Warnings continue until the situation is fixed.                                            |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Monitor User            | string       | Enter a user to associate with this service. The recommended default user is *upsmon*.     |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Monitor Password        | string       | Default is the known value *fixmepass*. Change this to enhance system security.            |
+   |                         |              | Cannot contain a space or :literal:`#`.                                                    |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Extra users             | string       | Enter the accounts with administrative access. See `upsd.users(5)                          |
+   |                         |              | <http://networkupstools.org/docs/man/upsd.users.html>`__ for examples.                     |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Remote monitor          | checkbox     | Set for the default configuration to listen on all interfaces using                        |
+   |                         |              | the known values of user *upsmon* and password *fixmepass*.                                |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Send Email              | checkbox     | Set to enable the %brand% system to send email updates to the configured                   |
+   | Status Updates          |              | :guilabel:`To email` address.                                                              |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | To email                | email        | Enter the email address to receive status updates.                                         |
+   |                         | address      | Separate multiple email addresses with a semicolon (:literal:`;`).                         |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Email Subject           | string       | Enter a subject line to be used in email status updates.                                   |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
+   | Power Off UPS           | checkbox     | Set to power off the UPS after shutting down the FreeNAS system.                           |
+   |                         |              |                                                                                            |
+   +-------------------------+--------------+--------------------------------------------------------------------------------------------+
 
 
 .. _UPS USB:
@@ -2152,33 +2171,37 @@ available options.
 .. table:: WebDAV Configuration Options
    :class: longtable
 
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Setting                   | Value          | Description                                                                                           |
-   |                           |                |                                                                                                       |
-   +===========================+================+=======================================================================================================+
-   | Protocol                  | drop-down menu | *HTTP* keeps the connection always unencrypted. *HTTPS* always encrypts the connection.               |
-   |                           |                | *HTTP+HTTPS* allows both types of connections.                                                        |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | HTTP Port                 | string         | Specify a port for unencrypted connections. Only appears if the selected :guilabel:`Protocol`         |
-   |                           |                | is *HTTP* or *HTTP+HTTPS*. The default of *8080* is recommended.                                      |
-   |                           |                | **Do not** use a port number already being used by another service                                    |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | HTTPS Port                | string         | Specify a port for encrypted connections. Only appears if the selected :guilabel:`Protocol` is        |
-   |                           |                | *HTTPS* or *HTTP+HTTPS*. The default of *8081* is recommended. **Do not** reuse a port number.        |
-   |                           |                |                                                                                                       |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Webdav SSL Certificate    | drop-down menu | Select the SSL certificate to use for encrypted connections. Only appears if the selected             |
-   |                           |                | :guilabel:`Protocol` is *HTTPS* or *HTTP+HTTPS*. To create a certificate, use                         |
-   |                           |                | :menuselection:`System --> Certificates`.                                                             |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | HTTP Authentication       | drop-down menu | Choices are *No Authentication*, *Basic Authentication* (unencrypted), or                             |
-   |                           |                | *Digest Authentication* (encrypted).                                                                  |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Webdav Password           | string         | Default is *davtest*. This is a known value and is recommended to be changed.                         |
-   |                           |                |                                                                                                       |
-   +---------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   +--------------------+--------------+----------------------------------------------------------------------------------+
+   | Setting            | Value        | Description                                                                      |
+   |                    |              |                                                                                  |
+   +====================+==============+==================================================================================+
+   | Protocol           | drop-down    | *HTTP* keeps the connection always unencrypted.                                  |
+   |                    | menu         | *HTTPS* always encrypts the connection.                                          |
+   |                    |              | *HTTP+HTTPS* allows both types of connections.                                   |
+   |                    |              |                                                                                  |
+   +--------------------+--------------+----------------------------------------------------------------------------------+
+   | HTTP Port          | string       | Specify a port for unencrypted connections.                                      |
+   |                    |              | Only appears if the selected :guilabel:`Protocol` is *HTTP* or *HTTP+HTTPS*.     |
+   |                    |              | The default of *8080* is recommended.                                            |
+   |                    |              | **Do not** reuse a port number.                                                  |
+   |                    |              |                                                                                  |
+   +--------------------+--------------+----------------------------------------------------------------------------------+
+   | HTTPS Port         | string       | Specify a port for encrypted connections.                                        |
+   |                    |              | Only appears if the selected :guilabel:`Protocol` is *HTTPS* or *HTTP+HTTPS*.    |
+   |                    |              | The default of *8081* is recommended.                                            |
+   |                    |              | **Do not** reuse a port number.                                                  |
+   |                    |              |                                                                                  |
+   +--------------------+--------------+----------------------------------------------------------------------------------+
+   | Webdav SSL         | drop-down    | Select the SSL certificate to use for encrypted connections.                     |
+   | Certificate        | menu         | Only appears if the selected :guilabel:`Protocol` is *HTTPS* or *HTTP+HTTPS*.    |
+   |                    |              | To create a certificate, use                                                     |
+   |                    |              | :menuselection:`System --> Certificates`.                                        |
+   |                    |              |                                                                                  |
+   +--------------------+--------------+----------------------------------------------------------------------------------+
+   | HTTP               | drop-down    | Choices are *No Authentication*, *Basic Authentication* (unencrypted), or        |
+   | Authentication     | menu         | *Digest Authentication* (encrypted).                                             |
+   |                    |              |                                                                                  |
+   +--------------------+--------------+----------------------------------------------------------------------------------+
+   | Webdav Password    | string       | Default is *davtest*. This is a known value and is recommended to be changed.    |
+   |                    |              |                                                                                  |
+   +--------------------+--------------+----------------------------------------------------------------------------------+
