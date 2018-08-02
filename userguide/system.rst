@@ -974,7 +974,7 @@ controller users and groups.
    System Dataset Screen
 #endif truenas
 
-.. note:: Encrypted volumes are not displayed in the
+.. note:: Encrypted, locked volumes are not displayed in the
    :guilabel:`System dataset pool` drop-down menu.
 
 The system dataset can optionally be configured to also store the
