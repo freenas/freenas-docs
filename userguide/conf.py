@@ -426,9 +426,15 @@ latex_engine = 'xelatex'
 if latex_engine == 'xelatex':
     font_init = r'''\usepackage{fontspec}%
                     \newfontfamily\opensansfont{OpenSans-Regular.ttf}[Scale=0.95]%
-                    \setmainfont{OpenSans-Regular.ttf}[Scale=0.95]%
+                    \setmainfont{OpenSans-Regular.ttf}[
+                          Scale=0.95 ,
+                          BoldFont = OpenSans-Bold.ttf ,
+                          ItalicFont = OpenSans-Italic.ttf ,
+                          BoldItalicFont = OpenSans-BoldItalic.ttf
+                          ]%
                     \setmonofont{FreeMono.otf}[Scale=0.95]%
-                    \defaultfontfeatures{Ligatures=TeX}%'''
+                    \defaultfontfeatures{Ligatures=TeX}%
+                    \newfontfamily{\awesome}[Scale = 0.95, Path = /usr/local/share/texmf-dist/fonts/opentype/public/fontawesome/]{FontAwesome.otf}'''
     title_font = r'''\fontspec{OpenSans-Light.ttf}[Scale=0.95]%'''
 else:
     # pdflatex, can't use fontspec
