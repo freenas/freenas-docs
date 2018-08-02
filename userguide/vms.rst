@@ -78,34 +78,35 @@ VM configuration options are described in
 .. table:: VM Options
    :class: longtable
 
-   +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Setting           | Value          | Description                                                                        |
-   |                   |                |                                                                                    |
-   +===================+================+====================================================================================+
-   | VM Type           | drop-down menu | Select the VM type. Choices are: *Virtual Machine* for a typical instance,         |
-   |                   |                | or *Docker VM*  for a special VM to run Docker.                                    |
-   +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Name              | string         | Enter a name to identify the VM.                                                   |
-   |                   |                |                                                                                    |
-   +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Description       | string         | Enter a short description of the VM or its purpose.                                |
-   |                   |                |                                                                                    |
-   +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Virtual CPUs      | integer        | Select the number of virtual CPUs to allocate to the VM. The maximum is 16         |
-   |                   |                | unless the host CPU limits the maximum. The VM operating system might also have    |
-   |                   |                | operational or licensing restrictions on the number of CPUs.                       |
-   |                   |                |                                                                                    |
-   +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Memory Size (MiB) | integer        | Allocate the amount of RAM in                                                      |
-   |                   |                | `mebibytes <https://simple.wikipedia.org/wiki/Mebibyte>`__ for the VM.             |
-   +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Boot Method       | drop-down menu | Select *UEFI* for newer operating systems, or *UEFI-CSM* for                       |
-   |                   |                | (Compatibility Support Mode)  older operating systems that only understand         |
-   |                   |                | BIOS booting.                                                                      |
-   +-------------------+----------------+------------------------------------------------------------------------------------+
-   | Autostart         | checkbox       | Set to start the VM automatically when the system boots.                           |
-   |                   |                |                                                                                    |
-   +-------------------+----------------+------------------------------------------------------------------------------------+
+   +----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
+   | Setting              | Value        | Description                                                                                                  |
+   |                      |              |                                                                                                              |
+   +======================+==============+==============================================================================================================+
+   | VM Type              | drop-down    | Select the VM type.                                                                                          |
+   |                      | menu         | *Virtual Machine* is a typical instance,                                                                     |
+   |                      |              | and *Docker VM* is a special VM to run Docker.                                                               |
+   +----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
+   | Name                 | string       | Enter a name to identify the VM.                                                                             |
+   |                      |              |                                                                                                              |
+   +----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
+   | Description          | string       | Enter a short description of the VM or its purpose.                                                          |
+   |                      |              |                                                                                                              |
+   +----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
+   | Virtual CPUs         | integer      | Select the number of virtual CPUs to allocate to the VM.                                                     |
+   |                      |              | The maximum is 16 unless the host CPU limits the maximum.                                                    |
+   |                      |              | The VM operating system might also have operational or licensing restrictions on the number of CPUs.         |
+   |                      |              |                                                                                                              |
+   +----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
+   | Memory Size (MiB)    | integer      | Allocate the amount of RAM in `mebibytes                                                                     |
+   |                      |              | <https://simple.wikipedia.org/wiki/Mebibyte>`__ for the VM.                                                  |
+   +----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
+   | Boot Method          | drop-down    | Select *UEFI* for newer operating systems,                                                                   |
+   |                      | menu         | or *UEFI-CSM* for (Compatibility Support Mode) older operating systems that only understand BIOS booting.    |
+   |                      |              |                                                                                                              |
+   +----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
+   | Autostart            | checkbox     | Set to start the VM automatically when the system boots.                                                     |
+   |                      |              |                                                                                                              |
+   +----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
 
 
 .. tip:: See
