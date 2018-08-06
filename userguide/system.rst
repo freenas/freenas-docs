@@ -974,8 +974,6 @@ controller users and groups.
    System Dataset Screen
 #endif truenas
 
-.. note:: Encrypted pools are not displayed in the
-   :guilabel:`System dataset pool` drop-down menu.
 
 The system dataset can optionally be configured to also store the
 system log and :ref:`Reporting` information. If there are lots of log
