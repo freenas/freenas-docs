@@ -666,10 +666,7 @@ available for a jail.
    | Edit         | Used to modify the settings described in                   |
    |              | :numref:`Table %s <jail_overview_tab>`. A popup error will |
    |              | display if the jail's :guilabel:`Status` is **up** as a    |
-   |              | jail cannot be edited while it is running. When editing a  |
-   |              | jail with a :guilabel:`Status` of **down** the             |
-   |              | :guilabel:`Jail Name` field will be grayed out as a jail's |
-   |              | name cannot be changed after creation.                     |
+   |              | jail cannot be edited while it is running.                 |
    |              |                                                            |
    +--------------+------------------------------------------------------------+
    | Mount points | Open the :guilabel:`Mount Points` list. Select an existing |
