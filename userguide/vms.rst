@@ -405,7 +405,7 @@ Deleting VMs
 
 A VM is deleted by clicking the
 VM, then :guilabel:`Delete` at the bottom of the screen. A
-dialog will show any related devices that will also be deleted and ask
+dialog shows any related devices that will also be deleted and asks
 for confirmation.
 
 .. tip:: :ref:`Zvols <Create zvol>` used in
