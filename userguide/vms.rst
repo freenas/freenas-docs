@@ -154,53 +154,40 @@ The final screen of the Wizard displays the chosen options for the new
 VM. Click :guilabel:`Submit` to create the VM or :guilabel:`Back` to
 change any settings.
 
-For example, a user is creating a FreeBSD VM. They click |ui-add| on the
-:guilabel:`VMs` page and progress through the steps of the Wizard:
+This example creates a FreeBSD VM. |ui-add| is clicked on the
+:guilabel:`VMs` page to start the VM wizard.
 
-1. :guilabel:`Wizard type` is set to **Virtual Machine**.
+#. :guilabel:`Wizard type` is set to *Virtual Machine (VM)*.
 
-2. :guilabel:`Guest Operating System` is set to **FreeBSD**.
-   **freebsd-test** is entered as the :guilabel:`Name`. The other
-   options are left at their defaults.
+#. :guilabel:`Guest Operating System` is set to *FreeBSD*.
+   :guilabel:`Name` is set to *samplevm*. Other options are left at
+   default values.
 
-3. :guilabel:`Virtual CPUs` and :guilabel:`Memory Size` are left at
-   their default values.
+#. :guilabel:`Virtual CPUs` is set to *2* and :guilabel:`Memory Size`
+   is set to *2048 MiB*.
 
-4. :guilabel:`Create new disk image` is selected. The zvol size is set
-   to **50**. The user clicks :guilabel:`Browse` and stores the new disk
-   image in the **tank** pool.
+#. :guilabel:`Create new disk image` is selected. The zvol size is set
+   to *20 GiB* and stored on the *pool1* pool.
 
-5. All networking settings are left at their default values.
+#. Network settings are left at default values.
 
-6. The user sets :guilabel:`Upload an installer image file` and clicks
-   :guilabel:`Browse` to set the save location for the :file:`iso` file.
-   Now the user uploads an :file:`iso` by clicking :guilabel:`Browse`
-   under :guilabel:`ISO upload location`, choosing a local FreeBSD
-   :file:`iso` file, and clicking :guilabel:`Upload`. %brand% starts the
-   upload and populates the :guilabel:`Choose installation media image`
-   field when finished.
+#. A FreeBSD ISO installation image has been selected and uploaded to
+   the %brand% system. The :guilabel:`Choose installation media image`
+   field is populated when the upload completes.
 
-7. After verifying the :guilabel:`VM Summary` is correct, the user
+#. After verifying the :guilabel:`VM Summary` is correct, the user
    clicks :guilabel:`Submit`.
 
+
 :numref:`Figure %s <vms_create_example>` shows the confirmation step
-and basic settings for the FreeBSD VM *freebsd-test*:
+and basic settings for the new virtual machine:
 
 
 .. _vms_create_example:
 
-.. figure:: images/vms-create-example.png
+.. figure:: images/vms-add-wizard-summary.png
 
-   Creating *freebsd-test*
-
-
-.. _different_guest_os:
-
-.. note:: It is possible to launch a different guest OS from the
-   :ref:`Shell`. Refer to the
-   `How to launch different guest OS
-   <https://github.com/FreeBSD-UPB/freebsd/wiki/How-to-launch-different-guest-OS>`__
-   guide for detailed instructions.
+   Creating a Sample Virtual Machine
 
 
 .. index:: Adding Devices to a VM
