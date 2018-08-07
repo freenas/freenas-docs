@@ -480,7 +480,7 @@ configuration values are shown on the card. Click |ui-options| for the
 :guilabel:`Start`, :guilabel:`Power Off`, :guilabel:`Delete`,
 :guilabel:`Devices`, and :guilabel:`Edit` options.
 
-.. note:: The UI will show an error message if a VM fails to start.
+.. note:: The UI shows an error message if a VM fails to start.
 
 
 Some standard buttons are available for all VMs:
