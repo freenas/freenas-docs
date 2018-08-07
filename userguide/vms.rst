@@ -109,12 +109,6 @@ VM configuration options are described in
    +----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
 
 
-.. tip:: See
-   `this guide <https://github.com/FreeBSD-UPB/freebsd/wiki/How-to-launch-different-guest-OS>`__
-   for more details about installing different Guest Operating Systems
-   with a VM.
-
-
 .. index:: Adding Devices to a VM
 .. _Adding Devices to a VM:
 
