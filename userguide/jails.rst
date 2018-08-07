@@ -101,44 +101,46 @@ always display these settings by checking the box
 .. table:: Jail Configuration Options
    :class: longtable
 
-   +----------------------------+---------------+----------+---------------------------------------------------------------------+
-   | Setting                    | Value         | Advanced | Description                                                         |
-   |                            |               | Mode     |                                                                     |
-   |                            |               |          |                                                                     |
-   +============================+===============+==========+=====================================================================+
-   | Jail Root                  | browse button |          | mandatory; jails cannot be added until this is set                  |
-   |                            |               |          |                                                                     |
-   +----------------------------+---------------+----------+---------------------------------------------------------------------+
-   | IPv4 DHCP                  | checkbox      |          | check this box if the network has a DHCP server                     |
-   |                            |               |          |                                                                     |
-   +----------------------------+---------------+----------+---------------------------------------------------------------------+
-   | IPv4 Network               | string        | ✓        | format is IP address of *network/CIDR mask*                         |
-   |                            |               |          |                                                                     |
-   +----------------------------+---------------+----------+---------------------------------------------------------------------+
-   | IPv4 Network Start Address | string        | ✓        | enter the first IP address in the reserved range in the format      |
-   |                            |               |          | *host/CIDR mask*                                                    |
-   |                            |               |          |                                                                     |
-   +----------------------------+---------------+----------+---------------------------------------------------------------------+
-   | IPv4 Network End Address   | string        | ✓        | enter the last IP address in the reserved range in the format       |
-   |                            |               |          | *host/CIDR mask*                                                    |
-   |                            |               |          |                                                                     |
-   +----------------------------+---------------+----------+---------------------------------------------------------------------+
-   | IPv6 Autoconfigure         | checkbox      |          | check this box if the network has a DHCPv6 server and IPv6          |
-   |                            |               |          | will be used to access jails                                        |
-   |                            |               |          |                                                                     |
-   +----------------------------+---------------+----------+---------------------------------------------------------------------+
-   | IPv6 Network               | string        | ✓        | enter the network address for a properly configured IPv6 network    |
-   |                            |               |          |                                                                     |
-   +----------------------------+---------------+----------+---------------------------------------------------------------------+
-   | IPv6 Network Start Address | string        | ✓        | enter the first IP address in the reserved range for a properly     |
-   |                            |               |          | configured IPv6 network                                             |
-   +----------------------------+---------------+----------+---------------------------------------------------------------------+
-   | IPv6 Network End Address   | string        | ✓        | enter the last IP address in the reserved range for a properly      |
-   |                            |               |          | configured IPv6 network                                             |
-   +----------------------------+---------------+----------+---------------------------------------------------------------------+
-   | Collection URL             | string        | ✓        | changing the default may break the ability to install jails         |
-   |                            |               |          |                                                                     |
-   +----------------------------+---------------+----------+---------------------------------------------------------------------+
+   +-----------------------+-------------+-------------+----------------------------------------------------------------------+
+   | Setting               | Value       | Advanced    | Description                                                          |
+   |                       |             | Mode        |                                                                      |
+   |                       |             |             |                                                                      |
+   +=======================+=============+=============+======================================================================+
+   | Jail Root             | browse      |             | Mandatory. Jails cannot be added until this is set.                  |
+   |                       | button      |             |                                                                      |
+   +-----------------------+-------------+-------------+----------------------------------------------------------------------+
+   | IPv4 DHCP             | checkbox    |             | Check this box if the network has a DHCP server.                     |
+   |                       |             |             |                                                                      |
+   +-----------------------+-------------+-------------+----------------------------------------------------------------------+
+   | IPv4 Network          | string      | ✓           | The format is IP address of *network/CIDR mask*.                     |
+   |                       |             |             |                                                                      |
+   +-----------------------+-------------+-------------+----------------------------------------------------------------------+
+   | IPv4 Network          | string      | ✓           | Enter the first IP address in the reserved range                     |
+   | Start Address         |             |             | in the format *host/CIDR mask*.                                      |
+   |                       |             |             |                                                                      |
+   +-----------------------+-------------+-------------+----------------------------------------------------------------------+
+   | IPv4 Network          | string      | ✓           | Enter the last IP address in the reserved range                      |
+   | End Address           |             |             | in the format *host/CIDR mask*.                                      |
+   |                       |             |             |                                                                      |
+   +-----------------------+-------------+-------------+----------------------------------------------------------------------+
+   | IPv6 Autoconfigure    | checkbox    |             | Check this box if the network has a DHCPv6 server and IPv6           |
+   |                       |             |             | will be used to access jails.                                        |
+   |                       |             |             |                                                                      |
+   +-----------------------+-------------+-------------+----------------------------------------------------------------------+
+   | IPv6 Network          | string      | ✓           | Enter the network address for a properly configured IPv6 network.    |
+   |                       |             |             |                                                                      |
+   +-----------------------+-------------+-------------+----------------------------------------------------------------------+
+   | IPv6 Network          | string      | ✓           | Enter the first IP address in the reserved range                     |
+   | Start Address         |             |             | for a properly configured IPv6 network.                              |
+   |                       |             |             |                                                                      |
+   +-----------------------+-------------+-------------+----------------------------------------------------------------------+
+   | IPv6 Network          | string      | ✓           | Enter the last IP address in the reserved range                      |
+   | End Address           |             |             | for a properly configured IPv6 network.                              |
+   |                       |             |             |                                                                      |
+   +-----------------------+-------------+-------------+----------------------------------------------------------------------+
+   | Collection URL        | string      | ✓           | Changing the default may break the ability to install jails.         |
+   |                       |             |             |                                                                      |
+   +-----------------------+-------------+-------------+----------------------------------------------------------------------+
 
 
 When selecting the :guilabel:`Jail Root`, ensure that the size of the
@@ -211,85 +213,85 @@ display these settings by checking the box
 .. table:: Jail Configuration Options
    :class: longtable
 
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | Setting                   | Value          | Advanced | Description                                                                              |
-   |                           |                | Mode     |                                                                                          |
-   |                           |                |          |                                                                                          |
-   +===========================+================+==========+==========================================================================================+
-   | Jail Name                 | string         |          | mandatory; can only contain letters, numbers, dashes, or the underscore character        |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | Template                  | drop-down menu | ✓        | contains any created custom templates                                                    |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | IPv4 DHCP                 | checkbox       | ✓        | if unchecked, make sure that the defined address does not conflict with the DHCP         |
-   |                           |                |          | server's pool of available addresses                                                     |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | IPv4 address              | integer        | ✓        | this and the other IPv4 settings are grayed out if :guilabel:`IPv4 DHCP` is              |
-   |                           |                |          | checked; enter a unique IP address that is in the local network and not already          |
-   |                           |                |          | used by anyother computer                                                                |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | IPv4 netmask              | drop-down menu | ✓        | select the subnet mask associated with :guilabel:`IPv4 address`                          |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | IPv4 bridge address       | integer        | ✓        | grayed out unless :guilabel:`VIMAGE` is checked; see NOTE below                          |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | IPv4 bridge netmask       | drop-down menu | ✓        | select the subnet mask associated with :guilabel:`IPv4 bridge address`; grayed out       |
-   |                           |                |          | unless :guilabel:`VIMAGE` is checked                                                     |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | IPv4 default gateway      | string         | ✓        | grayed out unless :guilabel:`VIMAGE` is checked                                          |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | IPv6 Autoconfigure        | checkbox       | ✓        | if unchecked, make sure that the defined address does not conflict with the DHCP         |
-   |                           |                |          | server's pool of available addresses                                                     |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | IPv6 address              | integer        | ✓        | this and other IPv6 settings are grayed out if :guilabel:`IPv6 Autoconfigure` is         |
-   |                           |                |          | checked; enter a unique IPv6 address that is in the local network and not already        |
-   |                           |                |          | used by any other computer                                                               |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | IPv6 prefix length        | drop-down menu | ✓        | select the prefix length associated with :guilabel:`IPv6 address`                        |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | IPv6 bridge address       | integer        | ✓        | grayed out unless :guilabel:`VIMAGE` is checked; see NOTE below                          |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | IPv6 bridge prefix length | drop-down menu | ✓        | grayed out unless :guilabel:`VIMAGE` is checked; select the prefix length                |
-   |                           |                |          | associated with :guilabel:`IPv6 address`                                                 |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | IPv6 default gateway      | string         | ✓        | grayed out unless :guilabel:`VIMAGE` is checked; used to set the jail's default          |
-   |                           |                |          | gateway IPv6 address                                                                     |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | MAC                       | string         | ✓        | grayed out unless :guilabel:`VIMAGE` is checked; if a static MAC address is entered,     |
-   |                           |                |          | unique static MAC addresses must be entered for every jail created                       |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | NIC                       | drop-down menu | ✓        | grayed out if :guilabel:`VIMAGE` is checked; can be used to specify the interface        |
-   |                           |                |          | to use for jail connections                                                              |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | Sysctls                   | string         | ✓        | comma-delimited list of sysctls to set inside jail                                       |
-   |                           |                |          | (like *allow.sysvipc=1,allow.raw_sockets=1*)                                             |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | Autostart                 | checkbox       | ✓        | uncheck if the jail will be started manually                                             |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | VIMAGE                    | checkbox       | ✓        | gives a jail its own virtualized network stack;  requires promiscuous mode be            |
-   |                           |                |          | enabled on the interface                                                                 |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
-   | NAT                       | checkbox       | ✓        | grayed out for Linux jails or if :guilabel:`VIMAGE` is unchecked; enables                |
-   |                           |                |          | Network Address Translation for the jail                                                 |
-   |                           |                |          |                                                                                          |
-   +---------------------------+----------------+----------+------------------------------------------------------------------------------------------+
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | Setting                 | Value        | Advanced    | Description                                                                           |
+   |                         |              | Mode        |                                                                                       |
+   |                         |              |             |                                                                                       |
+   +=========================+==============+=============+=======================================================================================+
+   | Jail Name               | string       |             | Mandatory. Can only contain letters, numbers, dashes, or the underscore character.    |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | Template                | drop-down    | ✓           | Contains any created custom templates.                                                |
+   |                         | menu         |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | IPv4 DHCP               | checkbox     | ✓           | If unchecked, make sure that the defined address does not conflict with the DHCP      |
+   |                         |              |             | server's pool of available addresses.                                                 |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | IPv4 address            | integer      | ✓           | This and the other IPv4 settings are grayed out if :guilabel:`IPv4 DHCP` is           |
+   |                         |              |             | checked. Enter a unique IP address that is in the local network and not already       |
+   |                         |              |             | used by anyother computer.                                                            |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | IPv4 netmask            | drop-down    | ✓           | Select the subnet mask associated with :guilabel:`IPv4 address`.                      |
+   |                         | menu         |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | IPv4 bridge address     | integer      | ✓           | Grayed out unless :guilabel:`VIMAGE` is checked. See NOTE below.                      |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | IPv4 bridge netmask     | drop-down    | ✓           | Select the subnet mask associated with :guilabel:`IPv4 bridge address`. Grayed out    |
+   |                         | menu         |             | unless :guilabel:`VIMAGE` is checked.                                                 |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | IPv4 default gateway    | string       | ✓           | Grayed out unless :guilabel:`VIMAGE` is checked.                                      |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | IPv6 Autoconfigure      | checkbox     | ✓           | If unchecked, make sure that the defined address does not conflict with the DHCP      |
+   |                         |              |             | server's pool of available addresses.                                                 |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | IPv6 address            | integer      | ✓           | This and other IPv6 settings are grayed out if :guilabel:`IPv6 Autoconfigure` is      |
+   |                         |              |             | checked. Enter a unique IPv6 address that is in the local network and not already     |
+   |                         |              |             | used by any other computer.                                                           |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | IPv6 prefix length      | drop-down    | ✓           | Select the prefix length associated with :guilabel:`IPv6 address`.                    |
+   |                         | menu         |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | IPv6 bridge address     | integer      | ✓           | Grayed out unless :guilabel:`VIMAGE` is checked. See NOTE below.                      |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | IPv6 bridge             | drop-down    | ✓           | Grayed out unless :guilabel:`VIMAGE` is checked. Select the prefix length             |
+   | prefix length           | menu         |             | associated with :guilabel:`IPv6 address`.                                             |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | IPv6 default            | string       | ✓           | Grayed out unless :guilabel:`VIMAGE` is checked. Used to set the jail's default       |
+   | gateway                 |              |             | gateway IPv6 address.                                                                 |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | MAC                     | string       | ✓           | Grayed out unless :guilabel:`VIMAGE` is checked. Unique static MAC addresses          |
+   |                         |              |             | must be entered for every jail created if a static MAC address is entered.            |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | NIC                     | drop-down    | ✓           | Grayed out if :guilabel:`VIMAGE` is checked. Can be used to specify the interface     |
+   |                         | menu         |             | to use for jail connections.                                                          |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | Sysctls                 | string       | ✓           | Comma-delimited list of sysctls to set inside jail                                    |
+   |                         |              |             | (like *allow.sysvipc=1,allow.raw_sockets=1*)                                          |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | Autostart               | checkbox     | ✓           | Uncheck if the jail will be started manually.                                         |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | VIMAGE                  | checkbox     | ✓           | Gives a jail its own virtualized network stack. Requires promiscuous mode be          |
+   |                         |              |             | enabled on the interface.                                                             |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
+   | NAT                     | checkbox     | ✓           | Grayed out for Linux jails or if :guilabel:`VIMAGE` is unchecked. Enables             |
+   |                         |              |             | Network Address Translation for the jail.                                             |
+   |                         |              |             |                                                                                       |
+   +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------+
 
 
 .. note:: The IPv4 and IPv6 bridge interface is used to bridge the

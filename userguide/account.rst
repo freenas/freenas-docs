@@ -77,26 +77,26 @@ summarizes the available options when creating a group.
 .. table:: Group Creation Options
    :class: longtable
 
-   +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Setting             | Value     | Description                                                                                                              |
-   |                     |           |                                                                                                                          |
-   +=====================+===========+==========================================================================================================================+
-   | Group ID            | string    | The next available group ID is suggested. UNIX groups containing user accounts typically have an ID greater than 1000    |
-   |                     |           | and groups required by a service have an ID equal to the default port number used by the service. Example: the sshd      |
-   |                     |           | group has an ID of 22.                                                                                                   |
-   |                     |           |                                                                                                                          |
-   +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Group Name          | string    | Required. Enter a descriptive name for the new group.                                                                    |
-   |                     |           |                                                                                                                          |
-   +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Permit Sudo         | checkbox  | Set to allow group members to use `sudo <https://www.sudo.ws/>`__. When using :command:`sudo`, a user                    |
-   |                     |           | is prompted for their own password.                                                                                      |
-   |                     |           |                                                                                                                          |
-   +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
-   | Allow repeated GIDs | checkbox  | Set to allow multiple groups to share the same group id (GID). This is useful when a GID is already associated with the  |
-   |                     |           | UNIX permissions for existing data, but is generally not recommended.                                                    |
-   |                     |           |                                                                                                                          |
-   +---------------------+-----------+--------------------------------------------------------------------------------------------------------------------------+
+   +------------------------+-------------+----------------------------------------------------------------------------------------------------------------------------+
+   | Setting                | Value       | Description                                                                                                                |
+   |                        |             |                                                                                                                            |
+   +========================+=============+============================================================================================================================+
+   | Group ID               | string      | The next available group ID is suggested. UNIX groups containing user accounts typically have an ID greater than 1000      |
+   |                        |             | and groups required by a service have an ID equal to the default port number used by the service. Example: the sshd        |
+   |                        |             | group has an ID of 22.                                                                                                     |
+   |                        |             |                                                                                                                            |
+   +------------------------+-------------+----------------------------------------------------------------------------------------------------------------------------+
+   | Group Name             | string      | Required. Enter a descriptive name for the new group.                                                                      |
+   |                        |             |                                                                                                                            |
+   +------------------------+-------------+----------------------------------------------------------------------------------------------------------------------------+
+   | Permit Sudo            | checkbox    | Set to allow group members to use `sudo <https://www.sudo.ws/>`__. When using :command:`sudo`, a user                      |
+   |                        |             | is prompted for their own password.                                                                                        |
+   |                        |             |                                                                                                                            |
+   +------------------------+-------------+----------------------------------------------------------------------------------------------------------------------------+
+   | Allow repeated GIDs    | checkbox    | Set to allow multiple groups to share the same group id (GID). This is useful when a GID is already associated with the    |
+   |                        |             | UNIX permissions for existing data, but is generally not recommended.                                                      |
+   |                        |             |                                                                                                                            |
+   +------------------------+-------------+----------------------------------------------------------------------------------------------------------------------------+
 
 
 After a group and users are created, users can be added to a group.
@@ -218,8 +218,8 @@ created or modified.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
-                    |>{\Centering}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+                    |>{\Centering}p{\dimexpr 0.10\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.54\linewidth-2\tabcolsep}|
 
 .. _user_account_conf_tab:
@@ -227,70 +227,74 @@ created or modified.
 .. table:: User Account Configuration
    :class: longtable
 
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Setting                    | Value           | Advanced | Description                                                                                                                                |
-   |                            |                 | Mode     |                                                                                                                                            |
-   +============================+=================+==========+============================================================================================================================================+
-   | User ID                    | integer         |          | Grayed out if the user already exists. When creating an account, the next numeric ID is suggested. User accounts typically have an ID      |
-   |                            |                 |          | greater than 1000 and system accounts have an ID equal to the default port number used by the service.                                     |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Username                   | string          |          | Grayed out if the user already exists. Maximum 16 characters, though a maximum of 8 is recommended for interoperability. Cannot begin      |
-   |                            |                 |          | with a hyphen :kbd:`-`, if a :literal:`$` is used it can only be the last character, and it cannot contain a space, tab, or the characters |
-   |                            |                 |          | :literal:`, : + & # % ^ \ & ( ) ! @ ~ * ? < > =`.                                                                                          |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Create a new primary group | checkbox        |          | A primary group with the same name as the user is created automatically. Unset to select a different primary group name.                   |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Primary Group              | drop-down menu  |          | Unset :guilabel:`Create a new primary group` to access this menu. For security reasons, FreeBSD does not give a user :command:`su`         |
-   |                            |                 |          | permissions if *wheel* is their primary group. To give a user :command:`su` access, add them to the *wheel* group in                       |
-   |                            |                 |          | :guilabel:`Auxiliary groups`.                                                                                                              |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Create Home Directory In   | browse button   |          | Browse to the name of an **existing** volume or dataset that the user will be assigned permission to access.                               |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Home Directory Mode        | checkboxes      | ✓        | Sets default Unix permissions of the user's home directory. This is read-only for built-in users.                                          |
-   |                            |                 |          |                                                                                                                                            |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Shell                      | drop-down menu  |          | Select the shell to use for local and SSH logins. See :numref:`Table %s <shells_tab>` for an overview of available shells.                 |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Full Name                  | string          |          | Required. This field may contain spaces.                                                                                                   |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | E-mail                     | string          |          | The email address associated with the account.                                                                                             |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Password                   | string          |          | Required unless :guilabel:`Disable password login` is set. Cannot contain a :literal:`?`.                                                  |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Password confirmation      | string          |          | This must match the value of :guilabel:`Password`.                                                                                         |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Disable password login     | checkbox        |          | Set to disable password logins and authentication to SMB shares. To undo this setting, create a password for the user by clicking          |
-   |                            |                 |          | :guilabel:`Modify User` for the user in the :guilabel:`View Users` screen. Setting this grays out :guilabel:`Lock user` and                |
-   |                            |                 |          | :guilabel:`Permit Sudo`.                                                                                                                   |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Lock user                  | checkbox        |          | Set to prevent the user from logging in until this box is unset. Setting this grays out :guilabel:`Disable password login`.                |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Permit Sudo                | checkbox        |          | Set to give group members permission to use `sudo <https://www.sudo.ws/>`__. When using :command:`sudo`, a user is prompted for            |
-   |                            |                 |          | their own password.                                                                                                                        |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Microsoft Account          | checkbox        |          | Set this when the user is connecting from a Windows 8 or newer system.                                                                     |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | SSH Public Key             | string          |          | Enter or paste the user's **public** SSH key to be used for key-based authentication. **Do not paste the private key!**                    |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Auxiliary groups           | mouse selection |          | Highlight groups to add the user. Click the :guilabel:`>>` to add the user to the highlighted groups.                                      |
-   |                            |                 |          |                                                                                                                                            |
-   +----------------------------+-----------------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | Setting                | Value         | Advanced    | Description                                                                                                                    |
+   |                        |               | Mode        |                                                                                                                                |
+   |                        |               |             |                                                                                                                                |
+   +========================+===============+=============+================================================================================================================================+
+   | User ID                | integer       |             | Grayed out if the user already exists. When creating an account, the next numeric ID is suggested. User accounts typically     |
+   |                        |               |             | have an ID greater than 1000 and system accounts have an ID equal to the default port number used by the service.              |
+   |                        |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | Username               | string        |             | Grayed out if the user already exists. Maximum 16 characters, though a maximum of 8 is recommended for interoperability.       |
+   |                        |               |             | Cannot begin with a hyphen :kbd:`-`, if a :literal:`$` is used it can only be the last character, and it cannot contain        |
+   |                        |               |             | a space, tab, or the characters :literal:`, : + & # % ^ \ & ( ) ! @ ~ * ? < > =`.                                              |
+   |                        |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | Create a new           | checkbox      |             | A primary group with the same name as the user is created automatically. Unset to select a different primary group name.       |
+   | primary group          |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | Primary Group          | drop-down     |             | Unset :guilabel:`Create a new primary group` to access this menu. For security reasons, FreeBSD does not give a user           |
+   |                        | menu          |             | :command:`su` permissions if *wheel* is their primary group. To give a user :command:`su` access, add them to the              |
+   |                        |               |             | *wheel* group in :guilabel:`Auxiliary groups`.                                                                                 |
+   |                        |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | Create Home            | browse        |             | Browse to the name of an **existing** volume or dataset that the user will be assigned permission to access.                   |
+   | Directory In           | button        |             |                                                                                                                                |
+   |                        |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | Home Directory Mode    | checkboxes    | ✓           | Sets default Unix permissions of the user's home directory. This is read-only for built-in users.                              |
+   |                        |               |             |                                                                                                                                |
+   |                        |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | Shell                  | drop-down     |             | Select the shell to use for local and SSH logins. See :numref:`Table %s <shells_tab>` for an overview of available shells.     |
+   |                        | menu          |             |                                                                                                                                |
+   |                        |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | Full Name              | string        |             | Required. This field may contain spaces.                                                                                       |
+   |                        |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | E-mail                 | string        |             | The email address associated with the account.                                                                                 |
+   |                        |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | Password               | string        |             | Required unless :guilabel:`Disable password login` is set. Cannot contain a :literal:`?`.                                      |
+   |                        |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | Password               | string        |             | This must match the value of :guilabel:`Password`.                                                                             |
+   | confirmation           |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | Disable password       | checkbox      |             | Set to disable password logins and authentication to SMB shares. To undo this setting, create a password for the               |
+   | login                  |               |             | user by clicking :guilabel:`Modify User` for the user in the :guilabel:`View Users` screen. Setting this grays out             |
+   |                        |               |             | :guilabel:`Lock user` and :guilabel:`Permit Sudo`.                                                                             |
+   |                        |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | Lock user              | checkbox      |             | Set to prevent the user from logging in until this box is unset. Setting this grays out :guilabel:`Disable password login`.    |
+   |                        |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | Permit Sudo            | checkbox      |             | Set to give group members permission to use `sudo <https://www.sudo.ws/>`__. When using :command:`sudo`, a user                |
+   |                        |               |             | is prompted for their own password.                                                                                            |
+   |                        |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | Microsoft Account      | checkbox      |             | Set this when the user is connecting from a Windows 8 or newer system.                                                         |
+   |                        |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | SSH Public Key         | string        |             | Enter or paste the user's **public** SSH key to be used for key-based authentication. **Do not paste the private key!**        |
+   |                        |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
+   | Auxiliary groups       | mouse         |             | Highlight groups to add the user. Click the :guilabel:`>>` to add the user to the highlighted groups.                          |
+   |                        | selection     |             |                                                                                                                                |
+   |                        |               |             |                                                                                                                                |
+   +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
 
 
 .. note:: Some fields cannot be changed for built-in users and will be
@@ -305,53 +309,53 @@ created or modified.
 .. table:: Available Shells
    :class: longtable
 
-   +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | Shell        | Description                                                                                                          |
-   |              |                                                                                                                      |
-   +==============+======================================================================================================================+
-   | netcli.sh    | User is shown the Console Setup menu (:numref:`Figure %s <console_setup_menu_fig>`) on connection, even if it is     |
-   |              | disabled in :menuselection:`System --> Advanced --> Enable Console Menu`. The user must be *root* or have            |
-   |              | root permissions (effective user ID 0, like *toor*).                                                                 |
-   |              |                                                                                                                      |
-   +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | csh          | `C shell <https://en.wikipedia.org/wiki/C_shell>`__                                                                  |
-   |              |                                                                                                                      |
-   +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | sh           | `Bourne shell <https://en.wikipedia.org/wiki/Bourne_shell>`__                                                        |
-   |              |                                                                                                                      |
-   +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | tcsh         | `Enhanced C shell <https://en.wikipedia.org/wiki/Tcsh>`__                                                            |
-   |              |                                                                                                                      |
-   +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | nologin      | Use when creating a system account or to create a user account that can authenticate with shares but which cannot    |
-   |              | login to the FreeNAS system using :command:`ssh`.                                                                    |
-   |              |                                                                                                                      |
-   +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | bash         | `Bourne Again shell <https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29>`__                                         |
-   |              |                                                                                                                      |
-   +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | ksh93        | `Korn shell <http://www.kornshell.com/>`__                                                                           |
-   |              |                                                                                                                      |
-   +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | mksh         | `mirBSD Korn shell <https://www.mirbsd.org/mksh.htm>`__                                                              |
-   |              |                                                                                                                      |
-   +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | rbash        | `Restricted bash <http://www.gnu.org/software/bash/manual/html_node/The-Restricted-Shell.html>`__                    |
-   |              |                                                                                                                      |
-   +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | rzsh         | `Restricted zsh <http://www.csse.uwa.edu.au/programming/linux/zsh-doc/zsh_14.html>`__                                |
-   |              |                                                                                                                      |
-   +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | scponly      | Select `scponly <https://github.com/scponly/scponly/wiki>`__ to restrict the user's SSH usage to only the            |
-   |              | :command:`scp` and :command:`sftp` commands.                                                                         |
-   |              |                                                                                                                      |
-   +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | zsh          | `Z shell <http://www.zsh.org/>`__                                                                                    |
-   |              |                                                                                                                      |
-   +--------------+----------------------------------------------------------------------------------------------------------------------+
-   | git-shell    | `restricted git shell <https://git-scm.com/docs/git-shell>`__                                                        |
-   |              |                                                                                                                      |
-   +--------------+----------------------------------------------------------------------------------------------------------------------+
+   +--------------+-------------------------------------------------------------------------------------------------------+
+   | Shell        | Description                                                                                           |
+   |              |                                                                                                       |
+   +==============+=======================================================================================================+
+   | netcli.sh    | User is shown the Console Setup menu (:numref:`Figure %s <console_setup_menu_fig>`) on connection,    |
+   |              | even if it is disabled in :menuselection:`System --> Advanced --> Enable Console Menu`. The user      |
+   |              | must be *root* or have root permissions (effective user ID 0, like *toor*).                           |
+   |              |                                                                                                       |
+   +--------------+-------------------------------------------------------------------------------------------------------+
+   | csh          | `C shell <https://en.wikipedia.org/wiki/C_shell>`__                                                   |
+   |              |                                                                                                       |
+   +--------------+-------------------------------------------------------------------------------------------------------+
+   | sh           | `Bourne shell <https://en.wikipedia.org/wiki/Bourne_shell>`__                                         |
+   |              |                                                                                                       |
+   +--------------+-------------------------------------------------------------------------------------------------------+
+   | tcsh         | `Enhanced C shell <https://en.wikipedia.org/wiki/Tcsh>`__                                             |
+   |              |                                                                                                       |
+   +--------------+-------------------------------------------------------------------------------------------------------+
+   | nologin      | Use when creating a system account or to create a user account that can authenticate with shares      |
+   |              | but which cannot login to the FreeNAS system using :command:`ssh`.                                    |
+   |              |                                                                                                       |
+   +--------------+-------------------------------------------------------------------------------------------------------+
+   | bash         | `Bourne Again shell <https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29>`__                          |
+   |              |                                                                                                       |
+   +--------------+-------------------------------------------------------------------------------------------------------+
+   | ksh93        | `Korn shell <http://www.kornshell.com/>`__                                                            |
+   |              |                                                                                                       |
+   +--------------+-------------------------------------------------------------------------------------------------------+
+   | mksh         | `mirBSD Korn shell <https://www.mirbsd.org/mksh.htm>`__                                               |
+   |              |                                                                                                       |
+   +--------------+-------------------------------------------------------------------------------------------------------+
+   | rbash        | `Restricted bash <http://www.gnu.org/software/bash/manual/html_node/The-Restricted-Shell.html>`__     |
+   |              |                                                                                                       |
+   +--------------+-------------------------------------------------------------------------------------------------------+
+   | rzsh         | `Restricted zsh <http://www.csse.uwa.edu.au/programming/linux/zsh-doc/zsh_14.html>`__                 |
+   |              |                                                                                                       |
+   +--------------+-------------------------------------------------------------------------------------------------------+
+   | scponly      | Select `scponly <https://github.com/scponly/scponly/wiki>`__ to restrict the user's SSH usage         |
+   |              | to only the :command:`scp` and :command:`sftp` commands.                                              |
+   |              |                                                                                                       |
+   +--------------+-------------------------------------------------------------------------------------------------------+
+   | zsh          | `Z shell <http://www.zsh.org/>`__                                                                     |
+   |              |                                                                                                       |
+   +--------------+-------------------------------------------------------------------------------------------------------+
+   | git-shell    | `restricted git shell <https://git-scm.com/docs/git-shell>`__                                         |
+   |              |                                                                                                       |
+   +--------------+-------------------------------------------------------------------------------------------------------+
 
 
 .. index:: Remove User, Delete User

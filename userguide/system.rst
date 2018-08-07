@@ -143,61 +143,56 @@ settings in the General tab:
 .. table:: General Configuration Settings
    :class: longtable
 
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Setting              | Value          | Description                                                                                                              |
-   |                      |                |                                                                                                                          |
-   +======================+================+==========================================================================================================================+
-   | Protocol             | drop-down menu | Set the web protocol to use when connecting to the administrative GUI from a browser. To change the default              |
-   |                      |                | *HTTP* to *HTTPS* or to *HTTP+HTTPS*, select a certificate to use in :guilabel:`Certificate`.                            |
-   |                      |                | If there are no certificates, first                                                                                      |
-   |                      |                | create a :ref:`CA <CAs>` then a :ref:`certificate <Certificates>`.                                                       |
-   |                      |                |                                                                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Certificate          | drop-down menu | Required for *HTTPS*. :guilabel:`Browse` to the location of the certificate to use for encrypted connections.            |
-   |                      |                |                                                                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv4 Address  | drop-down menu | Choose a recent IP address to limit the usage when accessing the administrative GUI. The                                 |
-   |                      |                | built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address) and issues an                              |
-   |                      |                | alert if the specified address becomes unavailable.                                                                      |
-   |                      |                |                                                                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv6 Address  | drop-down menu | Choose a recent IPv6 address to limit the usage when accessing the administrative GUI. The                               |
-   |                      |                | built-in HTTP server binds to any address issues an alert                                                                |
-   |                      |                | if the specified address becomes unavailable.                                                                            |
-   |                      |                |                                                                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTP Port     | integer        | Allow configuring a non-standard port for accessing the administrative GUI over HTTP. Changing this setting              |
-   |                      |                | can also require                                                                                                         |
-   |                      |                | `changing a Firefox configuration setting                                                                                |
-   |                      |                | <https://www.redbrick.dcu.ie/~d_fens/articles/Firefox:_This_Address_is_Restricted>`__.                                   |
-   |                      |                |                                                                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTPS Port    | integer        | Allow configuring a non-standard port for accessing the administrative GUI over HTTPS.                                   |
-   |                      |                |                                                                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTP -->      | checkbox       | Set to redirect *HTTP* connections to *HTTPS*.                                                                           |
-   | HTTPS Redirect       |                | *HTTPS* must be selected in :guilabel:`Protocol`.                                                                        |
-   |                      |                |                                                                                                                          |
-   |                      |                |                                                                                                                          |
-   |                      |                |                                                                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Language             | drop-down menu | Select a localization. View the status of the localization at                                                            |
-   |                      |                | `weblate.trueos.org <https://weblate.trueos.org/projects/freenas/>`__.                                                   |
-   |                      |                |                                                                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Console Keyboard Map | drop-down menu | Select a keyboard layout.                                                                                                |
-   |                      |                |                                                                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Timezone             | drop-down menu | Select a timezone.                                                                                                       |
-   |                      |                |                                                                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Syslog level         | drop-down menu | When :guilabel:`Syslog server` is defined, only logs matching this level are sent.                                       |
-   |                      |                |                                                                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Syslog server        | string         | Select an *IP address_or_hostname:optional_port_number* to send logs to. Set to write log entries                        |
-   |                      |                | to both the console and the remote server.                                                                               |
-   |                      |                |                                                                                                                          |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+   | Setting             | Value        | Description                                                                                                            |
+   |                     |              |                                                                                                                        |
+   +=====================+==============+========================================================================================================================+
+   | Protocol            | drop-down    | Set the web protocol to use when connecting to the administrative GUI from a browser.                                  |
+   |                     | menu         | To change the default *HTTP* to *HTTPS* or to *HTTP+HTTPS*, select a certificate to use in :guilabel:`Certificate`.    |
+   |                     |              | If there are no certificates, first create a :ref:`CA <CAs>` then a :ref:`certificate <Certificates>`.                 |
+   |                     |              |                                                                                                                        |
+   +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+   | Certificate         | drop-down    | Required for *HTTPS*. :guilabel:`Browse` to the location of the certificate to use for encrypted connections.          |
+   |                     | menu         |                                                                                                                        |
+   +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+   | WebGUI IPv4         | drop-down    | Choose a recent IP address to limit the usage when accessing the administrative GUI.                                   |
+   | Address             | menu         | The built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address)                                      |
+   |                     |              | and issues an alert if the specified address becomes unavailable.                                                      |
+   |                     |              |                                                                                                                        |
+   +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+   | WebGUI IPv6         | drop-down    | Choose a recent IPv6 address to limit the usage when accessing the administrative GUI.                                 |
+   | Address             | menu         | The built-in HTTP server binds to any address issues an alert if the specified address becomes unavailable.            |
+   |                     |              |                                                                                                                        |
+   +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+   | WebGUI HTTP         | integer      | Allow configuring a non-standard port for accessing the administrative GUI over HTTP.                                  |
+   | Port                |              | Changing this setting can also require `changing a Firefox configuration setting                                       |
+   |                     |              | <https://www.redbrick.dcu.ie/~d_fens/articles/Firefox:_This_Address_is_Restricted>`__.                                 |
+   |                     |              |                                                                                                                        |
+   +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+   | WebGUI HTTPS        | integer      | Allow configuring a non-standard port for accessing the administrative GUI over HTTPS.                                 |
+   | Port                |              |                                                                                                                        |
+   +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+   | WebGUI HTTP -->     | checkbox     | Set to redirect *HTTP* connections to *HTTPS*.                                                                         |
+   | HTTPS Redirect      |              | *HTTPS* must be selected in :guilabel:`Protocol`.                                                                      |
+   |                     |              |                                                                                                                        |
+   +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+   | Language            | drop-down    | Select a localization. View the status of the localization at `weblate.trueos.org                                      |
+   |                     | menu         | <https://weblate.trueos.org/projects/freenas/>`__.                                                                     |
+   |                     |              |                                                                                                                        |
+   +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+   | Console Keyboard    | drop-down    | Select a keyboard layout.                                                                                              |
+   | Map                 | menu         |                                                                                                                        |
+   +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+   | Timezone            | drop-down    | Select a timezone.                                                                                                     |
+   |                     | menu         |                                                                                                                        |
+   +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+   | Syslog level        | drop-down    | When :guilabel:`Syslog server` is defined, only logs matching this level are sent.                                     |
+   |                     | menu         |                                                                                                                        |
+   +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+   | Syslog server       | string       | Select an *IP address_or_hostname:optional_port_number* to send logs to.                                               |
+   |                     |              | Set to write log entries to both the console and the remote server.                                                    |
+   |                     |              |                                                                                                                        |
+   +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
 
 
 After making any changes, click the :guilabel:`Save` button.
@@ -291,36 +286,35 @@ explains these options in more detail.
 .. table:: NTP Servers Configuration Options
    :class: longtable
 
-   +-------------+-----------+----------------------------------------------------------------------------------------------------+
-   | Setting     | Value     | Description                                                                                        |
-   |             |           |                                                                                                    |
-   |             |           |                                                                                                    |
-   +=============+===========+====================================================================================================+
-   | Address     | string    | Enter the hostname or IP address of the NTP server.                                                |
-   |             |           |                                                                                                    |
-   +-------------+-----------+----------------------------------------------------------------------------------------------------+
-   | Burst       | checkbox  | Recommended when :guilabel:`Max. Poll` is greater than *10*. Only use on private servers.          |
-   |             |           | **Do not** use with a public NTP server.                                                           |
-   |             |           |                                                                                                    |
-   +-------------+-----------+----------------------------------------------------------------------------------------------------+
-   | IBurst      | checkbox  | Speed up the initial synchronization, taking seconds rather than minutes.                          |
-   |             |           |                                                                                                    |
-   +-------------+-----------+----------------------------------------------------------------------------------------------------+
-   | Prefer      | checkbox  | This option is only recommended for highly accurate NTP servers, such as those with                |
-   |             |           | time monitoring hardware.                                                                          |
-   |             |           |                                                                                                    |
-   +-------------+-----------+----------------------------------------------------------------------------------------------------+
-   | Min. Poll   | integer   | Minimum polling time in seconds. Must be a power of 2, and cannot be lower than *4* or higher      |
-   |             |           | than :guilabel:`Max. Poll`.                                                                        |
-   |             |           |                                                                                                    |
-   +-------------+-----------+----------------------------------------------------------------------------------------------------+
-   | Max. Poll   | integer   | Maximum polling time in seconds. Must be a power of 2, and cannot be higher than                   |
-   |             |           | *17* or lower than :guilabel:`Min. Poll`.                                                          |
-   |             |           |                                                                                                    |
-   +-------------+-----------+----------------------------------------------------------------------------------------------------+
-   | Force       | checkbox  | Force the addition of the NTP server, even if it is currently unreachable.                         |
-   |             |           |                                                                                                    |
-   +-------------+-----------+----------------------------------------------------------------------------------------------------+
+   +--------------+-------------+----------------------------------------------------------------------------------------------+
+   | Setting      | Value       | Description                                                                                  |
+   |              |             |                                                                                              |
+   +==============+=============+==============================================================================================+
+   | Address      | string      | Enter the hostname or IP address of the NTP server.                                          |
+   |              |             |                                                                                              |
+   +--------------+-------------+----------------------------------------------------------------------------------------------+
+   | Burst        | checkbox    | Recommended when :guilabel:`Max. Poll` is greater than *10*.                                 |
+   |              |             | Only use on private servers.                                                                 |
+   |              |             | **Do not** use with a public NTP server.                                                     |
+   +--------------+-------------+----------------------------------------------------------------------------------------------+
+   | IBurst       | checkbox    | Speed up the initial synchronization, taking seconds rather than minutes.                    |
+   |              |             |                                                                                              |
+   +--------------+-------------+----------------------------------------------------------------------------------------------+
+   | Prefer       | checkbox    | This option is only recommended for highly accurate NTP servers,                             |
+   |              |             | such as those with time monitoring hardware.                                                 |
+   |              |             |                                                                                              |
+   +--------------+-------------+----------------------------------------------------------------------------------------------+
+   | Min. Poll    | integer     | Minimum polling time in seconds.                                                             |
+   |              |             | Must be a power of 2, and cannot be lower than *4* or higher than :guilabel:`Max. Poll`.     |
+   |              |             |                                                                                              |
+   +--------------+-------------+----------------------------------------------------------------------------------------------+
+   | Max. Poll    | integer     | Maximum polling time in seconds.                                                             |
+   |              |             | Must be a power of 2, and cannot be higher than *17* or lower than :guilabel:`Min. Poll`.    |
+   |              |             |                                                                                              |
+   +--------------+-------------+----------------------------------------------------------------------------------------------+
+   | Force        | checkbox    | Force the addition of the NTP server, even if it is currently unreachable.                   |
+   |              |             |                                                                                              |
+   +--------------+-------------+----------------------------------------------------------------------------------------------+
 
 
 .. index:: Boot Environments, Multiple Boot Environments
@@ -577,89 +571,94 @@ The configurable settings are summarized in
 .. table:: Advanced Configuration Settings
    :class: longtable
 
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Setting                                  | Value                            | Description                                                                  |
-   |                                          |                                  |                                                                              |
-   +==========================================+==================================+==============================================================================+
-   | Show Text Console without Password Prompt| checkbox                         | Set for the system to immediately display the text console after booting.    |
-   |                                          |                                  | Unset to require logging into the system before the console menu is shown.   |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Use Serial Console                       | checkbox                         | **Do not** enable this option if the serial port is disabled.                |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Serial Port Address                      | string                           | Select the serial port address in hex.                                       |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Serial Port Speed                        | drop-down menu                   | Select the speed used by the serial port.                                    |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable powerd (Power Saving Daemon)      | checkbox                         | `powerd(8) <https://www.freebsd.org/cgi/man.cgi?query=powerd>`__             |
-   |                                          |                                  | monitors the system state and sets the CPU frequency accordingly.            |
-   |                                          |                                  |                                                                              |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Setting                    | Value               | Description                                                                   |
+   |                            |                     |                                                                               |
+   +============================+=====================+===============================================================================+
+   | Show Text Console          | checkbox            | Set for the system to immediately display the text console after booting.     |
+   | without Password Prompt    |                     | Unset to require logging into the system before the console menu is shown.    |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Use Serial Console         | checkbox            | **Do not** enable this option if the serial port is disabled.                 |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Serial Port Address        | string              | Select the serial port address in hex.                                        |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Serial Port Speed          | drop-down menu      | Select the speed used by the serial port.                                     |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Enable powerd              | checkbox            | `powerd(8) <https://www.freebsd.org/cgi/man.cgi?query=powerd>`__              |
+   | (Power Saving Daemon)      |                     | monitors the system state and sets the CPU frequency accordingly.             |
+   |                            |                     |                                                                               |
    #ifdef freenas
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Swap size                                | non-zero integer representing GB | By default, all data disks are created with this amount of swap. This        |
-   |                                          |                                  | setting does not affect log or cache devices as they are created without     |
-   |                                          |                                  | swap.                                                                        |
-   |                                          |                                  |                                                                              |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Swap size                  | non-zero integer    | By default, all data disks are created with this amount of swap.              |
+   |                            | representing GB     | Log or cache devices do not create with swap and are unaffected.              |
+   |                            |                     |                                                                               |
    #endif freenas
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Show console messages in the footer      | checkbox                         | Set to display console messages in real time at the bottom of the browser.   |
-   |                                          |                                  | Click the console to bring up a scrollable screen. Enable the                |
-   |                                          |                                  | :guilabel:`Stop refresh` option in the scrollable screen to pause updating,  |
-   |                                          |                                  | and deselect the option to continue to watch the messages as they occur.     |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Show tracebacks in case of fatal errors  | checkbox                         | Open a pop-up of diagnostic information when a fatal error occurs.           |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Show advanced fields by default          | checkbox                         | Show :guilabel:`Advanced Mode` fields by default.                            |
-   |                                          |                                  |                                                                              |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable autotune                          | checkbox                         | Enable :ref:`autotune` script which attempts to optimize the system          |
-   |                                          |                                  | based on the installed hardware. *Warning*: Autotuning is only used as a     |
-   |                                          |                                  | temporary measure and is not a permanent fix for system hardware issues.     |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable debug kernel                      | checkbox                         | Use a debug version of the kernel on the next boot.                          |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Enable automatic upload of kernel        | checkbox                         | Set to report kernel crash dumps and daily performance measurements          |
-   | crash dumps and daily telemetry          |                                  | to iXsystems.                                                                |
-   |                                          |                                  |                                                                              |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | MOTD banner                              | string                           | This message is shown when a user logs in with SSH.                          |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Periodic Notification User               | drop-down menu                   | Choose a user to receive security output emails. This output runs nightly    |
-   |                                          |                                  | but only sends email when the system reboots or encounters an error.         |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Report CPU usage in percentage           | checkbox                         | Display CPU usage as percentages in :ref:`Reporting`.                        |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Remote Graphite Server hostname          | string                           | IP address or hostname of a remote server running                            |
-   |                                          |                                  | `Graphite <http://graphiteapp.org/>`__.                                      |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Use FQDN for logging                     | checkbox                         | Include the Fully-Qualified Domain Name in logs to precisely                 |
-   |                                          |                                  | identify systems with similar hostnames.                                     |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | ATA Security User                        | drop-down menu                   | User passed to :command:`camcontrol security -u` for unlocking               |
-   |                                          |                                  | :ref:`Self-Encrypting Drives`. Values are *User* or *Master*.                |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | SED Password                             | string                           | Global password used to unlock :ref:`Self-Encrypting Drives`.                |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
-   | Reset SED Password                       | checkbox                         | Select to clear the :guilabel:`Password for SED` column of                   |
-   |                                          |                                  | :menuselection:`Storage --> View Disks`.                                     |
-   |                                          |                                  |                                                                              |
-   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Show console messages      | checkbox            | Set to display console messages in real time at the bottom of the browser.    |
+   | in the footer              |                     | Click the console to bring up a scrollable screen.                            |
+   |                            |                     | Set :guilabel:`Stop refresh` in the scrollable screen to pause updating,      |
+   |                            |                     | and deselect the option to continue to watch the messages as they occur.      |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Show tracebacks in         | checkbox            | Open a pop-up of diagnostic information when a fatal error occurs.            |
+   | case of fatal errors       |                     |                                                                               |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Show advanced fields       | checkbox            | Show :guilabel:`Advanced Mode` fields by default.                             |
+   | by default                 |                     |                                                                               |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Enable autotune            | checkbox            | Enable an :ref:`autotune` script which attempts to optimize the system        |
+   |                            |                     | based on the installed hardware.                                              |
+   |                            |                     | *Warning*: Autotuning is only used as a temporary measure                     |
+   |                            |                     | and is not a permanent fix for system hardware issues.                        |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Enable debug kernel        | checkbox            | Use a debug version of the kernel on the next boot.                           |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Enable automatic upload    | checkbox            | Set to report kernel crash dumps and daily performance measurements           |
+   | of kernel crash dumps      |                     | to iXsystems.                                                                 |
+   | and daily telemetry        |                     |                                                                               |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | MOTD banner                | string              | This message is shown when a user logs in with SSH.                           |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Periodic Notification      | drop-down menu      | Choose a user to receive security output emails.                              |
+   | User                       |                     | This output runs nightly but only sends email when the system reboots         |
+   |                            |                     | or encounters an error.                                                       |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Report CPU usage in        | checkbox            | Display CPU usage as percentages in :ref:`Reporting`.                         |
+   | percentage                 |                     |                                                                               |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Remote Graphite Server     | string              | IP address or hostname of a remote server running                             |
+   | hostname                   |                     | `Graphite <http://graphiteapp.org/>`__.                                       |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Use FQDN for logging       | checkbox            | Include the Fully-Qualified Domain Name in logs to precisely                  |
+   |                            |                     | identify systems with similar hostnames.                                      |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | ATA Security User          | drop-down menu      | User passed to :command:`camcontrol security -u` for unlocking                |
+   |                            |                     | :ref:`Self-Encrypting Drives`.                                                |
+   |                            |                     | Values are *User* or *Master*.                                                |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | SED Password               | string              | Global password used to unlock :ref:`Self-Encrypting Drives`.                 |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+   | Reset SED Password         | checkbox            | Select to clear the :guilabel:`Password for SED` column of                    |
+   |                            |                     | :menuselection:`Storage --> View Disks`.                                      |
+   |                            |                     |                                                                               |
+   +----------------------------+---------------------+-------------------------------------------------------------------------------+
+
 
 Click the :guilabel:`Save` button after making any changes.
 
@@ -886,40 +885,38 @@ shown in
 .. table:: Email Configuration Settings
    :class: longtable
 
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Setting              | Value                | Description                                                                                     |
-   |                      |                      |                                                                                                 |
-   +======================+======================+=================================================================================================+
-   | From email           | string               | Setting a known **From** address can be helpful in filtering mail on the receiving system.      |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Outgoing mail server | string or IP address | Hostname or IP address of SMTP server used for sending this email.                              |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Port to connect to   | integer              | SMTP port number. Typically *25*,                                                               |
-   |                      |                      | *465* (secure SMTP), or                                                                         |
-   |                      |                      | *587* (submission).                                                                             |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | TLS/SSL              | drop-down menu       | Choose an encryption type. Choices are *Plain*,                                                 |
-   |                      |                      | *SSL*, or                                                                                       |
-   |                      |                      | *TLS*                                                                                           |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Use                  | checkbox             | Enable or disable                                                                               |
-   | SMTP                 |                      | `SMTP AUTH <https://en.wikipedia.org/wiki/SMTP_Authentication>`__                               |
-   | Authentication       |                      | using PLAIN SASL. If enabled, enter the required :guilabel:`Username` and :guilabel:`Password`. |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Username             | string               | Enter the SMTP username if the SMTP server requires authentication.                             |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Password             | string               | Enter the SMTP password if the SMTP server requires authentication.                             |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Password             | string               | Confirm the SMTP password.                                                                      |
-   | Confirmation         |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   +-------------------+---------------+-------------------------------------------------------------------------------------------+
+   | Setting           | Value         | Description                                                                               |
+   |                   |               |                                                                                           |
+   +===================+===============+===========================================================================================+
+   | From email        | string        | Setting a known **From** address is helpful in filtering mail on the receiving system.    |
+   |                   |               |                                                                                           |
+   +-------------------+---------------+-------------------------------------------------------------------------------------------+
+   | Outgoing mail     | string or     | Hostname or IP address of SMTP server used for sending this email.                        |
+   | server            | IP address    |                                                                                           |
+   +-------------------+---------------+-------------------------------------------------------------------------------------------+
+   | Port to           | integer       | SMTP port number. Typically *25*, *465* (secure SMTP), or *587* (submission).             |
+   | connect to        |               |                                                                                           |
+   |                   |               |                                                                                           |
+   +-------------------+---------------+-------------------------------------------------------------------------------------------+
+   | TLS/SSL           | drop-down     | Choose an encryption type.                                                                |
+   |                   | menu          | Choices are *Plain*, *SSL*, or *TLS*                                                      |
+   |                   |               |                                                                                           |
+   +-------------------+---------------+-------------------------------------------------------------------------------------------+
+   | Use SMTP          | checkbox      | Enable or disable `SMTP AUTH                                                              |
+   | Authentication    |               | <https://en.wikipedia.org/wiki/SMTP_Authentication>`__ using PLAIN SASL.                  |
+   |                   |               | If enabled, enter the required :guilabel:`Username` and :guilabel:`Password`.             |
+   |                   |               |                                                                                           |
+   +-------------------+---------------+-------------------------------------------------------------------------------------------+
+   | Username          | string        | Enter the SMTP username if the SMTP server requires authentication.                       |
+   |                   |               |                                                                                           |
+   +-------------------+---------------+-------------------------------------------------------------------------------------------+
+   | Password          | string        | Enter the SMTP password if the SMTP server requires authentication.                       |
+   |                   |               |                                                                                           |
+   +-------------------+---------------+-------------------------------------------------------------------------------------------+
+   | Password          | string        | Confirm the SMTP password.                                                                |
+   | Confirmation      |               |                                                                                           |
+   +-------------------+---------------+-------------------------------------------------------------------------------------------+
 
 
 Click the :guilabel:`Send Test Mail` button to verify that the
@@ -990,7 +987,7 @@ restarted, causing a temporary outage of any active SMB connections.
 
 #ifdef truenas
 .. note:: Storing the system dataset on the
-   :file:`freenas-boot` pool is recommended. For this reason, 
+   :file:`freenas-boot` pool is recommended. For this reason,
    a yellow system alert
    will be generated when the system dataset is configured to
    use another pool.
@@ -1086,31 +1083,29 @@ summarizes the options when adding a tunable.
 .. table:: Adding a Tunable
    :class: longtable
 
-   +-------------+-------------------+-------------------------------------------------------------------------------------+
-   | Setting     | Value             | Description                                                                         |
-   |             |                   |                                                                                     |
-   |             |                   |                                                                                     |
-   +=============+===================+=====================================================================================+
-   | Variable    | string            | The name of the sysctl or driver to load.                                           |
-   |             |                   |                                                                                     |
-   +-------------+-------------------+-------------------------------------------------------------------------------------+
-   | Value       | integer or string | Set a value for the :guilabel:`Variable`. Refer to the man page for the specific    |
-   |             |                   | driver or the                                                                       |
-   |             |                   | `FreeBSD Handbook <https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/>`__  |
-   |             |                   | for suggested values.                                                               |
-   |             |                   |                                                                                     |
-   +-------------+-------------------+-------------------------------------------------------------------------------------+
-   | Type        | drop-down menu    | Choices are *Loader*,                                                               |
-   |             |                   | *rc.conf*, or                                                                       |
-   |             |                   | *Sysctl*.                                                                           |
-   |             |                   |                                                                                     |
-   +-------------+-------------------+-------------------------------------------------------------------------------------+
-   | Comment     | string            | Enter a userful description of this tunable.                                        |
-   |             |                   |                                                                                     |
-   +-------------+-------------------+-------------------------------------------------------------------------------------+
-   | Enabled     | checkbox          | Deselect this option to disable the tunable without deleting it.                    |
-   |             |                   |                                                                                     |
-   +-------------+-------------------+-------------------------------------------------------------------------------------+
+   +-------------+--------------+---------------------------------------------------------------------------+
+   | Setting     | Value        | Description                                                               |
+   |             |              |                                                                           |
+   +=============+==============+===========================================================================+
+   | Variable    | string       | The name of the sysctl or driver to load.                                 |
+   |             |              |                                                                           |
+   +-------------+--------------+---------------------------------------------------------------------------+
+   | Value       | integer      | Set a value for the :guilabel:`Variable`.                                 |
+   |             | or string    | Refer to the man page for the specific driver or the `FreeBSD Handbook    |
+   |             |              | <https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/>`__          |
+   |             |              | for suggested values.                                                     |
+   |             |              |                                                                           |
+   +-------------+--------------+---------------------------------------------------------------------------+
+   | Type        | drop-down    | Choices are *Loader*, *rc.conf*, or *Sysctl*.                             |
+   |             | menu         |                                                                           |
+   |             |              |                                                                           |
+   +-------------+--------------+---------------------------------------------------------------------------+
+   | Comment     | string       | Enter a userful description of this tunable.                              |
+   |             |              |                                                                           |
+   +-------------+--------------+---------------------------------------------------------------------------+
+   | Enabled     | checkbox     | Unset this option to disable the tunable without deleting it.             |
+   |             |              |                                                                           |
+   +-------------+--------------+---------------------------------------------------------------------------+
 
 
 .. note:: As soon as a *Sysctl* is added or edited, the running kernel
@@ -1642,80 +1637,85 @@ remaining options vary by provider, and are shown in
 .. table:: Cloud Credential Options
    :class: longtable
 
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Provider             | Setting              | Description                                                 |
-   |                      |                      |                                                             |
-   +======================+======================+=============================================================+
-   | Amazon Cloud Drive   | Application Client   | Enter the Amazon application client ID and application key. |
-   |                      | ID, Application Key  |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Amazon S3            | Access Key,          | Enter the Amazon account access key and secret key.         |
-   |                      | Secret Key           |                                                             |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Amazon S3            | Endpoint URL         | Enter the Endpoint URL for the web service.                 |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Backblaze B2         | Account ID,          | Enter the Backblaze account ID and paste the application.   |
-   |                      | Application Key      |                                                             |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Box                  | Access Token         | Enter the Box access token.                                 |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Dropbox              | Access Token         | Enter the Dropbox access token. The token is located on the |
-   |                      |                      | `App Console <https://www.dropbox.com/developers/apps>`__   |
-   |                      |                      | After creating an app, go to *Settings* and click the       |
-   |                      |                      | *Generate* button under the Generated access token field.   |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | FTP                  | Host, Port           | Enter the FTP host and port.                                |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | FTP                  | Username, Password   | Enter the FTP username and password.                        |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Google Cloud Storage | JSON Service Account | :guilabel:`Browse` to the location of the saved             |
-   |                      | Key                  | Google Cloud Storage key and select it.                     |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Google Drive         | Access Token         | Enter the Google Drive Access Token.                        |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | HTTP                 | URL                  | Enter the URL.                                              |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Hubic                | Access Token         | Enter the access token.                                     |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Mega                 | Username, Password   | Enter the `Mega <https://mega.nz>`__ username and password. |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Microsoft Azure      | Account Name,        | Enter the Azure Blob Storage account name and key.          |
-   | Blob Storage         | Account Key          |                                                             |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Microsoft OneDrive   | Access Token         | Enter the access token.                                     |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | pCloud               | Access Token         | Enter the access token.                                     |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | SFTP                 | Host, Port           | Enter the SFTP host and port.                               |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | SFTP                 | Username, Password,  | Enter the SFTP username, password, and PEM-encoded private  |
-   |                      | key file path        | key file path.                                              |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | WebDAV               | URL, WebDAV Service  | Enter URL and use the dropdown to select the WebDAV service.|
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | WebDAV               | Username, Password   | Enter the username and password.                            |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
-   | Yandex               | Access Token         | Enter the access token.                                     |
-   |                      |                      |                                                             |
-   +----------------------+----------------------+-------------------------------------------------------------+
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | Provider           | Setting                | Description                                                     |
+   |                    |                        |                                                                 |
+   +====================+========================+=================================================================+
+   | Amazon Cloud       | Application Client     | Enter the Amazon application client ID and application key.     |
+   | Drive              | ID, Application Key    |                                                                 |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | Amazon S3          | Access Key,            | Enter the Amazon account access key and secret key.             |
+   |                    | Secret Key             |                                                                 |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | Amazon S3          | Endpoint URL           | Enter the Endpoint URL for the web service.                     |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | Backblaze B2       | Account ID,            | Enter the Backblaze account ID and paste the application.       |
+   |                    | Application Key        |                                                                 |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | Box                | Access Token           | Enter the Box access token.                                     |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | Dropbox            | Access Token           | Enter the Dropbox access token.                                 |
+   |                    |                        | The token is located on the `App Console                        |
+   |                    |                        | <https://www.dropbox.com/developers/apps>`__.                   |
+   |                    |                        | After creating an app, go to *Settings* and click               |
+   |                    |                        | :guilabel:`Generate` under the Generated access token field.    |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | FTP                | Host, Port             | Enter the FTP host and port.                                    |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | FTP                | Username, Password     | Enter the FTP username and password.                            |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | Google Cloud       | JSON Service           | :guilabel:`Browse` to the location of the saved                 |
+   | Storage            | Account Key            | Google Cloud Storage key and select it.                         |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | Google Drive       | Access Token           | Enter the Google Drive Access Token.                            |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | HTTP               | URL                    | Enter the URL.                                                  |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | Hubic              | Access Token           | Enter the access token.                                         |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | Mega               | Username, Password     | Enter the `Mega <https://mega.nz>`__ username and password.     |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | Microsoft Azure    | Account Name,          | Enter the Azure Blob Storage account name and key.              |
+   | Blob Storage       | Account Key            |                                                                 |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | Microsoft          | Access Token           | Enter the access token.                                         |
+   | OneDrive           |                        |                                                                 |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | pCloud             | Access Token           | Enter the access token.                                         |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | SFTP               | Host, Port             | Enter the SFTP host and port.                                   |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | SFTP               | Username, Password,    | Enter the SFTP username, password, and PEM-encoded private      |
+   |                    | key file path          | key file path.                                                  |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | WebDAV             | URL, WebDAV Service    | Enter URL and use the dropdown to select the WebDAV service.    |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | WebDAV             | Username, Password     | Enter the username and password.                                |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+   | Yandex             | Access Token           | Enter the access token.                                         |
+   |                    |                        |                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------+
+
 
 Additional fields are displayed after :guilabel:`Provider` is
 selected. For Amazon S3, :guilabel:`Access Key` and
@@ -1892,27 +1892,27 @@ The configurable options are summarized in
 .. table:: Importing a CA Options
    :class: longtable
 
-   +----------------------+----------------------+---------------------------------------------------------------------------------------------------+
-   | Setting              | Value                | Description                                                                                       |
-   |                      |                      |                                                                                                   |
-   +======================+======================+===================================================================================================+
-   | Identifier           | string               | Enter a descriptive name for the CA using only alphanumeric,                                      |
-   |                      |                      | underscore (:literal:`_`), and dash (:literal:`-`) characters.                                    |
-   |                      |                      |                                                                                                   |
-   +----------------------+----------------------+---------------------------------------------------------------------------------------------------+
-   | Certificate          | string               | Paste in the certificate for the CA.                                                              |
-   |                      |                      |                                                                                                   |
-   +----------------------+----------------------+---------------------------------------------------------------------------------------------------+
-   | Private Key          | string               | If there is a private key associated with the :guilabel:`Certificate`, paste it here.             |
-   |                      |                      |                                                                                                   |
-   +----------------------+----------------------+---------------------------------------------------------------------------------------------------+
-   | Passphrase           | string               | If the :guilabel:`Private Key` is protected by a passphrase, enter it here and repeat             |
-   |                      |                      | it in the "Confirm Passphrase" field.                                                             |
-   |                      |                      |                                                                                                   |
-   +----------------------+----------------------+---------------------------------------------------------------------------------------------------+
-   | Serial               | string               | Enter the serial number for the certificate.                                                      |
-   |                      |                      |                                                                                                   |
-   +----------------------+----------------------+---------------------------------------------------------------------------------------------------+
+   +----------------+-----------+---------------------------------------------------------------------------+
+   | Setting        | Value     | Description                                                               |
+   |                |           |                                                                           |
+   +================+===========+===========================================================================+
+   | Identifier     | string    | Enter a descriptive name for the CA using only alphanumeric,              |
+   |                |           | underscore (:literal:`_`), and dash (:literal:`-`) characters.            |
+   |                |           |                                                                           |
+   +----------------+-----------+---------------------------------------------------------------------------+
+   | Certificate    | string    | Paste in the certificate for the CA.                                      |
+   |                |           |                                                                           |
+   +----------------+-----------+---------------------------------------------------------------------------+
+   | Private Key    | string    | If there is a private key associated with the :guilabel:`Certificate`,    |
+   |                |           | paste it here.                                                            |
+   +----------------+-----------+---------------------------------------------------------------------------+
+   | Passphrase     | string    | If the :guilabel:`Private Key` is protected by a passphrase,              |
+   |                |           | enter it here and repeat it in the "Confirm Passphrase" field.            |
+   |                |           |                                                                           |
+   +----------------+-----------+---------------------------------------------------------------------------+
+   | Serial         | string    | Enter the serial number for the certificate.                              |
+   |                |           |                                                                           |
+   +----------------+-----------+---------------------------------------------------------------------------+
 
 
 To  create a new CA, first decide if it will be the only CA
@@ -1949,46 +1949,46 @@ information for the organization.
 .. table:: Internal CA Options
    :class: longtable
 
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Setting                 | Value                | Description                                                                                     |
-   |                         |                      |                                                                                                 |
-   +=========================+======================+=================================================================================================+
-   | Identifier              | string               | Enter a descriptive name for the CA using only alphanumeric,                                    |
-   |                         |                      | underscore (:literal:`_`), and dash (:literal:`-`) characters.                                  |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Key Length              | drop-down menu       | For security reasons, a minimum of *2048* is recommended.                                       |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Digest Algorithm        | drop-down menu       | The default is acceptable unless the organization requires a different algorithm.               |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Lifetime                | integer              | The lifetime of the CA is specified in days.                                                    |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Country                 | drop-down menu       | Select the country for the organization.                                                        |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | State                   | string               | Enter the state or province of the organization.                                                |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Locality                | string               | Enter the location of the organization.                                                         |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Organization            | string               | Enter the name of the company or organization.                                                  |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Email Address           | string               | Enter the email address for the person responsible for the CA.                                  |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Common Name             | string               | Enter the fully-qualified hostname (FQDN) of the system. The :guilabel:`Common Name`            |
-   |                         |                      | **must** be unique within a certificate chain.                                                  |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Subject Alternate Names | string               | Multi-domain support. Enter additional domain names and separate them with a space.             |
-   |                         |                      |                                                                                                 |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   +----------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Setting              | Value             | Description                                                                          |
+   |                      |                   |                                                                                      |
+   +======================+===================+======================================================================================+
+   | Identifier           | string            | Enter a descriptive name for the CA using only alphanumeric,                         |
+   |                      |                   | underscore (:literal:`_`), and dash (:literal:`-`) characters.                       |
+   |                      |                   |                                                                                      |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Key Length           | drop-down menu    | For security reasons, a minimum of *2048* is recommended.                            |
+   |                      |                   |                                                                                      |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Digest Algorithm     | drop-down menu    | The default is acceptable unless the organization requires a different algorithm.    |
+   |                      |                   |                                                                                      |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Lifetime             | integer           | The lifetime of the CA is specified in days.                                         |
+   |                      |                   |                                                                                      |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Country              | drop-down menu    | Select the country for the organization.                                             |
+   |                      |                   |                                                                                      |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------+
+   | State                | string            | Enter the state or province of the organization.                                     |
+   |                      |                   |                                                                                      |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Locality             | string            | Enter the location of the organization.                                              |
+   |                      |                   |                                                                                      |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Organization         | string            | Enter the name of the company or organization.                                       |
+   |                      |                   |                                                                                      |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Email Address        | string            | Enter the email address for the person responsible for the CA.                       |
+   |                      |                   |                                                                                      |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Common Name          | string            | Enter the fully-qualified hostname (FQDN) of the system.                             |
+   |                      |                   | The :guilabel:`Common Name` **must** be unique within a certificate chain.           |
+   |                      |                   |                                                                                      |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Subject Alternate    | string            | Multi-domain support.                                                                |
+   | Names                |                   | Enter additional domain names and separate them with a space.                        |
+   |                      |                   |                                                                                      |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------+
 
 
 To create an intermediate CA which is part of a certificate
@@ -2091,24 +2091,24 @@ The configurable options are summarized in
 .. table:: Certificate Import Options
    :class: longtable
 
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Setting              | Value                | Description                                                                                     |
-   |                      |                      |                                                                                                 |
-   +======================+======================+=================================================================================================+
-   | Identifier           | string               | Enter a descriptive name for the certificate using only alphanumeric,                           |
-   |                      |                      | underscore (:literal:`_`), and dash (:literal:`-`) characters.                                  |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Certificate          | string               | Paste the contents of the certificate.                                                          |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Private Key          | string               | Paste the private key associated with the certificate.                                          |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Passphrase           | string               | If the private key is protected by a passphrase, enter it here and repeat it in                 |
-   |                      |                      | the :guilabel:`Confirm Passphrase` field.                                                       |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   +----------------+-----------+------------------------------------------------------------------------------------+
+   | Setting        | Value     | Description                                                                        |
+   |                |           |                                                                                    |
+   +================+===========+====================================================================================+
+   | Identifier     | string    | Enter a descriptive name for the certificate using only alphanumeric,              |
+   |                |           | underscore (:literal:`_`), and dash (:literal:`-`) characters.                     |
+   |                |           |                                                                                    |
+   +----------------+-----------+------------------------------------------------------------------------------------+
+   | Certificate    | string    | Paste the contents of the certificate.                                             |
+   |                |           |                                                                                    |
+   +----------------+-----------+------------------------------------------------------------------------------------+
+   | Private Key    | string    | Paste the private key associated with the certificate.                             |
+   |                |           |                                                                                    |
+   +----------------+-----------+------------------------------------------------------------------------------------+
+   | Passphrase     | string    | If the private key is protected by a passphrase, enter it here and repeat it in    |
+   |                |           | the :guilabel:`Confirm Passphrase` field.                                          |
+   |                |           |                                                                                    |
+   +----------------+-----------+------------------------------------------------------------------------------------+
 
 
 To create a new self-signed certificate, click the
@@ -2139,49 +2139,51 @@ as the signing authority.
 .. table:: Certificate Creation Options
    :class: longtable
 
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Setting                 | Value                | Description                                                                                     |
-   |                         |                      |                                                                                                 |
-   +=========================+======================+=================================================================================================+
-   | Signing Certificate     | drop-down menu       | Select the CA which was previously imported or created using :ref:`CAs`.                        |
-   | Authority               |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Identifier              | string               | Enter a descriptive name for the certificate using only alphanumeric,                           |
-   |                         |                      | underscore (:literal:`_`), and dash (:literal:`-`) characters.                                  |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Key Length              | drop-down menu       | For security reasons, a minimum of *2048* is recommended.                                       |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Digest Algorithm        | drop-down menu       | The default is acceptable unless the organization requires a different algorithm.               |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Lifetime                | integer              | The lifetime of the certificate is specified in days.                                           |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Country                 | drop-down menu       | Select the country for the organization.                                                        |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | State                   | string               | State or province for the organization.                                                         |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Locality                | string               | Location of the organization.                                                                   |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Organization            | string               | Name of the company or organization.                                                            |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Email Address           | string               | Email address for the person responsible for the CA.                                            |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Common Name             | string               | Enter the fully-qualified hostname (FQDN) of the system. The :guilabel:`Common Name`            |
-   |                         |                      | **must** be unique within a certificate chain.                                                  |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Subject Alternate Names | string               | Multi-domain support. Enter additional domain names and separate them with a space.             |
-   |                         |                      |                                                                                                 |
-   |                         |                      |                                                                                                 |
-   +-------------------------+----------------------+-------------------------------------------------------------------------------------------------+
+   +------------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Setting                | Value             | Description                                                                          |
+   |                        |                   |                                                                                      |
+   +========================+===================+======================================================================================+
+   | Signing Certificate    | drop-down menu    | Select the CA which was previously imported or created using :ref:`CAs`.             |
+   | Authority              |                   |                                                                                      |
+   |                        |                   |                                                                                      |
+   +------------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Identifier             | string            | Enter a descriptive name for the certificate using only alphanumeric,                |
+   |                        |                   | underscore (:literal:`_`), and dash (:literal:`-`) characters.                       |
+   |                        |                   |                                                                                      |
+   +------------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Key Length             | drop-down menu    | For security reasons, a minimum of *2048* is recommended.                            |
+   |                        |                   |                                                                                      |
+   +------------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Digest Algorithm       | drop-down menu    | The default is acceptable unless the organization requires a different algorithm.    |
+   |                        |                   |                                                                                      |
+   +------------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Lifetime               | integer           | The lifetime of the certificate is specified in days.                                |
+   |                        |                   |                                                                                      |
+   +------------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Country                | drop-down menu    | Select the country for the organization.                                             |
+   |                        |                   |                                                                                      |
+   +------------------------+-------------------+--------------------------------------------------------------------------------------+
+   | State                  | string            | State or province for the organization.                                              |
+   |                        |                   |                                                                                      |
+   +------------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Locality               | string            | Location of the organization.                                                        |
+   |                        |                   |                                                                                      |
+   +------------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Organization           | string            | Name of the company or organization.                                                 |
+   |                        |                   |                                                                                      |
+   +------------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Email Address          | string            | Email address for the person responsible for the CA.                                 |
+   |                        |                   |                                                                                      |
+   +------------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Common Name            | string            | Enter the fully-qualified hostname (FQDN) of the system.                             |
+   |                        |                   | The :guilabel:`Common Name` **must** be unique within a certificate chain.           |
+   |                        |                   |                                                                                      |
+   +------------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Subject Alternate      | string            | Multi-domain support.                                                                |
+   | Names                  |                   | Enter additional domain names and separate them with a space.                        |
+   |                        |                   |                                                                                      |
+   +------------------------+-------------------+--------------------------------------------------------------------------------------+
+
 
 If the certificate is signed by an external CA,
 such as Verisign, instead create a certificate signing request. To do
@@ -2632,32 +2634,32 @@ and described in
 .. table:: Failover Options
    :class: longtable
 
-   +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Setting        | Value          | Description                                                                                                                                           |
-   |                |                |                                                                                                                                                       |
-   +================+================+=======================================================================================================================================================+
-   | Disabled       | checkbox       | Set to disable failover. The :guilabel:`HA Enabled` icon changes to :guilabel:`HA Disabled` and                                                       |
-   |                |                | activates the :guilabel:`Master` field. An error message is generated if the standby node is not responding or failover is not                        |
-   |                |                | configured.                                                                                                                                           |
-   |                |                |                                                                                                                                                       |
-   +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Master         | checkbox       | Grayed out unless :guilabel:`Disabled` is selected. In that case, this option is automatically enabled on the master system, allowing the             |
-   |                |                | master to automatically take over when the :guilabel:`Disabled` option is deselected.                                                                 |
-   |                |                |                                                                                                                                                       |
-   +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Timeout        | integer        | Specify, in seconds, how quickly failover occurs after a network failure. The default of *0* indicates that failover either occurs immediately or,    |
-   |                |                | if the system is using a link aggregation, after 2 seconds.                                                                                           |
-   |                |                |                                                                                                                                                       |
-   +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync to Peer   | button         | Open a dialog window to force the %brand% configuration to sync from the active node to the standby node. After the sync, the                         |
-   |                |                | standby node must be rebooted (enabled by default) to load the new configuration. *Do not use this unless requested by an iXsystems support engineer, |
-   |                |                | the HA daemon normally handles configuration sync automatically*.                                                                                     |
-   |                |                |                                                                                                                                                       |
-   +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Sync From Peer | button         | Open a dialog window to force the %brand% configuration to sync from the standby node to the active node.                                             |
-   |                |                | *Do not use this unless requested by an iXsystems support engineer, the HA daemon normally handles configuration sync automatically*.                 |
-   |                |                |                                                                                                                                                       |
-   +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+   +--------------+-------------+------------------------------------------------------------------------------------------------------------------------------------------+
+   | Setting      | Value       | Description                                                                                                                              |
+   |              |             |                                                                                                                                          |
+   +==============+=============+==========================================================================================================================================+
+   | Disabled     | checkbox    | Set to disable failover.                                                                                                                 |
+   |              |             | The :guilabel:`HA Enabled` icon changes to :guilabel:`HA Disabled` and activates the :guilabel:`Master` field.                           |
+   |              |             | An error message is generated if the standby node is not responding or failover is not configured.                                       |
+   |              |             |                                                                                                                                          |
+   +--------------+-------------+------------------------------------------------------------------------------------------------------------------------------------------+
+   | Master       | checkbox    | Grayed out unless :guilabel:`Disabled` is selected.                                                                                      |
+   |              |             | In that case, this option is automatically enabled on the master system,                                                                 |
+   |              |             | allowing the master to automatically take over when the :guilabel:`Disabled` option is deselected.                                       |
+   +--------------+-------------+------------------------------------------------------------------------------------------------------------------------------------------+
+   | Timeout      | integer     | Specify, in seconds, how quickly failover occurs after a network failure.                                                                |
+   |              |             | The default of *0* indicates that failover either occurs immediately or, if the system is using a link aggregation, after 2 seconds.     |
+   |              |             |                                                                                                                                          |
+   +--------------+-------------+------------------------------------------------------------------------------------------------------------------------------------------+
+   | Sync to      | button      | Open a dialog window to force the %brand% configuration to sync from the active node to the standby node.                                |
+   | Peer         |             | After the sync, the standby node must be rebooted (enabled by default) to load the new configuration.                                    |
+   |              |             | *Do not use this unless requested by an iXsystems support engineer, the HA daemon normally handles configuration sync automatically*.    |
+   |              |             |                                                                                                                                          |
+   +--------------+-------------+------------------------------------------------------------------------------------------------------------------------------------------+
+   | Sync From    | button      | Open a dialog window to force the %brand% configuration to sync from the standby node to the active node.                                |
+   | Peer         |             | *Do not use this unless requested by an iXsystems support engineer, the HA daemon normally handles configuration sync automatically*.    |
+   |              |             |                                                                                                                                          |
+   +--------------+-------------+------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 .. warning:: Booting an HA pair with failover disabled causes both
