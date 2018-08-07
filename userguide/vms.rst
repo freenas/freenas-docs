@@ -52,8 +52,8 @@ output shows the POPCNT feature, this processor can be used with
 Creating VMs
 ------------
 
-Navigate to :menuselection:`VMs`, and click |ui-add| to open the Wizard
-shown in
+Click on
+:menuselection:`VMs` and |ui-add| to open the wizard shown in
 :numref:`Figure %s <vms_add_fig>`:
 
 
@@ -64,7 +64,7 @@ shown in
    Add VM
 
 
-VM configuration options are described in
+Virtual machine configuration options are described in
 :numref:`Table %s <vms_add_opts_tab>`.
 
 
@@ -175,8 +175,8 @@ This example creates a FreeBSD VM. |ui-add| is clicked on the
    the %brand% system. The :guilabel:`Choose installation media image`
    field is populated when the upload completes.
 
-#. After verifying the :guilabel:`VM Summary` is correct, the user
-   clicks :guilabel:`Submit`.
+#. After verifying the :guilabel:`VM Summary` is correct,
+   :guilabel:`Submit` is clicked.
 
 
 :numref:`Figure %s <vms_create_example>` shows the confirmation step
@@ -201,9 +201,9 @@ To add a device to a VM, click :guilabel:`Devices` on the new VM card,
 and |ui-add|.
 
 
-.. figure:: images/vms-devices1.png
+.. figure:: images/vms-devices-add.png
 
-   VM Devices Page
+   VM Devices
 
 
 Select the new device from the :guilabel:`Type` field.
@@ -241,9 +241,9 @@ accessible portion of the %brand% storage. In this example, a FreeBSD
 installation image is shown:
 
 
-.. figure:: images/vms-cdrom.png
+.. figure:: images/vms-devices-cdrom.png
 
-   VM CD-ROM Device
+   CD-ROM Device
 
 
 .. note:: VMs from other virtual machine systems can be recreated for
@@ -271,9 +271,9 @@ clicking |ui-add|, and selecting :guilabel:`NIC` as the
 
 .. _vms-nic_fig:
 
-.. figure:: images/vms-nic1a.png
+.. figure:: images/vms-devices-nic.png
 
-   VM Network Interface Device
+   Network Interface Device
 
 
 The :guilabel:`Adapter Type` can emulate an Intel e82545 (e1000)
@@ -305,12 +305,12 @@ clicking |ui-add|, and selecting :guilabel:`Disk` as the
 :guilabel:`Type`.
 
 
-.. figure:: images/vms-disk1.png
+.. figure:: images/vms-devices-disk.png
 
-   VM Disk Device
+   Disk Device
 
 
-:guilabel:`Browse` to the created ZVol, then set the :guilabel:`Mode`.
+:guilabel:`Browse` to the created zvol, then set the :guilabel:`Mode`.
 
 *AHCI* emulates an AHCI hard disk for best software compatibility.
 *VirtIO* uses paravirtualized drivers and can provide better
@@ -333,26 +333,25 @@ existing read-only binary images of drives, like an installer disk
 image file meant to be copied onto a USB stick.
 
 After obtaining and copying the image file to the %brand% system,
-navigate
+click
 :menuselection:`VMs --> Devices`, click |ui-add|,
-and select :guilabel:`Raw File` as the :guilabel:`Type`.
+then set the :guilabel:`Type` to :guilabel:`Raw File`.
 
 
+.. figure:: images/vms-devices-rawfile.png
 
-.. figure:: images/vms-raw-file.png
-
-   VM Raw File Disk Device
+   Raw File Disk Device
 
 
-:guilabel:`Browse` to the image file, then set the
-:guilabel:`Disk sector size`. If a specific sector size is required,
-enter the number of bytes into :guilabel:`Disk sector size`. The default
-of *0* leaves the sector size unset.
+:guilabel:`Browse` to select the image file. If a specific sector size
+:is required, enter the number of bytes in
+:guilabel:`Disk sector size`. The default value of *0* leaves the
+sector size unset.
 
-Now set the :guilabel:`Mode`. *AHCI* emulates an AHCI hard disk for best
-software compatibility. *VirtIO* uses paravirtualized drivers and can
-provide better performance, but requires the operating system installed
-in the VM to support VirtIO disk devices.
+Setting the :guilabel:`Mode` to *AHCI* emulates an AHCI hard disk for
+best software compatibility. *VirtIO* uses paravirtualized drivers and
+can provide better performance, but requires the operating system
+installed in the VM to support VirtIO disk devices.
 
 
 .. _vms-VNC:
@@ -367,9 +366,9 @@ client can connect to the VM to provide screen output and keyboard and
 mouse input.
 
 .. note:: Setting :guilabel:`Enable VNC` during
-   :ref:`VM creation <Creating VMs>` disables adding another VNC device.
-   Click |ui-options| and :guilabel:`Edit` for the existing VNC device
-   to make any changes.
+   :ref:`VM creation <Creating VMs>` disables adding another VNC
+   device. Click |ui-options| and :guilabel:`Edit` for the existing
+   VNC device to make any changes.
 
 
 :numref:`Figure %s <vms-vnc_fig>` shows the fields that appear
@@ -377,15 +376,17 @@ after navigating to
 :menuselection:`VMs --> Devices`, clicking |ui-add|,
 and selecting :guilabel:`VNC` as the :guilabel:`Type`.
 
+
 .. _vms-vnc_fig:
 
-.. figure:: images/vms-vnc1.png
+.. figure:: images/vms-devices-vnc.png
 
-   VM VNC Device
+   VNC Device
 
 
-The :guilabel:`Port` can be set to *0*, left empty for %brand% to assign
-a port when the VM is started, or set to a fixed, preferred port number.
+The :guilabel:`Port` can be set to *0*, left empty for %brand% to
+assign a port when the VM is started, or set to a fixed, preferred
+port number.
 
 Set :guilabel:`Wait to boot` to force the VNC client to wait
 until the VM has booted before attempting the connection.
@@ -441,7 +442,7 @@ To connect to the first VM:
 
 See
 `cu(1) <https://www.freebsd.org/cgi/man.cgi?query=cu>`__
-for more information on operating :command:`cu`.
+for more information on using :command:`cu`.
 
 
 .. index:: Running VMs
@@ -450,14 +451,14 @@ for more information on operating :command:`cu`.
 Running VMs
 -----------
 
-Select
+Click
 :menuselection:`VMs`
-to see cards of installed VMs. There are also options to switch the
-default view in this screen to *Slim* and *Table*. There is an option to
-:guilabel:`Connect` to the VM across the bottom of the card.
+to see a card for each installed VM. There are options to switch the
+default view on this screen to *Slim* or *Table*. Each card has a
+:guilabel:`Connect` button at the bottom.
 
 
-.. figure:: images/vms-control1.png
+.. figure:: images/vms.png
 
    VM Cards
 
@@ -467,10 +468,11 @@ configuration values are shown on the card. Click |ui-options| for the
 :guilabel:`Start`, :guilabel:`Power Off`, :guilabel:`Delete`,
 :guilabel:`Devices`, and :guilabel:`Edit` options.
 
+
 .. note:: The UI shows an error message if a VM fails to start.
 
 
-Some standard buttons are available for all VMs:
+Some buttons are available for all VMs:
 
 * :guilabel:`Delete` :ref:`removes the VM <Deleting VMs>`.
 
@@ -480,21 +482,22 @@ When a VM is not running, these buttons are available:
 
 * :guilabel:`Power (Red)` starts the VM.
 
-* :guilabel:`Edit` changes VM settings. This includes the option to
-  :guilabel:`Clone` a VM. This copies the VM to a new VM. The new VM
-  is given the same name as the original, with *_cloneN* appended,
-  where *N* is the number of the clone.
+* :guilabel:`Edit` changes VM settings, and includes an option to
+  :guilabel:`Clone` an existing VM. Cloning makes a copy of the VM.
+  The new clone has :samp:`_clone{N}` added to the name, where
+  :samp:`{N}` is the number of the clone.
+
 
 When a VM is already running, these buttons are available:
 
 * :guilabel:`Power (Green)` shuts down the VM.
 
-* :guilabel:`Power off` immediately halts the VM, equivalent to
-  disconnecting the power on a physical computer.
+* :guilabel:`Power off` immediately halts the VM. This is equivalent
+  to disconnecting the power to a physical computer.
 
-* :guilabel:`Connect` displays options to connect to the VM with
-  either :guilabel:`VNC` or the :guilabel:`Serial` shell. For
-  :guilabel:`VNC`, the VM must have a VNC device with
+* :guilabel:`Connect` displays options to connect to the VM. This can
+  include :guilabel:`VNC`, a :guilabel:`Serial` shell, or other
+  options. For :guilabel:`VNC`, the VM must have a VNC device with
   :guilabel:`Web Interface` enabled.
 
 
@@ -523,7 +526,7 @@ Docker/Rancher VMs
 ------------------
 
 `Docker <https://www.docker.com/what-docker>`__
-is Open Source software for automating application deployment
+is open source software for automating application deployment
 inside containers. A container provides a complete filesystem,
 runtime, system tools, and system libraries, so applications always
 see the same environment.
@@ -638,25 +641,23 @@ Docker VM configuration options are described in
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
 
 
-Choose the base options for the VM at each step of the wizard. Make sure
-:guilabel:`Virtual CPUs` is set to *1* and :guilabel:`Memory Size` is a
-minimum of *2048*.
+Choose the base options for the VM at each step of the wizard.
+:guilabel:`Virtual CPUs` is set to *1*. :guilabel:`Memory Size` must
+be set to at least *2048 MiB*.
 
 The :guilabel:`Network Interface` step is automatically populated with
 system defaults. Customize these fields as necessary and press
 :guilabel:`Next` to continue.
 
-The :guilabel:`Storage Files` section of the wizard contains options to
-create, size, and store a raw file. Add a filename by typing an *.img*
-name in the :guilabel:`Raw filename` field. Enter a number of gigabytes
-for the :guilabel:`Raw file size`. Set the :guilabel:`Disk sector size`
-in bytes. Set the raw file save location by clicking the
-:guilabel:`Folder` icon and selecting a directory for the
-:guilabel:`Raw file location` field.
+The :guilabel:`Storage Files` section of the wizard contains options
+to create and store a raw file. Add a filename by typing an *.img*
+name in the :guilabel:`Raw filename` field. Enter a number of
+gigabytes for the :guilabel:`Raw file size`. Set the raw file location
+with the folder button or by typing a directory in the field.
 
 The final screen of the Wizard displays the chosen options for the new
-Docker VM. Click :guilabel:`Submit` to create the VM or :guilabel:`Back`
-to change any settings:
+Docker VM. Click :guilabel:`Submit` to create the VM or
+:guilabel:`Back` to change any settings:
 
 
 .. figure:: images/vms-add-wizard-docker-summary.png
@@ -671,9 +672,9 @@ password :literal:`docker` is changed by editing the raw device of the
 Docker VM. Passwords cannot contain a space.
 
 
-.. figure:: images/vms-rancher-storage.png
+.. figure:: images/vms-docker-devices-vnc.png
 
-   Edit Rancher Raw File
+   Edit Rancher Password in Raw File Device
 
 
 Start the Docker VM
