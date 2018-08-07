@@ -277,8 +277,10 @@ NIC (Network Interfaces)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 :numref:`Figure %s <vms-nic_fig>` shows the fields that appear after
-navigating :menuselection:`VMs --> Devices`, clicking |ui-add|,
-and selecting :guilabel:`NIC` as the :guilabel:`Type`.
+navigating to
+:menuselection:`VMs --> Devices`,
+clicking |ui-add|, and selecting :guilabel:`NIC` as the
+:guilabel:`Type`.
 
 .. _vms-nic_fig:
 
@@ -310,8 +312,10 @@ Disk Devices
 
 :ref:`Zvols <adding zvols>` are typically used as virtual hard drives.
 After :ref:`creating a zvol <adding zvols>`, associate it with the VM
-by navigating :menuselection:`VMs --> Devices`, clicking |ui-add|,
-and selecting :guilabel:`Disk` as the :guilabel:`Type`.
+by navigating to
+:menuselection:`VMs --> Devices`,
+clicking |ui-add|, and selecting :guilabel:`Disk` as the
+:guilabel:`Type`.
 
 
 .. figure:: images/vms-disk1.png
@@ -326,9 +330,9 @@ and selecting :guilabel:`Disk` as the :guilabel:`Type`.
 performance, but requires the operating system installed in the VM to
 support VirtIO disk devices.
 
-If a specific sector size is required, enter the number of bytes into
-:guilabel:`Disk sector size`. The default of *0* leaves the sector size
-unset.
+If a specific sector size is required, enter the number of bytes in
+:guilabel:`Disk sector size`. The default of *0* leaves the sector
+size unset.
 
 
 .. _vms-raw-file:
@@ -382,7 +386,7 @@ mouse input.
 
 
 :numref:`Figure %s <vms-vnc_fig>` shows the fields that appear
-after navigating
+after navigating to
 :menuselection:`VMs --> Devices`, clicking |ui-add|,
 and selecting :guilabel:`VNC` as the :guilabel:`Type`.
 
@@ -567,8 +571,9 @@ Creating Docker VMs
 ~~~~~~~~~~~~~~~~~~~
 
 :numref:`Figure %s <vms_add_docker_fig>` shows the Wizard that appears
-after navigating :menuselection:`VMs --> Devices`, clicking |ui-add|,
-and selecting :guilabel:`Docker Host` as the
+after navigating to
+:menuselection:`VMs --> Devices`,
+clicking |ui-add|, and selecting :guilabel:`Docker Host` as the
 :guilabel:`Virtual Machine (VM) Wizard type`.
 
 

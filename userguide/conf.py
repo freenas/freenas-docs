@@ -165,12 +165,12 @@ roles.register_local_role("menuselection", patched_menusel_role)
 
 # roles for specific UI icons
 # gear: Unicode F013
-# options: unicode F142
+# options: unicode 22EE
 # plus: unicode FF0B
 
 rst_prolog = u'''
 .. |ui-settings| replace:: ⚙ (Settings)
-.. |ui-options|  replace:: ⫶ (Options)
+.. |ui-options|  replace:: ⋮ (Options)
 .. |ui-add|      replace:: **+** (Add/Create)
 '''
 
