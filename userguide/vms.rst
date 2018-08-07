@@ -91,8 +91,8 @@ VM configuration options are described in
    |          |                    |                | for detailed instructions about using a different guest OS.                                   |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | VM Name            | string         | Enter an alphanumeric name to identify the VM. A popup error will occur if another VM is      |
-   |          |                    |                | using that name.                                                                              |
+   | 2        | VM Name            | string         | Enter an alphanumeric name to identify the VM. An error occurs if another VM is already       |
+   |          |                    |                | using the same name.                                                                          |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | Boot Method        | drop-down menu | Select *UEFI* for newer operating systems, or *UEFI-CSM* for (Compatibility Support Mode)     |
@@ -233,14 +233,14 @@ These devices are available:
 * :ref:`VNC Interface <vms-vnc>`
 
 
-.. note:: :ref:`Docker VMs <Docker/Rancher VMs>` are not compatible with
-   VNC connections and cannot create a VNC Interface.
+.. note:: :ref:`Docker VMs <Docker/Rancher VMs>` are not compatible
+   with VNC connections and cannot create a VNC Interface.
 
 
 This menu is also used to :guilabel:`Edit` an existing device. Click
-|ui-options| for an existing device shown in the table to see options to
-:guilabel:`Edit` or :guilabel:`Delete` that device. Editing an existing
-VM device offers the same options as creating the device.
+|ui-options| for an existing device shown in the table to see options
+to :guilabel:`Edit` or :guilabel:`Delete` that device. Editing an
+existing VM device offers the same options as creating the device.
 
 
 .. _vms-cd-rom:
@@ -505,9 +505,10 @@ When a VM is already running, these buttons are available:
 * :guilabel:`Power off` immediately halts the VM, equivalent to
   disconnecting the power on a physical computer.
 
-* :guilabel:`Connect` displays options to connect to the VM with either
-  :guilabel:`VNC` or the :guilabel:`Serial` shell. For :guilabel:`VNC`,
-  the VM must have a VNC device with :guilabel:`Web Interface` enabled.
+* :guilabel:`Connect` displays options to connect to the VM with
+  either :guilabel:`VNC` or the :guilabel:`Serial` shell. For
+  :guilabel:`VNC`, the VM must have a VNC device with
+  :guilabel:`Web Interface` enabled.
 
 
 .. index:: Deleting VMs
@@ -517,8 +518,8 @@ Deleting VMs
 ------------
 
 A VM is deleted by clicking |ui-options| on the desired VM card,
-then :guilabel:`Delete`. A dialog will prompt for
-confirmation.
+then :guilabel:`Delete`. A dialog prompts for confirmation.
+
 
 .. tip:: :ref:`Zvols <Adding Zvols>` used in
    :ref:`disk devices <vms-disk-device>` and image files used in
@@ -676,11 +677,11 @@ to change any settings:
    Docker VM Configuration
 
 
-Every Docker VM is created with an initial user :literal:`rancher` with
-the password :literal:`docker`. This is used to log into RancherOS when
-connecting with the :guilabel:`Serial` shell. The password
-:literal:`docker` is changed by editing the raw device of the Docker VM.
-Passwords cannot contain a space.
+Every Docker VM is created with an initial user :literal:`rancher`
+with the password :literal:`docker`. This is used to log in to
+RancherOS when connecting with the :guilabel:`Serial` shell. The
+password :literal:`docker` is changed by editing the raw device of the
+Docker VM. Passwords cannot contain a space.
 
 
 .. figure:: images/vms-rancher-storage.png
@@ -741,6 +742,7 @@ outside website. Adjust the VM
 if necessary.
 
 Download and install the Rancher system with this command:
+
 
 .. code-block:: none
 
