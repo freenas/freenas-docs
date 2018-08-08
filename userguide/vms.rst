@@ -209,25 +209,20 @@ and |ui-add|.
 Select the new device from the :guilabel:`Type` field.
 These devices are available:
 
-* :ref:`CD-ROMs <vms-cd-rom>`
+* :ref:`CD-ROM <vms-cd-rom>`
 
-* :ref:`NIC (Network Interfaces) <vms-network-interface>`
+* :ref:`NIC (Network Interface Card) <vms-network-interface>`
 
-* :ref:`Disk Devices <vms-disk-device>`
+* :ref:`Disk Device <vms-disk-device>`
 
-* :ref:`Raw Files <vms-raw-file>`
+* :ref:`Raw File <vms-raw-file>`
 
 * :ref:`VNC Interface <vms-vnc>`
 
 
-.. note:: :ref:`Docker VMs <Docker/Rancher VMs>` are not compatible
-   with VNC connections and cannot create a VNC Interface.
-
-
-This menu is also used to :guilabel:`Edit` an existing device. Click
-|ui-options| for an existing device shown in the table to see options
-to :guilabel:`Edit` or :guilabel:`Delete` that device. Editing an
-existing VM device offers the same options as creating the device.
+This menu is also used to edit or delete an existing device. Click
+|ui-options| for a device to display :guilabel:`Edit` and
+:guilabel:`Delete` options.
 
 
 .. _vms-cd-rom:
@@ -365,16 +360,20 @@ Computing) remote connection. A standard
 client can connect to the VM to provide screen output and keyboard and
 mouse input.
 
-.. note:: Setting :guilabel:`Enable VNC` during
-   :ref:`VM creation <Creating VMs>` disables adding another VNC
-   device. Click |ui-options| and :guilabel:`Edit` for the existing
-   VNC device to make any changes.
+
+.. note:: Each VM can only have a single VNC device. An existing VNC
+   interface can be changed by clicking |ui-options| and
+   :guilabel:`Edit`.
+
+
+.. note:: :ref:`Docker VMs <Docker/Rancher VMs>` are not compatible
+   with VNC connections and cannot have a VNC interface.
 
 
 :numref:`Figure %s <vms-vnc_fig>` shows the fields that appear
 after navigating to
-:menuselection:`VMs --> Devices`, clicking |ui-add|,
-and selecting :guilabel:`VNC` as the :guilabel:`Type`.
+:menuselection:`VMs --> Devices`,
+clicking |ui-add|, and setting :guilabel:`Type` to :guilabel:`VNC`.
 
 
 .. _vms-vnc_fig:
@@ -672,7 +671,7 @@ password :literal:`docker` is changed by editing the raw device of the
 Docker VM. Passwords cannot contain a space.
 
 
-.. figure:: images/vms-docker-devices-vnc.png
+.. figure:: images/vms-docker-devices-rawfile.png
 
    Edit Rancher Password in Raw File Device
 
