@@ -1020,7 +1020,7 @@ Alert Services
 system events that require attention. These events are system
 :ref:`Alerts <Alert>`.
 
-Currently available alert services:
+Available alert services:
 
 * `AWS-SNS <https://aws.amazon.com/sns/>`__
 
@@ -1053,10 +1053,31 @@ Currently available alert services:
 
 Select
 :menuselection:`System --> Alert Services` to show the Alert Services
-screen. Click |ui-add| to display the :guilabel:`Add Alert Service` form.
-Select the :guilabel:`Type` to choose an alert service to configure. Set
-:guilabel:`Enabled` to activate the service. Enter any other required
-information and click :guilabel:`Save`.
+screen, :numref:`Figure %s <alert_services_fig>`.
+
+
+.. _alert_services_fig:
+
+.. figure:: images/system-alert-services.png
+
+   Alert Services
+
+
+Click |ui-add| to display the :guilabel:`Add Alert Service` form,
+:numref:`Figure %s <alert_service_add_fig>`.
+
+
+.. _alert_service_add_fig:
+
+.. figure:: images/system-alert-services-add.png
+
+   Add Alert Service
+
+
+Select the :guilabel:`Type` to choose an alert service to configure.
+The configurable fields and required information differ for each alert
+service. Set :guilabel:`Enabled` to activate the service. Enter any
+other required information and click :guilabel:`Save`.
 
 Configure which alerts are sent to the alert service by clicking
 :guilabel:`Show Settings`.
@@ -1079,8 +1100,8 @@ temporarily, click |ui-options| and :guilabel:`Edit`, then unset the
 Alert Settings
 --------------
 
-:menuselection:`System --> Alert Settings` displays the default notification
-frequency for each type of :ref:`Alert`. An example is seen in
+:menuselection:`System --> Alert Settings` displays the notification
+frequency for each type of :ref:`Alert`. An example is shown in
 :numref:`Figure %s <alert_settings_fig>`.
 
 
