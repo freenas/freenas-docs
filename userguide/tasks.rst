@@ -181,7 +181,7 @@ with a status of *SUCCESS*.
 
    Cloud Sync Status
 
-To modify an existing cloud sync, click its entry to access its
+To modify an existing cloud sync, click the entry to access the
 :guilabel:`Edit`, and :guilabel:`Delete`, and :guilabel:`Run Now` buttons.
 
 If a cloud sync fails, click the :guilabel:`Status` column. This will
@@ -435,9 +435,9 @@ systems. To synchronize data between two %brand% systems, create the
 
 %brand% supports two modes of rsync operation:
 
-* **rsync module mode:** exports a directory tree, and its configured
-  settings, as a symbolic name over an unencrypted connection. This
-  mode requires that at least one module be defined on the rsync
+* **rsync module mode:** exports a directory tree, and the configured
+  settings of the tree as a symbolic name over an unencrypted connection.
+  This mode requires that at least one module be defined on the rsync
   server. It can be defined in the %brand% GUI under
   :menuselection:`Services --> Rsync --> Rsync Modules`.
   In other operating systems, the module is defined in
@@ -825,8 +825,8 @@ S.M.A.R.T. Tests
 `S.M.A.R.T. <https://en.wikipedia.org/wiki/S.M.A.R.T.>`__
 (Self-Monitoring, Analysis and Reporting Technology) is a monitoring
 system for computer hard disk drives to detect and report on various
-indicators of reliability. When a failure is anticipated by
-S.M.A.R.T., the drive should be replaced. Most modern ATA, IDE, and
+indicators of reliability. Replace the drive when a failure is
+anticipated by S.M.A.R.T. Most modern ATA, IDE, and
 SCSI-3 hard drives support S.M.A.R.T. -- refer to the drive
 documentation for confirmation.
 
@@ -902,7 +902,7 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
 
 An example configuration is to schedule a :guilabel:`Short Self-Test`
 once a week and a :guilabel:`Long Self-Test` once a month. These tests
-should not have a performance impact, as the disks prioritize normal
+do not have a performance impact, as the disks prioritize normal
 I/O over the tests. If a disk fails a test, even if the overall status
 is *Passed*, start to think about replacing that disk.
 
