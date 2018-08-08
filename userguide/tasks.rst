@@ -106,7 +106,7 @@ Cron jobs are shown in :menuselection:`Tasks --> Cron Jobs`. This table
 displays the user, command, description, schedule, and if the job is
 enabled. This table is adjustable by setting the different column
 checkboxes above it. Set :guilabel:`Toggle` to display all options in
-the table. Click |ui-options| for an entry to see its :guilabel:`Run Now`,
+the table. Click |ui-options| for an entry to see the :guilabel:`Run Now`,
 :guilabel:`Edit` and :guilabel:`Delete` options.
 
 
@@ -227,9 +227,9 @@ systems. To synchronize data between two %brand% systems, create the
 
 %brand% supports two modes of rsync operation:
 
-* **rsync module mode:** exports a directory tree, and its configured
-  settings, as a symbolic name over an unencrypted connection. This
-  mode requires that at least one module be defined on the rsync
+* **rsync module mode:** exports a directory tree, and the configured
+  settings of the tree as a symbolic name over an unencrypted connection.
+  This mode requires that at least one module be defined on the rsync
   server. It can be defined in the %brand% GUI under
   :menuselection:`Services --> Rsync Configure --> Rsync Module`.
   In other operating systems, the module is defined in
@@ -305,9 +305,9 @@ task.
    |                                  |                             | system.                                                                                   |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote Path                      | string                      | Only appears when using *Rsync over SSH* mode, enter the **existing** path on the remote  |
-   |                                  |                             | host to sync with (e.g. */mnt/pool*). Note that the path length cannot be greater than    |
-   |                                  |                             | 255 characters.                                                                           |
+   | Remote Path                      | string                      | Only appears when using *Rsync over SSH* mode. Enter the **existing** path on the remote  |
+   |                                  |                             | host to sync with, for example, */mnt/pool*. Note that the path length cannot             |
+   |                                  |                             | be greater than 255 characters.                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Validate Remote Path             | checkbox                    | Verifies the existence of the :guilabel:`Remote Path`.                                    |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
@@ -550,7 +550,7 @@ if necessary, remove any extra spaces representing line breaks.
 While on *PULL*, verify that the SSH service is running in
 :menuselection:`Services` and start it if it is not.
 
-Next, copy the host key of *PULL* using Shell on *PUSH*. The following
+Next, copy the host key of *PULL* using Shell on *PUSH*. The
 command copies the RSA host key of the *PULL* server used in our
 previous example. Be sure to include the double bracket *>>* to
 prevent overwriting any existing entries in the :file:`known_hosts`
@@ -570,8 +570,7 @@ file:
 
 
 The rsync task can now be created on *PUSH*. To configure rsync SSH
-mode using the systems in our previous example, the configuration is
-as follows:
+mode using the systems in our previous example, the configuration is:
 
 * the :guilabel:`Path` points to :file:`/mnt/local/images`, the
   directory to be copied
@@ -609,8 +608,8 @@ S.M.A.R.T. Tests
 `S.M.A.R.T. <https://en.wikipedia.org/wiki/S.M.A.R.T.>`__
 (Self-Monitoring, Analysis and Reporting Technology) is a monitoring
 system for computer hard disk drives to detect and report on various
-indicators of reliability. When a failure is anticipated by
-S.M.A.R.T., the drive should be replaced. Most modern ATA, IDE, and
+indicators of reliability. Replace the drive when a failure is
+anticipated by S.M.A.R.T. Most modern ATA, IDE, and
 SCSI-3 hard drives support S.M.A.R.T. -- refer to the drive
 documentation for confirmation.
 
@@ -676,7 +675,7 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
 
 An example configuration is to schedule a :guilabel:`Short Self-Test`
 once a week and a :guilabel:`Long Self-Test` once a month. These tests
-should not have a performance impact, as the disks prioritize normal
+do not have a performance impact, as the disks prioritize normal
 I/O over the tests. If a disk fails a test, even if the overall status
 is *Passed*, start to think about replacing that disk.
 
@@ -761,7 +760,7 @@ summarizes the fields in this screen.
    | Pool/Dataset       | drop-down menu             | Select an existing pool, dataset, or zvol.                                                                   |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Recursive          | checkbox                   | Set this option to take separate snapshots of the pool or dataset and each of its child datasets. Deselect   |
+   | Recursive          | checkbox                   | Set this option to take separate snapshots of the pool or dataset and each of the child datasets. Deselect   |
    |                    |                            | to take a single snapshot of the specified pool or dataset with no child datasets.                           |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
@@ -1586,11 +1585,11 @@ corruptions caused by transient hardware issues, and provide early
 alerts of impending disk failures. %brand% makes it easy to schedule
 periodic automatic scrubs.
 
-Each pool should be scrubbed at least once a month. Bit errors in
-critical data can be detected by ZFS, but only when that data is read.
-Scheduled scrubs can find bit errors in rarely-read data. The amount
-of time needed for a scrub is proportional to the quantity of data on
-the pool. Typical scrubs take several hours or longer.
+It is recommneded that each pool is scrubbed at least once a month. Bit
+errors in critical data can be detected by ZFS, but only when that data
+is read. Scheduled scrubs can find bit errors in rarely-read data. The
+amount of time needed for a scrub is proportional to the quantity of
+data on the pool. Typical scrubs take several hours or longer.
 
 The scrub process is I/O intensive and can negatively impact
 performance. Schedule scrubs for evenings or weekends to minimize
@@ -1801,7 +1800,7 @@ shows the configuration options for Cloud Syncs.
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
 
 
-To modify an existing cloud sync, click its |ui-options| to access the
+To modify an existing cloud sync, click |ui-options| to access the
 :guilabel:`Run Now`, :guilabel:`Edit`, and :guilabel:`Delete` options.
 
 .. _Cloud Sync Example:
