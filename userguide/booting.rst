@@ -93,28 +93,35 @@ GUI is displayed as shown in
 
    %brand% Graphical Configuration Menu
 
+#ifdef freenas
+The rest of this Guide describes the %brand% graphical interface in
+more detail. The layout of this Guide follows the order of the menu
+items in the tree located in the left frame of the graphical
+interface.
+
+.. note:: It is important to use the GUI (or the Console Setup menu)
+   for all configuration changes. %brand% uses a configuration
+   database to store its settings. While it is possible to use the
+   command line to modify your configuration, changes made at the
+   command line **are not** written to the configuration database.
+   This means that any changes made at the command line will not
+   persist after a reboot and will be overwritten by the values in the
+   configuration database during an upgrade.
+#endif freenas
 
 If the %brand% system does not respond to the IP address or mDNS name
 entered in a browser:
 
-* If proxy settings are enabled in the browser configuration, disable
-  them and try connecting again.
+* Check for enabled proxy settings in the browser configuration, disable
+  them, and try connecting again.
 
-* If the page does not load, check whether the %brand% system's IP
-  address responds to a :command:`ping` from another computer on the
-  same network. If the %brand% IP address is in a private IP address
-  range, it can only be accessed from within that private network.
+* :command:`ping` the %brand% system's IP address from another computer
+  on the same network.
 
-* If the user interface loads but is unresponsive or seems to be
-  missing menu items, try a different web browser.
+* Try a different web browser if the user interface loads but is
+  unresponsive or seems to be missing menu items.
   `Firefox <https://www.mozilla.org/en-US/firefox/all/>`__ is
   recommended.
 
-* If error messages are shown when attempting to configure an item in
-  the GUI, make sure that the browser is set to allow cookies from the
+* Make sure that the browser is set to allow cookies from the
   %brand% system.
-
-This `blog post
-<http://fortysomethinggeek.blogspot.com/2012/10/ipad-iphone-connect-with-freenas-or-any.html>`__
-describes some applications which can be used to access the %brand%
-system from an iPad or iPhone.
