@@ -76,8 +76,9 @@ Server is selected for installation.
 
 
 The installation takes a few minutes because the system
-downloads and configures a jail to store the plugin application. It
-then installs the plugin and adds it to the
+downloads and configures a jail to store the plugin application. A
+confirmation message is displayed at the bottom of the screen after a
+successful installtion. Installed plugins appear in the
 :menuselection:`Plugins --> Installed`
 page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
