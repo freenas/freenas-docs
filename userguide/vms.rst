@@ -436,7 +436,7 @@ To connect to the first VM:
 
 .. code-block:: none
 
-   cu -s 9600 -l /dev/nmdm1B
+   cu -l /dev/nmdm1B -s 9600
 
 
 See
@@ -462,7 +462,7 @@ default view on this screen to *Slim* or *Table*. Each card has a
    VM Cards
 
 
-The name, description, running state, Com Port (if present), and other
+The name, description, running state, com port (if present), and other
 configuration values are shown on the card. Click |ui-options| for the
 :guilabel:`Start`, :guilabel:`Power Off`, :guilabel:`Delete`,
 :guilabel:`Devices`, and :guilabel:`Edit` options.
@@ -705,13 +705,13 @@ like allowing root user login with a password.
 
 At the %brand% console prompt, connect to the Rancher VM with
 `cu <https://www.freebsd.org/cgi/man.cgi?query=cu>`__, replacing
-:samp:`{/dev/nmdm3B}` with the value from the Docker VM
+:samp:`{/dev/nmdm12B}` with the value from the Docker VM
 :guilabel:`Com Port`:
 
 
 .. code-block:: none
 
-   cu -l /dev/nmdm12B
+   cu -l /dev/nmdm12B -s 9600
 
 
 If the terminal does not show a :literal:`rancher login:` prompt,
