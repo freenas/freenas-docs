@@ -900,6 +900,9 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
    +----------------------+-------------------+--------------------------------------------------------------------------------------------------+
 
 
+.. note:: Scrub tasks are run if and only if the threshhold is met or
+   exceeded *and* the task is scheduled to run on the date marked.
+
 An example configuration is to schedule a :guilabel:`Short Self-Test`
 once a week and a :guilabel:`Long Self-Test` once a month. These tests
 do not have a performance impact, as the disks prioritize normal
