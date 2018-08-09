@@ -595,7 +595,8 @@ The configurable settings are summarized in
    +----------------------------+---------------------+-------------------------------------------------------------------------------+
    | Swap size                  | non-zero integer    | By default, all data disks are created with this amount of swap.              |
    |                            | representing GB     | Log or cache devices do not create with swap and are unaffected.              |
-   |                            |                     |                                                                               |
+   |                            |                     | Setting to *0* disables swap creation completely. This is                     |
+   |                            |                     | *strongly* discouraged.                                                       |
    #endif freenas
    +----------------------------+---------------------+-------------------------------------------------------------------------------+
    | Show console messages      | checkbox            | Set to display console messages in real time at the bottom of the browser.    |
