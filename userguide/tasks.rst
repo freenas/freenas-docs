@@ -720,7 +720,9 @@ meant to be used for an automated task.
 
 
 %brand% supports RSA keys for SSH. When creating the key, use
-:samp:`-t rsa` to specify this type of key.
+:samp:`-t rsa` to specify this type of key. Refer to
+`Key-based Authentication <https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/openssh.html#security-ssh-keygen>`__
+for more information.
 
 .. note:: If a different user account is used for the rsync task, use
    the :command:`su -` command after mounting the filesystem but
