@@ -76,28 +76,30 @@ lists the configurable options for a cron job.
    | Setting             | Value                       | Description                                                                                             |
    |                     |                             |                                                                                                         |
    +=====================+=============================+=========================================================================================================+
-   | Description         | string                      | Enter any notes about the cron job.                                                                     |
+   | Description         | string                      | Enter a description of the cron job.                                                                    |
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Command             | drop-down menu              | Enter the **full path** to the command or script to be run. If it is a script, testing it at the        |
    |                     |                             | command line is recommended to ensure it works.                                                         |
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Run As User         | string                      | Choose a user account to run the *command*. The user must have permissions to run the specified         |
+   | Run As User         | string                      | Select a user account to run the command. The user must have permissions allowing them to run the       |
    |                     |                             | command or script.                                                                                      |
+   |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Schedule a Cron Job | drop-down menu              | Select how often to run the cron job. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.  |
-   |                     |                             | Select *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week. |
+   |                     |                             | Select *Custom* to open the advanced scheduler.                                                         |
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Redirect Standard   | checkbox                    | Set to disable emailing standard output (stdout) to the *root* user account.                            |
-   | Output              |                             |                                                                                                         |
+   | Redirect Standard   | checkbox                    | Redirect :file:`stdout` to :file:`/dev/null`. When unset, output from the command is mailed to the user |
+   | Output              |                             | running the cron job.                                                                                   |
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Redirect Errors     | checkbox                    | Set to disable emailing errors (stderr) to the *root* user account.                                     |
+   | Redirect Standard   | checkbox                    | Redirect :file:`stderr` to :file:`/dev/null`. When unset, error output from the command is mailed to    |
+   | Error               |                             | the user running the cron job.                                                                          |
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Enable              | checkbox                    | Unset to disable the cron job without deleting it.                                                      |
+   | Enable              | checkbox                    | Enable this cron job. When unset, disable the cron job without deleting it.                             |
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
 
@@ -110,8 +112,8 @@ the table. Click |ui-options| for an entry to see the :guilabel:`Run Now`,
 :guilabel:`Edit` and :guilabel:`Delete` options.
 
 
-.. note:: :literal:`%` symbols are automatically escaped and should
-   not be prefixed with backslashes. For example, use
+.. note:: :literal:`%` symbols are automatically escaped and do not need
+   to be prefixed with backslashes. For example, use
    :samp:`date '+%Y-%m-%d'` in a cron job to generate a filename based
    on the date.
 
@@ -174,7 +176,7 @@ has been fully tested to ensure it achieves the desired results.
    |             |                | the end of boot process before FreeNAS services start, or at *Shutdown*.          |
    |             |                |                                                                                   |
    +-------------+----------------+-----------------------------------------------------------------------------------+
-   | Enabled     | checkbox       | Unset to disable the task without deleting it.                                    |
+   | Enabled     | checkbox       | Enable this task. Unset to disable the task without deleting it.                  |
    |             |                |                                                                                   |
    +-------------+----------------+-----------------------------------------------------------------------------------+
 
@@ -282,48 +284,47 @@ task.
    |                                  |                             | than 255 characters.                                                                      |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | User                             | drop-down menu              | The chosen user must have permissions to write to the specified directory on the remote   |
-   |                                  |                             | system. The user name cannot contain spaces or exceed 17                                  |
-   |                                  |                             | characters.                                                                               |
+   | User                             | drop-down menu              | Select the user to run the rsync task. The user selected must have permissions to write   |
+   |                                  |                             | to the specified directory on the remote host.                                            |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Remote Host                      | string                      | Enter the IP address or hostname of the remote system that will store the copy. Use the   |
    |                                  |                             | format *username@remote_host* if the username differs on the remote host.                 |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote SSH Port                  | integer                     | Only available in  *Rsync over SSH* mode. Allows specifying an SSH port                   |
+   | Remote SSH Port                  | integer                     | Only available in  *Rsync over SSH mode*. Allows specifying an SSH port                   |
    |                                  |                             | other than the default of *22*.                                                           |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Rsync mode                       | drop-down menu              | Choices are *Rsync module* or                                                             |
-   |                                  |                             | *Rsync over SSH*.                                                                         |
+   | Rsync mode                       | drop-down menu              | The choices are *Rsync Module mode* or *Rsync over SSH mode*                              |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Remote Module Name               | string                      | At least one module must be defined in                                                    |
    |                                  |                             | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__                     |
-   |                                  |                             | of the rsync server or in the :guilabel:`Rsync Modules` of another                        |
-   |                                  |                             | system.                                                                                   |
+   |                                  |                             | of the rsync server or in the :guilabel:`Rsync Modules` of another system.                |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Remote Path                      | string                      | Only appears when using *Rsync over SSH* mode. Enter the **existing** path on the remote  |
    |                                  |                             | host to sync with, for example, */mnt/pool*. Note that the path length cannot             |
    |                                  |                             | be greater than 255 characters.                                                           |
+   |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Validate Remote Path             | checkbox                    | Verifies the existence of the :guilabel:`Remote Path`.                                    |
+   |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Direction                        | drop-down menu              | Direct the flow of the data to the remote host. Choices are *Push*                        |
    |                                  |                             | *Pull*. Default is to push to a remote host.                                              |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Short Description                | string                      | Enter an optional description of the new rsync task.                                      |
+   | Short Description                | string                      | Enter a description of the rsync task.                                                    |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Schedule the Rsync Task          | drop-down menu              | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or  |
-   |                                  |                             | *Custom*. Select *Custom* to open a visual scheduler for selecting minutes, hours, days,  |
-   |                                  |                             | month, and days of week.                                                                  |
+   |                                  |                             | *Custom*. Select *Custom* to open the advanced scheduler                                  |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Recursive                        | checkbox                    | Set to include all subdirectories of the specified pool during the rsync task.            |
+   | Recursive                        | checkbox                    | Set to include all subdirectories of the specified directory. When unset, only the        |
+   |                                  |                             | specified directory is included.                                                          |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Times                            | checkbox                    | Set to preserve the modification times of files.                                          |
@@ -332,12 +333,13 @@ task.
    | Compress                         | checkbox                    | Set to reduce the size of the data to transmit. Recommended for slow connections.         |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Archive                          | checkbox                    | Equivalent to :command:`-rlptgoD`. This will run the task as recursive, copy symlinks     |
-   |                                  |                             | as symlinks, preserve permissions, preserve modification times, preserve group, preserve  |
-   |                                  |                             | owner (root only), preserve device files, and preserve special files.                     |
+   | Archive                          | checkbox                    | When set, rsync is run recursively, preserving symlinks, permissions, modification times, |
+   |                                  |                             | group, and special files. When run as root, owner, device files, and special files are    |
+   |                                  |                             | also preserved. Equivalent to :samp:`rsync -rlptgoD`.                                     |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Delete                           | checkbox                    | Set to delete files in the destination directory that do not exist in sending directory.  |
+   | Delete                           | checkbox                    | Set to delete files in the destination directory that do not exist in the source          |
+   |                                  |                             | directory.                                                                                |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Quiet                            | checkbox                    | Set to suppress informational messages from the remote server.                            |
@@ -347,23 +349,21 @@ task.
    |                                  |                             | *root*.                                                                                   |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Preserve extended attributes     | checkbox                    | Both systems must support                                                                 |
-   |                                  |                             | `extended attributes. <https://en.wikipedia.org/wiki/Xattr>`__                            |
+   | Preserve extended attributes     | checkbox                    | `Extended attributes <https://en.wikipedia.org/wiki/Extended_file_attributes>`__ are      |
+   |                                  |                             | preserved, but must be supported by both systems.                                         |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Delay Updates                    | checkbox                    | Set to save the temporary file from each updated file to a holding directory              |
    |                                  |                             | until the end of the transfer when all transferred files are renamed into place.          |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Extra options                    | string                      | Add any other `rsync(1) <http://rsync.samba.org/ftp/rsync/rsync.html>`__                  |
-   |                                  |                             | options. The :literal:`*` character                                                       |
+   | Extra options                    | string                      | Additional `rsync(1) <http://rsync.samba.org/ftp/rsync/rsync.html>`__ options to include. |
+   |                                  |                             | Note: The :literal:`*` character                                                          |
    |                                  |                             | must be escaped with a backslash (:literal:`\\*.txt`)                                     |
    |                                  |                             | or used inside single quotes. (:literal:`'*.txt'`)                                        |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Enabled                          | checkbox                    | Unset to disable the rsync task without deleting it. When the :ref:`Rsync`                |
-   |                                  |                             | service is OFF, the rsync task will continue to look for the server unless this           |
-   |                                  |                             | option is unset.                                                                          |
+   | Enabled                          | checkbox                    | Enable this rsync task. Unset to disable this rsync task without deleting it.             |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
 
@@ -614,7 +614,7 @@ SCSI-3 hard drives support S.M.A.R.T. -- refer to the drive
 documentation for confirmation.
 
 Click :menuselection:`Tasks --> S.M.A.R.T. Tests`
-and |ui-add| to add a new scheduled S.M.A.R.T. test. 
+and |ui-add| to add a new scheduled S.M.A.R.T. test.
 :numref:`Figure %s <tasks_add_smart_test_fig>`
 shows the configuration screen that appears. Tests are listed under
 :guilabel:`S.M.A.R.T. Tests`. After creating tests, check the
@@ -664,7 +664,7 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
    |                   |                           | offline. Avoid scheduling S.M.A.R.T. tests simultaneously with scrub or resilver operations.               |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Short description | string                    | Optional. Enter a short description of this test.                                                          |
+   | Short description | string                    | Optional. Enter a description of the S.M.A.R.T. test.                                                      |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
    | Schedule  a       | drop-down menu            | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*. Select  |
@@ -771,7 +771,7 @@ summarizes the fields in this screen.
    | Begin              | drop-down menu             | Choose the hour and minute when the system can begin taking snapshots.                                       |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | End                | drop-down menu             | Choose the hour and minute when the system must stop taking snmapshots.                                      |
+   | End                | drop-down menu             | Choose the hour and minute when the system must stop taking snapshots.                                       |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
    | Interval           | drop-down menu             | Define how often the system takes snapshots between :guilabel:`Begin` and                                    |
@@ -1237,6 +1237,7 @@ options in the replication task dialog.
    | Encryption Cipher         | drop-down menu | *Standard* provides the best security. *Fast* is less secure, but has better transfer rates for devices      |
    |                           |                | with limited cryptographic speed. *Disabled* is for networks where the entire path between                   |
    |                           |                | sources and destinations is trusted.                                                                         |
+   |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | Dedicated User Enabled    | checkbox       | Set to allow a user account other than root to be used for replication.                                      |
    |                           |                |                                                                                                              |
@@ -1245,8 +1246,9 @@ options in the replication task dialog.
    |                           |                | Only available if :guilabel:`Dedicated User Enabled` is enabled.                                             |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote Hostkey            | string         | Use the :guilabel:`Scan SSH Key` button to retrieve the public host key of the remote system                 |
-   |                           |                | and enter the key here.                                                                                      |
+   | Remote Hostkey            | string         | Paste the host key of the destination NAS configured for the Replication Task. Use the                       |
+   |                           |                | :guilabel:`Scan SSH Key` button to automatically retrieve the public host key of the remote system.          |
+   |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
 
 
@@ -1557,20 +1559,23 @@ describes the fields on this screen.
    | Setting              | Value       | Description                                                 |
    |                      |             |                                                             |
    +======================+=============+=============================================================+
-   | Enabled              | checkbox    | Set to run this task at the configured times.               |
+   | Enabled              | checkbox    | Set to run resilver tasks between the configured times.     |
    |                      |             |                                                             |
    +----------------------+-------------+-------------------------------------------------------------+
-   | Begin                | drop-down   | Choose a starting hour and minute for the resilver task.    |
-   |                      |             |                                                             |
-   |                      |             |                                                             |
-   +----------------------+-------------+-------------------------------------------------------------+
-   | End                  | drop-down   | Choose an ending hour and minute the resilver task cannot   |
-   |                      |             | begin after.                                                |
+   | Begin                | drop-down   | Choose the hour and minute when resilver tasks can be       |
+   |                      |             | started.                                                    |
    |                      |             |                                                             |
    +----------------------+-------------+-------------------------------------------------------------+
-   | Day of week          | checkboxes  | Choose the days of the week to run this task.               |
+   | End                  | drop-down   | Choose the hour and minute when new resilver tasks can no   |
+   |                      |             | longer be started.                                          |
    |                      |             |                                                             |
    +----------------------+-------------+-------------------------------------------------------------+
+   | Day of week          | checkboxes  | Select the days to run resilver tasks.                      |
+   |                      |             |                                                             |
+   +----------------------+-------------+-------------------------------------------------------------+
+
+.. note:: The End time entered is the latest a new resilver task can be
+   started. Active resilver tasks are not killed when End time is reached.
 
 
 .. index:: Scrub
@@ -1740,14 +1745,14 @@ shows the configuration options for Cloud Syncs.
    | Setting             | Value Type          | Description                                                                                             |
    |                     |                     |                                                                                                         |
    +=====================+=====================+=========================================================================================================+
-   | Description         | string              | Enter a descriptive name of this task.                                                                  |
+   | Description         | string              | Enter a description of the Cloud Sync Task.                                                             |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Direction           | drop-down menu      | *Push* sends data to cloud storage. *Pull* receives data from cloud storage.                            |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Credential          | drop-down menu      | Choose the cloud storage provider credentials from the list of entered :ref:`Cloud Credentials`. The    |
-   |                     |                     | UI automatically tests the credential and displays an error if a connection cannot be made. The         |
+   | Credential          | drop-down menu      | Select the cloud storage provider credentials from the list of available :ref:`Cloud Credentials`.      |
+   |                     |                     | The UI automatically tests the credential and displays an error if a connection cannot be made.         |
    |                     |                     | :guilabel:`Save` is disabled until a valid Credential is entered.                                       |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
@@ -1756,6 +1761,7 @@ shows the configuration options for Cloud Syncs.
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Folder              | string              | Only appears when an S3 credential is the *Provider*. Optionally enter the name of the pre-defined      |
    |                     |                     | folder within the selected bucket.                                                                      |
+   |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Server Side         | drop-down menu      | Only appears when an S3 credential is the *Provider*. Choices are *None* (no encryption) or             |
    | Encryption          |                     | *AES-256* (encrypted).                                                                                  |
@@ -1779,23 +1785,27 @@ shows the configuration options for Cloud Syncs.
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Remote encryption   | checkbox            | Set to encrypt files before transfer and store the encrypted files on the remote system.                |
    |                     |                     | `rclone Crypt <https://rclone.org/crypt/>`__ is used.                                                   |
+   |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Filename encryption | checkbox            | Only appears when :guilabel:`Remote encryption` is enabled. Set to encrypt the shared file names.       |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Encryption password | string              | Only appears when :guilabel:`Remote encryption` is enabled. Enter the password for encrypting and       |
-   |                     |                     | and decrypting remote data. *Warning:* Always save and back up this password. Losing the encryption     |
-   |                     |                     | password can result in data loss.                                                                       |
+   | Encryption password | string              | Only appears when :guilabel:`Remote encryption` is enabled. Enter the password to encrypt and decrypt   |
+   |                     |                     | remote data. *Warning:* Always save and back up this password. Losing the encryption password can       |
+   |                     |                     | result in data loss.                                                                                    |
+   |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Encryption salt     | string              | Only appears when :guilabel:`Remote encryption` is enabled. Enter a long string of random characters    |
    |                     |                     | for use as `salt <https://searchsecurity.techtarget.com/definition/salt>`__ for the encryption          |
    |                     |                     | password. *Warning:* Save and back up the encryption salt value. Losing the salt value can result in    |
    |                     |                     | data loss.                                                                                              |
+   |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Schedule the Cloud  | drop-down menu      | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.      |
-   | Sync Task           |                     | Select *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week. |
+   | Sync Task           |                     | Select *Custom* to open the advanced scheduler.                                                         |
+   |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Enabled             | checkbox            | Unset to temporarily disable this Cloud Sync task.                                                      |
+   | Enabled             | checkbox            | Enable this Cloud Sync Task. Unset to disable this Cloud Sync Task without deleting it.                 |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
 
