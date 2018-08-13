@@ -1562,20 +1562,18 @@ describes the fields on this screen.
    | Enabled              | checkbox    | Set to run resilver tasks between the configured times.     |
    |                      |             |                                                             |
    +----------------------+-------------+-------------------------------------------------------------+
-   | Begin                | drop-down   | Choose the hour and minute when resilver tasks can be       |
+   | Begin Time           | drop-down   | Choose the hour and minute when resilver tasks can be       |
    |                      |             | started.                                                    |
    |                      |             |                                                             |
    +----------------------+-------------+-------------------------------------------------------------+
-   | End                  | drop-down   | Choose the hour and minute when new resilver tasks can no   |
-   |                      |             | longer be started.                                          |
+   | End Time             | drop-down   | Choose the hour and minute when new resilver tasks can no   |
+   |                      |             | longer be started. This does not affect active resilver     |
+   |                      |             | tasks.                                                      |
    |                      |             |                                                             |
    +----------------------+-------------+-------------------------------------------------------------+
    | Day of week          | checkboxes  | Select the days to run resilver tasks.                      |
    |                      |             |                                                             |
    +----------------------+-------------+-------------------------------------------------------------+
-
-.. note:: The End time entered is the latest a new resilver task can be
-   started. Active resilver tasks are not killed when End time is reached.
 
 
 .. index:: Scrub
