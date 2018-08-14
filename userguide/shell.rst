@@ -41,9 +41,10 @@ displayed in the Shell.
 
 Shell provides a history of commands used. Use the arrow keys to see
 previously entered commands and press :kbd:`Enter` to repeat the
-command. The shell also provides tab completion. Type a few letters and
-press tab to complete a command name or filename in the current
-directory. Type :command:`exit` to leave the session.
+command.The keys :kbd:`Home`, :kbd:`End`, and :kbd:`Delete` are also
+supported in the shell. The shell also provides tab completion. Type a
+few letters and press tab to complete a command name or filename in the
+current directory. Type :command:`exit` to leave the session.
 
 GUI menus cannot be accessed while using Shell.
 To access a prompt while using the GUI
