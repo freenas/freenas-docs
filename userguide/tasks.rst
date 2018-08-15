@@ -411,7 +411,7 @@ For large amounts of data, data that has many changes from the
 previous copy, or Windows files, :ref:`Replication Tasks` are often
 the faster and better solution.
 
-Rsync is single-threaded, so gains little from multiple processor
+Rsync is single-threaded and gains little from multiple processor
 cores. To see whether rsync is currently running, use
 :samp:`pgrep rsync` from the :ref:`Shell`.
 
@@ -443,7 +443,7 @@ on the rsync client.
 * **rsync over SSH:** synchronizes over an encrypted connection.
   Requires the configuration of SSH user and host public keys.
 
-This section summarizes the options when creating an Rsync Task. It
+This section summarizes the options when creating an rsync task. It
 then provides a configuration example between two %brand% systems for
 each mode of rsync operation.
 
@@ -825,7 +825,7 @@ S.M.A.R.T. Tests
 system for computer hard disk drives to detect and report on various
 indicators of reliability. When a failure is anticipated by
 S.M.A.R.T., the drive should be replaced. Most modern ATA, IDE, and
-SCSI-3 hard drives support S.M.A.R.T.--refer to the drive
+SCSI-3 hard drives support S.M.A.R.T. Refer to the drive
 documentation for confirmation.
 
 :numref:`Figure %s <tasks_add_smart_test_fig>`
@@ -921,6 +921,6 @@ the name of the drive. For example, to see the results for disk
 If an email address is entered in the :guilabel:`Email to report`
 field of
 :menuselection:`Services --> S.M.A.R.T.`,
-the system will send email to that address when a test fails. Logging
+the system will send an email to that address when a test fails. Logging
 information for S.M.A.R.T. tests can be found in
 :file:`/var/log/daemon.log`.

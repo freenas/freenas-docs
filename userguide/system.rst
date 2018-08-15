@@ -261,7 +261,7 @@ Available NTP servers can be found at
 For time accuracy, choose NTP servers that are geographically close to
 the %brand% system's physical location.
 
-NTP servers are added by clicking on
+NTP servers are added by clicking
 :menuselection:`NTP Servers --> Add NTP Server`
 to open the screen shown in
 :numref:`Figure %s <ntp_server_fig>`.
@@ -380,11 +380,11 @@ Each boot environment entry contains this information:
 * **Created:** indicates the date and time the boot entry was created.
 
 * **Keep:** indicates whether or not this boot environment can be
-  pruned if an update does not have enough space to proceed. Click the
-  entry's :guilabel:`Keep` button if that boot environment should not
+  pruned if an update does not have enough space to proceed. Click
+  :guilabel:`Keep` for an entry if that boot environment should not
   be automatically pruned.
 
-Highlight an entry to view the configuration buttons for it.  These
+Highlight an entry to view the configuration buttons for it. These
 configuration buttons are shown:
 
 * **Rename:** used to change the name of the boot environment.
@@ -670,6 +670,11 @@ The configurable settings are summarized in
    | Use FQDN for logging                     | checkbox                         | when checked, include the Fully-Qualified Domain Name in logs to precisely   |
    |                                          |                                  | identify systems with similar hostnames                                      |
    +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | ATA Security User                        | drop-down menu                   | specifies the command account used by legacy :ref:`Self-Encrypting Drives`;  |
+   |                                          |                                  | choices are *User* or *Master*                                               |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
+   | SED Password                             | string                           | global password used to unlock :ref:`Self-Encrypting Drives`                 |
+   +------------------------------------------+----------------------------------+------------------------------------------------------------------------------+
 
 Click the :guilabel:`Save` button after making any changes.
 
@@ -735,6 +740,105 @@ autotune-set tunables are recreated at boot.
 For those who wish to see which checks are performed, the autotune
 script is located in :file:`/usr/local/bin/autotune`.
 #endif truenas
+
+.. index:: Self-Encrypting Drives
+.. _Self-Encrypting Drives:
+
+Self-Encrypting Drives
+~~~~~~~~~~~~~~~~~~~~~~
+
+%brand% version 11.1-U5 introduced Self-Encrypting Drive (SED) support.
+
+Three types of SED devices are supported:
+
+* Legacy interface for older ATA devices (not recommended for
+  security-critical environments)
+
+* TCG OPAL 2 standard for newer consumer-grade devices (HDD or SSD over
+  PCIe or SATA)
+
+* TCG Enterprise standard for newer enterprise-grade SAS devices
+
+The %brand% middleware implements the security capabilities of
+`camcontrol <https://www.freebsd.org/cgi/man.cgi?query=camcontrol>`__ (for
+legacy devices) and `sedutil-cli <https://www.mankier.com/8/sedutil-cli>`__
+(for TCG devices). When managing SED devices from the command line, it is
+important to use :command:`sedutil-cli` (rather than camcontrol) in order
+to access the full capabilities of the device. %brand% provides the
+:command:`sedhelper` wrapper script to ease SED device administration from
+the command line.
+
+By default, SED devices are not locked until the administrator explicitly
+configures a global or per-device password and initializes the devices.
+
+Once configured, the system automatically unlocks all SEDs during the boot
+process, without requiring manual intervention. This allows a pool to
+contain a mix of SED and non-SED devices.
+
+A password-protected SED device protects the data stored on the device
+when the device is physically removed from the %brand% system. This allows
+secure disposal of the device without having to first wipe its contents.
+If the device is instead removed to be repurposed on another system, it
+can only be unlocked if the password is known. 
+
+.. warning:: It is important to remember the password! Without it, the
+   device is unlockable and its data remains unavailable. While it is
+   possible to specify the PSID number on the label of the device with
+   the :command:`sedutil-cli` command, doing so will erase the contents
+   of the device rather than unlock it. Always record SED passwords
+   whenever they are configured or modified and store them in a safe
+   place!
+
+When SED devices are detected during system boot, the middleware checks
+for global and device-specific passwords. Devices with their own password
+are unlocked with their password and any remaining devices, without a
+device-specific password, are unlocked using the global password.
+
+To configure a global password, go to
+:menuselection:`System --> Advanced --> SED Password` and input the
+password. Be sure to record the password and store it in a safe place!
+
+To determine which devices support SED and their device names:
+
+.. code-block:: none
+
+ sedutil-cli --scan
+
+In the results:
+
+* **no** indicates a non-SED device
+* **1** indicates a legacy TCG OPAL 1 device
+* **2** indicates a modern TCG OPAL 2 device
+* **E** indicates a TCG Enterprise device
+
+To specify a password for a device, go to
+:menuselection:`Storage --> View Disks`. Highlight the device name for
+the confirmed SED device and click Edit. Input and confirm the password
+in the :guilabel:`Password for SED` and
+:guilabel:`Confirm SED Password` fields. Disks that have a configured
+password will show bullets in their row of the
+:guilabel:`Password for SED` column of
+:menuselection:`Storage --> View Disks`. Conversely, the rows in that
+column will be empty for disks that do not support SED or which will be
+unlocked using the global password.
+
+Next, remember to initialize the devices:
+
+.. code-block:: none
+
+ sedhelper setup password
+
+This command ensures that all detected SED disks are properly setup using
+the specified password.
+
+.. _note: Rerun that command every time a new SED disk is placed in the
+   system.
+
+This command can be used to unlock all available SED disks:
+
+.. code-block:: none
+
+ sedhelper unlock
 
 
 .. index:: Email
@@ -974,7 +1078,7 @@ page for the specific driver and in many sections of the
 
 To add a loader, sysctl, or :file:`rc.conf` option, go to
 :menuselection:`System --> Tunables --> Add Tunable`,
-to access the screen shown in seen in
+to access the screen shown in shown in
 :numref:`Figure %s <add_tunable_fig>`.
 
 
@@ -1872,8 +1976,8 @@ shows the initial screen after clicking
 #endif truenas
 
 
-To import an existing certificate, click the
-:guilabel:`Import Certificate` button to open the configuration screen
+To import an existing certificate, click
+:guilabel:`Import Certificate` to open the configuration screen
 shown in
 :numref:`Figure %s <import_cert_fig>`.
 When importing a certificate chain, paste the primary certificate,
@@ -2004,7 +2108,7 @@ as the signing authority.
 
 If you need to use a certificate that is signed by an external CA,
 such as Verisign, instead create a certificate signing request. To do
-so, click the :guilabel:`Create Certificate Signing Request` button.
+so, click :guilabel:`Create Certificate Signing Request`.
 A screen like the one in
 :numref:`Figure %s <create_new_cert_fig>` opens,
 but without the :guilabel:`Signing Certificate Authority` field.
@@ -2019,8 +2123,8 @@ created for the fictional organization *My Company*. The self-signed
 certificate was issued by the internal CA named *My Company* and the
 administrator has not yet sent the certificate signing request to
 Verisign so that it can be signed. Once that certificate is signed
-and returned by the external CA, it should be imported using the
-:guilabel:`Import Certificate` button so that is available as a
+and returned by the external CA, it should be imported using
+:guilabel:`Import Certificate` so it is available as a
 configurable option for encrypting connections.
 
 
@@ -2103,9 +2207,10 @@ complete the following fields:
 * **Type:** select *Bug* when reporting an issue or *Feature* when
   requesting a new feature.
 
-* **Category:** this drop-down menu is empty a registered "Username"
-  and "Password" are entered. An error message is displayed if either
-  value is incorrect. After the *Username* and *Password* are
+* **Category:** this drop-down menu is empty until a registered
+  :guilabel:`Username` and :guilabel:`Password` are entered. An error
+  message is displayed if either value is incorrect. After the
+  :guilabel:`Username` and :guilabel:`Password` are
   validated, possible categories are populated to the drop-down menu.
   Select the one that best describes the bug or feature being
   reported.
@@ -2113,7 +2218,8 @@ complete the following fields:
 * **Attach Debug Info:** it is recommended to leave this box
   checked so that an overview of the system's hardware, build
   string, and configuration is automatically generated and included
-  with the ticket.
+  with the ticket.  Generating and attaching a debug to the ticket can
+  take some time.
 
 * **Subject:** enter a descriptive title for the ticket. A good
   *Subject* makes it easy for you and other users to find similar
