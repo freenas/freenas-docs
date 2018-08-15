@@ -4,8 +4,7 @@
 Log Out
 =======
 
-Click :guilabel:`Settings` in the upper right, then
-:guilabel:`Log out` to log out.
+Click :guilabel:`Exit/Restart` in the upper right, then
+:guilabel:`Log out`.
 
-Confirm the choice to log out. The window returns to the %brand%
-log in screen when finished.
+The window returns to the %brand% log in screen when finished.
