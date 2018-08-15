@@ -160,8 +160,10 @@ This software has been added or updated:
   improvements include channel programs, data disk removal, more
   resilient volume import, the ability to import a pool with missing
   vdevs, pool checkpoints, improved compressed ARC performance, and ZIL
-  batching. Note that many of these improvements need further testing so
-  have not yet been integrated into the UI.
+  batching. As part of this change, the default ZFS indirect block size
+  is reduced to 32 KiB from 128 KiB. Note that many of these
+  improvements need further testing so have not yet been integrated into
+  the UI.
 
 * The IPsec kernel module has been added. It can be manually loaded with
   :command:`kldload ipsec`.
