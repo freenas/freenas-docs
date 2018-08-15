@@ -158,13 +158,12 @@ shows which interfaces are manually configured and allows adding
 or editing a manually configured interface.
 
 .. note:: Typically, the interface used to access the %brand%
-   administrative GUI is configured by DHCP. This interface does not
-   appear in this screen, even though it is already dynamically
-   configured and in use.
-
-   :ref:`Creating a Link Aggregation` that does **not** include the NIC
-   used to access the %brand% administrative GUI may require adding an
-   :guilabel:`Interfaces` entry for this interface with DHCP enabled.
+   administrative GUI is configured by DHCP and not displayed in the
+   :guilabel:`Interfaces` list. The GUI will prompt to add this
+   interface before adding another interface. This is to prevent losing
+   connection to the administrative GUI when creating other interfaces
+   or a :ref:`link aggregation <Creating a Link Aggregation>` that does
+   *not* include the NIC used to access the administrative GUI.
 
 
 :numref:`Figure %s <add_net_interface_fig>`

@@ -232,6 +232,12 @@ These screen options have changed:
   fields have been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> Add Cloud Sync`.
 
+* The :guilabel:`NIC` and :guilabel:`Interface Name` fields in
+  :menuselection:`Network --> Interfaces --> Add Interface`
+  are preconfigured with the web interface NIC settings when configuring
+  the first interface. The UI also warns the user to configure the web
+  interface to prevent connection issues.
+
 * The :guilabel:`Exec` field has been added to
   :menuselection:`Storage --> Volumes --> Create Dataset --> Advanced Mode`.
 
