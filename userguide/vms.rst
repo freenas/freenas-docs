@@ -561,8 +561,8 @@ Creating Docker VMs
 ~~~~~~~~~~~~~~~~~~~
 
 :numref:`Figure %s <vms_add_docker_fig>` shows the Wizard that appears
-after navigating to
-:menuselection:`VMs --> Devices`,
+after going to
+:menuselection:`VMs`,
 clicking |ui-add|, and selecting :guilabel:`Docker Host` as the
 :guilabel:`Virtual Machine (VM) Wizard type`.
 
