@@ -131,9 +131,9 @@ information given when the share was created.
 
 
 .. note:: :numref:`Table %s <afp_share_config_opts_tab>`
-   summarizes the options available to fine-tune an AFP share. These
-   options should usually be left at the default settings. Changing
-   them might cause unexpected behavior. Most settings are only
+   summarizes the options available to fine-tune an AFP share. Leaving these
+   options at the default settings is recommended as changing
+   them can cause unexpected behavior. Most settings are only
    available with :guilabel:`Advanced Mode`. Do **not** change an
    advanced option without fully understanding the function of that
    option. Refer to
@@ -156,17 +156,17 @@ information given when the share was created.
    | Setting                      | Value         | Advanced | Description                                                                                                   |
    |                              |               | Mode     |                                                                                                               |
    +==============================+===============+==========+===============================================================================================================+
-   | Path                         | browse button |          | Browse to the volume/dataset to share. Do not nest additional volumes, datasets, or symbolic links beneath    |
-   |                              |               |          | this path because Netatalk does not fully support that.                                                       |
+   | Path                         | browse button |          | :guilabel:`Browse` to the volume/dataset to share. Do not nest additional volumes, datasets, or symbolic      |
+   |                              |               |          | links beneath this path because Netatalk does not fully support that.                                         |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Use as home share            | checkbox      |          | Check this box if the share will hold home directories. Only one share can be used as the home share          |
+   | Use as home share            | checkbox      |          | Set to allow the share to host user home directories. Only one share can be used as the home share.           |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Name                         | string        |          | Volume name that appears in in macOS after selecting :menuselection:`Go --> Connect to server` in the Finder  |
-   |                              |               |          | menu. Limited to 27 characters and cannot contain a period.                                                   |
+   | Name                         | string        |          | Enter the volume name that appears in in macOS after selecting :menuselection:`Go --> Connect to server` in   |
+   |                              |               |          | the Finder menu. Limited to 27 characters and cannot contain a period.                                        |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Share Comment                | string        | ✓        | Optional comment.                                                                                             |
+   | Share Comment                | string        | ✓        | Enter an optional comment.                                                                                    |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Allow List                   | string        | ✓        | Comma-delimited list of allowed users and/or groups where groupname begins with a :literal:`@`. Note          |
@@ -185,19 +185,19 @@ information given when the share was created.
    |                              |               |          | :literal:`@`.                                                                                                 |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Time Machine                 | checkbox      |          | When checked, %brand% advertises itself as a Time Machine disk so it can be found by Macs. Due to a           |
-   |                              |               |          | limitation in how the Mac deals with low-diskspace issues when multiple Macs share the same volume,           |
-   |                              |               |          | checking :guilabel:`Time Machine` on multiple shares could result in intermittent failed backups.             |
+   | Time Machine                 | checkbox      |          | Set to advertise %brand% as a Time Machine disk so it can be found by Macs. Setting multiple shares           |
+   |                              |               |          | for Time Machine use is not recommended. When multiple Macs share the same pool,                              |
+   |                              |               |          | low diskspace issues and intermittently failed backups can occur.                                             |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Zero Device Numbers          | checkbox      | ✓        | Enable when the device number is not constant across a reboot.                                                |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | No Stat                      | checkbox      | ✓        | If checked, AFP does not stat the volume path when enumerating the volumes list. Useful for                   |
+   | No Stat                      | checkbox      | ✓        | If enabled, AFP does not stat the volume path when enumerating the volumes list. Useful for                   |
    |                              |               |          | automounting or volumes created by a preexec script.                                                          |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | AFP3 UNIX Privs              | checkbox      | ✓        | Enable Unix privileges supported by OSX 10.5 and higher. Do not enable this if the network contains           |
+   | AFP3 UNIX Privs              | checkbox      | ✓        | Set to enable Unix privileges supported by OSX 10.5 and higher. Do not enable this if the network contains    |
    |                              |               |          | macOS 10.4 clients or lower as they do not support this feature.                                              |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
@@ -209,14 +209,14 @@ information given when the share was created.
    |                              |               |          |                                                                                                               |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Default umask                | integer       |  ✓       | Umask used for newly created files, default is *000* (anyone can read, write, and execute).                   |
+   | Default umask                | integer       |  ✓       | Umask is used for newly created files. Default is *000* (anyone can read, write, and execute).                |
    |                              |               |          |                                                                                                               |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Hosts Allow                  | string        |  ✓       | Comma-, space-, or tab-delimited list of allowed hostnames or IP addresses.                                   |
+   | Hosts Allow                  | string        |  ✓       | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma, space, or tab.              |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Hosts Deny                   | string        |  ✓       | Comma-, space-, or tab-delimited list of denied hostnames or IP addresses.                                    |
+   | Hosts Deny                   | string        |  ✓       | Enter a list of denied hostnames or IP addresses. Separate entries with a comma, space, or tab.               |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters         | string        |          | Additional `afp.conf <http://netatalk.sourceforge.net/3.1/htmldocs/afp.conf.5.html>`__ parameters             |
@@ -247,7 +247,7 @@ or imported into the %brand% system.
 
 Before creating a guest share, go to
 :menuselection:`Services --> AFP`
-and make sure that the :guilabel:`Guest Access` box is checked.
+and make sure that the :guilabel:`Guest Access` option is enabled.
 
 To create the AFP guest share, click :guilabel:`Wizard`, then click
 the :guilabel:`Next` button twice to display the screen shown in
@@ -285,10 +285,10 @@ the AFP service so the share is immediately available. The new share
 is also added as an entry to
 :menuselection:`Sharing --> Apple (AFP)`.
 
-macOS users can connect to the guest AFP share by clicking
+macOS users can connect to the guest AFP share by navigating to
 :menuselection:`Go --> Connect to Server`. In the example shown in
 :numref:`Figure %s <afp_connect_server_fig>`,
-the user has entered *afp://* followed by the IP address of the
+the user entered *afp://* followed by the IP address of the
 %brand% system.
 
 Click the :guilabel:`Connect` button. Once connected, Finder opens
@@ -331,19 +331,19 @@ enter the following information, as seen in the example in
    less than 27 characters long. The name cannot contain a period. In
    this example, the share is named *backup_user1*.
 
-#. Click the button for :guilabel:`Mac OS X (AFP)` and check the box
-   for :guilabel:`Time Machine`.
+#. Click the button for :guilabel:`Mac OS X (AFP)` and enable the
+   for :guilabel:`Time Machine` option.
 
 #. Click the :guilabel:`Ownership` button. If the user already exists
    on the %brand% system, click the drop-down :guilabel:`User` menu to
    select their user account.  If the user does not yet exist on the
    %brand% system, type their name into the :guilabel:`User` field and
-   check the :guilabel:`Create User` checkbox. If the user will be a
+   enable the :guilabel:`Create User` option. If the user will be a
    member of a group that already exists on the %brand% system, click
    the drop-down :guilabel:`Group` menu to select the group name. To
    create a new group to be used by Time Machine users, enter the name
-   in the :guilabel:`Group` field and check the
-   :guilabel:`Create Group` checkbox. Otherwise, enter the same name
+   in the :guilabel:`Group` field and set the
+   :guilabel:`Create Group` option. Otherwise, enter the same name
    as the user. In the example shown in
    :numref:`Figure %s <create_tm_auth_user_fig>`,
    both a new *user1* user and a new *tm_backups* group will be
@@ -367,7 +367,7 @@ each user, giving each user their own :guilabel:`Share name` and
 button twice, then the :guilabel:`Confirm` button to create the
 shares. The Wizard automatically creates a dataset for each share with
 the correct ownership and starts the AFP service so the shares are
-immediately available. The new shares are also added to
+immediately available. The new shares will appear in
 :menuselection:`Sharing --> Apple (AFP)`.
 
 
@@ -425,7 +425,7 @@ To configure Time Machine on the macOS client, go to
 which opens the screen shown in
 :numref:`Figure %s <config_tm_osx>`.
 Click :guilabel:`ON` and a pop-up menu shows the %brand% system as a
-backup option. In our example, it is listed as
+backup option. In this example, it is listed as
 *backup_user1 on "freenas"*. Highlight the %brand% system and click
 :guilabel:`Use Backup Disk`. A connection bar opens and prompts for
 the user account's password--in this example, the password that was
@@ -533,34 +533,35 @@ button.
    | Setting             | Value          | Advanced | Description                                                                                                |
    |                     |                | Mode     |                                                                                                            |
    +=====================+================+==========+============================================================================================================+
-   | Path                | browse button  |          | Browse to the volume or dataset to be shared; click :guilabel:`Add extra path` to select multiple paths.   |
+   | Path                | browse button  |          | :guilabel:`Browse` to the volume or dataset to be shared. Click :guilabel:`Add extra path` to select       |
+   |                     |                |          | multiple paths.                                                                                            |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
    | Comment             | string         |          | Set the share name. If left empty, share name is the list of selected :guilabel:`Path` entries.            |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Authorized networks | string         | ✓        | List of allowed networks in network/mask CIDR notation, like *1.2.3.0/24*, space-delimited;                |
-   |                     |                |          | leave empty to allow all.                                                                                  |
+   | Authorized networks | string         | ✓        | Space-delimited list of allowed networks in network/mask CIDR notation, like *1.2.3.0/24*.                 |
+   |                     |                |          | Leave empty to allow all.                                                                                  |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Authorized IP       | string         | ✓        | List of allowed IP addresses or hostnames, space-delimited. Leave empty to allow all.                      |
+   | Authorized IP       | string         | ✓        | Space-delimited list of allowed IP addresses or hostnames. Leave empty to allow all.                       |
    | addresses or hosts  |                |          |                                                                                                            |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | All directories     | checkbox       |          | When checked, allow the client to mount any subdirectory within the :guilabel:`Path`.                      |
+   | All directories     | checkbox       |          | Set to allow the client to mount any subdirectory within the :guilabel:`Path`.                             |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Read only           | checkbox       |          | Prohibit writing to the share.                                                                             |
+   | Read only           | checkbox       |          | Set to prohibit writing to the share.                                                                      |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Quiet               | checkbox       | ✓        | Inhibit otherwise-useful syslog diagnostics to avoid some annoying error messages. See                     |
+   | Quiet               | checkbox       | ✓        | Set to inhibit some syslog diagnostics to avoid some error messages. See                                   |
    |                     |                |          | `exports(5) <https://www.freebsd.org/cgi/man.cgi?query=exports>`__ for examples.                           |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Maproot User        | drop-down menu | ✓        | When a user is selected, the *root* user is limited to that user's permissions.                            |
+   | Maproot User        | drop-down menu | ✓        | When a user is selected, the *root* user is limited to the permissions of that user.                       |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Maproot Group       | drop-down menu | ✓        | When a group is selected, the *root* user is also limited to that group's permissions.                     |
+   | Maproot Group       | drop-down menu | ✓        | When a group is selected, the *root* user is also limited to the permissions of that group.                |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
    | Mapall User         | drop-down menu | ✓        | All clients use the permissions of the specified user.                                                     |
@@ -569,7 +570,7 @@ button.
    | Mapall Group        | drop-down menu | ✓        | All clients use the permissions of the specified group.                                                    |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Security            | selection      | ✓        | Only appears if :guilabel:`Enable NFSv4` is checked in                                                     |
+   | Security            | selection      | ✓        | Only appears if :guilabel:`Enable NFSv4` is enabled in                                                     |
    |                     |                |          | :menuselection:`Services --> NFS`. Choices are *sys* or these Kerberos options:                            |
    |                     |                |          | *krb5* (authentication only),                                                                              |
    |                     |                |          | *krb5i* (authentication and integrity), or                                                                 |
@@ -584,7 +585,7 @@ When creating NFS shares, keep these points in mind:
 #. Clients will specify the :guilabel:`Path` when mounting the share.
 
 #.  The :guilabel:`Maproot` and :guilabel:`Mapall` options are
-    exclusive, meaning only one can be used--the GUI does not allow
+    exclusive, meaning only one can be used as the GUI does not allow
     both. The :guilabel:`Mapall` options supersede the
     :guilabel:`Maproot` options. To restrict only the *root* user's
     permissions, set the :guilabel:`Maproot` option. To restrict
@@ -594,7 +595,9 @@ When creating NFS shares, keep these points in mind:
     NFS is not able to cross filesystem boundaries.
 
 #.  The network must be unique per share and per filesystem or
-    directory.
+    directory. Since :file:`/etc/exports` does not act like an ACL, the
+    rule to apply is undefined among overlapping networks or when using
+    the same share with multiple hosts.
 
 #.  The :guilabel:`All directories` option can only be used once per
     share per filesystem.
@@ -657,7 +660,7 @@ A better option is to do this:
 
 #.  In the :guilabel:`Change Permissions` screen of the volume/dataset
     that is being shared, change the owner and group to *nobody* and
-    set the permissions according to your requirements.
+    set the permissions according to the desired requirements.
 
 #.  Select *nobody* in the :guilabel:`Mapall User` and
     :guilabel:`Mapall Group` drop-down menus for the share in
@@ -690,7 +693,7 @@ The following examples share this configuration:
 
     * :guilabel:`Authorized Networks`: *192.168.2.0/24*
 
-    * :guilabel:`All Directories` checkbox is checked
+    * :guilabel:`All Directories` option is enabled
 
     * :guilabel:`MapAll User` is set to *nobody*
 
@@ -759,7 +762,7 @@ best results, use :ref:`Windows (SMB) Shares`.
 From macOS
 ^^^^^^^^^^^^^
 
-To mount the NFS volume from a macOS client, click on
+To mount the NFS volume from a macOS client, go to
 :menuselection:`Go --> Connect to Server`.
 In the :guilabel:`Server Address` field, enter *nfs://* followed by
 the IP address of the %brand% system and the name of the
@@ -825,7 +828,7 @@ Some older versions of NFS clients default to UDP instead of TCP and
 do not auto-negotiate for TCP. By default, %brand% uses TCP. To
 support UDP connections, go to
 :menuselection:`Services --> NFS`
-and check the box :guilabel:`Serve UDP NFS clients`.
+and enable the :guilabel:`Serve UDP NFS clients` option.
 
 The :samp:`nfsstat -c` or :samp:`nfsstat -s` commands can be helpful
 to detect problems from the :ref:`Shell`. A high proportion of retries
@@ -862,7 +865,7 @@ where:
 
 * **IP address:** is the IP address or hostname of the %brand%
   system. Take care when configuring a public IP address to ensure
-  that the network's firewall only allows access to authorized
+  that the network firewall only allows access to authorized
   systems.
 
 * **port_number:** is configured in
@@ -913,19 +916,19 @@ summarizes the available options.
    | Setting                      | Value         | Description                                                                                                 |
    |                              |               |                                                                                                             |
    +==============================+===============+=============================================================================================================+
-   | Share Path Name              | string        | Input a name for the share.                                                                                 |
+   | Share Path Name              | string        | Enter a name for the share.                                                                                 |
    |                              |               |                                                                                                             |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
    | Comment                      | string        | Optional.                                                                                                   |
    |                              |               |                                                                                                             |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Path                         | browse button | Browse to the volume/dataset to share.                                                                      |
+   | Path                         | browse button | :guilabel:`Browse` to the volume/dataset to share.                                                          |
    |                              |               |                                                                                                             |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Read Only                    | checkbox      | If checked, users cannot write to the share.                                                                |
+   | Read Only                    | checkbox      | Set to prohibit users from writing to the share.                                                            |
    |                              |               |                                                                                                             |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Change User & Group          | checkbox      | If checked, automatically sets the share's contents to the *webdav* user and group.                         |
+   | Change User & Group          | checkbox      | Enable to automatically set the share contents to the *webdav* user and group.                              |
    | Ownership                    |               |                                                                                                             |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
 
@@ -970,7 +973,7 @@ options. It demonstrates some common configuration scenarios as well
 as offering some troubleshooting tips. Reading
 through this entire chapter before creating any SMB shares is
 recommended to gain a better understanding of the configuration
-scenario that meets your specific network requirements.
+scenario that meets the specific network requirements.
 
 .. tip:: `SMB Tips and Tricks
    <https://forums.freenas.org/index.php?resources/smb-tips-and-tricks.15/>`__
@@ -1032,50 +1035,48 @@ provides more details for each configurable option.
    | Path                           | browse button |          | Select volume/dataset/directory to share.                                                                   |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Use as home share              | checkbox      |          | Check this box if the share is meant to hold user home directories. Only one share can be the homes share.  |
+   | Use as home share              | checkbox      |          | Set to allow this share to hold user home directories. Only one share can be the homes share.               |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Name                           | string        |          | Mandatory, name of share.                                                                                   |
+   | Name                           | string        |          | Enter a mandatory name for the share.                                                                       |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
    | Comment                        | string        | ✓        | Optional description.                                                                                       |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Apply Default Permissions      | checkbox      |          | Sets the ACLs to allow read/write for owner/group and read-only for others. Should only be unchecked when   |
-   |                                |               |          | creating a share on a system that already has custom ACLs set.                                              |
+   | Apply Default Permissions      | checkbox      |          | When enabled, the ACLs grant read and write for the owner/group and read-only for others. Only leave unset  |
+   |                                |               |          | when creating a share on a system that already has custom ACLs set.                                         |
+   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   | Export Read Only               | checkbox      | ✓        | Set to prohibit write access to the share.                                                                  |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Export Read Only               | checkbox      | ✓        | Prohibits write access to the share.                                                                        |
+   | Browsable to Network Clients   | checkbox      | ✓        | When set, users see the contents of */homes*, whichincludes other home directories of other users.          |
+   |                                |               |          | When unset, users see only their own home directory.                                                        |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Browsable to Network Clients   | checkbox      | ✓        | When checked, users see the contents of */homes* (including other home directories of other users)          |
-   |                                |               |          | and when unchecked, users see only their own home directory.                                                |
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Export Recycle Bin             | checkbox      | ✓        | Deleted files are moved to a hidden :file:`.recycle` in the root folder of the share. The                   |
+   | Export Recycle Bin             | checkbox      | ✓        | When set, deleted files are moved to a hidden :file:`.recycle` in the root folder of the share. The         |
    |                                |               |          | :file:`.recycle` directory can be deleted to reclaim space and is automatically recreated when a file       |
    |                                |               |          | is deleted.                                                                                                 |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Show Hidden Files              | checkbox      | ✓        | If enabled, the Windows hidden attribute is not set when filenames that begin with a dot (a Unix hidden     |
-   |                                |               |          | file) are created. Existing files are not affected.                                                         |
+   | Show Hidden Files              | checkbox      | ✓        | Set to disable the Windows *hidden* attribute on a new Unix hidden file. Unix hidden filenames start with   |
+   |                                |               |          | a dot: :file:`.foo`. Existing files are not affected. Existing files are not affected.                      |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Allow Guest Access             | checkbox      |          | If checked, a password is not required to connect to the share. Connections with a bad password are         |
-   |                                |               |          | rejected unless the user account does not exist, in which case it is mapped to the guest account and        |
-   |                                |               |          | granted the permissions of the guest user defined in the :ref:`SMB` service.                                |
+   | Allow Guest Access             | checkbox      |          | Set to allow access to this share without a password. See :ref:`SMB` service for more information           |
+   |                                |               |          | about guest user permissions.                                                                               |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Only Allow Guest Access        | checkbox      | ✓        | Requires :guilabel:`Allow guest access` to also be checked. Forces guest access for all connections.        |
+   | Only Allow Guest Access        | checkbox      | ✓        | Requires :guilabel:`Allow guest access` to also be enabled. Forces guest access for all connections.        |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Access Based Share Enumeration | checkbox      | ✓        | When checked, users can only see the shares they have permission to access. To change the default that      |
+   | Access Based Share Enumeration | checkbox      | ✓        | When enabled, users can only see the shares they have permission to access. To change the default that      |
    |                                |               |          | grants Everyone access, use the computer management MMC on Windows or the **sharesec** command-line utility.|
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Hosts Allow                    | string        | ✓        | Comma-, space-, or tab-delimited list of allowed hostnames or IP addresses.                                 |
+   | Hosts Allow                    | string        | ✓        | Enter a list of allowed hostnames or IP addresses. Separate entries with a space, comma, or tab.            |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Hosts Deny                     | string        | ✓        | Comma-, space-, or tab-delimited list of denied hostnames or IP addresses. Allowed hosts take               |
-   |                                |               |          | precedence so can use *ALL* in this field and specify allowed hosts in :guilabel:`Hosts Allow`.             |
+   | Hosts Deny                     | string        | ✓        | Enter a list of denied hostnames or IP addresses. Separate entries with a space, comma, or tab,             |
+   |                                |               |          | Specify ALL and list any hosts from :guilabel:`Hosts Allow` to have those hosts take precedence.            |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
    | VFS Objects                    | selection     | ✓        | Adds virtual file system modules to enhance functionality.                                                  |
@@ -1095,18 +1096,18 @@ Note the following regarding some of the :guilabel:`Advanced Mode`
 settings:
 
 * Hostname lookups add some time to accessing the SMB share. If
-  only using IP addresses, uncheck the :guilabel:`Hostnames lookups` box
+  only using IP addresses, unset the :guilabel:`Hostnames lookups` option
   in
   :menuselection:`Services --> SMB`.
 
-* When the :guilabel:`Browsable to Network Clients` box is checked
+* When the :guilabel:`Browsable to Network Clients` option is enabled
   (the default), the share is visible through Windows File Explorer or
   through :command:`net view`. When the
-  :guilabel:`Use as a home share` box is checked, unchecking the
-  :guilabel:`Browsable to Network Clients` box hides the share named
+  :guilabel:`Use as a home share` option is selected, deselecting the
+  :guilabel:`Browsable to Network Clients` option hides the share named
   *homes* so that only the dynamically generated share containing the
-  authenticated user's home directory will be visible. By default, the
-  *homes* share and the user's home directory are both visible. Users
+  authenticated user home directory will be visible. By default, the
+  *homes* share and the user home directory are both visible. Users
   are not automatically granted read or write permissions on browsable
   shares. This option provides no real security because shares that
   are not visible in Windows File Explorer can still be accessed with
@@ -1127,7 +1128,7 @@ like Windows 7 will not be able to connect with NTLMv1 disabled.
 <https://support.microsoft.com/en-us/help/2793313/security-guidance-for-ntlmv1-and-lm-network-authentication>`__
 has information about the security implications and ways to enable
 NTLMv2 on those clients. If changing the client configuration is not
-possible, NTLMv1 authentication can be enabled by checking the box
+possible, NTLMv1 authentication can be enabled by enabling the box
 :guilabel:`NTLMv1 auth` in
 :menuselection:`Services --> SMB`.
 
@@ -1207,7 +1208,7 @@ for more details.
    | fake_perms          | Allows roaming profile files and directories to be set as read-only.                                                                       |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | fruit               | Enhances macOS support by providing the SMB2 AAPL extension and Netatalk interoperability; automatically loads *catia* and *streams_xattr* |
+   | fruit               | Enhances macOS support by providing the SMB2 AAPL extension and Netatalk interoperability. Automatically loads *catia* and *streams_xattr* |
    |                     | but read the caveat in NOTE below table.                                                                                                   |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1259,7 +1260,7 @@ for more details.
    | snapper             | Provides the ability for remote SMB clients to access shadow copies of FSRVP snapshots using Windows Explorer.                             |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | streams_depot       | **Experimental** module to store alternate data streams in a central directory; the association with the primary file can be lost due      |
+   | streams_depot       | **Experimental** module to store alternate data streams in a central directory. The association with the primary file can be lost due      |
    |                     | to inode numbers changing when a directory is copied to a new location (see `<https://marc.info/?l=samba&m=132542069802160&w=2>`__).       |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | streams_xattr       | Enables storing of NTFS alternate data streams in the file system.                                                                         |
@@ -1338,8 +1339,8 @@ Complete the following fields in this screen:
 #. **Share name:** enter a name for the share that is useful.
    In this example, the share is named *smb_insecure*.
 
-#. Click the button for :guilabel:`Windows (SMB)` and check the box
-   for :guilabel:`Allow Guest`.
+#. Click the button for :guilabel:`Windows (SMB)` and enable the
+   :guilabel:`Allow Guest` option.
 
 #. Click the :guilabel:`Ownership` button. Click the drop-down
    :guilabel:`User` menu and select *nobody*. Click the
@@ -1410,13 +1411,13 @@ following information, as shown in the example in
 
 #. Click the :guilabel:`Ownership` button. To create the user account
    on the %brand% system, type their name into the :guilabel:`User`
-   field and check the :guilabel:`Create User` checkbox. The user's
+   field and enable the :guilabel:`Create User` option. The user's
    password is then entered and confirmed. **If the user will not be
    sharing this share with other users**, type their name into the
    :guilabel:`Group` field and click :guilabel:`Create Group`.
    **If, however, the share will be used by several users**,
-   instead type in a group name and check the :guilabel:`Create Group`
-   box. In the example shown in
+   instead type in a group name and enable the :guilabel:`Create Group`
+   option. In the example shown in
    :numref:`Figure %s <create_smb_user_group_fig>`,
    *user1* has been used for both the user and group name, meaning
    that this share will only be used by *user1*. When finished, click
@@ -1539,7 +1540,7 @@ caveats:
 
 * If the Windows system is not fully patched to the latest service
   pack, Shadow Copies may not work. If no
-  previous versions of files to restore are visible, use Windows Update 
+  previous versions of files to restore are visible, use Windows Update
   to make sure that the system is fully up-to-date.
 
 * Shadow copy support only works for ZFS pools or datasets. This means
@@ -1759,7 +1760,7 @@ Target Global Configuration
 :numref:`Figure %s <iscsi_targ_global_var_fig>`, contains
 settings that apply to all iSCSI shares.
 :numref:`Table %s <iscsi_targ_global_config_tab>`
-summarizes the settings that can be configured in the Target Global
+summarizes the settings that are configured in the Target Global
 Configuration screen.
 
 Some built-in values affect iSNS usage. Fetching of allowed initiators
@@ -1806,13 +1807,13 @@ for iSNS requests is 5 seconds.
    |                                 |                              | if unfamiliar with this format.                                                           |
    |                                 |                              |                                                                                           |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-   | ISNS Servers                    | string                       | Space delimited list of hostnames or IP addresses of ISNS servers with which              |
-   |                                 |                              | to register the system's iSCSI targets and portals.                                       |
+   | ISNS Servers                    | string                       | Space-delimited list of hostnames or IP addresses of ISNS servers                         |
+   |                                 |                              | to be registered iSCSI targets and portals of the system.                                 |
    |                                 |                              |                                                                                           |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
-   | Pool Available Space Threshold  | integer                      | Enter the percentage of free space that should remain in the pool. When this percentage   |
-   |                                 |                              | is reached, the system issues an alert, but only if zvols are used; see :ref:`VAAI`       |
-   |                                 |                              | Threshold Warning.                                                                        |
+   | Pool Available Space Threshold  | integer                      | Enter the percentage of free space to remain in the pool. When this percentage            |
+   |                                 |                              | is reached, the system issues an alert, but only if zvols are used. See :ref:`VAAI`       |
+   |                                 |                              | Threshold Warning for more information.                                                   |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
 #ifdef truenas
    | Enable iSCSI ALUA               | checkbox                     | Enable ALUA for automatic best path discovery when supported by clients. This option      |
@@ -1862,22 +1863,22 @@ link :guilabel:`Add extra Portal IP`.
    | Comment               | string         | Optional description. Portals are automatically assigned a numeric group ID.|
    |                       |                |                                                                             |
    +-----------------------+----------------+-----------------------------------------------------------------------------+
-   | Discovery Auth Method | drop-down menu | Configures the authentication level required by the target for discovery of |
-   |                       |                | valid devices, where *None* will allow anonymous discovery while            |
+   | Discovery Auth Method | drop-down menu | :ref:`iSCSI` supports multiple authentication methods that are used by the  |
+   |                       |                | target to discover valid devices. *None* allows anonymous discovery while   |
    |                       |                | *CHAP* and                                                                  |
-   |                       |                | *Mutual CHAP* require authentication.                                       |
+   |                       |                | *Mutual CHAP* both require authentication.                                  |
    |                       |                |                                                                             |
    +-----------------------+----------------+-----------------------------------------------------------------------------+
-   | Discovery Auth Group  | drop-down menu | select a user created in :guilabel:`Authorized Access` if the               |
+   | Discovery Auth Group  | drop-down menu | Select a user created in :guilabel:`Authorized Access` if the               |
    |                       |                | :guilabel:`Discovery Auth Method` is set to *CHAP* or                       |
-   |                       |                | *Mutual CHAP*                                                               |
+   |                       |                | *Mutual CHAP*.                                                              |
    |                       |                |                                                                             |
    +-----------------------+----------------+-----------------------------------------------------------------------------+
-   | IP address            | drop-down menu | select the IP address associated with an interface or the wildcard address  |
-   |                       |                | of *0.0.0.0* (any interface)                                                |
+   | IP address            | drop-down menu | Select the IP address associated with an interface or the wildcard address  |
+   |                       |                | of *0.0.0.0* (any interface).                                               |
    |                       |                |                                                                             |
    +-----------------------+----------------+-----------------------------------------------------------------------------+
-   | Port                  | integer        | TCP port used to access the iSCSI target; default is *3260*                 |
+   | Port                  | integer        | TCP port used to access the iSCSI target. Default is *3260*.                |
    |                       |                |                                                                             |
    +-----------------------+----------------+-----------------------------------------------------------------------------+
 
@@ -1949,14 +1950,14 @@ initiator.
    | Setting            | Value     | Description                                                                          |
    |                    |           |                                                                                      |
    +====================+===========+======================================================================================+
-   | Initiators         | string    | use *ALL* keyword or a list of initiator hostnames separated by spaces               |
+   | Initiators         | string    | Yse *ALL* keyword or a list of initiator hostnames separated by spaces.              |
    |                    |           |                                                                                      |
    +--------------------+-----------+--------------------------------------------------------------------------------------+
-   | Authorized network | string    | use *ALL* keyword or a network address with CIDR mask such as                        |
-   |                    |           | *192.168.2.0/24*                                                                     |
+   | Authorized network | string    | Use *ALL* keyword or a network address with CIDR mask such as                        |
+   |                    |           | *192.168.2.0/24*.                                                                    |
    |                    |           |                                                                                      |
    +--------------------+-----------+--------------------------------------------------------------------------------------+
-   | Comment            | string    | optional description                                                                 |
+   | Comment            | string    | Enter an optional description.                                                       |
    |                    |           |                                                                                      |
    +--------------------+-----------+--------------------------------------------------------------------------------------+
 
@@ -2022,21 +2023,22 @@ authorized access:
    | Setting     | Value     | Description                                                                                                                      |
    |             |           |                                                                                                                                  |
    +=============+===========+==================================================================================================================================+
-   | Group ID    | integer   | allows different groups to be configured with different authentication profiles; for instance, all users with a Group ID of *1*  |
-   |             |           | will inherit the authentication profile associated with Group *1*                                                                |
+   | Group ID    | integer   | Allows different groups to be configured with different authentication profiles. Example: all users with a Group ID of *1*       |
+   |             |           | will inherit the authentication profile associated with Group *1*.                                                               |
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | User        | string    | name of user account to create for CHAP authentication with the user on the remote system; many initiators default to using the  |
-   |             |           | initiator name as the user                                                                                                       |
+   | User        | string    | Enteer name of user account to create for CHAP authentication with the user on the remote system. Many initiators default to     |
+   |             |           | using the initiator name as the user.                                                                                            |
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | Secret      | string    | password to be associated with :guilabel:`User`; the iSCSI standard requires that this be between 12 and 16 characters           |
+   | Secret      | string    | Enter a password to be associated with :guilabel:`User`. The iSCSI standard requires that this be between 12 and 16 characters.  |
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | Peer User   | string    | only input when configuring mutual CHAP; in most cases it will need to be the same value as :guilabel:`User`                     |
+   | Peer User   | string    | Only input when configuring mutual CHAP. In most cases it will need to be the same value as :guilabel:`User`.                    |
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | Peer Secret | string    | the mutual secret password which **must be different than the** :guilabel:`Secret`; required if :guilabel:`Peer User` is set     |
+   | Peer Secret | string    | Enter the mutual secret password which **must be different than the** :guilabel:`Secret`. Required if :guilabel:`Peer User` is   |
+   |             |           | set.                                                                                                                             |
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
 
@@ -2048,7 +2050,7 @@ As authorized accesses are added, they will be listed under
 :guilabel:`View Authorized Accesses`. In the example shown in
 :numref:`Figure %s <iscsi_view_auth_access_fig>`,
 three users (*test1*, *test2*, and *test3*) and two groups
-(*1* and *2*) have been created, with group 1 consisting of one CHAP
+(*1* and *2*) are created, with group 1 consisting of one CHAP
 user and group 2 consisting of one mutual CHAP user and one CHAP user.
 Click an authorized access entry to display its :guilabel:`Edit` and
 :guilabel:`Delete` buttons.
@@ -2109,25 +2111,25 @@ summarizes the settings that can be configured when creating a Target.
    |                             |                |                                                                                                             |
    |                             |                |                                                                                                             |
    +=============================+================+=============================================================================================================+
-   | Target Name                 | string         | required value; base name will be appended automatically if it does not start with *iqn*                    |
+   | Target Name                 | string         | Required value. Base name will be appended automatically if it does not start with *iqn*.                   |
    |                             |                |                                                                                                             |
    +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-   | Target Alias                | string         | optional user-friendly name                                                                                 |
+   | Target Alias                | string         | Enter an optional user-friendly name.                                                                       |
    |                             |                |                                                                                                             |
    +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-   | Portal Group ID             | drop-down menu | leave empty or select number of existing portal to use                                                      |
+   | Portal Group ID             | drop-down menu | Leave empty or select number of existing portal to use.                                                     |
    |                             |                |                                                                                                             |
    +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-   | Initiator Group ID          | drop-down menu | select which existing initiator group has access to the target                                              |
+   | Initiator Group ID          | drop-down menu | Select which existing initiator group has access to the target.                                             |
    |                             |                |                                                                                                             |
    +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-   | Auth Method                 | drop-down menu | choices are *None*,                                                                                         |
+   | Auth Method                 | drop-down menu | Choices are *None*,                                                                                         |
    |                             |                | *Auto*,                                                                                                     |
    |                             |                | *CHAP*, or                                                                                                  |
-   |                             |                | *Mutual CHAP*                                                                                               |
+   |                             |                | *Mutual CHAP*.                                                                                              |
    |                             |                |                                                                                                             |
    +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
-   | Authentication Group number | drop-down menu | *None* or integer representing number of existing authorized access                                         |
+   | Authentication Group number | drop-down menu | Select *None* or an integer representing number of existing authorized access.                              |
    |                             |                |                                                                                                             |
    +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
 
@@ -2218,7 +2220,7 @@ file to be created to the volume/dataset name.** is not appended.
    | Setting            | Value          | Description                                                                                                          |
    |                    |                |                                                                                                                      |
    +====================+================+======================================================================================================================+
-   | Extent Name        | string         | Name of extent. If the :guilabel:`Extent size` is not *0*, it cannot be an existing file within the                  |
+   | Extent Name        | string         | Enter the extent name. If the :guilabel:`Extent size` is not *0*, it cannot be an existing file within the           |
    |                    |                | volume/dataset.                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Extent Type        | drop-down menu | Select from *File* or                                                                                                |
@@ -2228,7 +2230,7 @@ file to be created to the volume/dataset name.** is not appended.
    | Device             | drop-down menu | Only appears if *Device* is selected. Select the unformatted disk, controller, zvol, zvol snapshot, or HAST device.  |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Serial             | string         | Unique LUN ID; the default is generated from the system MAC address.                                                 |
+   | Serial             | string         | Unique LUN ID. The default is generated from the system MAC address.                                                 |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Path to the extent | browse button  | Only appears if *File* is selected. Browse to an existing file and use *0* as the :guilabel:`Extent size`,           |
@@ -2244,23 +2246,23 @@ file to be created to the volume/dataset name.** is not appended.
    | Logical Block Size | drop-down menu | Only override the default if the initiator requires a different block size.                                          |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Disable Physical   | checkbox       | If the initiator does not support physical block size values over 4K (MS SQL), check this box.                       |
+   | Disable Physical   | checkbox       | Set if the initiator does not support physical block size values over 4K (MS SQL).                                   |
    | Block Size         |                |                                                                                                                      |
    | Reporting          |                |                                                                                                                      |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Available Space    | string         | Only appears if *File* or a zvol is selected. When the specified percentage of free space is reached, the system     |
-   | Threshold          |                | issues an alert; see :ref:`VAAI` Threshold Warning.                                                                  |
+   | Threshold          |                | issues an alert. See :ref:`VAAI` Threshold Warning for more information.                                             |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Comment            | string         | Optional.                                                                                                            |
+   | Comment            | string         | Enter an optional comment.                                                                                           |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Enable TPC         | checkbox       | If checked, an initiator can bypass normal access control and access any scannable target; this allows               |
+   | Enable TPC         | checkbox       | If enabled, an initiator can bypass normal access control and access any scannable target; this allows               |
    |                    |                | :command:`xcopy` operations otherwise blocked by access control.                                                     |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Xen initiator      | checkbox       | Check this box when using Xen as the iSCSI initiator.                                                                |
+   | Xen initiator      | checkbox       | Set this option when using Xen as the iSCSI initiator.                                                               |
    | compat mode        |                |                                                                                                                      |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
@@ -2268,7 +2270,7 @@ file to be created to the volume/dataset name.** is not appended.
    |                    |                | where the number of systems using a specific RPM is needed for accurate reporting statistics.                        |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Read-only          | checkbox       | Check this box to prevent the initiator from initializing this LUN .                                                 |
+   | Read-only          | checkbox       | Set to prevent the initiator from initializing this LUN .                                                            |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
 
@@ -2311,14 +2313,14 @@ targets and extents.
    | Setting     | Value          | Description                                                                                            |
    |             |                |                                                                                                        |
    +=============+================+========================================================================================================+
-   | Target      | drop-down menu | Select the pre-created target.                                                                         |
+   | Target      | drop-down menu | Select an existing target.                                                                             |
    |             |                |                                                                                                        |
    +-------------+----------------+--------------------------------------------------------------------------------------------------------+
    | LUN ID      | drop-down menu | Select the value to use or type in a value between *1* and *1023*. Note that some initiators expect    |
    |             |                | a value below *256*.                                                                                   |
    |             |                |                                                                                                        |
    +-------------+----------------+--------------------------------------------------------------------------------------------------------+
-   | Extent      | drop-down menu | Select the pre-created extent.                                                                         |
+   | Extent      | drop-down menu | Select an existing extent.                                                                             |
    |             |                |                                                                                                        |
    +-------------+----------------+--------------------------------------------------------------------------------------------------------+
 
@@ -2437,7 +2439,7 @@ Windows systems and virtual machines in order to prevent automatic
 or accidental reformatting of targets containing unrecognized
 filesystems. It can also be used to segregate data; for example, to
 prevent the engineering department from accessing data from the
-human resources department. Refer to your switch documentation for
+human resources department. Refer to the switch documentation for
 details on how to configure zoning of virtual ports.
 
 To create the virtual ports on the %brand% system, go to
@@ -2510,8 +2512,8 @@ comes with OpenBSD.
 
 Some Linux distros provide the command line utility
 :command:`iscsiadm` from `Open-iSCSI <http://www.open-iscsi.com/>`__.
-Use a web search to see if a package exists for your distribution
-should the command not exist on your Linux system.
+Use a web search to see if a package exists for the distribution
+should the command not exist on the Linux system.
 
 If a LUN is added while :command:`iscsiadm` is already connected, it
 will not see the new LUN until rescanned with

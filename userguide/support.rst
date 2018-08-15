@@ -5,13 +5,12 @@ Support Resources
 
 %brand% has a large installation base and an active user community.
 This means that many usage questions have already been answered and
-the details are available on the Internet. If you get stuck using
-%brand%, spend a few moments searching the Internet for the word
-*FreeNAS* with some keywords that describe the error message or the
-function you are trying to implement.
+the details are available on the Internet. If an issue occurs while
+using %brand%, it can be helpful to spend a few moments searching the
+Internet for the word *FreeNAS* with some keywords that describe the
+error message or the function that is being implemented.
 
-The rest of this section discusses these resources which are
-available to %brand% users:
+This section discusses resources available to %brand% users:
 
 * :ref:`Website and Social Media`
 
@@ -112,7 +111,7 @@ Language-specific categories are available under **International**.
 To join the forums, create an account with the
 :guilabel:`Sign Up Now!` link.
 
-Before asking a question on the forum, check the
+Before asking a question on the forums, check the
 `Resources <https://forums.freenas.org/index.php?resources/>`__
 to see if the information is already there. See the
 `Forum Rules
@@ -126,7 +125,7 @@ questions that will get a response.
 IRC
 ---
 
-To ask a question in real time, you can use the *#freenas* channel on
+To ask a question in real time, use the *#freenas* channel on
 IRC
 `Freenode <http://freenode.net/>`__.
 Depending on the time of day and your time zone, %brand% developers or
@@ -142,7 +141,7 @@ from a web browser.
 
 To get the most out of the IRC channel, keep these points in mind:
 
-* Do not ask "can anyone help me?". Just ask the question.
+* Do not ask "Can anyone help me?". Just ask the question.
 
 * Do not ask a question and then leave. Users who know the answer
   cannot help you if you disappear.
@@ -203,11 +202,11 @@ Training
 --------
 
 iXsystems also offers professional training modules. Each module is
-designed to accelerate your %brand% learning curve and to save you
+designed to accelerate the %brand% learning curve and to save you
 hours of learning by trial and error. %brand% training classes are
-1-4 hours in length, topic-specific, and provide the information you
-need to quickly get up to speed in %brand% and ZFS. Refer to the
+30 minutes in length, topic-specific, and provide the information
+needed to quickly get up to speed in %brand% and ZFS. Refer to the
 `FreeNAS® Training and Certification website
-<http://www.freenas.org/freenas-zfs-training/>`__ for more information
-about the courses, pricing, and availability.
+<https://www.ixsystems.com/ix-university/>`__ for more information
+about course availability.
 #endif commented

@@ -39,9 +39,9 @@ these options:
 Volumes
 -------
 
-The :guilabel:`Volumes` section of the %brand% graphical interface can
-be used to format volumes, attach a disk to copy data onto an existing
-volume, or import a ZFS volume. It can also be used to create ZFS
+The :guilabel:`Volumes` section of the %brand% graphical interface is
+used to format volumes, attach a disk to copy data onto an existing
+volume, or import a ZFS volume. It is also used to create ZFS
 datasets and zvols and to manage their permissions.
 
 
@@ -105,42 +105,40 @@ summarizes the configuration options of this screen.
    |                  |                |                                                                                            |
    +==================+================+============================================================================================+
    | Volume name      | string         | ZFS volumes must conform to these                                                          |
-   |                  |                | `naming conventions <https://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`__;    |
-   |                  |                | choosing a name that will stick out in the logs (e.g. **not** a generic term like          |
-   |                  |                | :file:`data` or :file:`freenas`) is recommended                                            |
+   |                  |                | `naming conventions <https://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`__.    |
+   |                  |                | Choosing a memorable name that sticks out in the logs and avoiding generic names, like     |
+   |                  |                | :file:`data` or :file:`freenas`, is recommended.                                           |
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Volume to extend | drop-down menu | extend an existing ZFS pool; see :ref:`Extending a ZFS Volume` for more details            |
+   | Volume to extend | drop-down menu | Extend an existing ZFS pool. See :ref:`Extending a ZFS Volume` for more details.           |
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Encryption       | checkbox       | see the warnings in :ref:`Encryption` before enabling encryption                           |
+   | Encryption       | checkbox       | See the warnings in :ref:`Encryption` before enabling encryption.                          |
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Available disks  | display        | display the number and size of available disks; hover over :guilabel:`show` to             |
-   |                  |                | list the available device names; click the *+* to add all of the disks to the pool         |
+   | Available disks  | display        | Display the number and size of available disks. Hover over :guilabel:`show` to             |
+   |                  |                | list the available device names and click the *+* to add all of the disks to the pool.     |
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Volume layout    | drag and drop  | click and drag the icon to select the desired number of disks for a vdev; when at least    |
+   | Volume layout    | drag and drop  | Click and drag the icon to select the desired number of disks for a vdev. When at least    |
    |                  |                | one disk is selected, the layouts supported by the selected number of disks are added to   |
-   |                  |                | the drop-down menu                                                                         |
+   |                  |                | the drop-down menu.                                                                        |
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Add Extra Device | button         | configure multiple vdevs or add log or cache devices during pool creation                  |
+   | Add Extra Device | button         | Configure multiple vdevs or add log or cache devices during pool creation.                 |
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
-   | Manual setup     | button         | create a pool manually (not recommended); see :ref:`Manual Setup` for details              |
+   | Manual setup     | button         | Create a pool manually, which is not recommended. See :ref:`Manual Setup` for details.     |
    |                  |                |                                                                                            |
    +------------------+----------------+--------------------------------------------------------------------------------------------+
 
 
-Click the :guilabel:`Volume name *` field and input a name for the pool.
+Click the :guilabel:`Volume name *` field and enter a name for the pool.
 Ensure that the chosen name conforms to these
 `naming conventions <http://docs.oracle.com/cd/E23824_01/html/821-1448/gbcpt.html>`__.
-It is recommended to choose a name that will stick out in the logs rather
-than a generic name like :file:`data` or :file:`freenas`.
 
 If the underlying disks need to be encrypted as a protection against
-physical theft, check the :guilabel:`Encryption` box.
+physical theft, enable the :guilabel:`Encryption` option.
 
 .. warning:: Refer to the warnings in :ref:`Encryption` before enabling
    encryption! Be aware that this form of encryption will be replaced by
@@ -273,7 +271,7 @@ the details when considering whether encryption is right for your
   vdev being added to an existing encrypted pool.
 
 
-To create an encrypted volume, check the :guilabel:`Encryption` box
+To create an encrypted volume, enable the :guilabel:`Encryption` option
 shown in
 :numref:`Figure %s <create_zfs_pool_volman_fig>`.
 A pop-up message shows a reminder that
@@ -358,28 +356,28 @@ shows the available options.
    |               |                  |                                                                                                |
    +===============+==================+================================================================================================+
    | Volume name   | string           | ZFS volumes must conform to these                                                              |
-   |               |                  | `naming conventions <https://docs.oracle.com/cd/E53394_01/index.html>`__;                      |
-   |               |                  | choose a name that will stand out in the logs (e.g. **not** :file:`data` or :file:`freenas`)   |
+   |               |                  | `naming conventions <https://docs.oracle.com/cd/E53394_01/index.html>`__.                      |
+   |               |                  | Choosing a memorable name is recommended.                                                      |
    |               |                  |                                                                                                |
    +---------------+------------------+------------------------------------------------------------------------------------------------+
-   | Encryption    | checkbox         | see the warnings in :ref:`Encryption` before using encryption                                  |
+   | Encryption    | checkbox         | See the warnings in :ref:`Encryption` before using encryption.                                 |
    |               |                  |                                                                                                |
    +---------------+------------------+------------------------------------------------------------------------------------------------+
-   | Member disks  | list             | highlight desired number of disks from list of available disks                                 |
+   | Member disks  | list             | Highlight desired number of disks from list of available disks.                                |
    |               |                  |                                                                                                |
    +---------------+------------------+------------------------------------------------------------------------------------------------+
    #ifdef freenas
-   | Deduplication | drop-down menu   | choices are *Off*,                                                                             |
+   | Deduplication | drop-down menu   | Choices are *Off*,                                                                             |
    |               |                  | *Verify*, and                                                                                  |
-   |               |                  | *On*; carefully consider the section on :ref:`Deduplication` before changing this setting      |
+   |               |                  | *On*. Carefully consider the section on :ref:`Deduplication` before changing this setting.     |
    |               |                  |                                                                                                |
    #endif freenas
    #ifdef truenas
-   | Deduplication | drop-down menu   | do not change this setting unless instructed to do so by an iXsystems support engineer         |
+   | Deduplication | drop-down menu   | Do not change this setting unless instructed to do so by an iXsystems support engineer.        |
    |               |                  |                                                                                                |
    #endif truenas
    +---------------+------------------+------------------------------------------------------------------------------------------------+
-   | ZFS Extra     | bullet selection | specify disk usage: storage (*None*), a log device, a cache device, or a spare                 |
+   | ZFS Extra     | bullet selection | Specify disk usage: storage (*None*), a log device, a cache device, or a spare.                |
    |               |                  |                                                                                                |
    +---------------+------------------+------------------------------------------------------------------------------------------------+
 
@@ -494,7 +492,7 @@ After a volume or dataset is created, it is listed by its mount point
 name in
 :menuselection:`Storage --> Volumes`.
 Clicking the :guilabel:`Change Permissions` icon for a specific
-volume/dataset displays the screen shown in
+volume or dataset displays the screen shown in
 :numref:`Figure %s <zfs_change_permissions_vol_fig>`.
 :numref:`Table %s <zfs_opts_permissions_tab>`
 summarizes the options in this screen.
@@ -521,47 +519,47 @@ summarizes the options in this screen.
    |                            |                  |                                                                                                            |
    |                            |                  |                                                                                                            |
    +============================+==================+============================================================================================================+
-   | Apply Owner (user)         | checkbox         | uncheck to prevent new permission change from being applied to :guilabel:`Owner (user)`,                   |
-   |                            |                  | see Note below                                                                                             |
+   | Apply Owner (user)         | checkbox         | Deselect to prevent new permission change from being applied to :guilabel:`Owner (user)`,                  |
+   |                            |                  | see Note below.                                                                                            |
    +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Owner (user)               | drop-down menu   | user to control the volume/dataset; users which were manually created or imported from a directory service |
-   |                            |                  | will appear in the drop-down menu                                                                          |
+   | Owner (user)               | drop-down menu   | Select the user to control the volume or dataset. Users manually created or imported from a directory      |
+   |                            |                  | service will appear in the drop-down menu.                                                                 |
    |                            |                  |                                                                                                            |
    +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply Owner (group)        | checkbox         | uncheck to prevent new permission change from being applied to :guilabel:`Owner (group)`,                  |
-   |                            |                  | see Note below                                                                                             |
+   | Apply Owner (group)        | checkbox         | Deselect to prevent new permission change from being applied to :guilabel:`Owner (group)`,                 |
+   |                            |                  | see Note below.                                                                                            |
    +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Owner (group)              | drop-down menu   | group to control the volume/dataset; groups which were manually created or imported from a directory       |
-   |                            |                  | service will appear in the drop-down menu                                                                  |
+   | Owner (group)              | drop-down menu   | Select the group to control the volume or dataset. Groups manually created or imported from a directory    |
+   |                            |                  | service will appear in the drop-down menu.                                                                 |
    |                            |                  |                                                                                                            |
    +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Apply Mode                 | checkbox         | uncheck to prevent new permission change from being applied to :guilabel:`Mode`,                           |
-   |                            |                  | see Note below                                                                                             |
+   | Apply Mode                 | checkbox         | Deselect to prevent new permission change from being applied to :guilabel:`Mode`,                          |
+   |                            |                  | see Note below.                                                                                            |
    +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Mode                       | checkboxes       | only applies to the *Unix*                                                                                 |
+   | Mode                       | checkboxes       | Only applies to the *Unix*                                                                                 |
    |                            |                  | or *Mac* "Permission Type" so will be grayed out if                                                        |
-   |                            |                  | *Windows* is selected                                                                                      |
+   |                            |                  | *Windows* is selected.                                                                                     |
    |                            |                  |                                                                                                            |
    +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Permission Type            | bullet selection | choices are *Unix*,                                                                                        |
+   | Permission Type            | bullet selection | Select the type which matches the type of client accessing the volume or dataset. Choices are *Unix*,      |
    |                            |                  | *Mac* or                                                                                                   |
-   |                            |                  | *Windows*; select the type which matches the type of client accessing the volume/dataset                   |
+   |                            |                  | *Windows*.                                                                                                 |
    |                            |                  |                                                                                                            |
    +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
-   | Set permission recursively | checkbox         | if checked, permissions will also apply to subdirectories of the volume/dataset; if data already exists    |
-   |                            |                  | on the volume/dataset, change the permissions on the **client side** to prevent a performance lag          |
+   | Set permission recursively | checkbox         | If enabled, permissions will also apply to subdirectories of the volume or dataset. If data already exists |
+   |                            |                  | on the volume or dataset, change the permissions on the **client side** to prevent a performance lag.      |
    |                            |                  |                                                                                                            |
    +----------------------------+------------------+------------------------------------------------------------------------------------------------------------+
 
 
 .. note:: The :guilabel:`Apply Owner (user)`,
    :guilabel:`Apply Owner (group)`, and :guilabel:`Apply Mode`
-   checkboxes allow fine-tuning of the change permissions behavior. By
-   default, all boxes are checked and %brand% resets the owner, group,
+   options allow fine-tuning of the change permissions behavior. By
+   default, all options are enabled and %brand% resets the owner, group,
    and mode when the :guilabel:`Change` button is clicked. These
-   checkboxes allow choosing which settings to change. For example, to
-   change just the :guilabel:`Owner (group)` setting, uncheck the
-   boxes :guilabel:`Apply Owner (user)` and :guilabel:`Apply Mode`.
+   options allow choosing which settings to change. For example, to
+   change just the :guilabel:`Owner (group)` setting, deselect the
+   :guilabel:`Apply Owner (user)` and :guilabel:`Apply Mode` options.
 
 
 The *Windows* :guilabel:`Permission Type` is used for 
@@ -580,7 +578,7 @@ network clients and generally work well with a mix of operating systems
 or clients. However, *Unix* permissions do not support Windows ACLs and
 should not be used with :ref:`Windows (SMB) Shares`.
 
-The *Mac* :guilabel:`Permission Type` can be used with 
+The *Mac* :guilabel:`Permission Type` can be used with
 :ref:`Apple (AFP) Shares`.
 
 .. index:: Create Dataset
@@ -626,8 +624,8 @@ Selecting an existing ZFS volume in the tree and clicking
 shows the options available when creating a dataset. Some settings are
 only available in :guilabel:`Advanced Mode`. To see these settings,
 either click the :guilabel:`Advanced Mode` button, or configure the
-system to always display advanced settings by checking the box
-:guilabel:`Show advanced fields by default` in
+system to always display advanced settings by enabling the box
+:guilabel:`Show advanced fields by default` option in
 :menuselection:`System --> Advanced`.
 Most attributes, except for the :guilabel:`Dataset Name`,
 :guilabel:`Case Sensitivity`, and :guilabel:`Record Size`, can be
@@ -649,72 +647,72 @@ clicking the :guilabel:`Edit Options` button in
    | Setting                  | Value               | Description                                                                                               |
    |                          |                     |                                                                                                           |
    +==========================+=====================+===========================================================================================================+
-   | Dataset Name             | string              | mandatory; enter a unique name for the dataset                                                            |
+   | Dataset Name             | string              | Enter a mandatory unique name for the dataset.                                                            |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Comments                 | string              | used to input optional comments or user notes about this dataset                                          |
+   | Comments                 | string              | Enter optional comments or notes about this dataset.                                                      |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Sync                     | drop-down menu      | sets the data write synchronization: *Inherit* inherits the sync settings from the parent dataset;        |
+   | Sync                     | drop-down menu      | Sets the data write synchronization: *Inherit* inherits the sync settings from the parent dataset;        |
    |                          |                     | *Standard* uses the sync settings that have been requested by the client software; *Always* always waits  |
-   |                          |                     | for data writes to complete; *Disabled* never waits for writes to complete                                |
+   |                          |                     | for data writes to complete; *Disabled* never waits for writes to complete.                               |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Compression Level        | drop-down menu      | refer to the section on :ref:`Compression` for a description of the available algorithms                  |
+   | Compression Level        | drop-down menu      | Refer to the section on :ref:`Compression` for a description of the available algorithms.                 |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Share type               | drop-down menu      | select the type of share that will be used on the dataset; choices are *UNIX* for an NFS share,           |
+   | Share type               | drop-down menu      | Select the type of share that will be used on the dataset. Choices are *UNIX* for an NFS share,           |
    |                          |                     | *Windows* for a SMB share, or                                                                             |
-   |                          |                     | *Mac* for an AFP share                                                                                    |
+   |                          |                     | *Mac* for an AFP share.                                                                                   |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Enable atime             | Inherit, On, or Off | controls whether the access time for files is updated when they are read; setting this property to *Off*  |
-   |                          |                     | avoids producing log traffic when reading files and can result in significant performance gains           |
+   | Enable atime             | Inherit, On, or Off | Choose *On* to update the access time for files when they are read. Choose *Off* to prevent producing     |
+   |                          |                     | log traffic when reading files. This can result in significant performance gains.                         |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota for this dataset   | integer             | only available in :guilabel:`Advanced Mode`; default of *0* disables quotas; specifying a                 |
+   | Quota for this dataset   | integer             | Only available in :guilabel:`Advanced Mode`. Default of *0* disables quotas; specifying a                 |
    |                          |                     | value means to use no more than the specified size and is suitable for user datasets to                   |
-   |                          |                     | prevent users from hogging available space                                                                |
+   |                          |                     | prevent users from hogging available space.                                                               |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota for this dataset   | integer             | only available in :guilabel:`Advanced Mode`; a specified value applies to both this dataset               |
-   | and all children         |                     | and any child datasets                                                                                    |
+   | Quota for this dataset   | integer             | Only available in :guilabel:`Advanced Mode`. A specified value applies to both this dataset               |
+   | and all children         |                     | and any child datasets.                                                                                   |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Reserved space for this  | integer             | only available in :guilabel:`Advanced Mode`; default of *0* is unlimited; specifying a value              |
+   | Reserved space for this  | integer             | Only available in :guilabel:`Advanced Mode`. Default of *0* is unlimited; specifying a value              |
    | dataset                  |                     | means to keep at least this much space free and is suitable for datasets containing logs which            |
-   |                          |                     | could take up all available free space                                                                    |
+   |                          |                     | could take up all available free space.                                                                   |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Reserved space for this  | integer             | only available in :guilabel:`Advanced Mode`; a specified value applies to both this dataset               |
-   | dataset and all children |                     | and any child datasets                                                                                    |
+   | Reserved space for this  | integer             | Only available in :guilabel:`Advanced Mode`. A specified value applies to both this dataset               |
+   | dataset and all children |                     | and any child datasets.                                                                                   |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
    #ifdef freenas
-   | ZFS Deduplication        | drop-down menu      | read the section on :ref:`Deduplication` before making a change to this setting                           |
+   | ZFS Deduplication        | drop-down menu      | Read the section on :ref:`Deduplication` before making a change to this setting.                          |
    |                          |                     |                                                                                                           |
    #endif freenas
    #ifdef truenas
-   | ZFS Deduplication        | drop-down menu      | do not change this setting unless instructed to do so by your iXsystems support engineer                  |
+   | ZFS Deduplication        | drop-down menu      | Do not change this setting unless instructed to do so by your iXsystems support engineer.                 |
    |                          |                     |                                                                                                           |
    #endif truenas
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Read-Only                | drop-down menu      | only available in :guilabel:`Advanced Mode`; choices are *Inherit (off)*, *On*, or *Off*                  |
+   | Read-Only                | drop-down menu      | Only available in :guilabel:`Advanced Mode`. Choices are *Inherit (off)*, *On*, or *Off*.                 |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Exec                     | drop-down menu      | only available in :guilabel:`Advanced Mode`; choices are *Inherit (on)*, *On*, or *Off*                   |
+   | Exec                     | drop-down menu      | Only available in :guilabel:`Advanced Mode`. Choices are *Inherit (on)*, *On*, or *Off*.                  |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Record Size              | drop-down menu      | only available in :guilabel:`Advanced Mode`; while ZFS automatically adapts the record                    |
-   |                          |                     | size dynamically to adapt to data, if the data has a fixed size (e.g. a database), matching               |
-   |                          |                     | that size may result in better performance                                                                |
+   | Record Size              | drop-down menu      | Only available in :guilabel:`Advanced Mode`. While ZFS automatically adapts the record                    |
+   |                          |                     | size dynamically to adapt to data, if the data has a fixed size, matching                                 |
+   |                          |                     | that size can result in better performance.                                                               |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
-   | Case Sensitivity         | drop-down menu      | choices are *sensitive* (default, assumes filenames are case sensitive),                                  |
-   |                          |                     | *insensitive* (assumes filenames are not case sensitive), or                                              |
-   |                          |                     | *mixed* (understands both types of filenames)                                                             |
+   | Case Sensitivity         | drop-down menu      | *Sensitive* is the default and assumes filenames are case sensitive.                                      |
+   |                          |                     | *Insensitive* assumes filenames are not case sensitive.                                                   |
+   |                          |                     | *Mixed* understands both types of filenames.                                                              |
    |                          |                     |                                                                                                           |
    +--------------------------+---------------------+-----------------------------------------------------------------------------------------------------------+
 
-After a dataset is created, you can click on that dataset and select
-:guilabel:`Create Dataset`, thus creating a nested dataset, or a
+After a dataset is created, click on that dataset and select
+:guilabel:`Create Dataset`, to create a nested dataset, or a
 dataset within a dataset. A zvol can also be created within a dataset.
 When creating datasets, double-check that you are using the
 :guilabel:`Create Dataset` option for the intended volume or dataset.
@@ -846,7 +844,7 @@ The configuration options are described in
 :numref:`Table %s <zfs_zvol_config_opts_tab>`.
 Some settings are only available in :guilabel:`Advanced Mode`. To see
 these settings, either click the :guilabel:`Advanced Mode` button or
-configure the system to always display these settings by checking
+configure the system to always display these settings by enabling
 :guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
 
@@ -865,30 +863,30 @@ configure the system to always display these settings by checking
    |                    |                |                                                                                                                      |
    |                    |                |                                                                                                                      |
    +====================+================+======================================================================================================================+
-   | zvol Name          | string         | mandatory; enter a name for the zvol; note that there is a 63-character limit on device path names in devfs,         |
-   |                    |                | so using long zvol names can prevent accessing zvols as devices; for example, a zvol with a 70-character filename    |
-   |                    |                | or path cannot be used as an iSCSI extent                                                                            |
+   | zvol Name          | string         | Enter a short name for the zvol. Using a zvol name longer than 63-characters can prevent accessing zvols as devices. |
+   |                    |                | For example, a zvol with a 70-character filename or path cannot be used as an iSCSI extent.                          |
+   |                    |                | This setting is mandatory.                                                                                           |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Comments           | string         | optional short comments or user notes about this zvol                                                                |
+   | Comments           | string         | Enter any notes about this zvol.                                                                                     |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Size for this zvol | integer        | specify size and value such as *10Gib*; if the size is more than 80% of the available capacity, the creation will    |
-   |                    |                | fail with an "out of space" error unless :guilabel:`Force size` is checked                                           |
+   | Size for this zvol | integer        | Specify size and value such as *10Gib*. If the size is more than 80% of the available capacity, the creation will    |
+   |                    |                | fail with an "out of space" error unless :guilabel:`Force size` is also enabled.                                     |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Force size         | checkbox       | by default, the system will not let you create a zvol if that operation will bring the pool to over 80% capacity;    |
-   |                    |                | **while NOT recommended**, checking this box will force the creation of the zvol in this situation                   |
+   | Force size         | checkbox       | By default, the system will not create a zvol if that operation will bring the pool to over 80% capacity.            |
+   |                    |                | **While NOT recommended**, enabling this option will force the creation of the zvol.                                 |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Compression level  | drop-down menu | refer to the section on :ref:`Compression` for a description of the available algorithms                             |
+   | Compression level  | drop-down menu | Refer to the section on :ref:`Compression` for a description of the available algorithms.                            |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Sparse volume      | checkbox       | used to provide thin provisioning; use with caution for when this option is selected, writes will fail when the      |
-   |                    |                | pool is low on space                                                                                                 |
+   | Sparse volume      | checkbox       | Used to provide thin provisioning. Use with caution for when this option is selected, writes will fail when the      |
+   |                    |                | pool is low on space.                                                                                                |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Block size         | drop-down menu | only available in :guilabel:`Advanced Mode` and by default is based on the number of disks in pool;                  |
-   |                    |                | can be set to match the block size of the filesystem which will be formatted onto the iSCSI target                   |
+   | Block size         | drop-down menu | Only available in :guilabel:`Advanced Mode` and by default is based on the number of disks in pool.                  |
+   |                    |                | Can be set to match the block size of the filesystem which will be formatted onto the iSCSI target.                  |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
 
@@ -937,9 +935,8 @@ and the disk is unmounted after the copy operation completes.
 Import Volume
 ~~~~~~~~~~~~~
 
-If you click
-:menuselection:`Storage --> Volumes --> Import Volume`,
-you can configure %brand% to use an **existing** ZFS pool. This
+Click :menuselection:`Storage --> Volumes --> Import Volume`
+to configure %brand% to use an **existing** ZFS pool. This
 action is typically performed when an existing %brand% system is
 re-installed. Since the operating system is separate from the storage
 disks, a new installation does not affect the data on the disks.
@@ -947,7 +944,7 @@ However, the new operating system needs to be configured to use the
 existing volume.
 
 :numref:`Figure %s <zfs_import_vol_fig>`
-shows the initial pop-up window that appears when you import a volume.
+shows the initial pop-up window that appears when a volume is imported.
 
 
 .. _zfs_import_vol_fig:
@@ -957,7 +954,7 @@ shows the initial pop-up window that appears when you import a volume.
    Initial Import Volume Screen
 
 
-If you are importing an unencrypted ZFS pool, select
+If importing an unencrypted ZFS pool, select
 :guilabel:`No: Skip to import` to open the screen shown in
 :numref:`Figure %s <zfs_import_nonencrypt_fig>`.
 
@@ -979,12 +976,12 @@ volume.
 If an existing ZFS pool does not show in the drop-down menu, run
 :command:`zpool import` from :ref:`Shell` to import the pool.
 
-If you plan to physically install ZFS formatted disks from another
-system, be sure to export the drives on that system to prevent an
+If physically installing ZFS formatted disks from another
+system, ensure to export the drives on that system to prevent an
 "in use by another machine" error during the import.
 
 #ifdef freenas
-If you suspect that your hardware is not being detected, run
+If the hardware is not being detected, run
 :command:`camcontrol devlist` from :ref:`Shell`. If the disk does not
 appear in the output, check to see if the controller driver is
 supported or if it needs to be loaded using :ref:`Tunables`.
@@ -1033,10 +1030,9 @@ Click the :guilabel:`OK` button to finish the volume import.
    to it, the GELI keys for encrypted disks will not be present, and
    the system will not request them. To correct this, export the
    encrypted volume with Detach Volume, making sure that the
-   checkboxes which clear data are **not** selected
-   (there are no check marks on :guilabel:`Mark the disks as new
-   (destroy data)` or :guilabel:`Also delete the share's
-   configuration`). Then import the volume again. During the import,
+   :guilabel:`Mark the disks as new (destroy data)` or
+   :guilabel:`Also delete the share's configuration`) are **not** selected.
+   Then import the volume again. During the import,
    the GELI keys can be entered as described above.
 
 
@@ -1084,40 +1080,40 @@ configurable options are described in
    | Setting                            | Value          | Description                                                                                                              |
    |                                    |                |                                                                                                                          |
    +====================================+================+==========================================================================================================================+
-   | Name                               | string         | read-only value showing FreeBSD device name of the disk                                                                  |
+   | Name                               | string         | This is the FreeBSD device name of the disk.                                                                             |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Serial                             | string         | read-only value showing the disk's serial number                                                                         |
+   | Serial                             | string         | This is the serial number of the disk.                                                                                   |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Description                        | string         | input an optional description to display with the disk entry                                                             |
+   | Description                        | string         | Enter any notes about this disk.                                                                                         |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | HDD Standby                        | drop-down menu | indicates the time of inactivity (in minutes) before the drive enters standby mode in order to conserve energy; this     |
+   | HDD Standby                        | drop-down menu | Indicates the time of inactivity (in minutes) before the drive enters standby mode in order to conserve energy. This     |
    |                                    |                | `forum post <https://forums.freenas.org/index.php?threads/how-to-find-out-if-a-drive-is-spinning-down-properly.2068/>`__ |
-   |                                    |                | demonstrates how to determine if a drive has spun down                                                                   |
+   |                                    |                | demonstrates how to determine if a drive has spun down.                                                                  |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Advanced Power Management          | drop-down menu | select a power management profile from the menu; default is *Disabled*                                                   |
+   | Advanced Power Management          | drop-down menu | Select a power management profile from the menu. Default is *Disabled*.                                                  |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Acoustic Level                     | drop-down menu | default is *Disabled*; other values can be selected for disks that understand                                            |
-   |                                    |                | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`__                                                    |
+   | Acoustic Level                     | drop-down menu | Modify for disks that understand                                                                                         |
+   |                                    |                | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`__. Default is *Disabled*.                            |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Enable S.M.A.R.T.                  | checkbox       | enabled by default if the disk supports S.M.A.R.T.; unchecking this box will disable any configured                      |
-   |                                    |                | :ref:`S.M.A.R.T. Tests` for the disk                                                                                     |
+   | Enable S.M.A.R.T.                  | checkbox       | Rnabled by default if the disk supports S.M.A.R.T. Deselect to disable any configured                                    |
+   |                                    |                | :ref:`S.M.A.R.T. Tests` for the disk.                                                                                    |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | S.M.A.R.T. extra options           | string         | input additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options      |
+   | S.M.A.R.T. extra options           | string         | Enter additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options.     |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Password for SED                   | string         | input and confirm the password which will be used for this device instead of the global SED password; refer to           |
-   |                                    |                | :ref:`Self-Encrypting Drives` for more information                                                                       |
+   | Password for SED                   | string         | Enter and confirm the password that will be used for this device instead of the global SED password. Refer to            |
+   |                                    |                | :ref:`Self-Encrypting Drives` for more information.                                                                      |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
-.. note:: If a disk's serial number is not displayed in this screen,
+.. note:: If the serial number of a disk is not displayed in this screen,
    use the :command:`smartctl` command from :ref:`Shell`. For example,
    to determine the serial number of disk *ada0*, type
    :command:`smartctl -a /dev/ada0 | grep Serial`.
@@ -1195,19 +1191,19 @@ bottom of the screen.
 of the pool, depending upon the choice made in the screen shown in
 :numref:`Figure %s <zfs_detach_vol_fig>`.
 The :guilabel:`Detach Volume` screen displays the current used space
-and indicates whether there are any shares, provides checkboxes to
+and indicates whether there are any shares, provides options to
 :guilabel:`Mark the disks as new (destroy data)` and to
 :guilabel:`Also delete the share's configuration`, and asks if you are
 sure about doing this. The browser window turns red to indicate that
 some choices will make the data inaccessible.
-**When the box to mark the disks as new is left unchecked, the volume
+**When the option to select the disks as new is left deselected, the volume
 is exported.** The data is not destroyed and the volume can be
 re-imported at a later time. When moving a ZFS pool from one system to
 another, perform this export action first as it flushes any unwritten
 data to disk, writes data to the disk indicating that the export was
 done, and removes all knowledge of the pool from the system.
 
-**When the box to mark the disks as new is checked, the pool and all
+**When the option to mark the disks as new is selected, the pool and all
 the data in its datasets, zvols, and shares is destroyed and the
 individual disks are returned to their raw state. Desired data must
 be backed up to another disk or device before using this option.**
@@ -1238,7 +1234,7 @@ button.
 this screen shows the device name and status of each disk in the ZFS
 pool as well as any read, write, or checksum errors. It also indicates
 the status of the latest ZFS scrub. Clicking the entry for a device
-causes buttons to appear to edit the device's options (shown in
+causes buttons to appear to edit the device options (shown in
 :numref:`Figure %s <zfs_edit_disk_fig>`),
 offline or online the device, or replace the device (as described in
 :ref:`Replacing a Failed Drive`).
@@ -1289,7 +1285,7 @@ Clicking a dataset in
 causes buttons to appear at the bottom of the screen, providing these
 options:
 
-**Change Permissions:** edit the dataset's permissions as described in
+**Change Permissions:** edit the dataset permissions as described in
 :ref:`Change Permissions`.
 
 **Create Snapshot:** create a one-time snapshot. To schedule the
@@ -1304,13 +1300,13 @@ a clone cannot be destroyed while the origin filesystem exists.
 **Destroy Dataset:** clicking the :guilabel:`Destroy Dataset` button
 causes the browser window to turn red to indicate that this is a
 destructive action. The :guilabel:`Destroy Dataset` screen forces you
-to check the box
+to enable the option
 :guilabel:`I'm aware this will destroy all child datasets and
 snapshots within this dataset` before it will perform this action.
 
-**Edit Options:** edit the volume's properties described in
+**Edit Options:** edit the volume properties described in
 :numref:`Table %s <zfs_create_dataset>`.
-Note that it will not allow changing the dataset's name.
+Note that it will not allow changing the dataset name.
 
 **Create Dataset:** used to create a child dataset within this
 dataset.
@@ -1322,7 +1318,7 @@ Clicking a zvol in
 :menuselection:`Storage --> Volumes` causes
 icons to appear at the bottom of the screen:
 :guilabel:`Create Snapshot`, :guilabel:`Edit zvol`, and
-:guilabel:`Destroy zvol`. Similar to datasets, a zvol's name cannot be
+:guilabel:`Destroy zvol`. Similar to datasets, a zvol name cannot be
 changed, and destroying a zvol requires confirmation.
 
 
@@ -1383,7 +1379,7 @@ it.
 Additional Controls for Encrypted Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If the :guilabel:`Encryption` box is checked during the creation of a
+If the :guilabel:`Encryption` option is enabled during the creation of a
 pool, additional buttons appear in the entry for the volume in
 :menuselection:`Storage --> Volumes`.
 An example is shown in
@@ -1463,7 +1459,7 @@ passphrase and a recovery key are entered, only the passphrase is
 used.  By default, the services listed will restart when the volume is
 unlocked. This allows them to see the new volume and share or access
 data on it. Individual services can be prevented from restarting by
-unchecking them. However, a service that is not restarted might not be
+deselecting them. However, a service that is not restarted might not be
 able to access the unlocked volume.
 
 **Download Key:** download a backup copy of the GELI encryption key.
@@ -1542,7 +1538,7 @@ Replacing a Failed Drive
 #ifdef freenas
 With any form of redundant RAID, failed drives must be replaced as
 soon as possible to repair the degraded state of the RAID. Depending
-on the hardware's capabilities, it might be necessary to reboot to
+on the hardware capabilities, it might be necessary to reboot to
 replace the failed drive. Hardware that supports AHCI does not require
 a reboot.
 #endif freenas
@@ -1561,15 +1557,15 @@ state of the RAID.
 
 Before physically removing the failed device, go to
 :menuselection:`Storage --> Volumes`.
-Select the volume's name. At the bottom of the interface are
+Select the volume name. At the bottom of the interface are
 several icons, one of which is :guilabel:`Volume Status`. Click the
 :guilabel:`Volume Status` icon and locate the failed disk. Then
 perform these steps:
 
 #ifdef freenas
-#.  Click the disk's entry, then its :guilabel:`Offline` button to
-    change the disk status to OFFLINE. This step is needed to properly
-    remove the device from the ZFS pool and to prevent swap issues. If
+#.  Click the disk entry, then its :guilabel:`Offline` button to
+    change the disk status to OFFLINE. This step
+    removes the device from the ZFS pool and prevents swap issues. If
     the hardware supports hot-pluggable disks, click the disk's
     :guilabel:`Offline` button and pull the disk, then skip to step 3.
     If there is no :guilabel:`Offline` button but only a
@@ -1577,8 +1573,8 @@ perform these steps:
     step can be skipped.
 #endif freenas
 #ifdef truenas
-#.  Click the disk's entry, then its :guilabel:`Offline` button to
-    change that disk's status to OFFLINE. This step is needed to
+#.  Click the disk entry, then its :guilabel:`Offline` button to
+    change the disk status to OFFLINE. This step is needed to
     properly remove the device from the ZFS pool and to prevent swap
     issues. Click the disk's :guilabel:`Offline` button and pull the
     disk. If there is no :guilabel:`Offline` button but only a
@@ -1586,7 +1582,7 @@ perform these steps:
     step can be skipped.
 #endif truenas
 
-    .. note:: If the process of changing the disk's status to OFFLINE
+    .. note:: If the process of changing the disk status to OFFLINE
        fails with a "disk offline failed - no valid replicas" message,
        the ZFS volume must be scrubbed first with the
        :guilabel:`Scrub Volume` button in
@@ -1657,7 +1653,7 @@ replacing a failed drive.
 First, make sure that a passphrase has been set using the instructions
 in :ref:`Encryption` **before** attempting to replace the failed
 drive. Then, follow the steps 1 and 2 as described above. During step
-3, you will be prompted to input and confirm the passphrase for the
+3, a prompt will appear to input and confirm the passphrase for the
 pool. Enter this information then click the :guilabel:`Replace Disk`
 button. Wait until the resilvering is complete.
 
@@ -1665,7 +1661,7 @@ Next, restore the encryption keys to the pool.
 **If the following additional steps are not performed before the next
 reboot, access to the pool might be permanently lost.**
 
-#.  Highlight the pool that contains the disk that was just replaced
+#.  Highlight the pool that contains the recently replaced disk
     and click the :guilabel:`Encryption Re-key` button in the GUI.
     Entry of the *root* password will be required.
     #ifdef truenas
@@ -1679,7 +1675,7 @@ reboot, access to the pool might be permanently lost.**
     click :guilabel:`Create Passphrase` and enter the new passphrase.
     The old passphrase can be reused if desired.
 
-#.  Highlight the pool that contains the disk you just replaced and
+#.  Highlight the pool that contains the recently replaced disk and
     click the :guilabel:`Download Key` button to save the new
     encryption key. Since the old key will no longer function, any old
     keys can be safely discarded.
@@ -1831,35 +1827,35 @@ summarizes the fields in this screen.
    | Setting            | Value                      | Description                                                                                                  |
    |                    |                            |                                                                                                              |
    +====================+============================+==============================================================================================================+
-   | Volume/Dataset     | drop-down menu             | select an existing ZFS volume, dataset, or zvol                                                              |
+   | Volume/Dataset     | drop-down menu             | Select an existing ZFS volume, dataset, or zvol.                                                             |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Recursive          | checkbox                   | select this box to take separate snapshots of the volume/dataset and each of its child datasets; if          |
+   | Recursive          | checkbox                   | Enable this option to take separate snapshots of the volume or dataset and each of its child datasets. If    |
    |                    |                            | unchecked, a single snapshot is taken of only the specified volume/dataset, but not any child                |
-   |                    |                            | datasets                                                                                                     |
+   |                    |                            | datasets.                                                                                                    |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Snapshot Lifetime  | integer and drop-down menu | length of time to retain the snapshot on this system; if the snapshot is replicated, it is not removed       |
-   |                    |                            | from the receiving system when the lifetime expires                                                          |
+   | Snapshot Lifetime  | integer and drop-down menu | Define a length of time to retain the snapshot on this system. After the time expires, the snapshot is       |
+   |                    |                            | removed. Snapshots replicated to other systems are not affected.                                             |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Begin              | drop-down menu             | do not create snapshots before this time of day                                                              |
+   | Begin              | drop-down menu             | Choose the hour and minute when the system can begin taking snapshots.                                       |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | End                | drop-down menu             | do not create snapshots after this time of day                                                               |
+   | End                | drop-down menu             | Choose the hour and minute when the system will stop taking snapshots.                                       |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Interval           | drop-down menu             | how often to take snapshot between :guilabel:`Begin` and                                                     |
-   |                    |                            | :guilabel:`End` times                                                                                        |
+   | Interval           | drop-down menu             | Define how often the system takes snapshots between :guilabel:`Begin` and                                    |
+   |                    |                            | :guilabel:`End` times.                                                                                       |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Weekday            | checkboxes                 | which days of the week to take snapshots                                                                     |
+   | Weekday            | checkboxes                 | Choose the days of the week to take snapshots.                                                               |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
-   | Enabled            | checkbox                   | uncheck to disable the scheduled snapshot task without deleting it                                           |
+   | Enabled            | checkbox                   | Unset to disable this task without deleting it.                                                              |
    |                    |                            |                                                                                                              |
    +--------------------+----------------------------+--------------------------------------------------------------------------------------------------------------+
 
-If the :guilabel:`Recursive` box is checked, child datasets of this
+If the :guilabel:`Recursive` option is enabled, child datasets of this
 dataset are included in the snapshot and there is no need to create
 snapshots for each child dataset. The downside is that there is no way
 to exclude particular child  datasets from a recursive snapshot.
@@ -2056,7 +2052,7 @@ Click the :guilabel:`Add User`. Enter *repluser* for
 :guilabel:`Username`, enter */mnt/alphavol/repluser* in the
 :guilabel:`Create Home Directory In` field, enter
 *Replication Dedicated User* for the :guilabel:`Full Name`, and set
-the :guilabel:`Disable password login` checkbox. Leave the other
+the :guilabel:`Disable password login` option. Leave the other
 fields at their default values, but note the :guilabel:`User ID`
 number. Click :guilabel:`OK` to create the user.
 
@@ -2068,7 +2064,7 @@ Click the :guilabel:`Add User`. Enter the *User ID* number from
 */mnt/betavol/repluser* in the :guilabel:`Create Home Directory In`
 field, enter *Replication Dedicated User* for the
 :guilabel:`Full Name`, and set the :guilabel:`Disable password login`
-checkbox. Leave the other fields at their default values. Click
+option. Leave the other fields at their default values. Click
 :guilabel:`OK` to create the user.
 
 A dataset with the same name as the original must be created on the
@@ -2151,7 +2147,7 @@ On the *Alpha* system, paste the copied temporary authorization token
 string into the :guilabel:`Remote Auth Token` field as shown in
 :numref:`Figure %s <zfs_auth_token_paste_fig>`.
 
-Set the :guilabel:`Dedicated User` checkbox. Choose *repluser* in the
+Set the :guilabel:`Dedicated User` option. Choose *repluser* in the
 :guilabel:`Dedicated User` drop-down.
 
 Click the :guilabel:`OK` button to create the replication task.
@@ -2276,63 +2272,63 @@ options in the replication task dialog.
    |                           |                |                                                                                                              |
    |                           |                |                                                                                                              |
    +===========================+================+==============================================================================================================+
-   | Volume/Dataset            | drop-down menu | ZFS volume or dataset on the source computer containing the snapshots to be replicated; the                  |
-   |                           |                | drop-down menu is empty if a snapshot does not already exist                                                 |
+   | Volume/Dataset            | drop-down menu | On the source computer with snapshots to replicate, choose an existing ZFS pool or dataset with an           |
+   |                           |                | active periodic snapshot task.                                                                               |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote ZFS Volume/Dataset | string         | ZFS volume on the remote or destination computer which will store the snapshots; if the destination dataset  |
-   |                           |                | is not present, it will be created; :file:`/mnt/` is assumed, do not include it in the path                  |
+   | Remote ZFS Volume/Dataset | string         | Enter the ZFS volume or dataset on the remote or destination computer which will store the snapshots.        |
+   |                           |                | Example: poolname/datasetname, not the mount point or filesystem path.                                       |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Recursively replicate     | checkbox       | when checked, also replicate snapshots of datasets that are children of the main dataset                     |
+   | Recursively replicate     | checkbox       | When enabled, include snapshots of child datasets from the primary dataset.                                  |
    | child dataset's snapshots |                |                                                                                                              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Delete stale snapshots    | checkbox       | when checked, delete previous snapshots on the remote or destination computer which are no longer present    |
-   |                           |                | on the source computer                                                                                       |
+   | Delete stale snapshots    | checkbox       | Set to delete previous snapshots from the remote or destination system which are no longer present           |
+   |                           |                | on the source computer.                                                                                      |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Replication Stream        | drop-down menu | choices are *lz4 (fastest)*,                                                                                 |
+   | Replication Stream        | drop-down menu | Choices are *lz4 (fastest)*,                                                                                 |
    | Compression               |                | *pigz (all rounder)*,                                                                                        |
    |                           |                | *plzip (best compression)*, or                                                                               |
-   |                           |                | *Off* (no compression); selecting a compression algorithm can reduce the size of the data being replicated   |
+   |                           |                | *Off* (no compression). Selecting a compression algorithm can reduce the size of the data being replicated.  |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Limit (kB/s)              | integer        | limit replication speed to the specified value in kilobytes/second; default of *0* is unlimited              |
+   | Limit (kB/s)              | integer        | Limit replication speed to the specified value in kilobits/second. Default of *0* is unlimited.              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Begin                     | drop-down menu | replication is not allowed to start before this time; times entered in the :guilabel:`Begin` and             |
-   |                           |                | :guilabel:`End` fields set when replication can occur                                                        |
+   | Begin                     | drop-down menu | Define a time to start the replication task.                                                                 |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | End                       | drop-down menu | replication must start by this time; once started, replication will continue until it is finished            |
+   | End                       | drop-down menu | Define the point in time by which replication must start. A started replication task continues               |
+   |                           |                | until it is finished.                                                                                        |
    |                           |                |                                                                                                              |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Enabled                   | checkbox       | uncheck to disable the scheduled replication task without deleting it                                        |
+   | Enabled                   | checkbox       | Deselect to disable the scheduled replication task without deleting it.                                      |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Setup mode                | drop-down menu | *Manual* or                                                                                                  |
-   |                           |                | *Semi-automatic*                                                                                             |
+   | Setup mode                | drop-down menu | Choose the configuration mode for the remote. Choices are *Manual* or                                        |
+   |                           |                | *Semi-automatic*. Note semi-automatic only works with remote version 9.10.2 or later.                        |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote hostname           | string         | IP address or DNS name of remote computer where replication is sent                                          |
+   | Remote hostname           | string         | Enter the IP address or DNS name of remote system to receive the replication data.                           |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote port               | string         | the port used by the SSH server on the remote or destination computer                                        |
+   | Remote port               | string         | Enter the port number used by the SSH server on the remote or destination computer.                          |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Dedicated User Enabled    | checkbox       | allow a user account other than root to be used for replication                                              |
+   | Dedicated User Enabled    | checkbox       | Select to use an account other than root for replication.                                                    |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Dedicated User            | drop-down menu | only available if :guilabel:`Dedicated User Enabled` is checked; select the user account                     |
-   |                           |                | to be used for replication                                                                                   |
+   | Dedicated User            | drop-down menu | Only available if :guilabel:`Dedicated User Enabled` is checked. Select the user account                     |
+   |                           |                | to be used for replication.                                                                                  |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Encryption Cipher         | drop-down menu | *Standard*, *Fast*, or *Disabled*                                                                            |
+   | Encryption Cipher         | drop-down menu | *Standard*, *Fast*, or *Disabled*.                                                                           |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
-   | Remote hostkey            | string         | use the :guilabel:`SSH Key Scan` button to retrieve the public host key of the remote or destination         |
-   |                           |                | computer and populate this field with that key                                                               |
+   | Remote hostkey            | string         | Use the :guilabel:`SSH Key Scan` button to retrieve the public host key of the remote or destination         |
+   |                           |                | computer and populate this field with that key.                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
 
 
@@ -2646,18 +2642,18 @@ describes the fields on this screen.
    | Setting              | Value       | Description                                                 |
    |                      |             |                                                             |
    +======================+=============+=============================================================+
-   | Enabled              | checkbox    | check to enable higher-priority resilvering                 |
+   | Enabled              | checkbox    | Set to enable higher-priority resilvering.                  |
    |                      |             |                                                             |
    +----------------------+-------------+-------------------------------------------------------------+
-   | Begin higher         | drop-down   | start time to begin higher-priority resilvering             |
+   | Begin higher         | drop-down   | Start time to begin higher-priority resilvering.            |
    | priority resilvering |             |                                                             |
    | at this time         |             |                                                             |
    +----------------------+-------------+-------------------------------------------------------------+
-   | End higher priority  | drop-down   | end time to begin higher-priority resilvering               |
+   | End higher priority  | drop-down   | End time to begin higher-priority resilvering.              |
    | resilvering at this  |             |                                                             |
    | time                 |             |                                                             |
    +----------------------+-------------+-------------------------------------------------------------+
-   | Weekday              | checkboxes  | use higher-priority resilvering on these days of the week   |
+   | Weekday              | checkboxes  | Use higher-priority resilvering on these days of the week.  |
    +----------------------+-------------+-------------------------------------------------------------+
 
 
@@ -2710,7 +2706,7 @@ summarizes the options in this screen.
 
 .. figure:: images/storage-scrub.png
 
-   Viewing a Volume's Default Scrub Settings
+   Viewing Volume Default Scrub Settings
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -2727,37 +2723,38 @@ summarizes the options in this screen.
    |                |                             |                                                                                                             |
    |                |                             |                                                                                                             |
    +================+=============================+=============================================================================================================+
-   | Volume         | drop-down menu              | volume to be scrubbed                                                                                       |
+   | Volume         | drop-down menu              | Choose a volume to be scrubbed.                                                                             |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Threshold days | integer                     | prevent scrub from running for this number of days after a scrub has completed, regardless of the calendar  |
-   |                |                             | schedule; the default is a multiple of 7 to ensure that the scrub always occurs on the same day of the week |
+   | Threshold days | integer                     | Define the number of days to prevent a scrub from running after the last has completed. This ignores any    |
+   |                |                             | other calendar schedule. The default is a multiple of 7 to ensure that the scrub always occurs              |
+   |                |                             | on the same day of the week.                                                                                |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Description    | string                      | optional text description of scrub                                                                          |
+   | Description    | string                      | Optional text description of scrub.                                                                         |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Minute         | slider or minute selections | if the slider is used, a scrub occurs every N minutes; if specific minutes are chosen, a scrub runs only at |
-   |                |                             | the selected minute values                                                                                  |
+   | Minute         | slider or minute selections | If the slider is used, a scrub occurs every N minutes. If specific minutes are chosen, a scrub runs only at |
+   |                |                             | the selected minute values.                                                                                 |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Hour           | slider or hour selections   | if the slider is used, a scrub occurs every N hours; if specific hours are chosen, a scrub runs only at the |
-   |                |                             | selected hour values                                                                                        |
+   | Hour           | slider or hour selections   | If the slider is used, a scrub occurs every N hours. If specific hours are chosen, a scrub runs only at the |
+   |                |                             | selected hour values.                                                                                       |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Day of Month   | slider or month selections  | if the slider is used, a scrub occurs every N days; if specific days of the month are chosen, a scrub runs  |
-   |                |                             | only on the selected days of the selected months                                                            |
+   | Day of Month   | slider or month selections  | If the slider is used, a scrub occurs every N days. If specific days of the month are chosen, a scrub runs  |
+   |                |                             | only on the selected days of the selected months.                                                           |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Month          | checkboxes                  | a scrub occurs on the selected months                                                                       |
+   | Month          | checkboxes                  | Define the months to run the scrub.                                                                         |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Day of week    | checkboxes                  | a scrub occurs on the selected days; the default is *Sunday* to least impact users; note that this field    |
+   | Day of week    | checkboxes                  | A scrub occurs on the selected days. The default is *Sunday* to least impact users; note that this field    |
    |                |                             | and the :guilabel:`Day of Month` field are ORed together: setting :guilabel:`Day of Month` to *01,15* and   |
    |                |                             | :guilabel:`Day of week` to *Thursday* will cause scrubs to run on the 1st and 15th days of the month, but   |
-   |                |                             | also on any Thursday                                                                                        |
+   |                |                             | also on any Thursday.                                                                                       |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Enabled        | checkbox                    | uncheck to disable the scheduled scrub without deleting it                                                  |
+   | Enabled        | checkbox                    | Unset to disable the scheduled scrub without deleting it.                                                   |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
 
@@ -2771,7 +2768,7 @@ unmounted when a scrub is scheduled to occur, it will not be scrubbed.
 Scheduled scrubs can be deleted with the :guilabel:`Delete` button, but
 this is not recommended. **Scrubs can provide an early indication of
 disk issues before a disk failure.** If a scrub is too intensive for
-the hardware, consider temporarily unchecking the :guilabel:`Enabled`
+the hardware, consider temporarily deselecting the :guilabel:`Enabled`
 button for the scrub until the hardware can be upgraded.
 
 
@@ -2806,8 +2803,8 @@ The listing includes the name of the volume or dataset, the name
 of each snapshot, and the amount of used and referenced data.
 
 **Used** is the amount of space consumed by this dataset and all of
-its descendants. This value is checked against the dataset's quota and
-reservation. The space used does not include the dataset's
+its descendants. This value is checked against the dataset quota and
+reservation. The space used does not include the dataset
 reservation, but does take into account the reservations of any
 descendent datasets. The amount of space that a dataset consumes from
 its parent, as well as the amount of space that are freed if this
@@ -2816,7 +2813,7 @@ its reservation. When a snapshot is created, the space is initially
 shared between the snapshot and the filesystem, and possibly with
 previous snapshots. As the filesystem changes, space that was
 previously shared becomes unique to the snapshot, and is counted in
-the snapshot's space used. Additionally, deleting snapshots can
+the used space of the snapshot. Additionally, deleting snapshots can
 increase the amount of space unique to (and used by) other snapshots.
 The amount of space used, available, or referenced does not take into
 account pending changes. While pending changes are generally accounted
@@ -2874,8 +2871,8 @@ back to their state at the time of the snapshot.
    on replication.
 
 A range of snapshots can be selected with the mouse. Click on the
-checkbox in the left column of the first snapshot, then press and hold
-:kbd:`Shift` and click on the checkbox for the end snapshot. This can
+option in the left column of the first snapshot, then press and hold
+:kbd:`Shift` and click on the option for the end snapshot. This can
 be used to select a range of obsolete snapshots to be deleted with the
 :guilabel:`Destroy` icon at the bottom. Be cautious and careful when
 deleting ranges of snapshots.
@@ -2911,7 +2908,7 @@ pop-up message indicates that this removes the filter and all
 available snapshots are listed.
 
 .. warning:: A snapshot and any files it contains will not be accessible
-   or searchable if the snapshot's mount path is longer than 88 ascii
+   or searchable if the mount path of the snapshot is longer than 88 ascii
    characters. The data within the snapshot will be safe, and the
    snapshot will become accessible again when the mount path is shortened.
    For details of this limitation, and how to shorten a long mount path,
@@ -2939,14 +2936,14 @@ to settings that are required are:
 
 The effect will be that any user who can access the dataset contents,
 will also be able to view the list of snapshots by navigating to the
-dataset's :file:`.zfs` directory, and to browse and search any files they
-have permission to access throughout the dataset's entire snapshot
-collection. A user's ability to view files within a snapshot will be
-limited by any permissions or ACLs set on the files when the snapshot was
-taken. Snapshots are fixed as "read-only", so this access does not permit
-the user to change any files in the snapshots, or to modify or delete any
-snapshot, even if they had write permission at the time when the snapshot
-was taken.
+:file:`.zfs` directory of the dataset, and to browse and search any
+files they have permission to access throughout the entire snapshot
+collection of the dataset. A user's ability to view files within a
+snapshot will be limited by any permissions or ACLs set on the files
+when the snapshot was taken. Snapshots are fixed as "read-only",
+so this access does not permit the user to change any files in the
+snapshots, or to modify or delete any snapshot, even if they had write
+permission at the time when the snapshot was taken.
 
 .. note:: ZFS has a :command:`zfs diff` command which can list the files
    that have changed between any two snapshot versions within a dataset,
@@ -2959,7 +2956,7 @@ VMware-Snapshot
 ---------------
 
 :menuselection:`Storage --> VMware-Snapshot`
-allows you to coordinate ZFS snapshots when using %brand% as a VMware
+is used to coordinate ZFS snapshots when using %brand% as a VMware
 datastore. Once this type of snapshot is created, %brand% will
 automatically snapshot any running VMware virtual machines before
 taking a scheduled or manual ZFS snapshot of the dataset or zvol
@@ -2995,19 +2992,20 @@ summarizes the available options.
    |                |                             |                                                                                                             |
    |                |                             |                                                                                                             |
    +================+=============================+=============================================================================================================+
-   | Hostname       | string                      | IP address or hostname of VMware host; when clustering, this is the vCenter server for the cluster          |
+   | Hostname       | string                      | Enter the IP address or hostname of VMware host. When clustering, this is the vCenter server for the        |
+   |                |                             | cluster.                                                                                                    |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Username       | string                      | input the username which exists on the VMware host that has enough permission to snapshot virtual machines  |
+   | Username       | string                      | Enter the username on the VMware host with permission to snapshot virtual machines.                         |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Password       | string                      | input the password associated with :guilabel:`Username`                                                     |
+   | Password       | string                      | Enter the password associated with :guilabel:`Username`                                                     |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | ZFS Filesystem | drop-down menu              | select the filesystem to snapshot                                                                           |
+   | ZFS Filesystem | drop-down menu              | Select the filesystem to snapshot.                                                                          |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Datastore      | drop-down menu              | after entering the :guilabel:`Hostname`, :guilabel:`Username`, and :guilabel:`Password`, click              |
-   |                |                             | :guilabel:`Fetch Datastores` to populate the menu and select the datastore with which to synchronize        |
+   | Datastore      | drop-down menu              | After entering the :guilabel:`Hostname`, :guilabel:`Username`, and :guilabel:`Password`, click              |
+   |                |                             | :guilabel:`Fetch Datastores` to populate the menu and select the datastore with which to synchronize.       |
    |                |                             |                                                                                                             |
    +----------------+-----------------------------+-------------------------------------------------------------------------------------------------------------+

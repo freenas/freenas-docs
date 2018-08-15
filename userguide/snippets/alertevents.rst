@@ -5,7 +5,7 @@
 Alert
 -----
 
-%brand% provides an alert system to provide a visual warning of any
+The %brand% alert system provides a visual warning of any
 conditions that require administrative attention. The
 :guilabel:`Alert` button in the far right corner flashes red when
 there is an outstanding alert. In the example alert shown in
@@ -23,9 +23,8 @@ the system is warning that the S.M.A.R.T. service is not running.
 Informational messages have a green :guilabel:`OK`, warning messages
 flash yellow, and messages requiring attention are listed as a red
 :guilabel:`CRITICAL`. CRITICAL messages are also emailed to the root
-user account. If you are aware of a critical condition but wish to
-remove the flashing alert until it can be dealt with, uncheck the box
-next to that message.
+user account. To remove the flashing alert for a message, deselect the
+option next to it.
 
 Behind the scenes, an alert daemon checks for various alert
 conditions, such as volume and disk status, and writes the current

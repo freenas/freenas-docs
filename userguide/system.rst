@@ -225,12 +225,12 @@ viewed or set using
 There are two types of passwords. User account passwords for the base
 operating system are stored as hashed values, do not need to be
 encrypted to be secure, and are saved in the system configuration
-backup. Other passwords, like iSCSI CHAP passwords or Active Directory
-bind credentials, are stored in an encrypted form to prevent them from
-being visible as plain text in the saved system configuration. The key
-or *seed* for this encryption is normally stored only on the boot
-device. When :guilabel:`Save Config` is chosen, a dialog gives the
-option to :guilabel:`Export Password Secret Seed` with the saved
+backup. Other passwords, like iSCSI CHAP passwords, Active Directory
+bind credentials, and cloud credentials are stored in an encrypted form
+to prevent them from being visible as plain text in the saved system
+configuration. The key or *seed* for this encryption is normally stored
+only on the boot device. When :guilabel:`Save Config` is chosen, a dialog
+gives the option to :guilabel:`Export Password Secret Seed` with the saved
 configuration, allowing the configuration file to be restored to
 a different boot device where the decryption seed is not already
 present. Configuration backups containing the seed must be physically
@@ -2138,7 +2138,7 @@ configurable option for encrypting connections.
 Clicking an entry activates these configuration buttons:
 
 * **View:** use this option to view or edit the contents of an existing
-  certificate. These fields can be edited: :guilabel:`Identifier` (name),
+  certificate. These fields can be edited: :guilabel:`Identifier`,
   :guilabel:`Certificate`, and :guilabel:`Private Key`.
 
 * **Export Certificate** saves a copy of the certificate or
@@ -2419,9 +2419,9 @@ storage controllers simultaneously. One storage controller is active,
 the other standby. The active controller sends periodic announcements
 to the network. If a fault occurs and the active controller stops
 sending the announcements, the standby controller detects this and
-initiates a failover. Cache is synchronized to the standby controller,
-then I/O operations switch to over to it. The standby controller then
-becomes the active controller. This failover operation can happen in
+initiates a failover. Storage and cache devices are imported on the
+standby controller, then I/O operations switch to over to it. The standby
+controller then becomes the active controller. This failover operation can happen in
 seconds rather than the minutes of other configurations, significantly
 reducing the chance of a client timeout.
 

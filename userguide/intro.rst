@@ -374,11 +374,12 @@ U5
 
 * Adds preliminary support for :ref:`Self-Encrypting Drives`.
 
+* The :guilabel:`ATA Security User` and :guilabel:`SED Password` fields
+  have been added to :menuselection:`System --> Advanced`.
+
 * The :guilabel:`Password for SED` field has been added to
   :menuselection:`Storage --> Volumes --> View Disks`.
 
-* The :guilabel:`ATA Security User` and :guilabel:`SED Password` fields
-  have been added to :menuselection:`System --> Advanced`.
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
