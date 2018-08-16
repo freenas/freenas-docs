@@ -791,8 +791,8 @@ dataset are included in the snapshot and there is no need to create
 snapshots for each child dataset. The downside is that there is no way
 to exclude particular child  datasets from a recursive snapshot.
 
-Click :guilabel:`Save` when finished customizing the task. Entries for
-each task are shown in :guilabel:`Periodic Snapshot Tasks`. Click
+Click :guilabel:`Save` when finished customizing the task. Defined tasks
+are listed alphabetically in :guilabel:`Periodic Snapshot Tasks`. Click
 |ui-options| for an entry to display the :guilabel:`Edit` and
 :guilabel:`Delete` buttons.
 
