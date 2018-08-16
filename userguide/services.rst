@@ -1956,11 +1956,11 @@ UPS Configuration screen.
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Auxiliary Parameters          | string         | Enter any additional options from                                                         |
-   | (ups.conf)                    |                | `ups.conf(5) <https://networkupstools.org/docs/man/ups.conf.html>`__.                     |
+   | (ups.conf)                    |                | `ups.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=ups.conf>`__.                     |
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Auxiliary Parameters          | string         | Enter any additional options from                                                         |
-   | (upsd.conf)                   |                | `upsd.conf(5) <https://networkupstools.org/docs/man/upsd.conf.html>`__.                   |
+   | (upsd.conf)                   |                | `upsd.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=upsd.conf>`__.                   |
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Description                   | string         | Optional. Describe the UPS service.                                                       |
@@ -2020,6 +2020,16 @@ UPS Configuration screen.
    in :menuselection:`System --> Advanced`.
    Plug in the USB device and look for a */dev/ugen* or */dev/uhid*
    device name in the console messages.
+
+
+.. tip:: Some UPS models might be unresponsive with the default polling
+   frequency. This can show in %brand% logs as a reoccurring error like:
+   :samp:`libusb_get_interrupt: Unknown error`.
+
+   If this error occurs, increase the polling frequency by adding
+   an entry to :guilabel:`Auxiliary Parameters (ups.conf)`:
+   :samp:`pollinterval = 10`. The default polling frequency is two
+   seconds.
 
 
 `upsc(8) <https://networkupstools.org/docs/man/upsc.html>`__ can be used
