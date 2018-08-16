@@ -157,13 +157,9 @@ Interfaces
 shows which interfaces are manually configured and allows adding
 or editing a manually configured interface.
 
-.. note:: Typically, the interface used to access the %brand%
-   administrative GUI is configured by DHCP and not displayed in the
-   :guilabel:`Interfaces` list. The GUI will prompt to add this
-   interface before adding another interface. This is to prevent losing
-   connection to the administrative GUI when creating other interfaces
-   or a :ref:`link aggregation <Creating a Link Aggregation>` that does
-   *not* include the NIC used to access the administrative GUI.
+.. note:: When adding the first network interface, a prompt warns that\
+          the interface used for the administrative web page should\
+          be configured to avoid losing the connection.
 
 
 :numref:`Figure %s <add_net_interface_fig>`
