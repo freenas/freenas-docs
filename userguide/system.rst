@@ -622,11 +622,6 @@ The configurable settings are summarized in
    | Enable debug kernel        | checkbox            | Use a debug version of the kernel on the next boot.                           |
    |                            |                     |                                                                               |
    +----------------------------+---------------------+-------------------------------------------------------------------------------+
-   | Enable automatic upload    | checkbox            | Set to report kernel crash dumps and daily performance measurements           |
-   | of kernel crash dumps      |                     | to iXsystems.                                                                 |
-   | and daily telemetry        |                     |                                                                               |
-   |                            |                     |                                                                               |
-   +----------------------------+---------------------+-------------------------------------------------------------------------------+
    | MOTD banner                | string              | This message is shown when a user logs in with SSH.                           |
    |                            |                     |                                                                               |
    +----------------------------+---------------------+-------------------------------------------------------------------------------+
