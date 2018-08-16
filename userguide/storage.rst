@@ -874,7 +874,7 @@ Deduplication is the process of ZFS transparently reusing a single
 copy of duplicated data to save space. Depending on the amount of
 duplicate data, deduplicaton can improve storage capacity, as less
 data is written and stored. However, deduplication is RAM intensive. A
-general rule of thumb is 5 GB of RAM per terabyte of deduplicated
+general rule of thumb is 5 GiB of RAM per terabyte of deduplicated
 storage. **In most cases, compression provides storage gains
 comparable to deduplication with less impact on performance.**
 
@@ -885,7 +885,7 @@ once deduplication is enabled**, as disabling deduplication has
 dataset, the more RAM it requires. When the system starts storing the
 DDTs (dedup tables) on disk because they no longer fit into RAM,
 performance craters. Further, importing an unclean pool can require
-between 3-5 GB of RAM per terabyte of deduped data, and if the system
+between 3-5 GiB of RAM per terabyte of deduped data, and if the system
 does not have the needed RAM, it will panic. The only solution is to add
 more RAM or recreate the pool. **Think carefully before enabling dedup!**
 This `article
@@ -1338,7 +1338,7 @@ from the :command:`CLI` or via :menuselection:`File Sharing` services such
 as :menuselection:`Samba`, :menuselection:`NFS` and :menuselection:`FTP`.
 This  is an advanced capability which requires some
 :command:`command line` actions to achieve. In summary, the main changes
-to settings that are required are: 
+to settings that are required are:
 
 * Snapshot visibility must be manually enabled in the ZFS properties of
   the dataset.

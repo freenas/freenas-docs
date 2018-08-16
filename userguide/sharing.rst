@@ -377,7 +377,7 @@ and then one backup each day, each week and each month.
 **Since the oldest backups are deleted when a Time Machine share
 becomes full, make sure that the quota size is sufficient to hold the
 desired number of backups.**
-Note that a default installation of macOS is ~21 GB in size.
+Note that a default installation of macOS is ~21 GiB in size.
 
 To configure a quota, go to
 :menuselection:`Sharing --> Apple (AFP)`,
@@ -388,7 +388,7 @@ the Time Machine share name is *backup_user1*.
 Enter a value in the
 :guilabel:`Time Machine Quota` field, then click
 :guilabel:`Save`. In this example, the
-Time Machine share is restricted to 200 GB.
+Time Machine share is restricted to 200 GiB.
 
 
 .. _set_quota_fig:
@@ -2558,7 +2558,7 @@ To grow a zvol based LUN, navigate
 to be grown, then press :guilabel:`Edit zvol`. In
 the example shown in
 :numref:`Figure %s <iscsi_zvol_lun_fig>`,
-the current size of the zvol named *zvol1* is 4GB.
+the current size of the zvol named *zvol1* is 4 GiB.
 
 
 .. _iscsi_zvol_lun_fig:
@@ -2597,7 +2597,7 @@ Click |ui-options| then :guilabel:`Edit`. Ensure the
 :guilabel:`Extent Type` is set to file and determine the
 :guilabel:`Path to the extent`.
 Open the :ref:`Shell` to grow the file extent. This example
-grows :file:`/mnt/pool1/data` by 2 GB:
+grows :file:`/mnt/pool1/data` by 2 GiB:
 
 .. code-block:: none
 
