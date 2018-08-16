@@ -254,6 +254,10 @@ These screen options have changed:
 * The :guilabel:`Umask` field in :menuselection:`Services --> TFTP` has
   changed to a :guilabel:`File Permissions` selector.
 
+* The :guilabel:`User Base` and :guilabel:`Group Base` fields have
+  been removed from
+  :menuselection:`Directory Services --> Active Directory --> Advanced Mode`
+
 * Disk temperature graphs have been added to
   :menuselection:`Reporting --> Disk`.
 
