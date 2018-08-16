@@ -256,7 +256,7 @@ These screen options have changed:
 
 * The :guilabel:`User Base` and :guilabel:`Group Base` fields have
   been removed from
-  :menuselection:`Directory Services --> Active Directory --> Advanced Mode`
+  :menuselection:`Directory Services --> Active Directory --> Advanced Mode`.
 
 * Disk temperature graphs have been added to
   :menuselection:`Reporting --> Disk`.
