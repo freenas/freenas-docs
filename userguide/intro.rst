@@ -219,6 +219,10 @@ These screen options have changed:
 * The :guilabel:`Enable screen saver` field has been removed from
   :menuselection:`System --> Advanced`.
 
+* The :guilabel:`Enable automatic upload of kernel crash dumps and daily telemetry`
+  checkbox has been removed from
+  :menuselection:`System --> Advanced`.
+
 * :guilabel:`Alerts` has been added to :guilabel:`System` and can be used
   to list the available alert conditions and to configure the notification
   frequency on a per-alert basis.
