@@ -361,9 +361,7 @@ task.
    |                                  |                             | or used inside single quotes. (:literal:`'*.txt'`)                                        |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Enabled                          | checkbox                    | Unset to disable the rsync task without deleting it. When the :ref:`Rsync`                |
-   |                                  |                             | service is OFF, the rsync task will continue to look for the server unless this           |
-   |                                  |                             | option is unset.                                                                          |
+   | Enabled                          | checkbox                    | Unset to disable the rsync task without deleting it.                                      |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
 
