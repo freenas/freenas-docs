@@ -17,7 +17,6 @@ opens the warning message shown in
 
 
 :guilabel:`Confirm` the command and click :guilabel:`Ok` to shutdown
-the system. The web user interface will go black after sixty seconds.
-Shutting down the system disconnects all clients, including the web
-administration GUI. Physical access to the %brand% system is required to
-turn it back on.
+the system. Shutting down the system disconnects all clients, including
+the web administration GUI. Physical access to the %brand% system is
+required to turn it back on.
