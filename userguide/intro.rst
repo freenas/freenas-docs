@@ -407,6 +407,12 @@ U6
   driver does not support jumbo clusters and should not use an MTU greater
   than *4096*.
 
+* The :guilabel:`Endpoint URL` has been added to
+  :menuselection:`System -> Cloud Credentials -> Add Cloud Credential`
+  but only appears when *Amazon S3* is selected as the
+  :guilabel:`Provider`. This can be used to configure a connection to
+  another S3-compatible service, such as Wasabi.
+
 * The :guilabel:`User Base` and :guilabel:`Group Base` fields have
   been removed from
   :menuselection:`Directory Services --> Active Directory --> Advanced Mode`.
