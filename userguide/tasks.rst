@@ -791,8 +791,8 @@ dataset are included in the snapshot and there is no need to create
 snapshots for each child dataset. The downside is that there is no way
 to exclude particular child  datasets from a recursive snapshot.
 
-Click :guilabel:`Save` when finished customizing the task. Entries for
-each task are shown in :guilabel:`Periodic Snapshot Tasks`. Click
+Click :guilabel:`Save` when finished customizing the task. Defined tasks
+are listed alphabetically in :guilabel:`Periodic Snapshot Tasks`. Click
 |ui-options| for an entry to display the :guilabel:`Edit` and
 :guilabel:`Delete` buttons.
 
@@ -1716,6 +1716,13 @@ schedule for running a cloud sync task. An example is shown in
 
    Cloud Sync Status
 
+
+When an existing task has run, a :literal:`✓` or :literal:`x` is shown
+to reflect the success or failure of the task. Click either symbol to
+open the :guilabel:`Logs` window. This window displays the logs related
+the task that ran. Click :guilabel:`DOWNLOAD LOGS` to open a popup
+window to download the :file:`.log` file.
+
 Click |ui-add| to display the :guilabel:`Add Cloud Sync` menu shown in
 :numref:`Figure %s <tasks_cloudsync_add_fig>`.
 
@@ -1810,6 +1817,7 @@ shows the configuration options for Cloud Syncs.
 
 To modify an existing cloud sync, click |ui-options| to access the
 :guilabel:`Run Now`, :guilabel:`Edit`, and :guilabel:`Delete` options.
+
 
 .. _Cloud Sync Example:
 
