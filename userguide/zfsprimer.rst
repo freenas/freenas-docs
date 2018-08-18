@@ -146,7 +146,7 @@ sense in special cases. The :command:`zilstat` utility can be run from
 <http://www.richardelling.com/Home/scripts-and-programs-1/zilstat>`__
 for usage information.
 
-ZFS currently uses 16 GB of space for SLOG. Larger SSDs can be
+ZFS currently uses 16 GiB of space for SLOG. Larger SSDs can be
 installed, but the extra space will not be used. SLOG devices cannot
 be shared between pools. Each pool requires a separate SLOG device.
 Bandwidth and throughput limitations require that a SLOG device must
@@ -181,7 +181,7 @@ small enough to fit into L2ARC, read performance can be increased by
 adding a dedicated cache device. SSD cache devices only help if the
 active data is larger than system RAM but small enough that a
 significant percentage fits on the SSD. As a general rule, L2ARC
-should not be added to a system with less than 32 GB of RAM, and the
+should not be added to a system with less than 32 GiB of RAM, and the
 size of an L2ARC should not exceed ten times the amount of RAM. In
 some cases, it may be more efficient to have two separate pools: one
 on SSDs for active data, and another on hard drives for rarely used
@@ -275,7 +275,7 @@ While ZFS provides many benefits, there are some caveats:
   resilvering process completes. If the number of failed disks
   exceeds the number allowed per vdev for the type of RAIDZ, the data
   in the pool will be lost. For this reason, RAIDZ1 is not
-  recommended for drives over 1 TB in size.
+  recommended for drives over 1 TiB in size.
 
 * Using drives of equal sizes is recommended when
   creating a vdev. While ZFS can create a vdev using disks of differing
