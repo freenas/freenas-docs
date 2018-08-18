@@ -407,6 +407,10 @@ U6
   driver does not support jumbo clusters and should not use an MTU greater
   than *4096*.
 
+* The :guilabel:`User Base` and :guilabel:`Group Base` fields have
+  been removed from
+  :menuselection:`Directory Services --> Active Directory --> Advanced Mode`.
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
