@@ -1758,7 +1758,7 @@ shows the configuration options for Cloud Syncs.
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Credential          | drop-down menu      | Select the cloud storage provider credentials from the list of available :ref:`Cloud Credentials`.      |
    |                     |                     | The credential is tested and an error is displayed if a connection cannot be made. :guilabel:`Save` is  |
-   |                     |                     | disabled until a valid Credential is entered.                                                           |
+   |                     |                     | disabled until a valid credential is entered.                                                           |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Bucket              | drop-down menu      | Only appears when an S3 credential is the *Provider*. Select the pre-defined S3 bucket to use.          |
