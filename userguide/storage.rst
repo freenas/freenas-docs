@@ -752,7 +752,7 @@ Deduplication is the process of ZFS transparently reusing a single
 copy of duplicated data to save space. Depending on the amount of
 duplicate data, deduplicaton can improve storage capacity, as less
 data is written and stored. However, deduplication is RAM intensive. A
-general rule of thumb is 5 GB of RAM per terabyte of deduplicated
+general rule of thumb is 5 GiB of RAM per terabyte of deduplicated
 storage. **In most cases, compression provides storage gains
 comparable to deduplication with less impact on performance.**
 
@@ -763,7 +763,7 @@ once deduplication is enabled**, as disabling deduplication has
 deduplicated dataset, the more RAM it requires. When the system starts
 storing the DDTs (dedup tables) on disk because they no longer fit
 into RAM, performance craters. Further, importing an unclean pool can
-require between 3-5 GB of RAM per terabyte of deduped data, and if the
+require between 3-5 GiB of RAM per terabyte of deduped data, and if the
 system does not have the needed RAM, it will panic. The only solution
 is to add more RAM or recreate the pool.
 **Think carefully before enabling dedup!**
@@ -1810,7 +1810,7 @@ A periodic snapshot task allows scheduling the creation of read-only
 versions of ZFS volumes and datasets at a given point in time.
 Snapshots can be created quickly and, if little data changes, new
 snapshots take up very little space. For example, a snapshot where no
-files have changed takes 0 MB of storage, but as changes are made to
+files have changed takes 0 MiB of storage, but as changes are made to
 files, the snapshot size changes to reflect the size of the changes.
 
 Snapshots provide a clever way of keeping a history of files,

@@ -292,11 +292,11 @@ Press :kbd:`Enter` to select the default option,
 lists all available drives. This includes any inserted USB thumb
 drives, which have names beginning with *da*.
 
-.. note:: A minimum of 8 GB of RAM is required and the installer will
-   present a warning message if less than 8 GB is detected.
+.. note:: A minimum of 8 GiB of RAM is required and the installer will
+   present a warning message if less than 8 GiB is detected.
 
 In this example, the user is performing a test installation using
-VirtualBox and has created a 16 GB virtual disk to hold the operating
+VirtualBox and has created a 16 GiB virtual disk to hold the operating
 system.
 
 
@@ -326,8 +326,8 @@ the screen shown in
    Installation Warning
 
 
-.. note:: A minimum of 8 GB of space on the boot device is required.
-   However, 32 GB is recommended to provide room for future additions
+.. note:: A minimum of 8 GiB of space on the boot device is required.
+   However, 32 GiB is recommended to provide room for future additions
    and boot environments. When using mirrored boot devices, it is best
    to use devices of the same size. If the device sizes are different,
    the mirror is limited to the size of the smaller device.
@@ -787,12 +787,12 @@ data.
 To install or run %brand% within a virtual environment, create a
 virtual machine that meets these minimum requirements:
 
-* **at least** 8192 MB (8 GB) base memory size
+* **at least** 8192 MB (8 GiB) base memory size
 
-* a virtual disk **at least 8 GB in size** to hold the operating
+* a virtual disk **at least 8 GiB in size** to hold the operating
   system and boot environments
 
-* at least one additional virtual disk **at least 4 GB in size** to be
+* at least one additional virtual disk **at least 4 GiB in size** to be
   used as data storage
 
 * a bridged network adapter
@@ -907,10 +907,10 @@ is shown.
 
 
 This screen is used to set the size (or upper limit) of the virtual
-disk. **Increase the default size to 8 GB**. Use the folder icon to
+disk. **Increase the default size to 8 GiB**. Use the folder icon to
 browse to a directory on disk with sufficient space to hold the
 virtual disk files.  Remember that there will be a system disk of
-at least 8 GB and at least one data storage disk of at least 4 GB.
+at least 8 GiB and at least one data storage disk of at least 4 GiB.
 
 After making a selection and pressing :guilabel:`Next`, a summary of
 the configuration options chosen is shown. Use the :guilabel:`Back`
@@ -949,7 +949,7 @@ Virtual Hard Drive Wizard (seen in
 and
 :numref:`%s <vb_virt_type_fig>`).
 This disk will be used for storage, so create a size
-appropriate to your needs, making sure that it is **at least 4 GB**.
+appropriate to your needs, making sure that it is **at least 4 GiB**.
 To practice with RAID configurations, create as many virtual disks as
 needed. Two disks can be created on each IDE controller. For
 additional disks, click the :guilabel:`Add Controller` button to
@@ -1063,7 +1063,7 @@ click :guilabel:`Other`, then select a FreeBSD 64-bit architecture.
    Select Operating System
 
 
-Click :guilabel:`Next` and create a virtual disk file of **8 GB** to
+Click :guilabel:`Next` and create a virtual disk file of **8 GiB** to
 hold the %brand% operating system, as shown in
 :numref:`Figure %s <esxi_create_disk_fig>`.
 
