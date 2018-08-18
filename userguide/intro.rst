@@ -380,6 +380,15 @@ U5
 * The :guilabel:`Password for SED` field has been added to
   :menuselection:`Storage --> Volumes --> View Disks`.
 
+U6
+~~
+
+* The base operating system has been patched to address
+  `FreeBSD-SA-18:08.tcp <https://www.freebsd.org/security/advisories/FreeBSD-SA-18:08.tcp.asc>`__
+  and `FreeBSD-SA-18:10.ip <https://www.freebsd.org/security/advisories/FreeBSD-SA-18:10.ip.asc>`__.
+
+* Samba has been patched to address the recent
+  `CVEs <https://www.samba.org/samba/latest_news.html#4.8.4>`__.
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
