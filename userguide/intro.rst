@@ -390,6 +390,23 @@ U6
 * Samba has been patched to address the recent
   `CVEs <https://www.samba.org/samba/latest_news.html#4.8.4>`__.
 
+* The
+  `em <https://www.freebsd.org/cgi/man.cgi?query=em&apropos=0&sektion=4>`__,
+  `igb <https://www.freebsd.org/cgi/man.cgi?query=igb&apropos=0&sektion=4>`__,
+  `ixgbe <https://www.freebsd.org/cgi/man.cgi?query=ixgbe&apropos=0&sektion=4>`__,
+  and `ixl <https://www.freebsd.org/cgi/man.cgi?query=ixl&apropos=0&sektion=4>`__
+  Intel drivers have been patched to resolve a performance degradation issue
+  that occurs when the MTU is set to *9000* (9k jumbo clusters).
+  Before configuring 9k jumbo clusters for
+  `cxgbe <https://www.freebsd.org/cgi/man.cgi?query=cxgbe&apropos=0&sektion=4>`__
+  create a :ref:`Tunables` with  a
+  :guilabel:`Variable` of *hw.cxgbe.largest_rx_cluster*,
+  a :guilabel:`Type` of *Loader*, and a :guilabel:`Value` of *4096*.
+  The
+  `cxgb <https://www.freebsd.org/cgi/man.cgi?query=cxgb&apropos=0&sektion=4>`__
+  driver does not support jumbo clusters and should not use an MTU greater
+  than *4096*.
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
