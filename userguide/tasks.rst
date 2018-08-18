@@ -292,11 +292,11 @@ task.
    |                                  |                             | format *username@remote_host* if the username differs on the remote host.                 |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Remote SSH Port                  | integer                     | Only available in  *Rsync over SSH mode*. Allows specifying an SSH port                   |
+   | Remote SSH Port                  | integer                     | Only available in  *Rsync over SSH* mode. Allows specifying an SSH port                   |
    |                                  |                             | other than the default of *22*.                                                           |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
-   | Rsync mode                       | drop-down menu              | The choices are *Rsync Module mode* or *Rsync over SSH mode*                              |
+   | Rsync mode                       | drop-down menu              | The choices are *Rsync Module* mode or *Rsync over SSH* mode                              |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Remote Module Name               | string                      | At least one module must be defined in                                                    |
@@ -320,7 +320,7 @@ task.
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Schedule the Rsync Task          | drop-down menu              | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or  |
-   |                                  |                             | *Custom*. Select *Custom* to open the advanced scheduler                                  |
+   |                                  |                             | *Custom*. Select *Custom* to open the advanced scheduler.                                 |
    |                                  |                             |                                                                                           |
    +----------------------------------+-----------------------------+-------------------------------------------------------------------------------------------+
    | Recursive                        | checkbox                    | Set to include all subdirectories of the specified directory. When unset, only the        |
@@ -1750,8 +1750,8 @@ shows the configuration options for Cloud Syncs.
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Credential          | drop-down menu      | Select the cloud storage provider credentials from the list of available :ref:`Cloud Credentials`.      |
-   |                     |                     | The UI automatically tests the credential and displays an error if a connection cannot be made.         |
-   |                     |                     | :guilabel:`Save` is disabled until a valid Credential is entered.                                       |
+   |                     |                     | The credential is tested and an error is displayed if a connection cannot be made. :guilabel:`Save` is  |
+   |                     |                     | disabled until a valid Credential is entered.                                                           |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Bucket              | drop-down menu      | Only appears when an S3 credential is the *Provider*. Select the pre-defined S3 bucket to use.          |
