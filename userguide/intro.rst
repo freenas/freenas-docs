@@ -220,6 +220,10 @@ These screen options have changed:
   from
   :menuselection:`System --> Advanced`.
 
+* The :guilabel:`Enable automatic upload of kernel crash dumps and daily telemetry`
+  checkbox has been removed from
+  :menuselection:`System --> Advanced`.
+
 * :guilabel:`Alert Settings` has been added to :guilabel:`System` and can
   be used to list the available alert conditions and to configure the
   notification frequency on a per-alert basis.
