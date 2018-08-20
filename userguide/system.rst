@@ -629,10 +629,6 @@ The configurable settings are summarized in
    | Show advanced fields by default          | checkbox                         | Show :guilabel:`Advanced Mode` fields by default.                                                |
    |                                          |                                  |                                                                                                  |
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Enable automatic upload of kernel        | checkbox                         | Set to report kernel crash dumps and daily performance measurements to iXsystems.                |
-   | crash dumps and daily telemetry          |                                  |                                                                                                  |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
    | Periodic Notification User               | drop-down menu                   | Choose a user to receive security output emails. This output runs nightly, but only sends        |
    |                                          |                                  | email when the system reboots or encounters an error.                                            |
    |                                          |                                  |                                                                                                  |
