@@ -509,16 +509,16 @@ summarizes the available options when configuring the FTP server.
    | Maximum passive port                                         | integer       | ✓           | Used by clients in PASV mode, default of *0* means any port above 1023.            |
    |                                                              |               |             |                                                                                    |
    +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
-   | Local user upload bandwidth                                  | integer       | ✓           | Defined in KB/s, default of *0* means unlimited.                                   |
+   | Local user upload bandwidth                                  | integer       | ✓           | Defined in KiB/s, default of *0* means unlimited.                                  |
    |                                                              |               |             |                                                                                    |
    +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
-   | Local user download bandwidth                                | integer       | ✓           | Defined in KB/s, default of *0* means unlimited.                                   |
+   | Local user download bandwidth                                | integer       | ✓           | Defined in KiB/s, default of *0* means unlimited.                                  |
    |                                                              |               |             |                                                                                    |
    +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
-   | Anonymous user upload bandwidth                              | integer       | ✓           | Defined in KB/s, default of *0* means unlimited.                                   |
+   | Anonymous user upload bandwidth                              | integer       | ✓           | Defined in KiB/s, default of *0* means unlimited.                                  |
    |                                                              |               |             |                                                                                    |
    +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
-   | Anonymous user download bandwidth                            | integer       | ✓           | Defined in KB/s, default of *0* means unlimited.                                   |
+   | Anonymous user download bandwidth                            | integer       | ✓           | Defined in KiB/s, default of *0* means unlimited.                                  |
    |                                                              |               |             |                                                                                    |
    +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
    | Enable TLS                                                   | checkbox      | ✓           | Set to enable encrypted connections. Requires a certificate to be created or       |
@@ -1527,9 +1527,9 @@ prevent such actions. This can produce
 
 Samba is single threaded, so CPU speed makes a big difference in SMB
 performance. A typical 2.5Ghz Intel quad core or greater should be
-capable of handling speeds in excess of Gb LAN while low power CPUs
+capable of handling speeds in excess of GiB LAN while low power CPUs
 such as Intel Atoms and AMD C-30s\E-350\E-450 will not be able to
-achieve more than about 30-40MB/sec typically. Remember that other
+achieve more than about 30-40 MiB/sec typically. Remember that other
 loads such as ZFS will also require CPU resources and may cause Samba
 performance to be less than optimal.
 

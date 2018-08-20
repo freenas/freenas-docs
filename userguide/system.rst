@@ -594,7 +594,7 @@ The configurable settings are summarized in
    #ifdef freenas
    +----------------------------+---------------------+-------------------------------------------------------------------------------+
    | Swap size                  | non-zero integer    | By default, all data disks are created with this amount of swap.              |
-   |                            | representing GB     | Log or cache devices do not create with swap and are unaffected.              |
+   |                            | representing GiB    | Log or cache devices do not create with swap and are unaffected.              |
    |                            |                     | Setting to *0* disables swap creation completely. This is                     |
    |                            |                     | *strongly* discouraged.                                                       |
    #endif freenas
@@ -620,11 +620,6 @@ The configurable settings are summarized in
    |                            |                     |                                                                               |
    +----------------------------+---------------------+-------------------------------------------------------------------------------+
    | Enable debug kernel        | checkbox            | Use a debug version of the kernel on the next boot.                           |
-   |                            |                     |                                                                               |
-   +----------------------------+---------------------+-------------------------------------------------------------------------------+
-   | Enable automatic upload    | checkbox            | Set to report kernel crash dumps and daily performance measurements           |
-   | of kernel crash dumps      |                     | to iXsystems.                                                                 |
-   | and daily telemetry        |                     |                                                                               |
    |                            |                     |                                                                               |
    +----------------------------+---------------------+-------------------------------------------------------------------------------+
    | MOTD banner                | string              | This message is shown when a user logs in with SSH.                           |

@@ -146,8 +146,8 @@ always display these settings by checking the box
 When selecting the :guilabel:`Jail Root`, ensure that the size of the
 selected volume or dataset is sufficient to hold the number of jails
 to be installed as well as any software, log files, and data to be
-stored within each jail. At a bare minimum, budget at least 2 GB per
-jail and do not select a dataset that is less than 2 GB in size.
+stored within each jail. At a bare minimum, budget at least 2 GiB per
+jail and do not select a dataset that is less than 2 GiB in size.
 
 .. note:: When adding storage to a jail, be aware that the path
    size is limited to 88 characters. Make sure that the length of the

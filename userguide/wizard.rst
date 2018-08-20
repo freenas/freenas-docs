@@ -283,7 +283,7 @@ select the :guilabel:`Purpose` of the share:
 
 * **Block Storage (iSCSI):** this type of share can be accessed by any
   operating system using iSCSI initiator software. Enter the size of
-  the block storage to create in the format *20G* (for 20 GB). iSCSI
+  the block storage to create in the format *20G* (for 20 GiB). iSCSI
   shares created with the wizard can be fine-tuned afterward with
   :ref:`iSCSI`.
 
