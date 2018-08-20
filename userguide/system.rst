@@ -597,8 +597,9 @@ The configurable settings are summarized in
    |                                          |                                  |                                                                                                  |
    #ifdef freenas
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Swap size                                | non-zero integer representing GB | By default, all data disks are created with this amount of swap. This setting does not affect    |
-   |                                          |                                  | log or cache devices as they are created without swap.                                           |
+   | Swap size                                | non-zero number representing GiB | By default, all data disks are created with this amount of swap. This setting does not affect    |
+   |                                          |                                  | log or cache devices as they are created without swap. Setting to *0* disables swap creation     |
+   |                                          |                                  | completely. This is *strongly* discouraged.                                                      |
    |                                          |                                  |                                                                                                  |
    #endif freenas
    +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+

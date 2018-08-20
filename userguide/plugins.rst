@@ -61,7 +61,7 @@ description, current version, and if the plugin is officially supported.
    :menuselection:`Network --> Global Configuration`.
 
 
-Click |ui-options| and :guilabel:`install` for the desired plugin. Set
+Click |ui-options| and :guilabel:`Install` for the desired plugin. Set
 :guilabel:`DHCP` to automatically configure IP settings, or manually
 enter an IPv4 or IPv6 address. Click :guilabel:`Save`. In the example
 shown in :numref:`Figure %s <installing_plugin_fig>`, Plex Media
@@ -76,8 +76,9 @@ Server is selected for installation.
 
 
 The installation takes a few minutes because the system
-downloads and configures a jail to store the plugin application. It
-then installs the plugin and adds it to the
+downloads and configures a jail to store the plugin application. A
+confirmation message is displayed at the bottom of the screen after a
+successful installtion. Installed plugins appear in the
 :menuselection:`Plugins --> Installed`
 page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 

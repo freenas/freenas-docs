@@ -160,8 +160,10 @@ This software has been added or updated:
   improvements include channel programs, data disk removal, more
   resilient volume import, the ability to import a pool with missing
   vdevs, pool checkpoints, improved compressed ARC performance, and ZIL
-  batching. Note that many of these improvements need further testing so
-  have not yet been integrated into the UI.
+  batching. As part of this change, the default ZFS indirect block size
+  is reduced to 32 KiB from 128 KiB. Note that many of these
+  improvements need further testing so have not yet been integrated into
+  the UI.
 
 * The IPsec kernel module has been added. It can be manually loaded with
   :command:`kldload ipsec`.
@@ -252,6 +254,10 @@ These screen options have changed:
 * The :guilabel:`Umask` field in :menuselection:`Services --> TFTP` has
   changed to a :guilabel:`File Permissions` selector.
 
+* The :guilabel:`User Base` and :guilabel:`Group Base` fields have
+  been removed from
+  :menuselection:`Directory Services --> Active Directory --> Advanced Mode`.
+
 * Disk temperature graphs have been added to
   :menuselection:`Reporting --> Disk`.
 
@@ -319,17 +325,17 @@ gained by adding more RAM.
 
 General guidelines for RAM:
 
-* **A minimum of 8 GB of RAM is required.**
+* **A minimum of 8 GiB of RAM is required.**
 
   Additional features require additional RAM, and large amounts of
   storage require more RAM for cache. An old, somewhat overstated
-  guideline is 1 GB of RAM per terabyte of disk capacity.
+  guideline is 1 GiB of RAM per terabyte of disk capacity.
 
-* To use Active Directory with many users, add an additional 2 GB of
+* To use Active Directory with many users, add an additional 2 GiB of
   RAM for the winbind internal cache.
 
-* For iSCSI, install at least 16 GB of RAM if performance is not
-  critical, or at least 32 GB of RAM if good performance is a
+* For iSCSI, install at least 16 GiB of RAM if performance is not
+  critical, or at least 32 GiB of RAM if good performance is a
   requirement.
 
 * :ref:`Jails` are very memory-efficient, but can still use memory
@@ -342,13 +348,13 @@ General guidelines for RAM:
   amounts listed here. Memory used by virtual machines is not
   available to the host while the VM is running, and is not included
   in the amounts described above. For example, a system that will be
-  running two VMs that each need 1 GB of RAM requires an additional 2
-  GB of RAM.
+  running two VMs that each need 1 GiB of RAM requires an additional 2
+  GiB of RAM.
 
 * When installing %brand% on a headless system, disable the shared
   memory settings for the video card in the BIOS.
 
-* For ZFS deduplication, ensure the system has at least 5 GB of RAM
+* For ZFS deduplication, ensure the system has at least 5 GiB of RAM
   per terabyte of storage to be deduplicated.
 
 
@@ -362,12 +368,12 @@ This
 <http://research.cs.wisc.edu/adsl/Publications/zfs-corruption-fast10.pdf>`__
 describes the risks associated with memory corruption.
 
-Do not use %brand% to store data without at least 8 GB of RAM. Many
+Do not use %brand% to store data without at least 8 GiB of RAM. Many
 users expect %brand% to function with less memory, just at reduced
 performance.  The bottom line is that these minimums are based on
 feedback from many users. Requests for help in the forums or IRC are
 sometimes ignored when the installed system does not have at least 8
-GB of RAM because of the abundance of information that %brand% may not
+GiB of RAM because of the abundance of information that %brand% may not
 behave properly with less memory.
 
 
@@ -394,10 +400,10 @@ discouraged as that drive is then not available for data storage.
 When determining the type and size of the target device where %brand%
 is to be installed, keep these points in mind:
 
-- The absolute *bare minimum* size is 8 GB. That does not provide much
-  room. The *recommended* minimum is 16 GB. This provides room for the
+- The absolute *bare minimum* size is 8 GiB. That does not provide much
+  room. The *recommended* minimum is 16 GiB. This provides room for the
   operating system and several boot environments created by updates.
-  More space provides room for more boot environments and 32 GB or
+  More space provides room for more boot environments and 32 GiB or
   more is preferred.
 
 - SSDs (Solid State Disks) are fast and reliable, and make very good
@@ -405,12 +411,12 @@ is to be installed, keep these points in mind:
   they require a disk connection which might be needed for storage
   disks.
 
-  Even a relatively large SSD (120 or 128 GB) is useful as a boot
+  Even a relatively large SSD (120 or 128 GiB) is useful as a boot
   device. While it might appear that the unused space is wasted, that
   space is instead used internally by the SSD for wear leveling. This
   makes the SSD last longer and provides greater reliability.
 
-- When planning to add your own boot environments, budget about 1 GB
+- When planning to add your own boot environments, budget about 1 GiB
   of storage per boot environment. Consider deleting older boot
   environments after making sure they are no longer needed. Boot
   environments can be created and deleted using
@@ -480,20 +486,20 @@ If the budget allows optimization of the disk subsystem, consider the
 read/write needs and RAID requirements:
 
 * For steady, non-contiguous writes, use disks with low seek times.
-  Examples are 10K or 15K SAS drives which cost about $1/GB. An
-  example configuration would be six 600 GB 15K SAS drives in a RAID
-  10 which would yield 1.8 TB of usable space, or eight 600 GB 15K SAS
-  drives in a RAID 10 which would yield 2.4 TB of usable space.
+  Examples are 10K or 15K SAS drives which cost about $1/GiB. An
+  example configuration would be six 600 GiB 15K SAS drives in a RAID
+  10 which would yield 1.8 TiB of usable space, or eight 600 GiB 15K SAS
+  drives in a RAID 10 which would yield 2.4 TiB of usable space.
 
 For ZFS,
 `Disk Space Requirements for ZFS Storage Pools
 <https://docs.oracle.com/cd/E19253-01/819-5461/6n7ht6r12/index.html>`__
-recommends a minimum of 16 GB of disk space. Due to the way that ZFS
+recommends a minimum of 16 GiB of disk space. Due to the way that ZFS
 creates swap,
-**it is not possible to format less than 3 GB of space with ZFS**.
+**it is not possible to format less than 3 GiB of space with ZFS**.
 However, on a drive that is below the minimum recommended size, a fair
-amount of storage space is lost to swap: for example, on a 4 GB
-drive, 2 GB will be reserved for swap.
+amount of storage space is lost to swap: for example, on a 4 GiB
+drive, 2 GiB will be reserved for swap.
 
 Users new to ZFS who are purchasing hardware should read through
 `ZFS Storage Pools Recommendations
@@ -503,8 +509,8 @@ first.
 ZFS *vdevs*, groups of disks that act like a single device, can be
 created using disks of different sizes.  However, the capacity
 available on each disk is limited to the same capacity as the smallest
-disk in the group. For example, a vdev with one 2 TB and two 4 TB
-disks will only be able to use 2 TB of space on each disk. In general,
+disk in the group. For example, a vdev with one 2 TiB and two 4 TiB
+disks will only be able to use 2 TiB of space on each disk. In general,
 use disks that are the same size for the best space usage and
 performance.
 
@@ -531,7 +537,7 @@ provide their own processors.
 
 At a minimum, a GigE interface is recommended. While GigE interfaces
 and switches are affordable for home use, modern disks can easily
-saturate their 110 MB/s throughput. For higher network throughput,
+saturate their 110 MiB/s throughput. For higher network throughput,
 multiple GigE cards can be bonded together using the LACP type of
 :ref:`Link Aggregations`. The Ethernet switch must support LACP, which
 means a more expensive managed switch is required.
