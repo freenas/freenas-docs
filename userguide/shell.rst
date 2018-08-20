@@ -35,13 +35,6 @@ The prompt indicates that the current user is *root*, the hostname is
 The :guilabel:`Set font size` slider adjusts the size of text
 displayed in the Shell.
 
-.. If using Firefox, highlight the text and use the Open menu in the top
-   right of the browser to copy the text from the Shell. Use the edit
-   option in the Open menu again to paste text into the Shell.
-
-   Commented the above out because it was found to be inconsistent with
-   different versions (we think) of firefox and/or OS.
-
 Shell provides a history of commands used. Use the arrow keys to see
 previously entered commands and press :kbd:`Enter` to repeat the
 command.The keys :kbd:`Home`, :kbd:`End`, and :kbd:`Delete` are also
