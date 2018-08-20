@@ -23,19 +23,24 @@ The prompt indicates that the current user is *root*, the hostname is
 *freenas*, and the current working directory is :file:`~`
 (*root*'s home directory).
 
+.. note:: The default shell for a new install of %brand% is
+   :command:`zsh`. %brand% systems that are upgraded from an earlier
+   version will continue to use :command:`csh` as the default shell.
+   The default shell can be changed by clicking
+   :menuselection:`Account --> Users`, clicking |ui-options| of the
+   desired user, then selecting
+   :menuselection:`--> Edit`.
+   Choose the desired shell from the :guilabel:`Shell` drop-down.
+
 The :guilabel:`Set font size` slider adjusts the size of text
 displayed in the Shell.
 
-If using Firefox, highlight the text and use the Open menu in the top
-right of the browser to copy the text from the Shell. Use the edit
-option in the Open menu again to paste text into the Shell.
-
-Shell provides history, use the up arrow to see previously entered
-commands and press :kbd:`Enter` to repeat the currently displayed
-command. It also provides tab completion, type a few letters and press tab to
-complete a command name or filename in the current directory.
-Type :command:`exit` to leave the
-session.
+Shell provides a history of commands used. Use the arrow keys to see
+previously entered commands and press :kbd:`Enter` to repeat the
+command.The keys :kbd:`Home`, :kbd:`End`, and :kbd:`Delete` are also
+supported in the shell. The shell also provides tab completion. Type a
+few letters and press tab to complete a command name or filename in the
+current directory. Type :command:`exit` to leave the session.
 
 GUI menus cannot be accessed while using Shell.
 To access a prompt while using the GUI
