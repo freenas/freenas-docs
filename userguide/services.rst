@@ -2102,12 +2102,12 @@ UPS Configuration screen.
 
 
 .. tip:: Some UPS models might be unresponsive with the default polling
-   frequency. This can show in %brand% logs as a reoccurring error like:
-   :samp:`libusb_get_interrupt: Unknown error`.
+   frequency. This can show in %brand% logs as a recurring error like:
+   :literal:`libusb_get_interrupt: Unknown error`.
 
    If this error occurs, increase the polling frequency by adding
    an entry to :guilabel:`Auxiliary Parameters (ups.conf)`:
-   :samp:`pollinterval = 10`. The default polling frequency is two
+   :literal:`pollinterval = 10`. The default polling frequency is two
    seconds.
 
 
