@@ -238,7 +238,7 @@ These screen options have changed:
   :menuselection:`Network --> Interfaces --> Add Interface`
   are preconfigured with the web interface NIC settings when configuring
   the first interface. A warning is shown when a user attempts to
-  configure a different interface before the web interface.
+  configure a different interface before the web interface NIC.
 
 * The :guilabel:`Exec` field has been added to
   :menuselection:`Storage --> Volumes --> Create Dataset --> Advanced Mode`.
