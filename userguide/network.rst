@@ -157,9 +157,9 @@ Interfaces
 shows which interfaces are manually configured and allows adding
 or editing a manually configured interface.
 
-.. note:: When adding the first network interface, a prompt warns that\
-          the interface used for the administrative web page should\
-          be configured to avoid losing the connection.
+.. note:: When adding the first network interface, a prompt warns that
+   the interface used for the administrative web page should be
+   configured to avoid losing the connection.
 
 
 :numref:`Figure %s <add_net_interface_fig>`
