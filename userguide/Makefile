@@ -99,6 +99,7 @@ latexpdf pdf:	preproc
 	@sed -i '' -e 's%⚙%{\\awesome\\symbol{"F013}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@sed -i '' -e 's%⋮%{\\awesome\\symbol{"F142}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@sed -i '' -e 's%＋%{\\awesome\\symbol{"FF0B}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's%⏻%{\\awesome\\symbol{"F011}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@echo "Running LaTeX files through $(LATEX_ENGINE)..."
 	# fix missing latex_engine substitution in old versions of Sphinx
 	@sed -i '' -e 's/pdflatex/$(LATEX_ENGINE)/g' $(PREPROCDIR)/$(BUILDDIR)/latex/Makefile

@@ -23,9 +23,7 @@
    reporting
    processes
    shell
-   logout
-   restart
-   shutdown
+   power
    alert
    support
    contribute
