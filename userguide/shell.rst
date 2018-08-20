@@ -23,11 +23,14 @@ The prompt indicates that the current user is *root*, the hostname is
 *freenas*, and the current working directory is :file:`~`
 (*root*'s home directory).
 
-.. note:: The default shell for a fresh install of FreeNAS is
-   :command:`zsh`. However, upgrading continues to use :command:`csh` as
-   the defualt shell. Change the default shell by going to
-   :menuselection:`Account --> Users -->` |ui-options| :menuselection:`--> Edit`
-   and select the desired shell from the :guilabel:`Shell` drop down.
+.. note:: The default shell for a new install of %brand% is
+   :command:`zsh`. %brand% systems that are upgraded from an earlier
+   version will continue to use :command:`csh` as the default shell.
+   The default shell can be changed by clicking
+   :menuselection:`Account --> Users`, clicking |ui-options| of the
+   desired user, then selecting
+   :menuselection:`--> Edit`.
+   Choose the desired shell from the :guilabel:`Shell` drop-down.
 
 The :guilabel:`Set font size` slider adjusts the size of text
 displayed in the Shell.
