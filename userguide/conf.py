@@ -132,6 +132,10 @@ if tags.has('bsg-es60'):
 # |brand| will be replaced with FreeNAS® or TrueNAS®
 # rst_epilog = '.. |brand| replace:: %s' % brand
 
+# roles for text replacement
+rst_prolog = u'''
+.. |web-ui| replace:: web interface
+'''
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
