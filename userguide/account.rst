@@ -3,7 +3,7 @@
 Account
 =======
 
-The Account Configuration section of the administrative GUI describes
+The Account Configuration section of the |web-ui| describes
 how to manually create and manage users and groups. This section
 contains these entries:
 
