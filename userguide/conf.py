@@ -175,6 +175,12 @@ rst_prolog = u'''
 .. |ui-power|    replace:: ⏻ (Power)
 '''
 
+# roles for text replacement
+rst_prolog += u'''
+.. |web-ui| replace:: web interface
+'''
+
+
 # -- Options for HTML output ---------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
