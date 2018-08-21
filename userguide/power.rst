@@ -15,7 +15,7 @@ restart or shut down the %brand% system.
 Log Out
 -------
 
-To log out, click |ui-power|, then :guilabel:`Log out`. After logging
+To log out, click |ui-power|, then :guilabel:`Log Out`. After logging
 out, the login screen is displayed.
 
 
@@ -63,7 +63,7 @@ system from resuming normal operation.
 Shut Down
 ---------
 
-Click |ui-power| and :guilabel:`Shut down` to shut down the system.
+Click |ui-power| and :guilabel:`Shut Down` to shut down the system.
 The warning message shown in
 :numref:`Figure %s <shutdown_warning_fig>` is displayed.
 
