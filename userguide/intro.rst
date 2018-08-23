@@ -177,6 +177,9 @@ This software has been added or updated:
   system. This CLI utility can be used to analyze disk usage from the
   console or an SSH session.
 
+* Samba 4.7.6 has been patched to address the latest round of
+  `security vulnerabilities <https://www.samba.org/samba/latest_news.html#4.8.4>`__.
+
 * Netatalk has been updated to the 3.1.12 development version which
   addresses known issues with Time Machine timeouts.
 
