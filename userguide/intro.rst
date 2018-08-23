@@ -195,6 +195,9 @@ This software has been added or updated:
 * iocage has been synced with upstream as of July 10, providing many bug
   fixes and improved IPv6 support.
 
+* RancherOS has been updated to version
+  `1.4.0 <https://github.com/rancher/os/releases/tag/v1.4.0>`__.
+
 * `zsh <http://www.zsh.org/>`__ is the root shell for new installations.
   Upgrades will continue to use the :command:`csh` shell as the default
   root shell.
