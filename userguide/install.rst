@@ -674,8 +674,8 @@ sometimes fifteen minutes or more, and can cause the system
 to reboot again. The system will start
 normally afterwards. If database errors are shown but the graphical
 administrative interface is accessible, go to
-:menuselection:`Settings --> General`
-and use the :guilabel:`Upload Config` button to upload the
+:menuselection:`System --> General`
+and use the :guilabel:`UPLOAD CONFIG` button to upload the
 configuration that was saved before starting the upgrade.
 
 
