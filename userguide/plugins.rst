@@ -63,7 +63,7 @@ description, current version, and if the plugin is officially supported.
 
 Click |ui-options| and :guilabel:`Install` for the desired plugin. Set
 :guilabel:`DHCP` to automatically configure IP settings, or manually
-enter an IPv4 or IPv6 address. Click :guilabel:`Save`. In the example
+enter an IPv4 or IPv6 address. Click :guilabel:`SAVE`. In the example
 shown in :numref:`Figure %s <installing_plugin_fig>`, Plex Media
 Server is selected for installation.
 
@@ -175,7 +175,7 @@ Quasselcore has been installed and the :guilabel:`Delete` button has
 been clicked. A pop-up message asks for verification that the plugin
 is to be deleted. **This is the only warning.** The plugin and the
 associated jail are permanently deleted when :guilabel:`Confirm` is
-set and :guilabel:`Delete` is clicked.
+set and :guilabel:`DELETE` is clicked.
 
 
 .. _deleting_installed_plugin_fig:
