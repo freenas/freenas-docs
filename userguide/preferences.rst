@@ -40,7 +40,7 @@ number of items visible on the specific page.
 :guilabel:`Enable Helpful Tooltips in Forms`: Set to add viewable help
 text to each form in the UI. Unset to hide all help text icons.
 
-Make any changes and click :guilabel:`Update Settings` to save the new
+Make any changes and click :guilabel:`UPDATE SETTINGS` to save the new
 selections.
 
 
@@ -77,9 +77,9 @@ Click a theme to activate it.
 Select :guilabel:`Manage Themes` to open the
 :guilabel:`User Preferences` page. The :guilabel:`Manage Custom Themes`
 column displays any created custom themes. Delete these themes by
-setting the checkboxes and clicking :guilabel:`Delete Selected`.
+setting the checkboxes and clicking :guilabel:`DELETE SELECTED`.
 
-Click :guilabel:`Create New Theme` to go to the
+Click :guilabel:`CREATE NEW THEME` to go to the
 :guilabel:`Create Custom Theme` page.
 
 
@@ -159,7 +159,7 @@ Changing any color value automatically updates the
 and shows how the custom theme is applied to all the different elements
 in the UI.
 
-Click :guilabel:`Save Custom Theme` when finished with all the
+Click :guilabel:`SAVE CUSTOM THEME` when finished with all the
 :guilabel:`General` and :guilabel:`Colors` options. The new theme will
 be immediately added to the list of available themes in
 :guilabel:`User Preferences`.
@@ -174,5 +174,5 @@ live testing the new custom theme.
    **not** save that theme! Be sure to go back to
    :menuselection:`Preferences --> Create Custom Theme`
    , complete any remaining options, and click
-   :guilabel:`Save Custom Theme` to save the current settings as a new
+   :guilabel:`SAVE CUSTOM THEME` to save the current settings as a new
    theme.
