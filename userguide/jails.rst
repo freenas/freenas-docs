@@ -81,7 +81,7 @@ Creating Jails
 
 
 %brand% has two options to create a jail. The :guilabel:`Jail Wizard`
-makes it easy to quickly create a jail. :guilabel:`Advanced Jail Creation`
+makes it easy to quickly create a jail. :guilabel:`ADVANCED JAIL CREATION`
 is an alternate method, where every possible jail option is configurable.
 There are numerous options spread across four different primary
 sections. This form is recommended for advanced users with very specific
@@ -115,7 +115,7 @@ dashes (:literal:`-`), and underscores (:literal:`_`). Choose the version
 of FreeBSD to install for this jail. Previously downloaded versions
 display :literal:`(fetched)` next to their entry in the list.
 
-Click :guilabel:`Next` to see a simplified list of networking options.
+Click :guilabel:`NEXT` to see a simplified list of networking options.
 The jail can be set to automatically configure IPv4 with :guilabel:`DHCP`
 and :guilabel:`VNET` or IPv4 and IPv6 can be configured manually.
 Multiple interfaces are supported in the :guilabel:`IPv4 Address` and
@@ -123,8 +123,8 @@ Multiple interfaces are supported in the :guilabel:`IPv4 Address` and
 interfaces, addresses, and netmask in the format
 :literal:`interface|ipaddress/netmask`.
 
-Click :guilabel:`Next` to view a summary screen of the chosen jail
-options. Click :guilabel:`Submit` to create the new jail. After a few
+Click :guilabel:`NEXT` to view a summary screen of the chosen jail
+options. Click :guilabel:`SUBMIT` to create the new jail. After a few
 moments, the new jail is added to the primary jails list.
 
 .. tip:: Versions of FreeBSD are downloaded the first time they are
@@ -226,7 +226,7 @@ a new jail.
    |                           |                   | Example: *2001:0db8:85a3:0000:0000:8a2e:0370:7334*.                                                     |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
-   | IPv4 Netmask              | drop-down menu    | Choose a prefix for this IPv6 Address.                                                                  |
+   | IPv6 Prefix               | drop-down menu    | Choose a prefix for this IPv6 Address.                                                                  |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | Default IPv6 Route        | string            | Type :literal:`none` or a valid IP address. Setting this property to anything other than *none*         |
@@ -242,9 +242,9 @@ a new jail.
 
 
 Similar to the :ref:`Jail Wizard`, configuring the basic properties then
-clicking :guilabel:`Save` is often all that is needed to quickly create
+clicking :guilabel:`SAVE` is often all that is needed to quickly create
 a new jail. To continue configuring more settings, click
-:guilabel:`Next` to proceed to the :guilabel:`Jail Properties` section of
+:guilabel:`NEXT` to proceed to the :guilabel:`Jail Properties` section of
 the form.  :numref:`Table %s <jail_jail_props_tab>` describes each of
 these options.
 
@@ -451,7 +451,7 @@ these options.
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
 
 
-Click :guilabel:`Next` to view all jail
+Click :guilabel:`NEXT` to view all jail
 :guilabel:`Network Properties`. These are shown in
 :numref:`Table %s <jail_network_props_tab>`:
 
@@ -585,7 +585,7 @@ The final set of jail properties are contained in the
    +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
 
 
-Click :guilabel:`Save` when the desired jail properties have been set.
+Click :guilabel:`SAVE` when the desired jail properties have been set.
 New jails are added to the primary list in the :guilabel:`Jails` menu.
 
 
@@ -620,13 +620,13 @@ example is shown in :numref:`Figure %s <jail_overview_fig>`.
    | Column Name       | Description                                        |
    |                   |                                                    |
    +===================+====================================================+
-   | Jail Name         | The name of the jail.                              |
+   | Jail              | The name of the jail.                              |
    |                   |                                                    |
    +-------------------+----------------------------------------------------+
-   | IPv4 addresses    | Listing of configured IPv4 addresses.              |
+   | IPv4 Address      | Listing of configured IPv4 addresses.              |
    |                   |                                                    |
    +-------------------+----------------------------------------------------+
-   | IPv6 addresses    | Listing of configured IPv6 addresses.              |
+   | IPv6 Address      | Listing of configured IPv6 addresses.              |
    |                   |                                                    |
    +-------------------+----------------------------------------------------+
    | Status            | *up* indicates the jail is running and             |
@@ -903,7 +903,7 @@ This opens the screen shown in
 
 Browse to the :guilabel:`Source` and :guilabel:`Destination`, where:
 
-* **Source:** is the directory or dataset on the %brand% system
+* :guilabel:`Source`: is the directory or dataset on the %brand% system
   which will be accessed by the jail. %brand% creates the directory
   if it does not exist. This directory must reside outside of the pool
   or dataset being used by the jail. This is why it is recommended to
@@ -911,8 +911,8 @@ Browse to the :guilabel:`Source` and :guilabel:`Destination`, where:
   jails is always separate from any datasets used for storage on the
   %brand% system.
 
-* **Destination:** select an **existing, empty** directory within the
-  jail to link to the :guilabel:`Source` storage area.
+* :guilabel:`Destination`: select an **existing, empty** directory
+  within the jail to link to the :guilabel:`Source` storage area.
 
 Storage is typically added because the user and group account
 associated with an application installed inside of a jail needs to
