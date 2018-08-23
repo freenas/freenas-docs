@@ -90,6 +90,9 @@ but can be changed to meet requirements of the local network.
    | Domain                 | string     | System domain name.                                                                                |
    |                        |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
+   | Additional Domains     | string     | Additional space-delimited domains to search. Adding search domains can cause slow DNS lookups.    |
+   |                        |            |                                                                                                    |
+   +------------------------+------------+----------------------------------------------------------------------------------------------------+
    | IPv4 Default Gateway   | IP address | Typically not set. See :ref:`this note about Gateways <Gateway Note>`.                             |
    |                        |            | If set, used instead of the default gateway provided by DHCP.                                      |
    |                        |            |                                                                                                    |
@@ -97,7 +100,7 @@ but can be changed to meet requirements of the local network.
    | IPv6 Default Gateway   | IP address | Typically not set. See :ref:`this note about Gateways <Gateway Note>`.                             |
    |                        |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
-   | Nameserver 1           | IP address | Primary DNS server (typically in Windows domain).                                                  |
+   | Nameserver 1           | IP address | Primary DNS server.                                                                                |
    |                        |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
    | Nameserver 2           | IP address | Secondary DNS server.                                                                              |
@@ -550,7 +553,7 @@ To create a link aggregation, select the desired
 :guilabel:`Lagg Protocol`. *LACP* is preferred. If the network switch
 does not support LACP, choose *Failover*. Choose
 :guilabel:`Lagg Interfaces` to associate NICs with the lagg device, and
-click the :guilabel:`Save` button.
+click the :guilabel:`SAVE` button.
 
 After creating the lagg device, click |ui-options| to view its
 :guilabel:`Edit` and :guilabel:`Delete` buttons.
