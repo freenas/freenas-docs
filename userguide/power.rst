@@ -41,13 +41,13 @@ Click :guilabel:`Confirm` to confirm the action, then click
 
 An additional warning message appears when a restart is attempted when
 a scrub or resilver is in progress. When that warning appears, the
-recommended steps are to :guilabel:`Cancel` the restart request and to
+recommended steps are to :guilabel:`CANCEL` the restart request and to
 periodically run :command:`zpool status` from :ref:`Shell` until it
 shows that the scrub or verify has completed. Then the restart request
 can be entered again.
 
 To complete the restart request, click the :guilabel:`Confirm`
-checkbox and then the :guilabel:`Ok` button. Restarting the system
+checkbox and then the :guilabel:`RESTART` button. Restarting the system
 disconnects all clients, including the web administration interface.
 Wait a few minutes for the system to boot, then use the back button in
 the browser to return to the IP address of the %brand% system. The
