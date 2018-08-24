@@ -151,9 +151,11 @@ These major features are new in this version:
 
 This software has been added or updated:
 
-* The base operating system has been updated to
+* The base operating system is the STABLE branch of
   `FreeBSD 11.2 <https://www.freebsd.org/releases/11.2R/announce.html>`__,
-  which brings in many updated drivers and bug fixes.
+  which brings in many updated drivers and bug fixes. This branch has
+  been patched to include the FreeBSD security advisories up to
+  `FreeBSD-SA-18:10.ip <https://security.freebsd.org/advisories/FreeBSD-SA-18:10.ip.asc>`__.
 
 * OpenZFS is up-to-date with Illumos and slightly ahead due to support
   for sorted scrubs which were ported from ZFS on Linux. Notable
