@@ -151,7 +151,7 @@ Virtual machine configuration options are described in
 
 
 The final screen of the Wizard displays the chosen options for the new
-VM. Click :guilabel:`Submit` to create the VM or :guilabel:`Back` to
+VM. Click :guilabel:`SUBMIT` to create the VM or :guilabel:`BACK` to
 change any settings.
 
 This example creates a FreeBSD VM. |ui-add| is clicked on the
@@ -176,12 +176,11 @@ This example creates a FreeBSD VM. |ui-add| is clicked on the
    field is populated when the upload completes.
 
 #. After verifying the :guilabel:`VM Summary` is correct,
-   :guilabel:`Submit` is clicked.
+   :guilabel:`SUBMIT` is clicked.
 
 
 :numref:`Figure %s <vms_create_example>` shows the confirmation step
 and basic settings for the new virtual machine:
-
 
 .. _vms_create_example:
 
@@ -196,18 +195,16 @@ and basic settings for the new virtual machine:
 Adding Devices to a VM
 ----------------------
 
-
 To add a device to a VM, click :guilabel:`Devices` on the new VM card,
 and |ui-add|.
-
 
 .. figure:: images/vms-devices-add.png
 
    VM Devices
 
 
-Select the new device from the :guilabel:`Type` field.
-These devices are available:
+Select the new device from the :guilabel:`Type` field. These devices are
+available:
 
 * :ref:`CD-ROM <vms-cd-rom>`
 
@@ -218,7 +215,6 @@ These devices are available:
 * :ref:`Raw File <vms-raw-file>`
 
 * :ref:`VNC Interface <vms-vnc>`
-
 
 This menu is also used to edit or delete an existing device. Click
 |ui-options| for a device to display :guilabel:`Edit` and
@@ -234,7 +230,6 @@ Adding a CD-ROM device makes it possible to boot the VM from a CD-ROM
 image, typically an installation CD. The image must be present on an
 accessible portion of the %brand% storage. In this example, a FreeBSD
 installation image is shown:
-
 
 .. figure:: images/vms-devices-cdrom.png
 
@@ -279,7 +274,7 @@ the VM supports VirtIO paravirtualized network drivers.
 By default, the VM receives an auto-generated random MAC address. To
 override the default with a custom value, enter the desired address
 in :guilabel:`MAC Address`. Click
-:guilabel:`Generate MAC Address` to automatically populate
+:guilabel:`GENERATE MAC ADDRESS` to automatically populate
 :guilabel:`MAC Address` with another randomized MAC address.
 
 If the system has multiple physical network interface cards, use the
@@ -298,7 +293,6 @@ by navigating to
 :menuselection:`VMs --> Devices`,
 clicking |ui-add|, and selecting :guilabel:`Disk` as the
 :guilabel:`Type`.
-
 
 .. figure:: images/vms-devices-disk.png
 
@@ -332,7 +326,6 @@ click
 :menuselection:`VMs --> Devices`, click |ui-add|,
 then set the :guilabel:`Type` to :guilabel:`Raw File`.
 
-
 .. figure:: images/vms-devices-rawfile.png
 
    Raw File Disk Device
@@ -360,7 +353,6 @@ Computing) remote connection. A standard
 client can connect to the VM to provide screen output and keyboard and
 mouse input.
 
-
 .. note:: Each VM can only have a single VNC device. An existing VNC
    interface can be changed by clicking |ui-options| and
    :guilabel:`Edit`.
@@ -374,7 +366,6 @@ mouse input.
 after navigating to
 :menuselection:`VMs --> Devices`,
 clicking |ui-add|, and setting :guilabel:`Type` to :guilabel:`VNC`.
-
 
 .. _vms-vnc_fig:
 
@@ -402,7 +393,6 @@ characters.
 
 To use the VNC web interface, set :guilabel:`Web Interface`.
 
-
 .. tip:: If a RealVNC 5.X Client shows the error
    :literal:`RFB protocol error: invalid message type`, disable the
    :guilabel:`Adapt to network speed` option and move the slider to
@@ -425,7 +415,6 @@ VMs automatically include a virtual serial port.
 
 And so on. These virtual serial ports allow connecting to the VM
 console from the :ref:`Shell`.
-
 
 .. tip:: The `nmdm <https://www.freebsd.org/cgi/man.cgi?query=nmdm&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__
    device is dynamically created. The actual :literal:`nmdm` name can
@@ -454,8 +443,7 @@ Click
 :menuselection:`VMs`
 to see a card for each installed VM. There are options to switch the
 default view on this screen to *Slim* or *Table*. Each card has a
-:guilabel:`Connect` button at the bottom.
-
+:guilabel:`CONNECT` button at the bottom.
 
 .. figure:: images/vms.png
 
@@ -467,8 +455,7 @@ configuration values are shown on the card. Click |ui-options| for the
 :guilabel:`Start`, :guilabel:`Power Off`, :guilabel:`Delete`,
 :guilabel:`Devices`, and :guilabel:`Edit` options.
 
-
-.. note:: The UI shows an error message if a VM fails to start.
+.. tip:: The UI shows an error message if a VM fails to start.
 
 
 Some buttons are available for all VMs:
@@ -479,7 +466,7 @@ Some buttons are available for all VMs:
 
 When a VM is not running, these buttons are available:
 
-* :guilabel:`Power (Red)` starts the VM.
+* |ui-power| (Red) starts the VM.
 
 * :guilabel:`Edit` changes VM settings, and includes an option to
   :guilabel:`Clone` an existing VM. Cloning makes a copy of the VM.
@@ -489,12 +476,12 @@ When a VM is not running, these buttons are available:
 
 When a VM is already running, these buttons are available:
 
-* :guilabel:`Power (Green)` shuts down the VM.
+* |ui-power| (Green) shuts down the VM.
 
 * :guilabel:`Power off` immediately halts the VM. This is equivalent
   to disconnecting the power to a physical computer.
 
-* :guilabel:`Connect` displays options to connect to the VM. This can
+* :guilabel:`CONNECT` displays options to connect to the VM. This can
   include :guilabel:`VNC`, a :guilabel:`Serial` shell, or other
   options. For :guilabel:`VNC`, the VM must have a VNC device with
   :guilabel:`Web Interface` enabled.
@@ -508,7 +495,6 @@ Deleting VMs
 
 A VM is deleted by clicking |ui-options| on the desired VM card,
 then :guilabel:`Delete`. A dialog prompts for confirmation.
-
 
 .. tip:: :ref:`Zvols <Adding Zvols>` used in
    :ref:`disk devices <vms-disk-device>` and image files used in
@@ -566,7 +552,6 @@ after going to
 clicking |ui-add|, and selecting :guilabel:`Docker Host` as the
 :guilabel:`Virtual Machine (VM) Wizard type`.
 
-
 .. _vms_add_docker_fig:
 
 .. figure:: images/vms-add-wizard-docker.png
@@ -576,7 +561,6 @@ clicking |ui-add|, and selecting :guilabel:`Docker Host` as the
 
 Docker VM configuration options are described in
 :numref:`Table %s <vms_add_docker_opts_tab>`.
-
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.08\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -646,7 +630,7 @@ be set to at least *2048 MiB*.
 
 The :guilabel:`Network Interface` step is automatically populated with
 system defaults. Customize these fields as necessary and press
-:guilabel:`Next` to continue.
+:guilabel:`NEXT` to continue.
 
 The :guilabel:`Storage Files` section of the wizard contains options
 to create and store a raw file. Add a filename by typing an *.img*
@@ -655,9 +639,8 @@ gigabytes for the :guilabel:`Raw file size`. Set the raw file location
 with the folder button or by typing a directory in the field.
 
 The final screen of the Wizard displays the chosen options for the new
-Docker VM. Click :guilabel:`Submit` to create the VM or
-:guilabel:`Back` to change any settings:
-
+Docker VM. Click :guilabel:`SUBMIT` to create the VM or :guilabel:`BACK`
+to change any settings:
 
 .. figure:: images/vms-add-wizard-docker-summary.png
 
@@ -670,7 +653,6 @@ RancherOS when connecting with the :guilabel:`Serial` shell. The
 password :literal:`docker` is changed by editing the raw device of the
 Docker VM. Passwords cannot contain a space.
 
-
 .. figure:: images/vms-docker-devices-rawfile.png
 
    Edit Rancher Password in Raw File Device
@@ -679,8 +661,8 @@ Docker VM. Passwords cannot contain a space.
 Start the Docker VM
 ~~~~~~~~~~~~~~~~~~~
 
-Click :guilabel:`VMs`, then click on the red :guilabel:`Power` button
-to start the VM.
+Click :guilabel:`VMs`, then click on the red |ui-power| button to start
+the VM.
 
 The first time the Docker VM is started, it downloads the Rancher
 disk image file. How long this takes to complete depends on the speed
@@ -708,7 +690,6 @@ At the %brand% console prompt, connect to the Rancher VM with
 :samp:`{/dev/nmdm12B}` with the value from the Docker VM
 :guilabel:`Com Port`:
 
-
 .. code-block:: none
 
    cu -l /dev/nmdm12B -s 9600
@@ -730,7 +711,6 @@ if necessary.
 
 Download and install the Rancher system with this command:
 
-
 .. code-block:: none
 
    sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server
@@ -744,7 +724,6 @@ Download and install the Rancher system with this command:
 Installation time varies with processor and network connection speed,
 but typically takes a few minutes. After the process finishes and a
 command prompt is shown, type this command:
-
 
 .. code-block:: none
 
