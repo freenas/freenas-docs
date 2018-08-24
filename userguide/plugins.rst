@@ -97,8 +97,8 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
 The entry in the
 :menuselection:`Plugins --> Installed`
-section displays the plugin name, boot status, state, release, IP4 and
-IP6 addresses, and whether it is a template.
+section displays the plugin name, boot status, IP4 and
+IP6 addresses, version, and release.
 
 The plugin must be started before the installed application is
 available. Click |ui-options| and :guilabel:`Start`. The plugin
