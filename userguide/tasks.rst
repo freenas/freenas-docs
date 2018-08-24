@@ -667,7 +667,7 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
    | Short description | string                    | Optional. Enter a description of the S.M.A.R.T. test.                                                      |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+
-   | Schedule  a       | drop-down menu            | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*. Select  |
+   | Schedule  the     | drop-down menu            | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*. Select  |
    | S.M.A.R.T. Test   |                           | *Custom* to open a visual scheduler for selecting minutes, hours, days, month, and days of week.           |
    |                   |                           |                                                                                                            |
    +-------------------+---------------------------+------------------------------------------------------------------------------------------------------------+

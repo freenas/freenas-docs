@@ -30,7 +30,7 @@ copyright = '2011-2018, iXsystems'
 #
 
 # VERSION is the LONG, FULL version number with all patch levels, like "11.0-U1"
-version = '11.2-BETA2'
+version = '11.2-BETA3'
 # RELEASE is the short major release number ONLY, like "11.0"
 release = '11.2'
 

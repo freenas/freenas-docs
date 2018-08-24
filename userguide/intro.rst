@@ -151,9 +151,11 @@ These major features are new in this version:
 
 This software has been added or updated:
 
-* The base operating system has been updated to
+* The base operating system is the STABLE branch of
   `FreeBSD 11.2 <https://www.freebsd.org/releases/11.2R/announce.html>`__,
-  which brings in many updated drivers and bug fixes.
+  which brings in many updated drivers and bug fixes. This branch has
+  been patched to include the FreeBSD security advisories up to
+  `FreeBSD-SA-18:10.ip <https://security.freebsd.org/advisories/FreeBSD-SA-18:10.ip.asc>`__.
 
 * OpenZFS is up-to-date with Illumos and slightly ahead due to support
   for sorted scrubs which were ported from ZFS on Linux. Notable
@@ -180,6 +182,9 @@ This software has been added or updated:
 * Netatalk has been updated to the 3.1.12 development version which
   addresses known issues with Time Machine timeouts.
 
+* Samba 4.7.6 has been patched to address the latest round of
+  `security vulnerabilities <https://www.samba.org/samba/latest_news.html#4.8.4>`__.
+
 * rsync has been updated to
   `version 3.1.3 <https://download.samba.org/pub/rsync/src/rsync-3.1.3-NEWS>`__.
 
@@ -191,6 +196,9 @@ This software has been added or updated:
 
 * iocage has been synced with upstream as of July 10, providing many bug
   fixes and improved IPv6 support.
+
+* RancherOS has been updated to version
+  `1.4.0 <https://github.com/rancher/os/releases/tag/v1.4.0>`__.
 
 * `zsh <http://www.zsh.org/>`__ is the root shell for new installations.
   Upgrades will continue to use the :command:`csh` shell as the default
