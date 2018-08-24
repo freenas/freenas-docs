@@ -23,6 +23,14 @@ The prompt indicates that the current user is *root*, the hostname is
 *freenas*, and the current working directory is :file:`~`
 (*root*'s home directory).
 
+.. note:: The default shell for a new install of %brand% is
+   :command:`zsh`. %brand% systems that are upgraded from an earlier
+   version will continue to use :command:`csh` as the default shell.
+   The default shell can be changed by going to
+   :menuselection:`Account --> Users`.
+   Select the desired user and click :guilabel:`Modify User`.
+   Choose the desired shell from the :guilabel:`Shell` drop-down.
+
 To change the size of the shell, click the *80x25* drop-down menu and
 select a different size.
 
