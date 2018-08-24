@@ -37,8 +37,7 @@ can also reduce the length of these limits by one or more bytes.
    | Paths               |                | a device from being mounted.                                           |
    +---------------------+----------------+------------------------------------------------------------------------+
    | Device Filesystem   | 63 bytes       | `devfs(8)                                                              |
-   | Paths               |                | <https://www.freebsd.org/cgi/man.cgi?query=devfs&sektion=8>`__ device  |
+   | Paths               |                | <https://www.freebsd.org/cgi/man.cgi?query=devfs>`__ device            |
    |                     |                | path lengths (*SPECNAMELEN*). Longer paths can prevent a device from   |
    |                     |                | being created.                                                         |
    +---------------------+----------------+------------------------------------------------------------------------+
-
