@@ -80,7 +80,7 @@ green power button. Click the button to start or stop a service.
    connecting through the VPN, check the VPN software configuration.
 
 
-Services are configured by clicking :guilabel:`Configure`.
+Services are configured by clicking :guilabel:`CONFIGURE`.
 
 If a service does not start, go to
 :menuselection:`System --> Advanced`
@@ -157,7 +157,7 @@ which are described in
    |                         |                | to add them to the :guilabel:`Bind Interfaces` list.                                                            |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
-   | Global auxiliary        | string         | Additional `afp.conf(5) <http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html>`__                       |
+   | Global auxiliary        | string         | Additional `afp.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=afp.conf>`__                                 |
    | parameters              |                | parameters not covered elsewhere in this screen.                                                                |
    |                         |                |                                                                                                                 |
    +-------------------------+----------------+-----------------------------------------------------------------------------------------------------------------+
@@ -260,7 +260,7 @@ summarizes the available options.
    |                         |                | <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754918(v=ws.10)>`__. |
    |                         |                |                                                                                                                           |
    +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
-   | Administrator Password  | string         | Enter the password to be used for the :ref:`Active Directory` administrator account.                                      |
+   | Administrator Password  | string         | Enter and confirm the password to be used for the :ref:`Active Directory` administrator account.                          |
    |                         |                |                                                                                                                           |
    +-------------------------+----------------+---------------------------------------------------------------------------------------------------------------------------+
    | Kerberos Realm          | drop-down menu | Auto-populates with information from the :guilabel:`Realm` when the settings in this screen are saved.                    |
@@ -378,7 +378,7 @@ troubleshooting tips.
 :numref:`Figure %s <configuring_ftp_fig>` shows the configuration screen
 for :menuselection:`Services --> FTP --> Configure`. Some settings are
 only available in :guilabel:`Advanced Mode`. To see these settings,
-either click the :guilabel:`Advanced Mode` button or configure the
+either click the :guilabel:`ADVANCED MODE` button or configure the
 system to always display these settings by setting the
 :guilabel:`Show advanced fields by default` option in
 :menuselection:`System --> Advanced`.
@@ -461,7 +461,7 @@ summarizes the available options when configuring the FTP server.
    |                                                                |                |          | Go to :menuselection:`System --> Certificates` to create a certificate.             |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | TLS no certificate request                                     | checkbox       |          | Set if the client cannot connect, and it is suspected                               |
+   | TLS No Certificate Request                                     | checkbox       |          | Set if the client cannot connect, and it is suspected                               |
    |                                                                |                |          | the client is not properly handling server certificate requests.                    |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
@@ -478,79 +478,83 @@ summarizes the available options when configuring the FTP server.
    | Require IDENT Authentication                                   | checkbox       | ✓        | Setting this option results in timeouts if :command:`identd` is not                 |
    |                                                                |                |          | running on the client.                                                              |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | Minimum passive port                                           | integer        | ✓        | Used by clients in PASV mode, default of *0* means any port above 1023.             |
+   | Minimum Passive Port                                           | integer        | ✓        | Used by clients in PASV mode, default of *0* means any port above 1023.             |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | Maximum passive port                                           | integer        | ✓        | Used by clients in PASV mode, default of *0* means any port above 1023.             |
+   | Maximum Passive Port                                           | integer        | ✓        | Used by clients in PASV mode, default of *0* means any port above 1023.             |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | Local user upload bandwidth                                    | integer        | ✓        | Defined in KiB/s, default of *0* means unlimited.                                   |
+   | Local User Upload Bandwidth                                    | integer        | ✓        | Defined in KiB/s, default of *0* means unlimited.                                   |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | Local user download bandwidth                                  | integer        | ✓        | Defined in KiB/s, default of *0* means unlimited.                                   |
+   | Local User Download Bandwidth                                  | integer        | ✓        | Defined in KiB/s, default of *0* means unlimited.                                   |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | Anonymous user upload bandwidth                                | integer        | ✓        | Defined in KiB/s, default of *0* means unlimited.                                   |
+   | Anonymous User Upload Bandwidth                                | integer        | ✓        | Defined in KiB/s, default of *0* means unlimited.                                   |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | Anonymous user download bandwidth                              | integer        | ✓        | Defined in KiB/s, default of *0* means unlimited.                                   |
+   | Anonymous User Download Bandwidth                              | integer        | ✓        | Defined in KiB/s, default of *0* means unlimited.                                   |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
    | Enable TLS                                                     | checkbox       | ✓        | Set to enable encrypted connections. Requires a certificate to be created or        |
    |                                                                |                |          | imported using :ref:`Certificates`.                                                 |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | TLS policy                                                     | drop-down menu | ✓        | The selected policy defines whether the control channel, data channel,              |
+   | TLS Policy                                                     | drop-down menu | ✓        | The selected policy defines whether the control channel, data channel,              |
    |                                                                |                |          | both channels, or neither channel of an FTP session must occur over SSL/TLS.        |
    |                                                                |                |          | The policies are described `here                                                    |
    |                                                                |                |          | <http://www.proftpd.org/docs/directives/linked/config_ref_TLSRequired.html>`__.     |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | TLS allow client renegotiations                                | checkbox       | ✓        | Setting this option is **not** recommended as it breaks several                     |
+   | TLS Allow Client Renegotiations                                | checkbox       | ✓        | Setting this option is **not** recommended as it breaks several                     |
    |                                                                |                |          | security measures. For this and the rest of the TLS fields, refer to                |
    |                                                                |                |          | `mod_tls <http://www.proftpd.org/docs/contrib/mod_tls.html>`__                      |
    |                                                                |                |          | for more details.                                                                   |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | TLS allow dot login                                            | checkbox       | ✓        | If set, the user home directory is checked for a                                    |
+   | TLS Allow Dot Login                                            | checkbox       | ✓        | If set, the user home directory is checked for a                                    |
    |                                                                |                |          | :file:`.tlslogin` file which contains one or more PEM-encoded                       |
    |                                                                |                |          | certificates. If not found, the user is prompted for password                       |
    |                                                                |                |          | authentication.                                                                     |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | TLS allow per user                                             | checkbox       | ✓        | If set, the user password may be sent unencrypted.                                  |
+   | TLS Allow Per User                                             | checkbox       | ✓        | If set, the user password may be sent unencrypted.                                  |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | TLS common name required                                       | checkbox       | ✓        | When set, the common name in the certificate must match the FQDN                    |
+   | TLS Common Name Required                                       | checkbox       | ✓        | When set, the common name in the certificate must match the FQDN                    |
    |                                                                |                |          | of the host.                                                                        |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | TLS enable diagnostics                                         | checkbox       | ✓        | If set when troubleshooting a connection, logs more verbosely.                      |
+   | TLS Enable Diagnostics                                         | checkbox       | ✓        | If set when troubleshooting a connection, logs more verbosely.                      |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | TLS export certificate data                                    | checkbox       | ✓        | If set, exports the certificate environment variables.                              |
+   | TLS Export Certificate Data                                    | checkbox       | ✓        | If set, exports the certificate environment variables.                              |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | TLS no empty fragments                                         | checkbox       | ✓        | Setting this option is **not** recommended as it bypasses a security mechanism.     |
+   | TLS No Certificate Request                                     | checkbox       | ✓        | Set if the client cannot connect and it is suspected the client is poorly           |
+   |                                                                |                |          | handling the server certificate request.                                            |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | TLS no session reuse required                                  | checkbox       | ✓        | Setting this option reduces the security of the connection. Only                    |
+   | TLS No Empty Fragments                                         | checkbox       | ✓        | Setting this option is **not** recommended as it bypasses a security mechanism.     |
+   |                                                                |                |          |                                                                                     |
+   +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
+   | TLS No Session Reuse Required                                  | checkbox       | ✓        | Setting this option reduces the security of the connection. Only                    |
    |                                                                |                |          | use if the client does not understand reused SSL sessions.                          |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | TLS export standard vars                                       | checkbox       | ✓        | If enabled, sets several environment variables.                                     |
+   | TLS Export Standard Vars                                       | checkbox       | ✓        | If enabled, sets several environment variables.                                     |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | TLS DNS name required                                          | checkbox       | ✓        | If set, the client DNS name must resolve to its IP address and                      |
+   | TLS DNS Name Required                                          | checkbox       | ✓        | If set, the client DNS name must resolve to its IP address and                      |
    |                                                                |                |          | the cert must contain the same DNS name.                                            |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | TLS IP address required                                        | checkbox       | ✓        | If set, the client certificate must contain the IP address that                     |
+   | TLS IP Address Required                                        | checkbox       | ✓        | If set, the client certificate must contain the IP address that                     |
    |                                                                |                |          | matches the IP address of the client.                                               |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
-   | Auxiliary parameters                                           | string         | ✓        | Used to add                                                                         |
-   |                                                                |                |          | `proftpd(8) <https://linux.die.net/man/8/proftpd>`__                                |
+   | Auxiliary Parameters                                           | string         | ✓        | Used to add                                                                         |
+   |                                                                |                |          | `proftpd(8) <https://www.freebsd.org/cgi/man.cgi?query=proftpd>`__                  |
    |                                                                |                |          | parameters not covered elsewhere in this screen.                                    |
    |                                                                |                |          |                                                                                     |
    +----------------------------------------------------------------+----------------+----------+-------------------------------------------------------------------------------------+
@@ -582,12 +586,12 @@ To configure anonymous FTP:
 
 #.  Give the built-in ftp user account permissions to the
     pool or dataset to be shared in
-    :menuselection:`Storage --> Pools`:
+    :menuselection:`Storage --> Pools --> Edit Permissions`:
 
-    * :guilabel:`Owner(user)`: select the built-in *ftp* user from the
+    * :guilabel:`User`: select the built-in *ftp* user from the
       drop-down menu
 
-    * :guilabel:`Owner(group)`: select the built-in *ftp* group from
+    * :guilabel:`Group`: select the built-in *ftp* group from
       the drop-down menu
 
     * :guilabel:`Mode`: review that the permissions are appropriate
@@ -600,7 +604,7 @@ To configure anonymous FTP:
 
 #.  Configure anonymous FTP in
     :menuselection:`Services --> FTP --> Configure`
-    by setting the following attributes:
+    by setting these attributes:
 
     * :guilabel:`Allow Anonymous Login`: set this option
 
@@ -608,8 +612,8 @@ To configure anonymous FTP:
       shared
 
 #.  Start the FTP service in :menuselection:`Services --> FTP`. Click
-    the red :guilabel:`Power` button on the :guilabel:`FTP` card.
-    The FTP service takes a second or so to start. The :guilabel:`Power`
+    the red |ui-power| button on the :guilabel:`FTP` card.
+    The FTP service takes a second or so to start. The |ui-power|
     button changes to green when the service is running.
 
 #.  Test the connection from a client using a utility such as
@@ -673,7 +677,7 @@ To configure this scenario:
 #.  Set the permissions for each dataset by navigating to
     :menuselection:`Storage --> Pools`, and clicking the |ui-options| on
     the desired dataset. Click the :guilabel:`Edit Permissions` button,
-    then assign a user account as :guilabel:`Owner` of that dataset.
+    then assign a user account as :guilabel:`User` of that dataset.
     Set the desired permissions for that user. Repeat for each
     dataset.
 
@@ -682,8 +686,8 @@ To configure this scenario:
        used, even if Windows clients will be accessing %brand% via
        FTP.
 
-#.  Configure FTP in :menuselection:`Services --> FTP --> Configure` with
-    these attributes:
+#.  Configure FTP in :menuselection:`Services --> FTP --> CONFIGURE`
+    with these attributes:
 
     * :guilabel:`Path`: browse to the parent pool containing the
       datasets.
@@ -696,9 +700,9 @@ To configure this scenario:
     * Select the :guilabel:`Always Chroot` option to enable it.
 
 #.  Start the FTP service in :menuselection:`Services --> FTP`. Click
-    the red :guilabel:`Power` button in the :guilabel:`FTP` card. The
-    FTP service takes a second or so to start. The :guilabel:`Power`
-    button changes to green to show the service is running.
+    the red |ui-power| button in the :guilabel:`FTP` card. The
+    FTP service takes a second or so to start. The |ui-power| button
+    changes to green to show the service is running.
 
 #.  Test the connection from a client using a utility such as
     Filezilla.
@@ -726,7 +730,7 @@ To configure any FTP scenario to use encrypted connections:
     :ref:`Certificates`.
 
 #.  In
-    :menuselection:`Services --> FTP`, click :guilabel:`Advanced`,
+    :menuselection:`Services --> FTP`, click :guilabel:`ADVANCED`,
     choose the certificate in :guilabel:`Certificate`, and
     set the :guilabel:`Enable TLS` option.
 
@@ -759,7 +763,7 @@ running, open :ref:`Shell` and issue the command:
 If there is nothing listening on port 21, the FTP service is not
 running. To see the error message that occurs when %brand% tries to
 start the FTP service, go to :menuselection:`System --> Advanced`,
-enable :guilabel:`Show console messages`, and click :guilabel:`Save`.
+enable :guilabel:`Show console messages`, and click :guilabel:`SAVE`.
 Go to :guilabel:`Services` and switch the FTP service off, then back on.
 Watch the console messages at the bottom of the browser for errors.
 
@@ -767,7 +771,7 @@ If the error refers to DNS, either create an entry in the local DNS
 server with the %brand% system hostname and IP address, or add an entry
 for the IP address of the %brand% system in the
 :menuselection:`Network --> Global Configuration`
-:guilabel:`Host name data base` field.
+:guilabel:`Host name database` field.
 
 
 .. _iSCSI:
@@ -777,9 +781,8 @@ iSCSI
 
 Refer to :ref:`Block (iSCSI)` for instructions on configuring iSCSI.
 Start the iSCSI service in :menuselection:`Services --> iSCSI`.
-Click the red :guilabel:`Power` button. The :guilabel:`Power` button
-changes to green to show the service is running.
-
+Click the red |ui-power| button. The |ui-power| button changes to green
+to show the service is running.
 
 .. note:: A warning message is shown the iSCSI service stops
    when initiators are connected. Open the :ref:`Shell` and type
@@ -838,7 +841,6 @@ summarizes the configuration options for the LLDP service.
    +------------------------+------------+------------------------------------------------------------------------------------------------------------+
 
 
-
 .. index:: Netdata
 .. _Netdata:
 
@@ -848,16 +850,11 @@ Netdata
 Netdata is a real-time performance and monitoring system. It displays
 data as web dashboards.
 
-Go to :menuselection:`Services --> Netdata` and click the power button to
-turn on the netdata service. The :guilabel:`Power` button changes to
-green to show the service is running. Click :guilabel:`Configure` to
-view the web dashboard as shown in
-:numref:`Figure %s <services_netdata_fig>`.
-
-
-.. tip:: The Netdata service must be running for the %brand% system
-   to access the web dashboard.
-
+Go to :menuselection:`Services --> Netdata` and click the |ui-power|
+button to turn on the netdata service. The |ui-power| button changes to
+green to show the service is running. Click :guilabel:`LAUNCH` to open
+the netdata web dashboard in a new browser tab.
+:numref:`Figure %s <services_netdata_fig>` shows an example:
 
 .. _services_netdata_fig:
 
@@ -877,8 +874,9 @@ NFS
 ---
 
 The settings that are configured when creating NFS shares in are
-specific to each configured NFS share. An NFS share is created by navigating
-to :menuselection:`Sharing --> Unix (NFS) Shares`, and clicking |ui-add|.
+specific to each configured NFS share. An NFS share is created by going
+to
+:menuselection:`Sharing --> Unix (NFS) Shares` and clicking |ui-add|.
 Global settings which apply to all NFS shares are configured in
 :menuselection:`Services --> NFS`.
 
@@ -891,7 +889,6 @@ Global settings which apply to all NFS shares are configured in
 shows the configuration screen and
 :numref:`Table %s <nfs_config_opts_tab>`
 summarizes the configuration options for the NFS service.
-
 
 .. _config_nfs_fig:
 
@@ -949,7 +946,7 @@ summarizes the configuration options for the NFS service.
    |                        |            | `rpc.lockd(8) <https://www.freebsd.org/cgi/man.cgi?query=rpc.lockd>`__ binds to.                                    |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
-   | Support>16 groups      | checkbox   | Set this option if any users are members of more than 16 groups (useful in AD environments). Note this assumes      |
+   | Support >16 groups     | checkbox   | Set this option if any users are members of more than 16 groups (useful in AD environments). Note this assumes      |
    |                        |            | group membership is configured correctly on the NFS server.                                                         |
    |                        |            |                                                                                                                     |
    +------------------------+------------+---------------------------------------------------------------------------------------------------------------------+
@@ -988,7 +985,7 @@ Configure Rsyncd
 
 :numref:`Figure %s <rsyncd_config_tab>`
 shows the rsyncd configuration screen which is accessed from
-:menuselection:`Services --> Rsync --> Configure`.
+:menuselection:`Services --> Rsync --> CONFIGURE`.
 
 .. _rsyncd_config_tab:
 
@@ -1017,8 +1014,8 @@ summarizes the configuration options for the rsync daemon:
    | TCP Port             | integer   | Port for :command:`rsyncd` to listen on, default is *873*.             |
    |                      |           |                                                                        |
    +----------------------+-----------+------------------------------------------------------------------------+
-   | Auxiliary parameters | string    | Enter any additional parameters from                                   |
-   |                      |           | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__. |
+   | Auxiliary parameters | string    | Enter any additional parameters from `rsyncd.conf(5)                   |
+   |                      |           | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.            |
    |                      |           |                                                                        |
    +----------------------+-----------+------------------------------------------------------------------------+
 
@@ -1031,13 +1028,12 @@ Rsync Modules
 
 :numref:`Figure %s <add_rsync_module_fig>`
 shows the configuration screen that appears after navigating
-:menuselection:`Services --> Rsync --> Configure --> Rsync Module`,
+:menuselection:`Services --> Rsync --> CONFIGURE --> Rsync Module`,
 and clicking |ui-add|.
 
 :numref:`Table %s <rsync_module_opts_tab>`
 summarizes the configuration options available when creating a rsync
 module.
-
 
 .. _add_rsync_module_fig:
 
@@ -1080,16 +1076,20 @@ module.
    | Group                | drop-down menu | Select the group to control file transfers to and from the module.       |
    |                      |                |                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------+
-   | Hosts allow          | string         | From                                                                     |
-   |                      |                | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__    |
+   | Hosts Allow          | string         | From `rsyncd.conf(5)                                                     |
+   |                      |                | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
    |                      |                | Enter a list of patterns to match with the hostname and IP address of a  |
    |                      |                | connecting client. Separate patterns with whitespace or comma.           |
-   +----------------------+----------------+--------------------------------------------------------------------------+
-   | Hosts deny           | string         | See rsyncd.conf(5) for allowed formats.                                  |
    |                      |                |                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------+
-   | Auxiliary parameters | string         | Enter any additional parameters from                                     |
-   |                      |                | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__    |
+   | Hosts Deny           | string         | See `rsyncd.conf(5)                                                      |
+   |                      |                | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__ for allowed   |
+   |                      |                | formats.                                                                 |
+   |                      |                |                                                                          |
+   +----------------------+----------------+--------------------------------------------------------------------------+
+   | Auxiliary parameters | string         | Enter any additional parameters from `rsyncd.conf(5)                     |
+   |                      |                | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__               |
+   |                      |                |                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------+
 
 
@@ -1146,8 +1146,8 @@ configuration options. After configuring the S3 service, start it in
    |                 |                | alphanumeric characters and be at least 8 but no more than 40 characters long.                 |
    |                 |                |                                                                                                |
    +-----------------+----------------+------------------------------------------------------------------------------------------------+
-   | Confirm S3 Key  | string         | Re-enter the S3 password to confirm.                                                           |
-   |                 |                |                                                                                                |
+   | Confirm Secret  | string         | Re-enter the S3 password to confirm.                                                           |
+   | Key             |                |                                                                                                |
    +-----------------+----------------+------------------------------------------------------------------------------------------------+
    | Disk            | browse         | Browse to the directory for the S3 filesystem. This overrides all permissions of that          |
    |                 |                | directory and all of its subdirectories to *minio:minio*.                                      |
@@ -1164,13 +1164,11 @@ configuration options. After configuring the S3 service, start it in
    +-----------------+----------------+------------------------------------------------------------------------------------------------+
 
 
-
 .. index:: S.M.A.R.T.
 .. _S.M.A.R.T.:
 
 S.M.A.R.T.
 ----------
-
 
 `S.M.A.R.T., or Self-Monitoring, Analysis, and Reporting Technology
 <https://en.wikipedia.org/wiki/S.M.A.R.T.>`__,
@@ -1252,10 +1250,10 @@ summarizes the options in the S.M.A.R.T configuration screen.
    | Setting         | Value                      | Description                                                                                                 |
    |                 |                            |                                                                                                             |
    +=================+============================+=============================================================================================================+
-   | Check interval  | integer                    | Define in minutes how often :command:`smartd` activates to check if any tests are configured to run.        |
+   | Check Interval  | integer                    | Define in minutes how often :command:`smartd` activates to check if any tests are configured to run.        |
    |                 |                            |                                                                                                             |
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Power mode      | drop-down menu             | Tests are not performed if the system enters the specified power mode. Choices are:                         |
+   | Power Mode      | drop-down menu             | Tests are not performed if the system enters the specified power mode. Choices are:                         |
    |                 |                            | *Never*, *Sleep*, *Standby*, or *Idle*.                                                                     |
    |                 |                            |                                                                                                             |
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
@@ -1271,7 +1269,7 @@ summarizes the options in the S.M.A.R.T configuration screen.
    |                 |                            | send an email if the temperature is higher than the threshold. Default of *0* disables this option.         |
    |                 |                            |                                                                                                             |
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
-   | Email to report | string                     | Enter email address to receive S.M.A.R.T. alerts. Use a space to separate multiple email addresses.         |
+   | Email           | string                     | Enter email address to receive S.M.A.R.T. alerts. Use a space to separate multiple email addresses.         |
    |                 |                            |                                                                                                             |
    +-----------------+----------------------------+-------------------------------------------------------------------------------------------------------------+
 
@@ -1287,7 +1285,7 @@ are specific to each configured SMB share. An SMB share is created by
 navigating to :menuselection:`Sharing --> Windows (SMB) Shares`,
 and clicking |ui-add|. In contrast, global
 settings which apply to all SMB shares are configured in
-:menuselection:`Services --> SMB --> Configure`.
+:menuselection:`Services --> SMB --> CONFIGURE`.
 
 .. note:: After starting the SMB service, it can take several minutes
    for the `master browser election
@@ -1295,13 +1293,12 @@ settings which apply to all SMB shares are configured in
    to occur and for the %brand% system to become available in
    Windows Explorer.
 
+
 :numref:`Figure %s <global_smb_config_fig>` shows the global SMB
 configuration options which are described in
 :numref:`Table %s <global_smb_config_opts_tab>`.
 This configuration screen is really a front-end to
-`smb4.conf
-<https://www.freebsd.org/cgi/man.cgi?query=smb4.conf&manpath=FreeBSD+11.0-RELEASE+and+Ports>`__.
-
+`smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb4.conf>`__.
 
 .. _global_smb_config_fig:
 
@@ -1397,12 +1394,12 @@ This configuration screen is really a front-end to
    |                                  |                | username/password be the same as the Windows user account.                                            |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Auxiliary parameters             | string         | Add any :file:`smb.conf` options not covered elsewhere in this screen. See                            |
+   | Auxiliary Parameters             | string         | Add any :file:`smb.conf` options not covered elsewhere in this screen. See                            |
    |                                  |                | `the Samba Guide <https://www.oreilly.com/openbook/samba/book/appb_02.html>`__                        |
    |                                  |                | for additional settings.                                                                              |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | Unix Extensions                  | checkbox       | Set to allow non-Windows SMB clients to access symbolic links and hard links. has no effect on        |
+   | UNIX Extensions                  | checkbox       | Set to allow non-Windows SMB clients to access symbolic links and hard links. has no effect on        |
    |                                  |                | Windows clients.                                                                                      |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
@@ -1442,9 +1439,8 @@ Changes to SMB settings take effect immediately. Changes to share
 settings only take effect after the client and server negotiate a new
 session.
 
-
 .. note:: Do not set the *directory name cache size* as an
-   :guilabel:`Auxiliary parameter`. Due to differences in how Linux
+   :guilabel:`Auxiliary Parameter`. Due to differences in how Linux
    and BSD handle file descriptors, directory name caching is disabled
    on BSD systems to improve performance.
 
@@ -1457,7 +1453,6 @@ session.
 
 Troubleshooting SMB
 ~~~~~~~~~~~~~~~~~~~
-
 
 #ifdef freenas
 Do not connect to SMB shares as :literal:`root`, and do not add the
@@ -1505,7 +1500,7 @@ their password does not contain the :literal:`?` character. If it
 does, have the user change the password and try again.
 
 If permissions work for Windows users but not for macOS users, try
-disabling :guilabel:`Unix Extensions` and restarting the SMB service.
+disabling :guilabel:`UNIX Extensions` and restarting the SMB service.
 
 If the SMB service will not start, run this command from :ref:`Shell`
 to see if there is an error in the configuration:
@@ -1516,7 +1511,7 @@ to see if there is an error in the configuration:
 
 
 If clients have problems connecting to the SMB share, go to
-:menuselection:`Services --> SMB --> Configure` and verify that
+:menuselection:`Services --> SMB --> CONFIGURE` and verify that
 *Server maximum protocol* is set to *SMB2*.
 
 Using a dataset for SMB sharing is recommended. When creating the
@@ -1591,7 +1586,7 @@ enabled on the %brand% system:
 Available MIBS are located in :file:`/usr/local/share/snmp/mibs`.
 
 :numref:`Figure %s <config_snmp_fig>`
-shows the :menuselection:`Services --> SNMP --> Configure` screen.
+shows the :menuselection:`Services --> SNMP --> CONFIGURE` screen.
 :numref:`Table %s <snmp_config_opts_tab>`
 summarizes the configuration options.
 
@@ -1622,12 +1617,12 @@ summarizes the configuration options.
    | Contact              | string         | Optional. Enter the administrator email address.                                                 |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | SNMP v3 Support      | checkbox       | Set to enable support for SNMP version 3.                                                        |
-   |                      |                |                                                                                                  |
-   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
    | Community            | string         | Default is *public*.  **Change this for security reasons!** The value can only contain           |
    |                      |                | alphanumeric characters, underscores, dashes, periods, and spaces. Leave empty for               |
    |                      |                | SNMPv3 networks.                                                                                 |
+   |                      |                |                                                                                                  |
+   +----------------------+----------------+--------------------------------------------------------------------------------------------------+
+   | SNMP v3 Support      | checkbox       | Set to enable support for SNMP version 3.                                                        |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
    | Username             | string         | Only applies if :guilabel:`SNMP v3 Support` is set. Specify the username to register             |
@@ -1650,11 +1645,11 @@ summarizes the configuration options.
    | Privacy Passphrase   | string         | If not specified, :guilabel:`Password` is used.                                                  |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Log Level            | drop-down menu | Choices range from the least log entries (:guilabel:`Emergency`) to the most (:guilabel:`Debug`) |
+   | Auxiliary Parameters | string         | Enter  additional `snmpd.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=snmpd.conf>`__       |
+   |                      |                | options. Add one option for each line.                                                           |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters | string         | Enter  additional `snmpd.conf(5) <http://net-snmp.sourceforge.net/docs/man/snmpd.conf.html>`__   |
-   |                      |                | options. Add one option for each line.                                                           |
+   | Log Level            | drop-down menu | Choices range from the least log entries (:guilabel:`Emergency`) to the most (:guilabel:`Debug`) |
    |                      |                |                                                                                                  |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
 
@@ -1683,9 +1678,8 @@ screen.
 
 
 .. note:: After configuring SSH, remember to start it in
-   :guilabel:`Services` by clicking the red :guilabel:`Power` on the SSH
-   card. The :guilabel:`Power` button is green when the service
-   is running.
+   :guilabel:`Services` by clicking the red |ui-power| button on the SSH
+   card. The |ui-power| button is green when the service is running.
 
 
 .. _ssh_config_fig:
@@ -1698,7 +1692,7 @@ screen.
 :numref:`Table %s <ssh_conf_opts_tab>`
 summarizes the configuration options. Some settings are only available
 in :guilabel:`Advanced Mode`. To see these settings, either click the
-:guilabel:`Advanced Mode` button, or configure the system to always
+:guilabel:`ADVANCED MODE` button, or configure the system to always
 display these settings by enabling the
 :guilabel:`Show advanced fields by default` option in
 :menuselection:`System --> Advanced`.
@@ -1725,7 +1719,7 @@ display these settings by enabling the
    | TCP Port                      | integer        |          | Port to open for SSH connection requests. *22* by default.                                          |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Login as Root with password   | checkbox       |          | **As a security precaution, root logins are discouraged and disabled by default.** If enabled,      |
+   | Login as Root with Password   | checkbox       |          | **As a security precaution, root logins are discouraged and disabled by default.** If enabled,      |
    |                               |                |          | password must be set for the *root* user in :guilabel:`Users`.                                      |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
@@ -1762,7 +1756,7 @@ display these settings by enabling the
 
 A few `sshd_config(5)
 <https://www.freebsd.org/cgi/man.cgi?query=sshd_config>`__
-options that are useful to enter in the :guilabel:`Extra Options`
+options that are useful to enter in the :guilabel:`Extra options`
 field include:
 
 *  increase the *ClientAliveInterval* if SSH connections tend to drop
@@ -1821,7 +1815,7 @@ exact match.
 
 If clients are receiving "reverse DNS" or timeout errors, add an entry
 for the IP address of the %brand% system in the
-:guilabel:`Host name data base` field of
+:guilabel:`Host name database` field of
 :menuselection:`Network --> Global Configuration`.
 
 When configuring SSH, always test the configuration as an SSH user
@@ -1874,32 +1868,32 @@ available options.
 .. table:: TFTP Configuration Options
    :class: longtable
 
-   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Setting         | Value         | Description                                                                                                              |
-   |                 |               |                                                                                                                          |
-   +=================+===============+==========================================================================================================================+
-   | Directory       | Browse button | Browse to an **existing** directory to be used for storage. Some devices require a specific directory name, refer to the |
-   |                 |               | device documentation for details.                                                                                        |
-   |                 |               |                                                                                                                          |
-   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Allow New Files | checkbox      | Set when network devices need to send files to the system. For example, to back up their configuration.                  |
-   |                 |               |                                                                                                                          |
-   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Port            | integer       | Enter a UDP port to listen for TFTP requests, *69* by default.                                                           |
-   |                 |               |                                                                                                                          |
-   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Username        | drop-down     | Select the account to use for TFTP requests. This account must have permission to the :guilabel:`Directory`.             |
-   |                 | menu          |                                                                                                                          |
-   |                 |               |                                                                                                                          |
-   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | File Permissions| checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write. Some devices     |
-   |                 |               | require less strict permissions.                                                                                         |
-   |                 |               |                                                                                                                          |
-   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Extra options   | string        | Add more options from `tftpd(8) <https://www.freebsd.org/cgi/man.cgi?query=tftpd>`__                                     |
-   |                 |               | Add one option on each line.                                                                                             |
-   |                 |               |                                                                                                                          |
-   +-----------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
+   +------------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Setting          | Value         | Description                                                                                                              |
+   |                  |               |                                                                                                                          |
+   +==================+===============+==========================================================================================================================+
+   | Directory        | Browse button | Browse to an **existing** directory to be used for storage. Some devices require a specific directory name, refer to the |
+   |                  |               | device documentation for details.                                                                                        |
+   |                  |               |                                                                                                                          |
+   +------------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Allow New Files  | checkbox      | Set when network devices need to send files to the system. For example, to back up their configuration.                  |
+   |                  |               |                                                                                                                          |
+   +------------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Port             | integer       | Enter a UDP port to listen for TFTP requests, *69* by default.                                                           |
+   |                  |               |                                                                                                                          |
+   +------------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Username         | drop-down     | Select the account to use for TFTP requests. This account must have permission to the :guilabel:`Directory`.             |
+   |                  | menu          |                                                                                                                          |
+   |                  |               |                                                                                                                          |
+   +------------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
+   | File Permissions | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write. Some devices     |
+   |                  |               | require less strict permissions.                                                                                         |
+   |                  |               |                                                                                                                          |
+   +------------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Extra options    | string        | Add more options from `tftpd(8) <https://www.freebsd.org/cgi/man.cgi?query=tftpd>`__                                     |
+   |                  |               | Add one option on each line.                                                                                             |
+   |                  |               |                                                                                                                          |
+   +------------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
 .. index:: UPS, Uninterruptible Power Supply
@@ -1911,11 +1905,10 @@ UPS
 
 %brand% uses `NUT <https://networkupstools.org/>`__ (Network UPS Tools)
 to provide UPS support. If the %brand% system is connected to a UPS
-device, configure the UPS service then start it in
-:menuselection:`Services --> UPS --> Configure`.
+device, configure the UPS service in
+:menuselection:`Services --> UPS --> CONFIGURE`.
 
 :numref:`Figure %s <ups_config_fig>` shows the UPS configuration screen:
-
 
 .. _ups_config_fig:
 
@@ -1989,8 +1982,8 @@ UPS Configuration screen.
    |                               |                | The new password cannot contain a space or :kbd:`#`.                                      |
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
-   | Extra users                   | string         | Enter the accounts with administrative access. See `upsd.users(5)                         |
-   |                               |                | <https://networkupstools.org/docs/man/upsc.html>`__ for examples.                         |
+   | Extra Users(upsd.conf)        | string         | Enter the accounts with administrative access. See `upsd.users(5)                         |
+   |                               |                | <https://www.freebsd.org/cgi/man.cgi?query=upsd.users>`__ for examples.                   |
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Remote Monitor                | checkbox       | Set for the default configuration to listen on all interfaces using the                   |
@@ -2032,7 +2025,7 @@ UPS Configuration screen.
    seconds.
 
 
-`upsc(8) <https://networkupstools.org/docs/man/upsc.html>`__ can be used
+`upsc(8) <https://www.freebsd.org/cgi/man.cgi?query=upsc>`__ can be used
 to get status variables from the UPS daemon such as the current charge
 and input voltage. It can be run from :ref:`Shell` using this syntax:
 
@@ -2041,9 +2034,10 @@ and input voltage. It can be run from :ref:`Shell` using this syntax:
    upsc ups@localhost
 
 
-The *upsc(8)* man page gives some other usage examples.
+The `upsc(8) <https://www.freebsd.org/cgi/man.cgi?query=upsc>`__ man
+page gives some other usage examples.
 
-`upscmd(8) <https://networkupstools.org/docs/man/upscmd.html>`__
+`upscmd(8) <https://www.freebsd.org/cgi/man.cgi?query=upscmd>`__
 can be used to send commands directly to the UPS, assuming the
 hardware supports the command being sent. Only users with administrative
 rights can use this command. These users are created in the
@@ -2084,7 +2078,6 @@ The settings in the WebDAV service apply to all WebDAV shares.
 :numref:`Figure %s <webdav_config_fig>` shows the WebDAV configuration
 screen. :numref:`Table %s <webdav_config_opts_tab>` summarizes the
 available options.
-
 
 .. _webdav_config_fig:
 
