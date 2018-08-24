@@ -8,7 +8,7 @@ Plugins
 services by providing two methods for installing additional software.
 
 :ref:`Plugins` allow the user to browse, install, and configure
-pre-packaged software from the GUI. This method is easy to use, but
+pre-packaged software from the |web-ui|. This method is easy to use, but
 provides a limited amount of available software. Each plugin is
 automatically installed into its own
 `FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`__.
@@ -19,7 +19,7 @@ networking basics and software installation on FreeBSD-based systems.
 
 Look through the :ref:`Plugins` and :ref:`Jails` sections to become
 familiar with the features and limitations of each. Choose the method
-that best meets that application's needs.
+that best meets the needs of the application.
 
 
 .. _Installing Plugins:
@@ -28,16 +28,16 @@ Install
 -------
 
 A plugin is a self-contained application installer designed to
-integrate into the %brand% GUI. A plugin offers several advantages:
+integrate into the %brand% |web-ui|. A plugin offers several advantages:
 
-* the %brand% GUI provides a browser for viewing the list of
+* the %brand% |web-ui| provides a browser for viewing the list of
   available plugins
 
-* the %brand% GUI provides buttons for installing, starting,
+* the %brand% |web-ui| provides buttons for installing, starting,
   managing, and deleting plugins
 
 * if the plugin has configuration options, a screen will be added to
-  the %brand% GUI for these options to be configured
+  the %brand% |web-ui| for these options to be configured
 
 To install a plugin, click
 :menuselection:`Plugins --> Available`.
@@ -489,7 +489,7 @@ is supported by following the process outlined in
    |                                                                         |                                                                        |
    +=========================================================================+========================================================================+
    | `BackupPC                                                               | BackupPC is a high-performance, enterprise-grade system for backing up |
-   | <http://backuppc.sourceforge.net/>`__                                   | Linux, WinXX and MacOSX PCs and laptops to a server's disk.            |
+   | <http://backuppc.sourceforge.net/>`__                                   | Linux, WinXX and MacOSX PCs and laptops to a server disk.              |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Bacula <https://www.baculasystems.com/>`__                             | Bacula is an open-source, enterprise-level computer backup system for  |
