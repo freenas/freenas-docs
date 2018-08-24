@@ -40,15 +40,15 @@ click the :guilabel:`Paste` button, paste the text into the box that
 opens, and click the :guilabel:`OK` button to complete the paste
 operation.
 
-Shell provides history (use your up arrow to see previously entered
-commands and press :kbd:`Enter` to repeat the currently displayed
-command) and tab completion (type a few letters and press tab to
-complete a command name or filename in the current directory). When
-you are finished using Shell, type :command:`exit` to leave the
-session.
+Shell provides a history of commands used. Use the arrow keys to see
+previously entered commands and press :kbd:`Enter` to repeat the
+command.The keys :kbd:`Home`, :kbd:`End`, and :kbd:`Delete` are also
+supported in the shell. The shell also provides tab completion. Type a
+few letters and press tab to complete a command name or filename in the
+current directory. Type :command:`exit` to leave the session.
 
-While you are in Shell, you will not have access to any of the other
-GUI menus. If you need to have access to a prompt while using the GUI
+Using the shell prevents access to any of the other
+GUI menus. To have access to a prompt while using the GUI
 menus, use :ref:`tmux` instead as it supports multiple shell sessions
 and the detachment and reattachment of sessions.
 
