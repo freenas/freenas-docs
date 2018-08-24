@@ -4,7 +4,7 @@
 Shell
 =====
 
-Beginning with version 8.2.0, the %brand% GUI provides a web shell,
+Beginning with version 8.2.0, the %brand% |web-ui| provides a web shell,
 making it convenient to run command line tools from the web browser as
 the *root* user. The link to Shell is the second entry from the bottom
 of the menu tree. In
@@ -21,7 +21,7 @@ the link has been clicked and Shell is open.
 
 The prompt indicates that the current user is *root*, the hostname is
 *freenas*, and the current working directory is :file:`~`
-(*root*'s home directory).
+(*root* home directory).
 
 .. note:: The default shell for a new install of %brand% is
    :command:`zsh`. %brand% systems that are upgraded from an earlier
@@ -42,8 +42,8 @@ supported in the shell. The shell also provides tab completion. Type a
 few letters and press tab to complete a command name or filename in the
 current directory. Type :command:`exit` to leave the session.
 
-GUI menus cannot be accessed while using Shell.
-To access a prompt while using the GUI
+Web interface menus cannot be accessed while using Shell.
+To access a prompt while using the |web-ui|
 menus, use :ref:`tmux` as it supports multiple shell sessions
 and the detachment and reattachment of sessions.
 
