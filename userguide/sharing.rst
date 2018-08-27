@@ -1928,11 +1928,13 @@ initiator.
    | Initiators         | string    | Use *ALL* keyword or a list of initiator hostnames separated by spaces.              |
    |                    |           |                                                                                      |
    +--------------------+-----------+--------------------------------------------------------------------------------------+
-   | Authorized network | string    | Use *ALL* keyword or a network address with CIDR mask such as                        |
-   |                    |           | *192.168.2.0/24*.                                                                    |
+   | Authorized network | string    | Network addresses that can use this initiator. Use :literal:`ALL` or list network    |
+   |                    |           | addresses with a `CIDR                                                               |
+   |                    |           | <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__ mask. Separate     |
+   |                    |           | multiple addresses with a space: :samp:`192.168.2.0/24 192.168.2.1/12`.              |
    |                    |           |                                                                                      |
    +--------------------+-----------+--------------------------------------------------------------------------------------+
-   | Comment            | string    | Enter an optional description.                                                       |
+   | Comment            | string    | Notes or a description of the initiator.                                             |
    |                    |           |                                                                                      |
    +--------------------+-----------+--------------------------------------------------------------------------------------+
 
