@@ -134,7 +134,7 @@ option:
    | Add to Favorites  | checkbox  | Set to add this theme to the :ref:`Theme Selector`.                                      |
    |                   |           |                                                                                          |
    +-------------------+-----------+------------------------------------------------------------------------------------------+
-   | Choose Logo Type  | checkbox  | Set to classify this as a "dark" theme.                                                  |
+   | Enable Dark Logo  | checkbox  | Set this to give the FreeNAS Logo a dark fill color.                                     |
    |                   |           |                                                                                          |
    +-------------------+-----------+------------------------------------------------------------------------------------------+
    | Choose Primary    | drop-down | Choose from either a generic color or import a specific color setting to use as the      |
