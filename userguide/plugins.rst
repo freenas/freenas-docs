@@ -67,7 +67,6 @@ enter an IPv4 or IPv6 address. Click :guilabel:`Save`. In the example
 shown in :numref:`Figure %s <installing_plugin_fig>`, Plex Media
 Server is selected for installation.
 
-
 .. _installing_plugin_fig:
 
 .. figure:: images/plugins-install-example.png
@@ -75,13 +74,12 @@ Server is selected for installation.
    Installing the Plex Plugin
 
 
-The installation takes a few minutes because the system
-downloads and configures a jail to store the plugin application. A
-confirmation message is displayed at the bottom of the screen after a
-successful installtion. Installed plugins appear in the
+The installation takes a few minutes because the system downloads and
+configures a jail to store the plugin application. A confirmation
+message displays at the bottom of the screen after successfully
+installing a plugin. Installed plugins appear in the
 :menuselection:`Plugins --> Installed`
 page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
-
 
 .. tip:: Installed plugins are also added to the
    :menuselection:`Jails`
@@ -97,18 +95,17 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
 The entry in the
 :menuselection:`Plugins --> Installed`
-section displays the plugin name, boot status, state, release, IP4 and
-IP6 addresses, and whether it is a template.
+section displays the plugin jail name, status, IPv4 and IPv6 addresses,
+plugin application version, and FreeBSD release.
 
 The plugin must be started before the installed application is
 available. Click |ui-options| and :guilabel:`Start`. The plugin
-:guilabel:`State` updates to *up* when it starts successfully.
+:guilabel:`Status` changes to :literal:`up` when it starts successfully.
 
 Click |ui-options| and :guilabel:`Management` to open a management
 or configuration screen for the application. For example, clicking
 :guilabel:`Management` for an installed Plex plugin opens the Plex
 web interface in a new browser tab.
-
 
 .. note:: Not all plugins have a functional management option. See
    :ref:`Managing Jails` for more instructions about interacting with
