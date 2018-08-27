@@ -431,20 +431,22 @@ uses the directory and package name :file:`/irc/quassel-core`.
 Now edit :file:`iocage-ix-plugins/INDEX`. Add an entry for the new
 plugin that includes these fields:
 
-* "MANIFEST": Add the newly created :file:`plugin.json` file here.
+* :literal:`"MANIFEST":` Add the name of the newly created
+  :file:`plugin.json` file here.
 
-* "name": Use the same name from the :file:`.json` file.
+* :literal:`"name":` Use the same name used within the :file:`.json`
+  file.
 
-* "icon": Most plugins will have a specific icon. Search the web and
-  save the icon to the :file:`icons/` directory as a :file:`.png`. The
-  naming convention is :file:`pluginname.png`. For example, the
-  :guilabel:`Transmission` plugin has the icon file
+* :literal:`"icon":` Most plugins will have a specific icon. Search the
+  web and save the icon to the :file:`icons/` directory as a
+  :file:`.png`. The naming convention is :file:`pluginname.png`. For
+  example, the :guilabel:`Transmission` plugin has the icon file
   :file:`transmission.png`.
 
-* "description": Add any notes about the plugin.
+* :literal:`"description":` Describe the plugin in a single sentence.
 
-* "official": Specify if the plugin is supported by iXsystems. Enter
-  *false*.
+* :literal:`"official":` Specify if the plugin is supported by
+  iXsystems. Enter :literal:`false`.
 
 See the
 `INDEX <https://github.com/freenas/iocage-ix-plugins/blob/master/INDEX>`__
@@ -464,6 +466,61 @@ Make sure the pull request contains:
 
 * a link to the artifact repository populated with all required plugin
   files.
+
+
+.. _Test a plugin:
+
+Test a Plugin
+~~~~~~~~~~~~~
+
+.. warning:: Installing experimental plugins is not recommended for
+   general use of %brand%. This feature is meant to help plugin creators
+   test their work before it becomes generally available on %brand%.
+
+
+Plugin pull requests are merged into the :literal:`master` branch of the
+`iocage-ix-plugins <https://github.com/freenas/iocage-ix-plugins>`__
+repository. These plugins are not available in the |web-ui| until they
+are tested and added to a *RELEASE* branch of the repository. It is
+possible to test an in-development plugin by using this
+:command:`iocage` command:
+:samp:`iocage fetch -P --name {PLUGIN} {IPADDRESS_PROPS} --branch 'master'`
+
+This will install the plugin, configure it with any chosen properties,
+and specifically use the :literal:`master` branch of the repository to
+download the plugin.
+
+Here is an example of downloading and configuring an experimental plugin
+with the %brand%
+:menuselection:`Shell`:
+
+.. code-block:: none
+
+   [root@freenas ~]# iocage fetch -P --name mineos ip4_addr="em0|10.231.1.37/24" --branch 'master'
+   Plugin: mineos
+     Official Plugin: False
+     Using RELEASE: 11.2-RELEASE
+     Using Branch: master
+     Post-install Artifact: https://github.com/jseqaert/iocage-plugin-mineos.git
+     These pkgs will be installed:
+   ...
+
+   ...
+   Running post_install.sh
+   Command output:
+   ...
+
+   ...
+   Admin Portal:
+   http://10.231.1.37:8443
+   [root@freenas ~]#
+
+
+This plugin appears in the
+:menuselection:`Jails` and
+:menuselection:`Plugins --> Installed`
+screens as :literal:`mineos` and can be tested with the %brand% system.
+
 
 .. _Official Plugins:
 
