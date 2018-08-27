@@ -940,6 +940,7 @@ run the command without any options:
     -C  Dump SMB Configuration
     -D  Dump Domain Controller Configuration
     -I  Dump IPMI Configuration
+    -J  Dump iocage information
     -M  Dump SATA DOMs Information
     -N  Dump NFS Configuration
     -S  Dump SMART Information
@@ -960,7 +961,6 @@ run the command without any options:
     -v  Dump Boot System File Verification Status and Inconsistencies
     -y  Dump Sysctl Configuration
     -z  Dump ZFS Configuration
-
 
 
 Individual tests can be run alone. For example, when troubleshooting

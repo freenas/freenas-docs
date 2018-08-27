@@ -214,8 +214,9 @@ This software has been added or updated:
   options.
 
 * These switches have been added to :ref:`freenas-debug`:
-  :command:`-M` for dumping SATADOM info and :command:`-Z` to delete old
-  debug information. The :command:`-G` switch has been removed as the
+  :command:`-J` for dumping iocage information, :command:`-M` for
+  dumping SATADOM info, and :command:`-Z` to delete old debug
+  information. The :command:`-G` switch has been removed as the
   system no longer uses GRUB.
 
 These screen options have changed:
