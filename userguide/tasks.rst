@@ -111,7 +111,6 @@ checkboxes above it. Set :guilabel:`Toggle` to display all options in
 the table. Click |ui-options| for an entry to see the :guilabel:`Run Now`,
 :guilabel:`Edit` and :guilabel:`Delete` options.
 
-
 .. note:: :literal:`%` symbols are automatically escaped and do not need
    to be prefixed with backslashes. For example, use
    :samp:`date '+%Y-%m-%d'` in a cron job to generate a filename based
@@ -127,7 +126,7 @@ Init/Shutdown Scripts
 at system startup or shutdown.
 
 :numref:`Figure %s <tasks_init_script_fig>`
-shows the screen that opens after navigating to
+shows the screen that opens after going to
 :menuselection:`Tasks --> Init/Shutdown Scripts`
 and clicking |ui-add|.
 :numref:`Table %s <tasks_init_opt_tab>`
@@ -167,8 +166,8 @@ has been fully tested to ensure it achieves the desired results.
    |             |                | *Script* for an executable script.                                                |
    |             |                |                                                                                   |
    +-------------+----------------+-----------------------------------------------------------------------------------+
-   | Command /   | string         | If *Command* is selected, enter the command plus any desired options. If          |
-   | Script      |                | *Script* is selected, :guilabel:`Browse` to the location of the script.           |
+   | Command or  | string         | If *Command* is selected, enter the command plus any desired options. If          |
+   | Script      |                | *Script* is selected, browse to the location of the script.                       |
    |             |                |                                                                                   |
    +-------------+----------------+-----------------------------------------------------------------------------------+
    | When        | drop-down menu | Select when the command or script runs. *Pre Init* is very early                  |
@@ -244,7 +243,6 @@ This section summarizes the options when creating an rsync task. It then
 provides a configuration example between two %brand% systems for each
 mode of rsync operation.
 
-
 .. note:: If there is a firewall between the two systems or if the
    other system has a built-in firewall, make sure that TCP port 873
    is allowed.
@@ -257,7 +255,6 @@ and clicking |ui-add|.
 :numref:`Table %s <tasks_rsync_opts_tab>`
 summarizes the configuration options available when creating an rsync
 task.
-
 
 .. _tasks_add_rsync_fig:
 
@@ -539,7 +536,6 @@ above example is shown in
 When pasting the key, ensure that it is pasted as one long line and,
 if necessary, remove any extra spaces representing line breaks.
 
-
 .. _tasks_pasting_sshkey_fig:
 
 .. figure:: images/account-users-edit-ssh-key.png
@@ -684,6 +680,7 @@ is *Passed*, start to think about replacing that disk.
    tests to run at the same time as scrub or resilver operations or
    during other periods of intense disk activity.
 
+
 Which tests will run and when can be verified by typing
 :command:`smartd -q showtests` within :ref:`Shell`.
 
@@ -791,7 +788,7 @@ dataset are included in the snapshot and there is no need to create
 snapshots for each child dataset. The downside is that there is no way
 to exclude particular child  datasets from a recursive snapshot.
 
-Click :guilabel:`Save` when finished customizing the task. Defined tasks
+Click :guilabel:`SAVE` when finished customizing the task. Defined tasks
 are listed alphabetically in :guilabel:`Periodic Snapshot Tasks`. Click
 |ui-options| for an entry to display the :guilabel:`Edit` and
 :guilabel:`Delete` buttons.
@@ -802,7 +799,6 @@ are listed alphabetically in :guilabel:`Periodic Snapshot Tasks`. Click
 
 Replication Tasks
 -----------------
-
 
 *Replication* is the duplication of snapshots from one %brand% system
 to another computer. When a new snapshot is created on the source
@@ -818,7 +814,6 @@ The destination system is prepared to receive replicated data, a
 source system is created, and then a replication task is created. As
 snapshots are automatically created on the source computer, they are
 automatically replicated to the destination computer.
-
 
 .. note:: Replicated data is not visible on the receiving system until
    the replication task completes.
@@ -922,13 +917,12 @@ hostname.
 The :guilabel:`Remote Auth Token` field expects a special token from
 the *Beta* computer. On *Beta*, navigate to
 :menuselection:`Tasks --> Replication Tasks`,
-and click :guilabel:`Replication Token`. A dialog
-showing the temporary authorization token is shown as in
+and click :guilabel:`REPLICATION TOKEN`. A dialog showing the temporary
+authorization token is shown as in
 :numref:`Figure %s <zfs_auth_token_fig>`.
 
 Highlight the temporary authorization token string with the mouse and
 copy it.
-
 
 .. _zfs_auth_token_fig:
 
@@ -941,7 +935,6 @@ On the *Alpha* system, paste the copied temporary authorization token
 string into the :guilabel:`Remote Auth Token` field as shown in
 :numref:`Figure %s <zfs_auth_token_paste_fig>`.
 
-
 .. _zfs_auth_token_paste_fig:
 
 .. figure:: images/tasks-replication-tasks-semiauto-complete.png
@@ -949,11 +942,10 @@ string into the :guilabel:`Remote Auth Token` field as shown in
    Temporary Authentication Token Pasted to Source
 
 
-Finally, click :guilabel:`Save` to create the replication task. After
+Finally, click :guilabel:`SAVE` to create the replication task. After
 each periodic snapshot is created, a replication task will copy it to
 the destination system. See :ref:`Limiting Replication Times` for
 information about restricting when replication is allowed to run.
-
 
 .. note::  The temporary authorization token is only valid for a few
    minutes. If a *Token is invalid* message is shown, get a new
@@ -985,22 +977,24 @@ enter */mnt/alphapool/repluser* in the :guilabel:`Home Directory` field,
 enter *Replication Dedicated User* for the :guilabel:`Full Name`, and
 set :guilabel:`Enable password login` to *No*. Leave the other fields at
 their default values, but note the :guilabel:`User ID` number. Click
-:guilabel:`Save` to create the user.
+:guilabel:`SAVE` to create the user.
 
 On *Beta*, the same dedicated user must be created as was created on
 the sending computer. Click
-:menuselection:`Account --> Users` then |ui-add|. Enter the *User ID* number from
-*Alpha*, *repluser* for :guilabel:`Username`, enter
-*/mnt/betapool/repluser* in the :guilabel:`Home Directory` field, enter
-*Replication Dedicated User* for the :guilabel:`Full Name`, and set
-:guilabel:`Enable password login` to *No*. Leave the other fields at
-their default values. Click :guilabel:`Save` to create the user.
+:menuselection:`Account --> Users` then |ui-add|. Enter the *User ID*
+number from *Alpha*, *repluser* for :guilabel:`Username`, enter
+:literal:`/mnt/betapool/repluser` in the :guilabel:`Home Directory`
+field, enter :literal:`Replication Dedicated User` for the
+:guilabel:`Full Name`, and set :guilabel:`Enable password login` to *No*.
+Leave the other fields at their default values. Click :guilabel:`SAVE`
+to create the user.
 
 A dataset with the same name as the original must be created on the
 destination computer, *Beta*. Navigate to
 :menuselection:`Storage --> Pools`,
 click *betapool*, then |ui-options| and :guilabel:`Add Dataset`.
-Enter *alphadata* as the :guilabel:`Name`, then click :guilabel:`Save`.
+Enter :literal:`alphadata` as the :guilabel:`Name`, then click
+:guilabel:`SAVE`.
 
 The replication user must be given permissions to the destination
 dataset. On *Beta*, open a :ref:`Shell` and enter this command:
@@ -1023,7 +1017,7 @@ The replication user must also be able to mount datasets. On
 :menuselection:`System --> Tunables` and click |ui-add|.
 Enter *vfs.usermount* for the :guilabel:`Variable`,
 *1* for the :guilabel:`Value`, and choose
-*Sysctl* from the :guilabel:`Type` drop-down. Click :guilabel:`Save`.
+*Sysctl* from the :guilabel:`Type` drop-down. Click :guilabel:`SAVE`.
 
 Back on *Alpha*, create a
 :ref:`periodic snapshot <Periodic Snapshot Tasks>` of the source dataset.
@@ -1046,16 +1040,16 @@ hostname.
 .. note:: If :guilabel:`WebGUI HTTP -> HTTPS Redirect` is
    enabled in
    :menuselection:`System --> General`
-   on the destination computer,
-   set the :guilabel:`Remote HTTP/HTTPS Port` to the HTTPS port
-   and enable the :guilabel:`Remote HTTPS` when
-   creating the replication on the source computer.
+   on the destination computer, set the
+   :guilabel:`Remote HTTP/HTTPS Port` to the HTTPS port and enable the
+   :guilabel:`Remote HTTPS` when creating the replication on the source
+   computer.
 
 
-The :guilabel:`Remote Auth Token` field expects a special token from
-the *Beta* computer. On *Beta*, click
+The :guilabel:`Remote Auth Token` field expects a special token from the
+*Beta* computer. On *Beta*, click
 :menuselection:`Tasks --> Replication Tasks`,
-then :guilabel:`Replication Token`. A dialog showing the temporary
+then :guilabel:`REPLICATION TOKEN`. A dialog showing the temporary
 authorization token is shown as in
 :numref:`Figure %s <zfs_auth_token_fig>`.
 
@@ -1069,8 +1063,7 @@ string into the :guilabel:`Remote Auth Token` field as shown in
 Set the :guilabel:`Dedicated User Enabled` option. Choose *repluser*
 in the :guilabel:`Dedicated User` drop-down.
 
-Click :guilabel:`Save` to create the replication task.
-
+Click :guilabel:`SAVE` to create the replication task.
 
 .. note::  The temporary authorization token is only valid for a few
    minutes. If a *Token is invalid* message is shown, get a new
@@ -1079,7 +1072,7 @@ Click :guilabel:`Save` to create the replication task.
 
 
 #ifdef comment
-Still on *Alpha*, hover |ui-menu| and click :guilabel:`Replication Keys`.
+Still on *Alpha*, hover |ui-menu| and click :guilabel:`REPLICATION KEYS`.
 Copy the key value with the mouse.
 
 This might not be necessary with semi-auto replication
@@ -1115,11 +1108,9 @@ A public encryption key must be copied from *Alpha* to *Beta* to
 allow a secure connection without a password prompt. On *Alpha*,
 navigate to
 :menuselection:`Tasks --> Replication Tasks`
-and click :guilabel:`Replication Keys`. This produces
-the window shown in :numref:`Figure %s <zfs_copy_replication_key_fig>`.
-Use the mouse to highlight the key data shown in the window, then copy
-it.
-
+and click :guilabel:`REPLICATION KEYS`. This produces the window shown
+in :numref:`Figure %s <zfs_copy_replication_key_fig>`. Use the mouse to
+highlight the key data shown in the window, then copy it.
 
 .. _zfs_copy_replication_key_fig:
 
@@ -1128,13 +1119,12 @@ it.
    Copy the Replication Key
 
 
-On *Beta*, navigate to
+On *Beta*, go to
 :menuselection:`Account --> Users`.
 Click |ui-options| for the *root* account, then :guilabel:`Edit`.
 Paste the copied key into the :guilabel:`SSH Public Key` field and click
-:guilabel:`Save` as shown in
+:guilabel:`SAVE` as shown in
 :numref:`Figure %s <zfs_paste_replication_key_fig>`.
-
 
 .. _zfs_paste_replication_key_fig:
 
@@ -1152,13 +1142,12 @@ there. The IP address of *Beta* is entered in the
 :numref:`Figure %s <zfs_create_repl1_fig>`. A hostname can be entered
 here if local DNS resolves for that hostname.
 
-Click the :guilabel:`Scan SSH Key` button to retrieve the SSH host keys
+Click the :guilabel:`SCAN SSH KEY` button to retrieve the SSH host keys
 from *Beta* and fill the :guilabel:`Remote Hostkey` field. Finally,
-click :guilabel:`Save` to create the replication task. After each
+click :guilabel:`SAVE` to create the replication task. After each
 periodic snapshot is created, a replication task will copy it to the
 destination system. See :ref:`Limiting Replication Times` for
 information about restricting when replication is allowed to run.
-
 
 .. _zfs_create_repl1_fig:
 
@@ -1247,7 +1236,7 @@ options in the replication task dialog.
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
    | Remote Hostkey            | string         | Paste the host key of the destination NAS configured for the Replication Task. Use the                       |
-   |                           |                | :guilabel:`Scan SSH Key` button to automatically retrieve the public host key of the remote system.          |
+   |                           |                | :guilabel:`SCAN SSH KEY` button to automatically retrieve the public host key of the remote system.          |
    |                           |                |                                                                                                              |
    +---------------------------+----------------+--------------------------------------------------------------------------------------------------------------+
 
@@ -1571,7 +1560,7 @@ describes the fields on this screen.
    |                      |             | tasks.                                                      |
    |                      |             |                                                             |
    +----------------------+-------------+-------------------------------------------------------------+
-   | Day of week          | checkboxes  | Select the days to run resilver tasks.                      |
+   | Days of the Week     | checkboxes  | Select the days to run resilver tasks.                      |
    |                      |             |                                                             |
    +----------------------+-------------+-------------------------------------------------------------+
 
@@ -1665,6 +1654,7 @@ screen.
 .. note:: Scrub tasks are run if and only if the threshhold is met or
    exceeded *and* the task is scheduled to run on the date marked.
 
+
 Review the default selections and, if necessary, modify them to meet
 the needs of the environment. Note that the :guilabel:`Threshold days`
 field is used to prevent scrubs from running too often, and overrides
@@ -1678,6 +1668,7 @@ for the hardware, consider temporarily deselecting the
 :guilabel:`Enabled` button for the scrub until the hardware can be
 upgraded.
 
+
 .. index:: Cloud Sync
 .. _Cloud Sync Tasks:
 
@@ -1687,13 +1678,13 @@ Cloud Sync Tasks
 Files or directories can be synchronized to remote cloud storage
 providers with the :guilabel:`Cloud Sync Tasks` feature.
 
-
 .. warning:: This Cloud Sync task might go to a third party
    commercial vendor not directly affiliated with iXsystems. Please
    investigate and fully understand that vendor's pricing policies and
    services before creating any Cloud Sync task. iXsystems is not
    responsible for any charges incurred from the use of third party
    vendors with the Cloud Sync feature.
+
 
 :ref:`Cloud Credentials` must be pre-defined before a cloud sync is
 created. One set of credentials can be used for more than one cloud
@@ -1726,7 +1717,6 @@ window to download the :file:`.log` file.
 Click |ui-add| to display the :guilabel:`Add Cloud Sync` menu shown in
 :numref:`Figure %s <tasks_cloudsync_add_fig>`.
 
-
 .. _tasks_cloudsync_add_fig:
 
 .. figure:: images/tasks-cloud-sync-tasks-add.png
@@ -1757,7 +1747,7 @@ shows the configuration options for Cloud Syncs.
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Credential          | drop-down menu      | Select the cloud storage provider credentials from the list of available :ref:`Cloud Credentials`.      |
-   |                     |                     | The credential is tested and an error is displayed if a connection cannot be made. :guilabel:`Save` is  |
+   |                     |                     | The credential is tested and an error is displayed if a connection cannot be made. :guilabel:`SAVE` is  |
    |                     |                     | disabled until a valid credential is entered.                                                           |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
@@ -1815,6 +1805,12 @@ shows the configuration options for Cloud Syncs.
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
 
 
+.. note:: If the selected credential is incorrect it prompts for a
+   correction. Click the :guilabel:`Fix Credential` button to
+   return to the
+   :menuselection:`System --> Cloud Credentials --> Edit`
+   page for the selected credential.
+
 To modify an existing cloud sync, click |ui-options| to access the
 :guilabel:`Run Now`, :guilabel:`Edit`, and :guilabel:`Delete` options.
 
@@ -1836,7 +1832,6 @@ Click
 and |ui-add| to enter the credentials for storage on an Amazon AWS
 account. The credential is given the name *S3 Storage*, as shown in
 :numref:`Figure %s <tasks_cloudsync_example_cred_fig>`:
-
 
 .. _tasks_cloudsync_example_cred_fig:
 

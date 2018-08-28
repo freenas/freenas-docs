@@ -72,7 +72,7 @@ To ensure both systems are set to the same time:
 
 :numref:`Table %s <ad_tab>` describes the configurable options. Some
 settings are only available in Advanced Mode. Click the
-:guilabel:`Advanced Mode` button to show the Advanced Mode settings. Go
+:guilabel:`ADVANCED MODE` button to show the Advanced Mode settings. Go
 to :menuselection:`System --> Advanced` and set the
 :guilabel:`Show advanced fields by default` option to always show
 advanced options.
@@ -92,7 +92,7 @@ advanced options.
    |                          |               | Mode     |                                                                                                                               |
    +==========================+===============+==========+===============================================================================================================================+
    | Domain Name              | string        |          | Name of the Active Directory domain (*example.com*) or child domain (*sales.example.com*). This field is mandatory.           |
-   | (DNS/Realm-Name)         |               |          | :guilabel:`Save` will be inactive until valid input is entered.                                                               |
+   |                          |               |          | :guilabel:`Save` will be inactive until valid input is entered.                                                               |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Domain Account Name      | string        |          | Name of the Active Directory administrator account. This field is mandatory. :guilabel:`Save` will be inactive until valid    |
@@ -103,11 +103,11 @@ advanced options.
    |                          |               |          | valid input is entered.                                                   .                                                   |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | AD check connectivity    | integer       |          | How often for the system to verify Active Directory services are functioning.                                                 |
-   | frequency (seconds)      |               |          |                                                                                                                               |
+   | Connectivity Check       | integer       |          | How often for the system to verify Active Directory services are functioning. Enter a number of seconds.                      |
+   |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | How many recovery        | integer       |          | Number of times to attempt reconnecting to the Active Directory server. Tries forever when set to *0*.                        |
-   | attempts                 |               |          |                                                                                                                               |
+   | Recovery Attempts        | integer       |          | Number of times to attempt reconnecting to the Active Directory server. Tries forever when set to *0*.                        |
+   |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Enable AD Monitoring     | checkbox      |          | Restart Active Directory automatically if the service disconnects.                                                            |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
@@ -140,8 +140,8 @@ advanced options.
    | Allow DNS updates        | checkbox      | ✓        | Set to enable Samba to do DNS updates when joining a domain.                                                                  |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Disable Active Directory | checkbox      | ✓        | Set to disable caching AD users and groups. This can help when unable to bind to a domain with a large number of users or     |
-   | user/group cache         |               |          | groups.                                                                                                                       |
+   | Disable FreeNAS Cache    | checkbox      | ✓        | Set to disable caching AD users and groups. This can help when unable to bind to a domain with a large number of users or     |
+   |                          |               |          | groups.                                                                                                                       |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Site Name                | string        | ✓        | The relative distinguished name of the site object in Active Directory.                                                       |
@@ -161,10 +161,10 @@ advanced options.
    | Kerberos Principal       | drop-down     | ✓        | Browse to the location of the keytab created using the instructions in :ref:`Kerberos Keytabs`.                               |
    |                          | menu          |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | AD timeout               | integer       | ✓        | Increase the number of seconds before timeout if the AD service does not immediately start after connecting to the domain.    |
+   | AD Timeout               | integer       | ✓        | Increase the number of seconds before timeout if the AD service does not immediately start after connecting to the domain.    |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | DNS timeout              | integer       | ✓        | Increase the number of seconds before a timeout occurs if AD DNS queries timeout.                                             |
+   | DNS Timeout              | integer       | ✓        | Increase the number of seconds before a timeout occurs if AD DNS queries timeout.                                             |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Idmap backend            | drop-down     | ✓        | Choose the backend to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs. See                                      |
@@ -184,7 +184,7 @@ advanced options.
    |                          |               |          |                                                                                                                               |
    #ifdef freenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS name             | string        | ✓        | Limited to 15 characters. Automatically populated with the original hostname of the system. This **must** be different from   |
+   | Netbios Name             | string        | ✓        | Limited to 15 characters. Automatically populated with the original hostname of the system. This **must** be different from   |
    |                          |               |          | the *Workgroup* name.                                                                                                         |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
@@ -260,7 +260,7 @@ are made to this setting.
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
 
-Click the :guilabel:`Rebuild Directory Service Cache` button if a new
+Click the :guilabel:`REBUILD DIRECTORY SERVICE CACHE` button if a new
 Active Directory user needs immediate access to %brand%. This occurs
 automatically once a day as a cron job.
 
@@ -311,9 +311,9 @@ output.
 
 To change a certificate, enable Advanced Mode, set the
 :guilabel:`Encryption Mode` to *Off*, then disable AD by unchecking
-:guilabel:`Enable`. Click :guilabel:`Save`. Select the new
+:guilabel:`Enable`. Click :guilabel:`SAVE`. Select the new
 :guilabel:`Certificate`, set the :guilabel:`Encryption Mode` as desired,
-check :guilabel:`Enable` to re-enable AD, and click :guilabel:`Save`
+check :guilabel:`Enable` to re-enable AD, and click :guilabel:`SAVE`
 to restart AD.
 
 .. _Troubleshooting Tips:
@@ -388,7 +388,7 @@ and back online, resync the cache using
 
 
 Next, only run these two commands **if** the
-:guilabel:`Unix extensions` box is checked in
+:guilabel:`UNIX extensions` box is checked in
 :guilabel:`Advanced Mode` and a keytab has been uploaded using
 :ref:`Kerberos Keytabs`:
 
@@ -453,7 +453,7 @@ section from :menuselection:`Directory Services --> LDAP`.
 
 :numref:`Table %s <ldap_config_tab>` summarizes the available
 configuration options. Some settings are only available in Advanced Mode.
-Click the :guilabel:`Advanced Mode` button to show the Advanced Mode
+Click the :guilabel:`ADVANCED MODE` button to show the Advanced Mode
 settings. Go to :menuselection:`System --> Advanced` and set the
 :guilabel:`Show advanced fields by default` option to always show
 advanced options.
@@ -487,10 +487,11 @@ Those new to LDAP terminology should read the
    | Bind DN                 | string         |          | Administrative account name on the LDAP server (Example: *cn=Manager,dc=test,dc=org*).              |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Bind password           | string         |          | Password for the :guilabel:`Bind DN`.                                                               |
+   | Bind Password           | string         |          | Password for the :guilabel:`Bind DN`. Click :guilabel:`SHOW/HIDE PASSWORDS` to view or obscure      |
+   |                         |                |          | the password characters.                                                                            |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Allow Anonymous         | checkbox       | ✓        | Instruct the LDAP server to disable authentication and allow read and write access to any client    |
+   | Allow Anonymous         | checkbox       | ✓        | Instruct the LDAP server to disable authentication and allow read and write access to any client.   |
    | Binding                 |                |          |                                                                                                     |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
@@ -532,9 +533,9 @@ Those new to LDAP terminology should read the
    | DNS timeout             | integer        | ✓        | Increase this value in seconds if DNS queries timeout.                                              |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Idmap backend           | drop-down menu | ✓        | The backend used to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs. See              |
+   | Idmap Backend           | drop-down menu | ✓        | The backend used to map Windows security identifiers (SIDs) to UNIX UIDs and GIDs. See              |
    |                         |                |          | :numref:`Table %s <id_map_backends_tab>` for a summary of the available backends. Click             |
-   |                         |                |          | :guilabel:`Edit Idmap` to configure the selected backend.                                           |
+   |                         |                |          | :guilabel:`EDIT IDMAP` to configure the selected backend.                                           |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Samba Schema            | checkbox       | ✓        | Set if LDAP authentication for SMB shares is required **and** the LDAP server is **already**        |
@@ -552,7 +553,7 @@ Those new to LDAP terminology should read the
    |                         |                |          |                                                                                                     |
    #ifdef freenas
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | NetBIOS Name            | string         | ✓        | Limited to 15 characters. Automatically populated with the original hostname of the system.         |
+   | Netbios Name            | string         | ✓        | Limited to 15 characters. Automatically populated with the original hostname of the system.         |
    |                         |                |          | This **must** be different from the *Workgroup* name.                                               |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
@@ -575,9 +576,11 @@ Those new to LDAP terminology should read the
    #endif truenas
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
 
+
 .. note:: %brand% automatically appends the root DN. This means the
    scope and root DN are not to be included when configuring the
    user, group, password, and machine suffixes.
+
 
 LDAP users and groups appear in the drop-down menus of the
 :guilabel:`Permissions` screen of a dataset after configuring the LDAP
@@ -655,6 +658,7 @@ once a day as a cron job.
    |             |           |                                                                                              |
    +-------------+-----------+----------------------------------------------------------------------------------------------+
 
+
 .. _Kerberos Realms:
 
 Kerberos Realms
@@ -663,8 +667,8 @@ Kerberos Realms
 A default Kerberos realm is created for the local system in %brand%.
 :menuselection:`Directory Services --> Kerberos Realms`
 can be used to view and add Kerberos realms. If the network contains
-a Key Distribution Center (KDC), click :guilabel:`Add Kerberos Realm`
-to add the realm. The configuration screen is shown in
+a Key Distribution Center (KDC), click |ui-add| to add the realm. The
+configuration screen is shown in
 :numref:`Figure %s <ker_realm_fig>`.
 
 .. _ker_realm_fig:
@@ -675,7 +679,7 @@ to add the realm. The configuration screen is shown in
 
 :numref:`Table %s <ker_realm_config_tab>` summarizes the configurable
 options. Some settings are only available in Advanced Mode. To see these
-settings, either click :guilabel:`Advanced Mode` or configure the system
+settings, either click :guilabel:`ADVANCED MODE` or configure the system
 to always display these settings by setting
 :guilabel:`Show advanced fields by default` in
 :menuselection:`System --> Advanced`.
