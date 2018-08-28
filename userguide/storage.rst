@@ -164,18 +164,18 @@ Once the pool is created, the screen refreshes and the new pool is
 listed in :menuselection:`Storage --> Pools`.
 
 In the example shown in :numref:`Figure %s <zfs_vol_fig>`, the created
-pool is named *pool1*. The description indicates that it is HEALTHY
-and the :guilabel:`Used` and :guilabel:`Free` entries reflect the total
-size of the pool, including disk parity.
+pool is named *pool1*. The description indicates that it is healthy.
+The :guilabel:`Used` and :guilabel:`Free` entries reflect the total
+size of the pool including disk parity.
 
 Click the down arrow to see more details about the pool. This second
 entry has the same name and represents the implicit or root dataset. The
 :guilabel:`Used` and :guilabel:`Available` entries indicate the amount
-of disk space available for storage, after disk parity. It also
-indicates the type of :guilabel:`Compression`, the
-:guilabel:`Compression Ratio`, whether it is mounted as read-only,
-whether :guilabel:`Deduplication` has been enabled, the mountpoint path,
-and any :guilabel:`Comments` entered for the pool.
+of disk space available for storage, after disk parity is subtracted. It also
+indicates the type of compression, the
+compression ratio, whether it is mounted as read-only,
+whether deduplication has been enabled, the mountpoint path,
+and any comments entered for the pool.
 
 There is an option to :guilabel:`Upgrade Pool`. This upgrades the
 pool to the latest ZFS features, as described in
