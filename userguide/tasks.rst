@@ -1816,8 +1816,8 @@ shows the configuration options for Cloud Syncs.
 
 
 .. note:: If the selected credential is incorrect it prompts for a
-   correction. Click the :guilabel:`Fix Credential` button to be
-   returned to the
+   correction. Click the :guilabel:`Fix Credential` button to
+   return to the
    :menuselection:`System --> Cloud Credentials --> Edit`
    page for the selected credential.
 
