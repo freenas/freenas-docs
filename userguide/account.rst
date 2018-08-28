@@ -363,5 +363,5 @@ created or modified.
 Built-in user accounts needed by the system cannot be removed. A
 :guilabel:`Remove User` button appears for custom users that were
 added by the system administrator. If the user to be removed is the
-last user in a custom group, an option is presented to delete the
-group as well.
+last user in a custom group, an option is offered to keep the user
+primary group after deleting the user.

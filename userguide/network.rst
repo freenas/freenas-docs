@@ -104,7 +104,7 @@ but can be changed to meet requirements of the local network.
    | IPv6 Default Gateway    | IP address    | Typically not set. See :ref:`this note about Gateways <Gateway Note>`.                            |
    |                         |               |                                                                                                   |
    +-------------------------+---------------+---------------------------------------------------------------------------------------------------+
-   | Nameserver 1            | IP address    | Primary DNS server (typically in Windows domain).                                                 |
+   | Nameserver 1            | IP address    | Primary DNS server.                                                                               |
    |                         |               |                                                                                                   |
    +-------------------------+---------------+---------------------------------------------------------------------------------------------------+
    | Nameserver 2            | IP address    | Secondary DNS server.                                                                             |

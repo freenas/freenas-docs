@@ -38,7 +38,7 @@ can also reduce the length of these limits by one or more bytes.
    | Paths                 |                   | Longer paths can prevent a device from being mounted or data from being accessible.           |
    |                       |                   |                                                                                               |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------+
-   | Device Filesystem     | 63 bytes          | `devfs(8) <https://www.freebsd.org/cgi/man.cgi?query=devfs&sektion=8>`__                      |
+   | Device Filesystem     | 63 bytes          | `devfs(8) <https://www.freebsd.org/cgi/man.cgi?query=devfs>`__                                |
    | Paths                 |                   | device path lengths (*SPECNAMELEN*).                                                          |
    |                       |                   | Longer paths can prevent a device from being created.                                         |
    |                       |                   |                                                                                               |
@@ -47,6 +47,7 @@ can also reduce the length of these limits by one or more bytes.
 
 .. note:: 88 bytes is equal to 88 ASCII characters. The number of
    characters will vary when using Unicode.
+
 
 .. warning:: If the mounted path length for a snapshot exceeds 88 bytes
    the data in the snapshot will be safe but inaccessible. When the

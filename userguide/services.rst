@@ -172,7 +172,7 @@ which are described in
    |                            |                   | The path must be writable even if the volume is read only.                                                   |
    |                            |                   |                                                                                                              |
    +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
-   | Global auxiliary           | string            | Add any additional `afp.conf(5) <http://netatalk.sourceforge.net/3.0/htmldocs/afp.conf.5.html>`__            |
+   | Global auxiliary           | string            | Add any additional `afp.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=afp.conf>`__                      |
    | parameters                 |                   | parameters not covered elsewhere in this screen.                                                             |
    |                            |                   |                                                                                                              |
    +----------------------------+-------------------+--------------------------------------------------------------------------------------------------------------+
@@ -581,8 +581,9 @@ summarizes the available options when configuring the FTP server.
    |                                                              | menu          |             | certificate, use :menuselection:`System --> Certificates`.                         |
    |                                                              |               |             |                                                                                    |
    +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
-   | Auxiliary parameters                                         | string        | ✓           | Add any additional `proftpd(8) <https://linux.die.net/man/8/proftpd>`__            |
-   |                                                              |               |             | parameters not covered elsewhere in this screen.                                   |
+   | Auxiliary parameters                                         | string        | ✓           | Add any additional `proftpd(8)                                                     |
+   |                                                              |               |             | <https://www.freebsd.org/cgi/man.cgi?query=proftpd>`__ parameters not covered      |
+   |                                                              |               |             | elsewhere in this screen.                                                          |
    |                                                              |               |             |                                                                                    |
    +--------------------------------------------------------------+---------------+-------------+------------------------------------------------------------------------------------+
 
@@ -632,7 +633,7 @@ To configure anonymous FTP:
 
 #.  Configure anonymous FTP in
     :menuselection:`Services --> FTP`
-    by setting the following attributes:
+    by setting these attributes:
 
     * :guilabel:`Allow Anonymous Login`: enable this option
 
@@ -811,7 +812,7 @@ If the error refers to DNS, either create an entry in the local DNS
 server with the %brand% system hostname and IP address, or add an entry
 for the IP address of the %brand% system in the
 :menuselection:`Network --> Global Configuration`
-:guilabel:`Host name database` field.
+:guilabel:`Host name data base` field.
 
 
 .. _iSCSI:
@@ -1065,8 +1066,8 @@ summarizes the configuration options for the rsync daemon:
    | TCP Port      | integer    | Port for :command:`rsyncd` to listen on. Default is *873*.                |
    |               |            |                                                                           |
    +---------------+------------+---------------------------------------------------------------------------+
-   | Auxiliary     | string     | Enter any additional parameters from                                      |
-   | parameters    |            | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__.    |
+   | Auxiliary     | string     | Enter any additional parameters from `rsyncd.conf(5)                      |
+   | parameters    |            | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.               |
    |               |            |                                                                           |
    +---------------+------------+---------------------------------------------------------------------------+
 
@@ -1128,17 +1129,19 @@ module.
    | Group                  | drop-down menu    | Select the group to control file transfers to and from the module.       |
    |                        |                   |                                                                          |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Hosts allow            | string            | See                                                                      |
-   |                        |                   | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__    |
+   | Hosts allow            | string            | See `rsyncd.conf(5)                                                      |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__               |
    |                        |                   | Enter a list of patterns to match with the hostname and IP address       |
    |                        |                   | of a connecting client. Separate patterns with whitespace or comma.      |
    |                        |                   |                                                                          |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Hosts deny             | string            | See rsyncd.conf(5) for allowed formats.                                  |
+   | Hosts deny             | string            | See `rsyncd.conf(5)                                                      |
+   |                        |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__ for           |
+   |                        |                   | allowed formats.                                                         |
    |                        |                   |                                                                          |
    +------------------------+-------------------+--------------------------------------------------------------------------+
-   | Auxiliary              | string            | Enter any additional parameters from                                     |
-   | parameters             |                   | `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__    |
+   | Auxiliary              | string            | Enter any additional parameters from `rsyncd.conf(5)                     |
+   | parameters             |                   | <https://www.freebsd.org/cgi/man.cgi?query=rsyncd.conf>`__.              |
    |                        |                   |                                                                          |
    +------------------------+-------------------+--------------------------------------------------------------------------+
 
@@ -1350,9 +1353,7 @@ settings which apply to all SMB shares are configured in
 configuration options which are described in
 :numref:`Table %s <global_smb_config_opts_tab>`. This configuration
 screen is really a front-end to
-`smb4.conf
-<https://www.freebsd.org/cgi/man.cgi?query=smb4.conf&manpath=FreeBSD+11.0-RELEASE+and+Ports>`__.
-
+`smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb4.conf>`__.
 
 .. _global_smb_config_fig:
 

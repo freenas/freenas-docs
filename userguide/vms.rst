@@ -16,8 +16,7 @@ is running, these resources are not available to the host computer or
 other VMs.
 
 %brand% VMs use the
-`bhyve(8)
-<https://www.freebsd.org/cgi/man.cgi?query=bhyve&manpath=FreeBSD+11.0-RELEASE+and+Ports>`__
+`bhyve(8) <https://www.freebsd.org/cgi/man.cgi?query=bhyve>`__
 virtual machine software. This type of virtualization requires an
 Intel processor with Extended Page Tables (EPT) or an AMD processor
 with Rapid Virtualization Indexing (RVI) or Nested Page Tables (NPT).
@@ -31,7 +30,6 @@ To verify that an AMD processor has the required features, use
 :ref:`Shell` to run :command:`grep POPCNT /var/run/dmesg.boot`. If the
 output shows the POPCNT feature, this processor can be used with
 *bhyve*.
-
 
 .. note:: By default, new VMs have the
    `bhyve(8)
@@ -53,10 +51,9 @@ Creating VMs
 ------------
 
 Select
-:menuselection:`VMs --> Add VM` for the :guilabel:`Add VM` dialog
-shown in
+:menuselection:`VMs --> Add VM`
+for the :guilabel:`Add VM` dialog shown in
 :numref:`Figure %s <vms_add_fig>`:
-
 
 .. _vms_add_fig:
 
@@ -67,7 +64,6 @@ shown in
 
 VM configuration options are described in
 :numref:`Table %s <vms_add_opts_tab>`.
-
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
@@ -118,7 +114,6 @@ Adding Devices to a VM
 After creating the VM, click it to select it, then click
 :guilabel:`Devices` and :guilabel:`Add Device` to add virtual hardware
 to it:
-
 
 .. figure:: images/vms-devices1.png
 
@@ -187,7 +182,6 @@ by selecting :guilabel:`Add device`, choose the *VM*, select a
 number of bytes into :guilabel:`Disk sector size`. The default of *0*
 leaves the sector size unset.
 
-
 .. figure:: images/vms-disk1.png
 
    VM Disk Device
@@ -221,7 +215,6 @@ If a specific sector size is required, enter the number of bytes into
 :guilabel:`Disk sectorsize`. The default of *0* leaves the sector size
 unset.
 
-
 .. figure:: images/vms-raw-file.png
 
    VM Raw File Disk Device
@@ -236,7 +229,6 @@ Adding a CD-ROM device makes it possible to boot the VM from a CD-ROM
 image, typically an installation CD. The image must be present on an
 accessible portion of the %brand% storage. In this example, a FreeBSD
 installation image is shown:
-
 
 .. figure:: images/vms-cdrom.png
 
@@ -269,7 +261,6 @@ mouse input.
 :numref:`Figure %s <vms-vnc_fig>` shows the fields that appear when
 :guilabel:`VNC` is the selected :guilabel:`Type`.
 
-
 .. _vms-vnc_fig:
 
 .. figure:: images/vms-vnc1.png
@@ -296,7 +287,6 @@ characters.
 
 To use the VNC web interface, set :guilabel:`VNC Web`.
 
-
 .. tip:: If a RealVNC 5.X Client shows the error
    :literal:`RFB protocol error: invalid message type`, disable the
    :guilabel:`Adapt to network speed` option and move the slider to
@@ -319,7 +309,6 @@ VMs automatically include a virtual serial port.
 
 And so on. These virtual serial ports allow connecting to the VM
 console from the :ref:`Shell`.
-
 
 .. tip:: The `nmdm <https://www.freebsd.org/cgi/man.cgi?query=nmdm&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__
    device is dynamically created. The actual :literal:`nmdm` name can
@@ -349,7 +338,6 @@ Select
 to see a list of configured VMs. Configuration and control buttons
 appear at the bottom of the screen when an individual VM is selected
 with a mouse click:
-
 
 .. figure:: images/vms-control1.png
 
@@ -458,7 +446,6 @@ Click :guilabel:`VMs`, then the :guilabel:`Add VM` button. Set the
 :guilabel:`Memory Size`. To have the Rancher VM start when the %brand%
 system boots, enable the :guilabel:`Autostart` option. Click
 :guilabel:`OK` to create the virtual machine.
-
 
 .. figure:: images/vms-add-rancher.png
 

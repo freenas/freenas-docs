@@ -235,7 +235,7 @@ information given when the share was created.
    |                        |               |             | Separate entries with a comma, space, or tab.                                                                |
    |                        |               |             |                                                                                                              |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------+
-   | Auxiliary              | string        |             | Additional `afp.conf <http://netatalk.sourceforge.net/3.1/htmldocs/afp.conf.5.html>`__                       |
+   | Auxiliary              | string        |             | Additional `afp.conf <https://www.freebsd.org/cgi/man.cgi?query=afp.conf>`__                                 |
    | Parameters             |               |             | parameters not covered by other option fields.                                                               |
    |                        |               |             |                                                                                                              |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------+
@@ -455,17 +455,15 @@ set for the *user1* account.
    Configuring Time Machine on Mac OS X Lion
 
 
-If :guilabel:`Time Machine could not complete the backup. The
-backup disk image could not be created (error 45)` is shown when
-backing up to the %brand% system, a sparsebundle
-image must be created using
+If :literal:`Time Machine could not complete the backup. The backup disk
+image could not be created (error 45)` is shown when backing up to the
+%brand% system, a sparsebundle image must be created using
 `these instructions
 <https://community.netgear.com/t5/Stora-Legacy/Solution-to-quot-Time-Machine-could-not-complete-the-backup/td-p/294697>`__.
 
-If :guilabel:`Time Machine completed a verification of
-your backups. To improve reliability, Time Machine must create a new
-backup for you.` is shown, follow the instructions in
-`this post
+If :literal:`Time Machine completed a verification of your backups. To
+improve reliability, Time Machine must create a new backup for you.` is
+shown, follow the instructions in `this post
 <http://www.garth.org/archives/2011,08,27,169,fix-time-machine-sparsebundle-nas-based-backup-errors.html>`__
 to avoid making another backup or losing past backups.
 
@@ -830,12 +828,12 @@ running on the Linux client. If portmapper is running and timeouts are
 still shown, force the use of TCP by including **-o tcp** in the
 :command:`mount` command.
 
-If a "RPC: Program not registered" error is shown, upgrade to the
-latest version of %brand% and restart the NFS service after the
+If a :literal:`RPC: Program not registered` error is shown, upgrade to
+the latest version of %brand% and restart the NFS service after the
 upgrade to clear the NFS cache.
 
 If clients see "reverse DNS" errors, add the %brand% IP address in the
-:guilabel:`Host name database` field of
+:guilabel:`Host name data base` field of
 :menuselection:`Network --> Global Configuration`.
 
 If clients receive timeout errors when trying to mount the share, add
@@ -975,12 +973,12 @@ client in order to provide support for SMB. If the distro did not,
 install the Samba client using the distro software repository.
 
 The SMB protocol supports many different types of configuration
-scenarios, ranging from the simple to complex. The
-complexity of the scenario depends upon the types and versions of the
-client operating systems that will connect to the share, whether the
-network has a Windows server, and whether Active Directory is being
-used. Depending on the authentication requirements, it might be
-necessary to create or import users and groups.
+scenarios, ranging from the simple to complex. The complexity of the
+scenario depends upon the types and versions of the client operating
+systems that will connect to the share, whether the network has a
+Windows server, and whether Active Directory is being used. Depending on
+the authentication requirements, it might be necessary to create or
+import users and groups.
 
 Samba supports server-side copy of files on the same share with
 clients from Windows 8 and higher. Copying between two different
@@ -989,12 +987,11 @@ copying with
 `Robocopy
 <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc733145(v=ws.11)>`__.
 
-This chapter starts by summarizing the available configuration
-options. It demonstrates some common configuration scenarios as well
-as offering some troubleshooting tips. Reading
-through this entire chapter before creating any SMB shares is
-recommended to gain a better understanding of the configuration
-scenario that meets the specific network requirements.
+This chapter starts by summarizing the available configuration options.
+It demonstrates some common configuration scenarios as well as offering
+some troubleshooting tips. Reading through this entire chapter before
+creating any SMB shares is recommended to gain a better understanding of
+the configuration scenario that meets the specific network requirements.
 
 .. tip:: `SMB Tips and Tricks
    <https://forums.freenas.org/index.php?resources/smb-tips-and-tricks.15/>`__
@@ -1034,8 +1031,7 @@ For simple sharing scenarios, :guilabel:`Advanced Mode` options are
 not needed. For more complex sharing scenarios, only change an
 :guilabel:`Advanced Mode` option after fully understanding the
 function of that option.
-`smb.conf(5)
-<https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+11.0-RELEASE+and+Ports>`__
+`smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__
 provides more details for each configurable option.
 
 
@@ -1124,8 +1120,7 @@ provides more details for each configurable option.
    +-------------------------+--------------+-------------+-----------------------------------------------------------------------------------------------------+
 
 
-Note the following regarding some of the :guilabel:`Advanced Mode`
-settings:
+Here are some notes about :guilabel:`Advanced Mode` settings:
 
 * Hostname lookups add some time to accessing the SMB share. If
   only using IP addresses, unset the :guilabel:`Hostnames lookups`
@@ -1150,7 +1145,7 @@ settings:
   :guilabel:`Auxiliary Parameters` field. The syntax for the
   :guilabel:`veto files` option and some examples can be found in the
   `smb.conf manual page
-  <https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+11.0-RELEASE+and+Ports>`__.
+  <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.
 
 
 Samba disables NTLMv1 authentication by default for security. Standard
@@ -1170,8 +1165,7 @@ provides an overview of the available VFS modules. Be sure to research
 each module **before** adding or deleting it from the
 :guilabel:`Selected` column of the :guilabel:`VFS Objects` field of
 the share. Some modules need additional configuration after they are
-added. Refer to
-`Stackable VFS modules
+added. Refer to `Stackable VFS modules
 <https://www.samba.org/samba/docs/old/Samba3-HOWTO/VFS.html>`__
 and the
 `vfs_* man pages <https://www.samba.org/samba/docs/current/man-html/>`__
@@ -1331,12 +1325,12 @@ for more details.
 
 
 .. note:: Be careful when using multiple SMB shares, some with and some
-   without *fruit*. macOS clients negotiate SMB2 AAPL protocol extensions
-   on the first connection to the server, so mixing shares with and
-   without fruit will globally disable AAPL if the first connection occurs
-   without fruit. To resolve this, all macOS clients need to disconnect
-   from all SMB shares and the first reconnection to the server has to be
-   to a fruit-enabled share.
+   without *fruit*. macOS clients negotiate SMB2 AAPL protocol
+   extensions on the first connection to the server, so mixing shares
+   with and without fruit will globally disable AAPL if the first
+   connection occurs without fruit. To resolve this, all macOS clients
+   need to disconnect from all SMB shares and the first reconnection to
+   the server has to be to a fruit-enabled share.
 
 
 These VFS objects do not appear in the selection box:
@@ -1508,13 +1502,12 @@ the drop-down menu and click the :guilabel:`Finish` button.
 
 Note that Windows systems cache a user's credentials. This can cause
 issues when testing or accessing multiple authenticated shares as only
-one authentication is allowed at a time. When
-authenticating to a share, if problems occur and the
-username and password are correct, type **cmd** in the
-:guilabel:`Search programs and files` box and use the following
-command to see if the share is already authenticated. In this
-example, the user has already authenticated to the *smb_user1*
-share:
+one authentication is allowed at a time. When authenticating to a share,
+if problems occur and the username and password are correct, type
+:command:`cmd` in the :guilabel:`Search programs and files` box and use
+the following command to see if the share is already authenticated. In
+this example, the user has already authenticated to the
+:literal:`smb_user1` share:
 
 .. code-block:: none
 
@@ -1551,8 +1544,8 @@ Explorer:
    The command completed successfully.
 
 
-The next time a share is accessed with Explorer, a
-prompt to authenticate will occur.
+The next time a share is accessed with Explorer, a prompt to
+authenticate will occur.
 
 
 .. index:: Shadow Copies
@@ -1796,8 +1789,8 @@ Target Global Configuration
 
 :menuselection:`Sharing --> Block (iSCSI)
 --> Target Global Configuration`, shown in
-:numref:`Figure %s <iscsi_targ_global_var_fig>`, contains
-settings that apply to all iSCSI shares.
+:numref:`Figure %s <iscsi_targ_global_var_fig>`, contains settings that
+apply to all iSCSI shares.
 :numref:`Table %s <iscsi_targ_global_config_tab>`
 summarizes the settings that are configured in the Target Global
 Configuration screen.
@@ -1809,9 +1802,9 @@ explicitly configured port IP addresses. This avoids initiators
 attempting to discover unconfigured target portal addresses like
 *0.0.0.0*.
 
-The iSNS registration period is 900 seconds. Registered Network
+The iSNS registration period is *900* seconds. Registered Network
 Entities not updated during this period are unregistered. The timeout
-for iSNS requests is 5 seconds.
+for iSNS requests is *5* seconds.
 
 
 #ifdef freenas
@@ -1925,7 +1918,7 @@ than a link aggregation.
 
 If the %brand% system has multiple configured interfaces, portals can
 also be used to provide network access control. For example, consider
-a system with four interfaces configured with the following addresses:
+a system with four interfaces configured with these addresses:
 
 192.168.1.1/24
 
@@ -1946,6 +1939,7 @@ and connections to target B would be limited to the last two networks.
 Another scenario would be to create a portal which includes every IP
 address **except** for the one used by a management interface. This
 would prevent iSCSI connections to the management interface.
+
 
 .. _Initiators:
 
@@ -2006,7 +2000,6 @@ two groups are created. Group 1 allows connections from any
 initiator on any network. Group 2 allows connections from any
 initiator on the *10.10.1.0/24* network. Click an initiator's entry to
 display its :guilabel:`Edit` and :guilabel:`Delete` buttons.
-
 
 .. note:: Attempting to delete an initiator causes a warning that
    indicates if any targets or target/extent mappings depend upon the
@@ -2094,7 +2087,6 @@ three users (*test1*, *test2*, and *test3*) and two groups
 user and group 2 consisting of one mutual CHAP user and one CHAP user.
 Click an authorized access entry to display its :guilabel:`Edit` and
 :guilabel:`Delete` buttons.
-
 
 .. _iscsi_view_auth_access_fig:
 
@@ -2192,7 +2184,6 @@ volume, or a
 
 **File extents** provide virtual storage access to an individual file.
 
-
 .. tip:: **For typical use as storage for virtual machines where the
    virtualization software is the iSCSI initiator, device extents
    with zvols provide the best performance and most features.**
@@ -2221,7 +2212,6 @@ cache. Even if the client formats a device extent with a different
 filesystem, the data still resides on a ZFS volume and benefits from
 ZFS features like block checksums and snapshots.
 
-
 .. warning:: For performance reasons and to avoid excessive
    fragmentation, keep the used space of the pool below 50% when using
    iSCSI. The capacity of an existing extent can be increased as shown
@@ -2239,7 +2229,6 @@ created from the :file:`/mnt/volume1` volume.
 summarizes the settings that can be configured when creating an
 extent. Note that **file extent creation fails when the name of the
 file to be created to the volume/dataset name.** is not appended.
-
 
 .. _iscsi_adding_extent_fig:
 
@@ -2586,7 +2575,7 @@ configuration. See the
 <https://www.vmware.com/pdf/vsphere4/r41/vsp_41_iscsi_san_cfg.pdf>`__
 for details.
 
-The VMware firewall only allows iSCSI connections on port 3260 by
+The VMware firewall only allows iSCSI connections on port *3260* by
 default. If a different port has been selected, outgoing connections
 to that port must be manually added to the firewall before those
 connections will work.
