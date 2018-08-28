@@ -60,6 +60,7 @@ After the system has an IP address, enter that address into a
 graphical web browser from a computer connected to the same network as
 the %brand% system.
 
+
 .. _Logging_In:
 
 Logging In
@@ -75,7 +76,9 @@ new UI.
 
    Enter the Root Password
 
-To instead log into the legacy UI, click the :guilabel:`Legacy UI` link.
+
+To instead log into the legacy web interface, click the
+:guilabel:`LEGACY WEB INTERFACE` link.
 
 Enter the password for the root user that was chosen during the
 installation. The administrative GUI for the legacy UI is displayed as
@@ -88,9 +91,11 @@ shown in :numref:`Figure %s <quick_graphic_config_menu_fig>`.
 
    %brand% Graphical Configuration Menu
 
+
 .. note:: The rest of this Guide describes the legacy UI. To access the
    Guide for the new UI, log into the new UI and click :guilabel:`Guide`
    or access it online at doc.freenas.org/11.2/freenas.html.
+
 
 If the %brand% system does not respond to the IP address or mDNS name
 entered in a browser:
