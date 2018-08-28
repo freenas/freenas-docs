@@ -607,10 +607,6 @@ all three options. This instructs the system to destroy the data on the
 pool, datasets, zvols, and the configuration of each share. It returns
 the individual disk to a raw state.
 
-To instead destroy the data on the pool, set both options. This
-instructs the system to destroy the data on the pool, its datasets,
-zvols, and shares and to return its individual disks are to their raw
-state.
 
 .. danger:: Before destroying a pool, ensure that any needed data has
    been backed up to a different pool or system.
