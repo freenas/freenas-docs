@@ -77,8 +77,8 @@ The password for the root user is requested as shown in
 
 
 .. note:: The %brand% UI now uses Angular and a new, asynchronous
-   middleware. To use the legacy Django UI that was used before
-   version 11.2, click :guilabel:`Legacy UI`. This Guide only
+   middleware. To use the legacy Django UI that was used before version
+   11.2, click :guilabel:`LEGACY WEB INTERFACE`. This Guide only
    demonstrates the new, Angular UI.
 
 
