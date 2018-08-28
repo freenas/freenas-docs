@@ -303,9 +303,14 @@ These screen options have changed:
 * Disk temperature graphs have been added to
   :menuselection:`Reporting --> Disk`.
 
+* :menuselection:`Virtual Machines --> Device` add and edit forms now
+  have a :guilabel:`Device Order` field to set boot priority for VM
+  devices.
+
 .. note:: To keep lists aligned when using zoom in Firefox, ensure
    :menuselection:`View --> Zoom --> Zoom Text Only`
    is not set.
+
 
 .. _Path and Name Lengths:
 
