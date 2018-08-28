@@ -42,7 +42,7 @@ operation.
 
 Shell provides a history of commands used. Use the arrow keys to see
 previously entered commands and press :kbd:`Enter` to repeat the
-command.The keys :kbd:`Home`, :kbd:`End`, and :kbd:`Delete` are also
+command. The keys :kbd:`Home`, :kbd:`End`, and :kbd:`Delete` are also
 supported in the shell. The shell also provides tab completion. Type a
 few letters and press tab to complete a command name or filename in the
 current directory. Type :command:`exit` to leave the session.
@@ -55,6 +55,6 @@ and the detachment and reattachment of sessions.
 .. note:: Not all of Shell's features render correctly in Chrome.
    Firefox is the recommended browser for using Shell.
 
-Most FreeBSD command line utilities are available in Shell. Additional
-troubleshooting utilities that are provided by %brand% are described
-in :ref:`Command Line Utilities`.
+Most FreeBSD command line utilities are available in the
+:guilabel:`Shell`. Additional troubleshooting utilities that are
+provided by %brand% are described in :ref:`Command Line Utilities`.

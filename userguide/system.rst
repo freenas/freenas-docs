@@ -809,8 +809,8 @@ Next, remember to initialize the devices:
 This command ensures that all detected SED disks are properly setup using
 the specified password.
 
-.. _note: Rerun that command every time a new SED disk is placed in the
-   system.
+.. note:: Rerun :command:`sedhelper setup password` every time a new SED
+   disk is placed in the system.
 
 This command is used to unlock all available SED disks:
 
@@ -1017,7 +1017,7 @@ Tunables
 --------
 
 :menuselection:`System --> Tunables`
-can be used to manage the following:
+can be used to manage:
 
 #. **FreeBSD sysctls:** a
    `sysctl(8) <https://www.freebsd.org/cgi/man.cgi?query=sysctl>`__
@@ -1122,7 +1122,7 @@ restarting the system guarantees that the setting values correspond
 with what is being used by the running system.
 
 The GUI does not display the sysctls that are pre-set when %brand% is
-installed. %brand% |release| ships with the following sysctls set:
+installed. %brand% |release| ships with these sysctls set:
 
 #ifdef freenas
 .. code-block:: none
@@ -2269,7 +2269,7 @@ to help solve it. If similar issues have already been *Closed* or
    have already fixed the problem.
 
 To generate a report using the built-in :guilabel:`Support` screen,
-complete the following fields:
+complete these fields:
 
 * **Username:** enter the login name created when registering at
   https://redmine.ixsystems.com/projects/freenas/issues.
@@ -2292,7 +2292,7 @@ complete the following fields:
   string, and configuration is automatically generated and included
   with the ticket. Generating and attaching a debug to the ticket can
   take some time. An error will occur if the debug is more than the file
-  size limit of 20M.
+  size limit of 20 MiB.
 
 * **Subject:** enter a descriptive title for the ticket. A good
   *Subject* makes it easy for you and other users to find similar

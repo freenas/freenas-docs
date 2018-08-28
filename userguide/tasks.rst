@@ -57,7 +57,6 @@ After the credentials and receiving bucket have been configured,
 define the schedule for running a cloud sync task. An example is shown in
 :numref:`Figure %s <tasks_cloudsync_add_fig>`.
 
-
 .. _tasks_cloudsync_add_fig:
 
 #ifdef freenas
@@ -207,7 +206,6 @@ is used to enter the credentials for storage on an Amazon AWS account.
 The credential is given the name *S3 Storage*, as shown in
 :numref:`Figure %s <tasks_cloudsync_example_cred_fig>`:
 
-
 .. _tasks_cloudsync_example_cred_fig:
 
 .. figure:: images/cloudsync-example-cred.png
@@ -236,7 +234,6 @@ sync will run at the next scheduled time.
 
 The completed dialog is shown in
 :numref:`Figure %s <tasks_cloudsync_example_fig>`:
-
 
 .. _tasks_cloudsync_example_fig:
 
@@ -327,7 +324,6 @@ Cron jobs are shown in :guilabel:`View Cron Jobs`. Highlight a cron
 job entry to display buttons to :guilabel:`Edit`, :guilabel:`Delete`,
 or :guilabel:`Run Now`.
 
-
 .. note:: :literal:`%` symbols are automatically escaped and should
    not be prefixed with backslashes. For example, use
    :samp:`date '+%Y-%m-%d'` in a cron job to generate a filename based
@@ -356,7 +352,6 @@ is not in the path.
 
 When scheduling a script, make sure that the script is executable and
 has been fully tested to ensure it achieves the desired results.
-
 
 .. _tasks_init_script_fig:
 
@@ -758,7 +753,6 @@ above example is shown in
 When pasting the key, ensure that it is pasted as one long line and,
 if necessary, remove any extra spaces representing line breaks.
 
-
 .. _tasks_pasting_sshkey_fig:
 
 .. figure:: images/rsync2.png
@@ -860,7 +854,6 @@ The S.M.A.R.T. service will not start if there are no volumes.
 :numref:`Table %s <tasks_smart_opts_tab>`
 summarizes the configurable options when creating a S.M.A.R.T. test.
 
-
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
@@ -905,6 +898,7 @@ summarizes the configurable options when creating a S.M.A.R.T. test.
 
 .. note:: Scrub tasks are run if and only if the threshhold is met or
    exceeded *and* the task is scheduled to run on the date marked.
+
 
 An example configuration is to schedule a :guilabel:`Short Self-Test`
 once a week and a :guilabel:`Long Self-Test` once a month. These tests

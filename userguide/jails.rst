@@ -464,17 +464,17 @@ tree view and clicking
 
 Browse to the :guilabel:`Source` and :guilabel:`Destination`, where:
 
-* **Source:** is the directory or dataset on the %brand% system
+* :guilabel:`Source:` is the directory or dataset on the %brand% system
   which will be accessed by the jail. This directory **must** reside
   outside of the volume or dataset being used by the jail. This is why
   it is recommended to create a separate dataset to store jails, so
   the dataset holding the jails is always separate from any datasets
   used for storage on the %brand% system.
 
-* **Destination:** select an **existing, empty** directory within the
-  jail to link to the :guilabel:`Source` storage area. If that
-  directory does not exist yet, enter the desired directory name and
-  check the :guilabel:`Create directory` box.
+* :guilabel:`Destination:` select an **existing, empty** directory
+  within the jail to link to the :guilabel:`Source` storage area. If
+  that directory does not exist yet, enter the desired directory name
+  and check the :guilabel:`Create directory` box.
 
 Storage is typically added because the user and group account
 associated with an application installed inside of a jail needs to
