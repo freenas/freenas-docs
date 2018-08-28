@@ -200,7 +200,7 @@ settings in the General tab:
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
-After making any changes, click the :guilabel:`Save` button.
+After making any changes, click the :guilabel:`SAVE` button.
 
 This screen also contains these buttons:
 
@@ -216,7 +216,6 @@ will also not be available. The location of the system dataset can be
 viewed or set using
 :menuselection:`System --> System Dataset`.
 
-
 .. note:: :ref:`SSH` keys are not stored in the configuration database
    and must be backed up separately.
 
@@ -228,7 +227,7 @@ backup. Other passwords, like iSCSI CHAP passwords, Active Directory
 bind credentials, and cloud credentials are stored in an encrypted form
 to prevent them from being visible as plain text in the saved system
 configuration. The key or *seed* for this encryption is normally stored
-only on the boot device. When :guilabel:`Save Config` is chosen, a new
+only on the boot device. When :guilabel:`SAVE CONFIG` is chosen, a new
 screen gives the option to :guilabel:`Export Password Secret Seed` with
 the saved configuration, allowing the configuration file to be restored
 to a different boot device where the decryption seed is not already
@@ -250,6 +249,7 @@ other data stored in a user home directory. Since configuration
 changes stored in the configuration database are erased, this option
 is useful when a mistake has been made or to return a test system to
 the original configuration.
+
 
 .. index:: NTP Servers,
 .. _NTP Servers:
@@ -353,16 +353,16 @@ to instruct the system to go back to that system state.
    current configuration values. If the intent is to make
    configuration changes rather than operating system changes, make a
    backup of the configuration database first using
-   :menuselection:`System --> General --> Save Config`.
+   :menuselection:`System --> General --> SAVE CONFIG`.
+
 
 As seen in :numref:`Figure %s <view_boot_env_fig>`, %brand% displays the
 condition and statistics of the *Boot Pool*. It also shows the two boot
 environments that are created when %brand% is installed. The system will
-boot into the *default* boot environment and users can make their changes
-and update from this version. The *Initial-Install* boot environment can
-be booted into if the system needs to be returned to a non-configured
-version of the installation.
-
+boot into the *default* boot environment and users can make their
+changes and update from this version. The *Initial-Install* boot
+environment can be booted into if the system needs to be returned to a
+non-configured version of the installation.
 
 .. _view_boot_env_fig:
 
@@ -425,10 +425,10 @@ Click |ui-options| on an entry to see these configuration buttons:
 
 There are also other options available.
 
-* **Create:** Click |ui-add| to add a manual boot
-  environment. A new screen prompts for entry of a :guilabel:`Name` for
-  the boot environment. Only alphanumeric
-  characters, underscores, and dashes are allowed.
+* **Create:** Click |ui-add| to add a manual boot environment. A new
+  screen prompts for entry of a :guilabel:`Name` for the boot
+  environment. Only alphanumeric characters, underscores, and dashes are
+  allowed.
 
 * **Scrub:** :guilabel:`Scrub Boot Pool` is used to perform a
   manual scrub of the boot devices. By default, the boot device is
@@ -459,11 +459,11 @@ There are also other options available.
 
 #ifdef freenas
 If the system has a mirrored boot pool, there will be a
-:guilabel:`detach` option in addition to the :guilabel:`replace` option.
+:guilabel:`Detach` option in addition to the :guilabel:`Replace` option.
 To remove a device from the boot pool, click |ui-options| for the device
-and click :guilabel:`detach`. Alternately, if one of the boot devices
+and click :guilabel:`Detach`. Alternately, if one of the boot devices
 has an *OFFLINE* :guilabel:`Status`, click the device to replace, then
-click :guilabel:`replace` to rebuild the boot mirror.
+click :guilabel:`Replace` to rebuild the boot mirror.
 #endif freenas
 #ifdef truenas
 If one of the boot devices has a :guilabel:`Status` of *OFFLINE*,
@@ -500,14 +500,14 @@ the system.
 In the example shown in
 :numref:`Figure %s <mirror_boot_dev_fig>`, the user has gone to
 :menuselection:`System --> Boot Environments`,
-and clicked the :guilabel:`Boot Pool Status` button to display
-the current status of the boot device. As shown in
+and clicked the :guilabel:`BOOT POOL STATUS` button to display the
+current status of the boot device. As shown in
 :numref:`Figure %s <status_boot_dev_fig>`, the *freenas-boot* pool
-is made of a single device, *ada0p2*. There is only one disk,
-indicated by the word *stripe*. To create a mirrored boot device,
-click |ui-options| then :guilabel:`attach`. If another device is
-available, it appears in the :guilabel:`Member disk` drop-down menu.
-Select the desired device.
+is made of a single device, *ada0p2*. There is only one disk, indicated
+by the word *stripe*. To create a mirrored boot device, click
+|ui-options| then :guilabel:`attach`. If another device is available, it
+appears in the :guilabel:`Member disk` drop-down menu. Select the
+desired device.
 
 The :guilabel:`Use all disk space` option gives control of how much
 of the new device is made available to ZFS. The new device is
@@ -522,7 +522,7 @@ removed, the boot mirror will consist of just the newer drive, and
 will grow to whatever capacity it provides. However, new devices added
 to this mirror must now be as large as the new capacity.
 
-Click :guilabel:`Save` to attach the new disk to the mirror.
+Click :guilabel:`SAVE` to attach the new disk to the mirror.
 
 
 .. _mirror_boot_dev_fig:
@@ -579,89 +579,89 @@ The configurable settings are summarized in
 .. table:: Advanced Configuration Settings
    :class: longtable
 
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Setting                                  | Value                            | Description                                                                                      |
-   |                                          |                                  |                                                                                                  |
-   +==========================================+==================================+==================================================================================================+
-   | Show Text Console without Password       | checkbox                         | Set for the system to immediately display the text console after booting. Unset to require       |
-   | Prompt                                   |                                  | logging into the system before the console menu is shown.                                        |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Enable Serial Console                    | checkbox                         | **Do not** enable this option if the serial port is disabled.                                    |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Serial Port                              | string                           | Select the serial port address in hex.                                                           |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Serial Speed                             | drop-down menu                   | Select the speed in bps used by the serial port.                                                 |
-   |                                          |                                  |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Setting                                  | Value              | Description                                                                                      |
+   |                                          |                    |                                                                                                  |
+   +==========================================+====================+==================================================================================================+
+   | Show Text Console without Password       | checkbox           | Set for the system to immediately display the text console after booting. Unset to require       |
+   | Prompt                                   |                    | logging into the system before the console menu is shown.                                        |
+   |                                          |                    |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Enable Serial Console                    | checkbox           | **Do not** enable this option if the serial port is disabled. Adds the *Serial Port* and         |
+   |                                          |                    | *Serial Speed* fields.                                                                           |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Serial Port                              | string             | Select the serial port address in hex.                                                           |
+   |                                          |                    |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Serial Speed                             | drop-down menu     | Select the speed in bps used by the serial port.                                                 |
+   |                                          |                    |                                                                                                  |
    #ifdef freenas
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Swap size                                | non-zero number representing GiB | By default, all data disks are created with this amount of swap. This setting does not affect    |
-   |                                          |                                  | log or cache devices as they are created without swap. Setting to *0* disables swap creation     |
-   |                                          |                                  | completely. This is *strongly* discouraged.                                                      |
-   |                                          |                                  |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Swap size in GiB                         | non-zero number    | By default, all data disks are created with this amount of swap. This setting does not affect    |
+   |                                          |                    | log or cache devices as they are created without swap. Setting to *0* disables swap creation     |
+   |                                          |                    | completely. This is *strongly* discouraged.                                                      |
+   |                                          |                    |                                                                                                  |
    #endif freenas
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Enable Power Saving Daemon               | checkbox                         | `powerd(8) <https://www.freebsd.org/cgi/man.cgi?query=powerd>`__ monitors the system state and   |
-   |                                          |                                  | sets the CPU frequency accordingly.                                                              |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Enable autotune                          | checkbox                         | Enable the :ref:`autotune` script which attempts to optimize the system based on                 |
-   |                                          |                                  | the installed  hardware. *Warning*: Autotuning is only used as a temporary measure and is        |
-   |                                          |                                  | not a permanent fix for system hardware issues.                                                  |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Enable Debug Kernel                      | checkbox                         | Use a debug version of the kernel on the next boot.                                              |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Show console messages                    | checkbox                         | Set to display console messages in real time at bottom of browser. Click the console to bring    |
-   |                                          |                                  | up a scrollable screen. Enable the :guilabel:`Stop refresh` option in the scrollable screen to   |
-   |                                          |                                  | pause updating and deselect the option to continue to watch the messages as they occur.          |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | MOTD banner                              | string                           | This message is shown when a user logs in with SSH.                                              |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Show tracebacks in case of fatal error   | checkbox                         | Open a pop-up window of diagnostic information if a fatal error occurs.                          |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Show advanced fields by default          | checkbox                         | Show :guilabel:`Advanced Mode` fields by default.                                                |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Periodic Notification User               | drop-down menu                   | Choose a user to receive security output emails. This output runs nightly, but only sends        |
-   |                                          |                                  | email when the system reboots or encounters an error.                                            |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Remote Graphite Server Hostname          | string                           | IP address or hostname of a remote server running                                                |
-   |                                          |                                  | `Graphite. <http://graphiteapp.org/>`__                                                          |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Use FQDN for logging                     | checkbox                         | Include the Fully-Qualified Domain Name (FQDN) in logs to precisely identify systems             |
-   |                                          |                                  | with similar hostnames.                                                                          |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Report CPU usage in percentage           | checkbox                         | Display CPU usage as percentages in :ref:`Reporting`.                                            |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | ATA Security User                        | drop-down menu                   | User passed to :command:`camcontrol security -u` for unlocking SEDs. Values are                  |
-   |                                          |                                  | *User* or *Master*.                                                                              |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | SED Password                             | string                           | Global password used to unlock :ref:`Self-Encrypting Drives`.                                    |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
-   | Reset SED Password                       | checkbox                         | Select to clear the :guilabel:`Password for SED` column of                                       |
-   |                                          |                                  | :menuselection:`Storage --> Disks`.                                                              |
-   |                                          |                                  |                                                                                                  |
-   +------------------------------------------+----------------------------------+--------------------------------------------------------------------------------------------------+
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Enable Power Saving Daemon               | checkbox           | `powerd(8) <https://www.freebsd.org/cgi/man.cgi?query=powerd>`__ monitors the system state and   |
+   |                                          |                    | sets the CPU frequency accordingly.                                                              |
+   |                                          |                    |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Enable autotune                          | checkbox           | Enable the :ref:`autotune` script which attempts to optimize the system based on                 |
+   |                                          |                    | the installed  hardware. *Warning*: Autotuning is only used as a temporary measure and is        |
+   |                                          |                    | not a permanent fix for system hardware issues.                                                  |
+   |                                          |                    |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Enable Debug Kernel                      | checkbox           | Use a debug version of the kernel on the next boot.                                              |
+   |                                          |                    |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Show console messages                    | checkbox           | Set to display console messages in real time at bottom of browser. Click the console to bring    |
+   |                                          |                    | up a scrollable screen. Enable the :guilabel:`Stop refresh` option in the scrollable screen to   |
+   |                                          |                    | pause updating and deselect the option to continue to watch the messages as they occur.          |
+   |                                          |                    |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | MOTD banner                              | string             | This message is shown when a user logs in with SSH.                                              |
+   |                                          |                    |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Show tracebacks in case of fatal error   | checkbox           | Open a pop-up window of diagnostic information if a fatal error occurs.                          |
+   |                                          |                    |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Show advanced fields by default          | checkbox           | Show :guilabel:`Advanced Mode` fields by default.                                                |
+   |                                          |                    |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Periodic Notification User               | drop-down menu     | Choose a user to receive security output emails. This output runs nightly, but only sends        |
+   |                                          |                    | email when the system reboots or encounters an error.                                            |
+   |                                          |                    |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Remote Graphite Server Hostname          | string             | IP address or hostname of a remote server running                                                |
+   |                                          |                    | `Graphite. <http://graphiteapp.org/>`__                                                          |
+   |                                          |                    |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Use FQDN for logging                     | checkbox           | Include the Fully-Qualified Domain Name (FQDN) in logs to precisely identify systems             |
+   |                                          |                    | with similar hostnames.                                                                          |
+   |                                          |                    |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Report CPU usage in percentage           | checkbox           | Display CPU usage as percentages in :ref:`Reporting`.                                            |
+   |                                          |                    |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | ATA Security User                        | drop-down menu     | User passed to :command:`camcontrol security -u` for unlocking SEDs. Values are                  |
+   |                                          |                    | *User* or *Master*.                                                                              |
+   |                                          |                    |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | SED Password                             | string             | Global password used to unlock :ref:`Self-Encrypting Drives`.                                    |
+   |                                          |                    |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+   | Reset SED Password                       | checkbox           | Select to clear the :guilabel:`Password for SED` column of                                       |
+   |                                          |                    | :menuselection:`Storage --> Disks`.                                                              |
+   |                                          |                    |                                                                                                  |
+   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
 
 
-Click the :guilabel:`Save` button after making any changes.
+Click the :guilabel:`SAVE` button after making any changes.
 
 This tab also contains this button:
 
-**Save Debug:** used to generate a text file of diagnostic
+:guilabel:`SAVE DEBUG`: used to generate a text file of diagnostic
 information. After the debug data is collected, the system prompts for
 a location to save the generated ASCII text file.
 
@@ -810,8 +810,8 @@ Next, remember to initialize the devices:
 This command ensures that all detected SED disks are properly setup using
 the specified password.
 
-.. _note: Rerun that command every time a new SED disk is placed in the
-   system.
+.. note:: Rerun :command:`sedhelper setup password` every time a new SED
+   disk is placed in the system.
 
 This command is used to unlock all available SED disks:
 
@@ -832,7 +832,6 @@ containing important information such as the health of the disks.
 Problems with :ref:`Scrub Tasks` are reported separately in an email
 sent at 03:00AM.
 
-
 .. note:: :ref:`S.M.A.R.T.` reports are mailed separately to the
    address configured in that service.
 
@@ -845,18 +844,17 @@ administrator's remote email account so they are aware of problems or
 status changes.
 
 The first step is to set the remote address where email will be sent.
-Navigate to
+Go to
 :menuselection:`Account --> Users`,
 click |ui-options| and :guilabel:`Edit` for the *root* user. In the
 :guilabel:`Email` field, enter the email address on the remote system
 where email is to be sent, like *admin@example.com*. Click
-:guilabel:`Save` to save the settings.
+:guilabel:`SAVE` to save the settings.
 
 Additional configuration is performed with
 :menuselection:`System --> Email`,
 shown in
 :numref:`Figure %s <email_conf_fig>`.
-
 
 .. _email_conf_fig:
 
@@ -919,7 +917,7 @@ shown in
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
 
-Click the :guilabel:`Send Mail` button to verify that the
+Click the :guilabel:`SEND MAIL` button to verify that the
 configured email settings are working. If the test email fails,
 double-check that the :guilabel:`Email` field of the *root* user is
 correctly configured by clicking the :guilabel:`Edit` button for
@@ -929,14 +927,12 @@ Configuring email for TLS/SSL email providers is described in
 `Are you having trouble getting FreeNAS to email you in Gmail?
 <https://forums.freenas.org/index.php?threads/are-you-having-trouble-getting-freenas-to-email-you-in-gmail.22517/>`__.
 
-
 .. note:: The %brand% user who receives periodic email is set in the
    :guilabel:`Periodic Notification User` field in
    :menuselection:`System --> Advanced`.
 
 
 .. index:: System Dataset
-
 .. _System Dataset:
 
 System Dataset
@@ -994,12 +990,11 @@ To store the reporting information on the system dataset, enable the
 a RAM disk is created to prevent reporting information from filling up
 :file:`/var`.
 
-Click the :guilabel:`Save` button to save changes.
+Click the :guilabel:`SAVE` button to save changes.
 
 If the pool storing the system dataset is changed at a later time,
 %brand% migrates the existing data in the system dataset to the new
 location.
-
 
 .. note:: Depending on configuration, the system dataset can occupy a
    large amount of space and receive frequent writes. Do not put the
@@ -1052,7 +1047,6 @@ Select
 :menuselection:`System --> Alert Services` to show the Alert Services
 screen, :numref:`Figure %s <alert_services_fig>`.
 
-
 .. _alert_services_fig:
 
 .. figure:: images/system-alert-services.png
@@ -1062,7 +1056,6 @@ screen, :numref:`Figure %s <alert_services_fig>`.
 
 Click |ui-add| to display the :guilabel:`Add Alert Service` form,
 :numref:`Figure %s <alert_service_add_fig>`.
-
 
 .. _alert_service_add_fig:
 
@@ -1074,12 +1067,12 @@ Click |ui-add| to display the :guilabel:`Add Alert Service` form,
 Select the :guilabel:`Type` to choose an alert service to configure.
 The configurable fields and required information differ for each alert
 service. Set :guilabel:`Enabled` to activate the service. Enter any
-other required information and click :guilabel:`Save`.
+other required information and click :guilabel:`SAVE`.
 
 Configure which alerts are sent to the alert service by clicking
-:guilabel:`Show Settings`.
+:guilabel:`SHOW SETTINGS`.
 
-Click :guilabel:`Send Test Alert` to test the configured service.
+Click :guilabel:`SENDS TEST ALERT` to test the configured service.
 
 All saved alert services are displayed in
 :menuselection:`System --> Alert Services`.
@@ -1100,7 +1093,6 @@ Alert Settings
 :menuselection:`System --> Alert Settings` displays the notification
 frequency for each type of :ref:`Alert`. An example is shown in
 :numref:`Figure %s <alert_settings_fig>`.
-
 
 .. _alert_settings_fig:
 
@@ -1203,7 +1195,7 @@ and are shown in :numref:`Table %s <cloud_cred_tab>`.
    | Storage              | Account Key          |                                                             |
    |                      |                      |                                                             |
    +----------------------+----------------------+-------------------------------------------------------------+
-   | Microsoft OneDrive   | Access Token	 | Enter the access token.                                     |
+   | Microsoft OneDrive   | Access Token         | Enter the access token.                                     |
    |                      |                      |                                                             |
    +----------------------+----------------------+-------------------------------------------------------------+
    | pCloud               | Access Token         | Enter the access token.                                     |
@@ -1227,6 +1219,7 @@ and are shown in :numref:`Table %s <cloud_cred_tab>`.
    |                      |                      |                                                             |
    +----------------------+----------------------+-------------------------------------------------------------+
 
+
 For Amazon S3, :guilabel:`Access Key` and
 :guilabel:`Secret Key` values are found on the Amazon AWS
 website by clicking on the account name, then
@@ -1236,7 +1229,8 @@ Copy the Access Key value to the %brand% Cloud Credential
 :guilabel:`Access Key` field, then enter the :guilabel:`Secret Key`
 value saved when the key pair was created. If the Secret Key value is
 unknown, a new key pair can be created on the same Amazon screen.
-The Google Cloud Storage :guilabel:`JSON Service Account Key` is found on the
+The Google Cloud Storage :guilabel:`JSON Service Account Key` is found
+on the
 `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
 
 
@@ -1269,12 +1263,14 @@ can be used to manage the following:
    rc.conf options are stored in
    :file:`/tmp/rc.conf.freenas`.
 
+
 .. warning:: Adding a sysctl, loader, or :file:`rc.conf` option is an
    advanced feature. A sysctl immediately affects the kernel running
    the %brand% system and a loader could adversely affect the ability
    of the %brand% system to successfully boot.
    **Do not create a tunable on a production system before
    testing the ramifications of that change.**
+
 
 Since sysctl, loader, and rc.conf values are specific to the kernel
 parameter to be tuned, the driver to be loaded, or the service to
@@ -1298,7 +1294,6 @@ and click |ui-add| to access the screen shown in
 
 :numref:`Table %s <add_tunable_tab>`
 summarizes the options when adding a tunable.
-
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -1340,6 +1335,7 @@ summarizes the options when adding a tunable.
    until the system is rebooted. Regardless of the type of tunable,
    changes persist at each boot and across upgrades unless the tunable
    is deleted or the :guilabel:`Enabled` option is deselected.
+
 
 Existing tunables are listed in
 :menuselection:`System --> Tunables`.
@@ -1682,7 +1678,7 @@ Checking for Updates
 
 #ifdef freenas
 Check for updates by making sure the desired train is selected and
-clicking :guilabel:`Download update`.
+clicking :guilabel:`DOWNLOAD UPDATE`.
 
 In the example shown in
 :numref:`Figure %s <review_updates_fig>`, information about the update
@@ -1709,13 +1705,13 @@ Applying Updates
 Make sure the system is in a low-usage state as described above in
 :ref:`Preparing for Updates`.
 
-Click :guilabel:`Apply Pending update` when %brand% has automatically
+Click :guilabel:`APPLY PENDING UPDATE` when %brand% has automatically
 detected a new update. To manually check for and download a new update,
-click :guilabel:`Download update`.
+click :guilabel:`DOWNLOAD UPDATE`.
 
 A confirmation window appears before the update is installed. Set
-:guilabel:`Apply updates and reboot system after downloading` and
-click :guilabel:`Ok` to download and apply the update. Be aware that
+:guilabel:`Apply updates and reboot system after downloading` and click
+:guilabel:`UPDATE` to download and apply the update. Be aware that
 updates automatically reboot the system after they are applied.
 
 .. warning:: Each update creates a boot environment. If the update
@@ -1733,11 +1729,11 @@ Manual Updates
 ~~~~~~~~~~~~~~
 
 Updates can be manually downloaded as a file. These updates are then
-applied with the :guilabel:`Manual Update` button. After obtaining the
-update file, click :guilabel:`Manual Update` and choose a location to
+applied with the :guilabel:`MANUAL UPDATE` button. After obtaining the
+update file, click :guilabel:`MANUAL UPDATE` and choose a location to
 temporarily store the file on the %brand% system. Click
 :guilabel:`Browse` and use the file browser to locate the update file.
-Click :guilabel:`Apply Update` to apply it.
+Click :guilabel:`APPLY UPDATE` to apply it.
 
 Manual update files can be identified by their filenames, which end in
 :file:`-manual-update-unsigned.tar`.
@@ -1745,9 +1741,9 @@ Manual update files can be identified by their filenames, which end in
 Manual updates cannot be used to upgrade from older major versions.
 
 There is also an option to back up the system configuration before
-updating. Click :guilabel:`Save Config` and select any options to export
-in the configuration file. Click :guilabel:`Save` to open a popup window
-to download :file:`freenas.db`.
+updating. Click :guilabel:`SAVE CONFIG` and select any options to export
+in the configuration file. Click :guilabel:`SAVE` to open a popup window
+to download the :file:`.db` file.
 
 
 #ifdef truenas
@@ -2037,19 +2033,16 @@ When importing a certificate chain, paste the primary certificate,
 followed by any intermediate certificates, followed by the root CA
 certificate.
 
-
 #ifdef truenas
 On %brand% :ref:`High Availability (HA) <Failover>` systems, the
 imported certificate must include the IP addresses or DNS hostnames of
 both nodes and the CARP virtual IP address. These IP addresses or DNS
 hostnames can be placed in the :guilabel:`Subject Alternative Name`
 (SAN) x509 extension field.
+
 #endif truenas
-
-
 The configurable options are summarized in
 :numref:`Table %s <cert_import_opt_tab>`.
-
 
 .. _import_cert_fig:
 
@@ -2230,7 +2223,7 @@ for generating bug reports and feature requests.
 
 .. figure:: images/system-support.png
 
-   Support Tab
+   Support Menu
 
 
 This screen provides a built-in interface to the %brand% issue
@@ -2254,8 +2247,9 @@ or *Resolved*, create a new issue and refer to the previous issue.
    and retest before reporting an issue. Newer versions of the software
    might have already fixed the problem.
 
+
 To generate a report using the built-in :guilabel:`Support` screen,
-complete the following fields:
+complete these fields:
 
 * **Username:** enter the login name created when registering at
   https://redmine.ixsystems.com/projects/freenas/issues.
@@ -2277,7 +2271,7 @@ complete the following fields:
   overview of the system hardware, build string, and configuration is
   automatically generated and included with the ticket. Generating and
   attaching a debug to the ticket can take some time. An error will occur
-  if the debug is more than the file size limit of 20M.
+  if the debug is more than the file size limit of 20 Mib.
 
 * **Subject:** enter a descriptive title for the ticket. A good
   *Subject* makes it easy for you and other users to find similar
@@ -2287,11 +2281,11 @@ complete the following fields:
   issue that describes the problem, and if applicable, what steps can
   be taken to reproduce it.
 
-After completing the fields, click the
-:guilabel:`Submit` button to automatically generate and upload the
-report to https://redmine.ixsystems.com/projects/freenas/issues.
-A pop-up menu provides a URL so to view status or add additional
-information to the report.
+After completing the fields, click the :guilabel:`SUBMIT` button to
+automatically generate and upload the report to
+https://redmine.ixsystems.com/projects/freenas/issues. A pop-up menu
+provides a URL so to view status or add additional information to the
+report.
 #endif freenas
 
 #ifdef truenas

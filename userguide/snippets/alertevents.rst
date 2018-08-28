@@ -51,7 +51,7 @@ emailed to the root account.
 
 Close an alert message by hovering over it until
 :guilabel:`Click to Dismiss` appears. There is also an option to
-:guilabel:`Clear All Alerts`. Close all messages to remove any
+:guilabel:`CLEAR ALL ALERTS`. Close all messages to remove any
 notification badge from the alerts icon.
 
 Behind the scenes, an alert daemon checks for various alert

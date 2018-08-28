@@ -102,7 +102,7 @@ These major features are new in this version:
 
 * Beginning with this release, the screenshots that appear in the
   `published version of the Guide <http://doc.freenas.org/11.2/freenas.html>`__
-  and in the :guilabel:`Guide` icon within the new UI are for the new UI.
+  and in the :guilabel:`Guide` option within the new UI are for the new UI.
   However, users who click on the :guilabel:`Guide` icon while logged
   into the classic UI will continue to see screenshots for the old UI.
   The availability of both versions of the Guide is to assist users as
@@ -114,7 +114,7 @@ These major features are new in this version:
   will be deprecated and replaced by the new API documentation. In the
   mean time, to see the API documentation for the new middleware, log
   into the new UI, click on the URL for the FreeNAS system in your
-  browser's location bar, and add :guilabel:`/api/docs` to the end of
+  browser's location bar, and add :literal:`/api/docs` to the end of
   that URL.
 
 * The boot loader has changed from GRUB to the native FreeBSD boot
@@ -254,10 +254,10 @@ These screen options have changed:
   configure a different interface before the web interface NIC.
 
 * The :guilabel:`Exec` field has been added to
-  :menuselection:`Storage --> Volumes --> Create Dataset --> Advanced Mode`.
+  :menuselection:`Storage --> Pools --> Add Dataset --> ADVANCED MODE`.
 
 * The :guilabel:`Password for SED` column has been added to
-  :menuselection:`Storage --> Volumes --> View Disks`.
+  :menuselection:`Storage --> Pools --> Disks`.
 
 * The :guilabel:`MSDOSFS locale` drop-down menu has been added to
   :menuselection:`Storage --> Import Disk`.
@@ -489,9 +489,9 @@ serial numbers. It is best to use a different disk controller with
    driver for controller cards like the Dell PERC H330 and H730 which
    are supported by several drivers. Although not recommended, the
    `mfi(4) <https://www.freebsd.org/cgi/man.cgi?query=mfi>`__
-   driver can be used instead by removing the  loader
+   driver can be used instead by removing the loader
    :ref:`Tunable <Tunables>`: :literal:`hw.mfi.mrsas_enable` or
-   setting the :guilabel:`Value` to *0*.
+   setting the :literal:`Value` to *0*.
 
 
 Suggestions for testing disks before adding them to a RAID array can

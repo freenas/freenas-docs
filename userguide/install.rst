@@ -675,7 +675,7 @@ to reboot again. The system will start
 normally afterwards. If database errors are shown but the |web-ui|
 is accessible, go to
 :menuselection:`Settings --> General`
-and use the :guilabel:`Upload Config` button to upload the
+and use the :guilabel:`UPLOAD CONFIG` button to upload the
 configuration that was saved before starting the upgrade.
 
 

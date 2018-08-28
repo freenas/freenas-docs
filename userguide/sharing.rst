@@ -149,7 +149,7 @@ information given when the share was created.
    | Setting                      | Value         | Advanced | Description                                                                                                   |
    |                              |               | Mode     |                                                                                                               |
    +==============================+===============+==========+===============================================================================================================+
-   | Path                         | browse button |          | :guilabel:`Browse` to the pool or dataset to share. Do not nest additional pools, datasets, or symbolic       |
+   | Path                         | browse button |          | Browse to the pool or dataset to share. Do not nest additional pools, datasets, or symbolic                   |
    |                              |               |          | links beneath this path because Netatalk does not fully support that.                                         |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
@@ -160,11 +160,11 @@ information given when the share was created.
    | Comment                      | string        | ✓        | Optional comment.                                                                                             |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Allow List                   | string        | ✓        | Comma-delimited list of allowed users and/or groups where groupname begins with a :literal:`@`. Note          |
+   | Allow list                   | string        | ✓        | Comma-delimited list of allowed users and/or groups where groupname begins with a :literal:`@`. Note          |
    |                              |               |          | that adding an entry will deny any user/group that is not specified.                                          |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Deny List                    | string        | ✓        | Comma-delimited list of denied users and/or groups where groupname begins with a :literal:`@`. Note           |
+   | Deny list                    | string        | ✓        | Comma-delimited list of denied users and/or groups where groupname begins with a :literal:`@`. Note           |
    |                              |               |          | that adding an entry will allow all users/groups that are not specified.                                      |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
@@ -213,7 +213,7 @@ information given when the share was created.
    | Hosts Deny                   | string        |  ✓       | Enter a list of denied hostnames or IP addresses. Separate entries with a comma, space, or tab.               |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters         | string        |          | Enter any additional `afp.conf <http://netatalk.sourceforge.net/3.1/htmldocs/afp.conf.5.html>`__ parameters   |
+   | Auxiliary Parameters         | string        |          | Enter any additional `afp.conf <https://www.freebsd.org/cgi/man.cgi?query=afp.conf>`__ parameters             |
    |                              |               |          | not covered by other option fields.                                                                           |
    |                              |               |          |                                                                                                               |
    +------------------------------+---------------+----------+---------------------------------------------------------------------------------------------------------------+
@@ -239,12 +239,12 @@ or imported into the %brand% system.
    *77x*.
 
 Before creating a guest share, go to :menuselection:`Services --> AFP`
-and click the power button to turn on the service. Then, click
-:guilabel:`Configure` which opens the screen shown
-in :numref:`Figure %s <creating_guest_afp_share_fig>`. In
-:guilabel:`Guest Account` use the drop-down to select :guilabel:`Nobody`,
-enable the :guilabel:`Guest Access` option, and press :guilabel:`Save`.
-
+and click the |ui-power| button to turn on the service. Click
+:guilabel:`CONFIGURE` to open the screen shown in
+:numref:`Figure %s <creating_guest_afp_share_fig>`. For
+:guilabel:`Guest Account`, use the drop-down to select
+:guilabel:`Nobody`, set :guilabel:`Guest Access`, and click
+:guilabel:`SAVE`.
 
 .. _creating_guest_afp_share_fig:
 
@@ -264,7 +264,7 @@ Complete the fields shown in
 
 #. **ACL Type:** Select :guilabel:`Mac`.
 #. **User:** Use the drop-down to select :guilabel:`Nobody`.
-#. Click :guilabel:`Save`.
+#. Click :guilabel:`SAVE`.
 
 .. _creating_guest_afp_dataset_fig:
 
@@ -279,7 +279,7 @@ To create a guest AFP share:
 #. Go to :menuselection:`Sharing --> Apple (AFP) Shares` and
    click |ui-add|.
 #. :guilabel:`Browse` to the dataset created for the guest share.
-#. Fill out the other required fields, then press :guilabel:`Save`.
+#. Fill out the other required fields, then press :guilabel:`SAVE`.
 
 
 macOS users can connect to the guest AFP share by navigating
@@ -343,7 +343,7 @@ Enter the following information as shown in
    :menuselection:`Accounts --> Groups` to create one. Refer to
    :ref:`groups <Groups>` in this guide for more information about
    creating a group.
-#. Click :guilabel:`Save`.
+#. Click :guilabel:`SAVE`.
 
 To create an authenticated or Time Machine share:
 
@@ -354,12 +354,11 @@ To create an authenticated or Time Machine share:
 #. If creating a Time Machine share, enable the
    :guilabel:`Time Machine` option.
 #. Fill out the other required fields.
-#. Click :guilabel:`Save`.
+#. Click :guilabel:`SAVE`.
 
 To configure multiple authenticated or Time Machine shares, repeat
 this process for each user. The new shares will appear in
 :menuselection:`Sharing --> Apple (AFP)`.
-
 
 .. _creating_an_authenticated_share_fig:
 
@@ -381,15 +380,13 @@ Note that a default installation of macOS is ~21 GiB in size.
 
 To configure a quota, go to
 :menuselection:`Sharing --> Apple (AFP)`,
-click |ui-options| on the existing Time Machine
-share, then :guilabel:`Edit`. In the example shown in
+click |ui-options| on the existing Time Machine share, then
+:guilabel:`Edit`. In the example shown in
 :numref:`Figure %s <set_quota_fig>`,
-the Time Machine share name is *backup_user1*.
-Enter a value in the
+the Time Machine share name is *backup_user1*. Enter a value in the
 :guilabel:`Time Machine Quota` field, then click
-:guilabel:`Save`. In this example, the
-Time Machine share is restricted to 200 GiB.
-
+:guilabel:`SAVE`. In this example, the Time Machine share is restricted
+to 200 GiB.
 
 .. _set_quota_fig:
 
@@ -403,6 +400,7 @@ Time Machine share is restricted to 200 GiB.
    `Set up Time Machine for multiple machines with OSX Server-Style Quotas
    <https://forums.freenas.org/index.php?threads/how-to-set-up-time-machine-for-multiple-machines-with-osx-server-style-quotas.47173/>`__.
 
+
 To configure Time Machine on the macOS client, go to
 :menuselection:`System Preferences --> Time Machine`
 which opens the screen shown in
@@ -414,27 +412,22 @@ backup option. In this example, it is listed as
 the user account's password--in this example, the password that was
 set for the *user1* account.
 
-
 .. _config_tm_osx:
 
 .. figure:: images/sharing-apple-afp-time-machine-mac.png
 
    Configuring Time Machine on macOS
 
-.. TODO Take screenshot on macOS client
 
-
-If :guilabel:`Time Machine could not complete the backup. The
-backup disk image could not be created (error 45)` is shown when
-backing up to the %brand% system, a sparsebundle
-image must be created using
+If :literal:`Time Machine could not complete the backup. The backup disk
+image could not be created (error 45)` is shown when backing up to the
+%brand% system, a sparsebundle image must be created using
 `these instructions
 <https://community.netgear.com/t5/Stora-Legacy/Solution-to-quot-Time-Machine-could-not-complete-the-backup/td-p/294697>`__.
 
-If :guilabel:`Time Machine completed a verification of
-your backups. To improve reliability, Time Machine must create a new
-backup for you.` is shown, follow the instructions in
-`this post
+If :literal:`Time Machine completed a verification of your backups.
+To improve reliability, Time Machine must create a new backup for you.`
+is shown, follow the instructions in `this post
 <http://www.garth.org/archives/2011,08,27,169,fix-time-machine-sparsebundle-nas-based-backup-errors.html>`__
 to avoid making another backup or losing past backups.
 
@@ -459,23 +452,22 @@ application.
 #endif freenas
 
 Before creating an NFS share, go to
-:menuselection:`Services --> NFS` and click the power button to
+:menuselection:`Services --> NFS` and click the |ui-power| button to
 turn on the service.
 
 Next, go to :menuselection:`Storage --> Pools` to create a dataset
-for the share. Refer to :ref:`Adding Datasets` for more information about
-dataset creation.
+for the share. Refer to :ref:`Adding Datasets` for more information
+about dataset creation.
 
-Create an NFS share by navigating
+Create an NFS share by going to
 :menuselection:`Sharing --> Unix (NFS) Shares`
 and clicking |ui-add|. :numref:`Figure %s <nfs_share_wiz_fig>` shows
 an example of creating an NFS share.
 
-From the :guilabel:`Path` field, :guilabel:`Browse` to the dataset
-created for the share.
-In the :guilabel:`Comment` field enter a share name, note that
+From the :guilabel:`Path` field, Browse to the dataset created for the
+share. In the :guilabel:`Comment` field enter a share name, note that
 if left empty, the share name is the list of selected Path entries.
-Click the :guilabel:`Save` button to create the share.
+Click the :guilabel:`SAVE` button to create the share.
 
 .. _nfs_share_wiz_fig:
 
@@ -484,12 +476,11 @@ Click the :guilabel:`Save` button to create the share.
    NFS Share Creation
 
 
-Edit an NFS share by navigating
+Edit an NFS share by going to
 :menuselection:`Sharing --> Unix (NFS)`, clicking the |ui-options|
 button for the desired share, then :guilabel:`Edit`. In the example
-shown in :numref:`Figure %s <nfs_share_settings_fig>`,
-the configuration screen is open for the *nfs_share1* share.
-
+shown in :numref:`Figure %s <nfs_share_settings_fig>`, the configuration
+screen is open for the *nfs_share1* share.
 
 .. _nfs_share_settings_fig:
 
@@ -500,9 +491,8 @@ the configuration screen is open for the *nfs_share1* share.
 
 :numref:`Table %s <nfs_share_opts_tab>`
 summarizes the available configuration options in this screen. Some
-settings are only available by clicking the :guilabel:`Advanced Mode`
+settings are only available by clicking the :guilabel:`ADVANCED MODE`
 button.
-
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
@@ -518,28 +508,28 @@ button.
    | Setting             | Value          | Advanced | Description                                                                                                |
    |                     |                | Mode     |                                                                                                            |
    +=====================+================+==========+============================================================================================================+
-   | Path                | browse button  |          | :guilabel:`Browse` to the pool or dataset to be shared. Click :guilabel:`Add extra path` to                |
+   | Path                | browse button  |          | Browse to the pool or dataset to be shared. Click :guilabel:`ADD ADDITIONAL PATH` to                       |
    |                     |                |          | select multiple paths.                                                                                     |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
    | Comment             | string         |          | Set the share name. If left empty, share name is the list of selected :guilabel:`Path` entries.            |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | All dirs            | checkbox       |          | Set to allow the client to mount any subdirectory within the :guilabel:`Path`.                             |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Read Only           | checkbox       |          | Set to prohibit writing to the share.                                                                      |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Quiet               | checkbox       | ✓        | Set to inhibit some syslog diagnostics to avoid error messages. See                                        |
+   |                     |                |          | `exports(5) <https://www.freebsd.org/cgi/man.cgi?query=exports>`__ for examples.                           |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
    | Authorized networks | string         | ✓        | Space-delimited list of allowed networks in network/mask CIDR notation. Example: *1.2.3.0/24*.             |
    |                     |                |          | Leave empty to allow all.                                                                                  |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Authorized IP       | string         | ✓        | Space-delimited list of allowed IP addresses or hostnames. Leave empty to allow all.                       |
-   | addresses or hosts  |                |          |                                                                                                            |
-   |                     |                |          |                                                                                                            |
-   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | All directories     | checkbox       |          | Set to allow the client to mount any subdirectory within the :guilabel:`Path`.                             |
-   |                     |                |          |                                                                                                            |
-   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Read only           | checkbox       |          | Set to prohibit writing to the share.                                                                      |
-   |                     |                |          |                                                                                                            |
-   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Quiet               | checkbox       | ✓        | Set to inhibit some syslog diagnostics to avoid error messages. See                                        |
-   |                     |                |          | `exports(5) <https://www.freebsd.org/cgi/man.cgi?query=exports>`__ for examples.                           |
+   | Authorized Hosts    | string         | ✓        | Space-delimited list of allowed IP addresses or hostnames. Leave empty to allow all.                       |
+   | and IP addresses    |                |          |                                                                                                            |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
    | Maproot User        | drop-down menu | ✓        | When a user is selected, the *root* user is limited to the permissions of that user.                       |
@@ -583,8 +573,8 @@ When creating NFS shares, keep these points in mind:
     rule to apply is undefined among overlapping networks or when using
     the same share with multiple hosts.
 
-#.  The :guilabel:`All directories` option can only be used once per
-    share per filesystem.
+#.  The :guilabel:`All dirs` option can only be used once per share per
+    filesystem.
 
 
 To better understand these restrictions, consider a scenario where
@@ -600,26 +590,26 @@ there are:
 Because of restriction #3, an error is shown when trying to create one
 NFS share like this:
 
-* :guilabel:`Authorized networks` set to *10.0.0.0/8 20.0.0.0/8*
+* :guilabel:`Authorized Networks` set to *10.0.0.0/8 20.0.0.0/8*
 
 * :guilabel:`Path` set to :file:`/mnt/pool1/dataset1` and
   :file:`/mnt/pool1/dataset1/directory1`
 
 Instead, set a :guilabel:`Path` of :file:`/mnt/pool1/dataset1` and
-check the :guilabel:`All directories` box.
+check the :guilabel:`All dirs` box.
 
 That directory could also be restricted to one of the networks by
 creating two shares instead:
 
 First NFS share:
 
-* :guilabel:`Authorized networks` set to *10.0.0.0/8*
+* :guilabel:`Authorized Networks` set to *10.0.0.0/8*
 
 * :guilabel:`Path` set to :file:`/mnt/pool1/dataset1`
 
 Second NFS share:
 
-* :guilabel:`Authorized networks` set to *20.0.0.0/8*
+* :guilabel:`Authorized Networks` set to *20.0.0.0/8*
 
 * :guilabel:`Path` set to :file:`/mnt/pool1/dataset1/directory1`
 
@@ -678,7 +668,7 @@ The following examples share this configuration:
 
     * :guilabel:`Authorized Networks`: *192.168.2.0/24*
 
-    * :guilabel:`All Directories` option is enabled
+    * :guilabel:`All dirs` option is enabled
 
     * :guilabel:`MapAll User` is set to *nobody*
 
@@ -796,8 +786,8 @@ running on the Linux client. If portmapper is running and timeouts are
 still shown, force the use of TCP by including **-o tcp** in the
 :command:`mount` command.
 
-If a "RPC: Program not registered" error is shown, upgrade to the
-latest version of %brand% and restart the NFS service after the
+If a :literal:`RPC: Program not registered` error is shown, upgrade to
+the latest version of %brand% and restart the NFS service after the
 upgrade to clear the NFS cache.
 
 If clients see "reverse DNS" errors, add the %brand% IP address in the
@@ -806,7 +796,7 @@ If clients see "reverse DNS" errors, add the %brand% IP address in the
 
 If clients receive timeout errors when trying to mount the share, add
 the client IP address and hostname to the
-:guilabel:`Host name data base` field in
+:guilabel:`Host name database` field in
 :menuselection:`Network --> Global Configuration`.
 
 Some older versions of NFS clients default to UDP instead of TCP and
@@ -824,7 +814,7 @@ and timeouts compared to reads usually indicates network problems.
 .. _WebDAV Shares:
 
 WebDAV Shares
-------------------
+-------------
 
 In %brand%, WebDAV shares can be created so that authenticated users
 can browse the contents of the specified pool, dataset, or directory
@@ -846,7 +836,7 @@ where:
 * **protocol:** is either
   *http* or
   *https*, depending upon the :guilabel:`Protocol` configured in
-  :menuselection:`Services --> WebDAV --> Configure`.
+  :menuselection:`Services --> WebDAV --> CONFIGURE`.
 
 * **IP address:** is the IP address or hostname of the %brand%
   system. Take care when configuring a public IP address to ensure
@@ -854,7 +844,7 @@ where:
   systems.
 
 * **port_number:** is configured in
-  :menuselection:`Services --> WebDAV --> Configure`. If the %brand%
+  :menuselection:`Services --> WebDAV --> CONFIGURE`. If the %brand%
   system is to be accessed using a public IP address, consider
   changing the default port number and ensure that the network
   firewall only allows access to authorized systems.
@@ -864,18 +854,18 @@ where:
 
 Entering the URL in a web browser brings up an authentication pop-up
 message. Enter a username of *webdav* and the password configured in
-:menuselection:`Services --> WebDAV --> Configure`.
+:menuselection:`Services --> WebDAV --> CONFIGURE`.
 
 .. warning:: At this time, only the *webdav* user is supported. For
    this reason, it is important to set a good password for this
    account and to only give the password to users which should have
    access to the WebDAV share.
 
-To create a WebDAV share, navigate
+
+To create a WebDAV share, go to
 :menuselection:`Sharing --> WebDAV Shares` and click |ui-add|,
 which will open the screen shown in
 :numref:`Figure %s <add_webdav_share_fig>`.
-
 
 .. _add_webdav_share_fig:
 
@@ -901,13 +891,13 @@ summarizes the available options.
    | Setting                      | Value         | Description                                                                                                 |
    |                              |               |                                                                                                             |
    +==============================+===============+=============================================================================================================+
-   | Share Path Name              | string        | Enter a name for the share.                                                                                 |
+   | Share Name                   | string        | Enter a name for the share.                                                                                 |
    |                              |               |                                                                                                             |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
    | Comment                      | string        | Optional.                                                                                                   |
    |                              |               |                                                                                                             |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
-   | Path                         | browse button | :guilabel:`Browse` to the pool or dataset to share.                                                         |
+   | Path                         | browse button | Browse to the pool or dataset to share.                                                                     |
    |                              |               |                                                                                                             |
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
    | Read Only                    | checkbox      | Set to prohibit users from writing to the share.                                                            |
@@ -918,12 +908,12 @@ summarizes the available options.
    +------------------------------+---------------+-------------------------------------------------------------------------------------------------------------+
 
 
-Click :guilabel:`Save` to create the share. Then,
-go to :menuselection:`Services --> WebDAV` and click the power button
-to turn on the service.
+Click :guilabel:`SAVE` to create the share. Then,
+go to :menuselection:`Services --> WebDAV` and click the |ui-power|
+button to turn on the service.
 
 After the service starts, review the settings in
-:menuselection:`Services --> WebDAV --> Configure`
+:menuselection:`Services --> WebDAV --> CONFIGURE`
 as they are used to determine which URL is used to access the WebDAV
 share and whether or not authentication is required to access the
 share. These settings are described in :ref:`WebDAV`.
@@ -942,26 +932,24 @@ client in order to provide support for SMB. If the distro did not,
 install the Samba client using the distro software repository.
 
 The SMB protocol supports many different types of configuration
-scenarios, ranging from the simple to complex. The
-complexity of the scenario depends upon the types and versions of the
-client operating systems that will connect to the share, whether the
-network has a Windows server, and whether Active Directory is being
-used. Depending on the authentication requirements, it might be
-necessary to create or import users and groups.
+scenarios, ranging from the simple to complex. The complexity of the
+scenario depends upon the types and versions of the client operating
+systems that will connect to the share, whether the network has a
+Windows server, and whether Active Directory is being used. Depending on
+the authentication requirements, it might be necessary to create or
+import users and groups.
 
-Samba supports server-side copy of files on the same share with
-clients from Windows 8 and higher. Copying between two different
-shares is not server-side. Windows 7 clients support server-side
-copying with
+Samba supports server-side copy of files on the same share with clients
+from Windows 8 and higher. Copying between two different shares is not
+server-side. Windows 7 clients support server-side copying with
 `Robocopy
 <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc733145(v=ws.11)>`__.
 
-This chapter starts by summarizing the available configuration
-options. It demonstrates some common configuration scenarios as well
-as offering some troubleshooting tips. Reading
-through this entire chapter before creating any SMB shares is
-recommended to gain a better understanding of the configuration
-scenario that meets the specific network requirements.
+This chapter starts by summarizing the available configuration options.
+It demonstrates some common configuration scenarios as well as offering
+some troubleshooting tips. Reading through this entire chapter before
+creating any SMB shares is recommended to gain a better understanding of
+the configuration scenario that meets the specific network requirements.
 
 .. tip:: `SMB Tips and Tricks
    <https://forums.freenas.org/index.php?resources/smb-tips-and-tricks.15/>`__
@@ -994,16 +982,14 @@ shows the configuration screen that appears after navigating
 
 
 :numref:`Table %s <smb_share_opts_tab>`
-summarizes the options available when creating a SMB share. Some settings are
-only configurable after clicking the :guilabel:`Advanced Mode` button.
-For simple sharing scenarios, :guilabel:`Advanced Mode` options are
-not needed. For more complex sharing scenarios, only change an
-:guilabel:`Advanced Mode` option after fully understanding the
-function of that option.
-`smb.conf(5)
-<https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+11.0-RELEASE+and+Ports>`__
+summarizes the options available when creating a SMB share. Some
+settings are only configurable after clicking the
+:guilabel:`ADVANCED MODE` button. For simple sharing scenarios,
+:guilabel:`ADVANCED MODE` options are not needed. For more complex
+sharing scenarios, only change an :guilabel:`ADVANCED MODE` option after
+fully understanding the function of that option.
+`smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__
 provides more details for each configurable option.
-
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
@@ -1026,9 +1012,6 @@ provides more details for each configurable option.
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
    | Use as home share              | checkbox      |          | Set to allow this share to hold user home directories. Only one share can be the homes share.               |
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Comment                        | string        | ✓        | Optional description.                                                                                       |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
    | Default Permissions            | checkbox      |          | When enabled, the ACLs grant read and write for owner or group and read-only for others. Only leave unset   |
@@ -1057,10 +1040,6 @@ provides more details for each configurable option.
    | Only Allow Guest Access        | checkbox      | ✓        | Requires :guilabel:`Allow guest access` to also be enabled. Forces guest access for all connections.        |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Access Based Share Enumeration | checkbox      | ✓        | When enabled, users can only see the shares they have permission to access. To change the default that      |
-   |                                |               |          | grants Everyone access, use the computer management MMC on Windows or the **sharesec** command-line utility.|
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
    | Hosts Allow                    | string        | ✓        | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma, space, or tab.            |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
@@ -1081,18 +1060,17 @@ provides more details for each configurable option.
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
 
 
-Note the following regarding some of the :guilabel:`Advanced Mode`
-settings:
+Here are some notes about :guilabel:`ADVANCED MODE` settings:
 
 * Hostname lookups add some time to accessing the SMB share. If
-  only using IP addresses, uncheck the :guilabel:`Hostnames lookups` box
+  only using IP addresses, uncheck the :guilabel:`Hostnames Lookups` box
   in
   :menuselection:`Services --> SMB --> Configure`.
 
 * When the :guilabel:`Browsable to Network Clients` option is selected,
   the share is visible through Windows File Explorer or
   through :command:`net view`. When the
-  :guilabel:`Use as a home share` option is selected, deselecting the
+  :guilabel:`Use as home share` option is selected, deselecting the
   :guilabel:`Browsable to Network Clients` option hides the share named
   *homes* so that only the dynamically generated share containing the
   authenticated user home directory will be visible. By default, the
@@ -1107,7 +1085,7 @@ settings:
   :guilabel:`Auxiliary Parameters` field. The syntax for the
   :guilabel:`veto files` option and some examples can be found in the
   `smb.conf manual page
-  <https://www.freebsd.org/cgi/man.cgi?query=smb.conf&manpath=FreeBSD+11.0-RELEASE+and+Ports>`__.
+  <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.
 
 
 Samba disables NTLMv1 authentication by default for security. Standard
@@ -1119,21 +1097,18 @@ has information about the security implications and ways to enable
 NTLMv2 on those clients. If changing the client configuration is not
 possible, NTLMv1 authentication can be enabled by selecting the
 :guilabel:`NTLMv1 auth` option in
-:menuselection:`Services --> SMB --> Configure`.
-
+:menuselection:`Services --> SMB --> CONFIGURE`.
 
 :numref:`Table %s <avail_vfs_modules_tab>`
 provides an overview of the available VFS modules. Be sure to research
 each module **before** adding or deleting it from the
 :guilabel:`Selected` column of the :guilabel:`VFS Objects` field of
 the share. Some modules need additional configuration after they are
-added. Refer to
-`Stackable VFS modules
+added. Refer to `Stackable VFS modules
 <https://www.samba.org/samba/docs/old/Samba3-HOWTO/VFS.html>`__
 and the
 `vfs_* man pages <https://www.samba.org/samba/docs/current/man-html/>`__
 for more details.
-
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.47\linewidth-2\tabcolsep}|
@@ -1282,12 +1257,12 @@ for more details.
 
 
 .. note:: Be careful when using multiple SMB shares, some with and some
-   without *fruit*. macOS clients negotiate SMB2 AAPL protocol extensions
-   on the first connection to the server, so mixing shares with and
-   without fruit will globally disable AAPL if the first connection occurs
-   without fruit. To resolve this, all macOS clients need to disconnect
-   from all SMB shares and the first reconnection to the server has to be
-   to a fruit-enabled share.
+   without *fruit*. macOS clients negotiate SMB2 AAPL protocol
+   extensions on the first connection to the server, so mixing shares
+   with and without fruit will globally disable AAPL if the first
+   connection occurs without fruit. To resolve this, all macOS clients
+   need to disconnect from all SMB shares and the first reconnection to
+   the server has to be to a fruit-enabled share.
 
 
 These VFS objects do not appear in the dropdown menu:
@@ -1320,7 +1295,6 @@ modified the data on the share. This type of configuration is best
 suited for small networks where quick and easy access to the share is
 more important than the security of the data on the share.
 
-
 To configure an unauthenticated SMB share:
 
 #. Navigate :menuselection:`Sharing --> Windows (SMB) Shares`
@@ -1328,7 +1302,7 @@ To configure an unauthenticated SMB share:
 #. Fill out the the fields as shown in
    :numref:`Figure %s <create_unauth_smb_share_fig>`.
 #. Enable the :guilabel:`Allow guest access` option.
-#. Press :guilabel:`Save`.
+#. Press :guilabel:`SAVE`.
 
 .. note:: If a dataset for the share has not been created, refer to
    :ref:`Adding Datasets` to find out more about dataset creation.
@@ -1392,15 +1366,13 @@ After creating the dataset, go to
 #. **ACL Type:** Select :guilabel:`Windows`.
 #. **User:** If the user does not yet exist on the %brand% system, go to
    :menuselection:`Accounts --> Users` to create one. Refer to
-   :ref:`users <Users>` in this guide for more information
-   about creating a user. After the user has been created,
-   use the drop-down to select the user account.
+   :ref:`Users` for more information about creating a user. After the
+   user has been created, use the drop-down to select the user account.
 #. **Group:** Use the drop-down to select the desired group name.
    If the group does not yet exist on the %brand% system, go to
    :menuselection:`Accounts --> Groups` to create one. Refer to
-   :ref:`groups <Groups>` in this guide for more information about
-   creating a group.
-#. Click :guilabel:`Save`.
+   :ref:`Groups` for more information about creating a group.
+#. Click :guilabel:`SAVE`.
 
 
 .. _edit_permissions_smb_share_fig:
@@ -1414,9 +1386,8 @@ To create an authenticated SMB share, navigate
 :menuselection:`Sharing --> Windows (SMB) Shares` and click |ui-add|,
 as shown in
 :numref:`Figure %s <create_auth_smb_share_fig>`.
-:guilabel:`Browse` to the dataset created for the share and enter a
-name for the share. Press :guilabel:`Save` to create the share.
-
+Browse to the dataset created for the share and enter a name for the
+share. Press :guilabel:`SAVE` to create the share.
 
 .. _create_auth_smb_share_fig:
 
@@ -1447,11 +1418,10 @@ Note that Windows systems cache a user's credentials. This can cause
 issues when testing or accessing multiple authenticated shares as only
 one authentication is allowed at a time. When authenticating to
 a share, if problems occur and the username and password are correct,
-type **cmd**
-in the:guilabel:`Search programs and files` box and use the following
-command to see if the share is already authenticated. In this
-example, the user has already authenticated to the *smb_user1*
-share:
+type :command:`cmd` in the :guilabel:`Search programs and files` box and
+use the following command to see if the share is already authenticated.
+In this example, the user has already authenticated to the
+:literal:`smb_user1` share:
 
 .. code-block:: none
 
@@ -1488,8 +1458,8 @@ Explorer:
    The command completed successfully.
 
 
-The next time a share is accessed with Explorer, a
-prompt to authenticate will appear.
+The next time a share is accessed with Explorer, a prompt to
+authenticate will appear.
 
 
 .. index:: Shadow Copies
@@ -1571,13 +1541,12 @@ second share is named *user2*. Then:
 #. Go to
    :menuselection:`Sharing --> Windows (SMB) Shares` and click
    |ui-options| on an existing share. Click :guilabel:`Edit` then
-   :guilabel:`Advanced Mode`. Use the
-   :guilabel:`Periodic Snapshot Task` drop-down menu to select the
-   periodic snapshot task to use for that share. Repeat for each share
-   being configured as a shadow copy. For this example, the share
-   named :file:`/mnt/pool1/user1` is configured to use a periodic
-   snapshot task that was configured to take snapshots of the
-   :file:`/mnt/pool1/user1` dataset and the share named
+   :guilabel:`ADVANCED MODE`. Use the :guilabel:`Periodic Snapshot Task`
+   drop-down menu to select the periodic snapshot task to use for that
+   share. Repeat for each share being configured as a shadow copy. For
+   this example, the share named :file:`/mnt/pool1/user1` is configured
+   to use a periodic snapshot task that was configured to take snapshots
+   of the :file:`/mnt/pool1/user1` dataset and the share named
    :file:`/mnt/pool1/user2` is configured to use a periodic snapshot
    task that was configured to take snapshots of the
    :file:`/mnt/pool1/user2` dataset.
@@ -1594,7 +1563,6 @@ version, plus two previous versions stored on the %brand% system. The
 user can choose to open one of the previous versions, copy a previous
 version to the current folder, or restore one of the previous
 versions, overwriting the existing file on the Windows system.
-
 
 .. _view_shadow_explorer_fig:
 
@@ -1679,9 +1647,9 @@ automatically switch back to that better path to the storage.
 .. note:: Do not enable ALUA on %brand% unless it is supported by
       and enabled on the client computers also. ALUA only works
       properly when enabled on both the client and server.
+
+
 #endif truenas
-
-
 In %brand%, iSCSI is built into the kernel. This version of iSCSI
 supports
 `Microsoft Offloaded Data Transfer (ODX)
@@ -1732,8 +1700,8 @@ Target Global Configuration
 
 :menuselection:`Sharing --> Block (iSCSI)
 --> Target Global Configuration`, shown in
-:numref:`Figure %s <iscsi_targ_global_var_fig>`, contains
-settings that apply to all iSCSI shares.
+:numref:`Figure %s <iscsi_targ_global_var_fig>`, contains settings that
+apply to all iSCSI shares.
 :numref:`Table %s <iscsi_targ_global_config_tab>`
 summarizes the settings that are configured in the Target Global
 Configuration screen.
@@ -1745,9 +1713,9 @@ explicitly configured port IP addresses. This avoids initiators
 attempting to discover unconfigured target portal addresses like
 *0.0.0.0*.
 
-The iSNS registration period is 900 seconds. Registered Network
+The iSNS registration period is *900* seconds. Registered Network
 Entities not updated during this period are unregistered. The timeout
-for iSNS requests is 5 seconds.
+for iSNS requests is *5* seconds.
 
 
 #ifdef freenas
@@ -1810,9 +1778,8 @@ and clicking |ui-add| brings up the screen shown in
 
 :numref:`Table %s <iscsi_add_portal_fig>`
 summarizes the settings that can be configured when adding a portal.
-To assign additional IP addresses to the portal, click the
-link :guilabel:`Add extra Portal IP`.
-
+To assign additional IP addresses to the portal, click the link
+:guilabel:`Add extra Portal IP`.
 
 .. _iscsi_add_portal_fig:
 
@@ -1865,7 +1832,7 @@ than a link aggregation.
 
 If the %brand% system has multiple configured interfaces, portals can
 also be used to provide network access control. For example, consider
-a system with four interfaces configured with the following addresses:
+a system with four interfaces configured with these addresses:
 
 192.168.1.1/24
 
@@ -1886,6 +1853,7 @@ and connections to target B would be limited to the last two networks.
 Another scenario would be to create a portal which includes every IP
 address **except** for the one used by a management interface. This
 would prevent iSCSI connections to the management interface.
+
 
 .. _Initiators:
 
@@ -1946,7 +1914,6 @@ initiator on any network. Group 2 allows connections from any
 initiator on the *10.10.1.0/24* network. Click |ui-options| on an
 initiator entry to display its :guilabel:`Edit` and :guilabel:`Delete`
 buttons.
-
 
 .. note:: Attempting to delete an initiator causes a warning that
    indicates if any targets or target/extent mappings depend upon the
@@ -2009,14 +1976,14 @@ authorized access:
    |             |           | to using the initiator name as the user.                                                                                         |
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | Secret      | string    | Enter a password for :guilabel:`User`. Must be between 12 and 16 characters.                                                     |
+   | Secret      | string    | Enter and confirm a password for :guilabel:`User`. Must be between 12 and 16 characters.                                         |
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
    | Peer User   | string    | Only input when configuring mutual CHAP. In most cases it will need to be the same value as :guilabel:`User`.                    |
    |             |           |                                                                                                                                  |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
-   | Peer Secret | string    | Enter the mutual secret password which **must be different than the** :guilabel:`Secret`. Required if :guilabel:`Peer User`      |
-   |             |           | is set.                                                                                                                          |
+   | Peer Secret | string    | Enter and confirm the mutual secret password which **must be different than the** :guilabel:`Secret`. Required if                |
+   |             |           | :guilabel:`Peer User` is set.                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -2031,7 +1998,6 @@ three users (*test1*, *test2*, and *test3*) and two groups
 user and group 2 consisting of one mutual CHAP user and one CHAP user.
 Click an authorized access entry to display its :guilabel:`Edit` and
 :guilabel:`Delete` buttons.
-
 
 .. _iscsi_view_auth_access_fig:
 
@@ -2157,7 +2123,6 @@ cache. Even if the client formats a device extent with a different
 filesystem, the data still resides on a ZFS pool and benefits from
 ZFS features like block checksums and snapshots.
 
-
 .. warning:: For performance reasons and to avoid excessive
    fragmentation, keep the used space of the pool below 50% when using
    iSCSI. The capacity of an existing extent can be increased as shown
@@ -2198,17 +2163,11 @@ file to be created is appended to the pool or dataset name.**
    | Setting            | Value          | Description                                                                                                          |
    |                    |                |                                                                                                                      |
    +====================+================+======================================================================================================================+
-   | Extent Name        | string         | Enter the extent name. If the :guilabel:`Extent size` is not *0*, it cannot be an existing file within the           |
+   | Extent name        | string         | Enter the extent name. If the :guilabel:`Extent size` is not *0*, it cannot be an existing file within the           |
    |                    |                | pool or dataset.                                                                                                     |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Extent Type        | drop-down menu | Select from *File* or                                                                                                |
+   | Extent type        | drop-down menu | Select from *File* or                                                                                                |
    |                    |                | *Device*.                                                                                                            |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Device             | drop-down menu | Only appears if *Device* is selected. Select the unformatted disk, controller, zvol, zvol snapshot, or HAST device.  |
-   |                    |                |                                                                                                                      |
-   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Serial             | string         | Unique LUN ID. The default is generated from the system MAC address.                                                 |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Path to the extent | browse button  | Only appears if *File* is selected. Browse to an existing file and use *0* as the :guilabel:`Extent size`,           |
@@ -2221,17 +2180,20 @@ file to be created is appended to the pool or dataset name.**
    |                    |                | create.                                                                                                              |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Logical Block Size | drop-down menu | Only override the default if the initiator requires a different block size.                                          |
+   | Device             | drop-down menu | Only appears if *Device* is selected. Select the unformatted disk, controller, zvol, zvol snapshot, or HAST device.  |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Disable Physical   | checkbox       | Set if the initiator does not support physical block size values over 4K (MS SQL). Setting can also prevent          |
-   | Block Size         |                | `constant block size warnings                                                                                        |
-   | Reporting          |                | <https://www.virten.net/2016/12/the-physical-block-size-reported-by-the-device-is-not-supported/>`__                 |
+   | Logical block size | drop-down menu | Only override the default if the initiator requires a different block size.                                          |
+   |                    |                |                                                                                                                      |
+   +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
+   | Disable physical   | checkbox       | Set if the initiator does not support physical block size values over 4K (MS SQL). Setting can also prevent          |
+   | block size         |                | `constant block size warnings                                                                                        |
+   | reporting          |                | <https://www.virten.net/2016/12/the-physical-block-size-reported-by-the-device-is-not-supported/>`__                 |
    |                    |                | when using this share with ESXi.                                                                                     |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
-   | Available Space    | string         | Only appears if *File* or a zvol is selected. When the specified percentage of free space is reached, the system     |
-   | Threshold          |                | issues an alert. See :ref:`VAAI` Threshold Warning.                                                                  |
+   | Available space    | string         | Only appears if *File* or a zvol is selected. When the specified percentage of free space is reached, the system     |
+   | threshold          |                | issues an alert. See :ref:`VAAI` Threshold Warning.                                                                  |
    |                    |                |                                                                                                                      |
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
    | Comment            | string         | Enter an optional comment.                                                                                           |
@@ -2260,12 +2222,11 @@ Target/Extents
 ~~~~~~~~~~~~~~
 
 The last step is associating an extent to a target by navigating
-:menuselection:`Sharing --> Block (iSCSI) --> Associated Targets` and
-clicking |ui-add|. This screen is shown in
+:menuselection:`Sharing --> Block (iSCSI) --> Associated Targets`
+and clicking |ui-add|. This screen is shown in
 :numref:`Figure %s <iscsi_target_extent_fig>`.
 Use the drop-down menus to select the existing target and extent.
-Click :guilabel:`Save` to add an entry for the LUN.
-
+Click :guilabel:`SAVE` to add an entry for the LUN.
 
 .. _iscsi_target_extent_fig:
 
@@ -2275,9 +2236,8 @@ Click :guilabel:`Save` to add an entry for the LUN.
 
 
 :numref:`Table %s <iscsi_target_extent_config_tab>`
-summarizes the settings that can be configured when associating
-targets and extents.
-
+summarizes the settings that can be configured when associating targets
+and extents.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -2312,12 +2272,12 @@ multiple extents to be associated with the same target.
    buttons for modifying the settings or deleting the LUN entirely.
    A verification popup appears when the :guilabel:`Delete` button is
    clicked. If an initiator has an active connection to the LUN, it is
-   indicated in red text. Clearing the initiator
-   connections to a LUN before deleting it is recommended.
+   indicated in red text. Clearing the initiator connections to a LUN
+   before deleting it is recommended.
 
 After iSCSI has been configured, remember to start the service in
-:menuselection:`Services --> iSCSI` by clicking the power button.
-
+:menuselection:`Services --> iSCSI`
+by clicking the |ui-power| button.
 
 
 #ifdef truenas
@@ -2512,7 +2472,7 @@ configuration. See the
 <https://www.vmware.com/pdf/vsphere4/r41/vsp_41_iscsi_san_cfg.pdf>`__
 for details.
 
-The VMware firewall only allows iSCSI connections on port 3260 by
+The VMware firewall only allows iSCSI connections on port *3260* by
 default. If a different port has been selected, outgoing connections
 to that port must be manually added to the firewall before those
 connections will work.
@@ -2562,7 +2522,6 @@ the example shown in
 :numref:`Figure %s <iscsi_zvol_lun_fig>`,
 the current size of the zvol named *zvol1* is 4 GiB.
 
-
 .. _iscsi_zvol_lun_fig:
 
 #ifdef freenas
@@ -2578,7 +2537,7 @@ the current size of the zvol named *zvol1* is 4 GiB.
 
 
 Enter the new size for the zvol in the :guilabel:`Size for this zvol`
-field and click :guilabel:`Save`. The new size
+field and click :guilabel:`SAVE`. The new size
 for the zvol is immediately shown in the :guilabel:`Used` column of
 the :menuselection:`Storage --> Pools` table.
 
@@ -2594,7 +2553,7 @@ File Extent Based LUN
 
 To grow a file extent based LUN:
 
-Navigate :menuselection:`Services --> iSCSI --> Configure --> Extents`.
+Navigate :menuselection:`Services --> iSCSI --> CONFIGURE --> Extents`.
 Click |ui-options| then :guilabel:`Edit`. Ensure the
 :guilabel:`Extent Type` is set to file and determine the
 :guilabel:`Path to the extent`.
@@ -2607,7 +2566,7 @@ grows :file:`/mnt/pool1/data` by 2 GiB:
 
 
 Return to
-:menuselection:`Services --> iSCSI --> Configure --> Extents`, click
+:menuselection:`Services --> iSCSI --> CONFIGURE --> Extents`, click
 |ui-options| on the desired file extent, then click :guilabel:`Edit`.
 Set the size to *0* as this causes the iSCSI target to use the new
 size of the file.
