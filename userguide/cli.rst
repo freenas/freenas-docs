@@ -48,11 +48,11 @@ performance. It can be used to chart network throughput over time. For
 example, it is used to test the speed of different types of shares
 to determine which type performs best on the network.
 
-%brand% includes the Iperf server. To perform network testing,
-install an Iperf client on a desktop system that has
+%brand% includes the iperf server. To perform network testing,
+install an iperf client on a desktop system that has
 network access to the %brand% system. This section demonstrates
 how to use the
-`xjperf GUI client
+`xjperf user interface client
 <https://code.google.com/archive/p/xjperf/downloads>`__
 as it works on Windows, macOS, Linux, and BSD systems.
 
@@ -61,7 +61,7 @@ Since this client is Java-based, the appropriate
 <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
 must be installed on the client computer.
 
-Linux and BSD users will need to install the Iperf package using the
+Linux and BSD users will need to install the iperf package using the
 package management system for their operating system.
 
 To start xjperf on Windows: unzip the downloaded file, start Command
@@ -72,7 +72,7 @@ To start xjperf on macOS, Linux, or BSD, unzip the downloaded file,
 :command:`cd` to the unzipped directory, type
 :command:`chmod u+x jperf.sh`, and run :command:`./jperf.sh`.
 
-Start the Iperf server on %brand% when the client is ready.
+Start the iperf server on %brand% when the client is ready.
 
 .. note:: Beginning with %brand% version 11.1, both `iperf2
    <https://sourceforge.net/projects/iperf2/>`_ and `iperf3
@@ -291,7 +291,7 @@ pool or dataset when running IOzone benchmarks.
 
 .. note:: If a visual representation of the collected data is
    preferred, scripts are available to render IOzone's output in
-   `Gnuplot <http://www.gnuplot.info/>`_.
+   `Gnuplot <http://www.gnuplot.info/>`__.
 
 ::
 
@@ -448,7 +448,7 @@ from :ref:`Shell`:
 * :command:`arcstat.py`: used to watch the statistics in real time
 
 The advantage of these scripts is that they provide
-real time (right now) information, whereas the current GUI reporting
+real time information, whereas the current |web-ui| reporting
 mechanism is designed to only provide graphs charted over time.
 
 This `forum post
@@ -879,15 +879,15 @@ Or, to review the event log:
 
 
 If the disks added to the array do not appear in the
-GUI, try running this command:
+|web-ui|, try running this command:
 
 .. code-block:: none
 
    tw_cli /c0 rescan
 
 Use the drives to create units and export them to the operating
-system. When finished, run :command:`camcontrol rescan all` and they
-should now be available in the %brand% GUI.
+system. When finished, run :command:`camcontrol rescan all` to make
+them available in the %brand% |web-ui|.
 
 This `forum post
 <https://forums.freenas.org/index.php?threads/3ware-drive-monitoring.13835/>`__
@@ -918,7 +918,7 @@ started.
 freenas-debug
 -------------
 
-The %brand% GUI provides an option to save debugging information to a
+The %brand% |web-ui| provides an option to save debugging information to a
 text file using :menuselection:`System --> Advanced --> Save Debug`.
 This debugging information is created by the :command:`freenas-debug`
 command line utility and a copy of the information is saved to

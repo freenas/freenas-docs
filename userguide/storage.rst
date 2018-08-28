@@ -3,7 +3,7 @@
 Storage
 =======
 
-The Storage section of the graphical interface allows configuration of
+The Storage section of the |web-ui| allows configuration of
 these options:
 
 * :ref:`Pools`: create and manage storage pools.
@@ -21,7 +21,7 @@ these options:
 
 #ifdef truenas
 .. note:: When using an HA (High Availability) %brand% system,
-   connecting to the graphical interface on the passive node only
+   connecting to the |web-ui| on the passive node only
    shows a screen indicating that it is the passive node. All of the
    options discussed in this chapter can only be configured on the
    active node.
@@ -117,7 +117,7 @@ The pool layout is dependent upon the number of disks added to
 :guilabel:`Data VDevs` and the number of available layouts increases as
 disks are added. To view the available layouts, ensure that at least one
 disk appears in :guilabel:`Data VDevs` and select the drop-down menu
-under this section. The UI will automatically update the
+under this section. The |web-ui| will automatically update the
 :guilabel:`Estimated raw capacity` when a layout is selected. These
 layouts are supported:
 
@@ -200,7 +200,7 @@ Managing Encrypted Pools
 .. note:: The encryption facility used by %brand% is designed to
    protect against physical theft of the disks. It is not designed to
    protect against unauthorized software access. Ensure that only
-   authorized users have access to the administrative GUI and that
+   authorized users have access to the |web-ui| and that
    proper permissions are set on shares if sensitive data is stored on
    the system.
 
@@ -620,7 +620,7 @@ was created on another system, or to import a pool after reinstalling an
 existing %brand% system.
 
 When physically installing ZFS pool disks from another system, use the
-:samp:`zpool export {poolname}` command or a GUI equivalent to export
+:samp:`zpool export {poolname}` command or a |web-ui| equivalent to export
 the pool on that system. Then shut it down and connect the drives to
 the %brand% system. This prevents an "in use by another machine" error
 during the import to %brand%.
@@ -1080,7 +1080,7 @@ Setting Permissions
 ~~~~~~~~~~~~~~~~~~~
 
 Setting permissions is an important aspect of managing data access. The
-graphical administrative interface is meant to set the **initial**
+|web-ui| is meant to set the **initial**
 permissions for a pool or dataset to make it available as a
 share. Once a share is available, the client operating system is
 used to fine-tune the permissions of the files and directories that
@@ -1336,7 +1336,7 @@ Periodic snapshots can be configured to appear as shadow copies in
 newer versions of Windows Explorer, as described in
 :ref:`Configuring Shadow Copies`. Users can access the files in the
 shadow copy using Explorer without requiring any interaction with the
-%brand% graphical administrative interface.
+%brand% |web-ui|.
 
 To quickly search through the snapshots list by name, type a matching
 criteria into the :guilabel:`Filter Snapshots` text area. The listing will
@@ -1637,7 +1637,7 @@ perform these steps:
 
 #ifdef freenas
 #.  If the hardware is not AHCI capable, shut down the system to
-    physically replace the disk. When finished, return to the GUI
+    physically replace the disk. When finished, return to the |web-ui|
     and locate the OFFLINE disk.
 #endif freenas
 
@@ -1708,7 +1708,7 @@ Next, restore the encryption keys to the pool.
 reboot, access to the pool might be permanently lost.**
 
 #.  Highlight the pool that contains the disk that was just replaced
-    and click the :guilabel:`Encryption Re-key` button in the GUI.
+    and click the :guilabel:`Encryption Re-key` button in the |web-ui|.
     Entry of the *root* password will be required.
     #ifdef truenas
 
