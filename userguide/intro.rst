@@ -170,6 +170,23 @@ This software has been added or updated:
 * The IPsec kernel module has been added. It can be manually loaded with
   :command:`kldload ipsec`.
 
+* The
+  `em <https://www.freebsd.org/cgi/man.cgi?query=em&apropos=0&sektion=4>`__,
+  `igb <https://www.freebsd.org/cgi/man.cgi?query=igb&apropos=0&sektion=4>`__,
+  `ixgbe <https://www.freebsd.org/cgi/man.cgi?query=ixgbe&apropos=0&sektion=4>`__,
+  and `ixl <https://www.freebsd.org/cgi/man.cgi?query=ixl&apropos=0&sektion=4>`__
+  Intel drivers have been patched to resolve a performance degradation issue
+  that occurs when the MTU is set to *9000* (9k jumbo clusters).
+  Before configuring 9k jumbo clusters for
+  `cxgbe <https://www.freebsd.org/cgi/man.cgi?query=cxgbe&apropos=0&sektion=4>`__
+  create a :ref:`Tunables` with  a
+  :guilabel:`Variable` of *hw.cxgbe.largest_rx_cluster*,
+  a :guilabel:`Type` of *Loader*, and a :guilabel:`Value` of *4096*.
+  The
+  `cxgb <https://www.freebsd.org/cgi/man.cgi?query=cxgb&apropos=0&sektion=4>`__
+  driver does not support jumbo clusters and should not use an MTU greater
+  than *4096*.
+
 * The `vt terminal
   <https://www.freebsd.org/cgi/man.cgi?query=vt&sektion=4&manpath=FreeBSD+11.2-RELEASE+and+Ports>`__
   is now used by default and the syscons terminal is removed from the
@@ -241,6 +258,12 @@ These screen options have changed:
   Box, Dropbox, FTP, Google Drive, HTTP, Hubic, Mega, Microsoft
   OneDrive, pCloud, SFTP, WebDAV, and Yandex.
 
+* The :guilabel:`Endpoint URL` has been added to
+  :menuselection:`System -> Cloud Credentials -> Add Cloud Credential`
+  but only appears when *Amazon S3* is selected as the
+  :guilabel:`Provider`. This can be used to configure a connection to
+  another S3-compatible service, such as Wasabi.
+
 * The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
   :guilabel:`Encryption password`, and :guilabel:`Encryption salt`
   fields have been added to
@@ -255,6 +278,10 @@ These screen options have changed:
 * The :guilabel:`MSDOSFS locale` drop-down menu has been added to
   :menuselection:`Storage --> Import Disk`.
 
+* The :guilabel:`User Base` and :guilabel:`Group Base` fields have
+  been removed from
+  :menuselection:`Directory Services --> Active Directory --> Advanced Mode`.
+
 * The :guilabel:`Enable home directories`, :guilabel:`Home directories`,
   :guilabel:`Home share name`, and :guilabel:`Home Share Time Machine`
   fields have been removed from :menuselection:`Services --> AFP` and
@@ -265,10 +292,6 @@ These screen options have changed:
 
 * The :guilabel:`Umask` field in :menuselection:`Services --> TFTP` has
   changed to a :guilabel:`File Permissions` selector.
-
-* The :guilabel:`User Base` and :guilabel:`Group Base` fields have
-  been removed from
-  :menuselection:`Directory Services --> Active Directory --> Advanced Mode`.
 
 * Disk temperature graphs have been added to
   :menuselection:`Reporting --> Disk`.
