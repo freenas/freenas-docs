@@ -164,17 +164,17 @@ Once the pool is created, the screen refreshes and the new pool is
 listed in :menuselection:`Storage --> Pools`.
 
 In the example shown in :numref:`Figure %s <zfs_vol_fig>`, the created
-pool is named *pool1*. Its description indicates that it is HEALTHY
-and its :guilabel:`Used` and :guilabel:`Free` entries reflect the total
+pool is named *pool1*. The description indicates that it is HEALTHY
+and the :guilabel:`Used` and :guilabel:`Free` entries reflect the total
 size of the pool, including disk parity.
 
 Click the down arrow to see more details about the pool. This second
-entry has the same name and represents the implicit or root dataset. Its
+entry has the same name and represents the implicit or root dataset. The
 :guilabel:`Used` and :guilabel:`Available` entries indicate the amount
 of disk space available for storage, after disk parity. It also
 indicates the type of :guilabel:`Compression`, the
 :guilabel:`Compression Ratio`, whether it is mounted as read-only,
-whether :guilabel:`Deduplication` has been enabled, its mountpoint path,
+whether :guilabel:`Deduplication` has been enabled, the mountpoint path,
 and any :guilabel:`Comments` entered for the pool.
 
 There is an option to :guilabel:`Upgrade Pool`. This upgrades the
@@ -319,8 +319,9 @@ it.
 
 
 To manage the passphrase and keys on an encrypted pool, select the
-pool name in :menuselection:`Storage --> Pools`, click the
-:guilabel:`Encryption Operations` (lock) icon, and select one of
+pool name in
+:menuselection:`Storage --> Pools`,
+click the :guilabel:`Encryption Operations` (lock) icon, and select one of
 these operations:
 
 **Lock:** Only appears after a passphrase has been created. When a pool
