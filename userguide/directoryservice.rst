@@ -15,7 +15,7 @@ Directory Services
 and the ability to add more parameters to :ref:`Kerberos Settings`.
 
 This section summarizes each of these services and the available
-configuration options within the %brand% GUI.
+configuration options within the %brand% |web-ui|.
 
 .. _Active Directory:
 
@@ -229,11 +229,11 @@ are made to this setting.
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | autorid        | Similar to :guilabel:`rid`, but automatically configures the range to be used for each domain, so there is no need to specify a          |
-   |                | specific range for each domain in the forest. The only needed configuration is the range of UID/GIDs to use for user/group mappings      |
-   |                | and an optional size for the ranges.                                                                                                     |
+   |                | specific range for each domain in the forest. The only needed configuration is the range of UID or GIDs to use for user and group        |
+   |                | mappings and an optional size for the ranges.                                                                                            |
    |                |                                                                                                                                          |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
-   | fruit          | Generate IDs the way Apple Mac OS X does, so UID and GID can be identical on all %brand% servers on the network. For use in              |
+   | fruit          | Generate IDs as macOS does. The UID and GID can be identical on all %brand% servers on the network. For use in                           |
    |                | :ref:`LDAP` environments where Apple's Open Directory is the authoritative LDAP server.                                                  |
    +----------------+------------------------------------------------------------------------------------------------------------------------------------------+
    | ldap           | Stores and retrieves mapping tables in an LDAP directory service. Default for LDAP directory service.                                    |

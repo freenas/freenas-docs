@@ -76,7 +76,7 @@ below can be modified in the new version to match the needs of
 the user being created. Do not change the text in black.
 After saving changes, run the script by typing
 :command:`python scriptname.py`. The new user account will appear in
-:menuselection:`Account --> Users` in the %brand% GUI.
+:menuselection:`Account --> Users` in the %brand% |web-ui|.
 
 Here is the example script with an explanation of the line numbers
 below it.

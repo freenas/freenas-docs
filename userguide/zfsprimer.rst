@@ -187,8 +187,8 @@ some cases, it may be more efficient to have two separate pools: one
 on SSDs for active data, and another on hard drives for rarely used
 content. After adding an L2ARC device, monitor its effectiveness using
 tools such as :command:`arcstat`. To increase the size of an existing
-L2ARC, stripe another cache device with it. The GUI will always stripe
-L2ARC, not mirror it, as the contents of L2ARC are recreated at boot.
+L2ARC, stripe another cache device with it. The |web-ui| will always
+stripe L2ARC, not mirror it, as the contents of L2ARC are recreated at boot.
 Failure of an individual SSD from an L2ARC pool will not affect the
 integrity of the pool, but may have an impact on read performance,
 depending on the workload and the ratio of dataset size to cache size.
