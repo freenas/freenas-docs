@@ -77,5 +77,5 @@ The warning message shown in
 
 Click :guilabel:`Confirm` and then :guilabel:`SHUT DOWN` to shut
 down the system. Shutting down the system disconnects all clients,
-including the web administration GUI. Physical access to the %brand%
+including the |web-ui|. Physical access to the %brand%
 system is required to turn it back on.

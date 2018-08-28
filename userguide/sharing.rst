@@ -559,9 +559,9 @@ When creating NFS shares, keep these points in mind:
 #. Clients will specify the :guilabel:`Path` when mounting the share.
 
 #.  The :guilabel:`Maproot` and :guilabel:`Mapall` options are
-    exclusive, meaning only one can be used as the GUI does not allow
-    both. The :guilabel:`Mapall` options supersede the
-    :guilabel:`Maproot` options. To restrict only the *root* user's
+    exclusive, meaning only one can be used as the |web-ui| does
+    not allow both. The :guilabel:`Mapall` options supersede the
+    :guilabel:`Maproot` options. To restrict only the *root* user
     permissions, set the :guilabel:`Maproot` option. To restrict
     permissions of all users, set the :guilabel:`Mapall` options.
 
@@ -1511,7 +1511,7 @@ caveats:
 
 * Users cannot delete shadow copies on the Windows system due to the
   way Samba works. Instead, the administrator can remove snapshots
-  from the %brand% administrative GUI. The only way to disable shadow
+  from the %brand% |web-ui|. The only way to disable shadow
   copies completely is to remove the periodic snapshot task and delete
   all snapshots associated with the SMB share.
 
@@ -1896,11 +1896,13 @@ initiator.
    | Initiators         | string    | Use *ALL* keyword or a list of initiator hostnames separated by spaces.              |
    |                    |           |                                                                                      |
    +--------------------+-----------+--------------------------------------------------------------------------------------+
-   | Authorized network | string    | Use *ALL* keyword or a network address with CIDR mask such as                        |
-   |                    |           | *192.168.2.0/24*.                                                                    |
+   | Authorized network | string    | Network addresses that can use this initiator. Use :literal:`ALL` or list network    |
+   |                    |           | addresses with a `CIDR                                                               |
+   |                    |           | <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>`__ mask. Separate     |
+   |                    |           | multiple addresses with a space: :samp:`192.168.2.0/24 192.168.2.1/12`.              |
    |                    |           |                                                                                      |
    +--------------------+-----------+--------------------------------------------------------------------------------------+
-   | Comment            | string    | Enter an optional description.                                                       |
+   | Comment            | string    | Notes or a description of the initiator.                                             |
    |                    |           |                                                                                      |
    +--------------------+-----------+--------------------------------------------------------------------------------------+
 
@@ -2263,7 +2265,7 @@ and extents.
 
 
 Always associating extents to targets in a
-one-to-one manner is recommended, even though the GUI will allow
+one-to-one manner is recommended, even though the |web-ui| will allow
 multiple extents to be associated with the same target.
 
 .. note:: Each LUN entry has :guilabel:`Edit` and :guilabel:`Delete`
@@ -2539,7 +2541,7 @@ field and click :guilabel:`SAVE`. The new size
 for the zvol is immediately shown in the :guilabel:`Used` column of
 the :menuselection:`Storage --> Pools` table.
 
-.. note:: The GUI does not allow reducing (shrinking) the size of the
+.. note:: The |web-ui| does not allow reducing the size of the
    zvol, as doing so could result in loss of data. It also does not
    allow increasing the size of the zvol past 80% of the pool size.
 

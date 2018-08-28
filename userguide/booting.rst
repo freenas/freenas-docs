@@ -14,7 +14,7 @@ Obtaining an IP Address
 During boot, %brand% automatically attempts to connect to a DHCP
 server from all live network interfaces. After %brand% successfully
 recieves an IP address, the address is displayed so it can be used
-to access the graphical user interface. The example in
+to access the |web-ui|. The example in
 :numref:`Figure %s <console_setup_menu_fig>` shows a
 %brand% system that is accessible at *http://10.0.0.102*.
 
@@ -76,14 +76,17 @@ The password for the root user is requested as shown in
    Enter the Root Password
 
 
-.. note:: The %brand% UI now uses Angular and a new, asynchronous
-   middleware. To use the legacy Django UI that was used before
-   version 11.2, click :guilabel:`Legacy UI`. This Guide only
-   demonstrates the new, Angular UI.
+.. note:: The %brand% |web-ui| now uses Angular and a new, asynchronous
+   middleware. To use the legacy Django |web-ui| that was used before
+   version 11.2, click :guilabel:`Legacy UI`. This User Guide only
+   demonstrates the new Angular |web-ui|.
 
+#ifdef comment
+Update the Legacy UI label when bug #42407 is resolved.
+#endif comment
 
-Enter the password chosen during the installation. The administrative
-GUI is displayed as shown in
+Enter the password chosen during the installation. The |web-ui|
+is displayed as shown in
 :numref:`Figure %s <booting_graphic_config_menu_fig>`.
 
 
@@ -94,15 +97,14 @@ GUI is displayed as shown in
    %brand% Graphical Configuration Menu
 
 #ifdef freenas
-The rest of this Guide describes the %brand% graphical interface in
-more detail. The layout of this Guide follows the order of the menu
-items in the tree located in the left frame of the graphical
-interface.
+The rest of this User Guide describes the %brand% |web-ui| in
+more detail. The layout of this User Guide follows the order of the menu
+items in the tree located in the left frame of the |web-ui|.
 
-.. note:: It is important to use the GUI (or the Console Setup menu)
-   for all configuration changes. %brand% uses a configuration
+.. note:: It is important to use the |web-ui| or the Console Setup
+   menu for all configuration changes. %brand% uses a configuration
    database to store its settings. While it is possible to use the
-   command line to modify your configuration, changes made at the
+   command line to modify the configuration, changes made at the
    command line **are not** written to the configuration database.
    This means that any changes made at the command line will not
    persist after a reboot and will be overwritten by the values in the
@@ -115,7 +117,7 @@ entered in a browser:
 * Check for enabled proxy settings in the browser configuration, disable
   them, and try connecting again.
 
-* :command:`ping` the %brand% system's IP address from another computer
+* :command:`ping` the %brand% system IP address from another computer
   on the same network.
 
 * Try a different web browser if the user interface loads but is

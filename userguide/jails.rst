@@ -901,7 +901,7 @@ This opens the screen shown in
    Adding Storage to a Jail
 
 
-Browse to the :guilabel:`Source` and :guilabel:`Destination`, where:
+*Browse* to the :guilabel:`Source` and :guilabel:`Destination`, where:
 
 * :guilabel:`Source`: is the directory or dataset on the %brand% system
   which will be accessed by the jail. %brand% creates the directory
@@ -911,7 +911,7 @@ Browse to the :guilabel:`Source` and :guilabel:`Destination`, where:
   jails is always separate from any datasets used for storage on the
   %brand% system.
 
-* :guilabel:`Destination`: select an **existing, empty** directory
+* :guilabel:`Destination`: select or add a new **empty** directory
   within the jail to link to the :guilabel:`Source` storage area.
 
 Storage is typically added because the user and group account

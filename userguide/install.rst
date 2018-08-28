@@ -5,7 +5,7 @@ Installing and Upgrading
 
 The %brand% operating system has to be installed on a
 separate device from the drives which hold the storage data. With only
-one disk drive, the %brand% graphical interface is
+one disk drive, the %brand% |web-ui| is
 available, but there is no place to store any data. And storing data
 is, after all, the whole point of a NAS system. Home users
 experimenting with %brand% can install %brand% on an inexpensive USB
@@ -353,7 +353,7 @@ continue to the screen shown in
 The screen shown in
 :numref:`Figure %s <set_root_pass_fig>`
 prompts for the *root* password
-which is used to log in to the administrative graphical interface.
+which is used to log in to the |web-ui|.
 
 
 .. _set_root_pass_fig:
@@ -364,7 +364,7 @@ which is used to log in to the administrative graphical interface.
 
 
 Setting a password is mandatory and the password cannot be blank.
-Since this password provides access to the administrative GUI, it
+Since this password provides access to the |web-ui|, it
 needs to be hard to guess. Enter the password, press the down arrow key,
 and confirm the password. Then press :kbd:`Enter` to continue with the
 installation.
@@ -372,9 +372,9 @@ installation.
 .. note:: For security reasons, the SSH service and *root* SSH logins
    are disabled by default. Unless these are set, the only way to
    access a shell as *root* is to gain physical access to the console
-   menu or to access the web shell within the administrative GUI. This
+   menu or to access the web shell within the |web-ui|. This
    means that the %brand% system needs to be kept physically secure and
-   that the administrative GUI needs to be behind a properly configured
+   that the |web-ui| needs to be behind a properly configured
    firewall and protected by a secure password.
 
 
@@ -472,8 +472,8 @@ Upgrading
 up-to-date:
 
 #. Upgrades to major releases, for example from version 9.3 to 9.10,
-   can still be performed using either an ISO or the graphical
-   administrative interface. Unless the Release Notes for the new
+   can still be performed using either an ISO or the
+   |web-ui|. Unless the Release Notes for the new
    major release indicate that the current version requires an ISO
    upgrade, either upgrade method can be used.
 
@@ -595,7 +595,7 @@ showing all available drives.
    drives. Only choose boot drives when upgrading. Choosing the wrong
    drives to upgrade or install will cause loss of data. If unsure
    about which drives contain the %brand% operating system, reboot and
-   remove the install media. In the %brand% GUI, use
+   remove the install media. In the %brand% |web-ui|, use
    :menuselection:`System --> Boot`
    to identify the boot drives. More than one drive is shown when a
    mirror has been used.
@@ -672,17 +672,17 @@ happens during the "Applying database schema changes" line in the
 reboot cycle. This conversion can take a long time to finish,
 sometimes fifteen minutes or more, and can cause the system
 to reboot again. The system will start
-normally afterwards. If database errors are shown but the graphical
-administrative interface is accessible, go to
-:menuselection:`System --> General`
+normally afterwards. If database errors are shown but the |web-ui|
+is accessible, go to
+:menuselection:`Settings --> General`
 and use the :guilabel:`UPLOAD CONFIG` button to upload the
 configuration that was saved before starting the upgrade.
 
 
-.. _Upgrading From the GUI:
+.. _Upgrading From the Web Interface:
 
-Upgrading From the GUI
-~~~~~~~~~~~~~~~~~~~~~~
+Upgrading From the Web Interface
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To perform an upgrade using this method, go to
 :menuselection:`System --> Update`.
@@ -944,8 +944,9 @@ Virtual Hard Drive Wizard (seen in
 :numref:`Figure %s <vb_virt_drive_fig>`
 and
 :numref:`%s <vb_virt_type_fig>`).
-This disk will be used for storage, so create a size
-appropriate to your needs, making sure that it is **at least 4 GiB**.
+
+Create a disk large enough to hold the desired  data. The minimum
+size is **4 GiB.**
 To practice with RAID configurations, create as many virtual disks as
 needed. Two disks can be created on each IDE controller. For
 additional disks, click the :guilabel:`Add Controller` button to

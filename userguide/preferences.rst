@@ -4,8 +4,8 @@ Preferences
 ===========
 
 The %brand% User Interface can be adjusted to match the user
-preferences. Go to the :guilabel:`UI Preferences` page by clicking the
-|ui-settings| menu in the upper-right and clicking
+preferences. Go to the :guilabel:`Web Interface Preferences` page by
+clicking the |ui-settings| menu in the upper-right and clicking
 :guilabel:`Preferences`.
 
 
@@ -15,8 +15,8 @@ preferences. Go to the :guilabel:`UI Preferences` page by clicking the
 User Interface Preferences
 --------------------------
 
-This page has options to adjust global settings in the UI, manage custom
-themes, and create new themes.
+This page has options to adjust global settings in the |web-ui|, manage
+customthemes, and create new themes.
 :numref:`Figure %s <ui_preferences_fig>` shows the different options:
 
 .. _ui_preferences_fig:
@@ -26,19 +26,19 @@ themes, and create new themes.
    User Interface Preferences
 
 
-These options are applied to the entire UI:
+These options are applied to the entire |web-ui|:
 
 :guilabel:`Choose Theme`: Change the active theme. Custom themes are
 added to this list.
 
 :guilabel:`View Type Preference` selects the default view for many of
-the overview pages in the UI. Choose *Cards* to display each item on a
-page in a self-contained "card". *Tables* condenses each item into a
-simplified table. *Auto* dynamically adjusts the view according to the
-number of items visible on the specific page.
+the overview pages in the |web-ui|. Choose *Cards* to display each
+item on a page in a self-contained "card". *Tables* condenses each
+item into a simplified table. *Auto* dynamically adjusts the view
+according to the number of items visible on the specific page.
 
 :guilabel:`Enable Helpful Tooltips in Forms`: Set to add viewable help
-text to each form in the UI. Unset to hide all help text icons.
+text to each form in the |web-ui|. Unset to hide all help text icons.
 
 Make any changes and click :guilabel:`UPDATE SETTINGS` to save the new
 selections.
@@ -49,7 +49,7 @@ selections.
 Themes
 ------
 
-The %brand% UI supports dynamically changing the active theme and
+The %brand% |web-ui| supports dynamically changing the active theme and
 creating new, fully customizable themes.
 
 
@@ -60,7 +60,7 @@ Theme Selector
 ~~~~~~~~~~~~~~
 
 Quickly change the active theme by using the theme selector. Look for
-the paint bucket icon in the upper-right corner of the UI. Click the
+the paint bucket icon in the upper-right corner of the |web-ui|. Click the
 icon to see a list of different default and favorite themes.
 :numref:`Figure %s <themes_select_fig>` shows an example:
 
@@ -69,7 +69,7 @@ icon to see a list of different default and favorite themes.
 
 .. figure:: images/themes-selector.png
 
-   Changing the %brand% UI theme
+   Changing the %brand% |web-ui| theme
 
 
 Click a theme to activate it.
@@ -77,7 +77,7 @@ Click a theme to activate it.
 Select :guilabel:`Manage Themes` to open the
 :guilabel:`User Preferences` page. The :guilabel:`Manage Custom Themes`
 column displays any created custom themes. Delete these themes by
-setting the checkboxes and clicking :guilabel:`DELETE SELECTED`.
+setting the options and clicking :guilabel:`DELETE SELECTED`.
 
 Click :guilabel:`CREATE NEW THEME` to go to the
 :guilabel:`Create Custom Theme` page.
@@ -134,17 +134,17 @@ option:
    | Add to Favorites  | checkbox  | Set to add this theme to the :ref:`Theme Selector`.                                      |
    |                   |           |                                                                                          |
    +-------------------+-----------+------------------------------------------------------------------------------------------+
-   | Choose Logo Type  | checkbox  | Set to classify this as a "dark" theme.                                                  |
+   | Enable Dark Logo  | checkbox  | Set this to give the FreeNAS Logo a dark fill color.                                     |
    |                   |           |                                                                                          |
    +-------------------+-----------+------------------------------------------------------------------------------------------+
    | Choose Primary    | drop-down | Choose from either a generic color or import a specific color setting to use as the      |
-   |                   | menu      | primary theme color. The primary color changes the top bar of the UI and the color       |
-   |                   |           | of many of the buttons.                                                                  |
+   |                   | menu      | primary theme color. The primary color changes the top bar of the |web-ui|               |
+   |                   |           | and the color of many of the buttons.                                                    |
    |                   |           |                                                                                          |
    +-------------------+-----------+------------------------------------------------------------------------------------------+
    | Choose Accent     | drop-down | Choose from either a generic color or import a specific color setting to use as the      |
    |                   | menu      | accent color for the theme. This color is used for many of the buttons and smaller       |
-   |                   |           | elements in the UI.                                                                      |
+   |                   |           | elements in the |web-ui|.                                                                |
    |                   |           |                                                                                          |
    +-------------------+-----------+------------------------------------------------------------------------------------------+
 
@@ -157,7 +157,7 @@ hexadecimal value.
 Changing any color value automatically updates the
 :guilabel:`Theme Preview` column. This section is completely interactive
 and shows how the custom theme is applied to all the different elements
-in the UI.
+in the |web-ui|.
 
 Click :guilabel:`SAVE CUSTOM THEME` when finished with all the
 :guilabel:`General` and :guilabel:`Colors` options. The new theme will
@@ -165,9 +165,9 @@ be immediately added to the list of available themes in
 :guilabel:`User Preferences`.
 
 Click :guilabel:`Global Preview` to apply the unsaved custom theme to
-the current session of the %brand% UI. Activating
-:guilabel:`Global Preview` allows going to other pages in the UI and
-live testing the new custom theme.
+the current session of the %brand% |web-ui|. Activating
+:guilabel:`Global Preview` allows going to other pages in the |web-ui|
+and live testing the new custom theme.
 
 
 .. note:: Setting a custom theme as a :guilabel:`Global Preview` does

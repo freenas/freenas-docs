@@ -8,7 +8,7 @@ Plugins
 services by providing two methods for installing additional software.
 
 :ref:`Plugins` allow the user to browse, install, and configure
-pre-packaged software from the GUI. This method is easy to use, but
+pre-packaged software from the |web-ui|. This method is easy to use, but
 provides a limited amount of available software. Each plugin is
 automatically installed into its own
 `FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`__.
@@ -19,7 +19,7 @@ networking basics and software installation on FreeBSD-based systems.
 
 Look through the :ref:`Plugins` and :ref:`Jails` sections to become
 familiar with the features and limitations of each. Choose the method
-that best meets that application's needs.
+that best meets the needs of the application.
 
 
 .. _Installing Plugins:
@@ -28,16 +28,16 @@ Install
 -------
 
 A plugin is a self-contained application installer designed to
-integrate into the %brand% GUI. A plugin offers several advantages:
+integrate into the %brand% |web-ui|. A plugin offers several advantages:
 
-* the %brand% GUI provides a browser for viewing the list of
+* the %brand% |web-ui| provides a browser for viewing the list of
   available plugins
 
-* the %brand% GUI provides buttons for installing, starting,
+* the %brand% |web-ui| provides buttons for installing, starting,
   managing, and deleting plugins
 
 * if the plugin has configuration options, a screen will be added to
-  the %brand% GUI for these options to be configured
+  the %brand% |web-ui| for these options to be configured
 
 To install a plugin, click
 :menuselection:`Plugins --> Available`.
@@ -67,7 +67,6 @@ enter an IPv4 or IPv6 address. Click :guilabel:`SAVE`. In the example
 shown in :numref:`Figure %s <installing_plugin_fig>`, Plex Media
 Server is selected for installation.
 
-
 .. _installing_plugin_fig:
 
 .. figure:: images/plugins-install-example.png
@@ -75,13 +74,12 @@ Server is selected for installation.
    Installing the Plex Plugin
 
 
-The installation takes a few minutes because the system
-downloads and configures a jail to store the plugin application. A
-confirmation message is displayed at the bottom of the screen after a
-successful installtion. Installed plugins appear in the
+The installation takes a few minutes because the system downloads and
+configures a jail to store the plugin application. A confirmation
+message displays at the bottom of the screen after successfully
+installing a plugin. Installed plugins appear in the
 :menuselection:`Plugins --> Installed`
 page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
-
 
 .. tip:: Installed plugins are also added to the
    :menuselection:`Jails`
@@ -97,18 +95,17 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
 The entry in the
 :menuselection:`Plugins --> Installed`
-section displays the plugin name, boot status, state, release, IP4 and
-IP6 addresses, and whether it is a template.
+section displays the plugin jail name, status, IPv4 and IPv6 addresses,
+plugin application version, and FreeBSD release.
 
 The plugin must be started before the installed application is
 available. Click |ui-options| and :guilabel:`Start`. The plugin
-:guilabel:`State` updates to *up* when it starts successfully.
+:guilabel:`Status` changes to :literal:`up` when it starts successfully.
 
 Click |ui-options| and :guilabel:`Management` to open a management
 or configuration screen for the application. For example, clicking
 :guilabel:`Management` for an installed Plex plugin opens the Plex
 web interface in a new browser tab.
-
 
 .. note:: Not all plugins have a functional management option. See
    :ref:`Managing Jails` for more instructions about interacting with
@@ -431,20 +428,22 @@ uses the directory and package name :file:`/irc/quassel-core`.
 Now edit :file:`iocage-ix-plugins/INDEX`. Add an entry for the new
 plugin that includes these fields:
 
-* "MANIFEST": Add the newly created :file:`plugin.json` file here.
+* :literal:`"MANIFEST":` Add the name of the newly created
+  :file:`plugin.json` file here.
 
-* "name": Use the same name from the :file:`.json` file.
+* :literal:`"name":` Use the same name used within the :file:`.json`
+  file.
 
-* "icon": Most plugins will have a specific icon. Search the web and
-  save the icon to the :file:`icons/` directory as a :file:`.png`. The
-  naming convention is :file:`pluginname.png`. For example, the
-  :guilabel:`Transmission` plugin has the icon file
+* :literal:`"icon":` Most plugins will have a specific icon. Search the
+  web and save the icon to the :file:`icons/` directory as a
+  :file:`.png`. The naming convention is :file:`pluginname.png`. For
+  example, the :guilabel:`Transmission` plugin has the icon file
   :file:`transmission.png`.
 
-* "description": Add any notes about the plugin.
+* :literal:`"description":` Describe the plugin in a single sentence.
 
-* "official": Specify if the plugin is supported by iXsystems. Enter
-  *false*.
+* :literal:`"official":` Specify if the plugin is supported by
+  iXsystems. Enter :literal:`false`.
 
 See the
 `INDEX <https://github.com/freenas/iocage-ix-plugins/blob/master/INDEX>`__
@@ -464,6 +463,61 @@ Make sure the pull request contains:
 
 * a link to the artifact repository populated with all required plugin
   files.
+
+
+.. _Test a plugin:
+
+Test a Plugin
+~~~~~~~~~~~~~
+
+.. warning:: Installing experimental plugins is not recommended for
+   general use of %brand%. This feature is meant to help plugin creators
+   test their work before it becomes generally available on %brand%.
+
+
+Plugin pull requests are merged into the :literal:`master` branch of the
+`iocage-ix-plugins <https://github.com/freenas/iocage-ix-plugins>`__
+repository. These plugins are not available in the |web-ui| until they
+are tested and added to a *RELEASE* branch of the repository. It is
+possible to test an in-development plugin by using this
+:command:`iocage` command:
+:samp:`iocage fetch -P --name {PLUGIN} {IPADDRESS_PROPS} --branch 'master'`
+
+This will install the plugin, configure it with any chosen properties,
+and specifically use the :literal:`master` branch of the repository to
+download the plugin.
+
+Here is an example of downloading and configuring an experimental plugin
+with the %brand%
+:menuselection:`Shell`:
+
+.. code-block:: none
+
+   [root@freenas ~]# iocage fetch -P --name mineos ip4_addr="em0|10.231.1.37/24" --branch 'master'
+   Plugin: mineos
+     Official Plugin: False
+     Using RELEASE: 11.2-RELEASE
+     Using Branch: master
+     Post-install Artifact: https://github.com/jseqaert/iocage-plugin-mineos.git
+     These pkgs will be installed:
+   ...
+
+   ...
+   Running post_install.sh
+   Command output:
+   ...
+
+   ...
+   Admin Portal:
+   http://10.231.1.37:8443
+   [root@freenas ~]#
+
+
+This plugin appears in the
+:menuselection:`Jails` and
+:menuselection:`Plugins --> Installed`
+screens as :literal:`mineos` and can be tested with the %brand% system.
+
 
 .. _Official Plugins:
 
@@ -489,7 +543,7 @@ is supported by following the process outlined in
    |                                                                         |                                                                        |
    +=========================================================================+========================================================================+
    | `BackupPC                                                               | BackupPC is a high-performance, enterprise-grade system for backing up |
-   | <http://backuppc.sourceforge.net/>`__                                   | Linux, WinXX and MacOSX PCs and laptops to a server's disk.            |
+   | <http://backuppc.sourceforge.net/>`__                                   | Linux, WinXX and MacOSX PCs and laptops to a server disk.              |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Bacula <https://www.baculasystems.com/>`__                             | Bacula is an open-source, enterprise-level computer backup system for  |

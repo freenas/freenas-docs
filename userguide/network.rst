@@ -4,7 +4,7 @@
 Network
 =======
 
-The Network section of the administrative GUI contains these
+The Network section of the |web-ui| contains these
 components for viewing and configuring network settings on the
 %brand% system:
 
@@ -13,7 +13,7 @@ components for viewing and configuring network settings on the
 * :ref:`Interfaces`: settings for each network interface.
 
 * :ref:`IPMI`: settings controlling connection to the appliance
-  through the hardware side-band management interface if the graphical
+  through the hardware side-band management interface if the
   user interface becomes unavailable.
 
 * :ref:`Link Aggregations`: settings for network link aggregation and
@@ -127,7 +127,7 @@ but can be changed to meet requirements of the local network.
 
 
 When using Active Directory, set the IP address of the
-realm's DNS server in the :guilabel:`Nameserver 1` field.
+realm DNS server in the :guilabel:`Nameserver 1` field.
 
 If the network does not have a DNS server, or NFS, SSH, or FTP users
 are receiving "reverse DNS" or timeout errors, add an entry for the IP
@@ -295,7 +295,7 @@ provides a shortcut to the most basic IPMI configuration. Those
 already familiar with IPMI management tools can use them instead.
 :numref:`Table %s <ipmi_options_tab>`
 summarizes the options available when configuring IPMI with the
-%brand% GUI.
+%brand% |web-ui|.
 
 
 .. _ipmi_config_fig:
@@ -329,7 +329,7 @@ summarizes the options available when configuring IPMI with the
    |                      |                | and :guilabel:`Ipv4 Default Gateway` must be set.                            |
    |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
-   | IPv4 Address         | string         | IP address used to connect to the IPMI web GUI.                              |
+   | IPv4 Address         | string         | IP address used to connect to the IPMI |web-ui|.                             |
    |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | IPv4 Netmask         | drop-down menu | Subnet mask associated with the IP address.                                  |
@@ -348,7 +348,7 @@ summarizes the options available when configuring IPMI with the
 After configuration, the IPMI interface is accessed using a web
 browser and the IP address specified in the configuration. The
 management interface prompts for a username and the configured
-password. Refer to the IPMI device's documentation to determine the
+password. Refer to the IPMI device documentation to determine the
 default administrative username.
 
 After logging in to the management interface, the default
@@ -562,7 +562,7 @@ Clicking the :guilabel:`Edit` button for a lagg opens the
 configuration screen shown in :numref:`Figure %s <lagg_edit_fig>`.
 :numref:`Table %s <lagg_opts_tab>` describes the options in this screen.
 
-If the network interface used to connect to the %brand% web GUI is a
+If the network interface used to connect to the %brand% |web-ui| is a
 member of the lagg, the network connection will be lost when the new
 lagg is created. The switch settings might also require changes to
 communicate through the new lagg interface.
@@ -570,7 +570,7 @@ communicate through the new lagg interface.
 The IP address of the new lagg can be set with DHCP or manually from
 the console setup menu. If the IP address is set manually, it might
 also be necessary to enter a default gateway to allow access to the
-GUI from the new lagg interface.
+|web-ui| from the new lagg interface.
 
 
 .. _lagg_edit_fig:
@@ -854,7 +854,7 @@ summarizes the configurable fields.
 
 The parent interface of a VLAN must be up, but it can either have an IP
 address or be unconfigured, depending upon the requirements of the VLAN
-configuration. This makes it difficult for the GUI to do the right thing
+configuration. This makes it difficult for the |web-ui| to do the right thing
 without trampling the configuration. To remedy this, add the VLAN, then
 select
 :menuselection:`Network --> Interfaces`, and click |ui-add|.
@@ -866,11 +866,11 @@ configure it using the rest of the options in the
 
 #ifdef freenas
 .. warning:: Creating a VLAN causes an interruption to network
-   connectivity. The GUI provides a warning about this interruption.
+   connectivity. The |web-ui| provides a warning about this interruption.
 #endif freenas
 #ifdef truenas
 .. warning:: Creating a vlan will cause network connectivity to be
    interrupted and, if :ref:`Failover` is configured, a
-   failover event. Accordingly, the GUI will provide a warning
+   failover event. Accordingly, the |web-ui| will provide a warning
    and an opportunity to cancel the vlan creation.
 #endif truenas

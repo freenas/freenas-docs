@@ -207,8 +207,8 @@ Note that configuring a domain controller is a complex process
 that requires a good understanding of how :ref:`Active Directory`
 works. While
 :menuselection:`Services --> Domain Controller --> Configure`
-makes it easy to enter the needed settings into the administrative
-graphical interface, it is important to understand what those settings
+makes it easy to enter the needed settings into the |web-ui|, it is
+important to understand what those settings
 should be. Before beginning configuration, read through the
 `Samba AD DC HOWTO
 <https://wiki.samba.org/index.php/Samba_AD_DC_HOWTO>`__.

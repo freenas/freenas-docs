@@ -4,7 +4,7 @@
 Tasks
 =====
 
-The Tasks section of the administrative GUI is used to configure
+The Tasks section of the |web-ui| is used to configure
 repetitive tasks:
 
 * :ref:`Cron Jobs` schedules a command or script to automatically
@@ -231,7 +231,7 @@ systems. To synchronize data between two %brand% systems, create the
 * **rsync module mode:** exports a directory tree, and the configured
   settings of the tree as a symbolic name over an unencrypted connection.
   This mode requires that at least one module be defined on the rsync
-  server. It can be defined in the %brand% GUI under
+  server. It can be defined in the %brand% |web-ui| under
   :menuselection:`Services --> Rsync Configure --> Rsync Module`.
   In other operating systems, the module is defined in
   `rsyncd.conf(5) <https://www.samba.org/ftp/rsync/rsyncd.conf.html>`__.

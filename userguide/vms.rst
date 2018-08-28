@@ -455,7 +455,7 @@ configuration values are shown on the card. Click |ui-options| for the
 :guilabel:`Start`, :guilabel:`Power Off`, :guilabel:`Delete`,
 :guilabel:`Devices`, and :guilabel:`Edit` options.
 
-.. tip:: The UI shows an error message if a VM fails to start.
+.. tip:: The |web-ui| shows an error message if a VM fails to start.
 
 
 Some buttons are available for all VMs:
@@ -517,9 +517,9 @@ runtime, system tools, and system libraries, so applications always
 see the same environment.
 
 `Rancher <https://rancher.com/>`__
-is a GUI tool for managing Docker containers.
+is a |web-ui| tool for managing Docker containers.
 
-%brand% runs the Rancher GUI as a separate VM.
+%brand% runs the Rancher |web-ui| as a separate VM.
 
 
 .. index:: Docker VM Requirements
@@ -736,11 +736,11 @@ example, if the IP address was :literal:`10.231.3.208`, enter
 :literal:`10.231.3.208:8080` as the URL in the web browser.
 
 The Rancher server takes a few minutes to start. The web browser might
-show a connection error while the Rancher GUI is still starting. If
+show a connection error while the Rancher |web-ui| is still starting. If
 the browser shows a :literal:`connection has timed out` or a similar
 error, wait one minute and try again.
 
-In the Rancher GUI, click :guilabel:`Add a host` and enter the same IP
+In the Rancher |web-ui|, click :guilabel:`Add a host` and enter the same IP
 address and port number. Click :guilabel:`Save` to save the
 information.
 
