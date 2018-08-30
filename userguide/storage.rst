@@ -146,8 +146,8 @@ physical theft, enable the :guilabel:`Encryption` option.
 .. warning:: Refer to the warnings in :ref:`Encryption` before enabling
    encryption! Be aware that this form of encryption will be replaced by
    OpenZFS native encryption in a future version. Pools created with the
-   current encryption mechanism will need to be backed up and destroyed
-   in order to be recreated with native encryption when it becomes available.
+   current encryption mechanism need to be backed up and destroyed
+   to be recreated with native encryption when it becomes available.
 
 Drag the slider to select the desired number of disks.
 :guilabel:`Volume Manager` displays the resulting storage capacity,
@@ -226,7 +226,7 @@ Encryption
 %brand% supports
 `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
 full disk encryption for ZFS volumes. It is important to understand
-the details when considering whether encryption is right for your
+the details when considering whether encryption is right for the
 %brand% system:
 
 
@@ -245,8 +245,8 @@ the details when considering whether encryption is right for your
 * The %brand% encryption design is only suitable for safe disposal of
   disks independent of the encryption key. As long as the key and the
   disks are intact, the system is vulnerable to being decrypted. The
-  key should be protected by a strong passphrase and any backups of
-  the key should be securely stored.
+  protect the key by a strong passphrase and secure any backups of
+  the key.
 
 * If the encryption key is lost, the data on the disks is
   inaccessible. Always back up the key!
@@ -470,9 +470,9 @@ Change Permissions
 
 Setting permissions is an important aspect of managing data access. The
 graphical administrative interface is meant to set the **initial**
-permissions for a volume or dataset in order to make it available as a
-share. Once a share is available, the client operating system should
-be used to fine-tune the permissions of the files and directories that
+permissions for a volume or dataset to make it available as a
+share. Once a share is available, the client operating system is
+used to fine-tune the permissions of the files and directories that
 are created by the client.
 
 :ref:`Sharing` contains configuration examples for several types of
@@ -577,8 +577,8 @@ provided by *Windows* ACLs.
 The *Unix* :guilabel:`Permission Type` is usually used with
 :ref:`Unix (NFS) Shares`. Unix permissions are compatible with most
 network clients and generally work well with a mix of operating systems
-or clients. However, *Unix* permissions do not support Windows ACLs and
-should not be used with :ref:`Windows (SMB) Shares`.
+or clients. However, *Unix* permissions do not support Windows ACLs. Do
+not use them with :ref:`Windows (SMB) Shares`.
 
 The *Mac* :guilabel:`Permission Type` can be used with
 :ref:`Apple (AFP) Shares`.
@@ -703,7 +703,7 @@ clicking the :guilabel:`Edit Options` button in
    |                       |                 |                                                                                                             |
    #endif freenas
    #ifdef truenas
-   | ZFS Deduplication     | drop-down       | Do not change this setting unless instructed to do so by your iXsystems support engineer.                   |
+   | ZFS Deduplication     | drop-down       | Do not change this setting unless instructed to do so by an iXsystems support engineer.                     |
    |                       | menu            |                                                                                                             |
    |                       |                 |                                                                                                             |
    #endif truenas
@@ -734,10 +734,10 @@ clicking the :guilabel:`Edit Options` button in
 After a dataset is created, click on that dataset and select
 :guilabel:`Create Dataset`, to create a nested dataset, or a
 dataset within a dataset. A zvol can also be created within a dataset.
-When creating datasets, double-check that you are using the
-:guilabel:`Create Dataset` option for the intended volume or dataset.
-If you get confused when creating a dataset on a volume, click all
-existing datasets to close them--the remaining
+When creating datasets, ensure that the :guilabel:`Create Dataset`
+option is being used for the intended volume or dataset.
+When creating a dataset on a volume, click all
+existing datasets to close them. The remaining
 :guilabel:`Create Dataset` will be for the volume.
 
 
@@ -812,7 +812,7 @@ usually not worth the performance hit.
 Compression
 ^^^^^^^^^^^
 
-When selecting a compression type, you need to balance performance
+When selecting a compression type, try to balance performance
 with the amount of disk space saved by compression. Compression is
 transparent to the client and applications as ZFS automatically
 compresses data as it is written to a compressed dataset or zvol and
@@ -833,7 +833,7 @@ algorithms are supported:
 * **lzjb:** provides decent data compression, but is considered
   deprecated as *lz4* provides much better performance.
 
-If you select *Off* as the :guilabel:`Compression level` when creating
+If selecting *Off* as the :guilabel:`Compression level` when creating
 a dataset or zvol, compression will not be used on that dataset/zvol.
 This is not recommended as using *lz4* has a negligible performance
 impact and allows for more storage capacity.
@@ -995,7 +995,7 @@ If importing an unencrypted ZFS pool, select
    Importing a Non-Encrypted Volume
 
 
-Existing volumes should be available for selection from the drop-down
+Existing volumes are available for selection from the drop-down
 menu. In the example shown in
 :numref:`Figure %s <zfs_import_nonencrypt_fig>`,
 the %brand% system has an existing, unencrypted ZFS pool. Once the
@@ -1118,7 +1118,7 @@ configurable options are described in
    | Description          | string       | Enter any notes about this disk.                                                                                |
    |                      |              |                                                                                                                 |
    +----------------------+--------------+-----------------------------------------------------------------------------------------------------------------+
-   | HDD Standby          | drop-down    | Indicates the minutes of inactivity before the drive enters standby mode in order to conserve energy.           |
+   | HDD Standby          | drop-down    | Indicates the minutes of inactivity before the drive enters standby mode to conserve energy.                    |
    |                      | menu         | This `forum post                                                                                                |
    |                      |              | <https://forums.freenas.org/index.php?threads/how-to-find-out-if-a-drive-is-spinning-down-properly.2068/>`__    |
    |                      |              | demonstrates how to determine if a drive has spun down.                                                         |
@@ -1224,17 +1224,16 @@ bottom of the screen.
 of the pool, depending upon the choice made in the screen shown in
 :numref:`Figure %s <zfs_detach_vol_fig>`.
 The :guilabel:`Detach Volume` screen displays the current used space
-and indicates whether there are any shares, provides options to
-:guilabel:`Mark the disks as new (destroy data)` and to
-:guilabel:`Also delete the share's configuration`, and asks if you are
-sure about doing this. The browser window turns red to indicate that
-some choices will make the data inaccessible.
-**When the option to select the disks as new is left deselected, the volume
-is exported.** The data is not destroyed and the volume can be
-re-imported at a later time. When moving a ZFS pool from one system to
-another, perform this export action first as it flushes any unwritten
-data to disk, writes data to the disk indicating that the export was
-done, and removes all knowledge of the pool from the system.
+and indicates whether there are any shares. It provides options to
+:guilabel:`Mark the disks as new (destroy data)` and
+:guilabel:`Also delete the share's configuration`.
+The browser window turns red to indicate that some choices will make the
+data inaccessible.**When the option to select the disks as new is left
+deselected, the volume is exported.** The data is not destroyed and the
+volume can be re-imported at a later time. When moving a ZFS pool from
+one system to another, perform this export action first as it flushes
+any unwritten data to disk, writes data to the disk indicating that the
+export was done, and removes all knowledge of the pool from the system.
 
 **When the option to mark the disks as new is selected, the pool and all
 the data in its datasets, zvols, and shares is destroyed and the
@@ -1332,10 +1331,7 @@ a clone cannot be destroyed while the origin filesystem exists.
 
 **Destroy Dataset:** clicking the :guilabel:`Destroy Dataset` button
 causes the browser window to turn red to indicate that this is a
-destructive action. The :guilabel:`Destroy Dataset` screen forces you
-to enable the option
-:guilabel:`I'm aware this will destroy all child datasets and
-snapshots within this dataset` before it will perform this action.
+destructive action. Clicking :guilabel:`Yes` proceeds with the deletion.
 
 **Edit Options:** edit the volume properties described in
 :numref:`Table %s <zfs_create_dataset>`.
@@ -1435,8 +1431,7 @@ entered and repeated for verification. A red warning is a reminder to
 invalidates the previous recovery key`. Unlike a password, a
 passphrase can contain spaces and is typically a series of words. A
 good passphrase is easy to remember (like the line to a song or piece
-of literature) but hard to guess (people who know you should not be
-able to guess the passphrase). **Remember this passphrase. An
+of literature) but hard to guess. **Remember this passphrase. An
 encrypted volume cannot be reimported without it.** In other words,
 if the passphrase is forgotten, the data on the volume can become
 inaccessible if it becomes necessary to reimport the pool. Protect
@@ -1691,7 +1686,7 @@ pool. Enter this information then click the :guilabel:`Replace Disk`
 button. Wait until the resilvering is complete.
 
 Next, restore the encryption keys to the pool.
-**If the following additional steps are not performed before the next
+**If these additional steps are not performed before the next
 reboot, access to the pool might be permanently lost.**
 
 #.  Highlight the pool that contains the disk that was just replaced
@@ -2703,11 +2698,11 @@ corruptions caused by transient hardware issues, and provide early
 alerts of impending disk failures. %brand% makes it easy to schedule
 periodic automatic scrubs.
 
-Each volume should be scrubbed at least once a month. Bit errors in
-critical data can be detected by ZFS, but only when that data is read.
-Scheduled scrubs can find bit errors in rarely-read data. The amount
-of time needed for a scrub is proportional to the quantity of data on
-the volume. Typical scrubs take several hours or longer.
+It is recommended that each volume be scrubbed at least once a month.
+Bit errors in critical data can be detected by ZFS, but only when that
+data is read. Scheduled scrubs can find bit errors in rarely-read data.
+The amount of time needed for a scrub is proportional to the quantity of
+data on the volume. Typical scrubs take several hours or longer.
 
 The scrub process is I/O intensive and can negatively impact
 performance. Schedule scrubs for evenings or weekends to minimize
@@ -2879,9 +2874,9 @@ created.
 clones must be destroyed before their parent snapshot can be
 destroyed. While creating a snapshot is instantaneous, deleting a
 snapshot can be I/O intensive and can take a long time, especially
-when deduplication is enabled. In order to delete a block in a
+when deduplication is enabled. To delete a block in a
 snapshot, ZFS has to walk all the allocated blocks to see if that
-block is used anywhere else; if it is not, it can be freed.
+block is used anywhere else. If it is not used, it can be freed.
 
 The most recent snapshot also has a **Rollback Snapshot** icon.
 Clicking the icon asks for confirmation before rolling back to this
@@ -2929,7 +2924,7 @@ snapshots by selected criteria. To create a filter, click the
   *is*, *starts with*, *ends with*, *does not contain*, *is not*,
   *does not start with*, *does not end with*, and *is empty*.
 
-* Enter a value that meets your view criteria.
+* Enter a value that meets the view criteria.
 
 * Click the :guilabel:`Filter` button to save the filter and exit the
   define filter screen. Alternately, click the :guilabel:`+` button to
