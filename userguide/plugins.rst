@@ -77,7 +77,8 @@ Server is selected for installation.
 The installation takes a few minutes because the system downloads and
 configures a jail to store the plugin application. A confirmation
 message displays at the bottom of the screen after successfully
-installing a plugin. Installed plugins appear in the
+installing a plugin. When applicable, post-install notes are displayed
+after a successful install. Installed plugins appear in the
 :menuselection:`Plugins --> Installed`
 page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
@@ -608,6 +609,8 @@ is supported by following the process outlined in
    | `Quasselcore <https://quassel-irc.org/>`__                              | Quassel Core is a daemon/headless IRC client, part of Quassel, that    |
    |                                                                         | supports 24/7 connectivity. Quassel Client can also be attached to it. |
    |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `radarr <https://radarr.video/>`__                                      | A fork of Sonarr to work with movies in the style of Couchpotato.      |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Redmine <http://www.redmine.org/>`__                                   | Flexible project management web application.                           |
    |                                                                         |                                                                        |

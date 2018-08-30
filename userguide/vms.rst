@@ -302,7 +302,7 @@ clicking |ui-add|, and selecting :guilabel:`Disk` as the
    Disk Device
 
 
-Open the dropdown menu to select a created :guilabel:`Zvol`, then set
+Open the drop-down menu to select a created :guilabel:`Zvol`, then set
 the disk :guilabel:`Mode`:
 
 * *AHCI* emulates an AHCI hard disk for best software compatibility.

@@ -117,8 +117,11 @@ but can be changed to meet requirements of the local network.
    |                        |            | the addresses listed in the :guilabel:`Netwait IP list`.                                           |
    |                        |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
-   | Netwait IP list        | string     | If :guilabel:`Enable netwait feature` is unset, list of IP addresses to ping. Otherwise,           |
-   |                        |            | ping the default gateway.                                                                          |
+   | Netwait IP list        | string     | Only appears when :guilabel:`Enable netwait feature` is set.                                       |
+   |                        |            | Enter a space-delimited list of IP addresses to ping(8). Each address                              |
+   |                        |            | is tried until one is successful or the list is exhausted. Leave empty                             |
+   |                        |            | to use the default gateway.                                                                        |
+   |                        |            |                                                                                                    |
    +------------------------+------------+----------------------------------------------------------------------------------------------------+
    | Host name database     | string     | Used to add one entry per line which will be appended to :file:`/etc/hosts`. Use the format        |
    |                        |            | *IP_address space hostname* where multiple hostnames can be used if separated by a space.          |
