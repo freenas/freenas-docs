@@ -299,7 +299,8 @@ clicking |ui-add|, and selecting :guilabel:`Disk` as the
    Disk Device
 
 
-:guilabel:`Browse` to the created zvol, then set the :guilabel:`Mode`.
+Select the created zvol from the drop-down list, then set the
+:guilabel:`Mode`.
 
 *AHCI* emulates an AHCI hard disk for best software compatibility.
 *VirtIO* uses paravirtualized drivers and can provide better
