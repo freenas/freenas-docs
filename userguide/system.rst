@@ -1633,84 +1633,87 @@ remaining options vary by provider, and are shown in
 .. table:: Cloud Credential Options
    :class: longtable
 
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | Provider           | Setting                | Description                                                     |
-   |                    |                        |                                                                 |
-   +====================+========================+=================================================================+
-   | Amazon Cloud       | Application Client     | Enter the Amazon application client ID and application key.     |
-   | Drive              | ID, Application Key    |                                                                 |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | Amazon S3          | Access Key,            | Enter the Amazon account access key and secret key.             |
-   |                    | Secret Key             |                                                                 |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | Amazon S3          | Endpoint URL           | Enter the Endpoint URL for the web service.                     |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | Backblaze B2       | Account ID,            | Enter the Backblaze account ID and paste the application.       |
-   |                    | Application Key        |                                                                 |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | Box                | Access Token           | Enter the Box access token.                                     |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | Dropbox            | Access Token           | Enter the Dropbox access token.                                 |
-   |                    |                        | The token is located on the `App Console                        |
-   |                    |                        | <https://www.dropbox.com/developers/apps>`__.                   |
-   |                    |                        | After creating an app, go to *Settings* and click               |
-   |                    |                        | :guilabel:`Generate` under the Generated access token field.    |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | FTP                | Host, Port             | Enter the FTP host and port.                                    |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | FTP                | Username, Password     | Enter the FTP username and password.                            |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | Google Cloud       | JSON Service           | :guilabel:`Browse` to the location of the saved                 |
-   | Storage            | Account Key            | Google Cloud Storage key and select it.                         |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | Google Drive       | Access Token           | Enter the Google Drive Access Token.                            |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | HTTP               | URL                    | Enter the URL.                                                  |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | Hubic              | Access Token           | Enter the access token.                                         |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | Mega               | Username, Password     | Enter the `Mega <https://mega.nz>`__ username and password.     |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | Microsoft Azure    | Account Name,          | Enter the Azure Blob Storage account name and key.              |
-   | Blob Storage       | Account Key            |                                                                 |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | Microsoft          | Access Token           | Enter the access token.                                         |
-   | OneDrive           |                        |                                                                 |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | pCloud             | Access Token           | Enter the access token.                                         |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | SFTP               | Host, Port             | Enter the SFTP host and port.                                   |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | SFTP               | Username, Password,    | Enter the SFTP username, password, and PEM-encoded private      |
-   |                    | key file path          | key file path.                                                  |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | WebDAV             | URL, WebDAV Service    | Enter URL and use the dropdown to select the WebDAV service.    |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | WebDAV             | Username, Password     | Enter the username and password.                                |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
-   | Yandex             | Access Token           | Enter the access token.                                         |
-   |                    |                        |                                                                 |
-   +--------------------+------------------------+-----------------------------------------------------------------+
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | Provider           | Setting                | Description                                                              |
+   |                    |                        |                                                                          |
+   +====================+========================+==========================================================================+
+   | Amazon Cloud       | Application Client     | Enter the Amazon application client ID and application key.              |
+   | Drive              | ID, Application Key    |                                                                          |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | Amazon S3          | Access Key,            | Enter the Amazon account access key and secret key.                      |
+   |                    | Secret Key             |                                                                          |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | Amazon S3          | Endpoint URL           | Enter the Endpoint URL for the web service.                              |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | Backblaze B2       | Account ID,            | Enter the Backblaze account ID and paste the application.                |
+   |                    | Application Key        |                                                                          |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | Box                | Access Token           | Enter the Box access token.                                              |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | Dropbox            | Access Token           | Enter the Dropbox access token.                                          |
+   |                    |                        | The token is located on the `App Console                                 |
+   |                    |                        | <https://www.dropbox.com/developers/apps>`__.                            |
+   |                    |                        | After creating an app, go to *Settings* and click                        |
+   |                    |                        | :guilabel:`Generate` under the Generated access token field.             |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | FTP                | Host, Port             | Enter the FTP host and port.                                             |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | FTP                | Username, Password     | Enter the FTP username and password.                                     |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | Google Cloud       | JSON Service           | :guilabel:`Browse` to the location of the saved                          |
+   | Storage            | Account Key            | Google Cloud Storage key and select it.                                  |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | Google Drive       | Access Token,          | Enter the Google Drive Access Token. :guilabel:`Team Drive ID`           |
+   |                    | Team Drive ID          | is only used when connecting to a `Team Drive                            |
+   |                    |                        | <https://developers.google.com/drive/api/v3/reference/teamdrives>`__.    |
+   |                    |                        | The ID is also the ID of the top level folder of the Team Drive.         |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | HTTP               | URL                    | Enter the URL.                                                           |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | Hubic              | Access Token           | Enter the access token.                                                  |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | Mega               | Username, Password     | Enter the `Mega <https://mega.nz>`__ username and password.              |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | Microsoft Azure    | Account Name,          | Enter the Azure Blob Storage account name and key.                       |
+   | Blob Storage       | Account Key            |                                                                          |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | Microsoft          | Access Token           | Enter the access token.                                                  |
+   | OneDrive           |                        |                                                                          |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | pCloud             | Access Token           | Enter the access token.                                                  |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | SFTP               | Host, Port             | Enter the SFTP host and port.                                            |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | SFTP               | Username, Password,    | Enter the SFTP username, password, and PEM-encoded private               |
+   |                    | key file path          | key file path.                                                           |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | WebDAV             | URL, WebDAV Service    | Enter URL and use the dropdown to select the WebDAV service.             |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | WebDAV             | Username, Password     | Enter the username and password.                                         |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
+   | Yandex             | Access Token           | Enter the access token.                                                  |
+   |                    |                        |                                                                          |
+   +--------------------+------------------------+--------------------------------------------------------------------------+
 
 
 Additional fields are displayed after :guilabel:`Provider` is
