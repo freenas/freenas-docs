@@ -254,7 +254,7 @@ NIC (Network Interfaces)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 :numref:`Figure %s <vms-nic_fig>` shows the fields that appear after
-navigating to
+going to
 :menuselection:`VMs --> Devices`,
 clicking |ui-add|, and selecting :guilabel:`NIC` as the
 :guilabel:`Type`.
@@ -273,13 +273,16 @@ the VM supports VirtIO paravirtualized network drivers.
 
 By default, the VM receives an auto-generated random MAC address. To
 override the default with a custom value, enter the desired address
-in :guilabel:`MAC Address`. Click
-:guilabel:`GENERATE MAC ADDRESS` to automatically populate
-:guilabel:`MAC Address` with another randomized MAC address.
+in :guilabel:`MAC Address`. Click :guilabel:`GENERATE MAC ADDRESS` to
+automatically populate :guilabel:`MAC Address` with a new randomized
+MAC address.
 
 If the system has multiple physical network interface cards, use the
 :guilabel:`NIC to attach` drop-down menu to specify which
 physical interface to associate with the VM.
+
+Set a :guilabel:`Device Order` number to determine the boot order of
+this device. A lower number means a higher boot priority.
 
 
 .. _vms-disk-device:
@@ -289,7 +292,7 @@ Disk Devices
 
 :ref:`Zvols <adding zvols>` are typically used as virtual hard drives.
 After :ref:`creating a zvol <adding zvols>`, associate it with the VM
-by navigating to
+by clicking
 :menuselection:`VMs --> Devices`,
 clicking |ui-add|, and selecting :guilabel:`Disk` as the
 :guilabel:`Type`.
@@ -299,17 +302,21 @@ clicking |ui-add|, and selecting :guilabel:`Disk` as the
    Disk Device
 
 
-Select the created zvol from the drop-down list, then set the
-:guilabel:`Mode`.
+Open the drop-down menu to select a created :guilabel:`Zvol`, then set
+the disk :guilabel:`Mode`:
 
-*AHCI* emulates an AHCI hard disk for best software compatibility.
-*VirtIO* uses paravirtualized drivers and can provide better
-performance, but requires the operating system installed in the VM to
-support VirtIO disk devices.
+* *AHCI* emulates an AHCI hard disk for best software compatibility.
+
+* *VirtIO* uses paravirtualized drivers and can provide better
+  performance, but requires the operating system installed in the VM to
+  support VirtIO disk devices.
 
 If a specific sector size is required, enter the number of bytes in
-:guilabel:`Disk sector size`. The default of *0* leaves the sector
-size unset.
+:guilabel:`Disk sector size`. The default of *0* uses an autotune script
+to determine the best sector size for the zvol.
+
+Set a :guilabel:`Device Order` number to determine the boot order of
+this device. A lower number means a higher boot priority.
 
 
 .. _vms-raw-file:
@@ -324,8 +331,8 @@ image file meant to be copied onto a USB stick.
 
 After obtaining and copying the image file to the %brand% system,
 click
-:menuselection:`VMs --> Devices`, click |ui-add|,
-then set the :guilabel:`Type` to :guilabel:`Raw File`.
+:menuselection:`VMs --> Devices`,
+click |ui-add|, then set the :guilabel:`Type` to :guilabel:`Raw File`.
 
 .. figure:: images/vms-devices-rawfile.png
 
@@ -333,14 +340,17 @@ then set the :guilabel:`Type` to :guilabel:`Raw File`.
 
 
 :guilabel:`Browse` to select the image file. If a specific sector size
-:is required, enter the number of bytes in
-:guilabel:`Disk sector size`. The default value of *0* leaves the
-sector size unset.
+is required, enter the number of bytes in :guilabel:`Disk sector size`.
+The default value of *0* uses an autotuner to find and set the best
+sector size for the file.
 
-Setting the :guilabel:`Mode` to *AHCI* emulates an AHCI hard disk for
-best software compatibility. *VirtIO* uses paravirtualized drivers and
-can provide better performance, but requires the operating system
+Setting the disk :guilabel:`Mode` to *AHCI* emulates an AHCI hard disk
+for best software compatibility. *VirtIO* uses paravirtualized drivers
+and can provide better performance, but requires the operating system
 installed in the VM to support VirtIO disk devices.
+
+Set a :guilabel:`Device Order` number to determine the boot order of
+this device. A lower number means a higher boot priority.
 
 
 .. _vms-VNC:
@@ -402,6 +412,9 @@ To use the VNC web interface, set :guilabel:`Web Interface`.
    click :guilabel:`Expert`, :guilabel:`ProtocolVersion`, then
    select 4.1 from the drop-down menu.
 
+
+Set a :guilabel:`Device Order` number to determine the boot order of
+this device. A lower number means a higher boot priority.
 
 .. _vms-virtual-serial:
 
