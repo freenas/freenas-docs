@@ -274,7 +274,7 @@ the VM supports VirtIO paravirtualized network drivers.
 By default, the VM receives an auto-generated random MAC address. To
 override the default with a custom value, enter the desired address
 in :guilabel:`MAC Address`. Click :guilabel:`GENERATE MAC ADDRESS` to
-automatically populate :guilabel:`MAC Address` with another randomized
+automatically populate :guilabel:`MAC Address` with a new randomized
 MAC address.
 
 If the system has multiple physical network interface cards, use the
@@ -302,7 +302,7 @@ clicking |ui-add|, and selecting :guilabel:`Disk` as the
    Disk Device
 
 
-Open the dropdown menu to select a created :guilabel:`Zvol`, then set
+Open the drop-down menu to select a created :guilabel:`Zvol`, then set
 the disk :guilabel:`Mode`:
 
 * *AHCI* emulates an AHCI hard disk for best software compatibility.
