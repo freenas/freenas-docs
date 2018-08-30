@@ -1124,12 +1124,36 @@ WebDAV, and Yandex are supported.
 
 Click
 :menuselection:`System --> Cloud Credentials`
-and |ui-add| to add a cloud credential. Choose a :guilabel:`Provider` to
-display any specific options for that provider.
+to see the screen shown in :numref:`Figure %s <cloud_creds_fig>`.
+
+.. _cloud_creds_fig:
+
+.. figure:: images/system-cloud-credentials.png
+
+   Cloud Credentials List
+
+
+The list shows the :guilabel:`Account Name` and :guilabel:`Provider` for
+each credential. There are options to :guilabel:`Edit` and
+:guilabel:`Delete` a credential after clicking |ui-options| for a
+credential.
+
+Click |ui-add| to add a new cloud credential. Choose a
+:guilabel:`Provider` to display any specific options for that provider.
+:numref:`Figure %s <cloud_creds_add_fig>` shows the form for an
+*Amazon Cloud Drive* :guilabel:`Provider`:
+
+.. _cloud_creds_add_fig:
+
+.. figure:: images/system-cloud-credentials-add-amazon-cloud.png
+
+   Add Amazon Cloud Drive Credential
+
 
 Enter a descriptive name for the cloud credential in the
-:guilabel:`Name` field. The remaining options vary by provider,
-and are shown in :numref:`Table %s <cloud_cred_tab>`.
+:guilabel:`Name` field. The remaining options vary by
+:guilabel:`Provider`, and are shown in
+:numref:`Table %s <cloud_cred_tab>`.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -1149,11 +1173,11 @@ and are shown in :numref:`Table %s <cloud_cred_tab>`.
    |                      | ID, Application Key  | key.                                                        |
    |                      |                      |                                                             |
    +----------------------+----------------------+-------------------------------------------------------------+
-   | Amazon AWS           | Access Key,          | Enter the Amazon account access key and secret key.         |
+   | Amazon S3            | Access Key ID,       | Enter the Amazon account access key and secret key.         |
    |                      | Secret Key           |                                                             |
    |                      |                      |                                                             |
    +----------------------+----------------------+-------------------------------------------------------------+
-   | Amazon AWS           | Endpoint URL         | Enter the entry point URL for the web service.              |
+   | Amazon S3            | Endpoint URL         | Enter the entry point URL for the web service.              |
    |                      |                      |                                                             |
    +----------------------+----------------------+-------------------------------------------------------------+
    | Backblaze B2         | Access Key,          | Enter the account access key and secret key.                |
