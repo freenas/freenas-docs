@@ -609,6 +609,8 @@ is supported by following the process outlined in
    |                                                                         | supports 24/7 connectivity. Quassel Client can also be attached to it. |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `radarr <https://radarr.video/>`__                                      | A fork of Sonarr to work with movies in the style of Couchpotato.      |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Redmine <http://www.redmine.org/>`__                                   | Flexible project management web application.                           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
