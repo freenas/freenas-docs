@@ -1482,7 +1482,7 @@ screen is really a front-end to
    |                             |                   | in later versions of Windows.                                                                        |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
-   | Bind IP Addresses           | checkboxes        | Select the IP addresses SMB will listen for. Always add the loopback interface *127.0.0.1* as        |
+   | Bind IP Addresses           | checkboxes        | Select the IP addresses SMB will listen on. Always add the loopback interface *127.0.0.1* as         |
    |                             |                   | `Samba utilities connect to the loopback IP                                                          |
    |                             |                   | <https://wiki.samba.org/index.php/Configure_Sama_to_Bind_to_Specific_Interfaces>`__ if no host       |
    |                             |                   | name is provided.                                                                                    |
