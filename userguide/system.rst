@@ -1606,23 +1606,34 @@ Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Hubic, Mega,
 Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV,
 and Yandex are supported.
 Select
-:menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
-to display the dialog shown in
-:numref:`Figure %s <cloud_cred_fig>`.
+:menuselection:`System --> Cloud Credentials`
+to see the screen shown in :numref:`Figure %s <cloud_creds_fig>`.
+
+.. _cloud_creds_fig:
+
+.. figure:: images/system-cloud-credentials.png
+
+   Cloud Credentials List
 
 
-.. _cloud_cred_fig:
+The list shows the :guilabel:`Account Name` and :guilabel:`Provider` for
+each credential. There are options to :guilabel:`Edit` and
+:guilabel:`Delete` a credential after selecting it. Click
+:guilabel:`Add Cloud Credential` to display the dialog shown in
+:numref:`Figure %s <cloud_cred_add_fig>`.
 
-.. figure:: images/system-cloud-cred.png
+.. _cloud_cred_add_fig:
+
+.. figure:: images/system-cloud-credentials-add.png
 
    Adding Cloud Credentials
 
 
-Enter a descriptive name for the cloud credential in the
-:guilabel:`Account Name` field, then select a provider. The
+:guilabel:`Amazon Cloud Drive` options are shown by default. Enter a
+descriptive name for the cloud credential in the
+:guilabel:`Account Name` field, then select a :guilabel:`Provider`. The
 remaining options vary by provider, and are shown in
 :numref:`Table %s <cloud_cred_tab>`.
-
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
