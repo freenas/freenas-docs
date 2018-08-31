@@ -262,6 +262,20 @@ Computing) remote connection. A standard
 client can connect to the VM to provide screen output and keyboard and
 mouse input.
 
+.. note:: Each VM can only have a single VNC device.
+
+
+.. note:: :ref:`Docker VMs <Docker/Rancher VMs>` are not compatible
+   with VNC connections and cannot have a VNC interface.
+
+
+.. note:: Using a non-US keyboard via VNC is not yet supported. As a
+   workaround, select the US keymap on the system running the VNC client,
+   then configure the operating system running in the VM to use a
+   keymap that matches the physical keyboard. This will enable passthrough
+   of all keys regardless of the keyboard layout.
+
+
 :numref:`Figure %s <vms-vnc_fig>` shows the fields that appear when
 :guilabel:`VNC` is the selected :guilabel:`Type`.
 
