@@ -1482,7 +1482,10 @@ screen is really a front-end to
    |                             |                   | in later versions of Windows.                                                                        |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
-   | Bind IP Addresses           | checkboxes        | Select the IP addresses SMB will listen for.                                                         |
+   | Bind IP Addresses           | checkboxes        | Select the IP addresses SMB will listen on. Always add the loopback interface *127.0.0.1* as         |
+   |                             |                   | `Samba utilities connect to the loopback IP                                                          |
+   |                             |                   | <https://wiki.samba.org/index.php/Configure_Sama_to_Bind_to_Specific_Interfaces>`__ if no host       |
+   |                             |                   | name is provided.                                                                                    |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    | Idmap Range Low             | integer           | The beginning UID/GID for which this system is authoritative. Any UID/GID lower than this value      |
