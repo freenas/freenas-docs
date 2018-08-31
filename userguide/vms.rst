@@ -373,6 +373,13 @@ mouse input.
    with VNC connections and cannot have a VNC interface.
 
 
+.. note:: Using a non-US keyboard via VNC is not yet supported. As a
+   workaround, select the US keymap on the system running the VNC client,
+   then configure the operating system running in the VM to use a
+   keymap that matches the physical keyboard. This will enable passthrough
+   of all keys regardless of the keyboard layout.
+
+
 :numref:`Figure %s <vms-vnc_fig>` shows the fields that appear
 after navigating to
 :menuselection:`VMs --> Devices`,
