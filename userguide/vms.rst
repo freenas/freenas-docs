@@ -176,21 +176,25 @@ Disk Devices
 
 :ref:`Zvols <Create zvol>` are typically used as virtual hard drives.
 After :ref:`creating a zvol <Create zvol>`, associate it with the VM
-by selecting :guilabel:`Add device`, choose the *VM*, select a
-:guilabel:`Type` of *Disk*, select the created zvol, then set the
-:guilabel:`Mode`. If a specific sector size is required, enter the
-number of bytes into :guilabel:`Disk sector size`. The default of *0*
-leaves the sector size unset.
+by selecting :guilabel:`Add device`.
 
 .. figure:: images/vms-disk1.png
 
    VM Disk Device
 
 
-*AHCI* emulates an AHCI hard disk for best software compatibility.
-*VirtIO* uses paravirtualized drivers and can provide better
-performance, but requires the operating system installed in the VM to
-support VirtIO disk devices.
+Choose the *VM*, select a :guilabel:`Type` of *Disk*, select the created
+zvol, then set the :guilabel:`Mode`:
+
+* *AHCI* emulates an AHCI hard disk for best software compatibility.
+
+* *VirtIO* uses paravirtualized drivers and can provide better
+  performance, but requires the operating system installed in the VM to
+  support VirtIO disk devices.
+
+If a specific sector size is required, enter the number of bytes into
+:guilabel:`Disk sector size`. The default of *0* uses an autotune script
+to determine the best sector size for the zvol.
 
 
 .. _vms-raw-file:
@@ -212,8 +216,8 @@ better performance, but requires the operating system installed in the
 VM to support VirtIO disk devices.
 
 If a specific sector size is required, enter the number of bytes into
-:guilabel:`Disk sectorsize`. The default of *0* leaves the sector size
-unset.
+:guilabel:`Disk sectorsize`. The default of *0* uses an autotuner to
+find and set the best sector size for the file.
 
 .. figure:: images/vms-raw-file.png
 
