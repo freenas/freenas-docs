@@ -685,7 +685,9 @@ available for a jail.
    | points       | mount point to :guilabel:`Edit` or click |ui-add| to open     |
    |              | the :guilabel:`Add Mount Point` screen. A mount point         |
    |              | gives a jail access to storage located elsewhere on the       |
-   |              | system. See :ref:`Additional Storage` for more details.       |
+   |              | system. A jail must be stopped before interacting with        |
+   |              | :guilabel:`Mount Points`. See :ref:`Additional Storage`       |
+   |              | for more details.                                             |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
    | Start        | Start a jail that has a current :guilabel:`Status` of         |
@@ -881,6 +883,11 @@ storage area within a jail.
 
 The :guilabel:`Mount points` section of a jail shows any added storage
 and allows adding more storage.
+
+.. note:: A jail must have a :guilabel:`Status` of *down* before adding
+   a new mount point. Click |ui-options| and :guilabel:`Stop` for a jail
+   to change the jail :guilabel:`Status` to *down*.
+
 
 Storage can be added by clicking
 :menuselection:`Jails -->` |ui-options| :menuselection:`--> Mount points`
