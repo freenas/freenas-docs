@@ -265,7 +265,7 @@ mouse input.
 .. note:: Each VM can only have a single VNC device.
 
 
-.. note:: :ref:`Docker VMs <Docker/Rancher VMs>` are not compatible
+.. note:: :ref:`Docker VMs <Docker/Rancher VM>` are not compatible
    with VNC connections and cannot have a VNC interface.
 
 
