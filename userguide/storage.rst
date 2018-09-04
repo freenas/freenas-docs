@@ -147,7 +147,7 @@ physical theft, enable the :guilabel:`Encryption` option.
 .. warning:: Refer to the warnings in :ref:`Encryption` before enabling
    encryption! Be aware that this form of encryption will be replaced by
    OpenZFS native encryption in a future version. Pools created with the
-   current encryption mechanism need to be backed up and destroyed
+   current encryption mechanism will have to be backed up and destroyed
    to be recreated with native encryption when it becomes available.
 
 
@@ -229,7 +229,7 @@ Encryption
 `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
 full disk encryption for ZFS volumes. It is important to understand
 the details when considering whether encryption is right for the
-%brand% system:
+intended use:
 
 
 * %brand% encryption is different from the encryption used in
@@ -246,9 +246,9 @@ the details when considering whether encryption is right for the
 
 * The %brand% encryption design is only suitable for safe disposal of
   disks independent of the encryption key. As long as the key and the
-  disks are intact, the system is vulnerable to being decrypted. The
-  protect the key by a strong passphrase and secure any backups of
-  the key.
+  disks are intact, the system is vulnerable to being decrypted.
+  Protect the key with a strong passphrase and secure all backups of
+  it.
 
 * If the encryption key is lost, the data on the disks is
   inaccessible. Always back up the key!
@@ -473,7 +473,7 @@ Change Permissions
 Setting permissions is an important aspect of managing data access. The
 graphical administrative interface is meant to set the **initial**
 permissions for a volume or dataset to make it available as a
-share. Once a share is available, the client operating system is
+share. After a share has been created, the client operating system is
 used to fine-tune the permissions of the files and directories that
 are created by the client.
 
@@ -733,14 +733,11 @@ clicking the :guilabel:`Edit Options` button in
    +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
 
 
-After a dataset is created, click on that dataset and select
-:guilabel:`Create Dataset`, to create a nested dataset, or a
-dataset within a dataset. A zvol can also be created within a dataset.
-When creating datasets, ensure that the :guilabel:`Create Dataset`
-option is being used for the intended volume or dataset.
-When creating a dataset on a volume, click all
-existing datasets to close them. The remaining
-:guilabel:`Create Dataset` will be for the volume.
+Create a nested dataset by clicking on an existing dataset and selecting
+:guilabel:`Create Dataset`. A zvol can also be created within a dataset.
+Ensure that the :guilabel:`Create Dataset` option is being used for
+the intended volume or dataset by collapsing it. Collapse the volume or
+dataset by clicking the black trianlge beside the name.
 
 
 #ifdef freenas
@@ -2700,7 +2697,7 @@ corruptions caused by transient hardware issues, and provide early
 alerts of impending disk failures. %brand% makes it easy to schedule
 periodic automatic scrubs.
 
-It is recommended that each volume be scrubbed at least once a month.
+Each volume should be scrubbed at least once a month.
 Bit errors in critical data can be detected by ZFS, but only when that
 data is read. Scheduled scrubs can find bit errors in rarely-read data.
 The amount of time needed for a scrub is proportional to the quantity of
