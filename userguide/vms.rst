@@ -176,21 +176,25 @@ Disk Devices
 
 :ref:`Zvols <Create zvol>` are typically used as virtual hard drives.
 After :ref:`creating a zvol <Create zvol>`, associate it with the VM
-by selecting :guilabel:`Add device`, choose the *VM*, select a
-:guilabel:`Type` of *Disk*, select the created zvol, then set the
-:guilabel:`Mode`. If a specific sector size is required, enter the
-number of bytes into :guilabel:`Disk sector size`. The default of *0*
-leaves the sector size unset.
+by selecting :guilabel:`Add device`.
 
 .. figure:: images/vms-disk1.png
 
    VM Disk Device
 
 
-*AHCI* emulates an AHCI hard disk for best software compatibility.
-*VirtIO* uses paravirtualized drivers and can provide better
-performance, but requires the operating system installed in the VM to
-support VirtIO disk devices.
+Choose the *VM*, select a :guilabel:`Type` of *Disk*, select the created
+zvol, then set the :guilabel:`Mode`:
+
+* *AHCI* emulates an AHCI hard disk for best software compatibility.
+
+* *VirtIO* uses paravirtualized drivers and can provide better
+  performance, but requires the operating system installed in the VM to
+  support VirtIO disk devices.
+
+If a specific sector size is required, enter the number of bytes into
+:guilabel:`Disk sector size`. The default of *0* uses an autotune script
+to determine the best sector size for the zvol.
 
 
 .. _vms-raw-file:
@@ -212,8 +216,8 @@ better performance, but requires the operating system installed in the
 VM to support VirtIO disk devices.
 
 If a specific sector size is required, enter the number of bytes into
-:guilabel:`Disk sectorsize`. The default of *0* leaves the sector size
-unset.
+:guilabel:`Disk sectorsize`. The default of *0* uses an autotuner to
+find and set the best sector size for the file.
 
 .. figure:: images/vms-raw-file.png
 
@@ -257,6 +261,20 @@ Computing) remote connection. A standard
 `VNC <https://en.wikipedia.org/wiki/Virtual_Network_Computing>`__
 client can connect to the VM to provide screen output and keyboard and
 mouse input.
+
+.. note:: Each VM can only have a single VNC device.
+
+
+.. note:: :ref:`Docker VMs <Docker/Rancher VM>` are not compatible
+   with VNC connections and cannot have a VNC interface.
+
+
+.. note:: Using a non-US keyboard via VNC is not yet supported. As a
+   workaround, select the US keymap on the system running the VNC client,
+   then configure the operating system running in the VM to use a
+   keymap that matches the physical keyboard. This will enable passthrough
+   of all keys regardless of the keyboard layout.
+
 
 :numref:`Figure %s <vms-vnc_fig>` shows the fields that appear when
 :guilabel:`VNC` is the selected :guilabel:`Type`.

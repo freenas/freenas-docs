@@ -70,25 +70,40 @@ provided with the Product.
 **3.0 License Restrictions**
 
 TrueNAS Software is only authorized for use with a TrueNAS Device
-identified by a specific serial number and manufactured by iXsystems. This
-license may be extended to a second TrueNAS Device if an additional
+identified by a specific serial number and manufactured by iXsystems.
+This license may be extended to a second TrueNAS Device if an additional
 TrueNAS Device was purchased for high availability data protection. The
 Product, including the TrueNAS Software, is protected by copyright laws
 and international treaties, as well as other intellectual property laws,
 statutes, and treaties. The Product is licensed, not sold to You the end
-user. The Product, including TrueNAS Software, may contain trademarks,
-trade secrets, and proprietary collateral from iXsystems. iXsystems
-strictly prohibits the acts of decompiling, reverse engineering, or
-disassembly of the Product, including TrueNAS Software. By accepting this
-Agreement, You agree You will not disclose, copy, transfer, or publish
-benchmark results relating to the Product without the express written
-consent of iXsystems. You agree not to use, or permit others to use, the
-Product beyond the scope of the license granted under Section 2, unless
-otherwise permitted by iXsystems, or in violation of any law, regulation
-or rule, and you will not modify, adapt, or otherwise create derivative
-works or improvements of the Product. You are responsible and liable for
-all uses of the Product through access thereto provided by You, directly
-or indirectly.
+user. You do not acquire any ownership interest in the Product, including
+TrueNAS Software, or any other rights to such Product, other than to use
+such Product in accordance with the license granted under this Agreement,
+subject to all terms, conditions, and restrictions. iXsystems reserves
+and shall retain its entire right, title, and interest in and to the
+Product, and all intellectual property rights arising out of or relating
+to the Product, subject to the license expressly granted to You in this
+Agreement.
+
+The Product, including TrueNAS Software, may contain iXsystems’ trademarks,
+trade secrets, and proprietary collateral. iXsystems strictly prohibits
+the acts of decompiling, reverse engineering, or disassembly of the
+Product, including TrueNAS Software. You agree to use commercially
+reasonable efforts to safeguard the Product and iXsystems’ intellectual
+property, trade secrets, or other proprietary information You may have
+access to, from infringement, misappropriation, theft, misuse, or
+unauthorized access. You will promptly notify iXsystems if You become
+aware of any infringement of the Product and cooperate with iXsystems in
+any legal action taken by iXsystems to enforce its intellectual property
+rights. By accepting this Agreement, You agree You will not disclose,
+copy, transfer, or publish benchmark results relating to the Product
+without the express written consent of iXsystems. You agree not to use,
+or permit others to use, the Product beyond the scope of the license
+granted under Section 2, unless otherwise permitted by iXsystems, or in
+violation of any law, regulation or rule, and you will not modify, adapt,
+or otherwise create derivative works or improvements of the Product. You
+are responsible and liable for all uses of the Product through access
+thereto provided by You, directly or indirectly.
 
 **4.0 General**
 
@@ -237,4 +252,32 @@ ANY OTHER SOFTWARE, APPLICATIONS, SYSTEMS, OR SERVICES, OPERATE WITHOUT
 INTERRUPTION, MEET ANY PERFORMANCE OR RELIABILITY STANDARDS OR BE ERROR
 FREE, OR THAT ANY ERRORS OR DEFECTS CAN OR WILL BE CORRECTED.
 
-TO THE FULLEST EXTENT PERMITTED UNDER APPLICABLE LAW: (A) IN NO EVENT WILL IXSYSTEMS OR ITS AFFILIATES, OR ANY OF ITS OR THEIR RESPECTIVE LICENSORS OR SERVICE PROVIDERS, BE LIABLE TO LICENSEE, LICENSEE’S AFFILIATES, OR ANY THIRD PARTY FOR ANY USE, INTERRUPTION, DELAY, OR INABILITY TO USE THE PRODUCT; LOST REVENUES OR PROFITS; DELAYS, INTERRUPTION, OR LOSS OF SERVICES, BUSINESS, OR GOODWILL; LOSS OR CORRUPTION OF DATA; LOSS RESULTING FROM SYSTEM OR SYSTEM SERVICE FAILURE, MALFUNCTION, OR SHUTDOWN; FAILURE TO ACCURATELY TRANSFER, READ, OR TRANSMIT INFORMATION; FAILURE TO UPDATE OR PROVIDE CORRECT INFORMATION; SYSTEM INCOMPATIBILITY OR PROVISION OF INCORRECT COMPATIBILITY INFORMATION; OR BREACHES IN SYSTEM SECURITY; OR FOR ANY CONSEQUENTIAL, INCIDENTAL, INDIRECT, EXEMPLARY, SPECIAL, OR PUNITIVE DAMAGES, WHETHER ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT, BREACH OF CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE, REGARDLESS OF WHETHER SUCH DAMAGES WERE FORESEEABLE AND WHETHER OR NOT IXSYSTEMS WAS ADVISED OF THE POSSIBILITY OF SUCH DAMAGES; (B) IN NO EVENT WILL IXSYSTEMS’ AND ITS AFFILIATES', INCLUDING ANY OF ITS OR THEIR RESPECTIVE LICENSORS' AND SERVICE PROVIDERS', COLLECTIVE AGGREGATE LIABILITY UNDER OR IN CONNECTION WITH THIS AGREEMENT OR ITS SUBJECT MATTER, UNDER ANY LEGAL OR EQUITABLE THEORY, INCLUDING BREACH OF CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, AND OTHERWISE, EXCEED THE TOTAL AMOUNT PAID TO IXSYSTEMS PURSUANT TO THIS AGREEMENT FOR THE PRODUCT THAT IS THE SUBJECT OF THE CLAIM; (C) THE LIMITATIONS SET FORTH IN THIS SECTION SHALL APPLY EVEN IF THE LICENSEE'S REMEDIES UNDER THIS AGREEMENT FAIL OF THEIR ESSENTIAL PURPOSE.
+TO THE FULLEST EXTENT PERMITTED UNDER APPLICABLE LAW: (A) IN NO EVENT
+WILL IXSYSTEMS OR ITS AFFILIATES, OR ANY OF ITS OR THEIR RESPECTIVE
+LICENSORS OR SERVICE PROVIDERS, BE LIABLE TO LICENSEE, LICENSEE’S
+AFFILIATES, OR ANY THIRD PARTY FOR ANY USE, INTERRUPTION, DELAY, OR
+INABILITY TO USE THE PRODUCT; LOST REVENUES OR PROFITS; DELAYS,
+INTERRUPTION, OR LOSS OF SERVICES, BUSINESS, OR GOODWILL; LOSS OR
+CORRUPTION OF DATA; LOSS RESULTING FROM SYSTEM OR SYSTEM SERVICE FAILURE,
+MALFUNCTION, OR SHUTDOWN; FAILURE TO ACCURATELY TRANSFER, READ, OR
+TRANSMIT INFORMATION; FAILURE TO UPDATE OR PROVIDE CORRECT INFORMATION;
+SYSTEM INCOMPATIBILITY OR PROVISION OF INCORRECT COMPATIBILITY
+INFORMATION; OR BREACHES IN SYSTEM SECURITY; OR FOR ANY CONSEQUENTIAL,
+INCIDENTAL, INDIRECT, EXEMPLARY, SPECIAL, OR PUNITIVE DAMAGES, WHETHER
+ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT, BREACH OF CONTRACT,
+TORT (INCLUDING NEGLIGENCE), OR OTHERWISE, REGARDLESS OF WHETHER SUCH
+DAMAGES WERE FORESEEABLE AND WHETHER OR NOT IXSYSTEMS WAS ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGES; (B) IN NO EVENT WILL IXSYSTEMS’ AND ITS
+AFFILIATES', INCLUDING ANY OF ITS OR THEIR RESPECTIVE LICENSORS' AND
+SERVICE PROVIDERS', COLLECTIVE AGGREGATE LIABILITY UNDER OR IN CONNECTION
+WITH THIS AGREEMENT OR ITS SUBJECT MATTER, UNDER ANY LEGAL OR EQUITABLE
+THEORY, INCLUDING BREACH OF CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT
+LIABILITY, AND OTHERWISE, EXCEED THE TOTAL AMOUNT PAID TO IXSYSTEMS
+PURSUANT TO THIS AGREEMENT FOR THE PRODUCT THAT IS THE SUBJECT OF THE
+CLAIM; (C) THE LIMITATIONS SET FORTH IN THIS SECTION SHALL APPLY EVEN IF
+THE LICENSEE'S REMEDIES UNDER THIS AGREEMENT FAIL OF THEIR ESSENTIAL
+PURPOSE.
+
+You hereby acknowledge that you have read and understand this Agreement
+and voluntarily accept the duties and obligations set forth herein by
+clicking accept on this Agreement.

@@ -143,11 +143,13 @@ Ensure that the chosen name conforms to these
 If the underlying disks need to be encrypted as a protection against
 physical theft, enable the :guilabel:`Encryption` option.
 
+
 .. warning:: Refer to the warnings in :ref:`Encryption` before enabling
    encryption! Be aware that this form of encryption will be replaced by
    OpenZFS native encryption in a future version. Pools created with the
    current encryption mechanism need to be backed up and destroyed
    to be recreated with native encryption when it becomes available.
+
 
 Drag the slider to select the desired number of disks.
 :guilabel:`Volume Manager` displays the resulting storage capacity,
