@@ -551,15 +551,17 @@ is supported by following the process outlined in
    |                                                                         | heterogeneous networks.                                                |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+#ifdef comment
    | `BRU Server                                                             | BRU Server™ Backup and Recovery Software by TOLIS Group, Inc.          |
    | <http://www.tolisgroup.com/client-server-cross-platform-backup.html>`__ |                                                                        |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+#endif comment
    | `BitTorrentSync <https://www.resilio.com/>`__                           | Resilient, fast and scalable file sync software for enterprises and    |
    |                                                                         | individuals.                                                           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `ClamAV <https://www.clamav.net/>`__                                    | ClamAV® is an open source antivirus engine for detecting trojans,      |
+   | `ClamAV <https://www.clamav.net/>`__                                    | ClamAV is an open source antivirus engine for detecting trojans,       |
    |                                                                         | viruses, malware & other malicious threats.                            |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
@@ -572,9 +574,11 @@ is supported by following the process outlined in
    | `Emby <https://emby.media/>`__                                          | Home media server built using mono and other open source technologies. |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+#ifdef comment
    | `GitLab <https://about.gitlab.com/>`__                                  | GitLab is a fully integrated software development platform.            |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+#endif comment
    | `irssi <https://irssi.org/>`__                                          | Irssi is an IRC client.                                                |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
@@ -633,10 +637,12 @@ is supported by following the process outlined in
    | `Transmission <https://transmissionbt.com/>`__                          | Fast and lightweight daemon BitTorrent client.                         |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+#ifdef comment
    | `TinyTinyRSS <https://tt-rss.org/>`__                                   | Open source web-based news feed (RSS/Atom) aggregator, designed to     |
    |                                                                         | allow reading news from any location.                                  |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+#endif comment
    | `WeeChat <weechat.org/>`__                                              | WeeChat is a free and open-source Internet Relay Chat client, which is |
    |                                                                         | designed to be light and fast.                                         |
    |                                                                         |                                                                        |
