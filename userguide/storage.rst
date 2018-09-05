@@ -736,8 +736,8 @@ clicking the :guilabel:`Edit Options` button in
 Create a nested dataset by clicking on an existing dataset and selecting
 :guilabel:`Create Dataset`. A zvol can also be created within a dataset.
 Ensure that the :guilabel:`Create Dataset` option is being used for
-the intended volume or dataset by collapsing it. Collapse the volume or
-dataset by clicking the black trianlge beside the name.
+the intended volume or dataset. Collapse the volume or
+dataset by clicking the black triangle beside the name.
 
 
 #ifdef freenas
