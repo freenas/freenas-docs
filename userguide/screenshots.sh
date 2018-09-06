@@ -30,7 +30,7 @@ for image in ${IMAGES}; do
   wxh=$( identify $image | cut -w -f3 )
   height=$( echo $wxh | cut -dx -f2 )
   if [ $height -lt 1049 ];then
-    echo "manual image: $image $wxh" > ${MANUALIMAGES}
+    echo "manual image: $image $wxh" >> ${MANUALIMAGES}
   fi
 done
 echo "manual images list: ${MANUALIMAGES}"
