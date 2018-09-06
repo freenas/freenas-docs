@@ -574,11 +574,9 @@ is supported by following the process outlined in
    | `Emby <https://emby.media/>`__                                          | Home media server built using mono and other open source technologies. |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-#ifdef comment
    | `GitLab <https://about.gitlab.com/>`__                                  | GitLab is a fully integrated software development platform.            |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-#endif comment
    | `irssi <https://irssi.org/>`__                                          | Irssi is an IRC client.                                                |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
