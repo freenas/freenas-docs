@@ -1065,10 +1065,9 @@ describes the supported strings and types.
 Midnight Commander
 ------------------
 
-Midnight Commander, commonly referred to as mc, is a shell application.
-It is an application used to manage files.
-Running the command :samp:`mc` brings up the user interface within the
-shell. The arrow keys are used to navigate and select files. The
+Midnight Commander is a program used to manage files from the shell.
+Open the application by running the command :command:`mc`.
+The arrow keys are used to navigate and select files. The
 function keys are used to perform operations such as renaming, editing
 and copying files. These resources provide more information about using
 mc:
