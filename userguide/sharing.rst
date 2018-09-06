@@ -763,7 +763,7 @@ now copy files to and from the share.
 
 .. _view_nfs_finder_fig:
 
-.. figure:: images/nfs4a.png
+.. figure:: images/mac-finder-nfs-share.png
 
    Viewing the NFS Share in Finder
 
@@ -1566,7 +1566,7 @@ versions, overwriting the existing file on the Windows system.
 
 .. _view_shadow_explorer_fig:
 
-.. figure:: images/cifs6.png
+.. figure:: images/windows-shadow-copies.png
 
    Viewing Previous Versions within Explorer
 
