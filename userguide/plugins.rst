@@ -150,7 +150,7 @@ shows updating a plugin jail.
 
 .. _updating_installed_plugin_fig:
 
-.. figure:: images/plugins4.png
+.. figure:: images/plugins-update.png
 
    Updating an Installed Plugin
 #endif comment
