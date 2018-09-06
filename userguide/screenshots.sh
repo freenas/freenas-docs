@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# this program produces a list of all images in IMAGEDIR,
+# a list of images that are probably manually created,
+# and a script to copy automated screenshots back into
+# IMAGEDIR.
+
 IMAGEDIR="images"
 TMPDIR="/tmp"
 IMAGELIST="${TMPDIR}/userguide-imagelist.txt"
