@@ -1051,3 +1051,26 @@ To view the BIOS report, type the command with no arguments:
 
 `dmidecode(8) <https://linux.die.net/man/8/dmidecode>`__
 describes the supported strings and types.
+
+
+.. index:: Midnight Commander
+.. _Midnight_Commander:
+
+Midnight Commander
+------------------
+
+Midnight Commander, commonly referred to as mc, is a shell application.
+It is an application used to manage files.
+Running the command :samp:`mc` brings up the user interface within the
+shell. The arrow keys are used to navigate and select files. The
+function keys are used to perform operations such as renaming, editing
+and copying files. These resources provide more information about using
+mc:
+
+* `Midnight Commander wikipedia page <https://en.wikipedia.org/wiki/Midnight_Commander>`__
+
+* `Midnight Commander website <https://midnight-commander.org/>`__
+
+* `mc(1) <https://linux.die.net/man/1/mc>`__
+
+* `Basic Tutorial <http://linuxcommand.org/lc3_adv_mc.php>`__
