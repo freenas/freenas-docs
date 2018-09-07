@@ -1063,16 +1063,15 @@ Midnight Commander
 ------------------
 
 Midnight Commander is a program used to manage files from the shell.
-Open the application by running the command :command:`mc`.
-The arrow keys are used to navigate and select files. The
-function keys are used to perform operations such as renaming, editing
-and copying files. These resources provide more information about using
-mc:
+Open the application by running :command:`mc`.
+The arrow keys are used to navigate and select files. Function keys are
+used to perform operations such as renaming, editing, and copying files.
+These resources provide more information about using Midnight Commander:
 
 * `Midnight Commander wikipedia page <https://en.wikipedia.org/wiki/Midnight_Commander>`__
 
 * `Midnight Commander website <https://midnight-commander.org/>`__
 
-* `mc(1) <https://linux.die.net/man/1/mc>`__
+* `mc(1) <https://www.freebsd.org/cgi/man.cgi?query=mc>`__
 
 * `Basic Tutorial <http://linuxcommand.org/lc3_adv_mc.php>`__
