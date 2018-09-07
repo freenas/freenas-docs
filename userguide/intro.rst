@@ -196,6 +196,10 @@ This software has been added or updated:
   system. This CLI utility can be used to analyze disk usage from the
   console or an SSH session.
 
+* `drm-next-kmod <https://www.freshports.org/graphics/drm-next-kmod/>`__
+  has been added to the base system, adding support for UTF-8 fonts to
+  the console for Intel graphic cards.
+
 * Samba 4.7.6 has been patched to address the latest round of
   `security vulnerabilities <https://www.samba.org/samba/latest_news.html#4.8.4>`__.
 
