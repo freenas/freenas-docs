@@ -12,22 +12,23 @@ from the host %brand% system. Jails are also used as the basis for
 and a plugin are that plugins are preconfigured and usually provide only
 a single service.
 
-By default, jails run the `FreeBSD <https://www.freebsd.org/>`__ operating
-system. These jails are independent instances of FreeBSD. The jail uses
-the host hardware and runs on the host kernel, avoiding most of the
-overhead usually associated with virtualization. The jail installs
-FreeBSD software management utilities so FreeBSD packages or ports can
-be installed from the jail command line. This allows for FreeBSD ports
-to be compiled and FreeBSD packages to be installed from the command
-line of the jail.
+By default, jails run the
+`FreeBSD <https://www.freebsd.org/>`__
+operating system. These jails are independent instances of FreeBSD.
+The jail uses the host hardware and runs on the host kernel, avoiding
+most of the overhead usually associated with virtualization. The jail
+installs FreeBSD software management utilities so FreeBSD packages or
+ports can be installed from the jail command line. This allows for
+FreeBSD ports to be compiled and FreeBSD packages to be installed from
+the command line of the jail.
 
 It is important to understand that users, groups, installed software,
 and configurations within a jail are isolated from both the %brand%
 host operating system and any other jails running on that system.
 
 During creation, set the :guilabel:`VNET` option to provide
-the jail with an independent networking stack. The jail is then able to
-broadcast an IP address, which is required by some applications.
+the jail with an independent networking stack. The jail is then able
+to broadcast an IP address, which is required by some applications.
 
 Advanced users can also create custom templates to automate the
 creation of pre-installed and customized operating systems.
@@ -649,7 +650,7 @@ example is shown in :numref:`Figure %s <jail_overview_fig>`.
 
 .. _jail_option_menu_fig:
 
-.. figure:: images/jails-jail-options.png
+.. figure:: images/jails-actions.png
 
    Jail Option Menu
 
@@ -903,7 +904,7 @@ This opens the screen shown in
 
 .. _adding_storage_jail_fig:
 
-.. figure:: images/jails-jail-mount-add.png
+.. figure:: images/jails-mountpoint-add.png
 
    Adding Storage to a Jail
 
@@ -988,7 +989,7 @@ screen.
 
 .. _jail_example_storage_fig:
 
-.. figure:: images/jails-jail-mount-example.png
+.. figure:: images/jails-mountpoint-example.png
 
    Example Storage
 

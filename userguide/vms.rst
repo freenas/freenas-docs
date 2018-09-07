@@ -1,4 +1,4 @@
-.. index:: VMs
+.. index:: Virtual Machines,VMs
 .. _VMs:
 
 Virtual Machines
@@ -59,7 +59,7 @@ Click on
 
 .. _vms_add_fig:
 
-.. figure:: images/vms-add-wizard-type.png
+.. figure:: images/virtual-machines-add-wizard-type.png
 
    Add VM
 
@@ -184,7 +184,7 @@ and basic settings for the new virtual machine:
 
 .. _vms_create_example:
 
-.. figure:: images/vms-add-wizard-summary.png
+.. figure:: images/virtual-machines-add-wizard-summary.png
 
    Creating a Sample Virtual Machine
 
@@ -198,7 +198,7 @@ Adding Devices to a VM
 To add a device to a VM, click :guilabel:`Devices` on the new VM card,
 and |ui-add|.
 
-.. figure:: images/vms-devices-add.png
+.. figure:: images/virtual-machines-devices-add.png
 
    VM Devices
 
@@ -231,7 +231,7 @@ image, typically an installation CD. The image must be present on an
 accessible portion of the %brand% storage. In this example, a FreeBSD
 installation image is shown:
 
-.. figure:: images/vms-devices-cdrom.png
+.. figure:: images/virtual-machines-devices-cdrom.png
 
    CD-ROM Device
 
@@ -261,7 +261,7 @@ clicking |ui-add|, and selecting :guilabel:`NIC` as the
 
 .. _vms-nic_fig:
 
-.. figure:: images/vms-devices-nic.png
+.. figure:: images/virtual-machines-devices-nic.png
 
    Network Interface Device
 
@@ -297,7 +297,7 @@ by clicking
 clicking |ui-add|, and selecting :guilabel:`Disk` as the
 :guilabel:`Type`.
 
-.. figure:: images/vms-devices-disk.png
+.. figure:: images/virtual-machines-devices-disk.png
 
    Disk Device
 
@@ -334,7 +334,7 @@ click
 :menuselection:`VMs --> Devices`,
 click |ui-add|, then set the :guilabel:`Type` to :guilabel:`Raw File`.
 
-.. figure:: images/vms-devices-rawfile.png
+.. figure:: images/virtual-machines-devices-rawfile.png
 
    Raw File Disk Device
 
@@ -387,7 +387,7 @@ clicking |ui-add|, and setting :guilabel:`Type` to :guilabel:`VNC`.
 
 .. _vms-vnc_fig:
 
-.. figure:: images/vms-devices-vnc.png
+.. figure:: images/virtual-machines-devices-vnc.png
 
    VNC Device
 
@@ -466,7 +466,7 @@ to see a card for each installed VM. There are options to switch the
 default view on this screen to *Slim* or *Table*. Each card has a
 :guilabel:`CONNECT` button at the bottom.
 
-.. figure:: images/vms.png
+.. figure:: images/virtual-machines.png
 
    VM Cards
 
@@ -575,7 +575,7 @@ clicking |ui-add|, and selecting :guilabel:`Docker Host` as the
 
 .. _vms_add_docker_fig:
 
-.. figure:: images/vms-add-wizard-docker.png
+.. figure:: images/virtual-machines-add-wizard-docker.png
 
    Add DockerVM
 
@@ -660,10 +660,11 @@ gigabytes for the :guilabel:`Raw file size`. Set the raw file location
 with the folder button or by typing a directory in the field.
 
 The final screen of the Wizard displays the chosen options for the new
-Docker VM. Click :guilabel:`SUBMIT` to create the VM or :guilabel:`BACK`
-to change any settings:
+Docker VM. Click :guilabel:`SUBMIT` to create the VM or
+:guilabel:`BACK` to change any settings:
 
-.. figure:: images/vms-add-wizard-docker-summary.png
+
+.. figure:: images/virtual-machines-add-wizard-docker-summary.png
 
    Docker VM Configuration
 
@@ -674,7 +675,8 @@ RancherOS when connecting with the :guilabel:`Serial` shell. The
 password :literal:`docker` is changed by editing the raw device of the
 Docker VM. Passwords cannot contain a space.
 
-.. figure:: images/vms-docker-devices-rawfile.png
+
+.. figure:: images/virtual-machines-docker-devices-rawfile.png
 
    Edit Rancher Password in Raw File Device
 
@@ -682,8 +684,8 @@ Docker VM. Passwords cannot contain a space.
 Start the Docker VM
 ~~~~~~~~~~~~~~~~~~~
 
-Click :guilabel:`VMs`, then click on the red |ui-power| button to start
-the VM.
+Click :guilabel:`VMs`, then click on the red |ui-power| button to
+start the VM.
 
 The first time the Docker VM is started, it downloads the Rancher
 disk image file. How long this takes to complete depends on the speed

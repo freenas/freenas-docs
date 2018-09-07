@@ -1139,13 +1139,13 @@ each credential. There are options to :guilabel:`Edit` and
 credential.
 
 Click |ui-add| to add a new cloud credential. Choose a
-:guilabel:`Provider` to display any specific options for that provider.
-:numref:`Figure %s <cloud_creds_add_fig>` shows the form for an
-*Amazon Cloud Drive* :guilabel:`Provider`:
+:guilabel:`Provider` to display any specific options for that
+provider. numref:`Figure %s <cloud_creds_add_fig>` shows the form for
+an *Amazon Cloud Drive* provider:
 
 .. _cloud_creds_add_fig:
 
-.. figure:: images/system-cloud-credentials-add-amazon-cloud.png
+.. figure:: images/system-cloud-credentials-add-example.png
 
    Add Amazon Cloud Drive Credential
 

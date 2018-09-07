@@ -1128,7 +1128,7 @@ Paste the copied key into the :guilabel:`SSH Public Key` field and click
 
 .. _zfs_paste_replication_key_fig:
 
-.. figure:: images/tasks-replication-tasks-manual-key-root.png
+.. figure:: images/account-users-edit-ssh-key.png
 
    Paste the Replication Key
 
@@ -1835,7 +1835,7 @@ account. The credential is given the name *S3 Storage*, as shown in
 
 .. _tasks_cloudsync_example_cred_fig:
 
-.. figure:: images/system-cloud-credentials-example.png
+.. figure:: images/system-cloud-credentials-add-example.png
 
    Example: Adding Cloud Credentials
 
