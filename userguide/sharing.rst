@@ -951,13 +951,16 @@ some troubleshooting tips. Reading through this entire chapter before
 creating any SMB shares is recommended to gain a better understanding of
 the configuration scenario that meets the specific network requirements.
 
-.. warning:: SMB1 is disabled by default for security reasons. If legacy
+
+.. warning:: SMB1 is disabled by default for security. If legacy
    clients are unable to connect to the share, open :ref:`Shell`, type
    :command:`sysctl freenas.services.smb.config.server_min_protocol=NT1`,
-   then restart the :ref:`SMB` service. If that resolves the issue, go to
-   :ref:`Tunables` and creating a tunable with a  :guilabel:`Variable` of
+   then restart the :ref:`SMB` service. If legacy clients can then
+   connect to the share, the change can be made permanent by going to
+   :ref:`Tunables`, creating a tunable with a :guilabel:`Variable` of
    *freenas.services.smb.config.server_min_protocol*, a
    :guilabel:`Value` of *NT1*, and a :guilabel:`Type` of *Sysctl*.
+
 
 .. tip:: `SMB Tips and Tricks
    <https://forums.freenas.org/index.php?resources/smb-tips-and-tricks.15/>`__
