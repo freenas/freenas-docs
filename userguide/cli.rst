@@ -284,7 +284,7 @@ Starting with version 9.2.1, %brand% enables compression on newly
 created ZFS pools by default. Since IOzone creates test data that is
 compressible, this can skew test results. To configure IOzone to
 generate incompressible test data, include the options
-**-+w 1 -+y 1 -+C 1**.
+:samp:`-+w 1 -+y 1 -+C 1`.
 
 Alternatively, consider temporarily disabling compression on the ZFS
 pool or dataset when running IOzone benchmarks.

@@ -61,7 +61,7 @@ and click |ui-add| to open the screen shown in
 
 .. _create_pool_poolman_fig:
 
-.. figure:: images/storage-pools-pool-create.png
+.. figure:: images/storage-pools-add.png
 
    Creating a Pool
 
@@ -75,23 +75,21 @@ that the chosen name conforms to these
 Choosing a name that will stick out in the logs is recommended,
 rather than generic names like "data" or "freenas".
 
-If the underlying disks need to be encrypted as a protection against
-physical theft, set the :guilabel:`Encryption` option. A pop-up message
-shows a reminder to :literal:`Always back up the key!`. Without the key,
-the data on the disks is inaccessible. Select :guilabel:`Confirm` then
-click :guilabel:`I UNDERSTAND`.
+To encrypt data on the underlying disks as a protection against
+physical theft, set the :guilabel:`Encryption` option. A pop-up
+message shows a reminder to :literal:`Always back up the key!`.
+Without the key, the data on the disks is inaccessible. Select
+:guilabel:`Confirm` then click :guilabel:`I UNDERSTAND`.
+
 
 .. warning:: Refer to the warnings in :ref:`Managing Encrypted Pools`
-   before enabling encryption! Be aware that this form of encryption
-   will be replaced by OpenZFS native encryption in a future version.
-   Pools created with the current encryption mechanism will need to be
-   backed up and destroyed in order to be recreated with native
-   encryption when it becomes available.
+   before enabling encryption!
 
 
 In the :guilabel:`Available Disks` section, select the disks that will
-be added to the pool. Enter a value to :guilabel:`Filter disks by name`
-or :guilabel:`Filter disks by capacity` to change the order of displayed
+be added to the pool. Enter a value to
+:guilabel:`Filter disks by name` or
+:guilabel:`Filter disks by capacity` to change the order of displayed
 disks.
 
 .. note:: The usable space of each disk in a pool is limited to the
@@ -99,8 +97,8 @@ disks.
    pools with disks of the same size is recommended.
 
 
-After selecting the desired disks, click the right arrow to add them to
-the :guilabel:`Data VDevs` section. Any disks that appear in
+After selecting the desired disks, click the right arrow to add them
+to the :guilabel:`Data VDevs` section. Any disks that appear in
 :guilabel:`Data VDevs` are used to create the pool. To remove a disk
 from that section, select the disk and use the left arrow to return it
 to the :guilabel:`Available Disks` section.
@@ -140,28 +138,28 @@ These layouts are supported:
    arrays.
 
 
-Once the desired layout is configured, click :guilabel:`CREATE`. A pop-up
-warning serves as a reminder that all disk contents will be erased.
-Enable the :guilabel:`Confirm` option then click :guilabel:`CREATE POOL`
-to create the pool.
+After the desired layout is configured, click :guilabel:`CREATE`. A
+pop-up warning serves as a reminder that all disk contents will be
+erased. Click :guilabel:`Confirm`, then :guilabel:`CREATE POOL` to
+create the pool.
 
 .. note:: To instead preserve existing data, click the
    :guilabel:`CANCEL` button and refer to :ref:`Importing a Disk` and
    :ref:`Importing a Pool` to see if the existing format is supported.
-   If so, perform that action instead. If the current storage format is
-   not supported, it is necessary to back up the data to external media,
-   create the pool, then restore the data to the new pool.
+   If so, perform that action instead. If the current storage format
+   is not supported, it is necessary to back up the data to external
+   media, create the pool, then restore the data to the new pool.
 
 
 Depending on the size and number of disks, the type of controller, and
 whether encryption is selected, creating the pool may take some time.
 If the :guilabel:`Encryption` option was selected, a popup message
-will provide a link to :guilabel:`Download Recovery Key`. Click the link
+provides a link to :guilabel:`Download Recovery Key`. Click the link
 and save the key to a safe location. When finished, click
 :guilabel:`DONE`.
 
-Once the pool is created, the screen refreshes and the new pool is
-listed in :menuselection:`Storage --> Pools`.
+The screen refreshes after the pool is created, showing the new pool
+in :menuselection:`Storage --> Pools`.
 
 In the example shown in :numref:`Figure %s <zfs_vol_fig>`, the created
 pool is named *pool1*. The description indicates that it is healthy.
@@ -568,10 +566,8 @@ encrypted pool also displays a button to :guilabel:`DOWNLOAD KEY` for
 that pool.
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
-                    |>{\Centering}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.54\linewidth-2\tabcolsep}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
 
 .. _detach_pool_options:
 
@@ -742,7 +738,7 @@ To create a dataset, select an existing pool in
 .. _zfs_create_dataset:
 
 #ifdef freenas
-.. figure:: images/storage-pools-add-dataset.png
+.. figure:: images/storage-pools-dataset-add.png
 
    Creating a ZFS Dataset
 #endif freenas
@@ -994,7 +990,7 @@ To create a zvol, select an existing ZFS pool or dataset, click
 
 .. _zfs_create_zvol_fig:
 
-.. figure:: images/storage-pools-add-zvol.png
+.. figure:: images/storage-pools-zvol-add.png
 
    Adding a Zvol
 

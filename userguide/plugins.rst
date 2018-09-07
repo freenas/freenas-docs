@@ -44,6 +44,7 @@ To install a plugin, click
 :numref:`Figure %s <view_list_plugins_fig>` shows some of the available
 plugins.
 
+
 .. _view_list_plugins_fig:
 
 .. figure:: images/plugins-available.png
@@ -52,7 +53,9 @@ plugins.
 
 
 The :guilabel:`Available Plugins` page lists the plugin name,
-description, current version, and if the plugin is officially supported.
+description, current version, and whether the plugin is officially
+supported.
+
 
 .. note:: If the list of available plugins is not displayed, open
    :ref:`Shell` and verify that the %brand% system can :command:`ping`

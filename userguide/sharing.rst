@@ -357,7 +357,7 @@ To create an authenticated or Time Machine share:
 #. Click :guilabel:`SAVE`.
 
 To configure multiple authenticated or Time Machine shares, repeat
-this process for each user. The new shares will appear in
+this process for each user. The new shares appear in
 :menuselection:`Sharing --> Apple (AFP)`.
 
 .. _creating_an_authenticated_share_fig:
@@ -776,14 +776,14 @@ Troubleshooting NFS
 Some NFS clients do not support the NLM (Network Lock Manager)
 protocol used by NFS. This is the case if the client receives an error
 that all or part of the file may be locked when a file transfer is
-attempted. To resolve this error, add the option **-o nolock** when
-running the :command:`mount` command on the client to allow write
+attempted. To resolve this error, add the option :samp:`-o nolock`
+when running the :command:`mount` command on the client to allow write
 access to the NFS share.
 
 If a "time out giving up" error is shown when trying to mount the
 share from a Linux system, make sure that the portmapper service is
 running on the Linux client. If portmapper is running and timeouts are
-still shown, force the use of TCP by including **-o tcp** in the
+still shown, force the use of TCP by including :samp:`-o tcp` in the
 :command:`mount` command.
 
 If a :literal:`RPC: Program not registered` error is shown, upgrade to
@@ -1265,7 +1265,7 @@ for more details.
    the server has to be to a fruit-enabled share.
 
 
-These VFS objects do not appear in the dropdown menu:
+These VFS objects do not appear in the drop-down menu:
 
 * **recycle:** moves deleted files to the recycle directory instead of
   deleting them. Controlled by :guilabel:`Export Recycle Bin` in the
@@ -1315,7 +1315,7 @@ To configure an unauthenticated SMB share:
    Creating an Unauthenticated SMB Share
 
 
-The new share will appear in
+The new share appears in
 :menuselection:`Sharing --> Windows (SMB) Shares`.
 
 Users can now access the share from any SMB client and will not be
@@ -1459,7 +1459,7 @@ Explorer:
 
 
 The next time a share is accessed with Explorer, a prompt to
-authenticate will appear.
+authenticate appears.
 
 
 .. index:: Shadow Copies
@@ -2288,7 +2288,7 @@ Fibre Channel Ports
 
 If the %brand% system has Fibre Channel ports,
 :menuselection:`Sharing --> Block (iSCSI)`
-will appear as
+appears as
 :menuselection:`Sharing --> Block (iSCSI/FC)`
 and an extra :guilabel:`Fibre Channel Ports` tab is added. An example
 is shown in

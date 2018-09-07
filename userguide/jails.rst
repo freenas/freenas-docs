@@ -242,12 +242,12 @@ a new jail.
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
 
 
-Similar to the :ref:`Jail Wizard`, configuring the basic properties then
-clicking :guilabel:`SAVE` is often all that is needed to quickly create
-a new jail. To continue configuring more settings, click
-:guilabel:`NEXT` to proceed to the :guilabel:`Jail Properties` section of
-the form.  :numref:`Table %s <jail_jail_props_tab>` describes each of
-these options.
+Similar to the :ref:`Jail Wizard`, configuring the basic properties,
+then clicking :guilabel:`SAVE` is often all that is needed to quickly
+create a new jail. To continue configuring more settings, click
+:guilabel:`NEXT` to proceed to the :guilabel:`Jail Properties` section
+of the form.  :numref:`Table %s <jail_jail_props_tab>` describes each
+of these options.
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
@@ -782,18 +782,19 @@ Enable sshd:
    sshd_enable: NO -> YES
 
 
-.. tip:: Using :command:`sysrc` to enable sshd verifies sshd is
+.. tip:: Using :command:`sysrc` to enable sshd verifies that sshd is
    enabled.
+
 
 Start the SSH daemon: :samp:`service sshd start`
 
-The first time the service runs, the jail RSA key pair is generated and
-the key fingerprint is displayed.
+The first time the service runs, the jail RSA key pair is generated
+and the key fingerprint is displayed.
 
 Add a user account with :command:`adduser`. Follow the prompts,
 :kbd:`Enter` will accept the default value offered. Users that require
-*root* access must also be a member of the *wheel* group. Enter *wheel*
-when prompted to *invite user into other groups? []:*
+*root* access must also be a member of the *wheel* group. Enter
+*wheel* when prompted to *invite user into other groups? []:*
 
 
 .. code-block:: none
@@ -969,22 +970,22 @@ The workflow for adding storage usually goes like this:
 
 #.  Use the jail
     :menuselection:`Mount points -->` |ui-add|
-    to select the pool or dataset as the
-    :guilabel:`Source`.
+    to select the the :guilabel:`Source` of the data and the
+    :guilabel:`Destination` where it will be mounted in the jail.
+
 
 To prevent writes to the storage, click :guilabel:`Read-Only`.
 
 After storage has been added or created, it appears in the
 :guilabel:`Mount points` for that jail. In the example shown in
 :numref:`Figure %s <jail_example_storage_fig>`,
-a dataset named :file:`pool1/data` has been chosen as the
+a dataset named :file:`pool1/smb-storage` has been chosen as the
 :guilabel:`Source` as it contains the files stored on the %brand%
-system. When the storage was created, the user browsed to the existing
-:file:`pool1/jails/freebsd1/usr/local/test` directory in the
-:guilabel:`Destination` field. The storage was added to the *freenas1*
-entry in the tree as :file:`/usr/local/test`. The user has clicked
-this :file:`/usr/local/test` entry to access the :guilabel:`Edit`
-screen.
+system. The user entered
+:file:`/mnt/iocage/jails/samplejail/root/mounted` as the directory
+to be mounted in the :guilabel:`Destination` field. To users inside
+the jail, this data will appear to be in the :file:`/root/mounted`
+directory.
 
 
 .. _jail_example_storage_fig:

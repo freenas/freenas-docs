@@ -1133,15 +1133,16 @@ to see the screen shown in :numref:`Figure %s <cloud_creds_fig>`.
    Cloud Credentials List
 
 
-The list shows the :guilabel:`Account Name` and :guilabel:`Provider` for
-each credential. There are options to :guilabel:`Edit` and
+The list shows the :guilabel:`Account Name` and :guilabel:`Provider`
+for each credential. There are options to :guilabel:`Edit` and
 :guilabel:`Delete` a credential after clicking |ui-options| for a
 credential.
 
 Click |ui-add| to add a new cloud credential. Choose a
 :guilabel:`Provider` to display any specific options for that
-provider. numref:`Figure %s <cloud_creds_add_fig>` shows the form for
+provider. :numref:`Figure %s <cloud_creds_add_fig>` shows the form for
 an *Amazon Cloud Drive* provider:
+
 
 .. _cloud_creds_add_fig:
 
@@ -1278,8 +1279,7 @@ can be used to manage the following:
    driver.
 
 #. **FreeBSD rc.conf options:**
-   `rc.conf(5)
-   <https://www.freebsd.org/cgi/man.cgi?query=rc.conf&manpath=FreeBSD+11.0-RELEASE>`__
+   `rc.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=rc.conf>`__
    is used to pass system configuration options to the system startup
    scripts as the system boots. Since %brand% has been optimized for
    storage, not all of the services mentioned in rc.conf(5) are

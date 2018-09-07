@@ -1710,7 +1710,7 @@ schedule for running a cloud sync task. An example is shown in
 
 When an existing task has run, a :literal:`✓` or :literal:`x` is shown
 to reflect the success or failure of the task. Click either symbol to
-open the :guilabel:`Logs` window. This window displays the logs related
+open the :guilabel:`Logs` window. This window displays logs related to
 the task that ran. Click :guilabel:`DOWNLOAD LOGS` to open a popup
 window to download the :file:`.log` file.
 
