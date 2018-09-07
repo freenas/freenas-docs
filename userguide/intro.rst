@@ -196,6 +196,10 @@ This software has been added or updated:
   system. This CLI utility can be used to analyze disk usage from the
   console or an SSH session.
 
+* `drm-next-kmod <https://www.freshports.org/graphics/drm-next-kmod/>`__
+  has been added to the base system, adding support for UTF-8 fonts to
+  the console for Intel graphic cards.
+
 * Netatalk has been updated to the 3.1.12 development version which
   addresses known issues with Time Machine timeouts.
 
@@ -235,6 +239,10 @@ This software has been added or updated:
   dumping SATADOM info, and :command:`-Z` to delete old debug
   information. The :command:`-G` switch has been removed as the
   system no longer uses GRUB.
+
+* These switches have been added to :ref:`arcstat`: :command:`-a` for
+  displaying all available statistics and :command:`-p` for displaying
+  raw numbers without suffixes.
 
 These screen options have changed:
 

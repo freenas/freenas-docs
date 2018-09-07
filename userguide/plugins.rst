@@ -150,7 +150,7 @@ shows updating a plugin jail.
 
 .. _updating_installed_plugin_fig:
 
-.. figure:: images/plugins4.png
+.. figure:: images/plugins-update.png
 
    Updating an Installed Plugin
 #endif comment
@@ -551,12 +551,10 @@ is supported by following the process outlined in
    |                                                                         | heterogeneous networks.                                                |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-#ifdef comment
    | `BRU Server                                                             | BRU Server™ Backup and Recovery Software by TOLIS Group, Inc.          |
    | <http://www.tolisgroup.com/client-server-cross-platform-backup.html>`__ |                                                                        |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-#endif comment
    | `BitTorrentSync <https://www.resilio.com/>`__                           | Resilient, fast and scalable file sync software for enterprises and    |
    |                                                                         | individuals.                                                           |
    |                                                                         |                                                                        |
@@ -574,11 +572,9 @@ is supported by following the process outlined in
    | `Emby <https://emby.media/>`__                                          | Home media server built using mono and other open source technologies. |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-#ifdef comment
    | `GitLab <https://about.gitlab.com/>`__                                  | GitLab is a fully integrated software development platform.            |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-#endif comment
    | `irssi <https://irssi.org/>`__                                          | Irssi is an IRC client.                                                |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+

@@ -414,7 +414,7 @@ set for the *user1* account.
 
 .. _config_tm_osx:
 
-.. figure:: images/sharing-apple-afp-time-machine-mac.png
+.. figure:: images/sharing-afp-time-machine.png
 
    Configuring Time Machine on macOS
 
@@ -756,14 +756,14 @@ now copy files to and from the share.
 
 .. _mount_nfs_osx_fig:
 
-.. figure:: images/sharing-nfs-connect-server-mac.png
+.. figure:: images/sharing-nfs-mac.png
 
    Mounting the NFS Share from macOS
 
 
 .. _view_nfs_finder_fig:
 
-.. figure:: images/nfs4a.png
+.. figure:: images/sharing-nfs-finder.png
 
    Viewing the NFS Share in Finder
 
@@ -1566,7 +1566,7 @@ versions, overwriting the existing file on the Windows system.
 
 .. _view_shadow_explorer_fig:
 
-.. figure:: images/cifs6.png
+.. figure:: images/sharing-windows-shadow-copies.png
 
    Viewing Previous Versions within Explorer
 
