@@ -236,6 +236,10 @@ This software has been added or updated:
   information. The :command:`-G` switch has been removed as the
   system no longer uses GRUB.
 
+* These switches have been added to :ref:`arcstat`: :command:`-a` for
+  displaying all available statistics and :command:`-p` for displaying
+  raw numbers without suffixes.
+
 These screen options have changed:
 
 * The :guilabel:`ATA Security User`, :guilabel:`SED Password`, and

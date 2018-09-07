@@ -467,19 +467,22 @@ To view the help for arcstat.py:
 .. code-block:: none
 
     arcstat.py -h
-    Usage: arcstat [-hvx] [-f fields] [-o file] [-s string] [interval [count]]
-    -h: Print this help message
-    -v: List all possible field headers and definitions
-    -x: Print extended stats
-    -f: Specify specific fields to print (see -v)
-    -o: Redirect output to the specified file
-    -s: Override default field separator with custom character or string
+    [-havxp] [-f fields] [-o file] [-s string] [interval [count]]
+
+         -h : Print this help message
+         -a : Print all possible stats
+         -v : List all possible field headers and definitions
+         -x : Print extended stats
+         -f : Specify specific fields to print (see -v)
+         -o : Redirect output to the specified file
+         -s : Override default field separator with custom character or string
+         -p : Disable auto-scaling of numerical fields
 
     Examples:
-    arcstat -o /tmp/a.log 2 10
-    arcstat -s "," -o /tmp/a.log 2 10
-    arcstat -v
-    arcstat -f time,hit%,dh%,ph%,mh% 1
+        arcstat -o /tmp/a.log 2 10
+        arcstat -s "," -o /tmp/a.log 2 10
+        arcstat -v
+        arcstat -f time,hit%,dh%,ph%,mh% 1
 
 To view ARC statistics in real time, specify an interval and a count.
 This command will display every 1 second for a count of five.
