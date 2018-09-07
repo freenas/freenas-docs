@@ -16,8 +16,8 @@ IMAGES=$( ls ${IMAGEDIR}/*.png )
 echo ${IMAGES} > ${IMAGELIST}
 echo "list of all User Guide images: ${IMAGELIST}"
 
-echo "SRCDIR=\"changeme\"" > ${IMAGESCRIPT}
-echo "DESTDIR=\"changemetoo\"" >> ${IMAGESCRIPT}
+echo "SRCDIR=\"/tmp/auto-images\"" > ${IMAGESCRIPT}
+echo "DESTDIR=\"/changeme/freenas-docs/userguide/images\"" >> ${IMAGESCRIPT}
 for image in ${IMAGES}; do
   name=$( basename $image )
   echo "scp \${SRCDIR}/$name \${DESTDIR}/$name" >> ${IMAGESCRIPT}
