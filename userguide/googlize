@@ -1,0 +1,2 @@
+#!/bin/sh
+perl -i -pe 'BEGIN{open $fh, "<", "google_analytics.txt"; $google=do{local($/); <$fh>}; chomp($google)} s%</head>%$google\n</head>%g' processed/_build/html/*.html
