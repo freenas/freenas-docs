@@ -28,6 +28,14 @@ components for viewing and configuring network settings on the
 
 Each of these is described in more detail in this section.
 
+.. _webui_interface_warning:
+
+.. warning:: Making changes to the network interface the |web-ui| uses
+   can result in losing connection to the %brand% system! Misconfiguring
+   network settings might require command line knowledge or physical
+   access to the %brand% system to fix. Be very careful when configuring
+   :ref:`Interfaces` and :ref:`Link Aggregations`.
+
 
 .. _Global Configuration:
 
@@ -173,6 +181,8 @@ or editing a manually configured interface.
    :ref:`Creating a Link Aggregation` that does **not** include the NIC
    used to access the %brand% administrative GUI may require adding an
    :guilabel:`Interfaces` entry for this interface with DHCP enabled.
+   See this :ref:`warning <webui_interface_warning>` about changing the
+   interface that the |web-ui| uses.
 
 
 :numref:`Figure %s <add_net_interface_fig>`
@@ -423,35 +433,34 @@ for some examples.
 Link Aggregations
 -----------------
 
-%brand% uses FreeBSD's
+%brand% uses the FreeBSD
 `lagg(4) <https://www.freebsd.org/cgi/man.cgi?query=lagg>`__
-interface to provide link aggregation and link failover. The lagg
-interface allows aggregation of multiple network interfaces into a
-single virtual lagg interface, providing fault-tolerance and
-high-speed multi-link throughput. The aggregation protocols supported
-by lagg determine which ports are used for outgoing traffic and
-whether a specific port accepts incoming traffic. The link state of
-the lagg interface is used to validate whether the port is active.
+interface to provide link aggregation and link failover support. A
+lagg interface allows combining multiple network interfaces into a
+single virtual interface. This provides fault-tolerance and high-speed
+multi-link throughput. The aggregation protocols supported by lagg both
+determines the ports to use for outgoing traffic and if a specific port
+accepts incoming traffic. The link state of the lagg interface is used
+to validate whether the port is active.
 
 Aggregation works best on switches supporting LACP, which distributes
 traffic bi-directionally while responding to failure of individual
 links. %brand% also supports active/passive failover between pairs of
-links. The LACP and load-balance modes select the output interface
-using a hash that includes the Ethernet source and destination
-address, VLAN tag (if available), IP source and destination address,
-and flow label (IPv6 only). The benefit can only be observed when
-multiple clients are transferring files *from* the NAS. The flow
-entering *into* the NAS depends on the Ethernet switch load-balance
-algorithm.
+links. The LACP and load-balance modes select the output interface using
+a hash that includes the Ethernet source and destination address, VLAN
+tag (if available), IP source and destination address, and flow label
+(IPv6 only). The benefit can only be observed when multiple clients are
+transferring files *from* the NAS. The flow entering *into* the NAS
+depends on the Ethernet switch load-balance algorithm.
 
 The lagg driver currently supports several aggregation protocols,
 although only *Failover* is recommended on network switches that do
-not support LACP:
+not support *LACP*:
 
 **Failover:** the default protocol. Sends traffic only through the
 active port. If the master port becomes unavailable, the next active
-port is used. The first interface added is the master port; any
-interfaces added after that are used as failover devices. By default,
+port is used. The first interface added is the master port. Any
+interfaces added later are used as failover devices. By default,
 received traffic is only accepted when received through the active
 port. This constraint can be relaxed, which is useful for certain
 bridged network setups, by creating a tunable with a
@@ -468,26 +477,30 @@ bridged network setups, by creating a tunable with a
 
 
 **LACP:** supports the IEEE 802.3ad Link Aggregation Control Protocol
-(LACP) and the Marker Protocol. LACP negotiates a set of
-aggregable links with the peer into one or more link aggregated groups
-(LAGs). Each LAG is composed of ports of the same speed, set to
-full-duplex operation. Traffic is balanced across the ports
-in the LAG with the greatest total speed; in most cases there will
-only be one LAG which contains all ports. In the event of changes in
-physical connectivity, link aggregation will quickly converge to a new
-configuration. LACP must be configured on the switch, and LACP does
-not support mixing interfaces of different speeds. Only interfaces
-that use the same driver, like two *igb* ports, are recommended for
-LACP. Using LACP for iSCSI is not recommended, as iSCSI has built-in
-multipath features which are more efficient.
+(LACP) and the Marker Protocol. LACP negotiates a set of aggregable
+links with the peer into one or more link aggregated groups (LAGs). Each
+LAG is composed of ports of the same speed, set to full-duplex
+operation. Traffic is balanced across the ports in the LAG with the
+greatest total speed; in most cases there will only be one LAG which
+contains all ports. In the event of changes in physical connectivity,
+link aggregation will quickly converge to a new configuration. LACP must
+be configured on the switch, and LACP does not support mixing interfaces
+of different speeds. Only interfaces that use the same driver, like two
+*igb* ports, are recommended for LACP. Using LACP for iSCSI is not
+recommended, as iSCSI has built-in multipath features which are more
+efficient.
+
+.. note:: When using *LACP*, verify the switch is configured for active
+   LACP. Passive LACP is not supported.
+
 
 **Load Balance:** balances outgoing traffic across the active ports
-based on hashed protocol header information and accepts incoming
-traffic from any active port. This is a static setup and does not
-negotiate aggregation with the peer or exchange frames to monitor the
-link. The hash includes the Ethernet source and destination address,
-VLAN tag (if available), and IP source and destination address.
-Requires a switch which supports IEEE 802.3ad static link aggregation.
+based on hashed protocol header information and accepts incoming traffic
+from any active port. This is a static setup and does not negotiate
+aggregation with the peer or exchange frames to monitor the link. The
+hash includes the Ethernet source and destination address, VLAN tag (if
+available), and IP source and destination address. Requires a switch
+which supports IEEE 802.3ad static link aggregation.
 
 **Round Robin:** distributes outgoing traffic using a round-robin
 scheduler through all active ports and accepts incoming traffic from
@@ -498,9 +511,6 @@ supports IEEE 802.3ad static link aggregation.
 
 **None:** this protocol disables any traffic without disabling the
 lagg interface itself.
-
-.. note:: When using LACP, verify that the switch is configured for
-   active LACP. Passive LACP is not supported.
 
 
 .. _LACP, MPIO, NFS, and ESXi:
@@ -554,17 +564,12 @@ Creating a Link Aggregation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Before** creating a link aggregation, make sure that all interfaces to
-be used in the lagg have not been manually configured in
+use in the lagg are not manually configured in
 :menuselection:`Network --> Interfaces --> View Interfaces`.
 
-If any manually-configured interfaces to be included in the lagg exist,
-delete them. **Lagg creation fails if any of the included interfaces
-are manually configured**.
-
-.. warning:: Creating or editing link aggregations can disconnect
-   clients using the %brand% computer. Please verify that clients have
-   saved their work and are not connected through the affected
-   networks before making changes.
+**Lagg creation fails if any of the included interfaces are manually
+configured**. See this :ref:`warning <webui_interface_warning>` about
+changing the interface that the |web-ui| uses.
 
 :numref:`Figure %s <create_lagg_fig>`
 shows the configuration options when adding a lagg interface using
@@ -600,17 +605,6 @@ Clicking the :guilabel:`Edit` button for a lagg opens the
 configuration screen shown in :numref:`Figure %s <lagg_edit_fig>`.
 :numref:`Table %s <lagg_opts_tab>` describes the options in this screen.
 
-If the network interface used to connect to the %brand% web GUI is a
-member of the lagg, the network connection will be lost when the new
-lagg is created. The switch settings might also require changes to
-communicate through the new lagg interface.
-
-The IP address of the new lagg can be set with DHCP or manually from
-the console setup menu. If the IP address is set manually, it might
-also be necessary to enter a default gateway to allow access to the
-GUI from the new lagg interface.
-
-
 .. _lagg_edit_fig:
 
 .. figure:: images/lagg2.png
@@ -639,7 +633,8 @@ GUI from the new lagg interface.
    |                        |                   |                                                                                |
    +------------------------+-------------------+--------------------------------------------------------------------------------+
    | DHCP                   | checkbox          | Enable if the lagg device will get IP address info from DHCP server.           |
-   |                        |                   |                                                                                |
+   |                        |                   | The IP address of the new lagg can be set to DHCP only if no other interface   |
+   |                        |                   | uses DHCP.                                                                     |
    +------------------------+-------------------+--------------------------------------------------------------------------------+
    | IPv4 Address           | string            | Enter a static IP address if :guilabel:`DHCP` is unset.                        |
    |                        |                   |                                                                                |
