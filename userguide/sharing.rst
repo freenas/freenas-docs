@@ -464,9 +464,9 @@ Create an NFS share by going to
 and clicking |ui-add|. :numref:`Figure %s <nfs_share_wiz_fig>` shows
 an example of creating an NFS share.
 
-From the :guilabel:`Path` field, Browse to the dataset created for the
-share. In the :guilabel:`Comment` field enter a share name, note that
-if left empty, the share name is the list of selected Path entries.
+For the required :guilabel:`Path` field, browse to the dataset created
+for the share. In the :guilabel:`Comment` field enter a share name, note
+that if left empty, the share name is the list of selected Path entries.
 Click the :guilabel:`SAVE` button to create the share.
 
 .. _nfs_share_wiz_fig:
@@ -508,8 +508,9 @@ button.
    | Setting             | Value          | Advanced | Description                                                                                                |
    |                     |                | Mode     |                                                                                                            |
    +=====================+================+==========+============================================================================================================+
-   | Path                | browse button  |          | Browse to the pool or dataset to be shared. Click :guilabel:`ADD ADDITIONAL PATH` to                       |
-   |                     |                |          | select multiple paths.                                                                                     |
+   | Path                | browse button  |          | The required full path to the pool or dataset to share. Click :guilabel:`ADD ADDITIONAL PATH` to           |
+   |                     |                |          | configure multiple paths.                                                                                  |
+   |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
    | Comment             | string         |          | Set the share name. If left empty, share name is the list of selected :guilabel:`Path` entries.            |
    |                     |                |          |                                                                                                            |
