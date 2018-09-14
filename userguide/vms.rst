@@ -473,8 +473,8 @@ default view on this screen to *Slim* or *Table*. Each card has a
 
 The name, description, running state, com port (if present), and other
 configuration values are shown on the card. Click |ui-options| for the
-:guilabel:`Start`, :guilabel:`Power Off`, :guilabel:`Delete`,
-:guilabel:`Devices`, and :guilabel:`Edit` options.
+:guilabel:`Start`, :guilabel:`Stop`, :guilabel:`Power Off`,
+:guilabel:`Delete`, :guilabel:`Devices`, and :guilabel:`Edit` options.
 
 .. tip:: The |web-ui| shows an error message if a VM fails to start.
 
@@ -499,6 +499,8 @@ When a VM is already running, these buttons are available:
 
 * |ui-power| (Green) shuts down the VM.
 
+* :guilabel:`Stop` also shuts down the VM.
+
 * :guilabel:`Power off` immediately halts the VM. This is equivalent
   to disconnecting the power to a physical computer.
 
@@ -506,6 +508,10 @@ When a VM is already running, these buttons are available:
   include :guilabel:`VNC`, a :guilabel:`Serial` shell, or other
   options. For :guilabel:`VNC`, the VM must have a VNC device with
   :guilabel:`Web Interface` enabled.
+
+
+Popups ask to confirm the choice when shutting down, powering off, or
+deleting a VM.
 
 
 .. index:: Deleting VMs
