@@ -1828,8 +1828,8 @@ To assign additional IP addresses to the portal, click the link
    |                       |                | *Mutual CHAP*.                                                              |
    |                       |                |                                                                             |
    +-----------------------+----------------+-----------------------------------------------------------------------------+
-   | IP address            | drop-down menu | Select the IP address associated with an interface or the wildcard address  |
-   |                       |                | of *0.0.0.0* (any interface).                                               |
+   | IP address            | drop-down menu | Select the IPv4 or IPv6 address associated with an interface or the         |
+   |                       |                | wildcard address of *0.0.0.0* (any interface).                              |
    |                       |                |                                                                             |
    +-----------------------+----------------+-----------------------------------------------------------------------------+
    | Port                  | integer        | TCP port used to access the iSCSI target. Default is *3260*.                |
