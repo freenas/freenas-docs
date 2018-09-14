@@ -1910,8 +1910,8 @@ link :guilabel:`Add extra Portal IP`.
    | Auth Group     | menu         | :guilabel:`Discovery Auth Method` is set to *CHAP* or *Mutual CHAP*.            |
    |                |              |                                                                                 |
    +----------------+--------------+---------------------------------------------------------------------------------+
-   | IP address     | drop-down    | Select the IP address associated with an interface or the wildcard address      |
-   |                | menu         | of *0.0.0.0* (any interface).                                                   |
+   | IP address     | drop-down    | Select the IPv4 or IPv6 address associated with an interface or the wildcard    |
+   |                | menu         | address of *0.0.0.0* (any interface).                                           |
    |                |              |                                                                                 |
    +----------------+--------------+---------------------------------------------------------------------------------+
    | Port           | integer      | TCP port used to access the iSCSI target. Default is *3260*.                    |
