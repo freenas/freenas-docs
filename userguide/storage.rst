@@ -1478,13 +1478,13 @@ dialog:
    Unlock Locked Volume
 
 Unlock the volume by entering a passphrase *or* using the
-:guilabel:`Browse` button to load the recovery key. If both a
-passphrase and a recovery key are entered, only the passphrase is
-used.  By default, the services listed will restart when the volume is
-unlocked. This allows them to see the new volume and share or access
-data on it. Individual services can be prevented from restarting by
-deselecting them. However, a service that is not restarted might not be
-able to access the unlocked volume.
+:guilabel:`Browse` button to load the recovery key. Only the passphrase
+is used when both a passphrase and a recovery key are entered. The
+services listed in :guilabel:`Restart Services` will restart when the
+pool is unlocked. This allows them to see the new volume and share or
+access data on it. Individual services can be prevented from restarting
+by deselecting them. However, a service that is not restarted might not
+be able to access the unlocked volume.
 
 **Download Key:** download a backup copy of the GELI encryption key.
 The encryption key is saved to the client system, not on the %brand%
