@@ -737,7 +737,7 @@ To create a dataset, select an existing pool in
 .. _zfs_create_dataset:
 
 #ifdef freenas
-.. figure:: images/storage-pools-dataset-add.png
+.. figure:: images/storage-pools-add-dataset.png
 
    Creating a ZFS Dataset
 #endif freenas
