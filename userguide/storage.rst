@@ -328,21 +328,20 @@ supplying the passphrase. For this reason, selecting this action will
 prompt to confirm. Once the pool is locked, its status will change to
 *LOCKED (Locked Used / Locked Free)*, :guilabel:`Pool Operations` are
 limited to *Detach* and *Extend*, and the
-:guilabel:`Encryption Operations` now opens the :guilabel:`Unlock`
-window.
+:guilabel:`Encryption Operations` icon changes to the :guilabel:`Unlock`
+button.
 
-To unlock the pool, click the :guilabel:`Encryption Operations` icon,
-enter the passphrase *or* use the :guilabel:`Browse` button to load the
-recovery key. If both a passphrase and a recovery key are entered, only
-the passphrase is used. By default, the services listed will restart
-when the pool is unlocked. This allows them to see the new pool and
-share or access data on it.
-#ifdef comment
-#not present in new UI yet: Redmine #39852
- Individual services can be prevented from restarting by
-deselecting them. However, a service that is not restarted might not be
-able to access the unlocked pool.
-#endif comment
+Unlock the pool by clicking the :guilabel:`Unlock` icon and entering
+the passphrase *or* use the :guilabel:`Browse` button to load the
+recovery key. Only the passphrase is used when both a passphrase and a
+recovery key are entered. The services listed in
+:guilabel:`Restart Services` will restart when the pool is unlocked.
+This allows them to see the new pool and share or access data on it.
+Individual services can be prevented from restarting by clicking the
+:guilabel:`Restart Services` drop-down and unselecting them. However,
+a service that is not restarted might not be able to access the unlocked
+pool.
+
 
 **Create Passphrase:** set and confirm a passphrase associated with the
 GELI encryption key.
