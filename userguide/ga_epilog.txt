@@ -1,0 +1,19 @@
+  <a href="/archive.html"
+  style="position: fixed;
+  top:0;
+  right: 52px;
+  display: block;
+  color: #28343b;
+  padding: 0.4045em 1.618em;
+  font-weight: bold;
+  background: rgb(131,216,255);
+  background: -moz-linear-gradient(left, rgba(131,216,255,1) 0%, rgba(105,173,250,1) 35%, rgba(105,173,250,1) 80%, rgba(67,152,248,1) 100%);
+  background: -webkit-linear-gradient(left, rgba(131,216,255,1) 0%,rgba(105,173,250,1) 35%,rgba(105,173,250,1) 80%,rgba(67,152,248,1) 100%);
+  background: linear-gradient(to right, rgba(131,216,255,1) 0%,rgba(105,173,250,1) 35%,rgba(105,173,250,1) 80%,rgba(67,152,248,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#83d8ff', endColorstr='#4398f8',GradientType=1 );
+  border: none;
+  border-bottom: none;
+  border-top: none;
+  -webkit-box-shadow: 0px 2px 6px 1px rgba(204,121,167,0.5);
+  -moz-box-shadow: 0px 2px 6px 1px rgba(204,121,167,0.5);
+  box-shadow: 0px 2px 6px 1px rgba(204,121,167,0.5);">Previous versions of the<br>FreeNAS User Guide.</a>

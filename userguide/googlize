@@ -1,2 +1,6 @@
 #!/bin/sh
-perl -i -pe 'BEGIN{open $fh, "<", "google_analytics.txt"; $google=do{local($/); <$fh>}; chomp($google)} s%</head>%$google\n</head>%g' processed/_build/html/*.html
+perl -i -pe 'BEGIN{open $fh, "<", "ga_prolog.txt"; $ga_prolog=do{local($/); <$fh>}; chomp($ga_prolog); \
+		   open $fh, "<", "ga_epilog.txt"; $ga_epilog=do{local($/); <$fh>}; chomp($ga_epilog); }\
+		   s%</head>%$ga_prolog\n</head>%g; \
+		   s%</body>%$ga_epilog\n</body>%g;' \
+		   processed/_build/html/*.html
