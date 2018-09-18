@@ -196,8 +196,8 @@ a new jail.
    |                           |                   | for more details.                                                                                       |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
-   | Berkeley Packet Filter    | checkbox          | Use the Berkeley Packet Filter to data link layers in a protocol independent fashion                    |
-   |                           |                   | See                                                                                                     |
+   | Berkeley Packet Filter    | checkbox          | Use the Berkeley Packet Filter to data link layers in a protocol independent fashion. Unset by default  |
+   |                           |                   | to avoid security vulnerabilities. See                                                                  |
    |                           |                   | `BPF(4) <https://www.freebsd.org/cgi/man.cgi?query=bpf>`__                                              |
    |                           |                   | for more details.                                                                                       |
    |                           |                   |                                                                                                         |
