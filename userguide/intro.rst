@@ -267,6 +267,10 @@ These screen options have changed:
    Box, Dropbox, FTP, Google Drive, HTTP, Hubic, Mega, Microsoft
    OneDrive, pCloud, SFTP, WebDAV, and Yandex.
 
+* The :guilabel:`Team Drive ID` field has been added to
+  :menuselection:`System --> Cloud Credentials --> Add`
+  and appears when *Google Drive* is the :guilabel:`Provider`.
+
 * The :guilabel:`Endpoint URL` has been added to
   :menuselection:`System -> Cloud Credentials -> Add Cloud Credential`
   but only appears when *Amazon S3* is selected as the
