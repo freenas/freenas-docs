@@ -81,7 +81,8 @@ To instead log into the legacy web interface, click the
 :guilabel:`LEGACY WEB INTERFACE` link.
 
 Enter the password for the root user that was chosen during the
-installation. The administrative GUI for the legacy UI is displayed as
+installation. There is a prompt to set a root password if this was not
+set during the installation. The administrative GUI is displayed as
 shown in :numref:`Figure %s <quick_graphic_config_menu_fig>`.
 
 
