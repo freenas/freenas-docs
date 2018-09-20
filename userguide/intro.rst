@@ -269,7 +269,7 @@ These screen options have changed:
 
 * The :guilabel:`Team Drive ID` field has been added to
   :menuselection:`System --> Cloud Credentials --> Add`
-  form when *Google Drive* is the :guilabel:`Provider`.
+  and appears when *Google Drive* is the :guilabel:`Provider`.
 
 * The :guilabel:`Endpoint URL` has been added to
   :menuselection:`System -> Cloud Credentials -> Add Cloud Credential`
