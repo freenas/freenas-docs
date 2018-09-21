@@ -1948,6 +1948,10 @@ UPS Configuration screen.
    | Port                          | drop-down menu | Enter the serial or USB port the UPS is plugged into (see :ref:`NOTE <UPS USB>`).         |
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
+   | Hostname                      | string         | Select a :literal:`snmp` :guilabel:`Driver` to change :guilabel:`Port` to                 |
+   |                               |                | :guilabel:`Hostname`. Enter the IP address or hostname of the SNMP UPS device.            |
+   |                               |                |                                                                                           |
+   +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Auxiliary Parameters          | string         | Enter any additional options from                                                         |
    | (ups.conf)                    |                | `ups.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=ups.conf>`__.                     |
    |                               |                |                                                                                           |
