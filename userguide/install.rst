@@ -367,7 +367,9 @@ Setting a password is mandatory and the password cannot be blank.
 Since this password provides access to the |web-ui|, it
 needs to be hard to guess. Enter the password, press the down arrow key,
 and confirm the password. Then press :kbd:`Enter` to continue with the
-installation.
+installation. Choosing :guilabel:`Cancel` skips setting a root password
+during the installation, but the |web-ui| will require setting a
+root password when logging in for the first time.
 
 .. note:: For security reasons, the SSH service and *root* SSH logins
    are disabled by default. Unless these are set, the only way to
