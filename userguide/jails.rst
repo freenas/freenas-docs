@@ -54,6 +54,9 @@ jail.
 Jail Storage
 ------------
 
+A :ref:`pool <Creating Pools>` must be created before using jails or
+:ref:`Plugins`. Make sure the pool has enough storage for all the
+intended jails and plugins.
 
 Jails and downloaded FreeBSD release files are stored in a single
 dataset named :file:`iocage`.
