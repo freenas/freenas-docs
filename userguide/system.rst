@@ -1151,7 +1151,7 @@ an *Amazon Cloud Drive* provider:
    Add Amazon Cloud Drive Credential
 
 
-Enter a descriptive and unique name for the cloud credential in the
+Enter a descriptive name for the cloud credential in the
 :guilabel:`Name` field. The remaining options vary by
 :guilabel:`Provider`, and are shown in
 :numref:`Table %s <cloud_cred_tab>`.
