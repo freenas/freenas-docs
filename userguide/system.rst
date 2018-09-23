@@ -1630,7 +1630,7 @@ each credential. There are options to :guilabel:`Edit` and
 
 
 :guilabel:`Amazon Cloud Drive` options are shown by default. Enter a
-descriptive name for the cloud credential in the
+descriptive and unique name for the cloud credential in the
 :guilabel:`Account Name` field, then select a :guilabel:`Provider`. The
 remaining options vary by provider, and are shown in
 :numref:`Table %s <cloud_cred_tab>`.
