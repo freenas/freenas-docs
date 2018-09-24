@@ -906,7 +906,6 @@ time a user logs in.
 Additional Storage
 ~~~~~~~~~~~~~~~~~~
 
-
 Jails can be given access to an area of storage outside of the jail that
 is configured on the %brand% system. It is possible to give a FreeBSD
 jail access to an area of storage on the %brand% system. This is useful
@@ -955,8 +954,12 @@ This opens the screen shown in
   jails is always separate from any datasets used for storage on the
   %brand% system.
 
-* :guilabel:`Destination`: select or add a new **empty** directory
-  within the jail to link to the :guilabel:`Source` storage area.
+* :guilabel:`Destination`: Browse to an existing and **empty** directory
+  within the jail to link to the :guilabel:`Source` storage area. It is
+  also possible to add :literal:`/` and a name to the end of the path
+  and %brand% automatically creates a new directory. New directories
+  created must be **within** the jail directory structure. Example:
+  :samp:`/mnt/iocage/jails/samplejail/root/new-destination-directory`.
 
 Storage is typically added because the user and group account
 associated with an application installed inside of a jail needs to
