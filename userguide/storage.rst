@@ -850,6 +850,8 @@ After a dataset is created it appears in
 :menuselection:`Storage --> Pools.`
 Click |ui-options| on an existing dataset to configure these options:
 
+.. _storage dataset options:
+
 **Add Dataset:** create a nested dataset, or a dataset within a dataset.
 
 **Add Zvol:** add a zvol to the dataset. Refer to :ref:`Adding Zvols`
