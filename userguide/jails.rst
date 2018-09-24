@@ -919,10 +919,11 @@ This opens the screen shown in
   jails is always separate from any datasets used for storage on the
   %brand% system.
 
-* :guilabel:`Destination`: Browse to an existing directory within the
-  jail and add a new directory name to the end of the string. This will
-  create the new destination directory to link to the :guilabel:`Source`
-  storage area. Example:
+* :guilabel:`Destination`: Browse to an existing and **empty** directory
+  within the jail to link to the :guilabel:`Source` storage area. It is
+  also possible to add :literal:`/` and a name to the end of the path
+  and %brand% automatically creates a new directory. New directories
+  created must be **within** the jail directory structure. Example:
   :samp:`/mnt/iocage/jails/samplejail/root/new-destination-directory`.
 
 Storage is typically added because the user and group account
