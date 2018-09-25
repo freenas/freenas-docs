@@ -1,3 +1,4 @@
+  <!-- googlize start -->
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2174408-18"></script>
   <script>
@@ -6,3 +7,4 @@
     gtag('js', new Date());
     gtag('config', 'UA-2174408-18');
   </script>
+  <!-- googlize end -->

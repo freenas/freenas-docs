@@ -1,3 +1,4 @@
+  <!-- googlize button start -->
   <a href="/archive.html"
   style="position: fixed;
   top:0;
@@ -18,3 +19,4 @@
   -moz-box-shadow: 0px 2px 6px 1px rgba(204,121,167,0.5);
   box-shadow: 0px 2px 6px 1px rgba(204,121,167,0.5);
   ">Previous Versions</a>
+  <!-- googlize button end -->

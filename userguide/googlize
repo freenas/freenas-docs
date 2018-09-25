@@ -1,6 +1,84 @@
-#!/bin/sh
-perl -i -pe 'BEGIN{open $fh, "<", "ga_prolog.txt"; $ga_prolog=do{local($/); <$fh>}; chomp($ga_prolog); \
-		   open $fh, "<", "ga_epilog.txt"; $ga_epilog=do{local($/); <$fh>}; chomp($ga_epilog); }\
-		   s%</head>%$ga_prolog\n</head>%g; \
-		   s%</body>%$ga_epilog\n</body>%g;' \
-		   processed/_build/html/*.html
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use File::Basename;
+use Getopt::Std;
+
+our ($opt_h);
+
+our $prolog_filename = "ga_prolog.txt";
+our $prolog;
+our $epilog_filename = "ga_epilog.txt";
+our $epilog;
+
+our $prog = basename($0);
+
+sub usage {
+    print <<USAGE;
+usage: $prog -h
+       $prog [list of HTML files]
+
+    -h  show summary of command line options and exit
+
+$prog rewrites HTML files, inserting the contents of file
+$prolog_filename at </head> and the contents of file
+$epilog_filename at </body>. Currently, these are Google
+Analytics code and a floating button. $prog can be run
+multiple times on an HTML file. If the added code is already
+present, it is replaced rather than added again.
+
+Example:
+
+    ./googlize processed/_build/html/*.html
+USAGE
+    exit ;
+}
+
+sub read_file {
+    my $fname = shift;
+    open my $fh, '<', $fname or die "cannot open '$fname':$!\n";
+    my $content = do { local($/); <$fh> };
+    close $fh or die "could not close file:$!\n";
+    return $content;
+}
+
+sub write_file {
+    my ($fname, $content) = @_;
+    open my $fh, ">", $fname or die "could not write '$fname':$!\n";
+    print $fh $content;
+    close $fh or die "could not close '$fname':$!\n";
+}
+
+$prolog = read_file($prolog_filename);
+$epilog = read_file($epilog_filename);
+
+getopts('h');
+usage() if $opt_h;
+
+# main loop
+foreach my $fname (@ARGV) {
+    my $html = read_file($fname);
+
+    print "$fname -";
+    print " GA code ";
+    if ( $html =~ /<!-- googlize start -->/ ) {
+        print "replaced";
+        $html =~ s%<!-- googlize start -->.*<!-- googlize end -->%$prolog\n%g;
+    } else {
+        print "installed";
+        $html =~ s%</head>%$prolog\n</head>%g;
+    }
+    print ", button code ";
+    if ( $html =~ /<!-- googlize button start -->/ ) {
+        print "replaced";
+        $html =~ s%<!-- googlize button start -->.*<!-- googlize button end -->%$epilog\n%g;
+    } else {
+        print "installed";
+        $html =~ s%</body>%$epilog\n</body>%g;
+    }
+    print "\n";
+
+    write_file($fname, $html);
+}
