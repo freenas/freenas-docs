@@ -47,36 +47,33 @@ clicking the |ui-settings| menu in the upper-right and clicking
 :guilabel:`Preferences`.
 
 
-.. index:: User Interface Preferences
-.. _User Interface Preferences:
+.. index:: Web Interface Preferences
+.. _Web Interface Preferences:
 
-User Interface Preferences
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Web Interface Preferences
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This page has options to adjust global settings in the |web-ui|, manage
-customthemes, and create new themes.
+custom themes, and create new themes.
 :numref:`Figure %s <ui_preferences_fig>` shows the different options:
 
 .. _ui_preferences_fig:
 
 .. figure:: images/settings-preferences.png
 
-   User Interface Preferences
+   Web Interface Preferences
 
 
 These options are applied to the entire |web-ui|:
 
-:guilabel:`Choose Theme`: Change the active theme. Custom themes are
-added to this list.
+* :guilabel:`Choose Theme`: Change the active theme. Custom themes are
+  added to this list.
 
-:guilabel:`View Type Preference` selects the default view for many of
-the overview pages in the |web-ui|. Choose *Cards* to display each
-item on a page in a self-contained "card". *Tables* condenses each
-item into a simplified table. *Auto* dynamically adjusts the view
-according to the number of items visible on the specific page.
+* :guilabel:`Enable Help Text in Forms`: Set to add viewable help
+  text to each form in the |web-ui|. Unset to hide all help text icons.
 
-:guilabel:`Enable Helpful Tooltips in Forms`: Set to add viewable help
-text to each form in the |web-ui|. Unset to hide all help text icons.
+* :guilabel:`Enable Password Toggle`: Set to add the option to toggle
+  between hidden or visible text for passwords in forms.
 
 Make any changes and click :guilabel:`UPDATE SETTINGS` to save the new
 selections.
@@ -98,8 +95,8 @@ Theme Selector
 ^^^^^^^^^^^^^^
 
 Quickly change the active theme by using the theme selector. Look for
-the paint bucket icon in the upper-right corner of the |web-ui|. Click the
-icon to see a list of different default and favorite themes.
+the paint bucket icon in the upper-right corner of the |web-ui|. Click
+the icon to see a list of different default and favorite themes.
 :numref:`Figure %s <themes_select_fig>` shows an example:
 
 .. _themes_select_fig:
@@ -112,9 +109,10 @@ icon to see a list of different default and favorite themes.
 Click a theme to activate it.
 
 Select :guilabel:`Manage Themes` to open the
-:guilabel:`User Preferences` page. The :guilabel:`Manage Custom Themes`
-column displays any created custom themes. Delete these themes by
-setting the options and clicking :guilabel:`DELETE SELECTED`.
+:guilabel:`Web Interface Preferences` page. The
+:guilabel:`Manage Custom Themes` column displays any created custom
+themes. Delete these themes by setting the options and clicking
+:guilabel:`DELETE SELECTED`.
 
 Click :guilabel:`CREATE NEW THEME` to go to the
 :guilabel:`Create Custom Theme` page.
@@ -199,7 +197,7 @@ in the |web-ui|.
 Click :guilabel:`SAVE CUSTOM THEME` when finished with all the
 :guilabel:`General` and :guilabel:`Colors` options. The new theme will
 be immediately added to the list of available themes in
-:guilabel:`User Preferences`.
+:guilabel:`Web Interface Preferences`.
 
 Click :guilabel:`Global Preview` to apply the unsaved custom theme to
 the current session of the %brand% |web-ui|. Activating
