@@ -31,7 +31,7 @@ present, it is replaced rather than added again.
 
 Example:
 
-    ./googlize processed/_build/html/*.html
+    ./$prog processed/_build/html/*.html
 USAGE
     exit ;
 }
