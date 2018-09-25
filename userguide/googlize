@@ -8,10 +8,43 @@ use Getopt::Std;
 
 our ($opt_h);
 
-our $prolog_filename = "ga_prolog.txt";
-our $prolog;
-our $epilog_filename = "ga_epilog.txt";
-our $epilog;
+our $prolog = <<PROLOG;
+  <!-- googlize start -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2174408-18"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-2174408-18');
+  </script>
+  <!-- googlize end -->
+PROLOG
+
+our $epilog = <<EPILOG;
+  <!-- googlize button start -->
+  <a href="/archive.html"
+  style="position: fixed;
+  top:0;
+  right: 4px;
+  display: block;
+  color: #28343b;
+  padding: 0.4em 0.8em;
+  font-weight: bold;
+  background: rgb(131,216,255);
+  background: -moz-linear-gradient(left, rgba(131,216,255,1) 0%, rgba(105,173,250,1) 35%, rgba(105,173,250,1) 80%, rgba(67,152,248,1) 100%);
+  background: -webkit-linear-gradient(left, rgba(131,216,255,1) 0%,rgba(105,173,250,1) 35%,rgba(105,173,250,1) 80%,rgba(67,152,248,1) 100%);
+  background: linear-gradient(to right, rgba(131,216,255,1) 0%,rgba(105,173,250,1) 35%,rgba(105,173,250,1) 80%,rgba(67,152,248,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#83d8ff',endColorstr='#4398f8',GradientType=1);
+  border: none;
+  border-bottom: none;
+  border-top: none;
+  -webkit-box-shadow: 0px 2px 6px 1px rgba(204,121,167,0.5);
+  -moz-box-shadow: 0px 2px 6px 1px rgba(204,121,167,0.5);
+  box-shadow: 0px 2px 6px 1px rgba(204,121,167,0.5);
+  ">Previous Versions</a>
+  <!-- googlize button end -->
+EPILOG
 
 our $prog = basename($0);
 
@@ -22,12 +55,10 @@ usage: $prog -h
 
     -h  show summary of command line options and exit
 
-$prog rewrites HTML files, inserting the contents of file
-$prolog_filename at </head> and the contents of file
-$epilog_filename at </body>. Currently, these are Google
-Analytics code and a floating button. $prog can be run
-multiple times on an HTML file. If the added code is already
-present, it is replaced rather than added again.
+$prog rewrites HTML files, inserting Google Analytics code at
+</head> and a floating link button at </body>. $prog can be
+run multiple times on an HTML file. If the added code is
+already present, it is replaced, not added again.
 
 Example:
 
@@ -50,9 +81,6 @@ sub write_file {
     print $fh $content;
     close $fh or die "could not close '$fname':$!\n";
 }
-
-$prolog = read_file($prolog_filename);
-$epilog = read_file($epilog_filename);
 
 getopts('h');
 usage() if $opt_h;
