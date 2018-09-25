@@ -5,8 +5,9 @@ use warnings;
 
 use File::Basename;
 use Getopt::Std;
+use Scalar::Util qw(looks_like_number);
 
-our ($opt_h);
+our ($opt_h, $opt_t);
 
 our $prolog = <<PROLOG;
   <!-- googlize start -->
@@ -25,7 +26,7 @@ our $epilog = <<EPILOG;
   <!-- googlize button start -->
   <a href="/archive.html"
   style="position: fixed;
-  top:0;
+  top:%%TOP%%;
   right: 4px;
   display: block;
   color: #28343b;
@@ -51,7 +52,7 @@ our $prog = basename($0);
 sub usage {
     print <<USAGE;
 usage: $prog -h
-       $prog [list of HTML files]
+       $prog [-t topcoord] [list of HTML files]
 
     -h  show summary of command line options and exit
 
@@ -60,9 +61,13 @@ $prog rewrites HTML files, inserting Google Analytics code at
 run multiple times on an HTML file. If the added code is
 already present, it is replaced, not added again.
 
+A top coordinate for the button can be specified with -t. This
+makes it possible to place the button farther down the page to
+avoid overlaying navigation buttons. The default is zero.
+
 Example:
 
-    ./$prog processed/_build/html/*.html
+    ./$prog -t25 processed/_build/html/*.html
 USAGE
     exit ;
 }
@@ -82,8 +87,12 @@ sub write_file {
     close $fh or die "could not close '$fname':$!\n";
 }
 
-getopts('h');
+getopts('ht:');
 usage() if $opt_h;
+
+die '** -t argument (top coordinate) must be a number' unless (looks_like_number($opt_t));
+$epilog =~ s/%%TOP%%/$opt_t/;
+print "$epilog\n";
 
 # main loop
 foreach my $fname (@ARGV) {
@@ -93,18 +102,18 @@ foreach my $fname (@ARGV) {
     print " GA code ";
     if ( $html =~ /<!-- googlize start -->/ ) {
         print "replaced";
-        $html =~ s%<!-- googlize start -->.*<!-- googlize end -->%$prolog\n%g;
+        $html =~ s%  <!-- googlize start -->.*<!-- googlize end -->\s+</head>%$prolog</head>%gs;
     } else {
         print "installed";
-        $html =~ s%</head>%$prolog\n</head>%g;
+        $html =~ s%</head>%$prolog</head>%gs;
     }
     print ", button code ";
     if ( $html =~ /<!-- googlize button start -->/ ) {
         print "replaced";
-        $html =~ s%<!-- googlize button start -->.*<!-- googlize button end -->%$epilog\n%g;
+        $html =~ s%  <!-- googlize button start -->.*<!-- googlize button end -->\s+</body>%$epilog</body>%gs;
     } else {
         print "installed";
-        $html =~ s%</body>%$epilog\n</body>%g;
+        $html =~ s%</body>%$epilog</body>%gs;
     }
     print "\n";
 
