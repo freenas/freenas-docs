@@ -60,7 +60,6 @@ service is enabled by default, but only runs if the storage devices
 support `S.M.A.R.T. data <https://en.wikipedia.org/wiki/S.M.A.R.T.>`__.
 Other services default to off until started.
 
-
 .. _control_services_fig:
 
 .. figure:: images/services.png
@@ -68,9 +67,9 @@ Other services default to off until started.
    Configure Services
 
 
-Stopped services show a red power button. Running services show a
-green power button. Click the button to start or stop a service.
-
+Stopped services show a red |ui-power| button. Running services show a
+green |ui-power| button. Click the button to start or stop a service.
+Stopping a service shows a confirmation dialog.
 
 .. tip:: Using a proxy server can prevent the list of services from
    being displayed. If a proxy server is used, do not configure it to
@@ -80,7 +79,7 @@ green power button. Click the button to start or stop a service.
    connecting through the VPN, check the VPN software configuration.
 
 
-Services are configured by clicking :guilabel:`CONFIGURE`.
+Services are configured by clicking |ui-configure|.
 
 If a service does not start, go to
 :menuselection:`System --> Advanced`
@@ -202,6 +201,7 @@ domain controller.
    with an existing :ref:`Active Directory` network to access its
    authentication and authorization services, configure
    :ref:`Active Directory` instead.
+
 
 Note that configuring a domain controller is a complex process
 that requires a good understanding of how :ref:`Active Directory`
@@ -377,12 +377,11 @@ troubleshooting tips.
 
 :numref:`Figure %s <configuring_ftp_fig>` shows the configuration screen
 for :menuselection:`Services --> FTP --> Configure`. Some settings are
-only available in :guilabel:`Advanced Mode`. To see these settings,
+only available in :guilabel:`ADVANCED MODE`. To see these settings,
 either click the :guilabel:`ADVANCED MODE` button or configure the
 system to always display these settings by setting the
 :guilabel:`Show advanced fields by default` option in
 :menuselection:`System --> Advanced`.
-
 
 .. _configuring_ftp_fig:
 
@@ -739,7 +738,7 @@ To configure any FTP scenario to use encrypted connections:
     connection) or *ftpes://IP_address* (for an explicit connection)
     as the Host when connecting. The first time a user connects, they
     will be presented with the certificate of the %brand% system.
-    Click :guilabel:`OK` to accept the certificate and negotiate an
+    Click :guilabel:`SAVE` to accept the certificate and negotiate an
     encrypted connection.
 
 #.  To force encrypted connections, select *On* for the
