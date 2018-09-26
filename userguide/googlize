@@ -26,7 +26,7 @@ our $epilog = <<EPILOG;
   <!-- googlize button start -->
   <a href="/archive.html"
   style="position: fixed;
-  top:%%TOP%%;
+  top:%%TOP%%px;
   right: 4px;
   display: block;
   color: #28343b;
