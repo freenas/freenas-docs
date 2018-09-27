@@ -54,24 +54,33 @@ jail.
 Jail Storage
 ------------
 
+A :ref:`pool <Creating Pools>` must be created before using jails or
+:ref:`Plugins`. Make sure the pool has enough storage for all the
+intended jails and plugins.
 
 Jails and downloaded FreeBSD release files are stored in a single
 dataset named :file:`iocage`.
 
-.. note:: Notes on the :file:`iocage` dataset:
+Notes on the :file:`iocage` dataset:
 
-   * At least 10 GiB of free space is recommended.
+* At least 10 GiB of free space is recommended.
 
-   * Cannot be located on a :ref:`Share <Sharing>`.
+* Cannot be located on a :ref:`Share <Sharing>`.
 
-   * `iocage <http://iocage.readthedocs.io/en/latest/index.html>`__
-     automatically uses the first pool that is not a root pool for the
-     %brand% system.
+* `iocage <http://iocage.readthedocs.io/en/latest/index.html>`__
+  automatically uses the first pool that is not a root pool for the
+  %brand% system.
 
-   * Each new jail installs into a new child dataset of :file:`iocage`.
-     For example, with the :file:`iocage/jails` dataset in :file:`pool1`,
-     a new jail called *jail1* installs into a new dataset named
-     :file:`pool1/iocage/jails/jail1`.
+* Each new jail installs into a new child dataset of :file:`iocage`.
+  For example, with the :file:`iocage/jails` dataset in :file:`pool1`,
+  a new jail called *jail1* installs into a new dataset named
+  :file:`pool1/iocage/jails/jail1`.
+
+* FreeBSD releases are fetched as a child dataset into the
+  :file:`/iocage/download` dataset. This datset is then extracted into
+  the :file:`/iocage/releases` dataset to be used in jail creation. The
+  dataset in :file:`/iocage/download` can then be removed without
+  affecting the availability of fetched releases or an existing jail.
 
 
 .. index:: Add Jail, New Jail, Create Jail
@@ -699,8 +708,10 @@ available for a jail.
    |              | *up*.                                                         |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
-   | Update       | Update any packages installed in the jail to the latest       |
-   |              | version available in the installed :guilabel:`Release`.       |
+   | Update       | Runs `freebsd-update                                          |
+   |              | <https://www.freebsd.org/cgi/man.cgi?query=freebsd-update>`__ |
+   |              | to update the jail to the lateset patch level of the          |
+   |              | installed FreeBSD release.                                    |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
    | Shell        | Access a *root* command prompt to interact with a jail        |
@@ -719,6 +730,31 @@ available for a jail.
 .. note:: Menu entries change depending on the jail state. For example,
    a stopped jail does not have a :guilabel:`Stop` or :guilabel:`Shell`
    option.
+
+
+.. index:: Updating a Jail, Upgrading a Jail
+.. _Jail Updates and Upgrades:
+
+Jail Updates and Upgrades
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Click |ui-options|
+:menuselection:`--> Update`
+to update a jail to the most current patch level of the installed
+FreeBSD release. This does **not** change the release.
+
+To *upgrade* a jail to newer release of FreeBSD, stop the jail and click
+|ui-options|
+:menuselection:`--> Edit`
+for the jail. Open the :guilabel:`Release` drop-down menu, choose a
+newer RELEASE of FreeBSD, and click :guilabel:`SAVE`. Upgrading a jail
+can take an extended amount of time, depending on connection speed and
+if the chosen RELEASE is already fetched on the system.
+
+.. tip:: It is possible to
+   :ref:`manually remove <storage dataset options>` unused releases from
+   the :file:`/iocage/releases/` dataset after upgrading a jail. The
+   release **must** not be in use by any jail on the system!
 
 
 .. index:: Accessing a Jail Using SSH, SSH
@@ -744,7 +780,6 @@ example:
 
 .. code-block:: none
 
-   [root@freenas ~]# iocage console jailexamp
    Last login: Fri Apr 6 07:57:04 on pts/12
    FreeBSD 11.1-STABLE (FreeNAS.amd64) #0 0ale9f753(freenas/11-stable): FriApr 6 04:46:31 UTC 2018
 
@@ -871,7 +906,6 @@ time a user logs in.
 Additional Storage
 ~~~~~~~~~~~~~~~~~~
 
-
 Jails can be given access to an area of storage outside of the jail that
 is configured on the %brand% system. It is possible to give a FreeBSD
 jail access to an area of storage on the %brand% system. This is useful
@@ -920,8 +954,12 @@ This opens the screen shown in
   jails is always separate from any datasets used for storage on the
   %brand% system.
 
-* :guilabel:`Destination`: select or add a new **empty** directory
-  within the jail to link to the :guilabel:`Source` storage area.
+* :guilabel:`Destination`: Browse to an existing and **empty** directory
+  within the jail to link to the :guilabel:`Source` storage area. It is
+  also possible to add :literal:`/` and a name to the end of the path
+  and %brand% automatically creates a new directory. New directories
+  created must be **within** the jail directory structure. Example:
+  :samp:`/mnt/iocage/jails/samplejail/root/new-destination-directory`.
 
 Storage is typically added because the user and group account
 associated with an application installed inside of a jail needs to

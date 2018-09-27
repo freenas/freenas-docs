@@ -21,6 +21,10 @@ Look through the :ref:`Plugins` and :ref:`Jails` sections to become
 familiar with the features and limitations of each. Choose the method
 that best meets the needs of the application.
 
+.. note:: :ref:`Jail Storage` must be configured before plugins are
+   available on %brand%. This means having a suitable
+   :ref:`pool <Creating Pools>` created to store plugins.
+
 
 .. _Installing Plugins:
 
