@@ -447,6 +447,20 @@ message. This will reopen the pool creation screen described in the
 previous paragraph, but with the pool name displayed as read-only.
 
 
+..index:: Remove cache or log device
+.. _Removing Cache or Log Devices:
+
+Removing Cache or Log Devices
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Cache or log devices can be removed by going to
+:menuselection:`Storage --> Pools`.
+Choose the desired pool and click
+|ui-settings| :menuselection:`--> Status`.
+Choose the log or cache device to remove, then click
+|ui-options| :menuselection:`--> Remove`.
+
+
 .. index:: Hot Spares, Spares
 .. _Adding Spare Devices:
 
