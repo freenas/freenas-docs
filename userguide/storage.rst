@@ -453,13 +453,12 @@ previous paragraph, but with the pool name displayed as read-only.
 Removing Cache or Log Devices
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To remove a cache or log device go to
-:menuselection:`Storage --> Pools -->`.
-Click
-|ui-settings| :menuselection:`--> Status`
-for the desired pool. Then click
-|ui-options| :menuselection:`--> Remove`
-to remove the desired log or cache device.
+Cache or log devices can be removed by going to
+:menuselection:`Storage --> Pools`.
+Choose the desired pool and click
+|ui-settings| :menuselection:`--> Status`.
+Choose the log or cache device to remove, then click
+|ui-options| :menuselection:`--> Remove`.
 
 
 .. index:: Hot Spares, Spares
