@@ -312,6 +312,11 @@ These screen options have changed:
 * The :guilabel:`Umask` field in :menuselection:`Services --> TFTP` has
   changed to a :guilabel:`File Permissions` selector.
 
+* The :guilabel:`Hostname` field has been added to
+  :menuselection:`Services --> UPS`. This field replaces the
+  :guilabel:`Port` field when a UPS :guilabel:`Driver` with
+  :literal:`snmp` is selected.
+
 * Disk temperature graphs have been added to
   :menuselection:`Reporting --> Disk`.
 

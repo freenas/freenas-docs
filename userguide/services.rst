@@ -1944,7 +1944,11 @@ UPS Configuration screen.
    |                               |                | `Network UPS Tools compatibility list <https://networkupstools.org/stable-hcl.html>`__.   |
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
-   | Port                          | drop-down menu | Enter the serial or USB port the UPS is plugged into (see :ref:`NOTE <UPS USB>`).         |
+   | Port/Hostname                 | drop-down menu | :guilabel:`Port`: Enter the serial or USB port the UPS is plugged into (see               |
+   |                               |                | :ref:`NOTE <UPS USB>`).                                                                   |
+   |                               |                | Choosing an :literal:`snmp` value in the :guilabel:`Driver` field changes the             |
+   |                               |                | :guilabel:`Port` field to :guilabel:`Hostname`.                                           |
+   |                               |                | :guilabel:`Hostname`: Enter the IP address or hostname of the SNMP UPS device.            |
    |                               |                |                                                                                           |
    +-------------------------------+----------------+-------------------------------------------------------------------------------------------+
    | Auxiliary Parameters          | string         | Enter any additional options from                                                         |
