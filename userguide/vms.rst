@@ -509,6 +509,8 @@ When a VM is already running, these buttons are available:
   options. For :guilabel:`VNC`, the VM must have a VNC device with
   :guilabel:`Web Interface` enabled.
 
+* :guilabel:`Restart` shuts down the VM and turns it back on.
+
 
 Popups ask to confirm the choice when shutting down, powering off, or
 deleting a VM.
