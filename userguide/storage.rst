@@ -465,6 +465,17 @@ In the :guilabel:`Volume layout` drop-down menu, select
 log device. Finally, click :guilabel:`Extend Volume` to add the SSD.
 
 
+.. _Removing L2ARC or SLOG Devices:
+
+Removing L2ARC or SLOG Devices
+""""""""""""""""""""""""""""""
+
+Cache or log devices can be removed by going to
+:menuselection:`Storage --> Volumes`.
+Choose the desired pool and click :guilabel:`Volume Status`.
+Choose the log or cache device to remove, then click :guilabel:`Remove`.
+
+
 .. _Change Permissions:
 
 Change Permissions
