@@ -1095,7 +1095,7 @@ permission scenarios. This section provides an overview of the options
 available for configuring the initial set of permissions.
 
 .. note:: For users and groups to be available, they must either be
-   first created using the instructions in :ref:`Account` or imported
+   first created using the instructions in :ref:`Accounts` or imported
    from a directory service using the instructions in
    :ref:`Directory Services`. If more than 50 users or groups are
    available, the drop-down menus described in this section will
