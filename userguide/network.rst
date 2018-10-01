@@ -332,7 +332,7 @@ summarizes the options available when configuring IPMI with the
    |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | Password             | string         | Enter the password used to connect to the IPMI interface from a web browser. |
-   |                      |                | Has a maximum length of 20 characters.                                       |
+   |                      |                | The maximum length is 20 characters.                                         |
    |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | DHCP                 | checkbox       | If left unset, :guilabel:`IPv4 Address`, :guilabel:`IPv4 Netmask`,           |
