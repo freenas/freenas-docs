@@ -1700,27 +1700,8 @@ passphrase for the pool. Enter this information, then click
 :guilabel:`REPLACE DISK`. Wait until resilvering is complete.
 
 Next, restore the encryption keys to the pool.
-**If the following additional steps are not performed before the next
+**If this additional step is not performed before the next
 reboot, access to the pool might be permanently lost.**
-
-#.  Highlight the pool that contains the disk that was just replaced
-    and click the :guilabel:`Encryption Rekey` button in the |web-ui|.
-    Entry of the *root* password will be required.
-    #ifdef truenas
-
-    .. note:: A re-key is not allowed if :ref:`Failover`
-       (High Availability) has been enabled and the standby node is
-       down.
-    #endif truenas
-
-#.  Highlight the pool that contains the recently replaced disk.
-    Click :guilabel:`Create Passphrase` and enter the new passphrase.
-    The old passphrase can be reused if desired.
-
-#.  Highlight the pool that contains the recently replaced disk and
-    click :guilabel:`Download Key` to save the new
-    encryption key. Since the old key will no longer function, any old
-    keys can be safely discarded.
 
 #.  Highlight the pool that contains the recently replaced disk
     and click :guilabel:`Add Recovery Key` to save the new
