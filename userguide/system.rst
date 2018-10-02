@@ -1889,7 +1889,7 @@ The configurable options are summarized in
    |                      |                    |                                                                                                   |
    +======================+====================+===================================================================================================+
    | Identifier           | string             | Enter a descriptive name for the CA using only alphanumeric                                       |
-   |                      |                    | underscore (:literal:`_`), and dash (:literal:`-`) characters.                                    |
+   |                      |                    | underscore (:literal:`_`) and dash (:literal:`-`) characters.                                     |
    |                      |                    |                                                                                                   |
    +----------------------+--------------------+---------------------------------------------------------------------------------------------------+
    | Type                 | drop-down menu     | Choose the type of CA. Choices are *Internal CA*, *Intermediate CA*, and *Import CA*.             |
