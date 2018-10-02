@@ -28,7 +28,7 @@ repetitive tasks:
 * :ref:`Scrub Tasks` schedules scrubs as part of ongoing disk
   maintenance
 
-* :ref:`Cloud Sync Tasks` schedules data synchronization to cloud
+* :ref:`` schedules data synchronization to cloud
   providers
 
 Each of these tasks is described in more detail in this section.
@@ -1751,15 +1751,17 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | disabled until a valid credential is entered.                                                           |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Bucket              | drop-down menu      | Only appears when an S3 credential is the *Provider*. Select the pre-defined S3 bucket to use.          |
+   | Bucket/Container    | drop-down menu      | :guilabel:`Bucket`: Only appears when an S3 credential is the *Provider*. Select the pre-defined        |
+   |                     |                     | S3 bucket to use.                                                                                       |
+   |                     |                     |                                                                                                         |
+   |                     |                     | :guilabel:`Container`: Only appears when a :literal:`AZUREBLOB` credential is selected for the          |
+   |                     |                     | :guilabel:`Credential`. Enter the name of the pre-configured Microsoft Azure Blob container.            |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Folder              | string              | The name of the pre-defined folder within the selected bucket or container.                             |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Folder              | string              | Only appears when an S3 credential is the *Provider*. Optionally enter the name of the pre-defined      |
-   |                     |                     | folder within the selected bucket.                                                                      |
-   |                     |                     |                                                                                                         |
-   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Server Side         | drop-down menu      | Only appears when an S3 credential is the *Provider*. Choices are *None* (no encryption) or             |
-   | Encryption          |                     | *AES-256* (encrypted).                                                                                  |
+   | Encryption          | drop-down menu      | Only appears when an S3 credential is the *Provider*. Choices are *None* (no encryption) or             |
+   |                     |                     | *AES-256* (encrypted).                                                                                  |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Directory/Files     | browse button       | Select the directories or files to be sent to the cloud for *Push* syncs, or the destination to be      |
