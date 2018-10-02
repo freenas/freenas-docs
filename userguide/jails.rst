@@ -4,13 +4,13 @@
 Jails
 =====
 
-
 Jails are a lightweight, operating-system-level virtualization.
 One or multiple services can run in a jail, isolating those services
-from the host %brand% system. Jails are also used as the basis for
-%brand% :ref:Plugins. The main differences between a user-created jail
-and a plugin are that plugins are preconfigured and usually provide only
-a single service.
+from the host %brand% system. %brand% uses the
+`iocage <https://github.com/iocage/iocage>`__ utility for jail
+management. Jails are also used as the basis for %brand% :ref:`Plugins`.
+The main differences between a user-created jail and a plugin are that
+plugins are preconfigured and usually provide only a single service.
 
 By default, jails run the
 `FreeBSD <https://www.freebsd.org/>`__
@@ -30,22 +30,12 @@ During creation, set the :guilabel:`VNET` option to provide
 the jail with an independent networking stack. The jail is then able
 to broadcast an IP address, which is required by some applications.
 
-Advanced users can also create custom templates to automate the
-creation of pre-installed and customized operating systems.
-
 The ability to create multiple jails offers flexibility
 regarding software management. For example, an administrator can
 choose to provide application separation by installing different
 applications in each jail, to create one jail for all installed
 applications, or to mix and match how software is installed into each
 jail.
-
-
-* :ref:`Creating Jails`
-
-* :ref:`Managing Jails`
-
-* :ref:`Using iocage`
 
 
 .. index:: Jail Storage
@@ -56,12 +46,25 @@ Jail Storage
 
 A :ref:`pool <Creating Pools>` must be created before using jails or
 :ref:`Plugins`. Make sure the pool has enough storage for all the
-intended jails and plugins.
+intended jails and plugins. The
+:menuselection:`Jails`
+screen displays a message and button to :guilabel:`CREATE POOL` if no
+pools exist on the %brand% system.
 
-Jails and downloaded FreeBSD release files are stored in a single
-dataset named :file:`iocage`.
+Multiple pools can be activated to store iocage jails and plugins. After
+a pool is created, the
+:menuselection:`Jails`
+page displays an :guilabel:`Activated Pool` section. This shows which
+pool and iocage dataset is active with %brand%. Click :guilabel:`CONFIG`
+to view the option to choose another pool or dataset to activate with
+iocage. :guilabel:`ACTIVATE` another pool to refresh the
+:menuselection:`Jails`
+list with any jails that exist on the chosen pool or dataset.
 
-Notes on the :file:`iocage` dataset:
+Jails and downloaded FreeBSD release files are stored in a dataset named
+:file:`iocage`.
+
+Notes about the :file:`iocage` dataset:
 
 * At least 10 GiB of free space is recommended.
 
@@ -81,6 +84,9 @@ Notes on the :file:`iocage` dataset:
   the :file:`/iocage/releases` dataset to be used in jail creation. The
   dataset in :file:`/iocage/download` can then be removed without
   affecting the availability of fetched releases or an existing jail.
+
+* :file:`iocage` datasets on activated pools are independent of each
+  other and do **not** share any data.
 
 
 .. index:: Add Jail, New Jail, Create Jail
