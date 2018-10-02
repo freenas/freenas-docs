@@ -667,7 +667,7 @@ To configure this scenario:
 
 #.  When :ref:`Active Directory` or :ref:`LDAP` are not being used,
     create a user account for each user by navigating to
-    :menuselection:`Account --> Users`, and clicking |ui-add|.
+    :menuselection:`Accounts --> Users`, and clicking |ui-add|.
     For each user, browse to the dataset created for that user in the
     :guilabel:`Home Directory` field. Repeat this process to create a
     user account for every user that needs access to the FTP service,
@@ -1773,7 +1773,7 @@ SCP Only
 When SSH is configured, authenticated users with a user account
 can use :command:`ssh` to log into the %brand% system over the network.
 User accounts are created by navigating to
-:menuselection:`Account --> Users`, and clicking |ui-add|.
+:menuselection:`Accounts --> Users`, and clicking |ui-add|.
 The user home directory is the pool or dataset specified in the
 :guilabel:`Home Directory` field of the %brand% account for that user.
 While the SSH login defaults to the user home directory, users are able
@@ -1784,7 +1784,7 @@ It is possible to allow users to use :command:`scp` and :command:`sftp`
 to transfer files between their local computer and their home directory
 on the %brand% system, while restricting them from logging into the
 system using :command:`ssh`. To configure this scenario, go to
-:menuselection:`Account --> Users`,
+:menuselection:`Accounts --> Users`,
 click |ui-options| for the user, and then :guilabel:`Edit`.
 Change the :guilabel:`Shell` to *scponly*. Repeat for each user that
 needs restricted SSH access.

@@ -26,7 +26,7 @@ The prompt indicates that the current user is *root*, the hostname is
    :command:`zsh`. %brand% systems that are upgraded from an earlier
    version will continue to use :command:`csh` as the default shell.
    The default shell can be changed by clicking
-   :menuselection:`Account --> Users`, clicking |ui-options| of the
+   :menuselection:`Accounts --> Users`, clicking |ui-options| of the
    desired user, then selecting :guilabel:`Edit`. Choose the desired
    shell from the :guilabel:`Shell` drop-down.
 

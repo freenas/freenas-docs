@@ -845,7 +845,7 @@ status changes.
 
 The first step is to set the remote address where email will be sent.
 Go to
-:menuselection:`Account --> Users`,
+:menuselection:`Accounts --> Users`,
 click |ui-options| and :guilabel:`Edit` for the *root* user. In the
 :guilabel:`Email` field, enter the email address on the remote system
 where email is to be sent, like *admin@example.com*. Click
@@ -921,7 +921,7 @@ Click the :guilabel:`SEND MAIL` button to verify that the
 configured email settings are working. If the test email fails,
 double-check that the :guilabel:`Email` field of the *root* user is
 correctly configured by clicking the :guilabel:`Edit` button for
-the *root* account in :menuselection:`Account --> Users`.
+the *root* account in :menuselection:`Accounts --> Users`.
 
 Configuring email for TLS/SSL email providers is described in
 `Are you having trouble getting FreeNAS to email you in Gmail?
