@@ -1888,7 +1888,7 @@ The configurable options are summarized in
    | Setting              | Value              | Description                                                                                       |
    |                      |                    |                                                                                                   |
    +======================+====================+===================================================================================================+
-   | Identifier           | string             | Enter a descriptive name for the CA using only alphanumeric                                       |
+   | Identifier           | string             | Enter a descriptive name for the CA using only alphanumeric,                                      |
    |                      |                    | underscore (:literal:`_`), and dash (:literal:`-`) characters.                                    |
    |                      |                    |                                                                                                   |
    +----------------------+--------------------+---------------------------------------------------------------------------------------------------+
