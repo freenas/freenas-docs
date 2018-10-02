@@ -3,9 +3,8 @@
 Accounts
 ========
 
-The Accounts Configuration section of the |web-ui| describes
-how to manually create and manage users and groups. This section
-contains these entries:
+:menuselection:`Accounts`
+is used to manage users and groups. This section contains these entries:
 
 * :ref:`Groups`: used to manage UNIX-style groups on the %brand%
   system.
