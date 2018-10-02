@@ -41,3 +41,45 @@ can also reduce the length of these limits by one or more bytes.
    |                     |                | path lengths (*SPECNAMELEN*). Longer paths can prevent a device from   |
    |                     |                | being created.                                                         |
    +---------------------+----------------+------------------------------------------------------------------------+
+
+
+.. note:: 88 bytes is equal to 88 ASCII characters. The number of
+   characters will vary when using Unicode.
+
+
+.. warning:: If the mounted path length for a snapshot exceeds 88 bytes
+   the data in the snapshot will be safe but inaccessible. When the
+   mounted path length of the snapshot is less than the 88 byte limit,
+   the data will be accessible again.
+
+The 88 byte limit affects automatic and manual snapshot mounts in
+slightly different ways:
+
+* **Automatic mount:** ZFS temporarily mounts a snapshot whenever a user
+  attempts to view or search the files within the snapshot. The
+  mountpoint used will be in the hidden directory :file:`.zfs/snapshot/{name}`
+  within the same ZFS dataset. For example, the snapshot :file:`mypool/dataset/snap1@snap2`
+  is mounted at :file:`/mnt/mypool/dataset/.zfs/snapshot/snap2/`. If the
+  length of this path exceeds 88 bytes the snapshot will not be
+  automatically mounted by ZFS and the snapshot contents will not be
+  visible or searchable. This can be resolved by renaming the ZFS pool or
+  dataset containing the snapshot to shorter names (:file:`mypool` or
+  :file:`dataset`), or by shortening the second part of the snapshot name
+  (:file:`snap2`), so that the total mounted path length does not exceed
+  88 bytes. ZFS will automatically perform any necessary unmount or
+  remount of the file system as part of the rename operation. After
+  renaming, the snapshot data will be visible and searchable again.
+
+* **Manual mount:** If the same example snapshot is mounted manually from
+  the :command:`CLI`, using :command:`mount -t zfs mypool/dataset/snap1@snap2 /mnt/mymountpoint`
+  the path :file:`/mnt/mountpoint/` must not exceed 88 bytes, but the
+  length of the snapshot name will be *irrelevant*. When renaming a
+  manual mountpoint, any object mounted on the mountpoint must be
+  manually unmounted (using the :command:`umount` command in the :command:`CLI`)
+  before renaming the mountpoint and can be remounted afterwards.
+
+.. note:: A snapshot that cannot be mounted automatically by ZFS, can
+   still be mounted manually from the :command:`CLI` using a shorter
+   mountpoint path. This makes it possible to mount and access snapshots
+   that cannot be accessed automatically in other ways, such as from the
+   GUI or from features such as "File History" or "Versions".
