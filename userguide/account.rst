@@ -223,7 +223,7 @@ created or modified.
    | Setting                    | Value           | Description                                                                                                                   |
    |                            |                 |                                                                                                                               |
    +============================+=================+===============================================================================================================================+
-   | Username                   | string          | Grayed out if the user already exists. Maximum 16 characters, though a maximum of 8 is recommended for interoperability.      |
+   | Username                   | string          | Grayed out if the user already exists. The field has a maximum 8 characters.                                                  |
    |                            |                 | Cannot begin with a hyphen :kbd:`-`, if a :literal:`$` is used it can only be the last character, and it cannot contain a     |
    |                            |                 | space, tab, or the characters :literal:`, : + & # % ^ \ & ( ) ! @ ~ * ? < > =`                                                |
    |                            |                 |                                                                                                                               |
@@ -235,7 +235,7 @@ created or modified.
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | Password                   | string          | Mandatory unless :guilabel:`Enable password login` is *No*. Cannot contain a :literal:`?`.                                    |
-   |                            |                 | Click :guilabel:`SHOW/HIDE PASSWORDS` to view or obscure the password characters.                                             |
+   |                            |                 | Click |ui-password-show| to view or obscure the password characters.                                                          |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | Confirm Password           | string          | Required to match the value of :guilabel:`Password`.                                                                          |
