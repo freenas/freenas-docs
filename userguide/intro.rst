@@ -277,9 +277,9 @@ These screen options have changed:
   :guilabel:`Provider`. This can be used to configure a connection to
   another S3-compatible service, such as Wasabi.
 
-* The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
-  :guilabel:`Encryption password`, and :guilabel:`Encryption salt`
-  fields have been added to
+* The :guilabel:`Container`, :guilabel:`Remote encryption`,
+  :guilabel:`Filename encryption`, :guilabel:`Encryption password`, and
+  :guilabel:`Encryption salt` fields have been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> Add Cloud Sync`.
 
 * The :guilabel:`NIC` and :guilabel:`Interface Name` fields in
