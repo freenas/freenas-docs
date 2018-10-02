@@ -492,7 +492,8 @@ When a VM is not running, these buttons are available:
 * :guilabel:`Edit` changes VM settings, and includes an option to
   :guilabel:`Clone` an existing VM. Cloning makes a copy of the VM.
   The new clone has :samp:`_clone{N}` added to the name, where
-  :samp:`{N}` is the number of the clone.
+  :samp:`{N}` is the number of the clone. %brand% will display a
+  substantive error message if cloning a VM fails.
 
 
 When a VM is already running, these buttons are available:
