@@ -527,7 +527,7 @@ Next, view and copy the contents of the generated public key:
 
 Go to *PULL* and paste (or append) the copied key into the
 :guilabel:`SSH Public Key` field of
-:menuselection:`Account --> Users --> root -->`
+:menuselection:`Accounts --> Users --> root -->`
 |ui-options|
 :menuselection:`--> Edit`,
 or the username of the specified rsync user account. The paste for the
@@ -971,7 +971,7 @@ click |ui-options| for the task and :guilabel:`Delete` to remove it
 before continuing.
 
 On *Alpha*, click
-:menuselection:`Account --> Users` then |ui-add|.
+:menuselection:`Accounts --> Users` then |ui-add|.
 Enter *repluser* for :guilabel:`Username`,
 enter */mnt/alphapool/repluser* in the :guilabel:`Home Directory` field,
 enter *Replication Dedicated User* for the :guilabel:`Full Name`, and
@@ -981,7 +981,7 @@ their default values, but note the :guilabel:`User ID` number. Click
 
 On *Beta*, the same dedicated user must be created as was created on
 the sending computer. Click
-:menuselection:`Account --> Users` then |ui-add|. Enter the *User ID*
+:menuselection:`Accounts --> Users` then |ui-add|. Enter the *User ID*
 number from *Alpha*, *repluser* for :guilabel:`Username`, enter
 :literal:`/mnt/betapool/repluser` in the :guilabel:`Home Directory`
 field, enter :literal:`Replication Dedicated User` for the
@@ -1077,7 +1077,7 @@ Copy the key value with the mouse.
 
 This might not be necessary with semi-auto replication
 On *Beta*, select
-:menuselection:`Account --> Users`. Click the *repluser* line to
+:menuselection:`Accounts --> Users`. Click the *repluser* line to
 select it, then click :guilabel:`Modify User`. Paste the value in the
 :guilabel:`SSH Public Key` field. (overwrite existing if present?)\
 #endif comment
@@ -1120,7 +1120,7 @@ highlight the key data shown in the window, then copy it.
 
 
 On *Beta*, go to
-:menuselection:`Account --> Users`.
+:menuselection:`Accounts --> Users`.
 Click |ui-options| for the *root* account, then :guilabel:`Edit`.
 Paste the copied key into the :guilabel:`SSH Public Key` field and click
 :guilabel:`SAVE` as shown in

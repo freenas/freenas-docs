@@ -268,7 +268,7 @@ Enter the default password of *abcd1234*.
 
 .. note:: The default *root* password can be changed to a more
    secure value by going to
-   :menuselection:`Account --> Users --> View Users`.
+   :menuselection:`Accounts --> Users --> View Users`.
    Highlight the entry for *root*, click the :guilabel:`Modify User`
    button, enter the new password in the :guilabel:`Password` and
    :guilabel:`Password confirmation` fields, and click :guilabel:`OK`

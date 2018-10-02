@@ -1,11 +1,10 @@
-.. _Account:
+.. _Accounts:
 
-Account
-=======
+Accounts
+========
 
-The Account Configuration section of the |web-ui| describes
-how to manually create and manage users and groups. This section
-contains these entries:
+:menuselection:`Accounts`
+is used to manage users and groups. This section contains these entries:
 
 * :ref:`Groups`: used to manage UNIX-style groups on the %brand%
   system.
@@ -35,7 +34,7 @@ accounts to it. The next section, :ref:`Users`, describes creating
 user accounts.
 
 Click
-:menuselection:`Account --> Groups`
+:menuselection:`Accounts --> Groups`
 to see a screen like
 :numref:`Figure %s <group_man_fig>`.
 
@@ -152,7 +151,7 @@ select one of these options:
     account information using the instructions in
     :ref:`Directory Services`.
 
-:menuselection:`Account --> Users` lists all system
+:menuselection:`Accounts --> Users` lists all system
 accounts installed with the %brand% operating system, as shown in
 :numref:`Figure %s <managing_user_fig>`.
 
