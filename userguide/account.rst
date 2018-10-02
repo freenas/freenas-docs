@@ -223,7 +223,7 @@ created or modified.
    | Setting                    | Value           | Description                                                                                                                   |
    |                            |                 |                                                                                                                               |
    +============================+=================+===============================================================================================================================+
-   | Username                   | string          | Grayed out if the user already exists. The field has a maximum 8 characters.                                                  |
+   | Username                   | string          | Grayed out if the user already exists. The field has a maximum of 8 characters.                                                |
    |                            |                 | Cannot begin with a hyphen :kbd:`-`, if a :literal:`$` is used it can only be the last character, and it cannot contain a     |
    |                            |                 | space, tab, or the characters :literal:`, : + & # % ^ \ & ( ) ! @ ~ * ? < > =`                                                |
    |                            |                 |                                                                                                                               |
