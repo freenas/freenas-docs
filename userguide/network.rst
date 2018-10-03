@@ -181,6 +181,11 @@ shows the screen that appears after clicking |ui-add| from the
 summarizes the configuration options shown when adding an interface or
 editing an existing interface.
 
+.. note:: An interface can only be added when there is a NIC that has
+   not already been configured. Clicking |ui-add| when there are no
+   NICs available will display a message across the bottom of the screen
+   that :literal:`All interfaces are already in use.`.
+
 
 .. _add_net_interface_fig:
 
