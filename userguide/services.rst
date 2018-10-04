@@ -55,11 +55,11 @@ Configure Services
 The :guilabel:`Services` page, shown in
 :numref:`Figure %s <control_services_fig>`,
 lists all services. The list has options to activate the service, set a
-service to :guilabel:`Start Automatically` at system boot, and
-|ui-configure| a service. The S.M.A.R.T. service is enabled by default,
-but only runs if the storage devices support
+service to :guilabel:`Start Automatically` at system boot, and configure
+a service. The S.M.A.R.T. service is enabled by default, but only runs
+if the storage devices support
 `S.M.A.R.T. data <https://en.wikipedia.org/wiki/S.M.A.R.T.>`__.
-Other services default to off until started.
+Other services default to *off* until started.
 
 .. _control_services_fig:
 
@@ -68,7 +68,7 @@ Other services default to off until started.
    Configure Services
 
 
-Stopped services show the sliding button on the left. Running services
+Stopped services show the sliding button on the left. Active services
 show the sliding button on the right. Click the slider to start or stop
 a service. Stopping a service shows a confirmation dialog.
 
