@@ -173,8 +173,9 @@ rst_prolog = u'''
 .. |ui-options|  replace:: ⋮ (Options)
 .. |ui-add|      replace:: **+** (Add/Create)
 .. |ui-power|    replace:: ⏻ (Power)
-.. |ui-configure| replace:: ⚙ (Configure)
 .. |ui-password-show| replace:: 👁 (Show/Hide)
+.. |ui-configure| replace:: ✎ (Configure)
+.. |ui-launch| replace::  	■ (Launch)
 '''
 
 # roles for text replacement
