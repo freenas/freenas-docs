@@ -53,7 +53,8 @@ Creating VMs
 ------------
 
 Click on
-:menuselection:`VMs` and |ui-add| to open the wizard shown in
+:menuselection:`Virtual Machines`
+and |ui-add| to open the wizard shown in
 :numref:`Figure %s <vms_add_fig>`:
 
 
@@ -155,7 +156,7 @@ VM. Click :guilabel:`SUBMIT` to create the VM or :guilabel:`BACK` to
 change any settings.
 
 This example creates a FreeBSD VM. |ui-add| is clicked on the
-:guilabel:`VMs` page to start the VM wizard.
+:guilabel:`Virtual Machines` page to start the VM wizard.
 
 #. :guilabel:`Wizard type` is set to *Virtual Machine (VM)*.
 
@@ -255,7 +256,7 @@ NIC (Network Interfaces)
 
 :numref:`Figure %s <vms-nic_fig>` shows the fields that appear after
 going to
-:menuselection:`VMs --> Devices`,
+:menuselection:`Virtual Machines --> Devices`,
 clicking |ui-add|, and selecting :guilabel:`NIC` as the
 :guilabel:`Type`.
 
@@ -293,7 +294,7 @@ Disk Devices
 :ref:`Zvols <adding zvols>` are typically used as virtual hard drives.
 After :ref:`creating a zvol <adding zvols>`, associate it with the VM
 by clicking
-:menuselection:`VMs --> Devices`,
+:menuselection:`Virtual Machines --> Devices`,
 clicking |ui-add|, and selecting :guilabel:`Disk` as the
 :guilabel:`Type`.
 
@@ -331,7 +332,7 @@ image file meant to be copied onto a USB stick.
 
 After obtaining and copying the image file to the %brand% system,
 click
-:menuselection:`VMs --> Devices`,
+:menuselection:`Virtual Machines --> Devices`,
 click |ui-add|, then set the :guilabel:`Type` to :guilabel:`Raw File`.
 
 .. figure:: images/virtual-machines-devices-rawfile.png
@@ -369,8 +370,8 @@ mouse input.
    :guilabel:`Edit`.
 
 
-.. note:: :ref:`Docker VMs <Docker/Rancher VMs>` are not compatible
-   with VNC connections and cannot have a VNC interface.
+.. note:: :ref:`Docker Hosts <Docker Hosts>` are not compatible with VNC
+   connections and cannot have a VNC interface.
 
 
 .. note:: Using a non-US keyboard via VNC is not yet supported. As a
@@ -381,8 +382,8 @@ mouse input.
 
 
 :numref:`Figure %s <vms-vnc_fig>` shows the fields that appear
-after navigating to
-:menuselection:`VMs --> Devices`,
+after going to
+:menuselection:`Virtual Machines --> Devices`,
 clicking |ui-add|, and setting :guilabel:`Type` to :guilabel:`VNC`.
 
 .. _vms-vnc_fig:
@@ -548,11 +549,11 @@ then :guilabel:`Delete`. A dialog prompts for confirmation.
    needed.
 
 
-.. index:: Docker/Rancher VM
-.. _Docker/Rancher VMs:
+.. index:: Docker Hosts
+.. _Docker Hosts:
 
-Docker/Rancher VMs
-------------------
+Docker Hosts
+------------
 
 `Docker <https://www.docker.com/what-docker>`__
 is open source software for automating application deployment
@@ -563,36 +564,36 @@ see the same environment.
 `Rancher <https://rancher.com/>`__
 is a |web-ui| tool for managing Docker containers.
 
-%brand% runs the Rancher |web-ui| as a separate VM.
+%brand% runs the Rancher |web-ui| within the Docker Host.
 
 
-.. index:: Docker VM Requirements
-.. _Docker VM Requirements:
+.. index:: Docker Host Requirements
+.. _Docker Host Requirements:
 
-Docker VM Requirements
-~~~~~~~~~~~~~~~~~~~~~~
+Docker Host Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 The system BIOS **must** have virtualization support enabled for a
-Docker VM to run properly after installation. On Intel systems this is
+Docker Host to run properly after installation. On Intel systems this is
 typically an option called *VT-x*. AMD systems generally have an *SVM*
 option.
 
-20 GiB of storage space is required for the Docker VM.
+20 GiB of storage space is required for the Docker Host.
 
 For setup, the :ref:`SSH` service must be enabled.
 
-The Docker VM requires 2 GiB of RAM while running.
+The Docker Host requires 2 GiB of RAM while running.
 
 
-.. index:: Docker VM
-.. _Creating Docker VMs:
+.. index:: Docker Host
+.. _Creating Docker Host:
 
-Creating Docker VMs
-~~~~~~~~~~~~~~~~~~~
+Creating Docker Host
+~~~~~~~~~~~~~~~~~~~~
 
 :numref:`Figure %s <vms_add_docker_fig>` shows the Wizard that appears
 after going to
-:menuselection:`VMs`,
+:menuselection:`Virtual Machines`,
 clicking |ui-add|, and selecting :guilabel:`Docker Host` as the
 :guilabel:`Virtual Machine (VM) Wizard type`.
 
@@ -600,10 +601,10 @@ clicking |ui-add|, and selecting :guilabel:`Docker Host` as the
 
 .. figure:: images/virtual-machines-add-wizard-docker.png
 
-   Add DockerVM
+   Add Docker Host
 
 
-Docker VM configuration options are described in
+Docker Host configuration options are described in
 :numref:`Table %s <vms_add_docker_opts_tab>`.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.08\linewidth-2\tabcolsep}
@@ -613,30 +614,31 @@ Docker VM configuration options are described in
 
 .. _vms_add_docker_opts_tab:
 
-.. table:: Docker VM Options
+.. table:: Docker Host Options
    :class: longtable
 
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
    | Screen # | Setting            | Value          | Description                                                                        |
    |          |                    |                |                                                                                    |
    +==========+====================+================+====================================================================================+
-   | 1        | Virtual Machine    | drop-down menu | Choose to create either a standard VM or a Docker Host.                            |
+   | 1        | Virtual Machine    | drop-down menu | Choose to create either a standard *VM* or a *Docker Host*.                        |
    |          | (VM) Wizard type   |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 2        | Name of the VM     | string         | Enter a descriptive name for the Docker VM.                                        |
+   | 2        | Name               | string         | Enter a descriptive name for the Docker Host.                                      |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 2        | Start on Boot      | checkbox       | Set to start this VM when the %brand% system boots.                                |
+   | 2        | Start on Boot      | checkbox       | Set to start this Docker Host when the %brand% system boots.                       |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Virtual CPUs       | integer        | Enter the number of virtual CPUs to allocate to the Docker VM. The maximum is 16   |
+   | 3        | Virtual CPUs       | integer        | Enter the number of virtual CPUs to allocate to the Docker Host. The maximum is 16 |
    |          |                    |                | unless the host CPU also limits the maximum.                                       |
    |          |                    |                | The VM operating system can also have operational or licensing restrictions on     |
    |          |                    |                | the number of CPUs.                                                                |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in MiB for the Docker VM.                               |
+   | 3        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in MiB for the Docker Host. A minimum *2048* MiB of RAM |
+   |          |                    |                | is required.                                                                       |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
    | 4        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This       |
@@ -663,7 +665,7 @@ Docker VM configuration options are described in
    | 5        | Raw file location  | browse button  | Select a directory to store the new raw file.                                      |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | Disk sector size   | integer        | Define the disk sector size in bytes. Enter *0* to leave the sector size unset.    |
+   | 5        | Disk sector size   | integer        | Define the disk sector size in bytes. *Default* leaves the sector size unset.      |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
 
@@ -683,20 +685,27 @@ gigabytes for the :guilabel:`Raw file size`. Set the raw file location
 with the folder button or by typing a directory in the field.
 
 The final screen of the Wizard displays the chosen options for the new
-Docker VM. Click :guilabel:`SUBMIT` to create the VM or
-:guilabel:`BACK` to change any settings:
+Docker Host. Click :guilabel:`SUBMIT` to create the Host or
+:guilabel:`BACK` to change any settings. Click :guilabel:`CANCEL` at any
+time to return to the
+:menuselection:`Virtual Machines`
+page.
 
 
 .. figure:: images/virtual-machines-add-wizard-docker-summary.png
 
-   Docker VM Configuration
+   Docker Host Configuration
 
 
-Every Docker VM is created with an initial user :literal:`rancher`
-with the password :literal:`docker`. This is used to log in to
-RancherOS when connecting with the :guilabel:`Serial` shell. The
-password :literal:`docker` is changed by editing the raw device of the
-Docker VM. Passwords cannot contain a space.
+Click |ui-power|, :guilabel:`CONNECT`, and :guilabel:`Serial` to
+log in to the Docker Host. Enter :literal:`rancher` for the user name
+and :literal:`docker` for the password.
+
+The default password is changed in the :guilabel:`Devices` by stopping
+the Docker Host, clicking |ui-options|, and :guilabel:`Devices`. Click
+|ui-options| and :guilabel:`Edit` for the :guilabel:`RAW` device and
+enter a new value in the :guilabel:`password` field. Passwords cannot
+contain a space.
 
 
 .. figure:: images/virtual-machines-docker-devices-rawfile.png
@@ -704,36 +713,38 @@ Docker VM. Passwords cannot contain a space.
    Edit Rancher Password in Raw File Device
 
 
-Start the Docker VM
-~~~~~~~~~~~~~~~~~~~
+Start the Docker Host
+~~~~~~~~~~~~~~~~~~~~~
 
-Click :guilabel:`VMs`, then click on the red |ui-power| button to
-start the VM.
+Go to
+:menuselection:`Virtual Machines`,
+then click on the red |ui-power| button of the Docker Host to start it.
 
-The first time the Docker VM is started, it downloads the Rancher
-disk image file. How long this takes to complete depends on the speed
-of the network connection. A status dialog reports the progress of the
-download.
+Starting a Docker Host can take some time. Connecting to the Serial
+Shell is possible during the startup process to view the activity of the
+Docker Host. When a message about :literal:`RancherOS` starting appears
+and the shell stops posting new messages, press :kbd:`Enter` to see the
+:literal:`ClientHost login:` text and continue to log in.
 
-After the image is downloaded, the VM starts.
 
+SSH into the Docker Host
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Installing the Rancher Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+It is possible to SSH into a running Docker Host. Go
+to the
+:menuselection:`Virtual Machines` page and find the card for the Docker
+Host. The card shows the :guilabel:`Com Port` for the Docker Host. In
+this example, :literal:`/dev/nmdm12B` is used.
 
-Click :guilabel:`VMs` and locate the card for the Docker VM. The
-:guilabel:`Description` shows the :guilabel:`Com Port` for the
-Docker VM. In this example, :literal:`/dev/nmdm12B` is used.
+Use an SSH client to connect to the %brand% server. Remember this also
+requires the :ref:`SSH` service to be running. Depending on the %brand%
+system configuration, it might also require changes to the
+:guilabel:`SSH` service settings, like setting
+:guilabel:`Login as Root with Password`.
 
-Further setup of the Rancher VM is done from the command line. Use an
-SSH client to connect to the %brand% server. Remember that this
-requires the :ref:`SSH` service to be running. Depending on local
-configuration, it might also require changes to service settings,
-like allowing root user login with a password.
-
-At the %brand% console prompt, connect to the Rancher VM with
+At the %brand% console prompt, connect to the Rancher Host with
 `cu <https://www.freebsd.org/cgi/man.cgi?query=cu>`__, replacing
-:samp:`{/dev/nmdm12B}` with the value from the Docker VM
+:samp:`{/dev/nmdm12B}` with the value from the Docker Host
 :guilabel:`Com Port`:
 
 .. code-block:: none
@@ -742,13 +753,23 @@ At the %brand% console prompt, connect to the Rancher VM with
 
 
 If the terminal does not show a :literal:`rancher login:` prompt,
-press :kbd:`Enter`. The Docker VM can take some time to start and
+press :kbd:`Enter`. The Docker Host can take some time to start and
 display the login prompt.
 
+
+Installing and Configuring the Rancher Server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Go to
+:menuselection:`Virtual Machines`
+and locate the card for the Docker Host. Start the Host and click
+:guilabel:`Connect` and :guilabel:`Serial` to open the Host Serial shell.
+
+Continuing to set up the Rancher Host is done from the command line.
 Enter *rancher* as the username, press :kbd:`Enter`, then enter either
-the default password *docker* or a custom password created by editing
+the default password *docker* or the custom password created by editing
 the raw file. Press :kbd:`Enter` again. After logging in, a
-:literal:`[rancher@rancher ~]$` prompt is displayed.
+:literal:`[rancher@ClientHost ~]$` prompt is displayed.
 
 Ensure Rancher has functional networking and can :command:`ping` an
 outside website. Adjust the VM
@@ -786,10 +807,15 @@ show a connection error while the Rancher |web-ui| is still starting. If
 the browser shows a :literal:`connection has timed out` or a similar
 error, wait one minute and try again.
 
-In the Rancher |web-ui|, click :guilabel:`Add a host` and enter the same IP
-address and port number. Click :guilabel:`Save` to save the
-information.
+In the Rancher |web-ui|, click :guilabel:`Add a host`, ensure the radial
+:guilabel:`This site's address` button is set, and click
+:guilabel:`Save`. Follow the instructions that now display and run the
+:command:`sudo docker run --rm --privileged -v` command in the Docker
+Host Serial shell. After the command runs a message displays
+:literal:`Launched Rancher Agent:`. Refresh or go to the
+:guilabel:`Hosts` page of the Rancher |web-ui| to confirm the Docker
+Host displays in the |web-ui|. Rancher is now configured and ready for
+use.
 
-For more information on using Rancher, see the Rancher
-`Quick Start Guide
-<https://rancher.com/docs/rancher/v1.6/en/quick-start-guide/>`__.
+For more information on using RancherOS, see the RancherOS
+`Documentation <https://rancher.com/docs/os/v1.x/en/>`__.
