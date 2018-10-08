@@ -2,8 +2,6 @@
 
 # requirements:
 # textproc/py-sphinx
-# textproc/py-sphinx_numfig
-# textproc/py-sphinx_rtd_theme
 # textproc/py-sphinxcontrib-httpdomain
 
 import os
@@ -48,7 +46,6 @@ brand = 'FreeNAS®' if six.PY3 else u'FreeNAS®'
 project = brand + ' ' + six.u(version) + ' ' + 'User Guide'
 projtype = None
 master_doc = 'freenas'
-extensions = []
 cover_pic = r''
 numfig = True
 numfig_secnum_depth = (2)
