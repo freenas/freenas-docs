@@ -54,11 +54,12 @@ Configure Services
 
 The :guilabel:`Services` page, shown in
 :numref:`Figure %s <control_services_fig>`,
-lists all services. It also shows the status of each service and where
-to start, stop, or configure the available services. The S.M.A.R.T.
-service is enabled by default, but only runs if the storage devices
-support `S.M.A.R.T. data <https://en.wikipedia.org/wiki/S.M.A.R.T.>`__.
-Other services default to off until started.
+lists all services. The list has options to activate the service, set a
+service to :guilabel:`Start Automatically` at system boot, and configure
+a service. The S.M.A.R.T. service is enabled by default, but only runs
+if the storage devices support
+`S.M.A.R.T. data <https://en.wikipedia.org/wiki/S.M.A.R.T.>`__.
+Other services default to *off* until started.
 
 .. _control_services_fig:
 
@@ -67,9 +68,9 @@ Other services default to off until started.
    Configure Services
 
 
-Stopped services show a red |ui-power| button. Running services show a
-green |ui-power| button. Click the button to start or stop a service.
-Stopping a service shows a confirmation dialog.
+Stopped services show the sliding button on the left. Active services
+show the sliding button on the right. Click the slider to start or stop
+a service. Stopping a service shows a confirmation dialog.
 
 .. tip:: Using a proxy server can prevent the list of services from
    being displayed. If a proxy server is used, do not configure it to
@@ -610,10 +611,10 @@ To configure anonymous FTP:
     * :guilabel:`Path`: browse to the pool/dataset/directory to be
       shared
 
-#.  Start the FTP service in :menuselection:`Services --> FTP`. Click
-    the red |ui-power| button on the :guilabel:`FTP` card.
-    The FTP service takes a second or so to start. The |ui-power|
-    button changes to green when the service is running.
+#.  Start the FTP service in :menuselection:`Services`. Click the
+    sliding button on the :guilabel:`FTP` row. The FTP service takes
+    a second or so to start. The sliding button moves to the right
+    when the service is running.
 
 #.  Test the connection from a client using a utility such as
     `Filezilla <https://filezilla-project.org/>`__.
@@ -685,7 +686,7 @@ To configure this scenario:
        used, even if Windows clients will be accessing %brand% via
        FTP.
 
-#.  Configure FTP in :menuselection:`Services --> FTP --> CONFIGURE`
+#.  Configure FTP in :menuselection:`Services --> FTP --> Configure`
     with these attributes:
 
     * :guilabel:`Path`: browse to the parent pool containing the
@@ -699,9 +700,9 @@ To configure this scenario:
     * Select the :guilabel:`Always Chroot` option to enable it.
 
 #.  Start the FTP service in :menuselection:`Services --> FTP`. Click
-    the red |ui-power| button in the :guilabel:`FTP` card. The
-    FTP service takes a second or so to start. The |ui-power| button
-    changes to green to show the service is running.
+    the sliding button on the :guilabel:`FTP` row. The FTP service takes
+    a second or so to start. The sliding button moves to the right to
+    show the service is running.
 
 #.  Test the connection from a client using a utility such as
     Filezilla.
@@ -729,9 +730,9 @@ To configure any FTP scenario to use encrypted connections:
     :ref:`Certificates`.
 
 #.  In
-    :menuselection:`Services --> FTP`, click :guilabel:`ADVANCED`,
-    choose the certificate in :guilabel:`Certificate`, and
-    set the :guilabel:`Enable TLS` option.
+    :menuselection:`Services --> FTP --> Configure`, click
+    :guilabel:`ADVANCED`, choose the certificate in
+    :guilabel:`Certificate`, and set the :guilabel:`Enable TLS` option.
 
 #.  Specify secure FTP when accessing the %brand% system. For
     example, in Filezilla enter *ftps://IP_address* (for an implicit
@@ -779,9 +780,8 @@ iSCSI
 -----
 
 Refer to :ref:`Block (iSCSI)` for instructions on configuring iSCSI.
-Start the iSCSI service in :menuselection:`Services --> iSCSI`.
-Click the red |ui-power| button. The |ui-power| button changes to green
-to show the service is running.
+Start the iSCSI service in :menuselection:`Services` by clicking the
+sliding button in the :guilabel:`iSCSI` row.
 
 .. note:: A warning message is shown the iSCSI service stops
    when initiators are connected. Open the :ref:`Shell` and type
@@ -849,10 +849,9 @@ Netdata
 Netdata is a real-time performance and monitoring system. It displays
 data as web dashboards.
 
-Go to :menuselection:`Services --> Netdata` and click the |ui-power|
-button to turn on the netdata service. The |ui-power| button changes to
-green to show the service is running. Click :guilabel:`LAUNCH` to open
-the netdata web dashboard in a new browser tab.
+Go to :menuselection:`Services` and click the sliding button in the
+:guilabel:`netdata` row to turn on the netdata service. Click |ui-launch|
+to open the netdata web dashboard in a new browser tab.
 :numref:`Figure %s <services_netdata_fig>` shows an example:
 
 .. _services_netdata_fig:
@@ -877,7 +876,7 @@ specific to each configured NFS share. An NFS share is created by going
 to
 :menuselection:`Sharing --> Unix (NFS) Shares` and clicking |ui-add|.
 Global settings which apply to all NFS shares are configured in
-:menuselection:`Services --> NFS`.
+:menuselection:`Services --> NFS --> Configure`.
 
 #ifdef truenas
 *VAAI for NAS* is supported through the NFS service. See
@@ -984,7 +983,7 @@ Configure Rsyncd
 
 :numref:`Figure %s <rsyncd_config_tab>`
 shows the rsyncd configuration screen which is accessed from
-:menuselection:`Services --> Rsync --> CONFIGURE`.
+:menuselection:`Services --> Rsync --> Configure`.
 
 .. _rsyncd_config_tab:
 
@@ -1027,7 +1026,7 @@ Rsync Modules
 
 :numref:`Figure %s <add_rsync_module_fig>`
 shows the configuration screen that appears after navigating
-:menuselection:`Services --> Rsync --> CONFIGURE --> Rsync Module`,
+:menuselection:`Services --> Rsync --> Configure --> Rsync Module`,
 and clicking |ui-add|.
 
 :numref:`Table %s <rsync_module_opts_tab>`
@@ -1108,7 +1107,7 @@ specifications.
 :numref:`Figure %s <config_s3_fig>` shows the S3 service configuration
 screen and :numref:`Table %s <s3_config_opts_tab>` summarizes the
 configuration options. After configuring the S3 service, start it in
-:menuselection:`Services --> S3`.
+:menuselection:`Services`.
 
 
 .. _config_s3_fig:
@@ -1284,7 +1283,7 @@ are specific to each configured SMB share. An SMB share is created by
 navigating to :menuselection:`Sharing --> Windows (SMB) Shares`,
 and clicking |ui-add|. In contrast, global
 settings which apply to all SMB shares are configured in
-:menuselection:`Services --> SMB --> CONFIGURE`.
+:menuselection:`Services --> SMB --> Configure`.
 
 .. note:: After starting the SMB service, it can take several minutes
    for the `master browser election
@@ -1510,7 +1509,7 @@ to see if there is an error in the configuration:
 
 
 If clients have problems connecting to the SMB share, go to
-:menuselection:`Services --> SMB --> CONFIGURE` and verify that
+:menuselection:`Services --> SMB --> Configure` and verify that
 *Server maximum protocol* is set to *SMB2*.
 
 Using a dataset for SMB sharing is recommended. When creating the
@@ -1585,7 +1584,7 @@ enabled on the %brand% system:
 Available MIBS are located in :file:`/usr/local/share/snmp/mibs`.
 
 :numref:`Figure %s <config_snmp_fig>`
-shows the :menuselection:`Services --> SNMP --> CONFIGURE` screen.
+shows the :menuselection:`Services --> SNMP --> Configure` screen.
 :numref:`Table %s <snmp_config_opts_tab>`
 summarizes the configuration options.
 
@@ -1677,8 +1676,9 @@ screen.
 
 
 .. note:: After configuring SSH, remember to start it in
-   :guilabel:`Services` by clicking the red |ui-power| button on the SSH
-   card. The |ui-power| button is green when the service is running.
+   :guilabel:`Services` by clicking the sliding button in the
+   :guilabel:`SSH` row. The sliding button moves to the right when
+   the service is running.
 
 
 .. _ssh_config_fig:
@@ -1905,7 +1905,7 @@ UPS
 %brand% uses `NUT <https://networkupstools.org/>`__ (Network UPS Tools)
 to provide UPS support. If the %brand% system is connected to a UPS
 device, configure the UPS service in
-:menuselection:`Services --> UPS --> CONFIGURE`.
+:menuselection:`Services --> UPS --> Configure`.
 
 :numref:`Figure %s <ups_config_fig>` shows the UPS configuration screen:
 

@@ -461,11 +461,25 @@ for more information on using :command:`cu`.
 Running VMs
 -----------
 
-Click
+Go to
 :menuselection:`Virtual Machines`
-to see a card for each installed VM. There are options to switch the
-default view on this screen to *Slim* or *Table*. Each card has a
-:guilabel:`CONNECT` button at the bottom.
+to see a card for each installed VM. There are different view options at
+the top of the screen for this page:
+
+* :guilabel:`Cards`: Default view. Shows a large "card" for each VM with
+  all options for that VM contained on that card.
+
+* :guilabel:`Slim`: Similar to the default, but reduces the size of the
+  card to fit more cards on the screen.
+
+* :guilabel:`Table`: Removes cards entirely to show all VMs in a space
+  efficient table.
+
+
+The default :guilabel:`Cards` view is described and shown in this
+section, but VM options are the same between each view. Each VM card has
+a :guilabel:`CONNECT` button at the bottom and will flip to show more
+options after clicking |ui-options| and :guilabel:`Edit`.
 
 .. figure:: images/virtual-machines.png
 
@@ -493,7 +507,8 @@ When a VM is not running, these buttons are available:
 * :guilabel:`Edit` changes VM settings, and includes an option to
   :guilabel:`Clone` an existing VM. Cloning makes a copy of the VM.
   The new clone has :samp:`_clone{N}` added to the name, where
-  :samp:`{N}` is the number of the clone.
+  :samp:`{N}` is the number of the clone. %brand% will display a
+  substantive error message if cloning a VM fails.
 
 
 When a VM is already running, these buttons are available:
