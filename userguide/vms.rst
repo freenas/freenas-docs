@@ -196,8 +196,9 @@ and basic settings for the new virtual machine:
 Adding Devices to a VM
 ----------------------
 
-To add a device to a VM, click :guilabel:`Devices` on the new VM card,
-and |ui-add|.
+To add a device to a VM, click
+|ui-options| :menuselection:`--> Devices`
+on the VM card. Then click |ui-add|.
 
 .. figure:: images/virtual-machines-devices-add.png
 
@@ -217,9 +218,11 @@ available:
 
 * :ref:`VNC Interface <vms-vnc>`
 
-This menu is also used to edit or delete an existing device. Click
-|ui-options| for a device to display :guilabel:`Edit` and
-:guilabel:`Delete` options.
+:menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Devices`
+is also used to edit or delete an existing device for a specific VM.
+Click |ui-options| for a device to display :guilabel:`Edit`,
+:guilabel:`Delete`, :guilabel:`Change Device Order`, and
+:guilabel:`Details`.
 
 
 .. _vms-cd-rom:
@@ -256,7 +259,7 @@ NIC (Network Interfaces)
 
 :numref:`Figure %s <vms-nic_fig>` shows the fields that appear after
 going to
-:menuselection:`Virtual Machines --> Devices`,
+:menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Devices`,
 clicking |ui-add|, and selecting :guilabel:`NIC` as the
 :guilabel:`Type`.
 
@@ -294,7 +297,7 @@ Disk Devices
 :ref:`Zvols <adding zvols>` are typically used as virtual hard drives.
 After :ref:`creating a zvol <adding zvols>`, associate it with the VM
 by clicking
-:menuselection:`Virtual Machines --> Devices`,
+:menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Devices`,
 clicking |ui-add|, and selecting :guilabel:`Disk` as the
 :guilabel:`Type`.
 
@@ -332,7 +335,7 @@ image file meant to be copied onto a USB stick.
 
 After obtaining and copying the image file to the %brand% system,
 click
-:menuselection:`Virtual Machines --> Devices`,
+:menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Devices`,
 click |ui-add|, then set the :guilabel:`Type` to :guilabel:`Raw File`.
 
 .. figure:: images/virtual-machines-devices-rawfile.png
@@ -383,8 +386,10 @@ mouse input.
 
 :numref:`Figure %s <vms-vnc_fig>` shows the fields that appear
 after going to
-:menuselection:`Virtual Machines --> Devices`,
-clicking |ui-add|, and setting :guilabel:`Type` to :guilabel:`VNC`.
+:menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Devices`,
+and clicking
+|ui-options| :menuselection:`--> Edit`
+for VNC.
 
 .. _vms-vnc_fig:
 
