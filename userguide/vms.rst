@@ -564,7 +564,7 @@ see the same environment.
 `Rancher <https://rancher.com/>`__
 is a |web-ui| tool for managing Docker containers.
 
-%brand% runs the Rancher |web-ui| as a separate VM.
+%brand% runs the Rancher |web-ui| within the Docker Host.
 
 
 .. index:: Docker Host Requirements
