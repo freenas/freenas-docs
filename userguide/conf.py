@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# requirements:
-# textproc/py-sphinx
-# textproc/py-sphinxcontrib-httpdomain
-
 import os
 import six
 import sphinx
