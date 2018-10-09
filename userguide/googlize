@@ -40,10 +40,10 @@ our $epilog = <<EPILOG;
   border: none;
   border-bottom: none;
   border-top: none;
-  -webkit-box-shadow: 0px 2px 6px 1px rgba(204,121,167,0.5);
-  -moz-box-shadow: 0px 2px 6px 1px rgba(204,121,167,0.5);
-  box-shadow: 0px 2px 6px 1px rgba(204,121,167,0.5);
-  ">Previous Versions</a>
+  -webkit-box-shadow: 0px 2px 6px 1px rgba(75,124,179,0.5);
+  -moz-box-shadow: 0px 2px 6px 1px rgba(75,124,179,0.5);
+  box-shadow: 0px 2px 6px 1px rgba(75,124,179,0.5);
+  ">Other Versions</a>
   <!-- googlize button end -->
 EPILOG
 
@@ -55,6 +55,7 @@ usage: $prog -h
        $prog [-t topcoord] [list of HTML files]
 
     -h  show summary of command line options and exit
+    -t  top coordinate of button
 
 $prog rewrites HTML files, inserting Google Analytics code at
 </head> and a floating link button at </body>. $prog can be
@@ -90,9 +91,9 @@ sub write_file {
 getopts('ht:');
 usage() if $opt_h;
 
+$opt_t = 0 unless defined($opt_t);
 die '** -t argument (top coordinate) must be a number' unless (looks_like_number($opt_t));
 $epilog =~ s/%%TOP%%/$opt_t/;
-print "$epilog\n";
 
 # main loop
 foreach my $fname (@ARGV) {
