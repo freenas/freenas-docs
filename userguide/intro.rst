@@ -187,6 +187,10 @@ This software has been added or updated:
   driver does not support jumbo clusters and should not use an MTU greater
   than *4096*.
 
+* The `bnxt <https://www.freebsd.org/cgi/man.cgi?query=bnxt>`__ driver
+  has been added which provides support for Broadcom NetXtreme-C and
+  NetXtreme-E Ethernet drivers.
+
 * The `vt terminal
   <https://www.freebsd.org/cgi/man.cgi?query=vt&sektion=4&manpath=FreeBSD+11.2-RELEASE+and+Ports>`__
   is now used by default and the syscons terminal is removed from the
