@@ -170,6 +170,8 @@ This software has been added or updated:
 * The IPsec kernel module has been added. It can be manually loaded with
   :command:`kldload ipsec`.
 
+* Support for eMMC flash storage has been added.
+
 * The
   `em <https://www.freebsd.org/cgi/man.cgi?query=em&apropos=0&sektion=4>`__,
   `igb <https://www.freebsd.org/cgi/man.cgi?query=igb&apropos=0&sektion=4>`__,
