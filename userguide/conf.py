@@ -154,19 +154,14 @@ def patched_menusel_role(typ, rawtext, text, lineno, inliner, options={}, conten
 # Use 'patched_menusel_role' function for processing the 'menuselection' role
 roles.register_local_role("menuselection", patched_menusel_role)
 
-# roles for specific UI icons
-# gear: Unicode F013
-# options: unicode 22EE
-# plus: unicode FF0B
-
 rst_prolog = u'''
-.. |ui-settings| replace::  (Settings)
-.. |ui-options|  replace::  (Options)
-.. |ui-add|      replace::  (Add/Create)
-.. |ui-power|    replace::  (Power)
+.. |ui-settings|      replace::  (Settings)
+.. |ui-options|       replace::  (Options)
+.. |ui-add|           replace::  (Add/Create)
+.. |ui-power|         replace::  (Power)
 .. |ui-password-show| replace::  (Show/Hide)
-.. |ui-configure| replace::  (Configure)
-.. |ui-launch| replace:: 襁 (Launch)
+.. |ui-configure|     replace::  (Configure)
+.. |ui-launch|        replace:: 襁 (Launch)
 '''
 
 # roles for text replacement
