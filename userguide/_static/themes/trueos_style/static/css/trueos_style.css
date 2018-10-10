@@ -5,6 +5,7 @@
  | to reduce the size/complexity of this css.    (BEGIN)  | 
  *""""""""""""""""""""""""""""""""""""""""""""""""""""""""*/
 @import 'font_awesome.css';
+@import 'materialdesignicons-webfont.css';
 
 /* {
     -webkit-box-sizing: border-box;
@@ -79,7 +80,7 @@ code,
 .rst-content code,
 kbd,
 samp {
-    font-family: monospace, serif;
+    font-family: monospace, serif, "materialdesignicons";
     _font-family: "courier new", monospace;
     font-size: 1em
 }
@@ -435,7 +436,7 @@ textarea,
 .wy-inline-validate.wy-inline-validate-danger .wy-input-context:before,
 .wy-inline-validate.wy-inline-validate-warning .wy-input-context:before,
 .wy-inline-validate.wy-inline-validate-info .wy-input-context:before {
-    font-family: "FontAwesome";
+    font-family: "FontAwesome","materialdesignicons";
     display: inline-block;
     font-style: normal;
     font-weight: normal;
@@ -1051,7 +1052,7 @@ button[disabled] {
     background-color: #27AE60;
     text-decoration: none;
     font-weight: normal;
-    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif, materialdesignicons;
     box-shadow: 0px 1px 2px -1px rgba(255, 255, 255, 0.5) inset, 0px -2px 0px 0px rgba(0, 0, 0, 0.1) inset;
     outline-none: false;
     vertical-align: middle;
@@ -1520,7 +1521,7 @@ input[type="reset"],
 input[type="submit"] {
     -webkit-appearance: button;
     cursor: pointer;
-    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif, materialdesignicons;
     *overflow: visible
 }
 input[type="text"],
@@ -1542,7 +1543,7 @@ input[type="color"] {
     display: inline-block;
     border: 1px solid #ccc;
     font-size: 80%;
-    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif, materialdesignicons;
     box-shadow: inset 0 1px 3px #ddd;
     border-radius: 0;
     -webkit-transition: border 0.3s linear;
@@ -1642,7 +1643,7 @@ textarea {
     overflow: auto;
     vertical-align: top;
     width: 100%;
-    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif
+    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif, materialdesignicons
 }
 select,
 textarea {
@@ -1944,7 +1945,7 @@ input[type="checkbox"][disabled] {
 .rst-content table.docutils caption,
 .rst-content table.field-list caption {
     color: #404040;
-    font-family: "Roboto Slab", "ff-tisa-web-pro", "Georgia", Arial, sans-serif;
+    font-family: "Roboto Slab", "ff-tisa-web-pro", "Georgia", Arial, sans-serif, materialdesignicons;
 	font-size: 100%;
 	font-weight: 700;
     padding: .2em;
@@ -2107,7 +2108,7 @@ html {
     overflow-x: hidden
 }
 body {
-    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif, materialdesignicons;
     font-weight: normal;
     color: #404040;
     min-height: 100%;
@@ -2176,7 +2177,7 @@ h6,
 legend {
     margin-top: 0;
     font-weight: 700;
-    font-family: "Roboto Slab", "ff-tisa-web-pro", "Georgia", Arial, sans-serif
+    font-family: "Roboto Slab", "ff-tisa-web-pro", "Georgia", Arial, sans-serif, materialdesignicons
 }
 p {
     line-height: 26px;
@@ -2220,7 +2221,7 @@ code,
     border: solid 1px #e1e4e5;
     font-size: 75%;
     padding: 0 5px;
-    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace, materialdesignicons;
     color: #E74C3C;
     overflow-x: auto*/
 }
@@ -2354,7 +2355,7 @@ div[class^='highlight'] td.code {
     border-right: solid 1px #e6e9ea;
     margin: 0;
     padding: 12px 12px;
-    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace, materialdesignicons;
     font-size: 12px;
     line-height: 1.5;
     color: #d9d9d9
@@ -2363,7 +2364,7 @@ div[class^='highlight'] pre {
     white-space: pre;
     margin: 0;
     padding: 10px 10px;
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Inconsolata', monospace, materialdesignicons;
     font-size: 100%;
     line-height: 1.5;
     display: block;
@@ -3140,7 +3141,7 @@ footer p {
     color: #fcfcfc;
     background: #1f1d1d;
     border-top: solid 10px #343131;
-    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif, materialdesignicons;
     z-index: 400
 }
 .rst-versions a {
@@ -3385,7 +3386,7 @@ footer p {
 .rst-content p.caption .headerlink:after {
     visibility: visible;
     content: "\F0C1 ";
-    font-family: FontAwesome;
+    font-family: FontAwesome,materialdesignicons;
     display: inline-block
 }
 .rst-content h1:hover .headerlink,
@@ -3418,7 +3419,7 @@ footer p {
 }
 .rst-content .sidebar .sidebar-title {
     display: block;
-    font-family: "Roboto Slab", "ff-tisa-web-pro", "Georgia", Arial, sans-serif;
+    font-family: "Roboto Slab", "ff-tisa-web-pro", "Georgia", Arial, sans-serif, materialdesignicons;
     font-weight: bold;
     background: #e1e4e5;
     padding: 6px 12px;
@@ -3692,7 +3693,12 @@ span[id*='MathJax-Span'] {
     font-weight: 700;
     src: local("Roboto Slab Bold"), local("RobotoSlab-Bold"), url(../fonts/RobotoSlab-Bold.ttf) format("truetype")
 }
-
+@font-face {
+    font-family: "materialdesignicons";
+    font-style: normal;
+    font-weight: 700;
+    src: local("materialdesignicons"), url(../fonts/materialdesignicons-webfontt.ttf) format("truetype")
+}
 /*""""""""""""""""""""""""""""""""""""""""""""""""""""""""*
  | Copied css with fa-entities fixed - sourced externally |
  | to reduce the size/complexity of this css.      (END)  | 
@@ -3715,7 +3721,7 @@ code.menuselection,
 .menuselection{
     background-color: #e6ede9; /* saturate from ecf0f3 to be more visible/blue on screen. */
     display: inline;
-	font-family:'Inconsolata', monospace;
+	font-family:'Inconsolata', monospace, "materialdesignicons";
     font-size: 100%;
     padding-right: 1px;
     padding-left: 1px;
@@ -3744,12 +3750,12 @@ code.menuselection, .menuselection {
 	font-size: 100%
 }
 code.samp, .samp {
-	font-family: 'Inconsolata', monospace;
+	font-family: 'Inconsolata', monospace, "materialdesignicons";
 	font-weight: bold;
 	font-size: 100%;
 }
 code.command, .command {
-	font-family:'Inconsolata', monospace;
+	font-family:'Inconsolata', monospace, "materialdesignicons";
 }
 th {
     background-color: #ede;

@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 TAG           = freenas
 SPHINXOPTS    =
-SPHINXBUILD   = sphinx-build
+SPHINXBUILD   = sphinx-build-3.6
 PREPROC       = ./preproc
 PREPROCDIR    = processed
 PAPER         =
@@ -51,6 +51,9 @@ preproc::
 html:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	@echo "Replacing UI icon symbols with Material Design characters"
+	@sed -i '' -e 's%%➕%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
+	@sed -i '' -e 's%%⏻%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@echo
 	@echo "Build finished. The HTML index page is $(PREPROCDIR)/$(BUILDDIR)/html/$(TAG).html"
 
@@ -95,11 +98,14 @@ latex:	preproc
 latexpdf pdf:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
-	@echo "Replacing UI icon symbols with FontAwesome characters"
-	@sed -i '' -e 's%⚙%{\\awesome\\symbol{"F013}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's%⋮%{\\awesome\\symbol{"F142}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's%＋%{\\awesome\\symbol{"FF0B}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's%⏻%{\\awesome\\symbol{"F011}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@echo "Replacing UI icon symbols with Material Design characters"
+	@sed -i '' -e 's%%{\\material\\symbol{"F493}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's%%{\\material\\symbol{"F1D9}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's%%{\\material\\symbol{"F417}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's%%{\\material\\symbol{"F425}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's%%{\\material\\symbol{"F208}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's%%{\\material\\symbol{"F0C9}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's%襁%{\\material\\symbol{"FAB6}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@echo "Running LaTeX files through $(LATEX_ENGINE)..."
 	# fix missing latex_engine substitution in old versions of Sphinx
 	@sed -i '' -e 's/pdflatex/$(LATEX_ENGINE)/g' $(PREPROCDIR)/$(BUILDDIR)/latex/Makefile
