@@ -1101,7 +1101,7 @@ configurable options are described in
    |                                    |                | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`__. Default is *Disabled*.                            |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Enable S.M.A.R.T.                  | checkbox       | Rnabled by default if the disk supports S.M.A.R.T. Deselect to disable any configured                                    |
+   | Enable S.M.A.R.T.                  | checkbox       | Enabled by default if the disk supports S.M.A.R.T. Deselect to disable any configured                                    |
    |                                    |                | :ref:`S.M.A.R.T. Tests` for the disk.                                                                                    |
    |                                    |                |                                                                                                                          |
    +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
