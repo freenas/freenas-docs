@@ -1,3 +1,5 @@
+# PDF Builds require installing the MaterialDesign-Webfont package.
+
 import os
 import six
 import sphinx
@@ -158,13 +160,13 @@ roles.register_local_role("menuselection", patched_menusel_role)
 # plus: unicode FF0B
 
 rst_prolog = u'''
-.. |ui-settings| replace:: ⚙ (Settings)
-.. |ui-options|  replace:: ⋮ (Options)
-.. |ui-add|      replace:: **+** (Add/Create)
-.. |ui-power|    replace:: ⏻ (Power)
-.. |ui-password-show| replace:: 👁 (Show/Hide)
-.. |ui-configure| replace:: ✎ (Configure)
-.. |ui-launch| replace::  	■ (Launch)
+.. |ui-settings| replace::  (Settings)
+.. |ui-options|  replace::  (Options)
+.. |ui-add|      replace::  (Add/Create)
+.. |ui-power|    replace::  (Power)
+.. |ui-password-show| replace::  (Show/Hide)
+.. |ui-configure| replace::  (Configure)
+.. |ui-launch| replace:: 襁 (Launch)
 '''
 
 # roles for text replacement
@@ -437,7 +439,7 @@ if latex_engine == 'xelatex':
                           ]%
                     \setmonofont{FreeMono.otf}[Scale=0.95]%
                     \defaultfontfeatures{Ligatures=TeX}%
-                    \newfontfamily{\awesome}[Scale = 0.95, Path = /usr/local/share/texmf-dist/fonts/opentype/public/fontawesome/]{FontAwesome.otf}'''
+                    \newfontfamily{\material}[Scale = 0.95, Path = /usr/local/share/fonts/MaterialDesign-Webfont/]{materialdesignicons-webfont.ttf}'''
     title_font = r'''\fontspec{OpenSans-Light.ttf}[Scale=0.95]%'''
 else:
     # pdflatex, can't use fontspec
