@@ -538,7 +538,7 @@ if necessary, remove any extra spaces representing line breaks.
 
 .. _tasks_pasting_sshkey_fig:
 
-.. figure:: images/account-users-edit-ssh-key.png
+.. figure:: images/accounts-users-edit-ssh-key.png
 
    Pasting the User SSH Public Key
 
@@ -1128,7 +1128,7 @@ Paste the copied key into the :guilabel:`SSH Public Key` field and click
 
 .. _zfs_paste_replication_key_fig:
 
-.. figure:: images/account-users-edit-ssh-key.png
+.. figure:: images/accounts-users-edit-ssh-key.png
 
    Paste the Replication Key
 
