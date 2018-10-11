@@ -663,14 +663,22 @@ example is shown in :numref:`Figure %s <jail_overview_fig>`.
    +-------------------+----------------------------------------------------+
 
 
+Select multiple jails from the list by setting the leftmost checkboxes.
+Options appear to |ui-jail-start| or |ui-jail-stop|, |ui-jail-update|,
+and |ui-jail-delete| all selected jails.
+
+Click |ui-options| for a jail to all options for a single jail.
+:numref:`Figure %s <jail_option_menu_fig>` shows the menu that
+appears.
+
 .. _jail_option_menu_fig:
 
 .. figure:: images/jails-actions.png
 
-   Jail Option Menu
+   Jail Options Menu
 
 
-:numref:`Table %s <jail_option_menu_tab>` describes the |ui-options|
+:numref:`Table %s <jail_option_menu_tab>` describes each option
 available for a jail.
 
 .. warning:: Modify the IP address information for a jail by using
@@ -678,6 +686,7 @@ available for a jail.
    commands directly from the command line of the jail. This
    ensures the changes are saved and will survive a jail or %brand%
    reboot.
+
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.75\linewidth-2\tabcolsep}|
