@@ -900,7 +900,6 @@ the screen in
 :numref:`Figure %s <vb_virt_filename_fig>`
 is shown.
 
-
 .. _vb_virt_filename_fig:
 
 .. figure:: images/virtualbox7.png
@@ -909,19 +908,18 @@ is shown.
 
 
 This screen is used to set the size (or upper limit) of the virtual
-disk. **Increase the default size to 8 GiB**. Use the folder icon to
-browse to a directory on disk with sufficient space to hold the
+disk. **Set the default size to a minimum of 8 GiB**. Use the folder
+icon to browse to a directory on disk with sufficient space to hold the
 virtual disk files.  Remember that there will be a system disk of
 at least 8 GiB and at least one data storage disk of at least 4 GiB.
 
-After making a selection and pressing :guilabel:`Next`, a summary of
-the configuration options chosen is shown. Use the :guilabel:`Back`
-button to return to a previous screen if any values need to be
-modified. Otherwise, click :guilabel:`Finish` to complete the wizard.
-The new virtual machine is listed in the left frame, as shown in the
-example in
-:numref:`Figure %s <vb_new_vm_fig>`.
-
+Use the :guilabel:`Back` button to return to a previous screen if any
+values need to be modified. After making a selection and pressing
+:guilabel:`Create`, the new VM is created. The new virtual machine is
+listed in the left frame, as shown in the example in
+:numref:`Figure %s <vb_new_vm_fig>`. Open the :guilabel:`Machine Tools`
+drop-down menu and select :guilabel:`Details` to see extra information
+about the VM.
 
 .. _vb_new_vm_fig:
 
@@ -930,11 +928,11 @@ example in
    The New Virtual Machine
 
 
-Create the virtual disks to be used for storage. Click the
-:guilabel:`Storage` hyperlink in the right frame to access the storage
+Create the virtual disks to be used for storage. Highlight the VM and
+click :guilabel:`Settings` to open the menu. Click the
+:guilabel:`Storage` option in the left frame to access the storage
 screen seen in
 :numref:`Figure %s <vb_storage_settings_fig>`.
-
 
 .. _vb_storage_settings_fig:
 
@@ -945,11 +943,11 @@ screen seen in
 
 Click the :guilabel:`Add Attachment` button, select
 :guilabel:`Add Hard Disk` from the pop-up menu, then click the
-:guilabel:`Create New Disk` button. This launches the Create New
-Virtual Hard Drive Wizard (seen in
-:numref:`Figure %s <vb_virt_drive_fig>`
-and
-:numref:`%s <vb_virt_type_fig>`).
+:guilabel:`Create new disk` button. This launches the
+:guilabel:`Create Virtual Hard Disk` Wizard seen in
+:numref:`Figure %s <vb_virt_drive_fig>` and
+:numref:`%s <vb_virt_type_fig>`.
+
 This disk will be used for storage, so create a size
 appropriate to your needs, making sure that it is **at least 4 GiB**.
 To practice with RAID configurations, create as many virtual disks as
@@ -969,7 +967,7 @@ Create a device for the installation media. Highlight the word
    Configuring ISO Installation Media
 
 
-Click :guilabel:`Choose a virtual CD/DVD disk file...` to browse to
+Click :guilabel:`Choose Virtual Optical disk file...` to browse to
 the location of the :file:`.iso` file. If the :file:`.iso` was burned
 to CD, select the detected :guilabel:`Host Drive`.
 
@@ -979,12 +977,13 @@ possible to boot the VM from an :file:`.iso`. If
 the :file:`.iso`, the host CPU either does not have the required
 extension or AMD-V/VT-x is disabled in the system BIOS.
 
+
 .. note:: If there is a kernel panic when booting into the ISO,
    stop the virtual machine. Then, go to :guilabel:`System` and check
    the box :guilabel:`Enable IO APIC`.
 
 To configure the network adapter, go to
-:menuselection:`Settings --> Network`.
+:menuselection:`Settings --> Network --> Adapter 1`.
 In the :guilabel:`Attached to` drop-down menu select
 :guilabel:`Bridged Adapter`, then choose the name of the physical
 interface from the :guilabel:`Name` drop-down menu. In the example
@@ -1005,8 +1004,8 @@ After configuration is complete, click the :guilabel:`Start` arrow and
 install %brand% as described in :ref:`Performing the Installation`. Once
 %brand% is installed, press :kbd:`F12` when the VM starts to boot to
 access the boot menu. Select the primary hard disk as the boot option.
-To permanently boot from disk, remove the :guilabel:`CD/DVD`
-device in :guilabel:`Storage` or uncheck :guilabel:`CD/DVD-ROM`
+To permanently boot from disk, remove the :guilabel:`Optical`
+device in :guilabel:`Storage` or uncheck :guilabel:`Optical`
 in the :guilabel:`Boot Order` section of :guilabel:`System`.
 
 
