@@ -51,6 +51,8 @@ preproc::
 html:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	@echo "removing spurious characters"
+	@sed -i '' -e 's%Â%%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@echo "replacing UI icon symbols with Material Design characters"
 	@sed -i '' -e 's%%➕%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@sed -i '' -e 's%%⏻%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
@@ -98,6 +100,8 @@ latex:	preproc
 latexpdf pdf:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
+	@echo "removing spurious characters"
+	@sed -i '' -e 's%Â%%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@echo "replacing UI icon symbols with Material Design characters"
 	@sed -i '' -e 's%%{\\material\\symbol{"F493}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@sed -i '' -e 's%%{\\material\\symbol{"F1D9}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
