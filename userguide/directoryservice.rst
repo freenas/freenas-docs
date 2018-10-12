@@ -595,6 +595,16 @@ for common errors and how to fix them. When troubleshooting LDAP, open
 the %brand% :ref:`Shell` and look for error messages in
 :file:`/var/log/auth.log`.
 
+To clear LDAP users and groups from %brand%, go to
+:menuselection:`Directory Services --> LDAP`,
+clear the :guilabel:`Hostname` field, unset :guilabel:`Enable`,
+and click :guilabel:`SAVE`. Confirm LDAP users and groups are cleared
+by going to the
+:menuselection:`Shell`
+and viewing the output of the :command:`getent passwd` and
+:command:`getent group` commands.
+
+
 .. _NIS:
 
 NIS
