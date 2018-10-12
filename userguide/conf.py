@@ -155,17 +155,17 @@ def patched_menusel_role(typ, rawtext, text, lineno, inliner, options={}, conten
 roles.register_local_role("menuselection", patched_menusel_role)
 
 rst_prolog = u'''
-.. |ui-settings| replace::  (Settings)
-.. |ui-options| replace::  (Options)
-.. |ui-add| replace::  (Add/Create)
-.. |ui-power| replace::  (Power)
+.. |ui-settings|      replace::  (Settings)
+.. |ui-options|       replace::  (Options)
+.. |ui-add|           replace::  (Add/Create)
+.. |ui-power|         replace::  (Power)
 .. |ui-password-show| replace::  (Show/Hide)
-.. |ui-configure| replace::  (Configure)
-.. |ui-launch| replace:: 襁 (Launch)
-.. |ui-jail-start| replace::  (Start)
-.. |ui-jail-stop| replace::  (Stop)
-.. |ui-jail-update| replace::  (Update)
-.. |ui-jail-delete| replace::  (Delete)
+.. |ui-configure|     replace::  (Configure)
+.. |ui-launch|        replace:: 襁 (Launch)
+.. |ui-jail-start|    replace::  (Start)
+.. |ui-jail-stop|     replace::  (Stop)
+.. |ui-jail-update|   replace::  (Update)
+.. |ui-jail-delete|   replace::  (Delete)
 '''
 
 # roles for text replacement

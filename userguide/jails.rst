@@ -663,11 +663,12 @@ example is shown in :numref:`Figure %s <jail_overview_fig>`.
    +-------------------+----------------------------------------------------+
 
 
-Select multiple jails from the list by setting the leftmost checkboxes.
-Options appear to |ui-jail-start| or |ui-jail-stop|, |ui-jail-update|,
-and |ui-jail-delete| all selected jails.
+Operations can be applied to multiple jails by selecting those jails
+with the checkboxes on the left. After selecting one or more jails,
+icons appear which can be used to |ui-jail-start|, |ui-jail-stop|,
+|ui-jail-update|, or |ui-jail-delete| those jails.
 
-Click |ui-options| for a jail to all options for a single jail.
+Click |ui-options| for a jail to see all options for that jail.
 :numref:`Figure %s <jail_option_menu_fig>` shows the menu that
 appears.
 
