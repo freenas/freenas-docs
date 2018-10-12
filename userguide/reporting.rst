@@ -97,9 +97,14 @@ directly to the :ref:`System Dataset`.
 .. warning:: Reporting data is frequently written and should not be
    stored on the boot pool or boot device.
 
-Use the mouse wheel while hovering over the graph to zoom in the time
-interval. Click and drag the selection box to scroll horizontally over
-the time interval.
+Hover over the smaller graph and click and drag to zoom in
+the time interval. Click and drag the selection box to scroll
+horizontally over the time interval.
+
+Use the magnifier buttons next to each graph to increase or
+decrease the displayed time increment from 10 minutes, hourly, daily,
+weekly, or monthly. The :guilabel:`<<` and :guilabel:`>>` buttons
+can be used to scroll through the output.
 
 `Update on using Graphite with FreeNAS
 <http://cmhramblings.blogspot.com/2015/12/update-on-using-graphite-with-freenas.html>`__
