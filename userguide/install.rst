@@ -905,19 +905,18 @@ is shown.
 
 
 This screen is used to set the size (or upper limit) of the virtual
-disk. **Increase the default size to 8 GiB**. Use the folder icon to
-browse to a directory on disk with sufficient space to hold the
+disk. **Set the default size to a minimum of 8 GiB**. Use the folder
+icon to browse to a directory on disk with sufficient space to hold the
 virtual disk files.  Remember that there will be a system disk of
 at least 8 GiB and at least one data storage disk of at least 4 GiB.
 
-After making a selection and pressing :guilabel:`Next`, a summary of
-the configuration options chosen is shown. Use the :guilabel:`Back`
-button to return to a previous screen if any values need to be
-modified. Otherwise, click :guilabel:`Finish` to complete the wizard.
-The new virtual machine is listed in the left frame, as shown in the
-example in
-:numref:`Figure %s <vb_new_vm_fig>`.
-
+Use the :guilabel:`Back` button to return to a previous screen if any
+values need to be modified. After making a selection and pressing
+:guilabel:`Create`, the new VM is created. The new virtual machine is
+listed in the left frame, as shown in the example in
+:numref:`Figure %s <vb_new_vm_fig>`. Open the :guilabel:`Machine Tools`
+drop-down menu and select :guilabel:`Details` to see extra information
+about the VM.
 
 .. _vb_new_vm_fig:
 
@@ -926,11 +925,11 @@ example in
    The New Virtual Machine
 
 
-Create the virtual disks to be used for storage. Click the
-:guilabel:`Storage` hyperlink in the right frame to access the storage
+Create the virtual disks to be used for storage. Highlight the VM and
+click :guilabel:`Settings` to open the menu. Click the
+:guilabel:`Storage` option in the left frame to access the storage
 screen seen in
 :numref:`Figure %s <vb_storage_settings_fig>`.
-
 
 .. _vb_storage_settings_fig:
 
@@ -941,11 +940,10 @@ screen seen in
 
 Click the :guilabel:`Add Attachment` button, select
 :guilabel:`Add Hard Disk` from the pop-up menu, then click the
-:guilabel:`Create New Disk` button. This launches the Create New
-Virtual Hard Drive Wizard (seen in
-:numref:`Figure %s <vb_virt_drive_fig>`
-and
-:numref:`%s <vb_virt_type_fig>`).
+:guilabel:`Create new disk` button. This launches the
+:guilabel:`Create Virtual Hard Disk` wizard seen in
+:numref:`Figure %s <vb_virt_drive_fig>` and
+:numref:`%s <vb_virt_type_fig>`.
 
 Create a disk large enough to hold the desired  data. The minimum
 size is **4 GiB.**
@@ -958,7 +956,6 @@ Create a device for the installation media. Highlight the word
 "Empty", then click the :guilabel:`CD` icon as shown in
 :numref:`Figure %s <vb_config_iso_fig>`.
 
-
 .. _vb_config_iso_fig:
 
 .. figure:: images/virtualbox-vm-settings-storage-add-iso.png
@@ -966,7 +963,7 @@ Create a device for the installation media. Highlight the word
    Configuring ISO Installation Media
 
 
-Click :guilabel:`Choose a virtual CD/DVD disk file...` to browse to
+Click :guilabel:`Choose Virtual Optical Disk File...` to browse to
 the location of the :file:`.iso` file. If the :file:`.iso` was burned
 to CD, select the detected :guilabel:`Host Drive`.
 
@@ -980,8 +977,9 @@ extension or AMD-V/VT-x is disabled in the system BIOS.
    stop the virtual machine. Then, go to :guilabel:`System` and check
    the box :guilabel:`Enable IO APIC`.
 
+
 To configure the network adapter, go to
-:menuselection:`Settings --> Network`.
+:menuselection:`Settings --> Network --> Adapter 1`.
 In the :guilabel:`Attached to` drop-down menu select
 :guilabel:`Bridged Adapter`, then choose the name of the physical
 interface from the :guilabel:`Name` drop-down menu. In the example
@@ -989,7 +987,6 @@ shown in
 :numref:`Figure %s <vb_bridged_fig>`,
 the Intel Pro/1000 Ethernet card is attached to the network and has a
 device name of *em0*.
-
 
 .. _vb_bridged_fig:
 
@@ -1003,8 +1000,8 @@ install %brand% as described in :ref:`Performing the Installation`.
 After %brand% is installed, press :kbd:`F12` when the VM starts to
 boot to access the boot menu. Select the primary hard disk as the boot
 option. You can permanently boot from disk by removing the
-:guilabel:`CD/DVD` device in :guilabel:`Storage` or by unchecking
-:guilabel:`CD/DVD-ROM` in the :guilabel:`Boot Order` section of
+:guilabel:`Optical` device in :guilabel:`Storage` or by unchecking
+:guilabel:`Optical` in the :guilabel:`Boot Order` section of
 :guilabel:`System`.
 
 
