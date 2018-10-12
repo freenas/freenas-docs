@@ -477,8 +477,7 @@ Those new to LDAP terminology should read the
    | Setting                 | Value          | Advanced | Description                                                                                         |
    |                         |                | Mode     |                                                                                                     |
    +=========================+================+==========+=====================================================================================================+
-   | Hostname                | string         |          | Hostname or IP address of the LDAP server. Can be saved as an empty value when :guilabel:`Enable`   |
-   |                         |                |          | is **not** set.                                                                                     |
+   | Hostname                | string         |          | Hostname or IP address of the LDAP server.                                                          |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Base DN                 | string         |          | Top level of the LDAP directory tree to be used when searching for resources (Example:              |
