@@ -162,6 +162,10 @@ rst_prolog = u'''
 .. |ui-password-show| replace::  (Show/Hide)
 .. |ui-configure|     replace::  (Configure)
 .. |ui-launch|        replace:: 襁 (Launch)
+.. |ui-jail-start|    replace::  (Start)
+.. |ui-jail-stop|     replace::  (Stop)
+.. |ui-jail-update|   replace::  (Update)
+.. |ui-jail-delete|   replace::  (Delete)
 '''
 
 # roles for text replacement

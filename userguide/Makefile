@@ -56,6 +56,8 @@ html:	preproc
 	@echo "replacing UI icon symbols with Material Design characters"
 	@sed -i '' -e 's%%➕%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@sed -i '' -e 's%%⏻%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
+	@sed -i '' -e 's%%▶%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
+	@sed -i '' -e 's%%🕓%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@echo
 	@echo "Build finished. The HTML index page is $(PREPROCDIR)/$(BUILDDIR)/html/$(TAG).html"
 
@@ -110,6 +112,10 @@ latexpdf pdf:	preproc
 	@sed -i '' -e 's%%{\\material\\symbol{"F208}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@sed -i '' -e 's%%{\\material\\symbol{"F0C9}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@sed -i '' -e 's%襁%{\\material\\symbol{"FAB6}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's%%{\\material\\symbol{"F40A}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's%%{\\material\\symbol{"F4DB}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's%%{\\material\\symbol{"F6AF}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's%%{\\material\\symbol{"F1C0}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@echo "Running LaTeX files through $(LATEX_ENGINE)..."
 	# fix missing latex_engine substitution in old versions of Sphinx
 	@sed -i '' -e 's/pdflatex/$(LATEX_ENGINE)/g' $(PREPROCDIR)/$(BUILDDIR)/latex/Makefile
