@@ -1578,40 +1578,14 @@ Updates and Trains
 %brand% uses signed update files. This provides flexibility in deciding
 when to upgrade the system with patches, new drivers, or new features.
 It also allows "test driving" an upcoming release. Combined with boot
-environments, new features or system patches can be tested while still
-being able to revert to a previous version of the operating system (see
-:ref:`If Something Goes Wrong`). Digitally signing update files
-eliminates the need to manually download both an upgrade file and the
+environments, new features or system patches can be tested while maintaining
+the ability to revert to a previous version of the operating system, using
+the instructions in :ref:`If Something Goes Wrong`. Digitally signed update
+files eliminate the need to manually download both an upgrade file and the
 associated checksum to verify file integrity.
 
-:numref:`Figure %s <update_options_fig>`
-shows an example of the
-:menuselection:`System --> Update`
-screen.
-
-
-.. _update_options_fig:
-
-#ifdef freenas
-.. figure:: images/system-update.png
-
-   Update Options
-#endif freenas
-#ifdef truenas
-.. figure:: images/truenas/system-update.png
-
-   Update Options
-#endif truenas
-
-
-By default, the system automatically checks for updates and issues an
-alert when a new update becomes available. The automatic check can be
-disabled by deselecting :guilabel:`Automatically check for new updates`.
-
-This screen shows which software branch, or *train*, is being tracked
-for updates.
-
-Several trains are available for updates.
+%brand% defines software branches, known as *trains*. Several trains are
+available for updates.
 
 .. caution:: **Only Production trains are recommended for regular
    usage.** Other trains are made available for pre-production testing
@@ -1643,15 +1617,10 @@ These trains are available:
   is the experimental branch for future versions and is meant only for
   testers and developers.
 
-
 * **FreeNAS-11-Nightlies-SDK: Do not use this train in production**.
   This train is meant only for developers. It is similar to
   *FreeNAS-11-Nightlies* but with extra development and debugging
   utilities added.
-
-* **FreeNAS-HEAD-Nightlies: Do not use this train in production**.
-  This train is meant only for developers and contains the source that
-  will eventually become %brand% version 12.
 
 **Legacy Versions**
 
@@ -1660,18 +1629,6 @@ These trains are available:
   Maintenance-only updates to the older version of %brand%. Upgrading
   to FreeNAS-11-STABLE is recommended to ensure that the system
   receives bug fixes and new features.
-
-
-To change the train, use the drop-down menu to make a different
-selection.
-
-.. note:: The train selector does not allow downgrades. For example,
-   the STABLE train cannot be selected while booted into a Nightly
-   boot environment, or a 9.10 train cannot be selected while booted
-   into a 11 boot environment. To go back to an earlier version
-   after testing or running a more recent version, reboot and select a
-   boot environment for that earlier version. This screen can then be
-   used to check for updates that train.
 
 
 #endif freenas
@@ -1702,27 +1659,52 @@ selection.
 Checking for Updates
 ~~~~~~~~~~~~~~~~~~~~
 
+:numref:`Figure %s <update_options_fig>`
+shows an example of the
+:menuselection:`System --> Update`
+screen.
+
+
+.. _update_options_fig:
+
 #ifdef freenas
-Check for updates by making sure the desired train is selected and
-clicking :guilabel:`DOWNLOAD UPDATE`.
+.. figure:: images/system-update.png
+
+   Update Options
+#endif freenas
+#ifdef truenas
+.. figure:: images/truenas/system-update.png
+
+   Update Options
+#endif truenas
+
+
+By default, the system automatically checks for updates and issues an
+alert when a new update becomes available. The automatic check can be
+disabled by deselecting :guilabel:`Automatically check for new updates`.
+
+To change the train, use the drop-down menu to make a different
+selection.
+
+.. note:: The train selector does not allow downgrades. For example,
+   the STABLE train cannot be selected while booted into a Nightly
+   boot environment, or a 9.10 train cannot be selected while booted
+   into a 11 boot environment. To go back to an earlier version
+   after testing or running a more recent version, reboot and select a
+   boot environment for that earlier version. This screen can then be
+   used to check for updates that train.
 
 In the example shown in
 :numref:`Figure %s <review_updates_fig>`, information about the update
-is displayed. This includes upgrades for different components of %brand%
-and a :guilabel:`Change log`:
+is displayed along with a link to the :guilabel:`release notes`. It is
+important to read the release notes before updating to determine if any
+of the changes in that release impact the use of the system.
 
 .. _review_updates_fig:
 
 .. figure:: images/system-update-review.png
 
    Reviewing Updates
-
-#endif freenas
-
-#ifdef truenas
-To see if any updates are available, click the :guilabel:`Check Now`
-button. Any available updates are listed.
-#endif truenas
 
 
 Applying Updates
@@ -1731,14 +1713,13 @@ Applying Updates
 Make sure the system is in a low-usage state as described above in
 :ref:`Preparing for Updates`.
 
-Click :guilabel:`APPLY PENDING UPDATE` when %brand% has automatically
-detected a new update. To manually check for and download a new update,
-click :guilabel:`DOWNLOAD UPDATE`.
+To initiate the update click :guilabel:`FETCH AND INSTALL UPDATES`.
 
 A confirmation window appears before the update is installed. Set
 :guilabel:`Apply updates and reboot system after downloading` and click
-:guilabel:`UPDATE` to download and apply the update. Be aware that
+:guilabel:`CONTINUE` to download and apply the update. Be aware that
 updates automatically reboot the system after they are applied.
+
 
 .. warning:: Each update creates a boot environment. If the update
    process needs more space, it attempts to remove old boot
@@ -1754,12 +1735,11 @@ updates automatically reboot the system after they are applied.
 Manual Updates
 ~~~~~~~~~~~~~~
 
-Updates can be manually downloaded as a file. These updates are then
-applied with the :guilabel:`MANUAL UPDATE` button. After obtaining the
-update file, click :guilabel:`MANUAL UPDATE` and choose a location to
-temporarily store the file on the %brand% system. Click
-:guilabel:`Browse` and use the file browser to locate the update file.
-Click :guilabel:`APPLY UPDATE` to apply it.
+Alternately, updates can be manually downloaded then applied using the
+:guilabel:`INSTALL MANUAL UPDATE FILE` button. Selecting this option
+prompts to choose a location to temporarily store the file on the %brand%
+system, a :guilabel:`Browse` button to navigate to the downloaded file,
+and an :guilabel:`APPLY UPDATE` button to initiate the manual update.
 
 Manual update files can be identified by their filenames, which end in
 :file:`-manual-update-unsigned.tar`.
