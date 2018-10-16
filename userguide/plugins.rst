@@ -599,10 +599,6 @@ is supported by following the process outlined in
    | `MineOS <https://minecraft.codeemo.com/>`__                             | Self-contained Minecraft server.                                       |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `Nextcloud <https://nextcloud.com/>`__                                  | Access, share and protect files, calendars, contacts, communication &  |
-   |                                                                         | more at home and in the enterprise environment.                        |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `PlexMediaServer <https://www.plex.tv/>`__                              | The Plex media server system.                                          |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
@@ -620,9 +616,6 @@ is supported by following the process outlined in
    | `radarr <https://radarr.video/>`__                                      | A fork of Sonarr to work with movies in the style of Couchpotato.      |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Redmine <http://www.redmine.org/>`__                                   | Flexible project management web application.                           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `SickRage <https://github.com/SiCKRAGETV/SickRage>`__                   | Automatic Video Library Manager for TV Shows.                          |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Sonarr <https://sonarr.tv/>`__                                         | PVR for Usenet and BitTorrent users.                                   |
