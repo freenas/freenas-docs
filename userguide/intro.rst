@@ -240,6 +240,10 @@ This software has been added or updated:
   from the command line. Type :command:`convmv` to view the available
   options.
 
+* The :command:`cloneacl` CLI utility has been added. It can be used to
+  quickly clone a complex ACL recursively to or from an existing share.
+  Type :command:`cloneacl` for usage instructions.
+
 * These switches have been added to :ref:`freenas-debug`:
   :command:`-J` for dumping iocage information, :command:`-M` for
   dumping SATADOM info, and :command:`-Z` to delete old debug
