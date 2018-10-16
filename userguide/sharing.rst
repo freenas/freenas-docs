@@ -104,8 +104,8 @@ configuration examples for configuring Time Machine to back up to a
 dataset on the %brand% system and for connecting to the share from a
 macOS client.
 
-Create a share by navigating
-:menuselection:`Sharing --> Apple (AFP)` and clicking |ui-add|.
+Create a share by clicking
+:menuselection:`Sharing --> Apple (AFP)`, then |ui-add|.
 
 New AFP shares are visible in the
 :menuselection:`Sharing --> Apple (AFP)` menu.
@@ -256,15 +256,19 @@ and click the sliding button to turn on the service. Click
 Next, create a dataset for the guest share. Refer to
 :ref:`Adding Datasets` for more information about dataset creation.
 
-After creating the dataset for the guest share, navigate
-:menuselection:`Storage --> Pools`, click the
-|ui-options| button for the dataset, then :guilabel:`Edit Permissions`.
-Complete the fields shown in
+After creating the dataset for the guest share, go to
+:menuselection:`Storage --> Pools`,
+click the |ui-options| button for the dataset, then
+click :guilabel:`Edit Permissions`. Complete the fields shown in
 :numref:`Figure %s <creating_guest_afp_dataset_fig>`.
 
+
 #. **ACL Type:** Select :guilabel:`Mac`.
+
 #. **User:** Use the drop-down to select :guilabel:`Nobody`.
+
 #. Click :guilabel:`SAVE`.
+
 
 .. _creating_guest_afp_dataset_fig:
 
@@ -282,11 +286,11 @@ To create a guest AFP share:
 #. Fill out the other required fields, then press :guilabel:`SAVE`.
 
 
-macOS users can connect to the guest AFP share by navigating
-:menuselection:`Go --> Connect to Server`. In the example shown in
-:numref:`Figure %s <afp_connect_server_fig>`,
-the user entered *afp://* followed by the IP address of the
-%brand% system.
+macOS users can connect to the guest AFP share by clicking
+:menuselection:`Go --> Connect to Server`.
+In the example shown in :numref:`Figure %s <afp_connect_server_fig>`,
+the user entered *afp://* followed by the IP address of the %brand%
+system.
 
 Click the :guilabel:`Connect` button. Once connected, Finder opens
 automatically. The name of the AFP share is displayed in the SHARED
@@ -325,36 +329,46 @@ Before creating a Time Machine or authenticated share, go to
 For more information about dataset creation, refer to
 :ref:`Adding Datasets`.
 
-After creating the dataset for the guest share, navigate
-:menuselection:`Storage --> Pools`, click the |ui-options| button for
-the dataset, then :guilabel:`Edit Permissions`.
+After creating the dataset for the guest share, go to
+:menuselection:`Storage --> Pools`,
+click the |ui-options| button for the dataset, then
+:guilabel:`Edit Permissions`.
 
 Enter the following information as shown in
 :numref:`Figure %s <creating_an_authenticated_share_fig>`.
 
 #. **ACL Type:** Select :guilabel:`Mac`.
+
 #. **User:** Use the drop-down to select the desired user account.
    If the user does not yet exist on the %brand% system, go to
    :menuselection:`Accounts --> Users` to create one. Refer to
    :ref:`users <Users>` in this guide for more information
    about creating a user.
+
 #. **Group:** Use the drop-down to select the desired group name.
    If the group does not yet exist on the %brand% system, go to
    :menuselection:`Accounts --> Groups` to create one. Refer to
    :ref:`groups <Groups>` in this guide for more information about
    creating a group.
+
 #. Click :guilabel:`SAVE`.
+
 
 To create an authenticated or Time Machine share:
 
-#. Navigate to :menuselection:`Sharing --> AFP` and
+#. Go to :menuselection:`Sharing --> AFP` and
    click |ui-add|.
+
 #. :guilabel:`Browse` to the dataset created for
    the share.
-#. If creating a Time Machine share, enable the
+
+#. When creating a Time Machine share, enable the
    :guilabel:`Time Machine` option.
+
 #. Fill out the other required fields.
+
 #. Click :guilabel:`SAVE`.
+
 
 To configure multiple authenticated or Time Machine shares, repeat
 this process for each user. The new shares appear in
@@ -853,8 +867,8 @@ where:
   changing the default port number and ensure that the network
   firewall only allows access to authorized systems.
 
-* **share_name:** is configured by navigating
-  :menuselection:`Sharing --> WebDAV Shares` and clicking |ui-add|.
+* **share_name:** is configured by clicking
+  :menuselection:`Sharing --> WebDAV Shares`, then |ui-add|.
 
 Entering the URL in a web browser brings up an authentication pop-up
 message. Enter a username of *webdav* and the password configured in
@@ -985,8 +999,9 @@ the configuration scenario that meets the specific network requirements.
 
 
 :numref:`Figure %s <adding_smb_share_fig>`
-shows the configuration screen that appears after navigating
-:menuselection:`Sharing --> Windows (SMB Shares)` and clicking |ui-add|.
+shows the configuration screen that appears after clicking
+:menuselection:`Sharing --> Windows (SMB Shares)`,
+then |ui-add|.
 
 
 .. _adding_smb_share_fig:
@@ -1312,12 +1327,17 @@ more important than the security of the data on the share.
 
 To configure an unauthenticated SMB share:
 
-#. Navigate :menuselection:`Sharing --> Windows (SMB) Shares`
+#. Go to
+   :menuselection:`Sharing --> Windows (SMB) Shares`
    and click |ui-add|.
+
 #. Fill out the the fields as shown in
    :numref:`Figure %s <create_unauth_smb_share_fig>`.
+
 #. Enable the :guilabel:`Allow guest access` option.
+
 #. Press :guilabel:`SAVE`.
+
 
 .. note:: If a dataset for the share has not been created, refer to
    :ref:`Adding Datasets` to find out more about dataset creation.
@@ -1379,14 +1399,19 @@ After creating the dataset, go to
 :numref:`Figure %s <edit_permissions_smb_share_fig>`.
 
 #. **ACL Type:** Select :guilabel:`Windows`.
-#. **User:** If the user does not yet exist on the %brand% system, go to
-   :menuselection:`Accounts --> Users` to create one. Refer to
-   :ref:`Users` for more information about creating a user. After the
-   user has been created, use the drop-down to select the user account.
+
+#. **User:** If the user does not yet exist on the %brand% system, go
+   to
+   :menuselection:`Accounts --> Users`
+   to create one. Refer to :ref:`Users` for more information about
+   creating a user. After the user has been created, use the drop-down
+   to select the user account.
+
 #. **Group:** Use the drop-down to select the desired group name.
    If the group does not yet exist on the %brand% system, go to
    :menuselection:`Accounts --> Groups` to create one. Refer to
    :ref:`Groups` for more information about creating a group.
+
 #. Click :guilabel:`SAVE`.
 
 
@@ -1397,9 +1422,9 @@ After creating the dataset, go to
    Editing Dataset Permissions for Authenticated SMB Share
 
 
-To create an authenticated SMB share, navigate
-:menuselection:`Sharing --> Windows (SMB) Shares` and click |ui-add|,
-as shown in
+To create an authenticated SMB share, go to
+:menuselection:`Sharing --> Windows (SMB) Shares`
+and click |ui-add|, as shown in
 :numref:`Figure %s <create_auth_smb_share_fig>`.
 Browse to the dataset created for the share and enter a name for the
 share. Press :guilabel:`SAVE` to create the share.
@@ -1538,14 +1563,14 @@ example, two authenticated shares are created so that each user
 account has their own share. The first share is named *user1* and the
 second share is named *user2*. Then:
 
-#. Navigate
-   :menuselection:`Tasks --> Periodic Snapshot Tasks` and click |ui-add|
-   to create at least one periodic snapshot task. There are two
-   options for snapshot tasks. One is to create a snapshot task
-   for each user's dataset. In this example the datasets are
-   :file:`/mnt/volume1/user1` and :file:`/mnt/volume1/user2`.
+#. Go to
+   :menuselection:`Tasks --> Periodic Snapshot Tasks`
+   and click |ui-add| to create at least one periodic snapshot task.
+   There are two options for snapshot tasks. One is to create a
+   snapshot task for each user's dataset. In this example the datasets
+   are :file:`/mnt/volume1/user1` and :file:`/mnt/volume1/user2`.
    Another option is to create one periodic snapshot task for the
-   entire volume,:file:`/mnt/volume1` in this case.
+   entire volume, :file:`/mnt/volume1` in this case.
    **Before continuing to the next step,** confirm that at least one
    snapshot for each defined task is displayed in the
    :menuselection:`Storage --> Snapshots`
@@ -1787,8 +1812,8 @@ Portals
 
 A portal specifies the IP address and port number to be used for iSCSI
 connections.
-Navigating :menuselection:`Sharing --> Block (iSCSI) --> Portals`
-and clicking |ui-add| brings up the screen shown in
+Go to :menuselection:`Sharing --> Block (iSCSI) --> Portals`
+and click |ui-add| to display the screen shown in
 :numref:`Figure %s <iscsi_add_portal_fig>`.
 
 :numref:`Table %s <iscsi_add_portal_fig>`
@@ -1877,7 +1902,7 @@ Initiators
 
 The next step is to configure authorized initiators, or the systems
 which are allowed to connect to the iSCSI targets on the %brand%
-system. To configure which systems can connect, navigate
+system. To configure which systems can connect, go to
 :menuselection:`Sharing --> Block (iSCSI) --> Initiators`
 and click |ui-add| as shown in
 :numref:`Figure %s <iscsi_add_initiator_fig>`.
@@ -1948,9 +1973,9 @@ Authorized Accesses
 ~~~~~~~~~~~~~~~~~~~
 
 When using CHAP or mutual CHAP to provide authentication,
-creating an authorized access by navigating
-:menuselection:`Sharing --> Block (iSCSI) --> Authorized Access` and
-clicking |ui-add| is recommended. This screen is shown in
+creating an authorized access is recommended. Do this by going to
+:menuselection:`Sharing --> Block (iSCSI) --> Authorized Access`
+and clicking |ui-add|. The screen is shown in
 :numref:`Figure %s <iscsi_add_auth_access_fig>`.
 
 .. note:: This screen sets login authentication. This is different
@@ -2026,7 +2051,7 @@ Click an authorized access entry to display its :guilabel:`Edit` and
 Targets
 ~~~~~~~
 
-Next, create a Target by navigating
+Next, create a Target by going to
 :menuselection:`Sharing --> Block (iSCSI) --> Targets` and clicking
 |ui-add| as shown in
 :numref:`Figure %s <iscsi_add_target_fig>`.
@@ -2144,10 +2169,9 @@ ZFS features like block checksums and snapshots.
    in :ref:`Growing LUNs`.
 
 
-To add an extent, navigate
-:menuselection:`Sharing --> Block (iSCSI) --> Extents` and click
-|ui-add|.
-In the example shown in
+To add an extent, go to
+:menuselection:`Sharing --> Block (iSCSI) --> Extents`
+and click |ui-add|. In the example shown in
 :numref:`Figure %s <iscsi_adding_extent_fig>`,
 the device extent is using the :file:`export` zvol that was previously
 created from the :file:`/mnt/pool1` pool.
@@ -2236,9 +2260,9 @@ file to be created is appended to the pool or dataset name.**
 Target/Extents
 ~~~~~~~~~~~~~~
 
-The last step is associating an extent to a target by navigating
+The last step is associating an extent to a target by going to
 :menuselection:`Sharing --> Block (iSCSI) --> Associated Targets`
-and clicking |ui-add|. This screen is shown in
+and clicking |ui-add|. The screen is shown in
 :numref:`Figure %s <iscsi_target_extent_fig>`.
 Use the drop-down menus to select the existing target and extent.
 Click :guilabel:`SAVE` to add an entry for the LUN.
@@ -2324,11 +2348,11 @@ Since the :guilabel:`Portals`, :guilabel:`Initiators`, and
 :guilabel:`Authorized Access` screens only apply to iSCSI, they are
 marked as such and can be ignored when configuring Fibre Channel.
 
-As seen in
-:numref:`Figure %s <tn_fibre2>`,
-an extra :guilabel:`Target Mode` option appears after navigating
-:menuselection:`Targets` and clicking |ui-add|. This new option is for
-indicating whether the target to create is iSCSI, Fibre Channel, or both.
+As shown in :numref:`Figure %s <tn_fibre2>`,
+an extra :guilabel:`Target Mode` option appears after going to
+:menuselection:`Targets`
+and clicking |ui-add|. This new option is to select whether the
+target to create is iSCSI, Fibre Channel, or both.
 
 
 .. _tn_fibre2:
@@ -2394,9 +2418,9 @@ prevent the engineering department from accessing data from the
 human resources department. Refer to the switch documentation for
 details on how to configure zoning of virtual ports.
 
-To create the virtual ports on the %brand% system, navigate
-:menuselection:`System --> Tunables`, click |ui-add|,
-and enter these options:
+To create the virtual ports on the %brand% system, go to
+:menuselection:`System --> Tunables`,
+click |ui-add|, and enter these options:
 
    * **Variable:** input *hint.isp.X.vports*, replacing X with the
      number of the physical interface.
@@ -2530,10 +2554,10 @@ use the new space.
 Zvol Based LUN
 ^^^^^^^^^^^^^^
 
-To grow a zvol based LUN, navigate
-:menuselection:`Storage --> Pools`, click |ui-options| on the zvol
-to be grown, then press :guilabel:`Edit zvol`. In
-the example shown in
+To grow a zvol-based LUN, go to
+:menuselection:`Storage --> Pools`,
+click |ui-options| on the zvol to be grown, then click
+:guilabel:`Edit zvol`. In the example shown in
 :numref:`Figure %s <iscsi_zvol_lun_fig>`,
 the current size of the zvol named *zvol1* is 4 GiB.
 
@@ -2566,11 +2590,12 @@ the :menuselection:`Storage --> Pools` table.
 File Extent Based LUN
 ^^^^^^^^^^^^^^^^^^^^^
 
-To grow a file extent based LUN:
+To grow a file extent-based LUN:
 
-Navigate :menuselection:`Services --> iSCSI --> CONFIGURE --> Extents`.
-Click |ui-options| then :guilabel:`Edit`. Ensure the
-:guilabel:`Extent Type` is set to file and determine the
+Go to
+:menuselection:`Services --> iSCSI --> CONFIGURE --> Extents`.
+Click |ui-options|, then :guilabel:`Edit`. Ensure the
+:guilabel:`Extent Type` is set to file and enter the
 :guilabel:`Path to the extent`.
 Open the :ref:`Shell` to grow the file extent. This example
 grows :file:`/mnt/pool1/data` by 2 GiB:
