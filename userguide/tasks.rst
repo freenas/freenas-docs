@@ -104,15 +104,16 @@ lists the configurable options for a cron job.
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
 
 
-Cron jobs are shown in :menuselection:`Tasks --> Cron Jobs`. This table
-displays the user, command, description, schedule, and if the job is
-enabled. This table is adjustable by setting the different column
-checkboxes above it. Set :guilabel:`Toggle` to display all options in
-the table. Click |ui-options| for an entry to see the :guilabel:`Run Now`,
-:guilabel:`Edit` and :guilabel:`Delete` options.
+Cron jobs are shown in
+:menuselection:`Tasks --> Cron Jobs`.
+This table displays the user, command, description, schedule, and
+whether the job is enabled. This table is adjustable by setting the
+different column checkboxes above it. Set :guilabel:`Toggle` to
+display all options in the table. Click |ui-options| for to show the
+:guilabel:`Run Now`, :guilabel:`Edit`, and :guilabel:`Delete` options.
 
-.. note:: :literal:`%` symbols are automatically escaped and do not need
-   to be prefixed with backslashes. For example, use
+.. note:: :literal:`%` symbols are automatically escaped and do not
+   need to be prefixed with backslashes. For example, use
    :samp:`date '+%Y-%m-%d'` in a cron job to generate a filename based
    on the date.
 
@@ -419,8 +420,8 @@ In this example:
   original permissions are not overwritten by the *root* user
 
 On *PULL*, an rsync module is defined in
-:menuselection:`Services --> Rsync Configure --> Rsync Module`, |ui-add|.
-In this example:
+:menuselection:`Services --> Rsync Configure --> Rsync Module`,
+|ui-add|. In this example:
 
 * the :guilabel:`Module Name` is *backups*; this needs to match the
   setting on the rsync client
@@ -673,7 +674,7 @@ An example configuration is to schedule a :guilabel:`Short Self-Test`
 once a week and a :guilabel:`Long Self-Test` once a month. These tests
 do not have a performance impact, as the disks prioritize normal
 I/O over the tests. If a disk fails a test, even if the overall status
-is *Passed*, start to think about replacing that disk.
+is *Passed*, consider replacing that disk.
 
 .. warning:: Some S.M.A.R.T. tests cause heavy disk activity and
    can drastically reduce disk performance. Do not schedule S.M.A.R.T.
@@ -731,7 +732,7 @@ To create a periodic snapshot task, navigate to
 and click |ui-add|. This opens the screen shown in
 :numref:`Figure %s <zfs_periodic_snapshot_fig>`.
 :numref:`Table %s <zfs_periodic_snapshot_opts_tab>`
-summarizes the fields in this screen.
+describes the fields in this screen.
 
 
 .. _zfs_periodic_snapshot_fig:
