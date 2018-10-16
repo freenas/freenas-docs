@@ -239,8 +239,8 @@ or imported into the %brand% system.
    *77x*.
 
 Before creating a guest share, go to :menuselection:`Services --> AFP`
-and click the |ui-power| button to turn on the service. Click
-:guilabel:`CONFIGURE` to open the screen shown in
+and click the sliding button to turn on the service. Click
+|ui-configure| to open the screen shown in
 :numref:`Figure %s <creating_guest_afp_share_fig>`. For
 :guilabel:`Guest Account`, use the drop-down to select
 :guilabel:`Nobody`, set :guilabel:`Guest Access`, and click
@@ -455,7 +455,7 @@ application.
 #endif freenas
 
 Before creating an NFS share, go to
-:menuselection:`Services --> NFS` and click the |ui-power| button to
+:menuselection:`Services --> NFS` and click the sliding button to
 turn on the service.
 
 Next, go to :menuselection:`Storage --> Pools` to create a dataset
@@ -1078,9 +1078,9 @@ provides more details for each configurable option.
 Here are some notes about :guilabel:`ADVANCED MODE` settings:
 
 * Hostname lookups add some time to accessing the SMB share. If
-  only using IP addresses, uncheck the :guilabel:`Hostnames Lookups` box
-  in
-  :menuselection:`Services --> SMB --> Configure`.
+  only using IP addresses, unset the :guilabel:`Hostnames Lookups`
+  setting in
+  :menuselection:`Services --> SMB -->` |ui-configure|.
 
 * When the :guilabel:`Browsable to Network Clients` option is selected,
   the share is visible through Windows File Explorer or
@@ -1112,7 +1112,7 @@ has information about the security implications and ways to enable
 NTLMv2 on those clients. If changing the client configuration is not
 possible, NTLMv1 authentication can be enabled by selecting the
 :guilabel:`NTLMv1 auth` option in
-:menuselection:`Services --> SMB --> CONFIGURE`.
+:menuselection:`Services --> SMB -->` |ui-configure|.
 
 :numref:`Table %s <avail_vfs_modules_tab>`
 provides an overview of the available VFS modules. Be sure to research
