@@ -44,9 +44,9 @@
    +---------------------------+----------------------------------------------------+
    | |ui-power|                | Show a power options menu.                         |
    +---------------------------+----------------------------------------------------+
-   | |ui-password-show|        | Show characters typed in a password field.         |
+   | |ui-password-show|        | Reveal characters in a password field.             |
    +---------------------------+----------------------------------------------------+
-   | |ui-password-hide|        | Hide characters typed in a password field.         |
+   | |ui-password-hide|        | Hide characters in a password field.               |
    +---------------------------+----------------------------------------------------+
    | |ui-configure|            | Edit settings.                                     |
    +---------------------------+----------------------------------------------------+
