@@ -15,39 +15,40 @@ a FreeBSD jail.
 Perl must be installed.
 
 The following software must be installed at minimum. If this is the
-first time pkg has been used on the system, it fetches and installs itself.
-Say yes to the prompts to do so. Once it has completed, finish
+first time pkg has been used on the system, it fetches and installs
+itself. Say yes to the prompts to do so. Once it has completed, finish
 installing the needed software.
 
-Instructions are given for both ports and packages, as some software might
-not have a package. Try the pkg command first, as it is faster. If the
-pkg command succeeds, it is not necessary to run the make command as the
-software is already installed; however if it fails, use the make command
-to install the software. If the software is already installed, the pkg
-command will indicate that the most recent version is already installed.
+Instructions are given for both ports and packages, as some software
+might not have a package. Try the pkg command first, as it is faster. If
+the pkg command succeeds, it is not necessary to run the make command as
+the software is already installed; however if it fails, use the make
+command to install the software. If the software is already installed,
+the pkg command will indicate that the most recent version is already
+installed.
 
 ```
 portsnap fetch extract
-pkg install devel/git                            (make -C /usr/ports/devel/git install clean)
-pkg install textproc/py-sphinx                   (make -C /usr/ports/textproc/py-sphinx install clean)
-pkg install textproc/py-sphinxcontrib-httpdomain (make -C /usr/ports/textproc/py-sphinxcontrib-httpdomain install clean)
+pkg install devel/git                    (make -C /usr/ports/devel/git install clean)
+pkg install textproc/py-sphinx           (make -C /usr/ports/textproc/py-sphinx install clean)
 rehash
 ```
 
-To generate a PDF version of the documentation, this software also must be
-installed:
+To generate a PDF version of the documentation, this software also must
+be installed:
 
 ```
-pkg install print/tex-formats  (make -C /usr/ports/print/tex-formats install clean)
-pkg install print/tex-dvipdfmx (make -C /usr/ports/print/tex-dvipdfmx install clean)
-pkg install print/tex-dvipsk   (make -C /usr/ports/print/tex-dvipsk install clean)
-pkg install print/tex-xetex    (make -C /usr/ports/print/tex-xetex install clean)
-pkg install devel/gmake        (make -C /usr/ports/devel/gmake install clean)
+pkg install print/tex-formats            (make -C /usr/ports/print/tex-formats install clean)
+pkg install print/tex-dvipdfmx           (make -C /usr/ports/print/tex-dvipdfmx install clean)
+pkg install print/tex-dvipsk             (make -C /usr/ports/print/tex-dvipsk install clean)
+pkg install print/tex-xetex              (make -C /usr/ports/print/tex-xetex install clean)
+pkg install devel/gmake                  (make -C /usr/ports/devel/gmake install clean)
+pkg install x11-fonts/materialdesign-ttf (make -C /usr/ports/x11-fonts/materialdesign-ttf install clean)
 ```
 
 Choose a place to store the source code and change to that directory
-(we will refer to it as /path/to/your-build-directory). Then check out the
-source code from git:
+(we will refer to it as /path/to/your-build-directory). Then check out
+the source code from git:
 
 ```
 cd /path/to/your-build-directory
