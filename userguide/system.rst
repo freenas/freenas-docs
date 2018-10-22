@@ -417,9 +417,11 @@ configuration buttons are shown:
 
 The buttons above the boot entries can be used to:
 
-* **Create:** a manual boot environment. A pop-up menu prompts for
-  entry of a :guilabel:`Name` for the boot environment. Only
-  alphanumeric characters, underscores, and dashes are allowed.
+* **Create:** creates a copy of the active environment. The active boot
+  environment contains the text "On Reboot, Now" in the
+  :guilabel:`Active` column. Prompts for a :guilabel:`Name` of the
+  copied boot environment. Only alphanumeric characters, underscores,
+  and dashes are allowed.
 
 * **Scrub Boot:** can be used to perform a manual scrub of the boot
   devices. By default, the boot device is scrubbed every 7 days. To
@@ -431,6 +433,9 @@ The buttons above the boot entries can be used to:
 * **Status:** click this button to see the status of the boot devices.
   :numref:`Figure %s <status_boot_dev_fig>`,
   shows only one boot device, which is *ONLINE*.
+
+.. note:: Using :guilabel:`Clone` to clone the active boot environment
+   functions the same as using :guilabel:`Create`.
 
 
 .. _status_boot_dev_fig:
