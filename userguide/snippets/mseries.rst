@@ -95,8 +95,8 @@ storage controller are:
    | 6: 10Gb Ethernet port                                                  | 12: Storage controller management port                                 |
    +------------------------------------------------------------------------+------------------------------------------------------------------------+
 
-.. warning:: Single controller systems must be powered down before
-   pulling out the controller or data loss will occur!
+.. warning:: Single controller systems must be shut down and powered off
+   before removing the controller or data loss will occur!
 
 
 .. _m_back:
