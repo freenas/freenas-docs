@@ -410,7 +410,7 @@ configuration buttons are shown:
 
 * **Activate:** only appears on entries which are not currently set to
   :guilabel:`Active`. Changes the selected entry to the default boot
-  entry on next boot. Its status changes to :guilabel:`On Reboot` and
+  entry on next boot. The status changes to :guilabel:`On Reboot` and
   the current :guilabel:`Active` entry changes from
   :guilabel:`On Reboot, Now` to :guilabel:`Now`, indicating that it
   was used on the last boot but will not be used on the next boot.
@@ -418,7 +418,7 @@ configuration buttons are shown:
 The buttons above the boot entries can be used to:
 
 * **Create:** creates a copy of the active environment. The active boot
-  environment contains the text "On Reboot, Now" in the
+  environment contains the text :literal:`On Reboot, Now` in the
   :guilabel:`Active` column. Prompts for a :guilabel:`Name` of the
   copied boot environment. Only alphanumeric characters, underscores,
   and dashes are allowed.
