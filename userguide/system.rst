@@ -395,7 +395,7 @@ configuration buttons are shown:
   (automatically delete) this boot environment if there is not enough
   space to proceed with the update.
 
-* **Clone:** used to create a copy of the highlighted boot
+* **Clone:** Makes a new boot environment from the selected boot
   environment.
 
 * **Delete:** used to delete the highlighted entry, which also removes
@@ -417,11 +417,10 @@ configuration buttons are shown:
 
 The buttons above the boot entries can be used to:
 
-* **Create:** creates a copy of the active environment. The active boot
-  environment contains the text :literal:`On Reboot, Now` in the
-  :guilabel:`Active` column. Prompts for a :guilabel:`Name` of the
-  copied boot environment. Only alphanumeric characters, underscores,
-  and dashes are allowed.
+* **Create:** makes a new boot environment from the active environment.
+  The active boot environment contains the text :literal:`On Reboot, Now`
+  in the :guilabel:`Active` column. Only alphanumeric characters,
+  underscores, and dashes are allowed in the name.
 
 * **Scrub Boot:** can be used to perform a manual scrub of the boot
   devices. By default, the boot device is scrubbed every 7 days. To
