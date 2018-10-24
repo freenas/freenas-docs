@@ -38,11 +38,12 @@ To generate a PDF version of the documentation, this software also must be
 installed:
 
 ```
-pkg install print/tex-formats  (make -C /usr/ports/print/tex-formats install clean)
-pkg install print/tex-dvipdfmx (make -C /usr/ports/print/tex-dvipdfmx install clean)
-pkg install print/tex-dvipsk   (make -C /usr/ports/print/tex-dvipsk install clean)
-pkg install print/tex-xetex    (make -C /usr/ports/print/tex-xetex install clean)
-pkg install devel/gmake        (make -C /usr/ports/devel/gmake install clean)
+pkg install print/tex-formats            (make -C /usr/ports/print/tex-formats install clean)
+pkg install print/tex-dvipdfmx           (make -C /usr/ports/print/tex-dvipdfmx install clean)
+pkg install print/tex-dvipsk             (make -C /usr/ports/print/tex-dvipsk install clean)
+pkg install print/tex-xetex              (make -C /usr/ports/print/tex-xetex install clean)
+pkg install x11-fonts/materialdesign-ttf (make -C /usr/ports/x11-fonts/materialdesign-ttf install clean)
+pkg install devel/gmake                  (make -C /usr/ports/devel/gmake install clean)
 ```
 
 Choose a place to store the source code and change to that directory
