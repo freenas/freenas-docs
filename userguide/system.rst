@@ -1350,9 +1350,9 @@ screen.
 #endif truenas
 
 
-The system checks daily for updates and will download an update when one
-is available. It also issues an alert when a new update becomes
-available. The automatic check and download of updates is disabled by
+The system checks daily for updates and downloads an update if one
+is available. An alert is issued when a new update becomes
+available. The automatic check and download of updates can be disabled by
 unsetting :guilabel:`Check for Updates Daily and Download if Available`.
 
 This screen lists the URL of the official update server in case that
