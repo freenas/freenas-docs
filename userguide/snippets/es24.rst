@@ -230,11 +230,13 @@ Plug the ES24 power cords into power outlets.
 
 
 Connect an SAS cable from ES24 expansion module 1 SAS 0 connector to
-the farthest left Z series node 1 SAS connector (cable #1 in photo).
+the farthest left Z series storage controller 1 SAS connector (cable #1
+in photo).
 
-If the Z series has a second node for HA (High Availability), connect
-a second SAS cable from ES24 expansion module 2 SAS 0 connector to the
-farthest left Z series node 2 SAS connector (cable #2 in photo).
+If the Z series has a second storage controller for HA (High
+Availability), connect a second SAS cable from ES24 expansion module 2
+SAS 0 connector to the farthest left Z series storage controller 2 SAS
+connector (cable #2 in photo).
 
 
 .. _es24_sasconnect1:
@@ -275,4 +277,3 @@ it into place.
 .. raw:: latex
 
    \newpage
-
