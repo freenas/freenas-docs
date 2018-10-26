@@ -4,6 +4,11 @@
 Jails
 =====
 
+.. warning:: This section describes installing and using jails on %brand%
+   version 11.2 or later. Any jails created with a previous version of
+   %brand% must be managed with the :ref:`Legacy Web Interface`.
+
+
 Jails are a lightweight, operating-system-level virtualization.
 One or multiple services can run in a jail, isolating those services
 from the host %brand% system. %brand% uses the
