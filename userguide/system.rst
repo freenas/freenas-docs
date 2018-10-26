@@ -395,7 +395,7 @@ configuration buttons are shown:
   (automatically delete) this boot environment if there is not enough
   space to proceed with the update.
 
-* **Clone:** Makes a new boot environment from the selected boot
+* **Clone:** makes a new boot environment from the selected boot
   environment.
 
 * **Delete:** used to delete the highlighted entry, which also removes
