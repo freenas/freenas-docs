@@ -395,7 +395,7 @@ configuration buttons are shown:
   (automatically delete) this boot environment if there is not enough
   space to proceed with the update.
 
-* **Clone:** used to create a copy of the highlighted boot
+* **Clone:** makes a new boot environment from the selected boot
   environment.
 
 * **Delete:** used to delete the highlighted entry, which also removes
@@ -410,16 +410,17 @@ configuration buttons are shown:
 
 * **Activate:** only appears on entries which are not currently set to
   :guilabel:`Active`. Changes the selected entry to the default boot
-  entry on next boot. Its status changes to :guilabel:`On Reboot` and
+  entry on next boot. The status changes to :guilabel:`On Reboot` and
   the current :guilabel:`Active` entry changes from
   :guilabel:`On Reboot, Now` to :guilabel:`Now`, indicating that it
   was used on the last boot but will not be used on the next boot.
 
 The buttons above the boot entries can be used to:
 
-* **Create:** a manual boot environment. A pop-up menu prompts for
-  entry of a :guilabel:`Name` for the boot environment. Only
-  alphanumeric characters, underscores, and dashes are allowed.
+* **Create:** makes a new boot environment from the active environment.
+  The active boot environment contains the text :literal:`On Reboot, Now`
+  in the :guilabel:`Active` column. Only alphanumeric characters,
+  underscores, and dashes are allowed in the name.
 
 * **Scrub Boot:** can be used to perform a manual scrub of the boot
   devices. By default, the boot device is scrubbed every 7 days. To
@@ -431,6 +432,9 @@ The buttons above the boot entries can be used to:
 * **Status:** click this button to see the status of the boot devices.
   :numref:`Figure %s <status_boot_dev_fig>`,
   shows only one boot device, which is *ONLINE*.
+
+.. note:: Using :guilabel:`Clone` to clone the active boot environment
+   functions the same as using :guilabel:`Create`.
 
 
 .. _status_boot_dev_fig:
