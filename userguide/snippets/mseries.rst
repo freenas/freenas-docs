@@ -95,6 +95,9 @@ storage controller are:
    | 6: 10Gb Ethernet port                                                  | 12: Storage controller management port                                 |
    +------------------------------------------------------------------------+------------------------------------------------------------------------+
 
+.. warning:: Single controller systems must be shut down and powered off
+   before removing the controller or data loss will occur!
+
 
 .. _m_back:
 
@@ -102,6 +105,10 @@ storage controller are:
    :width: 100%
 
    Back Panel
+
+
+.. note:: The 1 Gb Ethernet Out of Band management port (#3) must be
+   connected to a network to enable IPMI functions on the M-Series.
 
 
 .. raw:: latex
@@ -181,4 +188,3 @@ web interface, *192.168.100.231* in this example:
 
 Enter the IP address into a browser on a computer on the same network
 to access the web user interface.
-
