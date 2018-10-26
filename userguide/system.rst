@@ -1350,9 +1350,10 @@ screen.
 #endif truenas
 
 
-By default, the system automatically checks for updates and issues an
-alert when a new update becomes available. The automatic check can be
-disabled by deselecting :guilabel:`Automatically check for updates`.
+The system checks daily for updates and will download an update when one
+is available. It also issues an alert when a new update becomes
+available. The automatic check and download of updates is disabled by
+unsetting :guilabel:`Check for Updates Daily and Download if Available`.
 
 This screen lists the URL of the official update server in case that
 information is needed in a network with outbound firewall
@@ -1504,15 +1505,15 @@ applied.
    Review the boot environments and remove the *Keep* attribute or
    delete any boot environments that are no longer needed.
 
-Updates can also be downloaded and applied later. To do so, deselect
-the :guilabel:`Apply updates after downloading` option before pressing
+Updates can also be downloaded and applied later. To do so, unset the
+:guilabel:`Apply updates after downloading` option before pressing
 :guilabel:`OK`. In this case, this screen closes after updates are
 downloaded. Downloaded updates are listed in the
 :guilabel:`Pending Updates` section of the screen shown in
 :numref:`Figure %s <update_options_fig>`.
 When ready to apply the previously downloaded updates, click the
 :guilabel:`Apply Pending Updates` button. Remember that the system
-may reboot after the updates are applied.
+reboots after the updates are applied.
 
 .. warning:: After updates have completed, reboot the system.
    Configuration changes made after an update but before that final
