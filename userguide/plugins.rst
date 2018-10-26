@@ -110,6 +110,9 @@ The plugin must be started before the installed application is
 available. Click |ui-options| and :guilabel:`Start`. The plugin
 :guilabel:`Status` changes to :literal:`up` when it starts successfully.
 
+Stop and immediately start an :literal:`up` plugin by clicking
+|ui-options| and :guilabel:`Restart`.
+
 Click |ui-options| and :guilabel:`Management` to open a management
 or configuration screen for the application. For example, clicking
 :guilabel:`Management` for an installed Plex plugin opens the Plex

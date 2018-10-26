@@ -720,6 +720,9 @@ available for a jail.
    |              | for more details.                                             |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
+   | Restart      | Stop and immediately start an :literal:`up` jail.             |
+   |              |                                                               |
+   +--------------+---------------------------------------------------------------+
    | Start        | Start a jail that has a current :guilabel:`Status` of         |
    |              | *down*.                                                       |
    |              |                                                               |
