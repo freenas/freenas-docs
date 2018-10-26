@@ -1679,9 +1679,10 @@ screen.
 #endif truenas
 
 
-By default, the system automatically checks for updates and issues an
-alert when a new update becomes available. The automatic check can be
-disabled by deselecting :guilabel:`Automatically check for new updates`.
+The system checks daily for updates and downloads an update if one
+is available. An alert is issued when a new update becomes
+available. The automatic check and download of updates is disabled by
+unsetting :guilabel:`Check for Updates Daily and Download if Available`.
 
 To change the train, use the drop-down menu to make a different
 selection.
@@ -1693,6 +1694,7 @@ selection.
    after testing or running a more recent version, reboot and select a
    boot environment for that earlier version. This screen can then be
    used to check for updates that train.
+
 
 In the example shown in
 :numref:`Figure %s <review_updates_fig>`, information about the update
@@ -1713,13 +1715,20 @@ Applying Updates
 Make sure the system is in a low-usage state as described above in
 :ref:`Preparing for Updates`.
 
-To initiate the update click :guilabel:`FETCH AND INSTALL UPDATES`.
+Click :guilabel:`FETCH AND INSTALL UPDATES` to immediately download and
+install an update.
 
 A confirmation window appears before the update is installed. Set
 :guilabel:`Apply updates and reboot system after downloading` and click
 :guilabel:`CONTINUE` to download and apply the update. Be aware that
-updates automatically reboot the system after they are applied.
+updates automatically reboot the system after they are applied. Unset
+:guilabel:`Apply updates and reboot system after downloading` and click
+:guilabel:`CONTINUE` to download the update without installing it.
 
+:guilabel:`APPLY PENDING UPDATE` is visible when an update is downloaded
+and ready to install. Click the button to see a confirmation window. Set
+:guilabel:`Confirm` and click :guilabel:`CONTINUE` to install the update
+and reboot the system.
 
 .. warning:: Each update creates a boot environment. If the update
    process needs more space, it attempts to remove old boot
