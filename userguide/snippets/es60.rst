@@ -323,9 +323,9 @@ Connecting the ES60 to a %brand% X20
 
 Connect an SAS cable from the ES60 expander module 1 connector 1 to
 the X20 1 SAS 1 connector (cable #1 in photo). If the X20 has a second
-node for HA (High Availability), connect a second SAS cable from the
-ES60 expander module 2 connector 1 to the X20 node 2 SAS 1 connector
-(cable #2 in photo).
+storage controller for HA (High Availability), connect a second SAS
+cable from the ES60 expander module 2 connector 1 to the X20 storage
+controller 2 SAS 1 connector (cable #2 in photo).
 
 
 .. _es60_x20sasconnect1:
@@ -338,8 +338,8 @@ Connecting the ES60 to a %brand% Z35
 
 Connect an SAS cable from the ES60 expander module 1 connector 1 to
 the Z35 Controller 1 SAS 1 connector (cable #1 in photo). If the Z35
-has a second node for HA (High Availability), connect a second SAS
-cable from the ES60 expander module 2 connector 1 to the Z35
+has a second storage controller for HA (High Availability), connect a
+second SAS cable from the ES60 expander module 2 connector 1 to the Z35
 Controller 2 SAS 1 connector (cable #2 in photo).
 
 
@@ -371,5 +371,4 @@ on the ears of the ES60. Install one upper screw from the back side of
 the left ES60 ear, then install a lower screw from the back of the
 right ES60 ear. Install the remaining two screws following the same
 diagonal pattern.
-
 
