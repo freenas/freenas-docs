@@ -286,6 +286,11 @@ These screen options have changed:
   :guilabel:`Provider`. This can be used to configure a connection to
   another S3-compatible service, such as Wasabi.
 
+* The :guilabel:`Automatically check for new updates` option in
+  :menuselection:`System --> Update`
+  has been renamed to
+  :guilabel:`Check for Updates Daily and Download if Available`.
+
 * The :guilabel:`Remote encryption`, :guilabel:`Filename encryption`,
   :guilabel:`Encryption password`, and :guilabel:`Encryption salt`
   fields have been added to
