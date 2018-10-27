@@ -4,6 +4,12 @@
 Plugins
 =======
 
+.. warning:: This section describes the plugin system implemented in the
+   11.2 release of %brand%. Any plugins created or installed with a
+   previous version of %brand% must be managed with the
+   :ref:`Legacy Web Interface`.
+
+
 %brand% provides the ability to extend the built-in NAS
 services by providing two methods for installing additional software.
 
