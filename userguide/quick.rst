@@ -77,8 +77,8 @@ new UI.
    Enter the Root Password
 
 
-To instead log into the legacy web interface, click the
-:guilabel:`LEGACY WEB INTERFACE` link.
+To instead log into the legacy web interface, click
+:guilabel:`LEGACY WEB INTERFACE`. A prompt appears to confirm the choice.
 
 Enter the password for the root user that was chosen during the
 installation. There is a prompt to set a root password if this was not
