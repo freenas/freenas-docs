@@ -603,10 +603,6 @@ The configurable settings are summarized in
    |                                          |                    |                                                                                                  |
    #endif freenas
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
-   | Enable Power Saving Daemon               | checkbox           | `powerd(8) <https://www.freebsd.org/cgi/man.cgi?query=powerd>`__ monitors the system state and   |
-   |                                          |                    | sets the CPU frequency accordingly.                                                              |
-   |                                          |                    |                                                                                                  |
-   +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Enable autotune                          | checkbox           | Enable the :ref:`autotune` script which attempts to optimize the system based on                 |
    |                                          |                    | the installed  hardware. *Warning*: Autotuning is only used as a temporary measure and is        |
    |                                          |                    | not a permanent fix for system hardware issues.                                                  |
