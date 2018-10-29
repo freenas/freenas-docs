@@ -2255,10 +2255,10 @@ file to be created is appended to the pool or dataset name.**
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
 
 
-.. _Target/Extents:
+.. _Associated Targets:
 
-Target/Extents
-~~~~~~~~~~~~~~
+Associated Targets
+~~~~~~~~~~~~~~~~~~
 
 The last step is associating an extent to a target by going to
 :menuselection:`Sharing --> Block (iSCSI) --> Associated Targets`
@@ -2284,23 +2284,23 @@ and extents.
 
 .. _iscsi_target_extent_config_tab:
 
-.. table:: Target/Extents Configuration Settings
+.. table:: Associated Target Configuration Settings
    :class: longtable
 
-   +-------------+----------------+--------------------------------------------------------------------------------------------------------+
-   | Setting     | Value          | Description                                                                                            |
-   |             |                |                                                                                                        |
-   +=============+================+========================================================================================================+
-   | Target      | drop-down menu | Select an existing target.                                                                             |
-   |             |                |                                                                                                        |
-   +-------------+----------------+--------------------------------------------------------------------------------------------------------+
-   | LUN ID      | drop-down menu | Select the value to use or type in a value between *1* and *1023*. Note that some initiators expect    |
-   |             |                | a value below *256*.                                                                                   |
-   |             |                |                                                                                                        |
-   +-------------+----------------+--------------------------------------------------------------------------------------------------------+
-   | Extent      | drop-down menu | Select an existing extent.                                                                             |
-   |             |                |                                                                                                        |
-   +-------------+----------------+--------------------------------------------------------------------------------------------------------+
+   +-------------+----------------+--------------------------------------------------------+
+   | Setting     | Value          | Description                                            |
+   |             |                |                                                        |
+   +=============+================+========================================================+
+   | Target      | drop-down menu | Select an existing target.                             |
+   |             |                |                                                        |
+   +-------------+----------------+--------------------------------------------------------+
+   | LUN ID      | integer        | Type a value between *0* and *1023*. Note that some    |
+   |             |                | initiators expect a a value below *256*. Enter *0*     |
+   |             |                | to statically assign the next available ID.            |
+   +-------------+----------------+--------------------------------------------------------+
+   | Extent      | drop-down menu | Select an existing extent.                             |
+   |             |                |                                                        |
+   +-------------+----------------+--------------------------------------------------------+
 
 
 Always associating extents to targets in a
@@ -2313,6 +2313,7 @@ multiple extents to be associated with the same target.
    clicked. If an initiator has an active connection to the LUN, it is
    indicated in red text. Clearing the initiator connections to a LUN
    before deleting it is recommended.
+
 
 After iSCSI has been configured, remember to start the service in
 :menuselection:`Services --> iSCSI`
@@ -2377,7 +2378,7 @@ connection. An example is shown in
 
 
 The screens for adding an extent and associating a target are the same
-as described in :ref:`Extents` and :ref:`Target/Extents`.
+as described in :ref:`Extents` and :ref:`Associated Targets`.
 
 An example of the :guilabel:`Fibre Channel Ports` screen is shown in
 :numref:`Figure %s <tn_fibre_port_fig>`.
