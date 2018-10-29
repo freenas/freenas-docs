@@ -1664,9 +1664,12 @@ remaining options vary by provider, and are shown in
    | Amazon S3          | Endpoint URL           | Enter the Endpoint URL for the web service.                                                                     |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Backblaze B2       | Account ID,            | Enter the `Account ID and Application Key                                                                       |
-   |                    | Application Key        | <https://help.backblaze.com/hc/en-us/articles/224991568-Where-can-I-find-my-Account-ID-and-Application-Key->`__ |
-   |                    |                        | for the Backblaze B2 account. These are visible after logging into the account.                                 |
+   | Backblaze B2       | Account ID or          | Enter the `Account ID and Master Application Key                                                                |
+   |                    | Application Key ID,    | <https://help.backblaze.com/hc/en-us/articles/224991568-Where-can-I-find-my-Account-ID-and-Application-Key->`__ |
+   |                    | Application Key        | for the Backblaze B2 account. These are visible after logging into the account, clicking :guilabel:`Buckets`,   |
+   |                    |                        | and clicking :guilabel:`Show Account ID and Application Key`. An *Application Key* with limited permissions can |
+   |                    |                        | be used in place of the :guilabel:`Account ID`. Create a new Application Key, enter the key string in the       |
+   |                    |                        | :guilabel:`Application Key` field, and replace the :guilabel:`Account ID` with the :guilabel:`keyID`.           |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | Box                | Access Token           | Enter the Box access token.                                                                                     |
