@@ -460,7 +460,8 @@ Create the Docker VM
 :numref:`Figure %s <vms_add_docker_fig>` shows the window that appears
 after going to the
 :menuselection:`VMs`
-page and clicking :guilabel:`Add VM`.
+page, clicking :guilabel:`Add VM`, and selecting *Docker VM* as the
+:guilabel:`VM Type`.
 
 .. _vms_add_docker_fig:
 
@@ -514,24 +515,26 @@ page and clicking :guilabel:`Add VM`.
    |                    |                | with that name. Example: :samp:`/mnt/pool1/rancherui.img`                          |
    |                    |                |                                                                                    |
    +--------------------+----------------+------------------------------------------------------------------------------------+
-   | Size of Docker     | integer        | Allocate storage size in GiB for the new raw file. Enter *20* at minimum.          |
-   | Disk File          |                |                                                                                    |
+   | Size of Docker     | integer        | Allocate storage size in GiB for the new raw file. *20* is the minimum             |
+   | Disk File          |                | recommendation.                                                                    |
+   |                    |                |                                                                                    |
    +--------------------+----------------+------------------------------------------------------------------------------------+
 
 
-Recommendation for the Docker VM:
+Recommendations for the Docker VM:
 
-* Enter *Rancher UI VM* for the :guilabel:`Description`
+* Enter *Rancher UI VM* for the :guilabel:`Description`.
 * Leave the number of :guilabel:`Virtual CPUs` at *1*.
 * Enter *2048* for the :guilabel:`Memory Size`.
+* Leave *20* as the :guilabel:`Size of Docker Disk File`.
 
 Click :guilabel:`OK` to create the virtual machine.
 
 To make any changes to the raw file after creating the Docker VM,
 click on the :guilabel:`Devices` button for the VM to show the devices
 attached to that VM. Click on the *RAW* device to select it, then click
-:guilabel:`Edit`. :numref:`Figure %s <vms_rancher_storage_fig>` shows the
-options for editing the Docker VM raw file options.
+:guilabel:`Edit`. :numref:`Figure %s <vms_rancher_storage_fig>` shows
+the options for editing the Docker VM raw file options.
 
 .. _vms_rancher_storage_fig:
 
