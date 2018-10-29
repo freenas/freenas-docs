@@ -512,7 +512,10 @@ Some buttons are available for all VMs:
 
 When a VM is not running, these buttons are available:
 
-* |ui-power| (Red) starts the VM.
+* |ui-power| (Red) starts the VM. A confirmation dialog appears and
+  offers the option to :guilabel:`Overcommit Memory`. Memory
+  overcommitment allows multiple VMs to be launched when there is not
+  enough free memory for configured RAM of all VMs. Use with caution.
 
 * :guilabel:`Edit` changes VM settings, and includes an option to
   :guilabel:`Clone` an existing VM. Cloning makes a copy of the VM.
