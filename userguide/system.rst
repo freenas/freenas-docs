@@ -407,14 +407,14 @@ Click |ui-options| on an entry to see these configuration buttons:
   this entry is needed to return the system to the original
   installation state.
 
-* **Clone:** used to create a copy of the highlighted boot
+* **Clone:** makes a new boot environment from the selected boot
   environment.
 
 * **Rename:** used to change the name of the boot environment.
 
 * **Activate:** only appears on entries which are not currently set to
   :guilabel:`Active`. Changes the selected entry to the default boot
-  entry on next boot. Its status changes to :guilabel:`Reboot` and
+  entry on next boot. The status changes to :guilabel:`Reboot` and
   the current :guilabel:`Active` entry changes from
   :guilabel:`Now/Reboot` to :guilabel:`Now`, indicating that it
   was used on the last boot but will not be used on the next boot.
@@ -425,10 +425,10 @@ Click |ui-options| on an entry to see these configuration buttons:
 
 There are also other options available.
 
-* **Create:** Click |ui-add| to add a manual boot environment. A new
-  screen prompts for entry of a :guilabel:`Name` for the boot
-  environment. Only alphanumeric characters, underscores, and dashes are
-  allowed.
+* **Create:** makes a new boot environment from the active environment.
+  The active boot environment contains the text :literal:`Now/Reboot`
+  in the :guilabel:`Active` column. Only alphanumeric characters,
+  underscores, and dashes are allowed in the name.
 
 * **Scrub:** :guilabel:`Scrub Boot Pool` is used to perform a
   manual scrub of the boot devices. By default, the boot device is
@@ -441,6 +441,9 @@ There are also other options available.
 * **Status:** click :guilabel:`Boot Pool Status` to see the status of
   the boot devices. :numref:`Figure %s <status_boot_dev_fig>`,
   shows only one boot device, which is *ONLINE*.
+
+.. note:: Using :guilabel:`Clone` to clone the active boot environment
+   functions the same as using :guilabel:`Create`.
 
 
 .. _status_boot_dev_fig:
