@@ -2367,9 +2367,9 @@ targets and extents.
    |            | menu         |                                                                       |
    |            |              |                                                                       |
    +------------+--------------+-----------------------------------------------------------------------+
-   | LUN ID     | integer      | Select the value to use or type in a value between *1* and *1023*.    |
-   |            |              | Note that some initiators expect a value below *256*. Enter *0* to    |
-   |            |              | statically assign the next available ID.                              |
+   | LUN ID     | integer      | Type a value between *0* and *1023*. Note that some initiators expect |
+   |            |              | a value below *256*. Enter *0* to statically assign the next          |
+   |            |              | available ID.                                                         |
    |            |              |                                                                       |
    +------------+--------------+-----------------------------------------------------------------------+
    | Extent     | drop-down    | Select an existing extent.                                            |
