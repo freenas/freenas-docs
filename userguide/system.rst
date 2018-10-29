@@ -1180,8 +1180,8 @@ Enter a descriptive and unique name for the cloud credential in the
    | Backblaze B2         | Account ID or        | Enter the `Account ID and Master Application Key                                                                |
    |                      | Application Key ID,  | <https://help.backblaze.com/hc/en-us/articles/224991568-Where-can-I-find-my-Account-ID-and-Application-Key->`__ |
    |                      | Master Application   | for the Backblaze B2 account. These are visible after logging into the account, clicking :guilabel:`Buckets`,   |
-   |                      | Key or Application   | and click :guilabel:`Show Account ID and Application Key`. An *Application Key* with limited permissions can be |
-   |                      | Key                  | used in place of the :guilabel:`Account ID` and :guilabel:`Master Application Key`. Create a new Application    |
+   |                      | Key or Application   | and clicking :guilabel:`Show Account ID and Application Key`. An *Application Key* with limited permissions can |
+   |                      | Key                  | be used in place of the :guilabel:`Account ID` and :guilabel:`Master Application Key`. Create a new Application |
    |                      |                      | Key and enter the key string in place of the :guilabel:`Master Application Key` and replace the                 |
    |                      |                      | :guilabel:`Account ID` with the :guilabel:`keyID`.                                                              |
    |                      |                      |                                                                                                                 |
