@@ -136,10 +136,11 @@ These major features are new in this version:
 
 * :ref:`VMs` are more crash-resistant. When a guest is started, the
   amount of available memory is checked and an initialization error will
-  occur if there is insufficient system resources. When a guest is
-  stopped, its resources are returned to the system. In addition, the
-  UEFI boot menu fix allows Linux kernels 4.15 and higher to boot
-  properly.
+  occur if there is insufficient system resources. There is an option to
+  overcommit memory to the guest when it is started, but this is not
+  recommended for normal use. When a guest is stopped, its resources are
+  returned to the system. In addition, the UEFI boot menu fix allows
+  Linux kernels 4.15 and higher to boot properly.
 
 * :ref:`Cloud Sync Tasks` provides configuration options to encrypt data
   before it is transmitted and to keep it in the encrypted format while

@@ -1041,7 +1041,13 @@ provides more details for each configurable option.
    | Name                           | string        |          | Enter a mandatory name for the share.                                                                       |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Use as home share              | checkbox      |          | Set to allow this share to hold user home directories. Only one share can be the homes share.               |
+   | Use as home share              | checkbox      |          | Set to allow this share to hold user home directories. Only one share can be the home share. Note that      |
+   |                                |               |          | lower case names for user home directories are strongly recommended, as Samba maps usernames to all lower   |
+   |                                |               |          | case. For example, the username John will be mapped to a home directory named john. If the :guilabel:`Path` |
+   |                                |               |          | to the home share includes an upper case username, delete the existing user and recreate it in              |
+   |                                |               |          | :menuselection:`Accounts --> Users` with an all lower case :guilabel:`Username`. Return to                  |
+   |                                |               |          | :menuselection:`Sharing --> SMB` to create the home share, and select the :guilabel:`Path` that contains    |
+   |                                |               |          | the new lower case username.                                                                                |
    |                                |               |          |                                                                                                             |
    +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
    | Default Permissions            | checkbox      |          | When enabled, the ACLs grant read and write for owner or group and read-only for others. Only leave unset   |

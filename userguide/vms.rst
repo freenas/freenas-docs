@@ -16,8 +16,7 @@ is running, these resources are not available to the host computer or
 other VMs.
 
 %brand% VMs use the
-`bhyve(8)
-<https://www.freebsd.org/cgi/man.cgi?query=bhyve&manpath=FreeBSD+11.0-RELEASE+and+Ports>`__
+`bhyve(8) <https://www.freebsd.org/cgi/man.cgi?query=bhyve>`__
 virtual machine software. This type of virtualization requires an
 Intel processor with Extended Page Tables (EPT) or an AMD processor
 with Rapid Virtualization Indexing (RVI) or Nested Page Tables (NPT).
@@ -34,9 +33,8 @@ output shows the POPCNT feature, this processor can be used with
 
 
 .. note:: By default, new VMs have the
-   `bhyve(8)
-   <https://www.freebsd.org/cgi/man.cgi?query=bhyve&manpath=FreeBSD+11.0-RELEASE+and+Ports>`__
-   :literal:`-H` option is set. This causes the virtual CPU thread to
+   `bhyve(8) <https://www.freebsd.org/cgi/man.cgi?query=bhyve>`__
+   :literal:`-H` option set. This causes the virtual CPU thread to
    yield when a HLT instruction is detected, and prevents idle VMs
    from consuming all of the host's CPU.
 
@@ -448,7 +446,7 @@ VMs automatically include a virtual serial port.
 And so on. These virtual serial ports allow connecting to the VM
 console from the :ref:`Shell`.
 
-.. tip:: The `nmdm <https://www.freebsd.org/cgi/man.cgi?query=nmdm&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__
+.. tip:: The `nmdm <https://www.freebsd.org/cgi/man.cgi?query=nmdm>`__
    device is dynamically created. The actual :literal:`nmdm` name can
    differ on each system.
 
@@ -479,11 +477,12 @@ the top of the screen for this page:
 * :guilabel:`Cards`: Default view. Shows a large "card" for each VM with
   all options for that VM contained on that card.
 
-* :guilabel:`Slim`: Similar to the default, but reduces the size of the
-  card to fit more cards on the screen.
+* :guilabel:`Slim`: Similar to the default, but reduces card size to fit
+  more cards on the screen.
 
 * :guilabel:`Table`: Removes cards entirely to show all VMs in a space
-  efficient table.
+  efficient table. This view also has a
+  :guilabel:`Virtual Machines Summary` which displays VM memory usage.
 
 
 The default :guilabel:`Cards` view is described and shown in this
@@ -499,10 +498,8 @@ options after clicking |ui-options| and :guilabel:`Edit`.
 The name, description, running state, com port (if present), and other
 configuration values are shown on the card. Click |ui-options| for the
 :guilabel:`Start`, :guilabel:`Stop`, :guilabel:`Power Off`,
-:guilabel:`Delete`, :guilabel:`Devices`, and :guilabel:`Edit` options.
-
-.. tip:: The |web-ui| shows an error message if a VM fails to start.
-
+:guilabel:`Restart`, :guilabel:`Edit`, :guilabel:`Devices`, and
+:guilabel:`Delete` options.
 
 Some buttons are available for all VMs:
 
@@ -512,7 +509,12 @@ Some buttons are available for all VMs:
 
 When a VM is not running, these buttons are available:
 
-* |ui-power| (Red) starts the VM.
+* |ui-power| (Red) starts the VM. A confirmation dialog appears and
+  offers the option to :guilabel:`Overcommit Memory`. Memory
+  overcommitment allows multiple VMs to be launched when there is not
+  enough free memory for configured RAM of all VMs. Use with caution.
+  The |web-ui| displays a substantive error message when a VM fails to
+  start.
 
 * :guilabel:`Edit` changes VM settings, and includes an option to
   :guilabel:`Clone` an existing VM. Cloning makes a copy of the VM.
@@ -530,16 +532,16 @@ When a VM is already running, these buttons are available:
 * :guilabel:`Power off` immediately halts the VM. This is equivalent
   to disconnecting the power to a physical computer.
 
+* :guilabel:`Restart` shuts down and immediately starts the VM.
+
 * :guilabel:`CONNECT` displays options to connect to the VM. This can
-  include :guilabel:`VNC`, a :guilabel:`Serial` shell, or other
-  options. For :guilabel:`VNC`, the VM must have a VNC device with
+  include :guilabel:`VNC` or a :guilabel:`Serial` shell. For
+  :guilabel:`VNC`, the VM must have a VNC device with
   :guilabel:`Web Interface` enabled.
 
-* :guilabel:`Restart` shuts down the VM and turns it back on.
 
-
-Popups ask to confirm the choice when shutting down, powering off, or
-deleting a VM.
+Popups ask to confirm the choice when starting, shutting down, powering
+off, or deleting a VM.
 
 
 .. index:: Deleting VMs

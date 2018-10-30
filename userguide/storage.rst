@@ -1486,13 +1486,18 @@ options in the table.
 
 To edit the options for a disk, click |ui-options| on a disk, then
 :guilabel:`Edit` to open the screen shown in
-:numref:`Figure %s <zfs_edit_disk_fig>`).
+:numref:`Figure %s <zfs_edit_disk_fig>`.
+:numref:`Table %s <zfs_disk_opts_tab>`
+lists the configurable options.
+
+To bulk edit disks, set the checkbox for each disk in the table then
+click |ui-edit-disks|. The :guilabel:`Bulk Edit Disks` page displays
+which disks are being edited and a short list of configurable options.
+The :ref:`Disk Options table <zfs_disk_opts_tab>` indicates the options
+available when editing multiple disks.
 
 To offline, online, or or replace the device, see
 :ref:`Replacing a Failed Disk`.
-
-:numref:`Table %s <zfs_disk_opts_tab>`
-lists the configurable options.
 
 .. _zfs_edit_disk_fig:
 
@@ -1501,59 +1506,59 @@ lists the configurable options.
    Editing a Disk
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.25\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.63\linewidth-2\tabcolsep}|
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.10\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.10\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.60\linewidth-2\tabcolsep}|
 
 .. _zfs_disk_opts_tab:
 
 .. table:: Disk Options
    :class: longtable
 
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Setting                            | Value          | Description                                                                                                              |
-   |                                    |                |                                                                                                                          |
-   +====================================+================+==========================================================================================================================+
-   | Name                               | string         | This is the FreeBSD device name for the disk.                                                                            |
-   |                                    |                |                                                                                                                          |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Serial                             | string         | This is the serial number of the disk.                                                                                   |
-   |                                    |                |                                                                                                                          |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Description                        | string         | Enter any notes about this disk.                                                                                         |
-   |                                    |                |                                                                                                                          |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | HDD Standby                        | drop-down menu | Indicates the time of inactivity in minutes before the drive enters standby mode to conserve energy. This                |
-   |                                    |                | `forum post <https://forums.freenas.org/index.php?threads/how-to-find-out-if-a-drive-is-spinning-down-properly.2068/>`__ |
-   |                                    |                | demonstrates how to determine if a drive has spun down.                                                                  |
-   |                                    |                |                                                                                                                          |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Advanced Power Management          | drop-down menu | Select a power management profile from the menu. The default value is *Disabled*.                                        |
-   |                                    |                |                                                                                                                          |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Acoustic Level                     | drop-down menu | Default is *Disabled*. Other values can be selected for disks that understand                                            |
-   |                                    |                | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`__.                                                   |
-   |                                    |                |                                                                                                                          |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Enable S.M.A.R.T.                  | checkbox       | Enabled by default if the disk supports S.M.A.R.T. Unsetting this option will disable any configured                     |
-   |                                    |                | :ref:`S.M.A.R.T. Tests` for the disk.                                                                                    |
-   |                                    |                |                                                                                                                          |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | S.M.A.R.T. extra options           | string         | Enter additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options.     |
-   |                                    |                |                                                                                                                          |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
-   | SED Password                       | string         | Enter and confirm the password which will be used for this device instead of the global SED password. Refer to           |
-   |                                    |                | :ref:`Self-Encrypting Drives` for more information.                                                                      |
-   +------------------------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Setting                      | Value     | Bulk Edit  | Description                                                                                                              |
+   |                              |           |            |                                                                                                                          |
+   +==============================+===========+============+==========================================================================================================================+
+   | Name                         | string    |            | This is the FreeBSD device name for the disk.                                                                            |
+   |                              |           |            |                                                                                                                          |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Serial                       | string    |            | This is the serial number of the disk.                                                                                   |
+   |                              |           |            |                                                                                                                          |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Description                  | string    |            | Enter any notes about this disk.                                                                                         |
+   |                              |           |            |                                                                                                                          |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | HDD Standby                  | drop-down | ✓          | Indicates the time of inactivity in minutes before the drive enters standby mode to conserve energy. This                |
+   |                              | menu      |            | `forum post <https://forums.freenas.org/index.php?threads/how-to-find-out-if-a-drive-is-spinning-down-properly.2068/>`__ |
+   |                              |           |            | demonstrates how to determine if a drive has spun down.                                                                  |
+   |                              |           |            |                                                                                                                          |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Advanced Power Management    | drop-down | ✓          | Select a power management profile from the menu. The default value is *Disabled*.                                        |
+   |                              | menu      |            |                                                                                                                          |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Acoustic Level               | drop-down | ✓          | Default is *Disabled*. Other values can be selected for disks that understand                                            |
+   |                              | menu      |            | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`__.                                                   |
+   |                              |           |            |                                                                                                                          |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Enable S.M.A.R.T.            | checkbox  | ✓          | Enabled by default if the disk supports S.M.A.R.T. Unsetting this option will disable any configured                     |
+   |                              |           |            | :ref:`S.M.A.R.T. Tests` for the disk.                                                                                    |
+   |                              |           |            |                                                                                                                          |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | S.M.A.R.T. extra options     | string    | ✓          | Enter additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options.     |
+   |                              |           |            |                                                                                                                          |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
+   | SED Password                 | string    |            | Enter and confirm the password which will be used for this device instead of the global SED password. Refer to           |
+   |                              |           |            | :ref:`Self-Encrypting Drives` for more information.                                                                      |
+   +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
-.. note:: If the serial number for a disk is not displayed in this
+.. tip:: If the serial number for a disk is not displayed in this
    screen, use the :command:`smartctl` command from :ref:`Shell`. For
    example, to determine the serial number of disk *ada0*, type
    :command:`smartctl -a /dev/ada0 | grep Serial`.
 
 
-#ifdef comment
 The :guilabel:`Wipe` function is used to discard an unused disk.
 
 .. warning:: Ensure all data is backed up and
@@ -1562,6 +1567,7 @@ The :guilabel:`Wipe` function is used to discard an unused disk.
    usually impossible. If there is any doubt, physically remove the
    disk, verify that all data is still present on the %brand% system,
    and wipe the disk in a separate computer.
+
 
 Clicking :guilabel:`Wipe` offers several choices. *Quick* erases only
 the partitioning information on a disk, making it easy to reuse but
@@ -1572,7 +1578,7 @@ overwrites the entire disk with random binary data.
 Quick wipes take only a few seconds. A *Full with zeros* wipe of a
 large disk can take several hours, and a *Full with random data* takes
 longer. A progress bar is displayed during the wipe to track status.
-#endif comment
+
 
 
 .. index:: Replace Failed Drive

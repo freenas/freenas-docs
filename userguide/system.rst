@@ -660,9 +660,9 @@ Click the :guilabel:`SAVE` button after making any changes.
 
 This tab also contains this button:
 
-:guilabel:`SAVE DEBUG`: used to generate a text file of diagnostic
+:guilabel:`SAVE DEBUG`: used to generate text files that contain diagnostic
 information. After the debug data is collected, the system prompts for
-a location to save the generated ASCII text file.
+a location to save the compressed .tgz file.
 
 
 .. index:: Autotune
