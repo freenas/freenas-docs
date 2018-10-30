@@ -383,9 +383,9 @@ the :guilabel:`Domain Controller` field of
 :menuselection:`Directory Service --> Active Directory`.
 
 
-.. _If the System Will not Join the Domain:
+.. _If the System Does not Join the Domain:
 
-If the System Will not Join the Domain
+If the System Does not Join the Domain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If the system will not join the Active Directory domain, run these
