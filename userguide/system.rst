@@ -666,7 +666,7 @@ This tab also contains this button:
 
 **Save Debug:** used to generate a text file of diagnostic
 information. After the debug data is collected, the system prompts for
-a location to save the generated ASCII text file.
+a location to save the compressed .tgz text file.
 
 
 .. index:: Autotune
