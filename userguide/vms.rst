@@ -32,9 +32,8 @@ output shows the POPCNT feature, this processor can be used with
 *bhyve*.
 
 .. note:: By default, new VMs have the
-   `bhyve(8)
-   <https://www.freebsd.org/cgi/man.cgi?query=bhyve&manpath=FreeBSD+11.0-RELEASE+and+Ports>`__
-   :literal:`-H` option is set. This causes the virtual CPU thread to
+   `bhyve(8) <https://www.freebsd.org/cgi/man.cgi?query=bhyve>`__
+   :literal:`-H` option set. This causes the virtual CPU thread to
    yield when a HLT instruction is detected, and prevents idle VMs
    from consuming all of the host's CPU.
 
@@ -328,7 +327,7 @@ VMs automatically include a virtual serial port.
 And so on. These virtual serial ports allow connecting to the VM
 console from the :ref:`Shell`.
 
-.. tip:: The `nmdm <https://www.freebsd.org/cgi/man.cgi?query=nmdm&manpath=FreeBSD+11.1-RELEASE+and+Ports>`__
+.. tip:: The `nmdm <https://www.freebsd.org/cgi/man.cgi?query=nmdm>`__
    device is dynamically created. The actual :literal:`nmdm` name can
    differ on each system.
 
