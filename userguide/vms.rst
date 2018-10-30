@@ -516,7 +516,7 @@ page, clicking :guilabel:`Add VM`, and selecting *Docker VM* as the
    |                    |                |                                                                                    |
    +--------------------+----------------+------------------------------------------------------------------------------------+
    | Size of Docker     | integer        | Allocate storage size in GiB for the new raw file. *20* is the minimum             |
-   | Disk File          |                | recommendation.                                                                    |
+   | Disk File (GiB)    |                | recommendation.                                                                    |
    |                    |                |                                                                                    |
    +--------------------+----------------+------------------------------------------------------------------------------------+
 
