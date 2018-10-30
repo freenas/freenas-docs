@@ -355,9 +355,9 @@ settings. Make sure the hostname of the domain controller is set in the
 :guilabel:`Domain Controller` field of
 :menuselection:`Directory Service --> Active Directory --> Advanced`.
 
-.. _If the System Will not Join the Domain:
+.. _If the System Does not Join the Domain:
 
-If the System Will not Join the Domain
+If the System Does not Join the Domain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If the system will not join the Active Directory domain, run these
