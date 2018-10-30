@@ -467,8 +467,8 @@ click :guilabel:`Replace Disk` to rebuild the boot mirror.
 
 #ifdef freenas
 Note that
-**you cannot replace the boot device if it is the only boot device**
-as it contains the operating system itself.
+**the boot device cannot be replaced if it is the only boot device**
+because it contains the operating system itself.
 #endif freenas
 
 
@@ -1047,8 +1047,8 @@ can be used to manage:
    advanced feature. A sysctl immediately affects the kernel running
    the %brand% system and a loader could adversely affect the ability
    of the %brand% system to successfully boot.
-   **Do not create a tunable on a production system unless you
-   understand and have tested the ramifications of that change.**
+   **Do not create a tunable on a production system unless it is
+   understood and ramifications have been tested for that change.**
 
 Since sysctl, loader, and rc.conf values are specific to the kernel
 parameter to be tuned, the driver to be loaded, or the service to
@@ -2318,8 +2318,7 @@ complete these fields:
   size limit of 20 MiB.
 
 * **Subject:** enter a descriptive title for the ticket. A good
-  *Subject* makes it easy for you and other users to find similar
-  reports.
+  *Subject* makes it easy to find similar reports.
 
 * **Description:** enter a one- to three-paragraph summary of the
   issue that describes the problem, and if applicable, what steps can
