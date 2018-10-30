@@ -167,6 +167,7 @@ rst_prolog = u'''
 .. |ui-jail-stop|     replace::  (Stop)
 .. |ui-jail-update|   replace::  (Update)
 .. |ui-jail-delete|   replace::  (Delete)
+.. |ui-edit-disks|    replace::  (Edit Disks)
 '''
 
 # roles for text replacement
