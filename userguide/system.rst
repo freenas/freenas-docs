@@ -303,7 +303,7 @@ explains these options in more detail.
    | Address     | string    | Enter the hostname or IP address of the NTP server.                                                |
    |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
-   | Burst       | checkbox  | Recommended when :guilabel:`Max. Poll` is greater than *10*. Only use on your own servers.         |
+   | Burst       | checkbox  | Recommended when :guilabel:`Max. Poll` is greater than *10*. Only use on personal servers.         |
    |             |           | **Do not** use with a public NTP server.                                                           |
    |             |           |                                                                                                    |
    +-------------+-----------+----------------------------------------------------------------------------------------------------+
@@ -476,8 +476,8 @@ click :guilabel:`Replace Disk` to rebuild the boot mirror.
 
 #ifdef freenas
 Note that
-**you cannot replace the boot device if it is the only boot device**
-as it contains the operating system itself.
+**the boot device cannot be replaced if it is the only boot device**
+because it contains the operating system itself.
 #endif freenas
 
 
@@ -1177,7 +1177,12 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      | Secret Key           |                                                                                                                 |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Endpoint URL         | Enter the entry point URL for the web service.                                                                  |
+   | Amazon S3            | Endpoint URL         | `End point URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__                       |
+   |                      |                      | for a bucket configured for website hosting.                                                                    |
+   |                      |                      | Leave blank when using AWS. Enter endpoint URL if using custom S3 API. URL                                      |
+   |                      |                      | general format: *bucket-name.s3-website-region.amazonaws.com*.                                                  |
+   |                      |                      | Refer to the AWS Documentation for a list of `Simple Storage Service Websites Endpoints                         |
+   |                      |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Backblaze B2         | Account ID or        | Enter the `Account ID and Master Application Key                                                                |
@@ -1272,7 +1277,7 @@ Tunables
 --------
 
 :menuselection:`System --> Tunables`
-can be used to manage the following:
+can be used to manage:
 
 #. **FreeBSD sysctls:** a
    `sysctl(8) <https://www.freebsd.org/cgi/man.cgi?query=sysctl>`__
@@ -1379,7 +1384,7 @@ restarting the system guarantees that the setting values correspond
 with what is being used by the running system.
 
 The |web-ui| does not display the sysctls that are pre-set when %brand% is
-installed. %brand% |release| ships with the following sysctls set:
+installed. %brand% |release| ships with the sysctls set:
 
 #ifdef freenas
 .. code-block:: none
@@ -2299,8 +2304,7 @@ complete these fields:
   if the debug is more than the file size limit of 20 Mib.
 
 * **Subject:** enter a descriptive title for the ticket. A good
-  *Subject* makes it easy for you and other users to find similar
-  reports.
+  *Subject* makes it easy to find similar reports.
 
 * **Description:** enter a one- to three-paragraph summary of the
   issue that describes the problem, and if applicable, what steps can
