@@ -225,7 +225,7 @@ created or modified.
    +============================+=================+===============================================================================================================================+
    | Username                   | string          | Enter an alphanumeric username of eight to sixteen characters. Keeping usernames to eight characters or less is recommended   |
    |                            |                 | for compatibility with legacy clients. Usernames cannot begin with a hyphen :kbd:`-` or contain a space, tab, or these        |
-   |                            |                 | characters: :literal:`, : + & # % ^ \ & ( ) ! @ ~ * ? < > =`. A :literal:`$` can only be used as the last charater.           |
+   |                            |                 | characters: :literal:`, : + & # % ^ \ & ( ) ! @ ~ * ? < > =`. A :literal:`$` can only be used as the last character.          |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | Full Name                  | string          | This field is mandatory and may contain spaces.                                                                               |
