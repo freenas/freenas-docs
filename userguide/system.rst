@@ -1744,6 +1744,9 @@ and reboot the system.
    Review the boot environments and remove the *Keep* attribute or
    delete any boot environments that are no longer needed.
 
+During the update process a progress dialogue appears. **Do not**
+interrupt the update until it completes.
+
 
 Manual Updates
 ~~~~~~~~~~~~~~
@@ -1763,6 +1766,9 @@ There is also an option to back up the system configuration before
 updating. Click :guilabel:`SAVE CONFIG` and select any options to export
 in the configuration file. Click :guilabel:`SAVE` to open a popup window
 to download the :file:`.db` file.
+
+During the update process a progress dialogue appears. **Do not**
+interrupt the update until it completes.
 
 
 #ifdef truenas
