@@ -467,7 +467,7 @@ page, clicking :guilabel:`Add VM`, and selecting *Docker VM* as the
 
 .. figure:: images/vms-add-rancher.png
 
-   Rancher VM Configuration
+   Docker VM Configuration
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.08\linewidth-2\tabcolsep}
@@ -480,45 +480,45 @@ page, clicking :guilabel:`Add VM`, and selecting *Docker VM* as the
 .. table:: Docker VM Options
    :class: longtable
 
-   +--------------------+----------------+------------------------------------------------------------------------------------+
-   | Setting            | Value          | Description                                                                        |
-   |                    |                |                                                                                    |
-   +====================+================+====================================================================================+
-   | VM Type            | drop-down menu | Choose to create either a standard *Virtual Machine* or a *Docker VM*.             |
-   |                    |                |                                                                                    |
-   +--------------------+----------------+------------------------------------------------------------------------------------+
-   | Name               | string         | Enter a descriptive name for the Docker VM.                                        |
-   |                    |                |                                                                                    |
-   +--------------------+----------------+------------------------------------------------------------------------------------+
-   | Description        | string         | Describe this Docker VM.                                                           |
-   |                    |                |                                                                                    |
-   +--------------------+----------------+------------------------------------------------------------------------------------+
-   | Virtual CPUs       | integer        | Enter the number of virtual CPUs to allocate to the Docker Host. The maximum is 16 |
-   |                    |                | unless the host CPU also limits the maximum.                                       |
-   |                    |                | The VM operating system can also have operational or licensing restrictions on     |
-   |                    |                | the number of CPUs.                                                                |
-   |                    |                |                                                                                    |
-   +--------------------+----------------+------------------------------------------------------------------------------------+
-   | Memory Size (MiB)  | integer        | Allocate the amount of RAM in MiB for the Docker Host. A minimum *2048* MiB of RAM |
-   |                    |                | is required.                                                                       |
-   |                    |                |                                                                                    |
-   +--------------------+----------------+------------------------------------------------------------------------------------+
-   | Autostart          | checkbox       | Set to start this Docker Host when the %brand% system boots.                       |
-   |                    |                |                                                                                    |
-   +--------------------+----------------+------------------------------------------------------------------------------------+
-   | Root Password      | string         | Enter a password to use with the Docker VM *root* account. The password cannot     |
-   |                    |                | contain a space.                                                                   |
-   |                    |                |                                                                                    |
-   +--------------------+----------------+------------------------------------------------------------------------------------+
-   | Docker Disk File   | string         | :guilabel:`Browse` to the location to store a new raw file. Add :kbd:`/`, a        |
-   |                    |                | unique name to the end of the path, and :literal:`.img` to create a new raw file   |
-   |                    |                | with that name. Example: :samp:`/mnt/pool1/rancherui.img`                          |
-   |                    |                |                                                                                    |
-   +--------------------+----------------+------------------------------------------------------------------------------------+
-   | Size of Docker     | integer        | Allocate storage size in GiB for the new raw file. *20* is the minimum             |
-   | Disk File (GiB)    |                | recommendation.                                                                    |
-   |                    |                |                                                                                    |
-   +--------------------+----------------+------------------------------------------------------------------------------------+
+   +--------------------------------+----------------+------------------------------------------------------------------------------------+
+   | Setting                        | Value          | Description                                                                        |
+   |                                |                |                                                                                    |
+   +================================+================+====================================================================================+
+   | VM Type                        | drop-down menu | Choose to create either a standard *Virtual Machine* or a *Docker VM*.             |
+   |                                |                |                                                                                    |
+   +--------------------------------+----------------+------------------------------------------------------------------------------------+
+   | Name                           | string         | Enter a descriptive name for the Docker VM.                                        |
+   |                                |                |                                                                                    |
+   +--------------------------------+----------------+------------------------------------------------------------------------------------+
+   | Description                    | string         | Describe this Docker VM.                                                           |
+   |                                |                |                                                                                    |
+   +--------------------------------+----------------+------------------------------------------------------------------------------------+
+   | Virtual CPUs                   | integer        | Enter the number of virtual CPUs to allocate to the Docker Host. The maximum is 16 |
+   |                                |                | unless the host CPU also limits the maximum.                                       |
+   |                                |                | The VM operating system can also have operational or licensing restrictions on     |
+   |                                |                | the number of CPUs.                                                                |
+   |                                |                |                                                                                    |
+   +--------------------------------+----------------+------------------------------------------------------------------------------------+
+   | Memory Size (MiB)              | integer        | Allocate the amount of RAM in MiB for the Docker Host. A minimum *2048* MiB of RAM |
+   |                                |                | is required.                                                                       |
+   |                                |                |                                                                                    |
+   +--------------------------------+----------------+------------------------------------------------------------------------------------+
+   | Autostart                      | checkbox       | Set to start this Docker Host when the %brand% system boots.                       |
+   |                                |                |                                                                                    |
+   +--------------------------------+----------------+------------------------------------------------------------------------------------+
+   | Root Password                  | string         | Enter a password to use with the Docker VM *root* account. The password cannot     |
+   |                                |                | contain a space.                                                                   |
+   |                                |                |                                                                                    |
+   +--------------------------------+----------------+------------------------------------------------------------------------------------+
+   | Docker Disk File               | string         | :guilabel:`Browse` to the location to store a new raw file. Add :kbd:`/`, a        |
+   |                                |                | unique name to the end of the path, and :literal:`.img` to create a new raw file   |
+   |                                |                | with that name. Example: :samp:`/mnt/pool1/rancherui.img`                          |
+   |                                |                |                                                                                    |
+   +--------------------------------+----------------+------------------------------------------------------------------------------------+
+   | Size of Docker Disk File (GiB) | integer        | Allocate storage size in GiB for the new raw file. *20* is the minimum             |
+   |                                |                | recommendation.                                                                    |
+   |                                |                |                                                                                    |
+   +--------------------------------+----------------+------------------------------------------------------------------------------------+
 
 
 Recommendations for the Docker VM:
