@@ -526,7 +526,7 @@ Recommendations for the Docker VM:
 * Enter *Rancher UI VM* for the :guilabel:`Description`.
 * Leave the number of :guilabel:`Virtual CPUs` at *1*.
 * Enter *2048* for the :guilabel:`Memory Size`.
-* Leave *20* as the :guilabel:`Size of Docker Disk File`.
+* Leave *20* as the :guilabel:`Size of Docker Disk File (GiB)`.
 
 Click :guilabel:`OK` to create the virtual machine.
 
