@@ -1103,7 +1103,6 @@ available for configuring the initial set of permissions.
    In this case, start to type in the desired user or group name so
    that the display narrows its search to matching results.
 
-
 To set the permissions on a pool or dataset, select its entry in
 :menuselection:`Storage --> Pools`, click |ui-options|, then
 :guilabel:`Edit Permissions`. This displays the screen shown in
@@ -1178,20 +1177,21 @@ screen.
 
 
 The *Windows* :guilabel:`ACL Type` is used for
-:ref:` Windows (SMB) Shares` or when the %brand% system is a member of
+:ref:`Windows (SMB) Shares` or when the %brand% system is a member of
 an Active Directory domain. This type adds ACLs to traditional Unix
 permissions. When the *Windows* :guilabel:`ACL Type` is selected, ACLs
 are set to the Windows defaults for new files and directories. A Windows
-client can be used to further fine-tune permissions as needed. After a
-pool or dataset has been set to *Windows*, it cannot be changed back to
-*Unix* permissions because that would clobber the extended permissions
-provided by Windows ACLs.
+client can be used to further fine-tune permissions as needed.
+
+.. warning:: Changing a pool or dataset with *Windows* permissions back
+   to *Unix* permissions will overwrite and destroy some of the
+   extended permissions provided by Windows ACLs.
 
 The *Unix* :guilabel:`ACL Type` is usually used with
 :ref:`Unix (NFS) Shares`. Unix permissions are compatible with most
 network clients and generally work well with a mix of operating systems
 or clients. However, *Unix* permissions do not support Windows ACLs and
-should not be used with:ref:` Windows (SMB) Shares`.
+should not be used with :ref:`Windows (SMB) Shares`.
 
 The *Mac* :guilabel:`ACL Type` can be used with :ref:`Apple (AFP) Shares`.
 
