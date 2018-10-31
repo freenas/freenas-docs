@@ -236,9 +236,9 @@ created or modified.
    |                        |               |             | have an ID greater than 1000 and system accounts have an ID equal to the default port number used by the service.              |
    |                        |               |             |                                                                                                                                |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | Username               | string        |             | Grayed out if the user already exists. Maximum 16 characters, though a maximum of 8 is recommended for interoperability.       |
-   |                        |               |             | Cannot begin with a hyphen :kbd:`-`, if a :literal:`$` is used it can only be the last character, and it cannot contain        |
-   |                        |               |             | a space, tab, or the characters :literal:`, : + & # % ^ \ & ( ) ! @ ~ * ? < > =`.                                              |
+   | Username               | string        |             | Enter an alphanumeric username of eight to sixteen characters. Keeping usernames to eight characters or less is recommended    |
+   |                        |               |             | for compatibility with legacy clients. Usernames cannot begin with a hyphen :kbd:`-` or contain a space, tab, or these         |
+   |                        |               |             | characters: :literal:`, : + & # % ^ \ & ( ) ! @ ~ * ? < > =`. A :literal:`$` can only be used as the last character.           |
    |                        |               |             |                                                                                                                                |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
    | Create a new           | checkbox      |             | A primary group with the same name as the user is created automatically. Unset to select a different primary group name.       |
