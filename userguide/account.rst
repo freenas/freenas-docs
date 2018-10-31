@@ -223,9 +223,9 @@ created or modified.
    | Setting                    | Value           | Description                                                                                                                   |
    |                            |                 |                                                                                                                               |
    +============================+=================+===============================================================================================================================+
-   | Username                   | string          | Grayed out if the user already exists. The field has a maximum of 8 characters.                                               |
-   |                            |                 | Cannot begin with a hyphen :kbd:`-`, if a :literal:`$` is used it can only be the last character, and it cannot contain a     |
-   |                            |                 | space, tab, or the characters :literal:`, : + & # % ^ \ & ( ) ! @ ~ * ? < > =`                                                |
+   | Username                   | string          | Enter an alphanumeric username of eight to sixteen characters. Keeping usernames to eight characters or less is recommended   |
+   |                            |                 | for compatibility with legacy clients. Usernames cannot begin with a hyphen :kbd:`-` or contain a space, tab, or these        |
+   |                            |                 | characters: :literal:`, : + & # % ^ \ & ( ) ! @ ~ * ? < > =`. A :literal:`$` can only be used as the last character.          |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
    | Full Name                  | string          | This field is mandatory and may contain spaces.                                                                               |
