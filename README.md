@@ -20,11 +20,12 @@ Say yes to the prompts to do so. Once it has completed, finish
 installing the needed software.
 
 Instructions are given for both ports and packages, as some software might
-not have a package. Try the pkg command first, as it is faster. If the
-pkg command succeeds, it is not necessary to run the make command as the
-software is already installed; however if it fails, use the make command
-to install the software. If the software is already installed, the pkg
-command will indicate that the most recent version is already installed.
+not have a prebuilt package.
+
+Use the pkg command first. If it installs the packages or indicates that the
+most recent software is already installed, continue with the next package. If
+the pkg command shows an error, this usually means that a prebuilt package is
+not available, so use the make command to build and install that software.
 
 ```
 portsnap fetch extract
