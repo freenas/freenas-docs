@@ -86,12 +86,6 @@ To build a PDF:
 make pdf
 ```
 
-To build an EPUB:
-
-```
-make epub
-```
-
 ## Editing the Documentation
 
 To edit the User Guide, make changes to the *.rst files using any ASCII
