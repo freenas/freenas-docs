@@ -1587,16 +1587,18 @@ Updates and Trains
 %brand% uses signed update files. This provides flexibility in deciding
 when to upgrade the system with patches, new drivers, or new features.
 It also allows "test driving" an upcoming release. Combined with boot
-environments, new features or system patches can be tested while maintaining
-the ability to revert to a previous version of the operating system, using
-the instructions in :ref:`If Something Goes Wrong`. Digitally signed update
-files eliminate the need to manually download both an upgrade file and the
-associated checksum to verify file integrity.
+environments, new features or system patches can be tested while
+maintaining the ability to revert to a previous version of the operating
+system, using the instructions in :ref:`If Something Goes Wrong`.
+Digitally signed update files eliminate the need to manually download
+both an upgrade file and the associated checksum to verify file
+integrity.
 
-%brand% defines software branches, known as *trains*. Several trains are
-available for updates.
+%brand% defines software branches, known as *trains*. There are several
+trains are available for updates, but the |web-ui| will only display
+trains that %brand% is capable of using.
 
-.. caution:: **Only Production trains are recommended for regular
+.. warning:: **Only Production trains are recommended for regular
    usage.** Other trains are made available for pre-production testing
    and updates to legacy versions. Pre-production testing trains are
    provided only to permit testing of new versions before switching to
@@ -1614,8 +1616,9 @@ These trains are available:
   features are added to this train. Selecting this train and applying
   any pending updates is recommended.
 
-* **FreeNAS-11.2-STABLE: Recommended for Jails/Plugins/VM users.**
-  This train provides the latest updates to the new UI, the new iocage
+* **FreeNAS-11.2-STABLE: Recommended.** After testing, new fixes and
+  features are added to this train. This train provides the latest
+  updates to the new UI, the new iocage
   backend for Jails and Plugins, and the latest fixes for VMs. Users who
   rely on these features are encouraged to upgrade to this train and to
   use the :ref:`Support` to report any issues.

@@ -295,6 +295,11 @@ These screen options have changed:
   :menuselection:`System --> Update` has been renamed to
   :guilabel:`Check for Updates Daily and Download if Available`.
 
+* The :guilabel:`Train` selector in
+  :menuselection:`System --> Update` has been changed so that only
+  allowable trains are displayed in the drop-down menu. Each train
+  option has an expanded description.
+
 * The :guilabel:`Container`, :guilabel:`Remote encryption`,
   :guilabel:`Filename encryption`, :guilabel:`Encryption password`, and
   :guilabel:`Encryption salt` fields have been added to
