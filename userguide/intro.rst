@@ -337,6 +337,11 @@ These screen options have changed:
 
 * Disk temperature graphs have been added to
   :menuselection:`Reporting --> Disk`.
+  This tab has been reworked to allow the user to choose the devices
+  and metrics before generating reporting graphs.
+
+* Uptime graphs have been removed from the
+  :menuselection:`Reporting --> System` tab.
 
 * :menuselection:`Virtual Machines --> Device` add and edit forms now
   have a :guilabel:`Device Order` field to set boot priority for VM
