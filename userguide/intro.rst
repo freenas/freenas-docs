@@ -249,7 +249,8 @@ This software has been added or updated:
   :command:`-J` for dumping iocage information, :command:`-M` for
   dumping SATADOM info, and :command:`-Z` to delete old debug
   information. The :command:`-G` switch has been removed as the
-  system no longer uses GRUB.
+  system no longer uses GRUB. The :command:`-j` switch has been
+  reworked to no longer display Warden jail information.
 
 * These switches have been added to :ref:`arcstat`: :command:`-a` for
   displaying all available statistics and :command:`-p` for displaying
