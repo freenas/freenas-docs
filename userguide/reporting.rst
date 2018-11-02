@@ -34,6 +34,9 @@ graphs are grouped into several tabs on the Reporting page:
   * `Disk <https://collectd.org/wiki/index.php/Plugin:Disk>`__
     shows read and write statistics on I/O, percent busy, latency,
     operations per second, pending I/O requests, and disk temperature.
+    Choose the devices and metrics to display and click
+    :guilabel:`GENERATE REPORTS` to display the selected metrics for the
+    chosen devices.
 
 * :guilabel:`Memory`
 
@@ -60,12 +63,9 @@ graphs are grouped into several tabs on the Reporting page:
 
 * :guilabel:`System`
 
-  * `Processes and Uptime
+  * `Processes
     <https://collectd.org/wiki/index.php/Plugin:Processes>`__
     displays the number of processes. It is grouped by state.
-
-  * `Uptime <https://collectd.org/wiki/index.php/Plugin:Uptime>`__
-    keeps track of the system uptime.
 
 * :guilabel:`Target`
 
@@ -74,8 +74,8 @@ graphs are grouped into several tabs on the Reporting page:
 * :guilabel:`ZFS`
 
   * `ZFS <https://collectd.org/wiki/index.php/Plugin:ZFS_ARC>`__
-    shows ARC size, hit ratio, demand data, demand metadata, prefetch
-    data, and prefetch metadata.
+    shows ARC size, hit ratio, demand data, demand metadata, and
+    prefetch data.
 
 
 Reporting data is saved to permit viewing and monitoring usage trends

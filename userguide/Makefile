@@ -18,7 +18,7 @@ ALLSPHINXOPTS   = -t $(TAG) -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHIN
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
-.PHONY: help clean preproc html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex pdf latexpdf text man changes linkcheck doctest gettext
+.PHONY: help clean preproc require requirepdf html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex pdf latexpdf text man changes linkcheck doctest gettext
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -45,10 +45,25 @@ help:
 clean:
 	rm -rf "$(PREPROCDIR)"
 
+require::
+	# basic requirements, Python3 and sphinx
+	@[ `ls /usr/local/bin/python3* | wc -l` -gt 0 ] || (echo "** Python 3 required"; exit 1)
+	@which -s $(SPHINXBUILD) || (echo "** $(SPHINXBUILD) not found, install textproc/py-sphinx"; exit 1)
+
+requirepdf::	require
+	# PDF requirements, LaTeX, xelatex, and MaterialDesign font
+	@which -s latex    || (echo "** latex not found, install print/tex-formats"; exit 1)
+	@which -s dvipdfmx || (echo "** dvipdfmx not found, install print/tex-dvipdfmx"; exit 1)
+	@which -s dvips    || (echo "** dvips not found, install print/tex-dvipsk"; exit 1)
+	@which -s xetex    || (echo "** xetex not found, install print/tex-xetex"; exit 1)
+	@which -s gmake    || (echo "** gmake not found, install devel/gmake"; exit 1)
+	@[ -f /usr/local/share/fonts/MaterialDesign-Webfont/materialdesignicons-webfont.ttf ] \
+	                   || (echo "** MaterialDesign font not found, install x11-fonts/materialdesign-ttf"; exit 1)
+
 preproc::
 	$(PREPROC) -t $(TAG) -o $(PREPROCDIR) -q
 
-html:	preproc
+html:	require preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo "removing spurious characters"
@@ -61,13 +76,13 @@ html:	preproc
 	@echo
 	@echo "Build finished. The HTML index page is $(PREPROCDIR)/$(BUILDDIR)/html/$(TAG).html"
 
-dirhtml:	preproc
+dirhtml:	require preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
 	@echo
 	@echo "Build finished. The HTML pages are in $(PREPROCDIR)/$(BUILDDIR)/dirhtml"
 
-singlehtml:	preproc
+singlehtml:	require preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b singlehtml $(ALLSPHINXOPTS) $(BUILDDIR)/singlehtml
 	@echo
@@ -99,7 +114,7 @@ latex:	preproc
 	@echo "Run \`gmake' in that directory to run these through $(LATEX_ENGINE)" \
 	      "(use \`gmake latexpdf' here to do that automatically)."
 
-latexpdf pdf:	preproc
+latexpdf pdf:	requirepdf preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo "removing spurious characters"
