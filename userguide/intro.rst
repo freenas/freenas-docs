@@ -295,6 +295,12 @@ These screen options have changed:
   :menuselection:`System --> Update` has been renamed to
   :guilabel:`Check for Updates Daily and Download if Available`.
 
+* There is now an option to add a prompt to save a copy of the system
+  configuration and include the :guilabel:`Password Secret Seed` before
+  doing a system upgrade. This popup can be enabled by going to
+  |ui-settings| :menuselection:` --> Preferences` and unsetting
+  :guilabel:`Hide "Save Configuration" Dialog Before Upgrade`
+
 * The :guilabel:`Container`, :guilabel:`Remote encryption`,
   :guilabel:`Filename encryption`, :guilabel:`Encryption password`, and
   :guilabel:`Encryption salt` fields have been added to

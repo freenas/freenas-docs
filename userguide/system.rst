@@ -228,13 +228,13 @@ bind credentials, and cloud credentials are stored in an encrypted form
 to prevent them from being visible as plain text in the saved system
 configuration. The key or *seed* for this encryption is normally stored
 only on the boot device. When :guilabel:`SAVE CONFIG` is chosen, a new
-screen gives the option to :guilabel:`Export Password Secret Seed` with
+screen gives the option to :guilabel:`Include Password Secret Seed` with
 the saved configuration, allowing the configuration file to be restored
 to a different boot device where the decryption seed is not already
 present. Configuration backups containing the seed must be physically
 secured to prevent decryption of passwords and unauthorized access.
 
-.. warning:: The :guilabel:`Export Password Secret Seed` option is off
+.. warning:: The :guilabel:`Include Password Secret Seed` option is off
    by default and should only be used when making a configuration
    backup that will be stored securely. After moving a configuration
    to new hardware, media containing a configuration backup with a
