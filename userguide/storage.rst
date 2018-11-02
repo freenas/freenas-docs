@@ -582,10 +582,11 @@ The *Windows* :guilabel:`Permission Type` is used for
 Active Directory domain. This type adds ACLs to traditional *Unix*
 permissions. When the *Windows* :guilabel:`Permission Type` is set, ACLs
 are set to the Windows defaults for new files and directories. A Windows
-client can be used to further fine-tune permissions as needed. After a
-volume or dataset has been set to *Windows*, it cannot be changed to
-*Unix* permissions because that would clobber the extended permissions
-provided by *Windows* ACLs.
+client can be used to further fine-tune permissions as needed.
+
+.. warning:: Changing a volume or dataset with *Windows* permissions
+   back to *Unix* permissions will overwrite and destroy some of
+   the extended permissions provided by *Windows* ACLs.
 
 The *Unix* :guilabel:`Permission Type` is usually used with
 :ref:`Unix (NFS) Shares`. Unix permissions are compatible with most
