@@ -204,6 +204,8 @@ After making any changes, click the :guilabel:`SAVE` button.
 
 This screen also contains these buttons:
 
+.. _save_config:
+
 **Save Config:** save a backup copy of the current configuration
 database in the format *hostname-version-architecture* to the computer
 accessing the administrative interface. Saving the configuration after
@@ -1726,6 +1728,16 @@ Make sure the system is in a low-usage state as described above in
 
 Click :guilabel:`FETCH AND INSTALL UPDATES` to immediately download and
 install an update.
+
+.. tip:: There is an option to view a prompt to save the system
+   :ref:`save_config` configuration file before installing an update.
+   Click |ui-settings| and :guilabel:`Preferences`. Unset the
+   :guilabel:`Hide "Save Configuration" Dialog Before Upgrade` option
+   and click :guilabel:`UPDATE SETTINGS` to enable this prompt.
+   **WARNING:** Always secure the system configuration file! This file
+   contains all passwords used on the %brand% system and can be used to
+   exploit the system.
+
 
 A confirmation window appears before the update is installed. Set
 :guilabel:`Apply updates and reboot system after downloading` and click
