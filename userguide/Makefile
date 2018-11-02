@@ -10,7 +10,6 @@ PREPROCDIR    = processed
 PAPER         =
 BUILDDIR      = _build
 LATEX_ENGINE != grep 'latex_engine = ' conf.py | grep -oE '[^ ]+$$' | tr -d \\047
-PYTHON_VERSION	!= python -c 'import sys; print(sys.version_info.major)'
 
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
@@ -47,12 +46,12 @@ clean:
 	rm -rf "$(PREPROCDIR)"
 
 require::
-	@echo "checking basic requirements"
-	@[ "$(PYTHON_VERSION)" \> "2" ] || (echo "** Python 2 installed, Python 3 required"; exit 1)
+	# basic requirements, Python3 and sphinx
+	@[ `ls /usr/local/bin/python3* | wc -l` -gt 0 ] || (echo "** Python 3 required"; exit 1)
 	@which -s $(SPHINXBUILD) || (echo "** $(SPHINXBUILD) not found, install textproc/py-sphinx"; exit 1)
 
 requirepdf::	require
-	@echo "checking requirements for PDF"
+	# PDF requirements, LaTeX, xelatex, and MaterialDesign font
 	@which -s latex    || (echo "** latex not found, install print/tex-formats"; exit 1)
 	@which -s dvipdfmx || (echo "** dvipdfmx not found, install print/tex-dvipdfmx"; exit 1)
 	@which -s dvips    || (echo "** dvips not found, install print/tex-dvipsk"; exit 1)
