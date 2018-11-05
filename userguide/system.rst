@@ -204,6 +204,8 @@ After making any changes, click the :guilabel:`SAVE` button.
 
 This screen also contains these buttons:
 
+.. _save_config:
+
 **Save Config:** save a backup copy of the current configuration
 database in the format *hostname-version-architecture* to the computer
 accessing the administrative interface. Saving the configuration after
@@ -228,13 +230,13 @@ bind credentials, and cloud credentials are stored in an encrypted form
 to prevent them from being visible as plain text in the saved system
 configuration. The key or *seed* for this encryption is normally stored
 only on the boot device. When :guilabel:`SAVE CONFIG` is chosen, a new
-screen gives the option to :guilabel:`Export Password Secret Seed` with
+screen gives the option to :guilabel:`Include Password Secret Seed` with
 the saved configuration, allowing the configuration file to be restored
 to a different boot device where the decryption seed is not already
 present. Configuration backups containing the seed must be physically
 secured to prevent decryption of passwords and unauthorized access.
 
-.. warning:: The :guilabel:`Export Password Secret Seed` option is off
+.. warning:: The :guilabel:`Include Password Secret Seed` option is off
    by default and should only be used when making a configuration
    backup that will be stored securely. After moving a configuration
    to new hardware, media containing a configuration backup with a
@@ -1729,6 +1731,16 @@ Make sure the system is in a low-usage state as described above in
 
 Click :guilabel:`FETCH AND INSTALL UPDATES` to immediately download and
 install an update.
+
+.. tip:: There is an option to view a prompt to save the system
+   :ref:`save_config` configuration file before installing an update.
+   Click |ui-settings| and :guilabel:`Preferences`. Unset the
+   :guilabel:`Hide "Save Configuration" Dialog Before Upgrade` option
+   and click :guilabel:`UPDATE SETTINGS` to enable this prompt.
+   **WARNING:** Always secure the system configuration file! This file
+   contains all passwords used on the %brand% system and can be used to
+   exploit the system.
+
 
 A confirmation window appears before the update is installed. Set
 :guilabel:`Apply updates and reboot system after downloading` and click

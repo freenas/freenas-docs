@@ -1711,38 +1711,38 @@ display these settings by enabling the
    | Setting                       | Value          | Advanced | Description                                                                                         |
    |                               |                | Mode     |                                                                                                     |
    +===============================+================+==========+=====================================================================================================+
-   | Bind Interfaces               | selection      | ✓        | By default, SSH listens on all interfaces unless specific interfaces are selected in this drop-down |
+   | Bind interfaces               | selection      | ✓        | By default, SSH listens on all interfaces unless specific interfaces are selected in this drop-down |
    |                               |                |          | menu.                                                                                               |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | TCP Port                      | integer        |          | Port to open for SSH connection requests. *22* by default.                                          |
+   | TCP port                      | integer        |          | Port to open for SSH connection requests. *22* by default.                                          |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Login as Root with Password   | checkbox       |          | **As a security precaution, root logins are discouraged and disabled by default.** If enabled,      |
+   | Log in as root with password  | checkbox       |          | **As a security precaution, root logins are discouraged and disabled by default.** If enabled,      |
    |                               |                |          | password must be set for the *root* user in :guilabel:`Users`.                                      |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Allow Password Authentication | checkbox       |          | Unset to require key-based authentication for all users. This requires                              |
+   | Allow password authentication | checkbox       |          | Unset to require key-based authentication for all users. This requires                              |
    |                               |                |          | `additional setup <http://the.earth.li/~sgtatham/putty/0.55/htmldoc/Chapter8.html>`__               |
    |                               |                |          | on both the SSH client and server.                                                                  |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Allow Kerberos Authentication | checkbox       | ✓        | Ensure :ref:`Kerberos Realms` and :ref:`Kerberos Keytabs` are configured and %brand% can            |
+   | Allow kerberos authentication | checkbox       | ✓        | Ensure :ref:`Kerberos Realms` and :ref:`Kerberos Keytabs` are configured and %brand% can            |
    |                               |                |          | communicate with the Kerberos Domain Controller (KDC) before enabling this option.                  |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Allow TCP Port Forwarding     | checkbox       |          | Set to allow users to bypass firewall restrictions using the SSH                                    |
+   | Allow TCP port forwarding     | checkbox       |          | Set to allow users to bypass firewall restrictions using the SSH                                    |
    |                               |                |          | `port forwarding feature <https://www.symantec.com/connect/articles/ssh-port-forwarding>`__.        |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | Compress Connections          | checkbox       |          | Set to attempt to reduce latency over slow networks.                                                |
+   | Compress connections          | checkbox       |          | Set to attempt to reduce latency over slow networks.                                                |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | SFTP Log Level                | drop-down menu | ✓        | Select the `syslog(3) <https://www.freebsd.org/cgi/man.cgi?query=syslog>`__                         |
+   | SFTP log level                | drop-down menu | ✓        | Select the `syslog(3) <https://www.freebsd.org/cgi/man.cgi?query=syslog>`__                         |
    |                               |                |          | level of the SFTP server.                                                                           |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
-   | SFTP Log Facility             | drop-down menu | ✓        | Select the `syslog(3) <https://www.freebsd.org/cgi/man.cgi?query=syslog>`__                         |
+   | SFTP log facility             | drop-down menu | ✓        | Select the `syslog(3) <https://www.freebsd.org/cgi/man.cgi?query=syslog>`__                         |
    |                               |                |          | facility of the SFTP server.                                                                        |
    |                               |                |          |                                                                                                     |
    +-------------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
