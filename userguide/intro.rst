@@ -295,18 +295,16 @@ These screen options have changed:
   :menuselection:`System --> Update` has been renamed to
   :guilabel:`Check for Updates Daily and Download if Available`.
 
-<<<<<<< HEAD
 * The :guilabel:`Train` selector in
   :menuselection:`System --> Update` has been changed so that only
   allowable trains are displayed in the drop-down menu. Each train
   option has an expanded description.
-=======
+
 * There is now an option to add a prompt to save a copy of the system
   configuration and include the :guilabel:`Password Secret Seed` before
   doing a system upgrade. This popup can be enabled by going to
   |ui-settings| :menuselection:` --> Preferences` and unsetting
   :guilabel:`Hide "Save Configuration" Dialog Before Upgrade`.
->>>>>>> 9efe824e4c62274f941a3ee4ff454c33189bff93
 
 * The :guilabel:`Container`, :guilabel:`Remote encryption`,
   :guilabel:`Filename encryption`, :guilabel:`Encryption password`, and

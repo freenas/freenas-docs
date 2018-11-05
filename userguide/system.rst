@@ -204,7 +204,7 @@ After making any changes, click the :guilabel:`SAVE` button.
 
 This screen also contains these buttons:
 
-.. _save_config:
+.. _saveconfig:
 
 **Save Config:** save a backup copy of the current configuration
 database in the format *hostname-version-architecture* to the computer
@@ -1538,8 +1538,8 @@ Preparing for Updates
 #ifdef freenas
 It is best to perform updates at times the %brand% system is idle,
 with no clients connected and no scrubs or other disk activity going
-on. A reboot is required after most updates, so they are often planned
-for scheduled maintenance times to avoid disrupting user activities.
+on. Most updates require a system reboot. Plan updates around scheduled
+maintenance times to avoid disrupting user activities.
 
 The update process will not proceed unless there is enough free space
 in the boot pool for the new update files. If a space warning is
@@ -1550,9 +1550,8 @@ shown, use :ref:`Boot Environments` to remove unneeded boot environments.
 An update usually takes between thirty minutes and an hour. A reboot
 is required after the update, so it is recommended to schedule updates
 during a maintenance window, allowing two to three hours to update,
-test, and possibly roll back if difficulties are encountered. On very
-large systems, a proportionally longer maintenance window is
-recommended.
+test, and possibly roll back if issues appear. On very large systems, a
+proportionally longer maintenance window is recommended.
 
 For individual support during an upgrade, please open a ticket at
 https://support.ixsystems.com, or call 408-943-4100 to schedule
@@ -1733,7 +1732,7 @@ Click :guilabel:`FETCH AND INSTALL UPDATES` to immediately download and
 install an update.
 
 .. tip:: There is an option to view a prompt to save the system
-   :ref:`save_config` configuration file before installing an update.
+   :ref:`configuration file <saveconfig>` before installing an update.
    Click |ui-settings| and :guilabel:`Preferences`. Unset the
    :guilabel:`Hide "Save Configuration" Dialog Before Upgrade` option
    and click :guilabel:`UPDATE SETTINGS` to enable this prompt.
