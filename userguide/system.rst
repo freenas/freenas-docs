@@ -1595,57 +1595,38 @@ Digitally signed update files eliminate the need to manually download
 both an upgrade file and the associated checksum to verify file
 integrity.
 
-%brand% defines software branches, known as *trains*. There are several
-trains are available for updates, but the |web-ui| will only display
-trains that %brand% is capable of using.
-
-.. warning:: **Only Production trains are recommended for regular
-   usage.** Other trains are made available for pre-production testing
-   and updates to legacy versions. Pre-production testing trains are
-   provided only to permit testing of new versions before switching to
-   a new branch. Before using a non-production train, be prepared to
-   experience bugs or problems. Testers are encouraged to submit bug
-   reports at https://redmine.ixsystems.com/projects/freenas/issues.
-
-
-These trains are available:
-
+%brand% defines software branches, known as *trains*.
 #ifdef freenas
-**For Production Use**
+There are several trains available for updates, but the |web-ui| only
+displays trains that can be selected as an upgrade.
 
-* **FreeNAS-11-STABLE: Recommended.** After testing, new fixes and
-  features are added to this train. Selecting this train and applying
-  any pending updates is recommended.
+Update trains are labeled with a numeric version followed by a short
+description. The current version receives regular bug fixes and new
+features. Supported older versions of %brand% only receive maintenance
+updates. Several specific words are used to describe the type of train:
 
-* **FreeNAS-11.2-STABLE: Recommended.** After testing, new fixes and
-  features are added to this train. This train provides the latest
-  updates to the new UI, the new iocage
-  backend for Jails and Plugins, and the latest fixes for VMs. Users who
-  rely on these features are encouraged to upgrade to this train and to
-  use the :ref:`Support` to report any issues.
+* **STABLE:** Bug fixes and new features are available from this train.
+  Upgrades available from a *STABLE* train are tested and ready to apply
+  to a production environment.
 
-**For Pre-Production Testing**
+* **Nightlies:**  Experimental train used for testing future versions of
+  %brand%.
 
-* **FreeNAS-11-Nightlies: Do not use this train in production**. It
-  is the experimental branch for future versions and is meant only for
-  testers and developers.
+* **SDK:** Software Developer Kit train. This has additional tools for
+  testing and debugging %brand%.
 
-* **FreeNAS-11-Nightlies-SDK: Do not use this train in production**.
-  This train is meant only for developers. It is similar to
-  *FreeNAS-11-Nightlies* but with extra development and debugging
-  utilities added.
-
-**Legacy Versions**
-
-* **FreeNAS-9.10-STABLE**
-
-  Maintenance-only updates to the older version of %brand%. Upgrading
-  to FreeNAS-11-STABLE is recommended to ensure that the system
-  receives bug fixes and new features.
-
-
+.. warning:: **Only trains marked with** :literal:`[release]` **are
+   recommended for regular usage.** Other trains are made available for
+   pre-production testing and updates to legacy versions. Pre-production
+   testing trains are provided only to permit testing of new versions
+   before switching to a new branch. Before using a non-production train,
+   be prepared to experience bugs or problems. Testers are encouraged to
+   submit bug reports at
+   https://redmine.ixsystems.com/projects/freenas/issues.
 #endif freenas
 #ifdef truenas
+There are several trains available for updates:
+
 **For Production Use**
 
 * **TrueNAS-11-STABLE** (Recommended)
@@ -1664,6 +1645,14 @@ These trains are available:
 
   Maintenance-only updates for the older 9.3 branch of %brand%. Use
   this train only at the recommendation of an iXsystems support engineer.
+
+.. warning:: **Only Production trains are recommended for regular usage.**
+   Other trains are made available for pre-production testing and
+   updates to legacy versions. Pre-production testing trains are
+   provided only to permit testing of new versions before switching to
+   a new branch. Before using a non-production train, be prepared to
+   experience bugs or problems. Testers are encouraged to submit bug
+   reports at https://redmine.ixsystems.com/projects/freenas/issues.
 #endif truenas
 
 
