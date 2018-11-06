@@ -1730,7 +1730,7 @@ Click :guilabel:`FETCH AND INSTALL UPDATES` to immediately download and
 install an update.
 
 .. tip:: There is an option to view a prompt to save the system
-   :ref:`save_config` configuration file before installing an update.
+   :ref:`Save Configuration <save_config>` file before installing an update.
    Click |ui-settings| and :guilabel:`Preferences`. Unset the
    :guilabel:`Hide "Save Configuration" Dialog Before Upgrade` option
    and click :guilabel:`UPDATE SETTINGS` to enable this prompt.
