@@ -720,9 +720,9 @@ available for a jail.
    | points       | mount point to :guilabel:`Edit` or click |ui-add| to open     |
    |              | the :guilabel:`Add Mount Point` screen. A mount point         |
    |              | gives a jail access to storage located elsewhere on the       |
-   |              | system. A jail must be stopped before interacting with        |
-   |              | :guilabel:`Mount Points`. See :ref:`Additional Storage`       |
-   |              | for more details.                                             |
+   |              | system. A jail must be stopped before adding, editing, or     |
+   |              | deleting a :guilabel:`Mount Point`. See                       |
+   |              | :ref:`Additional Storage` for more details.                   |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
    | Restart      | Stop and immediately start an :literal:`up` jail.             |
