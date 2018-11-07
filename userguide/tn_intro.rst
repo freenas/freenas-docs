@@ -1,7 +1,5 @@
 Copyright iXsystems 2011-2018
 
-%brand% and the %brand% logo are registered trademarks of iXsystems.
-
 
 .. raw:: latex
 
