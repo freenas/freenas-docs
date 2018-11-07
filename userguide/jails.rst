@@ -618,9 +618,6 @@ a default iocage jail configuration to the jail.
 New jails are added to the primary list in the :guilabel:`Jails` menu.
 
 
-
-
-
 .. index:: Managing Jails
 .. _Managing Jails:
 
