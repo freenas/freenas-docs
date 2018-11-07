@@ -67,9 +67,9 @@ iocage. :guilabel:`ACTIVATE` another pool to refresh the
 list with any jails that exist on the chosen pool or dataset.
 
 Jails and downloaded FreeBSD release files are stored in a dataset named
-:file:`iocage`.
+:file:`iocage/`.
 
-Notes about the :file:`iocage` dataset:
+Notes about the :file:`iocage/` dataset:
 
 * At least 10 GiB of free space is recommended.
 
@@ -79,7 +79,13 @@ Notes about the :file:`iocage` dataset:
   automatically uses the first pool that is not a root pool for the
   %brand% system.
 
-* Each new jail installs into a new child dataset of :file:`iocage`.
+* A :file:`defaults.json` file contains default settings used when
+  a new jail is created. The file is created automatically if not
+  already present. If the file is present but corrupted,
+  :command:`iocage` shows a warning and uses default settings from
+  memory.
+
+* Each new jail installs into a new child dataset of :file:`iocage/`.
   For example, with the :file:`iocage/jails` dataset in :file:`pool1`,
   a new jail called *jail1* installs into a new dataset named
   :file:`pool1/iocage/jails/jail1`.
@@ -90,7 +96,7 @@ Notes about the :file:`iocage` dataset:
   dataset in :file:`/iocage/download` can then be removed without
   affecting the availability of fetched releases or an existing jail.
 
-* :file:`iocage` datasets on activated pools are independent of each
+* :file:`iocage/` datasets on activated pools are independent of each
   other and do **not** share any data.
 
 
@@ -611,10 +617,6 @@ The final set of jail properties are contained in the
 
 
 Click :guilabel:`SAVE` when the desired jail properties have been set.
-These properties are saved as a unique jail configuration. If an iocage
-jail configuration becomes corrupted, %brand% automatically restores
-a default iocage jail configuration to the jail.
-
 New jails are added to the primary list in the :guilabel:`Jails` menu.
 
 
