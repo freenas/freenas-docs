@@ -1278,8 +1278,8 @@ Preparing for Updates
 #ifdef freenas
 It is best to perform updates at times the %brand% system is idle,
 with no clients connected and no scrubs or other disk activity going
-on. A reboot is required after most updates, so they are often planned
-for scheduled maintenance times to avoid disrupting user activities.
+on. Most updates require a system reboot. Plan updates around scheduled
+maintenance times to avoid disrupting user activities.
 
 The update process will not proceed unless there is enough free space
 in the boot pool for the new update files. If a space warning is
@@ -1290,9 +1290,8 @@ shown, use :ref:`Boot` to remove unneeded boot environments.
 An update usually takes between thirty minutes and an hour. A reboot
 is required after the update, so it is recommended to schedule updates
 during a maintenance window, allowing two to three hours to update,
-test, and possibly roll back if difficulties are encountered. On very
-large systems, a proportionally longer maintenance window is
-recommended.
+test, and possibly roll back if issues appear. On very large systems, a
+proportionally longer maintenance window is recommended.
 
 For individual support during an upgrade, open a ticket at
 https://support.ixsystems.com, or call 408-943-4100 to schedule
@@ -1328,11 +1327,12 @@ Updates and Trains
 %brand% uses signed update files. This provides flexibility in deciding
 when to upgrade the system with patches, new drivers, or new features.
 It also allows "test driving" an upcoming release. Combined with boot
-environments, new features or system patches can be tested while still
-being able to revert to a previous version of the operating system (see
-:ref:`If Something Goes Wrong`). Digitally signing update files
-eliminates the need to manually download both an upgrade file and the
-associated checksum to verify file integrity.
+environments, new features or system patches can be tested while
+maintaining the ability to revert to a previous version of the operating
+system, using the instructions in :ref:`If Something Goes Wrong`.
+Digitally signed update files eliminate the need to manually download
+both an upgrade file and the associated checksum to verify file
+integrity.
 
 :numref:`Figure %s <update_options_fig>`
 shows an example of the
@@ -1356,17 +1356,35 @@ screen.
 
 The system checks daily for updates and downloads an update if one
 is available. An alert is issued when a new update becomes
-available. The automatic check and download of updates can be disabled by
-unsetting :guilabel:`Check for Updates Daily and Download if Available`.
+available. The automatic check and download of updates can be disabled
+by unsetting
+:guilabel:`Check for Updates Daily and Download if Available`.
 
 This screen lists the URL of the official update server in case that
 information is needed in a network with outbound firewall
 restrictions. It also shows which software branch, or *train*, is
 being tracked for updates.
 
-Several trains are available for updates.
+Several trains are available for updates. Update trains are labeled
+with a numeric version and a short description.
 
-.. caution:: **Only Production trains are recommended for regular
+#ifdef freenas
+
+The current version of %brand% receives regular bug fixes and new
+features. Supported older versions of %brand% only receive maintenance
+updates. Several specific words are used to describe the type of train:
+
+* **STABLE:** Bug fixes and new features are available from this train.
+  Upgrades available from a *STABLE* train are tested and ready to apply
+  to a production environment.
+
+* **Nightlies:**  Experimental train used for testing future versions of
+  %brand%.
+
+* **SDK:** Software Developer Kit train. This has additional development
+  tools for testing and debugging %brand%.
+
+.. warning:: **Only STABLE trains are recommended for regular
    usage.** Other trains are made available for pre-production testing
    and updates to legacy versions. Pre-production testing trains are
    provided only to permit testing of new versions before switching to
@@ -1374,64 +1392,19 @@ Several trains are available for updates.
    experience bugs or problems. Testers are encouraged to submit bug
    reports at https://redmine.ixsystems.com/projects/freenas/issues.
 
-
-These trains are available:
-
-#ifdef freenas
-**For Production Use**
-
-* **FreeNAS-11-STABLE: Recommended.** After testing, new fixes and
-  features are added to this train. Selecting this train and applying
-  any pending updates is recommended.
-
-* **FreeNAS-11.2-STABLE: Recommended for Jails/Plugins/VM users.**
-  This train provides the latest updates to the new UI, the new iocage
-  backend for Jails and Plugins, and the latest fixes for VMs. Users who
-  rely on these features are encouraged to upgrade to this train and to
-  use the :ref:`Support Icon` to report any issues.
-
-**For Pre-Production Testing**
-
-* **FreeNAS-11-Nightlies: Do not use this train in production**. It
-  is the experimental branch for future versions and is meant only for
-  testers and developers.
-
-
-* **FreeNAS-11-Nightlies-SDK: Do not use this train in production**.
-  This train is meant only for developers. It is similar to
-  *FreeNAS-11-Nightlies* but with extra development and debugging
-  utilities added.
-
-* **FreeNAS-HEAD-Nightlies: Do not use this train in production**.
-  This train is meant only for developers and contains the source that
-  will eventually become %brand% version 12.
-
-**Legacy Versions**
-
-* **FreeNAS-9.10-STABLE**
-
-  Maintenance-only updates to the older version of %brand%. Upgrading
-  to FreeNAS-11-STABLE is recommended to ensure that the system
-  receives bug fixes and new features.
-
-
-To change the train, use the drop-down menu to make a different
-selection.
-
-.. note:: The train selector does not allow downgrades. For example,
-   the STABLE train cannot be selected while booted into a Nightly
-   boot environment, or a 9.10 train cannot be selected while booted
-   into a 11 boot environment. To go back to an earlier version
-   after testing or running a more recent version, reboot and select a
-   boot environment for that earlier version. This screen can then be
-   used to check for updates that train.
-
-
-This screen also shows the URL of the official update server. That
-information can be required when using a network with outbound
-firewall restrictions.
+The train selector does not allow downgrades. For example, a %brand%
+system using a *Nightlies* upgrade train is not allowed to switch to
+a *STABLE* train. A version 9.10 train cannot be selected while booted
+in a version 11 boot environment. To go back to an earlier version
+after testing or running a more recent version of %brand%, reboot and
+select a :ref:`boot environment <Boot>` for that earlier version.
+:menuselection:`System --> Update`
+can then be used to check for updates from the related train.
 #endif freenas
 #ifdef truenas
+
+These update trains are available:
+
 **For Production Use**
 
 * **TrueNAS-11-STABLE** (Recommended)
