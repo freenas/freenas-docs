@@ -295,6 +295,11 @@ These screen options have changed:
   :menuselection:`System --> Update` has been renamed to
   :guilabel:`Check for Updates Daily and Download if Available`.
 
+* The :guilabel:`Train` selector in
+  :menuselection:`System --> Update` has been changed so that only
+  allowable trains are displayed in the drop-down menu. Each train
+  option has an expanded description.
+
 * There is now an option to add a prompt to save a copy of the system
   configuration and include the :guilabel:`Password Secret Seed` before
   doing a system upgrade. This popup can be enabled by going to
