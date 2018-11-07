@@ -611,7 +611,14 @@ The final set of jail properties are contained in the
 
 
 Click :guilabel:`SAVE` when the desired jail properties have been set.
+These properties are saved as a unique jail configuration. If an iocage
+jail configuration becomes corrupted, %brand% automatically restores
+a default iocage jail configuration to the jail.
+
 New jails are added to the primary list in the :guilabel:`Jails` menu.
+
+
+
 
 
 .. index:: Managing Jails
