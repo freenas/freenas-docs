@@ -237,8 +237,8 @@ created or modified.
    |                        |               |             |                                                                                                                                |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
    | Username               | string        |             | Enter an alphanumeric username of eight to sixteen characters. Keeping usernames to eight characters or less is recommended    |
-   |                        |               |             | for compatibility with legacy clients. Usernames cannot begin with a hyphen :kbd:`-` or contain a space, tab, or these         |
-   |                        |               |             | characters: :literal:`, : + & # % ^ \ & ( ) ! @ ~ * ? < > =`. A :literal:`$` can only be used as the last character.           |
+   |                        |               |             | for compatibility with legacy clients. Note that :literal:`$` can only be used as the last character. Usernames cannot begin   |
+   |                        |               |             | with a hyphen :kbd:`-` or contain a space, tab, or these characters: :literal:`, : + & # % ^ \ & ( ) ! @ ~ * ? < > =`          |
    |                        |               |             |                                                                                                                                |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
    | Create a new           | checkbox      |             | A primary group with the same name as the user is created automatically. Unset to select a different primary group name.       |
