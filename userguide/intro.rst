@@ -215,14 +215,17 @@ This software has been added or updated:
 * rsync has been updated to
   `version 3.1.3 <https://download.samba.org/pub/rsync/src/rsync-3.1.3-NEWS>`__.
 
+* rclone has been updated to
+  `version 1.43 <https://rclone.org/changelog/#v1-43-2018-09-01>`__.
+
 * Minio has been updated to
   `version 2018-04-04T05 <https://github.com/minio/minio/releases/tag/RELEASE.2018-04-04T05-20-54Z>`__.
 
 * Netdata as been updated to
   `version 1.10.1 <https://github.com/firehol/netdata/releases/tag/v1.10.0>`__.
 
-* iocage has been synced with upstream as of July 10, providing many bug
-  fixes and improved IPv6 support.
+* iocage has been synced with upstream as of October 3, providing many
+  bug fixes and improved IPv6 support.
 
 * RancherOS has been updated to version
   `1.4.1 <https://github.com/rancher/os/releases/tag/v1.4.1>`__.
@@ -285,6 +288,11 @@ These screen options have changed:
   but only appears when *Amazon S3* is selected as the
   :guilabel:`Provider`. This can be used to configure a connection to
   another S3-compatible service, such as Wasabi.
+
+* :guilabel:`Drive Type` and :guilabel:`Drive ID`  has been added to
+  :menuselection:`System -> Cloud Credentials -> Add Cloud Credential`.
+  These fields appear when *Microsoft OneDrive* is selected as the
+  :guilabel:`Provider`.
 
 * The :guilabel:`Automatically check for new updates` option in
   :menuselection:`System --> Update`
