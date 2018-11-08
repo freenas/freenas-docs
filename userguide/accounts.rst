@@ -46,13 +46,14 @@ to see a screen like
    Group Management
 
 The :guilabel:`Groups` page lists all groups, including those built in
-and used by the operating system. The table displays group names, group
-IDs (GID), built-in groups, and if :command:`sudo` is permitted.
-Clicking the |ui-options| icon on a user created group entry displays
-:guilabel:`Members`, :guilabel:`Edit`, and :guilabel:`Delete` options.
-Click :guilabel:`Members` to view and modify the group membership.
-Note built-in groups are required by the %brand% system so they
-do not have :guilabel:`Edit`, and :guilabel:`Delete` buttons.
+and used by the operating system. The table displays group names,
+group IDs (GID), built-in groups, and whether :command:`sudo` is
+permitted. Clicking the |ui-options| icon on a user-created group
+entry displays :guilabel:`Members`, :guilabel:`Edit`, and
+:guilabel:`Delete` options. Click :guilabel:`Members` to view and
+modify the group membership. Built-in groups are required by the
+%brand% system, so they do not have :guilabel:`Edit` or
+:guilabel:`Delete` buttons.
 
 
 .. index:: Add Group, New Group, Create Group

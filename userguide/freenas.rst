@@ -9,7 +9,7 @@
    install
    booting
    settings
-   account
+   accounts
    system
    tasks
    network
