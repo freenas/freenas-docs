@@ -14,14 +14,14 @@
    tasks
    network
    storage
-   directoryservice
+   directoryservices
    sharing
    services
    plugins
    jails
-   vms
    reporting
-   processes
+   virtualmachines
+   displaysystemprocesses
    shell
    power
    alert
