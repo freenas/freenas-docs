@@ -1234,7 +1234,11 @@ Enter a descriptive and unique name for the cloud credential in the
    | Storage              | Account Key          |                                                                                                                 |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Microsoft OneDrive   | Access Token         | Enter the access token.                                                                                         |
+   | Microsoft OneDrive   | Access Token,        | Enter the access token. Choose a :guilabel:`Drive Type`: *PERSONAL*, *BUSINESS*, or                             |
+   |                      | Drive Type,          | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
+   |                      | Drive ID             | Enter the unique drive identifier. Open the :ref:`Shell`, enter :command:`rclone config`, and                   |
+   |                      |                      | follow the prompts to find these values. The `rclone OneDrive documentation <https://rclone.org/onedrive/>`__   |
+   |                      |                      | guides through the configuraion process.                                                                        |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | pCloud               | Access Token         | Enter the access token.                                                                                         |
@@ -1270,6 +1274,9 @@ unknown, a new key pair can be created on the same Amazon screen.
 The Google Cloud Storage :guilabel:`JSON Service Account Key` is found
 on the
 `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
+
+More details about individual :guilabel:`Provider` settings are
+available in the `rclone documentation <https://rclone.org/about/>`__.
 
 
 .. index:: Tunables
