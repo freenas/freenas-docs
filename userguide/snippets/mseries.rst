@@ -81,22 +81,28 @@ storage controller are:
 .. table::
    :class: longtable
 
-   +------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | 1: Redundant power supplies                                            | 7: VGA monitor port                                                    |
-   +------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | 2: Serial port                                                         | 8: ID LED                                                              |
-   +------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | 3: 1Gb Ethernet Out of Band (OOB) management port, dual USB 2.0 ports  | 9: HD Mini SAS3 connectors                                             |
-   +------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | 4: Dual USB 3.0 ports                                                  | 10: Networking port                                                    |
-   +------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | 5: 10Gb Ethernet port                                                  | 11: Asterisk slot: Fibre Channel or additional networking              |
-   +------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | 6: 10Gb Ethernet port                                                  | 12: Storage controller management port                                 |
-   +------------------------------------------------------------------------+------------------------------------------------------------------------+
+   +----------------------------------------------+----------------------------------------------+
+   | 1: Redundant power supplies                  | 7: VGA monitor port                          |
+   +----------------------------------------------+----------------------------------------------+
+   | 2: Serial port                               | 8: ID LED                                    |
+   +----------------------------------------------+----------------------------------------------+
+   | 3: 1Gb Ethernet Out of Band (OOB) dedicated  | 9: HD Mini SAS3 connectors                   |
+   | management port, dual USB 2.0 ports          |                                              |
+   +----------------------------------------------+----------------------------------------------+
+   | 4: Dual USB 3.0 ports                        | 10: Networking port                          |
+   +----------------------------------------------+----------------------------------------------+
+   | 5: 10Gb Ethernet port                        | 11: Asterisk slot: Fibre Channel or          |
+   |                                              | additional networking                        |
+   +----------------------------------------------+----------------------------------------------+
+   | 6: 10Gb Ethernet port                        | 12: Storage controller management port       |
+   +----------------------------------------------+----------------------------------------------+
 
-.. warning:: Single controller systems must be shut down and powered off
-   before removing the controller or data loss will occur!
+**M-Series systems with only a single storage controller must be shut
+down and powered off before removing the controller or data loss will
+occur.**
+
+For remote management with IPMI, the 1 Gb Ethernet Out of Band
+management port (#3) must be connected to a network.
 
 
 .. _m_back:
@@ -105,10 +111,6 @@ storage controller are:
    :width: 100%
 
    Back Panel
-
-
-.. note:: The 1 Gb Ethernet Out of Band management port (#3) must be
-   connected to a network to enable IPMI functions on the M-Series.
 
 
 .. raw:: latex
