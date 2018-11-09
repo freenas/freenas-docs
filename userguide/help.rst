@@ -19,5 +19,5 @@ Guide
 -----
 
 The :guilabel:`Documentation` icon, the second icon from the left in
-the top menubar, provides a built-in browser to the %brand% User Guide
-(this documentation).
+the top menubar, links to the online documentation
+(this guide).
