@@ -1687,7 +1687,10 @@ remaining options vary by provider, and are shown in
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | Microsoft          | Access Token,          | Enter the access token. Choose a :guilabel:`Drive Type`: *PERSONAL*, *BUSINESS*, or                             |
    | OneDrive           | Drive Type,            | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
-   |                    | Drive ID               | Enter a unique drive identifier.                                                                                |
+   |                    | Drive ID               | Enter the unique drive identifier. Open the :ref:`Shell`, enter :command:`rclone config`, and follow the        |
+   |                    |                        | prompts to find these values. The `rclone OneDrive documentation <https://rclone.org/onedrive/>`__ guides       |
+   |                    |                        | through the configuration process.                                                                              |
+   |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | pCloud             | Access Token           | Enter the access token.                                                                                         |
    |                    |                        |                                                                                                                 |
