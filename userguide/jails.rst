@@ -240,8 +240,11 @@ a new jail.
    | IPv4 Netmask              | drop-down menu    | Choose a subnet mask for this IPv4 Address.                                                             |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
-   | Default IPv4 Route        | string            | Type :literal:`none` or a valid IP address. Setting this property to anything other than *none*         |
+   | IPv4 Default Router       | string            | Type :literal:`none` or a valid IP address. Setting this property to anything other than *none*         |
    |                           |                   | configures a default route inside a VNET jail.                                                          |
+   |                           |                   |                                                                                                         |
+   +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
+   | Auto Configure IPv6       | checkbox          | Set to use SLAAC (Stateless Address Auto Configuration) to autoconfigure IPv6 in the jail.              |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
    | IPv6 Interface            | drop-down menu    | Choose a network interface to use for this IPv6 connection.                                             |
@@ -256,7 +259,7 @@ a new jail.
    | IPv6 Prefix               | drop-down menu    | Choose a prefix for this IPv6 Address.                                                                  |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
-   | Default IPv6 Route        | string            | Type :literal:`none` or a valid IP address. Setting this property to anything other than *none*         |
+   | IPv6 Default Router       | string            | Type :literal:`none` or a valid IP address. Setting this property to anything other than *none*         |
    |                           |                   | configures a default route inside a VNET jail.                                                          |
    |                           |                   |                                                                                                         |
    +---------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
