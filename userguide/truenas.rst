@@ -7,7 +7,7 @@
 
    tn_intro
    tn_initial
-   account
+   accounts
    system
    tasks
    network
