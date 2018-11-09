@@ -216,7 +216,7 @@ This software has been added or updated:
   `version 3.1.3 <https://download.samba.org/pub/rsync/src/rsync-3.1.3-NEWS>`__.
 
 * rclone has been updated to
-  `version 1.43 <https://rclone.org/changelog/#v1-43-2018-09-01>`__.
+  `version 1.44 <https://rclone.org/changelog/#v1-44-2018-10-15>`__.
 
 * Minio has been updated to
   `version 2018-04-04T05 <https://github.com/minio/minio/releases/tag/RELEASE.2018-04-04T05-20-54Z>`__.
