@@ -1342,7 +1342,7 @@ regular creation of snapshots, instead use
 **Promote Dataset:** only applies to clones. When a clone is promoted,
 the origin filesystem becomes a clone of the clone making it possible
 to destroy the filesystem that the clone was created from. Otherwise,
-a clone cannot be destroyed while the origin filesystem exists.
+a clone cannot be deleted while the origin filesystem exists.
 
 **Destroy Dataset:** clicking the :guilabel:`Destroy Dataset` button
 causes the browser window to turn red to indicate that this is a
@@ -2833,8 +2833,8 @@ its descendants. This value is checked against the dataset quota and
 reservation. The space used does not include the dataset
 reservation, but does take into account the reservations of any
 descendent datasets. The amount of space that a dataset consumes from
-its parent, as well as the amount of space that are freed if this
-dataset is recursively destroyed, is the greater of its space used and
+its parent, as well as the amount of space freed if this
+dataset is recursively deleted, is the greater of its space used and
 its reservation. When a snapshot is created, the space is initially
 shared between the snapshot and the filesystem, and possibly with
 previous snapshots. As the filesystem changes, space that was
@@ -2867,8 +2867,8 @@ tab rather than the :guilabel:`Snapshots` tab. By default,
 created.
 
 **Destroy Snapshot** a pop-up message asks for confirmation. Child
-clones must be destroyed before their parent snapshot can be
-destroyed. While creating a snapshot is instantaneous, deleting a
+clones must be deleted before their parent snapshot can be
+deleted. While creating a snapshot is instantaneous, deleting a
 snapshot can be I/O intensive and can take a long time, especially
 when deduplication is enabled. To delete a block in a
 snapshot, ZFS has to walk all the allocated blocks to see if that
