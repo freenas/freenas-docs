@@ -1583,6 +1583,7 @@ are entered here. Amazon Cloud Drive, Amazon S3, Backblaze B2, Box,
 Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Hubic, Mega,
 Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV,
 and Yandex are supported.
+
 Select
 :menuselection:`System --> Cloud Credentials`
 to see the screen shown in :numref:`Figure %s <cloud_creds_fig>`.
@@ -1684,8 +1685,11 @@ remaining options vary by provider, and are shown in
    | Blob Storage       | Account Key            |                                                                                                                 |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Microsoft          | Access Token           | Enter the access token.                                                                                         |
-   | OneDrive           |                        |                                                                                                                 |
+   | Microsoft          | Access Token,          | Enter the access token. Choose the account type: *PERSONAL*, *BUSINESS*, or                                     |
+   | OneDrive           | Drive Account Type,    | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
+   |                    | Drive ID               | Enter the unique drive identifier. Open the :ref:`Shell`, enter :command:`rclone config`, and follow the        |
+   |                    |                        | prompts to find these values. The `rclone OneDrive documentation <https://rclone.org/onedrive/>`__ guides       |
+   |                    |                        | through the configuration process.                                                                              |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | pCloud             | Access Token           | Enter the access token.                                                                                         |
@@ -1722,6 +1726,8 @@ unknown, a new key pair can be created on the same Amazon screen.
 The Google Cloud Storage :guilabel:`JSON Service Account Key` is found on the
 `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
 
+More details about individual :guilabel:`Provider` settings are
+available in the `rclone documentation <https://rclone.org/about/>`__.
 
 
 #ifdef freenas
