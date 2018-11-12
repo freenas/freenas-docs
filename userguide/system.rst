@@ -1500,22 +1500,21 @@ reboots after the updates are applied.
 Manual Updates
 ~~~~~~~~~~~~~~
 
-Updates can be manually downloaded as a file. These updates are then
-applied with the :guilabel:`Manual Update` button. After obtaining the
-update file, click :guilabel:`Manual Update` and choose a location to
-temporarily store the file on the %brand% system. Use the file browser
-to locate the update file, then click :guilabel:`Apply Update` to
-apply it.
-
-Manual update files can be identified by their filenames, which end in
-:file:`-manual-update-unsigned.tar`.
-
-Manual updates cannot be used to upgrade from older major versions.
+Updates can be manually downloaded as a file ending with
+:file:`-manual-update-unsigned.tar`. These updates are then applied with
+the :guilabel:`Manual Update` button. After obtaining the update file,
+click :guilabel:`Manual Update` and choose a location to temporarily
+store the file on the %brand% system. Use the file browser to locate the
+update file, then click :guilabel:`Apply Update` to apply it.
 
 There is also an option to back up the system configuration before
 updating. Click :guilabel:`Click here` and select any options to export
 in the configuration file. Click :guilabel:`OK` to open a popup window
 to save the system configuration.
+
+.. tip:: Manual updates cannot be used to upgrade from older major
+   versions.
+
 
 #ifdef truenas
 .. _Updating from the CLI:
