@@ -247,7 +247,8 @@ This software has been added or updated:
 * These switches have been added to :ref:`freenas-debug`:
   :literal:`-M` for dumping SATADOM info and :literal:`-Z` to delete
   old debug information. The :literal:`-G` switch has been removed as
-  the system no longer uses GRUB. The :literal:`-j` switch has been
+  the system no longer uses GRUB. The :literal:`-J` switch has been
+  removed and the :literal:`-j` switch has been
   reworked to show iocage jail information instead of Warden.
 
 * These switches have been added to :ref:`arcstat`: :command:`-a` for
