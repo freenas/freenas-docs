@@ -943,7 +943,6 @@ run the command without any options:
     -C  Dump SMB Configuration
     -D  Dump Domain Controller Configuration
     -I  Dump IPMI Configuration
-    -J  Dump iocage information
     -M  Dump SATA DOMs Information
     -N  Dump NFS Configuration
     -S  Dump SMART Information
@@ -974,7 +973,7 @@ an Active Directory configuration, use:
    freenas-debug -a
 
 
-To collect the output of every module, use :samp:`-A`:
+To collect the output of every module, use :literal:`-A`:
 
 .. code-block:: none
 

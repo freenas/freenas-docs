@@ -246,10 +246,11 @@ This software has been added or updated:
   Type :command:`cloneacl` for usage instructions.
 
 * These switches have been added to :ref:`freenas-debug`:
-  :command:`-J` for dumping iocage information, :command:`-M` for
-  dumping SATADOM info, and :command:`-Z` to delete old debug
-  information. The :command:`-G` switch has been removed as the
-  system no longer uses GRUB.
+  :literal:`-M` for dumping SATADOM info and :literal:`-Z` to delete
+  old debug information. The :literal:`-G` switch has been removed as
+  the system no longer uses GRUB. The :literal:`-J` switch has been
+  removed and the :literal:`-j` switch has been
+  reworked to show iocage jail information instead of Warden.
 
 * These switches have been added to :ref:`arcstat`: :command:`-a` for
   displaying all available statistics and :command:`-p` for displaying
