@@ -1685,8 +1685,8 @@ remaining options vary by provider, and are shown in
    | Blob Storage       | Account Key            |                                                                                                                 |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Microsoft          | Access Token,          | Enter the access token. Choose a :guilabel:`Drive Type`: *PERSONAL*, *BUSINESS*, or                             |
-   | OneDrive           | Drive Type,            | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
+   | Microsoft          | Access Token,          | Enter the access token. Choose the account type: *PERSONAL*, *BUSINESS*, or                                     |
+   | OneDrive           | Drive Account Type,    | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
    |                    | Drive ID               | Enter the unique drive identifier. Open the :ref:`Shell`, enter :command:`rclone config`, and follow the        |
    |                    |                        | prompts to find these values. The `rclone OneDrive documentation <https://rclone.org/onedrive/>`__ guides       |
    |                    |                        | through the configuration process.                                                                              |
