@@ -1234,8 +1234,8 @@ Enter a descriptive and unique name for the cloud credential in the
    | Storage              | Account Key          |                                                                                                                 |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Microsoft OneDrive   | Access Token,        | Enter the access token. Choose a :guilabel:`Drive Type`: *PERSONAL*, *BUSINESS*, or                             |
-   |                      | Drive Type,          | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
+   | Microsoft OneDrive   | Access Token,        | Enter the access token. Choose the account type: *PERSONAL*, *BUSINESS*, or                                     |
+   |                      | Drive Account Type,  | `SharePoint <https://products.office.com/en-us/sharepoint/collaboration>`__ *DOCUMENT_LIBRARY*.                 |
    |                      | Drive ID             | Enter the unique drive identifier. Open the :ref:`Shell`, enter :command:`rclone config`, and                   |
    |                      |                      | follow the prompts to find these values. The `rclone OneDrive documentation <https://rclone.org/onedrive/>`__   |
    |                      |                      | guides through the configuraion process.                                                                        |

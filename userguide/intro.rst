@@ -295,7 +295,8 @@ These screen options have changed:
   :guilabel:`Provider`. This can be used to configure a connection to
   another S3-compatible service, such as Wasabi.
 
-* :guilabel:`Drive Type` and :guilabel:`Drive ID`  has been added to
+* :guilabel:`Drive Account Type` and :guilabel:`Drive ID`  has been
+  added to
   :menuselection:`System -> Cloud Credentials -> Add Cloud Credential`.
   These fields appear when *Microsoft OneDrive* is selected as the
   :guilabel:`Provider`.
