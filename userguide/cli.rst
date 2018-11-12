@@ -944,32 +944,31 @@ run the command without any options:
    Usage: /usr/local/bin/freenas-debug <options>
    Where options are:
 
-    -A  Dump all debug information
-    -B  Dump System Configuration Database
-    -C  Dump SMB Configuration
-    -D  Dump Domain Controller Configuration
-    -I  Dump IPMI Configuration
-    -J  Dump iocage information
-    -M  Dump SATA DOMs Information
-    -N  Dump NFS Configuration
-    -S  Dump SMART Information
-    -T  Loader Configuration Information
-    -Z  Remove old debug information
-    -a  Dump Active Directory Configuration
-    -c  Dump (AD|LDAP) Cache
-    -e  Email debug log to this comma-delimited list of email addresses
-    -f  Dump AFP Configuration
-    -g  Dump GEOM Configuration
-    -h  Dump Hardware Configuration
-    -i  Dump iSCSI Configuration
-    -j  Dump Jail Information
-    -l  Dump LDAP Configuration
-    -n  Dump Network Configuration
-    -s  Dump SSL Configuration
-    -t  Dump System Information
-    -v  Dump Boot System File Verification Status and Inconsistencies
-    -y  Dump Sysctl Configuration
-    -z  Dump ZFS Configuration
+       -A  Dump all debug information
+       -B  Dump System Configuration Database
+       -C  Dump SMB Configuration
+       -D  Dump Domain Controller Configuration
+       -I  Dump IPMI Configuration
+       -M  Dump SATA DOMs Information
+       -N  Dump NFS Configuration
+       -S  Dump SMART Information
+       -T  Loader Configuration Information
+       -Z  Remove old debug information
+       -a  Dump Active Directory Configuration
+       -c  Dump (AD|LDAP) Cache
+       -e  Email debug log to this comma-delimited list of email addresses
+       -f  Dump AFP Configuration
+       -g  Dump GEOM Configuration
+       -h  Dump Hardware Configuration
+       -i  Dump iSCSI Configuration
+       -j  Dump Jail Information
+       -l  Dump LDAP Configuration
+       -n  Dump Network Configuration
+       -s  Dump SSL Configuration
+       -t  Dump System Information
+       -v  Dump Boot System File Verification Status and Inconsistencies
+       -y  Dump Sysctl Configuration
+       -z  Dump ZFS Configuration
 
 
 Individual tests can be run alone. For example, when troubleshooting
@@ -980,7 +979,7 @@ an Active Directory configuration, use:
    freenas-debug -a
 
 
-To collect the output of every module, use :samp:`-A`:
+To collect the output of every module, use :literal:`-A`:
 
 .. code-block:: none
 
