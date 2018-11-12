@@ -608,6 +608,9 @@ is supported by following the process outlined in
    | `MineOS <https://minecraft.codeemo.com/>`__                             | Self-contained Minecraft server.                                       |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Nextcloud <https://nextcloud.com/>`__                                  | Access, share and protect files, calendars, contacts, communication    |
+   |                                                                         | and more at home and in the enterprise environment.                    |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `PlexMediaServer <https://www.plex.tv/>`__                              | The Plex media server system.                                          |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
