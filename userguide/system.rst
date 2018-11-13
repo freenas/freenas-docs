@@ -1724,20 +1724,23 @@ Applying Updates
 Make sure the system is in a low-usage state as described above in
 :ref:`Preparing for Updates`.
 
+.. _save-config-popup:
+
+There is an option to view a prompt to save the system
+:ref:`configuration file <saveconfig>` before installing an update with
+either the :guilabel:`FETCH AND INSTALL UPDATES`,
+:guilabel:`APPLY PENDING UPDATES`, or
+:guilabel:`INSTALL MANUAL UPDATE FILE` buttons. Click |ui-settings| and
+:guilabel:`Preferences`. Unset the
+:guilabel:`Hide "Save Configuration" Dialog Before Upgrade` option and
+click :guilabel:`UPDATE SETTINGS` to enable this prompt. **WARNING:**
+Always secure the system configuration file after downloading it! This
+file contains all passwords used on the %brand% system and can be used
+to exploit the system.
+
 Click :guilabel:`FETCH AND INSTALL UPDATES` to immediately download and
-install an update.
-
-.. tip:: There is an option to view a prompt to save the system
-   :ref:`configuration file <saveconfig>` before installing an update.
-   Click |ui-settings| and :guilabel:`Preferences`. Unset the
-   :guilabel:`Hide "Save Configuration" Dialog Before Upgrade` option
-   and click :guilabel:`UPDATE SETTINGS` to enable this prompt.
-   **WARNING:** Always secure the system configuration file! This file
-   contains all passwords used on the %brand% system and can be used to
-   exploit the system.
-
-
-A confirmation window appears before the update is installed. Set
+install an update. A confirmation window appears before the update is
+installed. Set
 :guilabel:`Apply updates and reboot system after downloading` and click
 :guilabel:`CONTINUE` to download and apply the update. Be aware that
 updates automatically reboot the system after they are applied. Unset
@@ -1767,9 +1770,17 @@ Manual Updates
 ~~~~~~~~~~~~~~
 
 Alternately, updates can be manually downloaded then applied using the
-:guilabel:`INSTALL MANUAL UPDATE FILE` button. Selecting this option
-prompts to choose a location to temporarily store the file on the %brand%
-system, a :guilabel:`Browse` button to navigate to the downloaded
+:guilabel:`INSTALL MANUAL UPDATE FILE` button.
+
+There is an opportunity to back up the
+:ref:`system configuration file <saveconfig>` after clicking
+:guilabel:`INSTALL MANUAL UPDATE FILE`. A
+:ref:`popup window <save-config-popup>` can be used to download the
+system :file:`.db` file.
+
+Clicking :guilabel:`INSTALL MANUAL UPDATE FILE` shows options to choose
+a location to temporarily store the file on the %brand% system, a
+:guilabel:`Browse` button to navigate to the downloaded
 :file:`-manual-update-unsigned.tar` file, and an
 :guilabel:`APPLY UPDATE` button to initiate the manual update. During
 the update process a progress dialogue appears. **Do not** interrupt the
