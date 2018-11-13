@@ -168,6 +168,9 @@ rst_prolog = u'''
 .. |ui-jail-update|   replace::  (Update)
 .. |ui-jail-delete|   replace::  (Delete)
 .. |ui-edit-disks|    replace::  (Edit Disks)
+.. |alert-icon-watch| replace:: 肋
+.. |alert-icon-info|  replace:: 
+.. |alert-icon-error| replace:: 
 '''
 
 # roles for text replacement
