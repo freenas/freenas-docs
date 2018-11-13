@@ -28,7 +28,7 @@ repetitive tasks:
 * :ref:`Scrub Tasks` schedules scrubs as part of ongoing disk
   maintenance
 
-* :ref:`` schedules data synchronization to cloud
+* :ref:`Cloud Sync Tasks` schedules data synchronization to cloud
   providers
 
 Each of these tasks is described in more detail in this section.
