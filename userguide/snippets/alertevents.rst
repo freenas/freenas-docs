@@ -34,19 +34,19 @@ emailed to the root account.
 .. table:: %brand% Alert Icons
    :class: longtable
 
-   +------------------+--------------------------------------------------+
-   | Alert Level      | Icon                                             |
-   |                  |                                                  |
-   +==================+==================================================+
-   | Notification     | .. image:: images/alert-icon-info.png            |
-   |                  |                                                  |
-   +------------------+--------------------------------------------------+
-   | Warning          | .. image:: images/alert-icon-watch-later.png     |
-   |                  |                                                  |
-   +------------------+--------------------------------------------------+
-   | Critical         | .. image:: images/alert-icon-error.png           |
-   |                  |                                                  |
-   +------------------+--------------------------------------------------+
+   +------------------+-----------------------+
+   | Alert Level      | Icon                  |
+   |                  |                       |
+   +==================+=======================+
+   | Notification     | |alert-icon-info|     |
+   |                  |                       |
+   +------------------+-----------------------+
+   | Warning          | |alert-icon-watch|    |
+   |                  |                       |
+   +------------------+-----------------------+
+   | Critical         | |alert-icon-error|    |
+   |                  |                       |
+   +------------------+-----------------------+
 
 
 Close an alert message by hovering over it until
