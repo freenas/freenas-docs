@@ -658,6 +658,9 @@ is supported by following the process outlined in
    | `XMRig <https://github.com/xmrig/xmrig>`__                              | XMRig is a high performance Monero (XMR) CPU miner                     |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `ZoneMinder <https://zoneminder.com/>`__                                | A full-featured, open source, state-of-the-art video surveillance      |
+   |                                                                         | software system.                                                       |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
 
 If there are any difficulties using a plugin, refer to the official
 documentation for that application.
