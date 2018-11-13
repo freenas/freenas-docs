@@ -108,9 +108,8 @@ write the :file:`.iso` file to an inserted USB thumb drive.
 .. warning:: The :command:`dd` command is very powerful and can
    destroy any existing data on the specified device. Make
    **absolutely sure** of the device name to write to and do not
-   mistype the device name when using :command:`dd`! The use of this
-   command can be avoided by writing the :file:`.iso` file to a
-   CD instead.
+   mistype the device name when using :command:`dd`! This command can
+   be avoided by writing the :file:`.iso` file to a CD instead.
 
 
 This example demonstrates writing the image to the first USB device
@@ -619,12 +618,13 @@ boot drive or drives and presents the message shown in
    Upgrading a %brand% Installation
 
 
-.. note:: A system can be upgraded by backing up the existing
-   configuration data with
+.. note:: A %brand% system can be upgraded by backing up the existing
+   configuration data, performing a fresh install, then restoring the
+   configuration. Back up the configuration with
    :menuselection:`System --> General --> Save Config`.
    Choose :guilabel:`Fresh Install` during the installation. After
-   booting into the new the install, restore the previous
-   configuration data with
+   booting into the new install, restore the previous configuration
+   data with
    :menuselection:`System --> General --> Upload Config`.
 
 
