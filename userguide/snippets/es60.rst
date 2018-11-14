@@ -1,5 +1,10 @@
 #include snippets/copyright.rst
 
+.. note:: The ES60 replaces the previous E60 unit. The E60 reached end
+   of life (EOL) on *May 17, 2017*, but will continue to be supported
+   until *May 17, 2022*.
+
+
 .. index:: ES60 Expansion Shelf
 .. _ES60 Expansion Shelf:
 
@@ -371,4 +376,3 @@ on the ears of the ES60. Install one upper screw from the back side of
 the left ES60 ear, then install a lower screw from the back of the
 right ES60 ear. Install the remaining two screws following the same
 diagonal pattern.
-
