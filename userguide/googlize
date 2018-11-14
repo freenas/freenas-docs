@@ -225,7 +225,7 @@ foreach my $fname (@ARGV) {
     my $html = read_file($fname);
 
     print "$fname -";
-    print " GA code ";
+    print " Header links & GA code ";
     if ( $html =~ /<!-- googlize start -->/ ) {
         print "replaced";
         $html =~ s%  <!-- googlize start -->.*<!-- googlize end -->\s+</head>%$prolog</head>%gsi;
@@ -233,7 +233,7 @@ foreach my $fname (@ARGV) {
         print "installed";
         $html =~ s%</head>%$prolog</head>%gsi;
     }
-    print ", button code ";
+    print ", Bottom code ";
     if ( $html =~ /<!-- googlize button start -->/ ) {
         print "replaced";
         $html =~ s%  <!-- googlize button start -->.*<!-- googlize button end -->\s+</body>%$epilog</body>%gsi;
