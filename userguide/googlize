@@ -186,6 +186,10 @@ avoid overlaying navigation buttons. The default value for both is zero.
 Basic Example:
 
     ./$prog -t25 -r25 processed/_build/html/*.html
+
+Recursive Example:
+
+    find documentation/builds/ -type f -iname "*.html" | xargs perl googlize.pl -t20 -r20
 USAGE
     exit ;
 }
