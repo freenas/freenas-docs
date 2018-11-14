@@ -7,7 +7,7 @@ use File::Basename;
 use Getopt::Std;
 use Scalar::Util qw(looks_like_number);
 
-our ($opt_h, $opt_t);
+our ($opt_h, $opt_t, $opt_r);
 
 our $prolog = <<PROLOG;
   <!-- googlize start -->
@@ -202,12 +202,16 @@ sub write_file {
     close $fh or die "could not close '$fname':$!\n";
 }
 
-getopts('ht:');
+getopts('ht:r:');
 usage() if $opt_h;
 
 $opt_t = 0 unless defined($opt_t);
 die '** -t argument (top coordinate) must be a number' unless (looks_like_number($opt_t));
 $epilog =~ s/%%TOP%%/$opt_t/;
+
+$opt_r = 0 unless defined($opt_r);
+die '** -r argument (top coordinate) must be a number' unless (looks_like_number($opt_r));
+$epilog =~ s/%%RIGHT%%/$opt_r/;
 
 # main loop
 foreach my $fname (@ARGV) {
