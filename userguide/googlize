@@ -228,18 +228,18 @@ foreach my $fname (@ARGV) {
     print " GA code ";
     if ( $html =~ /<!-- googlize start -->/ ) {
         print "replaced";
-        $html =~ s%  <!-- googlize start -->.*<!-- googlize end -->\s+</head>%$prolog</head>%gs;
+        $html =~ s%  <!-- googlize start -->.*<!-- googlize end -->\s+</head>%$prolog</head>%gsi;
     } else {
         print "installed";
-        $html =~ s%</head>%$prolog</head>%gs;
+        $html =~ s%</head>%$prolog</head>%gsi;
     }
     print ", button code ";
     if ( $html =~ /<!-- googlize button start -->/ ) {
         print "replaced";
-        $html =~ s%  <!-- googlize button start -->.*<!-- googlize button end -->\s+</body>%$epilog</body>%gs;
+        $html =~ s%  <!-- googlize button start -->.*<!-- googlize button end -->\s+</body>%$epilog</body>%gsi;
     } else {
         print "installed";
-        $html =~ s%</body>%$epilog</body>%gs;
+        $html =~ s%</body>%$epilog</body>%gsi;
     }
     print "\n";
 
