@@ -166,23 +166,26 @@ our $prog = basename($0);
 sub usage {
     print <<USAGE;
 usage: $prog -h
-       $prog [-t topcoord] [list of HTML files]
+       $prog [-t topcoord] [-r topcoord] [list of HTML files]
 
     -h  show summary of command line options and exit
-    -t  top coordinate of button
+    -t  top coordinate of Documentation Version Selector Box
+    -r  right coordinate of Documentation Version Selector Box
 
-$prog rewrites HTML files, inserting Google Analytics code at
-</head> and a floating link button at </body>. $prog can be
-run multiple times on an HTML file. If the added code is
-already present, it is replaced, not added again.
+$prog rewrites HTML files, inserting JS & CSS references and
+Google Analytics code at </head> and a floating Documentation
+Version Selector Box at </body>. $prog can be run multiple times
+on an HTML file. If the added code is already present, it is
+replaced, not added again.
 
-A top coordinate for the button can be specified with -t. This
-makes it possible to place the button farther down the page to
-avoid overlaying navigation buttons. The default is zero.
+A top and right coordinate for the Selector Box can be specified
+with -t and -r respectively. This makes it possible to place
+the Selector Box farther away from the borders of the page to
+avoid overlaying navigation buttons. The default value for both is zero.
 
-Example:
+Basic Example:
 
-    ./$prog -t25 processed/_build/html/*.html
+    ./$prog -t25 -r25 processed/_build/html/*.html
 USAGE
     exit ;
 }
