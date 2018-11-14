@@ -1317,7 +1317,7 @@ back to their state at the time of the snapshot.
    #.  Share the clone with the share type or service running on the
        %brand% system.
 
-   #.  After users have recovered the needed data, destroy the clone
+   #.  After users have recovered the needed data, delete the clone
        in the :guilabel:`Active Pools` tab.
 
    This approach does not destroy any on-disk data and has no impact
