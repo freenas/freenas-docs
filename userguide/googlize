@@ -19,13 +19,14 @@ our $prolog = <<PROLOG;
     gtag('js', new Date());
     gtag('config', 'UA-2174408-18');
   </script>
-  <script type="text/javascript" src="/documentation/js/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="/documentation/js/lodash-4.17.11.min.js"></script>
-  <script type="text/javascript" src="/documentation/js/jquery.selectric-1.13.0.min.js"></script>
-  <script type="text/javascript">
+  <script src="/documentation/js/jquery-3.3.1.min.js"></script>
+  <script src="/documentation/js/lodash-4.17.11.min.js"></script>
+  <script src="/documentation/js/jquery.selectric-1.13.0.min.js"></script>
+  <script>
     var jQuery_dvsx = jQuery.noConflict(true);
     var lodash_dvsx = _.noConflict();
   </script>
+  <script src="/documentation/js/googlize.min.js"></script>
   <link rel="stylesheet" href="/documentation/css/jquery.selectric-1.13.0.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&amp;subset=latin-ext" rel="stylesheet">
   <!-- googlize end -->
@@ -55,111 +56,9 @@ our $epilog = <<EPILOG;
       </div>
     </div>
   </div>
-
   <script>
-  var releases;
-  var url = window.location.href;
-  var regex = /\\/(true|free.*)\\/(\\d.*)\\//i;
-  var urlMatch = regex.exec(url);
-  var curSystem = urlMatch[1];
-  var curSlug = urlMatch[2];
-  var curObject;
-
-
-  function populateVersionSelect(versions) {
-    var verOptions = [];
-    lodash_dvsx.forEach(versions, function(version) {
-      if (version.slug === curSlug) {
-        verOptions.push("<option data-status='" + version.status + "' value='" + version.slug + "' selected>" + version.name + "</option>");
-      } else {
-        verOptions.push("<option data-status='" + version.status + "' value='" + version.slug + "'>" + version.name + "</option>");
-      }
-    });
-    jQuery_dvsx("#version").html(verOptions.join("")).selectric('refresh');
-  }
-
-  function populateFormatFlex(selectedSlug) {
-    var frmtOptions = [];
-    selectedVersion = lodash_dvsx.find(releases[curSystem], { 'slug': selectedSlug });
-    lodash_dvsx.forEach(selectedVersion.types, function(type) {
-      frmtOptions.push("<div><a title='"+ type.title +"' class='doc-link' href='" + "/documentation/" + curSystem + "/" + selectedSlug + "/" + type.index +"."+ type.format + "'>" + type.format + "</a></div>");
-    });
-    while (frmtOptions.length < 5) {
-      frmtOptions.push("<div></div>");
-    }
-    jQuery_dvsx("#format").html(frmtOptions.join(""));
-  }
-
-  function populateLinkFlex(selectedSlug) {
-    var linkOptions = [];
-    selectedVersion = lodash_dvsx.find(releases[curSystem], { 'slug': selectedSlug });
-    lodash_dvsx.forEach(selectedVersion.links, function(link) {
-      linkOptions.push("<div><a title='"+ link.title +"' class='doc-link' href='" + link.url + "'>" + link.text + "</a></div>");
-    });
-    while (linkOptions.length < 4) {
-      linkOptions.push("<div></div>");
-    }
-    jQuery_dvsx("#link").html(linkOptions.join(""));
-  }
-
-  function showStatusWarning(selectedSlug) {
-    curVersion = lodash_dvsx.find(releases[curSystem], { 'slug': selectedSlug });
-    if (curVersion.status !== "stable") {
-      jQuery_dvsx("#notstable").fadeOut(150).removeClass();
-      if (curVersion.status === "unstable") {
-        jQuery_dvsx("#notstable").text(curVersion.name +" is in active developemnt. Please be careful.").addClass("warn-"+curVersion.status).fadeIn(250);
-      } else {
-        jQuery_dvsx("#notstable").text(curVersion.name +" is a "+ curVersion.status + " version released on " + curVersion.date + ".").addClass("warn-"+curVersion.status).fadeIn(250);
-      }
-    } else {
-      jQuery_dvsx("#notstable").slideUp(500);
-    }
-  }
-
-  function populateBoxHeader() {
-    jQuery_dvsx("#current-version").text(curObject.name);
-  }
-
-  jQuery_dvsx(document).ready(function() {
-    jQuery_dvsx("#float-box").css({"top": "%%TOP%%px", "right": "%%RIGHT%%px"});
-
-    jQuery_dvsx.ajax({
-      url: "/documentation/releases.json",
-      dataType: "json",
-      success: function(data) {
-        releases = {};
-        lodash_dvsx.forEach(data, function(system, systemKey) {
-          releases[systemKey] = lodash_dvsx.orderBy(system, "order", "desc");
-        });
-        curObject = lodash_dvsx.find(releases[curSystem], { 'slug': curSlug });
-        populateVersionSelect(releases[curSystem]);
-        populateFormatFlex(curSlug);
-        populateLinkFlex(curSlug);
-        populateBoxHeader();
-        showStatusWarning(curSlug);
-        if (curObject.status !== "stable") {
-          jQuery_dvsx("#float-toggle").click();
-        }
-      }
-    });
-
-    jQuery_dvsx("#version").selectric({
-      optionsItemBuilder: function(itemData, element, index) {
-        return itemData.text + "<span class='badge badge-" + jQuery_dvsx(itemData.element).data("status") + "'>" + jQuery_dvsx(itemData.element).data("status") + "</span>";
-      }
-    });
-
-    jQuery_dvsx("#version").change(function() {
-      populateFormatFlex(jQuery_dvsx(this).val());
-      populateLinkFlex(jQuery_dvsx(this).val());
-      showStatusWarning(jQuery_dvsx(this).val());
-    });
-
-    jQuery_dvsx("#float-header").click(function() {
-      jQuery_dvsx(this).children("#float-toggle").toggleClass("float-close");
-      jQuery_dvsx(this).next().slideToggle();
-    });
-
+    jQuery_dvsx(document).ready(function() {
+      jQuery_dvsx("#float-box").css({"top": "%%TOP%%px", "right": "%%RIGHT%%px"});
   });
   </script>
   <!-- googlize button end -->
