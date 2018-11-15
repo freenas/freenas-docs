@@ -7,7 +7,7 @@ use File::Basename;
 use Getopt::Std;
 use Scalar::Util qw(looks_like_number);
 
-our ($opt_h, $opt_t, $opt_r);
+our ($opt_h, $opt_x, $opt_y);
 
 our $prolog = <<PROLOG;
   <!-- googlize start -->
@@ -166,30 +166,30 @@ our $prog = basename($0);
 sub usage {
     print <<USAGE;
 usage: $prog -h
-       $prog [-t topcoord] [-r topcoord] [list of HTML files]
+       $prog [-x xcoord] [-y ycoord] [list of HTML files]
 
     -h  show summary of command line options and exit
-    -t  top coordinate of Documentation Version Selector Box
-    -r  right coordinate of Documentation Version Selector Box
+    -x  right coordinate of Documentation Version selector box
+    -y  top coordinate of Documentation Version selector box
 
 $prog rewrites HTML files, inserting JS & CSS references and
-Google Analytics code at </head> and a floating Documentation
-Version Selector Box at </body>. $prog can be run multiple times
+Google Analytics code at </head> and a floating documentation
+version selector box at </body>. $prog can be run multiple times
 on an HTML file. If the added code is already present, it is
 replaced, not added again.
 
-A top and right coordinate for the Selector Box can be specified
-with -t and -r respectively. This makes it possible to place
-the Selector Box farther away from the borders of the page to
-avoid overlaying navigation buttons. The default value for both is zero.
+X and Y coordinates for the selector box can be specified with -x
+and -y. This makes it possible to control the location of the
+selector box on the page to avoid overlaying navigation buttons.
+The default value for both is zero.
 
-Basic Example:
+Basic example:
 
-    ./$prog -t25 -r25 processed/_build/html/*.html
+    ./$prog -x25 -y25 processed/_build/html/*.html
 
-Recursive Example:
+Recursive example:
 
-    find documentation/builds/ -type f -iname "*.html" | xargs perl googlize.pl -t20 -r20
+    find documentation/builds/ -type f -iname "*.html" | xargs perl $prog -x20 -y20
 USAGE
     exit ;
 }
@@ -209,23 +209,23 @@ sub write_file {
     close $fh or die "could not close '$fname':$!\n";
 }
 
-getopts('ht:r:');
+getopts('hx:y:');
 usage() if $opt_h;
 
-$opt_t = 0 unless defined($opt_t);
-die '** -t argument (top coordinate) must be a number' unless (looks_like_number($opt_t));
-$epilog =~ s/%%TOP%%/$opt_t/;
+$opt_x = 0 unless defined($opt_x);
+die '** -x argument (x coordinate) must be a number' unless (looks_like_number($opt_x));
+$epilog =~ s/%%RIGHT%%/$opt_x/;
 
-$opt_r = 0 unless defined($opt_r);
-die '** -r argument (top coordinate) must be a number' unless (looks_like_number($opt_r));
-$epilog =~ s/%%RIGHT%%/$opt_r/;
+$opt_y = 0 unless defined($opt_y);
+die '** -y argument (y coordinate) must be a number' unless (looks_like_number($opt_y));
+$epilog =~ s/%%TOP%%/$opt_y/;
 
 # main loop
 foreach my $fname (@ARGV) {
     my $html = read_file($fname);
 
     print "$fname -";
-    print " Header links & GA code ";
+    print " header links and GA code ";
     if ( $html =~ /<!-- googlize start -->/ ) {
         print "replaced";
         $html =~ s%  <!-- googlize start -->.*<!-- googlize end -->\s+</head>%$prolog</head>%gsi;
@@ -233,7 +233,7 @@ foreach my $fname (@ARGV) {
         print "installed";
         $html =~ s%</head>%$prolog</head>%gsi;
     }
-    print ", Bottom code ";
+    print ", bottom code ";
     if ( $html =~ /<!-- googlize button start -->/ ) {
         print "replaced";
         $html =~ s%  <!-- googlize button start -->.*<!-- googlize button end -->\s+</body>%$epilog</body>%gsi;
