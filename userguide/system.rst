@@ -1468,9 +1468,9 @@ Applying Updates
 Make sure the system is in a low-usage state as described above in
 :ref:`Preparing for Updates`.
 
-Click the :guilabel:`OK` button to download and apply the updates. Be
-aware that some updates automatically reboot the system after they are
-applied.
+Click the :guilabel:`OK` button to immediately download and install an
+update. Be aware that some updates automatically reboot the system after
+they are applied.
 
 .. warning:: Each update creates a boot environment. If the update
    process needs more space, it attempts to remove old boot
@@ -1481,6 +1481,10 @@ applied.
    :menuselection:`System --> Boot`.
    Review the boot environments and remove the *Keep* attribute or
    delete any boot environments that are no longer needed.
+
+
+During the update process a progress dialog appears. **Do not**
+interrupt the update until it completes.
 
 Updates can also be downloaded and applied later. To do so, unset the
 :guilabel:`Apply updates after downloading` option before pressing
@@ -1500,22 +1504,22 @@ reboots after the updates are applied.
 Manual Updates
 ~~~~~~~~~~~~~~
 
-Updates can be manually downloaded as a file. These updates are then
-applied with the :guilabel:`Manual Update` button. After obtaining the
-update file, click :guilabel:`Manual Update` and choose a location to
-temporarily store the file on the %brand% system. Use the file browser
-to locate the update file, then click :guilabel:`Apply Update` to
-apply it.
-
-Manual update files can be identified by their filenames, which end in
-:file:`-manual-update-unsigned.tar`.
-
-Manual updates cannot be used to upgrade from older major versions.
+Updates can be manually downloaded as a file ending with
+:file:`-manual-update-unsigned.tar`. These updates are then applied with
+the :guilabel:`Manual Update` button. After obtaining the update file,
+click :guilabel:`Manual Update` and choose a location to temporarily
+store the file on the %brand% system. Use the file browser to locate the
+update file, then click :guilabel:`Apply Update` to apply it.
 
 There is also an option to back up the system configuration before
 updating. Click :guilabel:`Click here` and select any options to export
 in the configuration file. Click :guilabel:`OK` to open a popup window
-to save the system configuration.
+to save the system configuration. A progress dialog is displayed during
+the update. **Do not** interrupt the update.
+
+.. tip:: Manual updates cannot be used to upgrade from older major
+   versions.
+
 
 #ifdef truenas
 .. _Updating from the CLI:
