@@ -45,7 +45,7 @@ Carefully unpack the shipping boxes and locate these components:
    | Accessory kit with 2 IEC C13 to NEMA 5-15P | .. |pic2| image:: images/truenas/x_railextenders.png |
    | power cords, 2 IEC C14 to C14 cords, and   |    :width: 30%                                       |
    | velcro cable ties                          |                                                      |
-   |                                            | Black USB to 3.5mm, 3.3V serial cable and rail       |
+   |                                            | Black USB to 3.5mm, 3.3V serial cable, and rail      |
    |                                            | extenders for racks over 30" deep                    |
    +--------------------------------------------+------------------------------------------------------+
 
