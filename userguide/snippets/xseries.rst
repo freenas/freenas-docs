@@ -1,20 +1,20 @@
 #include snippets/copyright.rst
 
-.. index:: X Series Unified Storage Array
+.. index:: X-Series Unified Storage Array
 
-.. _X Series Unified Storage Array:
+.. _X-Series Unified Storage Array:
 
-X Series Unified Storage Array
+X-Series Unified Storage Array
 ------------------------------
 
-The %brand% X Series Unified Storage Array is a 2U, 12-bay, hybrid
+The %brand% X-Series Unified Storage Array is a 2U, 12-bay, hybrid
 unified data storage array.
 
 
 #include snippets/perfect.rst
 
 
-.. index:: X Series Unified Storage Array Contents
+.. index:: X-Series Unified Storage Array Contents
 
 Carefully unpack the shipping boxes and locate these components:
 
@@ -27,7 +27,7 @@ Carefully unpack the shipping boxes and locate these components:
    +--------------------------------------------+------------------------------------------------------+
    | .. image:: images/truenas/x.png            | .. image:: images/truenas/x_bezel.png                |
    |                                            |                                                      |
-   | X Series Unified Storage Array             | X Series Bezel                                       |
+   | X-Series Unified Storage Array             | X-Series Bezel                                       |
    +--------------------------------------------+------------------------------------------------------+
    | .. image:: images/truenas/x_rails.png      | .. image:: images/truenas/x_drivetrays.png           |
    |                                            |                                                      |
@@ -55,13 +55,13 @@ Carefully unpack the shipping boxes and locate these components:
    \newpage
 
 
-.. index:: Become Familiar with the X Series System
-.. _Become Familiar with the X Series System:
+.. index:: Become Familiar with the X-Series System
+.. _Become Familiar with the X-Series System:
 
-Become Familiar With the X Series System
+Become Familiar With the X-Series System
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The X Series has front panel indicators for power, locate ID, and
+The X-Series has front panel indicators for power, locate ID, and
 fault. The fault indicator is on during the initial power-on self-test
 (POST) and turns off during normal operation. It turns on if the
 %brand% software issues an
@@ -75,7 +75,7 @@ fault. The fault indicator is on during the initial power-on self-test
    :width: 50%
 
 
-The X Series contains one or two storage controllers in a side-by-side
+The X-Series contains one or two storage controllers in a side-by-side
 configuration. The connectors and features on each storage controller
 are:
 
@@ -143,29 +143,26 @@ questions.
 
 Connect network cables to the Ethernet ports and Out-of-Band (OOB)
 management port before attempting to power on and configure the
-X series for the the first time.
-**The Out-of-Band (OOB) management port on the X series must be
+X-Series for the the first time.
+**The Out-of-Band (OOB) management port on the X-Series must be
 connected to a shielded Ethernet cable.**
 
 
 Connect Power Cords
 ~~~~~~~~~~~~~~~~~~~
 
-If any %brand% expansion shelves are connected to the X series, power
+If any %brand% expansion shelves are connected to the X-Series, power
 them on first, then wait at least two minutes before connecting power
-cables to the X series.
+cables to the X-Series.
 
 #include snippets/x_power.rst
 
 
-After both power cords have been connected to the X series, they can
+After both power cords have been connected to the X-Series, they can
 be plugged into power outlets. The system is configured to
 automatically power on when connected to a power outlet. This design
-ensures that the X series comes back on when power is restored after a
+ensures that the X-Series comes back on when power is restored after a
 power failure.
-
-If remote physical power disconnection is desired, the X-Series can be
-connected to a remotely-managed PDU (Power Distribution Unit).
 
 
 Install Bezel (Optional)
@@ -185,7 +182,7 @@ Discover Out-of-Band Management IP Address
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Several methods are available to determine the IP address currently
-assigned to the X series Out-of-Band management interface.
+assigned to the X-Series Out-of-Band management interface.
 
 
 Preset
@@ -210,12 +207,12 @@ DHCP
 If the Out-of-Band management IP address has been configured to be
 assigned by DHCP, the IP address assigned by the DHCP server can be
 determined by checking the local DHCP server logs for the MAC
-addresses on the back panel of each X series storage controller, #11
+addresses on the back panel of each X-Series storage controller, #11
 on
 :numref:`Figure %s <x_back>`.
 
 The local DHCP server can also be configured to provide a fixed IP
-address for the X series Out-of-Band management by using the MAC
+address for the X-Series Out-of-Band management by using the MAC
 address.
 
 
@@ -232,13 +229,12 @@ Connect the USB end of the black cable to a laptop or desktop
 computer running serial terminal software.
 
 Do not use the serial port for any purpose except checking the initial
-X series Out-of-Band management IP address or setting that address to
+X-Series Out-of-Band management IP address or setting that address to
 be obtained by a different method.
-**After use, disconnect the black USB serial cable from the X
-series.**
+**After use, disconnect the black USB serial cable from the X-Series.**
 
 .. warning:: The black USB serial cable is only for use with the
-   Out-of-Band serial port on the X Series. Do not attempt to use it
+   Out-of-Band serial port on the X-Series. Do not attempt to use it
    with any other equipment.
 
 
@@ -307,7 +303,7 @@ gateway of *192.168.100.1*:
 
 Log out of the Out-of-Band management system by typing :literal:`exit`
 and pressing :kbd:`Enter`. After use, always disconnect the black USB
-serial cable from the X series system.
+serial cable from the X-Series system.
 
 
 .. raw:: latex
@@ -315,7 +311,7 @@ serial cable from the X series system.
    \newpage
 
 
-Connect to the X Series Console
+Connect to the X-Series Console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -323,21 +319,21 @@ With IPMI
 ^^^^^^^^^
 
 .. note:: The IPMItool remote management utility must be installed on
-   the laptop or desktop computer used to manage the X series
+   the laptop or desktop computer used to manage the X-Series
    remotely, and that computer must have access to the same network as
-   the X series. FreeBSD, macOS, and Linux have package systems which
+   the X-Series. FreeBSD, macOS, and Linux have package systems which
    can be used to install
    `IPMItool <https://sourceforge.net/projects/ipmitool/>`__.
    For Windows, a simple option is to install IPMItool through
    `Cygwin <https://www.cygwin.com/>`__.
 
-   .. warning:: Only use IPMItool for remote IPMI management on the X
-      series. Other IPMI utilities may not work correctly or even
-      damage the X series system.
+   .. warning:: Only use IPMItool for remote IPMI management on the
+      X-Series. Other IPMI utilities may not work correctly or even
+      damage the X-Series system.
 
 
 When the Out-of-Band management IP address has been determined, the
-X series console is accessible through IPMI. In this example,
+X-Series console is accessible through IPMI. In this example,
 *192.168.100.100* is the IP address assigned to the Out-of-Band
 management interface:
 
@@ -347,7 +343,7 @@ management interface:
    ipmitool -I lanplus -H 192.168.100.100 -U admin -a sol activate
 
 
-Enter **admin** for the password, and the X series console is
+Enter **admin** for the password, and the X-Series console is
 connected.
 
 
@@ -389,7 +385,7 @@ connected.
 
    Enter **admin** for the password, and the Serial Over LAN system is
    reset. Log out of the system with :command:`exit` and disconnect
-   the black USB serial cable from the X series system.
+   the black USB serial cable from the X-Series system.
 
 
 .. tip:: The Out-of-Band console password can be changed by attaching
@@ -403,16 +399,16 @@ connected.
       ipmitool -H 127.0.0.1 -U admin -P admin user set password 2 newpassword
 
    Log out of the system with :command:`exit` and disconnect the black
-   USB serial cable from the X series system.
+   USB serial cable from the X-Series system.
 
 
-Proceed to :ref:`Using the X Series Console`.
+Proceed to :ref:`Using the X-Series Console`.
 
 
 With the Serial Cable
 ^^^^^^^^^^^^^^^^^^^^^
 
-The X series console can be directly connected to a serial terminal
+The X-Series console can be directly connected to a serial terminal
 program by temporarily disconnecting the gray serial cable from the
 system console serial port, #10 on
 :numref:`Figure %s <x_back>`,
@@ -426,11 +422,11 @@ serial device name. Set the terminal software to:
 *115200 baud, 8 data bits, 1 stop bit, no parity, no flow control*
 
 
-Wait two minutes after the X series has been connected to power, then
+Wait two minutes after the X-Series has been connected to power, then
 press :kbd:`Enter` to display the console menu. Find the message
 starting with :literal:`The web user interface is at:` and write down
 the IP address shown.
-**After viewing the X series console, disconnect the black USB serial
+**After viewing the X-Series console, disconnect the black USB serial
 cable and reconnect the gray System Management cable**
 to the system serial console port, #10 on
 :numref:`Figure %s <x_back>`.
@@ -441,15 +437,15 @@ to the system serial console port, #10 on
    \newpage
 
 
-.. _Using the X Series Console:
+.. _Using the X-Series Console:
 
-Using the X Series Console
+Using the X-Series Console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The X series console has two modes: SES (SCSI Enclosure Services)
+The X-Series console has two modes: SES (SCSI Enclosure Services)
 mode, and the standard x86 console mode.
 
-If :literal:`ESM A =>` is displayed, the X series is in SES mode.
+If :literal:`ESM A =>` is displayed, the X-Series is in SES mode.
 Switch to the X86 console mode by typing these characters:
 
 .. code-block:: none
@@ -469,7 +465,7 @@ To switch back to the SES console, type these characters:
 Perform %brand% Initial Software Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The console displays the IP address of the %brand% X series graphical
+The console displays the IP address of the %brand% X-Series graphical
 web interface, *192.168.100.231* in this example:
 
 
