@@ -48,9 +48,6 @@ brand = 'FreeNAS®' if six.PY3 else u'FreeNAS®'
 project = brand + ' ' + six.u(version) + ' ' + 'User Guide'
 projtype = None
 master_doc = 'freenas'
-extensions = [
-    'sphinxcontrib.httpdomain'
-]
 cover_pic = r''
 numfig = True
 numfig_secnum_depth = (2)
