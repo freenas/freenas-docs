@@ -2086,7 +2086,7 @@ UPS Configuration screen.
    |                         | menu         | When an :literal:`snmp` driver is selected, enter the IP address or hostname of the SNMP UPS device.                   |
    |                         |              |                                                                                                                        |
    |                         |              | The text :guilabel:`Port` changes to :guilabel:`Remote Port` when the :guilabel:`UPS Mode` is set to *Slave*.          |
-   |                         |              | It contains the open network port number of the UPS *Master* system. The default port is *3493*.                       |
+   |                         |              | It is the open network port number of the UPS *Master* system. The default port is *3493*.                             |
    |                         |              |                                                                                                                        |
    +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters    | string       | Enter any additional options from `ups.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=ups.conf>`__.                |
