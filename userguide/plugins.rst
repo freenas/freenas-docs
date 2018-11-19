@@ -651,7 +651,7 @@ is supported by following the process outlined in
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
 #endif comment
-   | `WeeChat <weechat.org/>`__                                              | WeeChat is a free and open-source Internet Relay Chat client, which is |
+   | `WeeChat <https://weechat.org/>`__                                      | WeeChat is a free and open-source Internet Relay Chat client, which is |
    |                                                                         | designed to be light and fast.                                         |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
