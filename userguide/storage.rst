@@ -1376,7 +1376,8 @@ a new encrypted volume is created. This key is required to read and
 decrypt any data on the volume. 
 
 By default, %brand% stores encryption keys locally within its system
-settings, so that authorized users can easily login and decrypt volumes.
+settings, so that volumes can easily be decrypted automatically on system
+start-up, or by authorized users.
 
 Encryption keys can also be downloaded. This is useful as a safety
 measure, to allow key backup, decryption on a different system in the
