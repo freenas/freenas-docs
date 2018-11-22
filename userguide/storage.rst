@@ -218,11 +218,11 @@ Encryption
 ^^^^^^^^^^
 
 .. note:: The encryption facility used by %brand% is designed to protect
-   against physical theft and removal of disks, and to permit secure
-   wiping. It is not designed to protect against unauthorized software
-   access. Ensure that only authorized users have access to the
-   administrative GUI and that proper permissions are set on shares if
-   sensitive data is stored on the system. 
+   against physical theft and removal of disks, and to prevent data recovery 
+   from reused or failed disks. It is not designed to protect against
+   unauthorized software access. Ensure that only authorized users have
+   access to the administrative GUI and that proper permissions are set
+   on shares if sensitive data is stored on the system. 
 
 %brand% supports
 `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
