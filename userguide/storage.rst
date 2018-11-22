@@ -217,13 +217,12 @@ Click the *+* next to the volume name to access
 Encryption
 ^^^^^^^^^^
 
-.. note:: The encryption facility used by %brand% is designed to
-   protect against physical theft of the disks. It is not designed to
-   protect against unauthorized software access. Ensure that only
-   authorized users have access to the administrative GUI and that
-   proper permissions are set on shares if sensitive data is stored on
-   the system.
-
+.. note:: The encryption facility used by %brand% is designed to protect
+   against physical theft and removal of disks, and to permit secure
+   wiping. It is not designed to protect against unauthorized software
+   access. Ensure that only authorized users have access to the
+   administrative GUI and that proper permissions are set on shares if
+   sensitive data is stored on the system. 
 
 %brand% supports
 `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
@@ -240,15 +239,21 @@ intended use:
   volume (pool) is created on top of the encrypted devices. Data is
   encrypted as it is written and decrypted as it is read.
 
-* This type of encryption is primarily useful for users storing
-  sensitive data but wanting the ability to remove disks from the pool
-  without having to first wipe the disk contents.
+* The type of encryption used by %brand% is primarily used to protect 
+  data against the risks of disks (or the entire system) being physically
+  stolen, or removed to view their contents when the system is turned off.
+  Because data cannot be read without the key, it also permits disks
+  containing sensitive data to be safely removed, repurposed or disposed
+  of, without secure wiping or physical destruction of the magnetic platters.
 
-* The %brand% encryption design is only suitable for safe disposal of
-  disks independent of the encryption key. As long as the key and the
-  disks are intact, the system is vulnerable to being decrypted.
-  Protect the key with a strong passphrase and secure all backups of
-  it.
+* When disposing of disks that still contain encrypted sensitive data,
+  the encryption key must also be destroyed or securely deleted, or if
+  kept, then it must be held independently and securely. As long as 
+  a copy of the key is intact, part or all of the stored data will
+  remain vulnerable to being decrypted.
+
+* Protect the key with a strong passphrase and store all backups of
+  the key securely.
 
 * If the encryption key is lost, the data on the disks is
   inaccessible. Always back up the key!
