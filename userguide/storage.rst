@@ -1371,17 +1371,21 @@ changed, and destroying a zvol requires confirmation.
 Managing Encrypted Volumes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-%brand% generates and stores a randomized *encryption key* whenever
+%brand% generates a randomized *encryption key* whenever
 a new encrypted volume is created. This key is required to read and
-decrypt any data on the volume.
+decrypt any data on the volume. 
 
-Encryption keys can also be downloaded as a safety measure, to allow
-decryption on a different system in the event of failure, or to allow
-the locally stored key to be deleted for extra security. Encryption
-keys can also be optionally protected with a *passphrase* for
-additional security. The combination of encryption key location and
-whether a passphrase is used provide several different security
-scenarios:
+By default, %brand% stores encryption keys locally within its system
+settings, so that authorized users can easily login and decrypt volumes.
+
+Encryption keys can also be downloaded. This is useful as a safety
+measure, to allow key backup, decryption on a different system in the
+event of failure, or so that the locally stored key can be deleted for
+extra security. Encryption keys can also be optionally protected with a
+*passphrase* for additional security. 
+
+The combination of encryption key location and optional passphrase is
+useful in several different security scenarios:
 
 * *Key stored locally, no passphrase*: the encrypted volume is
   decrypted and accessible when the system running. Protects "data at
