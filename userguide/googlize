@@ -128,6 +128,11 @@ foreach my $fname (@ARGV) {
     my $html = read_file($fname);
 
     print "$fname -";
+    if ( $html =~ /<!-- prevent googlize -->/ ) {
+        print " Googlification prevented!";
+        print "\n";
+        next;
+    }
     print " Header links & GA code ";
     if ( $html =~ /<!-- googlize start -->/ ) {
         print "replaced";
