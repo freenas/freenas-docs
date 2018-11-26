@@ -79,7 +79,9 @@ $prog rewrites HTML files, inserting JS & CSS references and
 Google Analytics code at </head> and a floating documentation
 version selector box at </body>. $prog can be run multiple times
 on an HTML file. If the added code is already present, it is
-replaced, not added again.
+replaced, not added again. If the file contains a
+    <!-- googlize prevent -->
+comment, it is not changed.
 
 X and Y coordinates for the selector box can be specified with -x
 and -y. This makes it possible to control the location of the
@@ -128,6 +130,10 @@ foreach my $fname (@ARGV) {
     my $html = read_file($fname);
 
     print "$fname -";
+    if ( $html =~ /<!--\s*googlize prevent\s*-->/i ) {
+        print " skipped, googlize disabled with <!-- googlize prevent -->\n";
+        next;
+    }
     print " header links and GA code ";
     if ( $html =~ /<!-- googlize start -->/ ) {
         print "replaced";
