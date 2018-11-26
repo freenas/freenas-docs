@@ -564,14 +564,17 @@ read/write needs and RAID requirements:
 For ZFS,
 `Disk Space Requirements for ZFS Storage Pools
 <https://docs.oracle.com/cd/E19253-01/819-5461/6n7ht6r12/index.html>`__
-recommends a minimum of 16 GiB of disk space. Due to the way that ZFS
-creates swap,
-**it is not possible to format less than 3 GiB of space with ZFS**.
-However, on a drive that is below the minimum recommended size, a fair
-amount of storage space is lost to swap: for example, on a 4 GiB
-drive, 2 GiB will be reserved for swap.
+recommends a minimum of 16 GiB of disk space. %brand% allocates 2 GiB
+of swap space on each drive. Combined with ZFS space requirements,
+this means that
+**it is not possible to format drives smaller than 3 GiB**.
+Drives larger than 3 GiB but smaller than the minimum recommended
+capacity might be usable but lose a significant portion of storage
+space to swap allocation. For example, a 4 GiB drive only has 2 GiB of
+available space after swap allocation.
 
-Users new to ZFS who are purchasing hardware should read through
+
+New ZFS user who are purchasing hardware should read through
 `ZFS Storage Pools Recommendations
 <https://web.archive.org/web/20161028084224/http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide#ZFS_Storage_Pools_Recommendations>`__
 first.
@@ -580,8 +583,8 @@ ZFS *vdevs*, groups of disks that act like a single device, can be
 created using disks of different sizes.  However, the capacity
 available on each disk is limited to the same capacity as the smallest
 disk in the group. For example, a vdev with one 2 TiB and two 4 TiB
-disks will only be able to use 2 TiB of space on each disk. In general,
-use disks that are the same size for the best space usage and
+disks will only be able to use 2 TiB of space on each disk. In
+general, use disks that are the same size for the best space usage and
 performance.
 
 The
