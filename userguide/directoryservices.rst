@@ -431,7 +431,7 @@ authorized access to the data stored on the %brand% system.
    `smbldap-tools <https://wiki.samba.org/index.php/4.1_smbldap-tools>`__.
    The LDAP server must support SSL/TLS and the certificate for the LDAP
    server CA must be imported with :menuselection:`System -->
-   Certificates --> Import Certificate`. Non-CA certificates are not
+   CAs --> Import CA`. Non-CA certificates are not
    currently supported.
 
 .. tip:: Apple's `Open Directory
