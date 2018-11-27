@@ -91,12 +91,12 @@ lists the configurable options for a cron job.
    |                     |                             | Select *Custom* to open the advanced scheduler.                                                         |
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Redirect Standard   | checkbox                    | Redirect :file:`stdout` to :file:`/dev/null`. When unset, output from the command is mailed to the user |
-   | Output              |                             | running the cron job.                                                                                   |
+   | Hide Standard       | checkbox                    | Hide standard output (stdout) from the command. When unset, any standard output is mailed to the user   |
+   | Output              |                             | account cron used to run the command.                                                                   |
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
-   | Redirect Standard   | checkbox                    | Redirect :file:`stderr` to :file:`/dev/null`. When unset, error output from the command is mailed to    |
-   | Error               |                             | the user running the cron job.                                                                          |
+   | Hide Standard       | checkbox                    | Hide error output (stderr) from the command. When unset, any error output is mailed to the user account |
+   | Error               |                             | cron used to run the command.                                                                           |
    |                     |                             |                                                                                                         |
    +---------------------+-----------------------------+---------------------------------------------------------------------------------------------------------+
    | Enable              | checkbox                    | Enable this cron job. When unset, disable the cron job without deleting it.                             |
