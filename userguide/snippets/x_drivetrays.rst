@@ -12,9 +12,9 @@ trays must be placed in the empty bays.
 A standard drive tray installation order simplifies support and is
 strongly recommended:
 
-* SSD drives for SLOG, if present
+* SSD drives for W, if present
 
-* SSD drives for L2ARC, if present
+* SSD drives for R, if present
 
 * Hard drives or SSD drives for data storage
 
@@ -25,7 +25,7 @@ next drive tray to the right of the first. Install remaining drive
 trays to the right across the row. After a row is filled with drives,
 move down to the next row and start again with the left bay.
 
-This example shows the proper order for a SLOG SSD, an L2ARC SSD,
+This example shows the proper order for a W SSD, an R SSD,
 eight hard drives, and two empty air baffle trays.
 
 .. figure:: images/tn_x_driveorder.png
