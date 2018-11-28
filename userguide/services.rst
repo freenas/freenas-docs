@@ -1383,6 +1383,11 @@ screen is really a front-end to
    | Description                      | string         | Enter an optional server description.                                                                 |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Enable SMB1 support              | checkbox       | Allows legacy SMB clients to connect to the server.  **Warning:** SMB1 is deprecated because of       |
+   |                                  |                | security vulnerabilities. Maintain server security by upgrading clients to an operating system        |
+   |                                  |                | version that supports the latest version of the SMB protocol and leaving this option unset.           |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | DOS charset                      | drop-down menu | The character set Samba uses when communicating with DOS and Windows 9x/ME clients. Default is        |
    |                                  |                | *CP437*.                                                                                              |
    |                                  |                |                                                                                                       |
