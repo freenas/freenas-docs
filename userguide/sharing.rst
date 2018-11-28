@@ -975,6 +975,8 @@ through this entire chapter before creating any SMB shares is
 recommended to gain a better understanding of the configuration
 scenario that meets the specific network requirements.
 
+.. _SMB1-warning:
+
 .. warning:: SMB1 is disabled by default for security reasons. If legacy
    clients are unable to connect to the share, open :ref:`Shell`, type
    :command:`sysctl freenas.services.smb.config.server_min_protocol=NT1`,
