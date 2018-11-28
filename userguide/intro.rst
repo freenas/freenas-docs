@@ -142,11 +142,6 @@ These major features are new in this version:
   returned to the system. In addition, the UEFI boot menu fix allows
   Linux kernels 4.15 and higher to boot properly.
 
-* The amount of providers available for :ref:`Cloud Credentials` has
-  increased. The new providers are Amazon Cloud Drive, Box, Dropbox, FTP,
-  Google Drive, HTTP, Hubic, Mega, Microsoft One Drive, pCloud, SFTP,
-  WebDav, and Yandex.
-
 * :ref:`Cloud Sync Tasks` provides configuration options to encrypt data
   before it is transmitted and to keep it in the encrypted format while
   stored on the cloud. The filenames can also be encrypted.
