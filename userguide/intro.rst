@@ -333,7 +333,11 @@ These screen options have changed:
 * Disk temperature graphs have been added to
   :menuselection:`Reporting --> Disk`.
 
+Correction to documentation:
 
+* The section :ref:`Encryption` has been corrected to state that an
+  L2ARC cache device is always encrypted when its underlying pool is encrypted.
+  
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
