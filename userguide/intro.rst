@@ -228,7 +228,7 @@ This software has been added or updated:
   bug fixes and improved IPv6 support.
 
 * RancherOS has been updated to version
-  `1.4.1 <https://github.com/rancher/os/releases/tag/v1.4.1>`__.
+  `1.4.2 <https://github.com/rancher/os/releases/tag/v1.4.2>`__.
 
 * `zsh <http://www.zsh.org/>`__ is the root shell for new installations.
   Upgrades will continue to use the :command:`csh` shell as the default
