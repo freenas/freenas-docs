@@ -206,8 +206,8 @@ This software has been added or updated:
   has been added to the base system, adding support for UTF-8 fonts to
   the console for Intel graphic cards.
 
-* Samba 4.7.6 has been patched to address the latest round of
-  `security vulnerabilities <https://www.samba.org/samba/latest_news.html#4.8.4>`__.
+* Samba 4.7 has been patched to address the latest round of
+  `security vulnerabilities <https://www.samba.org/samba/latest_news.html#4.9.3>`__.
 
 * Netatalk has been updated to the 3.1.12 development version which
   addresses known issues with Time Machine timeouts.
