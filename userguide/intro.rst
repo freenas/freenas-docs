@@ -210,8 +210,8 @@ This software has been added or updated:
 * Netatalk has been updated to the 3.1.12 development version which
   addresses known issues with Time Machine timeouts.
 
-* Samba 4.7.6 has been patched to address the latest round of
-  `security vulnerabilities <https://www.samba.org/samba/latest_news.html#4.8.4>`__.
+* Samba 4.7 has been patched to address the latest round of
+  `security vulnerabilities <https://www.samba.org/samba/latest_news.html#4.9.3>`__.
 
 * rsync has been updated to
   `version 3.1.3 <https://download.samba.org/pub/rsync/src/rsync-3.1.3-NEWS>`__.
