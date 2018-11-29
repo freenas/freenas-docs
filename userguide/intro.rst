@@ -156,7 +156,7 @@ This software has been added or updated:
   `FreeBSD 11.2 <https://www.freebsd.org/releases/11.2R/announce.html>`__,
   which brings in many updated drivers and bug fixes. This branch has
   been patched to include the FreeBSD security advisories up to
-  `FreeBSD-SA-18:12.elf <https://www.freebsd.org/security/advisories/FreeBSD-SA-18:12.elf.asc>`__.
+  `FreeBSD-SA-18:13.nfs <https://www.freebsd.org/security/advisories/FreeBSD-SA-18:13.nfs.asc>`__.
 
 * OpenZFS is up-to-date with Illumos and slightly ahead due to support
   for sorted scrubs which were ported from ZFS on Linux. Notable
