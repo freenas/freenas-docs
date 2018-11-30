@@ -19,9 +19,14 @@ our $prolog = <<PROLOG;
     gtag('js', new Date());
     gtag('config', 'UA-2174408-18');
   </script>
-  <script type="text/javascript" src="/documentation/js/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="/documentation/js/lodash-4.17.11.min.js"></script>
-  <script type="text/javascript" src="/documentation/js/jquery.selectric-1.13.0.min.js"></script>
+  <script src="/documentation/js/jquery-3.3.1.min.js"></script>
+  <script src="/documentation/js/lodash-4.17.11.min.js"></script>
+  <script src="/documentation/js/jquery.selectric-1.13.0.min.js"></script>
+  <script>
+    var jQuery_dvsx = jQuery.noConflict(true);
+    var lodash_dvsx = _.noConflict();
+  </script>
+  <script src="/documentation/js/googlize.min.js"></script>
   <link rel="stylesheet" href="/documentation/css/jquery.selectric-1.13.0.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&amp;subset=latin-ext" rel="stylesheet">
   <!-- googlize end -->
@@ -51,111 +56,9 @@ our $epilog = <<EPILOG;
       </div>
     </div>
   </div>
-
   <script>
-  var releases;
-  var url = window.location.href;
-  var regex = /\\/(true|free.*)\\/(\\d.*)\\//i;
-  var urlMatch = regex.exec(url);
-  var curSystem = urlMatch[1];
-  var curSlug = urlMatch[2];
-  var curObject;
-
-
-  function populateVersionSelect(versions) {
-    var verOptions = [];
-    _.forEach(versions, function(version) {
-      if (version.slug === curSlug) {
-        verOptions.push("<option data-status='" + version.status + "' value='" + version.slug + "' selected>" + version.name + "</option>");
-      } else {
-        verOptions.push("<option data-status='" + version.status + "' value='" + version.slug + "'>" + version.name + "</option>");
-      }
-    });
-    jQuery("#version").html(verOptions.join("")).selectric('refresh');
-  }
-
-  function populateFormatFlex(selectedSlug) {
-    var frmtOptions = [];
-    selectedVersion = _.find(releases[curSystem], { 'slug': selectedSlug });
-    _.forEach(selectedVersion.types, function(type) {
-      frmtOptions.push("<div><a title='"+ type.title +"' class='doc-link' href='" + "/documentation/" + curSystem + "/" + selectedSlug + "/" + type.index +"."+ type.format + "'>" + type.format + "</a></div>");
-    });
-    while (frmtOptions.length < 5) {
-      frmtOptions.push("<div></div>");
-    }
-    jQuery("#format").html(frmtOptions.join(""));
-  }
-
-  function populateLinkFlex(selectedSlug) {
-    var linkOptions = [];
-    selectedVersion = _.find(releases[curSystem], { 'slug': selectedSlug });
-    _.forEach(selectedVersion.links, function(link) {
-      linkOptions.push("<div><a title='"+ link.title +"' class='doc-link' href='" + link.url + "'>" + link.text + "</a></div>");
-    });
-    while (linkOptions.length < 4) {
-      linkOptions.push("<div></div>");
-    }
-    jQuery("#link").html(linkOptions.join(""));
-  }
-
-  function showStatusWarning(selectedSlug) {
-    curVersion = _.find(releases[curSystem], { 'slug': selectedSlug });
-    if (curVersion.status !== "stable") {
-      jQuery("#notstable").fadeOut(150).removeClass();
-      if (curVersion.status === "unstable") {
-        jQuery("#notstable").text(curVersion.name +" is in active developemnt. Please be careful.").addClass("warn-"+curVersion.status).fadeIn(250);
-      } else {
-        jQuery("#notstable").text(curVersion.name +" is a "+ curVersion.status + " version released on " + curVersion.date + ".").addClass("warn-"+curVersion.status).fadeIn(250);
-      }
-    } else {
-      jQuery("#notstable").slideUp(500);
-    }
-  }
-
-  function populateBoxHeader() {
-    jQuery("#current-version").text(curObject.name);
-  }
-
-  jQuery(document).ready(function() {
-    jQuery("#float-box").css({"top": "%%TOP%%px", "right": "%%RIGHT%%px"});
-
-    jQuery.ajax({
-      url: "/documentation/releases.json",
-      dataType: "json",
-      success: function(data) {
-        releases = {};
-        _.forEach(data, function(system, systemKey) {
-          releases[systemKey] = _.orderBy(system, "order", "desc");
-        });
-        curObject = _.find(releases[curSystem], { 'slug': curSlug });
-        populateVersionSelect(releases[curSystem]);
-        populateFormatFlex(curSlug);
-        populateLinkFlex(curSlug);
-        populateBoxHeader();
-        showStatusWarning(curSlug);
-        if (curObject.status !== "stable") {
-          jQuery("#float-toggle").click();
-        }
-      }
-    });
-
-    jQuery("#version").selectric({
-      optionsItemBuilder: function(itemData, element, index) {
-        return itemData.text + "<span class='badge badge-" + jQuery(itemData.element).data("status") + "'>" + jQuery(itemData.element).data("status") + "</span>";
-      }
-    });
-
-    jQuery("#version").change(function() {
-      populateFormatFlex(jQuery(this).val());
-      populateLinkFlex(jQuery(this).val());
-      showStatusWarning(jQuery(this).val());
-    });
-
-    jQuery("#float-header").click(function() {
-      jQuery(this).children("#float-toggle").toggleClass("float-close");
-      jQuery(this).next().slideToggle();
-    });
-
+    jQuery_dvsx(document).ready(function() {
+      jQuery_dvsx("#float-box").css({"top": "%%TOP%%px", "right": "%%RIGHT%%px"});
   });
   </script>
   <!-- googlize button end -->
@@ -176,7 +79,9 @@ $prog rewrites HTML files, inserting JS & CSS references and
 Google Analytics code at </head> and a floating documentation
 version selector box at </body>. $prog can be run multiple times
 on an HTML file. If the added code is already present, it is
-replaced, not added again.
+replaced, not added again. If the file contains a
+    <!-- googlize prevent -->
+comment, it is not changed.
 
 X and Y coordinates for the selector box can be specified with -x
 and -y. This makes it possible to control the location of the
@@ -225,6 +130,10 @@ foreach my $fname (@ARGV) {
     my $html = read_file($fname);
 
     print "$fname -";
+    if ( $html =~ /<!--\s*googlize prevent\s*-->/i ) {
+        print " skipped, googlize disabled with <!-- googlize prevent -->\n";
+        next;
+    }
     print " header links and GA code ";
     if ( $html =~ /<!-- googlize start -->/ ) {
         print "replaced";
