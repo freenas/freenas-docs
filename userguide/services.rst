@@ -1457,9 +1457,9 @@ screen is really a front-end to
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    #ifdef truenas
-   | Enable SMB1 support         | checkbox          | Allow legacy SMB clients to connect to the server. **Warning:** :ref:`SMB1 is deprecated             |
-   |                             |                   | <SMB1-warning>`. Maintain server security by upgrading clients to an operating system                |
-   |                             |                   | version that supports the latest version of the SMB protocol and leaving this option unset.          |
+   | Enable SMB1 support         | checkbox          | Allow legacy SMB clients to connect to the server. **Warning:** SMB1 is a security vulnerability and |
+   |                             |                   | deprecated. Maintain server security by upgrading clients to an operating system version that        |
+   |                             |                   | supports the latest version of the SMB protocol and leaving this option unset.                       |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    #endif truenas
