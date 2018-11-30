@@ -16,11 +16,12 @@ services by providing two methods for installing additional software.
 :ref:`Plugins` allow the user to browse, install, and configure
 pre-packaged software from the |web-ui|. This method is easy to use, but
 provides a limited amount of available software. Each plugin is
-automatically installed into its own
-`FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`__.
+automatically installed into its own limited
+`FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`__ that
+cannot install more software.
 
-:ref:`Jails` provide more control over software installation but
-require working from the command line and a good understanding of
+:ref:`Jails` provide more control over software installation, but
+requires working from the command line and a good understanding of
 networking basics and software installation on FreeBSD-based systems.
 
 Look through the :ref:`Plugins` and :ref:`Jails` sections to become
