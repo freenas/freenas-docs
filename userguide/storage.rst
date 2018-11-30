@@ -801,31 +801,27 @@ configure the system to always display advanced settings by enabling the
    | Compression Level        | drop-down menu      |               | Refer to the section on :ref:`Compression` for a description of the available algorithms.                 |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Enable atime             | Inherit, On, or Off |               | Choose *On* to update the access time for files when they are read. Choose *Off* to prevent               |
-   |                          |                     |               | producing log traffic when reading files. This can result in significant performance gains.               |
-   |                          |                     |               |                                                                                                           |
-   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Share type               | drop-down menu      |               | Select the type of share that will be used on the dataset. Choices are *UNIX* for an NFS share,           |
    |                          |                     |               | *Windows* for a SMB share, or *Mac* for an AFP share.                                                     |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota for this dataset   | integer             | ✓             | Only available in :guilabel:`Advanced Mode`. Default of *0* disables quotas. Specifying a value means to  |
-   |                          |                     |               | use no more than the specified size and is suitable for user datasets to prevent users from hogging       |
-   |                          |                     |               | available space.                                                                                          |
+   | Enable atime             | Inherit, On, or Off |               | Choose *On* to update the access time for files when they are read. Choose *Off* to prevent               |
+   |                          |                     |               | producing log traffic when reading files. This can result in significant performance gains.               |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Quota for this dataset   | integer             | ✓             | Only available in :guilabel:`Advanced Mode`. A specified value applies to both this dataset and any       |
-   | and all children         |                     |               | child datasets.                                                                                           |
+   | Quota for this dataset   | integer             | ✓             | Default of *0* disables quotas. Specifying a value means to use no more than the specified size and is    |
+   |                          |                     |               | suitable for user datasets to prevent users from hogging available space.                                 |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Reserved space for this  | integer             | ✓             | Only available in :guilabel:`Advanced Mode`. Default of *0* is unlimited. Specifying a value means to     |
-   | dataset                  |                     |               | keep at least this much space free and is suitable for datasets containing logs which could otherwise     |
-   |                          |                     |               | take up all available free space.                                                                         |
+   | Quota for this dataset   | integer             | ✓             | A specified value applies to both this dataset and any child datasets.                                    |
+   | and all children         |                     |               |                                                                                                           |
+   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
+   | Reserved space for this  | integer             | ✓             | Default of *0* is unlimited. Specifying a value means to keep at least this much space free and is        |
+   | dataset                  |                     |               | suitable for datasets containing logs which could otherwise take up all available free space.             |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Reserved space for this  | integer             | ✓             | Only available in :guilabel:`Advanced Mode`. A specified value applies to both this dataset and any       |
-   | dataset and all children |                     |               | child datasets.                                                                                           |
-   |                          |                     |               |                                                                                                           |
+   | Reserved space for this  | integer             | ✓             | A specified value applies to both this dataset and any child datasets.                                    |
+   | dataset and all children |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    #ifdef freenas
    | ZFS Deduplication        | drop-down menu      |               | Read the section on :ref:`Deduplication` before making a change to this setting.                          |
@@ -836,11 +832,11 @@ configure the system to always display advanced settings by enabling the
    |                          |                     |               |                                                                                                           |
    #endif truenas
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Exec                     | drop-down menu      | ✓             | Only available in :guilabel:`Advanced Mode`. Choices are *Inherit (on)*, *On*, or *Off*. Setting to       |
+   | Exec                     | drop-down menu      | ✓             | Choices are *Inherit (on)*, *On*, or *Off*. Setting to                                                    |
    |                          |                     |               | *Off* will prevent the installation of :ref:`Plugins` or :ref:`Jails`.                                    |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Read-only                | drop-down menu      | ✓             | Only available in :guilabel:`Advanced Mode`. Choices are *Inherit (off)*, *On*, or *Off*.                 |
+   | Read-only                | drop-down menu      | ✓             | Choices are *Inherit (off)*, *On*, or *Off*.                                                              |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Snapshot directory       | drop-down menu      | ✓             | Choose if the :file:`.zfs` snapshot directory is Visible or Invisible on this dataset.                    |
@@ -849,10 +845,9 @@ configure the system to always display advanced settings by enabling the
    | Copies                   | drop-down menu      | ✓             | Set the number of data copies on this dataset.                                                            |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
-   | Record Size              | drop-down menu      | ✓             | Only available in :guilabel:`Advanced Mode`. While ZFS automatically adapts the record size               |
-   |                          |                     |               | dynamically to adapt to data, if the data has a fixed size (such as database records), matching its size  |
-   |                          |                     |               | may result in better performance.                                                                         |
-   |                          |                     |               |                                                                                                           |
+   | Record Size              | drop-down menu      | ✓             | While ZFS automatically adapts the record size dynamically to adapt to data, if the data has a fixed size |
+   |                          |                     |               | (such as database records), matching its size might result in better performance. **Warning:** choosing   |
+   |                          |                     |               | a smaller record size than the suggested value can reduce disk performance and space efficiency.          |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Case Sensitivity         | drop-down menu      |               | Choices are *sensitive* (default, assumes filenames are case sensitive), *insensitive* (assumes filenames |
    |                          |                     |               | are not case sensitive), or *mixed* (understands both types of filenames).                                |
@@ -1066,8 +1061,8 @@ The configuration options are described in
    |                    |                |          |                                                                                                                      |
    +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
    | Block size         | drop-down menu | ✓        | The default is based on the number of disks in the pool. This can be set to match the block size of the filesystem   |
-   |                    |                |          | which will be formatted onto the iSCSI target.                                                                       |
-   |                    |                |          |                                                                                                                      |
+   |                    |                |          | which will be formatted onto the iSCSI target. **Warning:** Choosing a smaller record size than the suggested value  |
+   |                    |                |          | can reduce disk performance and space efficiency.                                                                    |
    +--------------------+----------------+----------+----------------------------------------------------------------------------------------------------------------------+
 
 

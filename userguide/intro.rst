@@ -327,11 +327,20 @@ These screen options have changed:
   the first interface. A warning is shown when a user attempts to
   configure a different interface before the web interface NIC.
 
+* The :guilabel:`Block size` field in
+  :menuselection:`Storage --> Pools --> Add Zvol --> ADVANCED MODE`
+  no longer allows choosing sizes smaller than *4K*. This is to prevent
+  performance issues from setting a block size that is too small for
+  efficient processing.
+
 * The :guilabel:`Exec` field has been added to
   :menuselection:`Storage --> Pools --> Add Dataset --> ADVANCED MODE`.
+  The :guilabel:`Record Size` field no longer allows choosing sizes
+  smaller than *4K*. This is to prevent performance issues from
+  setting a block size that is too small for efficient processing.
 
 * The :guilabel:`Password for SED` column has been added to
-  :menuselection:`Storage --> Pools --> Disks`.
+  :menuselection:`Storage --> Disks`.
 
 * The :guilabel:`MSDOSFS locale` drop-down menu has been added to
   :menuselection:`Storage --> Import Disk`.
