@@ -18,7 +18,7 @@ pre-packaged software from the |web-ui|. This method is easy to use, but
 provides a limited amount of available software. Each plugin is
 automatically installed into its own limited
 `FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`__ that
-cannot install more software.
+cannot install additional software.
 
 :ref:`Jails` provide more control over software installation, but
 requires working from the command line and a good understanding of
