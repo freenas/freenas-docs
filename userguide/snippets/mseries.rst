@@ -7,8 +7,8 @@
 M-Series Unified Storage Array
 ------------------------------
 
-The %brand% M-Series Unified Storage Array is a 4U, 24-bay, hybrid
-unified data storage array.
+The %brand% M-Series Unified Storage Array is a 4U, 24-bay, hybrid data
+storage array.
 
 
 #include snippets/perfect.rst
@@ -72,8 +72,13 @@ fault. The fault indicator is on during the initial power-on self-test
 
 
 The M-Series contains one or two storage controllers in an
-over-and-under configuration. The connectors and features on each
-storage controller are:
+over-and-under configuration:
+
+.. _m_back:
+
+.. figure:: images/tn_m_back.png
+   :width: 100%
+
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
@@ -97,21 +102,13 @@ storage controller are:
    | 6: 10Gb Ethernet port                        | 12: Storage controller management port       |
    +----------------------------------------------+----------------------------------------------+
 
-**M-Series systems with only a single storage controller must be shut
-down and powered off before removing the controller or data loss will
-occur.**
 
 For remote management with IPMI, the 1 Gb Ethernet Out of Band
 management port (#3) must be connected to a network.
 
-
-.. _m_back:
-
-.. figure:: images/tn_m_back.png
-   :width: 100%
-
-   Back Panel
-
+**M-Series systems with only a single storage controller must be shut
+down and powered off before removing the controller or data loss will
+occur.**
 
 .. raw:: latex
 

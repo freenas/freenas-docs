@@ -116,7 +116,7 @@ if tags.has('bsg-mseries'):
     project = brand + ' ' + six.u('M-Series Unified Storage Array')
     projtype = 'Basic Setup Guide'
     master_doc = 'bsg-mseries'
-    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_m_front.png}'
+    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=9in]{../../../images/tn_m_front.png}'
 
 if tags.has('bsg-es60'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
