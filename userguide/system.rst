@@ -1622,11 +1622,8 @@ updates. Several specific words are used to describe the type of train:
 * **SDK:** Software Developer Kit train. This has additional tools for
   testing and debugging %brand%.
 
-.. warning:: **Only trains marked with** :literal:`[release]` **are
-   recommended for regular usage.** Other trains are made available for
-   pre-production testing and updates to legacy versions. Pre-production
-   testing trains are provided only to permit testing of new versions
-   before switching to a new branch. Before using a non-production train,
+.. warning:: The UI will warn if the currently selected train is not
+   suited for production use. Before using a non-production train,
    be prepared to experience bugs or problems. Testers are encouraged to
    submit bug reports at
    https://redmine.ixsystems.com/projects/freenas/issues.
