@@ -313,8 +313,8 @@ These screen options have changed:
 * There is now an option to add a prompt to save a copy of the system
   configuration and include the :guilabel:`Password Secret Seed` before
   doing a system upgrade. This popup can be enabled by going to
-  |ui-settings| :menuselection:` --> Preferences` and unsetting
-  :guilabel:`Hide "Save Configuration" Dialog Before Upgrade`.
+  |ui-settings| :menuselection:`\  --> Preferences` and unsetting
+  :guilabel:`Enable "Save Configuration" Dialog Before Upgrade`.
 
 * The :guilabel:`Container`, :guilabel:`Remote encryption`,
   :guilabel:`Filename encryption`, :guilabel:`Encryption password`, and
