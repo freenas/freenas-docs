@@ -365,6 +365,8 @@ These screen options have changed:
   :guilabel:`Port` field when a UPS :guilabel:`Driver` with
   :literal:`snmp` is selected.
 
+* The BitTorrent Sync plugin has been renamed to Resilio Sync.
+
 * Disk temperature graphs have been added to
   :menuselection:`Reporting --> Disk`.
   This category has been reworked to allow the user to choose the

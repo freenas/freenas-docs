@@ -572,10 +572,6 @@ is supported by following the process outlined in
    | <http://www.tolisgroup.com/client-server-cross-platform-backup.html>`__ |                                                                        |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `BitTorrentSync <https://www.resilio.com/>`__                           | Resilient, fast and scalable file sync software for enterprises and    |
-   |                                                                         | individuals.                                                           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `ClamAV <https://www.clamav.net/>`__                                    | ClamAV is an open source antivirus engine for detecting trojans,       |
    |                                                                         | viruses, malware & other malicious threats.                            |
    |                                                                         |                                                                        |
@@ -629,6 +625,10 @@ is supported by following the process outlined in
    | `radarr <https://radarr.video/>`__                                      | A fork of Sonarr to work with movies in the style of Couchpotato.      |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Redmine <http://www.redmine.org/>`__                                   | Flexible project management web application.                           |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Resilio Sync <https://www.resilio.com/>`__                             | Formerly known as BitTorrent Sync. Resilient, fast and scalable file   |
+   |                                                                         | sync software for enterprises and individuals.                         |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Sonarr <https://sonarr.tv/>`__                                         | PVR for Usenet and BitTorrent users.                                   |
