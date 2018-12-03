@@ -182,7 +182,7 @@ settings in the General tab:
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Language             | drop-down menu | Select a language. View the status of a language in the                                                                  |
    |                      |                | `webui GitHub repository <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__                               |
-   |                      |                | Refer to :ref:`Contributing to FreeNAS` for more information about supported languages.                                  |
+   |                      |                | Refer to :ref:`Contributing to %brand%` for more information about supported languages.                                  |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Console Keyboard Map | drop-down menu | Select a keyboard layout.                                                                                                |

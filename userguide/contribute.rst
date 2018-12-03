@@ -1,14 +1,14 @@
-.. _Contributing to FreeNAS:
+.. _Contributing to %brand%:
 
-Contributing to FreeNAS :sup:`®`
-================================
+Contributing to %brand%
+=================================
 
-FreeNAS :sup:`®` is an open source community, relying on the input and
+%brand% is an open source community, relying on the input and
 expertise of users to grow and improve. When users take time to assist
 the community, their contributions benefit everyone.
 
 This section describes how to participate and contribute to
-FreeNAS :sup:`®`. It is by no means an exhaustive list. If you have an
+%brand%. It is by no means an exhaustive list. If you have an
 idea that will benefit the community, bring it up on one of the
 resources mentioned in :ref:`Support Resources`.
 
@@ -23,21 +23,21 @@ This section demonstrates how to:
 Translation
 -----------
 
-FreeNAS :sup:`®` is developed and documented in English. Having
+%brand% is developed and documented in English. Having
 complete translations of the user interface into other languages helps
-make FreeNAS :sup:`®` much more useful to communities around the
+make %brand% much more useful to communities around the
 world.
 
-FreeNAS :sup:`®` uses :file:`.po` files stored in the
+%brand% uses :file:`.po` files stored in the
 `webui GitHub repository
 <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__
-to manage the translation of text shown in the FreeNAS :sup:`®`
+to manage the translation of text shown in the %brand%
 graphical administrative interface. GitHub provides an easy to use
 web-based editor, making it possible for individuals to assist with
 translation or comment on existing translations.
 
 To view translation files, open the :file:`/src/assets/i18n` directory
-of the FreeNAS :sup:`®`
+of the %brand%
 `webui repository
 <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__,
 as shown in :numref:`Figure %s <contribute_po_fig>`.
@@ -47,10 +47,10 @@ as shown in :numref:`Figure %s <contribute_po_fig>`.
 
 .. figure:: images/contribute-po.png
 
-   FreeNAS :sup:`®` Translation Files
+   %brand% Translation Files
 
 
-To assist with translating FreeNAS :sup:`®`, first create an account
+To assist with translating %brand%, first create an account
 with
 `GitHub <https://github.com/>`__.
 
@@ -104,7 +104,7 @@ translation between the :literal:`msgstr` quotes.
 Scroll to the bottom of the page when finished entering translations.
 Enter a descriptive title and summary of changes for the edits and set
 :guilabel:`Create a new branch`. Click :guilabel:`Propose file change`
-to submit the translations to the FreeNAS :sup:`®` project.
+to submit the translations to the %brand% project.
 
 
 Download and Translate Offline
@@ -181,10 +181,10 @@ and click :guilabel:`Create pull request`.
 Translation Pull Requests
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The FreeNAS :sup:`®` project automatically tests pull requests for
+The %brand% project automatically tests pull requests for
 compatibility. If there any issues with a pull request, either the
-automated system will update the request or a FreeNAS :sup:`®` team
+automated system will update the request or a %brand% team
 member will leave a message in the comment section of the request.
 
-All assistance with translations helps to benefit the FreeNAS :sup:`®`
+All assistance with translations helps to benefit the %brand%
 community. Thank you!
