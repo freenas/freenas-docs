@@ -5,8 +5,9 @@ Reporting
 =========
 
 Reporting displays several graphs, as seen in
-:numref:`Figure %s <reporting_graphs_fig>`. Click the tab for a device
-type to see those specific graphs.
+:numref:`Figure %s <reporting_graphs_fig>`. Choose a category from the
+drop-down menu to view those graphs. There are also options to change
+the graph view and number of graphs on each page.
 
 .. _reporting_graphs_fig:
 
@@ -17,9 +18,14 @@ type to see those specific graphs.
 
 %brand% uses
 `collectd <https://collectd.org/>`__
-to provide reporting statistics. For a clearer picture, hover over each
-legend icon to highlight the respective line on the graph. The resulting
-graphs are grouped into several tabs on the Reporting page:
+to provide reporting statistics. For a clearer picture, hover over a
+point in the graph to show exact numbers for that point in time. Use the
+magnifier buttons next to each graph to increase or decrease the
+displayed time increment from 10 minutes, hourly, daily, weekly, or
+monthly. The :guilabel:`<<` and :guilabel:`>>` buttons scroll through
+the output.
+
+Graphs are grouped by category on the Reporting page:
 
 * :guilabel:`CPU`
 
@@ -34,9 +40,8 @@ graphs are grouped into several tabs on the Reporting page:
   * `Disk <https://collectd.org/wiki/index.php/Plugin:Disk>`__
     shows read and write statistics on I/O, percent busy, latency,
     operations per second, pending I/O requests, and disk temperature.
-    Choose the devices and metrics to display and click
-    :guilabel:`GENERATE REPORTS` to display the selected metrics for the
-    chosen devices.
+    Choose the :guilabel:`DEVICES` and :guilabel:`METRICS` to view the
+    selected metrics for the chosen devices.
 
 * :guilabel:`Memory`
 
@@ -97,14 +102,6 @@ directly to the :ref:`System Dataset`.
 .. warning:: Reporting data is frequently written and should not be
    stored on the boot pool or boot device.
 
-Hover over the smaller graph and click and drag to zoom in
-the time interval. Click and drag the selection box to scroll
-horizontally over the time interval.
-
-Use the magnifier buttons next to each graph to increase or
-decrease the displayed time increment from 10 minutes, hourly, daily,
-weekly, or monthly. The :guilabel:`<<` and :guilabel:`>>` buttons
-can be used to scroll through the output.
 
 `Update on using Graphite with FreeNAS
 <http://cmhramblings.blogspot.com/2015/12/update-on-using-graphite-with-freenas.html>`__
