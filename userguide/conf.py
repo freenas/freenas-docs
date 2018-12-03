@@ -157,7 +157,7 @@ roles.register_local_role("menuselection", patched_menusel_role)
 rst_prolog = u'''
 .. |ui-settings|      replace::  (Settings)
 .. |ui-options|       replace::  (Options)
-.. |ui-add|           replace::  (Add/Create)
+.. |ui-add|           replace:: :guilabel:`ADD`
 .. |ui-power|         replace::  (Power)
 .. |ui-password-show| replace::  (Show)
 .. |ui-password-hide| replace::  (Hide)
