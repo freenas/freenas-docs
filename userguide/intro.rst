@@ -358,8 +358,8 @@ These screen options have changed:
 
 * Disk temperature graphs have been added to
   :menuselection:`Reporting --> Disk`.
-  This tab has been reworked to allow the user to choose the devices
-  and metrics before generating reporting graphs.
+  This category has been reworked to allow the user to choose the
+  devices and metrics before graphs are displayed.
 
 * Uptime graphs have been removed from the
   :menuselection:`Reporting --> System` tab.
