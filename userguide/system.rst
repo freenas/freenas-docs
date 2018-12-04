@@ -1710,7 +1710,7 @@ of the changes in that release impact the use of the system.
 
 .. _review_updates_fig:
 
-.. figure:: images/system-update-review.png
+.. figure:: images/system-update.png
 
    Reviewing Updates
 
