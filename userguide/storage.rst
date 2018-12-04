@@ -1698,10 +1698,8 @@ in :ref:`Managing Encrypted Pools` **before** attempting to replace
 the failed drive. Then, follow steps 1 and 2 as described above.
 During step 3, there will be a prompt to enter and confirm the
 passphrase for the pool. Enter this information, then click
-:guilabel:`REPLACE DISK`. Wait until resilvering is complete.
-
-Next, restore the encryption keys to the pool.
-**If this additional step is not performed before the next
+:guilabel:`REPLACE DISK`. Immediately restore the encryption keys to the
+pool. **If this additional step is not performed before the next
 reboot, access to the pool might be permanently lost.**
 
 #.  Highlight the pool that contains the recently replaced disk
