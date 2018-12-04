@@ -639,7 +639,7 @@ during the import to %brand%.
 
 Configure %brand% to import an existing ZFS pool by navigating
 :menuselection:`Storage --> Pools` and clicking |ui-add|. Select
-:guilabel:`Import existing pool` then :guilabel:`NEXT` as shown in
+:guilabel:`Import an existing pool` then :guilabel:`NEXT` as shown in
 :numref:`Figure %s <zfs_import_vol_fig>`.
 
 .. _zfs_import_vol_fig:
