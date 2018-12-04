@@ -662,7 +662,6 @@ This screen also allows the configuration of an alias for the lagg
 interface. Multiple aliases can be added with the
 :guilabel:`Add extra Alias` link.
 
-
 Click the :guilabel:`Edit Members` button, click the entry for a
 member, then click its :guilabel:`Edit` button to see the
 configuration screen shown in
@@ -698,14 +697,17 @@ The configurable options are summarized in
    |                         |                   | the master interface to *0* and the other interfaces to *1*, *2*, etc.      |
    |                         |                   |                                                                             |
    +-------------------------+-------------------+-----------------------------------------------------------------------------+
-   | LAGG Physical NIC       | drop-down menu    | Physical interface of the selected member.                                  |
-   |                         |                   |                                                                             |
+   | LAGG Physical NIC       | drop-down menu    | Physical interface of the selected member. The drop-down is empty when no   |
+   |                         |                   | NICs are available.                                                         |
    +-------------------------+-------------------+-----------------------------------------------------------------------------+
    | Options                 | string            | Additional parameters from                                                  |
    |                         |                   | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.       |
    |                         |                   |                                                                             |
    +-------------------------+-------------------+-----------------------------------------------------------------------------+
 
+
+Click :guilabel:`Add Link Aggregation Member` to see the same options.
+Click :guilabel:`OK` to add the new member to the list.
 
 Options can be set at the lagg level using the :guilabel:`Edit`
 button, or at the individual parent interface level using the
