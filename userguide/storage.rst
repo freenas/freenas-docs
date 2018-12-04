@@ -637,9 +637,10 @@ the pool on that system. Then shut it down and connect the drives to
 the %brand% system. This prevents an "in use by another machine" error
 during the import to %brand%.
 
-Configure %brand% to import an existing ZFS pool by navigating
-:menuselection:`Storage --> Pools` and clicking |ui-add|. Select
-:guilabel:`Import an existing pool` then :guilabel:`NEXT` as shown in
+Existing ZFS pools can be imported by clicking
+:menuselection:`Storage --> Pools`
+and |ui-add|. Select :guilabel:`Import an existing pool`, then click
+:guilabel:`NEXT` as shown in
 :numref:`Figure %s <zfs_import_vol_fig>`.
 
 .. _zfs_import_vol_fig:
