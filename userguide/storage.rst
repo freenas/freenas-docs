@@ -236,9 +236,10 @@ a pool with encryption:
   including ZIL and SLOG, are encrypted if the underlying disks are
   encrypted. Swap data on disk is always encrypted.
 
-  .. warning:: Data stored in Cache (L2ARC) drives is not encrypted.
-     Do not use Cache (L2ARC) with encrypted pools.
-
+* All drives in an encrypted pool are encrypted, including L2ARC
+  (read cache) and SLOG (write cache). Drives added to an existing
+  encrypted pool are encrypted with the same method specified when
+  the pool was created.
 
 * At present, there is no automated method to encrypt an existing,
   unencrypted pool. Instead, the data must be backed up, the
