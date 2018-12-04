@@ -263,10 +263,10 @@ intended use:
   including ZIL and SLOG, are encrypted if the underlying disks are
   encrypted. Swap data on disk is always encrypted.
 
-* All drives in an encrypted pool are encrypted, including L2ARC
+* All drives in an encrypted volume are encrypted, including L2ARC
   (read cache) and SLOG (write cache). Drives added to an existing
-  encrypted pool are encrypted with the same method specified when
-  the pool was created.
+  encrypted volume are encrypted with the same method specified when
+  the volume was created.
 
 * At present, there is no one-step way to encrypt an existing,
   unencrypted volume. Instead, the data must be backed up, the
