@@ -305,7 +305,7 @@ administrative GUI appears, as shown in the example in
 
 .. _tn_initial:
 
-.. figure:: images/tn_initial1c.png
+.. figure:: images/tn_webinterface.png
 
    %brand% Graphical Configuration Menu
 
