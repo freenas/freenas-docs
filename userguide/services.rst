@@ -1133,7 +1133,7 @@ configuration options. After configuring the S3 service, start it in
    | IP Address      | drop-down menu | Enter the IP address to run the S3 service. *0.0.0.0* sets the server to listen on all         |
    |                 |                | addresses.                                                                                     |
    +-----------------+----------------+------------------------------------------------------------------------------------------------+
-   | Port            | string         | Enter the TCP port on which to provide the S3 service. Default is 9000.                        |
+   | Port            | string         | Enter the TCP port on which to provide the S3 service. Default is *9000*.                      |
    |                 |                |                                                                                                |
    +-----------------+----------------+------------------------------------------------------------------------------------------------+
    | Access Key      | string         | Enter the S3 user name. This username must contain **only** alphanumeric characters and be     |
@@ -1147,10 +1147,9 @@ configuration options. After configuring the S3 service, start it in
    | Confirm Secret  | string         | Re-enter the S3 password to confirm.                                                           |
    | Key             |                |                                                                                                |
    +-----------------+----------------+------------------------------------------------------------------------------------------------+
-   | Disk            | browse         | Browse to the directory for the S3 filesystem. This overrides all permissions of that          |
-   |                 |                | directory and all of its subdirectories to *minio:minio*.                                      |
-   |                 |                | :ref:`Create a separate dataset <Adding Datasets>` for Minio to avoid any issues with          |
-   |                 |                | directory permissions.                                                                         |
+   | Disk            | browse         | Directory where the S3 filesystem will be mounted. Ownership of this directory and all         |
+   |                 |                | subdirectories is set to *minio:minio*. :ref:`Create a separate dataset <Create Dataset>`      |
+   |                 |                | for Minio to avoid issues with conflicting directory permissions or ownership.                 |
    |                 |                |                                                                                                |
    +-----------------+----------------+------------------------------------------------------------------------------------------------+
    | Enable Browser  | checkbox       | Set to enable the web user interface for the S3 service.                                       |
