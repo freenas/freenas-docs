@@ -18,37 +18,14 @@ unified data storage array.
 
 Carefully unpack the shipping boxes and locate these components:
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
-
-.. table::
-   :class: longtable
-
-   +--------------------------------------------+-------------------------------------------------+
-   | .. image:: images/tn_m.png                 | .. image:: images/tn_m_bezel.png                |
-   |                                            |    :width: 89%                                  |
-   |                                            |                                                 |
-   | M-Series Unified Storage Array             | M-Series Bezel                                  |
-   +--------------------------------------------+-------------------------------------------------+
-   | .. image:: images/tn_es24m_rails.png       | .. image:: images/tn_es24m_drivetray.png        |
-   |                                            |    :width: 30%                                  |
-   |                                            |                                                 |
-   | Set of rackmount rails                     | Up to 24 drive trays populated with drives      |
-   +--------------------------------------------+-------------------------------------------------+
-   |                                            |                                                 |
-   | .. image:: images/tn_es24m_serialcable.png | .. image:: images/tn_m_acckit.png               |
-   |    :width: 30%                             |    :width: 60%                                  |
-   |                                            |                                                 |
-   | DB9 to 3.5mm serial cable                  | Accessory kit with 2 IEC C13 to NEMA 5-15P      |
-   |                                            | power cords, 2 IEC C14 to C13 cords, velcro     |
-   |                                            | cable ties, M4x4L screws, M5x18 screws, screw   |
-   |                                            | posts, and alternate pins for round hole racks  |
-   +--------------------------------------------+-------------------------------------------------+
+.. figure:: images/tn_m_parts.png
 
 
-.. raw:: latex
-
-   \newpage
+M-Series Unified Storage Array, M-Series Bezel, set of rackmount
+rails, up to 24 drive trays populated with drives, DB9 to 3.5mm serial
+cable, and an accessory kit with 2 IEC C13 to NEMA 5-15P power cords,
+2 IEC C14 to C13 cords, velcro cable ties, M4x4L screws, M5x18 screws,
+screw posts, and alternate pins for round hole racks.
 
 
 .. index:: Become Familiar with the M-Series System
@@ -68,12 +45,23 @@ fault. The fault indicator is on during the initial power-on self-test
 .. _m_indicators:
 
 .. figure:: images/tn_m_indicators.png
-   :width: 25%
+   :width: 20%
+
+
+.. raw:: latex
+
+   \newpage
 
 
 The M-Series contains one or two storage controllers in an
-over-and-under configuration. The connectors and features on each
-storage controller are:
+over-and-under configuration. Examples of typical M40 (top) and M50
+(bottom) models are shown here.
+
+.. _m_back:
+
+.. figure:: images/tn_m_back.png
+   :width: 100%
+
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
@@ -96,6 +84,8 @@ storage controller are:
    +----------------------------------------------+----------------------------------------------+
    | 6: 10Gb Ethernet port                        | 12: Storage controller management port       |
    +----------------------------------------------+----------------------------------------------+
+   | 13: NVDIMM activity indicators and access panel                                             |
+   +---------------------------------------------------------------------------------------------+
 
 **M-Series systems with only a single storage controller must be shut
 down and powered off before removing the controller or data loss will
@@ -103,14 +93,6 @@ occur.**
 
 For remote management with IPMI, the 1 Gb Ethernet Out of Band
 management port (#3) must be connected to a network.
-
-
-.. _m_back:
-
-.. figure:: images/tn_m_back.png
-   :width: 100%
-
-   Back Panel
 
 
 .. raw:: latex
@@ -157,6 +139,7 @@ into the plastic clamp and press the tab into the latch to lock it in
 place. Repeat the process for the second power supply and cord.
 
 .. _power_cord_connection:
+
 .. figure:: images/tn_m_powerclip.png
   :width: 35%
 
@@ -190,3 +173,4 @@ web interface, *192.168.100.231* in this example:
 
 Enter the IP address into a browser on a computer on the same network
 to access the web user interface.
+
