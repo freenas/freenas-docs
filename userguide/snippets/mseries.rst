@@ -70,21 +70,21 @@ over-and-under configuration. Examples of typical M40 (top) and M50
    :class: longtable
 
    +----------------------------------------------+----------------------------------------------+
-   | 1: Redundant power supplies                  | 7: VGA monitor port                          |
+   | 1: Redundant power supplies                  | 8: ID LED                                    |
    +----------------------------------------------+----------------------------------------------+
-   | 2: Serial port                               | 8: ID LED                                    |
+   | 2: Serial port                               | 9: HD Mini SAS3 connectors                   |
    +----------------------------------------------+----------------------------------------------+
-   | 3: 1Gb Ethernet Out of Band (OOB) dedicated  | 9: HD Mini SAS3 connectors                   |
+   | 3: 1Gb Ethernet Out of Band (OOB) dedicated  | 10: Networking port                          |
    | management port, dual USB 2.0 ports          |                                              |
    +----------------------------------------------+----------------------------------------------+
-   | 4: Dual USB 3.0 ports                        | 10: Networking port                          |
-   +----------------------------------------------+----------------------------------------------+
-   | 5: 10Gb Ethernet port                        | 11: Asterisk slot: Fibre Channel or          |
+   | 4: Dual USB 3.0 ports                        | 11: Asterisk slot: Fibre Channel or          |
    |                                              | additional networking                        |
    +----------------------------------------------+----------------------------------------------+
-   | 6: 10Gb Ethernet port                        | 12: Storage controller management port       |
+   | 5: 10Gb Ethernet port                        | 12: Storage controller management port       |
    +----------------------------------------------+----------------------------------------------+
-   | 13: NVDIMM activity indicators and access panel                                             |
+   | 6: 10Gb Ethernet port                        | 13: NVDIMM activity indicators               |
+   +----------------------------------------------+----------------------------------------------+
+   | 7: VGA monitor port                                                                         |
    +---------------------------------------------------------------------------------------------+
 
 **M-Series systems with only a single storage controller must be shut
