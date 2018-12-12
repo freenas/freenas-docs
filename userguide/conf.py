@@ -112,6 +112,7 @@ if tags.has('bsg-es24'):
 
 if tags.has('bsg-mseries'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    version = '1.1'
     tags.remove('freenas')
     project = brand + ' ' + six.u('M-Series Unified Storage Array')
     projtype = 'Basic Setup Guide'
@@ -346,10 +347,7 @@ else:
 
 PREAMBLE = r'''\def\docname{''' + texproject + '}'
 
-PREAMBLE = (PREAMBLE
-            + r'''\def\docdate{'''
-            + time.strftime("%B %Y")
-            + ' Edition}')
+PREAMBLE = (PREAMBLE + '\\def\\docdate{' + 'Version ' + version + '}')
 
 if sphinx.__version__ < '1.6.5':
     PREAMBLE = PREAMBLE + r'''\usepackage[tmargin=.75in, bmargin=.75in, lmargin=0.5in, rmargin=0.5in]{geometry}'''
