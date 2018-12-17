@@ -162,6 +162,7 @@ repository, update the plugin jail by navigating to the
 
 .. note:: Plugins are updated using :samp:`iocage update {UUID} | {NAME}`
    and upgraded using :samp:`iocage upgrade {UUID} | {NAME} -r {RELEASE}`.
+   Manually created jails use :samp:`pkg update` and :samp:`pkg upgrade`.
 
 #ifdef comment
 # jails/update shows nothing unless an update is available
