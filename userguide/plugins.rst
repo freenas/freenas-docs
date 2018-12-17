@@ -159,6 +159,10 @@ When a newer version of a plugin becomes available in the official
 repository, update the plugin jail by navigating to the
 :menuselection:`Jails` page and clicking |ui-options| and
 :guilabel:`Update`.
+
+.. note:: Plugins are updated using :samp:`iocage update {UUID} | {NAME}`
+   and upgraded using :samp:`iocage upgrade {UUID} | {NAME} -r {RELEASE}`.
+
 #ifdef comment
 # jails/update shows nothing unless an update is available
 :numref:`Figure %s <updating_installed_plugin_fig>`
