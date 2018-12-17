@@ -1148,7 +1148,7 @@ configuration options. After configuring the S3 service, start it in
    | Key             |                |                                                                                                |
    +-----------------+----------------+------------------------------------------------------------------------------------------------+
    | Disk            | browse         | Directory where the S3 filesystem will be mounted. Ownership of this directory and all         |
-   |                 |                | subdirectories is set to *minio:minio*. :ref:`Create a separate dataset <Create Dataset>`      |
+   |                 |                | subdirectories is set to *minio:minio*. :ref:`Create a separate dataset<Adding Datasets>`      |
    |                 |                | for Minio to avoid issues with conflicting directory permissions or ownership.                 |
    |                 |                |                                                                                                |
    +-----------------+----------------+------------------------------------------------------------------------------------------------+
