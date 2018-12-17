@@ -164,6 +164,9 @@ automatically power on when connected to a power outlet. This design
 ensures that the X-Series comes back on when power is restored after a
 power failure.
 
+If remote physical power disconnection is desired, the X-Series can be
+connected to a remotely-managed PDU (Power Distribution Unit).
+
 
 Install Bezel (Optional)
 ~~~~~~~~~~~~~~~~~~~~~~~~
