@@ -4,7 +4,6 @@
 # textproc/py-sphinx
 # textproc/py-sphinx_numfig
 # textproc/py-sphinx_rtd_theme
-# textproc/py-sphinxcontrib-httpdomain
 
 import os
 import six
@@ -88,6 +87,7 @@ if tags.has('bsg-e24'):
 
 if tags.has('bsg-xseries'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    version = '1.1'
     tags.remove('freenas')
     project = brand + ' ' + six.u('X-Series Unified Storage Array')
     projtype = 'Basic Setup Guide'
@@ -96,6 +96,7 @@ if tags.has('bsg-xseries'):
 
 if tags.has('bsg-es12'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    version = '1.1'
     tags.remove('freenas')
     project = brand + ' ' + six.u('ES12 Expansion Shelf')
     projtype = 'Basic Setup Guide'
@@ -104,6 +105,7 @@ if tags.has('bsg-es12'):
 
 if tags.has('bsg-es24'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    version = '1.1'
     tags.remove('freenas')
     project = brand + ' ' + six.u('ES24 Expansion Shelf')
     projtype = 'Basic Setup Guide'
@@ -121,6 +123,7 @@ if tags.has('bsg-mseries'):
 
 if tags.has('bsg-es60'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    version = '1.1'
     tags.remove('freenas')
     project = brand + ' ' + six.u('ES60 Expansion Shelf')
     projtype = 'Basic Setup Guide'
