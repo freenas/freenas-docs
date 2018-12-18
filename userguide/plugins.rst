@@ -160,8 +160,10 @@ repository, update the plugin jail by navigating to the
 :menuselection:`Jails` page and clicking |ui-options| and
 :guilabel:`Update`.
 
-.. note:: Plugins are updated using :samp:`iocage update {PLUGIN}`
-   and upgraded using :samp:`iocage upgrade {PLUGIN}`.
+.. note:: Plugins can also be updated using :samp:`iocage update {PLUGIN}`
+   and upgraded using :samp:`iocage upgrade {PLUGIN}` in the command
+   line. Updating a plugin is a patch to fix issues. Upgrading a plugin
+   replaces the old release with a new release.
 
 #ifdef comment
 # jails/update shows nothing unless an update is available
