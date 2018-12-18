@@ -4,7 +4,6 @@
 # textproc/py-sphinx
 # textproc/py-sphinx_numfig
 # textproc/py-sphinx_rtd_theme
-# textproc/py-sphinxcontrib-httpdomain
 
 import os
 import six
@@ -124,6 +123,7 @@ if tags.has('bsg-mseries'):
 
 if tags.has('bsg-es60'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    version = '1.1'
     tags.remove('freenas')
     project = brand + ' ' + six.u('ES60 Expansion Shelf')
     projtype = 'Basic Setup Guide'
