@@ -76,8 +76,9 @@ Rear view of the ES60 Expansion Shelf:
 .. figure:: images/tn_es60_back.png
 
 
-The ES60 contains two expansion modules in a side-by-side
-configuration. The connectors and features on each module are:
+The ES60 contains two expansion controllers in a side-by-side
+configuration. The connectors and features on each expansion controller
+are:
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
@@ -139,10 +140,15 @@ rack holes until they lock in place.
 Mount Unit in the Rack
 ~~~~~~~~~~~~~~~~~~~~~~
 
-**Caution: Two people are required to safely lift the chassis for rack
-installation or removal.** Do not install drives until after the
-chassis has been installed in the rack, and remove all drives before
-removing the chassis from the rack.
+.. caution:: The unit weighs about 80 pounds.
+   At least two people are required to safely lift the
+   chassis for rack installation or removal. This process
+   should not be attempted alone as it involves risks and
+   could result in equipment damage or personal injury.
+
+Do not install drives until after the chassis has been installed in
+the rack, and remove all drives before removing the chassis
+from the rack.
 
 Slide the front rack rail forward to meet the rear of the cabinet
 rails. Align the cabinet rail with the inside of the front rack rail
@@ -321,10 +327,10 @@ Plug the ES60 power cords into power outlets.
 Connecting the ES60 to a %brand% X20
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Connect an SAS cable from the ES60 expander module 1 connector 1 to
+Connect an SAS cable from the ES60 expansion controller 1 connector 1 to
 the X20 1 SAS 1 connector (cable #1 in photo). If the X20 has a second
 storage controller for HA (High Availability), connect a second SAS
-cable from the ES60 expander module 2 connector 1 to the X20 storage
+cable from the ES60 expansion controller 2 connector 1 to the X20 storage
 controller 2 SAS 1 connector (cable #2 in photo).
 
 
@@ -336,10 +342,10 @@ controller 2 SAS 1 connector (cable #2 in photo).
 Connecting the ES60 to a %brand% Z35
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Connect an SAS cable from the ES60 expander module 1 connector 1 to
+Connect an SAS cable from the ES60 expansion controller 1 connector 1 to
 the Z35 Controller 1 SAS 1 connector (cable #1 in photo). If the Z35
 has a second storage controller for HA (High Availability), connect a
-second SAS cable from the ES60 expander module 2 connector 1 to the Z35
+second SAS cable from the ES60 expansion controller 2 connector 1 to the Z35
 Controller 2 SAS 1 connector (cable #2 in photo).
 
 
@@ -371,4 +377,3 @@ on the ears of the ES60. Install one upper screw from the back side of
 the left ES60 ear, then install a lower screw from the back of the
 right ES60 ear. Install the remaining two screws following the same
 diagonal pattern.
-

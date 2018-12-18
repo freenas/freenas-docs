@@ -114,11 +114,6 @@ are:
 #include snippets/x_rails.rst
 
 
-.. raw:: latex
-
-   \newpage
-
-
 #include snippets/x_drivetrays.rst
 
 
@@ -309,10 +304,6 @@ and pressing :kbd:`Enter`. After use, always disconnect the black USB
 serial cable from the X-Series system.
 
 
-.. raw:: latex
-
-   \newpage
-
 
 Connect to the X-Series Console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -435,10 +426,6 @@ to the system serial console port, #10 on
 :numref:`Figure %s <x_back>`.
 
 
-.. raw:: latex
-
-   \newpage
-
 
 .. _Using the X-Series Console:
 
@@ -486,4 +473,3 @@ to access the web user interface.
 .. raw:: latex
 
    \newpage
-
