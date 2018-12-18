@@ -149,7 +149,7 @@ of the outer rail is matched with the front of the rack or cabinet.
 For racks with square holes, snap the mounting brackets in the outer
 rail into the front and back of the rack frame. The brackets use a
 spring-loaded locking mechanism and do not require mounting screws.
-holes at either end of the rail into the mouting holes.
+holes at either end of the rail into the mounting holes.
 
 
 .. figure:: images/tn_rack_square_holes.png
@@ -168,9 +168,12 @@ in the rack and secure them with 8 #32 thumbscrews.
 
 The %brand% Storage Array can now be installed into the rack.
 
-.. caution:: Two people are required to safely install or remove the
-   %brand% Storage Array in a rack or cabinet.
-
+.. caution:: The unit weighs about 65 pounds.
+   At least two people are required to safely
+   install or remove the %brand% Storage Array in a
+   rack or cabinet. This process should not be attempted
+   alone as it involves risks and could result in equipment
+   damage or personal injury.
 
 Carefully align the %brand% Array inner rails with the guides in the
 outer rails attached to the rack. When aligned, slide the %brand%
