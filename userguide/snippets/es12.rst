@@ -8,7 +8,7 @@ ES12 Expansion Shelf
 --------------------
 
 The %brand% ES12 is 2U, 12-bay, SAS3 (12 Gb/s) expansion shelf with
-dual expansion modules and redundant power supplies.
+dual expansion controllers and redundant power supplies.
 
 
 #include snippets/perfect.rst
@@ -72,8 +72,8 @@ software issues an
    :width: 50%
 
 
-The ES12 contains two expansion modules in a side-by-side
-configuration. The connectors and features on each module are:
+The ES12 contains two expansion controllers in a side-by-side
+configuration. The connectors and features on each controller are:
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
 
@@ -135,12 +135,12 @@ power cables from the power outlets.
 Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
-Connect an SAS cable from the ES12 expander module 1 T1 connector to
+Connect an SAS cable from the ES12 expansion controller 1 T1 connector to
 the X-Series storage controller 1 SAS 1 connector (cable #1 in photo).
 
 If the X-Series has a second storage controller for HA
-(High Availability), connect a second SAS cable from the ES12 expander
-module 2 to the X-Series storage controller 2 SAS 1 connector (cable #2
+(High Availability), connect a second SAS cable from the ES12 expansion
+controller 2 to the X-Series storage controller 2 SAS 1 connector (cable #2
 in photo).
 
 
