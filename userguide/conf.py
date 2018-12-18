@@ -106,6 +106,7 @@ if tags.has('bsg-es12'):
 
 if tags.has('bsg-es24'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    version = '1.1'
     tags.remove('freenas')
     project = brand + ' ' + six.u('ES24 Expansion Shelf')
     projtype = 'Basic Setup Guide'
