@@ -88,6 +88,7 @@ if tags.has('bsg-e24'):
 
 if tags.has('bsg-xseries'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    version = '1.1'
     tags.remove('freenas')
     project = brand + ' ' + six.u('X-Series Unified Storage Array')
     projtype = 'Basic Setup Guide'
