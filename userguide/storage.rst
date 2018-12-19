@@ -209,9 +209,12 @@ a pool with encryption:
 * %brand% encryption is different from the encryption used in
   Oracle's proprietary, non-open source version of ZFS.
 
-* In %brand%, entire disks are encrypted, not individual filesystems.
-  Encrypted devices are created from the underlying drives, then the
-  pool is created on top of the encrypted devices.
+* In %brand%, entire disk partitions are encrypted, not individual
+  filesystems. Encrypted devices are created from the underlying drives,
+  then the pool is created on top of the encrypted devices. The drive is
+  not entirely encrypted as there will be a GPT partition used to
+  identify the encrypted parts of the drive. To use the drive firmware
+  to completely encrypt the drive, see :ref:`Self-Encrypting Drives`.
 
 * This type of encryption is primarily useful for users wanting the
   ability to remove disks from the pool without having to first wipe the
