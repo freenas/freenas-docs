@@ -2170,7 +2170,7 @@ filesystem, the data still resides on a ZFS pool and benefits from
 ZFS features like block checksums and snapshots.
 
 .. warning:: For performance reasons and to avoid excessive
-   fragmentation, keep the used space of the pool below 70% when using
+   fragmentation, keep the used space of the pool below 80% when using
    iSCSI. The capacity of an existing extent can be increased as shown
    in :ref:`Growing LUNs`.
 
