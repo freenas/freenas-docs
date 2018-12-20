@@ -443,7 +443,7 @@ VMs automatically include a virtual serial port.
 
 * :file:`/dev/nmdm2B` is assigned to the second VM
 
-And so on. These virtual serial ports allow connecting to the VM
+These virtual serial ports allow connecting to the VM
 console from the :ref:`Shell`.
 
 .. tip:: The `nmdm <https://www.freebsd.org/cgi/man.cgi?query=nmdm>`__
