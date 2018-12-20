@@ -769,6 +769,8 @@ press :kbd:`Enter`. The Docker Host can take some time to start and
 display the login prompt.
 
 
+.. _Installing and Configuring the Rancher Server:
+
 Installing and Configuring the Rancher Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -831,3 +833,33 @@ use.
 
 For more information on using RancherOS, see the RancherOS
 `Documentation <https://rancher.com/docs/os/v1.x/en/>`__.
+
+
+.. _Configure Rancher Containers with NFS Pass-through:
+
+Rancher Containers with NFS Pass-through
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Using containers with stack scoped volumes requires configuring NFS
+pass-through in both the %brand% |web-ui| and a preconfigured NFS server:
+
+.. tip:: See these `Rancher NFS Server configuration instructions
+   <https://rancher.com/docs/rancher/v1.6/en/rancher-services/storage-service/rancher-nfs/>`__
+   if the NFS server is not already configured.
+
+
+* Log in to the NFS server and modify :file:`/etc/exports`. Add
+  an entry for the NFS shared directory, typically :file:`/nfs`, with
+  several permissions options:
+  :samp:`/nfs	[IP](rw,sync,no_root_squash,no_subtree_check)`.
+  :literal:`[IP]` is the IP address of the client and can also be set
+  to the wildcard :literal:`*`.
+
+* Switch to the %brand% |web-ui| and go to
+  :menuselection:`Services --> NFS Configure`.
+  Set :guilabel:`Enable NFSv4` and
+  :guilabel:`NFSv3 ownership model for NFSv4`. Click :guilabel:`SAVE`
+  and restart the :guilabel:`NFS` service.
+
+* Add :literal:`:nocopy` to the end of the pool that will be mounted:
+  :samp:`mount -tnfs pool:/mnt/pool1:nocopy ~nfsmounts/pool1_mount`
