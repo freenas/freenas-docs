@@ -274,7 +274,12 @@ the domain administrator password, :command:`kinit` will report a
 "Password Incorrect" error and :command:`ldap_bind` will report an
 "Invalid credentials (49)" error.
 
-.. tip:: 
+.. tip:: Using %brand% systems for both AD server and client requires
+   creating a :ref:`CA <CAs>` on the AD server and exporting the CA with
+   the unique certificate and private key to the client using the client
+   :ref:`CA <CAs>` menu. Set :guilabel:`Encryption Mode` to *TLS* and
+   :guilabel:`SASL wrapping` to *sign* on the AD server.
+
 
 It can take a few minutes after configuring the Active Directory
 service for the AD information to be populated to the %brand% system.
