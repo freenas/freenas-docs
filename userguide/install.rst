@@ -163,9 +163,7 @@ but enter the name of the downloaded :file:`.iso` into the
 and
 `Rufus <http://rufus.akeo.ie/>`__
 are alternate programs for writing images to USB sticks on a computer
-running Windows. When using Rufus, check
-:guilabel:`Create a bootable disk using` and select *DD Image* from
-the drop-down menu.
+running Windows.
 
 
 .. _macOS:
