@@ -115,7 +115,7 @@ advanced options.
    |                          | menu          |          |                                                                                                                               |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Certificate              | drop-down menu| ✓        | Select the certificate of the Active Directory server if  SSL connections are used. If a certificate does not exist, create   |
+   | Certificate              | drop-down menu| ✓        | Select the certificate of the Active Directory server if SSL connections are used. If a certificate does not exist, create    |
    |                          |               |          | a :ref:`Certificate Authority <CAs>`, then create a certificate on the Active Directory server. Import the certificate to the |
    |                          |               |          | %brand% system with the :ref:`Certificates` menu.                                                                             |
    |                          |               |          |                                                                                                                               |
@@ -264,18 +264,17 @@ Click the :guilabel:`REBUILD DIRECTORY SERVICE CACHE` button if a new
 Active Directory user needs immediate access to %brand%. This occurs
 automatically once a day as a cron job.
 
-.. note:: Active Directory places restrictions on which characters are
-   allowed in Domain and NetBIOS names, and limits the length of those
-   names to 15 characters. If there are problems connecting to the
-   realm,
-   `verify
-   <https://support.microsoft.com/en-us/help/909264/naming-conventions-in-active-directory-for-computers-domains-sites-and>`__
-   the settings do not include any disallowed characters. The
-   Administrator account password cannot contain the *$* character. If a
-   *$* exists in the domain administrator password,
-   :command:`kinit` will report a "Password Incorrect" error and
-   :command:`ldap_bind` will report an "Invalid credentials (49)"
-   error.
+Active Directory places restrictions on which characters are allowed in
+Domain and NetBIOS names, and limits the length of those names to 15
+characters. If there are problems connecting to the realm, `verify
+<https://support.microsoft.com/en-us/help/909264/naming-conventions-in-active-directory-for-computers-domains-sites-and>`__
+the settings do not include any disallowed characters. The Administrator
+account password cannot contain the *$* character. If a *$* exists in
+the domain administrator password, :command:`kinit` will report a
+"Password Incorrect" error and :command:`ldap_bind` will report an
+"Invalid credentials (49)" error.
+
+.. tip:: 
 
 It can take a few minutes after configuring the Active Directory
 service for the AD information to be populated to the %brand% system.
