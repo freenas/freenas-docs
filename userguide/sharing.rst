@@ -492,40 +492,54 @@ Remember these points when creating NFS shares:
     permissions of all users, set the :guilabel:`Mapall` options.
 
 #.  Each pool or dataset is considered to be its own filesystem and
-    NFS is not able to cross filesystem boundaries.
+    individual NFS shares cannot cross filesystem boundaries. Sharing
+    multiple directories with an additional paths is only allowed within
+    a single pool or dataset.
 
-#.  The network and host must be unique per share and per filesystem or
-    directory. Since :file:`/etc/exports` does not act like an ACL, the
-    rule to apply is undefined among overlapping networks or when using
-    the same share with multiple hosts.
+#.  The network and host must be unique per share and filesystem or
+    directory. Because :file:`/etc/exports` does not act like an ACL,
+    the rule to apply is undefined among overlapping networks or when
+    using the same share with multiple hosts.
 
 #.  The :guilabel:`All dirs` option can only be used once per share per
     filesystem.
 
 
-To better understand these restrictions, consider a scenario where
-there are:
+To better understand these restrictions, consider scenarios where there
+are:
 
 * two networks, *10.0.0.0/8* and *20.0.0.0/8*
 
 * a ZFS pool named :file:`pool1` with 2 datasets named
   :file:`dataset1` and :file:`dataset2`
 
-* :file:`dataset1` contains a directory named :file:`directory1`
+* :file:`dataset1` contains directories named :file:`directory1`,
+  :file:`directory2`, and :file:`directory3`
 
 Because of restriction #3, an error is shown when trying to create one
 NFS share like this:
 
 * :guilabel:`Authorized Networks` set to *10.0.0.0/8 20.0.0.0/8*
 
-* :guilabel:`Path` set to :file:`/mnt/pool1/dataset1` and
-  :file:`/mnt/pool1/dataset1/directory1`
+* :guilabel:`Path` set to the dataset :file:`/mnt/pool1/dataset1`.
+  An additional path to directory
+  :file:`/mnt/pool1/dataset1/directory1` is added.
 
-Instead, set a :guilabel:`Path` of :file:`/mnt/pool1/dataset1` and
-check the :guilabel:`All dirs` box.
+The correct method to configure this share is to set the
+:guilabel:`Path` to :file:`/mnt/pool1/dataset1` and set the
+:guilabel:`All dirs` box. This allows the client to also mount
+:file:`/mnt/pool1/dataset1/directory1` when
+:file:`/mnt/pool1/dataset1` is mounted.
 
-That directory could also be restricted to one of the networks by
-creating two shares instead:
+Additional paths are used to configure the share to point to separate
+directories within a single pool or dataset filesystem. Two paths within
+a single share are needed to share
+:file:`/mnt/pool1/dataset1/directory1` and
+:file:`/mnt/pool1/dataset1/directory2`, but not
+:file:`/mnt/pool1/dataset1/directory3`.
+
+Restricting :file:`directory1` to a single network is done by
+instead creating two shares:
 
 First NFS share:
 
@@ -565,16 +579,16 @@ see all settings.
    |                     |                |          | to share. Click :guilabel:`ADD ADDITIONAL PATH` to add multiple pools, datasets, or directories to this    |
    |                     |                |          | share.                                                                                                     |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Comment             | string         |          | Set the share name. If left empty, share name is the list of selected :guilabel:`Path` entries.            |
+   | Comment             | string         |          | The share name. If left empty, the name is the list of selected :guilabel:`Path` entries.                  |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | All dirs            | checkbox       |          | Set to allow the client to also mount all subdirectories of the specific :guilabel:`Path` pool or dataset. |
+   | All dirs            | checkbox       |          | Allows the client to also mount any subdirectories of a chosen pool or dataset.                            |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Read Only           | checkbox       |          | Set to prohibit writing to the share.                                                                      |
+   | Read Only           | checkbox       |          | Prohibits writing to the share.                                                                            |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Quiet               | checkbox       | ✓        | Set to restrict some syslog diagnostics to avoid error messages. See                                       |
+   | Quiet               | checkbox       | ✓        | Restricts some syslog diagnostics to avoid error messages. See                                             |
    |                     |                |          | `exports(5) <https://www.freebsd.org/cgi/man.cgi?query=exports>`__ for examples.                           |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
