@@ -452,13 +452,12 @@ to avoid making another backup or losing past backups.
 Unix (NFS) Shares
 -----------------
 
-%brand% supports sharing over the Network File System (NFS). Clients
-use the :command:`mount` command to mount the share. Once mounted, the
-NFS share appears as just another directory on the client system. Some
-Linux distros require the installation of additional software in order
-to mount an NFS share. On Windows systems, enable Services for NFS in
-the Ultimate or Enterprise editions or install an NFS client
-application.
+%brand% supports sharing pools, datasets over the Network File System
+(NFS). Clients use the :command:`mount` command to mount the share.
+Mounted NFS shares appear as another directory on the client system.
+Some Linux distros require the installation of additional software to
+mount an NFS share. Windows systems need to enable Services for NFS in
+the Ultimate or Enterprise editions or install an NFS client application.
 
 #ifdef freenas
 .. note:: For performance reasons, iSCSI is preferred to NFS shares
@@ -469,12 +468,13 @@ application.
 #endif freenas
 
 Before creating an NFS share, go to
-:menuselection:`Services --> NFS` and click the sliding button to
-turn on the service.
+:menuselection:`Services --> NFS`
+and click the sliding button to turn on the service.
 
-Next, go to :menuselection:`Storage --> Pools` to create a dataset
-for the share. Refer to :ref:`Adding Datasets` for more information
-about dataset creation.
+Next, go to
+:menuselection:`Storage --> Pools`
+to create a dataset for the share. Refer to :ref:`Adding Datasets` for
+more information about dataset creation.
 
 Create an NFS share by going to
 :menuselection:`Sharing --> Unix (NFS) Shares`
@@ -493,11 +493,11 @@ Click the :guilabel:`SAVE` button to create the share.
    NFS Share Creation
 
 
-Edit an NFS share by going to
-:menuselection:`Sharing --> Unix (NFS)`, clicking the |ui-options|
-button for the desired share, then :guilabel:`Edit`. In the example
-shown in :numref:`Figure %s <nfs_share_settings_fig>`, the configuration
-screen is open for the *nfs_share1* share.
+Go to
+:menuselection:`Sharing --> Unix (NFS)`
+and click |ui-options| and :guilabel:`Edit` to edit an existing share.
+:numref:`Figure %s <nfs_share_settings_fig>` shows the configuration
+screen for the existing *nfs_share1* share.
 
 .. _nfs_share_settings_fig:
 
@@ -526,19 +526,19 @@ button.
    |                     |                | Mode     |                                                                                                            |
    +=====================+================+==========+============================================================================================================+
    | Path                | browse button  |          | The required full path to the pool or dataset to share. Click :guilabel:`ADD ADDITIONAL PATH` to           |
-   |                     |                |          | configure multiple paths.                                                                                  |
+   |                     |                |          | share additional pools or datasets                                                                         |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
    | Comment             | string         |          | Set the share name. If left empty, share name is the list of selected :guilabel:`Path` entries.            |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | All dirs            | checkbox       |          | Set to allow the client to mount any subdirectory within the :guilabel:`Path`.                             |
+   | All dirs            | checkbox       |          | Set to allow the client to also mount all subdirectories of the specific :guilabel:`Path` pool or dataset. |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
    | Read Only           | checkbox       |          | Set to prohibit writing to the share.                                                                      |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Quiet               | checkbox       | ✓        | Set to inhibit some syslog diagnostics to avoid error messages. See                                        |
+   | Quiet               | checkbox       | ✓        | Set to restrict some syslog diagnostics to avoid error messages. See                                       |
    |                     |                |          | `exports(5) <https://www.freebsd.org/cgi/man.cgi?query=exports>`__ for examples.                           |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
@@ -563,11 +563,10 @@ button.
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
    | Security            | selection      | ✓        | Only appears if :guilabel:`Enable NFSv4` is enabled in                                                     |
-   |                     |                |          | :menuselection:`Services --> NFS --> Configure`. Choices are *sys* or these Kerberos options:              |
-   |                     |                |          | *krb5* (authentication only),                                                                              |
+   |                     |                |          | :menuselection:`Services --> NFS --> Configure`.                                                           |
+   |                     |                |          |  Choices are *sys* or these Kerberos options: *krb5* (authentication only),                                |
    |                     |                |          | *krb5i* (authentication and integrity), or                                                                 |
    |                     |                |          | *krb5p* (authentication and privacy).                                                                      |
-   |                     |                |          |                                                                                                            |
    |                     |                |          |                                                                                                            |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
 
@@ -631,8 +630,8 @@ Second NFS share:
 
 * :guilabel:`Path` set to :file:`/mnt/pool1/dataset1/directory1`
 
-Note that this requires the creation of two shares. It cannot be
-done with only one share.
+This requires the creation of two shares. It cannot be done with only
+one share.
 
 
 .. _Example Configuration:
@@ -717,8 +716,8 @@ executed as the superuser (*root*) or with :command:`sudo`:
   existing, *empty* directory. The data in the NFS share appears
   in this directory on the client computer.
 
-A successful mounting of the share returns to the command prompt
-without any status or error messages.
+Successfully mounting the share returns to the command prompt without
+any status or error messages.
 
 .. note:: If this command fails on a Linux system, make sure that the
    `nfs-utils <https://sourceforge.net/projects/nfs/files/nfs-utils/>`__
@@ -728,13 +727,12 @@ without any status or error messages.
 This configuration allows users on the client system to copy files to
 and from :file:`/mnt` (the mount point). All files are owned by
 *nobody:nobody*. Changes to any files or directories in :file:`/mnt`
-are written to the %brand% system's :file:`/mnt/pool1/nfs_share1`
-dataset.
+write to the %brand% system :file:`/mnt/pool1/nfs_share1` dataset.
 
-Settings cannot be changed on the NFS share if it is mounted on any
-client computers. The :command:`umount` command is used to unmount
-the share on BSD and Linux clients. Run it as the superuser or with
-:command:`sudo` on each client computer:
+NFS share settings cannot change when the share is mounted on a client
+computer. The :command:`umount` command is used to unmount the share on
+BSD and Linux clients. Run it as the superuser or with :command:`sudo`
+on each client computer:
 
 .. code-block:: none
 
@@ -764,13 +762,11 @@ pool or dataset being shared by NFS. The example shown in
 continues with the example of *192.168.2.2:/mnt/pool1/nfs_share1*.
 
 Finder opens automatically after connecting. The IP address of the
-%brand% system is displayed in the SHARED section in the left frame
-and the contents of the share are displayed in the right frame. In the
-example shown in
-:numref:`Figure %s <view_nfs_finder_fig>`,
+%brand% system displays in the SHARED section of the left frame and the
+contents of the share display in the right frame.
+:numref:`Figure %s <view_nfs_finder_fig>` shows an example where
 :file:`/mnt/data` has one folder named :file:`images`. The user can
 now copy files to and from the share.
-
 
 .. _mount_nfs_osx_fig:
 
