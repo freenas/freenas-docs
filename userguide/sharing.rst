@@ -561,9 +561,9 @@ see all settings.
    | Setting             | Value          | Advanced | Description                                                                                                |
    |                     |                | Mode     |                                                                                                            |
    +=====================+================+==========+============================================================================================================+
-   | Path                | browse button  |          | The required full path to the pool or dataset to share. Click :guilabel:`ADD ADDITIONAL PATH` to           |
-   |                     |                |          | share additional pools or datasets                                                                         |
-   |                     |                |          |                                                                                                            |
+   | Path                | browse button  |          | The required full path to the pool, dataset, or directory to share. Click |ui-browse| to select the data   |
+   |                     |                |          | to share. Click :guilabel:`ADD ADDITIONAL PATH` to add multiple pools, datasets, or directories to this    |
+   |                     |                |          | share.                                                                                                     |
    +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
    | Comment             | string         |          | Set the share name. If left empty, share name is the list of selected :guilabel:`Path` entries.            |
    |                     |                |          |                                                                                                            |
