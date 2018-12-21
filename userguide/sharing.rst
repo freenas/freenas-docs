@@ -452,12 +452,13 @@ to avoid making another backup or losing past backups.
 Unix (NFS) Shares
 -----------------
 
-%brand% supports sharing pools, datasets over the Network File System
-(NFS). Clients use the :command:`mount` command to mount the share.
-Mounted NFS shares appear as another directory on the client system.
-Some Linux distros require the installation of additional software to
-mount an NFS share. Windows systems need to enable Services for NFS in
-the Ultimate or Enterprise editions or install an NFS client application.
+%brand% supports sharing pools, datasets, and directories over the
+Network File System (NFS). Clients use the :command:`mount` command to
+mount the share. Mounted NFS shares appear as another directory on the
+client system. Some Linux distros require the installation of additional
+software to mount an NFS share. Windows systems need to enable Services
+for NFS in the Ultimate or Enterprise editions or install an NFS client
+application.
 
 #ifdef freenas
 .. note:: For performance reasons, iSCSI is preferred to NFS shares
@@ -467,24 +468,10 @@ the Ultimate or Enterprise editions or install an NFS client application.
    <https://tinyurl.com/archive-zfs-over-nfs-vmware>`__.
 #endif freenas
 
-Before creating an NFS share, go to
-:menuselection:`Services --> NFS`
-and click the sliding button to turn on the service.
-
-Next, go to
-:menuselection:`Storage --> Pools`
-to create a dataset for the share. Refer to :ref:`Adding Datasets` for
-more information about dataset creation.
-
 Create an NFS share by going to
 :menuselection:`Sharing --> Unix (NFS) Shares`
 and clicking |ui-add|. :numref:`Figure %s <nfs_share_wiz_fig>` shows
 an example of creating an NFS share.
-
-For the required :guilabel:`Path` field, browse to the dataset created
-for the share. In the :guilabel:`Comment` field enter a share name, note
-that if left empty, the share name is the list of selected Path entries.
-Click the :guilabel:`SAVE` button to create the share.
 
 .. _nfs_share_wiz_fig:
 
@@ -493,85 +480,7 @@ Click the :guilabel:`SAVE` button to create the share.
    NFS Share Creation
 
 
-Go to
-:menuselection:`Sharing --> Unix (NFS)`
-and click |ui-options| and :guilabel:`Edit` to edit an existing share.
-:numref:`Figure %s <nfs_share_settings_fig>` shows the configuration
-screen for the existing *nfs_share1* share.
-
-.. _nfs_share_settings_fig:
-
-.. figure:: images/sharing-unix-nfs-edit-example.png
-
-   NFS Share Settings
-
-
-:numref:`Table %s <nfs_share_opts_tab>`
-summarizes the available configuration options in this screen. Some
-settings are only available by clicking the :guilabel:`ADVANCED MODE`
-button.
-
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
-                    |>{\Centering}p{\dimexpr 0.12\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.54\linewidth-2\tabcolsep}|
-
-.. _nfs_share_opts_tab:
-
-.. table:: NFS Share Options
-   :class: longtable
-
-   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Setting             | Value          | Advanced | Description                                                                                                |
-   |                     |                | Mode     |                                                                                                            |
-   +=====================+================+==========+============================================================================================================+
-   | Path                | browse button  |          | The required full path to the pool or dataset to share. Click :guilabel:`ADD ADDITIONAL PATH` to           |
-   |                     |                |          | share additional pools or datasets                                                                         |
-   |                     |                |          |                                                                                                            |
-   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Comment             | string         |          | Set the share name. If left empty, share name is the list of selected :guilabel:`Path` entries.            |
-   |                     |                |          |                                                                                                            |
-   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | All dirs            | checkbox       |          | Set to allow the client to also mount all subdirectories of the specific :guilabel:`Path` pool or dataset. |
-   |                     |                |          |                                                                                                            |
-   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Read Only           | checkbox       |          | Set to prohibit writing to the share.                                                                      |
-   |                     |                |          |                                                                                                            |
-   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Quiet               | checkbox       | ✓        | Set to restrict some syslog diagnostics to avoid error messages. See                                       |
-   |                     |                |          | `exports(5) <https://www.freebsd.org/cgi/man.cgi?query=exports>`__ for examples.                           |
-   |                     |                |          |                                                                                                            |
-   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Authorized networks | string         | ✓        | Space-delimited list of allowed networks in network/mask CIDR notation. Example: *1.2.3.0/24*.             |
-   |                     |                |          | Leave empty to allow all.                                                                                  |
-   |                     |                |          |                                                                                                            |
-   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Authorized Hosts    | string         | ✓        | Space-delimited list of allowed IP addresses or hostnames. Leave empty to allow all.                       |
-   | and IP addresses    |                |          |                                                                                                            |
-   |                     |                |          |                                                                                                            |
-   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Maproot User        | drop-down menu | ✓        | When a user is selected, the *root* user is limited to the permissions of that user.                       |
-   |                     |                |          |                                                                                                            |
-   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Maproot Group       | drop-down menu | ✓        | When a group is selected, the *root* user is also limited to the permissions of that group.                |
-   |                     |                |          |                                                                                                            |
-   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Mapall User         | drop-down menu | ✓        | The specified permissions of that user are used by all clients.                                            |
-   |                     |                |          |                                                                                                            |
-   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Mapall Group        | drop-down menu | ✓        | The specified permissions of that group are used by all clients.                                           |
-   |                     |                |          |                                                                                                            |
-   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-   | Security            | selection      | ✓        | Only appears if :guilabel:`Enable NFSv4` is enabled in                                                     |
-   |                     |                |          | :menuselection:`Services --> NFS --> Configure`.                                                           |
-   |                     |                |          |  Choices are *sys* or these Kerberos options: *krb5* (authentication only),                                |
-   |                     |                |          | *krb5i* (authentication and integrity), or                                                                 |
-   |                     |                |          | *krb5p* (authentication and privacy).                                                                      |
-   |                     |                |          |                                                                                                            |
-   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
-
-
-When creating NFS shares, keep these points in mind:
+Remember these points when creating NFS shares:
 
 #. Clients will specify the :guilabel:`Path` when mounting the share.
 
@@ -632,6 +541,84 @@ Second NFS share:
 
 This requires the creation of two shares. It cannot be done with only
 one share.
+
+:numref:`Table %s <nfs_share_opts_tab>`
+summarizes the available configuration options in the
+:guilabel:`Sharing/NFS/Add` screen. Click :guilabel:`ADVANCED MODE` to
+see all settings.
+
+.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.14\linewidth-2\tabcolsep}
+                    |>{\Centering}p{\dimexpr 0.12\linewidth-2\tabcolsep}
+                    |>{\RaggedRight}p{\dimexpr 0.54\linewidth-2\tabcolsep}|
+
+.. _nfs_share_opts_tab:
+
+.. table:: NFS Share Options
+   :class: longtable
+
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Setting             | Value          | Advanced | Description                                                                                                |
+   |                     |                | Mode     |                                                                                                            |
+   +=====================+================+==========+============================================================================================================+
+   | Path                | browse button  |          | The required full path to the pool or dataset to share. Click :guilabel:`ADD ADDITIONAL PATH` to           |
+   |                     |                |          | share additional pools or datasets                                                                         |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Comment             | string         |          | Set the share name. If left empty, share name is the list of selected :guilabel:`Path` entries.            |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | All dirs            | checkbox       |          | Set to allow the client to also mount all subdirectories of the specific :guilabel:`Path` pool or dataset. |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Read Only           | checkbox       |          | Set to prohibit writing to the share.                                                                      |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Quiet               | checkbox       | ✓        | Set to restrict some syslog diagnostics to avoid error messages. See                                       |
+   |                     |                |          | `exports(5) <https://www.freebsd.org/cgi/man.cgi?query=exports>`__ for examples.                           |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Authorized networks | string         | ✓        | Space-delimited list of allowed networks in network/mask CIDR notation. Example: *1.2.3.0/24*.             |
+   |                     |                |          | Leave empty to allow all.                                                                                  |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Authorized Hosts    | string         | ✓        | Space-delimited list of allowed IP addresses or hostnames. Leave empty to allow all.                       |
+   | and IP addresses    |                |          |                                                                                                            |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Maproot User        | drop-down menu | ✓        | When a user is selected, the *root* user is limited to the permissions of that user.                       |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Maproot Group       | drop-down menu | ✓        | When a group is selected, the *root* user is also limited to the permissions of that group.                |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Mapall User         | drop-down menu | ✓        | The specified permissions of that user are used by all clients.                                            |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Mapall Group        | drop-down menu | ✓        | The specified permissions of that group are used by all clients.                                           |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+   | Security            | selection      | ✓        | Only appears if :guilabel:`Enable NFSv4` is enabled in                                                     |
+   |                     |                |          | :menuselection:`Services --> NFS --> Configure`.                                                           |
+   |                     |                |          | Choices are *sys* or these Kerberos options: *krb5* (authentication only),                                 |
+   |                     |                |          | *krb5i* (authentication and integrity), or                                                                 |
+   |                     |                |          | *krb5p* (authentication and privacy).                                                                      |
+   |                     |                |          |                                                                                                            |
+   +---------------------+----------------+----------+------------------------------------------------------------------------------------------------------------+
+
+
+Go to
+:menuselection:`Sharing --> Unix (NFS)`
+and click |ui-options| and :guilabel:`Edit` to edit an existing share.
+:numref:`Figure %s <nfs_share_settings_fig>` shows the configuration
+screen for the existing *nfs_share1* share. Options are the same as
+described in :ref:`nfs_share_opts_tab`.
+
+.. _nfs_share_settings_fig:
+
+.. figure:: images/sharing-unix-nfs-edit-example.png
+
+   NFS Share Settings
 
 
 .. _Example Configuration:
