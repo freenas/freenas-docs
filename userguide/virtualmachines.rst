@@ -832,34 +832,41 @@ Host displays in the |web-ui|. Rancher is now configured and ready for
 use.
 
 For more information on using RancherOS, see the RancherOS
-`Documentation <https://rancher.com/docs/os/v1.x/en/>`__.
+`documentation <https://rancher.com/docs/os/v1.x/en/>`__.
 
 
 .. _Configure Rancher Containers with NFS Pass-through:
 
-Rancher Containers with NFS Pass-through
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configuring Persistent NFS-Shared Volumes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Using containers with stack scoped volumes requires configuring NFS
-pass-through in both the %brand% |web-ui| and a preconfigured NFS server:
+Rancher supports using a single persistent volume with multiple
+containers and sharing that volume with NFS. %brand% must be configured
+with specific NFS permissions and a Rancher NFS server needs to be
+created with a stack scoped volume.
 
-.. tip:: See these `Rancher NFS Server configuration instructions
-   <https://rancher.com/docs/rancher/v1.6/en/rancher-services/storage-service/rancher-nfs/>`__
-   if the NFS server is not already configured.
+.. does the rancher nfs server need to be separate hardware or can it
+   be created inside the freenas rancher bhyve VM?
 
+This volume is managed by a single Rancher
+stack and is shared by all services that reference the volume in the
+stack.
+To share the volume between Rancher and %brand%, some options need to
+change using the command line of both the Rancher NFS server and the
+%brand% system:
 
 * Log in to the NFS server and modify :file:`/etc/exports`. Add
   an entry for the NFS shared directory, typically :file:`/nfs`, with
   several permissions options:
-  :samp:`/nfs	[IP](rw,sync,no_root_squash,no_subtree_check)`.
-  :literal:`[IP]` is the IP address of the client and can also be set
+  :samp:`/nfs	{IP}(rw,sync,no_root_squash,no_subtree_check)`.
+  :literal:`{IP}` is the IP address of the client and can also be set
   to the wildcard :literal:`*`.
 
-* Switch to the %brand% |web-ui| and go to
+* In the %brand% |web-ui|, go to
   :menuselection:`Services --> NFS Configure`.
   Set :guilabel:`Enable NFSv4` and
   :guilabel:`NFSv3 ownership model for NFSv4`. Click :guilabel:`SAVE`
   and restart the :guilabel:`NFS` service.
 
 * Add :literal:`:nocopy` to the end of the pool that will be mounted:
-  :samp:`mount -tnfs pool:/mnt/pool1:nocopy ~nfsmounts/pool1_mount`
+  :samp:`mount -tnfs pool:{/mnt/pool1}:nocopy ~{nfsmounts/pool1_mount}`
