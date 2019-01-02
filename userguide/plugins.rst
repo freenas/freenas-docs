@@ -16,11 +16,12 @@ services by providing two methods for installing additional software.
 :ref:`Plugins` allow the user to browse, install, and configure
 pre-packaged software from the |web-ui|. This method is easy to use, but
 provides a limited amount of available software. Each plugin is
-automatically installed into its own
-`FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`__.
+automatically installed into its own limited
+`FreeBSD jail <https://en.wikipedia.org/wiki/Freebsd_jail>`__ that
+cannot install additional software.
 
-:ref:`Jails` provide more control over software installation but
-require working from the command line and a good understanding of
+:ref:`Jails` provide more control over software installation, but
+requires working from the command line and a good understanding of
 networking basics and software installation on FreeBSD-based systems.
 
 Look through the :ref:`Plugins` and :ref:`Jails` sections to become
@@ -571,10 +572,6 @@ is supported by following the process outlined in
    | <http://www.tolisgroup.com/client-server-cross-platform-backup.html>`__ |                                                                        |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
-   | `BitTorrentSync <https://www.resilio.com/>`__                           | Resilient, fast and scalable file sync software for enterprises and    |
-   |                                                                         | individuals.                                                           |
-   |                                                                         |                                                                        |
-   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `ClamAV <https://www.clamav.net/>`__                                    | ClamAV is an open source antivirus engine for detecting trojans,       |
    |                                                                         | viruses, malware & other malicious threats.                            |
    |                                                                         |                                                                        |
@@ -630,6 +627,10 @@ is supported by following the process outlined in
    | `Redmine <http://www.redmine.org/>`__                                   | Flexible project management web application.                           |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `Resilio Sync <https://www.resilio.com/>`__                             | Formerly known as BitTorrent Sync. Resilient, fast and scalable file   |
+   |                                                                         | sync software for enterprises and individuals.                         |
+   |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `Sonarr <https://sonarr.tv/>`__                                         | PVR for Usenet and BitTorrent users.                                   |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
@@ -651,12 +652,15 @@ is supported by following the process outlined in
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
 #endif comment
-   | `WeeChat <weechat.org/>`__                                              | WeeChat is a free and open-source Internet Relay Chat client, which is |
+   | `WeeChat <https://weechat.org/>`__                                      | WeeChat is a free and open-source Internet Relay Chat client, which is |
    |                                                                         | designed to be light and fast.                                         |
    |                                                                         |                                                                        |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
    | `XMRig <https://github.com/xmrig/xmrig>`__                              | XMRig is a high performance Monero (XMR) CPU miner                     |
    |                                                                         |                                                                        |
+   +-------------------------------------------------------------------------+------------------------------------------------------------------------+
+   | `ZoneMinder <https://zoneminder.com/>`__                                | A full-featured, open source, state-of-the-art video surveillance      |
+   |                                                                         | software system.                                                       |
    +-------------------------------------------------------------------------+------------------------------------------------------------------------+
 
 If there are any difficulties using a plugin, refer to the official

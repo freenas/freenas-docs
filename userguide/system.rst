@@ -182,7 +182,7 @@ settings in the General tab:
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Language             | drop-down menu | Select a language. View the status of a language in the                                                                  |
    |                      |                | `webui GitHub repository <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__                               |
-   |                      |                | Refer to :ref:`Contributing to FreeNAS` for more information about supported languages.                                  |
+   |                      |                | Refer to :ref:`Contributing to %brand%` for more information about supported languages.                                  |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Console Keyboard Map | drop-down menu | Select a keyboard layout.                                                                                                |
@@ -1622,11 +1622,8 @@ updates. Several specific words are used to describe the type of train:
 * **SDK:** Software Developer Kit train. This has additional tools for
   testing and debugging %brand%.
 
-.. warning:: **Only trains marked with** :literal:`[release]` **are
-   recommended for regular usage.** Other trains are made available for
-   pre-production testing and updates to legacy versions. Pre-production
-   testing trains are provided only to permit testing of new versions
-   before switching to a new branch. Before using a non-production train,
+.. warning:: The UI will warn if the currently selected train is not
+   suited for production use. Before using a non-production train,
    be prepared to experience bugs or problems. Testers are encouraged to
    submit bug reports at
    https://redmine.ixsystems.com/projects/freenas/issues.
@@ -1713,9 +1710,28 @@ of the changes in that release impact the use of the system.
 
 .. _review_updates_fig:
 
-.. figure:: images/system-update-review.png
+.. figure:: images/system-update.png
 
    Reviewing Updates
+
+
+.. _Saving_The_Configuration_File:
+
+Saving the Configuration File
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A dialog to save the system
+:ref:`configuration file <saveconfig>` appears before installing
+updates.
+
+.. note:: The "Save Configuration" dialog can be disabled in
+   |ui-settings| :guilabel:`Preferences`, although this is *not*
+   recommended. Saving backups of configuration files allows recovery
+   of the system after a boot device failure.
+
+.. warning:: Keep the system configuration file secure after saving
+   it. The security information in the configuration file could be
+   used for unauthorized access to the %brand% system.
 
 
 Applying Updates
@@ -1724,66 +1740,57 @@ Applying Updates
 Make sure the system is in a low-usage state as described above in
 :ref:`Preparing for Updates`.
 
-Click :guilabel:`FETCH AND INSTALL UPDATES` to immediately download and
-install an update.
+Click :guilabel:`FETCH AND INSTALL UPDATES` to immediately download
+and install an update.
 
-.. tip:: There is an option to view a prompt to save the system
-   :ref:`configuration file <saveconfig>` before installing an update.
-   Click |ui-settings| and :guilabel:`Preferences`. Unset the
-   :guilabel:`Hide "Save Configuration" Dialog Before Upgrade` option
-   and click :guilabel:`UPDATE SETTINGS` to enable this prompt.
-   **WARNING:** Always secure the system configuration file! This file
-   contains all passwords used on the %brand% system and can be used to
-   exploit the system.
+The :ref:`"Save Configuration" <Saving_The_Configuration_File>` dialog
+appears so the current configuration can be saved to external media.
 
+A confirmation window appears before the update is installed. When
+:guilabel:`Apply updates and reboot system after downloading` is
+set and, clicking :guilabel:`CONTINUE` downloads, applies the
+updates, and then automatically reboots the system.
+The update can be downloaded for a later manual installation by
+unsetting the
+:guilabel:`Apply updates and reboot system after downloading` option.
 
-A confirmation window appears before the update is installed. Set
-:guilabel:`Apply updates and reboot system after downloading` and click
-:guilabel:`CONTINUE` to download and apply the update. Be aware that
-updates automatically reboot the system after they are applied. Unset
-:guilabel:`Apply updates and reboot system after downloading` and click
-:guilabel:`CONTINUE` to download the update without installing it.
-
-:guilabel:`APPLY PENDING UPDATE` is visible when an update is downloaded
-and ready to install. Click the button to see a confirmation window. Set
-:guilabel:`Confirm` and click :guilabel:`CONTINUE` to install the update
-and reboot the system.
+:guilabel:`APPLY PENDING UPDATE` is visible when an update is
+downloaded and ready to install. Click the button to see a
+confirmation window. Setting :guilabel:`Confirm` and clicking
+:guilabel:`CONTINUE` installs the update and reboots the system.
 
 .. warning:: Each update creates a boot environment. If the update
    process needs more space, it attempts to remove old boot
    environments. Boot environments marked with the *Keep* attribute as
    shown in :ref:`Boot Environments` will not be removed. If space for
-   a new boot environment is not available, the upgrade fails. Space on
-   the boot device can be manually freed using
+   a new boot environment is not available, the upgrade fails. Space
+   on the boot device can be manually freed using
    :menuselection:`System --> Boot Environments`.
    Review the boot environments and remove the *Keep* attribute or
    delete any boot environments that are no longer needed.
 
-During the update process a progress dialogue appears. **Do not**
+During the update process a progress dialog appears. **Do not**
 interrupt the update until it completes.
 
 
 Manual Updates
 ~~~~~~~~~~~~~~
 
-Alternately, updates can be manually downloaded then applied using the
-:guilabel:`INSTALL MANUAL UPDATE FILE` button. Selecting this option
-prompts to choose a location to temporarily store the file on the %brand%
-system, a :guilabel:`Browse` button to navigate to the downloaded file,
-and an :guilabel:`APPLY UPDATE` button to initiate the manual update.
+Updates can also be manually downloaded and applied using the
+:guilabel:`INSTALL MANUAL UPDATE FILE` button.
 
-Manual update files can be identified by their filenames, which end in
-:file:`-manual-update-unsigned.tar`.
+The :ref:`"Save Configuration" <Saving_The_Configuration_File>` dialog
+appears so the current configuration can be saved to external media.
 
-Manual updates cannot be used to upgrade from older major versions.
+After clicking :guilabel:`INSTALL MANUAL UPDATE FILE`, choose a
+location to temporarily store the update file on the %brand% system.
+Use :guilabel:`Browse` to navigate to the downloaded manual update
+file (:file:`-manual-update-unsigned.tar`). Finally, click
+:guilabel:`APPLY UPDATE` to begin the update. A progress dialog is
+displayed during the update. **Do not** interrupt the update.
 
-There is also an option to back up the system configuration before
-updating. Click :guilabel:`SAVE CONFIG` and select any options to export
-in the configuration file. Click :guilabel:`SAVE` to open a popup window
-to download the :file:`.db` file.
-
-During the update process a progress dialogue appears. **Do not**
-interrupt the update until it completes.
+.. tip:: Manual updates cannot be used to upgrade from older major
+   versions.
 
 
 #ifdef truenas

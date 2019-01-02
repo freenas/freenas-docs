@@ -24,7 +24,7 @@ copyright = '2011-2018, iXsystems'
 #
 
 # VERSION is the LONG, FULL version number with all patch levels, like "11.0-U1"
-version = '11.2-RC2'
+version = '11.2-RELEASE'
 # RELEASE is the short major release number ONLY, like "11.0"
 release = '11.2'
 
@@ -157,7 +157,7 @@ roles.register_local_role("menuselection", patched_menusel_role)
 rst_prolog = u'''
 .. |ui-settings|      replace::  (Settings)
 .. |ui-options|       replace::  (Options)
-.. |ui-add|           replace::  (Add/Create)
+.. |ui-add|           replace:: :guilabel:`ADD`
 .. |ui-power|         replace::  (Power)
 .. |ui-password-show| replace::  (Show)
 .. |ui-password-hide| replace::  (Hide)

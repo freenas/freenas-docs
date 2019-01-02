@@ -643,16 +643,10 @@ click |ui-options| and :guilabel:`Edit Members` for a lagg to see the
    Link Aggregation Members
 
 
-Click |ui-add| to open the screen shown in
-:numref:`Figure %s <lagg_members_add>`. The configurable options are
-summarized in :numref:`Table %s <lagg_config_member_tab>`.
-
-.. _lagg_members_add:
-
-.. figure:: images/network-link-aggregations-members-add.png
-
-   Add Link Aggregation Member
-
+Click |ui-options| for an existing lagg member to see options to
+:guilabel:`Edit` and :guilabel:`Delete` it. Choose :guilabel:`Edit` to
+adjust an existing member. The configurable options are summarized in
+:numref:`Table %s <lagg_config_member_tab>`.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -675,7 +669,7 @@ summarized in :numref:`Table %s <lagg_config_member_tab>`.
    |                      |                | to *0* and the other interfaces to *1*, *2*, etc.                                              |
    |                      |                |                                                                                                |
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
-   | LAGG Physical NIC    | drop-down menu | Physical interface of the selected member.                                                     |
+   | LAGG Physical NIC    | drop-down menu | Physical interface of the selected member. This field only appears when a NIC is available.    |
    |                      |                |                                                                                                |
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
    | Options              | string         | Additional parameters from                                                                     |
@@ -684,11 +678,20 @@ summarized in :numref:`Table %s <lagg_config_member_tab>`.
    +----------------------+----------------+------------------------------------------------------------------------------------------------+
 
 
+Click |ui-add| to open the screen shown in
+:numref:`Figure %s <lagg_members_add>`.
+
+.. _lagg_members_add:
+
+.. figure:: images/network-link-aggregations-members-add.png
+
+   Add Link Aggregation Member
+
+
+The options are identical to the
+:ref:`Configuring a Member Interface <lagg_config_member_tab>` table.
 Click :guilabel:`SAVE` to add the member to the list in
 :menuselection:`Network --> Link Aggregations --> Members`.
-
-Click |ui-options| for an existing lagg member to see options to
-:guilabel:`Edit` and :guilabel:`Delete` it.
 
 
 Link Aggregation Options
