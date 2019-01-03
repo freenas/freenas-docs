@@ -1382,7 +1382,7 @@ starts or when triggered by an authorized user.
 Encryption keys can also be downloaded. This is useful as a safety
 measure, to allow key backup, decryption on a different system in the
 event of failure, or so that the locally stored key can be deleted for
-extra security. Encryption keys can also be optionally protected with a
+extra security. Encryption keys can also be protected with a
 *passphrase* for additional security. 
 
 The combination of encryption key location and optional passphrase is
