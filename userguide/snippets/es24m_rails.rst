@@ -52,11 +52,11 @@ click in place. Repeat this process for the second rear rail.
 Mount the Unit in the Rack
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. caution:: The unit weighs about 40 pounds.
-   At least two people are required to safely lift the
-   chassis for rack installation or removal. This process
-   should not be attempted alone as it involves risks and
-   could result in equipment damage or personal injury.
+.. caution:: The unit weighs about 40 pounds empty and about 76
+   pounds when fully loaded with drives. At least two people are
+   required to safely lift the chassis for rack installation or
+   removal. This process should not be attempted alone as it involves
+   risks and could result in equipment damage or personal injury.
 
 Do not install drives until after the chassis has been installed
 in the rack, and remove all drives before removing

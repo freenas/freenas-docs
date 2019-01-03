@@ -168,8 +168,8 @@ in the rack and secure them with 8 #32 thumbscrews.
 
 The %brand% Storage Array can now be installed into the rack.
 
-.. caution:: The unit weighs about 65 pounds.
-   At least two people are required to safely
+.. caution:: The unit weighs about 65 pounds when empty without any
+   drives loaded. At least two people are required to safely
    install or remove the %brand% Storage Array in a
    rack or cabinet. This process should not be attempted
    alone as it involves risks and could result in equipment

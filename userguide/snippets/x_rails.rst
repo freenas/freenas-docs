@@ -32,9 +32,9 @@ the process for the second rail.
 .. figure:: images/tn_x_railclamp.png
    :width: 100%
 
-.. caution:: The unit weighs about 30 pounds.
-   At least two people are required to safely lift the
-   chassis for rack installation or removal. This process
+.. caution:: The unit weighs about 30 pounds empty and 44 pounds when
+   fully loaded with drives. At least two people are required to safely
+   lift the chassis for rack installation or removal. This process
    should not be attempted alone as it involves risks and
    could result in equipment damage or personal injury.
 
