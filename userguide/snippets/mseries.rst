@@ -8,7 +8,7 @@ M-Series Unified Storage Array
 ------------------------------
 
 The %brand% M-Series Unified Storage Array is a 4U, 24-bay, hybrid
-unified data storage array.
+data storage array.
 
 
 #include snippets/perfect.rst
