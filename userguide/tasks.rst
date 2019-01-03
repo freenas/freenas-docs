@@ -1799,7 +1799,7 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | data loss.                                                                                              |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Schedule the Cloud  | drop-down menu      | Choose how often or at what time to start syncing. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*,  |
+   | Schedule the Cloud  | drop-down menu      | Choose how often or at what time to start a sync. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*,   |
    | Sync Task           |                     | or *Custom*. Select *Custom* to open the advanced scheduler.                                            |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
