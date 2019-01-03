@@ -1377,7 +1377,7 @@ decrypt any data on the volume.
 
 By default, %brand% stores encryption keys locally within its system
  settings so volumes can automatically decrypt when the system
-start-up, or by authorized users.
+starts or when triggered by an authorized user.
 
 Encryption keys can also be downloaded. This is useful as a safety
 measure, to allow key backup, decryption on a different system in the
