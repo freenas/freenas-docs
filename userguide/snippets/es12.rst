@@ -129,11 +129,6 @@ Connect Power Cords
 Connect SAS Cables
 ~~~~~~~~~~~~~~~~~~
 
-The ES12 is compatible with a variety of iXsystems products. The general
-procedure to connect SAS cables is the same for each, but a variety of
-wiring diagrams are provided to assist in the connection process.
-
-.. update these instructions with the correct procedure: talk to Caleb or Bill
 
 Shut down and power off the %brand% unit. Remove the unit power cables
 from the power outlets.
@@ -141,92 +136,34 @@ from the power outlets.
 Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
-Connect SAS cables as shown in the diagrams for each %brand% unit.
+:ref:`Figure %s <es12_sasconnect>` shows the SAS cable connections for
+two ES12 units connecting to a High Availability (HA) %brand% system
+that has two storage controllers.
+
+.. _es12_sasconnect:
+.. figure:: images/truenas/es12_sas_connections.png
+
+
+* Cable #1 connects to the ES12 expansion controller 1 T1 slot.
+
+* Cable #2 connects to the ES12 expansion controller 2 T1 slot. This is
+  for %brand% systems that have a second storage controller for HA.
+
+* Cable #3 connects to the second ES12 unit in the same location as
+  cable #1.
+
+* Cable #4 connects to the second ES12 unit in the same location as
+  cable #2.
+
+:ref:`Figure %s <es12_xseries-sasconnect>` shows where cables 1-4
+connect to an %brand% X10 or X20.
+
+.. _es12_xseries-sasconnect:
+.. figure:: images/truenas/xseries_sas_wiring.png
+
 
 After all SAS cables have been connected to the %brand% unit, plug the
 power cords back into power outlets.
-
-.. Combine images for each product into one master image that shows two
-   ES shelves connected to the unit. Use dotted lines for the second ES
-   to show it is optional.
-
-**%brand% X Series**
-
-
-Connect an SAS cable from the ES12 expansion controller 1 T1 connector
-to the X series storage controller 1 SAS 1 connector (cable #1 in photo).
-
-If the X series has a second storage controller for HA (High
-Availability), connect a second SAS cable from the ES12 expansion
-controller 2 to the X series storage controller 2 SAS 1 connector (cable
-#2 in photo).
-
-.. _es12_sasconnect1:
-.. figure:: images/truenas/es12_xseries_sasconnect1.png
-   :width: 50%
-
-
-A second ES12 can also be connected to the X series. Connect the first
-ES12 as shown above. Then connect the second ES12, running SAS cables
-from the ES12 T1 connectors to the SAS 2 connectors on the X series.
-
-.. _es12_sasconnect2:
-.. figure:: images/truenas/es12_xseries_sasconnect2.png
-   :width: 50%
-
-
-**%brand% M40**
-
-
-Connect an SAS cable from the ES12 expansion controller 1 T1 connector
-to the M40 series storage controller 1 SAS 1 connector (cable #1 in
-photo).
-
-If the M40 has a second storage controller for HA (High Availability),
-connect a second SAS cable from the ES12 expansion controller 2 to the
-M40 storage controller 2 SAS 1 connector (cable #2 in photo).
-
-.. _es12_sasconnect3:
-.. figure:: images/truenas/es12_m40_sasconnect1.png
-   :width: 50%
-
-
-A second ES12 can also be connected to the M40. Connect the first ES12
-as shown above. Then connect the second ES12, running SAS cables from
-the ES12 T1 connectors to the SAS 2 connectors on the M40.
-
-.. _es12_sasconnect4:
-.. figure:: images/truenas/es12_m40_sasconnect2.png
-   :width: 50%
-
-
-**%brand% M50**
-
-
-The %brand% M50 supports connections with as many as 12 different
-expansion shelves. The procedure is similar for each connection, so only
-the first two are demonstrated here.
-
-Connect an SAS cable from the ES12 expansion controller 1 T1 connector
-to the M50 series storage controller 1 SAS 1 connector (cable #1 in
-photo).
-
-If the M50 has a second storage controller for HA (High Availability),
-connect a second SAS cable from the ES12 expansion controller 2 to the
-M50 storage controller 2 SAS 1 connector (cable #2 in photo).
-
-.. _es12_sasconnect3:
-.. figure:: images/truenas/es12_m50_sasconnect1.png
-   :width: 50%
-
-
-A second ES12 can also be connected to the M50. Connect the first ES12
-as shown above. Then connect the second ES12, running SAS cables from
-the ES12 T1 connectors to the SAS 2 connectors on the M50.
-
-.. _es12_sasconnect4:
-.. figure:: images/truenas/es12_m50_sasconnect2.png
-   :width: 50%
 
 
 Install Bezel (Optional)
