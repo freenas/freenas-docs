@@ -493,8 +493,8 @@ Remember these points when creating NFS shares:
 
 #.  Each pool or dataset is considered to be its own filesystem and
     individual NFS shares cannot cross filesystem boundaries. Sharing
-    multiple directories with an additional paths is only allowed within
-    a single pool or dataset.
+    multiple directories with additional paths is only allowed within a
+    single pool or dataset.
 
 #.  The network and host must be unique per share and filesystem or
     directory. Because :file:`/etc/exports` does not act like an ACL,
