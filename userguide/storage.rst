@@ -448,7 +448,7 @@ message. This will reopen the pool creation screen described in the
 previous paragraph, but with the pool name displayed as read-only.
 
 
-..index:: Remove cache or log device
+.. index:: Remove cache or log device
 .. _Removing Cache or Log Devices:
 
 Removing Cache or Log Devices
