@@ -492,6 +492,15 @@ To add a device to an existing pool, click the pool name,
 pool creation screen described in the previous paragraph, but with the
 pool name displayed as read-only.
 
+.. danger:: When adding a spare disk to an encrypted pool the
+   passphrase and recovery key are reset. Click
+   :guilabel:`Download Recovery Key` after adding the spare device. Then,
+   create a new passphrase by clicking
+   |pool-lock| :menuselection:`--> Create Passphrase`.
+   Since creating a new passphrase invalidates the recovery key, click
+   |pool-lock| :menuselection:`--> Add Recovery Key`
+   to add a new one.
+
 
 .. _Extending a Pool:
 
