@@ -134,9 +134,8 @@ Mount Rack Rails
 .. instructions must be reworked to either match photo or to describe
    attaching cage nuts. Awaiting feedback.
 
-Install four cage nuts with attached screws in the rack. Place a cage
-nut in each bracket at the rail attach point. Turn the screw in each
-cage nut to lock it to the bracket. Place the rail in the rack with the
+Install four cage nuts in the rack, two where the rails attach to the
+front of the rack, and two at the rear. Place the rail in the rack with the
 front end toward the front of the rack and rear toward the back of the
 rack, aligning the pins on both ends of the rail with the mounting holes
 in the rack. Push the pins into the rack holes until they lock in place.
