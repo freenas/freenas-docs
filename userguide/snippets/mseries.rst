@@ -88,8 +88,10 @@ over-and-under configuration. Examples of typical M40 (top) and M50
    +---------------------------------------------------------------------------------------------+
 
 **M-Series systems with only a single storage controller must be shut
-down and powered off before removing the controller or data loss will
-occur.**
+down and powered off before removing the controller, or data stored
+in the NVDIMM SLOG will be lost! Dual storage controller systems
+synchronize data between each NVDIMM, but can lose data if both
+controllers are removed before being properly shut down.**
 
 For remote management with IPMI, the 1 Gb Ethernet Out of Band
 management port (#3) must be connected to a network.
@@ -173,4 +175,3 @@ web interface, *192.168.100.231* in this example:
 
 Enter the IP address into a browser on a computer on the same network
 to access the web user interface.
-
