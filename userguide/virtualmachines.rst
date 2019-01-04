@@ -68,7 +68,7 @@ wizard:
 
 #. **Select VM wizard type**
 
-   Select *Virtual Macine (VM)* or
+   Select *Virtual Machine (VM)* or
    *Docker Host*.
 
 #. **Operating System**
@@ -83,10 +83,11 @@ wizard:
    
 #. **CPU and Memory**
 
-   Enter the number of virtual CPUs for the VM to use. Enter the amount
-   of memory in MiB for the VM. Not providing adequate memory or
-   CPUs can affect the performance of the VM. Providing too much memory or
-   CPUs can affect the performance of the host system.
+   Enter the number of virtual CPUs and the amount of memory for the
+   VM. Provide adequate memory and virtual CPUs for the applications
+   running in the VM, but be aware that providing more memory or
+   virtual CPUs than are needed can affect performance of the host
+   system.
    
 #. **Hard Disks**
 
