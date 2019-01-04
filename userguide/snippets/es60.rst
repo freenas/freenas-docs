@@ -131,14 +131,12 @@ secures the rail in place. Repeat this process on the other side.
 Mount Rack Rails
 ^^^^^^^^^^^^^^^^
 
-.. instructions must be reworked to either match photo or to describe
-   attaching cage nuts. Awaiting feedback.
-
 Install four cage nuts in the rack, two where the rails attach to the
-front of the rack, and two at the rear. Place the rail in the rack with the
-front end toward the front of the rack and rear toward the back of the
-rack, aligning the pins on both ends of the rail with the mounting holes
-in the rack. Push the pins into the rack holes until they lock in place.
+front of the rack, and two at the rear. Place the rail in the rack with
+the front end toward the front of the rack and rear toward the back of
+the rack, aligning the pins on both ends of the rail with the mounting
+holes in the rack. Push the pins into the rack holes until they lock in
+place.
 
 .. figure:: images/truenas/es60_rackrails.png
 
@@ -325,47 +323,64 @@ Plug the ES60 power cords into power outlets.
    shelf is connected.
 
 
-Connecting the ES60 to a %brand% X20
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The ES60 is compatible with many different %brand% systems. These images
+show the typical SAS cable connections for different %brand% High
+Availability (HA) systems to connect to two ES60 units.
 
-Connect an SAS cable from the ES60 expander module 1 connector 1 to
-the X20 1 SAS 1 connector (cable #1 in photo). If the X20 has a second
-storage controller for HA (High Availability), connect a second SAS
-cable from the ES60 expander module 2 connector 1 to the X20 storage
-controller 2 SAS 1 connector (cable #2 in photo).
+**X-Series**
 
+The X20 supports attaching a single ES60 unit. The ES60 must connect
+to the first SAS ports (cables #1 and #2), but an ES12 or ES24 can
+connect to the second SAS ports (cables #3 and #4):
 
-.. _es60_x20sasconnect1:
-.. figure:: images/truenas/es60_sasconnect1.png
-   :width: 50%
-
-
-Connecting the ES60 to a %brand% Z35
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Connect an SAS cable from the ES60 expander module 1 connector 1 to
-the Z35 Controller 1 SAS 1 connector (cable #1 in photo). If the Z35
-has a second storage controller for HA (High Availability), connect a
-second SAS cable from the ES60 expander module 2 connector 1 to the Z35
-Controller 2 SAS 1 connector (cable #2 in photo).
+.. _es60_xseries_sasconnect:
+.. figure:: images/truenas/x_sas_wiring.png
 
 
-.. _es60_zsasconnect1:
-.. figure:: images/truenas/es60_zsasconnect1.png
-   :width: 50%
+.. raw:: latex
+
+   \newpage
 
 
-A second ES60 can also be connected to the Z35. Connect the first
-ES60 as shown above. Then connect the second ES60 1 ports to the
-next unused SAS ports on the Z35 as shown:
+**M40**
+
+.. _es60_m40_sasconnect:
+.. figure:: images/truenas/m40_sas_wiring.png
 
 
-.. _es60_zsasconnect2:
-.. figure:: images/truenas/es60_zsasconnect2.png
-   :width: 50%
+**M50**
+
+.. _es60_m50_sasconnect:
+.. figure:: images/truenas/m50_sas_wiring.png
 
 
-Up to eight ES60 expansion shelves are supported on the %brand% Z35.
+.. raw:: latex
+
+   \newpage
+
+
+This image shows where the SAS cables connect to the two ES60 units:
+
+.. _es60_sas_connections:
+.. figure:: images/truenas/es60_sas_connections.png
+   :width: 85%
+
+* Cable #1 connects to the first ES60, expansion controller 1 SAS 1 port.
+
+* Cable #2 connects to the first ES60, expansion controller 2 SAS 1 port.
+
+* Cable #3 connects to the second ES60, expansion controller 1 SAS 1
+  port.
+
+* Cable #1 connects to the second ES60, expansion controller 2 SAS 1
+  port.
+
+After all SAS cables are connected, plug the %brand% system power cords
+into power outlets.
+
+.. raw:: latex
+
+   \newpage
 
 
 Install Bezel (Optional)
