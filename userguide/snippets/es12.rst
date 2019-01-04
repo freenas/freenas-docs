@@ -129,9 +129,6 @@ Connect Power Cords
 Connect SAS Cables
 ~~~~~~~~~~~~~~~~~~
 
-Shut down and power off the %brand% X-Series. Remove the X-Series
-power cables from the power outlets.
-
 Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
