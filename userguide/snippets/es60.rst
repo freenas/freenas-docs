@@ -1,5 +1,10 @@
 #include snippets/copyright.rst
 
+.. note:: The ES60 replaces the previous E60 unit. The E60 reached end
+   of life (EOL) on *May 17, 2017*, but will continue to be supported
+   until *May 17, 2022*.
+
+
 .. index:: ES60 Expansion Shelf
 .. _ES60 Expansion Shelf:
 
@@ -126,12 +131,14 @@ secures the rail in place. Repeat this process on the other side.
 Mount Rack Rails
 ^^^^^^^^^^^^^^^^
 
-Install four cage nuts in the rack, one for each bracket. The lock
-screw for the bracket is already installed in the cage nut. Place the
-rail in the rack with the front end toward the front of the rack and
-rear toward the back of the rack, aligning the pins on both ends of
-the rail with the mounting holes in the rack. Push the pins into the
-rack holes until they lock in place.
+.. instructions must be reworked to either match photo or to describe
+   attaching cage nuts. Awaiting feedback.
+
+Install four cage nuts in the rack, two where the rails attach to the
+front of the rack, and two at the rear. Place the rail in the rack with the
+front end toward the front of the rack and rear toward the back of the
+rack, aligning the pins on both ends of the rail with the mounting holes
+in the rack. Push the pins into the rack holes until they lock in place.
 
 .. figure:: images/truenas/es60_rackrails.png
 
@@ -371,4 +378,3 @@ on the ears of the ES60. Install one upper screw from the back side of
 the left ES60 ear, then install a lower screw from the back of the
 right ES60 ear. Install the remaining two screws following the same
 diagonal pattern.
-
