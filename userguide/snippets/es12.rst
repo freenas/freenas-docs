@@ -129,50 +129,39 @@ Connect Power Cords
 Connect SAS Cables
 ~~~~~~~~~~~~~~~~~~
 
-Shut down and power off the %brand% X-Series. Remove the X-Series
-power cables from the power outlets.
+Shut down and power off the %brand% unit. Remove the power cables from
+the power outlets.
 
 Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
-Connect an SAS cable from the ES12 expander module 1 T1 connector to
-the X-Series storage controller 1 SAS 1 connector (cable #1 in photo).
+Connect SAS cables to the ES12 unit "T" slots. The next image shows the
+typical SAS connections for two ES12 units that connect to a High
+Availability (HA) %brand% system with two storage controllers.
 
-If the X-Series has a second storage controller for HA
-(High Availability), connect a second SAS cable from the ES12 expander
-module 2 to the X-Series storage controller 2 SAS 1 connector (cable #2
-in photo).
-
-
-.. _es12_sasconnect1:
-.. figure:: images/tn_es12_sasconnect1.png
-   :width: 50%
+.. _es12_sasconnect:
+.. figure:: images/tn_es12_sas_connections.png
 
 
-A second ES12 can also be connected to the X-Series. Connect the first
-ES12 as shown above. Then connect the second ES12, running SAS cables
-from the ES12 T1 connectors to the SAS 2 connectors on the X-Series.
+* Cable #1 connects to the ES12 expansion controller 1 T1 slot.
 
-.. _es12_sasconnect2:
-.. figure:: images/tn_es12_sasconnect2.png
-   :width: 50%
+* Cable #2 connects to the ES12 expansion controller 2 T1 slot. This is
+  for %brand% systems that have a second storage controller for HA.
 
+* Cable #3 connects to the second ES12 unit expansion controller 1 T1
+  slot.
 
-Use with the ES60 Expansion Shelf (X20 Only)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Cable #4 connects to the second ES12 unit expansion controller 2 T1
+  slot.
 
-The X20 supports using an ES60 Expansion Shelf in combination with the
-ES12. Connect the ES60 to the X20 SAS 1 ports, and connect the ES12
-to the X20 SAS 2 ports.
+These cables connect to the SAS 1 and 2 slots on a %brand% X-Series unit:
 
-
-.. _es12_sasconnect3:
-.. figure:: images/tn_es12_sasconnect3.png
-   :width: 50%
+.. _es12_xseries-sasconnect:
+.. figure:: images/tn_x_sas_wiring.png
 
 
-After all SAS cables have been connected, plug the X-Series power
-cords into power outlets.
+After all SAS cables have been connected to the %brand% unit, plug the
+power cords back into power outlets.
 
 
 Install Bezel (Optional)
