@@ -68,44 +68,41 @@ wizard:
 
 #. **Select VM wizard type**
 
-   Select :literal:`Virtual Macine (VM)` or
-   :literal:`Docker Host`.
+   Select *Virtual Macine (VM)* or
+   *Docker Host*.
 
 #. **Operating System**
 
    Select the guest operating system type from the drop down menu and
-   enter an alphanumeric name for the VM. It is recommended to use UEFI
-   as the boot method for newer operating systems. The settings
+   enter an alphanumeric name for the VM. UEFI is recommended
+   as the boot method for newer operating systems.
    :guilabel:`Start on Boot` and :guilabel:`Enable VNC` are set by default.
-   The setting :guilabel:`Start on Boot` tells the VM to start when the
-   host system is booted. The setting :guilabel:`Enable VNC` allows a
+   :guilabel:`Start on Boot` tells the VM to start when the
+   host system is booted. :guilabel:`Enable VNC` allows a
    virtual connection to the VM.
    
 #. **CPU and Memory**
 
-   Enter the amount of virtual CPUs for the VM to use. Enter the amount
-   of memory, in MiB,for the VM to use. Not using adequate memory or
-   CPUs can affect the performance of the vm. Using too much memory or
-   CUPs can affect the performance of the host system.
+   Enter the number of virtual CPUs for the VM to use. Enter the amount
+   of memory in MiB for the VM. Not providing adequate memory or
+   CPUs can affect the performance of the VM. Providing too much memory or
+   CPUs can affect the performance of the host system.
    
 #. **Hard Disks**
 
-   Select :guilabel:`Create new disk image` to create a new zvol on an
-   existing dataset. This is used as a virtual hard drive for the VM. Select
+   Select :guilabel:`Create new disk image` to create a new zvol to use
+   as a virtual hard drive for the VM. Select
    :guilabel:`Use existing disk image` to use an existing zvol or file
-   for the VM. Enter the size, in GiB, for the zvol if
-   :guilabel:`Create new disk image` is set and choose a pool or
-   dataset for the new zvol. Select an existing disk image if
-   :guilabel:`Use existing disk image` is set.
+   for the VM.
    
 #. **Network Interface**
 
    Select the adapter type from the drop-down.
-   :literal:`Intel e82545 (e1000)` emulates the same Intel Ethernet
+   *Intel e82545 (e1000)* emulates the same Intel Ethernet
    card. This provides compatibility with most operating systems.
    VirtIO provides better performance when the operating system
    installed in the VM supports VirtIO paravirtualized network drivers.
-   The MAC address is randomized by defualt. Enter a custom MAC address
+   The MAC address is randomized by default. Enter a custom MAC address
    to overide the randomization. Select the physical interface to
    associate with the VM.
    
@@ -122,7 +119,7 @@ wizard:
 #. **Confirm Options**
 
    This step shows the settings chosen. Click :guilabel:`Submit` to
-   finalize the creation of the VM.
+   create the VM.
 
 Virtual machine configuration options are described in
 :numref:`Table %s <vms_add_opts_tab>`.
