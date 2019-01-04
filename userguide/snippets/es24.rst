@@ -121,26 +121,33 @@ Connect SAS Cables
 Plug the ES24 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
-
 .. note:: The %brand% Unified Array can remain on while the expansion
    shelf is connected.
 
 
-Connect an SAS cable from ES24 expansion controller 1 SAS 0 connector to
-the farthest left Z-Series storage controller 1 SAS connector (cable #1
-in photo).
+The ES24 is compatible with many different %brand% systems.
+These images show the typical SAS cable connections for different
+%brand% High Availability (HA) systems to connect to two ES24 units.
 
-If the Z-Series has a second storage controller for HA (High
-Availability), connect a second SAS cable from ES24 expansion controller 2
-SAS 0 connector to the farthest left Z-Series storage controller 2 SAS
-connector (cable #2 in photo).
+**X-Series**
+
+.. _es24_xseries_sasconnect:
+.. figure:: images/tn_x_sas_wiring.png
+
+.. raw:: latex
+
+   \newpage
+
+**M40**
+
+.. _es24_m40_sasconnect:
+.. figure:: images/tn_m40_sas_wiring.png
 
 
-.. _es24_sasconnect1:
-.. figure:: images/tn_es24_sasconnect1.png
-   :width: 50%
+**M50**
 
-   SAS Cable Connection for One ES24
+.. _es24_m50_sasconnect:
+.. figure:: images/tn_m50_sas_wiring.png
 
 
 .. raw:: latex
@@ -148,19 +155,24 @@ connector (cable #2 in photo).
    \newpage
 
 
-A second ES24 can also be connected to the Z-Series. Connect the first
-ES24 as shown above. Then connect the second ES24 SAS 0 ports to the
-next unused SAS ports on the Z-Series as shown:
+This image shows where the SAS cables connect to the two ES24 units:
+
+.. _es24_sas_connections:
+.. figure:: images/tn_es24_sas_connections.png
+   :width: 85%
+
+* Cable #1 connects to the first ES24, expansion controller 1 SAS 0 port.
+
+* Cable #2 connects to the first ES24, expansion controller 2 SAS 0 port.
+
+* Cable #3 connects to the second ES24, expansion controller 1 SAS 0
+  port.
+
+* Cable #4 connects to the second ES24, expansion controller 2 SAS 0
+  port.
 
 
-.. _es24_sasconnect2:
-.. figure:: images/tn_es24_sasconnect2.png
-   :width: 50%
-
-   SAS Cable Connection for Two ES24s
-
-
-After all SAS cables have been connected, plug the Z-Series power
+After all SAS cables are connected, plug the %brand% system power
 cords into power outlets.
 
 .. raw:: latex
