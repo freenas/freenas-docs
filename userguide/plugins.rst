@@ -186,7 +186,7 @@ that data **first** if needed.
 
 In the example shown in
 :numref:`Figure %s <deleting_installed_plugin_fig>`,
-Quasselcore has been installed and the :guilabel:`Delete` button has
+*plex* has been installed and the :guilabel:`Delete` button has
 been clicked. A pop-up message asks for verification that the plugin
 is to be deleted. **This is the only warning.** The plugin and the
 associated jail are permanently deleted when :guilabel:`Confirm` is
