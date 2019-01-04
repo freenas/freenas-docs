@@ -1,5 +1,10 @@
 #include snippets/copyright.rst
 
+.. note:: The ES60 replaces the previous E60 unit. The E60 reached end
+   of life (EOL) on *May 17, 2017*, but will continue to be supported
+   until *May 17, 2022*.
+
+
 .. index:: ES60 Expansion Shelf
 .. _ES60 Expansion Shelf:
 
@@ -76,8 +81,9 @@ Rear view of the ES60 Expansion Shelf:
 .. figure:: images/tn_es60_back.png
 
 
-The ES60 contains two expansion modules in a side-by-side
-configuration. The connectors and features on each module are:
+The ES60 contains two expansion controllers in a side-by-side
+configuration. The connectors and features on each expansion controller
+are:
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
@@ -126,14 +132,14 @@ secures the rail in place. Repeat this process on the other side.
 Mount Rack Rails
 ^^^^^^^^^^^^^^^^
 
-Install four cage nuts in the rack, one for each bracket. The lock
-screw for the bracket is already installed in the cage nut. Place the
-rail in the rack with the front end toward the front of the rack and
-rear toward the back of the rack, aligning the pins on both ends of
-the rail with the mounting holes in the rack. Push the pins into the
-rack holes until they lock in place.
+Install four cage nuts in the rack, two where the rails attach to the
+front of the rack, and two at the rear. Place the rail in the rack with
+the front end toward the front of the rack and rear toward the back of
+the rack, aligning the pins on both ends of the rail with the mounting
+holes in the rack. Push the pins into the rack holes until they lock in
+place.
 
-.. figure:: images/tn_es60_rackrails.png
+.. figure:: images/truenas/es60_rackrails.png
 
 
 Mount Unit in the Rack
@@ -321,10 +327,10 @@ Plug the ES60 power cords into power outlets.
 Connecting the ES60 to a %brand% X20
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Connect an SAS cable from the ES60 expander module 1 connector 1 to
+Connect an SAS cable from the ES60 expansion controller 1 connector 1 to
 the X20 1 SAS 1 connector (cable #1 in photo). If the X20 has a second
 storage controller for HA (High Availability), connect a second SAS
-cable from the ES60 expander module 2 connector 1 to the X20 storage
+cable from the ES60 expansion controller 2 connector 1 to the X20 storage
 controller 2 SAS 1 connector (cable #2 in photo).
 
 
@@ -336,10 +342,10 @@ controller 2 SAS 1 connector (cable #2 in photo).
 Connecting the ES60 to a %brand% Z35
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Connect an SAS cable from the ES60 expander module 1 connector 1 to
+Connect an SAS cable from the ES60 expansion controller 1 connector 1 to
 the Z35 Controller 1 SAS 1 connector (cable #1 in photo). If the Z35
 has a second storage controller for HA (High Availability), connect a
-second SAS cable from the ES60 expander module 2 connector 1 to the Z35
+second SAS cable from the ES60 expansion controller 2 connector 1 to the Z35
 Controller 2 SAS 1 connector (cable #2 in photo).
 
 
@@ -371,4 +377,3 @@ on the ears of the ES60. Install one upper screw from the back side of
 the left ES60 ear, then install a lower screw from the back of the
 right ES60 ear. Install the remaining two screws following the same
 diagonal pattern.
-
