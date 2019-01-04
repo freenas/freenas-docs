@@ -36,7 +36,7 @@ output shows the POPCNT feature, this processor can be used with
    `bhyve(8) <https://www.freebsd.org/cgi/man.cgi?query=bhyve>`__
    :literal:`-H` option set. This causes the virtual CPU thread to
    yield when a HLT instruction is detected, and prevents idle VMs
-   from consuming all of the host's CPU.
+   from consuming all of the host CPU.
 
 
 .. note:: AMD K10 "Kuma" processors include POPCNT but do not support
@@ -63,7 +63,7 @@ and |ui-add| to open the wizard shown in
    Add VM
    
    
-Create a virtual machine by following these steps of the creation
+Create a virtual machine by following these steps in the creation
 wizard:
 
 #. **Select VM wizard type**
