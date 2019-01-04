@@ -63,7 +63,7 @@ and |ui-add| to open the wizard shown in
    Add VM
    
    
-Create a virtual machine by following these seven steps of the creation
+Create a virtual machine by following these steps of the creation
 wizard:
 
 #. **Select VM wizard type**
@@ -114,8 +114,8 @@ wizard:
    :guilabel:`Upload an install image file`. Use the file browser
    to select the save location for the image file. Click
    :guilabel:`Browse` to search the host system for the image file.
-   Clicking :guilabel:`Upload` uploads the image file to the
-   chosen save location.
+   Click :guilabel:`Upload` to upload the image file to the
+   chosen location.
    
 #. **Confirm Options**
 
