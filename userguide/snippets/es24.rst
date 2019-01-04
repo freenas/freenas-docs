@@ -8,7 +8,7 @@ ES24 Expansion Shelf
 --------------------
 
 The %brand% ES24 is a 4U, 24-bay, SAS3 (12 Gb/s) expansion shelf with
-dual expansion modules and redundant power supplies.
+dual expansion controllers and redundant power supplies.
 
 
 #include snippets/perfect.rst
@@ -73,8 +73,8 @@ software has issued an
    Back Panel
 
 
-The ES24 contains two expansion modules in an over/under
-configuration. The connectors and features on each module are:
+The ES24 contains two expansion controllers in an over/under
+configuration. The connectors and features on each controller are:
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
@@ -126,12 +126,12 @@ Plug the ES24 power cords into power outlets.
    shelf is connected.
 
 
-Connect an SAS cable from ES24 expansion module 1 SAS 0 connector to
+Connect an SAS cable from ES24 expansion controller 1 SAS 0 connector to
 the farthest left Z-Series storage controller 1 SAS connector (cable #1
 in photo).
 
 If the Z-Series has a second storage controller for HA (High
-Availability), connect a second SAS cable from ES24 expansion module 2
+Availability), connect a second SAS cable from ES24 expansion controller 2
 SAS 0 connector to the farthest left Z-Series storage controller 2 SAS
 connector (cable #2 in photo).
 

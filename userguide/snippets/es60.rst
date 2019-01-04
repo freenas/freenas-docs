@@ -76,8 +76,9 @@ Rear view of the ES60 Expansion Shelf:
 .. figure:: images/tn_es60_back.png
 
 
-The ES60 contains two expansion modules in a side-by-side
-configuration. The connectors and features on each module are:
+The ES60 contains two expansion controllers in a side-by-side
+configuration. The connectors and features on each expansion controller
+are:
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
@@ -321,6 +322,7 @@ Plug the ES60 power cords into power outlets.
 The ES60 is compatible with many different %brand% systems. These images
 show the typical SAS cable connections for different %brand% High
 Availability (HA) systems to connect to two ES60 units.
+
 
 **X-Series**
 
