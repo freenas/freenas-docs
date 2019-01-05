@@ -217,42 +217,39 @@ Click the *+* next to the volume name to access
 Encryption
 ^^^^^^^^^^
 
-.. note:: The encryption facility used by %brand% is designed to protect
-   against data theft from powered-down systems and locked encrypted pools,
-   and to prevent data recovery from reused or failed disks. This type of data
-   encryption is not designed to protect against unauthorized software access
-   when the pool is already unlocked. Ensure that only authorized users have
-   access to the web UI and that proper permissions are set on shares if sensitive
-   data is stored on the system. 
+.. note:: %brand% supports `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
+  full disk encryption for ZFS volumes. This type of encryption is primarily 
+  intended to protect data against the risks of data being read or copied when 
+  the system is powered down, when the pool is locked, or in the event of physical theft.
+  
+  Because data cannot be read without the key, encrypted disks containing sensitive data
+  can also be safely removed, reused, or discarded, without secure wiping or physical
+  destruction of the magnetic platters.
+  
+  The encryption scheme is **not** designed to protect against unauthorized software
+  access when the pool is already unlocked. Ensure that only authorized users have access
+  to the web-ui and that proper permissions are set on shares, if sensitive data
+  is stored on the system. 
 
-%brand% supports
-`GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
-full disk encryption for ZFS volumes. It is important to understand
-the details when considering whether encryption is right for the
-intended use:
-
+It is important to understand the details when considering whether encrypting a pool is
+an appropriate measure:
 
 * %brand% encryption is different from the encryption used in
   Oracle's proprietary, non-open source version of ZFS.
 
-* In %brand%, entire disks are encrypted, not individual filesystems.
+* In %brand%, entire disks and pools are encrypted, not individual filesystems.
   Encrypted devices are created from the underlying drives, then the
   volume (pool) is created on top of the encrypted devices. Data is
   encrypted as it is written and decrypted as it is read.
 
-* The type of encryption used by %brand% is primarily intended to protect
-  data against the risks of data being read or copied when the system is
-  powered down, when the pool is locked, or in the event of physical theft.
-  Because data cannot be read without the key, it also permits disks
-  containing sensitive data to be safely removed, repurposed, or disposed
-  of, without secure wiping or physical destruction of the magnetic platters.
-
 * When discarding disks that still contain encrypted sensitive data,
   the encryption key must also be destroyed or securely deleted.  If
-  kept, then it should be stored securely and separately from the system.
-  As long as a copy of the key is intact, part or all of the stored data remains
+  the encryption key is not destroyed, it must be stored securely and
+  kept physically separate from the discarded disks. If the encryption
+  key is present on or with the discarded disks, or can be obtained by 
+  the same person who gains access to the disks, the data will be 
   vulnerable to decryption.
-
+   
 * Protect the key with a strong passphrase and store all backups of
   the key securely.
 
@@ -266,11 +263,8 @@ intended use:
   <https://forums.freenas.org/index.php?threads/recover-encryption-key.16593/#post-85497>`__.
 
 * Data in memory, including ARC, is not encrypted. ZFS data on disk,
-  including ZIL and SLOG, are encrypted if the underlying disks are
+  including ZIL, SLOG, and L2ARC, are encrypted if the underlying pool is
   encrypted. Swap data on disk is always encrypted.
-
-  .. warning:: Data stored in Cache (L2ARC) drives is not encrypted.
-     Do not use Cache (L2ARC) with encrypted volumes.
 
 * At present, there is no one-step way to encrypt an existing,
   unencrypted volume. Instead, the data must be backed up, the
