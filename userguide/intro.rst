@@ -155,7 +155,7 @@ This software has been added or updated:
   `FreeBSD 11.2 <https://www.freebsd.org/releases/11.2R/announce.html>`__,
   which brings in many updated drivers and bug fixes. This branch has
   been patched to include the FreeBSD security advisories up to
-  `FreeBSD-SA-18:12.elf <https://www.freebsd.org/security/advisories/FreeBSD-SA-18:12.elf.asc>`__.
+  `FreeBSD-SA-18:13.nfs <https://www.freebsd.org/security/advisories/FreeBSD-SA-18:13.nfs.asc>`__.
 
 * OpenZFS is up-to-date with Illumos and slightly ahead due to support
   for sorted scrubs which were ported from ZFS on Linux. Notable
@@ -206,8 +206,8 @@ This software has been added or updated:
   has been added to the base system, adding support for UTF-8 fonts to
   the console for Intel graphic cards.
 
-* Samba 4.7.6 has been patched to address the latest round of
-  `security vulnerabilities <https://www.samba.org/samba/latest_news.html#4.8.4>`__.
+* Samba 4.7 has been patched to address the latest round of
+  `security vulnerabilities <https://www.samba.org/samba/latest_news.html#4.9.3>`__.
 
 * Netatalk has been updated to the 3.1.12 development version which
   addresses known issues with Time Machine timeouts.
@@ -228,7 +228,7 @@ This software has been added or updated:
   bug fixes and improved IPv6 support.
 
 * RancherOS has been updated to version
-  `1.4.1 <https://github.com/rancher/os/releases/tag/v1.4.1>`__.
+  `1.4.2 <https://github.com/rancher/os/releases/tag/v1.4.2>`__.
 
 * `zsh <http://www.zsh.org/>`__ is the root shell for new installations.
   Upgrades will continue to use the :command:`csh` shell as the default
@@ -564,14 +564,17 @@ read/write needs and RAID requirements:
 For ZFS,
 `Disk Space Requirements for ZFS Storage Pools
 <https://docs.oracle.com/cd/E19253-01/819-5461/6n7ht6r12/index.html>`__
-recommends a minimum of 16 GiB of disk space. Due to the way that ZFS
-creates swap,
-**it is not possible to format less than 3 GiB of space with ZFS**.
-However, on a drive that is below the minimum recommended size, a fair
-amount of storage space is lost to swap: for example, on a 4 GiB
-drive, 2 GiB will be reserved for swap.
+recommends a minimum of 16 GiB of disk space. %brand% allocates 2 GiB
+of swap space on each drive. Combined with ZFS space requirements,
+this means that
+**it is not possible to format drives smaller than 3 GiB**.
+Drives larger than 3 GiB but smaller than the minimum recommended
+capacity might be usable but lose a significant portion of storage
+space to swap allocation. For example, a 4 GiB drive only has 2 GiB of
+available space after swap allocation.
 
-Users new to ZFS who are purchasing hardware should read through
+
+New ZFS user who are purchasing hardware should read through
 `ZFS Storage Pools Recommendations
 <https://web.archive.org/web/20161028084224/http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide#ZFS_Storage_Pools_Recommendations>`__
 first.
@@ -580,8 +583,8 @@ ZFS *vdevs*, groups of disks that act like a single device, can be
 created using disks of different sizes.  However, the capacity
 available on each disk is limited to the same capacity as the smallest
 disk in the group. For example, a vdev with one 2 TiB and two 4 TiB
-disks will only be able to use 2 TiB of space on each disk. In general,
-use disks that are the same size for the best space usage and
+disks will only be able to use 2 TiB of space on each disk. In
+general, use disks that are the same size for the best space usage and
 performance.
 
 The

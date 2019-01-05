@@ -262,9 +262,11 @@ an appropriate measure:
   `forum post
   <https://forums.freenas.org/index.php?threads/recover-encryption-key.16593/#post-85497>`__.
 
-* Data in memory, including ARC, is not encrypted. ZFS data on disk,
-  including ZIL, SLOG, and L2ARC, are encrypted if the underlying pool is
-  encrypted. Swap data on disk is always encrypted.
+* All drives in an encrypted volume are encrypted, including L2ARC
+  (read cache) and SLOG/ZIL (write intent log). Drives added to an existing
+  encrypted volume are encrypted with the same method specified when
+  the volume was created. Swap data on disk is always encrypted. Data
+  in memory (RAM), including ARC, is not encrypted. 
 
 * At present, there is no one-step way to encrypt an existing,
   unencrypted volume. Instead, the data must be backed up, the
@@ -933,9 +935,9 @@ The
 screen, shown in
 :numref:`Figure %s <zfs_import_disk_fig>`,
 is used to import a **single** disk that has been formatted with the
-UFS, NTFS, MSDOS, or EXT2 filesystem. The import is meant to be a
-temporary measure to copy the data from a disk to an existing ZFS
-dataset. Only one disk can be imported at a time.
+UFS (BSD Unix), FAT or NTFS (Windows), or EXT2 (Linux) filesystems. The
+import is meant to be a temporary measure to copy the data from a disk
+to an existing ZFS dataset. Only one disk can be imported at a time.
 
 .. note:: Imports of EXT3 or EXT4 filesystems are possible in some
    cases, although neither is fully supported.  EXT3 journaling is not

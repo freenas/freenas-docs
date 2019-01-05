@@ -4,7 +4,6 @@
 # textproc/py-sphinx
 # textproc/py-sphinx_numfig
 # textproc/py-sphinx_rtd_theme
-# textproc/py-sphinxcontrib-httpdomain
 
 import os
 import six
@@ -30,13 +29,13 @@ copyright = '2011-2018, iXsystems'
 #
 
 # VERSION is the LONG, FULL version number with all patch levels, like "11.0-U1"
-version = '11.2-RC2'
+version = '11.2-RELEASE'
 # RELEASE is the short major release number ONLY, like "11.0"
 release = '11.2'
 
 if tags.has('truenas'):
     # VERSION is the LONG, FULL, version number
-    version = '11.1-U6'
+    version = '11.1-U6.2'
     # RELEASE is the short major release number ONLY
     release = '11.1'
 
@@ -88,6 +87,7 @@ if tags.has('bsg-e24'):
 
 if tags.has('bsg-xseries'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    version = '1.1'
     tags.remove('freenas')
     project = brand + ' ' + six.u('X-Series Unified Storage Array')
     projtype = 'Basic Setup Guide'
@@ -96,6 +96,7 @@ if tags.has('bsg-xseries'):
 
 if tags.has('bsg-es12'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    version = '1.1'
     tags.remove('freenas')
     project = brand + ' ' + six.u('ES12 Expansion Shelf')
     projtype = 'Basic Setup Guide'
@@ -104,6 +105,7 @@ if tags.has('bsg-es12'):
 
 if tags.has('bsg-es24'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    version = '1.1'
     tags.remove('freenas')
     project = brand + ' ' + six.u('ES24 Expansion Shelf')
     projtype = 'Basic Setup Guide'
@@ -112,14 +114,16 @@ if tags.has('bsg-es24'):
 
 if tags.has('bsg-mseries'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    version = '1.1'
     tags.remove('freenas')
     project = brand + ' ' + six.u('M-Series Unified Storage Array')
     projtype = 'Basic Setup Guide'
     master_doc = 'bsg-mseries'
-    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_m_front.png}'
+    cover_pic = r'\vspace*{.1in}\hspace*{5.5in}\includegraphics[width=6in]{../../../images/tn_m_front.png}'
 
 if tags.has('bsg-es60'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    version = '1.1'
     tags.remove('freenas')
     project = brand + ' ' + six.u('ES60 Expansion Shelf')
     projtype = 'Basic Setup Guide'
@@ -346,10 +350,7 @@ else:
 
 PREAMBLE = r'''\def\docname{''' + texproject + '}'
 
-PREAMBLE = (PREAMBLE
-            + r'''\def\docdate{'''
-            + time.strftime("%B %Y")
-            + ' Edition}')
+PREAMBLE = (PREAMBLE + '\\def\\docdate{' + 'Version ' + version + '}')
 
 if sphinx.__version__ < '1.6.5':
     PREAMBLE = PREAMBLE + r'''\usepackage[tmargin=.75in, bmargin=.75in, lmargin=0.5in, rmargin=0.5in]{geometry}'''

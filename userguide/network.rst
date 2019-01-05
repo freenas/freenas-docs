@@ -196,13 +196,24 @@ the :guilabel:`OK` button is clicked and a pop-up message will point
 out that network connectivity to the %brand% system will be
 interrupted while the changes are applied.
 
-
+#ifdef freenas
 .. _add_net_interface_fig:
 
 .. figure:: images/interface.png
 
    Adding or Editing an Interface
 
+
+#endif freenas
+#ifdef truenas
+.. _add_net_interface_fig:
+
+.. figure:: images/tn_interface.png
+
+   Adding or Editing an Interface
+
+
+#endif truenas
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -227,6 +238,7 @@ interrupted while the changes are applied.
    | DHCP              | checkbox        | Requires static IPv4 or IPv6 configuration if unselected. Only one interface can be configured for DHCP.    |
    |                   |                 |                                                                                                             |
    +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+#ifdef freenas
    | IPv4 Address      | IP address      | Enter a static IP address if :guilabel:`DHCP` is unset.                                                     |
    |                   |                 |                                                                                                             |
    +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
@@ -234,6 +246,19 @@ interrupted while the changes are applied.
    |                   | menu            |                                                                                                             |
    |                   |                 |                                                                                                             |
    +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+#endif freenas
+#ifdef truenas
+   | IPv4 Address      | IP address      | Enter a static IP address for the active storage controller if :guilabel:`DHCP` is unset.                   |
+   | (This Node)       |                 |                                                                                                             |
+   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | IPv4 Address      | IP address      | Enter a static IP address for the inactive storage controller if :guilabel:`DHCP` is unset.                 |
+   | (Node B)          |                 |                                                                                                             |
+   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | IPv4 Netmask      | drop-down       | Enter a netmask if :guilabel:`DHCP` is unset.                                                               |
+   |                   | menu            |                                                                                                             |
+   |                   |                 |                                                                                                             |
+   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+#endif truenas
    | Auto configure    | checkbox        | Only one interface can be configured for this option. If unset, manual configuration is                     |
    | IPv6              |                 | required to use IPv6.                                                                                       |
    |                   |                 |                                                                                                             |
@@ -245,6 +270,18 @@ interrupted while the changes are applied.
    | Length            | menu            |                                                                                                             |
    |                   |                 |                                                                                                             |
    +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+#ifdef truenas
+   | Virtual IP        | IP address      | IP address for the virtual host. This is used to log in to the |web-ui|.                                    |
+   |                   |                 |                                                                                                             |
+   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | Virtual Host ID   | string          | Unique identifier for the virtual host.                                                                     |
+   |                   |                 |                                                                                                             |
+   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | Critical for      | checkbox        | Sets this interface as critical. This allows logging in to the |web-ui| available at the                    |
+   | Failover          |                 | :guilabel:`Virtual IP` address after a failover happens. **Warning:** At least one interface must have this |
+   |                   |                 | option set or the |web-ui| will become unavailable.                                                         |
+   +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+#endif truenas
    | Options           | string          | Additional parameters from                                                                                  |
    |                   |                 | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.                                       |
    |                   |                 | Separate multiple parameters with a space. For example: *mtu 9000* increases the MTU for interfaces         |
@@ -662,7 +699,6 @@ This screen also allows the configuration of an alias for the lagg
 interface. Multiple aliases can be added with the
 :guilabel:`Add extra Alias` link.
 
-
 Click the :guilabel:`Edit Members` button, click the entry for a
 member, then click its :guilabel:`Edit` button to see the
 configuration screen shown in
@@ -698,14 +734,17 @@ The configurable options are summarized in
    |                         |                   | the master interface to *0* and the other interfaces to *1*, *2*, etc.      |
    |                         |                   |                                                                             |
    +-------------------------+-------------------+-----------------------------------------------------------------------------+
-   | LAGG Physical NIC       | drop-down menu    | Physical interface of the selected member.                                  |
-   |                         |                   |                                                                             |
+   | LAGG Physical NIC       | drop-down menu    | Physical interface of the selected member. The drop-down is empty when no   |
+   |                         |                   | NICs are available.                                                         |
    +-------------------------+-------------------+-----------------------------------------------------------------------------+
    | Options                 | string            | Additional parameters from                                                  |
    |                         |                   | `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__.       |
    |                         |                   |                                                                             |
    +-------------------------+-------------------+-----------------------------------------------------------------------------+
 
+
+Click :guilabel:`Add Link Aggregation Member` to see the same options.
+Click :guilabel:`OK` to add the new member to the list.
 
 Options can be set at the lagg level using the :guilabel:`Edit`
 button, or at the individual parent interface level using the
