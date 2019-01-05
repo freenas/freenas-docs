@@ -1375,9 +1375,9 @@ Managing Encrypted Volumes
 a new encrypted volume is created. This key is required to read and
 decrypt any data on the volume. 
 
-By default, %brand% stores encryption keys locally within the system
-settings so volumes can automatically decrypt when the system
-starts or when triggered by an authorized user.
+%brand% stores encryption keys on the system boot pool by default, so 
+encrypted pools can be automatically decrypted when the system starts,
+or when triggered by an authorized user.
 
 Encryption keys can also be downloaded. This is useful as a safety
 measure to allow key backup, to use the key for decryption on a different system in the
