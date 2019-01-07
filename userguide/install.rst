@@ -33,7 +33,7 @@ Getting %brand%
 -------------------------
 
 The latest STABLE version of %brand% |release| is available for download
-from `<https://download.freenas.org/latest/>`__.
+from `<https://download.freenas.org/11.2/MASTER/latest/>`__.
 
 .. note:: %brand% requires 64-bit hardware.
 

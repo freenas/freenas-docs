@@ -1799,8 +1799,8 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | data loss.                                                                                              |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Schedule the Cloud  | drop-down menu      | Choose how often to run the task. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*, or *Custom*.      |
-   | Sync Task           |                     | Select *Custom* to open the advanced scheduler.                                                         |
+   | Schedule the Cloud  | drop-down menu      | Choose how often or at what time to start a sync. Choices are *Hourly*, *Daily*, *Weekly*, *Monthly*,   |
+   | Sync Task           |                     | or *Custom*. Select *Custom* to open the advanced scheduler.                                            |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Enabled             | checkbox            | Enable this Cloud Sync Task. Unset to disable this Cloud Sync Task without deleting it.                 |

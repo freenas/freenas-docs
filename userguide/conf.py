@@ -172,6 +172,7 @@ rst_prolog = u'''
 .. |alert-icon-info|  replace:: 
 .. |alert-icon-error| replace:: 
 .. |ui-browse|        replace::  (Browse)
+.. |pool-lock| replace::  (Encryption Options)
 '''
 
 # roles for text replacement
