@@ -478,7 +478,7 @@ Unix (NFS) Shares
 Network File System (NFS). Clients use the :command:`mount` command to
 mount the share. Mounted NFS shares appear as another directory on the
 client system. Some Linux distros require the installation of additional
-software to mount an NFS share. Windows systems require enabling
+software to mount an NFS share. Windows systems must enable
 Services for NFS in the Ultimate or Enterprise editions or install an
 NFS client application.
 
@@ -538,9 +538,9 @@ Remember these points when creating NFS shares:
     permissions of all users, set the :guilabel:`Mapall` options.
 
 #.  Each volume or dataset is considered to be a unique filesystem.
-    Individual NFS shares cannot cross filesystem boundaries. Sharing
-    multiple directories with additional paths is only allowed within
-    a single volume or dataset.
+    Individual NFS shares cannot cross filesystem boundaries. Adding
+    paths to share more directories only works if those directories
+    are within the same filesystem.
 
 #.  The network and host must be unique to both each created share and
     the filesystem or directory included in that share. Because
