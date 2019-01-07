@@ -135,12 +135,37 @@ Connect Power Cords
 Connect SAS Cables
 ~~~~~~~~~~~~~~~~~~
 
-
-Shut down and power off the %brand% unit. Remove the power cables from
-the power outlets.
-
 Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
+
+The ES12 is compatible with many different %brand% systems. These images
+show the typical SAS cable connections for different %brand% High
+Availability (HA) systems to connect to two ES12 units.
+
+**X-Series**
+
+.. _es60_xseries_sasconnect:
+.. figure:: images/truenas/x_sas_wiring.png
+
+
+**M40**
+
+.. _es60_m40_sasconnect:
+.. figure:: images/truenas/m40_sas_wiring.png
+   :width: 95%
+
+
+.. raw:: latex
+
+   \newpage
+
+
+**M50**
+
+.. _es60_m50_sasconnect:
+.. figure:: images/truenas/m50_sas_wiring.png
+   :width: 80%
+
 
 Connect SAS cables to the ES12 unit "T" slots. The next image shows the
 typical SAS connections for two ES12 units that connect to a High
@@ -160,15 +185,6 @@ Availability (HA) %brand% system with two storage controllers.
 
 * Cable #4 connects to the second ES12 unit expansion controller 2 T1
   slot.
-
-These cables connect to the SAS 1 and 2 slots on a %brand% X-Series unit:
-
-.. _es12_xseries-sasconnect:
-.. figure:: images/truenas/xseries_sas_wiring.png
-
-
-After all SAS cables have been connected to the %brand% unit, plug the
-power cords back into power outlets.
 
 
 Install Bezel (Optional)
