@@ -36,7 +36,7 @@ output shows the POPCNT feature, this processor can be used with
    `bhyve(8) <https://www.freebsd.org/cgi/man.cgi?query=bhyve>`__
    :literal:`-H` option set. This causes the virtual CPU thread to
    yield when a HLT instruction is detected, and prevents idle VMs
-   from consuming all of the host's CPU.
+   from consuming all of the host CPU.
 
 
 .. note:: AMD K10 "Kuma" processors include POPCNT but do not support
@@ -61,7 +61,66 @@ and |ui-add| to open the wizard shown in
 .. figure:: images/virtual-machines-add-wizard-type.png
 
    Add VM
+   
+   
+Create a virtual machine by following these steps in the creation
+wizard:
 
+#. **Select VM wizard type**
+
+   Select *Virtual Machine (VM)* or
+   *Docker Host*.
+
+#. **Operating System**
+
+   Select the guest operating system type from the drop down menu and
+   enter an alphanumeric name for the VM. UEFI is recommended
+   as the boot method for newer operating systems.
+   :guilabel:`Start on Boot` and :guilabel:`Enable VNC` are set by default.
+   :guilabel:`Start on Boot` tells the VM to start when the
+   host system is booted. :guilabel:`Enable VNC` allows a
+   virtual connection to the VM.
+   
+#. **CPU and Memory**
+
+   Enter the number of virtual CPUs and the amount of memory for the
+   VM. Provide adequate memory and virtual CPUs for the applications
+   running in the VM, but be aware that providing more memory or
+   virtual CPUs than are needed can affect performance of the host
+   system.
+   
+#. **Hard Disks**
+
+   Select :guilabel:`Create new disk image` to create a new zvol to use
+   as a virtual hard drive for the VM. Select
+   :guilabel:`Use existing disk image` to use an existing zvol or file
+   for the VM.
+   
+#. **Network Interface**
+
+   Select the adapter type from the drop-down.
+   *Intel e82545 (e1000)* emulates the same Intel Ethernet
+   card. This provides compatibility with most operating systems.
+   VirtIO provides better performance when the operating system
+   installed in the VM supports VirtIO paravirtualized network drivers.
+   The MAC address is randomized by default. Enter a custom MAC address
+   to overide the randomization. Select the physical interface to
+   associate with the VM.
+   
+#. **Installation Media**
+
+   Use the file browser to choose the path to the installed media
+   image on the %brand% system. If uploading an image file, set
+   :guilabel:`Upload an install image file`. Use the file browser
+   to select the save location for the image file. Click
+   :guilabel:`Browse` to search the host system for the image file.
+   Click :guilabel:`Upload` to upload the image file to the
+   chosen location.
+   
+#. **Confirm Options**
+
+   This step shows the settings chosen. Click :guilabel:`Submit` to
+   create the VM.
 
 Virtual machine configuration options are described in
 :numref:`Table %s <vms_add_opts_tab>`.

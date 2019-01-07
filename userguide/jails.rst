@@ -541,16 +541,20 @@ Click :guilabel:`NEXT` to view all jail
    |                        |              | Only takes effect when *VNET* is set and bridge interfaces are not active.                              |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | vnet0_mac              | string       | Optional. Enter a valid MAC address for the VNET0 interface.                                            |
+   | vnet0_mac              | string       | Leave this blank to generate random MAC addresses for the host and jail. To assign fixed MAC            |
+   |                        |              | addresses, enter the host MAC address and the jail MAC address separated by a space.                    |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | vnet1_mac              | string       | Optional. Enter a valid MAC address for the VNET1 interface.                                            |
+   | vnet1_mac              | string       | Leave this blank to generate random MAC addresses for the host and jail. To assign fixed MAC            |
+   |                        |              | addresses, enter the host MAC address and the jail MAC address separated by a space.                    |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | vnet2_mac              | string       | Optional. Enter a valid MAC address for the VNET2 interface.                                            |
+   | vnet2_mac              | string       | Leave this blank to generate random MAC addresses for the host and jail. To assign fixed MAC            |
+   |                        |              | addresses, enter the host MAC address and the jail MAC address separated by a space.                    |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | vnet3_mac              | string       | Optional. Enter a valid MAC address for the VNET3 interface.                                            |
+   | vnet3_mac              | string       | Leave this blank to generate random MAC addresses for the host and jail. To assign fixed MAC            |
+   |                        |              | addresses, enter the host MAC address and the jail MAC address separated by a space.                    |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
 
