@@ -8,7 +8,7 @@ ES12 Expansion Shelf
 --------------------
 
 The %brand% ES12 is 2U, 12-bay, SAS3 (12 Gb/s) expansion shelf with
-dual expansion modules and redundant power supplies.
+dual expansion controllers and redundant power supplies.
 
 
 #include snippets/perfect.rst
@@ -72,8 +72,8 @@ software issues an
    :width: 50%
 
 
-The ES12 contains two expansion modules in a side-by-side
-configuration. The connectors and features on each module are:
+The ES12 contains two expansion controllers in a side-by-side
+configuration. The connectors and features on each controller are:
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
 
@@ -132,6 +132,35 @@ Connect SAS Cables
 Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
+The ES12 is compatible with many different %brand% systems. These images
+show the typical SAS cable connections for different %brand% High
+Availability (HA) systems to connect to two ES12 units.
+
+**X-Series**
+
+.. _es60_xseries_sasconnect:
+.. figure:: images/tn_x_sas_wiring.png
+
+
+**M40**
+
+.. _es60_m40_sasconnect:
+.. figure:: images/tn_m40_sas_wiring.png
+   :width: 95%
+
+
+.. raw:: latex
+
+   \newpage
+
+
+**M50**
+
+.. _es60_m50_sasconnect:
+.. figure:: images/tn_m50_sas_wiring.png
+   :width: 80%
+
+
 Connect SAS cables to the ES12 unit "T" slots. The next image shows the
 typical SAS connections for two ES12 units that connect to a High
 Availability (HA) %brand% system with two storage controllers.
@@ -150,15 +179,6 @@ Availability (HA) %brand% system with two storage controllers.
 
 * Cable #4 connects to the second ES12 unit expansion controller 2 T1
   slot.
-
-These cables connect to the SAS 1 and 2 slots on a %brand% X-Series unit:
-
-.. _es12_xseries-sasconnect:
-.. figure:: images/tn_x_sas_wiring.png
-
-
-After all SAS cables have been connected to the %brand% unit, plug the
-power cords back into power outlets.
 
 
 Install Bezel (Optional)
