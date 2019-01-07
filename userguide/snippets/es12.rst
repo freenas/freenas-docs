@@ -24,28 +24,34 @@ Carefully unpack the shipping boxes and locate these components:
 .. table::
    :class: longtable
 
-   +--------------------------------------------+------------------------------------------------+
-   | .. image:: images/truenas/x.png            | .. image:: images/truenas/es12_bezel.png       |
-   |                                            |                                                |
-   | ES12 Expansion Shelf                       | ES12 Bezel                                     |
-   +--------------------------------------------+------------------------------------------------+
-   | .. image:: images/truenas/x_rails.png      | .. image:: images/truenas/x_drivetrays.png     |
-   |                                            |    :width: 90%                                 |
-   | Set of rackmount rails. The rails have a   |                                                |
-   | specific front end, identified by a label  | A total of 12 populated or empty "air baffle"  |
-   | visible on the left above. The front ends  | drive trays. Trays must be installed in all    |
-   | of the rails must be installed facing the  | bays to maintain proper airflow for cooling.   |
-   | front of the rack.                         | Up to ten drive trays are packed in a          |
-   |                                            | cardboard tray. Additional drive trays are     |
-   |                                            | packed with the accessory kit.                 |
-   +--------------------------------------------+------------------------------------------------+
-   | .. image:: images/truenas/x_acckit.png     | .. image:: images/truenas/sascables_minihd.png |
-   |    :width: 80%                             |    :width: 40%                                 |
-   |                                            |                                                |
-   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Two 3-meter Mini SAS HD to Mini SAS HD         |
-   | power cords, 2 IEC C14 to C14 cords, and a | cables                                         |
-   | set of velcro cable ties                   |                                                |
-   +--------------------------------------------+------------------------------------------------+
+   +-------------------------------------------------------+-------------------------------------------------------+
+   | .. image:: images/truenas/x.png                       | .. image:: images/truenas/es12_bezel.png              |
+   |                                                       |                                                       |
+   | ES12 Expansion Shelf                                  | ES12 Bezel                                            |
+   +-------------------------------------------------------+-------------------------------------------------------+
+   | .. image:: images/truenas/x_rails.png                 | .. image:: images/truenas/x_drivetrays.png            |
+   |                                                       |    :width: 90%                                        |
+   | Set of rackmount rails. The rails have a specific     |                                                       |
+   | front end, identified by a label visible on the left  | A total of 12 populated or empty "air baffle" drive   |
+   | above. The front ends of the rails must be installed  | trays. Trays must be installed in all bays to         |
+   | facing the front of the rack.                         | maintain proper airflow for cooling. Up to ten drive  |
+   |                                                       | trays are packed in a cardboard tray. Additional      |
+   |                                                       | drive trays are packed with the accessory kit.        |
+   |                                                       |                                                       |
+   +-------------------------------------------------------+-------------------------------------------------------+
+   |                                                       | |pic1|        |pic2|                                  |
+   |                                                       |                                                       |
+   | .. image:: images/truenas/x_acckit.png                | .. |pic1| image:: images/truenas/sascables_minihd.png |
+   |    :width: 90%                                        |    :width: 45%                                        |
+   |                                                       |                                                       |
+   |                                                       | .. |pic2| image:: images/truenas/x_railextenders.png  |
+   | Accessory kit with 2 IEC C13 to NEMA 5-15P power      |    :width: 45%                                        |
+   | cords, 2 IEC C14 to C14 cords, and a set of velcro    |                                                       |
+   | cable ties                                            | Two 3-meter Mini SAS HD to Mini SAS HD cables and     |
+   |                                                       | rail extenders for racks over 30" deep                |
+   |                                                       |                                                       |
+   |                                                       |                                                       |
+   +-------------------------------------------------------+-------------------------------------------------------+
 
 
 .. raw:: latex

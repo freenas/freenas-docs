@@ -159,6 +159,14 @@ When a newer version of a plugin becomes available in the official
 repository, update the plugin jail by navigating to the
 :menuselection:`Jails` page and clicking |ui-options| and
 :guilabel:`Update`.
+
+An update is a fix for issues in the current release of the plugin.
+Plugins can be updated by running :samp:`iocage update {PLUGIN}` on the
+command line.
+
+An upgrade replaces the old release with a new release. Plugins can be
+upgraded by running :samp:`iocage upgrade {PLUGIN}` on the command line.
+
 #ifdef comment
 # jails/update shows nothing unless an update is available
 :numref:`Figure %s <updating_installed_plugin_fig>`
@@ -186,7 +194,7 @@ that data **first** if needed.
 
 In the example shown in
 :numref:`Figure %s <deleting_installed_plugin_fig>`,
-Quasselcore has been installed and the :guilabel:`Delete` button has
+*plex* has been installed and the :guilabel:`Delete` button has
 been clicked. A pop-up message asks for verification that the plugin
 is to be deleted. **This is the only warning.** The plugin and the
 associated jail are permanently deleted when :guilabel:`Confirm` is
