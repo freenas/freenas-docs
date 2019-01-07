@@ -61,8 +61,8 @@ and |ui-add| to open the wizard shown in
 .. figure:: images/virtual-machines-add-wizard-type.png
 
    Add VM
-   
-   
+
+
 Create a virtual machine by following these steps in the creation
 wizard:
 
@@ -76,11 +76,11 @@ wizard:
    Select the guest operating system type from the drop down menu and
    enter an alphanumeric name for the VM. UEFI is recommended
    as the boot method for newer operating systems.
-   :guilabel:`Start on Boot` and :guilabel:`Enable VNC` are set by default.
-   :guilabel:`Start on Boot` tells the VM to start when the
+   :guilabel:`Start on Boot` and :guilabel:`Enable VNC` are set by
+   default. :guilabel:`Start on Boot` tells the VM to start when the
    host system is booted. :guilabel:`Enable VNC` allows a
    virtual connection to the VM.
-   
+
 #. **CPU and Memory**
 
    Enter the number of virtual CPUs and the amount of memory for the
@@ -88,14 +88,14 @@ wizard:
    running in the VM, but be aware that providing more memory or
    virtual CPUs than are needed can affect performance of the host
    system.
-   
+
 #. **Hard Disks**
 
    Select :guilabel:`Create new disk image` to create a new zvol to use
    as a virtual hard drive for the VM. Select
    :guilabel:`Use existing disk image` to use an existing zvol or file
    for the VM.
-   
+
 #. **Network Interface**
 
    Select the adapter type from the drop-down.
@@ -106,7 +106,7 @@ wizard:
    The MAC address is randomized by default. Enter a custom MAC address
    to overide the randomization. Select the physical interface to
    associate with the VM.
-   
+
 #. **Installation Media**
 
    Use the file browser to choose the path to the installed media
@@ -116,7 +116,7 @@ wizard:
    :guilabel:`Browse` to search the host system for the image file.
    Click :guilabel:`Upload` to upload the image file to the
    chosen location.
-   
+
 #. **Confirm Options**
 
    This step shows the settings chosen. Click :guilabel:`Submit` to
@@ -442,8 +442,8 @@ mouse input.
 .. note:: Using a non-US keyboard via VNC is not yet supported. As a
    workaround, select the US keymap on the system running the VNC client,
    then configure the operating system running in the VM to use a
-   keymap that matches the physical keyboard. This will enable passthrough
-   of all keys regardless of the keyboard layout.
+   keymap that matches the physical keyboard. This will enable
+   passthrough of all keys regardless of the keyboard layout.
 
 
 :numref:`Figure %s <vms-vnc_fig>` shows the fields that appear
