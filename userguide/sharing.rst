@@ -456,7 +456,7 @@ Unix (NFS) Shares
 Network File System (NFS). Clients use the :command:`mount` command to
 mount the share. Mounted NFS shares appear as another directory on the
 client system. Some Linux distros require the installation of additional
-software to mount an NFS share. Windows systems require enabling
+software to mount an NFS share. Windows systems must enable
 Services for NFS in the Ultimate or Enterprise editions or install an
 NFS client application.
 
