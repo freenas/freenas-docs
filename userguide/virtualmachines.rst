@@ -900,21 +900,21 @@ Configuring Persistent NFS-Shared Volumes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Rancher supports using a single persistent volume with multiple
-containers and sharing that volume with NFS. %brand% must be configured
-with specific NFS permissions and a Rancher NFS server needs to be
-created with a stack scoped volume.
+containers. This volume can also be shared with %brand% using NFS.
+%brand% must be configured with specific NFS permissions and a
+`Rancher NFS server
+<https://rancher.com/docs/rancher/v1.6/en/rancher-services/storage-service/rancher-nfs/>`__
+must have a properly configured `stack scoped volume
+<https://rancher.com/docs/rancher/v1.6/en/cattle/volumes/#volume-scopes>`__.
 
-.. does the rancher nfs server need to be separate hardware or can it
-   be created inside the freenas rancher bhyve VM?
+A stack scoped volume is data that is managed by a single Rancher stack.
+The volume is shared by all services that reference it in the stack.
 
-This volume is managed by a single Rancher
-stack and is shared by all services that reference the volume in the
-stack.
-To share the volume between Rancher and %brand%, some options need to
-change using the command line of both the Rancher NFS server and the
-%brand% system:
+Configure NFS sharing for a stack scoped volume by setting specific
+options in the command line of the Rancher NFS server and the %brand%
+system:
 
-* Log in to the NFS server and modify :file:`/etc/exports`. Add
+* Log in to the Rancher NFS server and modify :file:`/etc/exports`. Add
   an entry for the NFS shared directory, typically :file:`/nfs`, with
   several permissions options:
   :samp:`/nfs	{IP}(rw,sync,no_root_squash,no_subtree_check)`.
