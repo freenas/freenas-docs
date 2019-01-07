@@ -1788,10 +1788,10 @@ Importing a Disk
 
 The :menuselection:`Pool --> Import Disk` screen, shown in
 :numref:`Figure %s <zfs_import_disk_fig>`, is used to import a
-**single** disk that is formatted with a UFS, NTFS, MSDOS, or EXT2
-filesystem. The import is meant to be a temporary measure to copy the
-data from a disk to an existing ZFS dataset. Only one disk can be
-imported at a time.
+**single** disk that is formatted with UFS (BSD Unix), FAT or
+NTFS (Windows), or EXT2 (Linux) filesystems. The
+import is meant to be a temporary measure to copy the data from a disk
+to an existing ZFS dataset. Only one disk can be imported at a time.
 
 .. note:: Imports of EXT3 or EXT4 filesystems are possible in some
    cases, although neither is fully supported. EXT3 journaling is not
