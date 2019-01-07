@@ -491,9 +491,9 @@ Remember these points when creating NFS shares:
     permissions of all users, set the :guilabel:`Mapall` options.
 
 #.  Each pool or dataset is considered to be a unique filesystem.
-    Individual NFS shares cannot cross filesystem boundaries. Sharing
-    multiple directories with additional paths is only allowed within
-    a single pool or dataset.
+    Individual NFS shares cannot cross filesystem boundaries. Adding
+    paths to share more directories only works if those directories
+    are within the same filesystem.
 
 #.  The network and host must be unique to both each created share and
     the filesystem or directory included in that share. Because
