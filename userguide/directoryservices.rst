@@ -112,7 +112,7 @@ advanced options.
    | Enable AD Monitoring     | checkbox      |          | Restart Active Directory automatically if the service disconnects.                                                            |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Encryption Mode          | drop-down     | ✓        | Choices are *Off*, *SSL*, or *TLS*. Refer to `SSL vs. TLS                                                                     |
-   |                          | menu          |          | <https://www.globalsign.com/en/blog/ssl-vs-tls-difference/>`__ for more information on TLS and SSL.                           |
+   |                          | menu          |          | <https://www.globalsign.com/en/blog/ssl-vs-tls-difference/>`__ for more information on SSL and TLS.                           |
    |                          |               |          |                                                                                                                               |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
