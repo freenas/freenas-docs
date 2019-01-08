@@ -312,6 +312,10 @@ such volumes before using them in production.
 Manual Setup
 ^^^^^^^^^^^^
 
+.. warning:: Make sure that the disks are correctly setup by verifying
+   the selected Member Disks field choices and ZFS Extra field choices
+   before proceeding.
+
 The :guilabel:`Manual Setup` button shown in
 :numref:`Figure %s <create_zfs_pool_volman_fig>`
 can be used to create a ZFS volume manually. While this is **not**
