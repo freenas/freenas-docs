@@ -1588,6 +1588,9 @@ Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Hubic, Mega,
 Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV,
 and Yandex are supported.
 
+.. warning:: Cloud credentials are encrypted. The credentials are lost
+   when the encryption key is not preserved.
+
 Select
 :menuselection:`System --> Cloud Credentials`
 to see the screen shown in :numref:`Figure %s <cloud_creds_fig>`.
