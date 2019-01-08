@@ -1618,6 +1618,9 @@ The credentials to provide secure connections with cloud services
 are entered here. Amazon S3, Azure Blob Storage, Backblaze B2, and
 Google Cloud Storage are supported.
 
+.. warning:: Cloud credentials are encrypted. The credentials are lost
+   when the encryption key is not preserved.
+
 Select
 :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
 to display the dialog shown in
