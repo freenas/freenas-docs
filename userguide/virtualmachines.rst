@@ -928,4 +928,4 @@ system:
   and restart the :guilabel:`NFS` service.
 
 * Add :literal:`:nocopy` to the end of the pool that will be mounted:
-  :samp:`mount -tnfs pool:{/mnt/pool1}:nocopy ~{nfsmounts/pool1_mount}`
+  :samp:`mount -t nfs pool:{/mnt/pool1}:nocopy ~{nfsmounts/pool1_mount}`
