@@ -117,7 +117,7 @@ advanced options.
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Certificate              | drop-down menu| ✓        | Select the certificate of the Active Directory server if SSL connections are used. If a certificate does not exist, create    |
    |                          |               |          | a :ref:`Certificate Authority <CAs>`, then create a certificate on the Active Directory server. Import the certificate to the |
-   |                          |               |          | %brand% system with the :ref:`Certificates` menu.                                                                             |
+   |                          |               |          | %brand% system using the :ref:`Certificates` menu.                                                                            |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Verbose logging          | checkbox      | ✓        | Set to log attempts to join the domain to :file:`/var/log/messages`.                                                          |
@@ -269,9 +269,9 @@ Domain and NetBIOS names, and limits the length of those names to 15
 characters. If there are problems connecting to the realm, `verify
 <https://support.microsoft.com/en-us/help/909264/naming-conventions-in-active-directory-for-computers-domains-sites-and>`__
 the settings do not include any disallowed characters. The Administrator
-account password cannot contain the *$* character. If a *$* exists in
-the domain administrator password, :command:`kinit` will report a
-"Password Incorrect" error and :command:`ldap_bind` will report an
+account password cannot contain the *$* character. If a :literal:`$`
+exists in the domain administrator password, :command:`kinit` reports a
+"Password Incorrect" error and :command:`ldap_bind` reports an
 "Invalid credentials (49)" error.
 
 .. tip:: Using %brand% systems for both AD server and client requires
