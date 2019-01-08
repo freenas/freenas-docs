@@ -24,28 +24,34 @@ Carefully unpack the shipping boxes and locate these components:
 .. table::
    :class: longtable
 
-   +--------------------------------------------+------------------------------------------------+
-   | .. image:: images/truenas/x.png            | .. image:: images/truenas/es12_bezel.png       |
-   |                                            |                                                |
-   | ES12 Expansion Shelf                       | ES12 Bezel                                     |
-   +--------------------------------------------+------------------------------------------------+
-   | .. image:: images/truenas/x_rails.png      | .. image:: images/truenas/x_drivetrays.png     |
-   |                                            |    :width: 90%                                 |
-   | Set of rackmount rails. The rails have a   |                                                |
-   | specific front end, identified by a label  | A total of 12 populated or empty "air baffle"  |
-   | visible on the left above. The front ends  | drive trays. Trays must be installed in all    |
-   | of the rails must be installed facing the  | bays to maintain proper airflow for cooling.   |
-   | front of the rack.                         | Up to ten drive trays are packed in a          |
-   |                                            | cardboard tray. Additional drive trays are     |
-   |                                            | packed with the accessory kit.                 |
-   +--------------------------------------------+------------------------------------------------+
-   | .. image:: images/truenas/x_acckit.png     | .. image:: images/truenas/sascables_minihd.png |
-   |    :width: 80%                             |    :width: 40%                                 |
-   |                                            |                                                |
-   | Accessory kit with 2 IEC C13 to NEMA 5-15P | Two 3-meter Mini SAS HD to Mini SAS HD         |
-   | power cords, 2 IEC C14 to C14 cords, and a | cables                                         |
-   | set of velcro cable ties                   |                                                |
-   +--------------------------------------------+------------------------------------------------+
+   +-------------------------------------------------------+-------------------------------------------------------+
+   | .. image:: images/truenas/x.png                       | .. image:: images/truenas/es12_bezel.png              |
+   |                                                       |                                                       |
+   | ES12 Expansion Shelf                                  | ES12 Bezel                                            |
+   +-------------------------------------------------------+-------------------------------------------------------+
+   | .. image:: images/truenas/x_rails.png                 | .. image:: images/truenas/x_drivetrays.png            |
+   |                                                       |    :width: 90%                                        |
+   | Set of rackmount rails. The rails have a specific     |                                                       |
+   | front end, identified by a label visible on the left  | A total of 12 populated or empty "air baffle" drive   |
+   | above. The front ends of the rails must be installed  | trays. Trays must be installed in all bays to         |
+   | facing the front of the rack.                         | maintain proper airflow for cooling. Up to ten drive  |
+   |                                                       | trays are packed in a cardboard tray. Additional      |
+   |                                                       | drive trays are packed with the accessory kit.        |
+   |                                                       |                                                       |
+   +-------------------------------------------------------+-------------------------------------------------------+
+   |                                                       | |pic1|        |pic2|                                  |
+   |                                                       |                                                       |
+   | .. image:: images/truenas/x_acckit.png                | .. |pic1| image:: images/truenas/sascables_minihd.png |
+   |    :width: 90%                                        |    :width: 45%                                        |
+   |                                                       |                                                       |
+   |                                                       | .. |pic2| image:: images/truenas/x_railextenders.png  |
+   | Accessory kit with 2 IEC C13 to NEMA 5-15P power      |    :width: 45%                                        |
+   | cords, 2 IEC C14 to C14 cords, and a set of velcro    |                                                       |
+   | cable ties                                            | Two 3-meter Mini SAS HD to Mini SAS HD cables and     |
+   |                                                       | rail extenders for racks over 30" deep                |
+   |                                                       |                                                       |
+   |                                                       |                                                       |
+   +-------------------------------------------------------+-------------------------------------------------------+
 
 
 .. raw:: latex
@@ -129,50 +135,56 @@ Connect Power Cords
 Connect SAS Cables
 ~~~~~~~~~~~~~~~~~~
 
-Shut down and power off the %brand% X series. Remove the X series
-power cables from the power outlets.
-
 Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
-Connect an SAS cable from the ES12 expander module 1 T1 connector to
-the X series storage controller 1 SAS 1 connector (cable #1 in photo).
+The ES12 is compatible with many different %brand% systems. These images
+show the typical SAS cable connections for different %brand% High
+Availability (HA) systems to connect to two ES12 units.
 
-If the X series has a second storage controller for HA (High
-Availability), connect a second SAS cable from the ES12 expander module
-2 to the X series storage controller 2 SAS 1 connector (cable #2 in
-photo).
+**X-Series**
 
-
-.. _es12_sasconnect1:
-.. figure:: images/truenas/es12_sasconnect1.png
-   :width: 50%
+.. _es60_xseries_sasconnect:
+.. figure:: images/truenas/x_sas_wiring.png
 
 
-A second ES12 can also be connected to the X series. Connect the first
-ES12 as shown above. Then connect the second ES12, running SAS cables
-from the ES12 T1 connectors to the SAS 2 connectors on the X series.
+**M40**
 
-.. _es12_sasconnect2:
-.. figure:: images/truenas/es12_sasconnect2.png
-   :width: 50%
+.. _es60_m40_sasconnect:
+.. figure:: images/truenas/m40_sas_wiring.png
+   :width: 95%
 
 
-Use with the ES60 Expansion Shelf (X20 Only)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. raw:: latex
 
-The X20 supports using an ES60 Expansion Shelf in combination with the
-ES12. Connect the ES60 to the X20 SAS 1 ports, and connect the ES12
-to the X20 SAS 2 ports.
+   \newpage
 
 
-.. _es12_sasconnect3:
-.. figure:: images/truenas/es12_sasconnect3.png
-   :width: 50%
+**M50**
+
+.. _es60_m50_sasconnect:
+.. figure:: images/truenas/m50_sas_wiring.png
+   :width: 80%
 
 
-After all SAS cables have been connected, plug the X series power
-cords into power outlets.
+Connect SAS cables to the ES12 unit "T" slots. The next image shows the
+typical SAS connections for two ES12 units that connect to a High
+Availability (HA) %brand% system with two storage controllers.
+
+.. _es12_sasconnect:
+.. figure:: images/truenas/es12_sas_connections.png
+
+
+* Cable #1 connects to the ES12 expansion controller 1 T1 slot.
+
+* Cable #2 connects to the ES12 expansion controller 2 T1 slot. This is
+  for %brand% systems that have a second storage controller for HA.
+
+* Cable #3 connects to the second ES12 unit expansion controller 1 T1
+  slot.
+
+* Cable #4 connects to the second ES12 unit expansion controller 2 T1
+  slot.
 
 
 Install Bezel (Optional)

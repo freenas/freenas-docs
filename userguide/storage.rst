@@ -209,9 +209,12 @@ a pool with encryption:
 * %brand% encryption is different from the encryption used in
   Oracle's proprietary, non-open source version of ZFS.
 
-* In %brand%, entire disks are encrypted, not individual filesystems.
-  Encrypted devices are created from the underlying drives, then the
-  pool is created on top of the encrypted devices.
+* In %brand%, entire disk partitions are encrypted, not individual
+  filesystems. A partition table is created on an unencrypted drive.
+  Data partitions are then created and encrypted data is stored in
+  those partitions. These are generally called "encrypted drives", even
+  though the partition table is not encrypted. To use the drive firmware
+  to completely encrypt the drive, see :ref:`Self-Encrypting Drives`.
 
 * This type of encryption is primarily useful for users wanting the
   ability to remove disks from the pool without having to first wipe the
@@ -448,7 +451,7 @@ message. This will reopen the pool creation screen described in the
 previous paragraph, but with the pool name displayed as read-only.
 
 
-..index:: Remove cache or log device
+.. index:: Remove cache or log device
 .. _Removing Cache or Log Devices:
 
 Removing Cache or Log Devices
@@ -491,6 +494,15 @@ To add a device to an existing pool, click the pool name,
 :guilabel:`CONTINUE` to bypass the warning message. This will reopen the
 pool creation screen described in the previous paragraph, but with the
 pool name displayed as read-only.
+
+.. danger:: When adding a spare disk to an encrypted pool the
+   passphrase and recovery key are reset. Click
+   :guilabel:`Download Recovery Key` after adding the spare device. Then,
+   create a new passphrase by clicking
+   |pool-lock| :menuselection:`--> Create Passphrase`.
+   Since creating a new passphrase invalidates the recovery key, click
+   |pool-lock| :menuselection:`--> Add Recovery Key`
+   to add a new one.
 
 
 .. _Extending a Pool:
@@ -1700,10 +1712,8 @@ in :ref:`Managing Encrypted Pools` **before** attempting to replace
 the failed drive. Then, follow steps 1 and 2 as described above.
 During step 3, there will be a prompt to enter and confirm the
 passphrase for the pool. Enter this information, then click
-:guilabel:`REPLACE DISK`. Wait until resilvering is complete.
-
-Next, restore the encryption keys to the pool.
-**If this additional step is not performed before the next
+:guilabel:`REPLACE DISK`. Immediately restore the encryption keys to the
+pool. **If this additional step is not performed before the next
 reboot, access to the pool might be permanently lost.**
 
 #.  Highlight the pool that contains the recently replaced disk

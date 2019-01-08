@@ -33,7 +33,7 @@ Getting %brand%
 -------------------------
 
 The latest STABLE version of %brand% |release| is available for download
-from `<https://download.freenas.org/latest/>`__.
+from `<https://download.freenas.org/11.2/MASTER/latest/>`__.
 
 .. note:: %brand% requires 64-bit hardware.
 
@@ -162,10 +162,7 @@ but enter the name of the downloaded :file:`.iso` into the
 and
 `Rufus <http://rufus.akeo.ie/>`__
 are alternate programs for writing images to USB sticks on a computer
-running Windows. When using Rufus, check
-:guilabel:`Create a bootable disk using` and select *DD Image* from
-the drop-down menu.
-
+running Windows. 
 
 .. _On macOS:
 
