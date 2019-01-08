@@ -123,7 +123,7 @@ these settings by checking
    |                          |               |             |                                                                                                                     |
    +--------------------------+---------------+-------------+---------------------------------------------------------------------------------------------------------------------+
    | Encryption Mode          | drop-down     | ✓           | Choices are *Off*, *SSL*, or *TLS*. Refer to `SSL vs. TLS                                                           |
-   |                          |               |             | <https://www.globalsign.com/en/blog/ssl-vs-tls-difference/>`__ for more information on TLS and SSL.                 |
+   |                          |               |             | <https://www.globalsign.com/en/blog/ssl-vs-tls-difference/>`__ for more information on SSL and TLS.                 |
    |                          | menu          |             |                                                                                                                     |
    |                          |               |             |                                                                                                                     |
    +--------------------------+---------------+-------------+---------------------------------------------------------------------------------------------------------------------+
@@ -559,7 +559,7 @@ Those new to LDAP terminology should read the
    | Encryption Mode         | drop-down    | ✓           | Choices are *Off*, *SSL*, or *TLS*. Note that either *SSL* or *TLS* and a                      |
    |                         | menu         |             | :guilabel:`Certificate` must be selected for authentication to work.                           |
    |                         |              |             | Refer to `SSL vs. TLS <https://www.globalsign.com/en/blog/ssl-vs-tls-difference/>`__           |
-   |                         |              |             | for more information on TLS and SSL.                                                           |
+   |                         |              |             | for more information on SSL and TLS.                                                           |
    |                         |              |             |                                                                                                |
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
    | Certificate             | drop-down    | ✓           | Select the certificate of the LDAP CA (required if authentication is used).                    |
