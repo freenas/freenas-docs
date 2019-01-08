@@ -61,6 +61,25 @@ To ensure both systems are set to the same time:
 
 * set either localtime or universal time at the BIOS level
 
+Using a %brand% system as an AD server and connecting to it with a
+%brand% client requires additional configuration. On the AD server, go
+to
+:menuselection:`System --> CAs`
+and create a new internal or intermediate
+:ref:`Certificate Authority (CA) <CAs>`. Click |ui-options| and
+:guilabel:`View` for the CA and copy the :guilabel:`Certificate` and
+:guilabel:`Private Key`
+
+Go to the client |web-ui| and click to
+:menuselection:`Directory Services --> Active Directory --> Advanced`.
+Set :guilabel:`Encryption Mode` to *TLS* and :guilabel:`SASL wrapping`
+to *sign*. Go to
+:menuselection:`System --> CAs`
+and click |ui-add|. Create a unique :guilabel:`Identifier`, set
+:guilabel:`Type` to *Import CA*, and paste the AD server CA certificate
+and private keys in the related fields. Click :guilabel:`Save` and
+continue configuring AD
+
 :numref:`Figure %s <ad_fig>` shows
 :menuselection:`Directory Services --> Active Directory` settings.
 
@@ -273,13 +292,6 @@ account password cannot contain the *$* character. If a :literal:`$`
 exists in the domain administrator password, :command:`kinit` reports a
 "Password Incorrect" error and :command:`ldap_bind` reports an
 "Invalid credentials (49)" error.
-
-.. tip:: Using %brand% systems for both AD server and client requires
-   creating a :ref:`CA <CAs>` on the AD server and exporting the CA with
-   the unique certificate and private key to the client using the client
-   :ref:`CA <CAs>` menu. Set :guilabel:`Encryption Mode` to *TLS* and
-   :guilabel:`SASL wrapping` to *sign* on the AD server.
-
 
 It can take a few minutes after configuring the Active Directory
 service for the AD information to be populated to the %brand% system.
