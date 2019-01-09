@@ -1456,6 +1456,11 @@ screen is really a front-end to
    | Description                 | string            | Enter an optional server description.                                                                |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Enable SMB1 support         | checkbox          | Allow legacy SMB clients to connect to the server. **Warning:** SMB1 has been deprecated as it is    |
+   |                             |                   | known to be insecure. Maintain server security by upgrading clients to an operating system version   |
+   |                             |                   | that supports the latest version of the SMB protocol and leaving this option unset.                  |
+   |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    | DOS charset                 | drop-down menu    | The character set Samba uses when communicating with DOS and Windows 9x/ME clients. Default is       |
    |                             |                   | *CP437*.                                                                                             |
    |                             |                   |                                                                                                      |
@@ -1677,6 +1682,23 @@ unless there is a specific need.**
 * Disable as many :guilabel:`VFS Objects` as possible in the
   :ref:`share settings <smb_share_opts_tab>`. Many have performance
   overhead.
+
+
+Check if SMB1 support is needed by opening the :ref:`Shell` and
+verifying the value of :literal:`server min protocol`:
+
+.. code-block:: none
+
+   [root@freenas ~]# cd /usr/local/etc
+   [root@freenas /usr/local/etc]# cat smb4.conf
+   [global]
+       server min protocol = NT1
+       ...
+
+
+If :literal:`NT1` shows, go to
+:menuselection:`Services --> SMB`
+and set :guilabel:`Enable SMB1 support`.
 
 
 .. index:: SNMP, Simple Network Management Protocol
