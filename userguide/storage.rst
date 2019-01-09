@@ -235,10 +235,12 @@ intended use:
 * %brand% encryption is different from the encryption used in
   Oracle's proprietary, non-open source version of ZFS.
 
-* In %brand%, entire disks are encrypted, not individual filesystems.
-  Encrypted devices are created from the underlying drives, then the
-  volume (pool) is created on top of the encrypted devices. Data is
-  encrypted as it is written and decrypted as it is read.
+* In %brand%, entire disk partitions are encrypted, not individual
+  filesystems. A partition table is created on an unencrypted drive.
+  Data partitions are then created and encrypted data is stored in
+  those partitions. These are generally called "encrypted drives", even
+  though the partition table is not encrypted. To use the drive firmware
+  to completely encrypt the drive, see :ref:`Self-Encrypting Drives`.
 
 * This type of encryption is primarily useful for users storing
   sensitive data but wanting the ability to remove disks from the pool
