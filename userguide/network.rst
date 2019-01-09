@@ -351,7 +351,7 @@ summarizes the options available when configuring IPMI with the
    |                      |                |                                                                              |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | Password             | string         | Enter the password used to connect to the IPMI interface from a web browser. |
-   |                      |                |                                                                              |
+   |                      |                | The maximum length is 20 characters.                                         |
    +----------------------+----------------+------------------------------------------------------------------------------+
    | DHCP                 | checkbox       | If left unset, the next three fields must be set.                            |
    |                      |                |                                                                              |
