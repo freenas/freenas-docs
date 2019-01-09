@@ -417,6 +417,15 @@ U6
   been removed from
   :menuselection:`Directory Services --> Active Directory --> Advanced Mode`.
 
+U6.3
+~~~~
+
+* Netatalk has been patched to address
+  `CVE-2018-1160 <https://nvd.nist.gov/vuln/detail/CVE-2018-1160>`__.
+
+
+
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
