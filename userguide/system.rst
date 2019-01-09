@@ -2681,13 +2681,20 @@ and described in
    +----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-.. warning:: Booting an HA pair with failover disabled causes both
-   nodes to come up in standby mode. The |web-ui| shows an additional
-   :guilabel:`Force Takeover` button which can be used to force that
-   node to take control.
+**Notes about High Availability and failovers:**
 
-.. tip:: The %brand% version of the :command:`ifconfig` command adds
-   two additional fields to the output to help with failover
-   troubleshooting: :samp:`CriticalGroup{n}` and :samp:`Interlink`.
+Booting an HA pair with failover disabled causes both nodes to come up
+in standby mode. The |web-ui| shows an additional
+:guilabel:`Force Takeover` button which can be used to force that node
+to take control.
+
+The %brand% version of the :command:`ifconfig` command adds two
+additional fields to the output to help with failover troubleshooting:
+:samp:`CriticalGroup{n}` and :samp:`Interlink`.
+
+If both nodes reboot simultaneously, the GELI passphrase for an
+:ref:`encrypted <Encryption>` zpool must be entered at the |web-ui|
+login screen.
+
 
 #endif truenas
