@@ -332,9 +332,9 @@ Creating Authenticated and Time Machine Shares
 
 macOS includes the Time Machine feature which can be used to perform
 automatic back ups.  In this configuration example, a Time Machine user
-is configured to backup to an AFP share on a %brand% system. The process
-for creating an authenticated share for a user is the same as creating a
-Time Machine share for that user.
+is configured to back up to an AFP share on a %brand% system. The
+process for creating an authenticated share for a user is the same as
+creating a Time Machine share for that user.
 
 To use the Wizard to create an authenticated or Time Machine share,
 enter the following information, as seen in the example in
