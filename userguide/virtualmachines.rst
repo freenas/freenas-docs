@@ -918,8 +918,8 @@ system:
   an entry for the NFS shared directory, typically :file:`/nfs`, with
   several permissions options:
   :samp:`/nfs	{IP}(rw,sync,no_root_squash,no_subtree_check)`.
-  :literal:`{IP}` is the IP address of the client and can also be set
-  to the wildcard :literal:`*`.
+  *IP* is the IP address of the client and can also be set to the
+  wildcard :literal:`*`.
 
 * In the %brand% |web-ui|, go to
   :menuselection:`Services --> NFS Configure`.
@@ -927,5 +927,5 @@ system:
   :guilabel:`NFSv3 ownership model for NFSv4`. Click :guilabel:`SAVE`
   and restart the :guilabel:`NFS` service.
 
-* Add :literal:`:nocopy` to the end of the pool that will be mounted:
-  :samp:`mount -tnfs pool:{/mnt/pool1}:nocopy ~{nfsmounts/pool1_mount}`
+* Add :literal:`:nocopy` to the end of the pool to be mounted:
+  :samp:`mount -tnfs pool:{/mnt/pool1}:nocopy {~nfsmounts/pool1_mount}`
