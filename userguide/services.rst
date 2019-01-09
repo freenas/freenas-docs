@@ -1174,7 +1174,7 @@ configuration options. After configuring the S3 service, start it in
    | Confirm S3 Key  | string         | Re-enter the S3 password to confirm.                                                                     |
    |                 |                |                                                                                                          |
    +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Disks           | string         | The directory for S3 filesystem directory.                                                               |
+   | Disks           | string         | Required field. The directory for S3 filesystem directory.                                             |
    |                 |                |                                                                                                          |
    +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
    | Certificate     | drop-down menu | The SSL certificate to be used for secure S3 connections. To create a  certificate, use                  |
