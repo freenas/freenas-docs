@@ -111,8 +111,9 @@ advanced options.
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Enable AD Monitoring     | checkbox      |          | Restart Active Directory automatically if the service disconnects.                                                            |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Encryption Mode          | drop-down     | ✓        | Choices are *Off*, *SSL*, or *TLS*.                                                                                           |
-   |                          | menu          |          |                                                                                                                               |
+   | Encryption Mode          | drop-down     | ✓        | Choices are *Off*, *SSL*, or *TLS*. Refer to `SSL vs. TLS                                                                     |
+   |                          | menu          |          | <https://www.globalsign.com/en/blog/ssl-vs-tls-difference/>`__ for more information on SSL and TLS.                           |
+   |                          |               |          |                                                                                                                               |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Certificate              | drop-down menu| ✓        | Select the certificate of the Active Directory server if  SSL connections are used. If a certificate does not exist, create   |
@@ -520,7 +521,9 @@ Those new to LDAP terminology should read the
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Encryption Mode         | drop-down menu | ✓        | Choices are *Off*, *SSL*, or *TLS*. Note: *SSL* or *TLS* and a :guilabel:`Certificate` must be      |
-   |                         |                |          | selected for authentication to work.                                                                |
+   |                         |                |          | selected for authentication to work. Refer to `SSL vs. TLS                                          |
+   |                         |                |          | <https://www.globalsign.com/en/blog/ssl-vs-tls-difference/>`__                                      |
+   |                         |                |          | for more information on TLS and SSL.                                                                |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Certificate             | drop-down menu | ✓        | The LDAP CA certificate. The certificate for the LDAP server CA must first be imported using the    |
