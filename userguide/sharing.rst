@@ -1383,7 +1383,7 @@ SMB shares, which means that additional licensing costs are not
 required. However, because there is no domain controller to provide
 authentication for the network, each user account must be created on the
 %brand% system. This type of configuration scenario is often used in
-home and small networks as it does not scale well if many users accounts
+home and small networks as it does not scale well if many user accounts
 are needed.
 
 Before configuring this scenario, determine which users need
