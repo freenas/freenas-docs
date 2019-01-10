@@ -1174,7 +1174,10 @@ configuration options. After configuring the S3 service, start it in
    | Confirm S3 Key  | string         | Re-enter the S3 password to confirm.                                                                     |
    |                 |                |                                                                                                          |
    +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
-   | Disks           | string         | Required field. The directory for S3 filesystem directory.                                             |
+   | Disks           | string         | Required. Directory where the S3 filesystem will be mounted. Ownership of this                           |
+   |                 |                | directory and all subdirectories is set to *minio:minio*.                                                |
+   |                 |                | :ref:`Create a separate dataset <Create Dataset>`                                                        |
+   |                 |                | for Minio to avoid issues with conflicting directory permissions or ownership.                           |
    |                 |                |                                                                                                          |
    +-----------------+----------------+----------------------------------------------------------------------------------------------------------+
    | Certificate     | drop-down menu | The SSL certificate to be used for secure S3 connections. To create a  certificate, use                  |
