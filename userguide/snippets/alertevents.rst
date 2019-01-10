@@ -61,6 +61,12 @@ Some of the conditions that trigger an alert include:
 
 * a S.M.A.R.T. error occurs
 
+#ifdef truenas
+
+* the system dataset does not reside on the boot pool
+
+#endif truenas
+
 * the system is unable to bind to the :guilabel:`WebGUI IPv4 Address`
   set in
   :menuselection:`System --> General`
