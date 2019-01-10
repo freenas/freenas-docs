@@ -2380,7 +2380,7 @@ To generate a support ticket, fill in the fields:
   screenshots of any errors or tracebacks can be included. Click the
   :guilabel:`+` button to add more attachments.
 
-After completing the fields, click :guilabel:`Submit` button to
+After completing the fields, click the :guilabel:`Submit` button to
 generate and send the support ticket to iXsystems. A pop-up menu
 provides a clickable URL to view the status of or add additional
 information to that support ticket.
