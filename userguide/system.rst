@@ -911,8 +911,9 @@ shown in
    | Username          | string        | Enter the SMTP username if the SMTP server requires authentication.                       |
    |                   |               |                                                                                           |
    +-------------------+---------------+-------------------------------------------------------------------------------------------+
-   | Password          | string        | Enter the SMTP password if the SMTP server requires authentication.                       |
-   |                   |               |                                                                                           |
+   | Password          | string        | Enter the SMTP password if the SMTP server requires authentication. Accepts 8-bit ASCII   |
+   |                   |               | symbols (:literal:`!,",#,...`) and alphanumeric (:literal:`Abc123...`) plain text         |
+   |                   |               | characters only.                                                                          |
    +-------------------+---------------+-------------------------------------------------------------------------------------------+
    | Password          | string        | Confirm the SMTP password.                                                                |
    | Confirmation      |               |                                                                                           |
