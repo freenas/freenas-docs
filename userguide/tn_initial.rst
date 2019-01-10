@@ -274,24 +274,22 @@ Enter the default password of *abcd1234*.
    :guilabel:`Password confirmation` fields, and click :guilabel:`OK`
    to save the new password to use on subsequent logins.
 
-On the first login, the EULA found in :ref:`Appendix A` is displayed,
-along with a box where the license key for the %brand% array can be
-pasted. Read the EULA, paste in the license key, then click
-:guilabel:`OK`. The administrative GUI appears, as shown in the
-example in
-:numref:`Figure %s <tn_initial>`.
+On the first login, the End User License Agreement (EULA) found in
+:ref:`Appendix A` is displayed, along with a box where the license key
+for the %brand% array can be pasted. Read the EULA, paste in the license
+key, then click :guilabel:`I agree` to accept the EULA and apply the
+license.
+
+Alternately, press :guilabel:`Cancel` if the license key is not yet
+available or you wish to discuss the EULA with an iXsystems
+representative before agreeing to it. Pressing :guilabel:`Cancel` still
+allows access to the administrative GUI but this initial screen
+continues to display at every login until the EULA is agreed to and the
+license applied.
 
 .. note:: Entering the license key for a High Availability pair is
    not allowed unless both the active and standby computers are up.
    The key is entered on the active computer.
-
-
-.. _tn_initial:
-
-.. figure:: images/tn_initial1c.png
-
-   %brand% Graphical Configuration Menu
-
 
 .. note:: If the storage devices have been encrypted, a prompt appears
    for the passphrase. It must be correctly entered for the data on
@@ -300,6 +298,17 @@ example in
    long as either node in the HA unit remains up. If both nodes are
    powered off, the passphrase must be re-entered when the first node
    powers back up.
+
+
+After the user has clicked :guilabel:`I agree` or :guilabel:`Cancel`,
+the administrative GUI appears, as shown in the example in
+:numref:`Figure %s <tn_initial>`.
+
+.. _tn_initial:
+
+.. figure:: images/tn_initial1c.png
+
+   %brand% Graphical Configuration Menu
 
 
 If the user interface is not accessible by IP address from a browser,
