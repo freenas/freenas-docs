@@ -2430,7 +2430,7 @@ The Proactive Support fields are:
 
 * **Secondary Title** is the title of the secondary contact person.
 
-* **SecondaryE-mail** is the email address of the secondary contact
+* **Secondary E-mail** is the email address of the secondary contact
   person.
 
 * **Secondary Phone** is the phone number of the secondary contact
