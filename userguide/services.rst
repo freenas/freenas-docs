@@ -1686,7 +1686,7 @@ unless there is a specific need.**
 .. needs link to smb1 knowledgebase article, when it is published.
 
 Even though the protocol is deprecated and vulnerable, some clients can
-still require enabling SMB1 support in %brand%. See this `article <>`__
+still require enabling SMB1 support in %brand%. See this article
 for more details about how and why to enable SMB1.
 
 
