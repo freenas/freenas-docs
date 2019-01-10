@@ -1383,8 +1383,8 @@ screen is really a front-end to
    | Description                      | string            | Enter an optional server description.                                                                   |
    |                                  |                   |                                                                                                         |
    +----------------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
-   | Enable SMB1 support              | checkbox          | Allow legacy SMB clients to connect to the server. **Warning:** SMB1 has been deprecated as it is       |
-   |                                  |                   | known to be insecure. Maintain server security by upgrading clients to an operating system version      |
+   | Enable SMB1 support              | checkbox          | Allow legacy SMB clients to connect to the server. **Warning:** SMB1 is not secure and has been         |
+   |                                  |                   | deprecated by Microsoft. Maintain server security by upgrading clients to an operating system version   |
    |                                  |                   | that supports the latest version of the SMB protocol and leaving this option unset.                     |
    |                                  |                   |                                                                                                         |
    +----------------------------------+-------------------+---------------------------------------------------------------------------------------------------------+
@@ -1610,21 +1610,11 @@ unless there is a specific need.**
   overhead.
 
 
-Check if SMB1 support is needed by opening the :ref:`Shell` and
-verifying the value of :literal:`server min protocol`:
+.. needs link to smb1 knowledgebase article, when it is published.
 
-.. code-block:: none
-
-   [root@freenas ~]# cd /usr/local/etc
-   [root@freenas /usr/local/etc]# cat smb4.conf
-   [global]
-       server min protocol = NT1
-       ...
-
-
-If :literal:`NT1` shows, go to
-:menuselection:`Services --> SMB`
-and set :guilabel:`Enable SMB1 support`.
+Even though the protocol is deprecated and vulnerable, some clients can
+still require enabling SMB1 support in %brand%. See this article
+for more details about how and why to enable SMB1.
 
 
 .. index:: SNMP, Simple Network Management Protocol
