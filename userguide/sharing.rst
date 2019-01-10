@@ -1794,8 +1794,8 @@ for iSNS requests is *5* seconds.
    |                                 |                              |                                                                                           |
    |                                 |                              |                                                                                           |
    +=================================+==============================+===========================================================================================+
-   | Base Name                       | string                       | See the "Constructing iSCSI names using the iqn. format" section of :rfc:`3721`           |
-   |                                 |                              | if unfamiliar with this format.                                                           |
+   | Base Name                       | string                       | Lowercase alphanumeric characters plus dot (.), dash (-), and colon (:) are allowed.      |
+   |                                 |                              | See the "Constructing iSCSI names using the iqn. format" section of :rfc:`3721`.          |
    |                                 |                              |                                                                                           |
    +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
    | ISNS Servers                    | string                       | Enter the hostnames or IP addresses of ISNS servers to be registered with iSCSI targets   |
@@ -2102,8 +2102,9 @@ summarizes the settings that can be configured when creating a Target.
    |                             |                |                                                                                                             |
    |                             |                |                                                                                                             |
    +=============================+================+=============================================================================================================+
-   | Target Name                 | string         | Required value. Base name will be appended automatically if it does not start with *iqn*.                   |
-   |                             |                |                                                                                                             |
+   | Target Name                 | string         | Required. The base name is automatically prepended if the target name does not start with *iqn*.            |
+   |                             |                | Lowercase alphanumeric characters plus dot (.), dash (-), and colon (:) are allowed.                        |
+   |                             |                | See the "Constructing iSCSI names using the iqn. format" section of :rfc:`3721`.                            |
    +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
    | Target Alias                | string         | Enter an optional user-friendly name.                                                                       |
    |                             |                |                                                                                                             |
