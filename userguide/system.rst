@@ -2399,7 +2399,7 @@ hardware conditions on the system require attention.
 
 .. note:: The fields on this tab are only enabled for Silver and Gold
    support coverage level customers. Please
-   :ref:`contact iXsystems <contacting-ixsystems>` for information on
+   :ref:`contact iXsystems <Contacting iXsystems>` for information on
    upgrading from other support levels.
 
 
