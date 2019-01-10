@@ -1610,11 +1610,11 @@ unless there is a specific need.**
   overhead.
 
 
-.. needs link to smb1 knowledgebase article, when it is published.
+.. needs link to smb1 knowledgebase article, when it is published. Adjust title of link, if necessary.
 
-Even though the protocol is deprecated and vulnerable, some clients can
-still require enabling SMB1 support in %brand%. See this article
-for more details about how and why to enable SMB1.
+The SMB1 protocol is deprecated and vulnerable. Some older clients still
+require it. Before enabling SMB1, see `Why You Should Not Use SMB1 <>`__
+for more information.
 
 
 .. index:: SNMP, Simple Network Management Protocol
