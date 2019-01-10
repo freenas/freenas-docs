@@ -1854,26 +1854,27 @@ for iSNS requests is *5* seconds.
 .. table:: Target Global Configuration Settings
    :class: longtable
 
-   +----------------------+-------------+---------------------------------------------------------------------------------------------+
-   | Setting              | Value       | Description                                                                                 |
-   |                      |             |                                                                                             |
-   +======================+=============+=============================================================================================+
-   | Base Name            | string      | See the "Constructing iSCSI names using the iqn. format" section of :rfc:`3721`             |
-   |                      |             | if unfamiliar with this format.                                                             |
-   |                      |             |                                                                                             |
-   +----------------------+-------------+---------------------------------------------------------------------------------------------+
-   | ISNS Servers         | string      | Enter the hostnames or IP addresses of ISNS servers to be registered iSCSI targets          |
-   |                      |             | and portals of the system.                                                                  |
-   |                      |             |                                                                                             |
-   +----------------------+-------------+---------------------------------------------------------------------------------------------+
-   | Pool Available       | integer     | Enter the percentage of free space to remain in the pool.                                   |
-   | Space Threshold      |             | When this percentage is reached, the system issues an alert, but only if zvols are used.    |
-   |                      |             | See :ref:`VAAI` Threshold Warning for more information.                                     |
-   +----------------------+-------------+---------------------------------------------------------------------------------------------+
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
+   | Setting                         | Value                        | Description                                                                               |
+   |                                 |                              |                                                                                           |
+   |                                 |                              |                                                                                           |
+   +=================================+==============================+===========================================================================================+
+   | Base Name                       | string                       | Lowercase alphanumeric characters plus dot (.), dash (-), and colon (:) are allowed.      |
+   |                                 |                              | See the "Constructing iSCSI names using the iqn. format" section of :rfc:`3721`.          |
+   |                                 |                              |                                                                                           |
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
+   | ISNS Servers                    | string                       | Enter the hostnames or IP addresses of ISNS servers to be registered with iSCSI targets   |
+   |                                 |                              | and portals of the system. Separate each entry with a space.                              |
+   |                                 |                              |                                                                                           |
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
+   | Pool Available Space Threshold  | integer                      | Enter the percentage of free space to in the pool. When this percentage                   |
+   |                                 |                              | is reached, the system issues an alert, but only if zvols are used. See :ref:`VAAI`       |
+   |                                 |                              | Threshold Warning for more information.                                                   |
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
 #ifdef truenas
-   | Enable iSCSI ALUA    | checkbox    | Enable ALUA for automatic best path discovery when supported by clients.                    |
-   |                      |             | This option is only available on HA systems.                                                |
-   +----------------------+-------------+---------------------------------------------------------------------------------------------+
+   | Enable iSCSI ALUA               | checkbox                     | Enable ALUA for automatic best path discovery when supported by clients.                  |
+   |                                 |                              | This option is only available on HA systems.                                              |
+   +---------------------------------+------------------------------+-------------------------------------------------------------------------------------------+
 #endif truenas
 
 
@@ -2162,33 +2163,33 @@ summarizes the settings that can be configured when creating a Target.
 .. table:: Target Settings
    :class: longtable
 
-   +-----------------------+--------------+-----------------------------------------------------------------------------------+
-   | Setting               | Value        | Description                                                                       |
-   |                       |              |                                                                                   |
-   +=======================+==============+===================================================================================+
-   | Target Name           | string       | Required value.                                                                   |
-   |                       |              | Base name will be appended automatically if it does not start with *iqn*.         |
-   |                       |              |                                                                                   |
-   +-----------------------+--------------+-----------------------------------------------------------------------------------+
-   | Target Alias          | string       | Enter an optional user-friendly name.                                             |
-   |                       |              |                                                                                   |
-   +-----------------------+--------------+-----------------------------------------------------------------------------------+
-   | Portal Group ID       | drop-down    | Leave empty or select number of existing portal to use.                           |
-   |                       | menu         |                                                                                   |
-   |                       |              |                                                                                   |
-   +-----------------------+--------------+-----------------------------------------------------------------------------------+
-   | Initiator Group ID    | drop-down    | Select which existing initiator group has access to the target.                   |
-   |                       | menu         |                                                                                   |
-   |                       |              |                                                                                   |
-   +-----------------------+--------------+-----------------------------------------------------------------------------------+
-   | Auth Method           | drop-down    | Choices are *None*, *Auto*, *CHAP*, or *Mutual CHAP*.                             |
-   |                       | menu         |                                                                                   |
-   |                       |              |                                                                                   |
-   +-----------------------+--------------+-----------------------------------------------------------------------------------+
-   | Authentication        | drop-down    | Select *None* or an integer representing number of existing authorized access.    |
-   | Group number          | menu         |                                                                                   |
-   |                       |              |                                                                                   |
-   +-----------------------+--------------+-----------------------------------------------------------------------------------+
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Setting                     | Value          | Description                                                                                                 |
+   |                             |                |                                                                                                             |
+   |                             |                |                                                                                                             |
+   +=============================+================+=============================================================================================================+
+   | Target Name                 | string         | Required. The base name is automatically prepended if the target name does not start with *iqn*.            |
+   |                             |                | Lowercase alphanumeric characters plus dot (.), dash (-), and colon (:) are allowed.                        |
+   |                             |                | See the "Constructing iSCSI names using the iqn. format" section of :rfc:`3721`.                            |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Target Alias                | string         | Enter an optional user-friendly name.                                                                       |
+   |                             |                |                                                                                                             |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Portal Group ID             | drop-down menu | Leave empty or select number of existing portal to use.                                                     |
+   |                             |                |                                                                                                             |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Initiator Group ID          | drop-down menu | Select which existing initiator group has access to the target.                                             |
+   |                             |                |                                                                                                             |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Auth Method                 | drop-down menu | Choices are: *None*,                                                                                        |
+   |                             |                | *Auto*,                                                                                                     |
+   |                             |                | *CHAP*, or                                                                                                  |
+   |                             |                | *Mutual CHAP*.                                                                                              |
+   |                             |                |                                                                                                             |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
+   | Authentication Group number | drop-down menu | Select *None* or an integer. This number represents the number of existing authorized accesses.             |
+   |                             |                |                                                                                                             |
+   +-----------------------------+----------------+-------------------------------------------------------------------------------------------------------------+
 
 
 .. _Extents:
