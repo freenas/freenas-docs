@@ -2398,8 +2398,9 @@ The Proactive Support feature can notify iXsystems by email when
 hardware conditions on the system require attention.
 
 .. note:: The fields on this tab are only enabled for Silver and Gold
-   support coverage level customers. Please contact iXsystems for
-   information on upgrading from other support levels.
+   support coverage level customers. Please
+   :ref:`contact iXsystems <Contacting iXsystems>` for information on
+   upgrading from other support levels.
 
 
 .. _tn_proactive_support:
@@ -2429,7 +2430,7 @@ The Proactive Support fields are:
 
 * **Secondary Title** is the title of the secondary contact person.
 
-* **SecondaryE-mail** is the email address of the secondary contact
+* **Secondary E-mail** is the email address of the secondary contact
   person.
 
 * **Secondary Phone** is the phone number of the secondary contact
