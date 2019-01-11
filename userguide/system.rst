@@ -1619,7 +1619,7 @@ are entered here. Amazon S3, Azure Blob Storage, Backblaze B2, and
 Google Cloud Storage are supported.
 
 .. warning:: Cloud credentials are encrypted. The credentials are lost
-   when the the encryption key is not preserved.
+   when the FreeNAS config is exported without the encryption key.
 
 Select
 :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
