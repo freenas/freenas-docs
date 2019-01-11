@@ -910,7 +910,8 @@ shown in
    | Username             | string               | Enter the SMTP username if the SMTP server requires authentication.                             |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Password             | string               | Enter the SMTP password if the SMTP server requires authentication.                             |
+   | Password             | string               | Enter the SMTP password if the SMTP server requires authentication. Only plain text characters  |
+   |                      |                      | (8-bit ASCII) are allowed in passwords. UTF or composed characters are not allowed.             |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Confirm Password     | string               | Confirm the SMTP previous password.                                                             |
