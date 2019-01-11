@@ -34,17 +34,16 @@ system to meet the requirements of the network.
 
 These types of shares and services are available:
 
-* :ref:`AFP <Apple (AFP) Shares>`: Apple File Protocol shares are
-  often used when the client computers all run macOS. Apple has
-  slowly shifted to preferring :ref:`SMB <Windows (SMB) Shares>` for
-  modern networks, although Time Machine still requires AFP.
+* :ref:`AFP <Apple (AFP) Shares>`: Apple Filing Protocol shares are
+  used when the client computers all run macOS. Apple has deprecated
+  AFP in favor of :ref:`SMB <Windows (SMB) Shares>`. Using AFP in modern
+  networks is no longer recommended.
 
 * :ref:`Unix (NFS) <Unix (NFS) Shares>`: Network File System shares
-  are accessible from Mac OS X, Linux, BSD, and the professional and
+  are accessible from macOS, Linux, BSD, and the professional and
   enterprise versions (but not the home editions) of Windows. This can
-  be are a good choice when the client computers do not all run the
-  same operating system but NFS client software is available for all
-  of them.
+  be a good choice when the client computers do not all run the same
+  operating system but NFS client software is available for all of them.
 
 * :ref:`WebDAV <WebDAV Shares>`: WebDAV shares are accessible using an
   authenticated web browser (read-only) or
@@ -53,12 +52,12 @@ These types of shares and services are available:
 
 * :ref:`SMB <Windows (SMB) Shares>`: Server Message Block shares, also
   known as Common Internet File System (CIFS) shares, are accessible
-  by Windows, Mac OS X, Linux, and BSD computers. Access is slower
+  by Windows, macOS, Linux, and BSD computers. Access is slower
   than an NFS share due to the single-threaded design of Samba. SMB
   provides more configuration options than NFS and is a good choice
-  on a network for Windows systems. However, it is a poor choice if
-  the CPU on the %brand% system is limited; if the CPU is maxed out,
-  upgrade the CPU or consider another type of share.
+  on a network for Windows or Mac systems. However, it is a poor choice
+  if the CPU on the %brand% system is limited. If it is maxed out,
+  upgrade the CPU or consider a different type of share.
 
 * :ref:`Block (iSCSI)`: block or iSCSI shares appear as an unformatted
   disk to clients running iSCSI initiator software or a virtualization
@@ -210,8 +209,8 @@ information given when the share was created.
    |                        |               |             | Useful for automounting or volumes created by a preexec script.                                              |
    |                        |               |             |                                                                                                              |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------+
-   | AFP3 UNIX Privs        | checkbox      | ✓           | Set to enable Unix privileges supported by OSX 10.5 and higher.                                              |
-   |                        |               |             | Do not enable this if the network contains macOS 10.4 clients or lower.                                      |
+   | AFP3 UNIX Privs        | checkbox      | ✓           | Set to enable Unix privileges supported by Mac OS X 10.5 and higher.                                         |
+   |                        |               |             | Do not enable if the network has Mac OS X 10.4 or lower clients.                                             |
    |                        |               |             | Those systems do not support this feature.                                                                   |
    |                        |               |             |                                                                                                              |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------+
@@ -301,10 +300,11 @@ the AFP service so the share is immediately available. The new share
 is also added as an entry to
 :menuselection:`Sharing --> Apple (AFP)`.
 
-macOS users can connect to the guest AFP share by navigating
-:menuselection:`Go --> Connect to Server`. In the example shown in
-:numref:`Figure %s <afp_connect_server_fig>`,
-the user entered *afp://* followed by the IP address of the
+macOS users can use Finder to connect to the guest AFP share by
+clicking
+:menuselection:`Go --> Connect to Server`.
+In the example shown in :numref:`Figure %s <afp_connect_server_fig>`,
+the user entered :literal:`afp://` followed by the IP address of the
 %brand% system.
 
 Click the :guilabel:`Connect` button. Once connected, Finder opens
@@ -330,14 +330,11 @@ the :guilabel:`Shared` sidebar.
 Creating Authenticated and Time Machine Shares
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-macOS includes the Time Machine application which can be used to
-schedule automatic backups.  In this configuration example, a Time
-Machine user will be configured to backup to an AFP share on a
-%brand% system. Creating a separate Time Machine
-share for each user that will be using Time Machine to backup their
-macOS system to %brand% is recommended. The process for creating
-an authenticated share for a user is the same as creating a
-Time Machine share for that user.
+macOS includes the Time Machine feature which can be used to perform
+automatic back ups.  In this configuration example, a Time Machine user
+is configured to back up to an AFP share on a %brand% system. The
+process for creating an authenticated share for a user is the same as
+creating a Time Machine share for that user.
 
 To use the Wizard to create an authenticated or Time Machine share,
 enter the following information, as seen in the example in
@@ -793,9 +790,9 @@ best results, use :ref:`Windows (SMB) Shares`.
 .. _From macOS:
 
 From macOS
-^^^^^^^^^^^^^
+^^^^^^^^^^
 
-To mount the NFS volume from a macOS client, go to
+A macOS client uses Finder to mount the NFS volume. Go to
 :menuselection:`Go --> Connect to Server`.
 In the :guilabel:`Server Address` field, enter *nfs://* followed by
 the IP address of the %brand% system and the name of the
@@ -1319,7 +1316,7 @@ for more details.
    |                     | (see `<https://marc.info/?l=samba&m=132542069802160&w=2>`__).                                                                   |
    |                     |                                                                                                                                 |
    +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | streams_xattr       | Enables storing of NTFS alternate data streams in the file system.                                                              |
+   | streams_xattr       | Enabled by default. Enables storing of NTFS alternate data streams in the file system.                                          |
    |                     |                                                                                                                                 |
    +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | syncops             | Ensures metadata operations are performed synchronously.                                                                        |
@@ -1433,24 +1430,24 @@ share from a Windows system, open Explorer and click on
 user can copy data to and from the unauthenticated SMB share.
 
 
-.. _Configuring Authenticated Access Without a Domain Controller:
+.. _Configuring Authenticated Access With Local Users:
 
-Configuring Authenticated Access Without a Domain Controller
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configuring Authenticated Access With Local Users
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Most configuration scenarios require each user to have their own user
 account and to authenticate before accessing the share. This allows
 the administrator to control access to data, provide appropriate
 permissions to that data, and to determine who accesses and modifies
-stored data. A Windows domain controller is not needed for
-authenticated SMB shares, which means that additional licensing costs
-are not required. However, since there is no domain controller to
-provide authentication for the network, each user account needs to be
-created on the %brand% system. This type of configuration scenario is
-often used in home and small networks as it does not scale well if
-many users accounts are needed.
+stored data. A Windows domain controller is not needed for authenticated
+SMB shares, which means that additional licensing costs are not
+required. However, because there is no domain controller to provide
+authentication for the network, each user account must be created on the
+%brand% system. This type of configuration scenario is often used in
+home and small networks as it does not scale well if many user accounts
+are needed.
 
-Before configuring this scenario, determine which users will need
+Before configuring this scenario, determine which users need
 authenticated access. While not required for the configuration, it
 eases troubleshooting if the username and password that will be
 created on the %brand% system matches that information on the client
@@ -1629,12 +1626,12 @@ caveats:
   all snapshots associated with the SMB share.
 
 To configure shadow copy support, use the instructions in
-:ref:`Configuring Authenticated Access Without a Domain Controller`
-to create the desired number of shares. In this configuration example,
-a Windows 7 computer has two users: *user1* and *user2*. For this
-example, two authenticated shares are created so that each user
-account has their own share. The first share is named *user1* and the
-second share is named *user2*. Then:
+:ref:`Configuring Authenticated Access With Local Users` to create the
+desired number of shares. In this configuration example, a Windows 7
+computer has two users: *user1* and *user2*. For this example, two
+authenticated shares are created so that each user account has their own
+share. The first share is named *user1* and the second share is named
+*user2*. Then:
 
 #. Use
    :menuselection:`Storage --> Periodic Snapshot Tasks
@@ -2563,7 +2560,7 @@ This
 <https://www.pluralsight.com/blog/software-development/freenas-8-iscsi-target-windows-7>`__
 shows how to create an iSCSI target for a Windows 7 system.
 
-Mac OS X does not include an initiator.
+macOS does not include an initiator.
 `globalSAN
 <http://www.studionetworksolutions.com/globalsan-iscsi-initiator/>`__
 is a commercial, easy-to-use Mac initiator.
