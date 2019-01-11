@@ -271,8 +271,8 @@ mouse input.
 .. note:: Using a non-US keyboard via VNC is not yet supported. As a
    workaround, select the US keymap on the system running the VNC client,
    then configure the operating system running in the VM to use a
-   keymap that matches the physical keyboard. This will enable passthrough
-   of all keys regardless of the keyboard layout.
+   keymap that matches the physical keyboard. This will enable
+   passthrough of all keys regardless of the keyboard layout.
 
 
 :numref:`Figure %s <vms-vnc_fig>` shows the fields that appear when
@@ -582,6 +582,7 @@ If the terminal does not show a :literal:`rancher login:` prompt,
 press :kbd:`Enter`. The Docker VM can take some time to start and
 display the login prompt.
 
+.. _Installing and Configuring the Rancher Server:
 
 Installing and Configuring the Rancher Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -648,4 +649,41 @@ Host displays in the |web-ui|. Rancher is now configured and ready for
 use.
 
 For more information on using RancherOS, see the RancherOS
-`Documentation <https://rancher.com/docs/os/v1.x/en/>`__.
+`documentation <https://rancher.com/docs/os/v1.x/en/>`__.
+
+
+.. _Configure Rancher Containers with NFS Pass-through:
+
+Configuring Persistent NFS-Shared Volumes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Rancher supports using a single persistent volume with multiple
+containers. This volume can also be shared with %brand% using NFS.
+%brand% must be configured with specific NFS permissions and a
+`Rancher NFS server
+<https://rancher.com/docs/rancher/v1.6/en/rancher-services/storage-service/rancher-nfs/>`__
+must have a properly configured `stack scoped volume
+<https://rancher.com/docs/rancher/v1.6/en/cattle/volumes/#volume-scopes>`__.
+
+A stack scoped volume is data that is managed by a single Rancher stack.
+The volume is shared by all services that reference it in the stack.
+
+Configure NFS sharing for a stack scoped volume by setting specific
+options in the command line of the Rancher NFS server and the %brand%
+system:
+
+* Log in to the Rancher NFS server and modify :file:`/etc/exports`. Add
+  an entry for the NFS shared directory, typically :file:`/nfs`, with
+  several permissions options:
+  :samp:`/nfs	{IP}(rw,sync,no_root_squash,no_subtree_check)`.
+  *IP* is the IP address of the client and can also be set to the
+  wildcard :literal:`*`.
+
+* In the %brand% |web-ui|, go to
+  :menuselection:`Services --> NFS Settings`.
+  Set :guilabel:`Enable NFSv4` and
+  :guilabel:`NFSv3 ownership model for NFSv4`. Click :guilabel:`SAVE`
+  and restart the :guilabel:`NFS` service.
+
+* Add :literal:`:nocopy` to the end of the pool to be mounted:
+  :samp:`mount -t nfs pool:{/mnt/pool1}:nocopy {~nfsmounts/pool1_mount}`
