@@ -2335,8 +2335,8 @@ requests.
 
 In this example, the system has a valid license which indicates the
 hardware model, system serial number, support contract type,
-licensed period, customer name, licensed features, and additional
-supported hardware.
+licensed period, customer name, licensed features, additional supported
+hardware, and a :guilabel:`Show EULA` button.
 
 If the license expires or additional hardware, features, or
 contract type are required, contact an iXsystems support
@@ -2377,7 +2377,8 @@ To generate a support ticket, fill in the fields:
   it.
 
 * **Attachments** is an optional field where configuration files or
-  screenshots of any errors or tracebacks can be included.
+  screenshots of any errors or tracebacks can be included. Click the
+  :guilabel:`+` button to add more attachments.
 
 After completing the fields, click the :guilabel:`Submit` button to
 generate and send the support ticket to iXsystems. A pop-up menu

@@ -274,17 +274,15 @@ Enter the default password of *abcd1234*.
    :guilabel:`Password confirmation` fields, and click :guilabel:`OK`
    to save the new password to use on subsequent logins.
 
-On the first login, the EULA found in :ref:`Appendix A` is displayed,
-along with a box where the license key for the %brand% array can be
-pasted. Read the EULA, paste in the license key, then click
-:guilabel:`I agree` to accept the EULA and apply the license.
+On the first login, the End User License Agreement (EULA) found in
+:ref:`Appendix A` is displayed, along with a box for the license key.
+Read the EULA, paste in the license key, then click :guilabel:`I agree`.
 
 Alternately, press :guilabel:`Cancel` if the license key is not yet
 available or you wish to discuss the EULA with an iXsystems
-representative before agreeing to it. Pressing :guilabel:`Cancel`
-will still allow access to the administrative GUI but this initial screen
-will display at every login until the EULA is agreed to and the license
-applied.
+representative before agreeing to it. The |web-ui| is still available
+even if the EULA screen is canceled, but it will appear at every login
+until the EULA is accepted and the key applied.
 
 .. note:: Entering the license key for a High Availability pair is
    not allowed unless both the active and standby computers are up.
@@ -299,9 +297,8 @@ applied.
    powers back up.
 
 
-Once the user has pressed :guilabel:`I agree` or :guilabel:`Cancel`, the
-administrative GUI appears, as shown in the example in
-:numref:`Figure %s <tn_initial>`.
+After clicking :guilabel:`I agree` or :guilabel:`Cancel`, the
+|web-ui| appears.
 
 .. _tn_initial:
 
