@@ -911,8 +911,9 @@ shown in
    | Username          | string        | Enter the SMTP username if the SMTP server requires authentication.                       |
    |                   |               |                                                                                           |
    +-------------------+---------------+-------------------------------------------------------------------------------------------+
-   | Password          | string        | Enter the SMTP password if the SMTP server requires authentication.                       |
-   |                   |               |                                                                                           |
+   | Password          | string        | Enter the SMTP password if the SMTP server requires authentication. Only plain text       |
+   |                   |               | characters (8-bit AASCII) are allowed in passwords. UTF or composed characters are not    |
+   |                   |               | allowed.                                                                                  |
    +-------------------+---------------+-------------------------------------------------------------------------------------------+
    | Password          | string        | Confirm the SMTP password.                                                                |
    | Confirmation      |               |                                                                                           |
@@ -2335,8 +2336,8 @@ requests.
 
 In this example, the system has a valid license which indicates the
 hardware model, system serial number, support contract type,
-licensed period, customer name, licensed features, and additional
-supported hardware.
+licensed period, customer name, licensed features, additional supported
+hardware, and a :guilabel:`Show EULA` button.
 
 If the license expires or additional hardware, features, or
 contract type are required, contact an iXsystems support
@@ -2377,7 +2378,8 @@ To generate a support ticket, fill in the fields:
   it.
 
 * **Attachments** is an optional field where configuration files or
-  screenshots of any errors or tracebacks can be included.
+  screenshots of any errors or tracebacks can be included. Click the
+  :guilabel:`+` button to add more attachments.
 
 After completing the fields, click the :guilabel:`Submit` button to
 generate and send the support ticket to iXsystems. A pop-up menu
@@ -2398,8 +2400,9 @@ The Proactive Support feature can notify iXsystems by email when
 hardware conditions on the system require attention.
 
 .. note:: The fields on this tab are only enabled for Silver and Gold
-   support coverage level customers. Please contact iXsystems for
-   information on upgrading from other support levels.
+   support coverage level customers. Please
+   :ref:`contact iXsystems <Contacting iXsystems>` for information on
+   upgrading from other support levels.
 
 
 .. _tn_proactive_support:
@@ -2429,7 +2432,7 @@ The Proactive Support fields are:
 
 * **Secondary Title** is the title of the secondary contact person.
 
-* **SecondaryE-mail** is the email address of the secondary contact
+* **Secondary E-mail** is the email address of the secondary contact
   person.
 
 * **Secondary Phone** is the phone number of the secondary contact
@@ -2663,13 +2666,19 @@ and described in
    +--------------+-------------+------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-.. warning:: Booting an HA pair with failover disabled causes both
-   nodes to come up in standby mode. The GUI shows an additional
-   :guilabel:`Force Takeover` button which can be used to force that
-   node to take control.
+**Notes about High Availability and failovers:**
 
-.. tip:: The %brand% version of the :command:`ifconfig` command adds
-   two additional fields to the output to help with failover
-   troubleshooting: :samp:`CriticalGroup{n}` and :samp:`Interlink`.
+Booting an HA pair with failover disabled causes both nodes to come up
+in standby mode. The GUI shows an additional :guilabel:`Force Takeover`
+button which can be used to force that node to take control.
+
+The %brand% version of the :command:`ifconfig` command adds two
+additional fields to the output to help with failover troubleshooting:
+:samp:`CriticalGroup{n}` and :samp:`Interlink`.
+
+If both nodes reboot simultaneously, the GELI passphrase for an
+:ref:`encrypted <Encryption>` pool must be entered at the |web-ui|
+login screen.
+
 
 #endif truenas
