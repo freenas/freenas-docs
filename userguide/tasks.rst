@@ -170,9 +170,7 @@ shows the configuration options for Cloud Syncs.
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    
    
-.. note:: The time chosen for the Cloud Sync refers to the time that
-   the task is allowed to start syncing. :ref:`Cron Jobs` determine the
-   time of operation for the task.
+.. note:: The time selected is when the Cloud Sync task is allowed to begin.
 
 :numref:`Figure %s <tasks_cloudsync_status_fig>` shows a cloud sync called
 *backup-acctg* that "pushes" a file to cloud storage. The last run finished
