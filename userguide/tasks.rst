@@ -170,7 +170,8 @@ shows the configuration options for Cloud Syncs.
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    
    
-.. note:: The time selected is when the Cloud Sync task is allowed to begin.
+.. note:: The time selected is when the Cloud Sync task is allowed to
+   begin. The cloud sync runs until finished, even after the time selected.
 
 :numref:`Figure %s <tasks_cloudsync_status_fig>` shows a cloud sync called
 *backup-acctg* that "pushes" a file to cloud storage. The last run finished
