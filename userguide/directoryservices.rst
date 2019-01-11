@@ -61,6 +61,25 @@ To ensure both systems are set to the same time:
 
 * set either localtime or universal time at the BIOS level
 
+Using a %brand% system as an AD server and connecting to it with a
+%brand% client requires additional configuration. On the AD server, go
+to
+:menuselection:`System --> CAs`
+and create a new internal or intermediate
+:ref:`Certificate Authority (CA) <CAs>`. Click |ui-options| and
+:guilabel:`View` for the CA and copy the :guilabel:`Certificate` and
+:guilabel:`Private Key`.
+
+On the client |web-ui|, select
+:menuselection:`Directory Services --> Active Directory --> Advanced`.
+Set :guilabel:`Encryption Mode` to *TLS* and :guilabel:`SASL wrapping`
+to *sign*. Go to
+:menuselection:`System --> CAs`
+and click |ui-add|. Create a unique :guilabel:`Identifier`, set
+:guilabel:`Type` to *Import CA*, and paste the AD server CA certificate
+and private keys in those fields. Click :guilabel:`Save` and continue
+configuring AD.
+
 :numref:`Figure %s <ad_fig>` shows
 :menuselection:`Directory Services --> Active Directory` settings.
 
@@ -116,9 +135,9 @@ advanced options.
    |                          |               |          |                                                                                                                               |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Certificate              | drop-down menu| ✓        | Select the certificate of the Active Directory server if  SSL connections are used. If a certificate does not exist, create   |
+   | Certificate              | drop-down menu| ✓        | Select the certificate of the Active Directory server if SSL connections are used. If a certificate does not exist, create    |
    |                          |               |          | a :ref:`Certificate Authority <CAs>`, then create a certificate on the Active Directory server. Import the certificate to the |
-   |                          |               |          | %brand% system with the :ref:`Certificates` menu.                                                                             |
+   |                          |               |          | %brand% system using the :ref:`Certificates` menu.                                                                            |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Verbose logging          | checkbox      | ✓        | Set to log attempts to join the domain to :file:`/var/log/messages`.                                                          |
@@ -265,18 +284,15 @@ Click the :guilabel:`REBUILD DIRECTORY SERVICE CACHE` button if a new
 Active Directory user needs immediate access to %brand%. This occurs
 automatically once a day as a cron job.
 
-.. note:: Active Directory places restrictions on which characters are
-   allowed in Domain and NetBIOS names, and limits the length of those
-   names to 15 characters. If there are problems connecting to the
-   realm,
-   `verify
-   <https://support.microsoft.com/en-us/help/909264/naming-conventions-in-active-directory-for-computers-domains-sites-and>`__
-   the settings do not include any disallowed characters. The
-   Administrator account password cannot contain the *$* character. If a
-   *$* exists in the domain administrator password,
-   :command:`kinit` will report a "Password Incorrect" error and
-   :command:`ldap_bind` will report an "Invalid credentials (49)"
-   error.
+If there are problems connecting to the realm, `verify
+<https://support.microsoft.com/en-us/help/909264/naming-conventions-in-active-directory-for-computers-domains-sites-and>`__
+the settings do not include any disallowed characters. Active Directory
+does not allow :literal:`$` characters in Domain or NetBIOS names. The
+length of those names is also limited to 15 characters. The
+Administrator account password cannot contain the *$* character. If a
+:literal:`$` exists in the domain administrator password,
+:command:`kinit` reports a "Password Incorrect" error and
+:command:`ldap_bind` reports an "Invalid credentials (49)" error.
 
 It can take a few minutes after configuring the Active Directory
 service for the AD information to be populated to the %brand% system.
