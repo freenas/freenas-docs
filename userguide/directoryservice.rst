@@ -66,6 +66,24 @@ configure both systems to:
 
 * be set to either localtime or universal time at the BIOS level
 
+Using a %brand% system as an AD server and connecting to it with a
+%brand% client requires additional configuration. On the AD server, go
+to
+:menuselection:`System --> CAs`
+and create a new internal or intermediate
+:ref:`Certificate Authority (CA) <CAs>`. Highlight the created CA and
+click :guilabel:`Export Certificate` and :guilabel:`Export Private Key`
+to save these values.
+
+On the client |web-ui|, select
+:menuselection:`Directory Service --> Active Directory --> Advanced Mode`.
+Set :guilabel:`Encryption Mode` to *TLS* and :guilabel:`SASL wrapping`
+to *sign*. Go to
+:menuselection:`System --> CAs`
+and click :guilabel:`Import CA`. Create a unique :guilabel:`Identifier`
+and paste the AD server CA certificate and private keys in those fields.
+Click :guilabel:`OK` and continue configuring AD.
+
 :numref:`Figure %s <ad_fig>`
 shows the screen that appears when
 :menuselection:`Directory Service --> Active Directory`
@@ -122,13 +140,14 @@ these settings by checking
    | Enable Monitoring        | checkbox      |             | Restart Active Directory automatically if the service is disconnected.                                              |
    |                          |               |             |                                                                                                                     |
    +--------------------------+---------------+-------------+---------------------------------------------------------------------------------------------------------------------+
-   | Encryption Mode          | drop-down     | ✓           | Choices are *Off*, *SSL*, or *TLS*.                                                                                 |
+   | Encryption Mode          | drop-down     | ✓           | Choices are *Off*, *SSL*, or *TLS*. Refer to `SSL vs. TLS                                                           |
+   |                          |               |             | <https://www.globalsign.com/en/blog/ssl-vs-tls-difference/>`__ for more information on SSL and TLS.                 |
    |                          | menu          |             |                                                                                                                     |
    |                          |               |             |                                                                                                                     |
    +--------------------------+---------------+-------------+---------------------------------------------------------------------------------------------------------------------+
-   | Certificate              | drop-down menu| ✓           | Select the certificate of the Active Directory server if  SSL connections are used. If a certificate does           |
-   |                          |               |             | not exist yet, create a :ref:`CA <CAs>`, then create a certificate on the Active Directory server and import        |
-   |                          |               |             | it to the %brand% system with :ref:`Certificates`.                                                                  |
+   | Certificate              | drop-down menu| ✓           | Select the certificate of the Active Directory server if SSL connections are used. If a certificate does            |
+   |                          |               |             | not exist yet, create a :ref:`CA <CAs>`, then create a certificate on the Active Directory server. Import the       |
+   |                          |               |             | certificate to the %brand% system using the :ref:`Certificates` menu.                                               |
    |                          |               |             |                                                                                                                     |
    +--------------------------+---------------+-------------+---------------------------------------------------------------------------------------------------------------------+
    | Verbose logging          | checkbox      | ✓           | Set to log attempts to join the domain to :file:`/var/log/messages`.                                                |
@@ -280,19 +299,15 @@ Click :guilabel:`Rebuild Directory Service Cache` if a new Active
 Directory user needs immediate access to %brand%. This occurs
 automatically once a day as a cron job.
 
-
-.. note:: Active Directory places restrictions on which characters are
-   allowed in Domain and NetBIOS names, a limits the length of those
-   names to 15 characters. If there are problems connecting to the
-   realm,
-   `verify
-   <https://support.microsoft.com/en-us/help/909264/naming-conventions-in-active-directory-for-computers-domains-sites-and>`__
-   the settings do not include any disallowed characters. The
-   Administrator account password cannot contain the *$* character. If a
-   *$* exists in the domain administrator's password, :command:`kinit`
-   will report a "Password Incorrect" error and :command:`ldap_bind`
-   will report an "Invalid credentials (49)" error.
-
+If there are problems connecting to the realm, `verify
+<https://support.microsoft.com/en-us/help/909264/naming-conventions-in-active-directory-for-computers-domains-sites-and>`__
+the settings do not include any disallowed characters. Active Directory
+does not allow :literal:`$` characters in Domain or NetBIOS names. The
+length of those names is also limited to 15 characters. The
+Administrator account password cannot contain the *$* character. If a
+:literal:`$` exists in the domain administrator password,
+:command:`kinit` reports a "Password Incorrect" error and
+:command:`ldap_bind` reports an "Invalid credentials (49)" error.
 
 It can take a few minutes after configuring the Active Directory
 service for the AD information to be populated to the %brand% system.
@@ -557,6 +572,8 @@ Those new to LDAP terminology should read the
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
    | Encryption Mode         | drop-down    | ✓           | Choices are *Off*, *SSL*, or *TLS*. Note that either *SSL* or *TLS* and a                      |
    |                         | menu         |             | :guilabel:`Certificate` must be selected for authentication to work.                           |
+   |                         |              |             | Refer to `SSL vs. TLS <https://www.globalsign.com/en/blog/ssl-vs-tls-difference/>`__           |
+   |                         |              |             | for more information on SSL and TLS.                                                           |
    |                         |              |             |                                                                                                |
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
    | Certificate             | drop-down    | ✓           | Select the certificate of the LDAP CA (required if authentication is used).                    |

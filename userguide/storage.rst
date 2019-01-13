@@ -231,16 +231,23 @@ Encryption
   to the web-ui and that proper permissions are set on shares, if sensitive data
   is stored on the system. 
 
+In %brand%, entire disks and pools are encrypted, not individual filesystems. Each disk
+in an encrypted volume contains an unencrypted partition table identifying the location
+of ZFS data on the disk but not its contents, followed by one or more encrypted data partitions
+containing the usual ZFS pool structures and user data in an encrypted manner. After creation,
+the pool can be unlocked and used as normal by the system at boot, or by an authorized user if 
+boot-time unlocking is disabled.  Data is encrypted as it is written and decrypted as it is read. 
+Encrypted pools  are unmounted and locked when the system shuts down, or when triggered by an
+authorized user. Hard drives that feature built-in self-encryption (often abbreviated to SED)
+can also be encrypted using their own firmware feature to completely encrypt the drive,
+see :ref:`Self-Encrypting Drives`, and in this case the partition table is also encrypted.
+ 
 It is important to understand the details when considering whether encrypting a pool is
-an appropriate measure:
+an appropriate measure, and to ensure data is effectively protected:
 
-* %brand% encryption is different from the encryption used in
-  Oracle's proprietary, non-open source version of ZFS.
-
-* In %brand%, entire disks and pools are encrypted, not individual filesystems.
-  Encrypted devices are created from the underlying drives, then the
-  volume (pool) is created on top of the encrypted devices. Data is
-  encrypted as it is written and decrypted as it is read.
+* %brand% encryption is different from the encryption used in Oracle's proprietary, non-open source
+  version of ZFS. To convert between these formats, both pools must be unlocked, and the data copied
+  between them.
 
 * When discarding disks that still contain encrypted sensitive data,
   the encryption key must also be destroyed or securely deleted.  If
@@ -268,10 +275,13 @@ an appropriate measure:
   the volume was created. Swap data on disk is always encrypted. Data
   in memory (RAM), including ARC, is not encrypted. 
 
-* At present, there is no one-step way to encrypt an existing,
-  unencrypted volume. Instead, the data must be backed up, the
-  existing pool destroyed, a new encrypted volume created, and the
-  backup restored to the new volume.
+* At present, there is no one-step way to encrypt an existing, unencrypted volume. Instead,
+  **either** an encrypted pool must be created if it does not already exist, and data copied
+  directly from the original pool to the encrypted pool, **or** the data must be backed up to other
+  storage, the existing pool destroyed, a new encrypted volume created possibly using the same disks, 
+  and the backed-up data is then restored to the new volume. In either case, the original pool or
+  any unencypted backup should be destroyed and any unused disks that contained unencrypted data
+  should be wiped.
 
 * Hybrid pools are not supported. Added vdevs must match the existing
   encryption scheme. :ref:`Volume Manager` automatically encrypts a new
@@ -1699,12 +1709,12 @@ First, make sure that a passphrase has been set using the instructions
 in :ref:`Encryption` **before** attempting to replace the failed
 drive. Then, follow the steps 1 and 2 as described above. During step
 3, a prompt will appear to input and confirm the passphrase for the
-pool. Enter this information then click the :guilabel:`Replace Disk`
-button. Wait until the resilvering is complete.
+pool. Enter this information then click :guilabel:`Replace Disk`.
+Immediately
+:ref:`restore the encryption keys to the pool<Managing Encrypted Volumes>`.
 
-Next, restore the encryption keys to the pool.
-**If this additional step is not performed before the next
-reboot, access to the pool might be permanently lost.**
+.. warning:: Access to the pool will be permanently lost unless the
+   encryption keys are restored to the pool before the next system reboot!
 
 #.  Highlight the pool that contains the disk that was just replaced
     and click the :guilabel:`Add Recovery Key` button to save the new

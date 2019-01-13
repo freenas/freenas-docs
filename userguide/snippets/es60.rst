@@ -139,7 +139,7 @@ the rack, aligning the pins on both ends of the rail with the mounting
 holes in the rack. Push the pins into the rack holes until they lock in
 place.
 
-.. figure:: images/truenas/es60_rackrails.png
+.. figure:: images/tn_es60_rackrails.png
 
 
 Mount Unit in the Rack
