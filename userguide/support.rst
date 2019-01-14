@@ -13,6 +13,8 @@ implemented.
 
 The section discusses resources available to %brand% users:
 
+* :ref:`User Guide`
+
 * :ref:`Website and Social Media`
 
 * :ref:`Forums`
@@ -26,6 +28,8 @@ The section discusses resources available to %brand% users:
 #ifdef commented
 * :ref:`Training`
 #endif commented
+
+#include snippets/userguide.rst
 
 
 .. _Website and Social Media:
