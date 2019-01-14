@@ -1,8 +1,8 @@
 #include snippets/copyright.rst
 
-.. note:: The ES60 replaces the previous E60 unit. The E60 reached end
-   of life (EOL) on *May 17, 2017*, but will continue to be supported
-   until *May 17, 2022*.
+.. note:: The ES60 replaces the previous E60 expansion shelf. The E60
+   reached end of life (EOL) on May 17, 2017, but will continue to be
+   supported until May 17, 2022.
 
 
 .. index:: ES60 Expansion Shelf
@@ -59,31 +59,27 @@ Carefully unpack the shipping boxes and locate these components:
 Become Familiar With the ES60
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ES60 has indicators on the front panel for power, fault, and
-locate ID. The fault indicator is on during the initial power-on
-self-test (POST) or when the %brand% software has issued an
-`alert
-<https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
+Indicators on the front panel show power, fault, and locate ID. The
+fault indicator is on during the initial power-on self-test (POST) or
+when the %brand% software has issued an
+`alert <https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
 
-
-Front view of the ES60 Expansion Shelf:
 
 .. figure:: images/tn_es60.png
+   :width: 85%
 
 
 Front panel indicators:
 
 .. figure:: images/tn_es60_indicators.png
+   :width: 25%
 
 
-Rear view of the ES60 Expansion Shelf:
+The ES60 has two expansion controllers in a side-by-side
+configuration.
 
 .. figure:: images/tn_es60_back.png
-
-
-The ES60 contains two expansion controllers in a side-by-side
-configuration. The connectors and features on each expansion controller
-are:
+   :width: 85%
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
@@ -112,6 +108,7 @@ Each rack rail includes an inner cabinet rail that must be removed.
 Extend the cabinet rail until the white release tab is exposed.
 
 .. figure:: images/tn_es60_rail_separate.png
+   :width: 100%
 
 
 Press the white release tab to the right while pulling the cabinet
@@ -127,19 +124,21 @@ the rail toward the rear of the system until the metal tab clicks and
 secures the rail in place. Repeat this process on the other side.
 
 .. figure:: images/tn_es60_cabinetrails.png
+   :width: 100%
 
 
 Mount Rack Rails
 ^^^^^^^^^^^^^^^^
 
 Install four cage nuts in the rack, two where the rails attach to the
-front of the rack, and two at the rear. Place the rail in the rack with
-the front end toward the front of the rack and rear toward the back of
-the rack, aligning the pins on both ends of the rail with the mounting
-holes in the rack. Push the pins into the rack holes until they lock in
-place.
+front of the rack, and two at the rear. Place the rail in the rack
+with the front end toward the front of the rack and rear toward the
+back of the rack, aligning the pins on both ends of the rail with the
+mounting holes in the rack. Push the pins into the rack holes until
+they lock in place.
 
 .. figure:: images/tn_es60_rackrails.png
+   :width: 60%
 
 
 Mount Unit in the Rack
@@ -156,22 +155,29 @@ and slide the cabinet rail forward until it is fully seated inside the
 rack rail. Repeat the process for the second rail.
 
 .. figure:: images/tn_es60_cabinet_mount.png
+   :width: 40%
 
 
 When both cabinet rails are secured inside the rack rails, carefully
 slide the chassis until the ears are flush with the front of the rack.
-Turn both blue screws on the ears of the chassis to the right to
-secure the unit in the rack.
+Tighten both blue screws on the ears of the chassis to secure the unit
+in the rack.
 
 .. figure:: images/tn_es60_cabinet_secure.png
+   :width: 80%
+
+
+.. raw:: latex
+
+   \newpage
 
 
 Drive Tray Installation
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 
-.. note:: Do not install the drives until the chassis has been
-   installed in the rack.
+**Do not install the drives until the chassis has been installed in
+the rack.**
 
 
 Remove Top Cover
@@ -182,6 +188,7 @@ to unlock the top cover. Slide the top cover toward the front of the
 system, then lift to remove it.
 
 .. figure:: images/tn_es60_remove_cover.png
+   :width: 75%
 
 
 Install Drive Trays
@@ -214,6 +221,11 @@ the rest of the way until it locks into place.
    :width: 100%
 
 
+.. raw:: latex
+
+   \newpage
+
+
 ES60 Cable Management Arm
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -223,6 +235,7 @@ data cables.
 
 
 .. figure:: images/tn_es60_arm_parts.png
+   :width: 85%
 
 
 The tabs along the side of the flex housing can be unclipped from the
@@ -243,6 +256,7 @@ upward to lock the bracket into place.
 
 
 .. figure:: images/tn_es60_arm_clip.png
+   :width: 85%
 
 
 Locate the end of the flex housing with exposed pins. Unclip and open
@@ -252,6 +266,7 @@ into the bracket until the pins seat in the holes.
 
 
 .. figure:: images/tn_es60_arm_chassis_flex.png
+   :width: 85%
 
 
 Remove the two screws already attached to the side of the CMA rail
@@ -270,11 +285,7 @@ into the bracket until the holes seat on the pins.
 
 
 .. figure:: images/tn_es60_arm_rail_flex.png
-
-
-.. raw:: latex
-
-   \newpage
+   :width: 85%
 
 
 Completed Cable Management Arm assembly:
@@ -286,8 +297,8 @@ Completed Cable Management Arm assembly:
 
 Power and data cables are routed through the flex housing. The tabs
 can be opened or removed to allow access or space for cable ends.
-Remember to leave some slack in the cables at both ends to allow for
-movement of the arm and chassis.
+Leave some slack in the cables at both ends to allow for movement of
+the arm and chassis.
 
 
 Connect Power Cords
@@ -300,16 +311,16 @@ process for the second power supply and cord. This turns on the ES60.
 
 
 .. figure:: images/tn_es60_powerclip.png
-   :width: 50%
+   :width: 25%
 
 
-.. note:: Service and management ports are not used during normal
-   operation and should not be connected.
+**Service and management ports are not used during normal operation.
+Do not connect anything to them.**
 
 
 When setting up an ES60 for the first time, wait two minutes after
-turning on the ES60 before powering on the %brand% Unified Array. If
-the %brand% Unified Array is already in operation, the Expansion Shelf
+turning on the ES60 before powering on the %brand% system. If
+the %brand% system is already in operation, the expansion shelf
 can be powered on at any time.
 
 
@@ -319,41 +330,52 @@ Connect SAS Cables
 Plug the ES60 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
+The %brand% system can remain on while the expansion shelf is
+connected.
 
-.. note:: The %brand% Unified Array can remain on while the expansion
-   shelf is connected.
-
-
-The ES60 is compatible with many different %brand% systems. These images
-show the typical SAS cable connections for different %brand% High
-Availability (HA) systems to connect to two ES60 units.
+The ES60 is compatible with several %brand% systems. Typical SAS cable
+connections for one or two ES60 expansion shelves to %brand% High
+Availability (HA) systems are shown here. When a %brand% unit with
+only a single storage controller is used, only cables #1 and #3 are
+connected.
 
 
 **X-Series**
 
-The X20 supports attaching a single ES60 unit. The ES60 must connect
-to the first SAS ports (cables #1 and #2), but an ES12 or ES24 can
-connect to the second SAS ports (cables #3 and #4):
+The X20 supports a single ES60 expansion shelf. The ES60 must be
+connected to the first SAS ports (cables #1 and #2). An additional
+ES12 or ES24 expansion shelf can be connected to the second SAS ports
+with cables #3 and #4.
+
 
 .. _es60_xseries_sasconnect:
 .. figure:: images/tn_x_sas_wiring.png
+   :width: 70%
 
 
 .. raw:: latex
 
    \newpage
+
+
+**M-Series**
+
+The %brand% M-Series support multiple ES60 expansion shelves, which
+can be combined with other %brand% expansion shelves.
 
 
 **M40**
 
 .. _es60_m40_sasconnect:
 .. figure:: images/tn_m40_sas_wiring.png
+   :width: 70%
 
 
 **M50**
 
 .. _es60_m50_sasconnect:
 .. figure:: images/tn_m50_sas_wiring.png
+   :width: 70%
 
 
 .. raw:: latex
@@ -361,15 +383,21 @@ connect to the second SAS ports (cables #3 and #4):
    \newpage
 
 
-This image shows where the SAS cables connect to the two ES60 units:
+The SAS cables connect to the *1* ports on the ES60 expansion shelves.
+
 
 .. _es60_sas_connections:
 .. figure:: images/tn_es60_sas_connections.png
-   :width: 85%
+   :width: 80%
 
-* Cable #1 connects to the first ES60, expansion controller 1 SAS 1 port.
 
-* Cable #2 connects to the first ES60, expansion controller 2 SAS 1 port.
+* Cable #1 connects to the first ES60, expansion controller 1 SAS 1
+  port.
+
+* Cable #2 connects to the first ES60, expansion controller 2 SAS 1
+  port.
+
+If a second ES60 is present:
 
 * Cable #3 connects to the second ES60, expansion controller 1 SAS 1
   port.
@@ -377,8 +405,9 @@ This image shows where the SAS cables connect to the two ES60 units:
 * Cable #1 connects to the second ES60, expansion controller 2 SAS 1
   port.
 
-After all SAS cables are connected, plug the %brand% system power cords
-into power outlets.
+After all SAS cables are connected, plug the %brand% system power
+cords into power outlets.
+
 
 .. raw:: latex
 

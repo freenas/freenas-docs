@@ -87,12 +87,12 @@ if tags.has('bsg-e24'):
 
 if tags.has('bsg-xseries'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
-    version = '1.1'
+    version = '1.2'
     tags.remove('freenas')
     project = brand + ' ' + six.u('X-Series Unified Storage Array')
     projtype = 'Basic Setup Guide'
     master_doc = 'bsg-xseries'
-    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_x_front.png}'
+    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=10in]{../../../images/tn_x_front.png}'
 
 if tags.has('bsg-es12'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
@@ -123,12 +123,12 @@ if tags.has('bsg-mseries'):
 
 if tags.has('bsg-es60'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
-    version = '1.1'
+    version = '1.2'
     tags.remove('freenas')
     project = brand + ' ' + six.u('ES60 Expansion Shelf')
     projtype = 'Basic Setup Guide'
     master_doc = 'bsg-es60'
-    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/tn_es60.png}'
+    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es60.png}'
 
 
 # |brand| will be replaced with FreeNAS® or TrueNAS®
