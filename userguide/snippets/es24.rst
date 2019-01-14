@@ -47,6 +47,11 @@ Carefully unpack the shipping boxes and locate these components:
    +---------------------------------------------------+---------------------------------------------+
 
 
+.. raw:: latex
+
+   \newpage
+
+
 .. index:: Become Familiar with the ES24
 .. _Become Familiar with the ES24:
 
@@ -73,8 +78,8 @@ software has issued an
    Back Panel
 
 
-The ES24 contains two expansion controllers in an over/under
-configuration. The connectors and features on each controller are:
+The ES24 has two expansion controllers in an over/under configuration.
+The connectors and features on each controller are:
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
@@ -115,28 +120,33 @@ place. Repeat the process for the second power supply and cord.
   :width: 35%
 
 
-Connect SAS Cables
-~~~~~~~~~~~~~~~~~~
+Connect The Expansion Shelf
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Plug the ES24 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
-.. note:: The %brand% Unified Array can remain on while the expansion
-   shelf is connected.
+If the %brand% system is on, it can remain on while the expansion
+shelf is connected.
 
 
-The ES24 is compatible with many different %brand% systems.
-These images show the typical SAS cable connections for different
-%brand% High Availability (HA) systems to connect to two ES24 units.
+The ES24 is compatible with several %brand% systems. Typical SAS cable
+connections for connecting one or two ES24 units to %brand% High
+Availability (HA) systems are shown here. When a %brand% unit with
+only a single storage controller is used, only cables #1 and #3 are
+used.
+
 
 **X-Series**
 
 .. _es24_xseries_sasconnect:
 .. figure:: images/tn_x_sas_wiring.png
 
+
 .. raw:: latex
 
    \newpage
+
 
 **M40**
 
@@ -155,15 +165,22 @@ These images show the typical SAS cable connections for different
    \newpage
 
 
-This image shows where the SAS cables connect to the two ES24 units:
+The SAS cables from the %brand% system connect to these ports on the
+ES24:
+
 
 .. _es24_sas_connections:
 .. figure:: images/tn_es24_sas_connections.png
    :width: 85%
 
-* Cable #1 connects to the first ES24, expansion controller 1 SAS 0 port.
 
-* Cable #2 connects to the first ES24, expansion controller 2 SAS 0 port.
+* Cable #1 connects to the first ES24, expansion controller 1 SAS 0
+  port.
+
+* Cable #2 connects to the first ES24, expansion controller 2 SAS 0
+  port.
+
+If a second ES24 is present:
 
 * Cable #3 connects to the second ES24, expansion controller 1 SAS 0
   port.
@@ -174,6 +191,7 @@ This image shows where the SAS cables connect to the two ES24 units:
 
 After all SAS cables are connected, plug the %brand% system power
 cords into power outlets.
+
 
 .. raw:: latex
 
