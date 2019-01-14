@@ -53,9 +53,9 @@ fault. The fault indicator is on during the initial power-on self-test
    \newpage
 
 
-The M-Series contains one or two storage controllers in an
-over-and-under configuration. Examples of typical M40 (top) and M50
-(bottom) models are shown here.
+The M-Series has one or two storage controllers in an over-and-under
+configuration. Examples of typical M40 (top) and M50 (bottom) models
+are shown here.
 
 .. _m_back:
 
@@ -86,6 +86,7 @@ over-and-under configuration. Examples of typical M40 (top) and M50
    +----------------------------------------------+----------------------------------------------+
    | 7: VGA monitor port                                                                         |
    +---------------------------------------------------------------------------------------------+
+
 
 **M-Series systems with only a single storage controller must be shut
 down and powered off before removing the controller, or data stored
