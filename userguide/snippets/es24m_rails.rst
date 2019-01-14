@@ -20,7 +20,7 @@ Mount Cabinet Rails
 The cabinet rails are mounted on both sides of the system cabinet.
 Align the cabinet rail keyholes with the three posts (ES24) or four
 posts (M-Series) on the side of the chassis and slide the rail until
-the post is wedged in the keyhole slot of the rail.
+the post is secured in the keyhole slot of the rail.
 
 
 .. _cabinet_rail2:
@@ -68,10 +68,11 @@ process for the second rail.
    :width: 60%
 
 
-When both cabinet rails are secured inside of the rack rails, gently
-push the chassis until it stops halfway in. Slide the blue release
-tabs on both cabinet rails toward the front of the system while
-pushing the unit in until it is flush with the front of the rack.
+When both cabinet rails are secured in the rack rails, gently push the
+chassis until it stops halfway in. Slide the blue release tabs on both
+cabinet rails toward the front of the system while pushing the unit
+in. Push the chassis into the rack until it is flush with the front of
+the rack.
 
 
 .. _es24m_mount_system_in_rack:
