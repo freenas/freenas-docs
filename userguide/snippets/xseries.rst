@@ -75,9 +75,15 @@ fault. The fault indicator is on during the initial power-on self-test
    :width: 50%
 
 
-The X-Series contains one or two storage controllers in a side-by-side
-configuration. The connectors and features on each storage controller
-are:
+The X-Series has one or two storage controllers in a side-by-side
+configuration.
+
+
+.. _x_back:
+
+.. figure:: images/tn_x_back.png
+   :width: 100%
+
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
@@ -96,14 +102,6 @@ are:
    +------------------------------------------------+-----------------------------------------------------+
    | 6: Out-of-Band Management Ethernet connector   | 12, 13: Redundant power supplies                    |
    +------------------------------------------------+-----------------------------------------------------+
-
-
-.. _x_back:
-
-.. figure:: images/tn_x_back.png
-   :width: 100%
-
-   Back Panel
 
 
 .. raw:: latex
@@ -144,6 +142,7 @@ questions.
 Connect network cables to the Ethernet ports and Out-of-Band (OOB)
 management port before attempting to power on and configure the
 X-Series for the the first time.
+
 **The Out-of-Band (OOB) management port on the X-Series must be
 connected to a shielded Ethernet cable.**
 
@@ -305,8 +304,8 @@ gateway of *192.168.100.1*:
 
 
 Log out of the Out-of-Band management system by typing :literal:`exit`
-and pressing :kbd:`Enter`. After use, always disconnect the black USB
-serial cable from the X-Series system.
+and pressing :kbd:`Enter`.
+**After use, disconnect the black USB serial cable from the X-Series.**
 
 
 .. raw:: latex
@@ -481,9 +480,3 @@ web interface, *192.168.100.231* in this example:
 
 Enter the IP address into a browser on a computer on the same network
 to access the web user interface.
-
-
-.. raw:: latex
-
-   \newpage
-
