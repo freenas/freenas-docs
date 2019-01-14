@@ -114,12 +114,12 @@ if tags.has('bsg-es24'):
 
 if tags.has('bsg-mseries'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
-    version = '1.1'
+    version = '1.2'
     tags.remove('freenas')
     project = brand + ' ' + six.u('M-Series Unified Storage Array')
     projtype = 'Basic Setup Guide'
     master_doc = 'bsg-mseries'
-    cover_pic = r'\vspace*{.1in}\hspace*{5.5in}\includegraphics[width=6in]{../../../images/tn_m_front.png}'
+    cover_pic = r'\vspace*{.1in}\hspace*{4.5in}\includegraphics[width=6in]{../../../images/tn_m_front.png}'
 
 if tags.has('bsg-es60'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
