@@ -1589,8 +1589,10 @@ Dropbox, FTP, Google Cloud Storage, Google Drive, HTTP, Hubic, Mega,
 Microsoft Azure Blob Storage, Microsoft OneDrive, pCloud, SFTP, WebDAV,
 and Yandex are supported.
 
-.. warning:: Cloud credentials are encrypted. The credentials are lost
-   when the encryption key is not preserved.
+.. warning:: Cloud Credentials are stored in encrypted form. To be able
+   to restore Cloud Credentials from a
+   :ref:`saved configuration<General>`, "Export Password Secret Seed"
+   must be set when saving that configuration.
 
 Select
 :menuselection:`System --> Cloud Credentials`
