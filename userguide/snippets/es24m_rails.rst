@@ -80,6 +80,6 @@ the rack.
    :width: 60%
 
 
-Anchor the unit in the rack on both sides with the M5x18 screws
+Anchor the unit in the rack on both sides with the M5x18L screws
 included in the rail kit.
 
