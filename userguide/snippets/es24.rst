@@ -134,7 +134,7 @@ The ES24 is compatible with several %brand% systems. Typical SAS cable
 connections for connecting one or two ES24 units to %brand% High
 Availability (HA) systems are shown here. When a %brand% unit with
 only a single storage controller is used, only cables #1 and #3 are
-used.
+connected.
 
 
 **X-Series**

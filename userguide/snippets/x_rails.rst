@@ -17,7 +17,8 @@ mirror image of the first.
    :width: 35%
 
 
-Install a spring on the silver posts in the side of each rail.
+If not already present, install a spring on the silver posts in the
+side of each rail.
 
 
 .. figure:: images/tn_x_spring.png

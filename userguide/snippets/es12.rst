@@ -7,7 +7,7 @@
 ES12 Expansion Shelf
 --------------------
 
-The %brand% ES12 is 2U, 12-bay, SAS3 (12 Gb/s) expansion shelf with
+The %brand% ES12 is a 2U, 12-bay, SAS3 (12 Gb/s) expansion shelf with
 dual expansion controllers and redundant power supplies.
 
 
@@ -72,8 +72,15 @@ software issues an
    :width: 50%
 
 
-The ES12 contains two expansion controllers in a side-by-side
-configuration. The connectors and features on each controller are:
+The ES12 has two expansion controllers in a side-by-side
+configuration:
+
+
+.. _es12_back:
+
+.. figure:: images/tn_es12_back.png
+   :width: 100%
+
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
 
@@ -88,11 +95,6 @@ configuration. The connectors and features on each controller are:
    | 5: Redundant power supplies                         |
    +-----------------------------------------------------+
 
-
-.. _es12_back:
-
-.. figure:: images/tn_es12_back.png
-   :width: 100%
 
 .. raw:: latex
 
@@ -132,9 +134,11 @@ Connect SAS Cables
 Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
-The ES12 is compatible with many different %brand% systems. These images
-show the typical SAS cable connections for different %brand% High
-Availability (HA) systems to connect to two ES12 units.
+The ES12 is compatible with several %brand% systems. Typical SAS cable
+connections for connecting one or two ES12 expansion shelves to
+%brand% High Availability (HA) systems are shown here. When a %brand%
+unit with only a single storage controller is used, only cables #1 and
+#3 are connected.
 
 **X-Series**
 
@@ -161,9 +165,12 @@ Availability (HA) systems to connect to two ES12 units.
    :width: 80%
 
 
-Connect SAS cables to the ES12 unit "T" slots. The next image shows the
-typical SAS connections for two ES12 units that connect to a High
-Availability (HA) %brand% system with two storage controllers.
+Connect SAS cables to the ES12 *T* slots. These are the typical SAS
+connections for one or two ES12 expansion shelves connecting to a High
+Availability (HA) %brand% system with two storage controllers. When a
+%brand% unit with only a single storage controller is used, only
+cables #1 and #3 are connected.
+
 
 .. _es12_sasconnect:
 .. figure:: images/tn_es12_sas_connections.png
@@ -171,13 +178,14 @@ Availability (HA) %brand% system with two storage controllers.
 
 * Cable #1 connects to the ES12 expansion controller 1 T1 slot.
 
-* Cable #2 connects to the ES12 expansion controller 2 T1 slot. This is
-  for %brand% systems that have a second storage controller for HA.
+* Cable #2 connects to the ES12 expansion controller 2 T1 slot.
 
-* Cable #3 connects to the second ES12 unit expansion controller 1 T1
+If a second ES12 is present:
+
+* Cable #3 connects to the second ES12 expansion controller 1 T1
   slot.
 
-* Cable #4 connects to the second ES12 unit expansion controller 2 T1
+* Cable #4 connects to the second ES12 expansion controller 2 T1
   slot.
 
 
