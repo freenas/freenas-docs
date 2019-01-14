@@ -15,4 +15,4 @@ latch closed until it clicks into place.
 
 .. _drive_installation:
 .. figure:: images/tn_es24m_drivetrays.png
-   :width: 60%
+   :width: 100%
