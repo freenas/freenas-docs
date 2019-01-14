@@ -1618,6 +1618,11 @@ The credentials to provide secure connections with cloud services
 are entered here. Amazon S3, Azure Blob Storage, Backblaze B2, and
 Google Cloud Storage are supported.
 
+.. warning:: Cloud Credentials are stored in encrypted form. To be able
+   to restore Cloud Credentials from a
+   :ref:`saved configuration<General>`, "Export Password Secret Seed"
+   must be set when saving that configuration.
+
 Select
 :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
 to display the dialog shown in
