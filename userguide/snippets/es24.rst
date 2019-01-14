@@ -189,10 +189,6 @@ If a second ES24 is present:
   port.
 
 
-After all SAS cables are connected, plug the %brand% system power
-cords into power outlets.
-
-
 .. raw:: latex
 
    \newpage
