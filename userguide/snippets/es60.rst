@@ -307,7 +307,9 @@ Connect Power Cords
 **Do not plug the power cords into a power outlet yet.** Connect a
 power cord to the back of one power supply, pressing it into the
 plastic clamp and pressing on the tab to lock it in place. Repeat the
-process for the second power supply and cord. This turns on the ES60.
+process for the second power supply and cord. Plug both power cords
+into a outlets. This turns on the ES60. **Wait two minutes for the
+drives to start.**
 
 
 .. figure:: images/tn_es60_powerclip.png
@@ -317,18 +319,12 @@ process for the second power supply and cord. This turns on the ES60.
 **Service and management ports are not used during normal operation.
 Do not connect anything to them.**
 
-
-When setting up an ES60 for the first time, wait two minutes after
-turning on the ES60 before powering on the %brand% system. If
-the %brand% system is already in operation, the expansion shelf
+If the %brand% system is already in operation, the expansion shelf
 can be powered on at any time.
 
 
 Connect SAS Cables
 ~~~~~~~~~~~~~~~~~~
-
-Plug the ES60 power cords into power outlets.
-**Wait two minutes for the drives to start.**
 
 The %brand% system can remain on while the expansion shelf is
 connected.
