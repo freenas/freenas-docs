@@ -61,11 +61,20 @@ if tags.has('truenas'):
 # BSGs
 if tags.has('bsg-xseries'):
     brand = 'TrueNAS®'
-    version = '1.2'
     tags.remove('freenas')
-    project = brand + ' ' + six.u('X-Series Unified Storage Array')
-    projtype = 'Basic Setup Guide'
     master_doc = 'bsg-xseries'
+
+    product = 'ES12 Expansion Shelf'
+    version = '1.2'
+    release = '1'
+
+    pdf_file_name  = 'BSG-X-Series'
+    pdf_title      = f'{brand} X-Series Unified Storage Array'
+    pdf_subtitle   = 'Basic Setup Guide'
+    document_class = 'howto'    # 'howto' or 'manual'
+    toctree_only   = True
+    draft          = True
+    show_edition   = True
     cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=10in]{../../../images/tn_x_front.png}'
 
 if tags.has('bsg-es12'):
@@ -498,24 +507,21 @@ if tags.has('freenas'):
 
 if tags.has('truenas'):
     latex_documents = [
-      ('truenas', 'TrueNAS.tex', texproject, 'iXsystems', 'manual'),
+      ('truenas',
+       'TrueNAS.tex',
+       project,
+       'iXsystems',
+       'manual'),
     ]
-
-if tags.has('bsg-unified'):
-    latex_documents = [
-      ('bsg-unified', 'BSG-Unified.tex', texproject, 'iXsystems', 'howto'),
-    ]
-    latex_elements.update({'printindex': ''})
-
-if tags.has('bsg-e16'):
-    latex_documents = [
-      ('bsg-e16', 'BSG-E16.tex', texproject, 'iXsystems', 'howto'),
-    ]
-    latex_elements.update({'printindex': ''})
 
 if tags.has('bsg-xseries'):
     latex_documents = [
-      ('bsg-xseries', 'BSG-X-Series.tex', texproject, 'iXsystems', 'howto'),
+      (master_doc,
+       f'{pdf_file_name}.tex',
+       project,
+       'iXsystems',
+       document_class,
+       toctree_only),
     ]
     latex_elements.update({'printindex': ''})
 
