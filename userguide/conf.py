@@ -53,6 +53,7 @@ numfig_secnum_depth = (2)
 if tags.has('truenas'):
     brand = 'TrueNAS®'
     tags.remove('freenas')
+    tags.add('bsg')
     project = brand + ' ' + six.u(version) + six.u(' User Guide')
     projtype = None
     master_doc = 'truenas'
@@ -62,6 +63,7 @@ if tags.has('truenas'):
 if tags.has('bsg-xseries'):
     brand = 'TrueNAS®'
     tags.remove('freenas')
+    tags.add('bsg')
     master_doc = 'bsg-xseries'
 
     product = 'X-Series Unified Storage Array'
@@ -81,6 +83,7 @@ if tags.has('bsg-xseries'):
 if tags.has('bsg-mseries'):
     brand = 'TrueNAS®'
     tags.remove('freenas')
+    tags.add('bsg')
     master_doc = 'bsg-mseries'
 
     product = 'M-Series Unified Storage Array'
@@ -100,6 +103,7 @@ if tags.has('bsg-mseries'):
 if tags.has('bsg-es12'):
     brand = 'TrueNAS®'
     tags.remove('freenas')
+    tags.add('bsg')
     master_doc = 'bsg-es12'
 
     product = 'ES12 Expansion Shelf'
@@ -118,6 +122,7 @@ if tags.has('bsg-es12'):
 if tags.has('bsg-es24'):
     brand = 'TrueNAS®'
     tags.remove('freenas')
+    tags.add('bsg')
     master_doc = 'bsg-es24'
 
     product = 'ES24 Expansion Shelf'
@@ -136,12 +141,23 @@ if tags.has('bsg-es24'):
 
 
 if tags.has('bsg-es60'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
-    version = '1.2'
+    brand = 'TrueNAS®'
     tags.remove('freenas')
-    project = brand + ' ' + six.u('ES60 Expansion Shelf')
-    projtype = 'Basic Setup Guide'
+    tags.add('bsg')
     master_doc = 'bsg-es60'
+
+    product = 'ES60 Expansion Shelf'
+    version = '1.2'
+    release = '1'
+
+    # PDF settings
+    pdf_file_name  = 'BSG-ES60'
+    pdf_title      = f'{brand} ES60 Expansion Shelf'
+    pdf_subtitle   = 'Basic Setup Guide'
+    document_class = 'howto'    # 'howto' or 'manual'
+    toctree_only   = True
+    draft          = True
+    show_edition   = True
     cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es60.png}'
 
 
@@ -525,55 +541,17 @@ if tags.has('truenas'):
        'manual'),
     ]
 
-if tags.has('bsg-xseries'):
+if tags.has('bsg'):
     latex_documents = [
-      (master_doc,
-       f'{pdf_file_name}.tex',
-       project,
-       'iXsystems',
-       document_class,
-       toctree_only),
+        (master_doc,
+         f'{pdf_file_name}.tex',
+         project,
+         'iXsystems',
+         document_class,
+         toctree_only),
     ]
     latex_elements.update({'printindex': ''})
 
-if tags.has('bsg-es12'):
-    latex_documents = [
-      (master_doc,
-       f'{pdf_file_name}.tex',
-       project,
-       'iXsystems',
-       document_class,
-       toctree_only),
-    ]
-    latex_elements.update({'printindex': ''})
-
-if tags.has('bsg-es24'):
-    latex_documents = [
-      (master_doc,
-       f'{pdf_file_name}.tex',
-       project,
-       'iXsystems',
-       document_class,
-       toctree_only),
-    ]
-    latex_elements.update({'printindex': ''})
-
-if tags.has('bsg-mseries'):
-    latex_documents = [
-      (master_doc,
-       f'{pdf_file_name}.tex',
-       project,
-       'iXsystems',
-       document_class,
-       toctree_only),
-    ]
-    latex_elements.update({'printindex': ''})
-
-if tags.has('bsg-es60'):
-    latex_documents = [
-      ('bsg-es60', 'BSG-ES60.tex', texproject, 'iXsystems', 'howto'),
-    ]
-    latex_elements.update({'printindex': ''})
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.

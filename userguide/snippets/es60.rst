@@ -368,14 +368,14 @@ can be combined with other %brand% expansion shelves.
 
 .. _es60_m40_sasconnect:
 .. figure:: images/tn_m40_sas_wiring.png
-   :width: 70%
+   :width: 80%
 
 
 **M50**
 
 .. _es60_m50_sasconnect:
 .. figure:: images/tn_m50_sas_wiring.png
-   :width: 70%
+   :width: 80%
 
 
 .. raw:: latex
@@ -391,18 +391,18 @@ The SAS cables connect to the *1* ports on the ES60 expansion shelves.
    :width: 80%
 
 
-* Cable #1 connects to the first ES60, expansion controller 1 SAS 1
+* Connect cable #1 to the first ES60, expansion controller 1 SAS 1
   port.
 
-* Cable #2 connects to the first ES60, expansion controller 2 SAS 1
+* Connect cable #2 to the first ES60, expansion controller 2 SAS 1
   port.
 
 If a second ES60 is present:
 
-* Cable #3 connects to the second ES60, expansion controller 1 SAS 1
+* Connect cable #3 to the second ES60, expansion controller 1 SAS 1
   port.
 
-* Cable #1 connects to the second ES60, expansion controller 2 SAS 1
+* Connect cable #4 to the second ES60, expansion controller 2 SAS 1
   port.
 
 After all SAS cables are connected, plug the %brand% system power
