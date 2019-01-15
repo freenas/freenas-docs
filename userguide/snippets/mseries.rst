@@ -50,7 +50,7 @@ fault. The fault indicator is on during the initial power-on self-test
 .. _m_indicators:
 
 .. figure:: images/tn_m_indicators.png
-   :width: 50%
+   :width: 30%
 
 
 .. raw:: latex
