@@ -405,9 +405,6 @@ If a second ES60 is present:
 * Connect cable #4 to the second ES60, expansion controller 2 SAS 1
   port.
 
-After all SAS cables are connected, plug the %brand% system power
-cords into power outlets.
-
 
 .. raw:: latex
 
