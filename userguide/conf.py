@@ -64,7 +64,7 @@ if tags.has('bsg-xseries'):
     tags.remove('freenas')
     master_doc = 'bsg-xseries'
 
-    product = 'ES12 Expansion Shelf'
+    product = 'X-Series Unified Storage Array'
     version = '1.2'
     release = '1'
 
@@ -76,6 +76,26 @@ if tags.has('bsg-xseries'):
     draft          = True
     show_edition   = True
     cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=10in]{../../../images/tn_x_front.png}'
+
+
+if tags.has('bsg-mseries'):
+    brand = 'TrueNAS®'
+    tags.remove('freenas')
+    master_doc = 'bsg-mseries'
+
+    product = 'M-Series Unified Storage Array'
+    version = '1.2'
+    release = '1'
+
+    pdf_file_name  = 'BSG-M-Series'
+    pdf_title      = f'{brand} M-Series Unified Storage Array'
+    pdf_subtitle   = 'Basic Setup Guide'
+    document_class = 'howto'    # 'howto' or 'manual'
+    toctree_only   = True
+    draft          = True
+    show_edition   = True
+    cover_pic = r'\vspace*{.1in}\hspace*{4.5in}\includegraphics[width=6in]{../../../images/tn_m_front.png}'
+
 
 if tags.has('bsg-es12'):
     brand = 'TrueNAS®'
@@ -114,15 +134,6 @@ if tags.has('bsg-es24'):
     show_edition   = True
     cover_pic      = r'\vspace*{.6in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es24_front.png}'
 
-
-if tags.has('bsg-mseries'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
-    version = '1.2'
-    tags.remove('freenas')
-    project = brand + ' ' + six.u('M-Series Unified Storage Array')
-    projtype = 'Basic Setup Guide'
-    master_doc = 'bsg-mseries'
-    cover_pic = r'\vspace*{.1in}\hspace*{4.5in}\includegraphics[width=6in]{../../../images/tn_m_front.png}'
 
 if tags.has('bsg-es60'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
@@ -549,7 +560,12 @@ if tags.has('bsg-es24'):
 
 if tags.has('bsg-mseries'):
     latex_documents = [
-      ('bsg-mseries', 'BSG-M-Series.tex', texproject, 'iXsystems', 'howto'),
+      (master_doc,
+       f'{pdf_file_name}.tex',
+       project,
+       'iXsystems',
+       document_class,
+       toctree_only),
     ]
     latex_elements.update({'printindex': ''})
 
