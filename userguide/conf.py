@@ -384,7 +384,7 @@ draftcode = r'''
 '''
 
 editioncode = r'''
-\vspace*{4.5mm}%
+\vspace*{-4mm}%
 \fontsize{18}{22}\fontseries{sbc}\selectfont%
 \docdate\par%
 '''
@@ -438,7 +438,7 @@ PREAMBLE = r'''
     \vspace*{-4.5mm}%
     {\color{ixblue}\rule{\textwidth}{1.5pt}}\par%
     \vspace*{2.5mm}%
-    %%EDITTION%%
+    %%EDITION%%
     %%COVER_PICTURE%%
     % iX blue bottom fill
     \begin{tikzpicture}[remember picture,overlay]
