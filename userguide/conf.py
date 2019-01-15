@@ -355,7 +355,6 @@ epub_show_urls = 'no'
 latex_engine = 'xelatex'
 
 draftcode = r'''
-
 %watermark
 \usepackage[printwatermark]{xwatermark}%
 \newsavebox\draftbox%
@@ -480,7 +479,8 @@ PREAMBLE = PREAMBLE.replace('%%PDFTITLE%%', pdf_title)
 PREAMBLE = PREAMBLE.replace('%%PDFSUBTITLE%%', pdf_subtitle)
 PREAMBLE = PREAMBLE.replace('%%DOCDATE%%', f'Version {version}')
 PREAMBLE = PREAMBLE.replace('%%COVER_PICTURE%%', cover_pic)
-
+# do this last to make sure we replace all of the registered trademark symbols
+PREAMBLE = PREAMBLE.replace('®', r'''\textsuperscript{\textregistered}''')
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
