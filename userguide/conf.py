@@ -120,7 +120,7 @@ if tags.has('bsg-es24'):
     toctree_only   = True
     draft          = True
     show_edition   = True
-    cover_pic      = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es24_front.png}'
+    cover_pic      = r'\vspace*{.6in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es24_front.png}'
 
 
 if tags.has('bsg-mseries'):
