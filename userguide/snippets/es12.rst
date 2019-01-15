@@ -69,7 +69,12 @@ software issues an
 
 .. _es12_indicators:
 .. figure:: images/tn_x_indicators.png
-   :width: 50%
+   :width: 65%
+
+
+.. raw:: latex
+
+   \newpage
 
 
 The ES12 has two expansion controllers in a side-by-side
@@ -135,22 +140,28 @@ Plug the ES12 power cords into power outlets.
 **Wait two minutes for the drives to start.**
 
 The ES12 is compatible with several %brand% systems. Typical SAS cable
-connections for connecting one or two ES12 expansion shelves to
-%brand% High Availability (HA) systems are shown here. When a %brand%
-unit with only a single storage controller is used, only cables #1 and
+connections for one or two ES12 expansion shelves to %brand% High
+Availability (HA) systems are shown here. When a %brand% unit with
+only a single storage controller is used, only cables #1 and
 #3 are connected.
 
 **X-Series**
 
 .. _es60_xseries_sasconnect:
 .. figure:: images/tn_x_sas_wiring.png
+   :width: 100%
+
+
+.. raw:: latex
+
+   \newpage
 
 
 **M40**
 
 .. _es60_m40_sasconnect:
 .. figure:: images/tn_m40_sas_wiring.png
-   :width: 95%
+   :width: 100%
 
 
 .. raw:: latex
@@ -162,7 +173,12 @@ unit with only a single storage controller is used, only cables #1 and
 
 .. _es60_m50_sasconnect:
 .. figure:: images/tn_m50_sas_wiring.png
-   :width: 80%
+   :width: 100%
+
+
+.. raw:: latex
+
+   \newpage
 
 
 Connect SAS cables to the ES12 *T* slots. These are the typical SAS
@@ -174,19 +190,25 @@ cables #1 and #3 are connected.
 
 .. _es12_sasconnect:
 .. figure:: images/tn_es12_sas_connections.png
+   :width: 100%
 
 
-* Cable #1 connects to the ES12 expansion controller 1 T1 slot.
+* Connect cable #1 to the ES12 expansion controller 1 T1 slot.
 
-* Cable #2 connects to the ES12 expansion controller 2 T1 slot.
+* Connect cable #2 to the ES12 expansion controller 2 T1 slot.
 
 If a second ES12 is present:
 
-* Cable #3 connects to the second ES12 expansion controller 1 T1
+* Connect cable #3 to the second ES12 expansion controller 1 T1
   slot.
 
-* Cable #4 connects to the second ES12 expansion controller 2 T1
+* Connect cable #4 to the second ES12 expansion controller 2 T1
   slot.
+
+
+.. raw:: latex
+
+   \newpage
 
 
 Install Bezel (Optional)
@@ -195,3 +217,5 @@ Install Bezel (Optional)
 The included bezel is not required for operation. If desired, install
 the bezel by aligning it with the pins on the bezel ears and pressing
 it into place.
+
+
