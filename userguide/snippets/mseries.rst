@@ -28,6 +28,11 @@ cable, and an accessory kit with 2 IEC C13 to NEMA 5-15P power cords,
 screw posts, and alternate pins for round hole racks.
 
 
+.. raw:: latex
+
+   \newpage
+
+
 .. index:: Become Familiar with the M-Series System
 .. _Become Familiar with the M-Series System:
 
@@ -45,7 +50,7 @@ fault. The fault indicator is on during the initial power-on self-test
 .. _m_indicators:
 
 .. figure:: images/tn_m_indicators.png
-   :width: 20%
+   :width: 50%
 
 
 .. raw:: latex
