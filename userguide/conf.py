@@ -104,13 +104,24 @@ if tags.has('bsg-es12'):
     cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=10in]{../../../images/tn_es12_front.png}'
 
 if tags.has('bsg-es24'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
-    version = '1.2'
+    brand = 'TrueNAS®'
     tags.remove('freenas')
-    project = brand + ' ' + six.u('ES24 Expansion Shelf')
-    projtype = 'Basic Setup Guide'
     master_doc = 'bsg-es24'
-    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es24_front.png}'
+
+    product = 'ES24 Expansion Shelf'
+    version = '1.2'
+    release = '1'
+
+    # PDF settings
+    pdf_file_name  = 'BSG-ES24'
+    pdf_title      = f'{brand} ES24 Expansion Shelf'
+    pdf_subtitle   = 'Basic Setup Guide'
+    document_class = 'howto'    # 'howto' or 'manual'
+    toctree_only   = True
+    draft          = True
+    show_edition   = True
+    cover_pic      = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es24_front.png}'
+
 
 if tags.has('bsg-mseries'):
     brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
@@ -343,30 +354,47 @@ epub_show_urls = 'no'
 
 # -- Options for LaTeX output --------------------------------------------------
 
-if six.PY3:
-    texproject = project.replace('®', r'''{\textsuperscript{\textregistered}}''')
-else:
-    texproject = project.replace(u'®', r'''{\textsuperscript{\textregistered}}''')
+latex_engine = 'xelatex'
 
-PREAMBLE = r'''\def\docname{''' + texproject + '}'
+draftcode = r'''
 
-PREAMBLE = (PREAMBLE + '\\def\\docdate{' + 'Version ' + version + '}')
+%watermark
+\usepackage[printwatermark]{xwatermark}%
+\newsavebox\draftbox%
+\savebox\draftbox{\tikz[color=red,opacity=0.3]\node{DRAFT};}%
+\newwatermark*[allpages,angle=45,scale=15,xpos=-50,ypos=50]{\usebox\draftbox}%
+'''
 
-if sphinx.__version__ < '1.6.5':
-    PREAMBLE = PREAMBLE + r'''\usepackage[tmargin=.75in, bmargin=.75in, lmargin=0.5in, rmargin=0.5in]{geometry}'''
-else:
-    PREAMBLE = PREAMBLE + r'''\geometry{tmargin=.75in, bmargin=.75in, lmargin=0.5in, rmargin=0.5in}'''
+editioncode = r'''
+\vspace*{4.5mm}%
+\fontsize{18}{22}\fontseries{sbc}\selectfont%
+\docdate\par%
+'''
 
-
-# define custom title page
-PREAMBLE = PREAMBLE + r'''
-% FreeNAS/TrueNAS LaTeX preamble
-%%font_init%%
-\usepackage{color}
-\usepackage{tikz}
-\usetikzlibrary{calc}
+PREAMBLE = r'''
+\def\pdftitle{%%PDFTITLE%%}%
+\def\pdfsubtitle{%%PDFSUBTITLE%%}%
+\def\docdate{%%DOCDATE%%}%
+\geometry{tmargin=.75in, bmargin=.75in, lmargin=.75in, rmargin=.75in}%
+\usepackage{fontspec}%
+\newfontfamily\opensansfont{OpenSans-Regular.ttf}[Scale=0.95]%
+\setmainfont{OpenSans-Regular.ttf}[
+      Scale=0.95 ,
+      BoldFont = OpenSans-Bold.ttf ,
+      ItalicFont = OpenSans-Italic.ttf ,
+      BoldItalicFont = OpenSans-BoldItalic.ttf
+      ]%
+\setmonofont{FreeMono.otf}[Scale=0.95]%
+\defaultfontfeatures{Ligatures=TeX}%
+\usepackage{color}%
+\usepackage{tikz}%
+\usetikzlibrary{calc}%
 %for better UTF handling
 \DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
+%%DRAFT%%
+% for table header colors
+\usepackage{colortbl}%
+\protected\def\sphinxstyletheadfamily {\color{white}\cellcolor{gray}}%
 %for bitmaps
 \usepackage{graphicx}
 %for ragged right tables
@@ -377,28 +405,23 @@ PREAMBLE = PREAMBLE + r'''
 \makeatletter
 \renewcommand{\maketitle}{%
   \begin{titlepage}%
+    \pagestyle{empty}%
     \vspace*{-6mm}%
-    % title
     %%title_font%%
     \fontsize{32pt}{32pt}\selectfont%
     \newlength{\thistitlewidth}%
-    \settowidth{\thistitlewidth}{\docname}%
+    \settowidth{\thistitlewidth}{\pdftitle}%
     \ifthenelse{\thistitlewidth > \textwidth}%
-      % if docname is wider than textwidth, squash box to fit
-      {\resizebox{\textwidth}{32pt}{\mbox{\docname}}}%
-      {\mbox{\docname}}%
+      % if pdftitle is wider than textwidth, squash box to fit
+      {\resizebox{\textwidth}{32pt}{\mbox{\pdftitle}}}%
+      {\mbox{\pdftitle}}%
     \par%
-    % document type
-    \fontsize{32pt}{32pt}\selectfont%
-    %%doc_type%%\par%
+    \pdfsubtitle\par%
     \vspace*{-4.5mm}%
     {\color{ixblue}\rule{\textwidth}{1.5pt}}\par%
     \vspace*{2.5mm}%
-    % document date
-    \fontsize{20pt}{23pt}\fontseries{sbc}\selectfont%
-    \docdate\par%
-    % cover picture
-    %%cover_pic%%%
+    %%EDITTION%%
+    %%COVER_PICTURE%%
     % iX blue bottom fill
     \begin{tikzpicture}[remember picture,overlay]
       \fill [ixblue] (current page.south west) rectangle ($(current page.south east) + (0, 2in)$);
@@ -406,6 +429,7 @@ PREAMBLE = PREAMBLE + r'''
   \end{titlepage}
 }
 \makeatother
+% define page styles
 % a plain page style for front matter
 \fancypagestyle{frontmatter}{%
   \fancyhf{}
@@ -413,18 +437,20 @@ PREAMBLE = PREAMBLE + r'''
   \fancyhf[FLE,FRO]{\textbf{\thepage}}
   \fancyhf[FLO,FRE]{}
 }
+\fancypagestyle{eol}{%
+  \fancyhead{}%
+  \fancyfoot{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+  \lfoot{\fontsize{10}{12}\color{darkgray}{EOL Document}}%
+  \cfoot{\fontsize{10}{12}\color{darkgray}{CONFIDENTIAL}}%
+  \rfoot{\fontsize{10}{12}\color{darkgray}{\thepage}}%
+}%
 \fancypagestyle{bsg}{%
   \fancyhf{}
   \fancyfoot[C]{\textbf{\thepage}}
 }
 '''
-
-PREAMBLE = PREAMBLE.replace('%%cover_pic%%', cover_pic)
-if projtype is not None:
-    PREAMBLE = PREAMBLE.replace('%%doc_type%%', projtype)
-
-
-latex_engine = 'xelatex'
 
 if latex_engine == 'xelatex':
     font_init = r'''\usepackage{fontspec}%
@@ -448,6 +474,14 @@ else:
 
 PREAMBLE = PREAMBLE.replace('%%font_init%%', font_init)
 PREAMBLE = PREAMBLE.replace('%%title_font%%', title_font)
+if draft:
+  PREAMBLE = PREAMBLE.replace('%%DRAFT%%', draftcode)
+if show_edition:
+  PREAMBLE = PREAMBLE.replace('%%EDITION%%', editioncode)
+PREAMBLE = PREAMBLE.replace('%%PDFTITLE%%', pdf_title)
+PREAMBLE = PREAMBLE.replace('%%PDFSUBTITLE%%', pdf_subtitle)
+PREAMBLE = PREAMBLE.replace('%%DOCDATE%%', f'Version {version}')
+PREAMBLE = PREAMBLE.replace('%%COVER_PICTURE%%', cover_pic)
 
 
 latex_elements = {
@@ -470,9 +504,14 @@ latex_elements = {
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
-latex_documents = [
-  ('freenas', 'FreeNAS.tex', texproject, 'iXsystems', 'manual'),
-]
+if tags.has('freenas'):
+    latex_documents = [
+      ('freenas',
+       'FreeNAS.tex',
+       project,
+       'iXsystems',
+       'manual'),
+    ]
 
 if tags.has('truenas'):
     latex_documents = [
@@ -491,12 +530,6 @@ if tags.has('bsg-e16'):
     ]
     latex_elements.update({'printindex': ''})
 
-if tags.has('bsg-e24'):
-    latex_documents = [
-      ('bsg-e24', 'BSG-E24.tex', texproject, 'iXsystems', 'howto'),
-    ]
-    latex_elements.update({'printindex': ''})
-
 if tags.has('bsg-xseries'):
     latex_documents = [
       ('bsg-xseries', 'BSG-X-Series.tex', texproject, 'iXsystems', 'howto'),
@@ -511,7 +544,12 @@ if tags.has('bsg-es12'):
 
 if tags.has('bsg-es24'):
     latex_documents = [
-      ('bsg-es24', 'BSG-ES24.tex', texproject, 'iXsystems', 'howto'),
+      (master_doc,
+       f'{pdf_file_name}.tex',
+       project,
+       'iXsystems',
+       document_class,
+       toctree_only),
     ]
     latex_elements.update({'printindex': ''})
 
