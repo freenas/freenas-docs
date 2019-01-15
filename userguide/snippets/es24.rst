@@ -141,28 +141,26 @@ connected.
 
 .. _es24_xseries_sasconnect:
 .. figure:: images/tn_x_sas_wiring.png
-
-
-.. raw:: latex
-
-   \newpage
+   :width: 70%
 
 
 **M40**
 
 .. _es24_m40_sasconnect:
 .. figure:: images/tn_m40_sas_wiring.png
+   :width: 70%
+
+
+.. raw:: latex
+
+   \newpage
 
 
 **M50**
 
 .. _es24_m50_sasconnect:
 .. figure:: images/tn_m50_sas_wiring.png
-
-
-.. raw:: latex
-
-   \newpage
+   :width: 70%
 
 
 The SAS cables from the %brand% system connect to these ports on the
@@ -171,21 +169,21 @@ ES24:
 
 .. _es24_sas_connections:
 .. figure:: images/tn_es24_sas_connections.png
-   :width: 85%
+   :width: 70%
 
 
-* Cable #1 connects to the first ES24, expansion controller 1 SAS 0
+* Connect cable #1 to the first ES24, expansion controller 1 SAS 0
   port.
 
-* Cable #2 connects to the first ES24, expansion controller 2 SAS 0
+* Connect cable #2 to the first ES24, expansion controller 2 SAS 0
   port.
 
 If a second ES24 is present:
 
-* Cable #3 connects to the second ES24, expansion controller 1 SAS 0
+* Connect cable #3 to the second ES24, expansion controller 1 SAS 0
   port.
 
-* Cable #4 connects to the second ES24, expansion controller 2 SAS 0
+* Connect cable #4 to the second ES24, expansion controller 2 SAS 0
   port.
 
 
