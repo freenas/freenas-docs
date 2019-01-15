@@ -60,7 +60,7 @@ are shown here.
 .. _m_back:
 
 .. figure:: images/tn_m_back.png
-   :width: 100%
+   :width: 97%
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
