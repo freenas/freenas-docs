@@ -51,7 +51,7 @@ numfig = True
 numfig_secnum_depth = (2)
 
 if tags.has('truenas'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    brand = 'TrueNAS®'
     tags.remove('freenas')
     project = brand + ' ' + six.u(version) + six.u(' User Guide')
     projtype = None
@@ -59,32 +59,8 @@ if tags.has('truenas'):
     cover_pic = r''
 
 # BSGs
-if tags.has('bsg-unified'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
-    tags.remove('freenas')
-    project = brand + ' ' + six.u('Unified Storage Array')
-    projtype = 'Basic Setup Guide'
-    master_doc = 'bsg-unified'
-    cover_pic = r''
-
-if tags.has('bsg-e16'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
-    tags.remove('freenas')
-    project = brand + ' ' + six.u('E16/E16F Expansion Shelf')
-    projtype = 'Basic Setup Guide'
-    master_doc = 'bsg-e16'
-    cover_pic = r''
-
-if tags.has('bsg-e24'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
-    tags.remove('freenas')
-    project = brand + ' ' + six.u(' E24 Expansion Shelf')
-    projtype = 'Basic Setup Guide'
-    master_doc = 'bsg-e24'
-    cover_pic = r''
-
 if tags.has('bsg-xseries'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    brand = 'TrueNAS®'
     version = '1.2'
     tags.remove('freenas')
     project = brand + ' ' + six.u('X-Series Unified Storage Array')
@@ -93,12 +69,21 @@ if tags.has('bsg-xseries'):
     cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=10in]{../../../images/tn_x_front.png}'
 
 if tags.has('bsg-es12'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
-    version = '1.2'
+    brand = 'TrueNAS®'
     tags.remove('freenas')
-    project = brand + ' ' + six.u('ES12 Expansion Shelf')
-    projtype = 'Basic Setup Guide'
     master_doc = 'bsg-es12'
+
+    product = 'ES12 Expansion Shelf'
+    version = '1.2'
+    release = '1'
+
+    pdf_file_name  = 'BSG-ES12'
+    pdf_title      = f'{brand} ES12 Expansion Shelf'
+    pdf_subtitle   = 'Basic Setup Guide'
+    document_class = 'howto'    # 'howto' or 'manual'
+    toctree_only   = True
+    draft          = True
+    show_edition   = True
     cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=10in]{../../../images/tn_es12_front.png}'
 
 if tags.has('bsg-es24'):
@@ -536,7 +521,12 @@ if tags.has('bsg-xseries'):
 
 if tags.has('bsg-es12'):
     latex_documents = [
-      ('bsg-es12', 'BSG-ES12.tex', texproject, 'iXsystems', 'howto'),
+      (master_doc,
+       f'{pdf_file_name}.tex',
+       project,
+       'iXsystems',
+       document_class,
+       toctree_only),
     ]
     latex_elements.update({'printindex': ''})
 
