@@ -72,7 +72,12 @@ fault. The fault indicator is on during the initial power-on self-test
 .. _x_indicators:
 
 .. figure:: images/tn_x_indicators.png
-   :width: 50%
+   :width: 75%
+
+
+.. raw:: latex
+
+   \newpage
 
 
 The X-Series has one or two storage controllers in a side-by-side
