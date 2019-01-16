@@ -1684,12 +1684,10 @@ unless there is a specific need.**
   :ref:`share settings <smb_share_opts_tab>`. Many have performance
   overhead.
 
-.. needs link to smb1 knowledgebase article, when it is published. Adjust title of link, if necessary.
-
 The SMB1 protocol is deprecated and vulnerable. Some older clients still
 require it. Before enabling SMB1, see `Why You Should Not Use SMB1
-<https://www.ixsystems.com/blog/library/do-not-use-smb1/>`__
-for more information.
+<https://www.ixsystems.com/blog/library/do-not-use-smb1/>`__ for more
+information.
 
 
 .. index:: SNMP, Simple Network Management Protocol
