@@ -1610,7 +1610,6 @@ unless there is a specific need.**
   overhead.
 
 
-.. needs link to smb1 knowledgebase article, when it is published. Adjust title of link, if necessary.
 
 The SMB1 protocol is deprecated and vulnerable. Some older clients still
 require it. Before enabling SMB1, see `Why You Should Not Use SMB1
