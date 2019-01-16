@@ -1258,8 +1258,8 @@ An example is shown in :numref:`Figure %s <zfs_view_avail_snapshots_fig>`.
 
 
 Each entry in the listing includes the name of the snapshot, based on
-the volume/dataset name and time of the snapshot, and the amount of used
-and referenced data, where:
+the pool/dataset name and time of the snapshot, the amount of used
+and referenced data, and the snapshot creation date.
 
 **Used** is the amount of space consumed by this dataset and all of
 its descendants. This value is checked against the dataset quota and
@@ -1282,11 +1282,13 @@ that the space usage information is updated immediately.
    :samp:`zfs list -t snapshot` from :ref:`Shell`.
 
 
-**Refer** indicates the amount of data accessible by this dataset,
+**Referenced** indicates the amount of data accessible by this dataset,
 which may or may not be shared with other datasets in the pool. When a
 snapshot or clone is created, it initially references the same amount
 of space as the filesystem or snapshot it was created from, since its
 contents are identical.
+
+**Date Created** shows the exact time and date of the snapshot creation.
 
 To manage a snapshot, click |ui-options| next to its entry. These
 actions are available from that menu:
