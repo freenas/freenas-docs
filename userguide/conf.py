@@ -45,7 +45,7 @@ pdf_subtitle   = ''
 document_class = 'manual'    # 'howto' or 'manual'
 toctree_only   = True
 draft          = True
-show_edition   = True
+show_edition   = False
 cover_pic = r''
 
 if tags.has('truenas'):
@@ -64,7 +64,7 @@ if tags.has('truenas'):
     document_class = 'manual'    # 'howto' or 'manual'
     toctree_only   = True
     draft          = True
-    show_edition   = True
+    show_edition   = False
     cover_pic = r''
 
 # BSGs
@@ -530,27 +530,17 @@ latex_elements = {
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
-# (source start file, target name, title, author, documentclass [howto/manual]).
-if tags.has('freenas') or tags.has('truenas'):
-    latex_documents = [
-      (master_doc,
-       f'{pdf_file_name}.tex',
-       product,
-       'iXsystems',
-       document_class,
-       toctree_only),
-    ]
-
-if tags.has('bsg'):
-    latex_documents = [
-        (master_doc,
-         f'{pdf_file_name}.tex',
-         product,
-         'iXsystems',
-         document_class,
-         toctree_only),
-    ]
-    latex_elements.update({'printindex': ''})
+# source index file, output file name, title in document, author, documentclass [howto/manual], toctree_only.
+# User Guide manually includes index, BSGs have no index, so it is disabled here for both.
+latex_documents = [
+    (master_doc,
+     f'{pdf_file_name}.tex',
+     product,
+     'iXsystems',
+     document_class,
+     toctree_only),
+]
+latex_elements.update({'printindex': ''})
 
 
 # The name of an image file (relative to this directory) to place at the top of
