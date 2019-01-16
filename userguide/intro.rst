@@ -117,7 +117,7 @@ These base applications and drivers have been updated or added:
 * The algorithm used for scrubs and resilvers has received many
   improvements which are most noticeable on fragmented pools.
 
-* Samba has been patched to address
+* Samba 4.7 has been patched to address
   `these security vulnerabilities
   <https://www.samba.org/samba/history/samba-4.7.3>`__.
 
@@ -364,7 +364,7 @@ U2
 U3
 ~~
 
-* Samba has been patched to address
+* Samba 4.7 has been patched to address
   `CVE-2018-1050 <https://www.samba.org/samba/security/CVE-2018-1050.html>`__
   and
   `CVE-2018-1057 <https://wiki.samba.org/index.php/CVE-2018-1057>`__.
@@ -387,7 +387,7 @@ U6
   `FreeBSD-SA-18:08.tcp <https://www.freebsd.org/security/advisories/FreeBSD-SA-18:08.tcp.asc>`__
   and `FreeBSD-SA-18:10.ip <https://www.freebsd.org/security/advisories/FreeBSD-SA-18:10.ip.asc>`__.
 
-* Samba has been patched to address the recent
+* Samba 4.7 has been patched to address recent
   `CVEs <https://www.samba.org/samba/latest_news.html#4.8.4>`__.
 
 * The
@@ -423,7 +423,11 @@ U6.3
 * Netatalk has been patched to address
   `CVE-2018-1160 <https://nvd.nist.gov/vuln/detail/CVE-2018-1160>`__.
 
+U7
+~~
 
+* Samba 4.7 has been patched to address recent
+  `CVEs <https://www.samba.org/samba/latest_news.html#4.9.3>`__.
 
 
 .. index:: Path and Name Lengths
