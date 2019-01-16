@@ -429,6 +429,9 @@ U7
 * NFS has been patched to address
   `FreeBSD-SA-18:13.nfs <https://www.freebsd.org/security/advisories/FreeBSD-EN-18:14.tzdata.asc>`__.
 
+* bhyve has been patched to address
+  `CVE-2018-17160 <https://www.freebsd.org/security/advisories/FreeBSD-SA-18:14.bhyve.asc>`__.
+
 * Samba 4.7 has been patched to address recent
   `CVEs <https://www.samba.org/samba/latest_news.html#4.9.3>`__.
 
