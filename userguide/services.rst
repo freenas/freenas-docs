@@ -1247,7 +1247,7 @@ configuration options. After configuring the S3 service, start it in
    | Confirm S3 Key    | string            | Re-enter the S3 password to confirm.                                                                 |
    |                   |                   |                                                                                                      |
    +-------------------+-------------------+------------------------------------------------------------------------------------------------------+
-   | Disks             | string            | Required. Directory where the S3 filesystem will be mounted. Ownership of this               |
+   | Disks             | string            | Required. Directory where the S3 filesystem will be mounted. Ownership of this                       |
    |                   |                   | directory and all subdirectories is set to *minio:minio*.                                            |
    |                   |                   | :ref:`Create a separate dataset <Create Dataset>`                                                    |
    |                   |                   | for Minio to avoid issues with conflicting directory permissions or ownership.                       |
@@ -1458,8 +1458,8 @@ screen is really a front-end to
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    | Enable SMB1 support         | checkbox          | Allow legacy SMB clients to connect to the server. **Warning:** SMB1 is not secure and has been      |
-   |                             |                   | deprecated by Microsoft. Maintain server security by upgrading clients to an operating system        |
-   |                             |                   | version that supports the latest version of the SMB protocol and leaving this option unset.          |
+   |                             |                   | deprecated by Microsoft. See                                                                         |
+   |                             |                   | `Do Not Use SMB1 <https://www.ixsystems.com/blog/library/do-not-use-smb1/>`__.                       |
    |                             |                   |                                                                                                      |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    | DOS charset                 | drop-down menu    | The character set Samba uses when communicating with DOS and Windows 9x/ME clients. Default is       |
@@ -1684,10 +1684,9 @@ unless there is a specific need.**
   :ref:`share settings <smb_share_opts_tab>`. Many have performance
   overhead.
 
-The SMB1 protocol is deprecated and vulnerable. Some older clients still
-require it. Before enabling SMB1, see `Why You Should Not Use SMB1
-<https://www.ixsystems.com/blog/library/do-not-use-smb1/>`__ for more
-information.
+The SMB1 protocol is deprecated and vulnerable. Before enabling it,
+see
+`Do Not Use SMB1 <https://www.ixsystems.com/blog/library/do-not-use-smb1/>`__.
 
 
 .. index:: SNMP, Simple Network Management Protocol
