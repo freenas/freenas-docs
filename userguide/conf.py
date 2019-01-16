@@ -21,42 +21,50 @@ source_encoding = 'utf-8-sig'
 # General information about the project.
 copyright = '2011-2019, iXsystems'
 
-# Version info for the project being documented, acts as replacement for
-# |version| and |release|, also used in various other places throughout
-# the built documents.
-#
-
-# VERSION is the LONG, FULL version number with all patch levels, like "11.0-U1"
-version = '11.2-RELEASE'
-# RELEASE is the short major release number ONLY, like "11.0"
-release = '11.2'
-
-if tags.has('truenas'):
-    # VERSION is the LONG, FULL, version number
-    version = '11.1-U6.2'
-    # RELEASE is the short major release number ONLY
-    release = '11.1'
-
 # exclude_patterns is a list of patterns relative to the source directory
 # that match files and directories to ignore when looking for source files.
 
-tags.add('freenas')
-brand = 'FreeNAS®' if six.PY3 else u'FreeNAS®'
-project = brand + ' ' + six.u(version) + ' ' + 'User Guide'
-projtype = None
-master_doc = 'freenas'
-extensions = []
-cover_pic = r''
+
 numfig = True
 numfig_secnum_depth = (2)
+extensions = []
+
+
+# FreeNAS default settings
+brand = 'FreeNAS®'
+tags.add('freenas')
+master_doc = 'freenas'
+
+version = '11.2-RELEASE'
+release = '11.2'
+product = f'{brand} {version} User Guide'
+
+pdf_file_name  = f'FreeNAS-{version}-User-Guide'
+pdf_title      = product
+pdf_subtitle   = ''
+document_class = 'manual'    # 'howto' or 'manual'
+toctree_only   = True
+draft          = True
+show_edition   = True
+cover_pic = r''
 
 if tags.has('truenas'):
     brand = 'TrueNAS®'
     tags.remove('freenas')
-    tags.add('bsg')
-    project = brand + ' ' + six.u(version) + six.u(' User Guide')
-    projtype = None
+    tags.add('truenas')
     master_doc = 'truenas'
+
+    version = '11.1-U7'
+    release = '11.1'
+    product = f'{brand} {version} User Guide'
+
+    pdf_file_name  = f'TrueNAS-{version}-User-Guide'
+    pdf_title      = product
+    pdf_subtitle   = ''
+    document_class = 'manual'    # 'howto' or 'manual'
+    toctree_only   = True
+    draft          = True
+    show_edition   = True
     cover_pic = r''
 
 # BSGs
@@ -523,29 +531,21 @@ latex_elements = {
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
-if tags.has('freenas'):
+if tags.has('freenas') or tags.has('truenas'):
     latex_documents = [
-      ('freenas',
-       'FreeNAS.tex',
-       project,
+      (master_doc,
+       f'{pdf_file_name}.tex',
+       product,
        'iXsystems',
-       'manual'),
-    ]
-
-if tags.has('truenas'):
-    latex_documents = [
-      ('truenas',
-       'TrueNAS.tex',
-       project,
-       'iXsystems',
-       'manual'),
+       document_class,
+       toctree_only),
     ]
 
 if tags.has('bsg'):
     latex_documents = [
         (master_doc,
          f'{pdf_file_name}.tex',
-         project,
+         product,
          'iXsystems',
          document_class,
          toctree_only),
