@@ -13,5 +13,5 @@ interface or going to
 `<https://www.ixsystems.com/documentation/freenas/>`__
 #endif freenas
 #ifdef truenas
-`<https://support.ixsystems.com/truenasguide/truenas.html>`__.
+`<https://www.ixsystems.com/documentation/truenas/>`__.
 #endif truenas
