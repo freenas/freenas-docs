@@ -141,14 +141,15 @@ these settings by checking
    |                          |               |             |                                                                                                                     |
    +--------------------------+---------------+-------------+---------------------------------------------------------------------------------------------------------------------+
    | Encryption Mode          | drop-down     | ✓           | Choices are *Off*, *SSL*, or *TLS*. Refer to `SSL vs. TLS                                                           |
-   |                          |               |             | <https://www.globalsign.com/en/blog/ssl-vs-tls-difference/>`__ for more information on SSL and TLS.                 |
-   |                          | menu          |             |                                                                                                                     |
+   |                          | menu          |             | <https://www.globalsign.com/en/blog/ssl-vs-tls-difference/>`__ for more information on SSL and TLS.                 |
+   |                          |               |             |                                                                                                                     |
    |                          |               |             |                                                                                                                     |
    +--------------------------+---------------+-------------+---------------------------------------------------------------------------------------------------------------------+
-   | Certificate              | drop-down menu| ✓           | Select the certificate of the Active Directory server if SSL connections are used. If a certificate does            |
-   |                          |               |             | not exist yet, create a :ref:`CA <CAs>`, then create a certificate on the Active Directory server. Import the       |
+   | Certificate              | drop-down     | ✓           | Select the certificate of the Active Directory server if SSL connections are used. If a certificate does            |
+   |                          | menu          |             | not exist yet, create a :ref:`CA <CAs>`, then create a certificate on the Active Directory server. Import the       |
    |                          |               |             | certificate to the %brand% system using the :ref:`Certificates` menu.                                               |
    |                          |               |             |                                                                                                                     |
+   |                          |               |             | Choose the blank entry and click :guilabel:`Save` to clear a saved certificate from the AD configuration.           |
    +--------------------------+---------------+-------------+---------------------------------------------------------------------------------------------------------------------+
    | Verbose logging          | checkbox      | ✓           | Set to log attempts to join the domain to :file:`/var/log/messages`.                                                |
    |                          |               |             |                                                                                                                     |
