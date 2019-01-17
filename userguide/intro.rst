@@ -333,6 +333,26 @@ These screen options have changed:
 * Disk temperature graphs have been added to
   :menuselection:`Reporting --> Disk`.
 
+Changes Since |release|
+-----------------------
+
+%brand% uses a "rolling release" model instead of point releases. The
+:ref:`Update` mechanism makes it easy to keep up-to-date with the
+latest security fixes, bug fixes, and new features. Some updates
+affect the user interface, so this section lists any functional
+changes that have occurred since |release| was released.
+
+.. note:: The screenshots in this documentation assume that the system
+   has been fully updated to the latest STABLE version of %brand%
+   |version|. If a screen on the system is not the same as shown in
+   this guide, make sure that all updates have been applied.
+
+U1
+~~
+
+* The :guilabel:`Enable SMB1 support` checkbox has been added to
+  :menuselection:`Services --> SMB`.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
