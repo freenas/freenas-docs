@@ -117,11 +117,8 @@ Confirmation prompts appear when starting or deleting a VM.
 Creating VMs
 ------------
 
-Click on
-:menuselection:`Virtual Machines`
-and |ui-add| to open the wizard shown in
-:numref:`Figure %s <vms_add_fig>`:
-
+Click on :guilabel:`ACTIONS` and :guilabel:`Add VM` to open the wizard
+shown in :numref:`Figure %s <vms_add_fig>`:
 
 .. _vms_add_fig:
 
@@ -130,66 +127,10 @@ and |ui-add| to open the wizard shown in
    Add VM
 
 
-Create a virtual machine by following these steps in the creation
-wizard:
+Create a virtual machine by following the steps in the wizard.
+%brand% already shows the default choices in the wizard.
 
-#. **Select VM wizard type**
-
-   Select *Virtual Machine (VM)* or
-   *Docker Host*.
-
-#. **Operating System**
-
-   Select the guest operating system type from the drop down menu and
-   enter an alphanumeric name for the VM. UEFI is recommended
-   as the boot method for newer operating systems.
-   :guilabel:`Start on Boot` and :guilabel:`Enable VNC` are set by
-   default. :guilabel:`Start on Boot` tells the VM to start when the
-   host system is booted. :guilabel:`Enable VNC` allows a
-   virtual connection to the VM.
-
-#. **CPU and Memory**
-
-   Enter the number of virtual CPUs and the amount of memory for the
-   VM. Provide adequate memory and virtual CPUs for the applications
-   running in the VM, but be aware that providing more memory or
-   virtual CPUs than are needed can affect performance of the host
-   system.
-
-#. **Hard Disks**
-
-   Select :guilabel:`Create new disk image` to create a new zvol to use
-   as a virtual hard drive for the VM. Select
-   :guilabel:`Use existing disk image` to use an existing zvol or file
-   for the VM.
-
-#. **Network Interface**
-
-   Select the adapter type from the drop-down.
-   *Intel e82545 (e1000)* emulates the same Intel Ethernet
-   card. This provides compatibility with most operating systems.
-   VirtIO provides better performance when the operating system
-   installed in the VM supports VirtIO paravirtualized network drivers.
-   The MAC address is randomized by default. Enter a custom MAC address
-   to overide the randomization. Select the physical interface to
-   associate with the VM.
-
-#. **Installation Media**
-
-   Use the file browser to choose the path to the installed media
-   image on the %brand% system. If uploading an image file, set
-   :guilabel:`Upload an install image file`. Use the file browser
-   to select the save location for the image file. Click
-   :guilabel:`Browse` to search the host system for the image file.
-   Click :guilabel:`Upload` to upload the image file to the
-   chosen location.
-
-#. **Confirm Options**
-
-   This step shows the settings chosen. Click :guilabel:`Submit` to
-   create the VM.
-
-Virtual machine configuration options are described in
+The individual configuration options are described in
 :numref:`Table %s <vms_add_opts_tab>`.
 
 
@@ -207,7 +148,7 @@ Virtual machine configuration options are described in
    | Screen # | Setting            | Value          | Description                                                                                   |
    |          |                    |                |                                                                                               |
    +==========+====================+================+===============================================================================================+
-   | 1        | Virtual Machine    | drop-down menu | Choose to create either a standard VM or a Docker Host.                                       |
+   | 1        | Virtual Machine    | drop-down menu | Choose to create either a standard VM or a :ref:`Docker Host <Docker Hosts>`.                 |
    |          | (VM) Wizard type   |                |                                                                                               |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
@@ -216,22 +157,22 @@ Virtual machine configuration options are described in
    |          |                    |                | for detailed instructions about using a different guest OS.                                   |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | VM Name            | string         | Enter an alphanumeric name to identify the VM. An error occurs if another VM is already       |
+   | 2        | Name               | string         | Enter an alphanumeric name to identify the VM. An error occurs if another VM is already       |
    |          |                    |                | using the same name.                                                                          |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Boot Method        | drop-down menu | Select *UEFI* for newer operating systems, or *UEFI-CSM* for (Compatibility Support Mode)     |
+   | 2        | Boot Method        | drop-down menu | Select *UEFI* for newer operating systems, or *UEFI-CSM* (Compatibility Support Mode) for     |
    |          |                    |                | older operating systems that only understand BIOS booting.                                    |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | Start on Boot      | checkbox       | Set to start the VM when the system boots.                                                    |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Enable VNC         | checkbox       | Set to to activate a Virtual Network Computing (VNC) remote connection.                       |
+   | 2        | Enable VNC         | checkbox       | Set to to activate a :ref:`Virtual Network Computing <vms-VNC>`_ (VNC) remote connection.     |
    |          |                    |                | Requires *UEFI* booting.                                                                      |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 3        | Virtual CPUs       | integer        | Select the number of virtual CPUs to allocate to the VM. The maximum is 16 unless             |
+   | 3        | Virtual CPUs       | integer        | Enter the number of virtual CPUs to allocate to the VM. The maximum is 16 unless              |
    |          |                    |                | the host CPU limits the maximum. The VM operating system might also have                      |
    |          |                    |                | operational or licensing restrictions on the number of CPUs.                                  |
    |          |                    |                |                                                                                               |
@@ -241,14 +182,14 @@ Virtual machine configuration options are described in
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 4        | Disk image         | check option   | Select :guilabel:`Create new disk image` to create a new zvol on an existing dataset.         |
    |          |                    | with custom    | This is used as a virtual hard drive for the VM. Select :guilabel:`Use existing disk image`   |
-   |          |                    | fields         | to :guilabel:`Browse` to an existing zvol or file for the VM.                                 |
+   |          |                    | fields         | and click |ui-browse| to select an existing zvol or file for the VM.                          |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 4        | Zvol size (GiB)    | integer        | Allocate the amount of storage in                                                             |
    |          |                    |                | `gibibytes <https://simple.wikipedia.org/wiki/Gibibyte>`__ for the new zvol.                  |
    |          |                    |                | Only appears if :guilabel:`Create new disk image` is selected.                                |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Select pool or     | drop-down menu | Select a pool or dataset for the new zvol.                                                    |
+   | 4        | Select pool or     | drop-down menu | Click |ui-browse| to select a pool or dataset for the new zvol.                               |
    |          | dataset            |                |                                                                                               |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
@@ -270,12 +211,12 @@ Virtual machine configuration options are described in
    |          |                    |                |                                                                                               |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 6        | Choose             | browse button  | :guilabel:`Browse` to the operating system installation media.                                |
-   |          | installation media |                |                                                                                               |
-   |          |                    |                |                                                                                               |
+   | 6        | Choose             | browse button  | Click |ui-browse| to select to the operating system installation media that is stored on the  |
+   |          | installation media |                | %brand% system.                                                                               |
+   |          | image              |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 6        | Upload ISO         | checkbox and   | Set to display image upload options.                                                          |
-   |          |                    | buttons        |                                                                                               |
+   | 6        | Upload ISO         | checkbox and   | Set to display additional options to upload an operating system installation file to the      |
+   |          |                    | buttons        | %brand% system.                                                                               |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
 
@@ -284,20 +225,20 @@ The final screen of the Wizard displays the chosen options for the new
 VM. Click :guilabel:`SUBMIT` to create the VM or :guilabel:`BACK` to
 change any settings.
 
-This example creates a FreeBSD VM. |ui-add| is clicked on the
-:guilabel:`Virtual Machines` page to start the VM wizard.
+This example creates a FreeBSD VM:
 
-#. :guilabel:`Wizard type` is set to *Virtual Machine (VM)*.
+#. :guilabel:`Virtual Machine (VM) Wizard type` is set to
+   *Virtual Machine (VM)*.
 
 #. :guilabel:`Guest Operating System` is set to *FreeBSD*.
    :guilabel:`Name` is set to *samplevm*. Other options are left at
-   default values.
+   the default values.
 
-#. :guilabel:`Virtual CPUs` is set to *2* and :guilabel:`Memory Size`
-   is set to *2048 MiB*.
+#. :guilabel:`Virtual CPUs` is set to *2* and
+   :guilabel:`Memory Size (MiB)` is set to *2048*.
 
 #. :guilabel:`Create new disk image` is selected. The zvol size is set
-   to *20 GiB* and stored on the *pool1* pool.
+   to *20* (GiB) and stored on the pool named *pool1*.
 
 #. Network settings are left at default values.
 
