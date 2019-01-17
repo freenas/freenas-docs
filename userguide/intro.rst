@@ -435,6 +435,9 @@ U7
 * Samba 4.7 has been patched to address recent
   `CVEs <https://www.samba.org/samba/latest_news.html#4.9.3>`__.
 
+* The :guilabel:`Enable SMB1 support` checkbox has been added to
+  :menuselection:`Services --> SMB`.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
