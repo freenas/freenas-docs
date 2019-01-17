@@ -44,6 +44,73 @@ output shows the POPCNT feature, this processor can be used with
    processors ceased in 2012 or 2013.
 
 
+.. index:: Virtual Machines Page
+.. _Virtual Machines Page:
+
+Virtual Machines Page
+---------------------
+
+Go to
+:menuselection:`Virtual Machines`
+to see a table with each installed VM. A graph of total VM memory usage
+displays at the top of the page.
+
+.. figure:: images/virtual-machines.png
+
+   Virtual Machines Page
+
+
+The VM :guilabel:`Name`, :guilabel:`State`, :guilabel:`VNC Port` (if
+present), :guilabel:`Type`, :guilabel:`Description`, number of
+:guilabel:`Virtual CPUs`, :guilabel:`Memory Size` (in MiB),
+:guilabel:`Boot Loader Type`, and :guilabel:`Autostart` values are shown
+in the table. The table display is adjusted by clicking
+:guilabel:`COLUMNS` and selecting which columns are shown in the table.
+
+Click |ui-options| to see additional buttons for a VM.
+
+These choices are available in the |ui-options| menu regardless of the
+current :guilabel:`State`:
+
+* :guilabel:`Edit` opens a form to change the VM settings. The VM name,
+  description, number of virtual CPUs, allocated memory, boot loader,
+  and option to start the VM on system boot can all be adjusted.
+
+* :guilabel:`Delete` :ref:`removes the VM <Deleting VMs>`.
+
+* :guilabel:`Devices` is used to add, remove, and edit the VM devices.
+
+* :guilabel:`Clone` makes a copy of the VM. The new clone has
+  :samp:`_clone{N}` added to the name, where :samp:`{N}` is the number
+  of the clone. %brand% displays a substantive error message if cloning
+  a VM fails.
+
+When a VM is :guilabel:`STOPPED`, the :guilabel:`Start` option becomes
+available in the |ui-options| menu. Click it to see a confirmation
+dialog that offers the option to :guilabel:`Overcommit Memory`. Memory
+overcommitment allows multiple VMs to be launched when there is not
+enough free memory for configured RAM of all VMs. Use with caution. The
+|web-ui| displays a substantive error message when a VM fails to start.
+When active, the VM :guilabel:`State` changes to :guilabel:`RUNNING`.
+
+When a VM is :guilabel:`RUNNING`, more buttons in the |ui-options| menu
+are available:
+
+* :guilabel:`Power off` immediately halts the VM. This is equivalent
+  to unplugging the power cord from a computer.
+
+* :guilabel:`Stop` shuts down the VM.
+
+* :guilabel:`VNC` opens a new browser tab pointed to the `VNC
+  <https://en.wikipedia.org/wiki/Virtual_Network_Computing>`__
+  port of the VM. This is used to access the VM. The VM must have a
+  :ref:`VNC device <vms-VNC>` with :guilabel:`Web Interface` enabled.
+
+* :guilabel:`Serial` opens a VM Serial Shell. This is also used
+  to access the VM.
+
+Confirmation prompts appear when starting or deleting a VM.
+
 .. index:: Creating VMs
 .. _Creating VMs:
 
@@ -522,85 +589,7 @@ See
 for more information on using :command:`cu`.
 
 
-.. index:: Running VMs
-.. _Running VMs:
 
-Running VMs
------------
-
-Go to
-:menuselection:`Virtual Machines`
-to see a card for each installed VM. There are different view options at
-the top of the screen for this page:
-
-* :guilabel:`Cards`: Default view. Shows a large "card" for each VM with
-  all options for that VM contained on that card.
-
-* :guilabel:`Slim`: Similar to the default, but reduces card size to fit
-  more cards on the screen.
-
-* :guilabel:`Table`: Removes cards entirely to show all VMs in a space
-  efficient table. This view also has a
-  :guilabel:`Virtual Machines Summary` which displays VM memory usage.
-
-
-The default :guilabel:`Cards` view is described and shown in this
-section, but VM options are the same between each view. Each VM card has
-a :guilabel:`CONNECT` button at the bottom and will flip to show more
-options after clicking |ui-options| and :guilabel:`Edit`.
-
-.. figure:: images/virtual-machines.png
-
-   VM Cards
-
-
-The name, description, running state, com port (if present), and other
-configuration values are shown on the card. Click |ui-options| for the
-:guilabel:`Start`, :guilabel:`Stop`, :guilabel:`Power Off`,
-:guilabel:`Restart`, :guilabel:`Edit`, :guilabel:`Devices`, and
-:guilabel:`Delete` options.
-
-Some buttons are available for all VMs:
-
-* :guilabel:`Delete` :ref:`removes the VM <Deleting VMs>`.
-
-* :guilabel:`Devices` is used to add, remove, and edit the VM devices.
-
-When a VM is not running, these buttons are available:
-
-* |ui-power| (Red) starts the VM. A confirmation dialog appears and
-  offers the option to :guilabel:`Overcommit Memory`. Memory
-  overcommitment allows multiple VMs to be launched when there is not
-  enough free memory for configured RAM of all VMs. Use with caution.
-  The |web-ui| displays a substantive error message when a VM fails to
-  start.
-
-* :guilabel:`Edit` changes VM settings, and includes an option to
-  :guilabel:`Clone` an existing VM. Cloning makes a copy of the VM.
-  The new clone has :samp:`_clone{N}` added to the name, where
-  :samp:`{N}` is the number of the clone. %brand% will display a
-  substantive error message if cloning a VM fails.
-
-
-When a VM is already running, these buttons are available:
-
-* |ui-power| (Green) shuts down the VM.
-
-* :guilabel:`Stop` also shuts down the VM.
-
-* :guilabel:`Power off` immediately halts the VM. This is equivalent
-  to disconnecting the power to a physical computer.
-
-* :guilabel:`Restart` shuts down and immediately starts the VM.
-
-* :guilabel:`CONNECT` displays options to connect to the VM. This can
-  include :guilabel:`VNC` or a :guilabel:`Serial` shell. For
-  :guilabel:`VNC`, the VM must have a VNC device with
-  :guilabel:`Web Interface` enabled.
-
-
-Popups ask to confirm the choice when starting, shutting down, powering
-off, or deleting a VM.
 
 
 .. index:: Deleting VMs
