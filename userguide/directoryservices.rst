@@ -118,8 +118,8 @@ advanced options.
    |                          |               |          | input is entered.                                                                                                             |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Domain Account Password  | string        |          | Password for the Active Directory administrator account. This field is mandatory. :guilabel:`Save` will be inactive until     |
-   |                          |               |          | valid input is entered.                                                   .                                                   |
+   | Domain Account Password  | string        |          | Password for the Active Directory administrator account. Required the first time a domain is configured. Subsequent edits do  |
+   |                          |               |          | not require the password.                                                                                                     |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Connectivity Check       | integer       |          | How often for the system to verify Active Directory services are functioning. Enter a number of seconds.                      |

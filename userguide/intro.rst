@@ -345,6 +345,11 @@ These screen options have changed:
 * The :guilabel:`MSDOSFS locale` drop-down menu has been added to
   :menuselection:`Storage --> Import Disk`.
 
+* The :guilabel:`Domain Account Password` field in
+  :menuselection:`Directory Services --> Active Directory`
+  has been reworked to only be required when configuring a domain for
+  the first time.
+
 * The :guilabel:`User Base` and :guilabel:`Group Base` fields have
   been removed from
   :menuselection:`Directory Services --> Active Directory --> Advanced Mode`.
