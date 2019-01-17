@@ -126,10 +126,11 @@ these settings by checking
    |                          | menu          |          |                                                                                                                               |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Certificate              | drop-down menu| ✓        | Select the certificate of the Active Directory server if  SSL connections are used. If a certificate does not exist           |
-   |                          |               |          | yet, create a :ref:`CA <CAs>`, then create a certificate on the Active Directory server and import it to the                  |
+   | Certificate              | drop-down     | ✓        | Select the certificate of the Active Directory server if  SSL connections are used. If a certificate does not exist           |
+   |                          | menu          |          | yet, create a :ref:`CA <CAs>`, then create a certificate on the Active Directory server and import it to the                  |
    |                          |               |          | %brand% system with :ref:`Certificates`.                                                                                      |
    |                          |               |          |                                                                                                                               |
+   |                          |               |          | Choose the blank entry and click :guilabel:`Save` to clear a saved certificate from the AD configuration.                     |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Verbose logging          | checkbox      | ✓        | When checked, logs attempts to join the domain to :file:`/var/log/messages`.                                                  |
    |                          |               |          |                                                                                                                               |
