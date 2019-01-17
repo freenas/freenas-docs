@@ -12,6 +12,8 @@ error message or the function that is being implemented.
 
 This section discusses resources available to %brand% users:
 
+* :ref:`User Guide`
+
 * :ref:`Website and Social Media`
 
 * :ref:`Forums`
@@ -22,9 +24,14 @@ This section discusses resources available to %brand% users:
 
 * :ref:`Professional Support`
 
-#ifdef commented
-* :ref:`Training`
-#endif commented
+
+.. _User Guide:
+
+User Guide
+----------
+
+The latest version of the %brand% documentation is found
+`here <https://www.ixsystems.com/documentation/freenas>`__.
 
 
 .. _Website and Social Media:
