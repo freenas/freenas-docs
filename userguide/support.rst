@@ -15,6 +15,8 @@ The section discusses resources available to %brand% users:
 
 * :ref:`User Guide`
 
+* :ref:`User Guide`
+
 * :ref:`Website and Social Media`
 
 * :ref:`Forums`
@@ -25,9 +27,14 @@ The section discusses resources available to %brand% users:
 
 * :ref:`Professional Support`
 
-#ifdef commented
-* :ref:`Training`
-#endif commented
+
+.. _User Guide:
+
+User Guide
+----------
+
+The latest version of the %brand% documentation is found
+`here <https://www.ixsystems.com/documentation/freenas>`__.
 
 #include snippets/userguide.rst
 
