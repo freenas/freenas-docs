@@ -76,7 +76,12 @@ current :guilabel:`State`:
   description, number of virtual CPUs, allocated memory, boot loader,
   and option to start the VM on system boot can all be adjusted.
 
-* :guilabel:`Delete` :ref:`removes the VM <Deleting VMs>`.
+* :guilabel:`Delete` removes the VM. :ref:`Zvols <Adding Zvols>` used in
+  :ref:`disk devices <vms-disk-device>` and image files used in
+  :ref:`raw file <vms-raw-file>` devices are *not* removed when a VM
+  is deleted. These resources can be removed manually in
+  :menuselection:`Storage --> Pools` after it is determined that the
+  data in them has been backed up or is no longer needed.
 
 * :guilabel:`Devices` is used to add, remove, and edit the VM devices.
 
@@ -106,8 +111,22 @@ are available:
   port of the VM. This is used to access the VM. The VM must have a
   :ref:`VNC device <vms-VNC>` with :guilabel:`Web Interface` enabled.
 
-* :guilabel:`Serial` opens a VM Serial Shell. This is also used
-  to access the VM.
+* :guilabel:`Serial` opens a connection to the included virtual serial
+  port. :file:`/dev/nmdm1B` is assigned to the first VM,
+  :file:`/dev/nmdm2B` is assigned to the second VM, and so on. These
+  virtual serial ports allow connecting to the VM console from the
+  :ref:`Shell`.
+
+  .. tip:: The `nmdm <https://www.freebsd.org/cgi/man.cgi?query=nmdm>`__
+     device is dynamically created. The actual :literal:`nmdm` name can
+     differ on each system.
+
+
+  To connect to the first VM, type :literal:`cu -l /dev/nmdm1B -s 9600`
+  in the :ref:`Shell`. See `cu(1)
+  <https://www.freebsd.org/cgi/man.cgi?query=cu>`__ for more
+  information.
+
 
 Confirmation prompts appear when starting or deleting a VM.
 
@@ -168,7 +187,7 @@ The individual configuration options are described in
    | 2        | Start on Boot      | checkbox       | Set to start the VM when the system boots.                                                    |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Enable VNC         | checkbox       | Set to to activate a :ref:`Virtual Network Computing <vms-VNC>`_ (VNC) remote connection.     |
+   | 2        | Enable VNC         | checkbox       | Set to to activate a :ref:`Virtual Network Computing <vms-VNC>` (VNC) remote connection.      |
    |          |                    |                | Requires *UEFI* booting.                                                                      |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
@@ -266,9 +285,10 @@ and basic settings for the new virtual machine:
 Adding Devices to a VM
 ----------------------
 
-To add a device to a VM, click
-|ui-options| :menuselection:`--> Devices`
-on the VM card. Then click |ui-add|.
+To add a device to a VM, go to
+:menuselection:`Virtual Machines`,
+click |ui-options| :menuselection:`--> Devices`
+for the VM, and click |ui-add|.
 
 .. figure:: images/virtual-machines-devices-add.png
 
@@ -286,13 +306,26 @@ available:
 
 * :ref:`Raw File <vms-raw-file>`
 
-* :ref:`VNC Interface <vms-vnc>`
+* :ref:`VNC Interface <vms-vnc>` (only available on VMs with
+  :guilabel:`Boot Loader Type` set to *UEFI*)
 
 :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Devices`
-is also used to edit or delete an existing device for a specific VM.
-Click |ui-options| for a device to display :guilabel:`Edit`,
+is also used to edit or delete existing VM devices. Click |ui-options|
+for a device to display :guilabel:`Edit`,
 :guilabel:`Delete`, :guilabel:`Change Device Order`, and
-:guilabel:`Details`.
+:guilabel:`Details` options:
+
+* :guilabel:`Edit` shows a form to make adjustments to existing device.
+
+* :guilabel:`Delete` removes the device from the VM.
+
+* :guilabel:`Change Device Order` sets the priority number for booting
+  this device. Lower numbers are higher in boot priority.
+
+* :guilabel:`Details` shows additional information about the specific
+  device. This includes the physical interface and MAC address in a
+  *NIC* device, the path to the VM zvol in a *DISK* device, and the path
+  to an :file:`.iso` or other file for a *CDROM* device.
 
 
 .. _vms-cd-rom:
@@ -413,10 +446,10 @@ click |ui-add|, then set the :guilabel:`Type` to :guilabel:`Raw File`.
    Raw File Disk Device
 
 
-:guilabel:`Browse` to select the image file. If a specific sector size
-is required, enter the number of bytes in :guilabel:`Disk sector size`.
-The default value of *0* uses an autotuner to find and set the best
-sector size for the file.
+Click |ui-browse| to select the image file. If a specific sector size
+is required, open the :guilabel:`Disk sector size` drop-down menu and
+pick between *512* and *4096* bytes. The *Default* value uses an
+autotuner to find and set the best sector size for the file.
 
 Setting the disk :guilabel:`Mode` to *AHCI* emulates an AHCI hard disk
 for best software compatibility. *VirtIO* uses paravirtualized drivers
@@ -425,6 +458,8 @@ installed in the VM to support VirtIO disk devices.
 
 Set a :guilabel:`Device Order` number to determine the boot order of
 this device. A lower number means a higher boot priority.
+
+Define the size of the file in GiB.
 
 
 .. _vms-VNC:
@@ -438,14 +473,11 @@ Computing) remote connection. A standard
 client can connect to the VM to provide screen output and keyboard and
 mouse input.
 
-.. note:: Each VM can only have a single VNC device. An existing VNC
-   interface can be changed by clicking |ui-options| and
-   :guilabel:`Edit`.
+Each VM can only have a single VNC device. An existing VNC interface can
+be changed by clicking |ui-options| and :guilabel:`Edit`.
 
-
-.. note:: :ref:`Docker Hosts <Docker Hosts>` are not compatible with VNC
-   connections and cannot have a VNC interface.
-
+:ref:`Docker Hosts <Docker Hosts>` are not compatible with VNC
+connections and cannot have a VNC interface.
 
 .. note:: Using a non-US keyboard via VNC is not yet supported. As a
    workaround, select the US keymap on the system running the VNC client,
@@ -468,18 +500,17 @@ for VNC.
    VNC Device
 
 
-The :guilabel:`Port` can be set to *0*, left empty for %brand% to
-assign a port when the VM is started, or set to a fixed, preferred
-port number.
+The :guilabel:`Port` can be set to *0* for %brand% to assign a port when
+the VM is started, or set to a fixed, preferred port number.
 
-Set :guilabel:`Wait to boot` to force the VNC client to wait
-until the VM has booted before attempting the connection.
+Set :guilabel:`Delay connection until VM is up` to force the VNC client
+to wait until the VM has booted before attempting the connection.
 
-Use the :guilabel:`Resolution` drop-down menu to
-choose the default screen resolution used by the VNC session.
+Use the :guilabel:`Resolution` drop-down menu to choose the default
+screen resolution used by the VNC session.
 
-Select the IP address for VNC to listen on with the
-:guilabel:`Bind` drop-down menu.
+Select the IP address for VNC to listen on with the :guilabel:`Bind`
+drop-down menu.
 
 To automatically pass the VNC password, enter it into the
 :guilabel:`Password` field. Note that the password is limited to 8
@@ -499,62 +530,12 @@ To use the VNC web interface, set :guilabel:`Web Interface`.
 Set a :guilabel:`Device Order` number to determine the boot order of
 this device. A lower number means a higher boot priority.
 
-.. _vms-virtual-serial:
-
-Virtual Serial Ports
-~~~~~~~~~~~~~~~~~~~~
-
-VMs automatically include a virtual serial port.
-
-* :file:`/dev/nmdm1B` is assigned to the first VM
-
-* :file:`/dev/nmdm2B` is assigned to the second VM
-
-And so on. These virtual serial ports allow connecting to the VM
-console from the :ref:`Shell`.
-
-.. tip:: The `nmdm <https://www.freebsd.org/cgi/man.cgi?query=nmdm>`__
-   device is dynamically created. The actual :literal:`nmdm` name can
-   differ on each system.
-
-
-To connect to the first VM:
-
-.. code-block:: none
-
-   cu -l /dev/nmdm1B -s 9600
-
-
-See
-`cu(1) <https://www.freebsd.org/cgi/man.cgi?query=cu>`__
-for more information on using :command:`cu`.
-
-
-
-
-
-.. index:: Deleting VMs
-.. _Deleting VMs:
-
-Deleting VMs
-------------
-
-A VM is deleted by clicking |ui-options| on the desired VM card,
-then :guilabel:`Delete`. A dialog prompts for confirmation.
-
-.. tip:: :ref:`Zvols <Adding Zvols>` used in
-   :ref:`disk devices <vms-disk-device>` and image files used in
-   :ref:`raw file <vms-raw-file>` devices are *not* removed when a VM
-   is deleted. These resources can be removed manually after it is
-   determined that the data in them has been backed up or is no longer
-   needed.
-
 
 .. index:: Docker Hosts
 .. _Docker Hosts:
 
-Docker Hosts
-------------
+Docker Host VMs
+---------------
 
 `Docker <https://www.docker.com/what-docker>`__
 is open source software for automating application deployment
