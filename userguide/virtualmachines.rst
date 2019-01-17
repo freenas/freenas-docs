@@ -534,8 +534,8 @@ this device. A lower number means a higher boot priority.
 .. index:: Docker Hosts
 .. _Docker Hosts:
 
-Docker Host
------------
+Docker Hosts
+------------
 
 `Docker <https://www.docker.com/what-docker>`__
 is open source software for automating application deployment
