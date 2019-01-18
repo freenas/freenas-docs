@@ -379,10 +379,6 @@ These screen options have changed:
   have a :guilabel:`Device Order` field to set boot priority for VM
   devices.
 
-.. note:: To keep lists aligned when using zoom in Firefox, ensure
-   :menuselection:`View --> Zoom --> Zoom Text Only`
-   is not set.
-
 U2
 ~~
 
