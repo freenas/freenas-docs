@@ -219,3 +219,9 @@ the bezel by aligning it with the pins on the bezel ears and pressing
 it into place.
 
 
+.. _User Guide:
+
+User Guide
+~~~~~~~~~~
+
+#include snippets/userguide.rst
