@@ -126,11 +126,11 @@ these settings by checking
    |                          | menu          |          |                                                                                                                               |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Certificate              | drop-down     | ✓        | Select the certificate of the Active Directory server if  SSL connections are used. If a certificate does not exist           |
-   |                          | menu          |          | yet, create a :ref:`CA <CAs>`, then create a certificate on the Active Directory server and import it to the                  |
-   |                          |               |          | %brand% system with :ref:`Certificates`.                                                                                      |
+   | Certificate              | drop-down     | ✓        | Select the Active Directory server certificate if SSL connections are used. If a certificate does not exist, create a         |
+   |                          | menu          |          | :ref:`Certificate Authority <CAs>`, then create a certificate on the Active Directory server. Import the certificate to the   |
+   |                          |               |          | %brand% system using the :ref:`Certificates` menu.                                                                            |
    |                          |               |          |                                                                                                                               |
-   |                          |               |          | Choose the blank entry and click :guilabel:`Save` to clear a saved certificate from the AD configuration.                     |
+   |                          |               |          | To clear a saved certificate, choose the blank entry and click :guilabel:`Save`.                                              |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Verbose logging          | checkbox      | ✓        | When checked, logs attempts to join the domain to :file:`/var/log/messages`.                                                  |
    |                          |               |          |                                                                                                                               |
