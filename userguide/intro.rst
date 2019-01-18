@@ -347,8 +347,12 @@ changes that have occurred since |release| was released.
    |version|. If a screen on the system is not the same as shown in
    this guide, make sure that all updates have been applied.
 
-U1
+U2
 ~~
+
+* The :guilabel:`ixnas` VFS module has been added to and the
+  :guilabel:`aio_pthread` VFS module has been removed from
+  :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
 
 * The :guilabel:`Enable SMB1 support` checkbox has been added to
   :menuselection:`Services --> SMB`.
