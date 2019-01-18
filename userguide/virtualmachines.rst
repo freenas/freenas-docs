@@ -31,18 +31,16 @@ To verify that an AMD processor has the required features, use
 output shows the POPCNT feature, this processor can be used with
 *bhyve*.
 
-
-.. note:: By default, new VMs have the
-   `bhyve(8) <https://www.freebsd.org/cgi/man.cgi?query=bhyve>`__
-   :literal:`-H` option set. This causes the virtual CPU thread to
-   yield when a HLT instruction is detected, and prevents idle VMs
-   from consuming all of the host CPU.
-
-
 .. note:: AMD K10 "Kuma" processors include POPCNT but do not support
    NRIPS, which is required for use with bhyve. Production of these
    processors ceased in 2012 or 2013.
 
+
+By default, new VMs have the
+`bhyve(8) <https://www.freebsd.org/cgi/man.cgi?query=bhyve>`__
+:literal:`-H` option set. This causes the virtual CPU thread to yield
+when a HLT instruction is detected and prevents idle VMs from consuming
+all of the host CPU.
 
 :menuselection:`Virtual Machines`
 shows a list of installed virtual machines. A graph of current VM memory
