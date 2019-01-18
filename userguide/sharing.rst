@@ -1166,9 +1166,6 @@ for more details.
    | aio_fork            | Enables async I/O.                                                                                                                         |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | aio_pthread         | Implements async I/O in Samba vfs using a pthread pool instead of the internal Posix AIO interface.                                        |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | audit               | Logs share access, connects/disconnects, directory opens/creates/removes, and file opens/closes/renames/unlinks/chmods to syslog.          |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1214,6 +1211,9 @@ for more details.
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | full_audit          | Record selected client operations to the system log. If selected, a warning will indicate that Windows 10 clients may experience issues    |
    |                     | when transferring files to the NAS system when this module is enabled.                                                                     |
+   |                     |                                                                                                                                            |
+   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   | ixnas               | Experimental module to improve ACL compatibility with Windows and store DOS attributes as file flags.                                      |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | linux_xfs_sgid      | Used to work around an old Linux XFS bug.                                                                                                  |

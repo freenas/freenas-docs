@@ -435,6 +435,10 @@ U7
 * Samba 4.7 has been patched to address recent
   `CVEs <https://www.samba.org/samba/latest_news.html#4.9.3>`__.
 
+* The :guilabel:`ixnas` VFS module has been added to and the
+  :guilabel:`aio_pthread` VFS module has been removed from
+  :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
+
 * The :guilabel:`Enable SMB1 support` checkbox has been added to
   :menuselection:`Services --> SMB`.
 
