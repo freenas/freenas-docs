@@ -234,6 +234,10 @@ This software has been added or updated:
   Upgrades will continue to use the :command:`csh` shell as the default
   root shell.
 
+* `ifconfig <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__ tap
+  interface descriptions now show the name of the attached virtual
+  machine.
+
 * `xattr <https://github.com/xattr/xattr>`__ has been added to the base
   system and can be used to modify file extended attributes from the
   command line. Type :command:`xattr -h` to view the available options.
