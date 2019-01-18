@@ -13,11 +13,9 @@ This screen can be used to create a support ticket. Refer to
 
 
 .. index:: Guide
-.. _Guide:
+.. _User Guide:
 
-Guide
------
+User Guide
+----------
 
-The :guilabel:`Documentation` icon, the second icon from the left in
-the top menubar, provides a built-in browser to the %brand% User Guide
-(this documentation).
+#include snippets/userguide.rst
