@@ -31,9 +31,9 @@ If the system has been licensed for High Availability (HA), the wizard
 prompts for IP addresses for both :guilabel:`(This Node)` and
 :guilabel:`(Node B)`.
 
-The wizard also prompts to mark an interface as critical for failover.
-This allows logging in to the web interface available at the configured
-virtual IP address after a failover happens.
+The wizard also prompts marking an interface as critical for failover.
+This allows logging in to the |web-ui| available at the virtual IP
+address after a failover.
 #endif truenas
 
 :guilabel:`2) Configure Link Aggregation` is for creating or deleting

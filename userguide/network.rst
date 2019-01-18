@@ -278,9 +278,9 @@ interrupted while the changes are applied.
    |                   |                 |                                                                                                             |
    +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
    | Critical for      | checkbox        | Sets this interface as critical. This allows logging in to the |web-ui| available at the                    |
-   | Failover          |                 | :guilabel:`Virtual IP` address after a failover happens. **Warning:** At least one interface must have this |
-   |                   |                 | option set or the |web-ui| will become unavailable. This can also be set when configuring network           |
-   |                   |                 | interfaces in the :ref:`Console Setup Menu`.                                                                |
+   | Failover          |                 | :guilabel:`Virtual IP` address after a failover. **Warning:** At least one interface must have this option  |
+   |                   |                 | set or the |web-ui| will become unavailable. This can also be set when configuring network interfaces in    |
+   |                   |                 | the :ref:`Console Setup Menu`.                                                                              |
    +-------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
 #endif truenas
    | Options           | string          | Additional parameters from                                                                                  |
