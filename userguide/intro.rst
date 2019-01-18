@@ -383,6 +383,16 @@ These screen options have changed:
    :menuselection:`View --> Zoom --> Zoom Text Only`
    is not set.
 
+U2
+~~
+
+* The :guilabel:`ixnas` VFS module has been added to and the
+  :guilabel:`aio_pthread` VFS module has been removed from
+  :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
+
+* The :guilabel:`Enable SMB1 support` checkbox has been added to
+  :menuselection:`Services --> SMB`.
+
 
 .. _Path and Name Lengths:
 
