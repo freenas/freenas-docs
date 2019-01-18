@@ -44,37 +44,23 @@ output shows the POPCNT feature, this processor can be used with
    processors ceased in 2012 or 2013.
 
 
-.. index:: Virtual Machines Page
-.. _Virtual Machines Page:
-
-Virtual Machines Page
----------------------
-
-Go to
 :menuselection:`Virtual Machines`
-to see a table with each installed VM. A graph of total VM memory usage
-displays at the top of the page.
+shows a list of installed virtual machines. A graph of current VM memory
+usage is shown at the top of the page.
 
 .. figure:: images/virtual-machines.png
 
-   Virtual Machines Page
+   Virtual Machines
 
 
-The VM :guilabel:`Name`, :guilabel:`State`, :guilabel:`VNC Port` (if
-present), :guilabel:`Type`, :guilabel:`Description`, number of
-:guilabel:`Virtual CPUs`, :guilabel:`Memory Size` (in MiB),
-:guilabel:`Boot Loader Type`, and :guilabel:`Autostart` values are shown
-in the table. The table display is adjusted by clicking
-:guilabel:`COLUMNS` and selecting which columns are shown in the table.
+The table display can be adjusted by clicking :guilabel:`COLUMNS` to
+select which columns are shown.
 
 Click |ui-options| to see additional buttons for a VM.
 
-These choices are available in the |ui-options| menu regardless of the
-current :guilabel:`State`:
+The |ui-options| menu offers these choices:
 
-* :guilabel:`Edit` opens a form to change the VM settings. The VM name,
-  description, number of virtual CPUs, allocated memory, boot loader,
-  and option to start the VM on system boot can all be adjusted.
+* :guilabel:`Edit` opens a form to change the VM settings.
 
 * :guilabel:`Delete` removes the VM. :ref:`Zvols <Adding Zvols>` used in
   :ref:`disk devices <vms-disk-device>` and image files used in
@@ -83,20 +69,18 @@ current :guilabel:`State`:
   :menuselection:`Storage --> Pools` after it is determined that the
   data in them has been backed up or is no longer needed.
 
-* :guilabel:`Devices` is used to add, remove, and edit the VM devices.
+* :guilabel:`Devices` is used to add, remove, and edit devices attached
+  to a virtual machine.
 
-* :guilabel:`Clone` makes a copy of the VM. The new clone has
-  :samp:`_clone{N}` added to the name, where :samp:`{N}` is the number
-  of the clone. %brand% displays a substantive error message if cloning
-  a VM fails.
+* :guilabel:`Clone` copies of the VM. The new clone has
+  :samp:`_clone{N}` appended to the name, where :samp:`{N}` is the clone
+  number.
 
-When a VM is :guilabel:`STOPPED`, the :guilabel:`Start` option becomes
-available in the |ui-options| menu. Click it to see a confirmation
-dialog that offers the option to :guilabel:`Overcommit Memory`. Memory
-overcommitment allows multiple VMs to be launched when there is not
-enough free memory for configured RAM of all VMs. Use with caution. The
-|web-ui| displays a substantive error message when a VM fails to start.
-When active, the VM :guilabel:`State` changes to :guilabel:`RUNNING`.
+Clicking :guilabel:`Start` shows a confirmation dialog that offers the
+option to :guilabel:`Overcommit Memory`. Memory overcommitment allows
+multiple VMs to be launched when there is not enough free memory for all
+VMs. This option should be used with caution. When active, the VM
+:guilabel:`State` changes to :guilabel:`RUNNING`.
 
 When a VM is :guilabel:`RUNNING`, more buttons in the |ui-options| menu
 are available:
@@ -106,20 +90,18 @@ are available:
 
 * :guilabel:`Stop` shuts down the VM.
 
-* :guilabel:`VNC` opens a new browser tab pointed to the `VNC
-  <https://en.wikipedia.org/wiki/Virtual_Network_Computing>`__
-  port of the VM. This is used to access the VM. The VM must have a
-  :ref:`VNC device <vms-VNC>` with :guilabel:`Web Interface` enabled.
+* VMs with :guilabel:`Web Interface` enabled show a :guilabel:`VNC`
+  button. VNC connections permit remote access to the VM.
 
-* :guilabel:`Serial` opens a connection to the included virtual serial
-  port. :file:`/dev/nmdm1B` is assigned to the first VM,
+* :guilabel:`Serial` opens a connection to a virtual serial port on the
+  VM. :file:`/dev/nmdm1B` is assigned to the first VM,
   :file:`/dev/nmdm2B` is assigned to the second VM, and so on. These
   virtual serial ports allow connecting to the VM console from the
   :ref:`Shell`.
 
   .. tip:: The `nmdm <https://www.freebsd.org/cgi/man.cgi?query=nmdm>`__
-     device is dynamically created. The actual :literal:`nmdm` name can
-     differ on each system.
+     device is dynamically created. The actual :literal:`nmdm` name
+     varies on each VM.
 
 
   To connect to the first VM, type :literal:`cu -l /dev/nmdm1B -s 9600`
@@ -128,8 +110,6 @@ are available:
   information.
 
 
-Confirmation prompts appear when starting or deleting a VM.
-
 .. index:: Creating VMs
 .. _Creating VMs:
 
@@ -137,7 +117,7 @@ Creating VMs
 ------------
 
 Click on :guilabel:`ACTIONS` and :guilabel:`Add VM` to open the wizard
-shown in :numref:`Figure %s <vms_add_fig>`:
+in :numref:`Figure %s <vms_add_fig>`:
 
 .. _vms_add_fig:
 
@@ -146,10 +126,7 @@ shown in :numref:`Figure %s <vms_add_fig>`:
    Add VM
 
 
-Create a virtual machine by following the steps in the wizard.
-%brand% already shows the default choices in the wizard.
-
-The individual configuration options are described in
+The configuration options are described in
 :numref:`Table %s <vms_add_opts_tab>`.
 
 
@@ -167,33 +144,30 @@ The individual configuration options are described in
    | Screen # | Setting            | Value          | Description                                                                                   |
    |          |                    |                |                                                                                               |
    +==========+====================+================+===============================================================================================+
-   | 1        | Virtual Machine    | drop-down menu | Choose to create either a standard VM or a :ref:`Docker Host <Docker Hosts>`.                 |
+   | 1        | Virtual Machine    | drop-down menu | Select a *Virtual Machine (VM)* or *Docker Host*.                                             |
    |          | (VM) Wizard type   |                |                                                                                               |
-   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | Guest Operating    | drop-down menu | Choose the VM operating system type. Choices are: *Windows*, *Linux*, or *FreeBSD*. See       |
    |          | System             |                | `this guide <https://github.com/FreeBSD-UPB/freebsd/wiki/How-to-launch-different-guest-OS>`__ |
    |          |                    |                | for detailed instructions about using a different guest OS.                                   |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Name               | string         | Enter an alphanumeric name to identify the VM. An error occurs if another VM is already       |
-   |          |                    |                | using the same name.                                                                          |
+   | 2        | Name               | string         | Name of the VM. An error is shown if the name is already used by an existing VM.              |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | Boot Method        | drop-down menu | Select *UEFI* for newer operating systems, or *UEFI-CSM* (Compatibility Support Mode) for     |
-   |          |                    |                | older operating systems that only understand BIOS booting.                                    |
-   |          |                    |                |                                                                                               |
+   |          |                    |                | older operating systems that only understand BIOS booting. VNC connections are only available |
+   |          |                    |                | with *UEFI*.                                                                                  |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | Start on Boot      | checkbox       | Set to start the VM when the system boots.                                                    |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Enable VNC         | checkbox       | Set to to activate a :ref:`Virtual Network Computing <vms-VNC>` (VNC) remote connection.      |
-   |          |                    |                | Requires *UEFI* booting.                                                                      |
+   | 2        | Enable VNC         | checkbox       | Set to add a VNC remote connection. Requires *UEFI* booting.                                  |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 3        | Virtual CPUs       | integer        | Enter the number of virtual CPUs to allocate to the VM. The maximum is 16 unless              |
-   |          |                    |                | the host CPU limits the maximum. The VM operating system might also have                      |
-   |          |                    |                | operational or licensing restrictions on the number of CPUs.                                  |
+   | 3        | Virtual CPUs       | integer        | Number of virtual CPUs to allocate to the VM. The maximum is 16 unless limited by the host    |
+   |          |                    |                | CPU. The VM operating system might also have operational or licensing restrictions on the     |
+   |          |                    |                | number of CPUs.                                                                               |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in                                                                 |
@@ -201,12 +175,11 @@ The individual configuration options are described in
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 4        | Disk image         | check option   | Select :guilabel:`Create new disk image` to create a new zvol on an existing dataset.         |
    |          |                    | with custom    | This is used as a virtual hard drive for the VM. Select :guilabel:`Use existing disk image`   |
-   |          |                    | fields         | and click |ui-browse| to select an existing zvol or file for the VM.                          |
+   |          |                    | fields         | and click |ui-browse| to select an existing zvol for the VM.                                  |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Zvol size (GiB)    | integer        | Allocate the amount of storage in                                                             |
-   |          |                    |                | `gibibytes <https://simple.wikipedia.org/wiki/Gibibyte>`__ for the new zvol.                  |
-   |          |                    |                | Only appears if :guilabel:`Create new disk image` is selected.                                |
+   | 4        | Zvol size (GiB)    | integer        | Allocate the amount of storage in GiB for the new zvol. Appears when                          |
+   |          |                    |                | :guilabel:`Create new disk image` is selected.                                                |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 4        | Select pool or     | drop-down menu | Click |ui-browse| to select a pool or dataset for the new zvol.                               |
    |          | dataset            |                |                                                                                               |
@@ -230,13 +203,12 @@ The individual configuration options are described in
    |          |                    |                |                                                                                               |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 6        | Choose             | browse button  | Click |ui-browse| to select to the operating system installation media that is stored on the  |
-   |          | installation media |                | %brand% system.                                                                               |
+   | 6        | Choose             | browse button  | Click |ui-browse| to select the installation media stored on the %brand% system.              |
+   |          | installation media |                |                                                                                               |
    |          | image              |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 6        | Upload ISO         | checkbox and   | Set to display additional options to upload an operating system installation file to the      |
-   |          |                    | buttons        | %brand% system.                                                                               |
-   |          |                    |                |                                                                                               |
+   | 6        | Upload ISO         | checkbox and   | Set to upload an installation media file to the %brand% system.                               |
+   |          |                    | buttons        |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
 
 
@@ -285,7 +257,7 @@ and basic settings for the new virtual machine:
 Adding Devices to a VM
 ----------------------
 
-To add a device to a VM, go to
+Devices are added to a VM by going to
 :menuselection:`Virtual Machines`,
 click |ui-options| :menuselection:`--> Devices`
 for the VM, and click |ui-add|.
@@ -306,16 +278,15 @@ available:
 
 * :ref:`Raw File <vms-raw-file>`
 
-* :ref:`VNC Interface <vms-vnc>` (only available on VMs with
-  :guilabel:`Boot Loader Type` set to *UEFI*)
+* :ref:`VNC Interface <vms-vnc>` (only available on virtual machines
+  with :guilabel:`Boot Loader Type` set to *UEFI*)
 
 :menuselection:`Virtual Machines -->` |ui-options| :menuselection:`--> Devices`
-is also used to edit or delete existing VM devices. Click |ui-options|
-for a device to display :guilabel:`Edit`,
-:guilabel:`Delete`, :guilabel:`Change Device Order`, and
-:guilabel:`Details` options:
+is also used to edit or delete existing devices. Click |ui-options| for
+a device to display :guilabel:`Edit`, :guilabel:`Delete`,
+:guilabel:`Change Device Order`, and :guilabel:`Details` options:
 
-* :guilabel:`Edit` shows a form to make adjustments to existing device.
+* :guilabel:`Edit` shows a form to change a device.
 
 * :guilabel:`Delete` removes the device from the VM.
 
@@ -448,10 +419,10 @@ click |ui-add|, then set the :guilabel:`Type` to :guilabel:`Raw File`.
 
 Click |ui-browse| to select the image file. If a specific sector size
 is required, open the :guilabel:`Disk sector size` drop-down menu and
-pick between *512* and *4096* bytes. The *Default* value uses an
-autotuner to find and set the best sector size for the file.
+pick between *512* and *4096* bytes. The *Default* value automatically
+selects a preferred sector size for the file.
 
-Setting the disk :guilabel:`Mode` to *AHCI* emulates an AHCI hard disk
+Setting disk :guilabel:`Mode` to *AHCI* emulates an AHCI hard disk
 for best software compatibility. *VirtIO* uses paravirtualized drivers
 and can provide better performance, but requires the operating system
 installed in the VM to support VirtIO disk devices.
@@ -459,7 +430,7 @@ installed in the VM to support VirtIO disk devices.
 Set a :guilabel:`Device Order` number to determine the boot order of
 this device. A lower number means a higher boot priority.
 
-Define the size of the file in GiB.
+Set the size of the file in GiB.
 
 
 .. _vms-VNC:
@@ -500,17 +471,16 @@ for VNC.
    VNC Device
 
 
-The :guilabel:`Port` can be set to *0* for %brand% to assign a port when
-the VM is started, or set to a fixed, preferred port number.
+Setting :guilabel:`Port` to *0* automatically assigns a port when the VM
+is started. If a fixed, preferred port number is needed, enter it here.
 
-Set :guilabel:`Delay connection until VM is up` to force the VNC client
-to wait until the VM has booted before attempting the connection.
+Set :guilabel:`Delay VM Boot until VNC Connects` to wait for the VNC
+client to connect before starting the VM.
 
-Use the :guilabel:`Resolution` drop-down menu to choose the default
-screen resolution used by the VNC session.
+:guilabel:`Resolution` sets the default screen resolution used for the
+VNC session.
 
-Select the IP address for VNC to listen on with the :guilabel:`Bind`
-drop-down menu.
+Select the IP address on which VNC listens with the :guilabel:`Bind`.
 
 To automatically pass the VNC password, enter it into the
 :guilabel:`Password` field. Note that the password is limited to 8
