@@ -489,6 +489,6 @@ to access the web user interface.
 .. _User Guide:
 
 User Guide
-----------
+~~~~~~~~~~
 
 #include snippets/userguide.rst
