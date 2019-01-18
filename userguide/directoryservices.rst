@@ -134,11 +134,11 @@ advanced options.
    |                          | menu          |          | <https://www.globalsign.com/en/blog/ssl-vs-tls-difference/>`__ for more information on SSL and TLS.                           |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Certificate              | drop-down     | ✓        | Select the certificate of the Active Directory server if SSL connections are used. If a certificate does not exist, create    |
-   |                          | menu          |          | a :ref:`Certificate Authority <CAs>`, then create a certificate on the Active Directory server. Import the certificate to the |
+   | Certificate              | drop-down     | ✓        | Select the Active Directory server certificate if SSL connections are used. If a certificate does not exist, create a         |
+   |                          | menu          |          | :ref:`Certificate Authority <CAs>`, then create a certificate on the Active Directory server. Import the certificate to the   |
    |                          |               |          | %brand% system using the :ref:`Certificates` menu.                                                                            |
    |                          |               |          |                                                                                                                               |
-   |                          |               |          | Choose the blank entry and click :guilabel:`SAVE` to clear a saved certificate from the AD configuration.                     |
+   |                          |               |          | To clear a saved certificate, choose the blank entry and click :guilabel:`SAVE`.                                              |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Verbose logging          | checkbox      | ✓        | Set to log attempts to join the domain to :file:`/var/log/messages`.                                                          |
    |                          |               |          |                                                                                                                               |
