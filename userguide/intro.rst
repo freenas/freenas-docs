@@ -345,7 +345,7 @@ These screen options have changed:
 * The :guilabel:`MSDOSFS locale` drop-down menu has been added to
   :menuselection:`Storage --> Import Disk`.
 
-* The :guilabel:`Domain Account Password` field in
+* A :guilabel:`Domain Account Password` in
   :menuselection:`Directory Services --> Active Directory`
   is only required when configuring a domain for
   the first time.
