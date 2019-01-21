@@ -83,7 +83,7 @@ if tags.has('bsg-xseries'):
     pdf_subtitle   = 'Basic Setup Guide'
     document_class = 'howto'    # 'howto' or 'manual'
     toctree_only   = True
-    draft          = True
+    draft          = False
     show_edition   = True
     cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=10in]{../../../images/tn_x_front.png}'
 
@@ -103,7 +103,7 @@ if tags.has('bsg-mseries'):
     pdf_subtitle   = 'Basic Setup Guide'
     document_class = 'howto'    # 'howto' or 'manual'
     toctree_only   = True
-    draft          = True
+    draft          = False
     show_edition   = True
     cover_pic = r'\vspace*{.1in}\hspace*{4.5in}\includegraphics[width=6in]{../../../images/tn_m_front.png}'
 
@@ -123,7 +123,7 @@ if tags.has('bsg-es12'):
     pdf_subtitle   = 'Basic Setup Guide'
     document_class = 'howto'    # 'howto' or 'manual'
     toctree_only   = True
-    draft          = True
+    draft          = False
     show_edition   = True
     cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=10in]{../../../images/tn_es12_front.png}'
 
@@ -143,7 +143,7 @@ if tags.has('bsg-es24'):
     pdf_subtitle   = 'Basic Setup Guide'
     document_class = 'howto'    # 'howto' or 'manual'
     toctree_only   = True
-    draft          = True
+    draft          = False
     show_edition   = True
     cover_pic      = r'\vspace*{.6in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es24_front.png}'
 
@@ -164,7 +164,7 @@ if tags.has('bsg-es60'):
     pdf_subtitle   = 'Basic Setup Guide'
     document_class = 'howto'    # 'howto' or 'manual'
     toctree_only   = True
-    draft          = True
+    draft          = False
     show_edition   = True
     cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es60.png}'
 
