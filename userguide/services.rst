@@ -1350,6 +1350,11 @@ This configuration screen is really a front-end to
    | Description                      | string         | Enter a server description. Optional.                                                                 |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
+   | Enable SMB1 support              | checkbox       | Allow legacy SMB clients to connect to the server. **Warning:** SMB1 is not secure and has been       |
+   |                                  |                | deprecated by Microsoft. See                                                                          |
+   |                                  |                | `Do Not Use SMB1 <https://www.ixsystems.com/blog/library/do-not-use-smb1/>`__.                        |
+   |                                  |                |                                                                                                       |
+   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | DOS Charset                      | drop-down menu | The character set Samba uses when communicating with DOS and Windows 9x/ME clients. Default is        |
    |                                  |                | *CP437*.                                                                                              |
    |                                  |                |                                                                                                       |
