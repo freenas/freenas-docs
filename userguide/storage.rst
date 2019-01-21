@@ -1081,8 +1081,10 @@ The configuration options are described in
 
 
 Click |ui-options| next to the desired zvol in
-:menuselection:`Storage --> Pools` to access the
-:guilabel:`Delete zvol` and :guilabel:`Edit zvol` options.
+:menuselection:`Storage --> Pools`
+to access the :guilabel:`Delete zvol`, :guilabel:`Edit Zvol`,
+:guilabel:`Create Snapshot`, and, for an existing zvol snapshot,
+:guilabel:`Promote Dataset` options.
 
 Similar to datasets, a zvol name cannot be
 changed, and destroying a zvol requires confirmation.
