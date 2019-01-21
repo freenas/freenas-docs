@@ -177,16 +177,16 @@ Virtual machine configuration options are described in
    |          |                    | fields         | to :guilabel:`Browse` to an existing zvol or file for the VM.                                 |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Zvol size (GiB)    | integer        | Allocate the amount of storage in                                                             |
-   |          |                    |                | `gibibytes <https://simple.wikipedia.org/wiki/Gibibyte>`__ for the new zvol.                  |
+   | 4        | Define the size    | integer        | Allocate the amount of storage in                                                             |
+   |          | (GiB) for the zvol |                | `gibibytes <https://simple.wikipedia.org/wiki/Gibibyte>`__ for the new zvol.                  |
    |          |                    |                | Only appears if :guilabel:`Create new disk image` is selected.                                |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Select pool or     | drop-down menu | Select a pool or dataset for the new zvol.                                                    |
-   |          | dataset            |                |                                                                                               |
+   | 4        | Select a zvol      | drop-down menu | Select a pool or dataset for the new zvol.                                                    |
+   |          |                    |                |                                                                                               |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Select disk type   | drop-down menu | Select the disk type. Choices are *AHCI* and *VirtIO*. Refer to                               |
-   |          |                    |                | :ref:`Disk Devices <vms-disk-device>` for more information about these disk types.            |
+   | 4        | Select desired     | drop-down menu | Select the disk type. Choices are *AHCI* and *VirtIO*. Refer to                               |
+   |          | type of disk       |                | :ref:`Disk Devices <vms-disk-device>` for more information about these disk types.            |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 5        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This                  |
