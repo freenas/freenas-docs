@@ -43,8 +43,7 @@ The M-Series has front panel indicators for power, locate ID, and
 fault. The fault indicator is on during the initial power-on self-test
 (POST) and turns off during normal operation. It turns on if the
 %brand% software issues an
-`alert
-<https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
+`alert <%docurl%/%brandlower%/tn_options.html#alert>`__.
 
 
 .. _m_indicators:

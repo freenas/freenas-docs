@@ -103,7 +103,7 @@ if tags.has('bsg-mseries'):
     pdf_subtitle   = 'Basic Setup Guide'
     document_class = 'howto'    # 'howto' or 'manual'
     toctree_only   = True
-    draft          = False
+    draft          = True
     show_edition   = True
     cover_pic = r'\vspace*{.1in}\hspace*{4.5in}\includegraphics[width=6in]{../../../images/tn_m_front.png}'
 
