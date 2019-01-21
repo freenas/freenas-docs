@@ -167,6 +167,11 @@ By default, the VM receives an auto-generated random MAC address. To
 override the default with a custom value, enter the desired address
 into the :guilabel:`MAC Address` field.
 
+.. tip:: To check which interface is attached to a VM, start the VM
+   and go to the :ref:`Shell`. Type :command:`ifconfig` and find the
+   `tap <https://en.wikipedia.org/wiki/TUN/TAP>`__ interface that shows
+   the name of the VM in the description.
+
 
 .. _vms-disk-device:
 

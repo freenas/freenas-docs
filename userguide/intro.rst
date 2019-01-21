@@ -222,7 +222,7 @@ This software has been added or updated:
   `version 2018-04-04T05 <https://github.com/minio/minio/releases/tag/RELEASE.2018-04-04T05-20-54Z>`__.
 
 * Netdata as been updated to
-  `version 1.10.1 <https://github.com/firehol/netdata/releases/tag/v1.10.0>`__.
+  `version 1.10.0 <https://github.com/firehol/netdata/releases/tag/v1.10.0>`__.
 
 * iocage has been synced with upstream as of October 3, providing many
   bug fixes and improved IPv6 support.
@@ -233,6 +233,10 @@ This software has been added or updated:
 * `zsh <http://www.zsh.org/>`__ is the root shell for new installations.
   Upgrades will continue to use the :command:`csh` shell as the default
   root shell.
+
+* `ifconfig <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__ tap
+  interface descriptions now show the name of the attached virtual
+  machine.
 
 * `xattr <https://github.com/xattr/xattr>`__ has been added to the base
   system and can be used to modify file extended attributes from the
