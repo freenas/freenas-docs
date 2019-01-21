@@ -164,7 +164,7 @@ if tags.has('bsg-es60'):
     pdf_subtitle   = 'Basic Setup Guide'
     document_class = 'howto'    # 'howto' or 'manual'
     toctree_only   = True
-    draft          = False
+    draft          = True
     show_edition   = True
     cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es60.png}'
 

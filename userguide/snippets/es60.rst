@@ -62,7 +62,7 @@ Become Familiar With the ES60
 Indicators on the front panel show power, fault, and locate ID. The
 fault indicator is on during the initial power-on self-test (POST) or
 when the %brand% software has issued an
-`alert <https://support.ixsystems.com/truenasguide/tn_options.html#alert>`__.
+`alert <%docurl%/%brandlower%/tn_options.html#alert>`__.
 
 
 .. figure:: images/tn_es60.png
