@@ -151,6 +151,10 @@ usage: $prog -h
 
          %chapternum%   The current chapter number
 
+         %docurl%       Base URL of FreeNAS/TrueNAS online
+                        documentation,
+                        'https://www.ixsystems.com/documentation'
+
        For example, when building with '-t truenas', this literal text
        in the second file listed in truenas.rst:
 
@@ -410,7 +414,7 @@ sub do_substitutes {
     print "  processing substitutions\n" if $verbose;
 
     my %replist;
-    #            '@something@' => 'replaced by this' );
+    #            '%something%' => 'replaced by this' );
     # could load a list of keys and replacements from a file
 
     if ( $tag eq 'freenas' ) {
@@ -424,6 +428,8 @@ sub do_substitutes {
     }
 
     $replist{'%chapternum%'} = $chapnum;
+
+    $replist{'%docurl%'} = 'https://www.ixsystems.com/documentation';
 
     for my $key (keys %replist) {
         my $repl = $replist{$key};
