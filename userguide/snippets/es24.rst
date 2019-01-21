@@ -189,3 +189,10 @@ If a second ES24 is present:
 .. raw:: latex
 
    \newpage
+
+.. _User Guide:
+
+User Guide
+~~~~~~~~~~
+
+#include snippets/userguide.rst

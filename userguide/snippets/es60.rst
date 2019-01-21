@@ -417,3 +417,11 @@ on the ears of the ES60. Install one upper screw from the back side of
 the left ES60 ear, then install a lower screw from the back of the
 right ES60 ear. Install the remaining two screws following the same
 diagonal pattern.
+
+
+.. _User Guide:
+
+User Guide
+~~~~~~~~~~
+
+#include snippets/userguide.rst

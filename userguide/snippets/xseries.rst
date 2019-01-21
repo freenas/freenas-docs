@@ -484,3 +484,10 @@ web interface, *192.168.100.231* in this example:
 
 Enter the IP address into a browser on a computer on the same network
 to access the web user interface.
+
+.. _User Guide:
+
+User Guide
+~~~~~~~~~~
+
+#include snippets/userguide.rst
