@@ -2,7 +2,7 @@
 # ts=4
 
 # preproc: preprocess .rst files
-# Warren Block, 2017-05-03
+# Warren Block, 2019-01-21
 
 use strict;
 use warnings;
@@ -138,11 +138,17 @@ usage: $prog -h
 
          String         Replacement
          ------         -----------
-         %brand%        FreeNAS\\ :sup:`®` or
-                        TrueNAS\\ :sup:`®`, depending on -t setting
-                        (tags starting with 'bsg-' also cause %brand% to
-                        be replaced as if the tag was just 'truenas' to
-                        facilitate building BSG documents)
+         %brand%        'FreeNAS\\ :sup:`®`' or 'TrueNAS\\ :sup:`®`',
+                        depending on -t setting. Tags starting with
+                        'bsg-' also cause %brand% to be replaced as
+                        if the tag was just 'truenas' to facilitate
+                        building BSG documents
+
+         %brandplain%   'FreeNAS' or 'TrueNAS' without additional
+                        markup
+
+         %brandlower%   'freenas' or 'truenas', useful for URLs
+
          %chapternum%   The current chapter number
 
        For example, when building with '-t truenas', this literal text
@@ -409,8 +415,12 @@ sub do_substitutes {
 
     if ( $tag eq 'freenas' ) {
         $replist{'%brand%'} = "FreeNAS\\ :sup:`®`";
+        $replist{'%brandlower%'} = 'freenas';
+        $replist{'%brandplain%'} = 'FreeNAS';
     } elsif ( $tag =~ /^truenas$|^bsg-/ ) {
         $replist{'%brand%'} = "TrueNAS\\ :sup:`®`";
+        $replist{'%brandlower%'} = 'truenas';
+        $replist{'%brandplain%'} = 'TrueNAS';
     }
 
     $replist{'%chapternum%'} = $chapnum;
