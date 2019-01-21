@@ -1312,11 +1312,12 @@ dataset.
 dataset.
 
 Clicking a zvol in
-:menuselection:`Storage --> Volumes` causes
-icons to appear at the bottom of the screen:
-:guilabel:`Create Snapshot`, :guilabel:`Edit zvol`, and
-:guilabel:`Destroy zvol`. Similar to datasets, a zvol name cannot be
-changed, and destroying a zvol requires confirmation.
+:menuselection:`Storage --> Volumes`
+causes icons to appear at the bottom of the screen:
+:guilabel:`Create Snapshot`, :guilabel:`Promote Dataset`,
+:guilabel:`Edit zvol`, and :guilabel:`Destroy zvol`. Similar to
+datasets, a zvol name cannot be changed, and destroying a zvol requires
+confirmation.
 
 
 .. _Managing Encrypted Volumes:
