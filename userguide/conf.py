@@ -216,6 +216,7 @@ def patched_menusel_role(typ, rawtext, text, lineno, inliner, options={}, conten
 roles.register_local_role("menuselection", patched_menusel_role)
 
 # -- Options for HTML output ---------------------------------------------------
+project = product
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
