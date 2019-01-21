@@ -440,7 +440,8 @@ U7
   :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
 
 * The :guilabel:`Enable SMB1 support` checkbox has been added to
-  :menuselection:`Services --> SMB`.
+  :menuselection:`Services --> SMB`. However, users are cautioned to
+  `not use SMB1 <https://www.ixsystems.com/blog/library/do-not-use-smb1/>`__.
 
 
 .. index:: Path and Name Lengths
