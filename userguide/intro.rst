@@ -401,6 +401,11 @@ U2
 * The :guilabel:`Enable SMB1 support` checkbox has been added to
   :menuselection:`Services --> SMB`.
 
+* A |ui-browse| option displays with the :guilabel:`Folder` field in
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+  This allows browsing through the connected :guilabel:`Credential`
+  remote filesystem.
+
 
 .. _Path and Name Lengths:
 
