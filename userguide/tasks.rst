@@ -1687,7 +1687,7 @@ providers with the :guilabel:`Cloud Sync Tasks` feature.
    vendors with the Cloud Sync feature.
 
 
-:ref:`Cloud Credentials` must be pre-defined before a cloud sync is
+:ref:`Cloud Credentials` must be defined before a cloud sync is
 created. One set of credentials can be used for more than one cloud
 sync. For example, a single set of credentials for Amazon S3 can be
 used for separate cloud syncs that push different sets of files or
@@ -1752,7 +1752,7 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | disabled until a valid credential is entered.                                                           |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Bucket/Container    | drop-down menu      | :guilabel:`Bucket`: Only appears when an S3 credential is the *Provider*. Select the pre-defined        |
+   | Bucket/Container    | drop-down menu      | :guilabel:`Bucket`: Only appears when an S3 credential is the *Provider*. Select the predefined         |
    |                     |                     | S3 bucket to use.                                                                                       |
    |                     |                     |                                                                                                         |
    |                     |                     | :guilabel:`Container`: Only appears when a :literal:`AZUREBLOB` credential is selected for the          |
