@@ -354,13 +354,19 @@ shows the available options.
    +===============+==================+================================================================================================+
    | Volume name   | string           | ZFS volumes must conform to these                                                              |
    |               |                  | `naming conventions <https://docs.oracle.com/cd/E53394_01/index.html>`__.                      |
-   |               |                  | Choosing a memorable name is recommended.                                                      |
+   |               |                  | Choosing a unique, memorable name is recommended.                                              |
+   |               |                  |                                                                                                |
+   +---------------+------------------+------------------------------------------------------------------------------------------------+
+   | Volume to     | drop-down menu   | Extend an existing ZFS pool. See :ref:`Extending a ZFS Volume` for more details.               |
+   | extend        |                  |                                                                                                |
    |               |                  |                                                                                                |
    +---------------+------------------+------------------------------------------------------------------------------------------------+
    | Encryption    | checkbox         | See the warnings in :ref:`Encryption` before using encryption.                                 |
    |               |                  |                                                                                                |
    +---------------+------------------+------------------------------------------------------------------------------------------------+
-   | Member disks  | list             | Highlight desired number of disks from list of available disks.                                |
+   | Member disks  | list             | Highlight desired number of disks from list of available disks. Hold :kbd:`Ctrl` and click a   |
+   |               |                  | highlighted item to de-select it. Selecting a member disk removes it from the                  |
+   |               |                  | :guilabel:`ZFS Extra` list.                                                                    |
    |               |                  |                                                                                                |
    +---------------+------------------+------------------------------------------------------------------------------------------------+
    #ifdef freenas
@@ -374,7 +380,8 @@ shows the available options.
    |               |                  |                                                                                                |
    #endif truenas
    +---------------+------------------+------------------------------------------------------------------------------------------------+
-   | ZFS Extra     | bullet selection | Specify disk usage: storage (*None*), a log device, a cache device, or a spare.                |
+   | ZFS Extra     | bullet selection | Specify disk usage: storage (*None*), a log device, a cache device, or a spare. Choosing a     |
+   |               |                  | value other than *None* removes the disk from the :guilabel:`Member disks` list`.              |
    |               |                  |                                                                                                |
    +---------------+------------------+------------------------------------------------------------------------------------------------+
 
