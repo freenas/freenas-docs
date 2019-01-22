@@ -176,15 +176,14 @@ The configuration options are described in
    |          |                    | fields         | and click |ui-browse| to select an existing zvol for the VM.                                  |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Zvol size (GiB)    | integer        | Allocate the amount of storage in GiB for the new zvol. Appears when                          |
-   |          |                    |                | :guilabel:`Create new disk image` is selected.                                                |
+   | 4        | Define the size    | integer        | Allocate the amount of storage in GiB for the new zvol. Appears when                          |
+   |          | (GiB) for the zvol |                | :guilabel:`Create new disk image` is selected.                                                |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Select pool or     | drop-down menu | Click |ui-browse| to select a pool or dataset for the new zvol.                               |
-   |          | dataset            |                |                                                                                               |
+   | 4        | Select a zvol      | drop-down menu | Select a pool or dataset for the new zvol.                                                    |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Select disk type   | drop-down menu | Select the disk type. Choices are *AHCI* and *VirtIO*. Refer to                               |
-   |          |                    |                | :ref:`Disk Devices <vms-disk-device>` for more information about these disk types.            |
+   | 4        | Select desired     | drop-down menu | Select the disk type. Choices are *AHCI* and *VirtIO*. Refer to                               |
+   |          | type of disk       |                | :ref:`Disk Devices <vms-disk-device>` for more information about these disk types.            |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 5        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This                  |
@@ -359,6 +358,11 @@ physical interface to associate with the VM.
 
 Set a :guilabel:`Device Order` number to determine the boot order of
 this device. A lower number means a higher boot priority.
+
+.. tip:: To check which interface is attached to a VM, start the VM
+   and go to the :ref:`Shell`. Type :command:`ifconfig` and find the
+   `tap <https://en.wikipedia.org/wiki/TUN/TAP>`__ interface that shows
+   the name of the VM in the description.
 
 
 .. _vms-disk-device:

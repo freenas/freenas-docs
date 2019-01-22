@@ -1,4 +1,4 @@
-%brand% is © 2011-2018 iXsystems
+%brand% is © 2011-|copyright-year| iXsystems
 
 %brand% and the %brand% logo are registered trademarks of iXsystems
 
@@ -9,7 +9,7 @@ system.
 
 Version |release|
 
-Copyright © 2011-2018
+Copyright © 2011-|copyright-year|
 `iXsystems <https://www.ixsystems.com/>`__
 
 
@@ -223,7 +223,7 @@ This software has been added or updated:
   `version 2018-04-04T05 <https://github.com/minio/minio/releases/tag/RELEASE.2018-04-04T05-20-54Z>`__.
 
 * Netdata as been updated to
-  `version 1.10.1 <https://github.com/firehol/netdata/releases/tag/v1.10.0>`__.
+  `version 1.10.0 <https://github.com/firehol/netdata/releases/tag/v1.10.0>`__.
 
 * iocage has been synced with upstream as of October 3, providing many
   bug fixes and improved IPv6 support.
@@ -234,6 +234,10 @@ This software has been added or updated:
 * `zsh <http://www.zsh.org/>`__ is the root shell for new installations.
   Upgrades will continue to use the :command:`csh` shell as the default
   root shell.
+
+* `ifconfig <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__ tap
+  interface descriptions now show the name of the attached virtual
+  machine.
 
 * `xattr <https://github.com/xattr/xattr>`__ has been added to the base
   system and can be used to modify file extended attributes from the
@@ -339,11 +343,19 @@ These screen options have changed:
   smaller than *4K*. This is to prevent performance issues from
   setting a block size that is too small for efficient processing.
 
+* A :guilabel:`Date Created` column has been added to
+  :menuselection:`Storage --> Snapshots`.
+
 * The :guilabel:`Password for SED` column has been added to
   :menuselection:`Storage --> Disks`.
 
 * The :guilabel:`MSDOSFS locale` drop-down menu has been added to
   :menuselection:`Storage --> Import Disk`.
+
+* A :guilabel:`Domain Account Password` in
+  :menuselection:`Directory Services --> Active Directory`
+  is only required when configuring a domain for
+  the first time.
 
 * The :guilabel:`User Base` and :guilabel:`Group Base` fields have
   been removed from
@@ -379,9 +391,20 @@ These screen options have changed:
   have a :guilabel:`Device Order` field to set boot priority for VM
   devices.
 
-.. note:: To keep lists aligned when using zoom in Firefox, ensure
-   :menuselection:`View --> Zoom --> Zoom Text Only`
-   is not set.
+U2
+~~
+
+* The :guilabel:`ixnas` VFS module has been added to and the
+  :guilabel:`aio_pthread` VFS module has been removed from
+  :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
+
+* The :guilabel:`Enable SMB1 support` checkbox has been added to
+  :menuselection:`Services --> SMB`.
+
+* A |ui-browse| option displays with the :guilabel:`Folder` field in
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+  This allows browsing through the connected :guilabel:`Credential`
+  remote filesystem.
 
 
 .. _Path and Name Lengths:

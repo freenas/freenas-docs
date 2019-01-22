@@ -99,6 +99,10 @@ The rest of this User Guide describes the %brand% |web-ui| in
 more detail. The layout of this User Guide follows the order of the menu
 items in the tree located in the left frame of the |web-ui|.
 
+.. note:: To keep lists aligned when using zoom in Firefox, ensure
+   :menuselection:`View --> Zoom --> Zoom Text Only`
+   is not set.
+
 .. note:: It is important to use the |web-ui| or the Console Setup
    menu for all configuration changes. %brand% uses a configuration
    database to store its settings. While it is possible to use the

@@ -1687,7 +1687,7 @@ providers with the :guilabel:`Cloud Sync Tasks` feature.
    vendors with the Cloud Sync feature.
 
 
-:ref:`Cloud Credentials` must be pre-defined before a cloud sync is
+:ref:`Cloud Credentials` must be defined before a cloud sync is
 created. One set of credentials can be used for more than one cloud
 sync. For example, a single set of credentials for Amazon S3 can be
 used for separate cloud syncs that push different sets of files or
@@ -1752,13 +1752,14 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | disabled until a valid credential is entered.                                                           |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Bucket/Container    | drop-down menu      | :guilabel:`Bucket`: Only appears when an S3 credential is the *Provider*. Select the pre-defined        |
+   | Bucket/Container    | drop-down menu      | :guilabel:`Bucket`: Only appears when an S3 credential is the *Provider*. Select the predefined         |
    |                     |                     | S3 bucket to use.                                                                                       |
    |                     |                     |                                                                                                         |
    |                     |                     | :guilabel:`Container`: Only appears when a :literal:`AZUREBLOB` credential is selected for the          |
    |                     |                     | :guilabel:`Credential`. Enter the name of the pre-configured Microsoft Azure Blob container.            |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Folder              | string              | The name of the pre-defined folder within the selected bucket or container.                             |
+   | Folder              | browse button       | The name of the predefined folder within the selected bucket or container. Type the name or click       |
+   |                     |                     | |ui-browse| to list the remote filesystem and choose the folder.                                        |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Encryption          | drop-down menu      | Only appears when an S3 credential is the *Provider*. Choices are *None* (no encryption) or             |
