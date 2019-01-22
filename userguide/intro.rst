@@ -343,6 +343,9 @@ These screen options have changed:
   smaller than *4K*. This is to prevent performance issues from
   setting a block size that is too small for efficient processing.
 
+* A :guilabel:`Date Created` column has been added to
+  :menuselection:`Storage --> Snapshots`.
+
 * The :guilabel:`Password for SED` column has been added to
   :menuselection:`Storage --> Disks`.
 
