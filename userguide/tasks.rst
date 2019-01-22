@@ -1758,7 +1758,7 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | :guilabel:`Container`: Only appears when a :literal:`AZUREBLOB` credential is selected for the          |
    |                     |                     | :guilabel:`Credential`. Enter the name of the pre-configured Microsoft Azure Blob container.            |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-   | Folder              | browse button       | The name of the pre-defined folder within the selected bucket or container. Type the name or click      |
+   | Folder              | browse button       | The name of the predefined folder within the selected bucket or container. Type the name or click       |
    |                     |                     | |ui-browse| to list the remote filesystem and choose the folder.                                        |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
