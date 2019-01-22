@@ -22,7 +22,7 @@ source_suffix = '.rst'
 source_encoding = 'utf-8-sig'
 
 # General information about the project.
-copyright = '2011-2018, iXsystems'
+copyright = '2011-2019, iXsystems'
 
 # Version info for the project being documented, acts as replacement for
 # |version| and |release|, also used in various other places throughout
@@ -129,6 +129,11 @@ if tags.has('bsg-es60'):
 # |brand| will be replaced with FreeNAS® or TrueNAS®
 # rst_epilog = '.. |brand| replace:: %s' % brand
 
+# roles for text replacement
+rst_prolog = u'''
+.. |web-ui| replace:: web interface
+.. |copyright-year| replace:: 2019
+'''
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -266,7 +271,7 @@ if tags.has('truenas'):
     epub_title = u'TrueNAS® User Guide'
 epub_author = u'iXsystems'
 epub_publisher = u'iXsystems'
-epub_copyright = u'2011-2018, iXsystems'
+epub_copyright = u'2011-2019, iXsystems'
 
 # The basename for the epub file. It defaults to the project name.
 epub_basename = u'freenas_userguide'
