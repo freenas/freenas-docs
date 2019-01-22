@@ -98,7 +98,7 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
 .. note:: Plugins are also added to
    :menuselection:`Jails`
-   as a *pluginv2* jail. This jail type is asjustable just like a
+   as a *pluginv2* jail. This jail type is adjustable just like a
    standard jail, except the *UUID* cannot be altered.
    See :ref:`Managing Jails` for more details about modifying plugin
    jails.
