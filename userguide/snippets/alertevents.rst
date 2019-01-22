@@ -71,7 +71,7 @@ a :ref:`High Availability (HA) <Failover>` system.
 #endif truenas
 
 Notifications for specific alerts are adjusted in the
-:ref:`Alert Settings<Alert Settings>` menu. An alert message can be set to
+:ref:`Alert Settings` menu. An alert message can be set to
 publish :guilabel:`IMMEDIATELY`, :guilabel:`HOURLY`,
 :guilabel:`DAILY`, or :guilabel:`NEVER`.
 
