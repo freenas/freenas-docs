@@ -81,7 +81,7 @@ Some of the conditions that trigger an alert include:
   goes red at 95%
 
 * new OpenZFS feature flags are available for the pool; this alert can
-  be adjusted in :ref:`Alert Settings<Alert Settings>` if a pool upgrade is not
+  be adjusted in :ref:`Alert Settings` if a pool upgrade is not
   desired at present
 
 * a new update is available
