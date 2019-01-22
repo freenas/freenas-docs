@@ -71,7 +71,7 @@ a :ref:`High Availability (HA) <Failover>` system.
 #endif truenas
 
 Notifications for specific alerts are adjusted in the
-:guilabel:`Alert Settings` menu. An alert message can be set to
+:ref:`Alert Settings` menu. An alert message can be set to
 publish :guilabel:`IMMEDIATELY`, :guilabel:`HOURLY`,
 :guilabel:`DAILY`, or :guilabel:`NEVER`.
 
@@ -81,7 +81,7 @@ Some of the conditions that trigger an alert include:
   goes red at 95%
 
 * new OpenZFS feature flags are available for the pool; this alert can
-  be adjusted in :guilabel:`Alert Settings` if a pool upgrade is not
+  be adjusted in :ref:`Alert Settings` if a pool upgrade is not
   desired at present
 
 * a new update is available
