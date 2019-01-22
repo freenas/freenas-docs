@@ -100,7 +100,7 @@ page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
    :menuselection:`Jails`
    as a *pluginv2* jail. This type of jail is editable like a
    standard jail, but the *UUID* cannot be altered.
-   See :ref:`Managing Jails` for more details about modifying plugin
+   See :ref:`Managing Jails` for more details about modifying
    jails.
 
 
