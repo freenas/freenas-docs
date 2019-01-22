@@ -359,34 +359,42 @@ shows the available options.
 .. table:: Manual Setup Options
    :class: longtable
 
-   +------------------+--------------+--------------------------------------------------------------------------------------------+
-   | Setting          | Value        | Description                                                                                |
-   |                  |              |                                                                                            |
-   +==================+==============+============================================================================================+
-   | Volume name      | string       | ZFS volumes must conform to these `naming conventions                                      |
-   |                  |              | <https://docs.oracle.com/cd/E53394_01/index.html>`__.                                      |
-   |                  |              | Choosing a memorable name is recommended.                                                  |
-   |                  |              |                                                                                            |
-   +------------------+--------------+--------------------------------------------------------------------------------------------+
-   | Encryption       | checkbox     | See the warnings in :ref:`Encryption` before using encryption.                             |
-   |                  |              |                                                                                            |
-   +------------------+--------------+--------------------------------------------------------------------------------------------+
-   | Member disks     | list         | Highlight desired number of disks from list of available disks.                            |
-   |                  |              |                                                                                            |
-   +------------------+--------------+--------------------------------------------------------------------------------------------+
+   +------------------+------------------+------------------------------------------------------------------------------------------------+
+   | Setting          | Value            | Description                                                                                    |
+   |                  |                  |                                                                                                |
+   |                  |                  |                                                                                                |
+   +==================+==================+================================================================================================+
+   | Volume name      | string           | ZFS volumes must conform to these                                                              |
+   |                  |                  | `naming conventions <https://docs.oracle.com/cd/E53394_01/index.html>`__.                      |
+   |                  |                  | Choosing a unique, memorable name is recommended.                                              |
+   |                  |                  |                                                                                                |
+   +------------------+------------------+------------------------------------------------------------------------------------------------+
+   | Volume to        | drop-down menu   | Extend an existing ZFS pool. See :ref:`Extending a ZFS Volume` for more details.               |
+   | extend           |                  |                                                                                                |
+   |                  |                  |                                                                                                |
+   +------------------+------------------+------------------------------------------------------------------------------------------------+
+   | Encryption       | checkbox         | See the warnings in :ref:`Encryption` before using encryption.                                 |
+   |                  |                  |                                                                                                |
+   +------------------+------------------+------------------------------------------------------------------------------------------------+
+   | Member disks     | list             | Highlight desired number of disks from list of available disks. Hold :kbd:`Ctrl` and click a   |
+   |                  |                  | highlighted item to de-select it. Selecting a member disk removes it from the                  |
+   |                  |                  | :guilabel:`ZFS Extra` list.                                                                    |
+   |                  |                  |                                                                                                |
+   +------------------+------------------+------------------------------------------------------------------------------------------------+
    #ifdef freenas
-   | Deduplication    | drop-down    | Choices are *Off*, *Verify*, and *On*.                                                     |
-   |                  | menu         | Carefully consider the section on :ref:`Deduplication` before changing this setting.       |
-   |                  |              |                                                                                            |
+   | Deduplication    | drop-down menu   | Choices are *Off*, *Verify*, and *On*.                                                         |
+   |                  |                  | Carefully consider the section on :ref:`Deduplication` before changing this setting.           |
+   |                  |                  |                                                                                                |
    #endif freenas
    #ifdef truenas
-   | Deduplication    | drop-down    | Do not change this setting unless instructed to do so by an iXsystems support engineer.    |
-   |                  | menu         |                                                                                            |
+   | Deduplication    | drop-down menu   | Do not change this setting unless instructed to do so by an iXsystems support engineer.        |
+   |                  |                  |                                                                                                |
    #endif truenas
-   +------------------+--------------+--------------------------------------------------------------------------------------------+
-   | ZFS Extra        | bullet       | Specify disk usage: storage (*None*), a log device, a cache device, or a spare.            |
-   |                  | selection    |                                                                                            |
-   +------------------+--------------+--------------------------------------------------------------------------------------------+
+   +------------------+------------------+------------------------------------------------------------------------------------------------+
+   | ZFS Extra        | bullet selection | Specify disk usage: storage (*None*), a log device, a cache device, or a spare. Choosing a     |
+   |                  |                  | value other than *None* removes the disk from the :guilabel:`Member disks` list`.              |
+   |                  |                  |                                                                                                |
+   +------------------+------------------+------------------------------------------------------------------------------------------------+
 
 
 .. _Extending a ZFS Volume:
