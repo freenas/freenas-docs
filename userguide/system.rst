@@ -2408,10 +2408,11 @@ Click :guilabel:`Submit` to generate and send the support ticket to
 iXsystems. This process can take several minutes while information is
 collected and sent.
 
-After the new ticket is created, a clickable URL to the
-`iXsystems Support page <https://support.ixsystems.com/>`__ is shown for
-viewing or updating with more information. Clicking the URL prompts to
-log in or register with the support portal.
+After the new ticket is created, a clickable URL to the ticket is shown
+for viewing or updating with more information. An
+`iXsystems Support <https://support.ixsystems.com/>`__ account is
+required to view the ticket. Clicking the URL prompts to log in or
+register with the support portal.
 
 
 .. index:: Proactive Support
