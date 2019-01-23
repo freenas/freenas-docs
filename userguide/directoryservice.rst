@@ -140,9 +140,8 @@ these settings by checking
    | Enable Monitoring        | checkbox      |             | Restart Active Directory automatically if the service is disconnected.                                              |
    |                          |               |             |                                                                                                                     |
    +--------------------------+---------------+-------------+---------------------------------------------------------------------------------------------------------------------+
-   | Encryption Mode          | drop-down     | ✓           | Choices are *Off*, *SSL*, or *TLS*. Refer to `SSL vs. TLS                                                           |
-   |                          | menu          |             | <https://www.globalsign.com/en/blog/ssl-vs-tls-difference/>`__ for more information on SSL and TLS.                 |
-   |                          |               |             |                                                                                                                     |
+   | Encryption Mode          | drop-down     | ✓           | Choices are *Off*, *SSL*, or *TLS*.                                                                                 |
+   |                          |               |             | Choosing SSL uses LDAPS protocol (port 636). Choosing TLS uses LDAP protocol (port 389).                            |
    |                          |               |             |                                                                                                                     |
    +--------------------------+---------------+-------------+---------------------------------------------------------------------------------------------------------------------+
    | Certificate              | drop-down     | ✓           | Select the Active Directory server certificate if SSL connections are used. If a certificate does not exist, create |
