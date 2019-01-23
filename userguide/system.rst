@@ -2335,7 +2335,7 @@ complete these fields:
 
 Click :guilabel:`SUBMIT` to automatically generate and upload the report
 to https://redmine.ixsystems.com/projects/freenas/issues. This process
-can take several minutes, depending on the debug file size. A pop-up
+can take several minutes while information is collected and sent.
 window displays a URL to the new ticket. Use the URL to view or add more
 information to the report.
 #endif freenas
