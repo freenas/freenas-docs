@@ -2404,6 +2404,7 @@ To generate a support ticket, fill in the fields:
 #ifdef truenas
 * **Attachments** is an optional field where configuration files or
   screenshots of any errors or tracebacks can be included.
+ #endif truenas
 
 Click :guilabel:`Submit` to generate and send the support ticket to
 iXsystems. This process can take several minutes, depending on the
