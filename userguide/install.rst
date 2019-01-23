@@ -152,18 +152,10 @@ When using the :command:`dd` command:
 On Windows
 ~~~~~~~~~~
 
-Microsoft provides the USB/DVD Download Tool to create a USB bootable
-image from an :file:`.iso` file. Follow
-`these instructions
-<https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool>`__,
-but enter the name of the downloaded :file:`.iso` into the
-:guilabel:`SOURCE FILE` box.
-
 `Image Writer <https://launchpad.net/win32-image-writer/>`__
 and
 `Rufus <http://rufus.akeo.ie/>`__
-are alternate programs for writing images to USB sticks on a computer
-running Windows.
+can be used for writing images to USB sticks on Windows.
 
 
 .. _macOS:
