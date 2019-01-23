@@ -1807,7 +1807,7 @@ Add a spare by going to
 :menuselection:`Storage --> Volume Manager`.
 Select the volume to extend from the :guilabel:`Volume to extend` drop
 down. Choose a disk from the list of :guilabel:`Available disks` and
-click **+** to add that disk to the volume. Select :literal:`spare` in
+click :guilabel:`+` to add that disk to the volume. Select *spare* in
 the :guilabel:`Volume layout` drop down. Click :guilabel:`Extend Volume`
 to finalize the process of adding a hot spare to the selected volume.
 
