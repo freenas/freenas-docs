@@ -2403,13 +2403,12 @@ To generate a support ticket, fill in the fields:
 * **Attachments** is an optional field where configuration files or
   screenshots of any errors or tracebacks can be included.
 
-After completing the fields, click :guilabel:`Submit` to generate and
-send the support ticket to iXsystems. This process can take several
-minutes, depending on the debug file size. A pop-up window provides
-a clickable URL to the ticket on the
-`iXsystems Support page <https://support.ixsystems.com/>`__. Clicking
-the URL prompts to log in or register with the support portal. Use the
-URL to view or add more information to the ticket.
+Click :guilabel:`Submit` to generate and send the support ticket to
+iXsystems. This process can take several minutes, depending on the
+debug file size. A pop-up window provides a clickable URL to the ticket
+on the `iXsystems Support page <https://support.ixsystems.com/>`__.
+Clicking the URL prompts to log in or register with the support portal.
+Use the URL to view or add more information to the ticket.
 
 
 .. index:: Proactive Support
