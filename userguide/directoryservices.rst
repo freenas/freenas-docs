@@ -213,8 +213,8 @@ advanced options.
    #endif freenas
    #ifdef truenas
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | NetBIOS Name (This Node) | string        | ✓        | Limited to 15 characters. Automatically populated with the %brand% system original hostname. This **must** be different from  |
-   |                          |               |          | the *Workgroup* name.                                                                                                         |
+   | NetBIOS Name (This Node) | string        | ✓        | Limited to 15 characters. Automatically populated with the %brand% system original hostname. This **must** be                 |
+   |                          |               |          | different from the *Workgroup* name.                                                                                          |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | NetBIOS Name (Node B)    | string        | ✓        | Limited to 15 characters. When using :ref:`Failover`, set a unique NetBIOS name for the standby node.                         |
