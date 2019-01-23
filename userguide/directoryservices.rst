@@ -131,7 +131,7 @@ advanced options.
    | Enable AD Monitoring     | checkbox      |          | Restart Active Directory automatically if the service disconnects.                                                            |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Encryption Mode          | drop-down     | ✓        | Choices are *Off*, *SSL*, or *TLS*.                                                                                           |
-   |                          |               |          | Choosing SSL uses LDAPS protocol (port 636). Choosing TLS uses LDAP protocol (port 389).                                      |
+   |                          |               |          | *SSL* selects LDAPS protocol (port 636). *TLS* selects LDAP protocol (port 389).                                              |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Certificate              | drop-down     | ✓        | Select the Active Directory server certificate if SSL connections are used. If a certificate does not exist, create a         |
@@ -538,7 +538,7 @@ Those new to LDAP terminology should read the
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Encryption Mode         | drop-down menu | ✓        | Choices are *Off*, *SSL*, or *TLS*. Note: *SSL* or *TLS* and a :guilabel:`Certificate` must be      |
    |                         |                |          | selected for authentication to work.                                                                |
-   |                         |                |          | Choosing SSL uses LDAPS protocol (port 636). Choosing TLS uses LDAP protocol (port 389).            |
+   |                         |                |          | *SSL* selects LDAPS protocol (port 636). *TLS* selects LDAP protocol (port 389).                    |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Certificate             | drop-down menu | ✓        | The LDAP CA certificate. The certificate for the LDAP server CA must first be imported using the    |
