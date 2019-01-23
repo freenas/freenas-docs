@@ -572,7 +572,7 @@ Those new to LDAP terminology should read the
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
    | Encryption Mode         | drop-down    | ✓           | Choices are *Off*, *SSL*, or *TLS*. Note that either *SSL* or *TLS* and a                      |
    |                         | menu         |             | :guilabel:`Certificate` must be selected for authentication to work.                           |
-   |                         |              |             | *SSL* selects LDAPS protocol (port 636). *TLS* selects LDAP protocol (port 389).                 |
+   |                         |              |             | *SSL* selects LDAPS protocol (port 636). *TLS* selects LDAP protocol (port 389).                |
    |                         |              |             |                                                                                                |
    |                         |              |             |                                                                                                |
    +-------------------------+--------------+-------------+------------------------------------------------------------------------------------------------+
