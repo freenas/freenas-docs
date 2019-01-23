@@ -2401,6 +2401,7 @@ To generate a support ticket, fill in the fields:
   that describes the problem, and if applicable, steps to reproduce
   it.
 
+#ifdef truenas
 * **Attachments** is an optional field where configuration files or
   screenshots of any errors or tracebacks can be included.
 
