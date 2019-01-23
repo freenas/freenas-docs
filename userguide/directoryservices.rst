@@ -537,9 +537,8 @@ Those new to LDAP terminology should read the
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Encryption Mode         | drop-down menu | ✓        | Choices are *Off*, *SSL*, or *TLS*. Note: *SSL* or *TLS* and a :guilabel:`Certificate` must be      |
-   |                         |                |          | selected for authentication to work. Refer to `SSL vs. TLS                                          |
-   |                         |                |          | <https://www.globalsign.com/en/blog/ssl-vs-tls-difference/>`__                                      |
-   |                         |                |          | for more information on TLS and SSL.                                                                |
+   |                         |                |          | selected for authentication to work.                                                                |
+   |                         |                |          | Choosing SSL uses LDAPS protocol (port 636). Choosing TLS uses LDAP protocol (port 389).            |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Certificate             | drop-down menu | ✓        | The LDAP CA certificate. The certificate for the LDAP server CA must first be imported using the    |
