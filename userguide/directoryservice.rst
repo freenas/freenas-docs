@@ -141,7 +141,7 @@ these settings by checking
    |                          |               |             |                                                                                                                     |
    +--------------------------+---------------+-------------+---------------------------------------------------------------------------------------------------------------------+
    | Encryption Mode          | drop-down     | ✓           | Choices are *Off*, *SSL*, or *TLS*.                                                                                 |
-   |                          |               |             | *SSL* selects LDAPS protocol (port 636). *TLS* selects LDAP protocol (port 389).                            |
+   |                          |               |             | *SSL* selects LDAPS protocol (port 636). *TLS* selects LDAP protocol (port 389).                                    |
    |                          |               |             |                                                                                                                     |
    +--------------------------+---------------+-------------+---------------------------------------------------------------------------------------------------------------------+
    | Certificate              | drop-down     | ✓           | Select the Active Directory server certificate if SSL connections are used. If a certificate does not exist, create |
