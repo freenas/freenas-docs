@@ -1786,10 +1786,10 @@ in the pool.
 
 
 .. index:: Hot Spares, Spares
-.. _Hot Spares:
+.. _Adding Spares:
 
-Hot Spares
-~~~~~~~~~~
+Adding Spares
+~~~~~~~~~~~~~
 
 ZFS provides the ability to have "hot" *spares*. These are drives that
 are connected to a volume, but not in use. If the volume experiences
@@ -1802,6 +1802,14 @@ spare is promoted to a full member of the volume.
 Hot spares can be added to a volume during or after creation. On
 %brand%, hot spare actions are implemented by
 `zfsd(8) <https://www.freebsd.org/cgi/man.cgi?query=zfsd>`__.
+
+Add a spare by going to
+:menuselection:`Storage --> Volume Manager`.
+Select the volume to extend from the :guilabel:`Volume to extend` drop
+down. Choose a disk from the list of :guilabel:`Available disks` and
+click **+** to add that disk to the volume. Select :literal:`spare` in
+the :guilabel:`Volume layout` drop down. Click :guilabel:`Extend Volume`
+to finalize the process of adding a hot spare to the selected volume.
 
 
 .. index:: Periodic Snapshot, Snapshot
