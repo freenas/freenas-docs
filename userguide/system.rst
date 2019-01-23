@@ -182,7 +182,9 @@ settings in the General tab:
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Language             | drop-down menu | Select a language. View the status of a language in the                                                                  |
    |                      |                | `webui GitHub repository <https://github.com/freenas/webui/tree/master/src/assets/i18n>`__                               |
+#ifdef freenas
    |                      |                | Refer to :ref:`Contributing to %brand%` for more information about supported languages.                                  |
+#endif freenas
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | Console Keyboard Map | drop-down menu | Select a keyboard layout.                                                                                                |
@@ -546,7 +548,7 @@ are shown as in :numref:`Figure %s <mirror_boot_status_fig>`.
 .. figure:: images/system-boot-mirror.png
 
    Viewing the Status of a Mirrored Boot Device
-#endif freenas
+
 
 
 .. _Advanced:
@@ -2700,8 +2702,8 @@ additional fields to the output to help with failover troubleshooting:
 :samp:`CriticalGroup{n}` and :samp:`Interlink`.
 
 If both nodes reboot simultaneously, the GELI passphrase for an
-:ref:`encrypted <Encryption>` pool must be entered at the |web-ui|
-login screen.
+:ref:`encrypted <Managing Encrypted Pools>` pool must be entered at the
+|web-ui| login screen.
 
 
 #endif truenas
