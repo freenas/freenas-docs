@@ -2338,7 +2338,7 @@ to https://redmine.ixsystems.com/projects/freenas/issues. This process
 can take several minutes while information is collected and sent.
 
   After the new ticket is created, the URL is shown for viewing or updating with more
-information to the report.
+information.
 #endif freenas
 
 #ifdef truenas
