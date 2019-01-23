@@ -130,8 +130,8 @@ advanced options.
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Enable AD Monitoring     | checkbox      |          | Restart Active Directory automatically if the service disconnects.                                                            |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Encryption Mode          | drop-down     | ✓        | Choices are *Off*, *SSL*, or *TLS*. Refer to `SSL vs. TLS                                                                     |
-   |                          | menu          |          | <https://www.globalsign.com/en/blog/ssl-vs-tls-difference/>`__ for more information on SSL and TLS.                           |
+   | Encryption Mode          | drop-down     | ✓        | Choices are *Off*, *SSL*, or *TLS*.                                                                                           |
+   |                          |               |          | *SSL* selects LDAPS protocol (port 636). *TLS* selects LDAP protocol (port 389).                                              |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Certificate              | drop-down     | ✓        | Select the Active Directory server certificate if SSL connections are used. If a certificate does not exist, create a         |
@@ -537,9 +537,8 @@ Those new to LDAP terminology should read the
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Encryption Mode         | drop-down menu | ✓        | Choices are *Off*, *SSL*, or *TLS*. Note: *SSL* or *TLS* and a :guilabel:`Certificate` must be      |
-   |                         |                |          | selected for authentication to work. Refer to `SSL vs. TLS                                          |
-   |                         |                |          | <https://www.globalsign.com/en/blog/ssl-vs-tls-difference/>`__                                      |
-   |                         |                |          | for more information on TLS and SSL.                                                                |
+   |                         |                |          | selected for authentication to work.                                                                |
+   |                         |                |          | *SSL* selects LDAPS protocol (port 636). *TLS* selects LDAP protocol (port 389).                    |
    |                         |                |          |                                                                                                     |
    +-------------------------+----------------+----------+-----------------------------------------------------------------------------------------------------+
    | Certificate             | drop-down menu | ✓        | The LDAP CA certificate. The certificate for the LDAP server CA must first be imported using the    |
