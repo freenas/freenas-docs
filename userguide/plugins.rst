@@ -96,9 +96,12 @@ after a successful install. Installed plugins appear in the
 :menuselection:`Plugins --> Installed`
 page as shown in :numref:`Figure %s <view_installed_plugins_fig>`.
 
-.. tip:: Installed plugins are also added to the
+.. note:: Plugins are also added to
    :menuselection:`Jails`
-   page. This page is also used to manage installed software.
+   as a *pluginv2* jail. This type of jail is editable like a
+   standard jail, but the *UUID* cannot be altered.
+   See :ref:`Managing Jails` for more details about modifying
+   jails.
 
 
 .. _view_installed_plugins_fig:
