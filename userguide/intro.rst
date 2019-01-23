@@ -361,6 +361,10 @@ U2
 * The :guilabel:`Enable SMB1 support` checkbox has been added to
   :menuselection:`Services --> SMB`.
 
+* The :guilabel:`ARC Size` graph in
+  :menuselection:`Reporting` now shows the compressed physical L2ARC
+  size.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
