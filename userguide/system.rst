@@ -2319,9 +2319,10 @@ complete these fields:
 
 Click :guilabel:`Submit` to automatically generate and upload the report
 to https://redmine.ixsystems.com/projects/freenas/issues. This process
-can take several minutes, depending on the debug file size. A pop-up
-window provides a clickable URL to view or add more information to the
-report.
+can take several minutes while information is collected and sent.
+
+After the new ticket is created, the URL is shown for viewing or
+updating with more information.
 #endif freenas
 
 #ifdef truenas
@@ -2387,11 +2388,14 @@ To generate a support ticket, fill in the fields:
   :guilabel:`+` button to add more attachments.
 
 Click :guilabel:`Submit` to generate and send the support ticket to
-iXsystems. This process can take several minutes, depending on the debug
-file size. A pop-up window provides a clickable URL to the ticket on the
-`iXsystems Support page <https://support.ixsystems.com/>`__. Clicking
-the URL prompts to log in or register with the support portal. Use the
-URL to view or add more information to the report.
+iXsystems. This process can take several minutes while information is
+collected and sent.
+
+After the new ticket is created, a clickable URL to the ticket is shown
+for viewing or updating with more information. An
+`iXsystems Support <https://support.ixsystems.com/>`__ account is
+required to view the ticket. Clicking the URL prompts to log in or
+register with the support portal.
 
 
 .. index:: Proactive Support
