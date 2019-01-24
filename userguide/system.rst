@@ -325,7 +325,7 @@ Boot
 ----
 
 %brand% supports a ZFS feature known as multiple boot environments.
-With multiple boot environments, the process of updating the operating
+With multiple boot environments, the process of the operating
 system becomes a low-risk operation. The updater automatically creates
 a snapshot of the current boot environment and adds it to the boot
 menu before applying the update. If the update fails, reboot the
@@ -2244,8 +2244,8 @@ to the
 This process can take several minutes while information is collected and
 sent.
 
-After the new ticket is created, the URL is shown for updating with more
-information.
+After the new ticket is created, the URL is shown for viewing or updating
+with more information.
 #endif freenas
 
 #ifdef truenas
@@ -2313,8 +2313,8 @@ Click :guilabel:`Submit` to generate and send the support ticket to
 iXsystems. This process can take several minutes while information is
 collected and sent.
 
-After the new ticket is created, the URL is shown for updating with more
-information. An
+After the new ticket is created, the URL is shown for viewing or
+updating with more information. An
 `iXsystems Support <https://support.ixsystems.com/>`__
 account is required to view the ticket. Click the URL to log in or
 register with the support portal. Use the same e-mail address submitted
