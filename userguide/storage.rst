@@ -1812,7 +1812,7 @@ the :guilabel:`Volume layout` drop down. Click :guilabel:`Extend Volume`
 to add the hot spare.
 
 .. danger:: When adding a spare disk to an encrypted pool, the
-   passphrase and recovery key are reset. Click
+   passphrase and recovery key are reset**. Click
    :guilabel:`Download Key` to download the new recovery key. To create
    a new passphrase, click :guilabel:`Create Passphrase`.
 
