@@ -406,6 +406,10 @@ U2
   This allows browsing through the connected :guilabel:`Credential`
   remote filesystem.
 
+* The :guilabel:`ARC Size` graph in
+  :menuselection:`Reporting`
+  now shows the compressed physical L2ARC size.
+
 
 .. _Path and Name Lengths:
 
