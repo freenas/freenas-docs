@@ -325,7 +325,7 @@ Boot
 ----
 
 %brand% supports a ZFS feature known as multiple boot environments.
-With multiple boot environments, the process of updating the operating
+With multiple boot environments, the process of the operating
 system becomes a low-risk operation. The updater automatically creates
 a snapshot of the current boot environment and adds it to the boot
 menu before applying the update. If the update fails, reboot the
@@ -2238,11 +2238,14 @@ complete the following fields:
   for including configuration files or screenshots of any errors or
   tracebacks.
 
-Once you have finished completing the fields, click the
-:guilabel:`Submit` button to automatically generate and upload the
-report to https://redmine.ixsystems.com/projects/freenas/issues.
-A pop-up menu provides a clickable URL so to view status or add
-additional information to the report.
+Click :guilabel:`Submit` to automatically generate and upload the report
+to the
+`bug tracker <https://redmine.ixsystems.com/projects/freenas/issues>`__.
+This process can take several minutes while information is collected and
+sent.
+
+After the new ticket is created, the URL is shown for viewing or updating
+with more information.
 #endif freenas
 
 #ifdef truenas
@@ -2306,13 +2309,16 @@ To generate a support ticket, fill in the fields:
 * **Attachments** is an optional field where configuration files or
   screenshots of any errors or tracebacks can be included.
 
-After completing the fields, click the :guilabel:`Submit` button to
-generate and send the support ticket to iXsystems. A pop-up menu
-provides a clickable URL to view the status of or add additional
-information to that support ticket.
-When not already logged into the
-`iXsystems Support page <https://support.ixsystems.com/>`__, clicking
-this URL prompts for a login, or to register a new login.
+Click :guilabel:`Submit` to generate and send the support ticket to
+iXsystems. This process can take several minutes while information is
+collected and sent.
+
+After the new ticket is created, the URL is shown for viewing or
+updating with more information. An
+`iXsystems Support <https://support.ixsystems.com/>`__
+account is required to view the ticket. Click the URL to log in or
+register with the support portal. Use the same e-mail address submitted
+with the ticket when registering.
 
 
 .. index:: Proactive Support
