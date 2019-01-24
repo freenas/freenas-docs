@@ -396,8 +396,10 @@ describes each required entry.
    |                           |                                                                    |
    +---------------------------+--------------------------------------------------------------------+
    | :samp:`"plugin_schema":`  | Optional. Enter *2* if simplified post install information has     |
-   |                           | been supplied in :file: `post_install.sh`. After specifying *2*, echo the information to be presented to the user in :file: `/root/PLUGIN_INFO`    |
-   |                           | install information inside the :file:`post_install.sh` file.       |
+   |                           | been supplied in :file:`post_install.sh`. After specifying *2*,    |
+   |                           | echo the information to be presented to the user in                |
+   |                           | :file:`/root/PLUGIN_INFO` inside the                               |
+   |                           | :file:`post_install.sh` file.                                      |
    |                           | See the :ref:`rslsync.json <rslsync-plugin-schema>` and            |
    |                           | :ref:`rslsync post_install.sh <rslsync-post-install>` examples.    |
    |                           |                                                                    |
@@ -472,7 +474,6 @@ describes each required entry.
    # Start the service
    service rslsync start 2>/dev/null
 
-   echo "Running"
    echo "rslsync now installed" > /root/PLUGIN_INFO
    echo "foo" >> /root/PLUGIN_INFO
 
