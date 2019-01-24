@@ -402,7 +402,7 @@ describes each required entry.
    |                           | :ref:`rslsync post_install.sh <rslsync-post-install>` examples.    |
    |                           |                                                                    |
    +---------------------------+--------------------------------------------------------------------+
-   | :samp:`"release":`        | FreeBSD release to use for the plugin jail.                        |
+   | :samp:`"release":`        | FreeBSD RELEASE to use for the plugin jail.                        |
    |                           |                                                                    |
    +---------------------------+--------------------------------------------------------------------+
    | :samp:`"artifact":`       | URL of the plugin artifact repo.                                   |
