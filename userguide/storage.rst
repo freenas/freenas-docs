@@ -52,7 +52,7 @@ in the *Swap size in Gib* field. Changing the
 value does not affect the amount of swap on existing disks,
 only disks added after the change. This does not affect log or cache devices,
 which are created without swap. Swap can be disabled by entering *0*,
-which is **strongly discouraged.**
+but that is **strongly discouraged.**
 
 .. index:: Pools
 .. _Pools:
