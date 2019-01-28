@@ -18,6 +18,8 @@ these options:
 * :ref:`Importing a Disk`: import a **single** disk that is
   formatted with the UFS, NTFS, MSDOS, or EXT2 filesystem.
 
+* :ref:`Swap Memory`: Change the swap size.
+
 
 #ifdef truenas
 .. note:: When using an HA (High Availability) %brand% system,
@@ -27,6 +29,29 @@ these options:
    active node.
 #endif truenas
 
+
+.. index:: Swap Memory
+.. _Swap Memory:
+
+Swap Memory
+-----------
+
+Swap memory is a partition of space on hard disk set aside to be used
+as memory. When the system runs out of physical memory or
+when an application is not being used regularly, it temporarily stores
+the application in the swap size specified.
+
+When %brand% creates swap memory, it uses the available hard disk to
+create a mirrored swap. For example, if the system has three hard disks,
+then a mirror is created using two of the three drives. By
+default, all data disks are created with two Gib of swap space.
+Change the swap size by going to
+:menuselection:`System --> Advanced`
+and entering a new value in the *Swap size in Gib* field. Changing the
+value does not affect the amount of swap on existing disks,
+only disks added after the change. Does not affect log or cache devices
+as they are created without swap. Enter *0* to disable swap completely
+which is **strongly discouraged.**
 
 .. index:: Pools
 .. _Pools:
