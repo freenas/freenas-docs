@@ -36,7 +36,7 @@ these options:
 Swap Memory
 -----------
 
-Swap memory is a partition of space on hard disk set aside to be used
+Swap is space on a disk set aside to be used
 as memory. When the %brand% system runs low on memory,
 less-used data can be "swapped" onto the disk, freeing up memory.
 
