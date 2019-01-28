@@ -394,6 +394,11 @@ These screen options have changed:
 U2
 ~~
 
+* The :guilabel:`Disable Endpoint Region` and
+  :guilabel:`Use Signature Version 2` checkboxes have been added to
+  :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
+  when the :guilabel:`Provider` is *Amazon S3*.
+
 * The :guilabel:`ixnas` VFS module has been added to and the
   :guilabel:`aio_pthread` VFS module has been removed from
   :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
