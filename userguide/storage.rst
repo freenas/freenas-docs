@@ -44,7 +44,7 @@ For reliability, %brand% creates swap space as mirrors of swap partitions on pai
 create a mirrored swap. For example, if the system has three hard disks,
 then a mirror is created using two of the three drives. By
 default, all data disks are created with two Gib of swap space.
-Change the swap size by going to
+Swap space is 2 GiB by default. The size of space to allocate is set in
 :menuselection:`System --> Advanced`
 and entering a new value in the *Swap size in Gib* field. Changing the
 value does not affect the amount of swap on existing disks,
