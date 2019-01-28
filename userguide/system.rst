@@ -1195,6 +1195,14 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Amazon S3            | Disable Endpoint     | Skips automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom            |
+   |                      | Region               | :guilabel:`Endpoint URL`                                                                                        |
+   |                      |                      |                                                                                                                 |
+   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Amazon S3            | Use Signature        | Force using `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__    |
+   |                      | Version 2            | to sign API requests. Set this when configuring a custom :guilabel:`Endpoint URL`.                              |
+   |                      |                      |                                                                                                                 |
+   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Backblaze B2         | Account ID or        | Enter the `Account ID and Master Application Key                                                                |
    |                      | Application Key ID,  | <https://help.backblaze.com/hc/en-us/articles/224991568-Where-can-I-find-my-Account-ID-and-Application-Key->`__ |
    |                      | Master Application   | for the Backblaze B2 account. These are visible after logging into the account, clicking :guilabel:`Buckets`,   |
