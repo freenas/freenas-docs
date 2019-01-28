@@ -73,7 +73,8 @@ several tabs on the Reporting page:
 * :guilabel:`ZFS`
 
   * `ZFS <https://collectd.org/wiki/index.php/Plugin:ZFS_ARC>`__
-    shows ARC size, hit ratio, and requests.
+    shows compressed physical ARC size, hit ratio, demand data, demand
+    metadata, prefetch data, and prefetch metadata.
 
 
 Reporting data is saved to permit viewing and monitoring usage trends
