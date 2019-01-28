@@ -37,7 +37,7 @@ Swap Memory
 -----------
 
 Swap memory is a partition of space on hard disk set aside to be used
-as memory. When the system runs out of physical memory or
+as memory. When the %brand% system runs low on memory,
 when an application is not being used regularly, it temporarily stores
 the application in the swap size specified.
 
