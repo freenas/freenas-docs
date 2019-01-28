@@ -912,7 +912,7 @@ shown in
    |                   |               |                                                                                           |
    +-------------------+---------------+-------------------------------------------------------------------------------------------+
    | Password          | string        | Enter the SMTP password if the SMTP server requires authentication. Only plain text       |
-   |                   |               | characters (8-bit AASCII) are allowed in passwords. UTF or composed characters are not    |
+   |                   |               | characters (7-bit ASCII) are allowed in passwords. UTF or composed characters are not     |
    |                   |               | allowed.                                                                                  |
    +-------------------+---------------+-------------------------------------------------------------------------------------------+
    | Password          | string        | Confirm the SMTP password.                                                                |
