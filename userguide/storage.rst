@@ -44,7 +44,8 @@ For reliability, %brand% creates swap space as mirrors of swap partitions on pai
 For example, if the system has three hard disks, a swap mirror is created
 with two of the drives, and the third drive is not used. A system with four
 drives creates two swap mirrors.
-default, all data disks are created with two Gib of swap space.
+
+Swap space is allocated when drives are added to a :ref:`vdev`.
 Swap space is 2 GiB by default. The size of space to allocate is set in
 :menuselection:`System --> Advanced`
 in the *Swap size in Gib* field. Changing the
