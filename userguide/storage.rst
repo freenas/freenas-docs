@@ -46,7 +46,7 @@ then a mirror is created using two of the three drives. By
 default, all data disks are created with two Gib of swap space.
 Swap space is 2 GiB by default. The size of space to allocate is set in
 :menuselection:`System --> Advanced`
-and entering a new value in the *Swap size in Gib* field. Changing the
+in the *Swap size in Gib* field. Changing the
 value does not affect the amount of swap on existing disks,
 only disks added after the change. Does not affect log or cache devices
 as they are created without swap. Enter *0* to disable swap completely
