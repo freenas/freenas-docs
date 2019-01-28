@@ -40,7 +40,7 @@ Swap memory is a partition of space on hard disk set aside to be used
 as memory. When the %brand% system runs low on memory,
 less-used data can be "swapped" onto the disk, freeing up memory.
 
-When %brand% creates swap memory, it uses the available hard disk to
+For reliability, %brand% creates swap space as mirrors of swap partitions on pairs of individual disks.
 create a mirrored swap. For example, if the system has three hard disks,
 then a mirror is created using two of the three drives. By
 default, all data disks are created with two Gib of swap space.
