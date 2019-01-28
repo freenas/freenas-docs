@@ -18,7 +18,7 @@ these options:
 * :ref:`Importing a Disk`: import a **single** disk that is
   formatted with the UFS, NTFS, MSDOS, or EXT2 filesystem.
 
-* :ref:`Swap Memory`: Change the swap size.
+* :ref:`Swap Space`: Change the swap space size.
 
 
 #ifdef truenas
