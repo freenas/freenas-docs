@@ -51,7 +51,7 @@ Swap space is 2 GiB by default. The size of space to allocate is set in
 in the *Swap size in Gib* field. Changing the
 value does not affect the amount of swap on existing disks,
 only disks added after the change. This does not affect log or cache devices,
-as they are created without swap. Enter *0* to disable swap completely
+which are created without swap. Swap can be disabled by entering *0*,
 which is **strongly discouraged.**
 
 .. index:: Pools
