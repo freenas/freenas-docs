@@ -30,29 +30,31 @@ these options:
 #endif truenas
 
 
-.. index:: Swap Memory
-.. _Swap Memory:
+.. index:: Swap Space
+.. _Swap Space:
 
-Swap Memory
+Swap Space
 -----------
 
 Swap is space on a disk set aside to be used
 as memory. When the %brand% system runs low on memory,
 less-used data can be "swapped" onto the disk, freeing up memory.
 
-For reliability, %brand% creates swap space as mirrors of swap partitions on pairs of individual disks.
-For example, if the system has three hard disks, a swap mirror is created
-with two of the drives, and the third drive is not used. A system with four
-drives creates two swap mirrors.
+For reliability, %brand% creates swap space as mirrors of swap
+partitions on pairs of individual disks. For example, if the system has
+three hard disks, a swap mirror is created with two of the drives, and
+the third drive is not used. A system with four drives creates two swap
+mirrors.
 
-Swap space is allocated when drives are added to a :ref:`vdev`.
+Swap space is allocated when drives are added to a vdev
+(see :ref:`ZFS Primer`).
 Swap space is 2 GiB by default. The size of space to allocate is set in
 :menuselection:`System --> Advanced`
-in the *Swap size in Gib* field. Changing the
-value does not affect the amount of swap on existing disks,
-only disks added after the change. This does not affect log or cache devices,
-which are created without swap. Swap can be disabled by entering *0*,
-but that is **strongly discouraged.**
+in the *Swap size in Gib* field. Changing the value does not affect the
+amount of swap on existing disks, only disks added after the change.
+This does not affect log or cache devices, which are created without
+swap. Swap can be disabled by entering *0*, but that is
+**strongly discouraged**.
 
 .. index:: Pools
 .. _Pools:
