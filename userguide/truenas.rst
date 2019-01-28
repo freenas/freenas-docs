@@ -12,13 +12,12 @@
    tasks
    network
    storage
-   directoryservice
+   directoryservices
    sharing
    services
    tn_vcenter
    tn_cinder
    reporting
-   wizard
    tn_options
    zfsprimer
    tn_hardware
