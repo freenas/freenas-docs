@@ -43,22 +43,16 @@ when a HLT instruction is detected and prevents idle VMs from consuming
 all of the host CPU.
 
 :menuselection:`Virtual Machines`
-shows a list of installed virtual machines. A graph of current VM memory
-usage is shown at the top of the page.
+shows a list of installed virtual machines.
 
 .. figure:: images/virtual-machines.png
 
    Virtual Machines
 
 
-The table display can be adjusted by clicking :guilabel:`COLUMNS` to
-select which columns are shown.
+The |ui-options| menu has options for controlling and modifying VMs:
 
-Click |ui-options| to see additional buttons for a VM.
-
-The |ui-options| menu offers these choices:
-
-* :guilabel:`Edit` opens a form to change the VM settings.
+* :guilabel:`Edit` changes VM settings.
 
 * :guilabel:`Delete` removes the VM. :ref:`Zvols <Adding Zvols>` used in
   :ref:`disk devices <vms-disk-device>` and image files used in
@@ -254,10 +248,10 @@ and basic settings for the new virtual machine:
 Adding Devices to a VM
 ----------------------
 
-Devices are added to a VM by going to
+Go to
 :menuselection:`Virtual Machines`,
-click |ui-options| :menuselection:`--> Devices`
-for the VM, and click |ui-add|.
+click |ui-options| :menuselection:`--> Devices`,
+and click |ui-add| to add a new VM device.
 
 .. figure:: images/virtual-machines-devices-add.png
 
@@ -283,16 +277,16 @@ is also used to edit or delete existing devices. Click |ui-options| for
 a device to display :guilabel:`Edit`, :guilabel:`Delete`,
 :guilabel:`Change Device Order`, and :guilabel:`Details` options:
 
-* :guilabel:`Edit` shows a form to change a device.
+* :guilabel:`Edit` modifies a device.
 
 * :guilabel:`Delete` removes the device from the VM.
 
 * :guilabel:`Change Device Order` sets the priority number for booting
-  this device. Lower numbers are higher in boot priority.
+  this device. Smaller numbers are higher in boot priority.
 
 * :guilabel:`Details` shows additional information about the specific
   device. This includes the physical interface and MAC address in a
-  *NIC* device, the path to the VM zvol in a *DISK* device, and the path
+  *NIC* device, the path to the zvol in a *DISK* device, and the path
   to an :file:`.iso` or other file for a *CDROM* device.
 
 
@@ -420,9 +414,8 @@ click |ui-add|, then set the :guilabel:`Type` to :guilabel:`Raw File`.
 
 
 Click |ui-browse| to select the image file. If a specific sector size
-is required, open the :guilabel:`Disk sector size` drop-down menu and
-pick between *512* and *4096* bytes. The *Default* value automatically
-selects a preferred sector size for the file.
+is required, choose it from :guilabel:`Disk sector size`. The *Default*
+value automatically selects a preferred sector size for the file.
 
 Setting disk :guilabel:`Mode` to *AHCI* emulates an AHCI hard disk
 for best software compatibility. *VirtIO* uses paravirtualized drivers
