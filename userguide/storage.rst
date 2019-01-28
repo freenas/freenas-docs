@@ -42,7 +42,8 @@ less-used data can be "swapped" onto the disk, freeing up memory.
 
 For reliability, %brand% creates swap space as mirrors of swap partitions on pairs of individual disks.
 For example, if the system has three hard disks, a swap mirror is created
-then a mirror is created using two of the three drives. By
+with two of the drives, and the third drive is not used. A system with four
+drives creates two swap mirrors.
 default, all data disks are created with two Gib of swap space.
 Swap space is 2 GiB by default. The size of space to allocate is set in
 :menuselection:`System --> Advanced`
