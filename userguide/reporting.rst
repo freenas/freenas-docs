@@ -79,8 +79,8 @@ Graphs are grouped by category on the Reporting page:
 * :guilabel:`ZFS`
 
   * `ZFS <https://collectd.org/wiki/index.php/Plugin:ZFS_ARC>`__
-    shows ARC size, hit ratio, demand data, demand metadata, and
-    prefetch data.
+    shows compressed physical ARC size, hit ratio, demand data, demand
+    metadata, and prefetch data.
 
 
 Reporting data is saved to permit viewing and monitoring usage trends
