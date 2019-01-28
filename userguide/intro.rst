@@ -354,6 +354,11 @@ changes that have occurred since |release| was released.
 U2
 ~~
 
+* The :guilabel:`Endpoint does not support regions` and
+  :guilabel:`Use v2 signatures` fields have been added to
+  :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
+  when the :guilabel:`Provider` is *Amazon S3*.
+
 * The :guilabel:`ixnas` VFS module has been added to and the
   :guilabel:`aio_pthread` VFS module has been removed from
   :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
