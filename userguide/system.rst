@@ -1195,7 +1195,7 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Disable Endpoint     | Skips automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom            |
+   | Amazon S3            | Disable Endpoint     | Skip automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom             |
    |                      | Region               | :guilabel:`Endpoint URL`                                                                                        |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
