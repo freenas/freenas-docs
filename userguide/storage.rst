@@ -167,11 +167,11 @@ shows how much space is :guilabel:`Used` and :guilabel:`Free`.
 
 Click the down arrow to see more details about the pool. This second
 entry has the same name and represents the implicit or root dataset. The
-:guilabel:`Used` and :guilabel:`Available` entries show the amount
-of space used and available. Also shown are
-the type of compression, the compression ratio, whether it is mounted as
-read-only, whether deduplication has been enabled, the mountpoint path,
-and any comments entered for the pool.
+:guilabel:`Used` and :guilabel:`Available` entries show the amount of
+space used and available. Also shown are the type of compression, the
+compression ratio, whether it is mounted as read-only, whether
+deduplication has been enabled, the mountpoint path, and any comments
+entered for the pool.
 
 There is an option to :guilabel:`Upgrade Pool`. This upgrades the
 pool to the latest ZFS features, as described in
