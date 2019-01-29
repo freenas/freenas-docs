@@ -18,6 +18,8 @@ these options:
 * :ref:`Importing a Disk`: import a **single** disk that is
   formatted with the UFS, NTFS, MSDOS, or EXT2 filesystem.
 
+* :ref:`Swap Space`: Change the swap space size.
+
 
 #ifdef truenas
 .. note:: When using an HA (High Availability) %brand% system,
@@ -27,6 +29,34 @@ these options:
    active node.
 #endif truenas
 
+
+.. index:: Swap Space
+.. _Swap Space:
+
+Swap Space
+-----------
+
+Swap is space on a disk set aside to be used
+as memory. When the %brand% system runs low on memory,
+less-used data can be "swapped" onto the disk, freeing up main memory.
+
+For reliability, %brand% creates swap space as mirrors of swap
+partitions on pairs of individual disks. For example, if the system has
+three hard disks, a swap mirror is created from the swap partitions on
+two of the drives. The third drive is not used, because it does not
+have redundancy. On a system with four drives, two swap mirrors are
+created.
+
+Swap space is allocated when drives are partitioned before being added
+to a :ref:`vdev<ZFS Primer>`. A 2 GiB partition for swap space is
+created on each data drive by default. The size of space to allocate
+can be changed in
+:menuselection:`System --> Advanced`
+in the *Swap size in Gib* field. Changing the value does not affect the
+amount of swap on existing disks, only disks added after the change.
+This does not affect log or cache devices, which are created without
+swap. Swap can be disabled by entering *0*, but that is
+**strongly discouraged**.
 
 .. index:: Pools
 .. _Pools:
