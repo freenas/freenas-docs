@@ -16,7 +16,7 @@ operation of %brand% into VMware vCenter Server.
   platform.
 
 * Use vCenter to manage %brand%: datastore creation and sharing,
-  storage snapshot backups, and Role-based access control (RBAC).
+  storage snapshot backups, and Role-Based Access Control (RBAC).
 
 * Simple installation process with a single tool to install and manage
   the plugin.
