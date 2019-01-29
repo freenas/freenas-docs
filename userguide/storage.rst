@@ -46,7 +46,7 @@ three hard disks, a swap mirror is created from the swap partitions on two of th
 The third drive is not used, because it does not have redundancy. On a system with four drives, two swap
 mirrors are created.
 
-Swap space is allocated when drives are added to a vdev
+Swap space is allocated when drives are partitioned before being added to a `vdev<ZFS Primer>`.
 (see the :ref:`ZFS Primer`).
 Swap space is 2 GiB by default. The size of space to allocate is set in
 :menuselection:`System --> Advanced`
