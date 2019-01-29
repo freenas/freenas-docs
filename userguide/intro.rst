@@ -357,7 +357,7 @@ U2
 * The :guilabel:`Endpoint does not support regions` and
   :guilabel:`Use v2 signatures` fields have been added to
   :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
-  when the :guilabel:`Provider` is *Amazon S3*.
+  when *Amazon S3* is chosen as the :guilabel:`Provider`.
 
 * The :guilabel:`ixnas` VFS module has been added to and the
   :guilabel:`aio_pthread` VFS module has been removed from
