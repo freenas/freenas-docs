@@ -61,18 +61,17 @@ The |ui-options| menu has options for controlling and modifying VMs:
   :menuselection:`Storage --> Pools` after it is determined that the
   data in them has been backed up or is no longer needed.
 
-* :guilabel:`Devices` is used to add, remove, and edit devices attached
+* :guilabel:`Devices` is used to add, remove, or edit devices attached
   to a virtual machine.
 
-* :guilabel:`Clone` copies of the VM. The new clone has
-  :samp:`_clone{N}` appended to the name, where :samp:`{N}` is the clone
-  number.
+* :guilabel:`Clone` copies the VM. The new clone has :samp:`_clone{N}`
+  appended to the name, where :samp:`{N}` is the clone number.
 
-Clicking :guilabel:`Start` shows a confirmation dialog that offers the
-option to :guilabel:`Overcommit Memory`. Memory overcommitment allows
-multiple VMs to be launched when there is not enough free memory for all
-VMs. This option should be used with caution. When active, the VM
-:guilabel:`State` changes to :guilabel:`RUNNING`.
+:guilabel:`Start` boots a VM. An option is provided to
+:guilabel:`Overcommit Memory`. Memory overcommitment allows multiple VMs
+to be launched when there is not enough free memory for all of them to
+run at the same time. This option should be used with caution. When
+active, the VM :guilabel:`State` changes to :guilabel:`RUNNING`.
 
 When a VM is :guilabel:`RUNNING`, more buttons in the |ui-options| menu
 are available:
@@ -83,23 +82,23 @@ are available:
 * :guilabel:`Stop` shuts down the VM.
 
 * VMs with :guilabel:`Web Interface` enabled show a :guilabel:`VNC`
-  button. VNC connections permit remote access to the VM.
+  button. VNC connections permit remote graphical access to the VM.
 
 * :guilabel:`Serial` opens a connection to a virtual serial port on the
   VM. :file:`/dev/nmdm1B` is assigned to the first VM,
   :file:`/dev/nmdm2B` is assigned to the second VM, and so on. These
-  virtual serial ports allow connecting to the VM console from the
+  virtual serial ports allow connections to the VM console from the
   :ref:`Shell`.
 
   .. tip:: The `nmdm <https://www.freebsd.org/cgi/man.cgi?query=nmdm>`__
-     device is dynamically created. The actual :literal:`nmdm` name
+     device is dynamically created. The actual :samp:`nmdm {XY}` name
      varies on each VM.
 
 
-  To connect to the first VM, type :literal:`cu -l /dev/nmdm1B -s 9600`
-  in the :ref:`Shell`. See `cu(1)
-  <https://www.freebsd.org/cgi/man.cgi?query=cu>`__ for more
-  information.
+  To connect to the first VM, type :samp:`cu -l /dev/nmdm{1B} -s 9600`
+  in the :ref:`Shell`. See
+  `cu(1) <https://www.freebsd.org/cgi/man.cgi?query=cu>`__
+  for more information.
 
 
 .. index:: Creating VMs
@@ -154,7 +153,7 @@ The configuration options are described in
    | 2        | Start on Boot      | checkbox       | Set to start the VM when the system boots.                                                    |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Enable VNC         | checkbox       | Set to add a VNC remote connection. Requires *UEFI* booting.                                  |
+   | 2        | Enable VNC         | checkbox       | Add a VNC remote connection. Requires *UEFI* booting.                                         |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Virtual CPUs       | integer        | Number of virtual CPUs to allocate to the VM. The maximum is 16 unless limited by the host    |
@@ -167,11 +166,11 @@ The configuration options are described in
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 4        | Disk image         | check option   | Select :guilabel:`Create new disk image` to create a new zvol on an existing dataset.         |
    |          |                    | with custom    | This is used as a virtual hard drive for the VM. Select :guilabel:`Use existing disk image`   |
-   |          |                    | fields         | and click |ui-browse| to select an existing zvol for the VM.                                  |
+   |          |                    | fields         | and click |ui-browse| to select a zvol for the VM.                                            |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Define the size    | integer        | Allocate the amount of storage in GiB for the new zvol. Appears when                          |
-   |          | (GiB) for the zvol |                | :guilabel:`Create new disk image` is selected.                                                |
+   | 4        | Define the size    | integer        | Allocate the amount of storage in GiB for the new zvol.                                       |
+   |          | (GiB) for the zvol |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 4        | Select a zvol      | drop-down menu | Select a pool or dataset for the new zvol.                                                    |
    |          |                    |                |                                                                                               |
@@ -214,13 +213,13 @@ This example creates a FreeBSD VM:
 
 #. :guilabel:`Guest Operating System` is set to *FreeBSD*.
    :guilabel:`Name` is set to *samplevm*. Other options are left at
-   the default values.
+   defaults.
 
 #. :guilabel:`Virtual CPUs` is set to *2* and
    :guilabel:`Memory Size (MiB)` is set to *2048*.
 
 #. :guilabel:`Create new disk image` is selected. The zvol size is set
-   to *20* (GiB) and stored on the pool named *pool1*.
+   to *20* GiB and stored on the pool named *pool1*.
 
 #. Network settings are left at default values.
 
@@ -250,7 +249,7 @@ Adding Devices to a VM
 
 Go to
 :menuselection:`Virtual Machines`,
-click |ui-options| :menuselection:`--> Devices`,
+|ui-options| :menuselection:`--> Devices`,
 and click |ui-add| to add a new VM device.
 
 .. figure:: images/virtual-machines-devices-add.png
