@@ -1506,6 +1506,13 @@ To open the console in the started jail, use :command:`iocage console`
    Edit /etc/motd to change this login announcement.
    root@examplejail:~ #
 
+Exit the jail console with :command:`logout`:
+
+.. code-block:: none
+
+   root@examplejail:~ # logout
+   [root@freenas ~]#
+
 Jails are shut down with :command:`iocage stop`:
 
 .. code-block:: none
