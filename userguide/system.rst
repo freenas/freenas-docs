@@ -1648,7 +1648,7 @@ remaining options vary by provider, and are shown in
    | Amazon S3          | Endpoint URL           | Enter the Endpoint URL for the web service.                                                                     |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3          | Enpoint does not       | Skips automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom            |
+   | Amazon S3          | Enpoint does not       | Skip automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom             |
    |                    | support regions        | :guilabel:`Endpoint URL`                                                                                        |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
