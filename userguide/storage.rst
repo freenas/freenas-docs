@@ -42,13 +42,15 @@ less-used data can be "swapped" onto the disk, freeing up main memory.
 
 For reliability, %brand% creates swap space as mirrors of swap
 partitions on pairs of individual disks. For example, if the system has
-three hard disks, a swap mirror is created from the swap partitions on two of the drives.
-The third drive is not used, because it does not have redundancy. On a system with four drives, two swap
-mirrors are created.
+three hard disks, a swap mirror is created from the swap partitions on
+two of the drives. The third drive is not used, because it does not
+have redundancy. On a system with four drives, two swap mirrors are
+created.
 
-Swap space is allocated when drives are partitioned before being added to a `vdev<ZFS Primer>`.
-(see the :ref:`ZFS Primer`).
-A 2 GiB partition for swap space is created on each data drive by default. The size of space to allocate can be changed in
+Swap space is allocated when drives are partitioned before being added
+to a :ref:`vdev<ZFS Primer>`. A 2 GiB partition for swap space is
+created on each data drive by default. The size of space to allocate
+can be changed in
 :menuselection:`System --> Advanced`
 in the *Swap size in Gib* field. Changing the value does not affect the
 amount of swap on existing disks, only disks added after the change.
