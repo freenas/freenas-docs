@@ -43,7 +43,7 @@ less-used data can be "swapped" onto the disk, freeing up main memory.
 For reliability, %brand% creates swap space as mirrors of swap
 partitions on pairs of individual disks. For example, if the system has
 three hard disks, a swap mirror is created from the swap partitions on two of the drives.
-the third drive is not used. A system with four drives creates two swap
+The third drive is not used, because it does not have redundancy. On a system with four drives, two swap
 mirrors.
 
 Swap space is allocated when drives are added to a vdev
