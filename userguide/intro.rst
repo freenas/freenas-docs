@@ -410,8 +410,9 @@ U2
   :menuselection:`Reporting`
   now shows the compressed physical L2ARC size.
 
-* The :literal:`openipmi` package and :file:`usr/local/lib/collectd/ipmi.so`
-  have been removed to disable the non-functional collectd IPMI plugin.
+* The :literal:`openipmi` package and
+  :file:`usr/local/lib/collectd/ipmi.so` have been removed to disable the
+  non-functional collectd IPMI plugin.
 
 
 .. _Path and Name Lengths:
