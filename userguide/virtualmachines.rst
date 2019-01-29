@@ -468,8 +468,8 @@ for VNC.
 Setting :guilabel:`Port` to *0* automatically assigns a port when the VM
 is started. If a fixed, preferred port number is needed, enter it here.
 
-Set :guilabel:`Delay VM Boot until VNC Connects` to wait for the VNC
-client to connect before starting the VM.
+Set :guilabel:`Delay VM Boot until VNC Connects` to wait to start VM
+until VNC client connects.
 
 :guilabel:`Resolution` sets the default screen resolution used for the
 VNC session.
