@@ -38,7 +38,7 @@ Swap Space
 
 Swap is space on a disk set aside to be used
 as memory. When the %brand% system runs low on memory,
-less-used data can be "swapped" onto the disk, freeing up memory.
+less-used data can be "swapped" onto the disk, freeing up main memory.
 
 For reliability, %brand% creates swap space as mirrors of swap
 partitions on pairs of individual disks. For example, if the system has
