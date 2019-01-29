@@ -47,7 +47,7 @@ The third drive is not used, because it does not have redundancy. On a system wi
 mirrors are created.
 
 Swap space is allocated when drives are added to a vdev
-(see :ref:`ZFS Primer`).
+(see the :ref:`ZFS Primer`).
 Swap space is 2 GiB by default. The size of space to allocate is set in
 :menuselection:`System --> Advanced`
 in the *Swap size in Gib* field. Changing the value does not affect the
