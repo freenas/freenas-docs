@@ -1928,6 +1928,7 @@ The configurable options are summarized in
    |                      |                    |                                                                                                   |
    +----------------------+--------------------+---------------------------------------------------------------------------------------------------+
    | Private Key          | string             | If there is a private key associated with the :guilabel:`Certificate`, paste it here.             |
+   |                      |                    | The private key minimum length is 1024 bits.                                                      |
    |                      |                    |                                                                                                   |
    +----------------------+--------------------+---------------------------------------------------------------------------------------------------+
    | Passphrase           | string             | If the :guilabel:`Private Key` is protected by a passphrase, enter it here and repeat             |
@@ -2130,8 +2131,8 @@ The configurable options are summarized in
    | Certificate          | string               | Paste the contents of the certificate.                                                          |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Private Key          | string               | Paste the private key associated with the certificate.                                          |
-   |                      |                      |                                                                                                 |
+   | Private Key          | string               | Paste the private key associated with the certificate. The private key minimum length is 1024   |
+   |                      |                      | bits.                                                                                           |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | Passphrase           | string               | If the private key is protected by a passphrase, enter it here and repeat it in                 |
    |                      |                      | the :guilabel:`Confirm Passphrase` field.                                                       |
