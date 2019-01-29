@@ -386,7 +386,7 @@ describes each required entry.
 
 .. _plugins-plugin-jsonfile-contents:
 
-.. table:: Plugin json File Contents
+.. table:: Plugin JSON File Contents
    :class: longtable
 
    +---------------------------+--------------------------------------------------------------------+
