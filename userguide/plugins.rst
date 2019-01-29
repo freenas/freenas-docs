@@ -395,7 +395,7 @@ describes each required entry.
    | :samp:`"name":`           | Name of the plugin.                                                |
    |                           |                                                                    |
    +---------------------------+--------------------------------------------------------------------+
-   | :samp:`"plugin_schema":`  | Optional. Enter *2* if simplified post install information has     |
+   | :samp:`"plugin_schema":`  | Optional. Enter *2* if simplified post-install information has     |
    |                           | been supplied in :file:`post_install.sh`. After specifying *2*,    |
    |                           | echo the information to be presented to the user in                |
    |                           | :file:`/root/PLUGIN_INFO` inside the                               |
