@@ -48,7 +48,7 @@ mirrors are created.
 
 Swap space is allocated when drives are partitioned before being added to a `vdev<ZFS Primer>`.
 (see the :ref:`ZFS Primer`).
-Swap space is 2 GiB by default. The size of space to allocate is set in
+A 2 GiB partition for swap space is created on each data drive by default. The size of space to allocate can be changed in
 :menuselection:`System --> Advanced`
 in the *Swap size in Gib* field. Changing the value does not affect the
 amount of swap on existing disks, only disks added after the change.
