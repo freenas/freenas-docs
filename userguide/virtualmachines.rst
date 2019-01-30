@@ -659,6 +659,27 @@ contain a space.
    Edit Rancher Password in Raw File Device
 
 
+SSH into the Docker Host
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Find the Docker Host :guilabel:`Com Port` on the
+:menuselection:`Virtual Machines`
+page. It has a value of :samp:`/dev/nmdm{1b}`, where :literal:`{1b}` is
+different for each VM.
+
+Use an SSH client to connect to the %brand% server. The %brand%
+:ref:`SSH` service must be running with the
+:guilabel:`Login as Root with Password` option set.
+
+At the %brand% console prompt, connect to the Rancher Host with
+:samp:`cu -l /dev/nmdm{1b}`, replacing :literal:`{1b}` with the
+Docker Host :guilabel:`Com Port`.
+
+If the terminal does not show a :literal:`rancher login:` prompt,
+press :kbd:`Enter`. The Docker Host can take some time to start and
+display the login prompt.
+
+
 Start the Docker Host
 ~~~~~~~~~~~~~~~~~~~~~
 
