@@ -1912,7 +1912,8 @@ The configurable options are summarized in
    |                |           |                                                                           |
    +----------------+-----------+---------------------------------------------------------------------------+
    | Private Key    | string    | If there is a private key associated with the :guilabel:`Certificate`,    |
-   |                |           | paste it here.                                                            |
+   |                |           | paste it here. Private keys must be at least 1024 bits long.              |
+   |                |           |                                                                           |
    +----------------+-----------+---------------------------------------------------------------------------+
    | Passphrase     | string    | If the :guilabel:`Private Key` is protected by a passphrase,              |
    |                |           | enter it here and repeat it in the "Confirm Passphrase" field.            |
@@ -2110,7 +2111,8 @@ The configurable options are summarized in
    | Certificate    | string    | Paste the contents of the certificate.                                             |
    |                |           |                                                                                    |
    +----------------+-----------+------------------------------------------------------------------------------------+
-   | Private Key    | string    | Paste the private key associated with the certificate.                             |
+   | Private Key    | string    | Paste the private key associated with the certificate. Private keys must be at     |
+   |                |           | least 1024 bits long.                                                              |
    |                |           |                                                                                    |
    +----------------+-----------+------------------------------------------------------------------------------------+
    | Passphrase     | string    | If the private key is protected by a passphrase, enter it here and repeat it in    |
@@ -2317,11 +2319,14 @@ complete these fields:
   for including configuration files or screenshots of any errors or
   tracebacks.
 
-After completing the fields, click the
-:guilabel:`Submit` button to automatically generate and upload the
-report to https://redmine.ixsystems.com/projects/freenas/issues.
-A pop-up menu provides a clickable URL so to view status or add
-additional information to the report.
+Click :guilabel:`Submit` to automatically generate and upload the report
+to the
+`bug tracker <https://redmine.ixsystems.com/projects/freenas/issues>`__.
+This process can take several minutes while information is collected and
+sent.
+
+After the new ticket is created, the URL is shown for updating with more
+information.
 #endif freenas
 
 #ifdef truenas
@@ -2386,13 +2391,16 @@ To generate a support ticket, fill in the fields:
   screenshots of any errors or tracebacks can be included. Click the
   :guilabel:`+` button to add more attachments.
 
-After completing the fields, click the :guilabel:`Submit` button to
-generate and send the support ticket to iXsystems. A pop-up menu
-provides a clickable URL to view the status of or add additional
-information to that support ticket.
-When not already logged into the
-`iXsystems Support page <https://support.ixsystems.com/>`__, clicking
-this URL prompts for a login, or to register a new login.
+Click :guilabel:`Submit` to generate and send the support ticket to
+iXsystems. This process can take several minutes while information is
+collected and sent.
+
+After the new ticket is created, the URL is shown for updating with more
+information. An
+`iXsystems Support <https://support.ixsystems.com/>`__
+account is required to view the ticket. Click the URL to log in or
+register with the support portal. Use the same u-mail address submitted
+with the ticket when registering.
 
 
 .. index:: Proactive Support
