@@ -227,7 +227,7 @@ Encryption
    can be safely removed, reused, or discarded without secure wiping or physical
    destruction of the media.
   
-   This encryption method is **not** designed to protect against unauthorized software
+   This encryption method is **not** designed to protect against unauthorized
    access when the volume is already unlocked. Before sensitive data is stored on the
    system, ensure that only authorized users have access to the |web-ui| and that
    permissions with appropriate restrictions are set on shares.
@@ -276,10 +276,10 @@ right for the intended use:
   the volume was created. Swap data on disk is always encrypted. Data
   in memory (RAM), including ARC, is not encrypted. 
 
-* At present, there is no one-step way to encrypt an unencrypted volume. The data must
-  be copied to an existing or new encrypted volume. After that, the original unencrypted
-  volume and any unencrypted backup should be destroyed and any disks that contained
-  unencrypted data should be wiped.
+* At present, there is no one-step way to encrypt an existing volume. The data
+  must be copied to a new or existing encrypted volume. After that, the original
+  volume and any unencrypted backup should be destroyed and any disks that
+  contained unencrypted data should be wiped.
 
 * Hybrid volumes are not supported. Added vdevs must match the existing
   encryption scheme. :ref:`Volume Manager` automatically encrypts new
