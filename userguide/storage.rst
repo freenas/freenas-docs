@@ -218,39 +218,37 @@ Encryption
 ^^^^^^^^^^
 
 .. note:: %brand% uses `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
-  full disk encryption for ZFS volumes. This type of encryption is primarily 
-  intended to protect data against the risks of data being read or copied when 
-  the system is powered down, when the pool is locked, or when disks are physically
-  stolen.
+   full disk encryption for ZFS volumes. This type of encryption is primarily 
+   intended to protect data against the risks of data being read or copied when 
+   the system is powered down, when the pool is locked, or when disks are physically
+   stolen.
   
-  Because data cannot be read without the key, encrypted disks containing sensitive data
-  can be safely removed, reused, or discarded without secure wiping or physical
-  destruction of the media.
+   Because data cannot be read without the key, encrypted disks containing sensitive data
+   can be safely removed, reused, or discarded without secure wiping or physical
+   destruction of the media.
   
-  This encryption method is **not** designed to protect against unauthorized software
-  access when the pool is already unlocked. Before sensitive data is stored on the
-  system, ensure that only authorized users have access to the |web-ui| and that
-  permissions with appropriate restrictions are set on shares.
+   This encryption method is **not** designed to protect against unauthorized software
+   access when the volume is already unlocked. Before sensitive data is stored on the
+   system, ensure that only authorized users have access to the |web-ui| and that
+   permissions with appropriate restrictions are set on shares.
 
 
-In %brand%, entire disks and pools are encrypted, not individual filesystems. Each disk
-in an encrypted pool contains an unencrypted partition table identifying the organization
-of data on the disk followed by one or more encrypted data partitions. Pools can be unlocked by
-the system at startup, or manually by an authorized user if unlocking at startup is disabled.
+In %brand%, entire disks and volumes are encrypted, not individual filesystems. Each disk
+in an encrypted volume has an unencrypted partition table identifying the organization of
+data on the disk followed by one or more encrypted data partitions. Volumes can be unlocked
+by the system at startup, or manually by an authorized user if unlocking at startup is disabled.
 
-Data is decrypted when read from encrypted pools, and encrypted before writing.
-
-Encrypted pools are unmounted and locked when the system shuts down, or manually by an
+Encrypted volumes are unmounted and locked when the system shuts down, or manually by an
 authorized user.
 
 The built-in encryption on :ref:`Self-Encrypting Drives` (SED) can also be used. This encrypts
 everything on the drive, including the partition table.
 
-It is important to understand the details when considering whether encrypting a pool is
+It is important to understand the details when considering whether encrypting a volume is
 right for the intended use:
 
-* %brand% encryption differs from the encryption used in Oracle's proprietary
-  version of ZFS. To convert between these formats, both pools must be unlocked, and the data copied
+* %brand% encryption differs from the encryption used in Oracle's proprietary version of ZFS.
+  To convert between these formats, both volumes must be unlocked, and the data copied
   between them.
 
 * When discarding disks that still contain encrypted sensitive data,
@@ -262,9 +260,7 @@ right for the intended use:
   vulnerable to decryption.
    
 * Protect the key with a strong passphrase and store all backups of
-  the key securely.
-
-* If the encryption key is lost, the data on the disks is
+  the key securely. If the encryption key is lost, the data on the disks is
   inaccessible. Always back up the key!
 
 * Encryption keys are per ZFS volume (pool). Each pool has a separate
@@ -274,22 +270,19 @@ right for the intended use:
   <https://forums.freenas.org/index.php?threads/recover-encryption-key.16593/#post-85497>`__.
 
 * All drives in an encrypted volume are encrypted, including L2ARC
-  (read cache) and SLOG/ZIL (write intent log). Drives added to an existing
+  (read cache) and SLOG (write intent log). Drives added to an existing
   encrypted volume are encrypted with the same method specified when
   the volume was created. Swap data on disk is always encrypted. Data
   in memory (RAM), including ARC, is not encrypted. 
 
-* At present, there is no one-step way to encrypt an existing, unencrypted volume. Instead,
-  **either** an encrypted pool must be created if it does not already exist, and data copied
-  directly from the original pool to the encrypted pool, **or** the data must be backed up to other
-  storage, the existing pool destroyed, a new encrypted volume created possibly using the same disks, 
-  and the backed-up data is then restored to the new volume. In either case, the original pool or
-  any unencypted backup should be destroyed and any unused disks that contained unencrypted data
+* At present, there is no one-step way to encrypt an unencrypted volume. Instead, the data must
+  be copied to an existing or new encrypted pool. After that step, the original unencrypted volume
+  and any unencrypted back should be destroyed and any disks that contained unencrypted data
   should be wiped.
 
-* Hybrid pools are not supported. Added vdevs must match the existing
+* Hybrid volumes are not supported. Added vdevs must match the existing
   encryption scheme. :ref:`Volume Manager` automatically encrypts a new
-  vdev being added to an existing encrypted pool.
+  vdev being added to an existing encrypted volume.
 
 
 To create an encrypted volume, enable the :guilabel:`Encryption` option
