@@ -276,10 +276,10 @@ right for the intended use:
   the volume was created. Swap data on disk is always encrypted. Data
   in memory (RAM), including ARC, is not encrypted. 
 
-* At present, there is no one-step way to encrypt an unencrypted volume. Instead, the data must
-  be copied to an existing or new encrypted volume. After that step, the original unencrypted volume
-  and any unencrypted backup should be destroyed and any disks that contained unencrypted data
-  should be wiped.
+* At present, there is no one-step way to encrypt an unencrypted volume. The data must
+  be copied to an existing or new encrypted volume. After that, the original unencrypted
+  volume and any unencrypted backup should be destroyed and any disks that contained
+  unencrypted data should be wiped.
 
 * Hybrid volumes are not supported. Added vdevs must match the existing
   encryption scheme. :ref:`Volume Manager` automatically encrypts a new
