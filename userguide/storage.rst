@@ -217,19 +217,20 @@ Click the *+* next to the volume name to access
 Encryption
 ^^^^^^^^^^
 
-.. note:: %brand% supports `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
+.. note:: %brand% uses `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
   full disk encryption for ZFS volumes. This type of encryption is primarily 
   intended to protect data against the risks of data being read or copied when 
-  the system is powered down, when the pool is locked, or in the event of physical theft.
+  the system is powered down, when the pool is locked, or in the event of physical theft
+  of disks.
   
   Because data cannot be read without the key, encrypted disks containing sensitive data
-  can also be safely removed, reused, or discarded, without secure wiping or physical
-  destruction of the magnetic platters.
+  can be safely removed, reused, or discarded without secure wiping or physical
+  destruction of the media.
   
   The encryption scheme is **not** designed to protect against unauthorized software
-  access when the pool is already unlocked. Ensure that only authorized users have access
-  to the web-ui and that proper permissions are set on shares, if sensitive data
-  is stored on the system. 
+  access when the pool is already unlocked. Before sensitive data is stored on the
+  system, ensure that only authorized users have access to the |web-ui| and that
+  permissions with appropriate restrictions are set on shares.
 
 In %brand%, entire disks and pools are encrypted, not individual filesystems. Each disk
 in an encrypted volume contains an unencrypted partition table identifying the location
