@@ -236,7 +236,8 @@ Encryption
 In %brand%, entire disks and volumes are encrypted, not individual filesystems. Each disk
 in an encrypted volume has an unencrypted partition table identifying the organization of
 data on the disk followed by one or more encrypted data partitions. Volumes can be unlocked
-by the system at startup, or manually by an authorized user if unlocking at startup is disabled.
+by the system at startup, or manually by an authorized user if unlocking at startup is
+disabled.
 
 Encrypted volumes are unmounted and locked when the system shuts down, or manually by an
 authorized user.
@@ -259,8 +260,8 @@ right for the intended use:
   the same person who gains access to the disks, the data will be 
   vulnerable to decryption.
    
-* Protect the key with a strong passphrase and store all backups of
-  the key securely. If the encryption key is lost, the data on the disks is
+* Protect the key with a strong passphrase and store all key backups
+  securely. If the encryption key is lost, the data on the disks is
   inaccessible. Always back up the key!
 
 * Encryption keys are per ZFS volume (pool). Each pool has a separate
