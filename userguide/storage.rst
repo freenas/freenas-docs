@@ -18,6 +18,8 @@ these options:
 * :ref:`Importing a Disk`: import a **single** disk that is
   formatted with the UFS, NTFS, MSDOS, or EXT2 filesystem.
 
+* :ref:`Swap Space`: Change the swap space size.
+
 
 #ifdef truenas
 .. note:: When using an HA (High Availability) %brand% system,
@@ -27,6 +29,34 @@ these options:
    active node.
 #endif truenas
 
+
+.. index:: Swap Space
+.. _Swap Space:
+
+Swap Space
+-----------
+
+Swap is space on a disk set aside to be used
+as memory. When the %brand% system runs low on memory,
+less-used data can be "swapped" onto the disk, freeing up main memory.
+
+For reliability, %brand% creates swap space as mirrors of swap
+partitions on pairs of individual disks. For example, if the system has
+three hard disks, a swap mirror is created from the swap partitions on
+two of the drives. The third drive is not used, because it does not
+have redundancy. On a system with four drives, two swap mirrors are
+created.
+
+Swap space is allocated when drives are partitioned before being added
+to a :ref:`vdev<ZFS Primer>`. A 2 GiB partition for swap space is
+created on each data drive by default. The size of space to allocate
+can be changed in
+:menuselection:`System --> Advanced`
+in the *Swap size in Gib* field. Changing the value does not affect the
+amount of swap on existing disks, only disks added after the change.
+This does not affect log or cache devices, which are created without
+swap. Swap can be disabled by entering *0*, but that is
+**strongly discouraged**.
 
 .. index:: Pools
 .. _Pools:
@@ -163,18 +193,16 @@ in
 :menuselection:`Storage --> Pools`.
 
 In the example shown in :numref:`Figure %s <zfs_vol_fig>`, the created
-pool is named *pool1*. The description indicates that it is healthy.
-The :guilabel:`Used` and :guilabel:`Free` entries reflect the total
-size of the pool including disk parity.
+pool is named *pool1*. The description indicates that it is healthy and
+shows how much space is :guilabel:`Used` and :guilabel:`Free`.
 
 Click the down arrow to see more details about the pool. This second
 entry has the same name and represents the implicit or root dataset. The
-:guilabel:`Used` and :guilabel:`Available` entries indicate the amount
-of disk space available for storage, after disk parity is subtracted. It also
-indicates the type of compression, the
-compression ratio, whether it is mounted as read-only,
-whether deduplication has been enabled, the mountpoint path,
-and any comments entered for the pool.
+:guilabel:`Used` and :guilabel:`Available` entries show the amount of
+space used and available. Also shown are the type of compression, the
+compression ratio, whether it is mounted as read-only, whether
+deduplication has been enabled, the mountpoint path, and any comments
+entered for the pool.
 
 There is an option to :guilabel:`Upgrade Pool`. This upgrades the
 pool to the latest ZFS features, as described in

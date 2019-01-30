@@ -410,7 +410,7 @@ U2
   :menuselection:`Reporting`
   now shows the compressed physical L2ARC size.
 
-* The pool widgets in the
+* Pool widgets in the
   :menuselection:`Dashboard`
   now change color to reflect the current pool status.
 
