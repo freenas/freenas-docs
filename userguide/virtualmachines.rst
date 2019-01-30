@@ -426,6 +426,9 @@ this device. A lower number means a higher boot priority.
 
 Set the size of the file in GiB.
 
+Docker Hosts also have a :guilabel:`password` field. This is the log in
+password for the Docker Host.
+
 
 .. _vms-VNC:
 
@@ -508,9 +511,9 @@ runtime, system tools, and system libraries, so applications always
 see the same environment.
 
 `Rancher <https://rancher.com/>`__
-is a |web-ui| tool for managing Docker containers.
+is a web-based tool for managing Docker containers.
 
-%brand% runs the Rancher |web-ui| within the Docker Host.
+%brand% runs the Rancher web interface within the Docker Host.
 
 
 .. index:: Docker Host Requirements
@@ -656,7 +659,7 @@ contain a space.
 
 .. figure:: images/virtual-machines-docker-devices-rawfile.png
 
-   Edit Rancher Password in Raw File Device
+   Changing the Docker Host Password
 
 
 Start the Docker Host
@@ -671,103 +674,97 @@ to boot the Docker Host.
 A Docker Host can take some time to boot. Connect to the Serial Shell
 during the startup process to view the activity of the Docker Host.
 
-.. tip:: A :command:`cu -l` command displays as the shell connects to
-   the Docker Host Com Port. This command can also be used to connect
-   to the Docker Host during an SSH session into the %brand%
-   system. The :samp:`nmdm{XY}` value is different for each started
-   Docker Host.
+The :literal:`RancherOS` graphic is shown. Press :kbd:`Enter` to see the
+:literal:`ClientHost login:` prompt. Log in with the username
+:literal:`rancher` and press :kbd:`Enter`. If a custom password was set
+in the raw file, enter it now. Otherwise, enter the default password of
+:literal:`docker`. The :literal:`[rancher@ClientHost ~]$` prompt is
+shown.
 
 
-When a message about :literal:`RancherOS` starting appears and the shell
-stops posting new messages, press :kbd:`Enter` to see the
-:literal:`ClientHost login:` text and continue to log in.
+SSH in to the Docker Host
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Go to
+:menuselection:`Virtual Machines`,
+find the Docker Host entry, and see :guilabel:`Com Port`. Com port
+names have the format :samp:`/dev/nmdm{1B}`, where :literal:`{1B}` is
+unique for each VM.
 
-SSH into the Docker Host
-~~~~~~~~~~~~~~~~~~~~~~~~
+Connect to the %brand% server with an SSH client. The :ref:`SSH` service
+must be running with :guilabel:`Login as Root with Password` enabled.
 
-Find the Docker Host :guilabel:`Com Port` on the
-:menuselection:`Virtual Machines`
-page. It has a value of :samp:`/dev/nmdm{1b}`, where :literal:`{1b}` is
-different for each VM.
-
-Use an SSH client to connect to the %brand% server. The %brand%
-:ref:`SSH` service must be running with the
-:guilabel:`Login as Root with Password` option set.
-
-At the %brand% console prompt, connect to the Rancher Host with
-:samp:`cu -l /dev/nmdm{1b}`, replacing :literal:`{1b}` with the
+At the %brand% console prompt, connect to the Docker Host with
+:samp:`cu -l /dev/nmdm{1B}`, replacing :literal:`{1B}` with the
 Docker Host :guilabel:`Com Port`.
 
-If the terminal does not show a :literal:`rancher login:` prompt,
-press :kbd:`Enter`. The Docker Host can take some time to start and
-display the login prompt.
+If the terminal does not immediately show a :literal:`rancher login:`
+prompt, press :kbd:`Enter`. The Docker Host can take some time to start
+and display the login prompt.
 
 
-.. _Installing and Configuring the Rancher Server:
+.. _Installing and Configuring Rancher:
 
-Installing and Configuring the Rancher Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In the serial shell, type :literal:`rancher` for the username and press
-:kbd:`Enter`. Enter either the default password :literal:`docker` or the
-custom password created by editing the raw file and press :kbd:`Enter`.
-A :literal:`[rancher@ClientHost ~]$` prompt will appear.
+Installing and Configuring Rancher
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ensure Rancher has functional networking and can :command:`ping` an
 outside website.
 
 .. code-block:: none
 
-   [rancher@ClientHost ~]$ ping -c 5 8.8.8.8
-   PING 8.8.8.8 (8.8.8.8): 56 data bytes
-   64 bytes from 8.8.8.8: seq=0 ttl=121 time=17.466 ms
-   64 bytes from 8.8.8.8: seq=1 ttl=121 time=17.502 ms
-   64 bytes from 8.8.8.8: seq=2 ttl=121 time=17.472 ms
-   64 bytes from 8.8.8.8: seq=3 ttl=121 time=17.426 ms
-   64 bytes from 8.8.8.8: seq=4 ttl=121 time=17.343 ms
+   [rancher@ClientHost ~]$ ping -c 3 google.com
+   PING google.com (172.217.0.78): 56 data bytes
+   64 bytes from 172.217.0.78: seq=0 ttl=54 time=18.613 ms
+   64 bytes from 172.217.0.78: seq=1 ttl=54 time=18.719 ms
+   64 bytes from 172.217.0.78: seq=2 ttl=54 time=18.788 ms
 
-   --- 8.8.8.8 ping statistics ---
-   5 packets transmitted, 5 packets received, 0% packet loss
-   round-trip min/avg/max = 17.343/17.441/17.502 ms
+   --- google.com ping statistics ---
+   3 packets transmitted, 3 packets received, 0% packet loss
+   round-trip min/avg/max = 18.613/18.706/18.788 ms
 
 
 If :command:`ping` returns an error, adjust the VM
 :ref:`Network Interface <vms-network-interface>` and reboot the VM.
 
-Download and install the Rancher system with
+Download and install the Rancher server with
 :command:`sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server`.
 
-If :literal:`Cannot connect to the Docker daemon` shows, run
-:command:`sudo dockerd` and try the command again. Installation time
-varies with processor and network connection speed.
+If a :literal:`Cannot connect to the Docker daemon` error is shown,
+enter :command:`sudo dockerd` and try
+:command:`sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server`
+again. Installation time varies with processor and network connection
+speed. :literal:`[rancher@ClientHost ~]$` is shown when the installation
+is finished.
 
-When the command prompt is available, enter
-:command:`ifconfig eth0 | grep 'inet addr'`. Copy the
-:literal:`inet addr:` IP address. Enter the IP address appended with
-:literal:`:8080` into a web browser to connect to the Rancher server
-|web-ui|. For example, if the IP address was :literal:`10.231.3.208`,
-:literal:`10.231.3.208:8080` is entered in a browser.
+Enter :command:`ifconfig eth0 | grep 'inet addr'` to view the Rancher
+IP address. Enter the IP address followed by :literal:`:8080` into a web
+browser to connect to the Rancher web interface. For example, if the IP
+address is :literal:`10.231.3.208`, enter :literal:`10.231.3.208:8080`
+in the browser.
 
-The Rancher server takes a few minutes to start. The web browser might
-show a connection error while the Rancher |web-ui| starts. If the
-browser shows a :literal:`connection has timed out` error, wait one
-minute and try again.
+The Rancher web interface takes a few minutes to start. The web browser
+might show a connection error while the web interface starts. If a
+:literal:`connection has timed out` error is shown, wait one minute and
+refresh the page.
 
-When the Rancher |web-ui| loads, click :guilabel:`Add a host`.
-Ensure the radial :guilabel:`This site's address` button is set and
-click :guilabel:`Save`.
+When the Rancher web interface loads, click :guilabel:`Add a host` from
+the banner across the top of the screen. Verify that
+:guilabel:`This site's address` is chosen and click :guilabel:`Save`.
 
-Follow the instructions that now display and run the
-:command:`sudo docker run --rm --privileged -v` command in the Docker
-Host Serial shell. :literal:`Launched Rancher Agent:` displays when the
-command is successful.
+Following the steps shown, copy the full :samp:`sudo docker run`
+command from the text box, go back to the %brand% |web-ui|, and paste
+the command in the Docker Host shell. The Docker Host will finish
+configuring Rancher. A :literal:`[rancher@ClientHost ~]$` prompt is
+shown when the configuration is complete.
 
-Go to the :guilabel:`Hosts` page of the Rancher |web-ui| to confirm the
-Docker Host displays in the |web-ui|. Rancher is now configured and
-ready for use.
+Verify that the configuration is complete. Go to the Rancher web
+interface and click
+:menuselection:`INFRASTRUCTURE --> Hosts`. Verify a host with the
+Rancher IP address is shown. If present, configuration is complete and
+Rancher is ready to use.
 
-For more information on using RancherOS, see the RancherOS
+For more information on using Rancher, see the Rancher
 `documentation <https://rancher.com/docs/os/v1.x/en/>`__.
 
 
