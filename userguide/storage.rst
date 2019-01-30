@@ -282,8 +282,8 @@ right for the intended use:
   unencrypted data should be wiped.
 
 * Hybrid volumes are not supported. Added vdevs must match the existing
-  encryption scheme. :ref:`Volume Manager` automatically encrypts a new
-  vdev being added to an existing encrypted volume.
+  encryption scheme. :ref:`Volume Manager` automatically encrypts new
+  vdevs being added to an existing encrypted volume.
 
 
 To create an encrypted volume, enable the :guilabel:`Encryption` option
