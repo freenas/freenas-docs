@@ -220,33 +220,36 @@ Encryption
 .. note:: %brand% uses `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
   full disk encryption for ZFS volumes. This type of encryption is primarily 
   intended to protect data against the risks of data being read or copied when 
-  the system is powered down, when the pool is locked, or in the event of physical theft
-  of disks.
+  the system is powered down, when the pool is locked, or when disks are physically
+  stolen.
   
   Because data cannot be read without the key, encrypted disks containing sensitive data
   can be safely removed, reused, or discarded without secure wiping or physical
   destruction of the media.
   
-  The encryption scheme is **not** designed to protect against unauthorized software
+  This encryption method is **not** designed to protect against unauthorized software
   access when the pool is already unlocked. Before sensitive data is stored on the
   system, ensure that only authorized users have access to the |web-ui| and that
   permissions with appropriate restrictions are set on shares.
 
-In %brand%, entire disks and pools are encrypted, not individual filesystems. Each disk
-in an encrypted volume contains an unencrypted partition table identifying the location
-of ZFS data on the disk but not its contents, followed by one or more encrypted data partitions
-containing the usual ZFS pool structures and user data in an encrypted manner. After creation,
-the pool can be unlocked and used as normal by the system at boot, or by an authorized user if 
-boot-time unlocking is disabled.  Data is encrypted as it is written and decrypted as it is read. 
-Encrypted pools  are unmounted and locked when the system shuts down, or when triggered by an
-authorized user. Hard drives that feature built-in self-encryption (often abbreviated to SED)
-can also be encrypted using their own firmware feature to completely encrypt the drive,
-see :ref:`Self-Encrypting Drives`, and in this case the partition table is also encrypted.
- 
-It is important to understand the details when considering whether encrypting a pool is
-an appropriate measure, and to ensure data is effectively protected:
 
-* %brand% encryption is different from the encryption used in Oracle's proprietary, non-open source
+In %brand%, entire disks and pools are encrypted, not individual filesystems. Each disk
+in an encrypted pool contains an unencrypted partition table identifying the organization
+of data on the disk followed by one or more encrypted data partitions. Pools can be unlocked by
+the system at startup, or manually by an authorized user if unlocking at startup is disabled.
+
+Data is decrypted when read from encrypted pools, and encrypted before writing.
+
+Encrypted pools are unmounted and locked when the system shuts down, or manually by an
+authorized user.
+
+The built-in encryption on :ref:`Self-Encrypting Drives` (SED) can also be used. This encrypts
+everything on the drive, including the partition table.
+
+It is important to understand the details when considering whether encrypting a pool is
+right for the intended use:
+
+* %brand% encryption differs from the encryption used in Oracle's proprietary
   version of ZFS. To convert between these formats, both pools must be unlocked, and the data copied
   between them.
 
