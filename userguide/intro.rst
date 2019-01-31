@@ -414,6 +414,9 @@ U2
   :menuselection:`Dashboard`
   now change color to reflect the current pool status.
 
+* The help text can now be pinned to the screen and remain visible after
+  moving the cursor off the help icon.
+
 
 .. _Path and Name Lengths:
 
