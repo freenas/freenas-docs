@@ -414,7 +414,7 @@ U2
   :menuselection:`Dashboard`
   now change color to reflect the current pool status.
 
-* Rollback of any snapshot is now supported in
+* Rollback for any dataset snapshot is supported in
   :menuselection:`Storage --> Snapshots`.
 
 
