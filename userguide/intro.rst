@@ -414,6 +414,8 @@ U2
   :menuselection:`Dashboard`
   now change color to reflect the current pool status.
 
+* Now allows the rollback of any snapshot.
+
 
 .. _Path and Name Lengths:
 
