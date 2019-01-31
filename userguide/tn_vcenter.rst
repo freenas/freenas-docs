@@ -18,10 +18,5 @@ use %brand% storage from within vCenter Server.
 * Use vCenter to manage %brand% datastore creation and sharing,
   storage snapshot backups, and Role-Based Access Control (RBAC).
 
-The %brand% vCenter plugin is available separately from %brand%. To
-obtain the plugin, please contact the iXsystems Support team at
-:literal:`support@iXsystems.com` or by phone:
-
-* 1 (855) 473-7449 option 2 (US-only toll-free)
-
-* 1 (408) 943-4100 option 2 (local and international)
+The %brand% vCenter plugin is available separately from %brand%.
+Download it from `<https://vcplugin.ixsystems.com/plugin/>`__.
