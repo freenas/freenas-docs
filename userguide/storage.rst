@@ -1345,7 +1345,7 @@ created.
 **Rollback:** Clicking
 |ui-options| :menuselection:`--> Rollback`
 asks for confirmation before rolling back to this snapshot state.
-Confirming by clicking :guilabel:`YES` causes any files that have
+Click :guilabel:`YES` to revert files
 changed since the snapshot was taken to be reverted back to their state
 at the time of the snapshot.
 
