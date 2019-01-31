@@ -506,7 +506,7 @@ Click :guilabel:`NEXT` to view all jail
    | host_domainname        | string       | Enter an `NIS Domain name <https://www.freebsd.org/doc/handbook/network-nis.html>`__ for the jail.      |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | host.hostname          | string       | Enter a hostname for the jail. By default, the system uses the jail UUID.                               |
+   | host_hostname          | string       | Enter a hostname for the jail. By default, the system uses the jail UUID.                               |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | exec.fib               | integer      | Enter a number to define the routing table (FIB) to set when running commands inside the jail.          |
