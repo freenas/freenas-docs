@@ -250,7 +250,9 @@ the required database entries and starts the service.
    Launcher (:command:`javaws`).
 
 While the service is running, the :guilabel:`Open DS-Operator Web Interface`
-button appears in :menuselection:`Services --> Asigra DS-System`. Click
+button appears in
+:menuselection:`Services --> Asigra DS-System`.
+Click :guilabel:`Open DS-Operator Web Interface` to download and launch the
 :guilabel:`Open DS-Operator Web Interface` to download and launch the
 Asigra management application.
 
