@@ -414,6 +414,14 @@ U2
   :menuselection:`Dashboard`
   now change color to reflect the current pool status.
 
+* The :guilabel:`allow_mlock`, :guilabel:`vnet_interfaces`,
+  :guilabel:`hostid_strict_check`, and :guilabel:`allow_tun` fields have
+  been added to the
+  :menuselection:`Jails --> Add --> Advanced Jail Creation`
+  and
+  :menuselection:`Jails --> Edit`
+  forms.
+
 
 .. _Path and Name Lengths:
 
