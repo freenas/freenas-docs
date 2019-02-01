@@ -1795,7 +1795,7 @@ location to temporarily store the update file on the %brand% system.
 Manual update file names end with :file:`manual-update-unsigned.tar`.
 Use :guilabel:`Browse` to locate the downloaded manual update
 file. Set :guilabel:`Reboot After Update` to reboot the system
-immediately after the update is installed. Finally, click
+after the update has been installed. Click
 :guilabel:`APPLY UPDATE` to begin the update. A progress dialog is
 displayed during the update. **Do not** interrupt the update.
 
