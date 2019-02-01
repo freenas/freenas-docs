@@ -671,7 +671,7 @@ When a host with the Rancher IP address is shown,
 Rancher IP address is shown. If present, configuration is complete and
 Rancher is ready to use.
 
-For more information on using Rancher, see the Rancher
+For more information on Rancher, see the Rancher
 `documentation <https://rancher.com/docs/os/v1.x/en/>`__.
 
 
