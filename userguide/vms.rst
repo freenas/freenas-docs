@@ -666,7 +666,8 @@ shown when the configuration is complete.
 
 Verify that the configuration is complete. Go to the Rancher web
 interface and click
-:menuselection:`INFRASTRUCTURE --> Hosts`. Verify a host with the
+:menuselection:`INFRASTRUCTURE --> Hosts`.
+When a host with the Rancher IP address is shown,
 Rancher IP address is shown. If present, configuration is complete and
 Rancher is ready to use.
 
