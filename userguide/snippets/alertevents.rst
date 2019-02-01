@@ -98,6 +98,9 @@ Some of the conditions that trigger an alert include:
 
 * the NTP server cannot be contacted
 
+* `syslog-ng(8) <https://www.freebsd.org/cgi/man.cgi?query=syslog-ng>`__
+  is not running
+
 * a replication task fails
 
 * a VMware login or a :ref:`VMware-Snapshots` task fails
