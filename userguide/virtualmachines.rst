@@ -753,19 +753,19 @@ When the Rancher web interface loads, click :guilabel:`Add a host` from
 the banner across the top of the screen. Verify that
 :guilabel:`This site's address` is chosen and click :guilabel:`Save`.
 
-Following the steps shown, copy the full :samp:`sudo docker run`
-command from the text box, go back to the %brand% |web-ui|, and paste
-the command in the Docker Host shell. The Docker Host will finish
-configuring Rancher. A :literal:`[rancher@ClientHost ~]$` prompt is
-shown when the configuration is complete.
+Follow the steps shown in the Rancher web interface and copy the full
+:samp:`sudo docker run` command from the text box. Paste it in the
+Docker Host shell. The Docker Host will finish configuring Rancher. A
+:literal:`[rancher@ClientHost ~]$` prompt is shown when the
+configuration is complete.
 
 Verify that the configuration is complete. Go to the Rancher web
 interface and click
-:menuselection:`INFRASTRUCTURE --> Hosts`. Verify a host with the
-Rancher IP address is shown. If present, configuration is complete and
-Rancher is ready to use.
+:menuselection:`INFRASTRUCTURE --> Hosts`.
+Verify a host with the Rancher IP address is shown, configuration is
+complete and Rancher is ready to use.
 
-For more information on using Rancher, see the Rancher
+For more information on Rancher, see the Rancher
 `documentation <https://rancher.com/docs/os/v1.x/en/>`__.
 
 
