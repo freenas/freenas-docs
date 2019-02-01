@@ -386,43 +386,97 @@ describes each required entry.
 
 .. _plugins-plugin-jsonfile-contents:
 
-.. table:: Plugin json File Contents
+.. table:: Plugin JSON File Contents
    :class: longtable
 
-   +-------------------------+--------------------------------------------------------------------+
-   | Data Field              | Description                                                        |
-   +=========================+====================================================================+
-   | :samp:`"name":`         | Name of the plugin.                                                |
-   |                         |                                                                    |
-   +-------------------------+--------------------------------------------------------------------+
-   | :samp:`"release":`      | FreeBSD release to use for the plugin jail.                        |
-   |                         |                                                                    |
-   +-------------------------+--------------------------------------------------------------------+
-   | :samp:`"artifact":`     | URL of the plugin artifact repo.                                   |
-   |                         |                                                                    |
-   +-------------------------+--------------------------------------------------------------------+
-   | :samp:`"pkgs":`         | Port of the plugin.                                                |
-   |                         |                                                                    |
-   +-------------------------+--------------------------------------------------------------------+
-   | :samp:`"packagesite":`  | CDN the plugin jail uses. Default for the TrueOS CDN is            |
-   |                         | http://pkg.cdn.trueos.org/iocage .                                 |
-   |                         |                                                                    |
-   +-------------------------+--------------------------------------------------------------------+
-   | :samp:`"fingerprints":` | :samp:`"function":`                                                |
-   |                         |                                                                    |
-   |                         | Default is *sha256*.                                               |
-   |                         |                                                                    |
-   |                         | :samp:`"fingerprint":`                                             |
-   |                         |                                                                    |
-   |                         | The pkg fingerprint for the artifact repo. Default is              |
-   |                         | *226efd3a126fb86e71d60a37353d17f57af816d1c7ecad0623c21f0bf73eb0c7* |
-   |                         |                                                                    |
-   +-------------------------+--------------------------------------------------------------------+
-   | :samp:`"official":`     | Defines if this an official iXsystems supported plugin.            |
-   |                         | Enter *true* or *false*.                                           |
-   |                         |                                                                    |
-   +-------------------------+--------------------------------------------------------------------+
+   +------------------------------+-------------------------------------------------------------------------------+
+   | Data Field                   | Description                                                                   |
+   +==============================+===============================================================================+
+   | :literal:`"name":`           | Name of the plugin.                                                           |
+   |                              |                                                                               |
+   +------------------------------+-------------------------------------------------------------------------------+
+   | :literal:`"plugin_schema":`  | Optional. Enter *2* if simplified post-install information has                |
+   |                              | been supplied in :file:`post_install.sh`. After specifying *2*,               |
+   |                              | echo the information to be presented to the user in                           |
+   |                              | :file:`/root/PLUGIN_INFO` inside the                                          |
+   |                              | :file:`post_install.sh` file.                                                 |
+   |                              | See the :ref:`rslsync.json <rslsync-plugin-schema>` and                       |
+   |                              | :ref:`rslsync post_install.sh <rslsync-post-install>` examples.               |
+   |                              |                                                                               |
+   +------------------------------+-------------------------------------------------------------------------------+
+   | :literal:`"release":`        | FreeBSD RELEASE to use for the plugin jail.                                   |
+   |                              |                                                                               |
+   +------------------------------+-------------------------------------------------------------------------------+
+   | :literal:`"artifact":`       | URL of the plugin artifact repository.                                        |
+   |                              |                                                                               |
+   +------------------------------+-------------------------------------------------------------------------------+
+   | :literal:`"pkgs":`           | The dependent pkgs for the plugin to work.                                    |
+   |                              |                                                                               |
+   +------------------------------+-------------------------------------------------------------------------------+
+   | :literal:`"packagesite":`    | Content Delivery Network (CDN) the plugin jail uses. Default for              |
+   |                              | the TrueOS CDN is :literal:`http://pkg.cdn.trueos.org/iocage`.                |
+   |                              |                                                                               |
+   +------------------------------+-------------------------------------------------------------------------------+
+   | :literal:`"fingerprints":`   | :literal:`"function":`                                                        |
+   |                              |                                                                               |
+   |                              | Default is                                                                    |
+   |                              | :literal:`sha256`.                                                            |
+   |                              |                                                                               |
+   |                              | :literal:`"fingerprint":`                                                     |
+   |                              |                                                                               |
+   |                              | The pkg fingerprint for the artifact repository. Default is                   |
+   |                              | :literal:`226efd3a126fb86e71d60a37353d17f57af816d1c7ecad0623c21f0bf73eb0c7`   |
+   |                              |                                                                               |
+   +------------------------------+-------------------------------------------------------------------------------+
+   | :literal:`"official":`       | Define whether this is an official iXsystems-supported plugin.                |
+   |                              | Enter :literal:`true` or :literal:`false`.                                    |
+   |                              |                                                                               |
+   +------------------------------+-------------------------------------------------------------------------------+
 
+.. _rslsync-plugin-schema:
+
+.. code-block:: json
+   :caption: rslsync.json
+   :linenos:
+   :emphasize-lines: 3
+
+   {
+     "name": "rslsync",
+     "plugin_schema": "2",
+     "release": "11.2-RELEASE",
+     "artifact": "https://github.com/freenas/iocage-plugin-btsync.git",
+     "pkgs": [
+       "net-p2p/rslsync"
+     ],
+     "packagesite": "http://pkg.cdn.trueos.org/iocage/unstable",
+     "fingerprints": {
+	     "iocage-plugins": [
+		     {
+		     "function": "sha256",
+		     "fingerprint": "226efd3a126fb86e71d60a37353d17f57af816d1c7ecad0623c21f0bf73eb0c7"
+	     }
+	     ]
+     },
+     "official": true
+   }
+
+.. _rslsync-post-install:
+
+.. code-block:: sh
+   :caption: post_install.sh
+   :name: rslsync-post_install
+   :linenos:
+   :emphasize-lines: 9
+
+   #!/bin/sh -x
+
+   # Enable the service
+   sysrc -f /etc/rc.conf rslsync_enable="YES"
+   # Start the service
+   service rslsync start 2>/dev/null
+
+   echo "rslsync now installed" > /root/PLUGIN_INFO
+   echo "foo" >> /root/PLUGIN_INFO
 
 Here is :file:`quasselcore.json` reproduced as an example:
 

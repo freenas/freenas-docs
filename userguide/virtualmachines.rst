@@ -379,6 +379,7 @@ Open the drop-down menu to select a created :guilabel:`Zvol`, then set
 the disk :guilabel:`Mode`:
 
 * *AHCI* emulates an AHCI hard disk for best software compatibility.
+  This is recommended for Windows VMs.
 
 * *VirtIO* uses paravirtualized drivers and can provide better
   performance, but requires the operating system installed in the VM to
@@ -471,8 +472,8 @@ for VNC.
 Setting :guilabel:`Port` to *0* automatically assigns a port when the VM
 is started. If a fixed, preferred port number is needed, enter it here.
 
-Set :guilabel:`Delay VM Boot until VNC Connects` to wait for the VNC
-client to connect before starting the VM.
+Set :guilabel:`Delay VM Boot until VNC Connects` to wait to start the VM
+until a VNC client connects.
 
 :guilabel:`Resolution` sets the default screen resolution used for the
 VNC session.
