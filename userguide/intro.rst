@@ -374,6 +374,11 @@ U2
   :file:`usr/local/lib/collectd/ipmi.so` were removed to disable the
   non-functional collectd IPMI plugin.
 
+* An :ref:`Alert` for
+  `syslog-ng <https://www.freebsd.org/cgi/man.cgi?query=syslog-ng>`__
+  stopping has been added to
+  :menuselection:`System --> Alerts`.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
