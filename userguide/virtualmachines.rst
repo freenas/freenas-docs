@@ -672,25 +672,27 @@ and click
 |ui-options| :menuselection:`--> Start`
 to boot the Docker Host.
 
-A Docker Host can take some time to boot. Connect to the Serial Shell
-during the startup process to view the activity of the Docker Host.
+A Docker Host can take some time to boot. Click
+:menuselection:`Virtual Machines -->` |ui-options| :menuselection:` --> Serial`
+to view the Docker Host activity during startup. Use this console to
+configure Rancher inside the Docker Host.
 
-The :literal:`RancherOS` graphic is shown. Press :kbd:`Enter` to see the
-:literal:`ClientHost login:` prompt. Log in with the username
+When the RancherOS console graphic is shown, press :kbd:`Enter` to see
+the :literal:`ClientHost login:` prompt. Enter the username
 :literal:`rancher` and press :kbd:`Enter`. If a custom password was set
 in the raw file, enter it now. Otherwise, enter the default password of
 :literal:`docker`. The :literal:`[rancher@ClientHost ~]$` prompt is
 shown.
 
 
-SSH in to the Docker Host
-~~~~~~~~~~~~~~~~~~~~~~~~~
+SSH to the Docker Host
+~~~~~~~~~~~~~~~~~~~~~~
 
 Go to
 :menuselection:`Virtual Machines`,
-find the Docker Host entry, and see :guilabel:`Com Port`. Com port
-names have the format :samp:`/dev/nmdm{1B}`, where :literal:`{1B}` is
-unique for each VM.
+find the Docker Host entry, and locate the :guilabel:`Com Port`. Com
+port names have the format :samp:`/dev/nmdm{1B}`, where :literal:`{1B}`
+is unique for each VM.
 
 Connect to the %brand% server with an SSH client. The :ref:`SSH` service
 must be running with :guilabel:`Login as Root with Password` enabled.
@@ -759,8 +761,7 @@ Docker Host shell. The Docker Host will finish configuring Rancher. A
 :literal:`[rancher@ClientHost ~]$` prompt is shown when the
 configuration is complete.
 
-Verify that the configuration is complete. Go to the Rancher web
-interface and click
+Go to the Rancher web interface and click
 :menuselection:`INFRASTRUCTURE --> Hosts`.
 Verify a host with the Rancher IP address is shown, configuration is
 complete and Rancher is ready to use.
