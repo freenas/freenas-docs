@@ -658,7 +658,7 @@ When the Rancher web interface loads, click :guilabel:`Add a host` from
 the banner across the top of the screen. Verify that
 :guilabel:`This site's address` is chosen and click :guilabel:`Save`.
 
-Following the steps shown, copy the full :samp:`sudo docker run`
+Following the steps shown on the console, copy the full :samp:`sudo docker run`
 command from the text box, go back to the %brand% |web-ui|, and paste
 the command in the Docker Host shell. The Docker Host will finish
 configuring Rancher. A :literal:`[rancher@ClientHost ~]$` prompt is
