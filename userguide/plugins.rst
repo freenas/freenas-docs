@@ -79,7 +79,8 @@ Click |ui-options| and :guilabel:`Install` for the desired plugin. Set
 :guilabel:`DHCP` to automatically configure IP settings, or manually
 enter an IPv4 or IPv6 address. Click
 :guilabel:`ADVANCED PLUGIN INSTALLATION` to see all options for the
-plugin jail. These are described in :ref:`Advanced Jail Creation`.
+plugin jail. The options are described in :ref:`Advanced Jail Creation`.
+
 Click :guilabel:`SAVE` when finished configuring the plugin jail.
 In the example shown in :numref:`Figure %s <installing_plugin_fig>`,
 Plex Media Server is selected for installation.
