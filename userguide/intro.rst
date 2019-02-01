@@ -410,12 +410,22 @@ U2
   :menuselection:`Reporting`
   now shows the compressed physical L2ARC size.
 
+* The :literal:`openipmi` package and
+  :file:`usr/local/lib/collectd/ipmi.so` have been removed to disable
+  the non-functional collectd IPMI plugin.
+
 * Pool widgets in the
   :menuselection:`Dashboard`
   now change color to reflect the current pool status.
 
+
 * Help text can now be pinned to the screen, remaining visible when
   the cursor moves from the help icon.
+
+* An :ref:`Alert` for
+  `syslog-ng <https://www.freebsd.org/cgi/man.cgi?query=syslog-ng>`__
+  stopping has been added to
+  :menuselection:`System --> Alert Settings`.
 
 
 .. _Path and Name Lengths:
