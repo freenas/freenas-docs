@@ -379,6 +379,7 @@ Open the drop-down menu to select a created :guilabel:`Zvol`, then set
 the disk :guilabel:`Mode`:
 
 * *AHCI* emulates an AHCI hard disk for best software compatibility.
+  This is recommended for VMs using a Windows operating system.
 
 * *VirtIO* uses paravirtualized drivers and can provide better
   performance, but requires the operating system installed in the VM to
