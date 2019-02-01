@@ -418,6 +418,10 @@ U2
   :menuselection:`Dashboard`
   now change color to reflect the current pool status.
 
+
+* Help text can now be pinned to the screen, remaining visible when
+  the cursor moves from the help icon.
+
 * An :ref:`Alert` for
   `syslog-ng <https://www.freebsd.org/cgi/man.cgi?query=syslog-ng>`__
   stopping has been added to
