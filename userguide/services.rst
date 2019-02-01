@@ -238,7 +238,7 @@ Licensed Asigra Backup software can use %brand% as the storage backend.
 For the initial backend configuration, click
 :menuselection:`Services --> Asigra DS-System`. When prompted to choose
 the :guilabel:`Base Filesystem`, select the dataset to store the Asigra
-backups then click :guilabel:`OK`. The system automatically creates
+backups, then click :guilabel:`OK`. Any required database entries are created and the service is started.
 the required database entries and starts the service.
 
 .. note:: Asigra DS-Operator requires a working installation of
