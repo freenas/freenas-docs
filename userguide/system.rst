@@ -751,8 +751,8 @@ to access the full capabilities of the device. %brand% provides the
 :command:`sedhelper` wrapper script to ease SED device administration from
 the command line.
 
-By default, SED devices are not locked until the administrator explicitly
-configures a global or per-device password and initializes the devices.
+By default, SED devices are not locked until the administrator takes
+ownership by explicitly configuring a global or per-device password.
 
 Once configured, the system automatically unlocks all SEDs during the boot
 process, without requiring manual intervention. This allows a pool to
