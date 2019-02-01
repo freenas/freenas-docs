@@ -752,7 +752,9 @@ to access the full capabilities of the device. %brand% provides the
 the command line.
 
 By default, SED devices are not locked until the administrator takes
-ownership by explicitly configuring a global or per-device password.
+ownership of them. This is done by explicitly configuring a global or
+per-device password in the %brand% |web-ui| and adding the password to
+the SED devices.
 
 Once configured, the system automatically unlocks all SEDs during the boot
 process, without requiring manual intervention. This allows a pool to
@@ -804,7 +806,7 @@ column of :menuselection:`Storage --> View Disks`. Conversely, the rows
 in that column will be empty for disks that do not support SED or which
 are unlocked using the global password.
 
-Next, remember to initialize the devices:
+Next, remember to take ownership of the devices:
 
 .. code-block:: none
 
