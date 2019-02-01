@@ -482,7 +482,7 @@ of these options.
    |                          |              | functionality does not exist for all protocal stacks.                                                               |
    |                          |              |                                                                                                                     |
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
-   | vnet_interfaces          | string       | Space-delimited list of network interfaces attached to a VNET-enabled jail after it is created. Interfaces are      |
+   | vnet_interfaces          | string       | Space-delimited list of network interfaces to attach to a VNET-enabled jail after it is created. Interfaces are     |
    |                          |              | automatically released when the jail is removed.                                                                    |
    |                          |              |                                                                                                                     |
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
@@ -513,7 +513,7 @@ Click :guilabel:`NEXT` to view all jail
    | host_domainname        | string       | Enter an `NIS Domain name <https://www.freebsd.org/doc/handbook/network-nis.html>`__ for the jail.      |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | host_hostname          | string       | Enter a hostname for the jail. By default, the system uses the jail UUID.                               |
+   | host_hostname          | string       | Enter a hostname for the jail. By default, the system uses the jail NAME/UUID.                          |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | exec_fib               | integer      | Enter a number to define the routing table (FIB) to set when running commands inside the jail.          |
