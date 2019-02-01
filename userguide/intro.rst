@@ -410,6 +410,10 @@ U2
   :menuselection:`Reporting`
   now shows the compressed physical L2ARC size.
 
+* The :literal:`openipmi` package and
+  :file:`usr/local/lib/collectd/ipmi.so` have been removed to disable
+  the non-functional collectd IPMI plugin.
+
 * Pool widgets in the
   :menuselection:`Dashboard`
   now change color to reflect the current pool status.
