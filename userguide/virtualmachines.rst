@@ -427,7 +427,7 @@ this device. A lower number means a higher boot priority.
 
 Set the size of the file in GiB.
 
-Docker Hosts also have a :guilabel:`password` field. This is the log in
+Docker Hosts also have a :guilabel:`password` field. This is the login
 password for the Docker Host.
 
 
