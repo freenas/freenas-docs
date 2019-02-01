@@ -239,7 +239,6 @@ For the initial backend configuration, click
 :menuselection:`Services --> Asigra DS-System`. When prompted to choose
 the :guilabel:`Base Filesystem`, select the dataset to store the Asigra
 backups, then click :guilabel:`OK`. Any required database entries are created and the service is started.
-the required database entries and starts the service.
 
 .. note:: Asigra DS-Operator requires a working installation of
    `Java JRE <https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html>`__
