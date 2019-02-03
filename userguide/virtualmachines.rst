@@ -648,7 +648,7 @@ Click |ui-power|, :guilabel:`CONNECT`, and :guilabel:`Serial` to
 log in to the Docker Host. Enter :literal:`rancher` for the user name
 and :literal:`docker` for the password.
 
-The default password is changed in the :guilabel:`Devices` by stopping
+The default password is changed in the :guilabel:`Devices` by powering off
 the Docker Host, clicking |ui-options|, and :guilabel:`Devices`. Click
 |ui-options| and :guilabel:`Edit` for the :guilabel:`RAW` device and
 enter a new value in the :guilabel:`password` field. Passwords cannot
@@ -756,7 +756,7 @@ show a connection error while the Rancher |web-ui| is still starting. If
 the browser shows a :literal:`connection has timed out` or a similar
 error, wait one minute and try again.
 
-In the Rancher |web-ui|, click :guilabel:`Add a host`, ensure the radial
+In the Rancher |web-ui|, click :guilabel:`Add a host`, ensure the radio
 :guilabel:`This site's address` button is set, and click
 :guilabel:`Save`. Follow the instructions that now display and run the
 :command:`sudo docker run --rm --privileged -v` command in the Docker
