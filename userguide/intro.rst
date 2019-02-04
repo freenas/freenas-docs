@@ -394,6 +394,11 @@ These screen options have changed:
 U2
 ~~
 
+* :guilabel:`Disable Endpoint Region` and
+  :guilabel:`Use Signature Version 2` checkboxes have been added to
+  :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
+  when *Amazon S3* is chosen as the :guilabel:`Provider`.
+
 * The :guilabel:`ixnas` VFS module has been added to and the
   :guilabel:`aio_pthread` VFS module has been removed from
   :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
@@ -410,12 +415,25 @@ U2
   :menuselection:`Reporting`
   now shows the compressed physical L2ARC size.
 
+* The :literal:`openipmi` package and
+  :file:`usr/local/lib/collectd/ipmi.so` have been removed to disable
+  the non-functional collectd IPMI plugin.
+
 * Pool widgets in the
   :menuselection:`Dashboard`
   now change color to reflect the current pool status.
 
 * A :guilabel:`NAA` column has been added to
   :menuselection:`Sharing --> Block (iSCSI) --> Extents`.
+
+
+* Help text can now be pinned to the screen, remaining visible when
+  the cursor moves from the help icon.
+
+* An :ref:`Alert` for
+  `syslog-ng <https://www.freebsd.org/cgi/man.cgi?query=syslog-ng>`__
+  stopping has been added to
+  :menuselection:`System --> Alert Settings`.
 
 
 .. _Path and Name Lengths:
