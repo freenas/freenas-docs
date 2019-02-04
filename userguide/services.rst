@@ -261,7 +261,8 @@ Asigra management application.
 
    Asigra settings
 
-Contact Asigra for further documentation on using DS-Operator.
+`Contact Asigra <https://www.asigra.com/contact-us>`__
+for further documentation on using DS-Operator.
 
 #endif truenas
 
