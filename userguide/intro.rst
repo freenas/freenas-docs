@@ -423,7 +423,7 @@ U2
   :menuselection:`Dashboard`
   now change color to reflect the current pool status.
 
-* A :guilabel:`NAA` column has been added to
+* An :guilabel:`NAA` column has been added to
   :menuselection:`Sharing --> Block (iSCSI) --> Extents`.
 
 
