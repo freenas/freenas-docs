@@ -343,9 +343,9 @@ of these options.
    | exec_jail_user           | string       | Enter either :literal:`root` or a valid *username*. Inside the jail, commands run as this user.                     |
    |                          |              |                                                                                                                     |
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
-   | exec_system_jail_user    | string       | Set this boolean option to *True* to look for the :guilabel:`exec.jail_user` in the system                          |
+   | exec_system_jail_user    | string       | Set to *True* to look for the :guilabel:`exec.jail_user` in the system                                              |
    |                          |              | `passwd(5) <https://www.freebsd.org/cgi/man.cgi?query=passwd>`__                                                    |
-   |                          |              | file *instead* of the jail passwd.                                                                                  |
+   |                          |              | file *instead* of the jail :file:`passwd`.                                                                          |
    |                          |              |                                                                                                                     |
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
    | exec_system_user         | string       | Run commands in the jail as this user. By default, commands are run as the current user.                            |
