@@ -432,6 +432,9 @@ U2
   stopping has been added to
   :menuselection:`System --> Alert Settings`.
 
+* A :guilabel:`Time Machine` checkbox has been added to
+  :menuselection:`Sharing --> Windows (SMB) Shares --> Add`.
+
 
 .. _Path and Name Lengths:
 
