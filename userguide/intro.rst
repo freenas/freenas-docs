@@ -394,6 +394,11 @@ These screen options have changed:
 U2
 ~~
 
+* :guilabel:`Disable Endpoint Region` and
+  :guilabel:`Use Signature Version 2` checkboxes have been added to
+  :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
+  when *Amazon S3* is chosen as the :guilabel:`Provider`.
+
 * The :guilabel:`ixnas` VFS module has been added to and the
   :guilabel:`aio_pthread` VFS module has been removed from
   :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
@@ -425,6 +430,15 @@ U2
   and
   :menuselection:`Jails --> Edit`
   forms.
+
+
+* Help text can now be pinned to the screen, remaining visible when
+  the cursor moves from the help icon.
+
+* An :ref:`Alert` for
+  `syslog-ng <https://www.freebsd.org/cgi/man.cgi?query=syslog-ng>`__
+  stopping has been added to
+  :menuselection:`System --> Alert Settings`.
 
 
 .. _Path and Name Lengths:
