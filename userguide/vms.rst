@@ -191,6 +191,7 @@ Choose the *VM*, select a :guilabel:`Type` of *Disk*, select the created
 zvol, then set the :guilabel:`Mode`:
 
 * *AHCI* emulates an AHCI hard disk for best software compatibility.
+  This is recommended for Windows VMs.
 
 * *VirtIO* uses paravirtualized drivers and can provide better
   performance, but requires the operating system installed in the VM to
@@ -214,10 +215,16 @@ image file meant to be copied onto a USB stick.
 After obtaining and copying the image file to the %brand% system,
 select :guilabel:`Add device`, choose the *VM*, select a
 :guilabel:`Type` of *Raw File*, browse to the image file, then set the
-:guilabel:`Mode`. *AHCI* emulates an AHCI hard disk for best software
-compatibility. *VirtIO* uses paravirtualized drivers and can provide
-better performance, but requires the operating system installed in the
-VM to support VirtIO disk devices.
+:guilabel:`Mode`:
+
+* *AHCI* emulates an AHCI hard disk for best software compatibility.
+
+* *VirtIO* uses paravirtualized drivers and can provide better
+  performance, but requires the operating system installed in the VM to
+  support VirtIO disk devices.
+
+Docker VMs also have a :guilabel:`password` field. This is the log in
+password for the Docker VM.
 
 If a specific sector size is required, enter the number of bytes into
 :guilabel:`Disk sectorsize`. The default of *0* uses an autotuner to
@@ -433,9 +440,9 @@ runtime, system tools, and system libraries, so applications always
 see the same environment.
 
 `Rancher <https://rancher.com/>`__
-is a |web-ui| tool for managing Docker containers.
+is a web-based tool for managing Docker containers.
 
-%brand% runs the Rancher |web-ui| within the Docker VM.
+%brand% runs the Rancher web interface within the Docker VM.
 
 
 .. index:: Docker VM Requirements
@@ -544,7 +551,7 @@ the options for editing the Docker VM raw file options.
 
 .. figure:: images/vms-rancher-storage.png
 
-   Docker VM Image Storage
+   Changing the Docker VM Password
 
 
 The :ref:`raw file options <vms-raw-file>` section describes the options
@@ -607,53 +614,64 @@ press :kbd:`Enter` again. After logging in, a
 :literal:`[rancher@rancher ~]$` prompt is displayed.
 
 Ensure Rancher has functional networking and can :command:`ping` an
-outside website. Adjust the VM
-:ref:`Network Interface <vms-network-interface>` and reboot the VM
-if necessary.
-
-Download and install the Rancher system with this command:
+outside website.
 
 .. code-block:: none
 
-   sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server
+   [rancher]@ClientHost ~]$ ping -c 3 google.com
+   PING google.com (172.217.0.78): 56 data bytes
+
+   64 bytes from 172.217.0.78: seq=0 ttl=54 time=18.613 ms
+   64 bytes from 172.217.0.78: seq=1 ttl=54 time=18.719 ms
+   64 bytes from 172.217.0.78: seq=2 ttl=54 time=18.788 ms
+
+   --- google.com ping statistics ---
+
+   3 packets transmitted, 3 packets received, 0% packet loss
+   round-trip min/avg/max = 18.613/18.706/18.788 ms
 
 
-.. note:: If the error :literal:`Cannot connect to the Docker daemon`
-   is shown, run :command:`sudo dockerd`. Then give the
-   :command:`sudo docker run` command above again.
+If :command:`ping` returns an error, adjust the VM
+:ref:`Network Interface <vms-network-interface>` and reboot the VM.
 
+Download and install the Rancher server with
+:command:`sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server`.
 
-Installation time varies with processor and network connection speed,
-but typically takes a few minutes. After the process finishes and a
-command prompt is shown, type this command:
+If a :literal:`Cannot connect to the Docker daemon` error is shown,
+enter :command:`sudo dockerd` and try
+:command:`sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server`
+again. Installation time varies with processor and network connection
+speed. :literal:`[rancher@ClientHost ~]$` is shown when the installation
+is finished.
 
+Enter :command:`ifconfig eth0 | grep 'inet addr'` to view the Rancher
+IP address. Enter the IP address followed by :literal:`:8080` into a web
+browser to connect to the Rancher web interface. For example, if the IP
+address is :literal:`10.231.3.208`, enter :literal:`10.231.3.208:8080`
+in the browser.
 
-.. code-block:: none
+The Rancher web interface takes a few minutes to start. The web browser
+might show a connection error while the web interface starts. If a
+:literal:`connection has timed out` error is shown, wait one minute and
+refresh the page.
 
-   ifconfig eth0 | grep 'inet addr'
+When the Rancher web interface loads, click :guilabel:`Add a host` from
+the banner across the top of the screen. Verify that
+:guilabel:`This site's address` is chosen and click :guilabel:`Save`.
 
+Follow the steps shown in the Rancher web interface and copy the full
+:samp:`sudo docker run` command from the text box. Paste it in the
+Docker Host shell. The Docker Host will finish configuring Rancher. A
+:literal:`[rancher@ClientHost ~]$` prompt is shown when the
+configuration is complete.
 
-The first value is the IP address of the Rancher server. Enter the IP
-address and port :literal:`8080` as the URL in a web browser. For
-example, if the IP address was :literal:`10.231.3.208`, enter
-:literal:`10.231.3.208:8080` as the URL in the web browser.
+Verify that the configuration is complete. Go to the Rancher web
+interface and click
+:menuselection:`INFRASTRUCTURE --> Hosts`.
+When a host with the Rancher IP address is shown,
+configuration is complete and Rancher is ready to use.
 
-The Rancher server takes a few minutes to start. The web browser might
-show a connection error while the Rancher |web-ui| is still starting. If
-the browser shows a :literal:`connection has timed out` or a similar
-error, wait one minute and try again.
-
-In the Rancher |web-ui|, click :guilabel:`Add a host`, ensure the radial
-:guilabel:`This site's address` button is set, and click
-:guilabel:`Save`. Follow the instructions that now display and run the
-:command:`sudo docker run --rm --privileged -v` command in the Docker
-Host Serial shell. After the command runs a message displays
-:literal:`Launched Rancher Agent:`. Refresh or go to the
-:guilabel:`Hosts` page of the Rancher |web-ui| to confirm the Docker
-Host displays in the |web-ui|. Rancher is now configured and ready for
-use.
-
-For more information on using RancherOS, see the RancherOS
+For more information on Rancher, see the Rancher
 `documentation <https://rancher.com/docs/os/v1.x/en/>`__.
 
 

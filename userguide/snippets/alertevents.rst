@@ -67,6 +67,9 @@ Some of the conditions that trigger an alert include:
 
 #endif freenas
 
+* `syslog-ng(8) <https://www.freebsd.org/cgi/man.cgi?query=syslog-ng>`__
+  is not running
+
 * the system is unable to bind to the :guilabel:`WebGUI IPv4 Address`
   set in
   :menuselection:`System --> General`
