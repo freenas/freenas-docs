@@ -233,20 +233,17 @@ Encryption
    permissions with appropriate restrictions are set on shares.
 
 
-In %brand%, entire disks and volumes are encrypted, not individual filesystems. Each disk
-in an encrypted volume has an unencrypted partition table identifying the organization of
-data on the disk followed by one or more encrypted data partitions. Volumes can be unlocked
-by the system at startup, or manually by an authorized user if unlocking at startup is
-disabled.
+In %brand%, entire disks and volumes are encrypted, not individual filesystems. Each
+disk in an encrypted volume has an unencrypted partition table identifying the location
+of partitions on the disk. Encrypted data partitions follow the partition table.
+The %brand% unlocks encrypted volumes without a passphrase at startup. Volumes
+with a passphrase remain locked until the user enters the passphrase to unlock them.
 
-Encrypted volumes are unmounted and locked when the system shuts down, or manually by an
-authorized user.
+Encrypted volumes are can be locked on demand by the user. They are automatically locked
+when the system is shut down.
 
-The built-in encryption on :ref:`Self-Encrypting Drives` (SED) can also be used. This encrypts
-everything on the drive, including the partition table.
-
-It is important to understand the details when considering whether encrypting a volume is
-right for the intended use:
+It is vital to understand the details of %brand% encryption when considering the intended
+use:
 
 * %brand% encryption differs from the encryption used in Oracle's proprietary version of ZFS.
   To convert between these formats, both volumes must be unlocked, and the data copied
@@ -264,11 +261,10 @@ right for the intended use:
   securely. If the encryption key is lost, the data on the disks is
   inaccessible. Always back up the key!
 
-* Encryption keys are per ZFS volume (pool). Each pool has a separate
-  encryption key. Technical details about how encryption keys are
-  used, stored, and managed within %brand% are described in this
-  `forum post
-  <https://forums.freenas.org/index.php?threads/recover-encryption-key.16593/#post-85497>`__.
+* Encryption keys are per ZFS volume. Each volume has a separate
+  encryption key. Technical details about how encryption key
+  use, storage, and management are described in this
+  `forum post <https://forums.freenas.org/index.php?threads/recover-encryption-key.16593/#post-85497>`__.
 
 * All drives in an encrypted volume are encrypted, including L2ARC
   (read cache) and SLOG (write intent log). Drives added to an existing
@@ -277,20 +273,20 @@ right for the intended use:
   in memory (RAM), including ARC, is not encrypted. 
 
 * At present, there is no one-step way to encrypt an existing volume. The data
-  must be copied to a new or existing encrypted volume. After that, the original
-  volume and any unencrypted backup should be destroyed and any disks that
-  contained unencrypted data should be wiped.
+  must be copied to an existing or new encrypted volume. After that, the original
+  volume and any unencrypted backup should be destroyed to prevent unauthorized
+  access and any disks that contained unencrypted data should be wiped.
 
 * Hybrid volumes are not supported. Added vdevs must match the existing
   encryption scheme. :ref:`Volume Manager` automatically encrypts new
-  vdevs being added to an existing encrypted volume.
+  vdevs added to an existing encrypted volume.
 
 
 To create an encrypted volume, enable the :guilabel:`Encryption` option
 shown in
 :numref:`Figure %s <create_zfs_pool_volman_fig>`.
 A pop-up message shows a reminder that
-**it is extremely important to make a backup of the key**. Without
+**it is extremely important to back up the key**. Without
 the key, the data on the disks is inaccessible. See
 :ref:`Managing Encrypted Volumes` for instructions.
 
