@@ -1345,8 +1345,8 @@ created.
 **Rollback:** Clicking
 |ui-options| :menuselection:`--> Rollback`
 asks for confirmation before rolling back to this snapshot state.
-Click :guilabel:`YES` to revert files
-back to their state at the time of the chosen snapshot.
+Clicking :guilabel:`Yes` causes all files in the dataset to revert to
+the state they were in when the snapshot was created.
 
 .. note:: Rollback is a potentially dangerous operation and causes
    any configured replication tasks to fail as the replication system
