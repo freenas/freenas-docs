@@ -233,17 +233,17 @@ Encryption
    permissions with appropriate restrictions are set on shares.
 
 
-In %brand%, entire disks and volumes are encrypted, not individual filesystems. Each
-disk in an encrypted volume has an unencrypted partition table identifying the location
-of partitions on the disk. Encrypted data partitions follow the partition table.
-The %brand% unlocks encrypted volumes without a passphrase at startup. Volumes
+%brand% encrypts disks and volumes, not individual filesystems. The partition table
+on each disk is not encrypted, but only identifies the location of partitions on
+the disk. On an encrypted volume, the data in each partition is encrypted.
+
+Encrypted volumes which do not have a passphrase are unlocked at startup. Volumes
 with a passphrase remain locked until the user enters the passphrase to unlock them.
 
-Encrypted volumes are can be locked on demand by the user. They are automatically locked
+Encrypted volumes can be locked on demand by the user. They are automatically locked
 when the system is shut down.
 
-It is vital to understand the details of %brand% encryption when considering the intended
-use:
+Understanding the details of %brand% encryption is required to be able to use it effectively:
 
 * %brand% encryption differs from the encryption used in Oracle's proprietary version of ZFS.
   To convert between these formats, both volumes must be unlocked, and the data copied
