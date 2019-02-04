@@ -806,7 +806,7 @@ column of :menuselection:`Storage --> View Disks`. Conversely, the rows
 in that column will be empty for disks that do not support SED or which
 are unlocked using the global password.
 
-Next, remember to take ownership of the devices:
+Remember to take ownership of the devices:
 
 .. code-block:: none
 
