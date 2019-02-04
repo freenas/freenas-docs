@@ -318,8 +318,16 @@ Creating Authenticated and Time Machine Shares
 macOS includes the Time Machine feature which can be used to perform
 automatic back ups. In this configuration example, a Time Machine user
 is configured to back up to an AFP share on a %brand% system. The
-process for creating an authenticated share for a user is the same as
-creating a Time Machine share for that user.
+process for creating an authenticated share for a user is the same
+as creating a Time Machine share for that user.
+
+.. note:: An :ref:`SMB share <Windows (SMB) Shares>` can be used
+   instead of an AFP share for Time Machine user backups. Follow this
+   process, but go to
+   :menuselection:`Sharing --> Windows (SMB) Shares` instead of
+   :menuselection:`Sharing --> Apple (AFP) Shares` to create the Time
+   Machine share.
+
 
 Before creating a Time Machine or authenticated share, go to
 :menuselection:`Storage --> Pools` to make a dataset for the share.
@@ -365,7 +373,6 @@ To create an authenticated or Time Machine share:
 #. Fill out the other required fields.
 
 #. Click :guilabel:`SAVE`.
-
 
 To configure multiple authenticated or Time Machine shares, repeat
 this process for each user. The new shares appear in
@@ -971,6 +978,15 @@ some troubleshooting tips. Reading through this entire chapter before
 creating any SMB shares is recommended to gain a better understanding of
 the configuration scenario that meets the specific network requirements.
 
+`SMB Tips and Tricks <https://forums.freenas.org/index.php?resources/smb-tips-and-tricks.15/>`__
+shows helpful hints for configuring and managing SMB networking.
+The
+`FreeNAS and Samba (CIFS) permissions <https://www.youtube.com/watch?v=RxggaE935PM>`__
+and
+`Advanced Samba (CIFS) permissions on FreeNAS <https://www.youtube.com/watch?v=QhwOyLtArw0>`__
+videos clarify setting up permissions on SMB shares. Another helpful
+reference is
+`Methods For Fine-Tuning Samba Permissions <https://forums.freenas.org/index.php?threads/methods-for-fine-tuning-samba-permissions.50739/>`__.
 
 .. warning:: SMB1 is disabled by default for security. If legacy
    clients are unable to connect to the share, open :ref:`Shell`, type
@@ -980,24 +996,6 @@ the configuration scenario that meets the specific network requirements.
    :ref:`Tunables`, creating a tunable with a :guilabel:`Variable` of
    *freenas.services.smb.config.server_min_protocol*, a
    :guilabel:`Value` of *NT1*, and a :guilabel:`Type` of *Sysctl*.
-
-
-.. tip:: `SMB Tips and Tricks
-   <https://forums.freenas.org/index.php?resources/smb-tips-and-tricks.15/>`__
-   shows helpful hints for configuring and managing SMB networking.
-   The `FreeNAS and Samba (CIFS) permissions
-   <https://www.youtube.com/watch?v=RxggaE935PM>`__
-   and
-   `Advanced Samba (CIFS) permissions on FreeNAS
-   <https://www.youtube.com/watch?v=QhwOyLtArw0>`__
-   videos clarify setting up permissions on SMB shares. Another
-   helpful reference is
-   `Methods For Fine-Tuning Samba Permissions
-   <https://forums.freenas.org/index.php?threads/methods-for-fine-tuning-samba-permissions.50739/>`__.
-
-
-.. tip:: Run :command:`smbstatus` from the :ref:`Shell` for a list of
-   active connections and users.
 
 
 :numref:`Figure %s <adding_smb_share_fig>`
@@ -1030,72 +1028,72 @@ provides more details for each configurable option.
 
 .. _smb_share_opts_tab:
 
-.. table:: Options for a SMB Share
+.. table:: SMB Share Options
    :class: longtable
 
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Setting                        | Value         | Advanced | Description                                                                                                 |
-   |                                |               | Mode     |                                                                                                             |
-   +================================+===============+==========+=============================================================================================================+
-   | Path                           | browse button |          | Select pool or dataset/directory to share.                                                                  |
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Name                           | string        |          | Enter a mandatory name for the share.                                                                       |
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Use as home share              | checkbox      |          | Set to allow this share to hold user home directories. Only one share can be the home share. Note that      |
-   |                                |               |          | lower case names for user home directories are strongly recommended, as Samba maps usernames to all lower   |
-   |                                |               |          | case. For example, the username John will be mapped to a home directory named john. If the :guilabel:`Path` |
-   |                                |               |          | to the home share includes an upper case username, delete the existing user and recreate it in              |
-   |                                |               |          | :menuselection:`Accounts --> Users` with an all lower case :guilabel:`Username`. Return to                  |
-   |                                |               |          | :menuselection:`Sharing --> SMB` to create the home share, and select the :guilabel:`Path` that contains    |
-   |                                |               |          | the new lower case username.                                                                                |
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Default Permissions            | checkbox      |          | When enabled, the ACLs grant read and write for owner or group and read-only for others. Only leave unset   |
-   |                                |               |          | if creating a share on a system that already has custom ACLs configured.                                    |
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Export Read Only               | checkbox      | ✓        | Set to prohibit write access to this share.                                                                 |
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Browsable to Network Clients   | checkbox      | ✓        | When set, users see the contents of */homes*, which includes the home directories of other users.           |
-   |                                |               |          | When unset, users only see their own home directory.                                                        |
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Export Recycle Bin             | checkbox      | ✓        | When set, deleted files are moved to a hidden :file:`.recycle` in the root folder of the share. The         |
-   |                                |               |          | :file:`.recycle` directory can be deleted to reclaim space and is automatically recreated when a file       |
-   |                                |               |          | is deleted.                                                                                                 |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Show Hidden Files              | checkbox      | ✓        | Set to disable the Windows *hidden* attribute on a new Unix hidden file. Unix hidden filenames start with   |
-   |                                |               |          | a dot: :file:`.foo`. Existing files are not affected.                                                       |
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Allow Guest Access             | checkbox      |          | Set to allow access to this share without a password. See :ref:`SMB` service for more information           |
-   |                                |               |          | about guest user permissions.                                                                               |
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Only Allow Guest Access        | checkbox      | ✓        | Requires :guilabel:`Allow guest access` to also be enabled. Forces guest access for all connections.        |
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Hosts Allow                    | string        | ✓        | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma, space, or tab.            |
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Hosts Deny                     | string        | ✓        | Enter a list of denied hostnames or IP addresses. Allowed hosts take                                        |
-   |                                |               |          | Specify *ALL* and list any hosts from :guilabel:`Hosts Allow` to have those hosts take precedence.          |
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | VFS Objects                    | selection     | ✓        | Adds virtual file system modules to enhance functionality.                                                  |
-   |                                |               |          | :numref:`Table %s <avail_vfs_modules_tab>` summarizes the available modules.                                |
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Periodic Snapshot Task         | drop-down     | ✓        | Used to configure directory shadow copies on a per-share basis. Select the pre-configured periodic          |
-   |                                | menu          |          | snapshot task to use for the share's shadow copies. Periodic snapshot must be recursive.                    |
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters           | string        | ✓        | Additional :file:`smb4.conf` parameters not covered by other option fields.                                 |
-   |                                |               |          |                                                                                                             |
-   +--------------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------+
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Setting                        | Value         | Advanced | Description                                                                                                                                          |
+   |                                |               | Mode     |                                                                                                                                                      |
+   +================================+===============+==========+======================================================================================================================================================+
+   | Path                           | browse button |          | Select the pool, dataset, or directory to share.                                                                                                     |
+   |                                |               |          |                                                                                                                                                      |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Name                           | string        |          | Name the new share.                                                                                                                                  |
+   |                                |               |          |                                                                                                                                                      |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Use as home share              | checkbox      |          | Set to allow this share to hold user home directories. Only one share can be the home share. Note that lower case names for user home directories    |
+   |                                |               |          | are strongly recommended, as Samba maps usernames to all lower case. For example, the username John will be mapped to a home directory named         |
+   |                                |               |          | :file:`john`. If the :guilabel:`Path` to the home share includes an upper case username, delete the existing user and recreate it in                 |
+   |                                |               |          | :menuselection:`Accounts --> Users` with an all lower case :guilabel:`Username`. Return to :menuselection:`Sharing --> SMB` to create the home       |
+   |                                |               |          | share, and select the :guilabel:`Path` that contains the new lower case username.                                                                    |
+   |                                |               |          |                                                                                                                                                      |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Time Machine                   | checkbox      |          | Enable `Time Machine                                                                                                                                 |
+   |                                |               |          | <https://developer.apple.com/library/archive/releasenotes/NetworkingInternetWeb/Time_Machine_SMB_Spec/#//apple_ref/doc/uid/TP40017496-CH1-SW1>`__    |
+   |                                |               |          | backups for this share. The process to configure a Time Machine backup is outlined in :ref:`Creating Authenticated and Time Machine Shares`.         |
+   |                                |               |          |                                                                                                                                                      |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Default Permissions            | checkbox      | ✓        | When enabled, the ACLs grant read and write for owner or group and read-only for others. Only leave unset                                            |
+   |                                |               |          | if creating a share on a system that already has custom ACLs configured.                                                                             |
+   |                                |               |          |                                                                                                                                                      |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Export Read Only               | checkbox      | ✓        | Set to prohibit write access to this share.                                                                                                          |
+   |                                |               |          |                                                                                                                                                      |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Browsable to Network Clients   | checkbox      | ✓        | When set, users see the contents of */homes*, which includes the home directories of other users.                                                    |
+   |                                |               |          | When unset, users only see their own home directory.                                                                                                 |
+   |                                |               |          |                                                                                                                                                      |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Export Recycle Bin             | checkbox      | ✓        | When set, deleted files are moved to a hidden :file:`.recycle` in the root folder of the share.                                                      |
+   |                                |               |          | The :file:`.recycle` directory can be deleted to reclaim space and is automatically recreated when a file is deleted.                                |
+   |                                |               |          |                                                                                                                                                      |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Show Hidden Files              | checkbox      | ✓        | Set to disable the Windows *hidden* attribute on a new Unix hidden file. Unix hidden filenames start with a dot: :file:`.foo`.                       |
+   |                                |               |          | Existing files are not affected.                                                                                                                     |
+   |                                |               |          |                                                                                                                                                      |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Allow Guest Access             | checkbox      |          | Set to allow access to this share without a password. See :ref:`SMB` service for more information about guest user permissions.                      |
+   |                                |               |          |                                                                                                                                                      |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Only Allow Guest Access        | checkbox      | ✓        | Requires :guilabel:`Allow guest access` to also be enabled. Forces guest access for all connections.                                                 |
+   |                                |               |          |                                                                                                                                                      |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Hosts Allow                    | string        | ✓        | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma (:literal:`,`), space, or tab.                                      |
+   |                                |               |          |                                                                                                                                                      |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Hosts Deny                     | string        | ✓        | Enter a list of denied hostnames or IP addresses. Specify *ALL* and list any hosts from :guilabel:`Hosts Allow` to have those hosts take precedence. |
+   |                                |               |          |                                                                                                                                                      |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | VFS Objects                    | selection     | ✓        | Adds virtual file system modules to enhance functionality. :numref:`Table %s <avail_vfs_modules_tab>` summarizes the available modules.              |
+   |                                |               |          |                                                                                                                                                      |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Periodic Snapshot Task         | drop-down     | ✓        | Used to configure directory shadow copies on a per-share basis. Select the pre-configured periodic                                                   |
+   |                                | menu          |          | snapshot task to use for the share's shadow copies. Periodic snapshots must be recursive.                                                            |
+   |                                |               |          |                                                                                                                                                      |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | Auxiliary Parameters           | string        | ✓        | Additional :file:`smb4.conf` parameters not covered by other option fields.                                                                          |
+   |                                |               |          |                                                                                                                                                      |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 Here are some notes about :guilabel:`ADVANCED MODE` settings:
@@ -1314,6 +1312,10 @@ These VFS objects do not appear in the drop-down menu:
   *shadow_copy2* and the associated parameters are automatically added
   to the :file:`smb4.conf` when a :guilabel:`Periodic Snapshot Task`
   is selected.
+
+
+To view all active SMB connections and users, enter :command:`smbstatus`
+in the :ref:`Shell`.
 
 
 .. _Configuring Unauthenticated Access:
