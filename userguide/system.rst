@@ -750,8 +750,10 @@ to access the full capabilities of the device. %brand% provides the
 :command:`sedhelper` wrapper script to ease SED device administration from
 the command line.
 
-By default, SED devices are not locked until the administrator explicitly
-configures a global or per-device password and initializes the devices.
+By default, SED devices are not locked until the administrator takes
+ownership of them. This is done by explicitly configuring a global or
+per-device password in the %brand% |web-ui| and adding the password to
+the SED devices.
 
 Once configured, the system automatically unlocks all SEDs during the boot
 process, without requiring manual intervention. This allows a pool to
@@ -804,7 +806,7 @@ password show bullets in their row of the
 Conversely, the rows in that column will be empty for disks that do
 not support SED or which are unlocked using the global password.
 
-Next, remember to initialize the devices:
+Remember to take ownership of the devices:
 
 .. code-block:: none
 
