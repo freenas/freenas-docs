@@ -1608,15 +1608,10 @@ the storage devices will not be accessible by older versions of
 Updates and Trains
 ~~~~~~~~~~~~~~~~~~
 
-%brand% uses signed update files. This provides flexibility in deciding
-when to upgrade the system with patches, new drivers, or new features.
-It also allows "test driving" an upcoming release. Combined with boot
-environments, new features or system patches can be tested while
-maintaining the ability to revert to a previous version of the operating
-system, using the instructions in :ref:`If Something Goes Wrong`.
-Digitally signed update files eliminate the need to manually download
-both an upgrade file and the associated checksum to verify file
-integrity.
+Cryptographically signed update files are used to update %brand%.
+Update files provide flexibility in deciding when to upgrade the system.
+:ref:`Boot environments <If Something Goes Wrong>` make it possible to
+test an update.
 
 %brand% defines software branches, known as *trains*.
 #ifdef freenas
@@ -1800,8 +1795,10 @@ appears so the current configuration can be saved to external media.
 
 After clicking :guilabel:`INSTALL MANUAL UPDATE FILE`, choose a
 location to temporarily store the update file on the %brand% system.
-Use :guilabel:`Browse` to navigate to the downloaded manual update
-file (:file:`-manual-update-unsigned.tar`). Finally, click
+Manual update file names end with :file:`manual-update-unsigned.tar`.
+Use :guilabel:`Browse` to locate the downloaded manual update
+file. Set :guilabel:`Reboot After Update` to reboot the system
+after the update has been installed. Click
 :guilabel:`APPLY UPDATE` to begin the update. A progress dialog is
 displayed during the update. **Do not** interrupt the update.
 

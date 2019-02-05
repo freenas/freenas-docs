@@ -426,6 +426,10 @@ U2
 * An :guilabel:`NAA` column has been added to
   :menuselection:`Sharing --> Block (iSCSI) --> Extents`.
 
+* An :guilabel:`ADVANCED PLUGIN INSTALLATION` option has been added to
+  :menuselection:`Plugins --> Available --> Install`. This allows
+  full plugin jail customization before plugin installation.
+
 * The :guilabel:`allow_mlock`, :guilabel:`vnet_interfaces`,
   :guilabel:`hostid_strict_check`, and :guilabel:`allow_tun` fields have
   been added to the
