@@ -1370,11 +1370,11 @@ rather than the :guilabel:`Snapshots` screen. By default,
 :literal:`-clone` is added to the name of a snapshot when a clone is
 created.
 
-**Rollback:** only appears on the most recent snapshot.
-Clicking the icon asks for confirmation before rolling back to this
-snapshot state. Confirming by clicking :guilabel:`YES` causes any
-files that have changed since the snapshot was taken to be reverted
-back to their state at the time of the snapshot.
+**Rollback:** Clicking
+|ui-options| :menuselection:`--> Rollback`
+asks for confirmation before rolling back to this snapshot state.
+Clicking :guilabel:`Yes` causes all files in the dataset to revert to
+the state they were in when the snapshot was created.
 
 .. note:: Rollback is a potentially dangerous operation and causes
    any configured replication tasks to fail as the replication system
