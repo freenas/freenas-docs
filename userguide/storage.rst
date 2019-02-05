@@ -188,12 +188,7 @@ provides a link to :guilabel:`Download Recovery Key`. Click the link
 and save the key to a safe location. When finished, click
 :guilabel:`DONE`.
 
-The screen refreshes after the pool is created, showing the new pool
-in :menuselection:`Storage --> Pools`.
-
-In the example shown in :numref:`Figure %s <zfs_vol_fig>`, the created
-pool is named *pool1*. The description indicates that it is healthy and
-shows how much space is :guilabel:`Used` and :guilabel:`Free`.
+:numref:`Figure %s <zfs_vol_fig>` shows the new *pool1*.
 
 Click the down arrow to see more details about the pool. This second
 entry has the same name and represents the implicit or root dataset. The
@@ -213,6 +208,18 @@ if the pool is running the latest version of feature flags.
 .. figure:: images/storage-pools.png
 
    Viewing Pools
+
+
+Creating a pool adds a card to the
+:menuselection:`Dashboard`.
+Available space, disk details, and pool status is shown on the card.
+The background color of the card indicates the pool status:
+
+* Green: healthy or locked
+
+* Yellow: unknown, offline, or degraded
+
+* Red: faulted or removed
 
 
 .. index:: Encryption
