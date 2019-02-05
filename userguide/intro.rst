@@ -423,6 +423,18 @@ U2
   :menuselection:`Dashboard`
   now change color to reflect the current pool status.
 
+* An :guilabel:`ADVANCED PLUGIN INSTALLATION` option has been added to
+  :menuselection:`Plugins --> Available --> Install`. This allows
+  full plugin jail customization before plugin installation.
+
+* The :guilabel:`allow_mlock`, :guilabel:`vnet_interfaces`,
+  :guilabel:`hostid_strict_check`, and :guilabel:`allow_tun` fields have
+  been added to the
+  :menuselection:`Jails --> Add --> Advanced Jail Creation`
+  and
+  :menuselection:`Jails --> Edit`
+  forms.
+
 * Rollback for any dataset snapshot is supported in
   :menuselection:`Storage --> Snapshots`.
 
