@@ -452,6 +452,10 @@ U2
   stopping has been added to
   :menuselection:`System --> Alert Settings`.
 
+* The :guilabel:`Wait to Boot` field in
+  :menuselection:`Virtual Machines --> Devices --> VNC Device --> Edit`
+  has been renamed to :guilabel:`Delay VM Boot until VNC Connects`.
+
 
 .. _Path and Name Lengths:
 
