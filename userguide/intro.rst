@@ -423,6 +423,9 @@ U2
   :menuselection:`Dashboard`
   now change color to reflect the current pool status.
 
+* An :guilabel:`NAA` column has been added to
+  :menuselection:`Sharing --> Block (iSCSI) --> Extents`.
+
 * An :guilabel:`ADVANCED PLUGIN INSTALLATION` option has been added to
   :menuselection:`Plugins --> Available --> Install`. This allows
   full plugin jail customization before plugin installation.
