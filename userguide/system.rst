@@ -1198,7 +1198,7 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Amazon S3            | Disable Endpoint     | Skip automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom             |
-   |                      | Region               | :guilabel:`Endpoint URL`                                                                                        |
+   |                      | Region               | :guilabel:`Endpoint URL`.                                                                                       |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Amazon S3            | Use Signature        | Force using `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__    |
