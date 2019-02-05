@@ -309,147 +309,6 @@ To disconnect from the pool, click the :guilabel:`eject` button in the
 :guilabel:`Shared` sidebar.
 
 
-.. index:: Time Machine
-.. _Creating Authenticated and Time Machine Shares:
-
-Creating Authenticated and Time Machine Shares
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-macOS includes the Time Machine feature which can be used to perform
-automatic back ups. In this configuration example, a Time Machine user
-is configured to back up to an AFP share on a %brand% system. The
-process for creating an authenticated share for a user is the same
-as creating a Time Machine share for that user.
-
-.. note:: An :ref:`SMB share <Windows (SMB) Shares>` can be used
-   instead of an AFP share for Time Machine user backups. Follow this
-   process, but go to
-   :menuselection:`Sharing --> Windows (SMB) Shares` instead of
-   :menuselection:`Sharing --> Apple (AFP) Shares` to create the Time
-   Machine share.
-
-
-Before creating a Time Machine or authenticated share, go to
-:menuselection:`Storage --> Pools` to make a dataset for the share.
-For more information about dataset creation, refer to
-:ref:`Adding Datasets`.
-
-After creating the dataset for the guest share, go to
-:menuselection:`Storage --> Pools`,
-click the |ui-options| button for the dataset, then
-:guilabel:`Edit Permissions`.
-
-Enter the following information as shown in
-:numref:`Figure %s <creating_an_authenticated_share_fig>`.
-
-#. **ACL Type:** Select :guilabel:`Mac`.
-
-#. **User:** Use the drop-down to select the desired user account.
-   If the user does not yet exist on the %brand% system, go to
-   :menuselection:`Accounts --> Users` to create one. Refer to
-   :ref:`users <Users>` in this guide for more information
-   about creating a user.
-
-#. **Group:** Use the drop-down to select the desired group name.
-   If the group does not yet exist on the %brand% system, go to
-   :menuselection:`Accounts --> Groups` to create one. Refer to
-   :ref:`groups <Groups>` in this guide for more information about
-   creating a group.
-
-#. Click :guilabel:`SAVE`.
-
-
-To create an authenticated or Time Machine share:
-
-#. Go to :menuselection:`Sharing --> AFP` and
-   click |ui-add|.
-
-#. :guilabel:`Browse` to the dataset created for
-   the share.
-
-#. When creating a Time Machine share, enable the
-   :guilabel:`Time Machine` option.
-
-#. Fill out the other required fields.
-
-#. Click :guilabel:`SAVE`.
-
-To configure multiple authenticated or Time Machine shares, repeat
-this process for each user. The new shares appear in
-:menuselection:`Sharing --> Apple (AFP)`.
-
-.. _creating_an_authenticated_share_fig:
-
-.. figure:: images/sharing-apple-afp-add.png
-
-   Creating an Authenticated or Time Machine Share
-
-
-At this point, it may be desirable to configure a quota for each Time
-Machine share, to restrict backups from using all of the available
-space on the %brand% system. The first time Time Machine makes a
-backup, it will create a full backup after waiting two minutes. It
-will then create a one hour incremental backup for the next 24 hours,
-and then one backup each day, each week and each month.
-**Since the oldest backups are deleted when a Time Machine share
-becomes full, make sure that the quota size is sufficient to hold the
-desired number of backups.**
-Note that a default installation of macOS is ~21 GiB in size.
-
-To configure a quota, go to
-:menuselection:`Sharing --> Apple (AFP)`,
-click |ui-options| on the existing Time Machine share, then
-:guilabel:`Edit`. In the example shown in
-:numref:`Figure %s <set_quota_fig>`,
-the Time Machine share name is *backup_user1*. Enter a value in the
-:guilabel:`Time Machine Quota` field, then click
-:guilabel:`SAVE`. In this example, the Time Machine share is restricted
-to 200 GiB.
-
-.. _set_quota_fig:
-
-.. figure:: images/sharing-apple-afp-add-example.png
-
-   Setting a Quota
-
-
-.. note:: An alternative is to create a global quota using the
-   instructions in
-   `Set up Time Machine for multiple machines with OSX Server-Style Quotas
-   <https://forums.freenas.org/index.php?threads/how-to-set-up-time-machine-for-multiple-machines-with-osx-server-style-quotas.47173/>`__.
-
-
-To configure Time Machine on the macOS client, go to
-:menuselection:`System Preferences --> Time Machine`
-which opens the screen shown in
-:numref:`Figure %s <config_tm_osx>`.
-Click :guilabel:`ON` and a pop-up menu shows the %brand% system as a
-backup option. In this example, it is listed as
-*backup_user1 on "freenas"*. Highlight the %brand% system and click
-:guilabel:`Use Backup Disk`. A connection bar opens and prompts for
-the user account's password--in this example, the password that was
-set for the *user1* account.
-
-.. _config_tm_osx:
-
-.. figure:: images/sharing-afp-time-machine.png
-
-   Configuring Time Machine on macOS
-
-
-If :literal:`Time Machine could not complete the backup. The backup disk
-image could not be created (error 45)` is shown when backing up to the
-%brand% system, a sparsebundle image must be created using
-`these instructions
-<https://community.netgear.com/t5/Stora-Legacy/Solution-to-quot-Time-Machine-could-not-complete-the-backup/td-p/294697>`__.
-
-If :literal:`Time Machine completed a verification of your backups.
-To improve reliability, Time Machine must create a new backup for you.`
-is shown, follow the instructions in `this post
-<http://www.garth.org/archives/2011,08,27,169,fix-time-machine-sparsebundle-nas-based-backup-errors.html>`__
-to avoid making another backup or losing past backups.
-
-
 .. index:: NFS, Network File System
 .. _Unix (NFS) Shares:
 
@@ -1050,29 +909,25 @@ provides more details for each configurable option.
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Time Machine                   | checkbox      |          | Enable `Time Machine                                                                                                                                 |
    |                                |               |          | <https://developer.apple.com/library/archive/releasenotes/NetworkingInternetWeb/Time_Machine_SMB_Spec/#//apple_ref/doc/uid/TP40017496-CH1-SW1>`__    |
-   |                                |               |          | backups for this share. The process to configure a Time Machine backup is outlined in :ref:`Creating Authenticated and Time Machine Shares`.         |
+   |                                |               |          | backups for this share. The process to configure a Time Machine backup is shown in :ref:`Creating Authenticated and Time Machine Shares`.            |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Default Permissions            | checkbox      | ✓        | When enabled, the ACLs grant read and write for owner or group and read-only for others. Only leave unset                                            |
-   |                                |               |          | if creating a share on a system that already has custom ACLs configured.                                                                             |
+   | Default Permissions            | checkbox      | ✓        | ACLs grant *read* and *write* for *owner* or *group* and *read-only* for others. Leave this unset when creating shares on a system with custom ACLs. |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Export Read Only               | checkbox      | ✓        | Set to prohibit write access to this share.                                                                                                          |
+   | Export Read Only               | checkbox      | ✓        | Prohibit write access to this share.                                                                                                                 |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Browsable to Network Clients   | checkbox      | ✓        | When set, users see the contents of */homes*, which includes the home directories of other users.                                                    |
-   |                                |               |          | When unset, users only see their own home directory.                                                                                                 |
-   |                                |               |          |                                                                                                                                                      |
+   | Browsable to Network Clients   | checkbox      | ✓        | Users see the contents of :file:`/homes`, which includes the home directories of other users. Leave unset for users to only see their own home       |
+   |                                |               |          | directory.                                                                                                                                           |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Export Recycle Bin             | checkbox      | ✓        | When set, deleted files are moved to a hidden :file:`.recycle` in the root folder of the share.                                                      |
-   |                                |               |          | The :file:`.recycle` directory can be deleted to reclaim space and is automatically recreated when a file is deleted.                                |
-   |                                |               |          |                                                                                                                                                      |
+   | Export Recycle Bin             | checkbox      | ✓        | Set for deleted files to move to :file:`.recycle` in the root folder of the share. The :file:`.recycle` directory can be deleted to reclaim space    |
+   |                                |               |          | and is recreated whenever a file is deleted.                                                                                                         |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Show Hidden Files              | checkbox      | ✓        | Set to disable the Windows *hidden* attribute on a new Unix hidden file. Unix hidden filenames start with a dot: :file:`.foo`.                       |
-   |                                |               |          | Existing files are not affected.                                                                                                                     |
-   |                                |               |          |                                                                                                                                                      |
+   | Show Hidden Files              | checkbox      | ✓        | Disable the Windows *hidden* attribute on a new Unix hidden file. Unix hidden filenames start with a dot: :file:`.foo`. Existing files are not       |
+   |                                |               |          | affected.                                                                                                                                            |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Allow Guest Access             | checkbox      |          | Set to allow access to this share without a password. See :ref:`SMB` service for more information about guest user permissions.                      |
+   | Allow Guest Access             | checkbox      |          | Allow access to this share without a password. See the :ref:`SMB` service for more information about guest user permissions.                         |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Only Allow Guest Access        | checkbox      | ✓        | Requires :guilabel:`Allow guest access` to also be enabled. Forces guest access for all connections.                                                 |
@@ -1082,16 +937,15 @@ provides more details for each configurable option.
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Hosts Deny                     | string        | ✓        | Enter a list of denied hostnames or IP addresses. Specify *ALL* and list any hosts from :guilabel:`Hosts Allow` to have those hosts take precedence. |
+   |                                |               |          | Separate entries with a comma (:literal:`,`), space, or tab.                                                                                         |
+   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | VFS Objects                    | selection     | ✓        | Add virtual file system modules to enhance functionality. :numref:`Table %s <avail_vfs_modules_tab>` summarizes the available modules.               |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | VFS Objects                    | selection     | ✓        | Adds virtual file system modules to enhance functionality. :numref:`Table %s <avail_vfs_modules_tab>` summarizes the available modules.              |
-   |                                |               |          |                                                                                                                                                      |
+   | Periodic Snapshot Task         | drop-down     | ✓        | Used to configure directory shadow copies on a per-share basis. Select the pre-configured periodic snapshot task to use for the share's shadow       |
+   |                                | menu          |          | copies. Periodic snapshots must be recursive.                                                                                                        |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Periodic Snapshot Task         | drop-down     | ✓        | Used to configure directory shadow copies on a per-share basis. Select the pre-configured periodic                                                   |
-   |                                | menu          |          | snapshot task to use for the share's shadow copies. Periodic snapshots must be recursive.                                                            |
-   |                                |               |          |                                                                                                                                                      |
-   +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters           | string        | ✓        | Additional :file:`smb4.conf` parameters not covered by other option fields.                                                                          |
+   | Auxiliary Parameters           | string        | ✓        | Additional `smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__ options not covered by other option fields.                            |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 
@@ -2622,3 +2476,142 @@ Return to
 |ui-options| on the desired file extent, then click :guilabel:`Edit`.
 Set the size to *0* as this causes the iSCSI target to use the new
 size of the file.
+
+
+.. index:: Time Machine
+.. _Creating Authenticated and Time Machine Shares:
+
+Creating Authenticated and Time Machine Shares
+----------------------------------------------
+
+macOS includes the
+`Time Machine <https://support.apple.com/en-us/HT201250>`__ feature
+which can be used to perform automatic back ups. %brand% supports
+Time Machine back ups for both :ref:`AFP <Apple (AFP) Shares>` and
+:ref:`SMB <Windows (SMB) Shares>` shares. The process for creating an
+authenticated share for a user is the same as creating a Time Machine
+share for that user.
+
+Before creating a Time Machine or authenticated share, go to
+:menuselection:`Storage --> Pools` to make a dataset for the share.
+For more information about dataset creation, refer to
+:ref:`Adding Datasets`.
+
+After creating the dataset for the guest share, go to
+:menuselection:`Storage --> Pools`,
+click the |ui-options| button for the dataset, then
+:guilabel:`Edit Permissions`.
+
+Enter the following information as shown in
+:numref:`Figure %s <creating_an_authenticated_share_fig>`.
+
+#. **ACL Type:** Select :guilabel:`Mac`.
+
+#. **User:** Use the drop-down to select the desired user account.
+   If the user does not yet exist on the %brand% system, go to
+   :menuselection:`Accounts --> Users`
+   to create one. Refer to
+   :ref:`users <Users>` for more information about creating a user.
+
+#. **Group:** Use the drop-down to select the desired group name.
+   If the group does not yet exist on the %brand% system, go to
+   :menuselection:`Accounts --> Groups`
+   to create one. Refer to
+   :ref:`groups <Groups>` for more information about creating a group.
+
+#. Click :guilabel:`SAVE`.
+
+
+To create an authenticated or Time Machine share:
+
+#. Go to :menuselection:`Sharing --> Apple (AFP) Shares`
+   or
+   :menuselection:`Sharing --> Windows (SMB) Shares`
+   and click |ui-add|.
+
+#. :guilabel:`Browse` to the dataset created for
+   the share.
+
+#. When creating a Time Machine share, enable the
+   :guilabel:`Time Machine` option.
+
+#. Fill out the other required fields.
+
+#. Click :guilabel:`SAVE`.
+
+To configure multiple authenticated or Time Machine shares, repeat
+this process for each user.
+:numref:`Figure %s <creating_an_authenticated_share_fig>` shows
+creating a Time Machine Share in
+:menuselection:`Sharing --> Apple (AFP) Shares`.
+
+.. _creating_an_authenticated_share_fig:
+
+.. figure:: images/sharing-apple-afp-add.png
+
+   Creating an Authenticated or Time Machine Share
+
+
+At this point, it may be desirable to configure a quota for each Time
+Machine share, to restrict backups from using all of the available
+space on the %brand% system. The first time Time Machine makes a
+backup, it will create a full backup after waiting two minutes. It
+will then create a one hour incremental backup for the next 24 hours,
+and then one backup each day, each week and each month.
+**Since the oldest backups are deleted when a Time Machine share
+becomes full, make sure that the quota size is sufficient to hold the
+desired number of backups.**
+Note that a default installation of macOS is ~21 GiB in size.
+
+To configure a quota, go to
+:menuselection:`Sharing --> Apple (AFP)`,
+click |ui-options| on the existing Time Machine share, then
+:guilabel:`Edit`. In the example shown in
+:numref:`Figure %s <set_quota_fig>`,
+the Time Machine share name is *backup_user1*. Enter a value in the
+:guilabel:`Time Machine Quota` field, then click
+:guilabel:`SAVE`. In this example, the Time Machine share is restricted
+to 200 GiB.
+
+.. _set_quota_fig:
+
+.. figure:: images/sharing-apple-afp-add-example.png
+
+   Setting a Quota
+
+
+.. note:: An alternative is to create a global quota using the
+   instructions in
+   `Set up Time Machine for multiple machines with OSX Server-Style Quotas
+   <https://forums.freenas.org/index.php?threads/how-to-set-up-time-machine-for-multiple-machines-with-osx-server-style-quotas.47173/>`__.
+
+
+To configure Time Machine on the macOS client, go to
+:menuselection:`System Preferences --> Time Machine`
+which opens the screen shown in
+:numref:`Figure %s <config_tm_osx>`.
+Click :guilabel:`ON` and a pop-up menu shows the %brand% system as a
+backup option. In this example, it is listed as
+*backup_user1 on "freenas"*. Highlight the %brand% system and click
+:guilabel:`Use Backup Disk`. A connection bar opens and prompts for
+the user account's password--in this example, the password that was
+set for the *user1* account.
+
+.. _config_tm_osx:
+
+.. figure:: images/sharing-afp-time-machine.png
+
+   Configuring Time Machine on macOS
+
+
+If :literal:`Time Machine could not complete the backup. The backup disk
+image could not be created (error 45)` is shown when backing up to the
+%brand% system, a sparsebundle image must be created using
+`these instructions
+<https://community.netgear.com/t5/Stora-Legacy/Solution-to-quot-Time-Machine-could-not-complete-the-backup/td-p/294697>`__.
+
+If :literal:`Time Machine completed a verification of your backups.
+To improve reliability, Time Machine must create a new backup for you.`
+is shown, follow the instructions in `this post
+<http://www.garth.org/archives/2011,08,27,169,fix-time-machine-sparsebundle-nas-based-backup-errors.html>`__
+to avoid making another backup or losing past backups.
