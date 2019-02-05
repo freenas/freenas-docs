@@ -1947,7 +1947,7 @@ UPS Configuration screen.
    | Driver / Remote Host          | drop-down menu | For a list of supported devices, see the                                                                               |
    |                               |                | `Network UPS Tools compatibility list <https://networkupstools.org/stable-hcl.html>`__.                                |
    |                               |                |                                                                                                                        |
-   |                               |                | The :guilabel:`Driver` field chnages to :guilabel:`Remote Host` when :guilabel:`UPS Mode` is set to *Slave*. Enter the |
+   |                               |                | The :guilabel:`Driver` field changes to :guilabel:`Remote Host` when :guilabel:`UPS Mode` is set to *Slave*. Enter the |
    |                               |                | IP address of the system configured as the UPS *Master* system. See this `post                                         |
    |                               |                | <https://forums.freenas.org/index.php?resources/configuring-ups-support-for-single-or-multiple-freenas-servers.30/>`__ |
    |                               |                | for more details about configuring multiple systems with a single UPS.                                                 |
