@@ -188,10 +188,6 @@ provides a link to :guilabel:`Download Recovery Key`. Click the link
 and save the key to a safe location. When finished, click
 :guilabel:`DONE`.
 
-The screen refreshes after the pool is created, showing the new pool
-in
-:menuselection:`Storage --> Pools`.
-
 :numref:`Figure %s <zfs_vol_fig>` shows the new *pool1*.
 
 Click the down arrow to see more details about the pool. This second
