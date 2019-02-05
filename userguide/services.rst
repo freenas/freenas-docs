@@ -1947,19 +1947,19 @@ UPS Configuration screen.
    | Driver / Remote Host          | drop-down menu | For a list of supported devices, see the                                                                               |
    |                               |                | `Network UPS Tools compatibility list <https://networkupstools.org/stable-hcl.html>`__.                                |
    |                               |                |                                                                                                                        |
-   |                               |                | :guilabel:`Driver` becomes :guilabel:`Remote Host` when :guilabel:`UPS Mode` is set to *Slave*. The IP address of the  |
-   |                               |                | system configured as the UPS *Master* system. See this `post                                                           |
+   |                               |                | The :guilabel:`Driver` field chnages to :guilabel:`Remote Host` when :guilabel:`UPS Mode` is set to *Slave*. Enter the |
+   |                               |                | IP address of the system configured as the UPS *Master* system. See this `post                                         |
    |                               |                | <https://forums.freenas.org/index.php?resources/configuring-ups-support-for-single-or-multiple-freenas-servers.30/>`__ |
    |                               |                | for more details about configuring multiple systems with a single UPS.                                                 |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Port / Hostname / Remote Port | drop-down menu | :guilabel:`Port`: Enter the serial or USB port the UPS is plugged into (see :ref:`NOTE <UPS USB>`).                    |
+   | Port / Hostname / Remote Port | drop-down menu | :guilabel:`Port`: Enter the serial or USB port the UPS is connected to (see :ref:`NOTE <UPS USB>`).                    |
    |                               |                |                                                                                                                        |
-   |                               |                | Choosing an :literal:`snmp` value in the :guilabel:`Driver` field changes the :guilabel:`Port` field to                |
+   |                               |                | When an :literal:`snmp` driver is selected, :guilabel:`Port` changes to                                                |
    |                               |                | :guilabel:`Hostname`: Enter the IP address or hostname of the SNMP UPS device.                                         |
    |                               |                |                                                                                                                        |
-   |                               |                | :guilabel:`Port` becomes :guilabel:`Remote Port` when the :guilabel:`UPS Mode` is set to *Slave*. The open network     |
-   |                               |                | port number of the UPS *Master* system. The default port is *3493*.                                                    |
+   |                               |                | :guilabel:`Port` becomes :guilabel:`Remote Port` when the :guilabel:`UPS Mode` is set to *Slave*. Enter the open       |
+   |                               |                | network port number of the UPS *Master* system. The default port is *3493*.                                            |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters          | string         | Enter any additional options from `ups.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=ups.conf>`__.                |
