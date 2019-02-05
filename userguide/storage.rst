@@ -232,61 +232,82 @@ The background color of the card indicates the pool status:
 Managing Encrypted Pools
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note:: The encryption facility used by %brand% is designed to
-   protect against physical theft of the disks. It is not designed to
-   protect against unauthorized software access. Ensure that only
-   authorized users have access to the |web-ui| and that
-   proper permissions are set on shares if sensitive data is stored on
-   the system.
+.. note:: %brand% uses
+   `GELI <https://www.freebsd.org/cgi/man.cgi?query=geli>`__
+   full disk encryption for ZFS pools. This type of encryption is
+   primarily intended to protect against the risks of data being read
+   or copied when the system is powered down, when the pool is locked,
+   or when disks are physically stolen.
+
+   Because data cannot be read without the key, encrypted disks
+   containing sensitive data can be safely removed, reused, or
+   discarded without secure wiping or physical destruction of the
+   media.
+
+   This encryption method is **not** designed to protect against
+   unauthorized access when the pool is already unlocked. Before
+   sensitive data is stored on the system, ensure that only authorized
+   users have access to the |web-ui| and that permissions with
+   appropriate restrictions are set on shares.
 
 
-%brand% supports `GELI
-<https://www.freebsd.org/cgi/man.cgi?query=geli>`__ full disk encryption
-for ZFS pools. It is important to understand the details before creating
-a pool with encryption:
+Understanding the details of %brand% encryption is required to be able
+to use it effectively:
 
-* %brand% encryption is different from the encryption used in
-  Oracle's proprietary, non-open source version of ZFS.
 
-* In %brand%, entire disk partitions are encrypted, not individual
-  filesystems. A partition table is created on an unencrypted drive.
-  Data partitions are then created and encrypted data is stored in
-  those partitions. These are generally called "encrypted drives", even
-  though the partition table is not encrypted. To use the drive firmware
-  to completely encrypt the drive, see :ref:`Self-Encrypting Drives`.
+* %brand% encryption differs from the encryption used in Oracle's
+  proprietary version of ZFS. To convert between these formats, both
+  pools must be unlocked, and the data copied between them.
+
+* %brand% encrypts disks and pools, not individual filesystems. The
+  partition table on each disk is not encrypted, but only identifies
+  the location of partitions on the disk. On an encrypted pool, the
+  data in each partition is encrypted. These are generally called
+  "encrypted drives", even though the partition table is not
+  encrypted. To use the drive firmware to completely encrypt the
+  drive, see :ref:`Self-Encrypting Drives`.
+
+  Encrypted pools which do not have a passphrase are unlocked at
+  startup. Pools with a passphrase remain locked until the user
+  enters the passphrase to unlock them.
+
+  Encrypted pools can be locked on demand by the user. They are
+  automatically locked when the system is shut down.
 
 * This type of encryption is primarily useful for users wanting the
-  ability to remove disks from the pool without having to first wipe the
-  disks of any sensitive data.
+  ability to remove disks from the pool without having to first wipe
+  the disks of any sensitive data.
 
-* The %brand% encryption design is only suitable for safe disposal of
-  disks independent of the encryption key. As long as the key and the
-  disks are intact, the system is vulnerable to being decrypted. The
-  key should be protected by a strong passphrase and any backups of
-  the key should be securely stored.
+* When discarding disks that still contain encrypted sensitive data,
+  the encryption key must also be destroyed or securely deleted.  If
+  the encryption key is not destroyed, it must be stored securely and
+  kept physically separate from the discarded disks. If the encryption
+  key is present on or with the discarded disks, or can be obtained by
+  the same person who gains access to the disks, the data will be
+  vulnerable to decryption.
 
-* If the encryption key is lost, the data on the disks is
+* Protect the key with a strong passphrase and store all key backups
+  securely. If the encryption key is lost, the data on the disks is
   inaccessible. Always back up the key!
 
-* Encryption keys are per ZFS pool and each pool has a separate
-  encryption key. Technical details about how encryption keys are
-  used, stored, and managed within %brand% are described in this
-  `forum post
-  <https://forums.freenas.org/index.php?threads/recover-encryption-key.16593/#post-85497>`__.
+* Each pool has a separate encryption key. Technical details about how
+  encryption key use, storage, and management are described in this
+  `forum post <https://forums.freenas.org/index.php?threads/recover-encryption-key.16593/#post-85497>`__.
 
 * Data in memory, including ARC, is not encrypted. ZFS data on disk,
   including ZIL and SLOG, are encrypted if the underlying disks are
   encrypted. Swap data on disk is always encrypted.
 
-* All drives in an encrypted pool are encrypted, including L2ARC
-  (read cache) and SLOG (write cache). Drives added to an existing
-  encrypted pool are encrypted with the same method specified when
-  the pool was created.
+* All drives in an encrypted pool are encrypted, including L2ARC (read
+  cache) and SLOG (write cache). Drives added to an existing encrypted
+  pool are encrypted with the same method specified when the pool was
+  created. Data in memory, including ARC, is not encrypted.
 
-* At present, there is no automated method to encrypt an existing,
-  unencrypted pool. Instead, the data must be backed up, the
-  existing pool destroyed, a new encrypted pool created, and the
-  backup restored to the new pool.
+* At present, there is no one-step way to encrypt an existing pool.
+  The data must be copied to an existing or new encrypted pool.
+  After that, the original pool and any unencrypted backup should be
+  destroyed to prevent unauthorized access and any disks that
+  contained unencrypted data should be wiped.
 
 * Hybrid pools are not supported. Added vdevs must match the existing
   encryption scheme. :ref:`Extending a Pool` automatically encrypts a
