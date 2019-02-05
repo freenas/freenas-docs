@@ -399,6 +399,9 @@ U2
   :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
   when *Amazon S3* is chosen as the :guilabel:`Provider`.
 
+* The :guilabel:`Reboot After Update` checkbox has been added to
+  :menuselection:`System --> Update --> Manual Update`
+
 * The :guilabel:`ixnas` VFS module has been added to and the
   :guilabel:`aio_pthread` VFS module has been removed from
   :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
