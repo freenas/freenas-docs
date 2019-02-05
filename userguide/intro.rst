@@ -434,6 +434,9 @@ U2
   :menuselection:`Jails --> Edit`
   forms.
 
+* Rollback for any dataset snapshot is supported in
+  :menuselection:`Storage --> Snapshots`.
+
 * Help text can now be pinned to the screen, remaining visible when
   the cursor moves from the help icon.
 
