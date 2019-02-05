@@ -188,12 +188,7 @@ provides a link to :guilabel:`Download Recovery Key`. Click the link
 and save the key to a safe location. When finished, click
 :guilabel:`DONE`.
 
-The screen refreshes after the pool is created, showing the new pool
-in :menuselection:`Storage --> Pools`.
-
-In the example shown in :numref:`Figure %s <zfs_vol_fig>`, the created
-pool is named *pool1*. The description indicates that it is healthy and
-shows how much space is :guilabel:`Used` and :guilabel:`Free`.
+:numref:`Figure %s <zfs_vol_fig>` shows the new *pool1*.
 
 Click the down arrow to see more details about the pool. This second
 entry has the same name and represents the implicit or root dataset. The
@@ -213,6 +208,18 @@ if the pool is running the latest version of feature flags.
 .. figure:: images/storage-pools.png
 
    Viewing Pools
+
+
+Creating a pool adds a card to the
+:menuselection:`Dashboard`.
+Available space, disk details, and pool status is shown on the card.
+The background color of the card indicates the pool status:
+
+* Green: healthy or locked
+
+* Yellow: unknown, offline, or degraded
+
+* Red: faulted or removed
 
 
 .. index:: Encryption
@@ -1363,11 +1370,11 @@ rather than the :guilabel:`Snapshots` screen. By default,
 :literal:`-clone` is added to the name of a snapshot when a clone is
 created.
 
-**Rollback:** only appears on the most recent snapshot.
-Clicking the icon asks for confirmation before rolling back to this
-snapshot state. Confirming by clicking :guilabel:`YES` causes any
-files that have changed since the snapshot was taken to be reverted
-back to their state at the time of the snapshot.
+**Rollback:** Clicking
+|ui-options| :menuselection:`--> Rollback`
+asks for confirmation before rolling back to this snapshot state.
+Clicking :guilabel:`Yes` causes all files in the dataset to revert to
+the state they were in when the snapshot was created.
 
 .. note:: Rollback is a potentially dangerous operation and causes
    any configured replication tasks to fail as the replication system

@@ -1800,8 +1800,10 @@ appears so the current configuration can be saved to external media.
 
 After clicking :guilabel:`INSTALL MANUAL UPDATE FILE`, choose a
 location to temporarily store the update file on the %brand% system.
-Use :guilabel:`Browse` to navigate to the downloaded manual update
-file (:file:`-manual-update-unsigned.tar`). Finally, click
+Manual update file names end with :file:`manual-update-unsigned.tar`.
+Use :guilabel:`Browse` to locate the downloaded manual update
+file. Set :guilabel:`Reboot After Update` to reboot the system
+after the update has been installed. Click
 :guilabel:`APPLY UPDATE` to begin the update. A progress dialog is
 displayed during the update. **Do not** interrupt the update.
 
