@@ -426,6 +426,13 @@ U2
 * An :guilabel:`NAA` column has been added to
   :menuselection:`Sharing --> Block (iSCSI) --> Extents`.
 
+* The :guilabel:`allow_mlock`, :guilabel:`vnet_interfaces`,
+  :guilabel:`hostid_strict_check`, and :guilabel:`allow_tun` fields have
+  been added to the
+  :menuselection:`Jails --> Add --> Advanced Jail Creation`
+  and
+  :menuselection:`Jails --> Edit`
+  forms.
 
 * Help text can now be pinned to the screen, remaining visible when
   the cursor moves from the help icon.
