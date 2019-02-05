@@ -918,7 +918,7 @@ provides more details for each configurable option.
    | Export Read Only               | checkbox      | ✓        | Prohibit write access to this share.                                                                                                                 |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Browsable to Network Clients   | checkbox      | ✓        | Users see the contents of :file:`/homes`, which includes the home directories of other users. Leave unset for users to only see their own home       |
+   | Browsable to Network Clients   | checkbox      | ✓        | Users see the contents of :file:`/home`, which includes the home directories of other users. Leave unset for users to only see their own home        |
    |                                |               |          | directory.                                                                                                                                           |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Export Recycle Bin             | checkbox      | ✓        | Set for deleted files to move to :file:`.recycle` in the root folder of the share. The :file:`.recycle` directory can be deleted to reclaim space    |
@@ -936,8 +936,8 @@ provides more details for each configurable option.
    | Hosts Allow                    | string        | ✓        | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma (:literal:`,`), space, or tab.                                      |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Hosts Deny                     | string        | ✓        | Enter a list of denied hostnames or IP addresses. Specify *ALL* and list any hosts from :guilabel:`Hosts Allow` to have those hosts take precedence. |
-   |                                |               |          | Separate entries with a comma (:literal:`,`), space, or tab.                                                                                         |
+   | Hosts Deny                     | string        | ✓        | Enter a list of denied hostnames or IP addresses. Specify :literal:`ALL` and list any hosts from :guilabel:`Hosts Allow` to have those hosts take    |
+   |                                |               |          | precedence. Separate entries with a comma (:literal:`,`), space, or tab.                                                                             |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | VFS Objects                    | selection     | ✓        | Add virtual file system modules to enhance functionality. :numref:`Table %s <avail_vfs_modules_tab>` summarizes the available modules.               |
    |                                |               |          |                                                                                                                                                      |
@@ -945,7 +945,7 @@ provides more details for each configurable option.
    | Periodic Snapshot Task         | drop-down     | ✓        | Used to configure directory shadow copies on a per-share basis. Select the pre-configured periodic snapshot task to use for the share's shadow       |
    |                                | menu          |          | copies. Periodic snapshots must be recursive.                                                                                                        |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Auxiliary Parameters           | string        | ✓        | Additional `smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__ options not covered by other option fields.                            |
+   | Auxiliary Parameters           | string        | ✓        | Additional `smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__ parameters not covered by other option fields.                         |
    |                                |               |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 
