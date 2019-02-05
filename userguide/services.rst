@@ -238,13 +238,7 @@ Licensed Asigra Backup software can use %brand% as the storage backend.
 For the initial backend configuration, click
 :menuselection:`Services --> Asigra DS-System`. When prompted to choose
 the :guilabel:`Base Filesystem`, select the dataset to store the Asigra
-backups then click :guilabel:`OK`. The system will automatically create
-the required database entries and start the service.
-
-While the service is running, the :guilabel:`Open DS-Operator Web Interface`
-button appears in :menuselection:`Services --> Asigra DS-System`. Click
-:guilabel:`Open DS-Operator Web Interface` to download and launch the
-Asigra management application.
+backups, then click :guilabel:`OK`. Any required database entries are created and the service is started.
 
 .. note:: Asigra DS-Operator requires a working installation of
    `Java JRE <https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html>`__
@@ -254,7 +248,21 @@ Asigra management application.
    the application to open *DSOP.jnlp* with, select Java Web Start
    Launcher (:command:`javaws`).
 
-Contact Asigra for further documentation on using DS-Operator.
+While the service is running, the :guilabel:`Open DS-Operator Web Interface`
+button appears in
+:menuselection:`Services --> Asigra DS-System`.
+Click :guilabel:`Open DS-Operator Web Interface` to download and launch the
+Asigra management application.
+
+.. _asigra settings:
+
+.. figure:: images/services-asigra.png
+   :width: 50%
+
+   Asigra settings
+
+`Contact Asigra <https://www.asigra.com/contact-us>`__
+for further documentation on using DS-Operator.
 
 #endif truenas
 
