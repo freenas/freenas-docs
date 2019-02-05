@@ -1646,7 +1646,7 @@ remaining options vary by provider, and are shown in
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | Amazon S3          | Enpoint does not       | Skip automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom             |
-   |                    | support regions        | :guilabel:`Endpoint URL`                                                                                        |
+   |                    | support regions        | :guilabel:`Endpoint URL`.                                                                                       |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | Amazon S3          | Use v2 signatures      | Force using `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__    |
