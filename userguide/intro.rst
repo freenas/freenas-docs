@@ -379,6 +379,9 @@ U2
   stopping has been added to
   :menuselection:`System --> Alerts`.
 
+* The :guilabel:`Time Machine` field has been added to
+  :menuselection:`Sharing --> Windows (SMB) Shares --> Add`
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
