@@ -399,6 +399,9 @@ U2
   :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
   when *Amazon S3* is chosen as the :guilabel:`Provider`.
 
+* The :guilabel:`Reboot After Update` checkbox has been added to
+  :menuselection:`System --> Update --> Manual Update`
+
 * The :guilabel:`ixnas` VFS module has been added to and the
   :guilabel:`aio_pthread` VFS module has been removed from
   :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
@@ -422,6 +425,21 @@ U2
 * Pool widgets in the
   :menuselection:`Dashboard`
   now change color to reflect the current pool status.
+
+* An :guilabel:`NAA` column has been added to
+  :menuselection:`Sharing --> Block (iSCSI) --> Extents`.
+
+* An :guilabel:`ADVANCED PLUGIN INSTALLATION` option has been added to
+  :menuselection:`Plugins --> Available --> Install`. This allows
+  full plugin jail customization before plugin installation.
+
+* The :guilabel:`allow_mlock`, :guilabel:`vnet_interfaces`,
+  :guilabel:`hostid_strict_check`, and :guilabel:`allow_tun` fields have
+  been added to the
+  :menuselection:`Jails --> Add --> Advanced Jail Creation`
+  and
+  :menuselection:`Jails --> Edit`
+  forms.
 
 * Rollback for any dataset snapshot is supported in
   :menuselection:`Storage --> Snapshots`.

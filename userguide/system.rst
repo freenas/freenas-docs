@@ -750,8 +750,10 @@ to access the full capabilities of the device. %brand% provides the
 :command:`sedhelper` wrapper script to ease SED device administration from
 the command line.
 
-By default, SED devices are not locked until the administrator explicitly
-configures a global or per-device password and initializes the devices.
+By default, SED devices are not locked until the administrator takes
+ownership of them. This is done by explicitly configuring a global or
+per-device password in the %brand% |web-ui| and adding the password to
+the SED devices.
 
 Once configured, the system automatically unlocks all SEDs during the boot
 process, without requiring manual intervention. This allows a pool to
@@ -804,7 +806,7 @@ password show bullets in their row of the
 Conversely, the rows in that column will be empty for disks that do
 not support SED or which are unlocked using the global password.
 
-Next, remember to initialize the devices:
+Remember to take ownership of the devices:
 
 .. code-block:: none
 
@@ -1196,7 +1198,7 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Amazon S3            | Disable Endpoint     | Skip automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom             |
-   |                      | Region               | :guilabel:`Endpoint URL`                                                                                        |
+   |                      | Region               | :guilabel:`Endpoint URL`.                                                                                       |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Amazon S3            | Use Signature        | Force using `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__    |
@@ -1608,15 +1610,10 @@ the storage devices will not be accessible by older versions of
 Updates and Trains
 ~~~~~~~~~~~~~~~~~~
 
-%brand% uses signed update files. This provides flexibility in deciding
-when to upgrade the system with patches, new drivers, or new features.
-It also allows "test driving" an upcoming release. Combined with boot
-environments, new features or system patches can be tested while
-maintaining the ability to revert to a previous version of the operating
-system, using the instructions in :ref:`If Something Goes Wrong`.
-Digitally signed update files eliminate the need to manually download
-both an upgrade file and the associated checksum to verify file
-integrity.
+Cryptographically signed update files are used to update %brand%.
+Update files provide flexibility in deciding when to upgrade the system.
+:ref:`Boot environments <If Something Goes Wrong>` make it possible to
+test an update.
 
 %brand% defines software branches, known as *trains*.
 #ifdef freenas
@@ -1800,8 +1797,10 @@ appears so the current configuration can be saved to external media.
 
 After clicking :guilabel:`INSTALL MANUAL UPDATE FILE`, choose a
 location to temporarily store the update file on the %brand% system.
-Use :guilabel:`Browse` to navigate to the downloaded manual update
-file (:file:`-manual-update-unsigned.tar`). Finally, click
+Manual update file names end with :file:`manual-update-unsigned.tar`.
+Use :guilabel:`Browse` to locate the downloaded manual update
+file. Set :guilabel:`Reboot After Update` to reboot the system
+after the update has been installed. Click
 :guilabel:`APPLY UPDATE` to begin the update. A progress dialog is
 displayed during the update. **Do not** interrupt the update.
 
