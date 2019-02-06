@@ -368,6 +368,12 @@ U2
  * `kqueue race condition and kernel panic <https://www.freebsd.org/security/advisories/FreeBSD-EN-19%3A05.kqueue.asc>`__
  * `System call kernel data register leak <https://www.freebsd.org/security/advisories/FreeBSD-SA-19%3A01.syscall.asc>`__
 
+* Samba has been updated to
+  `4.9.4 <https://www.samba.org/samba/history/samba-4.9.4.html>`__ which
+  is the current stable release receiving new features. This version bump
+  provides significant performance improvements as well as improved Time
+  Machine support.
+
 * OpenSSL has been updated to
   `1.0.2q <https://www.openssl.org/news/vulnerabilities-1.0.2.html>`__
   to address CVE-2018-5407.
