@@ -354,6 +354,9 @@ changes that have occurred since |release| was released.
 U2
 ~~
 
+* The %brand% :ref:`OpenStack Cinder Driver` is now open source and
+  community supported.
+
 * The :guilabel:`Endpoint does not support regions` and
   :guilabel:`Use v2 signatures` fields have been added to
   :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
