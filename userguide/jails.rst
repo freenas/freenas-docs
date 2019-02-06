@@ -544,8 +544,9 @@ Click :guilabel:`NEXT` to view all jail
    | mac_prefix             | string       | Optional. Enter a valid MAC address vendor prefix. Example: *E4F4C6*                                    |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
-   | vnet_default_interface | drop-down    | Default network interface used for the VNET bridge interface in the jail.                               |
-   |                        |              | Only takes effect when *VNET* is set and bridge interfaces are not active.                              |
+   | vnet_default_interface | drop-down    | Set the default VNET interface. Only takes effect when :guilabel:`VNET`                                 |
+   |                        |              | is set. Choose a specific interface, or set to *auto* to use the                                        |
+   |                        |              | interface that has the default route. Choose *none* to not set a default VNET interface.                |
    |                        |              |                                                                                                         |
    +------------------------+--------------+---------------------------------------------------------------------------------------------------------+
    | vnet0_mac              | string       | Leave this blank to generate random MAC addresses for the host and jail. To assign fixed MAC            |
