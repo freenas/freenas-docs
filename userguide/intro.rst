@@ -209,9 +209,6 @@ This software has been added or updated:
 * Samba 4.7 has been patched to address the latest round of
   `security vulnerabilities <https://www.samba.org/samba/latest_news.html#4.9.3>`__.
 
-* Netatalk has been updated to the 3.1.12 development version which
-  addresses known issues with Time Machine timeouts.
-
 * rsync has been updated to
   `version 3.1.3 <https://download.samba.org/pub/rsync/src/rsync-3.1.3-NEWS>`__.
 
@@ -351,8 +348,19 @@ changes that have occurred since |release| was released.
    |version|. If a screen on the system is not the same as shown in
    this guide, make sure that all updates have been applied.
 
+RELEASE-U1
+~~~~~~~~~~
+
+* Netatalk has been updated to
+  `3.1.12 <https://nvd.nist.gov/vuln/detail/CVE-2018-1160>`__ to address
+  CVE-2018-1160.
+
 U2
 ~~
+
+* OpenSSL has been updated to
+  `1.0.2q <https://www.openssl.org/news/vulnerabilities-1.0.2.html>`__
+  to address CVE-2018-5407.
 
 * The :guilabel:`Endpoint does not support regions` and
   :guilabel:`Use v2 signatures` fields have been added to
