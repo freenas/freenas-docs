@@ -398,10 +398,15 @@ RELEASE-U1
 U2
 ~~
 
-* The base operating system has been patched to address a
-  `ZFS vnode reclaim deadlock <https://www.freebsd.org/security/advisories/FreeBSD-EN-18%3A18.zfs.asc>`__
-  and a
-  `bhyve security advisory <https://www.freebsd.org/security/advisories/FreeBSD-SA-18:14.bhyve.asc>`__.
+* The base operating system has been patched to address these security
+  advisories:
+
+ * `ZFS vnode reclaim deadlock <https://www.freebsd.org/security/advisories/FreeBSD-EN-18%3A18.zfs.asc>`__
+ * `Insufficient bounds checking in bhyve(8) device model <https://www.freebsd.org/security/advisories/FreeBSD-SA-18:14.bhyve.asc>`__
+ * `sqlite update <https://www.freebsd.org/security/advisories/FreeBSD-EN-19%3A03.sqlite.asc>`__
+ * `Timezone database information update <https://www.freebsd.org/security/advisories/FreeBSD-EN-19%3A04.tzdata.asc>`__
+ * `kqueue race condition and kernel panic <https://www.freebsd.org/security/advisories/FreeBSD-EN-19%3A05.kqueue.asc>`__
+
 
 * OpenSSL has been updated to
   `1.0.2q <https://www.openssl.org/news/vulnerabilities-1.0.2.html>`__
