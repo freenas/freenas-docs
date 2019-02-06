@@ -358,6 +358,9 @@ RELEASE-U1
 U2
 ~~
 
+* The base operating system has been patched to address a
+  `ZFS vnode reclaim deadlock <https://www.freebsd.org/security/advisories/FreeBSD-EN-18%3A18.zfs.asc>`__.
+
 * OpenSSL has been updated to
   `1.0.2q <https://www.openssl.org/news/vulnerabilities-1.0.2.html>`__
   to address CVE-2018-5407.
