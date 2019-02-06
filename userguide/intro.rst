@@ -207,9 +207,6 @@ This software has been added or updated:
   has been added to the base system, adding support for UTF-8 fonts to
   the console for Intel graphic cards.
 
-* Netatalk has been updated to the 3.1.12 development version which
-  addresses known issues with Time Machine timeouts.
-
 * Samba 4.7 has been patched to address the latest round of
   `security vulnerabilities <https://www.samba.org/samba/latest_news.html#4.9.3>`__.
 
@@ -391,8 +388,26 @@ These screen options have changed:
   have a :guilabel:`Device Order` field to set boot priority for VM
   devices.
 
+RELEASE-U1
+~~~~~~~~~~
+
+* Netatalk has been updated to
+  `3.1.12 <https://nvd.nist.gov/vuln/detail/CVE-2018-1160>`__ to address
+  CVE-2018-1160.
+
 U2
 ~~
+
+* OpenSSL has been updated to
+  `1.0.2q <https://www.openssl.org/news/vulnerabilities-1.0.2.html>`__
+  to address CVE-2018-5407.
+
+* Pool widgets in the
+  :menuselection:`Dashboard`
+  now change color to reflect the current pool status.
+
+* Help text can now be pinned to the screen, remaining visible when
+  the cursor moves from the help icon.
 
 * :guilabel:`Disable Endpoint Region` and
   :guilabel:`Use Signature Version 2` checkboxes have been added to
@@ -401,33 +416,23 @@ U2
 
 * The :guilabel:`Reboot After Update` checkbox has been added to
   :menuselection:`System --> Update --> Manual Update`
-
-* The :guilabel:`ixnas` VFS module has been added to and the
-  :guilabel:`aio_pthread` VFS module has been removed from
-  :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
-
-* The :guilabel:`Enable SMB1 support` checkbox has been added to
-  :menuselection:`Services --> SMB`.
-
 * A |ui-browse| option displays with the :guilabel:`Folder` field in
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
   This allows browsing through the connected :guilabel:`Credential`
   remote filesystem.
 
-* The :guilabel:`ARC Size` graph in
-  :menuselection:`Reporting`
-  now shows the compressed physical L2ARC size.
+* Rollback for any dataset snapshot is supported in
+  :menuselection:`Storage --> Snapshots`.
 
-* The :literal:`openipmi` package and
-  :file:`usr/local/lib/collectd/ipmi.so` have been removed to disable
-  the non-functional collectd IPMI plugin.
-
-* Pool widgets in the
-  :menuselection:`Dashboard`
-  now change color to reflect the current pool status.
+* The :guilabel:`ixnas` VFS module has been added to and the
+  :guilabel:`aio_pthread` VFS module has been removed from
+  :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
 
 * An :guilabel:`NAA` column has been added to
   :menuselection:`Sharing --> Block (iSCSI) --> Extents`.
+
+* The :guilabel:`Enable SMB1 support` checkbox has been added to
+  :menuselection:`Services --> SMB`.
 
 * An :guilabel:`ADVANCED PLUGIN INSTALLATION` option has been added to
   :menuselection:`Plugins --> Available --> Install`. This allows
@@ -441,11 +446,13 @@ U2
   :menuselection:`Jails --> Edit`
   forms.
 
-* Rollback for any dataset snapshot is supported in
-  :menuselection:`Storage --> Snapshots`.
+* The :guilabel:`ARC Size` graph in
+  :menuselection:`Reporting`
+  now shows the compressed physical L2ARC size.
 
-* Help text can now be pinned to the screen, remaining visible when
-  the cursor moves from the help icon.
+* The :literal:`openipmi` package and
+  :file:`usr/local/lib/collectd/ipmi.so` have been removed to disable
+  the non-functional collectd IPMI plugin.
 
 * An :ref:`Alert` for
   `syslog-ng <https://www.freebsd.org/cgi/man.cgi?query=syslog-ng>`__
