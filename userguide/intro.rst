@@ -365,6 +365,10 @@ U2
   `1.0.2q <https://www.openssl.org/news/vulnerabilities-1.0.2.html>`__
   to address CVE-2018-5407.
 
+* curl has been updated to
+  `7.62.0 <https://curl.haxx.se/changes.html#7_62_0>`__ to address
+  security vulnerabilities.
+
 * The :guilabel:`Endpoint does not support regions` and
   :guilabel:`Use v2 signatures` fields have been added to
   :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
