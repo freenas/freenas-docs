@@ -1823,9 +1823,9 @@ eSATA port and a hard drive dock. The process follows these steps:
 
 #. Go to
    :menuselection:`Storage --> Pools`,
-   select the pool to expand. Click |ui-settings| then :guilabel:`Status`
-   Select a disk, click |ui-options|, then :guilabel:`Replace`.
-   Choose the new disk as the replacement.
+   and select the pool to expand. Click |ui-settings| and
+   :guilabel:`Status`. Select a disk, click |ui-options|, then
+   :guilabel:`Replace`. Choose the new disk as the replacement.
 
 #. The status of the resilver process can be viewed by running
    :command:`zpool status`. When the new disk has resilvered, the old
