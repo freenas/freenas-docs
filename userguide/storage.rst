@@ -115,8 +115,8 @@ inaccessible without the key. Select :guilabel:`Confirm` then click
    before enabling encryption!
 
 
-Select disks to add to the pool in the :guilabel:`Available Disks`
-section. Enter a value in :guilabel:`Filter disks by name` or
+From the :guilabel:`Available Disks` section, select disks to add to the
+pool. Enter a value in :guilabel:`Filter disks by name` or
 :guilabel:`Filter disks by capacity` to change the displayed disk order.
 These fields support
 `PCRE regular expressions <http://php.net/manual/en/reference.pcre.pattern.syntax.php>`__
@@ -124,13 +124,13 @@ for filtering. For example, to show only *da* and *nvd* disks in
 :guilabel:`Available Disks`, type :literal:`^(da)|(nvd)` in
 :guilabel:`Filter disks by name`.
 
-After selecting the desired disks, click the right arrow to add them
+After selecting disks, click the right arrow to add them
 to the :guilabel:`Data VDevs` section. The usable space of each disk in
-a pool is limited to the size of the smallest disk in the pool. Because
+a pool is limited to the size of the smallest disk in the vdev. Because
 of this, creating pools with the same size disks is recommended.
 
 Any disks that appear in :guilabel:`Data VDevs` are used to create the
-pool. To remove a disk from that section, select the disk and use the
+pool. To remove a disk from that section, select the disk and click the
 left arrow to return it to the :guilabel:`Available Disks` section.
 
 To add multiple :guilabel:`Data VDevs`, click :guilabel:`Add Data` for
