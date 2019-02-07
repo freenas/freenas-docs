@@ -738,8 +738,8 @@ available for a jail.
    +==============+===============================================================+
    | Edit         | Used to modify the settings described in                      |
    |              | :numref:`Table %s <jail_overview_tab>`.                       |
-   |              | A jail cannot be edited while it is running, but the settings |
-   |              | can be viewed as read only.                                   |
+   |              | A jail cannot be edited while it is running. The settings can |
+   |              | can be viewed, but are read only.                             |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
    | Mount        | Open the :guilabel:`Mount Points` list. Select an existing    |
