@@ -482,6 +482,10 @@ U2
 * A :guilabel:`Time Machine` checkbox has been added to
   :menuselection:`Sharing --> Windows (SMB) Shares --> Add`.
 
+* The :guilabel:`Wait to Boot` field in
+  :menuselection:`Virtual Machines --> Devices --> VNC Device --> Edit`
+  has been renamed to :guilabel:`Delay VM Boot until VNC Connects`.
+
 
 .. _Path and Name Lengths:
 
