@@ -1829,19 +1829,19 @@ eSATA port and a hard drive dock. The process follows these steps:
 
 #. The status of the resilver process can be viewed by running
    :command:`zpool status`. When the new disk has resilvered, the old
-   one will be automatically offlined. The system is then shut down to
-   physically remove the replaced disk. One advantage of this approach
-   is that there is no loss of redundancy during the resilver.
+   one is automatically offlined. Shut the system down and physically
+   remove the replaced disk. One advantage of this approach is that
+   there is no loss of redundancy during the resilver.
 
 If a spare drive port is not available, a drive can be replaced with a
 larger one using the instructions in :ref:`Replacing a Failed Disk`.
-This process is slow and places the system in a degraded state. Since
-a failure at this point could be disastrous, **do not attempt this
+This process is slow and puts the system in a degraded state. Since a
+failure at this point could be disastrous, **do not attempt this
 method unless the system has a reliable backup.** Replace one drive at
 a time and wait for the resilver process to complete on the replaced
 drive before replacing the next drive. After all the drives are
-replaced and the final resilver completes, the added space will appear
-in the pool.
+replaced and the final resilver completes, the added space appears in
+the pool.
 
 
 .. _Importing a Disk:
