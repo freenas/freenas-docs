@@ -923,8 +923,8 @@ provides more details for each configurable option.
    +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
    | Use as home share       | checkbox     |             | Set to allow this share to hold user home directories. Only one share can be the home share. Note that lower case names for user home directories |
    |                         |              |             | are strongly recommended, as Samba maps usernames to all lower case. For example, the username John will be mapped to a home directory named      |
-   |                         |              |             | :file:`john`. If the :guilabel:`Path` to the home share includes an upper case username, delete the existing user and recreate it in              |
-   |                         |              |             | :menuselection:`Accounts --> Users` with an all lower case :guilabel:`Username`. Return to :menuselection:`Sharing --> SMB` to create the home    |
+   |                         |              |             | :file:`john`. If the :guilabel:`Path` to the home share includes an upper case username, delete the existing user and :ref:`recreate <Users>` it  |
+   |                         |              |             | in :menuselection:`Accounts --> Users` with an all lower case :guilabel:`Username`. Return to :menuselection:`Sharing --> SMB` to create the home |
    |                         |              |             | share, and select the :guilabel:`Path` that contains the new lower case username.                                                                 |
    |                         |              |             |                                                                                                                                                   |
    +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
