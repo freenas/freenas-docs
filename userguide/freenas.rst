@@ -32,6 +32,7 @@
    cli
    contribute
    zfsprimer
+   cinder
    vaai
    api
 
