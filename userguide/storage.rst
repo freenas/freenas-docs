@@ -618,9 +618,9 @@ Export/Disconnect a Pool
 
 To export or destroy an existing pool, click the pool name,
 |ui-settings|, then
-:guilabel:`Export/Disconnect`. The choice to keep or erase the
-contents of the pool depends upon the selections made in the screen
-shown in :numref:`Figure %s <zfs_detach_vol_fig>`.
+:guilabel:`Export/Disconnect`. Keep or erase the contents of the pool
+by selecting an option shown in
+:numref:`Figure %s <zfs_detach_vol_fig>`.
 
   .. _zfs_detach_vol_fig:
 
