@@ -848,13 +848,9 @@ reference is
 `Methods For Fine-Tuning Samba Permissions <https://forums.freenas.org/index.php?threads/methods-for-fine-tuning-samba-permissions.50739/>`__.
 
 .. warning:: SMB1 is disabled by default for security. If legacy
-   clients are unable to connect to the share, open :ref:`Shell`, type
-   :command:`sysctl freenas.services.smb.config.server_min_protocol=NT1`,
-   then restart the :ref:`SMB` service. If legacy clients can then
-   connect to the share, the change can be made permanent by going to
-   :ref:`Tunables`, creating a tunable with a :guilabel:`Variable` of
-   *freenas.services.smb.config.server_min_protocol*, a
-   :guilabel:`Value` of *NT1*, and a :guilabel:`Type` of *Sysctl*.
+   clients are unable to connect to the share, go to
+   :menuselection:`Services --> SMB Configure`,
+   set :guilabel:`Enable SMB1 support`, and restart the SMB service.
 
 
 :numref:`Figure %s <adding_smb_share_fig>`
@@ -2492,53 +2488,51 @@ Creating Authenticated and Time Machine Shares
 
 macOS includes the
 `Time Machine <https://support.apple.com/en-us/HT201250>`__ feature
-which can be used to perform automatic back ups. %brand% supports
-Time Machine back ups for both :ref:`AFP <Apple (AFP) Shares>` and
+which can be used to perform automatic backups. %brand% supports
+Time Machine backups for both :ref:`AFP <Apple (AFP) Shares>` and
 :ref:`SMB <Windows (SMB) Shares>` shares. The process for creating an
 authenticated share for a user is the same as creating a Time Machine
 share for that user.
 
-Before creating a Time Machine or authenticated share, go to
-:menuselection:`Storage --> Pools` to make a dataset for the share.
-For more information about dataset creation, refer to
-:ref:`Adding Datasets`.
+Both Time Machine and authenticated shares should be created on an
+:ref:`new dataset <Adding Datasets>`.
 
-After creating the dataset for the guest share, go to
+In
 :menuselection:`Storage --> Pools`,
 click the |ui-options| button for the dataset, then
 :guilabel:`Edit Permissions`.
 
-Enter the following information as shown in
-:numref:`Figure %s <creating_an_authenticated_share_fig>`.
+Enter these settings:
 
 #. **ACL Type:** Select :guilabel:`Mac`.
 
 #. **User:** Use the drop-down to select the desired user account.
-   If the user does not yet exist on the %brand% system, go to
-   :menuselection:`Accounts --> Users`
-   to create one. Refer to
-   :ref:`users <Users>` for more information about creating a user.
+   If the user does not yet exist on the %brand% system, create one with
+   :menuselection:`Accounts --> Users`.
+   See :ref:`users <Users>` for more information.
 
-#. **Group:** Use the drop-down to select the desired group name.
-   If the group does not yet exist on the %brand% system, go to
-   :menuselection:`Accounts --> Groups`
-   to create one. Refer to
-   :ref:`groups <Groups>` for more information about creating a group.
+#. **Group:** Select the desired group name. If the group does not yet
+   exist on the %brand% system, create one with
+   :menuselection:`Accounts --> Groups`.
+   See :ref:`groups <Groups>` for more information.
 
 #. Click :guilabel:`SAVE`.
 
 
 To create an authenticated or Time Machine share:
 
-#. Go to :menuselection:`Sharing --> Apple (AFP) Shares`
-   or
+#. Go to
    :menuselection:`Sharing --> Windows (SMB) Shares`
-   and click |ui-add|.
+   or
+   :menuselection:`Sharing --> Apple (AFP) Shares`
+   and click |ui-add|. Apple
+   `deprecated the AFP protocol <https://support.apple.com/en-us/HT207828>`__
+   and recommends using SMB.
 
 #. :guilabel:`Browse` to the dataset created for
    the share.
 
-#. When creating a Time Machine share, enable the
+#. When creating a Time Machine share, set the
    :guilabel:`Time Machine` option.
 
 #. Fill out the other required fields.
@@ -2558,38 +2552,36 @@ creating a Time Machine Share in
    Creating an Authenticated or Time Machine Share
 
 
-At this point, it may be desirable to configure a quota for each Time
-Machine share, to restrict backups from using all of the available
-space on the %brand% system. The first time Time Machine makes a
-backup, it will create a full backup after waiting two minutes. It
-will then create a one hour incremental backup for the next 24 hours,
-and then one backup each day, each week and each month.
-**Since the oldest backups are deleted when a Time Machine share
-becomes full, make sure that the quota size is sufficient to hold the
-desired number of backups.**
-Note that a default installation of macOS is ~21 GiB in size.
+Configuring a quota for each Time Machine share helps prevent backups
+from using all available space on the %brand% system. Time Machine waits
+two minutes before creating a full backup. Incremental backups are
+created each hour for the next 24 hours. After that, one backup is
+created each day, each week, and each month. Each of these hourly,
+daily, weekly, and monthly backups are constantly updated according to
+the established time interval. The hourly backup is updated each hour,
+the daily backup is updated each day, and so on.
+**The oldest backups are deleted when a Time Machine share fills up, so
+make sure that the quota size is large enough to hold the desired number
+of backups.** Note that a default installation of macOS is over 20 GiB.
 
-To configure a quota, go to
+Configure a global quota using the instructions in
+`Set up Time Machine for multiple machines with OSX Server-Style Quotas
+<https://forums.freenas.org/index.php?threads/how-to-set-up-time-machine-for-multiple-machines-with-osx-server-style-quotas.47173/>`__.
+
+AFP shares can set individual quotas. Go to
 :menuselection:`Sharing --> Apple (AFP)`,
-click |ui-options| on the existing Time Machine share, then
-:guilabel:`Edit`. In the example shown in
+click |ui-options| on the Time Machine share, then :guilabel:`Edit`. In
+the example shown in
 :numref:`Figure %s <set_quota_fig>`,
 the Time Machine share name is *backup_user1*. Enter a value in the
-:guilabel:`Time Machine Quota` field, then click
-:guilabel:`SAVE`. In this example, the Time Machine share is restricted
-to 200 GiB.
+:guilabel:`Time Machine Quota` field, and click :guilabel:`SAVE`. In
+this example, the Time Machine share is restricted to 200 GiB.
 
 .. _set_quota_fig:
 
 .. figure:: images/sharing-apple-afp-add-example.png
 
    Setting a Quota
-
-
-.. note:: An alternative is to create a global quota using the
-   instructions in
-   `Set up Time Machine for multiple machines with OSX Server-Style Quotas
-   <https://forums.freenas.org/index.php?threads/how-to-set-up-time-machine-for-multiple-machines-with-osx-server-style-quotas.47173/>`__.
 
 
 To configure Time Machine on the macOS client, go to
