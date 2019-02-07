@@ -2631,7 +2631,7 @@ enter the following information, as seen in the example in
    on the %brand% system, click the drop-down :guilabel:`User` menu to
    select their user account.  If the user does not yet exist on the
    %brand% system, type their name into the :guilabel:`User` field and
-   enable the :guilabel:`Create User` option. If the user will be a
+   enable the :guilabel:`Create User` option. If the user is a
    member of a group that already exists on the %brand% system, click
    the drop-down :guilabel:`Group` menu to select the group name. To
    create a new group to be used by Time Machine users, enter the name
@@ -2639,7 +2639,7 @@ enter the following information, as seen in the example in
    :guilabel:`Create Group` option. Otherwise, enter the same name
    as the user. In the example shown in
    :numref:`Figure %s <create_tm_auth_user_fig>`,
-   both a new *user1* user and a new *tm_backups* group will be
+   both a new *user1* user and a new *tm_backups* group are
    created. Since a new user is being created, this screen prompts for
    the user password to be used when accessing the share. It also
    provides an opportunity to change the default permissions on the
@@ -2656,7 +2656,7 @@ and :guilabel:`Ownership`. When finished, click the :guilabel:`Next`
 button twice, then the :guilabel:`Confirm` button to create the shares.
 The Wizard creates a dataset for each share with the correct ownership
 and starts the AFP service so the shares are immediately available. The
-new shares will appear in
+new shares appear in
 :menuselection:`Sharing --> Apple (AFP)`.
 
 
@@ -2680,13 +2680,12 @@ Configuring Time Machine Backups
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Configuring a quota for each Time Machine share helps prevent backups
-from using all available space on the %brand% system. Time Machine waits
-two minutes before creating a full backup. Incremental backups are also
-created. Hourly backups for the last 24 hours, daily backups for the
-last month, and weekly backups for previous months. **The oldest backups
-are deleted when a Time Machine share fills up, so make sure that the
-quota size is large enough to hold the desired number of backups.** Note
-that a default installation of macOS is over 20 GiB.
+from using all available space on the %brand% system. Time Machine
+creates ongoing hourly, daily, weekly, and monthly backups.
+**The oldest backups are deleted when a Time Machine share fills up,
+so make sure that the quota size is large enough to hold the desired
+number of backups.**
+Note that a default installation of macOS is over 20 GiB.
 
 Configure a global quota using the instructions in
 `Set up Time Machine for multiple machines with OSX Server-Style Quotas
