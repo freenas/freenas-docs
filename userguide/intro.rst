@@ -408,7 +408,7 @@ U2
   :menuselection:`System --> Alerts`.
 
 * The :guilabel:`Time Machine` field has been added to
-  :menuselection:`Sharing --> Windows (SMB) Shares --> Add`
+  :menuselection:`Sharing --> Windows (SMB) Shares --> Add`.
 
 
 .. index:: Path and Name Lengths
