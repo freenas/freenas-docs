@@ -64,7 +64,7 @@ The fault indicator is on during the initial power-on self-test (POST)
 and turns off during normal operation. It turns on if the %brand%
 software issues an alert. See the Alert section in the Additional
 Options chapter of the %brand%
-`userguide <%docurl%/%brandlower%>`__.
+`User Guide <%docurl%/%brandlower%>`__.
 
 
 .. _es12_indicators:
