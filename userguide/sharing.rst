@@ -873,10 +873,9 @@ videos clarify setting up permissions on SMB shares. Another helpful
 reference is
 `Methods For Fine-Tuning Samba Permissions <https://forums.freenas.org/index.php?threads/methods-for-fine-tuning-samba-permissions.50739/>`__.
 
-.. warning:: SMB1 is disabled by default for security. If legacy
-   clients are unable to connect to the share, go to
-   :menuselection:`Services --> SMB Settings`,
-   set :guilabel:`Enable SMB1 support`, and restart the SMB service.
+.. warning:: `SMB1 is disabled by default for security <https://www.ixsystems.com/blog/library/do-not-use-smb1/>`__.
+   If necessary, SMB1 can be enabled in
+   :menuselection:`Services --> SMB Settings`.
 
 
 :numref:`Figure %s <adding_smb_share_fig>`
@@ -2558,11 +2557,11 @@ Creating Authenticated and Time Machine Shares
 
 macOS includes the Time Machine feature which can be used to perform
 automatic back ups. %brand% supports Time Machine backups for both
-:ref:`AFP <Apple (AFP) Shares>` and :ref:`SMB <Windows (SMB) Shares>`
-shares. This section has instructions to create Time Machine AFP and SMB
+:ref:`SMB <Windows (SMB) Shares>` and :ref:`AFP <Apple (AFP) Shares>`
+shares. This section has instructions to create Time Machine SMB and AFP
 shares, using the
 :menuselection:`Wizard`
-to create an AFP Time Machine share, configuring a Time Machine share.
+to create an AFP Time Machine share.
 The process for creating an authenticated share for a user is the same
 as creating a Time Machine share for that user.
 
@@ -2570,13 +2569,13 @@ as creating a Time Machine share for that user.
 Manual Creation of Authenticated or Time Machine Shares
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Both Time Machine and authenticated shares should be created on an
+Create Time Machine and authenticated shares on a
 :ref:`new dataset <Create Dataset>`.
 
-After the dataset is created, go to
-:menuselection:`Storage --> Volumes`,
-highlight the dataset, and click :guilabel:`Change Permissions`.
-Enter these settings:
+Change permissions on the new dataset by going to
+:menuselection:`Storage --> Volumes`.
+Select the dataset and click :guilabel:`Change Permissions`. Enter these
+settings:
 
 #. **Permission Type:** Select :guilabel:`Mac`.
 
@@ -2593,7 +2592,7 @@ Enter these settings:
 
 #. Click :guilabel:`Change`.
 
-To create an authenticated or Time Machine share:
+Create the authenticated or Time Machine share:
 
 #. Go to
    :menuselection:`Sharing --> Windows (SMB)`
@@ -2649,19 +2648,15 @@ enter the following information, as seen in the example in
    :numref:`Figure %s <create_time_machine_share_fig>`.
 
 #. Click the :guilabel:`Add` button.
-   **Remember to do this or the share will not be created**.
-   Clicking the :guilabel:`Add` button adds an entry to the
-   :guilabel:`Name` frame with the name that was entered in
-   :guilabel:`Share name`.
 
 
-To configure multiple authenticated or Time Machine shares, repeat for
-each user, giving each user their own :guilabel:`Share name` and
-:guilabel:`Ownership`. When finished, click the :guilabel:`Next`
-button twice, then the :guilabel:`Confirm` button to create the
-shares. The Wizard automatically creates a dataset for each share with
-the correct ownership and starts the AFP service so the shares are
-immediately available. The new shares will appear in
+When creating multiple authenticated or Time Machine shares, repeat this
+process for each user. Give each user their own :guilabel:`Share name`
+and :guilabel:`Ownership`. When finished, click the :guilabel:`Next`
+button twice, then the :guilabel:`Confirm` button to create the shares.
+The Wizard creates a dataset for each share with the correct ownership
+and starts the AFP service so the shares are immediately available. The
+new shares will appear in
 :menuselection:`Sharing --> Apple (AFP)`.
 
 
@@ -2686,15 +2681,12 @@ Configuring Time Machine Backups
 
 Configuring a quota for each Time Machine share helps prevent backups
 from using all available space on the %brand% system. Time Machine waits
-two minutes before creating a full backup. Incremental backups are
-created each hour for the next 24 hours. After that, one backup is
-created each day, each week, and each month. Each of these hourly,
-daily, weekly, and monthly backups are constantly updated according to
-the established time interval. The hourly backup is updated each hour,
-the daily backup is updated each day, and so on.
-**The oldest backups are deleted when a Time Machine share fills up, so
-make sure that the quota size is large enough to hold the desired number
-of backups.** Note that a default installation of macOS is over 20 GiB.
+two minutes before creating a full backup. Incremental backups are also
+created. Hourly backups for the last 24 hours, daily backups for the
+last month, and weekly backups for previous months. **The oldest backups
+are deleted when a Time Machine share fills up, so make sure that the
+quota size is large enough to hold the desired number of backups.** Note
+that a default installation of macOS is over 20 GiB.
 
 Configure a global quota using the instructions in
 `Set up Time Machine for multiple machines with OSX Server-Style Quotas
@@ -2702,7 +2694,7 @@ Configure a global quota using the instructions in
 
 To configure a quota, go to
 :menuselection:`Storage --> Volumes`
-and highlight the share dataset. In the example shown in
+and select the share dataset. In the example shown in
 :numref:`Figure %s <set_quota_fig>`,
 the Time Machine share name is *backup_user1*. Click the
 :guilabel:`Edit Options` button for the share, then
@@ -2719,15 +2711,15 @@ Time Machine share is restricted to 200 GiB.
 
 
 To configure Time Machine on the macOS client, go to
-:menuselection:`System Preferences --> Time Machine`
+:menuselection:`System Preferences --> Time Machine`,
 which opens the screen shown in
 :numref:`Figure %s <config_tm_osx>`.
 Click :guilabel:`ON` and a pop-up menu shows the %brand% system as a
 backup option. In this example, it is listed as
 *backup_user1 on "freenas"*. Highlight the %brand% system and click
 :guilabel:`Use Backup Disk`. A connection bar opens and prompts for
-the user account's password--in this example, the password that was
-set for the *user1* account.
+the user account's password. In this example, the password is the
+password that was set for the *user1* account.
 
 .. _config_tm_osx:
 
