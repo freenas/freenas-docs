@@ -207,9 +207,6 @@ This software has been added or updated:
   has been added to the base system, adding support for UTF-8 fonts to
   the console for Intel graphic cards.
 
-* Netatalk has been updated to the 3.1.12 development version which
-  addresses known issues with Time Machine timeouts.
-
 * Samba 4.7 has been patched to address the latest round of
   `security vulnerabilities <https://www.samba.org/samba/latest_news.html#4.9.3>`__.
 
@@ -391,25 +388,83 @@ These screen options have changed:
   have a :guilabel:`Device Order` field to set boot priority for VM
   devices.
 
+RELEASE-U1
+~~~~~~~~~~
+
+* Netatalk has been updated to
+  `3.1.12 <https://nvd.nist.gov/vuln/detail/CVE-2018-1160>`__ to address
+  CVE-2018-1160.
+
 U2
 ~~
+
+* The base operating system has been patched to address these security
+  advisories:
+
+ * `ZFS vnode reclaim deadlock <https://www.freebsd.org/security/advisories/FreeBSD-EN-18%3A18.zfs.asc>`__
+ * `Insufficient bounds checking in bhyve(8) device model <https://www.freebsd.org/security/advisories/FreeBSD-SA-18:14.bhyve.asc>`__
+ * `sqlite update <https://www.freebsd.org/security/advisories/FreeBSD-EN-19%3A03.sqlite.asc>`__
+ * `Timezone database information update <https://www.freebsd.org/security/advisories/FreeBSD-EN-19%3A04.tzdata.asc>`__
+ * `kqueue race condition and kernel panic <https://www.freebsd.org/security/advisories/FreeBSD-EN-19%3A05.kqueue.asc>`__
+ * `System call kernel data register leak <https://www.freebsd.org/security/advisories/FreeBSD-SA-19%3A01.syscall.asc>`__
+
+* Samba has been updated to
+  `4.9.4 <https://www.samba.org/samba/history/samba-4.9.4.html>`__ which
+  is the current stable release receiving new features. This version bump
+  provides significant performance improvements as well as improved Time
+  Machine support.
+
+* OpenSSL has been updated to
+  `1.0.2q <https://www.openssl.org/news/vulnerabilities-1.0.2.html>`__
+  to address CVE-2018-5407.
+
+* curl has been updated to
+  `7.62.0 <https://curl.haxx.se/changes.html#7_62_0>`__ to address
+  security vulnerabilities.
+
+* Pool widgets in the
+  :menuselection:`Dashboard`
+  now change color to reflect the current pool status.
+
+* Help text can now be pinned to the screen, remaining visible when
+  the cursor moves from the help icon.
 
 * :guilabel:`Disable Endpoint Region` and
   :guilabel:`Use Signature Version 2` checkboxes have been added to
   :menuselection:`System --> Cloud Credentials --> Add Cloud Credential`
   when *Amazon S3* is chosen as the :guilabel:`Provider`.
 
-* The :guilabel:`ixnas` VFS module has been added to and the
-  :guilabel:`aio_pthread` VFS module has been removed from
-  :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
-
-* The :guilabel:`Enable SMB1 support` checkbox has been added to
-  :menuselection:`Services --> SMB`.
-
+* The :guilabel:`Reboot After Update` checkbox has been added to
+  :menuselection:`System --> Update --> Manual Update`
 * A |ui-browse| option displays with the :guilabel:`Folder` field in
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
   This allows browsing through the connected :guilabel:`Credential`
   remote filesystem.
+
+* Rollback for any dataset snapshot is supported in
+  :menuselection:`Storage --> Snapshots`.
+
+* The :guilabel:`ixnas` VFS module has been added to and the
+  :guilabel:`aio_pthread` VFS module has been removed from
+  :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
+
+* An :guilabel:`NAA` column has been added to
+  :menuselection:`Sharing --> Block (iSCSI) --> Extents`.
+
+* The :guilabel:`Enable SMB1 support` checkbox has been added to
+  :menuselection:`Services --> SMB`.
+
+* An :guilabel:`ADVANCED PLUGIN INSTALLATION` option has been added to
+  :menuselection:`Plugins --> Available --> Install`. This allows
+  full plugin jail customization before plugin installation.
+
+* The :guilabel:`allow_mlock`, :guilabel:`vnet_interfaces`,
+  :guilabel:`hostid_strict_check`, and :guilabel:`allow_tun` fields have
+  been added to the
+  :menuselection:`Jails --> Add --> Advanced Jail Creation`
+  and
+  :menuselection:`Jails --> Edit`
+  forms.
 
 * The :guilabel:`ARC Size` graph in
   :menuselection:`Reporting`
@@ -418,16 +473,6 @@ U2
 * The :literal:`openipmi` package and
   :file:`usr/local/lib/collectd/ipmi.so` have been removed to disable
   the non-functional collectd IPMI plugin.
-
-* Pool widgets in the
-  :menuselection:`Dashboard`
-  now change color to reflect the current pool status.
-
-* Rollback for any dataset snapshot is supported in
-  :menuselection:`Storage --> Snapshots`.
-
-* Help text can now be pinned to the screen, remaining visible when
-  the cursor moves from the help icon.
 
 * An :ref:`Alert` for
   `syslog-ng <https://www.freebsd.org/cgi/man.cgi?query=syslog-ng>`__

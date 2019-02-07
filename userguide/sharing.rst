@@ -2120,6 +2120,12 @@ file to be created is appended to the pool or dataset name.**
    +--------------------+----------------+----------------------------------------------------------------------------------------------------------------------+
 
 
+New extents have been added to
+:menuselection:`Sharing --> Block (iSCSI) --> Extents`.
+The associated :guilabel:`Serial` and Network Address Authority
+(:guilabel:`NAA`) are shown along with the extent name.
+
+
 .. _Associated Targets:
 
 Associated Targets
