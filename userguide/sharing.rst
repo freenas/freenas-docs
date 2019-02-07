@@ -2555,7 +2555,7 @@ use the new size of the file.
 Creating Authenticated and Time Machine Shares
 ----------------------------------------------
 
-macOS includes the Time Machine feature which can be used to perform
+macOS includes the Time Machine feature which performs
 automatic back ups. %brand% supports Time Machine backups for both
 :ref:`SMB <Windows (SMB) Shares>` and :ref:`AFP <Apple (AFP) Shares>`
 shares. This section has instructions to create Time Machine SMB and AFP
