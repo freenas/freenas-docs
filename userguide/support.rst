@@ -42,8 +42,6 @@ Users are welcome to network on the %brand% social media sites:
 
 * `LinkedIn <https://www.linkedin.com/groups/3903140/profile>`__
 
-* `Google+ <https://plus.google.com/110373675402281849911/posts>`__
-
 * `Facebook FreeNAS Community
   <https://www.facebook.com/freenascommunity>`__
 
