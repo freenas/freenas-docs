@@ -2568,9 +2568,27 @@ Configure a global quota using the instructions in
 `Set up Time Machine for multiple machines with OSX Server-Style Quotas
 <https://forums.freenas.org/index.php?threads/how-to-set-up-time-machine-for-multiple-machines-with-osx-server-style-quotas.47173/>`__.
 
-AFP shares can set individual quotas. Go to
-:menuselection:`Sharing --> Apple (AFP)`,
-click |ui-options| on the Time Machine share, then :guilabel:`Edit`. In
+Setting SMB and AFP Share Quotas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**SMB Quota**
+
+Go to
+:menuselection:`Sharing --> Windows (SMB) Shares`,
+click |ui-options| on the Time Machine share, and :guilabel:`Edit`.
+Click :guilabel:`Advanced Mode` and enter a
+`vfs_fruit(8) <https://www.samba.org/samba/docs/current/man-html/vfs_fruit.8.html>`__
+parameter in the :guilabel:`Auxiliary Parameters`. Time Machine quotas
+use the :command:`fruit:time machine max size` parameter. For example,
+to set a quota of *500 GiB*, enter
+:literal:`fruit:time machine max size = 500 G`.
+
+
+**AFP Quota**
+
+Go to
+:menuselection:`Sharing --> Apple (AFP) Shares`,
+click |ui-options| on the Time Machine share, and :guilabel:`Edit`. In
 the example shown in
 :numref:`Figure %s <set_quota_fig>`,
 the Time Machine share name is *backup_user1*. Enter a value in the
@@ -2581,8 +2599,11 @@ this example, the Time Machine share is restricted to 200 GiB.
 
 .. figure:: images/sharing-apple-afp-add-example.png
 
-   Setting a Quota
+   Setting an AFP Share Quota
 
+
+Client Time Machine Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To configure Time Machine on the macOS client, go to
 :menuselection:`System Preferences --> Time Machine`
