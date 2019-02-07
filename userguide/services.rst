@@ -417,7 +417,8 @@ service in
    | Use SSL               | checkbox          | Set to use HTTPS for the connection to the server that updates the DNS record.                                  |
    |                       |                   |                                                                                                                 |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Domain name           | string            | Enter a fully qualified domain name. Example: *yourname.dyndns.org*.                                            |
+   | Domain name           | string            | Enter a fully qualified domain name. Separate multiple domains with a space, comma (:literal:`,`), or           |
+   |                       |                   | semicolon (:literal:`;`). Example: *yourname.dyndns.org;myname.dyndns.org*                                      |
    |                       |                   |                                                                                                                 |
    +-----------------------+-------------------+-----------------------------------------------------------------------------------------------------------------+
    | Username              | string            | Enter the username used to log in to the provider and update the record.                                        |

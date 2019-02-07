@@ -1231,6 +1231,13 @@ modified the data on the share. This type of configuration is best
 suited for small networks where quick and easy access to the share is
 more important than the security of the data on the share.
 
+.. note:: Windows 10, Windows Server 2016 version 1709, and Windows
+   Server 2019 disable SMB2 guest access. Read the
+   `Microsoft security notice <https://support.microsoft.com/en-hk/help/4046019/guest-access-in-smb2-disabled-by-default-in-windows-10-and-windows-ser>`__
+   for details about security vulnerabilities with SMB2 guest access and
+   instructions to re-enable guest logins on these Microsoft systems.
+
+
 To configure an unauthenticated SMB share, click :guilabel:`Wizard`,
 then click the :guilabel:`Next` button twice to display the screen
 shown in
