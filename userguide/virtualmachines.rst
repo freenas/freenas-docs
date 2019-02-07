@@ -169,14 +169,14 @@ The configuration options are described in
    |          |                    | fields         | and click |ui-browse| to select a zvol for the VM.                                            |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Define the size    | integer        | Allocate the amount of storage in GiB for the new zvol.                                       |
-   |          | (GiB) for the zvol |                |                                                                                               |
-   +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Select a zvol      | drop-down menu | Select a pool or dataset for the new zvol.                                                    |
+   | 4        | Size (GiB)         | integer        | Allocate the amount of storage in GiB for the new zvol.                                       |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Select desired     | drop-down menu | Select the disk type. Choices are *AHCI* and *VirtIO*. Refer to                               |
-   |          | type of disk       |                | :ref:`Disk Devices <vms-disk-device>` for more information about these disk types.            |
+   | 4        | Select zvol        | drop-down menu | Select a pool or dataset for the new zvol.                                                    |
+   |          |                    |                |                                                                                               |
+   +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
+   | 4        | Select Disk Type   | drop-down menu | Select the disk type. Choices are *AHCI* and *VirtIO*. Refer to                               |
+   |          |                    |                | :ref:`Disk Devices <vms-disk-device>` for more information about these disk types.            |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 5        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This                  |
