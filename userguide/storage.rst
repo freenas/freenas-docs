@@ -107,16 +107,16 @@ rather than generic names like "data" or "freenas".
 
 To encrypt data on the underlying disks as a protection against physical
 theft, set the :guilabel:`Encryption` option. A pop-up message shows a
-reminder to :literal:`Always back up the key!`. Without the key, the
-data on the disks is inaccessible. Select :guilabel:`Confirm` then click
+reminder to :literal:`Always back up the key!`. The data on the disks is
+inaccessible without the key. Select :guilabel:`Confirm` then click
 :guilabel:`I UNDERSTAND`.
 
 .. warning:: Refer to the warnings in :ref:`Managing Encrypted Pools`
    before enabling encryption!
 
 
-In the :guilabel:`Available Disks` section, select disks to add to the
-pool. Enter a value in :guilabel:`Filter disks by name` or
+Select disks to add to the pool in the :guilabel:`Available Disks`
+section. Enter a value in :guilabel:`Filter disks by name` or
 :guilabel:`Filter disks by capacity` to change the displayed disk order.
 These fields support
 `PCRE regular expressions <http://php.net/manual/en/reference.pcre.pattern.syntax.php>`__
