@@ -751,8 +751,10 @@ to access the full capabilities of the device. %brand% provides the
 :command:`sedhelper` wrapper script to ease SED device administration from
 the command line.
 
-By default, SED devices are not locked until the administrator explicitly
-configures a global or per-device password and initializes the devices.
+By default, SED devices are not locked until the administrator takes
+ownership of them. This is done by explicitly configuring a global or
+per-device password in the %brand% |web-ui| and adding the password to
+the SED devices.
 
 Once configured, the system automatically unlocks all SEDs during the boot
 process, without requiring manual intervention. This allows a pool to
@@ -804,7 +806,7 @@ column of :menuselection:`Storage --> View Disks`. Conversely, the rows
 in that column will be empty for disks that do not support SED or which
 are unlocked using the global password.
 
-Next, remember to initialize the devices:
+Remember to take ownership of the devices:
 
 .. code-block:: none
 
@@ -1325,15 +1327,10 @@ the storage devices will not be accessible by older versions of
 Updates and Trains
 ~~~~~~~~~~~~~~~~~~
 
-%brand% uses signed update files. This provides flexibility in deciding
-when to upgrade the system with patches, new drivers, or new features.
-It also allows "test driving" an upcoming release. Combined with boot
-environments, new features or system patches can be tested while
-maintaining the ability to revert to a previous version of the operating
-system, using the instructions in :ref:`If Something Goes Wrong`.
-Digitally signed update files eliminate the need to manually download
-both an upgrade file and the associated checksum to verify file
-integrity.
+Cryptographically signed update files are used to update %brand%.
+Update files provide flexibility in deciding when to upgrade the system.
+:ref:`Boot environments <If Something Goes Wrong>` make it possible to
+test an update.
 
 :numref:`Figure %s <update_options_fig>`
 shows an example of the
@@ -1649,7 +1646,7 @@ remaining options vary by provider, and are shown in
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | Amazon S3          | Enpoint does not       | Skip automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom             |
-   |                    | support regions        | :guilabel:`Endpoint URL`                                                                                        |
+   |                    | support regions        | :guilabel:`Endpoint URL`.                                                                                       |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | Amazon S3          | Use v2 signatures      | Force using `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__    |
