@@ -737,9 +737,9 @@ available for a jail.
    |              |                                                               |
    +==============+===============================================================+
    | Edit         | Used to modify the settings described in                      |
-   |              | :numref:`Table %s <jail_overview_tab>`. A popup error will    |
-   |              | display if the jail's :guilabel:`Status` is *up*.             |
-   |              | A jail cannot be edited while it is running.                  |
+   |              | :numref:`Table %s <jail_overview_tab>`.                       |
+   |              | A jail cannot be edited while it is running. The settings can |
+   |              | can be viewed, but are read only.                             |
    |              |                                                               |
    +--------------+---------------------------------------------------------------+
    | Mount        | Open the :guilabel:`Mount Points` list. Select an existing    |
