@@ -685,7 +685,9 @@ that the export was done, and remove all knowledge of the pool from
 this system.
 
 To instead destroy the data and share configurations on the pool, also set
-all three options. This instructs the system to destroy the data on the
+the :guilabel:`Destroy data on this pool?` option. Data on the pool is
+destroyed, including share configuration, zvols, datasets, and the pool
+itself. The disk is returned to a raw state.
 pool, datasets, zvols, and the configuration of each share. It returns
 the individual disk to a raw state.
 
