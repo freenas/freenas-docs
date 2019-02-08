@@ -708,7 +708,6 @@ then selecting :guilabel:`Import an existing pool`.
 This works for pools that were exported/disconnected from the
 current system, created on another system, or to reconnect a
 pool after reinstalling the %brand% system.
-existing %brand% system.
 
 When physically installing ZFS pool disks from another system, use the
 :samp:`zpool export {poolname}` command or a |web-ui| equivalent to export
