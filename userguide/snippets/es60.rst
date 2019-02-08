@@ -63,7 +63,7 @@ Indicators on the front panel show power, fault, and locate ID. The
 fault indicator is on during the initial power-on self-test (POST) or
 when the %brand% software has issued an alert. See the Alert section in
 the Additional Options chapter of the %brand%
-`userguide <%docurl%/%brandlower%>`__.
+`User Guide <%docurl%/%brandlower%>`__..
 
 
 .. figure:: images/tn_es60.png

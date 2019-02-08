@@ -63,7 +63,7 @@ indicators for power, locate ID, and fault. The fault indicator is on
 during the initial power-on self-test (POST) or when the %brand%
 software has issued an alert. See the Alert section in the Additional
 Options chapter of the %brand%
-`userguide <%docurl%/%brandlower%>`__.
+`User Guide <%docurl%/%brandlower%>`__.
 
 .. _es24_indicators:
 .. figure:: images/tn_es24_indicators.png
