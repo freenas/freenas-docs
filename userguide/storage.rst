@@ -684,7 +684,7 @@ flush any unwritten data to disk, write data to the disk indicating
 that the export was done, and remove all knowledge of the pool from
 this system.
 
-To instead destroy the data and share configurations on the pool, set
+To instead destroy the data and share configurations on the pool, also set
 all three options. This instructs the system to destroy the data on the
 pool, datasets, zvols, and the configuration of each share. It returns
 the individual disk to a raw state.
