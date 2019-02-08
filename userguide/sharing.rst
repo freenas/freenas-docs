@@ -885,7 +885,7 @@ shows the configuration screen that appears after clicking
 
 .. _adding_smb_share_fig:
 
-.. figure:: images/cifs2a.png
+.. figure:: images/sharing-smb-add.png
 
    Adding an SMB Share
 
