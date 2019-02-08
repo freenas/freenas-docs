@@ -701,7 +701,13 @@ the individual disk to a raw state.
 Importing a Pool
 ~~~~~~~~~~~~~~~~
 
-This action can be used to reimport an exported/disconnected pool,
+A pool that has been exported and disconnected from the system
+can be reconnected with
+:menuselection:`Storage --> Pools --> Add`,
+then selecting :guilabel:`Import an existing pool`.
+This works for pools that were exported/disconnected from the
+current system, created on another system, or to reconnect a
+pool after reinstalling the %brand% system.
 import a pool that was created on another system, or to import a pool after reinstalling an
 existing %brand% system.
 
