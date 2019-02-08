@@ -684,8 +684,10 @@ flush any unwritten data to disk, write data to the disk indicating
 that the export was done, and remove all knowledge of the pool from
 this system.
 
-To instead destroy the data and share configurations on the pool, set
-all three options. This instructs the system to destroy the data on the
+To instead destroy the data and share configurations on the pool, also set
+the :guilabel:`Destroy data on this pool?` option. Data on the pool is
+destroyed, including share configuration, zvols, datasets, and the pool
+itself. The disk is returned to a raw state.
 pool, datasets, zvols, and the configuration of each share. It returns
 the individual disk to a raw state.
 
@@ -699,9 +701,13 @@ the individual disk to a raw state.
 Importing a Pool
 ~~~~~~~~~~~~~~~~
 
-This action can be used to reimport an exported/disconnected pool,
-import a pool that was created on another system, or to import a pool after reinstalling an
-existing %brand% system.
+A pool that has been exported and disconnected from the system
+can be reconnected with
+:menuselection:`Storage --> Pools --> Add`,
+then selecting :guilabel:`Import an existing pool`.
+This works for pools that were exported/disconnected from the
+current system, created on another system, or to reconnect a
+pool after reinstalling the %brand% system.
 
 When physically installing ZFS pool disks from another system, use the
 :samp:`zpool export {poolname}` command or a |web-ui| equivalent to export
