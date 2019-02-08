@@ -383,11 +383,11 @@ click the :guilabel:`Encryption Operations` (lock) icon, and select one of
 these operations:
 
 **Lock:** Only appears after a passphrase has been created. When a pool
-is locked, its data is not accessible until the pool is unlocked by
-supplying the passphrase. For this reason, selecting this action will
-prompt to confirm. Once the pool is locked, its status will change to
-*LOCKED (Locked Used / Locked Free)*, :guilabel:`Pool Operations` are
-limited to *Detach* and *Extend*, and the
+is locked, the data is not accessible until the pool is unlocked by
+supplying the passphrase. For this reason, selecting this action
+prompts to confirm. When the pool is locked, the status changes to
+*LOCKED (Locked Used / Locked Free)*. :guilabel:`Pool Operations` are
+limited to *Export/Disconnect*, and the
 :guilabel:`Encryption Operations` icon changes to the :guilabel:`Unlock`
 button.
 
@@ -611,22 +611,22 @@ Here are some examples:
    layout when extending the pool!
 
 
-.. _Detaching a Pool:
+.. _ExportDisconnect a Pool:
 
-Detaching a Pool
-~~~~~~~~~~~~~~~~
+Export/Disconnect a Pool
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 To export or destroy an existing pool, click the pool name,
 |ui-settings|, then
-:guilabel:`Detach`. The choice to retain or delete the contents of the
-pool depends upon the selections made in the screen shown in
+:guilabel:`Export/Disconnect`. Keep or erase the contents of the pool
+by setting the options shown in
 :numref:`Figure %s <zfs_detach_vol_fig>`.
 
   .. _zfs_detach_vol_fig:
 
   .. figure:: images/storage-pools-actions-detach.png
 
-     Detach or Delete a Pool
+     Export/Disconnect a Pool
 
 
 #ifdef truenas
@@ -635,14 +635,15 @@ pool depends upon the selections made in the screen shown in
 
 
 #endif truenas
-.. warning:: Do not detach an encrypted pool if the passphrase has not
-   been set! **An encrypted pool cannot be reimported without a
-   passphrase!** When in doubt, use the instructions in
-   :ref:`Managing Encrypted Pools` to set a passphrase.
+.. warning:: Do not export/disconnect an encrypted pool if the
+   passphrase has not been set! **An encrypted pool cannot be
+   reimported without a passphrase!** When in doubt, use the
+   instructions in :ref:`Managing Encrypted Pools` to set a passphrase.
 
 
-The :guilabel:`Detach Pool` screen provides the options
-:guilabel:`Destroy data on this pool?`, :guilabel:`Confirm detach`, and
+The :guilabel:`Export/Disconnect Pool` screen provides the options
+:guilabel:`Destroy data on this pool?`,
+:guilabel:`Confirm export/disconnect`, and
 :guilabel:`Delete configuration of shares that used this pool?`. An
 encrypted pool also displays a button to :guilabel:`DOWNLOAD KEY` for
 that pool.
@@ -653,7 +654,7 @@ that pool.
 
 .. _detach_pool_options:
 
-.. table:: Detach Pool Options
+.. table:: Export/Disconnect Pool Options
    :class: longtable
 
    +-----------------------------------+-------------------------------------+
@@ -668,23 +669,25 @@ that pool.
    | that used this pool?              | of the shares on the pool.          |
    |                                   |                                     |
    +-----------------------------------+-------------------------------------+
-   | Confirm Detach                    | Confirm the detach process.         |
+   | Confirm export/disconnect         | Confirm the export/disconnect       |
+   |                                   | process.                            |
    |                                   |                                     |
    +-----------------------------------+-------------------------------------+
 
 
-To detach the pool while retaining the data and share configurations,
-set the :guilabel:`Confirm detach` option and click
-:guilabel:`DETACH`. This operation allows the pool to be
-re-imported at a later time. For example, when moving a pool from one
-system to another, perform this detach action first to flush any
-unwritten data to disk, write data to the disk indicating that the
-export was done, and remove all knowledge of the pool from this system.
+To export/disconnect the pool and keep the data and configurations of shares,
+set **only** :guilabel:`Confirm export/disconnect`
+and click :guilabel:`EXPORT/DISCONNECT`. This makes it possible to re-import
+the pool at a later time. For example, when moving a pool from
+one system to another, perform this export/disconnect action first to
+flush any unwritten data to disk, write data to the disk indicating
+that the export was done, and remove all knowledge of the pool from
+this system.
 
-To instead destroy the data and share configurations on the pool, set
-all three options. This instructs the system to destroy the data on the
-pool, datasets, zvols, and the configuration of each share. It returns
-the individual disk to a raw state.
+To instead destroy the data and share configurations on the pool, also set
+the :guilabel:`Destroy data on this pool?` option. Data on the pool is
+destroyed, including share configuration, zvols, datasets, and the pool
+itself. The disk is returned to a raw state.
 
 
 .. danger:: Before destroying a pool, ensure that any needed data has
@@ -696,9 +699,13 @@ the individual disk to a raw state.
 Importing a Pool
 ~~~~~~~~~~~~~~~~
 
-This action can be used to reimport a detached pool, import a pool that
-was created on another system, or to import a pool after reinstalling an
-existing %brand% system.
+A pool that has been exported and disconnected from the system
+can be reconnected with
+:menuselection:`Storage --> Pools --> Add`,
+then selecting :guilabel:`Import an existing pool`.
+This works for pools that were exported/disconnected from the
+current system, created on another system, or to reconnect a
+pool after reinstalling the %brand% system.
 
 When physically installing ZFS pool disks from another system, use the
 :samp:`zpool export {poolname}` command or a |web-ui| equivalent to export
@@ -771,10 +778,11 @@ Select the pool to import and confirm the settings. Click
    installed to a new device and a saved configuration file restored
    to it, the GELI keys for encrypted disks will not be present, and
    the system will not request them. To correct this, export the
-   encrypted pool with Detach Pool, making sure that the
-   :guilabel:`Destroy data on this pool?` is **not** selected. Then
-   import the pool again. During the import, the GELI keys can be
-   entered as described above.
+   encrypted pool with
+   |ui-configure| :menuselection:`--> Export/Disconnect`,
+   making sure that :guilabel:`Destroy data on this pool?` is
+   **not** set. Then import the pool again. During the import, the
+   GELI keys can be entered as described above.
 
 
 .. index:: Scrubs
