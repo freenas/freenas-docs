@@ -479,7 +479,7 @@ U2
   stopping has been added to
   :menuselection:`System --> Alert Settings`.
 
-* A :guilabel:`Time Machine` checkbox has been added to
+* The :guilabel:`Time Machine` field has been added to
   :menuselection:`Sharing --> Windows (SMB) Shares --> Add`.
 
 * The :guilabel:`Wait to Boot` field in

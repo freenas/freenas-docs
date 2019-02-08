@@ -847,10 +847,9 @@ videos clarify setting up permissions on SMB shares. Another helpful
 reference is
 `Methods For Fine-Tuning Samba Permissions <https://forums.freenas.org/index.php?threads/methods-for-fine-tuning-samba-permissions.50739/>`__.
 
-.. warning:: SMB1 is disabled by default for security. If legacy
-   clients are unable to connect to the share, go to
-   :menuselection:`Services --> SMB Configure`,
-   set :guilabel:`Enable SMB1 support`, and restart the SMB service.
+.. warning:: `SMB1 is disabled by default for security <https://www.ixsystems.com/blog/library/do-not-use-smb1/>`__.
+   If necessary, SMB1 can be enabled in
+   :menuselection:`Services --> SMB Configure`.
 
 
 :numref:`Figure %s <adding_smb_share_fig>`
@@ -1111,7 +1110,7 @@ for more details.
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | streams_depot       | **Experimental** module to store alternate data streams in a central directory. The association with the primary file can be lost due      |
-   |                     | to inode numbers changing when a directory is copied to a new location. See `<https://marc.info/?l=samba&m=132542069802160&w=2>`__.        |
+   |                     | to inode numbers changing when a directory is copied to a new location. See https://marc.info/?l=samba&m=132542069802160&w=2>.             |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | streams_xattr       | Enabled by default. Enables storing of NTFS alternate data streams in the file system.                                                     |
    |                     |                                                                                                                                            |
@@ -2495,19 +2494,19 @@ Creating Authenticated and Time Machine Shares
 
 macOS includes the
 `Time Machine <https://support.apple.com/en-us/HT201250>`__ feature
-which can be used to perform automatic backups. %brand% supports
-Time Machine backups for both :ref:`AFP <Apple (AFP) Shares>` and
-:ref:`SMB <Windows (SMB) Shares>` shares. The process for creating an
+which performs automatic backups. %brand% supports Time Machine
+backups for both :ref:`SMB <Windows (SMB) Shares>` and
+:ref:`AFP <Apple (AFP) Shares>` shares. The process for creating an
 authenticated share for a user is the same as creating a Time Machine
 share for that user.
 
-Both Time Machine and authenticated shares should be created on an
+Create Time Machine or authenticated shares on a
 :ref:`new dataset <Adding Datasets>`.
 
-In
-:menuselection:`Storage --> Pools`,
-click the |ui-options| button for the dataset, then
-:guilabel:`Edit Permissions`.
+Change permissions on the new dataset by going to
+:menuselection:`Storage --> Pools`.
+Select the dataset, click |ui-options|,
+:guilabel:`Change Permissions`.
 
 Enter these settings:
 
@@ -2526,7 +2525,7 @@ Enter these settings:
 #. Click :guilabel:`SAVE`.
 
 
-To create an authenticated or Time Machine share:
+Create the authenticated or Time Machine share:
 
 #. Go to
    :menuselection:`Sharing --> Windows (SMB) Shares`
@@ -2546,7 +2545,7 @@ To create an authenticated or Time Machine share:
 
 #. Click :guilabel:`SAVE`.
 
-To configure multiple authenticated or Time Machine shares, repeat
+When creating multiple authenticated or Time Machine shares, repeat
 this process for each user.
 :numref:`Figure %s <creating_an_authenticated_share_fig>` shows
 creating a Time Machine Share in
@@ -2561,19 +2560,16 @@ creating a Time Machine Share in
 
 Configuring a quota for each Time Machine share helps prevent backups
 from using all available space on the %brand% system. Time Machine waits
-two minutes before creating a full backup. Incremental backups are
-created each hour for the next 24 hours. After that, one backup is
-created each day, each week, and each month. Each of these hourly,
-daily, weekly, and monthly backups are constantly updated according to
-the established time interval. The hourly backup is updated each hour,
-the daily backup is updated each day, and so on.
-**The oldest backups are deleted when a Time Machine share fills up, so
-make sure that the quota size is large enough to hold the desired number
-of backups.** Note that a default installation of macOS is over 20 GiB.
+two minutes before creating a full backup. It then creates ongoing
+hourly, daily, weekly, and monthly backups. **The oldest backups are
+deleted when a Time Machine share fills up, so make sure that the quota
+size is large enough to hold the desired number of backups.**
+Note that a default installation of macOS is over 20 GiB.
 
 Configure a global quota using the instructions in
 `Set up Time Machine for multiple machines with OSX Server-Style Quotas
-<https://forums.freenas.org/index.php?threads/how-to-set-up-time-machine-for-multiple-machines-with-osx-server-style-quotas.47173/>`__.
+<https://forums.freenas.org/index.php?threads/how-to-set-up-time-machine-for-multiple-machines-with-osx-server-style-quotas.47173/>`__
+or create individual share quotas.
 
 Setting SMB and AFP Share Quotas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2613,15 +2609,15 @@ Client Time Machine Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To configure Time Machine on the macOS client, go to
-:menuselection:`System Preferences --> Time Machine`
+:menuselection:`System Preferences --> Time Machine`,
 which opens the screen shown in
 :numref:`Figure %s <config_tm_osx>`.
 Click :guilabel:`ON` and a pop-up menu shows the %brand% system as a
 backup option. In this example, it is listed as
 *backup_user1 on "freenas"*. Highlight the %brand% system and click
 :guilabel:`Use Backup Disk`. A connection bar opens and prompts for
-the user account's password--in this example, the password that was
-set for the *user1* account.
+the user account's password. In this example, the password is the
+password that was set for the *user1* account.
 
 .. _config_tm_osx:
 
