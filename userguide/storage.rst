@@ -105,33 +105,33 @@ that the chosen name conforms to these
 Choosing a name that will stick out in the logs is recommended,
 rather than generic names like "data" or "freenas".
 
-To encrypt data on the underlying disks as a protection against
-physical theft, set the :guilabel:`Encryption` option. A pop-up
-message shows a reminder to :literal:`Always back up the key!`.
-Without the key, the data on the disks is inaccessible. Select
-:guilabel:`Confirm` then click :guilabel:`I UNDERSTAND`.
-
+To encrypt data on the underlying disks as a protection against physical
+theft, set the :guilabel:`Encryption` option. A pop-up message shows a
+reminder to :literal:`Always back up the key!`. The data on the disks is
+inaccessible without the key. Select :guilabel:`Confirm` then click
+:guilabel:`I UNDERSTAND`.
 
 .. warning:: Refer to the warnings in :ref:`Managing Encrypted Pools`
    before enabling encryption!
 
 
-In the :guilabel:`Available Disks` section, select the disks that will
-be added to the pool. Enter a value to
-:guilabel:`Filter disks by name` or
-:guilabel:`Filter disks by capacity` to change the order of displayed
-disks.
+From the :guilabel:`Available Disks` section, select disks to add to the
+pool. Enter a value in :guilabel:`Filter disks by name` or
+:guilabel:`Filter disks by capacity` to change the displayed disk order.
+These fields support
+`PCRE regular expressions <http://php.net/manual/en/reference.pcre.pattern.syntax.php>`__
+for filtering. For example, to show only *da* and *nvd* disks in
+:guilabel:`Available Disks`, type :literal:`^(da)|(nvd)` in
+:guilabel:`Filter disks by name`.
 
-.. note:: The usable space of each disk in a pool is limited to the
-   size of the smallest disk in the pool. Because of this, creating
-   pools with disks of the same size is recommended.
+After selecting disks, click the right arrow to add them
+to the :guilabel:`Data VDevs` section. The usable space of each disk in
+a pool is limited to the size of the smallest disk in the vdev. Because
+of this, creating pools with the same size disks is recommended.
 
-
-After selecting the desired disks, click the right arrow to add them
-to the :guilabel:`Data VDevs` section. Any disks that appear in
-:guilabel:`Data VDevs` are used to create the pool. To remove a disk
-from that section, select the disk and use the left arrow to return it
-to the :guilabel:`Available Disks` section.
+Any disks that appear in :guilabel:`Data VDevs` are used to create the
+pool. To remove a disk from that section, select the disk and click the
+left arrow to return it to the :guilabel:`Available Disks` section.
 
 To add multiple :guilabel:`Data VDevs`, click :guilabel:`Add Data` for
 each required additional vdev.
