@@ -619,7 +619,7 @@ Export/Disconnect a Pool
 To export or destroy an existing pool, click the pool name,
 |ui-settings|, then
 :guilabel:`Export/Disconnect`. Keep or erase the contents of the pool
-by selecting an option shown in
+by setting the options shown in
 :numref:`Figure %s <zfs_detach_vol_fig>`.
 
   .. _zfs_detach_vol_fig:
@@ -676,7 +676,7 @@ that pool.
 
 
 To export/disconnect the pool and keep the data and configurations of shares,
-set :guilabel:`Confirm export/disconnect`
+set **only** :guilabel:`Confirm export/disconnect`
 and click :guilabel:`EXPORT/DISCONNECT`. This makes it possible to re-import
 the pool at a later time. For example, when moving a pool from
 one system to another, perform this export/disconnect action first to
@@ -688,8 +688,6 @@ To instead destroy the data and share configurations on the pool, also set
 the :guilabel:`Destroy data on this pool?` option. Data on the pool is
 destroyed, including share configuration, zvols, datasets, and the pool
 itself. The disk is returned to a raw state.
-pool, datasets, zvols, and the configuration of each share. It returns
-the individual disk to a raw state.
 
 
 .. danger:: Before destroying a pool, ensure that any needed data has
@@ -782,8 +780,8 @@ Select the pool to import and confirm the settings. Click
    the system will not request them. To correct this, export the
    encrypted pool with
    |ui-configure| :menuselection:`--> Export/Disconnect`,
-   making sure that the :guilabel:`Destroy data on this pool?` is
-   **not** selected. Then import the pool again. During the import, the
+   making sure that :guilabel:`Destroy data on this pool?` is
+   **not** set. Then import the pool again. During the import, the
    GELI keys can be entered as described above.
 
 
