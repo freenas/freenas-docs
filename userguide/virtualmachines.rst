@@ -135,7 +135,7 @@ The configuration options are described in
    | Screen # | Setting            | Value          | Description                                                                                   |
    |          |                    |                |                                                                                               |
    +==========+====================+================+===============================================================================================+
-   | 1        | Virtual Machine    | drop-down menu | Select the type of VM to create.                                                              |
+   | 1        | Virtual Machine    | drop-down menu | Select a *Virtual Machine (VM)* or *Docker Host*.                                             |
    |          | (VM) Wizard type   |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | Guest Operating    | drop-down menu | Choose the VM operating system type. Choices are: *Windows*, *Linux*, or *FreeBSD*. See       |
@@ -427,8 +427,8 @@ this device. A lower number means a higher boot priority.
 
 Set the size of the file in GiB.
 
-A |dockerhost| also has a :guilabel:`password` field. This is the login
-password for the |dockerhost|.
+Docker Hosts also have a :guilabel:`password` field. This is the login
+password for the Docker Host.
 
 
 .. _vms-VNC:
@@ -445,7 +445,7 @@ mouse input.
 Each VM can only have a single VNC device. An existing VNC interface can
 be changed by clicking |ui-options| and :guilabel:`Edit`.
 
-:ref:`|dockerhost| VMs` are not compatible with VNC
+:ref:`Docker Hosts <Docker Hosts>` are not compatible with VNC
 connections and cannot have a VNC interface.
 
 .. note:: Using a non-US keyboard via VNC is not yet supported. As a
@@ -499,11 +499,11 @@ Set a :guilabel:`Device Order` number to determine the boot order of
 this device. A lower number means a higher boot priority.
 
 
-.. index:: |dockerhost| VM
-.. _|dockerhost| VMs:
+.. index:: Docker Hosts
+.. _Docker Hosts:
 
-|dockerhost| VMs
-----------------
+Docker Hosts
+------------
 
 `Docker <https://www.docker.com/what-docker>`__
 is open source software for automating application deployment
@@ -514,47 +514,47 @@ see the same environment.
 `Rancher <https://rancher.com/>`__
 is a web-based tool for managing Docker containers.
 
-%brand% runs the Rancher web interface within the |dockerhost|.
+%brand% runs the Rancher web interface within the Docker Host.
 
 
-.. index:: |dockerhost| Requirements
-.. _|dockerhost| Requirements:
+.. index:: Docker Host Requirements
+.. _Docker Host Requirements:
 
-|dockerhost| Requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Docker Host Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 The system BIOS **must** have virtualization support enabled for a
-|dockerhost| to run properly after installation. On Intel systems this
-is typically an option called *VT-x*. AMD systems generally have an
-*SVM* option.
+Docker Host to run properly after installation. On Intel systems this is
+typically an option called *VT-x*. AMD systems generally have an *SVM*
+option.
 
-20 GiB of storage space is required for the |dockerhost|.
+20 GiB of storage space is required for the Docker Host.
 
 For setup, the :ref:`SSH` service must be enabled.
 
-The |dockerhost| requires 2 GiB of RAM while running.
+The Docker Host requires 2 GiB of RAM while running.
 
 
-.. index:: |dockerhost|
-.. _Creating |dockerhost|:
+.. index:: Docker Host
+.. _Creating Docker Host:
 
-Creating |dockerhost|
-~~~~~~~~~~~~~~~~~~~~~
+Creating Docker Host
+~~~~~~~~~~~~~~~~~~~~
 
 :numref:`Figure %s <vms_add_docker_fig>` shows the Wizard that appears
 after going to
 :menuselection:`Virtual Machines`,
-clicking |ui-add|, and selecting |dockerhost| as the
+clicking |ui-add|, and selecting :guilabel:`Docker Host` as the
 :guilabel:`Virtual Machine (VM) Wizard type`.
 
 .. _vms_add_docker_fig:
 
 .. figure:: images/virtual-machines-add-wizard-docker.png
 
-   Add |dockerhost|
+   Add Docker Host
 
 
-|dockerhost| configuration options are described in
+Docker Host configuration options are described in
 :numref:`Table %s <vms_add_docker_opts_tab>`.
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.08\linewidth-2\tabcolsep}
@@ -564,31 +564,31 @@ clicking |ui-add|, and selecting |dockerhost| as the
 
 .. _vms_add_docker_opts_tab:
 
-.. table:: |dockerhost| Options
+.. table:: Docker Host Options
    :class: longtable
 
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
    | Screen # | Setting            | Value          | Description                                                                        |
    |          |                    |                |                                                                                    |
    +==========+====================+================+====================================================================================+
-   | 1        | Virtual Machine    | drop-down menu | Choose the type of VM to create.                                                   |
+   | 1        | Virtual Machine    | drop-down menu | Choose to create either a standard *VM* or a *Docker Host*.                        |
    |          | (VM) Wizard type   |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 2        | Name               | string         | Enter a descriptive name for the |dockerhost|.                                     |
+   | 2        | Name               | string         | Enter a descriptive name for the Docker Host.                                      |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 2        | Start on Boot      | checkbox       | Set to start this |dockerhost| when the %brand% system boots.                      |
+   | 2        | Start on Boot      | checkbox       | Set to start this Docker Host when the %brand% system boots.                       |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Virtual CPUs       | integer        | Enter the number of virtual CPUs to allocate to the |dockerhost|. The maximum is   |
-   |          |                    |                | *16* unless the host CPU also limits the maximum.                                  |
+   | 3        | Virtual CPUs       | integer        | Enter the number of virtual CPUs to allocate to the Docker Host. The maximum is 16 |
+   |          |                    |                | unless the host CPU also limits the maximum.                                       |
    |          |                    |                | The VM operating system can also have operational or licensing restrictions on     |
    |          |                    |                | the number of CPUs.                                                                |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in MiB for the |dockerhost|. A minimum *2048* MiB of    |
-   |          |                    |                | RAM is required.                                                                   |
+   | 3        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in MiB for the Docker Host. A minimum *2048* MiB of RAM |
+   |          |                    |                | is required.                                                                       |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
    | 4        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This       |
@@ -635,7 +635,7 @@ gigabytes for the :guilabel:`Raw file size`. Set the raw file location
 with the folder button or by typing a directory in the field.
 
 The final screen of the Wizard displays the chosen options for the new
-|dockerhost|. Click :guilabel:`SUBMIT` to create the Host or
+Docker Host. Click :guilabel:`SUBMIT` to create the Host or
 :guilabel:`BACK` to change any settings. Click :guilabel:`CANCEL` at any
 time to return to the
 :menuselection:`Virtual Machines`
@@ -644,15 +644,15 @@ page.
 
 .. figure:: images/virtual-machines-add-wizard-docker-summary.png
 
-   |dockerhost| Configuration
+   Docker Host Configuration
 
 
-Click |ui-options| and :guilabel:`Serial` to
-log in to the |dockerhost|. Enter :literal:`rancher` for the user name
+Click |ui-power|, :guilabel:`CONNECT`, and :guilabel:`Serial` to
+log in to the Docker Host. Enter :literal:`rancher` for the user name
 and :literal:`docker` for the password.
 
 The default password is changed in the :guilabel:`Devices` by stopping
-the |dockerhost|, clicking |ui-options|, and :guilabel:`Devices`. Click
+the Docker Host, clicking |ui-options|, and :guilabel:`Devices`. Click
 |ui-options| and :guilabel:`Edit` for the :guilabel:`RAW` device and
 enter a new value in the :guilabel:`password` field. Passwords cannot
 contain a space.
@@ -660,20 +660,22 @@ contain a space.
 
 .. figure:: images/virtual-machines-docker-devices-rawfile.png
 
-   Changing the |dockerhost| Password
+   Changing the Docker Host Password
 
 
-Start the |dockerhost|
-~~~~~~~~~~~~~~~~~~~~~~
+Start the Docker Host
+~~~~~~~~~~~~~~~~~~~~~
 
 Go to
 :menuselection:`Virtual Machines`
-and click |ui-options|, then :guilabel:`Start` to boot the |dockerhost|.
+and click
+|ui-options| :menuselection:`--> Start`
+to boot the Docker Host.
 
-A |dockerhost| can take some time to boot. Click
-|ui-options| and :guilabel:`--> Serial` to view the |dockerhost|
-activity during startup. Use this console to configure Rancher inside
-the |dockerhost|.
+A Docker Host can take some time to boot. Click
+:menuselection:`Virtual Machines -->` |ui-options| :menuselection:` --> Serial`
+to view the Docker Host activity during startup. Use this console to
+configure Rancher inside the Docker Host.
 
 When the RancherOS console graphic is shown, press :kbd:`Enter` to see
 the :literal:`ClientHost login:` prompt. Enter the username
@@ -683,24 +685,24 @@ in the raw file, enter it now. Otherwise, enter the default password of
 shown.
 
 
-SSH to the |dockerhost|
-~~~~~~~~~~~~~~~~~~~~~~~
+SSH to the Docker Host
+~~~~~~~~~~~~~~~~~~~~~~
 
 Go to
 :menuselection:`Virtual Machines`,
-find the |dockerhost| entry, and locate the :guilabel:`Com Port`. Com
+find the Docker Host entry, and locate the :guilabel:`Com Port`. Com
 port names have the format :samp:`/dev/nmdm{1B}`, where :literal:`{1B}`
 is unique for each VM.
 
 Connect to the %brand% server with an SSH client. The :ref:`SSH` service
 must be running with :guilabel:`Login as Root with Password` enabled.
 
-At the %brand% console prompt, connect to the |dockerhost| with
+At the %brand% console prompt, connect to the Docker Host with
 :samp:`cu -l /dev/nmdm{1B}`, replacing :literal:`{1B}` with the
-|dockerhost| :guilabel:`Com Port`.
+Docker Host :guilabel:`Com Port`.
 
 If the terminal does not immediately show a :literal:`rancher login:`
-prompt, press :kbd:`Enter`. The |dockerhost| can take some time to start
+prompt, press :kbd:`Enter`. The Docker Host can take some time to start
 and display the login prompt.
 
 
@@ -755,7 +757,7 @@ the banner across the top of the screen. Verify that
 
 Follow the steps shown in the Rancher web interface and copy the full
 :samp:`sudo docker run` command from the text box. Paste it in the
-|dockerhost| shell. The |dockerhost| will finish configuring Rancher. A
+Docker Host shell. The Docker Host will finish configuring Rancher. A
 :literal:`[rancher@ClientHost ~]$` prompt is shown when the
 configuration is complete.
 
