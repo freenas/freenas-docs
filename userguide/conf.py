@@ -44,7 +44,7 @@ pdf_title      = product
 pdf_subtitle   = ''
 document_class = 'manual'    # 'howto' or 'manual'
 toctree_only   = True
-draft          = True
+draft          = False
 show_edition   = False
 cover_pic = r''
 
@@ -63,7 +63,7 @@ if tags.has('truenas'):
     pdf_subtitle   = ''
     document_class = 'manual'    # 'howto' or 'manual'
     toctree_only   = True
-    draft          = True
+    draft          = False
     show_edition   = False
     cover_pic = r''
 
