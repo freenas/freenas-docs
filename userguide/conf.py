@@ -177,8 +177,9 @@ rst_prolog = u'''
 
 # roles for text replacement
 rst_prolog += u'''
-.. |web-ui| replace:: web interface
 .. |copyright-year| replace:: 2019
+.. |dockerhost|     replace:: Docker Host
+.. |web-ui|         replace:: web interface
 '''
 
 
