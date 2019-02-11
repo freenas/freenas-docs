@@ -275,14 +275,17 @@ Enter the default password of *abcd1234*.
    to save the new password to use on subsequent logins.
 
 On the first login, the End User License Agreement (EULA) found in
-:ref:`Appendix A` is displayed, along with a box for the license key.
-Read the EULA, paste in the license key, then click :guilabel:`I agree`.
+:ref:`Appendix A` is displayed. To accept the EULA, click
+:guilabel:`I agree`.
 
-Alternately, press :guilabel:`Cancel` if the license key is not yet
-available or you wish to discuss the EULA with an iXsystems
-representative before agreeing to it. The |web-ui| is still available
-even if the EULA screen is canceled, but it will appear at every login
-until the EULA is accepted and the key applied.
+Next, a box for the license key is displayed. Paste in the license key to
+access the |web-ui|.
+
+.. _tn_initial:
+
+.. figure:: images/tn_webinterface.png
+
+   %brand% Graphical Configuration Menu
 
 .. note:: Entering the license key for a High Availability pair is
    not allowed unless both the active and standby computers are up.
@@ -295,16 +298,6 @@ until the EULA is accepted and the key applied.
    long as either node in the HA unit remains up. If both nodes are
    powered off, the passphrase must be re-entered when the first node
    powers back up.
-
-
-After clicking :guilabel:`I agree` or :guilabel:`Cancel`, the
-|web-ui| appears.
-
-.. _tn_initial:
-
-.. figure:: images/tn_webinterface.png
-
-   %brand% Graphical Configuration Menu
 
 If the user interface is not accessible by IP address from a browser,
 check these things:
