@@ -2375,8 +2375,39 @@ To generate a support ticket, fill in the fields:
   diagnosing a performance bottleneck.
 
 * **Environment** is a drop-down menu to indicate the role of the
-  affected system. Choices are *Production*, *Staging*, *Test*,
-  *Prototyping*, or *Initial Deployment/Setup*.
+  affected system.
+
+  .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                      |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+
+.. _environment options:
+
+.. table:: Environment Options
+      :class: longtable
+
+   +---------------------+----------------------------------------------------------+
+   | Environment         | Description                                              |
+   +=====================+==========================================================+
+   | Production          | The system is being used for production. Data loss       |
+   |                     | affects customers directly.                              |
+   |                     |                                                          |
+   +---------------------+----------------------------------------------------------+
+   | Staging             | The system is being prepared for                         |
+   |                     | production.                                              |
+   |                     |                                                          |
+   +---------------------+----------------------------------------------------------+
+   | Test                | The system is being used for for internal                |
+   |                     | use. The system does not affect customers.               |
+   |                     |                                                          |
+   +---------------------+----------------------------------------------------------+
+   | Prototyping         | The system is one of a kind. The use case is likely      |
+   |                     | to be rare or never seen before.                         |
+   |                     |                                                          |
+   +---------------------+----------------------------------------------------------+
+   | Initial Deployment/ | The system is new and in the process of being configured |
+   | Setup               | for use.                                                 |
+   |                     |                                                          |
+   +---------------------+----------------------------------------------------------+
 
 * **Criticality** is a drop-down menu to indicate the criticality
   level. Choices are *Inquiry*, *Loss of Functionality*, or
