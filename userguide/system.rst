@@ -2388,23 +2388,23 @@ To generate a support ticket, fill in the fields:
    +---------------------+----------------------------------------------------------+
    | Environment         | Description                                              |
    +=====================+==========================================================+
-   | Production          | The system is being used for production. Data loss       |
-   |                     | affects customers directly.                              |
+   | Production          | The system is functional and being used in a production  |
+   |                     | environment.                                             |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
    | Staging             | The system is being prepared for production.             |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
-   | Test                | The system is being used internally.                     |
-   |                     | The system does not affect customers.                    |
+   | Test                | The system is being used internally for testing          |
+   |                     | purposes.                                                |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
-   | Prototyping         | The system is unique. The use case is likely             |
-   |                     | to be rare or never seen before.                         |
+   | Prototyping         | The system is unique. It is likely to be a proof of      |
+   |                     | concept.                                                 |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
-   | Initial Deployment/ | The system is new and being configured for use.          |
-   | Setup               |                                                          |
+   | Initial Deployment/ | The system is new and being configured for the           |
+   | Setup               | production environment.                                  |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
 
