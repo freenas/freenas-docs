@@ -2392,7 +2392,7 @@ To generate a support ticket, fill in the fields:
    |                     | affects customers directly.                              |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
-   | Staging             | The system is being prepared for                         |
+   | Staging             | The system is being prepared for production.             |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
    | Test                | The system is being used internally.                     |
