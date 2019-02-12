@@ -2403,7 +2403,7 @@ To generate a support ticket, fill in the fields:
    |                     | to be rare or never seen before.                         |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
-   | Initial Deployment/ | The system is new and in the process of being configured |
+   | Initial Deployment/ | The system is new and being configured for use.          |
    | Setup               | for use.                                                 |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
