@@ -2400,7 +2400,7 @@ To generate a support ticket, fill in the fields:
    |                     | The system does not affect customers.                    |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
-   | Prototyping         | The system is one of a kind. The use case is likely      |
+   | Prototyping         | The system is unique. The use case is likely             |
    |                     | to be rare or never seen before.                         |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
