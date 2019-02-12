@@ -2396,7 +2396,7 @@ To generate a support ticket, fill in the fields:
    |                     | production.                                              |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
-   | Test                | The system is being used for for internal                |
+   | Test                | The system is being used internally.                     |
    |                     | use. The system does not affect customers.               |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
