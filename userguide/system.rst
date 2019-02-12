@@ -2404,7 +2404,7 @@ To generate a support ticket, fill in the fields:
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
    | Initial Deployment/ | The system is new and being configured for use.          |
-   | Setup               | for use.                                                 |
+   | Setup               |                                                          |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
 
