@@ -167,12 +167,16 @@ advanced options.
    | Site Name                | string        | ✓        | The relative distinguished name of the site object in Active Directory.                                                       |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Domain Controller        | string        | ✓        | Automatically be added to the SRV record for the domain. When multiple controllers are specified the %brand% system           |
-   |                          |               |          | selects the closest responding controller. Uses a short form of the FQDN.                                                     |
-   |                          |               |          | Example is *exampleserver*.                                                                                                   |
+   | Domain Controller        | string        | ✓        | The server that manages user authentication and security as part of a Windows domain. Leave blank for %brand%                 |
+   |                          |               |          | to use the DNS SRV records to automatically detect and connect to the domain controller. If the domain controller must be     |
+   |                          |               |          | set manually, enter the server hostname or IP address.                                                                        |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Global Catalog Server    | string        | ✓        | Ensure the hostname of the global catalog server to use is resolvable.                                                        |
+   | Global Catalog Server    | string        | ✓        | This holds a full set of attributes for the domain in which it resides and a subset of attributes for all objects in the      |
+   |                          |               |          | Microsoft Active Directory Forest. See the `IBM Knowledge Center                                                              |
+   |                          |               |          | <https://redmine.ixsystems.com/issues/67870?issue_count=20&issue_position=3&next_issue_id=66430&prev_issue_id=72755>`__.      |
+   |                          |               |          | Leave blank for %brand% to use the DNS SRV records to automatically detect and connect to the server.                         |
+   |                          |               |          | If the global catalog server must be entered manually, enter the server hostname or IP address.                               |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Kerberos Realm           | drop-down     | ✓        | Select the realm created using the instructions in :ref:`Kerberos Realms`.                                                    |
