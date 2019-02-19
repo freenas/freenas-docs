@@ -168,10 +168,17 @@ shows the configuration options for Cloud Syncs.
    | Enabled                | checkbox            | Unset to temporarily disable this Cloud Sync.                                                          |
    |                        |                     |                                                                                                        |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
-   
-   
+
+
 .. note:: The time selected is when the Cloud Sync task is allowed to
    begin. The cloud sync runs until finished, even after the time selected.
+
+.. note:: If
+   `rclone sync <https://rclone.org/commands/rclone_sync/>`__
+   encounters any errors, files are not deleted in the destination.
+   This includes a common error when the Dropbox
+   `copy right detector <https://techcrunch.com/2014/03/30/how-dropbox-knows-when-youre-sharing-copyrighted-stuff-without-actually-looking-at-your-stuff/>`__
+   flags a file as copyrighted.
 
 :numref:`Figure %s <tasks_cloudsync_status_fig>` shows a cloud sync called
 *backup-acctg* that "pushes" a file to cloud storage. The last run finished
