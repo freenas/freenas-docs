@@ -368,6 +368,10 @@ U2
  * `kqueue race condition and kernel panic <https://www.freebsd.org/security/advisories/FreeBSD-EN-19%3A05.kqueue.asc>`__
  * `System call kernel data register leak <https://www.freebsd.org/security/advisories/FreeBSD-SA-19%3A01.syscall.asc>`__
 
+* The `mlx5ib(4) <https://www.freebsd.org/cgi/man.cgi?query=mlx5ib>`__
+  driver for the Mellanox ConnectX-4 family of infiniband drivers has
+  been added.
+
 * Samba has been updated to
   `4.9.4 <https://www.samba.org/samba/history/samba-4.9.4.html>`__ which
   is the current stable release receiving new features. This version bump
@@ -391,6 +395,9 @@ U2
   :guilabel:`aio_pthread` VFS module has been removed from
   :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
 
+* The :guilabel:`Time Machine` field has been added to
+  :menuselection:`Sharing --> Windows (SMB) Shares --> Add`.
+
 * The :guilabel:`Enable SMB1 support` checkbox has been added to
   :menuselection:`Services --> SMB`.
 
@@ -406,9 +413,6 @@ U2
   `syslog-ng <https://www.freebsd.org/cgi/man.cgi?query=syslog-ng>`__
   stopping has been added to
   :menuselection:`System --> Alerts`.
-
-* The :guilabel:`Time Machine` field has been added to
-  :menuselection:`Sharing --> Windows (SMB) Shares --> Add`.
 
 
 .. index:: Path and Name Lengths
