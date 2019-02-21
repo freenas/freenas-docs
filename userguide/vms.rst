@@ -77,7 +77,7 @@ VM configuration options are described in
    | Setting              | Value        | Description                                                                                                  |
    |                      |              |                                                                                                              |
    +======================+==============+==============================================================================================================+
-   | VM Type              | drop-down    | Choose between a standard VM or a specialized VM to be a |dockerhost|.                                       |
+   | VM Type              | drop-down    | Choose between a standard VM or a specialized |dockerhost| VM.                                               |
    |                      | menu         |                                                                                                              |
    +----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
    | Name                 | string       | Enter a name to identify the VM.                                                                             |
