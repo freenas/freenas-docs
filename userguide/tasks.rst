@@ -170,7 +170,7 @@ shows the configuration options for Cloud Syncs.
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
 
 
-.. note:: The time selected is when the Cloud Sync task is allowed to
+The time selected is when the Cloud Sync task is allowed to
    begin. The cloud sync runs until finished, even after the time selected.
 
 .. note:: If
