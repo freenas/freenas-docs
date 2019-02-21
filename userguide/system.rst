@@ -2385,23 +2385,21 @@ To generate a support ticket, fill in the fields:
    +---------------------+----------------------------------------------------------+
    | Environment         | Description                                              |
    +=====================+==========================================================+
-   | Production          | The system is functional and being used in a production  |
-   |                     | environment.                                             |
+   | Production          | This is a production system in daily use.                |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
    | Staging             | The system is being prepared for production.             |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
-   | Test                | The system is being used internally for testing          |
-   |                     | purposes.                                                |
+   | Test                | This system is only being used for testing purposes.     |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
    | Prototyping         | The system is unique. It is likely to be a proof of      |
    |                     | concept.                                                 |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
-   | Initial Deployment/ | The system is new and being configured for the           |
-   | Setup               | production environment.                                  |
+   | Initial Deployment/ | This is a new system being prepared for deployment into  |
+   |                     | production.                                              |
    |                     |                                                          |
    +---------------------+----------------------------------------------------------+
 
