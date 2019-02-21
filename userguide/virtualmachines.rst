@@ -655,7 +655,7 @@ The default password is changed in the :guilabel:`Devices` by stopping
 the |dockerhost|, clicking |ui-options|, and :guilabel:`Devices`. Click
 |ui-options| and :guilabel:`Edit` for the :guilabel:`RAW` device and
 enter a new value in the :guilabel:`password` field. Passwords cannot
-contain a space.
+contain spaces.
 
 
 .. figure:: images/virtual-machines-docker-devices-rawfile.png
