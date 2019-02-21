@@ -193,7 +193,6 @@ It is recommended to immediately configure this IP address and test the network 
 Several methods are available to determine the IP address currently
 assigned to the X-Series Out-of-Band management interface.
 
-   for remote support**.
 
 
 Preset
