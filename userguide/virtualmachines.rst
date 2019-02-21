@@ -582,7 +582,7 @@ clicking |ui-add|, and selecting |dockerhost| as the
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
    | 3        | Virtual CPUs       | integer        | Enter the number of virtual CPUs to allocate to the |dockerhost|. The maximum is   |
-   |          |                    |                | *16* unless the host CPU also limits the maximum.                                  |
+   |          |                    |                | *16* unless the host CPU limits the maximum.                                       |
    |          |                    |                | The VM operating system can also have operational or licensing restrictions on     |
    |          |                    |                | the number of CPUs.                                                                |
    |          |                    |                |                                                                                    |
@@ -655,7 +655,7 @@ The default password is changed in the :guilabel:`Devices` by stopping
 the |dockerhost|, clicking |ui-options|, and :guilabel:`Devices`. Click
 |ui-options| and :guilabel:`Edit` for the :guilabel:`RAW` device and
 enter a new value in the :guilabel:`password` field. Passwords cannot
-contain a space.
+contain spaces.
 
 
 .. figure:: images/virtual-machines-docker-devices-rawfile.png
