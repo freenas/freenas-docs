@@ -171,7 +171,7 @@ shows the configuration options for Cloud Syncs.
 
 
 The time selected is when the Cloud Sync task is allowed to
-   begin. The cloud sync runs until finished, even after the time selected.
+begin. The cloud sync runs until finished, even after the time selected.
 
 .. note:: If
    `rclone sync <https://rclone.org/commands/rclone_sync/>`__
