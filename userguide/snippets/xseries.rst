@@ -188,6 +188,8 @@ it into place.
 Discover Out-of-Band Management IP Address
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+**A functioning Out-of-Band Ethernet port IP address is required for remote support.**
+It is recommended to immediately configure this IP address and test the network connection.
 Several methods are available to determine the IP address currently
 assigned to the X-Series Out-of-Band management interface.
 
