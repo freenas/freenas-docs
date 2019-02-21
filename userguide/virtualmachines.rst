@@ -442,13 +442,12 @@ Computing) remote connection. A standard
 client can connect to the VM to provide screen output and keyboard and
 mouse input.
 
-Each VM can only have a single VNC device. An existing VNC interface can
-be changed by clicking |ui-options| and :guilabel:`Edit`.
+Each VM can have a single VNC device. A
+:ref:`|dockerhost| <|dockerhost| VMs>` does not support VNC connections.
+An existing VNC interface can be changed by clicking |ui-options| and
+:guilabel:`Edit`.
 
-:ref:`|dockerhost| VMs` are not compatible with VNC
-connections and cannot have a VNC interface.
-
-.. note:: Using a non-US keyboard via VNC is not yet supported. As a
+.. note:: Using a non-US keyboard with VNC is not yet supported. As a
    workaround, select the US keymap on the system running the VNC client,
    then configure the operating system running in the VM to use a
    keymap that matches the physical keyboard. This will enable
@@ -524,9 +523,8 @@ is a web-based tool for managing Docker containers.
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The system BIOS **must** have virtualization support enabled for a
-|dockerhost| to run properly after installation. On Intel systems this
-is typically an option called *VT-x*. AMD systems generally have an
-*SVM* option.
+|dockerhost| to work properly. On Intel systems this is typically an
+option called *VT-x*. AMD systems generally have an *SVM* option.
 
 20 GiB of storage space is required for the |dockerhost|.
 
@@ -575,19 +573,19 @@ clicking |ui-add|, and selecting |dockerhost| as the
    |          | (VM) Wizard type   |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 2        | Name               | string         | Enter a descriptive name for the |dockerhost|.                                     |
+   | 2        | Name               | string         | A descriptive name for the |dockerhost|.                                           |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
    | 2        | Start on Boot      | checkbox       | Set to start this |dockerhost| when the %brand% system boots.                      |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Virtual CPUs       | integer        | Enter the number of virtual CPUs to allocate to the |dockerhost|. The maximum is   |
-   |          |                    |                | *16* unless the host CPU limits the maximum.                                       |
+   | 3        | Virtual CPUs       | integer        | Number of virtual CPUs to allocate to the |dockerhost|. The maximum is *16* unless |
+   |          |                    |                | the host CPU limits the maximum.                                                   |
    |          |                    |                | The VM operating system can also have operational or licensing restrictions on     |
    |          |                    |                | the number of CPUs.                                                                |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 3        | Memory Size (MiB)  | integer        | Allocate the amount of RAM in MiB for the |dockerhost|. A minimum *2048* MiB of    |
+   | 3        | Memory Size (MiB)  | integer        | Allocate this amount of RAM in MiB for the |dockerhost|. A minimum *2048* MiB of   |
    |          |                    |                | RAM is required.                                                                   |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
@@ -671,7 +669,7 @@ Go to
 and find the entry for the new |dockerhost|. Click |ui-options| and
 :guilabel:`Start` to boot the |dockerhost|.
 
-A |dockerhost| can take some time to boot. Click
+A |dockerhost| can take several minutes to boot. Click
 |ui-options| and :guilabel:`--> Serial` to view the |dockerhost|
 activity during startup. Use this console to configure Rancher inside
 the |dockerhost|.
@@ -701,8 +699,8 @@ At the %brand% console prompt, connect to the |dockerhost| with
 |dockerhost| :guilabel:`Com Port`.
 
 If the terminal does not immediately show a :literal:`rancher login:`
-prompt, press :kbd:`Enter`. The |dockerhost| can take some time to start
-and display the login prompt.
+prompt, press :kbd:`Enter`. The |dockerhost| can take several minutes to
+start and display the login prompt.
 
 
 .. _Installing and Configuring Rancher:
