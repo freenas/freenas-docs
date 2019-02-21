@@ -668,7 +668,8 @@ Start the |dockerhost|
 
 Go to
 :menuselection:`Virtual Machines`
-and click |ui-options|, then :guilabel:`Start` to boot the |dockerhost|.
+and find the entry for the new |dockerhost|. Click |ui-options| and
+:guilabel:`Start` to boot the |dockerhost|.
 
 A |dockerhost| can take some time to boot. Click
 |ui-options| and :guilabel:`--> Serial` to view the |dockerhost|
