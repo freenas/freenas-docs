@@ -812,7 +812,7 @@ The basic configuration requires a source system with the original
 data and a destination system where the data will be replicated. The
 destination system is prepared to receive replicated data when a
 :ref:`periodic snapshot <Periodic Snapshot Tasks>` of the source system
-data is created and a replication task is created.
+data and a replication task are created.
 
 When snapshots are automatically created on the source computer, they
 are automatically replicated to the destination computer. First-time
