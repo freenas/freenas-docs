@@ -408,6 +408,10 @@ U2
  * `kqueue race condition and kernel panic <https://www.freebsd.org/security/advisories/FreeBSD-EN-19%3A05.kqueue.asc>`__
  * `System call kernel data register leak <https://www.freebsd.org/security/advisories/FreeBSD-SA-19%3A01.syscall.asc>`__
 
+* The `mlx5ib(4) <https://www.freebsd.org/cgi/man.cgi?query=mlx5ib>`__
+  driver for the Mellanox ConnectX-4 family of infiniband drivers has
+  been added.
+
 * Samba has been updated to
   `4.9.4 <https://www.samba.org/samba/history/samba-4.9.4.html>`__ which
   is the current stable release receiving new features. This version bump
@@ -448,6 +452,9 @@ U2
   :guilabel:`aio_pthread` VFS module has been removed from
   :menuselection:`Sharing --> Windows (SMB) --> VFS Objects`.
 
+* The :guilabel:`Time Machine` field has been added to
+  :menuselection:`Sharing --> Windows (SMB) Shares --> Add`.
+
 * An :guilabel:`NAA` column has been added to
   :menuselection:`Sharing --> Block (iSCSI) --> Extents`.
 
@@ -474,17 +481,14 @@ U2
   :file:`usr/local/lib/collectd/ipmi.so` have been removed to disable
   the non-functional collectd IPMI plugin.
 
+* The :guilabel:`Wait to Boot` field in
+  :menuselection:`Virtual Machines --> Devices --> VNC Device --> Edit`
+  has been renamed to :guilabel:`Delay VM Boot until VNC Connects`.
+
 * An :ref:`Alert` for
   `syslog-ng <https://www.freebsd.org/cgi/man.cgi?query=syslog-ng>`__
   stopping has been added to
   :menuselection:`System --> Alert Settings`.
-
-* The :guilabel:`Time Machine` field has been added to
-  :menuselection:`Sharing --> Windows (SMB) Shares --> Add`.
-
-* The :guilabel:`Wait to Boot` field in
-  :menuselection:`Virtual Machines --> Devices --> VNC Device --> Edit`
-  has been renamed to :guilabel:`Delay VM Boot until VNC Connects`.
 
 
 .. _Path and Name Lengths:
