@@ -36,6 +36,11 @@ pre-configured by iXsystems. This section contains instructions for
 configuring it from the BIOS if needed. The same settings can be
 configured using the instructions in :ref:`IPMI`.
 
+.. warning:: The %brand% X-Series Unified Storage Array uses different
+   methods for out-of-band management. Refer to the specific X-Series
+   :ref:`out-of-band management instructions <Discover Out-of-Band Management IP Address>`
+
+
 Press :kbd:`F2` at the splash screen while the %brand% Storage Array
 is booting to access the system BIOS. This opens the menu shown in
 :numref:`Figure %s <appliance34>`.
