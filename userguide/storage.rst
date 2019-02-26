@@ -1972,19 +1972,19 @@ system, with that system sometimes being at a different physical
 location.
 
 The basic configuration requires a source system with the original
-data and a destination system where the data will be replicated. The
-destination system is prepared to receive replicated data when a
-:ref:`periodic snapshot <Periodic Snapshot Tasks>` of the source system
-data and a replication task are created.
+data and a destination system where the data will be replicated. When a
+:ref:`periodic snapshot <Periodic Snapshot Tasks>` of the selected
+dataset occurs, the replication task copies the data to the destination
+system.
 
 When snapshots are automatically created on the source computer, they
-are automatically replicated to the destination computer. First-time
-replication tasks can take a long time to complete as the entire
-snapshot must be copied to the destination system. Replicated data is
-not visible on the receiving system until the replication task
-completes. Later replications only send the snapshot changes to the
-destination system. Interrupting a running replication requires the
-replication task to restart from the beginning.
+are replicated to the destination computer. First-time replication tasks
+can take a long time to complete as the entire snapshot must be copied
+to the destination system. Replicated data is not visible on the
+receiving system until the replication task completes. Later
+replications only send the snapshot changes to the destination system.
+Interrupting a running replication requires the replication task to
+restart from the beginning.
 
 The target dataset on the receiving system is automatically created in
 read-only mode to protect the data. To mount or browse the data on the
