@@ -34,9 +34,11 @@ Carefully unpack the shipping boxes and locate these components:
    * ES60 Expansion Shelf (**1**)
    * ES60 Bezel (**2**)
    * Rail kit with mounting hardware (**3**)
-   * Up to 60 drive trays with installed hard drives, shipped separately (**4**)
+   * Up to 60 drive trays with installed hard drives, shipped separately
+     (**4**)
    * Two 3-meter Mini SAS HD to Mini SAS HD cables (**5**)
-   * Two IEC C13 to NEMA 5-15P power cords with two IEC C14 to C14 power cords (**6**)
+   * Two IEC C13 to NEMA 5-15P power cords with two IEC C14 to C14 power
+     cords (**6**)
 
 
 .. raw:: latex
