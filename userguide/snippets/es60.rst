@@ -118,13 +118,10 @@ secures the rail in place. Repeat this process on the other side.
 Mount Rack Rails
 ^^^^^^^^^^^^^^^^
 
-Install four cage nuts in the rack, two where the rails attach to the
-front of the rack, and two at the rear. Be sure each cage nut is aligned
-with the others, front to back and left to right.
-
-.. figure:: images/tn_es60_attach_cage_nuts.png
-   :width: 70%
-
+Install four cage nuts inside the rack, two where the rails attach to
+the front of the rack, and two at the rear. Align each cage nut with the
+others, both front to back and left to right. The cage nuts sit inside
+the rack to provide an attach point for the rail screws.
 
 Place the rail in the rack with the front end toward the front of the
 rack and rear toward the back of the rack. Align the pins on both rail
