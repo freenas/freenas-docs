@@ -28,12 +28,15 @@ Carefully unpack the shipping boxes and locate these components:
    :width: 100%
 
 
-* ES60 Expansion Shelf (**1**)
-* ES60 Bezel (**2**)
-* Rail kit with mounting hardware (**3**)
-* Up to 60 drive trays with installed hard drives, shipped separately (**4**)
-* Two 3-meter Mini SAS HD to Mini SAS HD cables (**5**)
-* Two IEC C13 to NEMA 5-15P power cords with two IEC C14 to C14 power cords (**6**)
+.. hlist::
+   :columns: 2
+
+   * ES60 Expansion Shelf (**1**)
+   * ES60 Bezel (**2**)
+   * Rail kit with mounting hardware (**3**)
+   * Up to 60 drive trays with installed hard drives, shipped separately (**4**)
+   * Two 3-meter Mini SAS HD to Mini SAS HD cables (**5**)
+   * Two IEC C13 to NEMA 5-15P power cords with two IEC C14 to C14 power cords (**6**)
 
 
 .. raw:: latex
@@ -71,19 +74,15 @@ configuration.
    :width: 85%
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+.. hlist::
+   :columns: 2
 
-.. table::
-   :class: longtable
-
-   +----------------------+-------------------------------+
-   | 1: Power supply      | 4: Locate ID                  |
-   +----------------------+-------------------------------+
-   | 2: Power indicator   | 5: Management port (not used) |
-   +----------------------+-------------------------------+
-   | 3: Alarm indicator   | 6,7: HD Mini SAS3 connectors  |
-   +----------------------+-------------------------------+
+   * Power supply (**1**)
+   * Power indicator (**2**)
+   * Alarm indicator (**3**)
+   * Locate ID (**4**)
+   * Management port (not used) (**5**)
+   * HD Mini SAS3 connectors (**6** and **7**)
 
 
 Rail Kit Assembly
