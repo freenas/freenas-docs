@@ -815,7 +815,7 @@ destination system is prepared to receive replicated data when a
 data and a replication task are created.
 
 When snapshots are automatically created on the source computer, they
-are automatically replicated to the destination computer. First-time
+are replicated to the destination computer. First-time
 replication tasks can take a long time to complete as the entire
 snapshot must be copied to the destination system. Replicated data is
 not visible on the receiving system until the replication task
