@@ -819,7 +819,7 @@ are replicated to the destination computer. First-time
 replication tasks can take a long time to complete as the entire
 snapshot must be copied to the destination system. Replicated data is
 not visible on the receiving system until the replication task
-completes. Later replications only send the snapshot changes to the
+completes. Later replications only send the changes to the
 destination system. Interrupting a running replication requires
 the replication task to restart from the beginning.
 
