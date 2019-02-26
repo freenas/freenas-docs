@@ -142,19 +142,19 @@ installation or removal.** Do not install drives until after the
 chassis has been installed in the rack, and remove all drives before
 removing the chassis from the rack.
 
-Slide the front rack rail forward to meet the rear of the cabinet
-rails. Align the cabinet rail with the inside of the front rack rail
-and slide the cabinet rail forward until it is fully seated inside the
-rack rail. Repeat the process for the second rail.
+Pick up the ES60 with attached cabinet rails. Align the ES60 cabinet
+rails with the inside of the front rack rails.
 
 .. figure:: images/tn_es60_cabinet_mount.png
    :width: 40%
 
 
-When both cabinet rails are secured inside the rack rails, carefully
-slide the chassis until the ears are flush with the front of the rack.
-Tighten both blue screws on the ears of the chassis to secure the unit
-in the rack.
+Carefully push the ES60 forward into the rack rails until the unit stops.
+Find the blue tabs on the inside of the cabinet rails. Pull these tabs
+away from the rack and hold them in place. Continue to push the chassis
+forward until the ears are flush with the front of the rack. Tighten
+both blue screws on the ears of the chassis to secure the unit in the
+rack.
 
 .. figure:: images/tn_es60_cabinet_secure.png
    :width: 80%
