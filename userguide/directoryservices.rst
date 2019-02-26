@@ -172,7 +172,11 @@ advanced options.
    |                          |               |          | Example is *exampleserver*.                                                                                                   |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Global Catalog Server    | string        | ✓        | Ensure the hostname of the global catalog server to use is resolvable.                                                        |
+   | Global Catalog Server    | string        | ✓        | The global catalog server holds a full set of attributes for the domain in which it resides and a subset of attributes for    |
+   |                          |               |          | all objects in the Microsoft Active Directory Forest. See the `IBM Knowledge Center                                           |
+   |                          |               |          | <https://www.ibm.com/support/knowledgecenter/en/SSEQTP_9.0.0/com.ibm.websphere.base.doc/ae/csec_was_ad_globcat.html>`__.      |
+   |                          |               |          | Leave empty for %brand% to use the DNS SRV records to automatically detect and connect to the server.                         |
+   |                          |               |          | If the global catalog server must be entered manually, enter the server hostname or IP address.                               |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Kerberos Realm           | drop-down     | ✓        | Select the realm created using the instructions in :ref:`Kerberos Realms`.                                                    |
