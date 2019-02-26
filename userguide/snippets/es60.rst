@@ -24,28 +24,15 @@ Unified Storage Array.
 Carefully unpack the shipping boxes and locate these components:
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+.. figure:: images/tn_es60_components.png
+   :width: 100%
 
-.. table::
-   :class: longtable
 
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es60_bare.png         | .. image:: images/tn_es60_bezel.png         |
-   |                                            |                                             |
-   | ES60 Expansion Shelf                       | ES60 Bezel                                  |
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es60_railkit.png      | .. image:: images/tn_es60_drivetray.png     |
-   |                                            |                                             |
-   | Rail kit with mounting hardware            | Up to 60 drive trays with installed hard    |
-   |                                            | drives (shipped separately from the ES60)   |
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es60_powercords.png   | .. image:: images/tn_sascables_minihd.png   |
-   |                                            |    :width: 50%                              |
-   |                                            |                                             |
-   | Two IEC C13 to NEMA 5-15P power cords,     | Two 3-meter Mini SAS HD to Mini SAS HD      |
-   | two IEC C14 to C14 power cords             | cables                                      |
-   +--------------------------------------------+---------------------------------------------+
+Included in the boxes are the ES60 Expansion Shelf (**1**), ES60 Bezel
+(**2**), rail kit with mounting hardware (**3**), up to 60 drive trays
+with installed hard drives (shipped separately) (**4**), two 3-meter
+Mini SAS HD to Mini SAS HD cables (**5**), and two IEC C13 to NEMA 5-15P
+power cords with two IEC C14 to C14 power cords (**6**).
 
 
 .. raw:: latex
@@ -63,7 +50,7 @@ Indicators on the front panel show power, fault, and locate ID. The
 fault indicator is on during the initial power-on self-test (POST) or
 when the %brand% software has issued an alert. See the Alert section in
 the Additional Options chapter of the %brand%
-`User Guide <%docurl%/%brandlower%>`__..
+`User Guide <%docurl%/%brandlower%>`__.
 
 
 .. figure:: images/tn_es60.png
