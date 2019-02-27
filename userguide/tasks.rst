@@ -126,27 +126,15 @@ Init/Shutdown Scripts
 %brand% provides the ability to schedule commands or scripts to run
 at system startup or shutdown.
 
-:numref:`Figure %s <tasks_init_script_fig>`
-shows the screen that opens after going to
+Go to
 :menuselection:`Tasks --> Init/Shutdown Scripts`
-and clicking |ui-add|.
-:numref:`Table %s <tasks_init_opt_tab>`
-summarizes the options.
-
-Scheduled commands must be in the default path. The full path to
-the command can also be included in the entry. The path can be tested
-by typing :samp:`which {commandname}`. If the command is not found, it
-is not in the path.
-
-When scheduling a script, make sure that the script is executable and
-has been fully tested to ensure it achieves the desired results.
-
+and click |ui-add|.
 
 .. _tasks_init_script_fig:
 
 .. figure:: images/tasks-init-shutdown-scripts-add.png
 
-   Add an Init/Shutdown Script
+   Add an Init/Shutdown Command or Script
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -155,36 +143,51 @@ has been fully tested to ensure it achieves the desired results.
 
 .. _tasks_init_opt_tab:
 
-.. table:: Options When Adding an Init/Shutdown Script
+.. table:: Init/Shutdown Command or Script Options
    :class: longtable
 
-   +-------------+----------------+-----------------------------------------------------------------------------------+
-   | Setting     | Value          | Description                                                                       |
-   |             |                |                                                                                   |
-   |             |                |                                                                                   |
-   +=============+================+===================================================================================+
-   | Type        | drop-down menu | Select *Command* for an executable or                                             |
-   |             |                | *Script* for an executable script.                                                |
-   |             |                |                                                                                   |
-   +-------------+----------------+-----------------------------------------------------------------------------------+
-   | Command or  | string         | If *Command* is selected, enter the command plus any desired options. If          |
-   | Script      |                | *Script* is selected, browse to the location of the script.                       |
-   |             |                |                                                                                   |
-   +-------------+----------------+-----------------------------------------------------------------------------------+
-   | When        | drop-down menu | Select when the command or script runs. *Pre Init* is very early                  |
-   |             |                | in boot process before mounting filesystems, *Post Init* is towards               |
-   |             |                | the end of boot process before FreeNAS services start, or at *Shutdown*.          |
-   |             |                |                                                                                   |
-   +-------------+----------------+-----------------------------------------------------------------------------------+
-   | Enabled     | checkbox       | Enable this task. Unset to disable the task without deleting it.                  |
-   |             |                |                                                                                   |
-   +-------------+----------------+-----------------------------------------------------------------------------------+
+   +-------------+----------------+----------------------------------------------------------------------------------------------+
+   | Setting     | Value          | Description                                                                                  |
+   |             |                |                                                                                              |
+   |             |                |                                                                                              |
+   +=============+================+==============================================================================================+
+   | Type        | drop-down menu | Select *Command* for an executable or *Script* for an executable script.                     |
+   |             |                |                                                                                              |
+   +-------------+----------------+----------------------------------------------------------------------------------------------+
+   | Command or  | string         | If *Command* is selected, enter the command with any options. When *Script* is selected,     |
+   | Script      |                | click |ui-browse| to select the script from an existing pool.                                |
+   |             |                |                                                                                              |
+   +-------------+----------------+----------------------------------------------------------------------------------------------+
+   | When        | drop-down menu | Select when the *Command* or *Script* runs:                                                  |
+   |             |                |                                                                                              |
+   |             |                | * *Pre Init*: early in the boot process, after mounting filesystems and starting networking  |
+   |             |                | * *Post Init*: at the end of the boot process, before %brand% services start                 |
+   |             |                | * *Shutdown*: during the system power off process.                                           |
+   |             |                |                                                                                              |
+   +-------------+----------------+----------------------------------------------------------------------------------------------+
+   | Enabled     | checkbox       | Enable this task. Unset to disable the task without deleting it.                             |
+   |             |                |                                                                                              |
+   +-------------+----------------+----------------------------------------------------------------------------------------------+
 
+
+Scheduled commands must be in the default path. The full path to the
+command can also be included in the entry. The path can be tested with
+:command:`which {commandname}` in the :ref:`Shell`. When available, the
+path to the command is shown:
+
+.. code-block:: none
+
+   [root@freenas ~]# which ls
+   /bin/ls
+
+
+When scheduling a script, test the script first to verify it is
+executable and achieves the desired results.
 
 Init/Shutdown tasks are shown in
 :menuselection:`Tasks --> Init/Shutdown Scripts`.
-Click |ui-options| to see the :guilabel:`Edit` and :guilabel:`Delete`
-buttons.
+Click |ui-options| for a task to :guilabel:`Edit` or :guilabel:`Delete`
+that task.
 
 
 .. index:: Rsync Tasks
