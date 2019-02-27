@@ -1338,9 +1338,11 @@ causes buttons to appear to edit the device options (shown in
 offline or online the device, or replace the device (as described in
 :ref:`Replacing a Failed Drive`).
 
-**Upgrade:** used to upgrade the pool to the latest ZFS features, as
-described in :ref:`Upgrading a ZFS Pool`. This button does not appear
-if the pool is running the latest version of feature flags.
+**Upgrade:** used to upgrade the pool to the latest
+:ref:`ZFS Feature Flags`. See the warnings in
+:ref:`Upgrading a ZFS Pool` before selecting this option. This button
+does not appear when the pool is running the latest version of the
+feature flags.
 
 
 .. _volume_status_fig:

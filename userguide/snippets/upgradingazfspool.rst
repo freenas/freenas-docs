@@ -13,7 +13,7 @@ first:
 * the pool upgrade is a one-way street, meaning that
   **if you change your mind you cannot go back to an earlier ZFS
   version or downgrade to an earlier version of the software that
-  does not support those feature flags.**
+  does not support those ZFS features.**
 
 * before performing any operation that may affect the data on a
   storage disk, **always back up all data first and verify the
@@ -25,9 +25,9 @@ first:
   the possibility of reverting to an earlier version of %brand% or
   repurposing the disks in another operating system that supports ZFS
   is desired. It is not necessary to upgrade the pool unless the end
-  user has a specific need for the newer ZFS feature flags. If a pool
-  is upgraded to the latest feature flags, it will not be possible to
-  import that pool into another operating system that does not yet
+  user has a specific need for the newer :ref:`ZFS Feature Flags`. If a
+  pool is upgraded to the latest feature flags, it will not be possible
+  to import that pool into another operating system that does not yet
   support those feature flags.
 
 To perform the ZFS pool upgrade, go to
