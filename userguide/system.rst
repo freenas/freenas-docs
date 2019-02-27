@@ -1274,9 +1274,6 @@ The ZFS version used in |release| deprecates these tunables:
    kern.msgbufsize="524288"
    hw.mfi.mrsas_enable="1"
    hw.usb.no_shutdown_wait=1
-   hw.cxgbe.toecaps_allowed=0
-   hw.cxgbe.rdmacaps_allowed=0
-   hw.cxgbe.iscsicaps_allowed=0
    vfs.nfsd.fha.write=0
    vfs.nfsd.fha.max_nfsds_per_fh=32
    kern.ipc.nmbclusters="262144"
