@@ -161,7 +161,7 @@ and click |ui-add|.
    | When        | drop-down menu | Select when the *Command* or *Script* runs:                                                  |
    |             |                |                                                                                              |
    |             |                | * *Pre Init*: early in the boot process, after mounting filesystems and starting networking  |
-   |             |                | * *Post Init*: at the end of boot process, before %brand% services start                     |
+   |             |                | * *Post Init*: at the end of the boot process, before %brand% services start                 |
    |             |                | * *Shutdown*: during the system power off process.                                           |
    |             |                |                                                                                              |
    +-------------+----------------+----------------------------------------------------------------------------------------------+
