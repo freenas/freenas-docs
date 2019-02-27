@@ -1971,25 +1971,26 @@ Replication is typically used to keep a copy of files on a separate
 system, with that system sometimes being at a different physical
 location.
 
-
 The basic configuration requires a source system with the original
-data and a destination system where the data will be replicated.
-The destination system is prepared to receive replicated data, a
-:ref:`periodic snapshot <Periodic Snapshot Tasks>` of the data on the
-source system is created, and then a replication task is created. As
-snapshots are automatically created on the source computer, they are
-automatically replicated to the destination computer.
+data and a destination system where the data will be replicated. When a
+:ref:`periodic snapshot <Periodic Snapshot Tasks>` of the selected
+dataset occurs, the replication task copies the data to the destination
+system.
 
-.. note:: Replicated data is not visible on the receiving system until
-   the replication task completes.
+When snapshots are automatically created on the source computer, they
+are replicated to the destination computer. First-time replication tasks
+can take a long time to complete as the entire snapshot must be copied
+to the destination system. Replicated data is not visible on the
+receiving system until the replication task completes. Later
+replications only send the snapshot changes to the destination system.
+Interrupting a running replication requires the replication task to
+restart from the beginning.
 
-
-.. note:: The target dataset on the receiving system is automatically
-   created in read-only mode to protect the data. To mount or browse
-   the data on the receiving system, create a clone of the snapshot
-   and use the clone. Clones are created in read/write mode, making it
-   possible to browse or mount them. See :ref:`Snapshots` for more
-   information on creating clones.
+The target dataset on the receiving system is automatically created in
+read-only mode to protect the data. To mount or browse the data on the
+receiving system, create a clone of the snapshot and use the clone.
+Clones are created in read/write mode, making it possible to browse or
+mount them. See :ref:`Snapshots` for more information on creating clones.
 
 
 .. _replication_common_config:
