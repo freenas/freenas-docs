@@ -80,8 +80,8 @@ Some of the conditions that trigger an alert include:
 * used space on a pool, dataset, or zvol goes over 80%; the alert
   goes red at 95%
 
-* new OpenZFS feature flags are available for the pool; this alert can
-  be adjusted in :ref:`Alert Settings` if a pool upgrade is not
+* new :ref:`ZFS Feature Flags` are available for the pool; this alert
+  can be adjusted in :ref:`Alert Settings` if a pool upgrade is not
   desired at present
 
 * a new update is available
