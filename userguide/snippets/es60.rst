@@ -388,7 +388,7 @@ The SAS cables connect to the *1* ports on the ES60 expansion shelves.
 * Connect cable #2 to the first ES60, expansion controller 2 SAS 1
   port.
 
-If a second ES60 is present:
+If a second ES60 is present (X-series supports only one ES60):
 
 * Connect cable #3 to the second ES60, expansion controller 1 SAS 1
   port.
