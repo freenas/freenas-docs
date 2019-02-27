@@ -3,7 +3,7 @@
 System
 ======
 
-The System section of the administrative |web-ui| contains these entries:
+The System section of the |web-ui| contains these entries:
 
 #ifdef truenas
 * :ref:`Information` provides general %brand% system information such as
@@ -210,7 +210,7 @@ This screen also contains these buttons:
 
 **Save Config:** save a backup copy of the current configuration
 database in the format *hostname-version-architecture* to the computer
-accessing the administrative interface. Saving the configuration after
+accessing the |web-ui|. Saving the configuration after
 making any configuration changes is highly recommended. %brand%
 automatically backs up the configuration database to the system
 dataset every morning at 3:45. However, this backup does not occur if
