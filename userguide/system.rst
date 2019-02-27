@@ -3,7 +3,7 @@
 System
 ======
 
-The System section of the administrative GUI contains these entries:
+The System section of the |web-ui| contains these entries:
 
 * :ref:`Information` provides general %brand% system information
   such as hostname, operating system version, platform, and uptime
@@ -147,7 +147,7 @@ settings in the General tab:
    | Setting             | Value        | Description                                                                                                            |
    |                     |              |                                                                                                                        |
    +=====================+==============+========================================================================================================================+
-   | Protocol            | drop-down    | Set the web protocol to use when connecting to the administrative GUI from a browser.                                  |
+   | Protocol            | drop-down    | Set the web protocol to use when connecting to the |web-ui| from a browser.                                            |
    |                     | menu         | To change the default *HTTP* to *HTTPS* or to *HTTP+HTTPS*, select a certificate to use in :guilabel:`Certificate`.    |
    |                     |              | If there are no certificates, first create a :ref:`CA <CAs>` then a :ref:`certificate <Certificates>`.                 |
    |                     |              |                                                                                                                        |
@@ -155,21 +155,21 @@ settings in the General tab:
    | Certificate         | drop-down    | Required for *HTTPS*. :guilabel:`Browse` to the location of the certificate to use for encrypted connections.          |
    |                     | menu         |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv4         | drop-down    | Choose a recent IP address to limit the usage when accessing the administrative GUI.                                   |
+   | WebGUI IPv4         | drop-down    | Choose a recent IP address to limit the usage when accessing the |web-ui|.                                             |
    | Address             | menu         | The built-in HTTP server binds to the wildcard address of *0.0.0.0* (any address)                                      |
    |                     |              | and issues an alert if the specified address becomes unavailable.                                                      |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI IPv6         | drop-down    | Choose a recent IPv6 address to limit the usage when accessing the administrative GUI.                                 |
+   | WebGUI IPv6         | drop-down    | Choose a recent IPv6 address to limit the usage when accessing the |web-ui|.                                           |
    | Address             | menu         | The built-in HTTP server binds to any address issues an alert if the specified address becomes unavailable.            |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTP         | integer      | Allow configuring a non-standard port for accessing the administrative GUI over HTTP.                                  |
+   | WebGUI HTTP         | integer      | Allow configuring a non-standard port for accessing the |web-ui| over HTTP.                                            |
    | Port                |              | Changing this setting can also require `changing a Firefox configuration setting                                       |
    |                     |              | <https://www.redbrick.dcu.ie/~d_fens/articles/Firefox:_This_Address_is_Restricted>`__.                                 |
    |                     |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | WebGUI HTTPS        | integer      | Allow configuring a non-standard port for accessing the administrative GUI over HTTPS.                                 |
+   | WebGUI HTTPS        | integer      | Allow configuring a non-standard port for accessing the |web-ui| over HTTPS.                                           |
    | Port                |              |                                                                                                                        |
    +---------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
    | WebGUI HTTP -->     | checkbox     | Set to redirect *HTTP* connections to *HTTPS*.                                                                         |
@@ -1128,8 +1128,8 @@ recommended. Some sysctls only take effect at system startup, and
 restarting the system guarantees that the setting values correspond
 with what is being used by the running system.
 
-The GUI does not display the sysctls that are pre-set when %brand% is
-installed. %brand% |release| ships with these sysctls set:
+The |web-ui| does not display the sysctls that are pre-set when
+%brand% is installed. %brand% |release| ships with these sysctls set:
 
 #ifdef freenas
 .. code-block:: none
@@ -1162,8 +1162,8 @@ installed. %brand% |release| ships with these sysctls set:
 **Do not add or edit these default sysctls** as doing so may render
 the system unusable.
 
-The GUI does not display the loaders that are pre-set when %brand% is
-installed. %brand% |release| ships with these loaders set:
+The |web-ui| does not display the loaders that are pre-set when
+%brand% is installed. %brand% |release| ships with these loaders set:
 
 #ifdef freenas
 .. code-block:: none
@@ -2717,8 +2717,9 @@ and described in
 **Notes about High Availability and failovers:**
 
 Booting an HA pair with failover disabled causes both nodes to come up
-in standby mode. The GUI shows an additional :guilabel:`Force Takeover`
-button which can be used to force that node to take control.
+in standby mode. The |web-ui| shows an additional
+:guilabel:`Force Takeover` button which can be used to force that node
+to take control.
 
 The %brand% version of the :command:`ifconfig` command adds two
 additional fields to the output to help with failover troubleshooting:
