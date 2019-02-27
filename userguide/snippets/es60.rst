@@ -31,14 +31,14 @@ Carefully unpack the shipping boxes and locate these components:
 .. hlist::
    :columns: 2
 
-   * ES60 Expansion Shelf (**1**)
-   * ES60 Bezel (**2**)
-   * Rail kit with mounting hardware (**3**)
-   * Up to 60 drive trays with installed hard drives, shipped separately
-     (**4**)
-   * Two 3-meter Mini SAS HD to Mini SAS HD cables (**5**)
-   * Two IEC C13 to NEMA 5-15P power cords with two IEC C14 to C14 power
-     cords (**6**)
+   * ES60 Expansion Shelf (#1)
+   * ES60 Bezel (#2)
+   * Rail kit with mounting hardware (#3)
+   * Up to 60 drive trays with installed hard drives, shipped
+     separately (#4)
+   * Two 3-meter Mini SAS HD to Mini SAS HD cables (#5)
+   * Two IEC C13 to NEMA 5-15P power cords with two IEC C14 to C14
+     power cords (#6)
 
 
 .. raw:: latex
@@ -54,8 +54,8 @@ Become Familiar With the ES60
 
 Indicators on the front panel show power, fault, and locate ID. The
 fault indicator is on during the initial power-on self-test (POST) or
-when the %brand% software has issued an alert. See the Alert section in
-the Additional Options chapter of the %brand%
+when the %brand% software has issued an alert. See the Alert section
+in the Additional Options chapter of the %brand%
 `User Guide <%docurl%/%brandlower%>`__.
 
 
@@ -79,12 +79,12 @@ configuration.
 .. hlist::
    :columns: 2
 
-   * Power supply (**1**)
-   * Power indicator (**2**)
-   * Alarm indicator (**3**)
-   * Locate ID (**4**)
-   * Management port (not used) (**5**)
-   * HD Mini SAS3 connectors (**6** and **7**)
+   * Power supply (#1)
+   * Power indicator (#2)
+   * Alarm indicator (#3)
+   * Locate ID (#4)
+   * Management port (not used) (#5)
+   * HD Mini SAS3 connectors (#6 and #7)
 
 
 Rail Kit Assembly
@@ -159,7 +159,7 @@ both blue screws on the ears of the chassis to secure the unit in the
 rack.
 
 .. figure:: images/tn_es60_cabinet_secure.png
-   :width: 80%
+   :width: 100%
 
 
 .. raw:: latex
