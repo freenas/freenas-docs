@@ -1725,8 +1725,8 @@ To assign additional IP addresses to the portal, click the link
    |                       | menu      | wildcard address of *0.0.0.0* (any interface).                              |
    |                       |           |                                                                             |
 #ifdef truenas
-   |                       |           | Choose only physical interface IP addresses when configuring iSCSI ALUA.    |
-   |                       |           |                                                                             |
+   |                      |            | Choose only physical interface IP addresses when configuring iSCSI ALUA.    |
+   |                      |            | Do not use Virtual IP addresses with an ALUA configuration.                 |
 #endif truenas
    +-----------------------+-----------+-----------------------------------------------------------------------------+
    | Port                  | integer   | TCP port used to access the iSCSI target. Default is *3260*.                |
