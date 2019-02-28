@@ -199,9 +199,10 @@ deduplication has been enabled, the mountpoint path, and any comments
 entered for the pool.
 
 There is an option to :guilabel:`Upgrade Pool`. This upgrades the
-pool to the latest ZFS features, as described in
-:ref:`Upgrading a ZFS Pool`. This button does not appear
-if the pool is running the latest version of feature flags.
+pool to the latest :ref:`ZFS Feature Flags`. See the warnings in
+:ref:`Upgrading a ZFS Pool` before selecting this option. This button
+does not appear when the pool is running the latest version of the
+feature flags.
 
 .. _zfs_vol_fig:
 

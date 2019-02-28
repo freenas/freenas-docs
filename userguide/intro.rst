@@ -793,15 +793,18 @@ interface. If the driver supports WOL, it can be enabled using
 `ifconfig(8) <https://www.freebsd.org/cgi/man.cgi?query=ifconfig>`__. To
 determine if WOL is supported on a particular interface, use the
 interface name with the following command. In this example, the
-capabilities line indicates that WOL is supported for the *re0*
+capabilities line indicates that WOL is supported for the *igb0*
 interface:
 
 .. code-block:: none
 
- ifconfig -m re0
- re0: flags=8943<UP,BROADCAST,RUNNING,PROMISC,SIMPLEX,MULTICAST> metric 0 mtu 1500
-         options=42098<VLAN_MTU,VLAN_HWTAGGING,VLAN_HWCSUM,WOL_MAGIC,VLAN_HWTSO>
-         capabilities=5399b<RXCSUM,TXCSUM,VLAN_MTU,VLAN_HWTAGGING,VLAN_HWCSUM,TSO4,WOL_UCAST,WOL_MCAST, WOL_MAGIC,VLAN_HWFILTER,VLAN_H WTSO>
+   [root@freenas ~]# ifconfig -m igb0
+   igb0: flags=8943<UP,BROADCAST,RUNNING,PROMISC,SIMPLEX,MULTICAST> metric 0 mtu 1500
+           options=6403bb<RXCSUM,TXCSUM,VLAN_MTU,VLAN_HWTAGGING,JUMBO_MTU,VLAN_HWCSUM,
+   TSO4,TSO6,VLAN_HWTSO,RXCSUM_IPV6,TXCSUM_IPV6>
+           capabilities=653fbb<RXCSUM,TXCSUM,VLAN_MTU,VLAN_HWTAGGING,JUMBO_MTU,
+   VLAN_HWCSUM,TSO4,TSO6,LRO,WOL_UCAST,WOL_MCAST,WOL_MAGIC,VLAN_HWFILTER,VLAN_HWTSO,
+   RXCSUM_IPV6,TXCSUM_IPV6>
 
 
 If WOL support is shown but not working for a particular interface,

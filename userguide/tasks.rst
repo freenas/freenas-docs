@@ -126,27 +126,15 @@ Init/Shutdown Scripts
 %brand% provides the ability to schedule commands or scripts to run
 at system startup or shutdown.
 
-:numref:`Figure %s <tasks_init_script_fig>`
-shows the screen that opens after going to
+Go to
 :menuselection:`Tasks --> Init/Shutdown Scripts`
-and clicking |ui-add|.
-:numref:`Table %s <tasks_init_opt_tab>`
-summarizes the options.
-
-Scheduled commands must be in the default path. The full path to
-the command can also be included in the entry. The path can be tested
-by typing :samp:`which {commandname}`. If the command is not found, it
-is not in the path.
-
-When scheduling a script, make sure that the script is executable and
-has been fully tested to ensure it achieves the desired results.
-
+and click |ui-add|.
 
 .. _tasks_init_script_fig:
 
 .. figure:: images/tasks-init-shutdown-scripts-add.png
 
-   Add an Init/Shutdown Script
+   Add an Init/Shutdown Command or Script
 
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
@@ -155,36 +143,51 @@ has been fully tested to ensure it achieves the desired results.
 
 .. _tasks_init_opt_tab:
 
-.. table:: Options When Adding an Init/Shutdown Script
+.. table:: Init/Shutdown Command or Script Options
    :class: longtable
 
-   +-------------+----------------+-----------------------------------------------------------------------------------+
-   | Setting     | Value          | Description                                                                       |
-   |             |                |                                                                                   |
-   |             |                |                                                                                   |
-   +=============+================+===================================================================================+
-   | Type        | drop-down menu | Select *Command* for an executable or                                             |
-   |             |                | *Script* for an executable script.                                                |
-   |             |                |                                                                                   |
-   +-------------+----------------+-----------------------------------------------------------------------------------+
-   | Command or  | string         | If *Command* is selected, enter the command plus any desired options. If          |
-   | Script      |                | *Script* is selected, browse to the location of the script.                       |
-   |             |                |                                                                                   |
-   +-------------+----------------+-----------------------------------------------------------------------------------+
-   | When        | drop-down menu | Select when the command or script runs. *Pre Init* is very early                  |
-   |             |                | in boot process before mounting filesystems, *Post Init* is towards               |
-   |             |                | the end of boot process before FreeNAS services start, or at *Shutdown*.          |
-   |             |                |                                                                                   |
-   +-------------+----------------+-----------------------------------------------------------------------------------+
-   | Enabled     | checkbox       | Enable this task. Unset to disable the task without deleting it.                  |
-   |             |                |                                                                                   |
-   +-------------+----------------+-----------------------------------------------------------------------------------+
+   +-------------+----------------+----------------------------------------------------------------------------------------------+
+   | Setting     | Value          | Description                                                                                  |
+   |             |                |                                                                                              |
+   |             |                |                                                                                              |
+   +=============+================+==============================================================================================+
+   | Type        | drop-down menu | Select *Command* for an executable or *Script* for an executable script.                     |
+   |             |                |                                                                                              |
+   +-------------+----------------+----------------------------------------------------------------------------------------------+
+   | Command or  | string         | If *Command* is selected, enter the command with any options. When *Script* is selected,     |
+   | Script      |                | click |ui-browse| to select the script from an existing pool.                                |
+   |             |                |                                                                                              |
+   +-------------+----------------+----------------------------------------------------------------------------------------------+
+   | When        | drop-down menu | Select when the *Command* or *Script* runs:                                                  |
+   |             |                |                                                                                              |
+   |             |                | * *Pre Init*: early in the boot process, after mounting filesystems and starting networking  |
+   |             |                | * *Post Init*: at the end of the boot process, before %brand% services start                 |
+   |             |                | * *Shutdown*: during the system power off process.                                           |
+   |             |                |                                                                                              |
+   +-------------+----------------+----------------------------------------------------------------------------------------------+
+   | Enabled     | checkbox       | Enable this task. Unset to disable the task without deleting it.                             |
+   |             |                |                                                                                              |
+   +-------------+----------------+----------------------------------------------------------------------------------------------+
 
+
+Scheduled commands must be in the default path. The full path to the
+command can also be included in the entry. The path can be tested with
+:command:`which {commandname}` in the :ref:`Shell`. When available, the
+path to the command is shown:
+
+.. code-block:: none
+
+   [root@freenas ~]# which ls
+   /bin/ls
+
+
+When scheduling a script, test the script first to verify it is
+executable and achieves the desired results.
 
 Init/Shutdown tasks are shown in
 :menuselection:`Tasks --> Init/Shutdown Scripts`.
-Click |ui-options| to see the :guilabel:`Edit` and :guilabel:`Delete`
-buttons.
+Click |ui-options| for a task to :guilabel:`Edit` or :guilabel:`Delete`
+that task.
 
 
 .. index:: Rsync Tasks
@@ -809,23 +812,25 @@ system, with that system sometimes being at a different physical
 location.
 
 The basic configuration requires a source system with the original
-data and a destination system where the data will be replicated.
-The destination system is prepared to receive replicated data, a
-:ref:`periodic snapshot <Periodic Snapshot Tasks>` of the data on the
-source system is created, and then a replication task is created. As
-snapshots are automatically created on the source computer, they are
-automatically replicated to the destination computer.
+data and a destination system where the data will be replicated. When a
+:ref:`periodic snapshot <Periodic Snapshot Tasks>` of the selected
+dataset occurs, the replication task copies the data to the destination
+system.
 
-.. note:: Replicated data is not visible on the receiving system until
-   the replication task completes.
+When snapshots are automatically created on the source computer, they
+are replicated to the destination computer. First-time replication tasks
+can take a long time to complete as the entire snapshot must be copied
+to the destination system. Replicated data is not visible on the
+receiving system until the replication task completes. Later
+replications only send the changes to the destination system.
+Interrupting a running replication requires the replication task to
+restart from the beginning.
 
-
-.. note:: The target dataset on the receiving system is automatically
-   created in read-only mode to protect the data. To mount or browse
-   the data on the receiving system, create a clone of the snapshot
-   and use the clone. Clones are created in read/write mode, making it
-   possible to browse or mount them. See :ref:`Snapshots` for more
-   information on creating clones.
+The target dataset on the receiving system is automatically created in
+read-only mode to protect the data. To mount or browse the data on the
+receiving system, create a clone of the snapshot and use the clone.
+Clones are created in read/write mode, making it possible to browse or
+mount them. See :ref:`Snapshots` for more information on creating clones.
 
 
 .. _replication_common_config:

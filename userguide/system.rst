@@ -3,7 +3,7 @@
 System
 ======
 
-The System section of the administrative |web-ui| contains these entries:
+The System section of the |web-ui| contains these entries:
 
 #ifdef truenas
 * :ref:`Information` provides general %brand% system information such as
@@ -210,7 +210,7 @@ This screen also contains these buttons:
 
 **Save Config:** save a backup copy of the current configuration
 database in the format *hostname-version-architecture* to the computer
-accessing the administrative interface. Saving the configuration after
+accessing the |web-ui|. Saving the configuration after
 making any configuration changes is highly recommended. %brand%
 automatically backs up the configuration database to the system
 dataset every morning at 3:45. However, this backup does not occur if
@@ -1450,10 +1450,45 @@ installed. %brand% |release| ships with these loaders set:
 #ifdef freenas
 .. code-block:: none
 
-   autoboot_delay="2"
-   loader_logo="freenas"
+   kern.metadelay=3
+   kern.dirdelay=4
+   kern.filedelay=5
+   kern.coredump=1
+   kern.sugid_coredump=1
+   vfs.timestamp_precision=3
+   net.link.lagg.lacp.default_strict_mode=0
+   vfs.zfs.min_auto_ashift=12
+#endif freenas
+#ifdef truenas
+.. code-block:: none
+
+   kern.metadelay=3
+   kern.dirdelay=4
+   kern.filedelay=5
+   kern.coredump=1
+   net.inet.carp.preempt=1
+   net.inet.carp.allow=0
+   debug.ddb.textdump.pending=1
+   vfs.nfsd.tcpcachetimeo=300
+   vfs.nfsd.tcphighwater=150000
+   vfs.zfs.min_auto_ashift=12
+   net.inet.carp.senderr_demotion_factor=0
+   net.inet.carp.ifdown_demotion_factor=0
+#endif truenas
+
+**Do not add or edit the default tunables.** Changing the default
+tunables can make the system unusable.
+
+The ZFS version used in |release| deprecates these tunables:
+
+#ifdef freenas
+.. code-block:: none
+
+   product="FreeNAS"
+   autoboot_delay="5"
+   loader_logo="FreeNAS"
    loader_menu_title="Welcome to FreeNAS"
-   loader_brand="freenas-brand"
+   loader_brand="FreeNAS"
    loader_version=" "
    kern.cam.boot_delay="30000"
    debug.debugger_on_panic=1
@@ -1461,29 +1496,31 @@ installed. %brand% |release| ships with these loaders set:
    hw.hptrr.attach_generic=0
    vfs.mountroot.timeout="30"
    ispfw_load="YES"
+   ipmi_load="YES"
    freenas_sysctl_load="YES"
    hint.isp.0.role=2
    hint.isp.1.role=2
    hint.isp.2.role=2
    hint.isp.3.role=2
-   hint.isp.0.topology="nport-only"
-   hint.isp.1.topology="nport-only"
-   hint.isp.2.topology="nport-only"
-   hint.isp.3.topology="nport-only"
    module_path="/boot/kernel;/boot/modules;/usr/local/modules"
    net.inet6.ip6.auto_linklocal="0"
+   net.inet.tcp.reass.maxqueuelen=1448
    vfs.zfs.vol.mode=2
-   kern.geom.label.disk_ident.enable="0"
+   kern.geom.label.disk_ident.enable=0
+   kern.geom.label.ufs.enable=0
+   kern.geom.label.ufsid.enable=0
+   kern.geom.label.reiserfs.enable=0
+   kern.geom.label.ntfs.enable=0
+   kern.geom.label.msdosfs.enable=0
+   kern.geom.label.ext2fs.enable=0
    hint.ahciem.0.disabled="1"
    hint.ahciem.1.disabled="1"
    kern.msgbufsize="524288"
    hw.mfi.mrsas_enable="1"
    hw.usb.no_shutdown_wait=1
-   hw.cxgbe.toecaps_allowed=0
-   hw.cxgbe.rdmacaps_allowed=0
-   hw.cxgbe.iscsicaps_allowed=0
    vfs.nfsd.fha.write=0
    vfs.nfsd.fha.max_nfsds_per_fh=32
+   vm.lowmem_period=0
 #endif freenas
 #ifdef truenas
 .. code-block:: none
@@ -1505,11 +1542,20 @@ installed. %brand% |release| ships with these loaders set:
    hint.isp.3.topology="nport-only"
    module_path="/boot/kernel;/boot/modules;/usr/local/modules"
    net.inet6.ip6.auto_linklocal="0"
+   net.inet.tcp.reass.maxqueuelen=1436
    vfs.zfs.vol.mode=2
-   kern.geom.label.disk_ident.enable="0"
+   kern.geom.label.disk_ident.enable=0
+   kern.geom.label.ufs.enable=0
+   kern.geom.label.ufsid.enable=0
+   kern.geom.label.reiserfs.enable=0
+   kern.geom.label.ntfs.enable=0
+   kern.geom.label.msdosfs.enable=0
+   kern.geom.label.ext2fs.enable=0
    hint.ahciem.0.disabled="1"
    hint.ahciem.1.disabled="1"
    kern.msgbufsize="524288"
+   hw.mfi.mrsas_enable="1"
+   hw.usb.no_shutdown_wait=1
    hw.cxgbe.toecaps_allowed=0
    hw.cxgbe.rdmacaps_allowed=0
    hw.cxgbe.iscsicaps_allowed=0
@@ -1521,26 +1567,10 @@ installed. %brand% |release| ships with these loaders set:
    hw.memtest.tests="0"
    vfs.zfs.trim.enabled="0"
    kern.cam.ctl.ha_mode=2
-   kern.geom.label.ufs.enable=0
-   kern.geom.label.ufsid.enable=0
    hint.ntb_hw.0.config="ntb_pmem:1:4:0,ntb_transport"
    hint.ntb_transport.0.config=":3"
    hw.ntb.msix_mw_idx="-1"
 #endif truenas
-
-**Do not add or edit the default tunables.** Changing the default
-tunables can make the system unusable.
-
-The ZFS version used in |release| deprecates these tunables:
-
-.. code-block:: none
-
-   vfs.zfs.write_limit_override
-   vfs.zfs.write_limit_inflated
-   vfs.zfs.write_limit_max
-   vfs.zfs.write_limit_min
-   vfs.zfs.write_limit_shift
-   vfs.zfs.no_write_throttle
 
 After upgrading from an earlier version of %brand%, these tunables are
 automatically deleted. Please do not manually add them back.
