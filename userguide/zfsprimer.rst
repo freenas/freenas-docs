@@ -10,21 +10,15 @@ to provide features not available in traditional UNIX filesystems. It
 was originally developed at Sun with the intent to open source the
 filesystem so that it could be ported to other operating systems.
 After the Oracle acquisition of Sun, some of the original ZFS
-engineers founded `OpenZFS <http://open-zfs.org/wiki/Main_Page>`__
+engineers founded
+`OpenZFS <http://open-zfs.org/wiki/Main_Page>`__
 to provide continued, collaborative development of the open
-source version. To differentiate itself from Oracle ZFS version
-numbers, OpenZFS uses feature flags. Feature flags are used to tag
-features with unique names in order to provide portability between
-OpenZFS implementations running on different platforms, as long as all
-of the feature flags enabled on the ZFS pool are supported by both
-platforms. %brand% uses OpenZFS and each new version of %brand% keeps
-up-to-date with the latest feature flags and OpenZFS bug fixes.
+source version.
 
 Here is an overview of the features provided by ZFS:
 
 **ZFS is a transactional, Copy-On-Write**
-`(COW)
-<https://en.wikipedia.org/wiki/ZFS#Copy-on-write_transactional_model>`__
+`(COW) <https://en.wikipedia.org/wiki/ZFS#Copy-on-write_transactional_model>`__
 filesystem. For each write request, a copy is made of the associated
 disk blocks and all changes are made to the copy rather than to the
 original blocks. When the write is complete, all block pointers are
@@ -246,6 +240,7 @@ suited to the specific storage requirements:
    :ref:`Periodic Snapshot Tasks` and :ref:`Replication Tasks` to use
    replicated ZFS snapshots as part of a backup strategy.
 
+
 **ZFS manages devices**. When an individual drive in a mirror or
 RAIDZ fails and is replaced by the user, ZFS adds the replacement
 device to the vdev and copies redundant data to it in a process called
@@ -304,3 +299,23 @@ These resources are also useful for reference:
 
 * `The Zettabyte Filesystem
   <https://www.youtube.com/watch?v=ptY6-K78McY>`__
+
+
+.. index:: ZFS Feature Flags
+.. _ZFS Feature Flags:
+
+ZFS Feature Flags
+~~~~~~~~~~~~~~~~~
+
+To differentiate itself from Oracle ZFS version numbers, OpenZFS uses
+feature flags. Feature flags are used to tag features with unique names
+to provide portability between OpenZFS implementations running on
+different platforms, as long as all of the feature flags enabled on the
+ZFS pool are supported by both platforms. %brand% uses OpenZFS and each
+new version of %brand% keeps up-to-date with the latest feature flags
+and OpenZFS bug fixes.
+
+See
+`zpool-features(7) <https://www.freebsd.org/cgi/man.cgi?query=zpool-features>`__
+for a complete listing of all OpenZFS feature flags available on FreeBSD.
+
