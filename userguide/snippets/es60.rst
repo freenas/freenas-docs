@@ -151,12 +151,12 @@ rails with the inside of the front rack rails.
    :width: 40%
 
 
-Carefully push the ES60 forward into the rack rails until the unit stops.
-Find the blue tabs on the inside of the cabinet rails. Pull these tabs
-away from the rack and hold them in place. Continue to push the chassis
-forward until the ears are flush with the front of the rack. Tighten
-both blue screws on the ears of the chassis to secure the unit in the
-rack.
+Carefully push the ES60 forward into the rack rails until the unit
+stops (#1). Find the blue tabs on the inside of the cabinet rails. Pull
+these tabs away from the rack and hold them in place (#2). Continue to
+push the chassis forward until the ears are flush with the front of the
+rack (#3). Tighten both blue screws on the ears of the chassis to
+secure the unit in the rack (#4).
 
 .. figure:: images/tn_es60_cabinet_secure.png
    :width: 100%
