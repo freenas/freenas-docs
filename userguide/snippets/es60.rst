@@ -159,7 +159,7 @@ rack (#3). Tighten both blue screws on the ears of the chassis to
 secure the unit in the rack (#4).
 
 .. figure:: images/tn_es60_cabinet_secure.png
-   :width: 100%
+   :width: 90%
 
 
 .. raw:: latex
