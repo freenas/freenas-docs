@@ -12,8 +12,8 @@ ES60 Expansion Shelf
 --------------------
 
 The %brand% ES60 Expansion Shelf is a 4U, 60-bay storage
-expansion unit designed specifically for use with the %brand%
-Unified Storage Array.
+expansion unit designed specifically for use with %brand%
+Unified Storage Arrays.
 
 
 #include snippets/perfect.rst
@@ -83,8 +83,8 @@ configuration.
    * Power indicator (#2)
    * Alarm indicator (#3)
    * Locate ID (#4)
-   * Management port (not used) (#5)
-   * HD Mini SAS3 connectors (#6 and #7)
+   * Management port (#5, not used)
+   * HD Mini SAS3 connectors (#6, #7)
 
 
 Rail Kit Assembly
@@ -127,8 +127,8 @@ the front of the rack, and two at the rear. Align each cage nut with
 the others, both front to back and left to right. The cage nuts
 provide an attachment point inside the rack for the rail screws.
 
-The rail ends are stamped "Front" and "Rear". Place one rail in the
-rack with the "Front" stamp at the front facing outward. The "Rear"
+The rail ends are stamped *Front* and *Rear*. Place one rail in the
+rack with the *Front* stamp at the front facing outward. The *Rear*
 stamp goes at the back of the rack. Align the pins on both rail
 ends with the mounting holes in the rack. Make sure the cage nuts line
 up with the rail holes. Push the pins into the rack holes until they
@@ -147,22 +147,22 @@ installation or removal.** Do not install drives until after the
 chassis has been installed in the rack, and remove all drives before
 removing the chassis from the rack.
 
-Pick up the ES60 with attached cabinet rails. Align the ES60 cabinet
-rails with the inside of the front rack rails.
+Lift the ES60 with attached cabinet rails and align the cabinet rails
+with the inside front of the rack rails.
 
 .. figure:: images/tn_es60_cabinet_mount.png
-   :width: 40%
+   :width: 60%
 
 
-Carefully push the ES60 forward into the rack rails until the unit
-stops (#1). Find the blue tabs on the inside of the cabinet rails. Pull
-these tabs away from the rack and hold them in place (#2). Continue to
-push the chassis forward until the ears are flush with the front of the
-rack (#3). Tighten both blue screws on the ears of the chassis to
-secure the unit in the rack (#4).
+Carefully slide the ES60 forward into the rack rails until the unit
+stops (#1). Locate the blue tabs on the inside of the cabinet rails.
+Slide the tabs toward the front of the ES60 and hold them in place
+(#2). Push the chassis into the rack until the ears are flush with the
+front of the rack (#3). The thumbscrews on the ears are used to secure
+the unit in the rack after drive trays have been installed (#4).
 
 .. figure:: images/tn_es60_cabinet_secure.png
-   :width: 90%
+   :width: 100%
 
 
 .. raw:: latex
@@ -181,9 +181,8 @@ the rack.**
 Remove Top Cover
 ^^^^^^^^^^^^^^^^
 
-Slide the unit out on the rails. Turn the blue screws counterclockwise
-to unlock the top cover. Slide the top cover toward the front of the
-system, then lift to remove it.
+Slide the unit out on the rails. Unscrew the cover screws to unlock
+the top cover. Slide the top cover forward, then lift it off.
 
 .. figure:: images/tn_es60_remove_cover.png
    :width: 75%
@@ -195,24 +194,19 @@ Install Drive Trays
 Drive trays are used to mount drives in the array.
 
 A standard drive tray installation order simplifies support and is
-strongly recommended:
-
-* SSD drives for SLOG, if present
-
-* SSD drives for L2ARC, if present
-
-* Hard drives or SSD drives for data storage
+strongly recommended: install SSD drives for SLOG first, if present.
+Follow this with SSD drives for L2ARC, if present, then hard drives or
+SSD drives for data storage.
 
 Install the first drive tray in the front left drive bay. Install the
 next drive tray to the right of the first. Install remaining drive
 trays to the right across the row. After a row is filled with drives,
 move back to the next row and start again with the left bay. A label
-on the front left of the lid identifies the preferred order of drive
-connection.
+on the front left of the lid shows the preferred order of drives.
 
-Press the blue button to open the latch. Lower the drive tray into a
-drive bay until the latch begins to move into place. Push the latch
-the rest of the way until it locks into place.
+Slide the tray button left to open the latch. Carefully lower the
+drive tray into a drive bay until the latch begins to move into place.
+Push the latch down until it locks into place.
 
 
 .. figure:: images/tn_es60_drivetray_install.png
@@ -354,7 +348,7 @@ with cables #3 and #4.
 
 **M-Series**
 
-The %brand% M-Series support multiple ES60 expansion shelves, which
+The %brand% M-Series supports multiple ES60 expansion shelves, which
 can be combined with other %brand% expansion shelves.
 
 
@@ -391,7 +385,7 @@ The SAS cables connect to the *1* ports on the ES60 expansion shelves.
 * Connect cable #2 to the first ES60, expansion controller 2 SAS 1
   port.
 
-If a second ES60 is present (X-series supports only one ES60):
+If a second ES60 is present (not supported on the X-series):
 
 * Connect cable #3 to the second ES60, expansion controller 1 SAS 1
   port.
