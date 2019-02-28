@@ -95,14 +95,15 @@ Separate Cabinet Rails from Rack Rails
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Each rack rail includes an inner cabinet rail that must be removed.
-Extend the cabinet rail until the white release tab is exposed.
+Extend the cabinet rail as shown below until the white release tab is
+exposed. Slide the white release tab to the right to release the
+cabinet rail. Remove the cabinet rail from the rack rail. Repeat the
+process for the second rail.
+
 
 .. figure:: images/tn_es60_rail_separate.png
    :width: 100%
 
-
-Press the white release tab to the right while pulling the cabinet
-rail to remove it. Repeat this process for the second rail.
 
 
 Mount Cabinet Rails
