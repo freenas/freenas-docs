@@ -102,7 +102,7 @@ process for the second rail.
 
 
 .. figure:: images/tn_es60_rail_separate.png
-   :width: 100%
+   :width: 85%
 
 
 
@@ -115,26 +115,28 @@ the rail toward the rear of the system until the metal tab clicks and
 secures the rail in place. Repeat this process on the other side.
 
 .. figure:: images/tn_es60_cabinetrails.png
-   :width: 100%
+   :width: 85%
 
 
 Mount Rack Rails
 ^^^^^^^^^^^^^^^^
 
-Install four cage nuts inside the rack, two where the rails attach to
+Cage nuts for racks with square and round holes are included. Install
+four cage nuts inside the rack, two where the rails attach to
 the front of the rack, and two at the rear. Align each cage nut with
 the others, both front to back and left to right. The cage nuts
 provide an attachment point inside the rack for the rail screws.
 
-Place the rail in the rack with the front end toward the front of the
-rack and rear toward the back of the rack. Align the pins on both rail
-ends with the mounting holes in the rack. Make sure the attached cage
-nuts are lined up with the rail holes. Push the pins into the rack holes
-until they lock in place. Use the provided screws to secure the rails to
-the cage nuts.
+The rail ends are stamped "Front" and "Rear". Place one rail in the
+rack with the "Front" stamp at the front facing outward. The "Rear"
+stamp goes at the back of the rack. Align the pins on both rail
+ends with the mounting holes in the rack. Make sure the cage nuts line
+up with the rail holes. Push the pins into the rack holes until they
+lock in place. Use the provided screws to secure the rails to the cage
+nuts.
 
 .. figure:: images/tn_es60_rackrails.png
-   :width: 100%
+   :width: 85%
 
 
 Mount Unit in the Rack
