@@ -36,8 +36,8 @@ pre-configured by iXsystems. This section contains instructions for
 configuring it from the BIOS if needed. The same settings can be
 configured using the instructions in :ref:`IPMI`.
 
-.. warning:: The %brand% X-Series Unified Storage Array uses different
-   methods for out-of-band management. Refer to the specific X-Series
+.. note:: The %brand% X-Series Unified Storage Array uses different
+   methods for out-of-band management. Refer to the X-Series
    :ref:`out-of-band management instructions <Discover Out-of-Band Management IP Address>`
 
 
