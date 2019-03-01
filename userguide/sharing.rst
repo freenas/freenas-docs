@@ -1703,32 +1703,35 @@ To assign additional IP addresses to the portal, click the link
 .. table:: Portal Configuration Settings
    :class: longtable
 
-   +-----------------------+----------------+-----------------------------------------------------------------------------+
-   | Setting               | Value          | Description                                                                 |
-   |                       |                |                                                                             |
-   |                       |                |                                                                             |
-   +=======================+================+=============================================================================+
-   | Comment               | string         | Enter an optional description. Portals are automatically assigned a         |
-   |                       |                | numeric group ID.                                                           |
-   +-----------------------+----------------+-----------------------------------------------------------------------------+
-   | Discovery Auth Method | drop-down menu | :ref:`iSCSI` supports multiple authentication methods that are used by the  |
-   |                       |                | target to discover valid devices. *None* allows anonymous discovery while   |
-   |                       |                | *CHAP* and *Mutual CHAP* both require authentication.                       |
-   |                       |                |                                                                             |
-   |                       |                |                                                                             |
-   +-----------------------+----------------+-----------------------------------------------------------------------------+
-   | Discovery Auth Group  | drop-down menu | Select a user created in :guilabel:`Authorized Access` if the               |
-   |                       |                | :guilabel:`Discovery Auth Method` is set to *CHAP* or                       |
-   |                       |                | *Mutual CHAP*.                                                              |
-   |                       |                |                                                                             |
-   +-----------------------+----------------+-----------------------------------------------------------------------------+
-   | IP address            | drop-down menu | Select the IPv4 or IPv6 address associated with an interface or the         |
-   |                       |                | wildcard address of *0.0.0.0* (any interface).                              |
-   |                       |                |                                                                             |
-   +-----------------------+----------------+-----------------------------------------------------------------------------+
-   | Port                  | integer        | TCP port used to access the iSCSI target. Default is *3260*.                |
-   |                       |                |                                                                             |
-   +-----------------------+----------------+-----------------------------------------------------------------------------+
+   +-----------------------+-----------+-----------------------------------------------------------------------------+
+   | Setting               | Value     | Description                                                                 |
+   |                       |           |                                                                             |
+   +=======================+===========+=============================================================================+
+   | Comment               | string    | Enter an optional description. Portals are automatically assigned a         |
+   |                       |           | numeric group ID.                                                           |
+   +-----------------------+-----------+-----------------------------------------------------------------------------+
+   | Discovery Auth Method | drop-down | :ref:`iSCSI` supports multiple authentication methods that are used by the  |
+   |                       | menu      | target to discover valid devices. *None* allows anonymous discovery while   |
+   |                       |           | *CHAP* and *Mutual CHAP* both require authentication.                       |
+   |                       |           |                                                                             |
+   |                       |           |                                                                             |
+   +-----------------------+-----------+-----------------------------------------------------------------------------+
+   | Discovery Auth Group  | drop-down | Select a user created in :guilabel:`Authorized Access` if the               |
+   |                       | menu      | :guilabel:`Discovery Auth Method` is set to *CHAP* or                       |
+   |                       |           | *Mutual CHAP*.                                                              |
+   |                       |           |                                                                             |
+   +-----------------------+-----------+-----------------------------------------------------------------------------+
+   | IP address            | drop-down | Select the IPv4 or IPv6 address associated with an interface or the         |
+   |                       | menu      | wildcard address of *0.0.0.0* (any interface).                              |
+   |                       |           |                                                                             |
+#ifdef truenas
+   |                      |            | Choose only physical interface IP addresses when configuring iSCSI ALUA.    |
+   |                      |            | Do not use Virtual IP addresses with an ALUA configuration.                 |
+#endif truenas
+   +-----------------------+-----------+-----------------------------------------------------------------------------+
+   | Port                  | integer   | TCP port used to access the iSCSI target. Default is *3260*.                |
+   |                       |           |                                                                             |
+   +-----------------------+-----------+-----------------------------------------------------------------------------+
 
 
 %brand% systems with multiple IP addresses or interfaces can use a
