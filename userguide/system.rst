@@ -2402,8 +2402,36 @@ To generate a support ticket, fill in the fields:
   diagnosing a performance bottleneck.
 
 * **Environment** is a drop-down menu to indicate the role of the
-  affected system. Choices are *Production*, *Staging*, *Test*,
-  *Prototyping*, or *Initial Deployment/Setup*.
+  affected system.
+
+  .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
+                      |>{\RaggedRight}p{\dimexpr 0.16\linewidth-2\tabcolsep}
+
+.. _environment options:
+
+.. table:: Environment Options
+      :class: longtable
+
+   +---------------------+----------------------------------------------------------+
+   | Environment         | Description                                              |
+   +=====================+==========================================================+
+   | Production          | This is a production system in daily use.                |
+   |                     |                                                          |
+   +---------------------+----------------------------------------------------------+
+   | Staging             | The system is being prepared for production.             |
+   |                     |                                                          |
+   +---------------------+----------------------------------------------------------+
+   | Test                | This system is only being used for testing purposes.     |
+   |                     |                                                          |
+   +---------------------+----------------------------------------------------------+
+   | Prototyping         | The system is unique. It is likely to be a proof of      |
+   |                     | concept.                                                 |
+   |                     |                                                          |
+   +---------------------+----------------------------------------------------------+
+   | Initial Deployment/ | This is a new system being prepared for deployment into  |
+   |                     | production.                                              |
+   |                     |                                                          |
+   +---------------------+----------------------------------------------------------+
 
 * **Criticality** is a drop-down menu to indicate the criticality
   level. Choices are *Inquiry*, *Loss of Functionality*, or
