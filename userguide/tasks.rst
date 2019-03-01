@@ -178,7 +178,7 @@ begin. The cloud sync runs until finished, even after the time selected.
    `rclone sync <https://rclone.org/commands/rclone_sync/>`__
    is interrupted or encounters an error. This includes a common error
    when the Dropbox
-   `copy right detector <https://techcrunch.com/2014/03/30/how-dropbox-knows-when-youre-sharing-copyrighted-stuff-without-actually-looking-at-your-stuff/>`__
+   `copyright detector <https://techcrunch.com/2014/03/30/how-dropbox-knows-when-youre-sharing-copyrighted-stuff-without-actually-looking-at-your-stuff/>`__
    identifies a copyrighted file.
 
 :numref:`Figure %s <tasks_cloudsync_status_fig>` shows a cloud sync called
