@@ -1820,6 +1820,13 @@ shows the configuration options for Cloud Syncs.
    :menuselection:`System --> Cloud Credentials --> Edit`
    page for the selected credential.
 
+.. note:: If
+   `rclone sync <https://rclone.org/commands/rclone_sync/>`__
+   encounters any errors, files are not deleted in the destination.
+   This includes a common error when the Dropbox
+   `copyright detector <https://techcrunch.com/2014/03/30/how-dropbox-knows-when-youre-sharing-copyrighted-stuff-without-actually-looking-at-your-stuff/>`__
+   flags a file as copyrighted.
+
 To modify an existing cloud sync, click |ui-options| to access the
 :guilabel:`Run Now`, :guilabel:`Edit`, and :guilabel:`Delete` options.
 
