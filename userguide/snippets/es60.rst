@@ -12,8 +12,8 @@ ES60 Expansion Shelf
 --------------------
 
 The %brand% ES60 Expansion Shelf is a 4U, 60-bay storage
-expansion unit designed specifically for use with the %brand%
-Unified Storage Array.
+expansion unit designed specifically for use with %brand%
+Unified Storage Arrays.
 
 
 #include snippets/perfect.rst
@@ -24,28 +24,21 @@ Unified Storage Array.
 Carefully unpack the shipping boxes and locate these components:
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+.. figure:: images/tn_es60_components.png
+   :width: 100%
 
-.. table::
-   :class: longtable
 
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es60_bare.png         | .. image:: images/tn_es60_bezel.png         |
-   |                                            |                                             |
-   | ES60 Expansion Shelf                       | ES60 Bezel                                  |
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es60_railkit.png      | .. image:: images/tn_es60_drivetray.png     |
-   |                                            |                                             |
-   | Rail kit with mounting hardware            | Up to 60 drive trays with installed hard    |
-   |                                            | drives (shipped separately from the ES60)   |
-   +--------------------------------------------+---------------------------------------------+
-   | .. image:: images/tn_es60_powercords.png   | .. image:: images/tn_sascables_minihd.png   |
-   |                                            |    :width: 50%                              |
-   |                                            |                                             |
-   | Two IEC C13 to NEMA 5-15P power cords,     | Two 3-meter Mini SAS HD to Mini SAS HD      |
-   | two IEC C14 to C14 power cords             | cables                                      |
-   +--------------------------------------------+---------------------------------------------+
+.. hlist::
+   :columns: 2
+
+   * ES60 Expansion Shelf (#1)
+   * ES60 Bezel (#2)
+   * Rail kit with mounting hardware (#3)
+   * Up to 60 drive trays with installed hard drives, shipped
+     separately (#4)
+   * Two 3-meter Mini SAS HD to Mini SAS HD cables (#5)
+   * Two IEC C13 to NEMA 5-15P power cords with two IEC C14 to C14
+     power cords (#6)
 
 
 .. raw:: latex
@@ -61,9 +54,9 @@ Become Familiar With the ES60
 
 Indicators on the front panel show power, fault, and locate ID. The
 fault indicator is on during the initial power-on self-test (POST) or
-when the %brand% software has issued an alert. See the Alert section in
-the Additional Options chapter of the %brand%
-`User Guide <%docurl%/%brandlower%>`__..
+when the %brand% software has issued an alert. See the Alert section
+in the Additional Options chapter of the %brand%
+`User Guide <%docurl%/%brandlower%>`__.
 
 
 .. figure:: images/tn_es60.png
@@ -83,19 +76,15 @@ configuration.
    :width: 85%
 
 
-.. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}
-                    |>{\RaggedRight}p{\dimexpr 0.5\linewidth-2\tabcolsep}|
+.. hlist::
+   :columns: 2
 
-.. table::
-   :class: longtable
-
-   +----------------------+-------------------------------+
-   | 1: Power supply      | 4: Locate ID                  |
-   +----------------------+-------------------------------+
-   | 2: Power indicator   | 5: Management port (not used) |
-   +----------------------+-------------------------------+
-   | 3: Alarm indicator   | 6,7: HD Mini SAS3 connectors  |
-   +----------------------+-------------------------------+
+   * Power supply (#1)
+   * Power indicator (#2)
+   * Alarm indicator (#3)
+   * Locate ID (#4)
+   * Management port (#5, not used)
+   * HD Mini SAS3 connectors (#6, #7)
 
 
 Rail Kit Assembly
@@ -106,14 +95,15 @@ Separate Cabinet Rails from Rack Rails
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Each rack rail includes an inner cabinet rail that must be removed.
-Extend the cabinet rail until the white release tab is exposed.
+Extend the cabinet rail as shown below until the white release tab is
+exposed. Slide the white release tab to the right to release the
+cabinet rail. Remove the cabinet rail from the rack rail. Repeat the
+process for the second rail.
+
 
 .. figure:: images/tn_es60_rail_separate.png
-   :width: 100%
+   :width: 85%
 
-
-Press the white release tab to the right while pulling the cabinet
-rail to remove it. Repeat this process for the second rail.
 
 
 Mount Cabinet Rails
@@ -125,21 +115,28 @@ the rail toward the rear of the system until the metal tab clicks and
 secures the rail in place. Repeat this process on the other side.
 
 .. figure:: images/tn_es60_cabinetrails.png
-   :width: 100%
+   :width: 85%
 
 
 Mount Rack Rails
 ^^^^^^^^^^^^^^^^
 
-Install four cage nuts in the rack, two where the rails attach to the
-front of the rack, and two at the rear. Place the rail in the rack
-with the front end toward the front of the rack and rear toward the
-back of the rack, aligning the pins on both ends of the rail with the
-mounting holes in the rack. Push the pins into the rack holes until
-they lock in place.
+Cage nuts for racks with square and round holes are included. Install
+four cage nuts inside the rack, two where the rails attach to
+the front of the rack, and two at the rear. Align each cage nut with
+the others, both front to back and left to right. The cage nuts
+provide an attachment point inside the rack for the rail screws.
+
+The rail ends are stamped *Front* and *Rear*. Place one rail in the
+rack with the *Front* stamp at the front facing outward. The *Rear*
+stamp goes at the back of the rack. Align the pins on both rail
+ends with the mounting holes in the rack. Make sure the cage nuts line
+up with the rail holes. Push the pins into the rack holes until they
+lock in place. Use the provided screws to secure the rails to the cage
+nuts.
 
 .. figure:: images/tn_es60_rackrails.png
-   :width: 60%
+   :width: 85%
 
 
 Mount Unit in the Rack
@@ -150,22 +147,22 @@ installation or removal.** Do not install drives until after the
 chassis has been installed in the rack, and remove all drives before
 removing the chassis from the rack.
 
-Slide the front rack rail forward to meet the rear of the cabinet
-rails. Align the cabinet rail with the inside of the front rack rail
-and slide the cabinet rail forward until it is fully seated inside the
-rack rail. Repeat the process for the second rail.
+Lift the ES60 with attached cabinet rails and align the cabinet rails
+with the inside front of the rack rails.
 
 .. figure:: images/tn_es60_cabinet_mount.png
-   :width: 40%
+   :width: 60%
 
 
-When both cabinet rails are secured inside the rack rails, carefully
-slide the chassis until the ears are flush with the front of the rack.
-Tighten both blue screws on the ears of the chassis to secure the unit
-in the rack.
+Carefully slide the ES60 forward into the rack rails until the unit
+stops (#1). Locate the blue tabs on the inside of the cabinet rails.
+Slide the tabs toward the front of the ES60 and hold them in place
+(#2). Push the chassis into the rack until the ears are flush with the
+front of the rack (#3). The thumbscrews on the ears are used to secure
+the unit in the rack after drive trays have been installed (#4).
 
 .. figure:: images/tn_es60_cabinet_secure.png
-   :width: 80%
+   :width: 100%
 
 
 .. raw:: latex
@@ -184,9 +181,8 @@ the rack.**
 Remove Top Cover
 ^^^^^^^^^^^^^^^^
 
-Slide the unit out on the rails. Turn the blue screws counterclockwise
-to unlock the top cover. Slide the top cover toward the front of the
-system, then lift to remove it.
+Slide the unit out on the rails. Unscrew the cover screws to unlock
+the top cover. Slide the top cover forward, then lift it off.
 
 .. figure:: images/tn_es60_remove_cover.png
    :width: 75%
@@ -198,24 +194,19 @@ Install Drive Trays
 Drive trays are used to mount drives in the array.
 
 A standard drive tray installation order simplifies support and is
-strongly recommended:
-
-* SSD drives for SLOG, if present
-
-* SSD drives for L2ARC, if present
-
-* Hard drives or SSD drives for data storage
+strongly recommended: install SSD drives for SLOG first, if present.
+Follow this with SSD drives for L2ARC, if present, then hard drives or
+SSD drives for data storage.
 
 Install the first drive tray in the front left drive bay. Install the
 next drive tray to the right of the first. Install remaining drive
 trays to the right across the row. After a row is filled with drives,
 move back to the next row and start again with the left bay. A label
-on the front left of the lid identifies the preferred order of drive
-connection.
+on the front left of the lid shows the preferred order of drives.
 
-Press the blue button to open the latch. Lower the drive tray into a
-drive bay until the latch begins to move into place. Push the latch
-the rest of the way until it locks into place.
+Slide the tray button left to open the latch. Carefully lower the
+drive tray into a drive bay until the latch begins to move into place.
+Push the latch down until it locks into place.
 
 
 .. figure:: images/tn_es60_drivetray_install.png
@@ -357,7 +348,7 @@ with cables #3 and #4.
 
 **M-Series**
 
-The %brand% M-Series support multiple ES60 expansion shelves, which
+The %brand% M-Series supports multiple ES60 expansion shelves, which
 can be combined with other %brand% expansion shelves.
 
 
@@ -394,7 +385,7 @@ The SAS cables connect to the *1* ports on the ES60 expansion shelves.
 * Connect cable #2 to the first ES60, expansion controller 2 SAS 1
   port.
 
-If a second ES60 is present:
+If a second ES60 is present (not supported on the X-series):
 
 * Connect cable #3 to the second ES60, expansion controller 1 SAS 1
   port.

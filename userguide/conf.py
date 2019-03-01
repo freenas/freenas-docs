@@ -155,7 +155,7 @@ if tags.has('bsg-es60'):
     master_doc = 'bsg-es60'
 
     product = 'ES60 Expansion Shelf'
-    version = '1.2'
+    version = '1.3'
     release = '1'
 
     # PDF settings
@@ -164,7 +164,7 @@ if tags.has('bsg-es60'):
     pdf_subtitle   = 'Basic Setup Guide'
     document_class = 'howto'    # 'howto' or 'manual'
     toctree_only   = True
-    draft          = False
+    draft          = True
     show_edition   = True
     cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es60.png}'
 
