@@ -979,13 +979,16 @@ To collect the output of every module, use :literal:`-A`:
 
    freenas-debug -A
 
-For collecting debug information about a single pool, use :command:`zdb` with the flag :literal:`-U /data/zfs/zpool.cache` followed by the name of the pool:
+For collecting debug information about a single pool, use
+:command:`zdb` with :literal:`-U /data/zfs/zpool.cache`
+and the name of the pool:
 
 .. code-block:: none
 
-    zdb -U /data/zfs/zpool.cache [pool name]
+    zdb -U /data/zfs/zpool.cache poolname
 
-More information on zdb can be found with :command:`man zdb`.
+More information can be found at the manpage
+`zdb(8) <https://www.freebsd.org/cgi/man.cgi?query=zdb>`__.
 
 .. index:: tmux
 .. _tmux:
