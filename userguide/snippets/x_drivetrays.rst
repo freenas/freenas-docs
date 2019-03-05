@@ -3,8 +3,7 @@ Install Drive Trays
 
 Drive trays are used to mount drives in the chassis. Each drive tray
 has a status LED which is blue when active, amber if a fault has
-occurred, or solid blue and blinking amber if the drive is designated as
-a hot spare.
+occurred, or solid blue and blinking amber if the drive is a hot spare.
 
 A tray must be placed in each drive bay to maintain proper airflow for
 cooling. If fewer than twelve drives are connected, empty "air baffle"
