@@ -960,8 +960,8 @@ provides more details for each configurable option.
    | Only Allow              | checkbox     | ✓           | Requires :guilabel:`Allow guest access` to also be enabled. Forces guest access for all connections.                                              |
    | Guest Access            |              |             |                                                                                                                                                   |
    +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-   | Access Based            | checkbox     | ✓           | When enabled, users can only see the shares they have permission to access. To change the default that grants everyone access, use the computer   |
-   | Share Enumeration       |              |             | management MMC on Windows or the :command:`sharesec` command-line utility.                                                                        |
+   | Access Based            | checkbox     | ✓           | Restrict share visibility to Windows users with read or write access to the share, based on the current Windows Share ACL. Use Windows            |
+   | Share Enumeration       |              |             | administration tools to adjust the Share permissions. See `smb.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=smb.conf>`__.                   |
    |                         |              |             |                                                                                                                                                   |
    +-------------------------+--------------+-------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
    | Hosts Allow             | string       | ✓           | Enter a list of allowed hostnames or IP addresses. Separate entries with a comma (:literal:`,`), space, or tab.                                   |
