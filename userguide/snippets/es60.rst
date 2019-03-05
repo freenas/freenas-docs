@@ -191,7 +191,11 @@ the top cover. Slide the top cover forward, then lift it off.
 Install Drive Trays
 ^^^^^^^^^^^^^^^^^^^
 
-Drive trays are used to mount drives in the array.
+Drive trays are used to mount drives in the array. These trays have
+two status lights for drives: green and amber. The drive tray light is
+solid green when a drive is connected, solid amber if there is an issue
+or fault with the drive, or solid green with the amber light blinking
+when the drive is designated as a hot spare.
 
 A standard drive tray installation order simplifies support and is
 strongly recommended: install SSD drives for SLOG first, if present.

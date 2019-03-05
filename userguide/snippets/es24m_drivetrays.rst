@@ -4,8 +4,9 @@ Install Drive Trays
 Drive trays are used to mount drives in the array. Drive trays are
 installed in drive bays in the chassis. Each drive bay in the chassis
 has two indicator LEDs to the right of the tray. The status LED is
-blue when the drive is active, and the fault LED is red if a fault has
-occurred.
+blue when the drive is active, the fault LED is red if a fault has
+occurred, and the status and fault LEDs blink when the drive is
+designated as a hot spare.
 
 Press the silver button on the drive tray to open the latch. Carefully
 slide the tray into a drive bay until the right side of the latch
