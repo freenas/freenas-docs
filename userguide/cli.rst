@@ -6,7 +6,7 @@ Command Line Utilities
 Several command line utilities which are provided with %brand% are
 demonstrated in this section.
 
-These utilities are used for benchmarking and performance
+The following utilities can be used for benchmarking and performance
 testing:
 
 * :ref:`Iperf`: used for measuring maximum TCP and UDP bandwidth
@@ -19,7 +19,7 @@ testing:
 
 * :ref:`arcstat`: used to gather ZFS ARC statistics
 
-These utilities are specific to RAID controllers:
+The following utilities are specific to RAID controllers:
 
 * :ref:`tw_cli`:_used to monitor and maintain 3ware RAID controllers
 
@@ -45,23 +45,23 @@ Iperf
 
 Iperf is a utility for measuring maximum TCP and UDP bandwidth
 performance. It can be used to chart network throughput over time. For
-example, it can be used to test the speed of different types of shares
-to determine which type best performs on the network.
+example, it is used to test the speed of different types of shares
+to determine which type performs best on the network.
 
-%brand% includes the Iperf server. To perform network testing, install
-an Iperf client on a desktop system that has
+%brand% includes the iperf server. To perform network testing,
+install an iperf client on a desktop system that has
 network access to the %brand% system. This section demonstrates
 how to use the
-`xjperf GUI client
+`xjperf user interface client
 <https://code.google.com/archive/p/xjperf/downloads>`__
 as it works on Windows, macOS, Linux, and BSD systems.
 
 Since this client is Java-based, the appropriate
 `JRE
-<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`__
+<http://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
 must be installed on the client computer.
 
-Linux and BSD users can install the Iperf package using the
+Linux and BSD users will need to install the iperf package using the
 package management system for their operating system.
 
 To start xjperf on Windows: unzip the downloaded file, start Command
@@ -72,12 +72,11 @@ To start xjperf on macOS, Linux, or BSD, unzip the downloaded file,
 :command:`cd` to the unzipped directory, type
 :command:`chmod u+x jperf.sh`, and run :command:`./jperf.sh`.
 
-Once the client is ready, start the Iperf server on
-%brand%.
+Start the iperf server on %brand% when the client is ready.
 
 .. note:: Beginning with %brand% version 11.1, both `iperf2
-   <https://sourceforge.net/projects/iperf2/>`__ and `iperf3
-   <http://software.es.net/iperf/>`__ are pre-installed. To use iperf2,
+   <https://sourceforge.net/projects/iperf2/>`_ and `iperf3
+   <http://software.es.net/iperf/>`_ are pre-installed. To use iperf2,
    use :command:`iperf`. To use iperf3, instead type :command:`iperf3`.
    The examples below are for iperf2.
 
@@ -108,8 +107,8 @@ For example, to perform a TCP test and start the server in daemon mode
 
 
 .. note:: The daemon process stops when :ref:`Shell` closes.
-   Set up the environment, for example, shares configured
-   and started, **before** starting the Iperf process.
+   Set up the environment with shares configured and started
+   **before** starting the Iperf process.
 
 From the desktop, open the client. Enter the IP of address of the
 %brand% system, specify the running time for the test under
@@ -127,14 +126,13 @@ Windows system while an SFTP transfer is occurring on the network.
 
    Viewing Bandwidth Statistics Using xjperf
 
-
-Depending upon the traffic being tested, for example, the type of share
-running on the network, UDP may need to be tested instead of TCP. To
-start the Iperf server in UDP mode, use :command:`iperf -sDu` as the
-**u** specifies UDP; the startup message should indicate that the
-server is listening for UDP datagrams. If unsure whether the
-traffic to be tested is UDP or TCP, run this command to
-determine which services are running on the %brand% system:
+Check the type of traffic before testing UPD or TCP.
+The iperf server is used to get additional details for
+services using TCP :command:`iperf -sD` or UDP :command:`iperf -sDu`.
+The startup message indicates when the server is listening for TCP or UDP.
+The :command:`sockstat -4 | more` command gives an overview of the services
+running on the %brand% system. This helps to determine if the traffic
+to test is UDP or TCP.
 
 .. code-block:: none
 
@@ -163,8 +161,7 @@ determine which services are running on the %brand% system:
 
 
 When testing is finished, either type :command:`killall iperf` or
-close Shell to terminate the Iperf server process.
-
+close Shell to terminate the iperf server process.
 
 .. index:: Netperf
 .. _Netperf:
@@ -185,12 +182,11 @@ server process with this command:
 
 The following command displays the available options for
 performing tests with the :command:`netperf` command. The
-`Netperf Manual
-<https://hewlettpackard.github.io/netperf/>`__
+`Netperf Manual <https://hewlettpackard.github.io/netperf/>`__
 describes each option in more detail and explains how to perform many
 types of tests. It is the best reference for understanding how each
-test works and how to interpret the results. When you are finished
-with the tests, type :command:`killall netserver` to stop the server
+test works and how to interpret the results. When testing is
+finished, type :command:`killall netserver` to stop the server
 process.
 
 .. code-block:: none
@@ -233,12 +229,12 @@ process.
      -V			Display the netperf version and exit
 
 
-For those options taking two parms, at least one must be specified;
-specifying one value without a comma will set both parms to that
+For those options taking two parms, at least one must be specified.
+Specifying one value without a comma will set both parms to that
 value, specifying a value with a leading comma will set just the
-second parm, a value with a trailing comma will set just the first. To
-set each parm to unique values, specify both and separate them with a
-comma.
+second parm, and specifying a value with a trailing comma will set the
+first. To set each parm to unique values, specify both and separate them
+with a comma.
 
 For these options taking two parms, specifying one value with no comma
 will only set the first parms and will leave the second at the default
@@ -257,45 +253,44 @@ test file I/O performance for the following operations: read, write,
 re-read, re-write, read backwards, read strided, fread, fwrite, random
 read, pread, mmap, aio_read, and aio_write.
 
-%brand% ships with IOzone, meaning that it can be run from Shell.
+%brand% ships with IOzone so it can be run from Shell.
 When using IOzone on %brand%, :command:`cd` to a directory in a
-volume that you have permission to write to, otherwise an
+pool that you have permission to write to, otherwise an
 error about being unable to write the temporary file will occur.
 
 Before using IOzone, read through the `IOzone documentation PDF
-<http://www.iozone.org/docs/IOzone_msword_98.pdf>`__ as it describes
+<http://www.iozone.org/docs/IOzone_msword_98.pdf>`_ as it describes
 the tests, the many command line switches, and how to interpret the
 results.
 
-These resources provide good starting points on which tests to run,
-when to run them, and how to
+These resources provide good
+starting points on which tests to run, when to run them, and how to
 interpret the results:
 
 * `How To Measure Linux Filesystem I/O Performance With iozone
   <https://www.cyberciti.biz/tips/linux-filesystem-benchmarking-with-iozone.html>`__
 
 * `Analyzing NFS Client Performance with IOzone
-  <http://www.iozone.org/docs/NFSClientPerf_revised.pdf>`__
+  <http://www.iozone.org/docs/NFSClientPerf_revised.pdf>`_
 
 * `10 iozone Examples for Disk I/O Performance Measurement on Linux
-  <https://www.thegeekstuff.com/2011/05/iozone-examples>`__
+  <https://www.thegeekstuff.com/2011/05/iozone-examples/>`_
 
 Type the following command to receive a summary of the available
-switches. As you can see from the number of options, IOzone
-is comprehensive so it can take some time to learn how to use the
-tests effectively.
+switches. IOzone is comprehensive so it may take some time
+to learn how to use the tests effectively.
 
 Starting with version 9.2.1, %brand% enables compression on newly
 created ZFS pools by default. Since IOzone creates test data that is
 compressible, this can skew test results. To configure IOzone to
 generate incompressible test data, include the options
-**-+w 1 -+y 1 -+C 1**.
+:samp:`-+w 1 -+y 1 -+C 1`.
 
 Alternatively, consider temporarily disabling compression on the ZFS
 pool or dataset when running IOzone benchmarks.
 
-.. note:: If a visual representation of the collected data is preferred,
-   scripts are available to render IOzone's output in
+.. note:: If a visual representation of the collected data is
+   preferred, scripts are available to render IOzone's output in
    `Gnuplot <http://www.gnuplot.info/>`__.
 
 ::
@@ -415,16 +410,15 @@ arcstat
 Arcstat is a script that prints out ZFS
 `ARC <https://en.wikipedia.org/wiki/Adaptive_replacement_cache>`__
 statistics. Originally it was a perl script created by Sun. That perl
-script was ported to FreeBSD and was then ported as a Python script
+script was ported to FreeBSD and then ported as a Python script
 for use on %brand%.
 
-Watching ARC hits/misses and percentages will provide an indication of
-how well the ZFS pool is fetching from the ARC rather than using disk
-I/O. Ideally, there will be as many things fetching from cache as
-possible. Keep the load in mind while reviewing the stats.
-For random reads, expect a miss and having to go to disk to fetch the
-data. For cached reads, expect it to pull out of the cache and have a
-hit.
+Watching ARC hits/misses and percentages shows how well the ZFS pool is
+fetching from the ARC rather than using disk I/O. Ideally, there will be
+as many things fetching from cache as possible. Keep the load in mind
+while reviewing the stats. For random reads, expect a miss and having to
+go to disk to fetch the data. For cached reads, expect it to pull out of
+the cache and have a hit.
 
 Like all cache systems, the ARC takes time to fill with data. This
 means that it will have a lot of misses until the pool has been in use
@@ -439,12 +433,12 @@ It should be noted that performance tuning is more of an art than a
 science and that any changes made will probably require several
 iterations of tune and test. Be aware that what needs to be tuned will
 vary depending upon the type of workload and that what works for one
-person's network may not benefit yours.
+one network may not benefit another.
 
 In particular, the value of pre-fetching depends upon the amount of
-memory and the type of workload, as seen in this example:
-
-* `Understanding ZFS: Prefetch <http://cuddletech.com/?p=204>`__
+memory and the type of workload, as seen in
+`Understanding ZFS: Prefetch
+<http://cuddletech.com/?page_id=834&id=1040>`__
 
 %brand% provides two command line scripts which can be manually run
 from :ref:`Shell`:
@@ -453,8 +447,8 @@ from :ref:`Shell`:
 
 * :command:`arcstat.py`: used to watch the statistics in real time
 
-The advantage of these scripts is that they can be used to provide
-real time (right now) information, whereas the current GUI reporting
+The advantage of these scripts is that they provide
+real time information, whereas the current |web-ui| reporting
 mechanism is designed to only provide graphs charted over time.
 
 This `forum post
@@ -771,16 +765,16 @@ example:
 
 The ZFS tunables require a fair understanding of how ZFS works,
 meaning that reading man pages and searching for the
-meaning of acronyms is required.
+meaning of unfamiliar acronyms is required.
 **Do not change a tunable's value without researching it first.**
 If the tunable takes a numeric value (rather than 0 for no or 1 for
 yes), do not make one up. Instead, research examples of beneficial
-values that match your workload.
+values that match the workload.
 
 If any of the ZFS tunables are changed, continue to monitor
-the system to determine the effect of the change.
-Using :command:`sysctl` at the command line to test the changes first
-is recommended. For example, to disable pre-fetch (i.e. change
+the system to determine the effect of the change. It is recommended
+that the changes are tested first at the command line using
+:command:`sysctl`. For example, to disable pre-fetch (i.e. change
 disable to *1* or yes):
 
 .. code-block:: none
@@ -814,12 +808,12 @@ Before using this command, read its
 `man page <https://www.cyberciti.biz/files/tw_cli.8.html>`__
 as it describes the terminology and provides some usage examples.
 
-When :command:`tw_cli` is entered in Shell, the prompt will change,
-indicating interactive mode is enabled where
+When :command:`tw_cli` in Shell is entered, the prompt will change,
+indicating that interactive mode is enabled where
 all sorts of maintenance commands on the controller and its arrays
 can be run.
 
-Alternately, you can specify one command to run. For example, to view
+Alternately, one command can be specified to run. For example, to view
 the disks in the array:
 
 .. code-block:: none
@@ -888,19 +882,19 @@ Or, to review the event log:
 
 
 If the disks added to the array do not appear in the
-GUI, try running this command:
+|web-ui|, try running this command:
 
 .. code-block:: none
 
    tw_cli /c0 rescan
 
 Use the drives to create units and export them to the operating
-system. When finished, run :command:`camcontrol rescan all` and they
-should now be available in the %brand% GUI.
+system. When finished, run :command:`camcontrol rescan all` to make
+them available in the %brand% |web-ui|.
 
 This `forum post
 <https://forums.freenas.org/index.php?threads/3ware-drive-monitoring.13835/>`__
-contains a handy wrapper script that will notify you of errors.
+contains a handy wrapper script that will give error notifications.
 
 
 .. index:: MegaCli
@@ -917,7 +911,7 @@ devices.
 
 The :command:`MegaCli` command is quite complex with several dozen
 options. The commands demonstrated in the `Emergency Cheat Sheet
-<http://tools.rapidsoft.de/perc/perc-cheat-sheet.html>`__ can get you
+<http://tools.rapidsoft.de/perc/perc-cheat-sheet.html>`_ can get you
 started.
 
 
@@ -927,7 +921,7 @@ started.
 freenas-debug
 -------------
 
-The %brand% GUI provides an option to save debugging information to a
+The %brand% |web-ui| provides an option to save debugging information to a
 text file using :menuselection:`System --> Advanced --> Save Debug`.
 This debugging information is created by the :command:`freenas-debug`
 command line utility and a copy of the information is saved to
@@ -944,31 +938,31 @@ run the command without any options:
    Usage: /usr/local/bin/freenas-debug <options>
    Where options are:
 
-       -A  Dump all debug information
-       -B  Dump System Configuration Database
-       -C  Dump SMB Configuration
-       -D  Dump Domain Controller Configuration
-       -I  Dump IPMI Configuration
-       -M  Dump SATA DOMs Information
-       -N  Dump NFS Configuration
-       -S  Dump SMART Information
-       -T  Loader Configuration Information
-       -Z  Remove old debug information
-       -a  Dump Active Directory Configuration
-       -c  Dump (AD|LDAP) Cache
-       -e  Email debug log to this comma-delimited list of email addresses
-       -f  Dump AFP Configuration
-       -g  Dump GEOM Configuration
-       -h  Dump Hardware Configuration
-       -i  Dump iSCSI Configuration
-       -j  Dump Jail Information
-       -l  Dump LDAP Configuration
-       -n  Dump Network Configuration
-       -s  Dump SSL Configuration
-       -t  Dump System Information
-       -v  Dump Boot System File Verification Status and Inconsistencies
-       -y  Dump Sysctl Configuration
-       -z  Dump ZFS Configuration
+    -A  Dump all debug information
+    -B  Dump System Configuration Database
+    -C  Dump SMB Configuration
+    -D  Dump Domain Controller Configuration
+    -I  Dump IPMI Configuration
+    -M  Dump SATA DOMs Information
+    -N  Dump NFS Configuration
+    -S  Dump SMART Information
+    -T  Loader Configuration Information
+    -Z  Remove old debug information
+    -a  Dump Active Directory Configuration
+    -c  Dump (AD|LDAP) Cache
+    -e  Email debug log to this comma-delimited list of email addresses
+    -f  Dump AFP Configuration
+    -g  Dump GEOM Configuration
+    -h  Dump Hardware Configuration
+    -i  Dump iSCSI Configuration
+    -j  Dump Jail Information
+    -l  Dump LDAP Configuration
+    -n  Dump Network Configuration
+    -s  Dump SSL Configuration
+    -t  Dump System Information
+    -v  Dump Boot System File Verification Status and Inconsistencies
+    -y  Dump Sysctl Configuration
+    -z  Dump ZFS Configuration
 
 
 Individual tests can be run alone. For example, when troubleshooting
@@ -985,6 +979,13 @@ To collect the output of every module, use :literal:`-A`:
 
    freenas-debug -A
 
+For collecting debug information about a single pool, use :command:`zdb` with the flag :literal:`-U /data/zfs/zpool.cache` followed by the name of the pool:
+
+.. code-block:: none
+
+    zdb -U /data/zfs/zpool.cache [pool name]
+
+More information on zdb can be found with :command:`man zdb`.
 
 .. index:: tmux
 .. _tmux:
@@ -997,8 +998,8 @@ tmux
 :screen. :command:`tmux` is an alternative to GNU :command:`screen`.
 Similar to screen, :command:`tmux` can be detached from a screen and
 continue running in the background, then later reattached. Unlike
-:ref:`Shell`, :command:`tmux` allows you to have access to a command
-prompt while still providing access to the graphical administration
+:ref:`Shell`, :command:`tmux` provides access to a command
+prompt while still giving access to the graphical administration
 screens.
 
 To start a session, simply type :command:`tmux`. As seen in
@@ -1010,7 +1011,7 @@ session and is used to enter interactive commands.
 
 .. _cli_tmux_fig:
 
-.. figure:: images/tmux.png
+.. figure:: images/shell-tmux.png
 
    tmux Session
 
@@ -1027,8 +1028,8 @@ If :ref:`Shell` is closed while :command:`tmux` is running, it will
 detach its session. The next time Shell is open, run
 :command:`tmux attach` to return to the previous session. To leave the
 :command:`tmux` session entirely, type :command:`exit`. If
-multiple windows are running, :command:`exit` out of each
-first.
+multiple windows are running, it is required to :command:`exit` out
+of each first.
 
 These resources provide more information about using :command:`tmux`:
 
@@ -1068,16 +1069,15 @@ Midnight Commander
 ------------------
 
 Midnight Commander is a program used to manage files from the shell.
-Open the application by running the command :command:`mc`.
-The arrow keys are used to navigate and select files. The
-function keys are used to perform operations such as renaming, editing
-and copying files. These resources provide more information about using
-mc:
+Open the application by running :command:`mc`.
+The arrow keys are used to navigate and select files. Function keys are
+used to perform operations such as renaming, editing, and copying files.
+These resources provide more information about using Midnight Commander:
 
 * `Midnight Commander wikipedia page <https://en.wikipedia.org/wiki/Midnight_Commander>`__
 
 * `Midnight Commander website <https://midnight-commander.org/>`__
 
-* `mc(1) <https://linux.die.net/man/1/mc>`__
+* `mc(1) <https://www.freebsd.org/cgi/man.cgi?query=mc>`__
 
 * `Basic Tutorial <http://linuxcommand.org/lc3_adv_mc.php>`__
