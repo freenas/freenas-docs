@@ -490,6 +490,13 @@ U2
   stopping has been added to
   :menuselection:`System --> Alert Settings`.
 
+U3
+~~
+
+* The :guilabel:`shadow_copy_zfs` VFS object has replaced the
+  :guilabel:`shadow_copy_test` object in
+  :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE`.
+
 
 .. _Path and Name Lengths:
 
