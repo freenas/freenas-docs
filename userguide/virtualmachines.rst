@@ -143,8 +143,8 @@ The configuration options are described in
    |          |                    |                | for detailed instructions about using a different guest OS.                                   |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Name               | string         | Name of the VM. An error is shown if the name is already used by an existing VM.              |
-   |          |                    |                |                                                                                               |
+   | 2        | Name               | string         | Name of the VM. Alphanumeric characters and :literal:`_` are allowed. The name must be        |
+   |          |                    |                | unique.                                                                                       |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | Boot Method        | drop-down menu | Select *UEFI* for newer operating systems, or *UEFI-CSM* (Compatibility Support Mode) for     |
    |          |                    |                | older operating systems that only understand BIOS booting. VNC connections are only available |
@@ -175,8 +175,8 @@ The configuration options are described in
    | 4        | Select zvol        | drop-down menu | Select a pool or dataset for the new zvol.                                                    |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Select Disk Type   | drop-down menu | Select the disk type. Choices are *AHCI* and *VirtIO*. Refer to                               |
-   |          |                    |                | :ref:`Disk Devices <vms-disk-device>` for more information about these disk types.            |
+   | 4        | Select Disk Type   | drop-down menu | Select the disk type. Choices are *AHCI* and *VirtIO*. See                                    |
+   |          |                    |                | :ref:`Disk Devices <vms-disk-device>`.                                                        |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 5        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This                  |
@@ -193,7 +193,7 @@ The configuration options are described in
    |          |                    |                |                                                                                               |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 6        | Choose             | browse button  | Click |ui-browse| to select the installation media stored on the %brand% system.              |
+   | 6        | Optional: Choose   | browse button  | Click |ui-browse| to select an installation media stored on the %brand% system.               |
    |          | installation media |                |                                                                                               |
    |          | image              |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
@@ -573,8 +573,8 @@ clicking |ui-add|, and selecting |dockerhost| as the
    |          | (VM) Wizard type   |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 2        | Name               | string         | A descriptive name for the |dockerhost|.                                           |
-   |          |                    |                |                                                                                    |
+   | 2        | Name               | string         | A descriptive name for the |dockerhost|. Alphanumeric characters and :literal:`_`  |
+   |          |                    |                | are allowed.                                                                       |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
    | 2        | Start on Boot      | checkbox       | Set to start this |dockerhost| when the %brand% system boots.                      |
    |          |                    |                |                                                                                    |
@@ -607,7 +607,11 @@ clicking |ui-add|, and selecting |dockerhost| as the
    |          |                    |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | Raw file size      | integer        | Allocate storage size in GiB for the new raw file.                                 |
+   | 5        | Raw filename       | string         | A password added to the raw file. This is used to log in to the |dockerhost|.      |
+   |          | password           |                | The default is :literal:`docker`.                                                  |
+   |          |                    |                |                                                                                    |
+   +----------+--------------------+----------------+------------------------------------------------------------------------------------+
+   | 5        | Raw file size      | integer        | Set the size of the new raw file.                                                  |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
    | 5        | Raw file location  | browse button  | Select a directory to store the new raw file.                                      |

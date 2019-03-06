@@ -490,6 +490,14 @@ U2
   stopping has been added to
   :menuselection:`System --> Alert Settings`.
 
+U3
+~~
+
+* The :guilabel:`Raw filename password` field has been added to
+  |dockerhost| :guilabel:`Storage File` options in
+  :menuselection:`Virtual Machines --> ADD`.
+
+
 
 .. _Path and Name Lengths:
 
