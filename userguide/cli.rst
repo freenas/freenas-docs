@@ -981,14 +981,15 @@ To collect the output of every module, use :literal:`-A`:
 
 For collecting debug information about a single pool, use
 :command:`zdb` with :literal:`-U /data/zfs/zpool.cache`
-and the name of the pool:
+followed by the name of the pool:
 
 .. code-block:: none
 
     zdb -U /data/zfs/zpool.cache pool1
 
-More information can be found at the manpage
-`zdb(8) <https://www.freebsd.org/cgi/man.cgi?query=zdb>`__.
+See the 
+`zdb(8) manual page <https://www.freebsd.org/cgi/man.cgi?query=zdb>`__
+for more information.
 
 .. index:: tmux
 .. _tmux:
