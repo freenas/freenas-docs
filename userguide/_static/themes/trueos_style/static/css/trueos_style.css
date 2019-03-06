@@ -3697,7 +3697,7 @@ span[id*='MathJax-Span'] {
     font-family: "materialdesignicons";
     font-style: normal;
     font-weight: 700;
-    src: local("materialdesignicons"), url(../fonts/materialdesignicons-webfontt.ttf) format("truetype")
+    src: local("materialdesignicons"), url(../fonts/materialdesignicons-webfont.ttf) format("truetype")
 }
 /*""""""""""""""""""""""""""""""""""""""""""""""""""""""""*
  | Copied css with fa-entities fixed - sourced externally |
