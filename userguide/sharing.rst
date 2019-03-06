@@ -1134,7 +1134,8 @@ for more details.
    | shadow_copy         | Allows Microsoft shadow copy clients to browse shadow copies on Windows shares.                                                 |
    |                     |                                                                                                                                 |
    +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | shadow_copy_test    | Shadow copy testing.                                                                                                            |
+   | shadow_copy_zfs     | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares. This object uses                                 |
+   |                     | :ref:`ZFS snapshots <ZFS Primer>` of the shared pool or dataset to create the shadow copies.                                    |
    |                     |                                                                                                                                 |
    +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | shell_snap          | Provides shell-script callouts for snapshot creation and deletion operations issued                                             |
