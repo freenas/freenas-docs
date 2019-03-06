@@ -389,7 +389,7 @@ of these options.
    | securelevel              | integer      | Value of the jail `securelevel <https://www.freebsd.org/doc/faq/security.html>`__ sysctl. A jail                    |
    |                          |              | never has a lower securelevel than the host system. Setting this parameter allows a higher securelevel.             |
    |                          |              | If the host system securelevel is changed, jail securelevel will be at least as secure.                             |
-   |                          |              | Securelevel options are: *3*, *2*, *1*, *0*, and *-1*.                                                              |
+   |                          |              | Securelevel options are: *3*, *2 (defualt)*, *1*, *0*, and *-1*.                                                    |
    |                          |              |                                                                                                                     |
    +--------------------------+--------------+---------------------------------------------------------------------------------------------------------------------+
    | sysvmsg                  | drop-down    | Allow or deny access to SYSV IPC message primitives.                                                                |
