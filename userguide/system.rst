@@ -1262,11 +1262,10 @@ Enter a descriptive and unique name for the cloud credential in the
    | pCloud               | Access Token         | Enter the access token.                                                                                         |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | SFTP                 | Host, Port           | Enter the SFTP host and port.                                                                                   |
-   |                      |                      |                                                                                                                 |
-   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | SFTP                 | Username, Password,  | Enter the SFTP username, password, and PEM-encoded                                                              |
-   |                      | key file path        | private key file path.                                                                                          |
+   | SFTP                 | Host, Port,          | Enter the SFTP host, port, and username. Enter a password *or* PEM-encoded private key file path.               |
+   |                      | Username, Password,  |                                                                                                                 |
+   |                      | PEM-encoded private  |                                                                                                                 |
+   |                      | key file path.       |                                                                                                                 |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | WebDAV               | URL, WebDAV service  | Enter the URL and use the dropdown to select the WebDAV service.                                                |
