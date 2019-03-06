@@ -490,6 +490,14 @@ U2
   stopping has been added to
   :menuselection:`System --> Alert Settings`.
 
+U3
+~~
+
+* The chosen snapshot name and creation date has been added to the roll
+  back warning dialog in
+  :menuselection:`Storage --> Snapshots -->` |ui-options|
+  :menuselection:`\ --> Rollback`.
+
 
 .. _Path and Name Lengths:
 
