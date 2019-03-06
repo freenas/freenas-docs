@@ -985,7 +985,7 @@ and the name of the pool:
 
 .. code-block:: none
 
-    zdb -U /data/zfs/zpool.cache poolname
+    zdb -U /data/zfs/zpool.cache pool1
 
 More information can be found at the manpage
 `zdb(8) <https://www.freebsd.org/cgi/man.cgi?query=zdb>`__.
