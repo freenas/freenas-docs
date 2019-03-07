@@ -493,11 +493,13 @@ U2
 U3
 ~~
 
+* The :guilabel:`shadow_copy_zfs` VFS object has replaced the
+  :guilabel:`shadow_copy_test` object in
+  :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE`.
+
 * The :guilabel:`Raw filename password` field has been added to
   |dockerhost| :guilabel:`Storage File` options in
   :menuselection:`Virtual Machines --> ADD`.
-
-
 
 .. _Path and Name Lengths:
 
