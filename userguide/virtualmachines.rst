@@ -107,7 +107,7 @@ are available:
 Creating VMs
 ------------
 
-Click on :guilabel:`ACTIONS` and :guilabel:`Add VM` to open the wizard
+Click :guilabel:`ADD` to open the wizard
 in :numref:`Figure %s <vms_add_fig>`:
 
 .. _vms_add_fig:
@@ -116,10 +116,13 @@ in :numref:`Figure %s <vms_add_fig>`:
 
    Add VM
 
+Select a virtual machine type from the
+:guilabel:`Virtual Machine (VM) Wizard type`. The choices are
+*Virtual Machine (VM)* and :ref:`Docker Host <|dockerhost| VMs>`.
 
-The configuration options are described in
+The configuration options for
+a Virtual Machine (VM) type are described in
 :numref:`Table %s <vms_add_opts_tab>`.
-
 
 .. tabularcolumns:: |>{\RaggedRight}p{\dimexpr 0.08\linewidth-2\tabcolsep}
                     |>{\RaggedRight}p{\dimexpr 0.20\linewidth-2\tabcolsep}
@@ -137,6 +140,7 @@ The configuration options are described in
    +==========+====================+================+===============================================================================================+
    | 1        | Virtual Machine    | drop-down menu | Select the type of VM to create.                                                              |
    |          | (VM) Wizard type   |                |                                                                                               |
+   |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 2        | Guest Operating    | drop-down menu | Choose the VM operating system type. Choices are: *Windows*, *Linux*, or *FreeBSD*. See       |
    |          | System             |                | `this guide <https://github.com/FreeBSD-UPB/freebsd/wiki/How-to-launch-different-guest-OS>`__ |
@@ -156,6 +160,10 @@ The configuration options are described in
    | 2        | Enable VNC         | checkbox       | Add a VNC remote connection. Requires *UEFI* booting.                                         |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
+   | 2        | Bind               | drop-down menu | VNC network interface. The primary interface is automatically selected, but secondary         |
+   |          |                    |                | interfaces can be chosen.                                                                     |
+   |          |                    |                |                                                                                               |
+   +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Virtual CPUs       | integer        | Number of virtual CPUs to allocate to the VM. The maximum is 16 unless limited by the host    |
    |          |                    |                | CPU. The VM operating system might also have operational or licensing restrictions on the     |
    |          |                    |                | number of CPUs.                                                                               |
@@ -166,17 +174,17 @@ The configuration options are described in
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 4        | Disk image         | check option   | Select :guilabel:`Create new disk image` to create a new zvol on an existing dataset.         |
    |          |                    | with custom    | This is used as a virtual hard drive for the VM. Select :guilabel:`Use existing disk image`   |
-   |          |                    | fields         | and click |ui-browse| to select a zvol for the VM.                                            |
+   |          |                    | fields         | and choose an existing zvol from the :guilabel:`Select Existing zvol` drop-down.              |
+   |          |                    |                |                                                                                               |
+   +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
+   | 4        | Select Disk Type   | drop-down menu | Select the disk type. Choices are *AHCI* and *VirtIO*. Refer to                               |
+   |          |                    |                | :ref:`Disk Devices <vms-disk-device>` for more information about these disk types.            |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 4        | Size (GiB)         | integer        | Allocate the amount of storage in GiB for the new zvol.                                       |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 4        | Select zvol        | drop-down menu | Select a pool or dataset for the new zvol.                                                    |
-   |          |                    |                |                                                                                               |
-   +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Select Disk Type   | drop-down menu | Select the disk type. Choices are *AHCI* and *VirtIO*. Refer to                               |
-   |          |                    |                | :ref:`Disk Devices <vms-disk-device>` for more information about these disk types.            |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 5        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This                  |
@@ -203,8 +211,8 @@ The configuration options are described in
 
 
 The final screen of the Wizard displays the chosen options for the new
-VM. Click :guilabel:`SUBMIT` to create the VM or :guilabel:`BACK` to
-change any settings.
+Virtual Machine (VM) type. Click :guilabel:`SUBMIT` to create the VM or
+:guilabel:`BACK` to change any settings.
 
 This example creates a FreeBSD VM:
 
@@ -603,7 +611,7 @@ clicking |ui-add|, and selecting |dockerhost| as the
    |          |                    |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | Raw filename       | string         | Enter a name for the new raw file.                                                 |
+   | 5        | Raw filename       | string         | Name of the disk image for the Docker Host to use as storage.                      |
    |          |                    |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+

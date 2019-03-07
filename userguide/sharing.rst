@@ -1094,10 +1094,11 @@ for more details.
    | readonly            | Marks a share as read-only for all clients connecting within the configured time period.                                                   |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | shadow_copy         | Allows Microsoft shadow copy clients to browse shadow copies on Windows shares.                                                            |
+   | shadow_copy         | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares.                                                             |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | shadow_copy_test    | Shadow copy testing.                                                                                                                       |
+   | shadow_copy_zfs     | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares. This object uses :ref:`ZFS snapshots <ZFS Primer>`          |
+   |                     | of the shared pool or dataset to create the shadow copies.                                                                                 |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | shell_snap          | Provides shell-script callouts for snapshot creation and deletion operations issued by remote clients using the File Server Remote VSS     |
