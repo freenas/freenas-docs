@@ -2235,8 +2235,8 @@ targets and extents.
    | Target      | drop-down menu | Select an existing target.                             |
    |             |                |                                                        |
    +-------------+----------------+--------------------------------------------------------+
-   | LUN ID      | integer        | Enter a value between 0 and 1023.                      |
-   |             |                | Some initiators expect a value below 256.              |
+   | LUN ID      | integer        | Enter a value between *0* and *1023*.                  |
+   |             |                | Some initiators expect a value less than *256*.        |
    +-------------+----------------+--------------------------------------------------------+
    | Extent      | drop-down menu | Select an existing extent.                             |
    |             |                |                                                        |
