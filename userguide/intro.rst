@@ -493,6 +493,9 @@ U2
 U3
 ~~
 
+* The :guilabel:`Pool` column has been removed from
+  :menuselection:`Storage --> Disks`.
+
 * The :guilabel:`shadow_copy_zfs` VFS object has replaced the
   :guilabel:`shadow_copy_test` object in
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE`.
