@@ -201,11 +201,11 @@ a Virtual Machine (VM) type are described in
    |          |                    |                |                                                                                               |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 6        | Optional: Choose   | browse button  | Click |ui-browse| to select an installation media stored on the %brand% system.               |
+   | 6        | Optional: Choose   | browse button  | Click |ui-browse| to select an installer ISO or image file on the %brand% system.             |
    |          | installation media |                |                                                                                               |
    |          | image              |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 6        | Upload ISO         | checkbox and   | Set to upload an installation media file to the %brand% system.                               |
+   | 6        | Upload ISO         | checkbox and   | Set to upload an installer ISO or image file to the %brand% system.                           |
    |          |                    | buttons        |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
 
