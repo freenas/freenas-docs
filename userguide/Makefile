@@ -134,6 +134,7 @@ latexpdf pdf:	requirepdf preproc
 	@sed -i '' -e 's%肋%{\\material\\symbol{"F953}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@sed -i '' -e 's%%{\\material\\symbol{"F028}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@sed -i '' -e 's%%{\\material\\symbol{"F2FC}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	@sed -i '' -e 's%%{\\material\\symbol{"F450}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@echo "Running LaTeX files through $(LATEX_ENGINE)..."
 	# fix missing latex_engine substitution in old versions of Sphinx
 	@sed -i '' -e 's/pdflatex/$(LATEX_ENGINE)/g' $(PREPROCDIR)/$(BUILDDIR)/latex/Makefile

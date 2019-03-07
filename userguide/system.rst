@@ -1189,10 +1189,9 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      | Secret Key           |                                                                                                                 |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Endpoint URL         | `End point URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__                       |
-   |                      |                      | for a bucket configured for website hosting.                                                                    |
-   |                      |                      | Leave blank when using AWS. Enter endpoint URL if using custom S3 API. URL                                      |
-   |                      |                      | general format: *bucket-name.s3-website-region.amazonaws.com*.                                                  |
+   | Amazon S3            | Endpoint URL         | Leave blank when using AWS. The available buckets are fetched dynamically. Enter an                             |
+   |                      |                      | `Endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__                        |
+   |                      |                      | if using *custom* S3 API. URL general format: *bucket-name.s3-website-region.amazonaws.com*.                    |
    |                      |                      | Refer to the AWS Documentation for a list of `Simple Storage Service Websites Endpoints                         |
    |                      |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
    |                      |                      |                                                                                                                 |
@@ -1728,6 +1727,7 @@ The system checks daily for updates and downloads an update if one
 is available. An alert is issued when a new update becomes
 available. The automatic check and download of updates is disabled by
 unsetting :guilabel:`Check for Updates Daily and Download if Available`.
+Click |ui-refresh| to perform another check for updates.
 
 To change the train, use the drop-down menu to make a different
 selection.
