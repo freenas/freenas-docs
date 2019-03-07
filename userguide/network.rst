@@ -737,6 +737,18 @@ More information about this command can be found at
 `systat(1) <https://www.freebsd.org/cgi/man.cgi?query=systat>`__.
 
 
+.. _Network Summary:
+
+Network Summary
+---------------
+
+:menuselection:`Network --> Network Summary`
+shows a quick summary of the addressing information of every
+configured interface. For each interface name, the configured IPv4 and
+IPv6 addresses, DNS servers, and default gateway are displayed. It
+also displays nameservers.
+
+
 .. index:: Route, Static Route
 .. _Static Routes:
 
