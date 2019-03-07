@@ -1727,6 +1727,7 @@ The system checks daily for updates and downloads an update if one
 is available. An alert is issued when a new update becomes
 available. The automatic check and download of updates is disabled by
 unsetting :guilabel:`Check for Updates Daily and Download if Available`.
+Click |ui-refresh| to perform another check for updates.
 
 To change the train, use the drop-down menu to make a different
 selection.
