@@ -184,8 +184,8 @@ a Virtual Machine (VM) type are described in
    | 4        | Size (GiB)         | integer        | Allocate the amount of storage in GiB for the new zvol.                                       |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 4        | Select zvol        | drop-down menu | Select a pool or dataset for the new zvol.                                                    |
-   |          |                    |                |                                                                                               |
+   | 4        | Select zvol        | drop-down menu | When :guilabel:`Create new disk image` is chosen, select a pool or dataset for the new zvol.  |
+   |          |                    |                | When :guilabel:`Use existing disk image` is chosen, select an existing zvol for the VM.       |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 5        | Adapter Type       | drop-down menu | :guilabel:`Intel e82545 (e1000)` emulates the same Intel Ethernet card. This                  |
    |          |                    |                | provides compatibility with most operating systems. :guilabel:`VirtIO` provides               |
