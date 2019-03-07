@@ -497,6 +497,9 @@ U3
   :guilabel:`shadow_copy_test` object in
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE`.
 
+* :guilabel:`CPU Temperature` graphs have been added to
+  :menuselection:`Reporting --> CPU`.
+
 
 .. _Path and Name Lengths:
 
