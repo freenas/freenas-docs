@@ -745,8 +745,7 @@ Network Summary
 :menuselection:`Network --> Network Summary`
 shows a quick summary of the addressing information of every
 configured interface. For each interface name, the configured IPv4 and
-IPv6 addresses, DNS servers, and default gateway are displayed. It
-also displays nameservers.
+IPv6 addresses, default routes, and DNS namerservers are displayed.
 
 
 .. index:: Route, Static Route
