@@ -1381,7 +1381,7 @@ created.
 
 **Rollback:** Clicking
 |ui-options| :menuselection:`--> Rollback`
-asks for confirmation before rolling back to this snapshot state.
+asks for confirmation before rolling back to the chosen snapshot state.
 Clicking :guilabel:`Yes` causes all files in the dataset to revert to
 the state they were in when the snapshot was created.
 
