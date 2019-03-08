@@ -503,6 +503,9 @@ U3
   :guilabel:`shadow_copy_test` object in
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE`.
 
+* Activity graphs have been updated to report Megabytes/s in
+  :menuselection:`Reporting --> Network`.
+
 * :guilabel:`Restart` has been added to the |ui-options| menu for a
   running VM in
   :menuselection:`Virtual Machines`.
