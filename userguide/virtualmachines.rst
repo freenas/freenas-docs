@@ -52,6 +52,15 @@ shows a list of installed virtual machines.
 
 The |ui-options| menu has options for controlling and modifying VMs:
 
+* :guilabel:`Start` boots a VM. Alertnatively start a VM by clicking the
+  slide bar on the desired VM. An option is provided to
+  :guilabel:`Overcommit Memory`. Memory overcommitment allows multiple
+  VMs to be launched when there is not enough free memory for all of
+  them to run at the same time. This option should be used with
+  caution. When active, the VM :guilabel:`State` changes to
+  :guilabel:`RUNNING`. To start a VM when the host system boots,
+  set :guilabel:`Autostart`.
+
 * :guilabel:`Edit` changes VM settings.
 
 * :guilabel:`Delete` removes the VM. :ref:`Zvols <Adding Zvols>` used in
@@ -67,19 +76,15 @@ The |ui-options| menu has options for controlling and modifying VMs:
 * :guilabel:`Clone` copies the VM. The new clone has :samp:`_clone{N}`
   appended to the name, where :samp:`{N}` is the clone number.
 
-:guilabel:`Start` boots a VM. An option is provided to
-:guilabel:`Overcommit Memory`. Memory overcommitment allows multiple VMs
-to be launched when there is not enough free memory for all of them to
-run at the same time. This option should be used with caution. When
-active, the VM :guilabel:`State` changes to :guilabel:`RUNNING`.
-
-When a VM is :guilabel:`RUNNING`, more buttons in the |ui-options| menu
-are available:
+These additional options in |ui-options| are available when a VM is
+running:
 
 * :guilabel:`Power off` immediately halts the VM. This is equivalent
   to unplugging the power cord from a computer.
 
 * :guilabel:`Stop` shuts down the VM.
+
+* :guilabel:`Restart` reboots the VM.
 
 * VMs with :guilabel:`Web Interface` enabled show a :guilabel:`VNC`
   button. VNC connections permit remote graphical access to the VM.
