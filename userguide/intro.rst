@@ -498,7 +498,7 @@ U3
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE`.
 
 * Activity graphs have been updated to report Megabytes/s in
-  :menuselection:`Reporting --> Network`
+  :menuselection:`Reporting --> Network`.
 
 
 .. _Path and Name Lengths:
