@@ -493,6 +493,12 @@ U2
 U3
 ~~
 
+
+* The chosen snapshot name and creation date has been added to the
+  rollback warning dialog in
+  :menuselection:`Storage --> Snapshots -->` |ui-options|
+  :menuselection:`\ --> Rollback`.
+
 * The :guilabel:`shadow_copy_zfs` VFS object has replaced the
   :guilabel:`shadow_copy_test` object in
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE`.
