@@ -493,10 +493,9 @@ U2
 U3
 ~~
 
-* When compatible hardware is connected, the :guilabel:`Multipaths` page
-  has been added to the
-  :menuselection:`Storage`
-  menu.
+* The :guilabel:`Multipaths` page has been added to
+  :menuselection:`Storage`.
+  This page only appears when compatible hardware is detected.
 
 * The :guilabel:`shadow_copy_zfs` VFS object has replaced the
   :guilabel:`shadow_copy_test` object in
