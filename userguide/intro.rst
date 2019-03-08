@@ -503,6 +503,11 @@ U3
   :guilabel:`shadow_copy_test` object in
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE`.
 
+* Setting :guilabel:`Enable AD Monitoring` in
+  :menuselection:`Directory Services --> Active Directory`
+  now prevents modifying
+  :menuselection:`Services --> Domain Controller`.
+
 * The :guilabel:`Host` field has been added to
   :menuselection:`Services --> TFTP`.
 
