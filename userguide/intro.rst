@@ -493,6 +493,12 @@ U2
 U3
 ~~
 
+
+* The chosen snapshot name and creation date has been added to the
+  rollback warning dialog in
+  :menuselection:`Storage --> Snapshots -->` |ui-options|
+  :menuselection:`\ --> Rollback`.
+
 * The :guilabel:`shadow_copy_zfs` VFS object has replaced the
   :guilabel:`shadow_copy_test` object in
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE`.
@@ -501,6 +507,14 @@ U3
   :menuselection:`Directory Services --> Active Directory`
   now prevents modifying
   :menuselection:`Services --> Domain Controller`.
+
+* The :guilabel:`Host` field has been added to
+  :menuselection:`Services --> TFTP`.
+
+* The :guilabel:`Raw filename password` field has been added to
+  |dockerhost| :guilabel:`Storage File` options in
+  :menuselection:`Virtual Machines --> ADD`.
+
 
 .. _Path and Name Lengths:
 

@@ -1885,7 +1885,10 @@ available options.
    | Allow New Files  | checkbox      | Set when network devices need to send files to the system. For example, to back up their configuration.                  |
    |                  |               |                                                                                                                          |
    +------------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Port             | integer       | Enter a UDP port to listen for TFTP requests, *69* by default.                                                           |
+   | Host             | IP address    | The default host to use for TFTP transfers. Enter an IP address. Example: *192.0.2.1*.                                   |
+   |                  |               |                                                                                                                          |
+   +------------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
+   | Port             | integer       | The UDP port number that listens for TFTP requests. Example: *8050*.                                                     |
    |                  |               |                                                                                                                          |
    +------------------+---------------+--------------------------------------------------------------------------------------------------------------------------+
    | Username         | drop-down     | Select the account to use for TFTP requests. This account must have permission to the :guilabel:`Directory`.             |
