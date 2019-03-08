@@ -20,7 +20,6 @@ these options:
 
 * :ref:`Swap Space`: Change the swap space size.
 
-
 #ifdef truenas
 .. note:: When using an HA (High Availability) %brand% system,
    connecting to the |web-ui| on the passive node only
@@ -1272,30 +1271,30 @@ should not be used with :ref:`Windows (SMB) Shares`.
 The *Mac* :guilabel:`ACL Type` can be used with :ref:`Apple (AFP) Shares`.
 
 
-.. _View Multipaths:
+.. _Multipaths:
 
-View Multipaths
-~~~~~~~~~~~~~~~
+Multipaths
+~~~~~~~~~~
+
+This option is only displayed on systems that contain multipath-capable
+hardware.
 
 %brand% uses
 `gmultipath(8) <https://www.freebsd.org/cgi/man.cgi?query=gmultipath>`__
 to provide
 `multipath I/O <https://en.wikipedia.org/wiki/Multipath_I/O>`__
-support on systems containing hardware that is capable of multipath.
-An example would be a dual SAS expander backplane in the chassis or an
-external JBOD.
+support on systems containing multipath-capable hardware. For example,
+a dual SAS expander backplane in the chassis or an external JBOD.
 
 Multipath hardware adds fault tolerance to a NAS as the data is still
 available even if one disk I/O path has a failure.
 
 %brand% automatically detects active/active and active/passive
-multipath-capable hardware. Any multipath-capable devices that are
-detected will be placed in multipath units with the parent devices
-hidden. The configuration will be displayed in
-:menuselection:`Storage --> Pools --> View Multipaths`.
-Note that this option is not be displayed in the
-:menuselection:`Storage --> Pools`
-tree on systems that do not contain multipath-capable hardware.
+multipath-capable hardware. Discovered multipath-capable devices are
+placed in multipath units with the parent devices hidden. The
+configuration is displayed in
+:menuselection:`Storage --> Multipaths`.
+
 
 .. index:: Snapshots
 .. _Snapshots:

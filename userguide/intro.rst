@@ -493,6 +493,11 @@ U2
 U3
 ~~
 
+* When compatible hardware is connected, the :guilabel:`Multipaths` page
+  has been added to the
+  :menuselection:`Storage`
+  menu.
+
 * The :guilabel:`shadow_copy_zfs` VFS object has replaced the
   :guilabel:`shadow_copy_test` object in
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE`.
