@@ -381,7 +381,6 @@ To manage the passphrase and keys on an encrypted pool, select the
 pool name in
 :menuselection:`Storage --> Pools`,
 click |pool-lock|, and select one of these operations:
-these operations:
 
 **Lock:** Only appears after a passphrase has been created. When a pool
 is locked, the data is not accessible until the pool is unlocked by
