@@ -503,6 +503,10 @@ U3
   :guilabel:`shadow_copy_test` object in
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE`.
 
+* :guilabel:`Restart` has been added to the |ui-options| menu for a
+  running VM in
+  :menuselection:`Virtual Machines`.
+
 * Setting :guilabel:`Enable AD Monitoring` in
   :menuselection:`Directory Services --> Active Directory`
   now prevents modifying

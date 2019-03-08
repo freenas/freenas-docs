@@ -81,6 +81,8 @@ are available:
 
 * :guilabel:`Stop` shuts down the VM.
 
+* :guilabel:`Restart` shuts down and immediately starts the VM.
+
 * VMs with :guilabel:`Web Interface` enabled show a :guilabel:`VNC`
   button. VNC connections permit remote graphical access to the VM.
 
