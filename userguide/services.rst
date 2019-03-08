@@ -197,24 +197,25 @@ Domain Controller
 a network or to join an existing :ref:`Active Directory` network as a
 domain controller.
 
-.. note:: This section demonstrates how to configure the %brand%
-   system to act as a domain controller. If the goal is to integrate
-   with an existing :ref:`Active Directory` network to access its
-   authentication and authorization services, configure
-   :ref:`Active Directory` instead.
+This section demonstrates how to configure the %brand% system to act as
+a domain controller. If the goal is to integrate with an existing
+:ref:`Active Directory` network to access its authentication and
+authorization services, configure :ref:`Active Directory` instead.
+
+.. note:: The Domain Controller service cannot be configured when
+   :guilabel:`Enable AD Monitoring` is set in
+   :menuselection:`Directory Services --> Active Directory`
 
 
-Note that configuring a domain controller is a complex process
-that requires a good understanding of how :ref:`Active Directory`
-works. While
+Configuring a domain controller is a complex process that requires a
+good understanding of how :ref:`Active Directory` works. While
 :menuselection:`Services --> Domain Controller --> Configure`
 makes it easy to enter the needed settings into the |web-ui|, it is
-important to understand what those settings
-should be. Before beginning configuration, read through the
-`Samba AD DC HOWTO
-<https://wiki.samba.org/index.php/Samba_AD_DC_HOWTO>`__.
-After %brand% is configured, use the RSAT utility from a Windows
-system to manage the domain controller. The Samba AD DC HOWTO includes
+important to understand what those settings should be. Before beginning
+configuration, read through the
+`Samba AD DC HOWTO <https://wiki.samba.org/index.php/Samba_AD_DC_HOWTO>`__.
+After %brand% is configured, use the RSAT utility from a Windows system
+to manage the domain controller. The Samba AD DC HOWTO includes
 instructions for installing and configuring RSAT.
 
 :numref:`Figure %s <domain_controller_settings_fig>`

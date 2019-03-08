@@ -128,7 +128,8 @@ advanced options.
    | Recovery Attempts        | integer       |          | Number of times to attempt reconnecting to the Active Directory server. Tries forever when set to *0*.                        |
    |                          |               |          |                                                                                                                               |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Enable AD Monitoring     | checkbox      |          | Restart Active Directory automatically if the service disconnects.                                                            |
+   | Enable AD Monitoring     | checkbox      |          | Restart Active Directory automatically if the service disconnects. Setting this prevents configuring the                      |
+   |                          |               |          | :ref:`Domain Controller` service.                                                                                             |
    +--------------------------+---------------+----------+-------------------------------------------------------------------------------------------------------------------------------+
    | Encryption Mode          | drop-down     | ✓        | Choices are *Off*, *SSL*, or *TLS*.                                                                                           |
    |                          |               |          | *SSL* selects LDAPS protocol (port 636). *TLS* selects LDAP protocol (port 389).                                              |
