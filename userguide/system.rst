@@ -2375,8 +2375,8 @@ to the
 This process can take several minutes while information is collected and
 sent.
 
-After the new ticket is created, the URL is shown for viewing or updating
-with more information.
+After the new ticket is created, the ticket URL is shown for viewing
+or updating with more information.
 #endif freenas
 
 #ifdef truenas
