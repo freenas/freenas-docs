@@ -900,9 +900,9 @@ shown in
    |                      |                      | *587* (submission).                                                                             |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Security             | drop-down menu       | Choose an encryption type. Choices are *Plain*,                                                 |
-   |                      |                      | *SSL*, or                                                                                       |
-   |                      |                      | *TLS*.                                                                                          |
+   | Security             | drop-down menu       | Choose an encryption type. Choices are *Plain (No Encryption)*,                                 |
+   |                      |                      | *SSL (Implicit TLS)*, or                                                                        |
+   |                      |                      | *TLS (STARTTLS)*.                                                                               |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | SMTP                 | checkbox             | Enable or disable                                                                               |
