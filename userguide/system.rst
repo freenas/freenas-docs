@@ -1264,7 +1264,7 @@ Enter a descriptive and unique name for the cloud credential in the
    | SFTP                 | Host, Port,          | Enter the SFTP host, port, and username. Enter a password *or* PEM-encoded private key file path.               |
    |                      | Username, Password,  |                                                                                                                 |
    |                      | PEM-encoded private  |                                                                                                                 |
-   |                      | key file path.       |                                                                                                                 |
+   |                      | key file path        |                                                                                                                 |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | WebDAV               | URL, WebDAV service  | Enter the URL and use the dropdown to select the WebDAV service.                                                |
