@@ -2009,40 +2009,43 @@ available options.
 .. table:: TFTP Configuration Options
    :class: longtable
 
-   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
-   | Setting             | Value         | Description                                                                                                    |
-   |                     |               |                                                                                                                |
-   +=====================+===============+================================================================================================================+
-   | Directory           | browse        | Browse to an **existing** directory to be used for storage. Some devices require a specific directory name.    |
-   |                     | button        | Refer to the device documentation for details.                                                                 |
-   |                     |               |                                                                                                                |
-   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
-   | Allow New Files     | checkbox      | Enable if network devices need to send files to the system (for example, to back up their configuration).      |
-   |                     |               |                                                                                                                |
-   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
-   | Port                | integer       | Enter the UDP port to listen for TFTP requests. Default is *69*.                                               |
-   |                     |               |                                                                                                                |
-   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
-   | Username            | drop-down     | Select the account to be used for TFTP requests. The account must have permission to access                    |
-   |                     | menu          | the :guilabel:`Directory`.                                                                                     |
-   |                     |               |                                                                                                                |
-   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Setting          | Value         | Description                                                                                                    |
+   |                  |               |                                                                                                                |
+   +==================+===============+================================================================================================================+
+   | Directory        | browse        | Browse to an **existing** directory to be used for storage. Some devices require a specific directory name.    |
+   |                  | button        | Refer to the device documentation for details.                                                                 |
+   |                  |               |                                                                                                                |
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Allow New Files  | checkbox      | Enable if network devices need to send files to the system (for example, to back up their configuration).      |
+   |                  |               |                                                                                                                |
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Host             | IP address    | The default host to use for TFTP transfers. Enter an IP address. Example: *192.0.2.1*.                         |
+   |                  |               |                                                                                                                |
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Port             | integer       | The UDP port number that listens for TFTP requests. Example: *8050*.                                           |
+   |                  |               |                                                                                                                |
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Username         | drop-down     | Select the account to be used for TFTP requests. The account must have permission to access                    |
+   |                  | menu          | the :guilabel:`Directory`.                                                                                     |
+   |                  |               |                                                                                                                |
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
    #ifdef freenas
-   | File Permissions    | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write.        |
-   |                     |               | Some devices require less strict permissions.                                                                  |
-   |                     |               |                                                                                                                |
-   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | File Permissions | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write.        |
+   |                  |               | Some devices require less strict permissions.                                                                  |
+   |                  |               |                                                                                                                |
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
    #endif freenas
    #ifdef truenas
-   | Umask               | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write.        |
-   |                     |               | Some devices require less strict permissions.                                                                  |
-   |                     |               |                                                                                                                |
-   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Umask            | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write.        |
+   |                  |               | Some devices require less strict permissions.                                                                  |
+   |                  |               |                                                                                                                |
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
    #endif truenas
-   | Extra options       | string        | Add any additional `tftpd(8) <https://www.freebsd.org/cgi/man.cgi?query=tftpd>`__                              |
-   |                     |               | options not shown in this screen. Add one option on each line.                                                 |
-   |                     |               |                                                                                                                |
-   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Extra options    | string        | Add any additional `tftpd(8) <https://www.freebsd.org/cgi/man.cgi?query=tftpd>`__                              |
+   |                  |               | options not shown in this screen. Add one option on each line.                                                 |
+   |                  |               |                                                                                                                |
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
 
 
 .. index:: UPS, Uninterruptible Power Supply
