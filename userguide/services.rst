@@ -1959,7 +1959,7 @@ UPS Configuration screen.
    |                               |                | for more details about configuring multiple systems with a single UPS.                                                 |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Port or Hostname              | drop-down menu | Enter the serial or USB port the UPS is using (see :ref:`NOTE <UPS USB>`).                                             |
+   | Port or Hostname              | drop-down menu | Enter the serial or USB port connected to the UPS (see :ref:`NOTE <UPS USB>`).                                         |
    |                               |                |                                                                                                                        |
    |                               |                | Enter the IP address or hostname of the SNMP UPS device when an SNMP driver is selected.                               |
    |                               |                |                                                                                                                        |
