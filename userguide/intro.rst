@@ -526,7 +526,6 @@ U3
   :menuselection:`Virtual Machines --> ADD`.
 
 
-
 .. _Path and Name Lengths:
 
 Path and Name Lengths
