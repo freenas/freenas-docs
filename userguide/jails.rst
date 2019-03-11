@@ -674,7 +674,12 @@ example is shown in :numref:`Figure %s <jail_overview_fig>`.
    | Jail              | The name of the jail.                              |
    |                   |                                                    |
    +-------------------+----------------------------------------------------+
-   | IPv4 Address      | Listing of configured IPv4 addresses.              |
+   | IPv4 Address      | Listing of configured IPv4 addresses. A static     |
+   |                   | IPv4 address is displayed if set manually.         |
+   |                   | :literal:`DHCP (not running)` is displayed if the  |
+   |                   | jail is stopped and was configured using DHCP.     |
+   |                   | :samp:`DCHP:{ipaddress}` is displayed if the jail  |
+   |                   | is running and was configured using DHCP.          |
    |                   |                                                    |
    +-------------------+----------------------------------------------------+
    | IPv6 Address      | Listing of configured IPv6 addresses.              |
