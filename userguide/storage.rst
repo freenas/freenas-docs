@@ -379,19 +379,17 @@ it.
 To manage the passphrase and keys on an encrypted pool, select the
 pool name in
 :menuselection:`Storage --> Pools`,
-click the :guilabel:`Encryption Operations` (lock) icon, and select one of
-these operations:
+click |pool-lock|, and select one of these operations:
 
 **Lock:** Only appears after a passphrase has been created. When a pool
 is locked, the data is not accessible until the pool is unlocked by
 supplying the passphrase. For this reason, selecting this action
 prompts to confirm. When the pool is locked, the status changes to
 *LOCKED (Locked Used / Locked Free)*. :guilabel:`Pool Operations` are
-limited to *Export/Disconnect*, and the
-:guilabel:`Encryption Operations` icon changes to the :guilabel:`Unlock`
-button.
+limited to *Export/Disconnect*, and |pool-lock| changes to
+|pool-unlock|.
 
-Unlock the pool by clicking the :guilabel:`Unlock` icon and entering
+Unlock the pool by clicking the |pool-unlock| icon and entering
 the passphrase *or* use the :guilabel:`Browse` button to load the
 recovery key. Only the passphrase is used when both a passphrase and a
 recovery key are entered. The services listed in
@@ -1380,7 +1378,7 @@ created.
 
 **Rollback:** Clicking
 |ui-options| :menuselection:`--> Rollback`
-asks for confirmation before rolling back to this snapshot state.
+asks for confirmation before rolling back to the chosen snapshot state.
 Clicking :guilabel:`Yes` causes all files in the dataset to revert to
 the state they were in when the snapshot was created.
 
