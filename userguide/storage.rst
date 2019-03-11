@@ -1262,10 +1262,10 @@ indicate the amount of disk space available for storage.
 Buttons are provided for quick access to :guilabel:`Volume Manager`,
 :guilabel:`Import Disk`, :guilabel:`Import Volume`, and
 :guilabel:`View Disks`. If the system has multipath-capable hardware,
-:guilabel:`View Multipaths` is added. For each entry, the columns
-indicate the :guilabel:`Name`, how much disk space is :guilabel:`Used`,
-how much disk space is :guilabel:`Available`, the type of
-:guilabel:`Compression`, the :guilabel:`Compression Ratio`, the
+a :guilabel:`View Multipaths` button is also shown. For each entry, the
+columns indicate the :guilabel:`Name`, how much disk space is
+:guilabel:`Used`, how much disk space is :guilabel:`Available`, the type
+of :guilabel:`Compression`, the :guilabel:`Compression Ratio`, the
 :guilabel:`Status`, whether it is mounted as read-only, and any
 :guilabel:`Comments` entered for the volume.
 
@@ -1613,8 +1613,9 @@ hardware.
 `gmultipath(8) <https://www.freebsd.org/cgi/man.cgi?query=gmultipath>`__
 to provide
 `multipath I/O <https://en.wikipedia.org/wiki/Multipath_I/O>`__
-support on systems containing multipath-capable hardware. For example,
-a dual SAS expander backplane in the chassis or an external JBOD.
+support on systems containing multipath-capable hardware like a chassis
+equipped with a dual SAS expander backplane, or an external JBOD that is
+wired for multipath.
 
 Multipath hardware adds fault tolerance to a NAS as the data is still
 available even if one disk I/O path has a failure.
