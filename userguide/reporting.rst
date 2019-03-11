@@ -32,8 +32,8 @@ Graphs are grouped by category on the Reporting page:
   * `CPU <https://collectd.org/wiki/index.php/Plugin:CPU>`__
     shows the amount of time spent by the CPU in various states
     such as executing user code, executing system code, and being
-    idle. There are also CPU load graphs for short, mid, and long terms
-    and CPU temperature graphs.
+    idle. Graphs of short-, mid-, and long-term load are shown, along
+    with CPU temperature graphs.
 
 * :guilabel:`Disk`
 
