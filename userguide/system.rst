@@ -900,9 +900,9 @@ shown in
    |                      |                      | *587* (submission).                                                                             |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Security             | drop-down menu       | Choose an encryption type. Choices are *Plain*,                                                 |
-   |                      |                      | *SSL*, or                                                                                       |
-   |                      |                      | *TLS*.                                                                                          |
+   | Security             | drop-down menu       | Choose an encryption type. Choices are *Plain (No Encryption)*,                                 |
+   |                      |                      | *SSL (Implicit TLS)*, or                                                                        |
+   |                      |                      | *TLS (STARTTLS)*.                                                                               |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
    | SMTP                 | checkbox             | Enable or disable                                                                               |
@@ -1264,7 +1264,7 @@ Enter a descriptive and unique name for the cloud credential in the
    | SFTP                 | Host, Port,          | Enter the SFTP host, port, and username. Enter a password *or* PEM-encoded private key file path.               |
    |                      | Username, Password,  |                                                                                                                 |
    |                      | PEM-encoded private  |                                                                                                                 |
-   |                      | key file path.       |                                                                                                                 |
+   |                      | key file path        |                                                                                                                 |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | WebDAV               | URL, WebDAV service  | Enter the URL and use the dropdown to select the WebDAV service.                                                |
@@ -2375,8 +2375,8 @@ to the
 This process can take several minutes while information is collected and
 sent.
 
-After the new ticket is created, the URL is shown for viewing or updating
-with more information.
+After the new ticket is created, the ticket URL is shown for viewing
+or updating with more information.
 #endif freenas
 
 #ifdef truenas
