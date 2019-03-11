@@ -53,9 +53,8 @@ Graphs are grouped by category on the Reporting page:
 
 * :guilabel:`Network`
 
-  * `Interface
-    <https://collectd.org/wiki/index.php/Plugin:Interface>`__
-    shows received and transmitted traffic in bits per second for
+  * `Interface <https://collectd.org/wiki/index.php/Plugin:Interface>`__
+    shows received and transmitted traffic in megabytes per second for
     each configured interface.
 
 * :guilabel:`Partition`
