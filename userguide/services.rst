@@ -1191,10 +1191,9 @@ minutes. The *Long* test scans the entire disk surface, and can take
 several hours on larger drives.
 
 %brand% uses the
-`smartd(8)
-<https://www.smartmontools.org/browser/trunk/smartmontools/smartd.8.in>`__
-service to monitor S.M.A.R.T. information. A complete configuration
-consists of:
+`smartd(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartd.8.in>`__
+service to monitor S.M.A.R.T. information, including disk temperature. A
+complete configuration consists of:
 
 #.  Scheduling when S.M.A.R.T. tests are run. S.M.A.R.T tests are
     created by navigating to :menuselection:`Tasks --> S.M.A.R.T. Tests`,
@@ -1203,7 +1202,7 @@ consists of:
 #.  Enabling or disabling S.M.A.R.T. for each disk member of a pool in
     :menuselection:`Storage --> Pools`.
     This setting is enabled by default for disks that support
-    S.M.A.R.T.
+    S.M.A.R.T. 
 
 #.  Checking the configuration of the S.M.A.R.T. service as described
     in this section.
