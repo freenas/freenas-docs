@@ -1202,7 +1202,7 @@ complete configuration consists of:
 #.  Enabling or disabling S.M.A.R.T. for each disk member of a pool in
     :menuselection:`Storage --> Pools`.
     This setting is enabled by default for disks that support
-    S.M.A.R.T. 
+    S.M.A.R.T.
 
 #.  Checking the configuration of the S.M.A.R.T. service as described
     in this section.
