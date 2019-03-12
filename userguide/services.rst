@@ -1310,7 +1310,7 @@ complete configuration consists of:
     in
     :menuselection:`Volumes --> View Disks`.
     This setting is enabled by default for disks that support
-    S.M.A.R.T. 
+    S.M.A.R.T.
 
 #.  Checking the configuration of the S.M.A.R.T. service as described
     in this section.
