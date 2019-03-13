@@ -1829,6 +1829,8 @@ shows the configuration options for Cloud Syncs.
 
 To modify an existing cloud sync, click |ui-options| to access the
 :guilabel:`Run Now`, :guilabel:`Edit`, and :guilabel:`Delete` options.
+The time selected is when the Cloud Sync task is allowed to begin. The
+cloud sync runs until finished, even after the time selected.
 
 
 .. _Cloud Sync Example:
