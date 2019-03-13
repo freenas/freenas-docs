@@ -1704,10 +1704,9 @@ created.
 
 After the cloud credentials have been configured,
 :menuselection:`Tasks --> Cloud Sync Tasks` is used to define the
-schedule for running a cloud sync task.
-
-The time selected is when the Cloud Sync task is allowed to begin. The
-cloud sync runs until finished, even after the time selected.
+schedule for running a cloud sync task. The time selected is when
+the Cloud Sync task is allowed to begin. The cloud sync runs until
+finished, even after the time selected.
 
 An example is shown in
 :numref:`Figure %s <tasks_cloudsync_status_fig>`.
