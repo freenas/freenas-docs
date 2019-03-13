@@ -1262,11 +1262,11 @@ indicate the amount of disk space available for storage.
 Buttons are provided for quick access to :guilabel:`Volume Manager`,
 :guilabel:`Import Disk`, :guilabel:`Import Volume`, and
 :guilabel:`View Disks`. If the system has multipath-capable hardware,
-an extra button will be added, :guilabel:`View Multipaths`. For each
-entry, the columns indicate the :guilabel:`Name`, how much disk space
-is :guilabel:`Used`, how much disk space is :guilabel:`Available`, the
-type of :guilabel:`Compression`, the :guilabel:`Compression Ratio`,
-the :guilabel:`Status`, whether it is mounted as read-only, and any
+a :guilabel:`View Multipaths` button is also shown. For each entry, the
+columns indicate the :guilabel:`Name`, how much disk space is
+:guilabel:`Used`, how much disk space is :guilabel:`Available`, the type
+of :guilabel:`Compression`, the :guilabel:`Compression Ratio`, the
+:guilabel:`Status`, whether it is mounted as read-only, and any
 :guilabel:`Comments` entered for the volume.
 
 
@@ -1606,25 +1606,25 @@ compromised. **Immediately** create a new passphrase and recovery key.
 View Multipaths
 ~~~~~~~~~~~~~~~
 
+This option is only displayed on systems that contain multipath-capable
+hardware.
+
 %brand% uses
 `gmultipath(8) <https://www.freebsd.org/cgi/man.cgi?query=gmultipath>`__
 to provide
 `multipath I/O <https://en.wikipedia.org/wiki/Multipath_I/O>`__
-support on systems containing hardware that is capable of multipath.
-An example would be a dual SAS expander backplane in the chassis or an
-external JBOD.
+support on systems containing multipath-capable hardware like a chassis
+equipped with a dual SAS expander backplane, or an external JBOD that is
+wired for multipath.
 
 Multipath hardware adds fault tolerance to a NAS as the data is still
 available even if one disk I/O path has a failure.
 
 %brand% automatically detects active/active and active/passive
-multipath-capable hardware. Any multipath-capable devices that are
-detected will be placed in multipath units with the parent devices
-hidden. The configuration will be displayed in
+multipath-capable hardware. Discovered multipath-capable devices are
+placed in multipath units with the parent devices hidden. The
+configuration is displayed in
 :menuselection:`Storage --> Volumes --> View Multipaths`.
-Note that this option is not be displayed in the
-:menuselection:`Storage --> Volumes`
-tree on systems that do not contain multipath-capable hardware.
 
 
 .. index:: Replace Failed Drive
