@@ -1959,13 +1959,12 @@ UPS Configuration screen.
    |                               |                | for more details about configuring multiple systems with a single UPS.                                                 |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
-   | Port / Hostname / Remote Port | drop-down menu | :guilabel:`Port`: Enter the serial or USB port the UPS is connected to (see :ref:`NOTE <UPS USB>`).                    |
+   | Port or Hostname              | drop-down menu | Enter the serial or USB port connected to the UPS (see :ref:`NOTE <UPS USB>`).                                         |
    |                               |                |                                                                                                                        |
-   |                               |                | When an :literal:`snmp` driver is selected, :guilabel:`Port` changes to                                                |
-   |                               |                | :guilabel:`Hostname`: Enter the IP address or hostname of the SNMP UPS device.                                         |
+   |                               |                | Enter the IP address or hostname of the SNMP UPS device when an SNMP driver is selected.                               |
    |                               |                |                                                                                                                        |
-   |                               |                | :guilabel:`Port` becomes :guilabel:`Remote Port` when the :guilabel:`UPS Mode` is set to *Slave*. Enter the open       |
-   |                               |                | network port number of the UPS *Master* system. The default port is *3493*.                                            |
+   |                               |                | :guilabel:`Port or Hostname` becomes :guilabel:`Remote Port` when the :guilabel:`UPS Mode` is set to *Slave*. Enter    |
+   |                               |                | the open network port number of the UPS *Master* system. The default port is *3493*.                                   |
    |                               |                |                                                                                                                        |
    +-------------------------------+----------------+------------------------------------------------------------------------------------------------------------------------+
    | Auxiliary Parameters          | string         | Enter any additional options from `ups.conf(5) <https://www.freebsd.org/cgi/man.cgi?query=ups.conf>`__.                |
