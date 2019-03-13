@@ -493,6 +493,9 @@ U2
 U3
 ~~
 
+* Deleting a zvol from
+  :menuselection:`Storage --> Pools`
+  has been updated to also delete all snapshots of that zvol.
 
 * The chosen snapshot name and creation date has been added to the
   rollback warning dialog in
