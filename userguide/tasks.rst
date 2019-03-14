@@ -184,6 +184,9 @@ path to the command is shown:
 When scheduling a script, test the script first to verify it is
 executable and achieves the desired results.
 
+.. note:: The default %brand% shell is :file:`zsh`, but
+   init/shutdown scripts are run using :file:`sh`.
+
 Init/Shutdown tasks are shown in
 :menuselection:`Tasks --> Init/Shutdown Scripts`.
 Click |ui-options| for a task to :guilabel:`Edit` or :guilabel:`Delete`
