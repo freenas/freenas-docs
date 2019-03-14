@@ -1199,7 +1199,7 @@ available when editing multiple disks.
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
    | Enable S.M.A.R.T.            | checkbox  | ✓          | Enabled by default when the disk supports S.M.A.R.T. Unsetting disables any configured disk :ref:`S.M.A.R.T. Tests` and  |
-   |                              |           |            | prevents gathering new disk temperature data for system :ref:`reports <Reporting>`.                                      |
+   |                              |           |            | prevents gathering disk temperature data for system :ref:`reports <Reporting>`.                                          |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
    | S.M.A.R.T. extra options     | string    | ✓          | Enter additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options.     |
