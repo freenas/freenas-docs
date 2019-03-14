@@ -1149,8 +1149,10 @@ to access the :guilabel:`Delete zvol`, :guilabel:`Edit Zvol`,
 :guilabel:`Create Snapshot`, and, for an existing zvol snapshot,
 :guilabel:`Promote Dataset` options.
 
-Similar to datasets, a zvol name cannot be changed. Choosing to delete a
-zvol warns that all snapshots of that zvol will also be deleted.
+Similar to datasets, a zvol name cannot be changed.
+
+Choosing a zvol for deletion shows a warning that all snapshots of that
+zvol will also be deleted.
 
 
 .. _Setting Permissions:
