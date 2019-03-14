@@ -493,6 +493,9 @@ U2
 U3
 ~~
 
+* A |ui-refresh| button has been added to
+  :menuselection:`System --> Update`.
+
 * Deleting a zvol from
   :menuselection:`Storage --> Pools`
   has been updated to also delete all snapshots of that zvol.
