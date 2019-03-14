@@ -493,7 +493,6 @@ U2
 U3
 ~~
 
-<<<<<<< HEAD
 * A |ui-refresh| button has been added to
   :menuselection:`System --> Update`.
 
@@ -501,8 +500,6 @@ U3
   :menuselection:`Storage --> Pools`
   has been updated to also delete all snapshots of that zvol.
 
-=======
->>>>>>> 6bffa8828fed9a6a8cf17499e2356e8776f315bd
 * The chosen snapshot name and creation date has been added to the
   rollback warning dialog in
   :menuselection:`Storage --> Snapshots -->` |ui-options|
