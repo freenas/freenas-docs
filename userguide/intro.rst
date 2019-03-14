@@ -493,15 +493,31 @@ U2
 U3
 ~~
 
+* A |ui-refresh| button has been added to
+  :menuselection:`System --> Update`.
 
 * The chosen snapshot name and creation date has been added to the
   rollback warning dialog in
   :menuselection:`Storage --> Snapshots -->` |ui-options|
   :menuselection:`\ --> Rollback`.
 
+* Setting :guilabel:`Enable AD Monitoring` in
+  :menuselection:`Directory Services --> Active Directory`
+  now prevents modifying
+  :menuselection:`Services --> Domain Controller`.
+
 * The :guilabel:`shadow_copy_zfs` VFS object has replaced the
   :guilabel:`shadow_copy_test` object in
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE`.
+
+* The :guilabel:`Host` field has been added to
+  :menuselection:`Services --> TFTP`.
+
+* :menuselection:`Jails` displays a DHCP prefix before the
+  :guilabel:`IPv4 Address` for DHCP-enabled Plugins and Jails.
+
+* :guilabel:`CPU Temperature` graphs have been added to
+  :menuselection:`Reporting --> CPU`.
 
 * Activity graphs have been updated to report Megabytes/s in
   :menuselection:`Reporting --> Network`.
@@ -509,14 +525,6 @@ U3
 * :guilabel:`Restart` has been added to the |ui-options| menu for a
   running VM in
   :menuselection:`Virtual Machines`.
-
-* Setting :guilabel:`Enable AD Monitoring` in
-  :menuselection:`Directory Services --> Active Directory`
-  now prevents modifying
-  :menuselection:`Services --> Domain Controller`.
-
-* The :guilabel:`Host` field has been added to
-  :menuselection:`Services --> TFTP`.
 
 * The :guilabel:`Raw filename password` field has been added to
   |dockerhost| :guilabel:`Storage File` options in
