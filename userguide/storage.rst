@@ -1262,11 +1262,11 @@ indicate the amount of disk space available for storage.
 Buttons are provided for quick access to :guilabel:`Volume Manager`,
 :guilabel:`Import Disk`, :guilabel:`Import Volume`, and
 :guilabel:`View Disks`. If the system has multipath-capable hardware,
-an extra button will be added, :guilabel:`View Multipaths`. For each
-entry, the columns indicate the :guilabel:`Name`, how much disk space
-is :guilabel:`Used`, how much disk space is :guilabel:`Available`, the
-type of :guilabel:`Compression`, the :guilabel:`Compression Ratio`,
-the :guilabel:`Status`, whether it is mounted as read-only, and any
+a :guilabel:`View Multipaths` button is also shown. For each entry, the
+columns indicate the :guilabel:`Name`, how much disk space is
+:guilabel:`Used`, how much disk space is :guilabel:`Available`, the type
+of :guilabel:`Compression`, the :guilabel:`Compression Ratio`, the
+:guilabel:`Status`, whether it is mounted as read-only, and any
 :guilabel:`Comments` entered for the volume.
 
 
@@ -1417,8 +1417,10 @@ Clicking a zvol in
 causes icons to appear at the bottom of the screen:
 :guilabel:`Create Snapshot`, :guilabel:`Promote Dataset`,
 :guilabel:`Edit zvol`, and :guilabel:`Destroy zvol`. Similar to
-datasets, a zvol name cannot be changed, and destroying a zvol requires
-confirmation.
+datasets, a zvol name cannot be changed.
+
+Choosing a zvol for deletion shows a warning that all snapshots of that
+zvol will also be deleted.
 
 
 .. _Managing Encrypted Volumes:
@@ -1606,25 +1608,25 @@ compromised. **Immediately** create a new passphrase and recovery key.
 View Multipaths
 ~~~~~~~~~~~~~~~
 
+This option is only displayed on systems that contain multipath-capable
+hardware.
+
 %brand% uses
 `gmultipath(8) <https://www.freebsd.org/cgi/man.cgi?query=gmultipath>`__
 to provide
 `multipath I/O <https://en.wikipedia.org/wiki/Multipath_I/O>`__
-support on systems containing hardware that is capable of multipath.
-An example would be a dual SAS expander backplane in the chassis or an
-external JBOD.
+support on systems containing multipath-capable hardware like a chassis
+equipped with a dual SAS expander backplane, or an external JBOD that is
+wired for multipath.
 
 Multipath hardware adds fault tolerance to a NAS as the data is still
 available even if one disk I/O path has a failure.
 
 %brand% automatically detects active/active and active/passive
-multipath-capable hardware. Any multipath-capable devices that are
-detected will be placed in multipath units with the parent devices
-hidden. The configuration will be displayed in
+multipath-capable hardware. Discovered multipath-capable devices are
+placed in multipath units with the parent devices hidden. The
+configuration is displayed in
 :menuselection:`Storage --> Volumes --> View Multipaths`.
-Note that this option is not be displayed in the
-:menuselection:`Storage --> Volumes`
-tree on systems that do not contain multipath-capable hardware.
 
 
 .. index:: Replace Failed Drive
@@ -2944,7 +2946,7 @@ snapshot, ZFS has to walk all the allocated blocks to see if that
 block is used anywhere else. If it is not used, it can be freed.
 
 The most recent snapshot also has a **Rollback Snapshot** icon.
-Clicking the icon asks for confirmation before rolling back to this
+Clicking the icon asks for confirmation before rolling back to the chosen
 snapshot state. Confirming by clicking :guilabel:`Yes` causes any
 files that have changed since the snapshot was taken to be reverted
 back to their state at the time of the snapshot.
