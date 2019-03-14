@@ -1417,8 +1417,8 @@ Clicking a zvol in
 causes icons to appear at the bottom of the screen:
 :guilabel:`Create Snapshot`, :guilabel:`Promote Dataset`,
 :guilabel:`Edit zvol`, and :guilabel:`Destroy zvol`. Similar to
-datasets, a zvol name cannot be changed. Deleting a zvol also removes
-all snapshots of that zvol.
+datasets, a zvol name cannot be changed. Choosing to delete a
+zvol warns that all snapshots of that zvol will also be deleted.
 
 
 .. _Managing Encrypted Volumes:
