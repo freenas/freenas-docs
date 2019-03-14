@@ -1185,23 +1185,29 @@ Enter a descriptive and unique name for the cloud credential in the
    |                      | ID, Application Key  | key.                                                                                                            |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Access Key ID,       | Enter the Amazon account access key and secret key.                                                             |
-   |                      | Secret Key           |                                                                                                                 |
+   | Amazon S3            | Access Key ID        | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
+   |                      |                      | My account --> Security Credentials --> Access Keys.                                                            |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Endpoint URL         | Leave blank when using AWS. The available buckets are fetched dynamically. Enter an                             |
+   | Amazon S3            | Secret Access Key    | Enter the Amazon Web Services password. If the Secret Access Key cannot be found or remembered, go to My        |
+   |                      |                      | Account --> Security Credentials --> Access Keys and create a new key pair.                                     |
+   |                      |                      |                                                                                                                 |
+   +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Amazon S3            | Endpoint URL         | Set :guilabel:`Advanced Settings` to access this option. Leave blank when using AWS as the available buckets    |
+   |                      |                      | are fetched dynamically. Only enter an                                                                          |
    |                      |                      | `Endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__                        |
    |                      |                      | if using *custom* S3 API. URL general format: *bucket-name.s3-website-region.amazonaws.com*.                    |
    |                      |                      | Refer to the AWS Documentation for a list of `Simple Storage Service Websites Endpoints                         |
    |                      |                      | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Disable Endpoint     | Skip automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom             |
-   |                      | Region               | :guilabel:`Endpoint URL`.                                                                                       |
+   | Amazon S3            | Disable Endpoint     | Set :guilabel:`Advanced Settings` to access this option. Skip automatic detection of the                        |
+   |                      | Region               | :guilabel:`Endpoint URL` region. Set this when configuring a custom :guilabel:`Endpoint URL`.                   |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3            | Use Signature        | Force using `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__    |
-   |                      | Version 2            | to sign API requests. Set this when configuring a custom :guilabel:`Endpoint URL`.                              |
+   | Amazon S3            | Use Signature        | Set :guilabel:`Advanced Settings` to access this option. Force using                                            |
+   |                      | Version 2            | `Signature Version 2 <https://docs.aws.amazon.com/general/latest/gr/signature-version-2.html>`__ to sign API    |
+   |                      |                      | requests. Set this when configuring a custom :guilabel:`Endpoint URL`.                                          |
    |                      |                      |                                                                                                                 |
    +----------------------+----------------------+-----------------------------------------------------------------------------------------------------------------+
    | Backblaze B2         | Account ID or        | Enter the `Account ID and Master Application Key                                                                |
