@@ -1646,11 +1646,19 @@ remaining options vary by provider, and are shown in
    | Drive              | ID, Application Key    |                                                                                                                 |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3          | Access Key,            | Enter the Amazon account access key and secret key.                                                             |
-   |                    | Secret Key             |                                                                                                                 |
+   | Amazon S3          | Access Key ID          | Enter the Amazon Web Services Key ID. This is found on `Amazon AWS <https://aws.amazon.com>`__ by going through |
+   |                    |                        | My account --> Security Credentials --> Access Keys.                                                            |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
-   | Amazon S3          | Endpoint URL           | Enter the Endpoint URL for the web service.                                                                     |
+   | Amazon S3          | Secret Access Key      | Enter the Amazon Web Services password. If the Secret Access Key cannot be found or remembered, go to My        |
+   |                    |                        | Account --> Security Credentials --> Access Keys and create a new key pair.                                     |
+   |                    |                        |                                                                                                                 |
+   +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
+   | Amazon S3          | Endpoint URL           | Leave blank when using AWS as the available buckets are fetched dynamically. Only enter an                      |
+   |                    |                        | `Endpoint URL <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteEndpoints.html>`__                        |
+   |                    |                        | if using *custom* S3 API. URL general format: *bucket-name.s3-website-region.amazonaws.com*.                    |
+   |                    |                        | Refer to the AWS Documentation for a list of `Simple Storage Service Websites Endpoints                         |
+   |                    |                        | <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints>`__.                      |
    |                    |                        |                                                                                                                 |
    +--------------------+------------------------+-----------------------------------------------------------------------------------------------------------------+
    | Amazon S3          | Enpoint does not       | Skip automatic detection of the :guilabel:`Endpoint URL` region. Set this when configuring a custom             |
