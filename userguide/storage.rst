@@ -1148,8 +1148,11 @@ to access the :guilabel:`Delete zvol`, :guilabel:`Edit Zvol`,
 :guilabel:`Create Snapshot`, and, for an existing zvol snapshot,
 :guilabel:`Promote Dataset` options.
 
-Similar to datasets, a zvol name cannot be
-changed, and destroying a zvol requires confirmation.
+Similar to datasets, a zvol name cannot be changed.
+
+Choosing a zvol for deletion shows a warning that all snapshots of that
+zvol will also be deleted.
+
 
 .. _Setting Permissions:
 
@@ -1617,8 +1620,8 @@ To offline, online, or or replace the device, see
    |                              | menu      |            | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`__.                                                   |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Enable S.M.A.R.T.            | checkbox  | ✓          | Enabled by default if the disk supports S.M.A.R.T. Unsetting this option will disable any configured                     |
-   |                              |           |            | :ref:`S.M.A.R.T. Tests` for the disk.                                                                                    |
+   | Enable S.M.A.R.T.            | checkbox  | ✓          | Enabled by default when the disk supports S.M.A.R.T. Unsetting disables any configured disk :ref:`S.M.A.R.T. Tests` and  |
+   |                              |           |            | prevents gathering new disk temperature data for system :ref:`reports <Reporting>`.                                      |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
    | S.M.A.R.T. extra options     | string    | ✓          | Enter additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options.     |
