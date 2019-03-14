@@ -1128,12 +1128,13 @@ recommended. Some sysctls only take effect at system startup, and
 restarting the system guarantees that the setting values correspond
 with what is being used by the running system.
 
-The |web-ui| does not display the sysctls that are pre-set when
-%brand% is installed. %brand% |release| ships with these sysctls set:
+The |web-ui| does not display the sysctls that are pre-set when %brand% is
+installed. %brand% |release| ships with the sysctls set:
 
 #ifdef freenas
 .. code-block:: none
 
+   kern.corefile=/var/tmp/%N.core
    kern.metadelay=3
    kern.dirdelay=4
    kern.filedelay=5
@@ -1162,42 +1163,8 @@ The |web-ui| does not display the sysctls that are pre-set when
 **Do not add or edit these default sysctls** as doing so may render
 the system unusable.
 
-The |web-ui| does not display the loaders that are pre-set when
-%brand% is installed. %brand% |release| ships with these loaders set:
-
-#ifdef freenas
-.. code-block:: none
-
-   kern.metadelay=3
-   kern.dirdelay=4
-   kern.filedelay=5
-   kern.coredump=1
-   kern.sugid_coredump=1
-   vfs.timestamp_precision=3
-   net.link.lagg.lacp.default_strict_mode=0
-   vfs.zfs.min_auto_ashift=12
-#endif freenas
-#ifdef truenas
-.. code-block:: none
-
-   kern.metadelay=3
-   kern.dirdelay=4
-   kern.filedelay=5
-   kern.coredump=1
-   net.inet.carp.preempt=1
-   net.inet.carp.allow=0
-   debug.ddb.textdump.pending=1
-   vfs.nfsd.tcpcachetimeo=300
-   vfs.nfsd.tcphighwater=150000
-   vfs.zfs.min_auto_ashift=12
-   net.inet.carp.senderr_demotion_factor=0
-   net.inet.carp.ifdown_demotion_factor=0
-#endif truenas
-
-**Do not add or edit the default tunables.** Changing the default
-tunables can make the system unusable.
-
-The ZFS version used in |release| deprecates these tunables:
+The |web-ui| does not display the loaders that are pre-set when %brand% is
+installed. %brand% |release| ships with these loaders set:
 
 #ifdef freenas
 .. code-block:: none
@@ -1286,6 +1253,20 @@ The ZFS version used in |release| deprecates these tunables:
    hint.ntb_transport.0.config=":3"
    hw.ntb.msix_mw_idx="-1"
 #endif truenas
+
+**Do not add or edit the default tunables.** Changing the default
+tunables can make the system unusable.
+
+The ZFS version used in |release| deprecates these tunables:
+
+.. code-block:: none
+
+   kvfs.zfs.write_limit_override
+   vfs.zfs.write_limit_inflated
+   vfs.zfs.write_limit_max
+   vfs.zfs.write_limit_min
+   vfs.zfs.write_limit_shift
+   vfs.zfs.no_write_throttle
 
 After upgrading from an earlier version of %brand%, these tunables are
 automatically deleted. Please do not manually add them back.
