@@ -2104,10 +2104,10 @@ UPS Configuration screen.
    |                         |              | for more details about configuring multiple systems with a single UPS.                                                 |
    |                         |              |                                                                                                                        |
    +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Port / Remote Port      | drop-down    | :guilabel:`Port`: Enter the serial or USB port the UPS is connected to (see :ref:`NOTE <UPS USB>`).                    |
-   |                         | menu         | When an :literal:`snmp` driver is selected, enter the IP address or hostname of the SNMP UPS device.                   |
+   | Port / Remote Port      | drop-down    | :guilabel:`Port`: Enter the serial or USB port connected to the UPS (see :ref:`NOTE <UPS USB>`).                       |
+   |                         | menu         | Enter the IP address or hostname of the SNMP UPS device when an SNMP driver is selected.                               |
    |                         |              |                                                                                                                        |
-   |                         |              | The name of the field changes to :guilabel:`Remote Port` when the :guilabel:`UPS Mode` is set to *Slave*.              |
+   |                         |              | :guilabel:`Port` becomes :guilabel:`Remote Port` when the :guilabel:`UPS Mode` is set to *Slave*.                      |
    |                         |              | Enter the open network port number of the UPS *Master* system. The default port is *3493*.                             |
    |                         |              |                                                                                                                        |
    +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
