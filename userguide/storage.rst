@@ -1543,8 +1543,9 @@ To view all of the disks recognized by the %brand% system, use
 :menuselection:`Storage --> Disks`. As seen in the example in
 :numref:`Figure %s <viewing_disks_fig>`, each disk entry displays its
 device name, serial number, size, advanced power
-management settings, acoustic level settings, and if :ref:`S.M.A.R.T.`
-testing is enabled. Click :guilabel:`COLUMNS` to adjust the table.
+management settings, acoustic level settings, and whether
+:ref:`S.M.A.R.T.` tests are enabled. Click :guilabel:`COLUMNS` to adjust
+the table.
 
 .. _viewing_disks_fig:
 
