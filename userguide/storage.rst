@@ -2944,7 +2944,7 @@ snapshot, ZFS has to walk all the allocated blocks to see if that
 block is used anywhere else. If it is not used, it can be freed.
 
 The most recent snapshot also has a **Rollback Snapshot** icon.
-Clicking the icon asks for confirmation before rolling back to this
+Clicking the icon asks for confirmation before rolling back to the chosen
 snapshot state. Confirming by clicking :guilabel:`Yes` causes any
 files that have changed since the snapshot was taken to be reverted
 back to their state at the time of the snapshot.
