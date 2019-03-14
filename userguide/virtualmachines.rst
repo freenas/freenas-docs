@@ -162,8 +162,8 @@ a Virtual Machine (VM) type are described in
    | 2        | Enable VNC         | checkbox       | Add a VNC remote connection. Requires *UEFI* booting.                                         |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Bind               | drop-down menu | VNC network interface. The primary interface is the default. A different interface IP address |
-   |          |                    |                | can be chosen.                                                                                |
+   | 2        | Bind               | drop-down menu | VNC network interface IP address. The primary interface IP address is the default. A          |
+   |          |                    |                | different interface IP address can be chosen.                                                 |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Virtual CPUs       | integer        | Number of virtual CPUs to allocate to the VM. The maximum is 16 unless limited by the host    |
