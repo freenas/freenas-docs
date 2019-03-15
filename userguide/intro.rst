@@ -498,6 +498,9 @@ U3
 * ZeroTier has been updated to
   `1.2.12 <https://github.com/zerotier/ZeroTierOne/blob/master/RELEASE-NOTES.md>`__.
 
+* The :guilabel:`Confirm Password` field has been removed from
+  :menuselection:`System --> Email`.
+
 * A |ui-refresh| button has been added to
   :menuselection:`System --> Update`.
 
