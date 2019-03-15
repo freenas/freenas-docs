@@ -915,7 +915,7 @@ provides more details for each configurable option.
    | Setting                        | Value         | Advanced | Description                                                                                                                                          |
    |                                |               | Mode     |                                                                                                                                                      |
    +================================+===============+==========+======================================================================================================================================================+
-   | Path                           | browse        |          | Select the volume, dataset, or directory to share. The same path can be used by more than one share.                                                   |
+   | Path                           | browse        |          | Select the volume, dataset, or directory to share. The same path can be used by more than one share.                                                 |
    |                                | button        |          |                                                                                                                                                      |
    +--------------------------------+---------------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
    | Name                           | string        |          | Enter a name for this share. An existing SMB share name can not be reused.                                                                           |
@@ -1078,9 +1078,6 @@ for more details.
    | default_quota       | Stores the default quotas that are reported to a windows client in the quota record of a user.                                  |
    |                     |                                                                                                                                 |
    +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | dfs_samba4          | Distributed file system for providing an alternative name space, load balancing, and automatic failover.                        |
-   |                     |                                                                                                                                 |
-   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | dirsort             | Sorts directory entries alphabetically before sending them to the client.                                                       |
    |                     |                                                                                                                                 |
    +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
@@ -1088,9 +1085,6 @@ for more details.
    |                     |                                                                                                                                 |
    +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | extd_audit          | Sends :guilabel:`audit` logs to both syslog and the Samba log files.                                                            |
-   |                     |                                                                                                                                 |
-   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | fake_acls           | Stores file ownership and ACLs as extended attributes.                                                                          |
    |                     |                                                                                                                                 |
    +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | fake_perms          | Allows roaming profile files and directories to be set as read-only.                                                            |
@@ -1143,15 +1137,6 @@ for more details.
    |                     | by remote clients using the File Server Remote VSS Protocol (FSRVP).                                                            |
    |                     |                                                                                                                                 |
    +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | skel_opaque         | Implements dummy versions of all VFS modules (useful to VFS module developers).                                                 |
-   |                     |                                                                                                                                 |
-   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | skel_transparent    | Implements dummy passthrough functions of all VFS modules (useful to VFS module developers).                                    |
-   |                     |                                                                                                                                 |
-   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | snapper             | Provides the ability for remote SMB clients to access shadow copies of FSRVP snapshots using Windows Explorer.                  |
-   |                     |                                                                                                                                 |
-   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | streams_depot       | **Experimental** module to store alternate data streams in a central directory.                                                 |
    |                     | The association with the primary file can be lost due to inode numbers changing when a directory is copied to a new location    |
    |                     | (see `<https://marc.info/?l=samba&m=132542069802160&w=2>`__).                                                                   |
@@ -1168,6 +1153,8 @@ for more details.
    +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | unityed_media       | Allows multiple Avid clients to share a network drive.                                                                          |
    |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | virusfilter         | This extremely **experimental** module is still under development and does not work at this time.                               |
    +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | winmsa              | Emulate Microsoft's MoveSecurityAttributes=0 registry option, setting the ACL for file and directory hierarchies                |
    |                     | to inherit from the parent directory into which they are moved.                                                                 |
