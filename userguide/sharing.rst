@@ -2168,19 +2168,20 @@ and extents.
 .. table:: Associated Target Configuration Settings
    :class: longtable
 
-   +-------------+----------------+--------------------------------------------------------+
-   | Setting     | Value          | Description                                            |
-   |             |                |                                                        |
-   +=============+================+========================================================+
-   | Target      | drop-down menu | Select an existing target.                             |
-   |             |                |                                                        |
-   +-------------+----------------+--------------------------------------------------------+
-   | LUN ID      | integer        | Select or enter a value between *0* and *1023*.        |
-   |             |                | Some initiators expect a value less than *256*.        |
-   +-------------+----------------+--------------------------------------------------------+
-   | Extent      | drop-down menu | Select an existing extent.                             |
-   |             |                |                                                        |
-   +-------------+----------------+--------------------------------------------------------+
+   +-------------+----------------+-----------------------------------------------------------+
+   | Setting     | Value          | Description                                               |
+   |             |                |                                                           |
+   +=============+================+===========================================================+
+   | Target      | drop-down menu | Select an existing target.                                |
+   |             |                |                                                           |
+   +-------------+----------------+-----------------------------------------------------------+
+   | LUN ID      | integer        | Select or enter a value between *0* and *1023*. Some      |
+   |             |                | initiators expect a value less than *256*. Use unique     |
+   |             |                | LUN IDs for each associated target.                       |
+   +-------------+----------------+-----------------------------------------------------------+
+   | Extent      | drop-down menu | Select an existing extent.                                |
+   |             |                |                                                           |
+   +-------------+----------------+-----------------------------------------------------------+
 
 
 Always associating extents to targets in a
