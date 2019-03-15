@@ -52,7 +52,7 @@ shows a list of installed virtual machines.
 
 The |ui-options| menu has options for controlling and modifying VMs:
 
-* :guilabel:`Start` boots a VM. VM can also be started by clicking the
+* :guilabel:`Start` boots a VM. VMs can also be started by clicking the
   slide toggle on the desired VM.
 
   An option is provided to :guilabel:`Overcommit Memory`. Memory
