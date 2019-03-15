@@ -1114,3 +1114,8 @@ click :menuselection:`Options --> Advanced --> File Locations`.
 Locate the path for the Configuration file named :file:`filename.vmx`.
 Open that file in a text editor, change :guilabel:`hpet0.present` from
 *true* to *false*, and save the change.
+
+If plugins or jails inside the %brand% VM are encountering network
+connectivity issues, edit the
+`VMware virtual switch <https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.wssdk.pg.doc%2FPG_Networking.11.4.html>`__
+to allow MAC spoofing and enable promiscuous mode.
