@@ -416,7 +416,9 @@ U2
   `4.9.4 <https://www.samba.org/samba/history/samba-4.9.4.html>`__ which
   is the current stable release receiving new features. This version bump
   provides significant performance improvements as well as improved Time
-  Machine support.
+  Machine support. This deprecates the dfs_samba4, fake_acls, skel_opaque,
+  skel_transparent, and snapper modules which have been removed from
+  :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE --> VFS Objects`.
 
 * OpenSSL has been updated to
   `1.0.2q <https://www.openssl.org/news/vulnerabilities-1.0.2.html>`__
