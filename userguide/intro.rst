@@ -547,6 +547,10 @@ U3
   |dockerhost| :guilabel:`Storage File` options in
   :menuselection:`Virtual Machines --> ADD`.
 
+* The :guilabel:`Bind` drop-down menu has been added to
+  :menuselection:`Virtual Machines --> ADD` and to
+  :menuselection:`Virtual Machines --> Devices --> VNC --> Edit`.
+
 
 .. _Path and Name Lengths:
 
