@@ -1034,10 +1034,10 @@ for more details.
    | commit              | Tracks the amount of data written to a file and synchronizes it to disk when a specified amount accumulates.                               |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | crossrename         | Allows server side rename operations even if source and target are on different physical devices.                                          |
-   |                     |                                                                                                                                            |
+   | crossrename         | Allows server side rename operations even if source and target are on different physical devices. Required for the recycle bin to work     |
+   |                     | across dataset boundaries. Automatically added when :guilabel:`Export Recycle Bin` is enabled.                                             |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | default_quota       | Stores the default quotas that are reported to a windows client in the quota record of a user.                                             |
+   | default_quota       | **Deprecated: use ixnas module** Stores the default quotas that are reported to a windows client in the quota record of a user.            |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | dfs_samba4          | Distributed file system for providing an alternative name space, load balancing, and automatic failover.                                   |
@@ -1129,8 +1129,8 @@ for more details.
    | unityed_media       | Allows multiple Avid clients to share a network drive.                                                                                     |
    |                     |                                                                                                                                            |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | winmsa              | Emulate Microsoft's MoveSecurityAttributes=0 registry option, setting the ACL for file and directory hierarchies to inherit from the       |
-   |                     | parent directory into which they are moved.                                                                                                |
+   | winmsa              | Emulates the Microsoft *MoveSecurityAttributes=0* registry option. Moving files or directories sets the ACL for file and directory         |
+   |                     | hierarchies to inherit from the destination directory.                                                                                     |
    +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
    | worm                | Controls the writability of files and folders depending on their change time and an adjustable grace period.                               |
    |                     |                                                                                                                                            |
