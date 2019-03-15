@@ -536,6 +536,13 @@ U3
   running VM in
   :menuselection:`Virtual Machines`.
 
+* The :guilabel:`State` column of :menuselection:`Virtual Machines` has
+  changed to a start/stop slider. Hover over the slider to view the
+  current state.
+
+* The :guilabel:`Autostart` column has been added to
+  :menuselection:`Virtual Machines`.
+
 * The :guilabel:`Raw filename password` field has been added to
   |dockerhost| :guilabel:`Storage File` options in
   :menuselection:`Virtual Machines --> ADD`.
