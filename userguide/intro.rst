@@ -417,9 +417,12 @@ U2
 U3
 ~~
 
+* ZeroTier has been updated to
+  `1.2.12 <https://github.com/zerotier/ZeroTierOne/blob/master/RELEASE-NOTES.md>`__.
+
 * The :guilabel:`shadow_copy_zfs` VFS object has replaced the
   :guilabel:`shadow_copy_test` object in
-  :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE`.
+  :menuselection:`Sharing --> Windows (SMB) Shares --> Add Windows (SMB) Share --> Advanced Mode`.
 
 * The :guilabel:`Host` field has been added to
   :menuselection:`Services --> TFTP`.
