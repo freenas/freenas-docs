@@ -1091,3 +1091,9 @@ remove the virtual HPET hardware:
   :file:`filename.vmx`. Open the file in a text editor and change
   :guilabel:`hpet0.present` from *true* to *false*, then save the
   change.
+
+
+If plugins or jails inside the %brand% VM are encountering network
+connectivity issues, edit the
+`VMware virtual switch <https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.wssdk.pg.doc%2FPG_Networking.11.4.html>`__
+to allow MAC spoofing and enable promiscuous mode.
