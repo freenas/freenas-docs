@@ -6,6 +6,8 @@ Storage
 The Storage section of the |web-ui| allows configuration of
 these options:
 
+* :ref:`Swap Space`: Change the swap space size.
+
 * :ref:`Pools`: create and manage storage pools.
 
 * :ref:`Snapshots`: manage local snapshots.
@@ -18,8 +20,8 @@ these options:
 * :ref:`Importing a Disk`: import a **single** disk that is
   formatted with the UFS, NTFS, MSDOS, or EXT2 filesystem.
 
-* :ref:`Swap Space`: Change the swap space size.
-
+* :ref:`Multipaths`: View multipath information for systems with
+  compatible hardware.
 
 #ifdef truenas
 .. note:: When using an HA (High Availability) %brand% system,
@@ -1273,31 +1275,6 @@ should not be used with :ref:`Windows (SMB) Shares`.
 The *Mac* :guilabel:`ACL Type` can be used with :ref:`Apple (AFP) Shares`.
 
 
-.. _View Multipaths:
-
-View Multipaths
-~~~~~~~~~~~~~~~
-
-%brand% uses
-`gmultipath(8) <https://www.freebsd.org/cgi/man.cgi?query=gmultipath>`__
-to provide
-`multipath I/O <https://en.wikipedia.org/wiki/Multipath_I/O>`__
-support on systems containing hardware that is capable of multipath.
-An example would be a dual SAS expander backplane in the chassis or an
-external JBOD.
-
-Multipath hardware adds fault tolerance to a NAS as the data is still
-available even if one disk I/O path has a failure.
-
-%brand% automatically detects active/active and active/passive
-multipath-capable hardware. Any multipath-capable devices that are
-detected will be placed in multipath units with the parent devices
-hidden. The configuration will be displayed in
-:menuselection:`Storage --> Pools --> View Multipaths`.
-Note that this option is not be displayed in the
-:menuselection:`Storage --> Pools`
-tree on systems that do not contain multipath-capable hardware.
-
 .. index:: Snapshots
 .. _Snapshots:
 
@@ -1892,3 +1869,28 @@ thedisk.
 After clicking :guilabel:`SAVE`, the disk is mounted and its contents
 are copied to the specified dataset. The disk is unmounted after the
 copy operation completes.
+
+
+.. _Multipaths:
+
+Multipaths
+----------
+
+This option is only displayed on systems that contain multipath-capable
+hardware like a chassis equipped with a dual SAS expander backplane or
+an external JBOD that is wired for multipath.
+
+%brand% uses
+`gmultipath(8) <https://www.freebsd.org/cgi/man.cgi?query=gmultipath>`__
+to provide
+`multipath I/O <https://en.wikipedia.org/wiki/Multipath_I/O>`__
+support on systems containing multipath-capable hardware.
+
+Multipath hardware adds fault tolerance to a NAS as the data is still
+available even if one disk I/O path has a failure.
+
+%brand% automatically detects active/active and active/passive
+multipath-capable hardware. Discovered multipath-capable devices are
+placed in multipath units with the parent devices hidden. The
+configuration is displayed in
+:menuselection:`Storage --> Multipaths`.
