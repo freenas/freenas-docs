@@ -493,7 +493,7 @@ until a VNC client connects.
 :guilabel:`Resolution` sets the default screen resolution used for the
 VNC session.
 
-Select the IP address on which VNC listens with the :guilabel:`Bind`.
+Use :guilabel:`Bind` to select the IP address for VNC connections.
 
 To automatically pass the VNC password, enter it into the
 :guilabel:`Password` field. Note that the password is limited to 8
