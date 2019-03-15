@@ -416,7 +416,9 @@ U2
   `4.9.4 <https://www.samba.org/samba/history/samba-4.9.4.html>`__ which
   is the current stable release receiving new features. This version bump
   provides significant performance improvements as well as improved Time
-  Machine support.
+  Machine support. This deprecates the dfs_samba4, fake_acls, skel_opaque,
+  skel_transparent, and snapper modules which have been removed from
+  :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE --> VFS Objects`.
 
 * OpenSSL has been updated to
   `1.0.2q <https://www.openssl.org/news/vulnerabilities-1.0.2.html>`__
@@ -536,9 +538,20 @@ U3
   running VM in
   :menuselection:`Virtual Machines`.
 
+* The :guilabel:`State` column of :menuselection:`Virtual Machines` has
+  changed to a start/stop slider. Hover over the slider to view the
+  current state.
+
+* The :guilabel:`Autostart` column has been added to
+  :menuselection:`Virtual Machines`.
+
 * The :guilabel:`Raw filename password` field has been added to
   |dockerhost| :guilabel:`Storage File` options in
   :menuselection:`Virtual Machines --> ADD`.
+
+* The :guilabel:`Bind` drop-down menu has been added to
+  :menuselection:`Virtual Machines --> ADD` and to
+  :menuselection:`Virtual Machines --> Devices --> VNC --> Edit`.
 
 
 .. _Path and Name Lengths:
