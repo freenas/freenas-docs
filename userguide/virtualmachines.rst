@@ -617,8 +617,8 @@ clicking |ui-add|, and selecting |dockerhost| as the
    |          |                    |                |                                                                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
-   | 5        | Raw filename       | string         | A password added to the raw file. This is used to log in to the |dockerhost|.      |
-   |          | password           |                | The default is :literal:`docker`.                                                  |
+   | 5        | Raw filename       | string         | Alphanumeric password added to the raw file. This is used to log in to the         |
+   |          | password           |                | |dockerhost|. The default is :literal:`docker`.                                    |
    |          |                    |                |                                                                                    |
    +----------+--------------------+----------------+------------------------------------------------------------------------------------+
    | 5        | Raw file size      | integer        | Set the size of the new raw file.                                                  |

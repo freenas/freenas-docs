@@ -496,10 +496,17 @@ U3
 * A |ui-refresh| button has been added to
   :menuselection:`System --> Update`.
 
+* The :guilabel:`Multipaths` page has been added to
+  :menuselection:`Storage`.
+  This page only appears when compatible hardware is detected.
+
 * The chosen snapshot name and creation date has been added to the
   rollback warning dialog in
   :menuselection:`Storage --> Snapshots -->` |ui-options|
   :menuselection:`\ --> Rollback`.
+
+* The :guilabel:`Pool` column has been removed from
+  :menuselection:`Storage --> Disks`.
 
 * Setting :guilabel:`Enable AD Monitoring` in
   :menuselection:`Directory Services --> Active Directory`
