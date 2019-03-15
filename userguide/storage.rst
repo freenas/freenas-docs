@@ -6,6 +6,8 @@ Storage
 The Storage section of the |web-ui| allows configuration of
 these options:
 
+* :ref:`Swap Space`: Change the swap space size.
+
 * :ref:`Pools`: create and manage storage pools.
 
 * :ref:`Snapshots`: manage local snapshots.
@@ -18,8 +20,8 @@ these options:
 * :ref:`Importing a Disk`: import a **single** disk that is
   formatted with the UFS, NTFS, MSDOS, or EXT2 filesystem.
 
-* :ref:`Swap Space`: Change the swap space size.
-
+* :ref:`Multipaths`: View multipath information for systems with
+  compatible hardware.
 
 #ifdef truenas
 .. note:: When using an HA (High Availability) %brand% system,
@@ -1273,31 +1275,6 @@ should not be used with :ref:`Windows (SMB) Shares`.
 The *Mac* :guilabel:`ACL Type` can be used with :ref:`Apple (AFP) Shares`.
 
 
-.. _View Multipaths:
-
-View Multipaths
-~~~~~~~~~~~~~~~
-
-%brand% uses
-`gmultipath(8) <https://www.freebsd.org/cgi/man.cgi?query=gmultipath>`__
-to provide
-`multipath I/O <https://en.wikipedia.org/wiki/Multipath_I/O>`__
-support on systems containing hardware that is capable of multipath.
-An example would be a dual SAS expander backplane in the chassis or an
-external JBOD.
-
-Multipath hardware adds fault tolerance to a NAS as the data is still
-available even if one disk I/O path has a failure.
-
-%brand% automatically detects active/active and active/passive
-multipath-capable hardware. Any multipath-capable devices that are
-detected will be placed in multipath units with the parent devices
-hidden. The configuration will be displayed in
-:menuselection:`Storage --> Pools --> View Multipaths`.
-Note that this option is not be displayed in the
-:menuselection:`Storage --> Pools`
-tree on systems that do not contain multipath-capable hardware.
-
 .. index:: Snapshots
 .. _Snapshots:
 
@@ -1542,12 +1519,10 @@ Disks
 To view all of the disks recognized by the %brand% system, use
 :menuselection:`Storage --> Disks`. As seen in the example in
 :numref:`Figure %s <viewing_disks_fig>`, each disk entry displays its
-device name, pool membership, serial number, size, advanced power
-management settings, acoustic level settings, and if :ref:`S.M.A.R.T.`
-testing is enabled. This table is adjustable by setting the different
-column checkboxes above it. Set :guilabel:`Toggle` to display all
-options in the table.
-
+device name, serial number, size, advanced power
+management settings, acoustic level settings, and whether
+:ref:`S.M.A.R.T.` tests are enabled. Click :guilabel:`COLUMNS` to adjust
+the table.
 
 .. _viewing_disks_fig:
 
@@ -1620,8 +1595,8 @@ To offline, online, or or replace the device, see
    |                              | menu      |            | `AAM <https://en.wikipedia.org/wiki/Automatic_acoustic_management>`__.                                                   |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Enable S.M.A.R.T.            | checkbox  | ✓          | Enabled by default when the disk supports S.M.A.R.T. Unsetting disables any configured disk :ref:`S.M.A.R.T. Tests` and  |
-   |                              |           |            | prevents gathering new disk temperature data for system :ref:`reports <Reporting>`.                                      |
+   | Enable S.M.A.R.T.            | checkbox  | ✓          | Enabled by default when the disk supports S.M.A.R.T. Disabling S.M.A.R.T. tests prevents collecting new temperature data |
+   |                              |           |            | for this disk. Historical temperature data is still displayed in :ref:`Reporting`.                                       |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
    | S.M.A.R.T. extra options     | string    | ✓          | Enter additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options.     |
@@ -1894,3 +1869,28 @@ thedisk.
 After clicking :guilabel:`SAVE`, the disk is mounted and its contents
 are copied to the specified dataset. The disk is unmounted after the
 copy operation completes.
+
+
+.. _Multipaths:
+
+Multipaths
+----------
+
+This option is only displayed on systems that contain multipath-capable
+hardware like a chassis equipped with a dual SAS expander backplane or
+an external JBOD that is wired for multipath.
+
+%brand% uses
+`gmultipath(8) <https://www.freebsd.org/cgi/man.cgi?query=gmultipath>`__
+to provide
+`multipath I/O <https://en.wikipedia.org/wiki/Multipath_I/O>`__
+support on systems containing multipath-capable hardware.
+
+Multipath hardware adds fault tolerance to a NAS as the data is still
+available even if one disk I/O path has a failure.
+
+%brand% automatically detects active/active and active/passive
+multipath-capable hardware. Discovered multipath-capable devices are
+placed in multipath units with the parent devices hidden. The
+configuration is displayed in
+:menuselection:`Storage --> Multipaths`.

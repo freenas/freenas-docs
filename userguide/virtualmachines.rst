@@ -52,6 +52,18 @@ shows a list of installed virtual machines.
 
 The |ui-options| menu has options for controlling and modifying VMs:
 
+* :guilabel:`Start` boots a VM. VMs can also be started by clicking the
+  slide toggle on the desired VM.
+
+  An option is provided to :guilabel:`Overcommit Memory`. Memory
+  overcommitment allows multiple VMs to be launched when there is not
+  enough free memory for all of them to run at the same time. This
+  option should be used with caution.
+
+  When active, the VM :guilabel:`State` changes to
+  :guilabel:`RUNNING`. To start a VM when the host system boots, set
+  :guilabel:`Autostart`.
+
 * :guilabel:`Edit` changes VM settings.
 
 * :guilabel:`Delete` removes the VM. :ref:`Zvols <Adding Zvols>` used in
@@ -67,14 +79,8 @@ The |ui-options| menu has options for controlling and modifying VMs:
 * :guilabel:`Clone` copies the VM. The new clone has :samp:`_clone{N}`
   appended to the name, where :samp:`{N}` is the clone number.
 
-:guilabel:`Start` boots a VM. An option is provided to
-:guilabel:`Overcommit Memory`. Memory overcommitment allows multiple VMs
-to be launched when there is not enough free memory for all of them to
-run at the same time. This option should be used with caution. When
-active, the VM :guilabel:`State` changes to :guilabel:`RUNNING`.
-
-When a VM is :guilabel:`RUNNING`, more buttons in the |ui-options| menu
-are available:
+These additional options in |ui-options| are available when a VM is
+running:
 
 * :guilabel:`Power off` immediately halts the VM. This is equivalent
   to unplugging the power cord from a computer.
@@ -162,8 +168,8 @@ a Virtual Machine (VM) type are described in
    | 2        | Enable VNC         | checkbox       | Add a VNC remote connection. Requires *UEFI* booting.                                         |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
-   | 2        | Bind               | drop-down menu | VNC network interface. The primary interface is automatically selected, but secondary         |
-   |          |                    |                | interfaces can be chosen.                                                                     |
+   | 2        | Bind               | drop-down menu | VNC network interface IP address. The primary interface IP address is the default. A          |
+   |          |                    |                | different interface IP address can be chosen.                                                 |
    |          |                    |                |                                                                                               |
    +----------+--------------------+----------------+-----------------------------------------------------------------------------------------------+
    | 3        | Virtual CPUs       | integer        | Number of virtual CPUs to allocate to the VM. The maximum is 16 unless limited by the host    |
