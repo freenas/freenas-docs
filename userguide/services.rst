@@ -278,18 +278,22 @@ Domain Controller
 a network or to join an existing :ref:`Active Directory` network as a
 domain controller.
 
-.. note:: This section demonstrates how to configure the %brand%
-   system to act as a domain controller. If the goal is to integrate
-   with an existing :ref:`Active Directory` network to access its
-   authentication and authorization services, configure
-   :ref:`Active Directory` instead.
+This section demonstrates how to configure the %brand%
+system to act as a domain controller. If the goal is to integrate
+with an existing :ref:`Active Directory` network to access its
+authentication and authorization services, configure
+:ref:`Active Directory` instead.
 
-Note that configuring a domain controller is a complex process
+.. note:: The Domain Controller service cannot be configured when
+   :guilabel:`Enable Monitoring` is set in
+   :menuselection:`Directory Services --> Active Directory`
+
+Configuring a domain controller is a complex process
 that requires a good understanding of how :ref:`Active Directory`
 works. While
 :menuselection:`Services --> Domain Controller`
-makes it easy to enter the needed settings into the administrative
-graphical interface, it is important to understand what those settings
+makes it easy to enter the needed settings into the |web-ui|,
+it is important to understand what those settings
 should be. Before beginning configuration, read through the
 `Samba AD DC HOWTO
 <https://wiki.samba.org/index.php/Samba_AD_DC_HOWTO>`__.
@@ -1298,10 +1302,9 @@ minutes. The *Long* test scans the entire disk surface, and can take
 several hours on larger drives.
 
 %brand% uses the
-`smartd(8)
-<https://www.smartmontools.org/browser/trunk/smartmontools/smartd.8.in>`__
-service to monitor S.M.A.R.T. information. A complete configuration
-consists of:
+`smartd(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartd.8.in>`__
+service to monitor S.M.A.R.T. information, including disk temperature. A
+complete configuration consists of:
 
 #.  Scheduling when S.M.A.R.T. tests are run in
     :menuselection:`Tasks --> S.M.A.R.T. Tests
