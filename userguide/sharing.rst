@@ -2236,10 +2236,8 @@ targets and extents.
    |             |                |                                                           |
    +-------------+----------------+-----------------------------------------------------------+
    | LUN ID      | integer        | Select or enter a value between *0* and *1023*. Some      |
-   |             |                | initiators expect a value less than *256*. Each target    |
-   |             |                | must have a unique :guilabel:`LUN ID`, but associated     |
-   |             |                | targets with unique targets can use the same              |
-   |             |                | :guilabel:`LUN ID`.                                       |
+   |             |                | initiators expect a value less than *256*. Use unique     |
+   |             |                | LUN IDs for each associated target.                       |
    +-------------+----------------+-----------------------------------------------------------+
    | Extent      | drop-down menu | Select an existing extent.                                |
    |             |                |                                                           |
