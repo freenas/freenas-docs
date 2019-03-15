@@ -184,6 +184,8 @@ path to the command is shown:
 When scheduling a script, test the script first to verify it is
 executable and achieves the desired results.
 
+.. note:: Init/shutdown scripts are run with :command:`sh`.
+
 Init/Shutdown tasks are shown in
 :menuselection:`Tasks --> Init/Shutdown Scripts`.
 Click |ui-options| for a task to :guilabel:`Edit` or :guilabel:`Delete`
