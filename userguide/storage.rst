@@ -1609,15 +1609,14 @@ View Multipaths
 ~~~~~~~~~~~~~~~
 
 This option is only displayed on systems that contain multipath-capable
-hardware.
+hardware like a chassis equipped with a dual SAS expander backplane or
+an external JBOD that is wired for multipath.
 
 %brand% uses
 `gmultipath(8) <https://www.freebsd.org/cgi/man.cgi?query=gmultipath>`__
 to provide
 `multipath I/O <https://en.wikipedia.org/wiki/Multipath_I/O>`__
-support on systems containing multipath-capable hardware like a chassis
-equipped with a dual SAS expander backplane, or an external JBOD that is
-wired for multipath.
+support on systems containing multipath-capable hardware.
 
 Multipath hardware adds fault tolerance to a NAS as the data is still
 available even if one disk I/O path has a failure.
