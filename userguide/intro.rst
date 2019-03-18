@@ -416,7 +416,9 @@ U2
   `4.9.4 <https://www.samba.org/samba/history/samba-4.9.4.html>`__ which
   is the current stable release receiving new features. This version bump
   provides significant performance improvements as well as improved Time
-  Machine support.
+  Machine support. This deprecates the dfs_samba4, fake_acls, skel_opaque,
+  skel_transparent, and snapper modules which have been removed from
+  :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE --> VFS Objects`.
 
 * OpenSSL has been updated to
   `1.0.2q <https://www.openssl.org/news/vulnerabilities-1.0.2.html>`__
@@ -493,15 +495,44 @@ U2
 U3
 ~~
 
+* ZeroTier has been updated to
+  `1.2.12 <https://github.com/zerotier/ZeroTierOne/blob/master/RELEASE-NOTES.md>`__.
+
+* The :guilabel:`Confirm Password` field has been removed from
+  :menuselection:`System --> Email`.
+
+* A |ui-refresh| button has been added to
+  :menuselection:`System --> Update`.
+
+* The :guilabel:`Multipaths` page has been added to
+  :menuselection:`Storage`.
+  This page only appears when compatible hardware is detected.
 
 * The chosen snapshot name and creation date has been added to the
   rollback warning dialog in
   :menuselection:`Storage --> Snapshots -->` |ui-options|
   :menuselection:`\ --> Rollback`.
 
+* The :guilabel:`Pool` column has been removed from
+  :menuselection:`Storage --> Disks`.
+
+* Setting :guilabel:`Enable AD Monitoring` in
+  :menuselection:`Directory Services --> Active Directory`
+  now prevents modifying
+  :menuselection:`Services --> Domain Controller`.
+
 * The :guilabel:`shadow_copy_zfs` VFS object has replaced the
   :guilabel:`shadow_copy_test` object in
   :menuselection:`Sharing --> Windows (SMB) Shares --> ADD --> ADVANCED MODE`.
+
+* The :guilabel:`Host` field has been added to
+  :menuselection:`Services --> TFTP`.
+
+* :menuselection:`Jails` displays a DHCP prefix before the
+  :guilabel:`IPv4 Address` for DHCP-enabled Plugins and Jails.
+
+* :guilabel:`CPU Temperature` graphs have been added to
+  :menuselection:`Reporting --> CPU`.
 
 * Activity graphs have been updated to report Megabytes/s in
   :menuselection:`Reporting --> Network`.
@@ -510,17 +541,20 @@ U3
   running VM in
   :menuselection:`Virtual Machines`.
 
-* Setting :guilabel:`Enable AD Monitoring` in
-  :menuselection:`Directory Services --> Active Directory`
-  now prevents modifying
-  :menuselection:`Services --> Domain Controller`.
+* The :guilabel:`State` column of :menuselection:`Virtual Machines` has
+  changed to a start/stop slider. Hover over the slider to view the
+  current state.
 
-* The :guilabel:`Host` field has been added to
-  :menuselection:`Services --> TFTP`.
+* The :guilabel:`Autostart` column has been added to
+  :menuselection:`Virtual Machines`.
 
 * The :guilabel:`Raw filename password` field has been added to
   |dockerhost| :guilabel:`Storage File` options in
   :menuselection:`Virtual Machines --> ADD`.
+
+* The :guilabel:`Bind` drop-down menu has been added to
+  :menuselection:`Virtual Machines --> ADD` and to
+  :menuselection:`Virtual Machines --> Devices --> VNC --> Edit`.
 
 
 .. _Path and Name Lengths:
