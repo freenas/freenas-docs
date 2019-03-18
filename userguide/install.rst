@@ -1006,9 +1006,9 @@ operating system (ESXi) are available from the
 `VMware website
 <https://www.vmware.com/products/esxi-and-esx.html>`__.
 
-When the VMware vSphere client is installed, use it to connect to the
+Install and use the VMware vSphere client to connect to the
 ESXi server. Enter the username and password created when installing
-ESXi to log into the interface. After logging in, go to *Storage* to
+ESXi to log in to the interface. After logging in, go to *Storage* to
 upload the %brand% :file:`.iso`.
 Click :guilabel:`Datastore browser` and select a datastore for the
 %brand% :file:`.iso`. Click :guilabel:`Upload`. Use the
@@ -1060,7 +1060,7 @@ virtual machine* wizard opens:
 
    .. figure:: images/esxi_ready_complete.png
 
-Additional disks can be added to a VM. Right-click the VM and click
+To add more disks to a VM, right-click the VM and click
 :guilabel:`Edit Settings`.
 
 
