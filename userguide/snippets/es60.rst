@@ -213,6 +213,11 @@ Push the latch down until it locks into place.
    :width: 100%
 
 
+**For proper airflow and cooling, the entire first row of drive trays
+must be installed. The top cover must also be in place when the unit
+is on.**
+
+
 .. raw:: latex
 
    \newpage
