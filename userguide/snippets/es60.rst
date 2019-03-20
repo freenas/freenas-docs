@@ -121,6 +121,9 @@ secures the rail in place. Repeat this process on the other side.
 Mount Rack Rails
 ^^^^^^^^^^^^^^^^
 
+The ES60 occupies 4U of rack space. The rails are mounted in the
+center 2U of that space.
+
 Cage nuts for racks with square and round holes are included. Install
 four cage nuts inside the rack, two where the rails attach to
 the front of the rack, and two at the rear. Align each cage nut with
