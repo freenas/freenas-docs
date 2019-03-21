@@ -290,6 +290,9 @@ This example :file:`settings.json` file is used for the
 `iocage-plugin-quassel artifact repository
 <https://github.com/freenas/iocage-plugin-quassel/blob/master/settings.json>`__.
 
+.. The above URL will need to be changed once Quasselcore is migated
+   to the new ix-plugin-hub (https://github.com/ix-plugin-hub).
+
 
 .. _plugin-json-options:
 
@@ -366,7 +369,7 @@ This example :file:`settings.json` file is used for the
 **Create and submit a new JSON file for the plugin:**
 
 Clone the
-`iocage-ix-plugins <https://github.com/freenas/iocage-ix-plugins>`__
+`ix-plugin-hub <https://github.com/ix-plugin-hub>`__
 GitHub repository.
 
 
@@ -375,7 +378,7 @@ GitHub repository.
    `GitHub Guides <https://guides.github.com/>`__.
 
 
-On the local copy of :file:`iocage-ix-plugins`, create a new file for
+On the local copy of :file:`ix-plugin-hub`, create a new file for
 the plugin to be added to %brand%. The naming convention is
 :file:`pluginname.json`. For example, the :guilabel:`Transmission`
 plugin has a .json file named :file:`transmission.json`.
@@ -436,6 +439,7 @@ describes each required entry.
    |                              | Enter :literal:`true` or :literal:`false`.                                    |
    |                              |                                                                               |
    +------------------------------+-------------------------------------------------------------------------------+
+
 
 .. _rslsync-plugin-schema:
 
@@ -536,10 +540,13 @@ See the
 `INDEX <https://github.com/freenas/iocage-ix-plugins/blob/master/INDEX>`__
 for examples of :file:`INDEX` entries.
 
+.. The INDEX URL above will need to be updated once the INDEX file is
+   migrated to the ix-plugin-hub (https://github.com/ix-plugin-hub).
+
 **Submit the plugin**
 
 Open a pull request for the
-`iocage-ix-plugins repo <https://github.com/freenas/iocage-ix-plugins>`__.
+`ix-plugin-hub repo <https://github.com/ix-plugin-hub>`__.
 Make sure the pull request contains:
 
 * the new :file:`plugin.json` file.
