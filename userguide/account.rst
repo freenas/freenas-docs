@@ -86,7 +86,9 @@ summarizes the available options when creating a group.
    |                        |             | group has an ID of 22.                                                                                                     |
    |                        |             |                                                                                                                            |
    +------------------------+-------------+----------------------------------------------------------------------------------------------------------------------------+
-   | Group Name             | string      | Required. Enter a descriptive name for the new group.                                                                      |
+   | Group Name             | string      | Enter an alphanumeric name for the new group. The period (:literal:`.`), hyphen (:literal:`-`), and underscore             |
+   |                        |             | (:literal:`_`) characters are allowed as long as the group name does not begin with a period (:literal:`.`) or hyphen      |
+   |                        |             | (:literal:`-`).                                                                                                            |
    |                        |             |                                                                                                                            |
    +------------------------+-------------+----------------------------------------------------------------------------------------------------------------------------+
    | Permit Sudo            | checkbox    | Set to allow group members to use `sudo <https://www.sudo.ws/>`__. When using :command:`sudo`, a user                      |
