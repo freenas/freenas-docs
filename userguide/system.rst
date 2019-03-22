@@ -918,9 +918,6 @@ shown in
    |                      |                      | (7-bit ASCII) are allowed in passwords. UTF or composed characters are not allowed.             |
    |                      |                      |                                                                                                 |
    +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
-   | Confirm Password     | string               | Confirm the SMTP previous password.                                                             |
-   |                      |                      |                                                                                                 |
-   +----------------------+----------------------+-------------------------------------------------------------------------------------------------+
 
 
 Click the :guilabel:`SEND MAIL` button to verify that the
