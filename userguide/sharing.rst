@@ -1006,131 +1006,136 @@ for more details.
 
 .. table:: Available VFS Modules
 
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | Value               | Description                                                                                                                                |
-   |                     |                                                                                                                                            |
-   +=====================+============================================================================================================================================+
-   | acl_tdb             | Stores NTFS ACLs in a tdb file to enable full mapping of Windows ACLs.                                                                     |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | acl_xattr           | Stores NTFS ACLs in Extended Attributes (EAs) to enable the full mapping of Windows ACLs.                                                  |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | aio_fork            | Enables async I/O.                                                                                                                         |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | audit               | Logs share access, connects/disconnects, directory opens/creates/removes, and file opens/closes/renames/unlinks/chmods to syslog.          |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | cacheprime          | Primes the kernel file data cache.                                                                                                         |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | cap                 | Translates filenames to and from the CAP encoding format, commonly used in Japanese language environments.                                 |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | catia               | Improves Mac interoperability by translating characters that are unsupported by Windows.                                                   |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | commit              | Tracks the amount of data written to a file and synchronizes it to disk when a specified amount accumulates.                               |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | crossrename         | Allows server side rename operations even if source and target are on different physical devices. Required for the recycle bin to work     |
-   |                     | across dataset boundaries. Automatically added when :guilabel:`Export Recycle Bin` is enabled.                                             |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | default_quota       | **Deprecated: use ixnas module** Stores the default quotas that are reported to a windows client in the quota record of a user.            |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | dirsort             | Sorts directory entries alphabetically before sending them to the client.                                                                  |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | expand_msdfs        | Enables support for Microsoft Distributed File System (DFS).                                                                               |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | extd_audit          | Sends :guilabel:`audit` logs to both syslog and the Samba log files.                                                                       |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | fake_perms          | Allows roaming profile files and directories to be set as read-only.                                                                       |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | fruit               | Enhances macOS support by providing the SMB2 AAPL extension and Netatalk interoperability. Automatically loads *catia* and *streams_xattr* |
-   |                     | but read the caveat in NOTE below table.                                                                                                   |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | full_audit          | Record selected client operations to the system log.                                                                                       |
-   |                     |                                                                                                                                            |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | ixnas               | Experimental module to improve ACL compatibility with Windows and store DOS attributes as file flags.                                      |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | linux_xfs_sgid      | Used to work around an old Linux XFS bug.                                                                                                  |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | media_harmony       | Allows Avid editorial workstations to share a network drive.                                                                               |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | netatalk            | Eases the co-existence of SMB and AFP shares.                                                                                              |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | offline             | Marks all files in the share with the DOS *offline* attribute. This can prevent Windows Explorer from reading files just to make           |
-   |                     | thumbnail images.                                                                                                                          |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | posix_eadb          | Provides Extended Attributes (EAs) support so they can be used on filesystems which do not provide native support for EAs.                 |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | preopen             | Useful for video streaming applications that want to read one file per frame.                                                              |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | readahead           | Useful for Windows Vista clients reading data using Windows Explorer.                                                                      |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | readonly            | Marks a share as read-only for all clients connecting within the configured time period.                                                   |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | shadow_copy         | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares.                                                             |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | shadow_copy_zfs     | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares. This object uses :ref:`ZFS snapshots <ZFS Primer>`          |
-   |                     | of the shared pool or dataset to create the shadow copies.                                                                                 |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | shell_snap          | Provides shell-script callouts for snapshot creation and deletion operations issued by remote clients using the File Server Remote VSS     |
-   |                     | Protocol (FSRVP).                                                                                                                          |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | streams_depot       | **Experimental** module to store alternate data streams in a central directory. The association with the primary file can be lost due      |
-   |                     | to inode numbers changing when a directory is copied to a new location. See https://marc.info/?l=samba&m=132542069802160&w=2>.             |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | streams_xattr       | Enabled by default. Enables storing of NTFS alternate data streams in the file system.                                                     |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | syncops             | Ensures metadata operations are performed synchronously.                                                                                   |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | time_audit          | Logs system calls that take longer than the number of defined milliseconds.                                                                |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | unityed_media       | Allows multiple Avid clients to share a network drive.                                                                                     |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | virusfilter         | This extremely **experimental** module is still under development and does not work at this time.                                          |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | winmsa              | Emulates the Microsoft *MoveSecurityAttributes=0* registry option. Moving files or directories sets the ACL for file and directory         |
-   |                     | hierarchies to inherit from the destination directory.                                                                                     |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | worm                | Controls the writability of files and folders depending on their change time and an adjustable grace period.                               |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | xattr_tdb           | Stores Extended Attributes (EAs) in a tdb file so they can be used on filesystems which do not provide support for EAs.                    |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | zfs_space           | Correctly calculates ZFS space used by the share, including space used by ZFS snapshots, quotas, and resevations. Enabled by default.      |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
-   | zfsacl              | Provide ACL extensions for proper integration with ZFS. Enabled by default.                                                                |
-   |                     |                                                                                                                                            |
-   +---------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | Value               | Description                                                                                                                     |
+   |                     |                                                                                                                                 |
+   +=====================+=================================================================================================================================+
+   | acl_tdb             | Store NTFS ACLs in a tdb file to enable full mapping of Windows ACLs.                                                           |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | acl_xattr           | Store NTFS ACLs in Extended Attributes (EAs) to enable the full mapping of Windows ACLs.                                        |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | aio_fork            | Enable async I/O.                                                                                                               |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | audit               | Log share access, connects/disconnects, directory opens/creates/removes,                                                        |
+   |                     | and file opens/closes/renames/unlinks/chmods to syslog.                                                                         |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | cacheprime          | Prime the kernel file data cache.                                                                                               |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | cap                 | Translate filenames to and from the CAP encoding format, commonly used in Japanese language environments.                       |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | catia               | Improve Mac interoperability by translating characters that are unsupported by Windows.                                         |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | commit              | Track the amount of data written to a file and synchronizes it to disk when a specified amount accumulates.                     |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | crossrename         | Allow server side rename operations even if source and target are on different physical devices. Required for the recycle bin   |
+   |                     | to work across dataset boundaries. Automatically added when :guilabel:`Export Recycle Bin` is enabled.                          |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | default_quota       | **Deprecated: use the ixnas module instead.** Store the default quotas that are reported to a Windows client in the quota       |
+   |                     | record of a user.                                                                                                               |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | dirsort             | Sort directory entries alphabetically before sending them to the client.                                                        |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | expand_msdfs        | Enable support for Microsoft Distributed File System (DFS).                                                                     |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | extd_audit          | Send :guilabel:`audit` logs to both syslog and the Samba log files.                                                             |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | fake_perms          | Allow roaming profile files and directories to be set as read-only.                                                             |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | fruit               | Enhance macOS support by providing the SMB2 AAPL extension and Netatalk interoperability.                                       |
+   |                     | Automatically loads *catia* and *streams_xattr* but read the caveat in NOTE below table.                                        |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | full_audit          | Record selected client operations to the system log.                                                                            |
+   |                     |                                                                                                                                 |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | ixnas               | Experimental module to improve ACL compatibility with Windows and store DOS attributes as file flags.                           |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | linux_xfs_sgid      | Used to work around an old Linux XFS bug.                                                                                       |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | media_harmony       | Allow Avid editorial workstations to share a network drive.                                                                     |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | netatalk            | Ease the co-existence of SMB and AFP shares.                                                                                    |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | offline             | Mark all files in the share with the DOS *offline* attribute.                                                                   |
+   |                     | This can prevent Windows Explorer from reading files just to make thumbnail images.                                             |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | posix_eadb          | Provide Extended Attributes (EAs) support so they can be used on filesystems which do not provide native support for EAs.       |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | preopen             | Useful for video streaming applications that want to read one file per frame.                                                   |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | readahead           | Useful for Windows Vista clients reading data using Windows Explorer.                                                           |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | readonly            | Mark a share as read-only for all clients connecting within the configured time period.                                         |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | shadow_copy         | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares.                                                  |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | shadow_copy_zfs     | Allow Microsoft shadow copy clients to browse shadow copies on Windows shares. This object uses                                 |
+   |                     | :ref:`ZFS snapshots <ZFS Primer>` of the shared pool or dataset to create the shadow copies.                                    |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | shell_snap          | Provide shell-script callouts for snapshot creation and deletion operations issued                                              |
+   |                     | by remote clients using the File Server Remote VSS Protocol (FSRVP).                                                            |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | streams_depot       | **Experimental** module to store alternate data streams in a central directory.                                                 |
+   |                     | The association with the primary file can be lost due to inode numbers changing when a directory is copied to a new location    |
+   |                     | See `<https://marc.info/?l=samba&m=132542069802160&w=2>`__.                                                                     |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | streams_xattr       | Enabled by default. Enable storing NTFS alternate data streams in the file system.                                              |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | syncops             | Ensure metadata operations are performed synchronously.                                                                         |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | time_audit          | Log system calls that take longer than the number of defined milliseconds.                                                      |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | unityed_media       | Allow multiple Avid clients to share a network drive.                                                                           |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | virusfilter         | This extremely **experimental** module is still under development and does not work at this time.                               |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | winmsa              | Emulate the Microsoft *MoveSecurityAttributes=0* registry option. Moving files or directories sets the ACL for file and         |
+   |                     | directory hierarchies to inherit from the destination directory.                                                                |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | worm                | Control the writability of files and folders depending on their change time and an adjustable grace period.                     |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | xattr_tdb           | Store Extended Attributes (EAs) in a tdb file so they can be used on filesystems which do not provide support for EAs.          |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | zfs_space           | Correctly calculate ZFS space used by the share, including space used by ZFS snapshots, quotas, and resevations.                |
+   |                     | Enabled by default.                                                                                                             |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
+   | zfsacl              | Provide ACL extensions for proper integration with ZFS.                                                                         |
+   |                     | Enabled by default.                                                                                                             |
+   |                     |                                                                                                                                 |
+   +---------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
 
 .. note:: Be careful when using multiple SMB shares, some with and some
