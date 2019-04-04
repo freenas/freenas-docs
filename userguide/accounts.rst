@@ -286,7 +286,7 @@ created or modified.
    |                            |                 | prompted for their own password.                                                                                              |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
-   | Microsoft Account          | checkbox        | Set if the user is connecting from a Windows 8 or higher system or using a Microsoft cloud service.                           |
+   | Microsoft Account          | checkbox        | Set if the user is connecting from a Windows 8 or newer system or using a Microsoft cloud service.                            |
    |                            |                 |                                                                                                                               |
    +----------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
 
