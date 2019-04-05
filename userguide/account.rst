@@ -287,7 +287,7 @@ created or modified.
    |                        |               |             | is prompted for their own password.                                                                                            |
    |                        |               |             |                                                                                                                                |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
-   | Microsoft Account      | checkbox      |             | Set this when the user is connecting from a Windows 8 or newer system or using a Microsoft cloud service.                      |
+   | Microsoft Account      | checkbox      |             | Set this when the user is connecting from a Windows 8 or newer system or when using a Microsoft cloud service.                 |
    |                        |               |             |                                                                                                                                |
    +------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------------+
    | SSH Public Key         | string        |             | Enter or paste the user's **public** SSH key to be used for key-based authentication. **Do not paste the private key!**        |
