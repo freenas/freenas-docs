@@ -278,18 +278,22 @@ Domain Controller
 a network or to join an existing :ref:`Active Directory` network as a
 domain controller.
 
-.. note:: This section demonstrates how to configure the %brand%
-   system to act as a domain controller. If the goal is to integrate
-   with an existing :ref:`Active Directory` network to access its
-   authentication and authorization services, configure
-   :ref:`Active Directory` instead.
+This section demonstrates how to configure the %brand%
+system to act as a domain controller. If the goal is to integrate
+with an existing :ref:`Active Directory` network to access its
+authentication and authorization services, configure
+:ref:`Active Directory` instead.
 
-Note that configuring a domain controller is a complex process
+.. note:: The Domain Controller service cannot be configured when
+   :guilabel:`Enable Monitoring` is set in
+   :menuselection:`Directory Services --> Active Directory`
+
+Configuring a domain controller is a complex process
 that requires a good understanding of how :ref:`Active Directory`
 works. While
 :menuselection:`Services --> Domain Controller`
-makes it easy to enter the needed settings into the administrative
-graphical interface, it is important to understand what those settings
+makes it easy to enter the needed settings into the |web-ui|,
+it is important to understand what those settings
 should be. Before beginning configuration, read through the
 `Samba AD DC HOWTO
 <https://wiki.samba.org/index.php/Samba_AD_DC_HOWTO>`__.
@@ -1298,10 +1302,9 @@ minutes. The *Long* test scans the entire disk surface, and can take
 several hours on larger drives.
 
 %brand% uses the
-`smartd(8)
-<https://www.smartmontools.org/browser/trunk/smartmontools/smartd.8.in>`__
-service to monitor S.M.A.R.T. information. A complete configuration
-consists of:
+`smartd(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartd.8.in>`__
+service to monitor S.M.A.R.T. information, including disk temperature. A
+complete configuration consists of:
 
 #.  Scheduling when S.M.A.R.T. tests are run in
     :menuselection:`Tasks --> S.M.A.R.T. Tests
@@ -2009,40 +2012,43 @@ available options.
 .. table:: TFTP Configuration Options
    :class: longtable
 
-   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
-   | Setting             | Value         | Description                                                                                                    |
-   |                     |               |                                                                                                                |
-   +=====================+===============+================================================================================================================+
-   | Directory           | browse        | Browse to an **existing** directory to be used for storage. Some devices require a specific directory name.    |
-   |                     | button        | Refer to the device documentation for details.                                                                 |
-   |                     |               |                                                                                                                |
-   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
-   | Allow New Files     | checkbox      | Enable if network devices need to send files to the system (for example, to back up their configuration).      |
-   |                     |               |                                                                                                                |
-   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
-   | Port                | integer       | Enter the UDP port to listen for TFTP requests. Default is *69*.                                               |
-   |                     |               |                                                                                                                |
-   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
-   | Username            | drop-down     | Select the account to be used for TFTP requests. The account must have permission to access                    |
-   |                     | menu          | the :guilabel:`Directory`.                                                                                     |
-   |                     |               |                                                                                                                |
-   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Setting          | Value         | Description                                                                                                    |
+   |                  |               |                                                                                                                |
+   +==================+===============+================================================================================================================+
+   | Directory        | browse        | Browse to an **existing** directory to be used for storage. Some devices require a specific directory name.    |
+   |                  | button        | Refer to the device documentation for details.                                                                 |
+   |                  |               |                                                                                                                |
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Allow New Files  | checkbox      | Enable if network devices need to send files to the system (for example, to back up their configuration).      |
+   |                  |               |                                                                                                                |
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Host             | IP address    | The default host to use for TFTP transfers. Enter an IP address. Example: *192.0.2.1*.                         |
+   |                  |               |                                                                                                                |
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Port             | integer       | The UDP port number that listens for TFTP requests. Example: *8050*.                                           |
+   |                  |               |                                                                                                                |
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Username         | drop-down     | Select the account to be used for TFTP requests. The account must have permission to access                    |
+   |                  | menu          | the :guilabel:`Directory`.                                                                                     |
+   |                  |               |                                                                                                                |
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
    #ifdef freenas
-   | File Permissions    | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write.        |
-   |                     |               | Some devices require less strict permissions.                                                                  |
-   |                     |               |                                                                                                                |
-   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | File Permissions | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write.        |
+   |                  |               | Some devices require less strict permissions.                                                                  |
+   |                  |               |                                                                                                                |
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
    #endif freenas
    #ifdef truenas
-   | Umask               | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write.        |
-   |                     |               | Some devices require less strict permissions.                                                                  |
-   |                     |               |                                                                                                                |
-   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Umask            | checkboxes    | Set permissions for newly created files. The default is everyone can read and only the owner can write.        |
+   |                  |               | Some devices require less strict permissions.                                                                  |
+   |                  |               |                                                                                                                |
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
    #endif truenas
-   | Extra options       | string        | Add any additional `tftpd(8) <https://www.freebsd.org/cgi/man.cgi?query=tftpd>`__                              |
-   |                     |               | options not shown in this screen. Add one option on each line.                                                 |
-   |                     |               |                                                                                                                |
-   +---------------------+---------------+----------------------------------------------------------------------------------------------------------------+
+   | Extra options    | string        | Add any additional `tftpd(8) <https://www.freebsd.org/cgi/man.cgi?query=tftpd>`__                              |
+   |                  |               | options not shown in this screen. Add one option on each line.                                                 |
+   |                  |               |                                                                                                                |
+   +------------------+---------------+----------------------------------------------------------------------------------------------------------------+
 
 
 .. index:: UPS, Uninterruptible Power Supply
@@ -2101,10 +2107,10 @@ UPS Configuration screen.
    |                         |              | for more details about configuring multiple systems with a single UPS.                                                 |
    |                         |              |                                                                                                                        |
    +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
-   | Port / Remote Port      | drop-down    | :guilabel:`Port`: Enter the serial or USB port the UPS is connected to (see :ref:`NOTE <UPS USB>`).                    |
-   |                         | menu         | When an :literal:`snmp` driver is selected, enter the IP address or hostname of the SNMP UPS device.                   |
+   | Port / Remote Port      | drop-down    | :guilabel:`Port`: Enter the serial or USB port connected to the UPS (see :ref:`NOTE <UPS USB>`).                       |
+   |                         | menu         | Enter the IP address or hostname of the SNMP UPS device when an SNMP driver is selected.                               |
    |                         |              |                                                                                                                        |
-   |                         |              | The name of the field changes to :guilabel:`Remote Port` when the :guilabel:`UPS Mode` is set to *Slave*.              |
+   |                         |              | :guilabel:`Port` becomes :guilabel:`Remote Port` when the :guilabel:`UPS Mode` is set to *Slave*.                      |
    |                         |              | Enter the open network port number of the UPS *Master* system. The default port is *3493*.                             |
    |                         |              |                                                                                                                        |
    +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+

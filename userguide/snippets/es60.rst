@@ -121,6 +121,9 @@ secures the rail in place. Repeat this process on the other side.
 Mount Rack Rails
 ^^^^^^^^^^^^^^^^
 
+The ES60 occupies 4U of rack space. The rails are mounted in the
+center 2U of that space.
+
 Cage nuts for racks with square and round holes are included. Install
 four cage nuts inside the rack, two where the rails attach to
 the front of the rack, and two at the rear. Align each cage nut with
@@ -217,6 +220,11 @@ Drive trays have two indicator LEDs next to the tray button. The status
 LED is green when the drive is active, the fault LED is amber if a
 problem has occurred, and the status LED is solid green and the fault
 LED blinks amber when the drive is a hot spare.
+
+**For proper airflow and cooling, the entire first row of drive trays
+must be installed. The top cover must also be in place when the unit
+is on.**
+
 
 .. raw:: latex
 

@@ -137,12 +137,13 @@ these settings by checking
    | How many recovery        | integer       |             | Number of times to attempt reconnecting to the Active Directory server. Tries forever when set to *0*.                   |
    | attempts                 |               |             |                                                                                                                          |
    +--------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Enable Monitoring        | checkbox      |             | Restart Active Directory automatically if the service is disconnected.                                                   |
+   | Enable Monitoring        | checkbox      |             | Restart Active Directory automatically if the service is disconnected. Setting this prevents configuring the             |
+   |                          |               |             | :ref:`Domain Controller` service.                                                                                        |
    |                          |               |             |                                                                                                                          |
    +--------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------+
-   | Encryption Mode          | drop-down     | ✓           | Choices are *Off*, *SSL*, or *TLS*.                                                                                      |
-   |                          |               |             | *SSL* selects LDAPS protocol (port 636). *TLS* selects LDAP protocol (port 389).                                         |
-   |                          |               |             |                                                                                                                          |
+   | Encryption Mode          | drop-down     | ✓           | Choices are *Off*, *SSL (LDAPS protocol port 636)*, or *TLS (LDAP protocol port 389)*. See                               |
+   |                          |               |             | http://info.ssl.com/article.aspx?id=10241 and https://hpbn.co/transport-layer-security-tls/ for more information about   |
+   |                          |               |             | SSL and TLS.                                                                                                             |
    +--------------------------+---------------+-------------+--------------------------------------------------------------------------------------------------------------------------+
    | Certificate              | drop-down     | ✓           | Select the Active Directory server certificate if SSL connections are used. If a certificate does not exist, create      |
    |                          | menu          |             | a :ref:`Certificate Authority <CAs>`, then create a certificate on the Active Directory server. Import the               |
