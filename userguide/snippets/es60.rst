@@ -249,10 +249,11 @@ top, the bottom, or removed entirely.
 Install the Cable Management Arm
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Locate the two posts on the left rear side of the ES60. Align the
+Locate the two posts on the left rear side of the ES60. The ES60 can be
+pulled slightly out of the rack to better locate the posts. Align the
 holes on the CMA chassis bracket with the posts on the chassis. Slide
-the cable management arm forward and pull the lever on the latch
-upward to lock the bracket into place.
+the cable management arm forward and pull the lever on the latch upward
+to lock the bracket into place.
 
 
 .. figure:: images/tn_es60_arm_clip.png
