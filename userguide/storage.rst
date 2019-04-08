@@ -210,6 +210,7 @@ The status of the pools are also indicated by one of these symbols:
 
 * Blue |pool-unknown|
 
+* Yellow |pool-lock|
 There is an option to :guilabel:`Upgrade Pool`. This upgrades the
 pool to the latest :ref:`ZFS Feature Flags`. See the warnings in
 :ref:`Upgrading a ZFS Pool` before selecting this option. This button
