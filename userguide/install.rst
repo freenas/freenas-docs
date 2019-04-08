@@ -1119,9 +1119,10 @@ Locate the path for the Configuration file named :file:`filename.vmx`.
 Open that file in a text editor, change :guilabel:`hpet0.present` from
 *true* to *false*, and save the change.
 
-If plugins or jails inside the %brand% VM are encountering network
-connectivity issues, edit the connected
-`VMware port group <https://pubs.vmware.com/vsphere-4-esx-vcenter/index.jsp?topic=/com.vmware.vsphere.server_configclassic.doc_40/esx_server_config/networking/c_port_groups.html>`__
-and
+Network connection errors for plugins or jails inside the %brand% VM can
+be caused by a misconfigured
 `virtual switch <https://pubs.vmware.com/vsphere-51/index.jsp?topic=%2Fcom.vmware.wssdk.pg.doc%2FPG_Networking.11.4.html>`__
-to allow MAC spoofing and enable promiscuous mode.
+or
+`VMware port group <https://pubs.vmware.com/vsphere-4-esx-vcenter/index.jsp?topic=/com.vmware.vsphere.server_configclassic.doc_40/esx_server_config/networking/c_port_groups.html>`__.
+Make sure MAC spoofing and promiscuous mode are enabled on the switch
+first, and then the port group the VM is using.
