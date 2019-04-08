@@ -513,6 +513,11 @@ PREAMBLE = r'''
   \fancyhf{}
   \fancyfoot[C]{\textbf{\thepage}}
 }
+% force URLs to be raggedright
+\let\oldsphinxhref\sphinxhref%
+\renewcommand{\sphinxhref}[2]{%
+  \RaggedRight{\oldsphinxhref{#1}{#2}}%
+}%
 '''
 
 if latex_engine == 'xelatex':
