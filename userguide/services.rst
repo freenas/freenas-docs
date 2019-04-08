@@ -1406,8 +1406,8 @@ settings which apply to all SMB shares are configured in
    to occur and for the %brand% system to become available in
    Windows Explorer.
 
-:numref:`Figure %s <global_smb_config_fig>` shows the global SMB
-configuration options which are described in
+:numref:`Figure %s <global_smb_config_fig>` shows some of the global SMB
+configuration options described in
 :numref:`Table %s <global_smb_config_opts_tab>`. This configuration
 screen is really a front-end to
 `smb4.conf <https://www.freebsd.org/cgi/man.cgi?query=smb4.conf>`__.
@@ -1502,6 +1502,10 @@ screen is really a front-end to
    | Guest Account               | drop-down menu    | Select the account to be used for guest access. Default is *nobody*. Account must have permission    |
    |                             |                   | to access the shared volume/dataset. If Guest Account user is deleted, resets to *nobody*.           |
    |                             |                   |                                                                                                      |
+   +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
+   | Administrators Account      | drop-down menu    | Members of this group are local admins and automatically have privileges to take ownership of any    |
+   |                             |                   | file in an SMB share, reset permissions, and administer the SMB server through the Computer          |
+   |                             |                   | Management MMC snap-in.                                                                              |
    +-----------------------------+-------------------+------------------------------------------------------------------------------------------------------+
    | File mask                   | integer           | Overrides default file creation mask of 0666 which creates files with read and write access for      |
    |                             |                   | everybody.                                                                                           |
