@@ -216,6 +216,11 @@ Push the latch down until it locks into place.
    :width: 100%
 
 
+Drive trays have two indicator LEDs next to the tray button. The status
+LED is green when the drive is active, the fault LED is amber if a
+problem has occurred, and the status LED is solid green and the fault
+LED blinks amber when the drive is a hot spare.
+
 **For proper airflow and cooling, the entire first row of drive trays
 must be installed. The top cover must also be in place when the unit
 is on.**
