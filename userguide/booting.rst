@@ -82,10 +82,10 @@ The password for the root user is requested as shown in
    only demonstrates the new Angular |web-ui|.
 
 
-Enter the password chosen during the installation. There is a prompt to
-set a root password if this was not set during the installation. The
-|web-ui| is displayed as shown in
-:numref:`Figure %s <booting_graphic_config_menu_fig>`.
+Enter the password chosen during the installation. A prompt is shown
+to set a root password if it was not set during installation.
+
+The |web-ui| is displayed after login:
 
 
 .. _booting_graphic_config_menu_fig:
@@ -93,6 +93,7 @@ set a root password if this was not set during the installation. The
 .. figure:: images/dashboard.png
 
    %brand% Graphical Configuration Menu
+
 
 #ifdef freenas
 The rest of this User Guide describes the %brand% |web-ui| in
