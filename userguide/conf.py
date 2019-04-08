@@ -173,6 +173,10 @@ rst_prolog = u'''
 .. |alert-icon-info|  replace:: 
 .. |alert-icon-error| replace:: 
 .. |ui-browse|        replace::  (Browse)
+.. |pool-degraded|    replace::  (DEGRADED)
+.. |pool-faulted|     replace::  (FAULTED)
+.. |pool-healthy|     replace::  (HEALTHY)
+.. |pool-unknown|     replace::  (UNKNOWN)
 .. |pool-lock|        replace::  (Encryption Options)
 .. |pool-unlock|      replace::  (Unlock)
 '''

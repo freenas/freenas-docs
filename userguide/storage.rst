@@ -200,6 +200,16 @@ compression ratio, whether it is mounted as read-only, whether
 deduplication has been enabled, the mountpoint path, and any comments
 entered for the pool.
 
+The status of the pools are also indicated by one of these symbols:
+
+* Green |pool-healthy|
+
+* Orange |pool-degraded|
+
+* Red |pool-faulted|
+
+* Blue |pool-unknown|
+
 There is an option to :guilabel:`Upgrade Pool`. This upgrades the
 pool to the latest :ref:`ZFS Feature Flags`. See the warnings in
 :ref:`Upgrading a ZFS Pool` before selecting this option. This button
