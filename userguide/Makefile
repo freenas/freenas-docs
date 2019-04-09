@@ -51,6 +51,9 @@ preproc::
 html:	preproc
 	cd $(PREPROCDIR) && \
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	@echo "adjusting menuselection arrow"
+        # adjust |menuselection| arrow
+	@sed -i '' -e 's%‣%➞%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@echo
 	@echo "Build finished. The HTML index page is $(PREPROCDIR)/$(BUILDDIR)/html/$(TAG).html"
 
