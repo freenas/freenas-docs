@@ -249,7 +249,7 @@ This software has been added or updated:
   Type :command:`cloneacl` for usage instructions.
 
 * These switches have been added to :ref:`freenas-debug`:
-  :literal:`-M` for dumping SATADOM info and :literal:`-Z` to delete
+  :literal:`-M` for dumping SSD info and :literal:`-Z` to delete
   old debug information. The :literal:`-G` switch has been removed as
   the system no longer uses GRUB. The :literal:`-J` switch has been
   removed and the :literal:`-j` switch has been
@@ -549,8 +549,8 @@ The Operating System Device
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The %brand% operating system is installed to at least one device that
-is separate from the storage disks. The device can be a SSD, USB
-memory stick, or DOM (Disk on Module). Installation to a hard drive is
+is separate from the storage disks. The device can be a SSD or
+|usb-stick|. Installation to a hard drive is
 discouraged as that drive is then not available for data storage.
 
 .. note:: To write the installation file to a |usb-stick|, **two** USB
