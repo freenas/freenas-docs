@@ -35,8 +35,8 @@ brand = 'FreeNAS®'
 tags.add('freenas')
 master_doc = 'freenas'
 
-version = '11.2-U3'
-release = '11.2'
+version = '11.3-BETA1'
+release = '11.3'
 product = f'{brand} {version} User Guide'
 
 pdf_file_name  = f'FreeNAS-{version}-User-Guide'
