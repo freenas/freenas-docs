@@ -50,7 +50,7 @@ source of the Guide.
 
 **Typographic Conventions**
 
-The %brand% |release| User Guide uses these typographic conventions:
+The %brand%  |release| User Guide uses these typographic conventions:
 
 
 #include snippets/typography.rst
