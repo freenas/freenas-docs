@@ -316,11 +316,8 @@ the screen shown in
    Installation Warning
 
 
-.. note:: A minimum of 8 GiB of space on the |os-device| is required.
-   However, 32 GiB is recommended to provide room for future additions
-   and boot environments. When using mirrored |os-devices|, it is best
-   to use devices of the same size. If the device sizes are different,
-   the mirror is limited to the size of the smaller device.
+See the :ref:`operating system device <The Operating System Device>`
+section to ensure the minimum requirements are met.
 
 The installer recognizes existing installations of previous versions
 of %brand%. When an existing installation is present, the menu shown in
