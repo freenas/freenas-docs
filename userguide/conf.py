@@ -218,26 +218,30 @@ def patched_menusel_role(typ, rawtext, text, lineno, inliner, options={}, conten
 roles.register_local_role("menuselection", patched_menusel_role)
 
 rst_prolog = u'''
-.. |ui-settings|      replace::  (Settings)
-.. |ui-options|       replace::  (Options)
+.. |alert-icon-error| replace:: 
+.. |alert-icon-info|  replace:: 
+.. |alert-icon-watch| replace:: 肋
+.. |pool-degraded|    replace::  (DEGRADED)
+.. |pool-faulted|     replace::  (FAULTED)
+.. |pool-healthy|     replace::  (HEALTHY)
+.. |pool-lock|        replace::  (Encryption Options)
+.. |pool-unknown|     replace::  (UNKNOWN)
+.. |pool-unlock|      replace::  (Unlock)
 .. |ui-add|           replace:: :guilabel:`ADD`
-.. |ui-power|         replace::  (Power)
-.. |ui-password-show| replace::  (Show)
-.. |ui-password-hide| replace::  (Hide)
+.. |ui-browse|        replace::  (Browse)
 .. |ui-configure|     replace::  (Configure)
-.. |ui-launch|        replace:: 襁 (Launch)
+.. |ui-edit-disks|    replace::  (Edit Disks)
+.. |ui-jail-delete|   replace::  (Delete)
 .. |ui-jail-start|    replace::  (Start)
 .. |ui-jail-stop|     replace::  (Stop)
 .. |ui-jail-update|   replace::  (Update)
-.. |ui-jail-delete|   replace::  (Delete)
-.. |ui-edit-disks|    replace::  (Edit Disks)
+.. |ui-launch|        replace:: 襁 (Launch)
+.. |ui-options|       replace::  (Options)
+.. |ui-password-hide| replace::  (Hide)
+.. |ui-password-show| replace::  (Show)
+.. |ui-power|         replace::  (Power)
 .. |ui-refresh|       replace::  (Refresh)
-.. |alert-icon-watch| replace:: 肋
-.. |alert-icon-info|  replace:: 
-.. |alert-icon-error| replace:: 
-.. |ui-browse|        replace::  (Browse)
-.. |pool-lock|        replace::  (Encryption Options)
-.. |pool-unlock|      replace::  (Unlock)
+.. |ui-settings|      replace::  (Settings)
 '''
 
 # roles for text replacement
