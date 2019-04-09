@@ -73,6 +73,8 @@ html:	require preproc
 	@sed -i '' -e 's%%▶%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@sed -i '' -e 's%%🕓%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@sed -i '' -e 's%%%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
+        # adjust |menuselection| arrow
+	@sed -i '' -e 's%‣%➞%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@echo
 	@echo "Build finished. The HTML index page is $(PREPROCDIR)/$(BUILDDIR)/html/$(TAG).html"
 
@@ -120,23 +122,50 @@ latexpdf pdf:	requirepdf preproc
 	@echo "removing spurious characters"
 	@sed -i '' -e 's%Â%%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@echo "replacing UI icon symbols with Material Design characters"
-	@sed -i '' -e 's%%{\\material\\symbol{"F493}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's%%{\\material\\symbol{"F1D9}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's%%{\\material\\symbol{"F425}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's%%{\\material\\symbol{"F208}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's%%{\\material\\symbol{"F0C9}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's%襁%{\\material\\symbol{"FAB6}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's%%{\\material\\symbol{"F40A}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's%%{\\material\\symbol{"F4DB}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's%%{\\material\\symbol{"F6AF}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's%%{\\material\\symbol{"F1C0}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's%%{\\material\\symbol{"F209}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's%肋%{\\material\\symbol{"F953}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|alert-icon-error|
 	@sed -i '' -e 's%%{\\material\\symbol{"F028}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|alert-icon-info|
 	@sed -i '' -e 's%%{\\material\\symbol{"F2FC}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's%%{\\material\\symbol{"F450}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
-	@sed -i '' -e 's%%{\\material\\symbol{"F340}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|alert-icon-watch|
+	@sed -i '' -e 's%肋%{\\material\\symbol{"F953}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|pool-degraded|
+	@sed -i '' -e 's%%{\\material\\symbol{"F026}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|pool-faulted|
+	@sed -i '' -e 's%%{\\material\\symbol{"F159}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|pool-healthy|
+	@sed -i '' -e 's%%{\\material\\symbol{"F133}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|pool-lock|
 	@sed -i '' -e 's%%{\\material\\symbol{"F341}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|pool-unknown|
+	@sed -i '' -e 's%%{\\material\\symbol{"F2D7}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|pool-unlock|
+	@sed -i '' -e 's%%{\\material\\symbol{"F340}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|ui-browse|
+	@sed -i '' -e 's%%{\\material\\symbol{"F24B}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|ui-configure| or |ui-edit-disks|
+	@sed -i '' -e 's%%{\\material\\symbol{"F0C9}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|ui-jail-delete|
+	@sed -i '' -e 's%%{\\material\\symbol{"F1C0}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|ui-jail-start|
+	@sed -i '' -e 's%%{\\material\\symbol{"F40A}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|ui-jail-stop|
+	@sed -i '' -e 's%%{\\material\\symbol{"F4DB}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|ui-jail-update|
+	@sed -i '' -e 's%%{\\material\\symbol{"F6AF}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|ui-launch|
+	@sed -i '' -e 's%襁%{\\material\\symbol{"FAB6}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|ui-options|
+	@sed -i '' -e 's%%{\\material\\symbol{"F1D9}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|ui-password-hide|
+	@sed -i '' -e 's%%{\\material\\symbol{"F209}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|ui-password-show|
+	@sed -i '' -e 's%%{\\material\\symbol{"F208}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|ui-power|
+	@sed -i '' -e 's%%{\\material\\symbol{"F425}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|ui-refresh|
+	@sed -i '' -e 's%%{\\material\\symbol{"F450}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+	#|ui-settings|
+	@sed -i '' -e 's%%{\\material\\symbol{"F493}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	@echo "Running LaTeX files through $(LATEX_ENGINE)..."
 	# fix missing latex_engine substitution in old versions of Sphinx
 	@sed -i '' -e 's/pdflatex/$(LATEX_ENGINE)/g' $(PREPROCDIR)/$(BUILDDIR)/latex/Makefile
