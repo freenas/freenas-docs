@@ -1047,7 +1047,7 @@ for more details.
    | Value                | Description                                                                                                                     |
    |                      |                                                                                                                                 |
    +======================+=================================================================================================================================+
-   | acl\_\ :file:`tdb`   | Store NTFS ACLs in a tdb file to enable full mapping of Windows ACLs.                                                           |
+   | acl_tdb              | Store NTFS ACLs in a tdb file to enable full mapping of Windows ACLs.                                                           |
    |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | acl_xattr            | Store NTFS ACLs in Extended Attributes (EAs) to enable the full mapping of Windows ACLs.                                        |
@@ -1162,7 +1162,7 @@ for more details.
    | worm                 | Control the writability of files and folders depending on their change time and an adjustable grace period.                     |
    |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
-   | xattr\_\ :file:`tdb` | Store Extended Attributes (EAs) in a tdb file so they can be used on filesystems which do not provide support for EAs.          |
+   | xattr_tdb            | Store Extended Attributes (EAs) in a tdb file so they can be used on filesystems which do not provide support for EAs.          |
    |                      |                                                                                                                                 |
    +----------------------+---------------------------------------------------------------------------------------------------------------------------------+
    | zfs_space            | Correctly calculate ZFS space used by the share, including space used by ZFS snapshots, quotas, and resevations.                |
