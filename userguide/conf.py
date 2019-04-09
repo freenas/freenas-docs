@@ -177,6 +177,10 @@ rst_prolog = u'''
 .. |copyright-year| replace:: 2019
 .. |dockerhost|     replace:: Docker VM
 .. |web-ui|         replace:: web interface
+.. |os-device|      replace:: operating system device
+.. |os-devices|     replace:: operating system devices
+.. |OS-Device|      replace:: Operating System Device
+.. |OS-Devices|     replace:: Operating System Devices
 '''
 
 # The name of the Pygments (syntax highlighting) style to use.
