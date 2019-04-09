@@ -586,14 +586,13 @@ The configurable settings are summarized in
 .. table:: Advanced Configuration Settings
    :class: longtable
 
-<<<<<<< HEAD
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Setting                                  | Value              | Description                                                                                      |
    |                                          |                    |                                                                                                  |
    +==========================================+====================+==================================================================================================+
-   | Show Text Console without Password       | checkbox           | Set for the system to immediately display the text console after booting. Unset to require       |
-   | Prompt                                   |                    | logging into the system before the console menu is shown.                                        |
-   |                                          |                    |                                                                                                  |
+   | Show Text Console without Password       | checkbox           | Set for the system to immediately display the |web-ui| address and text console after booting.   |
+   | Prompt                                   |                    | Unset to require logging into the system before the console menu is shown. The |web-ui| address  |
+   |                                          |                    | is still shown.                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Enable Serial Console                    | checkbox           | **Do not** enable this option if the serial port is disabled. Adds the *Serial Port* and         |
    |                                          |                    | *Serial Speed* fields.                                                                           |
@@ -603,29 +602,6 @@ The configurable settings are summarized in
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Serial Speed                             | drop-down menu     | Select the speed in bps used by the serial port.                                                 |
    |                                          |                    |                                                                                                  |
-=======
-   +----------------------------+---------------------+-------------------------------------------------------------------------------+
-   | Setting                    | Value               | Description                                                                   |
-   |                            |                     |                                                                               |
-   +============================+=====================+===============================================================================+
-   | Show Text Console          | checkbox            | Set for the system to immediately display the |web-ui| address and text       |
-   | without Password Prompt    |                     | console after booting. Unset to require logging into the system before the    |
-   |                            |                     | console menu is shown. The |web-ui| address is still shown.                   |
-   |                            |                     |                                                                               |
-   +----------------------------+---------------------+-------------------------------------------------------------------------------+
-   | Use Serial Console         | checkbox            | **Do not** enable this option if the serial port is disabled.                 |
-   |                            |                     |                                                                               |
-   +----------------------------+---------------------+-------------------------------------------------------------------------------+
-   | Serial Port Address        | string              | Select the serial port address in hex.                                        |
-   |                            |                     |                                                                               |
-   +----------------------------+---------------------+-------------------------------------------------------------------------------+
-   | Serial Port Speed          | drop-down menu      | Select the speed used by the serial port.                                     |
-   |                            |                     |                                                                               |
-   +----------------------------+---------------------+-------------------------------------------------------------------------------+
-   | Enable powerd              | checkbox            | `powerd(8) <https://www.freebsd.org/cgi/man.cgi?query=powerd>`__              |
-   | (Power Saving Daemon)      |                     | monitors the system state and sets the CPU frequency accordingly.             |
-   |                            |                     |                                                                               |
->>>>>>> 7f905bf... NAS-100097: Update "Show Text Console without Password Prompt" description.
    #ifdef freenas
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Swap size in GiB                         | non-zero number    | By default, all data disks are created with this amount of swap. This setting does not affect    |
