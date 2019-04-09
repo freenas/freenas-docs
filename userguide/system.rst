@@ -723,6 +723,7 @@ For those who wish to see which checks are performed, the autotune
 script is located in :file:`/usr/local/bin/autotune`.
 #endif truenas
 
+
 .. index:: Self-Encrypting Drives
 .. _Self-Encrypting Drives:
 
@@ -731,7 +732,7 @@ Self-Encrypting Drives
 
 %brand% version 11.1-U5 introduced Self-Encrypting Drive (SED) support.
 
-Three types of SED devices are supported:
+Three types of SED are supported:
 
 * Legacy interface for older ATA devices. **Not recommended for
   security-critical environments**
@@ -745,28 +746,27 @@ The %brand% middleware implements the security capabilities of
 `camcontrol <https://www.freebsd.org/cgi/man.cgi?query=camcontrol>`__
 for legacy devices and
 `sedutil-cli <https://www.mankier.com/8/sedutil-cli>`__
-for TCG devices. When managing SED devices from the command line, it is
+for TCG devices. When managing a SED from the command line, it is
 important to use :command:`sedutil-cli` rather than camcontrol to access
 the full capabilities of the device. %brand% provides the
-:command:`sedhelper` wrapper script to ease SED device administration
-from the command line.
+:command:`sedhelper` wrapper script to ease SED administration from the
+command line.
 
-By default, SED devices are not locked until the administrator takes
-ownership of them. This is done by explicitly configuring a global or
-per-device password in the %brand% |web-ui| and adding the password to
-the SED devices.
+By default, SED are not locked until the administrator takes ownership
+of them. This is done by explicitly configuring a global or per-device
+password in the %brand% |web-ui| and adding the password to the SEDs.
 
-A password-protected SED device protects the data stored on the device
+A password-protected SED protects the data stored on the device
 when the device is physically removed from the %brand% system. This
 allows secure disposal of the device without having to first wipe its
 contents. If the device is instead removed to be repurposed on another
 system, it can only be unlocked if the password is known.
 
 
-.. _Deploying SED devices:
+.. _Deploying SEDs:
 
-Deploying SED Devices
-^^^^^^^^^^^^^^^^^^^^^
+Deploying SEDs
+^^^^^^^^^^^^^^
 
 To determine which devices support SED and their device names, go to the
 :menuselection:`Shell`
@@ -791,27 +791,27 @@ Example:
    /dev/da11    E WDC     WUSTR1519ASS201  B925
 
 
-Now decide if each SED will have a separate password or to use a global
-SED password. Using a global password for all SED devices is strongly
-recommended to simplify deployment and avoid physically maintaining
-separate passwords for each SED.
+%brand% supports setting a global password for all detected SEDs or
+setting individual passwords for each SED. Using a global password for
+all SEDs is strongly recommended to simplify deployment and avoid
+physically maintaining separate passwords for each SED.
 
 
-**Setting a global password for SED devices**
+**Setting a global password for SEDs**
 
 Go to
 :menuselection:`System --> Advanced --> SED Password`
 and enter the password. **Record this password and store it in a safe
 place!**
 
-Now the SED devices must be configured with this password. Go to the
+Now the SEDs must be configured with this password. Go to the
 :menuselection:`Shell`
 and enter :samp:`sedhelper setup {password}`, where *password* is the
 global password entered in
 :menuselection:`System --> Advanced --> SED Password`.
 
-:command:`sedhelper` ensures that all detected SED disks are properly
-configured to use the specified password. Example:
+:command:`sedhelper` ensures that all detected SEDs are properly
+configured to use the provided password. Example:
 
 .. code-block:: none
 
@@ -825,7 +825,7 @@ Rerun :samp:`sedhelper setup {password}` every time a new SED is placed
 in the system to apply the global password to the new SED.
 
 
-**Creating separate passwords for each SED device**
+**Creating separate passwords for each SED**
 
 Go to
 :menuselection:`Storage --> Disks`.
