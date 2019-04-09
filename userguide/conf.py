@@ -177,12 +177,6 @@ rst_prolog = u'''
 .. |copyright-year| replace:: 2019
 .. |dockerhost|     replace:: Docker VM
 .. |web-ui|         replace:: web interface
-.. |os-device|      replace:: operating system device
-.. |os-devices|     replace:: operating system devices
-.. |OS-Device|      replace:: Operating System Device
-.. |OS-Devices|     replace:: Operating System Devices
-.. |usb-stick|      replace:: USB stick
-.. |usb-sticks|     replace:: USB sticks
 '''
 
 # The name of the Pygments (syntax highlighting) style to use.
@@ -221,6 +215,12 @@ rst_prolog += u'''
 .. |copyright-year| replace:: 2019
 .. |dockerhost|     replace:: Docker Host
 .. |web-ui|         replace:: web interface
+.. |os-device|      replace:: operating system device
+.. |os-devices|     replace:: operating system devices
+.. |OS-Device|      replace:: Operating System Device
+.. |OS-Devices|     replace:: Operating System Devices
+.. |usb-stick|      replace:: USB stick
+.. |usb-sticks|     replace:: USB sticks
 '''
 # -- Options for HTML output ---------------------------------------------------
 project = product
