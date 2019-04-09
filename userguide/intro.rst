@@ -148,6 +148,13 @@ These screen options have changed:
   :menuselection:`Reporting`.
 
 
+U4
+~~
+
+* The :guilabel:`Administrators Group` field has been added to
+  :menuselection:`Services --> SMB`.
+
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
