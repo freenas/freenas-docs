@@ -242,6 +242,7 @@ rst_prolog = u'''
 .. |ui-power|         replace::  (Power)
 .. |ui-refresh|       replace::  (Refresh)
 .. |ui-settings|      replace::  (Settings)
+.. |ui-task-manager|  replace::  (Task Manager)
 '''
 
 # roles for text replacement
