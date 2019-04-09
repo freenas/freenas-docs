@@ -181,6 +181,8 @@ rst_prolog = u'''
 .. |os-devices|     replace:: operating system devices
 .. |OS-Device|      replace:: Operating System Device
 .. |OS-Devices|     replace:: Operating System Devices
+.. |usb-stick|      replace:: USB stick
+.. |usb-sticks|     replace:: USB sticks
 '''
 
 # The name of the Pygments (syntax highlighting) style to use.
