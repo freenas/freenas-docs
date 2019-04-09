@@ -687,7 +687,7 @@ discouraged as that drive is then not available for data storage.
    be installed onto the same device that contains the installer.
    After installation, remove the installer USB stick. It might also
    be necessary to adjust the BIOS configuration to boot from the new
-   %brand% boot device.
+   %brand% |os-device|.
 
 When determining the type and size of the target device where %brand%
 is to be installed, keep these points in mind:
