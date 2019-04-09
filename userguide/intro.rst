@@ -87,7 +87,7 @@ built-in features by installing additional software.
 New Features in |release|
 -------------------------
 
-%brand% |release| is a feature release, which includes several new
+%brand%  |release| is a feature release, which includes several new
 significant features, many improvements and bug fixes to existing
 features, and version updates to the operating system, base
 applications, and drivers. Users are encouraged to :ref:`Update` to
