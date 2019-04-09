@@ -733,7 +733,7 @@ of the boot environment to set it as :guilabel:`Active`. Press
 press :kbd:`Enter` to boot into the chosen :guilabel:`Active` boot
 environment.
 
-If a |os-device| fails and the system no longer boots, don't panic.
+If an |os-device| fails and the system no longer boots, don't panic.
 The data is still on the disks and there is still a copy of the saved
 configuration. The system can be recovered with a few steps:
 
