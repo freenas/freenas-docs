@@ -296,8 +296,8 @@ system.
    Selecting the Install Drive
 
 
-Use the arrow keys to highlight the destination USB drive, SSD, DOM
-(Disk on Module), or virtual disk. Press the :kbd:`spacebar` to select
+Use the arrow keys to highlight the destination USB drive, SSD
+or virtual disk. Press the :kbd:`spacebar` to select
 it. To mirror the |os-device|, move to the second device and press
 :kbd:`spacebar` to select it also. After making these selections,
 press :kbd:`Enter`. The warning shown in

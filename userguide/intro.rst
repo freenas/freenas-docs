@@ -675,8 +675,8 @@ The Operating System Device
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The %brand% operating system is installed to at least one device that
-is separate from the storage disks. The device can be a SSD, USB
-memory stick, or DOM (Disk on Module). Installation to a hard drive is
+is separate from the storage disks. The device can be a SSD or
+|usb-stick|. Installation to a hard drive is
 discouraged as that drive is then not available for data storage.
 
 .. note:: To write the installation file to a |usb-stick|, **two** USB

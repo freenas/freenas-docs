@@ -1527,7 +1527,7 @@ connection requests.
 initiator negotiates with a target to establish connectivity to a LUN.
 The result is an iSCSI connection that emulates a connection to a SCSI
 hard disk. Initiators treat iSCSI LUNs as if they were a raw SCSI or
-SATA hard drive. Rather than mounting remote directories, initiators
+SSD. Rather than mounting remote directories, initiators
 format and directly manage filesystems on iSCSI LUNs. When configuring
 multiple iSCSI LUNs, create a new target for each LUN. Since iSCSI
 multiplexes a target with multiple LUNs over the same TCP connection,
