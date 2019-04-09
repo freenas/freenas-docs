@@ -174,25 +174,15 @@ if tags.has('bsg-es60'):
 
 # roles for text replacement
 rst_prolog = u'''
+.. |alert-icon-error| replace:: 
+.. |alert-icon-info|  replace:: 
+.. |alert-icon-watch| replace:: 肋
 .. |copyright-year| replace:: 2019
 .. |dockerhost|     replace:: Docker VM
-.. |web-ui|         replace:: web interface
 .. |os-device|      replace:: operating system device
 .. |os-devices|     replace:: operating system devices
 .. |OS-Device|      replace:: Operating System Device
 .. |OS-Devices|     replace:: Operating System Devices
-.. |usb-stick|      replace:: USB stick
-.. |usb-sticks|     replace:: USB sticks
-'''
-
-# The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
-
-
-rst_prolog = u'''
-.. |alert-icon-error| replace:: 
-.. |alert-icon-info|  replace:: 
-.. |alert-icon-watch| replace:: 肋
 .. |pool-degraded|    replace::  (DEGRADED)
 .. |pool-faulted|     replace::  (FAULTED)
 .. |pool-healthy|     replace::  (HEALTHY)
@@ -214,14 +204,15 @@ rst_prolog = u'''
 .. |ui-power|         replace::  (Power)
 .. |ui-refresh|       replace::  (Refresh)
 .. |ui-settings|      replace::  (Settings)
-'''
-
-# roles for text replacement
-rst_prolog += u'''
-.. |copyright-year| replace:: 2019
-.. |dockerhost|     replace:: Docker Host
+.. |usb-stick|      replace:: USB stick
+.. |usb-sticks|     replace:: USB sticks
 .. |web-ui|         replace:: web interface
 '''
+
+# The name of the Pygments (syntax highlighting) style to use.
+pygments_style = 'sphinx'
+
+
 # -- Options for HTML output ---------------------------------------------------
 project = product
 
