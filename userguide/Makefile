@@ -73,6 +73,8 @@ html:	require preproc
 	@sed -i '' -e 's%%▶%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@sed -i '' -e 's%%🕓%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@sed -i '' -e 's%%%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
+        # adjust |menuselection| arrow
+	@sed -i '' -e 's%‣%➞%g' $(PREPROCDIR)/$(BUILDDIR)/html/*.html
 	@echo
 	@echo "Build finished. The HTML index page is $(PREPROCDIR)/$(BUILDDIR)/html/$(TAG).html"
 
