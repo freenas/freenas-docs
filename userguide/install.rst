@@ -92,7 +92,7 @@ for several common operating systems are shown below.
    might also be necessary to adjust the BIOS configuration to boot
    from the new %brand% USB stick.
 
-Ensure the boot device order in the BIOS is set to boot from
+Ensure the |os-device| order in the BIOS is set to boot from
 the device containing the %brand% installer media, then boot the
 system to start the installation.
 
@@ -299,7 +299,7 @@ system.
 
 Use the arrow keys to highlight the destination USB drive, SSD, DOM
 (Disk on Module), or virtual disk. Press the :kbd:`spacebar` to select
-it. To mirror the boot device, move to the second device and press
+it. To mirror the |os-device|, move to the second device and press
 :kbd:`spacebar` to select it also. After making these selections,
 press :kbd:`Enter`. The warning shown in
 :numref:`Figure %s <install_warning_fig>`
@@ -316,9 +316,9 @@ the screen shown in
    Installation Warning
 
 
-.. note:: A minimum of 8 GiB of space on the boot device is required.
+.. note:: A minimum of 8 GiB of space on the |os-device| is required.
    However, 32 GiB is recommended to provide room for future additions
-   and boot environments. When using mirrored boot devices, it is best
+   and boot environments. When using mirrored |os-devices|, it is best
    to use devices of the same size. If the device sizes are different,
    the mirror is limited to the size of the smaller device.
 
@@ -634,12 +634,12 @@ the operating system on a disk not used for storage.
 
 
 The updated system can be installed in a new boot environment,
-or the entire boot device can be formatted to start fresh. Installing
+or the entire |os-device| can be formatted to start fresh. Installing
 into a new boot environment preserves the old code, allowing a
 roll-back to previous versions if necessary. Formatting the boot
 device is usually not necessary but can reclaim space. User data and
 settings are preserved when installing to a new boot environment and
-also when formatting the boot device. Move the highlight to one of the
+also when formatting the |os-device|. Move the highlight to one of the
 options and press :kbd:`Enter` to start the upgrade.
 
 The installer unpacks the new image and displays the menu shown in
@@ -737,11 +737,11 @@ of the boot environment to set it as :guilabel:`Active`. Press
 press :kbd:`Enter` to boot into the chosen :guilabel:`Active` boot
 environment.
 
-If a boot device fails and the system no longer boots, don't panic.
+If a |os-device| fails and the system no longer boots, don't panic.
 The data is still on the disks and there is still a copy of the saved
 configuration. The system can be recovered with a few steps:
 
-#.  Perform a fresh installation on a new boot device.
+#.  Perform a fresh installation on a new |os-device|.
 
 #.  Import the volumes in
     :menuselection:`Storage --> Auto Import Volume`.
