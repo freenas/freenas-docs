@@ -102,6 +102,8 @@ This software has been added or updated:
 
 These screen options have changed:
 
+* The :guilabel:`DOS Charset` field has been removed from
+  :menuselection:`Services --> SMB --> Configure`.
 
 .. _Path and Name Lengths:
 
