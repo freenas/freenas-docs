@@ -270,8 +270,8 @@ to use it effectively:
   startup. Pools with a passphrase remain locked until the user
   enters the passphrase to unlock them.
 
-  Encrypted pools can be locked on demand by the user. They are
-  automatically locked when the system is shut down.
+  Encrypted pools can be locked on demand by users with the passphrase.
+  They are automatically locked when the system is shut down.
 
 * This type of encryption is primarily useful for users wanting the
   ability to remove disks from the pool without having to first wipe
@@ -387,10 +387,10 @@ click |pool-lock|, and select one of these operations:
 **Lock:** Only appears after a passphrase has been created. When a pool
 is locked, the data is not accessible until the pool is unlocked by
 supplying the passphrase. For this reason, selecting this action
-prompts to confirm. When the pool is locked, the status changes to
-*LOCKED (Locked Used / Locked Free)*. :guilabel:`Pool Operations` are
-limited to *Export/Disconnect*, and |pool-lock| changes to
-|pool-unlock|.
+requires entering the passphrase. When the pool is locked, the status
+changes to *LOCKED (Locked Used / Locked Free)*.
+:guilabel:`Pool Operations` are limited to *Export/Disconnect*, and
+|pool-lock| changes to |pool-unlock|.
 
 Unlock the pool by clicking the |pool-unlock| icon and entering
 the passphrase *or* use the :guilabel:`Browse` button to load the
