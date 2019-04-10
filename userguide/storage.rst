@@ -747,9 +747,29 @@ clicking the :guilabel:`Edit Options` button in
    |                       |                 | prevent users from taking all available space.                                                              |
    |                       |                 |                                                                                                             |
    +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | Quota warning         | integer         | Only available in :guilabel:`Advanced Mode`.                                                                |
+   | alert at, %           |                 | Issues a warning alert when the dataset quota has reached the specifed value in percent.                    |
+   |                       |                 | To inherit the dataset values of the parent, leave blank. To disable this setting, enter *0*.               |
+   |                       |                 |                                                                                                             |
+   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | Quota critical        | integer         | Only available in :guilabel:`Advanced Mode`.                                                                |
+   | alert at, %           |                 | Issues a critical alert when the dataset quota has reached the specified value in percent.                  |
+   |                       |                 | To inherit the dataset values of the parent, leave blank. TO disable this setting, enter *0*.               |
+   |                       |                 |                                                                                                             |
+   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
    | Quota for this        | integer         | Only available in :guilabel:`Advanced Mode`.                                                                |
    | dataset and all       |                 | A specified value applies to both this dataset and any child datasets.                                      |
    | children              |                 |                                                                                                             |
+   |                       |                 |                                                                                                             |
+   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | Quota warning         | integer         | Only available in :guilabel:`Advanced Mode`.                                                                |
+   | alert at, %           |                 | Issues a warning alert when the dataset quota has reached the specifed value in percent.                    |
+   |                       |                 | To inherit the dataset values of the parent, leave blank. To disable this setting, enter *0*.               |
+   |                       |                 |                                                                                                             |
+   +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
+   | Quota critical        | integer         | Only available in :guilabel:`Advanced Mode`.                                                                |
+   | alert at, %           |                 | Issues a critical alert when the dataset quota has reached the specified value in percent.                  |
+   |                       |                 | To inherit the dataset values of the parent, leave blank. TO disable this setting, enter *0*.               |
    |                       |                 |                                                                                                             |
    +-----------------------+-----------------+-------------------------------------------------------------------------------------------------------------+
    | Reserved space for    | integer         | Only available in :guilabel:`Advanced Mode`.                                                                |

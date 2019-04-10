@@ -96,9 +96,6 @@ fixes.
 
 These major features are new in this version:
 
-* *Critical Quota Exceeded on Dataset* and *Quota Exceeded on Dataset*
-  have been added to :ref:`Alert Settings`.
-
 
 This software has been added or updated:
 
