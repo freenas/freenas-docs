@@ -102,6 +102,12 @@ This software has been added or updated:
 
 These screen options have changed:
 
+* The :guilabel:`MTU` field has been added to
+  :menuselection:`Network --> Interfaces --> Add Interface`.
+
+* The :guilabel:`MTU` field has been added to
+  :menuselection:`Network --> Link Aggregations --> Edit`.
+
 
 .. Changes Since |release|
    -----------------------
