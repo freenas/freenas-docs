@@ -96,8 +96,9 @@ fixes.
 
 These major features are new in this version:
 
-* *Critical Quota Exceeded on Dataset* and *Quota Exceeded on Dataset*
-  have been added to :ref:`Alert Settings`.
+* Change if and when an alert is shown when using space on a dataset.
+  New fields have been added in
+  :ref:`dataset options<zfs_dataset_opts_tab>`
 
 
 This software has been added or updated:

@@ -890,10 +890,29 @@ configure the system to always display advanced settings by enabling the
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Quota for this dataset   | integer             | ✓             | Default of *0* disables quotas. Specifying a value means to use no more than the specified size and is    |
    |                          |                     |               | suitable for user datasets to prevent users from hogging available space.                                 |
+   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
+   | Quota warning            | integer             | ✓             | Only available in :guilabel:`Advanced Mode`.                                                              |
+   | alert at, %              |                     |               | Issues a warning alert when the dataset quota has reached the specifed value in percent.                  |
+   |                          |                     |               | To inherit the dataset values of the parent, leave blank. To disable this setting, enter *0*.             |
+   |                          |                     |               |                                                                                                           |
+   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
+   | Quota critical           | integer             | ✓             | Only available in :guilabel:`Advanced Mode`.                                                              |
+   | alert at, %              |                     |               | Issues a critical alert when the dataset quota has reached the specified value in percent.                |
+   |                          |                     |               | To inherit the dataset values of the parent, leave blank. TO disable this setting, enter *0*.             |
    |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Quota for this dataset   | integer             | ✓             | A specified value applies to both this dataset and any child datasets.                                    |
    | and all children         |                     |               |                                                                                                           |
+   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
+   | Quota warning            | integer             | ✓             | Only available in :guilabel:`Advanced Mode`.                                                              |
+   | alert at, %              |                     |               | Issues a warning alert when the dataset quota has reached the specifed value in percent.                  |
+   |                          |                     |               | To inherit the dataset values of the parent, leave blank. To disable this setting, enter *0*.             |
+   |                          |                     |               |                                                                                                           |
+   +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
+   | Quota critical           | integer             | ✓             | Only available in :guilabel:`Advanced Mode`.                                                              |
+   | alert at, %              |                     |               | Issues a critical alert when the dataset quota has reached the specified value in percent.                |
+   |                          |                     |               | To inherit the dataset values of the parent, leave blank. TO disable this setting, enter *0*.             |
+   |                          |                     |               |                                                                                                           |
    +--------------------------+---------------------+---------------+-----------------------------------------------------------------------------------------------------------+
    | Reserved space for this  | integer             | ✓             | Default of *0* is unlimited. Specifying a value means to keep at least this much space free and is        |
    | dataset                  |                     |               | suitable for datasets containing logs which could otherwise take up all available free space.             |
