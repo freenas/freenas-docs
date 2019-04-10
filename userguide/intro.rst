@@ -430,6 +430,13 @@ U3
   :menuselection:`Services --> TFTP`.
 
 
+U4
+~~
+
+* The :guilabel:`Administrators Group` field has been added to
+  :menuselection:`Services --> SMB`.
+
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
@@ -670,7 +677,7 @@ space to swap allocation. For example, a 4 GiB drive only has 2 GiB of
 available space after swap allocation.
 
 
-New ZFS user who are purchasing hardware should read through
+New ZFS users who are purchasing hardware should read through
 `ZFS Storage Pools Recommendations
 <https://web.archive.org/web/20161028084224/http://www.solarisinternals.com/wiki/index.php/ZFS_Best_Practices_Guide#ZFS_Storage_Pools_Recommendations>`__
 first.
