@@ -123,6 +123,16 @@ shows the configuration options for Cloud Syncs.
    |                        |                     | *Move* copies files from the source to the destination and deletes the source files after the copy,    |
    |                        |                     | similar to :command:`mv`.                                                                              |
    |                        |                     |                                                                                                        |
+   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   | Take Snapshot          | checkbox            | Set to take a snapshot of the dataset before a *PUSH* or *PULL*.                                       |
+   |                        |                     |                                                                                                        |
+   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   | Pre-script             | string              | Enter a script to execute **before** the Cloud Sync Task is run.                                       |
+   |                        |                     |                                                                                                        |
+   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   | Post-script            | string              | Enter a script to execute **after** the Cloud Sync Task is run.                                        |
+   |                        |                     |                                                                                                        |
+   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    #ifdef freenas
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Remote encryption      | checkbox            | Set to encrypt files before transfer and store the encrypted files on the remote system.               |
