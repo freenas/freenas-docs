@@ -102,6 +102,9 @@ This software has been added or updated:
 
 These screen options have changed:
 
+* The :guilabel:`Use --fast-list` checkbox has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
 
 .. _Path and Name Lengths:
 
