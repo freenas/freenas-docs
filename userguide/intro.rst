@@ -102,6 +102,11 @@ This software has been added or updated:
 
 These screen options have changed:
 
+* The :guilabel:`Organizational Unit` field has been added to
+  :menuselection:`System --> CAs --> ADD`
+  and
+  :menuselection:`System --> Certificates --> ADD`.
+
 
 .. _Path and Name Lengths:
 
