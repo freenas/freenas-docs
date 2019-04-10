@@ -96,12 +96,19 @@ fixes.
 
 These major features are new in this version:
 
-
 This software has been added or updated:
-
 
 These screen options have changed:
 
+* The :guilabel:`Organizational Unit` field has been added to
+  :menuselection:`System --> CAs --> Create Internal CA`
+  and
+  :menuselection:`System --> CAs --> Create Intermediate CA`.
+
+* The :guilabel:`Organizational Unit` field has been added to
+  :menuselection:`System --> Certificates --> Create Internal Certificate`
+  and
+  :menuselection:`System --> Certificates --> Create Certificate Signing Request`.
 
 .. Changes Since |release|
    -----------------------
