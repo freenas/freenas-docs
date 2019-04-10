@@ -102,6 +102,9 @@ This software has been added or updated:
 
 These screen options have changed:
 
+* :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
+  fields have been added to
+  :menuselection:`System --> Alerts`.
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
