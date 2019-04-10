@@ -1,4 +1,7 @@
-# PDF Builds require installing the MaterialDesign-Webfont package.
+# requirements:
+# textproc/py-sphinx
+# textproc/py-sphinx_numfig
+# textproc/py-sphinx_rtd_theme
 
 import os
 import six
@@ -18,103 +21,163 @@ source_encoding = 'utf-8-sig'
 # General information about the project.
 copyright = '2011-2019, iXsystems'
 
-# Version info for the project being documented, acts as replacement for
-# |version| and |release|, also used in various other places throughout
-# the built documents.
-#
-
-# VERSION is the LONG, FULL version number with all patch levels, like "11.0-U1"
-version = '11.2-U3'
-# RELEASE is the short major release number ONLY, like "11.0"
-release = '11.2'
-
-if tags.has('truenas'):
-    # VERSION is the LONG, FULL, version number
-    version = '11.1-U3'
-    # RELEASE is the short major release number ONLY
-    release = '11.1'
-
 # exclude_patterns is a list of patterns relative to the source directory
 # that match files and directories to ignore when looking for source files.
 
-tags.add('freenas')
-brand = 'FreeNAS®' if six.PY3 else u'FreeNAS®'
-project = brand + ' ' + six.u(version) + ' ' + 'User Guide'
-projtype = None
-master_doc = 'freenas'
-cover_pic = r''
+
 numfig = True
 numfig_secnum_depth = (2)
+extensions = []
+
+
+# FreeNAS default settings
+brand = 'FreeNAS®'
+tags.add('freenas')
+master_doc = 'freenas'
+
+version = '11.2-U3'
+release = '11.2'
+product = f'{brand} {version} User Guide'
+
+pdf_file_name  = f'FreeNAS-{version}-User-Guide'
+pdf_title      = product
+pdf_subtitle   = ''
+document_class = 'manual'    # 'howto' or 'manual'
+toctree_only   = True
+draft          = False
+show_edition   = False
+cover_pic = r''
 
 if tags.has('truenas'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    brand = 'TrueNAS®'
     tags.remove('freenas')
-    project = brand + ' ' + six.u(version) + six.u(' User Guide')
-    projtype = None
+    tags.add('truenas')
     master_doc = 'truenas'
+
+    version = '11.1-U7'
+    release = '11.1'
+    product = f'{brand} {version} User Guide'
+
+    pdf_file_name  = f'TrueNAS-{version}-User-Guide'
+    pdf_title      = product
+    pdf_subtitle   = ''
+    document_class = 'manual'    # 'howto' or 'manual'
+    toctree_only   = True
+    draft          = False
+    show_edition   = False
     cover_pic = r''
 
 # BSGs
-if tags.has('bsg-unified'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
-    tags.remove('freenas')
-    project = brand + ' ' + six.u('Unified Storage Array')
-    projtype = 'Basic Setup Guide'
-    master_doc = 'bsg-unified'
-    cover_pic = r''
-
-if tags.has('bsg-e16'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
-    tags.remove('freenas')
-    project = brand + ' ' + six.u('E16/E16F Expansion Shelf')
-    projtype = 'Basic Setup Guide'
-    master_doc = 'bsg-e16'
-    cover_pic = r''
-
-if tags.has('bsg-e24'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
-    tags.remove('freenas')
-    project = brand + ' ' + six.u(' E24 Expansion Shelf')
-    projtype = 'Basic Setup Guide'
-    master_doc = 'bsg-e24'
-    cover_pic = r''
-
 if tags.has('bsg-xseries'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    brand = 'TrueNAS®'
     tags.remove('freenas')
-    project = brand + ' ' + six.u('X-Series Unified Storage Array')
-    projtype = 'Basic Setup Guide'
+    tags.add('bsg')
     master_doc = 'bsg-xseries'
-    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/truenas/x_front.png}'
+
+    product = 'X-Series Unified Storage Array'
+    version = '1.2'
+    release = '1'
+
+    pdf_file_name  = 'BSG-X-Series'
+    pdf_title      = f'{brand} X-Series Unified Storage Array'
+    pdf_subtitle   = 'Basic Setup Guide'
+    document_class = 'howto'    # 'howto' or 'manual'
+    toctree_only   = True
+    draft          = False
+    show_edition   = True
+    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=10in]{../../../images/tn_x_front.png}'
+
+
+if tags.has('bsg-mseries'):
+    brand = 'TrueNAS®'
+    tags.remove('freenas')
+    tags.add('bsg')
+    master_doc = 'bsg-mseries'
+
+    product = 'M-Series Unified Storage Array'
+    version = '1.2'
+    release = '1'
+
+    pdf_file_name  = 'BSG-M-Series'
+    pdf_title      = f'{brand} M-Series Unified Storage Array'
+    pdf_subtitle   = 'Basic Setup Guide'
+    document_class = 'howto'    # 'howto' or 'manual'
+    toctree_only   = True
+    draft          = False
+    show_edition   = True
+    cover_pic = r'\vspace*{.1in}\hspace*{4.5in}\includegraphics[width=6in]{../../../images/tn_m_front.png}'
+
 
 if tags.has('bsg-es12'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    brand = 'TrueNAS®'
     tags.remove('freenas')
-    project = brand + ' ' + six.u('ES12 Expansion Shelf')
-    projtype = 'Basic Setup Guide'
+    tags.add('bsg')
     master_doc = 'bsg-es12'
-    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/truenas/es12_front.png}'
+
+    product = 'ES12 Expansion Shelf'
+    version = '1.2'
+    release = '1'
+
+    pdf_file_name  = 'BSG-ES12'
+    pdf_title      = f'{brand} ES12 Expansion Shelf'
+    pdf_subtitle   = 'Basic Setup Guide'
+    document_class = 'howto'    # 'howto' or 'manual'
+    toctree_only   = True
+    draft          = False
+    show_edition   = True
+    cover_pic = r'\vspace*{1in}\hspace*{4in}\includegraphics[width=10in]{../../../images/tn_es12_front.png}'
 
 if tags.has('bsg-es24'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    brand = 'TrueNAS®'
     tags.remove('freenas')
-    project = brand + ' ' + six.u('ES24 Expansion Shelf')
-    projtype = 'Basic Setup Guide'
+    tags.add('bsg')
     master_doc = 'bsg-es24'
-    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/truenas/es24_front.png}'
+
+    product = 'ES24 Expansion Shelf'
+    version = '1.2'
+    release = '1'
+
+    # PDF settings
+    pdf_file_name  = 'BSG-ES24'
+    pdf_title      = f'{brand} ES24 Expansion Shelf'
+    pdf_subtitle   = 'Basic Setup Guide'
+    document_class = 'howto'    # 'howto' or 'manual'
+    toctree_only   = True
+    draft          = False
+    show_edition   = True
+    cover_pic      = r'\vspace*{.6in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es24_front.png}'
+
 
 if tags.has('bsg-es60'):
-    brand = 'TrueNAS®' if six.PY3 else u'TrueNAS®'
+    brand = 'TrueNAS®'
     tags.remove('freenas')
-    project = brand + ' ' + six.u('ES60 Expansion Shelf')
-    projtype = 'Basic Setup Guide'
+    tags.add('bsg')
     master_doc = 'bsg-es60'
-    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=12in]{../../../images/truenas/es60.png}'
+
+    product = 'ES60 Expansion Shelf'
+    version = '1.3'
+    release = '1'
+
+    # PDF settings
+    pdf_file_name  = 'BSG-ES60'
+    pdf_title      = f'{brand} ES60 Expansion Shelf'
+    pdf_subtitle   = 'Basic Setup Guide'
+    document_class = 'howto'    # 'howto' or 'manual'
+    toctree_only   = True
+    draft          = False
+    show_edition   = True
+    cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es60.png}'
 
 
 # |brand| will be replaced with FreeNAS® or TrueNAS®
 # rst_epilog = '.. |brand| replace:: %s' % brand
 
+# roles for text replacement
+rst_prolog = u'''
+.. |copyright-year| replace:: 2019
+.. |dockerhost|     replace:: Docker VM
+.. |web-ui|         replace:: web interface
+'''
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -155,26 +218,30 @@ def patched_menusel_role(typ, rawtext, text, lineno, inliner, options={}, conten
 roles.register_local_role("menuselection", patched_menusel_role)
 
 rst_prolog = u'''
-.. |ui-settings|      replace::  (Settings)
-.. |ui-options|       replace::  (Options)
+.. |alert-icon-error| replace:: 
+.. |alert-icon-info|  replace:: 
+.. |alert-icon-watch| replace:: 肋
+.. |pool-degraded|    replace::  (DEGRADED)
+.. |pool-faulted|     replace::  (FAULTED)
+.. |pool-healthy|     replace::  (HEALTHY)
+.. |pool-lock|        replace::  (Encryption Options)
+.. |pool-unknown|     replace::  (UNKNOWN)
+.. |pool-unlock|      replace::  (Unlock)
 .. |ui-add|           replace:: :guilabel:`ADD`
-.. |ui-power|         replace::  (Power)
-.. |ui-password-show| replace::  (Show)
-.. |ui-password-hide| replace::  (Hide)
+.. |ui-browse|        replace::  (Browse)
 .. |ui-configure|     replace::  (Configure)
-.. |ui-launch|        replace:: 襁 (Launch)
+.. |ui-edit-disks|    replace::  (Edit Disks)
+.. |ui-jail-delete|   replace::  (Delete)
 .. |ui-jail-start|    replace::  (Start)
 .. |ui-jail-stop|     replace::  (Stop)
 .. |ui-jail-update|   replace::  (Update)
-.. |ui-jail-delete|   replace::  (Delete)
-.. |ui-edit-disks|    replace::  (Edit Disks)
+.. |ui-launch|        replace:: 襁 (Launch)
+.. |ui-options|       replace::  (Options)
+.. |ui-password-hide| replace::  (Hide)
+.. |ui-password-show| replace::  (Show)
+.. |ui-power|         replace::  (Power)
 .. |ui-refresh|       replace::  (Refresh)
-.. |alert-icon-watch| replace:: 肋
-.. |alert-icon-info|  replace:: 
-.. |alert-icon-error| replace:: 
-.. |ui-browse|        replace::  (Browse)
-.. |pool-lock|        replace::  (Encryption Options)
-.. |pool-unlock|      replace::  (Unlock)
+.. |ui-settings|      replace::  (Settings)
 '''
 
 # roles for text replacement
@@ -183,9 +250,8 @@ rst_prolog += u'''
 .. |dockerhost|     replace:: Docker Host
 .. |web-ui|         replace:: web interface
 '''
-
-
 # -- Options for HTML output ---------------------------------------------------
+project = product
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
@@ -351,34 +417,47 @@ epub_show_urls = 'no'
 
 # -- Options for LaTeX output --------------------------------------------------
 
-if six.PY3:
-    texproject = project.replace('®', r'''{\textsuperscript{\textregistered}}''')
-else:
-    texproject = project.replace(u'®', r'''{\textsuperscript{\textregistered}}''')
+latex_engine = 'xelatex'
 
+draftcode = r'''
+%watermark
+\usepackage[printwatermark]{xwatermark}%
+\newsavebox\draftbox%
+\savebox\draftbox{\tikz[color=red,opacity=0.3]\node{DRAFT};}%
+\newwatermark*[allpages,angle=45,scale=15,xpos=-50,ypos=50]{\usebox\draftbox}%
+'''
 
-PREAMBLE = r'''\def\docname{''' + texproject + '}'
+editioncode = r'''
+\vspace*{-4mm}%
+\fontsize{18}{22}\fontseries{sbc}\selectfont%
+\docdate\par%
+'''
 
-PREAMBLE = (PREAMBLE
-            + r'''\def\docdate{'''
-            + time.strftime("%B %Y")
-            + ' Edition}')
-
-if sphinx.__version__ < '1.6.5':
-    PREAMBLE = PREAMBLE + r'''\usepackage[tmargin=.75in, bmargin=.75in, lmargin=0.5in, rmargin=0.5in]{geometry}'''
-else:
-    PREAMBLE = PREAMBLE + r'''\geometry{tmargin=.75in, bmargin=.75in, lmargin=0.5in, rmargin=0.5in}'''
-
-
-# define custom title page
-PREAMBLE = PREAMBLE + r'''
-% FreeNAS/TrueNAS LaTeX preamble
+PREAMBLE = r'''
 %%font_init%%
-\usepackage{color}
-\usepackage{tikz}
-\usetikzlibrary{calc}
+\def\pdftitle{%%PDFTITLE%%}%
+\def\pdfsubtitle{%%PDFSUBTITLE%%}%
+\def\docdate{%%DOCDATE%%}%
+\geometry{tmargin=.75in, bmargin=.75in, lmargin=.75in, rmargin=.75in}%
+\usepackage{fontspec}%
+\newfontfamily\opensansfont{OpenSans-Regular.ttf}[Scale=0.95]%
+\setmainfont{OpenSans-Regular.ttf}[
+      Scale=0.95 ,
+      BoldFont = OpenSans-Bold.ttf ,
+      ItalicFont = OpenSans-Italic.ttf ,
+      BoldItalicFont = OpenSans-BoldItalic.ttf
+      ]%
+\setmonofont{FreeMono.otf}[Scale=0.95]%
+\defaultfontfeatures{Ligatures=TeX}%
+\usepackage{color}%
+\usepackage{tikz}%
+\usetikzlibrary{calc}%
 %for better UTF handling
 \DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
+%%DRAFT%%
+% for table header colors
+\usepackage{colortbl}%
+\protected\def\sphinxstyletheadfamily {\color{white}\cellcolor{gray}}%
 %for bitmaps
 \usepackage{graphicx}
 %for ragged right tables
@@ -389,28 +468,23 @@ PREAMBLE = PREAMBLE + r'''
 \makeatletter
 \renewcommand{\maketitle}{%
   \begin{titlepage}%
+    \pagestyle{empty}%
     \vspace*{-6mm}%
-    % title
     %%title_font%%
     \fontsize{32pt}{32pt}\selectfont%
     \newlength{\thistitlewidth}%
-    \settowidth{\thistitlewidth}{\docname}%
+    \settowidth{\thistitlewidth}{\pdftitle}%
     \ifthenelse{\thistitlewidth > \textwidth}%
-      % if docname is wider than textwidth, squash box to fit
-      {\resizebox{\textwidth}{32pt}{\mbox{\docname}}}%
-      {\mbox{\docname}}%
+      % if pdftitle is wider than textwidth, squash box to fit
+      {\resizebox{\textwidth}{32pt}{\mbox{\pdftitle}}}%
+      {\mbox{\pdftitle}}%
     \par%
-    % document type
-    \fontsize{32pt}{32pt}\selectfont%
-    %%doc_type%%\par%
+    \pdfsubtitle\par%
     \vspace*{-4.5mm}%
     {\color{ixblue}\rule{\textwidth}{1.5pt}}\par%
     \vspace*{2.5mm}%
-    % document date
-    \fontsize{20pt}{23pt}\fontseries{sbc}\selectfont%
-    \docdate\par%
-    % cover picture
-    %%cover_pic%%%
+    %%EDITION%%
+    %%COVER_PICTURE%%
     % iX blue bottom fill
     \begin{tikzpicture}[remember picture,overlay]
       \fill [ixblue] (current page.south west) rectangle ($(current page.south east) + (0, 2in)$);
@@ -418,6 +492,7 @@ PREAMBLE = PREAMBLE + r'''
   \end{titlepage}
 }
 \makeatother
+% define page styles
 % a plain page style for front matter
 \fancypagestyle{frontmatter}{%
   \fancyhf{}
@@ -425,18 +500,20 @@ PREAMBLE = PREAMBLE + r'''
   \fancyhf[FLE,FRO]{\textbf{\thepage}}
   \fancyhf[FLO,FRE]{}
 }
+\fancypagestyle{eol}{%
+  \fancyhead{}%
+  \fancyfoot{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+  \lfoot{\fontsize{10}{12}\color{darkgray}{EOL Document}}%
+  \cfoot{\fontsize{10}{12}\color{darkgray}{CONFIDENTIAL}}%
+  \rfoot{\fontsize{10}{12}\color{darkgray}{\thepage}}%
+}%
 \fancypagestyle{bsg}{%
   \fancyhf{}
   \fancyfoot[C]{\textbf{\thepage}}
 }
 '''
-
-PREAMBLE = PREAMBLE.replace('%%cover_pic%%', cover_pic)
-if projtype is not None:
-    PREAMBLE = PREAMBLE.replace('%%doc_type%%', projtype)
-
-
-latex_engine = 'xelatex'
 
 if latex_engine == 'xelatex':
     font_init = r'''\usepackage{fontspec}%
@@ -460,7 +537,16 @@ else:
 
 PREAMBLE = PREAMBLE.replace('%%font_init%%', font_init)
 PREAMBLE = PREAMBLE.replace('%%title_font%%', title_font)
-
+if draft:
+  PREAMBLE = PREAMBLE.replace('%%DRAFT%%', draftcode)
+if show_edition:
+  PREAMBLE = PREAMBLE.replace('%%EDITION%%', editioncode)
+PREAMBLE = PREAMBLE.replace('%%PDFTITLE%%', pdf_title)
+PREAMBLE = PREAMBLE.replace('%%PDFSUBTITLE%%', pdf_subtitle)
+PREAMBLE = PREAMBLE.replace('%%DOCDATE%%', f'Version {version}')
+PREAMBLE = PREAMBLE.replace('%%COVER_PICTURE%%', cover_pic)
+# do this last to make sure we replace all of the registered trademark symbols
+PREAMBLE = PREAMBLE.replace('®', r'''\textsuperscript{\textregistered}''')
 
 latex_elements = {
 # The paper size ('letterpaper' or 'a4paper').
@@ -481,57 +567,18 @@ latex_elements = {
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
-# (source start file, target name, title, author, documentclass [howto/manual]).
+# source index file, output file name, title in document, author, documentclass [howto/manual], toctree_only.
+# User Guide manually includes index, BSGs have no index, so it is disabled here for both.
 latex_documents = [
-  ('freenas', 'FreeNAS.tex', texproject, 'iXsystems', 'manual'),
+    (master_doc,
+     f'{pdf_file_name}.tex',
+     product,
+     'iXsystems',
+     document_class,
+     toctree_only),
 ]
+latex_elements.update({'printindex': ''})
 
-if tags.has('truenas'):
-    latex_documents = [
-      ('truenas', 'TrueNAS.tex', texproject, 'iXsystems', 'manual'),
-    ]
-
-if tags.has('bsg-unified'):
-    latex_documents = [
-      ('bsg-unified', 'BSG-Unified.tex', texproject, 'iXsystems', 'howto'),
-    ]
-    latex_elements.update({'printindex': ''})
-
-if tags.has('bsg-e16'):
-    latex_documents = [
-      ('bsg-e16', 'BSG-E16.tex', texproject, 'iXsystems', 'howto'),
-    ]
-    latex_elements.update({'printindex': ''})
-
-if tags.has('bsg-e24'):
-    latex_documents = [
-      ('bsg-e24', 'BSG-E24.tex', texproject, 'iXsystems', 'howto'),
-    ]
-    latex_elements.update({'printindex': ''})
-
-if tags.has('bsg-xseries'):
-    latex_documents = [
-      ('bsg-xseries', 'BSG-X-Series.tex', texproject, 'iXsystems', 'howto'),
-    ]
-    latex_elements.update({'printindex': ''})
-
-if tags.has('bsg-es12'):
-    latex_documents = [
-      ('bsg-es12', 'BSG-ES12.tex', texproject, 'iXsystems', 'howto'),
-    ]
-    latex_elements.update({'printindex': ''})
-
-if tags.has('bsg-es24'):
-    latex_documents = [
-      ('bsg-es24', 'BSG-ES24.tex', texproject, 'iXsystems', 'howto'),
-    ]
-    latex_elements.update({'printindex': ''})
-
-if tags.has('bsg-es60'):
-    latex_documents = [
-      ('bsg-es60', 'BSG-ES60.tex', texproject, 'iXsystems', 'howto'),
-    ]
-    latex_elements.update({'printindex': ''})
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
