@@ -829,13 +829,13 @@ in the system to apply the global password to the new SED.
 **Creating separate passwords for each SED**
 
 Go to
-:menuselection:`Storage --> View Disks`.
-Click |ui-options| for the confirmed SED, then :guilabel:`Edit`.
-Enter and confirm the password in the :guilabel:`SED Password` and
+:menuselection:`Storage --> Volumes --> View Disks`.
+Click the confirmed SED, then :guilabel:`Edit`. Enter and confirm the
+password in the :guilabel:`Password for SED` and
 :guilabel:`Confirm SED Password` fields. Disks that have a configured
-SED password show bullets in their row of the :guilabel:`SED Password`
-column of
-:menuselection:`Storage --> View Disks`.
+SED password show bullets in their row of the
+:guilabel:`Password for SED` column of
+:menuselection:`Storage --> Volumes --> View Disks`.
 Conversely, the rows in that column will be empty for disks that do not
 support SED or are unlocked using the global password.
 
@@ -843,7 +843,7 @@ Now configure the SED to use the password. Go to the
 :menuselection:`Shell`
 and enter :samp:`sedhelper setup --disk {da1} {password}`, where *da1*
 is the SED to configure and *password* is the created password from
-:menuselection:`Storage --> View Disks --> Edit --> Password for SED`.
+:menuselection:`Storage --> Volumes --> View Disks --> Edit --> Password for SED`.
 
 **Repeat this process for each detected SED and any SED deployed to the
 %brand% system in the future.**
