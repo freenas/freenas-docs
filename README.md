@@ -1,3 +1,9 @@
+The 11.1-truenas branch only tracks changes to TrueNAS documentation for
+the 11.1 release and related updates. This branch is not used to build or
+edit FreeNAS documentation in any way.
+
+--------------------------------------------------------------------------
+
 FreeNAS documentation is stored as ASCII text files with .rst
 extensions in the FreeNAS source repository. The FreeNAS Project uses
 the Sphinx Python documentation generator to generate documentation in
