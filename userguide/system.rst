@@ -490,7 +490,7 @@ because it contains the operating system itself.
 Mirroring the |OS-Device|
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If the system is currently booting from a device, another device
+If the system is currently booting from a single |os-device|, another device
 can be added to create a mirrored |os-device|. If one device in a
 mirror fails, the remaining device can still be used to boot the system.
 
