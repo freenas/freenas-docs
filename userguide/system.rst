@@ -534,7 +534,7 @@ Click :guilabel:`SAVE` to attach the new disk to the mirror.
 
 .. figure:: images/system-boot-attach.png
 
-   Mirroring a |OS-Device|
+   Mirroring an |OS-Device|
 
 
 After the mirror is created, the :guilabel:`Boot Pool Status` screen
