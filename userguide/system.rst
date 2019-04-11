@@ -590,9 +590,8 @@ The configurable settings are summarized in
    | Setting                                  | Value              | Description                                                                                      |
    |                                          |                    |                                                                                                  |
    +==========================================+====================+==================================================================================================+
-   | Show Text Console without Password       | checkbox           | Set for the system to immediately display the |web-ui| address and text console after booting.   |
-   | Prompt                                   |                    | Unset to require logging into the system before the console menu is shown. The |web-ui| address  |
-   |                                          |                    | is still shown.                                                                                  |
+   | Show Text Console without Password       | checkbox           | Set for the text console to be available without entering a password.                            |
+   | Prompt                                   |                    |                                                                                                  |
    +------------------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
    | Enable Serial Console                    | checkbox           | **Do not** enable this option if the serial port is disabled. Adds the *Serial Port* and         |
    |                                          |                    | *Serial Speed* fields.                                                                           |
