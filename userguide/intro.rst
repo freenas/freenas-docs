@@ -106,6 +106,15 @@ These screen options have changed:
   fields have been added to
   :menuselection:`System --> Alerts`.
 
+* :guilabel:`Snapshot retention policy` has replaced
+  :guilabel:`Delete stale snapshots` in
+  :menuselection:`Storage --> Replication Tasks --> Add Replication`.
+
+* :guilabel:`Snapshot lifetime value` and
+  :guilabel:`Snapshot lifetime unit` have been added to
+  :menuselection:`Storage --> Repliaction Tasks --> Add Replication`.
+
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
