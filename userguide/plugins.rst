@@ -172,7 +172,10 @@ Plugins can be updated by running :samp:`iocage update {PLUGIN}` on the
 command line.
 
 An upgrade replaces the old release with a new release. Plugins can be
-upgraded by running :samp:`iocage upgrade {PLUGIN}` on the command line.
+upgraded by selecting a plugin from
+:menuselection:`Plugins --> Installed`
+and clicking :guilabel:`Upgrade`. To upgrade a plugin from the command
+line, run :samp:`iocage upgrade {PLUGIN}`.
 
 #ifdef comment
 # jails/update shows nothing unless an update is available
