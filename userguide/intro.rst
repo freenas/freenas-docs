@@ -102,6 +102,9 @@ This software has been added or updated:
 
 These screen options have changed:
 
+* The :guilabel:`Bandwidth Limit` field has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
   :menuselection:`System --> Alert Settings`.
