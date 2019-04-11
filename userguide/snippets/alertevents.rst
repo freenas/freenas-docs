@@ -55,6 +55,8 @@ Some of the conditions that trigger an alert include:
 
 * the system reboots itself
 
+* hardware events detected by an attached :ref:`IPMI` controller
+
 * non-optimal multipath states are detected
 
 * ZFS pool status changes from :guilabel:`HEALTHY`
