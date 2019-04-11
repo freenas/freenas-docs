@@ -615,6 +615,10 @@ The final set of jail properties are contained in the
    |                        |             | filesystem in the jail.                                                                                 |
    |                        |             |                                                                                                         |
    +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
+   | template               | checkbox    | Converts the jail into a template. Template jails can be used to quickly create jails with the same     |
+   |                        |             | configuration as the template jail.                                                                     |
+   |                        |             |                                                                                                         |
+   +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
    | host_time              | checkbox    | Synchronize the time between jail and host.                                                             |
    |                        |             |                                                                                                         |
    +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
@@ -636,9 +640,41 @@ The final set of jail properties are contained in the
    |                        |             | the jail to create tun devices.                                                                         |
    +------------------------+-------------+---------------------------------------------------------------------------------------------------------+
 
+
 Click :guilabel:`SAVE` when the desired jail properties have been set.
 New jails are added to the primary list in the :guilabel:`Jails` menu.
 
+
+.. index:: Creating Template Jails
+.. _Creating Template Jails:
+
+Creating Template Jails
+^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Advanced jail creation can also be used to create a Basejail that can
+be used as a template. The Basejail can be used to efficiently create
+any number of jails using the specific configuration of the Basejail.
+Follow these steps to create a basejail.
+
+#. Go to
+   :menuselection:`Jails --> ADD --> ADVANCED JAIL CREATION`.
+
+#. Select *Basejail* as the :guilabel:`Jail Type`. Configure the
+   jail with desired options.
+
+#. Set :guilabel:`template` in the :guilabel:`Custom Properties` tab.
+
+#. Click :guilabel:`Save`.
+
+#. Click :guilabel:`ADD`.
+
+#. Enter a name for the template jail. Leave :guilabel:`Jail Type` as
+   *Default (Clone Jail)*. Set :guilabel:`Release` to
+   :guilabel:`basejailname(template)`, where *basejailname* is the
+   name of the base jail created earlier.
+
+#. Complete the jail creation wizard.
 
 .. index:: Managing Jails
 .. _Managing Jails:
