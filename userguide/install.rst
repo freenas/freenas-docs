@@ -72,7 +72,7 @@ indicate a corrupted installer file that should not be used.
 Preparing the Media
 -------------------
 
-The %brand% installer can run from either a CD or a |usb-stick|.
+The %brand% installer can run from |usb-stick| or a CD.
 
 A CD burning utility is needed to write the :file:`.iso` file to a
 CD.
