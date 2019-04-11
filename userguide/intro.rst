@@ -675,7 +675,7 @@ The Operating System Device
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The %brand% operating system is installed to at least one device that
-is separate from the storage disks. The device can be a SSD or
+is separate from the storage disks. The device can be a SSD, a small hard drive, or a
 |usb-stick|. Installation to a hard drive is
 discouraged as that drive is then not available for data storage.
 
