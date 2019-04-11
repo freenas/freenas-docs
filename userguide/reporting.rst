@@ -48,6 +48,12 @@ several tabs on the Reporting page:
     shows received and transmitted traffic in bits per second for
     each configured interface.
 
+* :guilabel:`NFS`
+
+  * `NFS Stats <https://collectd.org/wiki/index.php/Plugin:NFS>`__
+    shows read and write statistics for active
+    :ref:`Network File System (NFS) shares <Unix (NFS) Shares>`.
+
 * :guilabel:`Partition`
 
   * `Disk space

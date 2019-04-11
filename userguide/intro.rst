@@ -106,6 +106,10 @@ These screen options have changed:
   fields have been added to
   :menuselection:`System --> Alerts`.
 
+* :guilabel:`NFS` has been added to
+  :menuselection:`Reporting`.
+
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 
