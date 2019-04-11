@@ -1818,6 +1818,9 @@ shows the configuration options for Cloud Syncs.
    | Enabled             | checkbox            | Enable this Cloud Sync Task. Unset to disable this Cloud Sync Task without deleting it.                 |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Exclude             | string              | Newline-separated list of files and directories to exclude from sync. See                               |
+   |                     |                     | https://rclone.org/filtering/.                                                                          |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
 
 
 .. note:: If the selected credential is incorrect it prompts for a
