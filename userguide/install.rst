@@ -77,7 +77,7 @@ The %brand% installer can run from |usb-stick| or a CD.
 A CD burning utility is needed to write the :file:`.iso` file to a
 CD.
 
-The :file:`.iso` file can also be written to a |usb-stick|. The
+The :file:`.iso` file can be written directly to a |usb-stick|. The
 method used to write the file depends on the operating system. Examples
 for several common operating systems are shown below.
 
