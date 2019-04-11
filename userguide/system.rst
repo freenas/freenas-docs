@@ -1757,6 +1757,10 @@ unknown, a new key pair can be created on the same Amazon screen.
 The Google Cloud Storage :guilabel:`JSON Service Account Key` is found on the
 `Google Cloud Platform Console <https://console.cloud.google.com/apis/credentials>`__.
 
+After entering the necessary information, click
+:guilabel:`VERIFY CREDENTIAL`. If the information entered is
+valid, it returns :literal:`The Credential is valid.`
+
 More details about individual :guilabel:`Provider` settings are
 available in the `rclone documentation <https://rclone.org/about/>`__.
 
