@@ -147,9 +147,9 @@ settings in the General tab:
    |                      |                |                                                                                                                          |
    +======================+================+==========================================================================================================================+
    | Protocol             | drop-down menu | Set the web protocol to use when connecting to the |web-ui| from a browser. To change the default *HTTP* to              |
-   |                      |                | *HTTPS* or to                                                                                                            |
-   |                      |                | *HTTP+HTTPS*, select a certificate in :guilabel:`GUI SSL Certificate`. If there are no certificates,                     |
-   |                      |                | create a :ref:`CA <CAs>` then a :ref:`certificate <Certificates>`.                                                       |
+   |                      |                | *HTTPS* or to *HTTP+HTTPS*, select a certificate in :guilabel:`GUI SSL Certificate`. If there are no certificates,       |
+   |                      |                | create a :ref:`CA <CAs>` then a :ref:`certificate <Certificates>`. If the middleware is unable to setup the required     |
+   |                      |                | backend to support HTTPS, it falls back to using HTTP.                                                                   |
    |                      |                |                                                                                                                          |
    +----------------------+----------------+--------------------------------------------------------------------------------------------------------------------------+
    | WebGUI IPv4 Address  | drop-down menu | Choose a recent IP addresses to limit the usage when accessing the |web-ui|. The                                         |
