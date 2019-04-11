@@ -106,6 +106,10 @@ These screen options have changed:
   fields have been added to
   :menuselection:`System --> Alerts`.
 
+* :guilabel:`Exclude` has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
+
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
 

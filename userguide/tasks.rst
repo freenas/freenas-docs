@@ -168,6 +168,9 @@ shows the configuration options for Cloud Syncs.
    | Enabled                | checkbox            | Unset to temporarily disable this Cloud Sync.                                                          |
    |                        |                     |                                                                                                        |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   | Exclude                | string              | Newline-separated list of files and directories to exclude from sync. See                              |
+   |                        |                     | https://rclone.org/filtering/.                                                                         |
+   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
 
 
 The time selected is when the Cloud Sync task is allowed to
