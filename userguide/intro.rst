@@ -675,19 +675,18 @@ The Operating System Device
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The %brand% operating system is installed to at least one device that
-is separate from the storage disks. The device can be a SSD, USB
-memory stick, or DOM (Disk on Module). Installation to a hard drive is
-discouraged as that drive is then not available for data storage.
+is separate from the storage disks. The device can be a SSD, a small hard drive, or a
+|usb-stick|.
 
-.. note:: To write the installation file to a USB stick, **two** USB
-   ports are needed, each with an inserted USB device. One USB stick
-   contains the installer, while the other USB stick is the
+.. note:: To write the installation file to a |usb-stick|, **two** USB
+   ports are needed, each with an inserted USB device. One |usb-stick|
+   contains the installer, while the other |usb-stick| is the
    destination for the %brand% installation. Be careful to select
    the correct USB device for the %brand% installation. %brand% cannot
    be installed onto the same device that contains the installer.
-   After installation, remove the installer USB stick. It might also
+   After installation, remove the installer |usb-stick|. It might also
    be necessary to adjust the BIOS configuration to boot from the new
-   %brand% boot device.
+   %brand% |os-device|.
 
 When determining the type and size of the target device where %brand%
 is to be installed, keep these points in mind:
@@ -714,7 +713,7 @@ is to be installed, keep these points in mind:
   environments can be created and deleted using
   :menuselection:`System --> Boot`.
 
-- Use quality, name-brand USB sticks, as ZFS will quickly reveal
+- Use quality, name-brand |usb-sticks|, as ZFS will quickly reveal
   errors on cheap, poorly-made sticks.
 
 - For a more reliable boot disk, use two identical devices and select
