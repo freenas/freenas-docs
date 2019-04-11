@@ -38,7 +38,7 @@ from `<https://download.freenas.org/11.2/STABLE/latest/>`__.
 .. note:: %brand% requires 64-bit hardware.
 
 The download page contains an *.iso* file. This is a bootable
-installer that can be written to either a CD or |usb-stick| as
+installer that can be written to a |usb-stick| or CD
 described in :ref:`Preparing the Media`.
 
 .. index:: Checksum
