@@ -750,7 +750,7 @@ the full capabilities of the device. %brand% provides the
 command line.
 
 By default, SEDs are not locked until the administrator takes ownership
-of them. This is done by explicitly configuring a global or per-device
+of them. Ownership is taken by explicitly configuring a global or per-device
 password in the %brand% |web-ui| and adding the password to the SEDs.
 
 A password-protected SED protects the data stored on the device
