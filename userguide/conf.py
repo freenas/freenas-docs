@@ -184,30 +184,31 @@ pygments_style = 'sphinx'
 
 
 rst_prolog = u'''
-.. |alert-icon-error| replace:: 
-.. |alert-icon-info|  replace:: 
-.. |alert-icon-watch| replace:: 肋
-.. |pool-degraded|    replace::  (DEGRADED)
-.. |pool-faulted|     replace::  (FAULTED)
-.. |pool-healthy|     replace::  (HEALTHY)
-.. |pool-lock|        replace::  (Encryption Options)
-.. |pool-unknown|     replace::  (UNKNOWN)
-.. |pool-unlock|      replace::  (Unlock)
-.. |ui-add|           replace:: :guilabel:`ADD`
-.. |ui-browse|        replace::  (Browse)
-.. |ui-configure|     replace::  (Configure)
-.. |ui-edit-disks|    replace::  (Edit Disks)
-.. |ui-jail-delete|   replace::  (Delete)
-.. |ui-jail-start|    replace::  (Start)
-.. |ui-jail-stop|     replace::  (Stop)
-.. |ui-jail-update|   replace::  (Update)
-.. |ui-launch|        replace:: 襁 (Launch)
-.. |ui-options|       replace::  (Options)
-.. |ui-password-hide| replace::  (Hide)
-.. |ui-password-show| replace::  (Show)
-.. |ui-power|         replace::  (Power)
-.. |ui-refresh|       replace::  (Refresh)
-.. |ui-settings|      replace::  (Settings)
+.. |alert-icon-error|     replace:: 
+.. |alert-icon-info|      replace:: 
+.. |alert-icon-one-error| replace:: 
+.. |alert-icon-watch|     replace:: 肋
+.. |pool-degraded|        replace::  (DEGRADED)
+.. |pool-faulted|         replace::  (FAULTED)
+.. |pool-healthy|         replace::  (HEALTHY)
+.. |pool-lock|            replace::  (Encryption Options)
+.. |pool-unknown|         replace::  (UNKNOWN)
+.. |pool-unlock|          replace::  (Unlock)
+.. |ui-add|               replace:: :guilabel:`ADD`
+.. |ui-browse|            replace::  (Browse)
+.. |ui-configure|         replace::  (Configure)
+.. |ui-edit-disks|        replace::  (Edit Disks)
+.. |ui-jail-delete|       replace::  (Delete)
+.. |ui-jail-start|        replace::  (Start)
+.. |ui-jail-stop|         replace::  (Stop)
+.. |ui-jail-update|       replace::  (Update)
+.. |ui-launch|            replace:: 襁 (Launch)
+.. |ui-options|           replace::  (Options)
+.. |ui-password-hide|     replace::  (Hide)
+.. |ui-password-show|     replace::  (Show)
+.. |ui-power|             replace::  (Power)
+.. |ui-refresh|           replace::  (Refresh)
+.. |ui-settings|          replace::  (Settings)
 '''
 
 # roles for text replacement

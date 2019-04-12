@@ -126,6 +126,8 @@ latexpdf pdf:	requirepdf preproc
 	@sed -i '' -e 's%%{\\material\\symbol{"F028}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|alert-icon-info|
 	@sed -i '' -e 's%%{\\material\\symbol{"F2FC}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
+        #|alert-icon-one-error|
+	@sed -i '' -e 's%%{\\material\\symbol{"F09E}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|alert-icon-watch|
 	@sed -i '' -e 's%肋%{\\material\\symbol{"F953}}%g' $(PREPROCDIR)/$(BUILDDIR)/latex/*.tex
 	#|pool-degraded|
