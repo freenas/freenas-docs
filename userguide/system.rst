@@ -755,7 +755,7 @@ password in the %brand% |web-ui| and adding the password to the SEDs.
 
 A password-protected SED protects the data stored on the device
 when the device is physically removed from the %brand% system. This
-allows secure disposal of the device without having to first wipe its
+allows secure disposal of the device without having to first wipe the
 contents. If the device is instead removed to be repurposed on another
 system, it can only be unlocked if the password is known.
 
