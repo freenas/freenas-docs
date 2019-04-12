@@ -749,13 +749,13 @@ the full capabilities of the device. %brand% provides the
 :command:`sedhelper` wrapper script to ease SED administration from the
 command line.
 
-By default, SED are not locked until the administrator takes ownership
-of them. This is done by explicitly configuring a global or per-device
+By default, SEDs are not locked until the administrator takes ownership
+of them. Ownership is taken by explicitly configuring a global or per-device
 password in the %brand% |web-ui| and adding the password to the SEDs.
 
 A password-protected SED protects the data stored on the device
 when the device is physically removed from the %brand% system. This
-allows secure disposal of the device without having to first wipe its
+allows secure disposal of the device without having to first wipe the
 contents. If the device is instead removed to be repurposed on another
 system, it can only be unlocked if the password is known.
 
