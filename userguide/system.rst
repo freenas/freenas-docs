@@ -579,9 +579,8 @@ The configurable settings are summarized in
    | Setting                    | Value               | Description                                                                   |
    |                            |                     |                                                                               |
    +============================+=====================+===============================================================================+
-   | Show Text Console          | checkbox            | Set for the system to immediately display the text console after booting.     |
-   | without Password Prompt    |                     | Unset to require logging into the system before the console menu is shown.    |
-   |                            |                     |                                                                               |
+   | Show Text Console          | checkbox            | Set for the text console to be available without entering a password.         |
+   | without Password Prompt    |                     |                                                                               |
    +----------------------------+---------------------+-------------------------------------------------------------------------------+
    | Use Serial Console         | checkbox            | **Do not** enable this option if the serial port is disabled.                 |
    |                            |                     |                                                                               |
