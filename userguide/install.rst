@@ -8,8 +8,8 @@ separate device from the drives which hold the storage data. With only
 one disk drive, the %brand% |web-ui| is
 available, but there is no place to store any data. And storing data
 is, after all, the whole point of a NAS system. Home users
-experimenting with %brand% can install %brand% on an inexpensive USB
-thumb drive and use the computer disks for storage.
+experimenting with %brand% can install %brand% on an inexpensive
+|usb-stick| and use the computer disks for storage.
 
 This section describes:
 
@@ -38,8 +38,8 @@ from `<https://download.freenas.org/11.2/STABLE/latest/>`__.
 .. note:: %brand% requires 64-bit hardware.
 
 The download page contains an *.iso* file. This is a bootable
-installer that can be written to either a CD or USB flash as described
-in :ref:`Preparing the Media`.
+installer that can be written to a |usb-stick| or CD as
+described in :ref:`Preparing the Media`.
 
 .. index:: Checksum
 
@@ -66,33 +66,32 @@ in the :file:`sha256.txt` file.  Checksum values that do not match
 indicate a corrupted installer file that should not be used.
 
 
-.. index:: Burn ISO, ISO, USB Stick
+.. index:: Burn ISO, ISO
 .. _Preparing the Media:
 
 Preparing the Media
 -------------------
 
-The %brand% installer can run from either a CD or a USB memory
-stick.
+The %brand% installer can run from |usb-stick| or a CD.
 
 A CD burning utility is needed to write the :file:`.iso` file to a
 CD.
 
-The :file:`.iso` file can also be written to a USB memory stick. The
-method used to write the file depends on the operating system.
-Examples for several common operating systems are shown below.
+The :file:`.iso` file can be written directly to a |usb-stick|. The
+method used to write the file depends on the operating system. Examples
+for several common operating systems are shown below.
 
-.. note:: To install from a USB stick to another USB stick, **two**
-   USB ports are needed, each with an inserted USB device. One USB
-   stick contains the installer.  The other USB stick is the
+.. note:: To install from a |usb-stick| to another |usb-stick|, **two**
+   USB ports are needed, each with an inserted USB device. One
+   |usb-stick| contains the installer.  The other |usb-stick| is the
    destination for the %brand% installation. Take care to select the
    correct USB device for the %brand% installation. It is **not**
-   possible to install %brand% onto the same USB stick containing the
-   installer. After installation, remove the installer USB stick. It
+   possible to install %brand% onto the same |usb-stick| containing the
+   installer. After installation, remove the installer |usb-stick|. It
    might also be necessary to adjust the BIOS configuration to boot
-   from the new %brand% USB stick.
+   from the new %brand% |usb-stick|.
 
-Ensure the boot device order in the BIOS is set to boot from
+Ensure the |os-device| order in the BIOS is set to boot from
 the device containing the %brand% installer media, then boot the
 system to start the installation.
 
@@ -103,7 +102,7 @@ On FreeBSD or Linux
 ~~~~~~~~~~~~~~~~~~~
 
 On a FreeBSD or Linux system, the :command:`dd` command is used to
-write the :file:`.iso` file to an inserted USB thumb drive.
+write the :file:`.iso` file to an inserted |usb-stick|.
 
 .. warning:: The :command:`dd` command is very powerful and can
    destroy any existing data on the specified device. Make
@@ -154,22 +153,22 @@ On Windows
 `Image Writer <https://launchpad.net/win32-image-writer/>`__
 and
 `Rufus <http://rufus.akeo.ie/>`__
-can be used for writing images to USB sticks on Windows.
+can be used for writing images to |usb-sticks| on Windows.
 
 .. _On macOS:
 
 On macOS
 ~~~~~~~~
 
-Insert the USB thumb drive. In Finder, go to
+Insert the |usb-stick|. In Finder, go to
 :menuselection:`Applications --> Utilities --> Disk Utility`.
-Unmount any mounted partitions on the USB thumb drive. Check that the
-USB thumb drive has only one partition, or partition table errors will
+Unmount any mounted partitions on the |usb-stick|. Check that the
+|usb-stick| has only one partition, or partition table errors will
 be shown on boot. If needed, use Disk Utility to set up one partition
 on the USB drive. Selecting :guilabel:`Free space` when creating the
 partition works fine.
 
-Determine the device name of the inserted USB thumb drive. From
+Determine the device name of the inserted |usb-stick|. From
 TERMINAL, navigate to the Desktop, then type this command:
 
 .. code-block:: none
@@ -190,19 +189,19 @@ TERMINAL, navigate to the Desktop, then type this command:
 
 
 This shows which devices are available to the system. Locate the
-target USB stick and record the path. To determine the correct path
-for the USB stick, remove the device, run the
+target |usb-stick| and record the path. To determine the correct path
+for the |usb-stick|, remove the device, run the
 command again, and compare the difference. Once sure of the device
-name, navigate to the Desktop from TERMINAL, unmount the USB stick,
-and use the :command:`dd` command to write the image to the USB stick.
-In this example, the USB thumb drive is :file:`/dev/disk1`. It is
+name, navigate to the Desktop from TERMINAL, unmount the |usb-stick|,
+and use the :command:`dd` command to write the image to the |usb-stick|.
+In this example, the |usb-stick| is :file:`/dev/disk1`. It is
 first unmounted. The :command:`dd` command is used to write the
 image to the faster "raw" version of the device (note the extra
 :literal:`r` in :file:`/dev/rdisk1`).
 
 When running these commands, replace :samp:`{FreeNAS-RELEASE.iso}`
 with the name of the %brand% ISO and :samp:`{/dev/rdisk1}` with the
-correct path to the USB thumb drive:
+correct path to the |usb-stick|:
 
 .. code-block:: none
 
@@ -215,7 +214,7 @@ correct path to the USB thumb drive:
 .. note:: If the error "Resource busy" is shown when the
    :command:`dd` command is run, go to
    :menuselection:`Applications --> Utilities --> Disk Utility`,
-   find the USB thumb drive, and click on its partitions to make sure
+   find the |usb-stick|, and click on its partitions to make sure
    all of them are unmounted. If a "Permission denied" error is shown,
    use :command:`sudo` for elevated rights:
    :samp:`sudo dd if={FreeNAS-11.0-RELEASE.iso} of={/dev/rdisk1} bs=64k`.
@@ -263,7 +262,7 @@ desired option.
    stalls during bootup, double-check the SHA256 hash of the
    :file:`.iso` file. If the hash does not match, re-download the
    file. If the hash is correct, burn the CD again at a lower speed or
-   write the file to a different USB stick.
+   write the file to a different |usb-stick|.
 
 Once the installer has finished booting, the installer menu is displayed
 as shown in :numref:`Figure %s <installer_menu_fig>`.
@@ -279,8 +278,8 @@ as shown in :numref:`Figure %s <installer_menu_fig>`.
 Press :kbd:`Enter` to select the default option,
 :guilabel:`1 Install/Upgrade`. The next menu, shown in
 :numref:`Figure %s <select_drive_fig>`,
-lists all available drives. This includes any inserted USB thumb
-drives, which have names beginning with *da*.
+lists all available drives. This includes any inserted |os-devices|,
+which have names beginning with *da*.
 
 .. note:: A minimum of 8 GiB of RAM is required and the installer will
    present a warning message if less than 8 GiB is detected.
@@ -297,9 +296,9 @@ system.
    Selecting the Install Drive
 
 
-Use the arrow keys to highlight the destination USB drive, SSD, DOM
-(Disk on Module), or virtual disk. Press the :kbd:`spacebar` to select
-it. To mirror the boot device, move to the second device and press
+Use the arrow keys to highlight the destination USB drive, SSD
+or virtual disk. Press the :kbd:`spacebar` to select
+it. To mirror the |os-device|, move to the second device and press
 :kbd:`spacebar` to select it also. After making these selections,
 press :kbd:`Enter`. The warning shown in
 :numref:`Figure %s <install_warning_fig>`
@@ -316,11 +315,8 @@ the screen shown in
    Installation Warning
 
 
-.. note:: A minimum of 8 GiB of space on the boot device is required.
-   However, 32 GiB is recommended to provide room for future additions
-   and boot environments. When using mirrored boot devices, it is best
-   to use devices of the same size. If the device sizes are different,
-   the mirror is limited to the size of the smaller device.
+See the :ref:`operating system device <The Operating System Device>`
+section to ensure the minimum requirements are met.
 
 The installer recognizes existing installations of previous versions
 of %brand%. When an existing installation is present, the menu shown in
@@ -443,12 +439,12 @@ follow the instructions in
 <https://forums.freenas.org/index.php?threads/workaround-semi-fix-for-mountroot-issues-with-9-3.26071/>`__.
 
 If the burned image fails to boot and the image was burned using a
-Windows system, wipe the USB stick before trying a second burn using a
+Windows system, wipe the |usb-stick| before trying a second burn using a
 utility such as
 `Active@ KillDisk <http://how-to-erase-hard-drive.com/>`__.
 Otherwise, the second burn attempt will fail as Windows does not
 understand the partition which was written from the image file. Be
-very careful to specify the correct USB stick when using a wipe
+very careful to specify the correct |usb-stick| when using a wipe
 utility!
 
 
@@ -569,7 +565,7 @@ To perform an upgrade using this method,
 `download <http://download.freenas.org/latest/>`__
 the :file:`.iso` to the computer that will be used to prepare the
 installation media. Burn the downloaded :file:`.iso` file to a CD or
-USB thumb drive using the instructions in
+|usb-stick| using the instructions in
 :ref:`Preparing the Media`.
 
 Insert the prepared media into the system and boot from it. The
@@ -631,12 +627,12 @@ that is not used for storage.
 
 
 The updated system can be installed in a new boot environment,
-or the entire boot device can be formatted to start fresh. Installing
+or the entire |os-device| can be formatted to start fresh. Installing
 into a new boot environment preserves the old code, allowing a
 roll-back to previous versions if necessary. Formatting the boot
 device is usually not necessary but can reclaim space. User data and
 settings are preserved when installing to a new boot environment and
-also when formatting the boot device. Move the highlight to one of the
+also when formatting the |os-device|. Move the highlight to one of the
 options and press :kbd:`Enter` to start the upgrade.
 
 The installer unpacks the new image and displays the menu shown in
@@ -734,11 +730,11 @@ of the boot environment to set it as :guilabel:`Active`. Press
 press :kbd:`Enter` to boot into the chosen :guilabel:`Active` boot
 environment.
 
-If a boot device fails and the system no longer boots, do not panic.
+If an |os-device| fails and the system no longer boots, don't panic.
 The data is still on the disks and there is still a copy of the saved
 configuration. The system can be recovered with a few steps:
 
-#.  Perform a fresh installation on a new boot device.
+#.  Perform a fresh installation on a new |os-device|.
 
 #.  Import the pools in
     :menuselection:`Storage --> Auto Import Pool`.
