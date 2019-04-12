@@ -1285,7 +1285,8 @@ To create an authenticated SMB share, go to
 and click |ui-add|, as shown in
 :numref:`Figure %s <create_auth_smb_share_fig>`.
 Browse to the dataset created for the share and enter a name for the
-share. Press :guilabel:`SAVE` to create the share.
+share. Press :guilabel:`SAVE` to create the share. Repeat this process
+to create multiple authenticated shares.
 
 .. _create_auth_smb_share_fig:
 
@@ -1294,32 +1295,30 @@ share. Press :guilabel:`SAVE` to create the share.
    Creating an Authenticated SMB Share
 
 
-To configure multiple authenticated shares, repeat for each user. The
-new shares are also added to
-:menuselection:`Sharing --> Windows (SMB) Shares`.
-
 The authenticated share can now be tested from any SMB client. For
-example, to test an authenticated share from a Windows system, open
-Explorer and click on :guilabel:`Network`. For this configuration
-example, a system named *FREENAS* appears with a share named
-*smb_user1*. After clicking *smb_user1*, a Windows Security pop-up
-screen prompts for that user's username and password. Enter the values
-that were configured for that share, in this case user *user1*. After
-authentication, the user can copy data to and from the SMB share.
+example, to test an authenticated share from a Windows system with
+network discovery enabled, open Explorer and click on
+:guilabel:`Network`. If network discovery is disabled, open Explorer and
+enter :samp:`\\{HOST}` in the address bar, where *HOST* is the IP
+address or hostname of the share system. This example shows a system
+named *FREENAS* with a share named *smb_share*.
 
-To prevent Windows Explorer from hanging when accessing the share, map
-the share as a network drive. To do this, right-click the share and
-select :guilabel:`Map network drive...`. Choose a drive letter from
-the drop-down menu and click the :guilabel:`Finish` button.
+After clicking *smb_user1*, a Windows Security pop-up screen prompts for
+the username and password of the user associated with *smb_share*. Enter
+the username and password to authenticate the share. The user can now
+copy data to and from the SMB share.
 
-Note that Windows systems cache a user's credentials. This can cause
-issues when testing or accessing multiple authenticated shares as only
-one authentication is allowed at a time. When authenticating to
-a share, if problems occur and the username and password are correct,
-type :command:`cmd` in the :guilabel:`Search programs and files` box and
-use the following command to see if the share is already authenticated.
-In this example, the user has already authenticated to the
-:literal:`smb_user1` share:
+Map the share as a network drive to prevent Windows Explorer from
+hanging when accessing the share. Right-click the share and select
+:guilabel:`Map network drive...`. Choose a drive letter from the
+drop-down menu and click :guilabel:`Finish`.
+
+Only one authentication is allowed at a time. Because Windows systems
+cache user credentials, connection issues can occur when testing or
+accessing multiple authenticated shares. If share authentication
+problems occur and the username and password are correct, type
+:command:`cmd` in the :guilabel:`Search programs and files` box and use
+:command:`net use` to see if the share is already authenticated:
 
 .. code-block:: none
 
@@ -1332,7 +1331,7 @@ In this example, the user has already authenticated to the
    The command completed successfully.
 
 
-To clear the cache:
+Enter :command:`net use * /DELETE` to clear the cache:
 
 .. code-block:: none
 
@@ -1344,8 +1343,7 @@ To clear the cache:
    Do you want to continue this operation? <Y/N> [N]: y
 
 
-An additional warning is shown if the share is currently open in
-Explorer:
+An additional warning is shown when the share is open in Explorer:
 
 .. code-block:: none
 
@@ -1356,8 +1354,8 @@ Explorer:
    The command completed successfully.
 
 
-The next time a share is accessed with Explorer, a prompt to
-authenticate appears.
+Clearing the cache will cause the authentication prompt to appear the
+next time a share is accessed with Explorer.
 
 
 .. index:: Shadow Copies
