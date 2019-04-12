@@ -1614,8 +1614,8 @@ To offline, online, or or replace the device, see
    | S.M.A.R.T. extra options     | string    | ✓          | Enter additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options.     |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
-   | SED Password                 | string    |            | Enter and confirm the password which will be used for this device instead of the global SED password. Refer to           |
-   |                              |           |            | :ref:`Self-Encrypting Drives` for more information.                                                                      |
+   | SED Password                 | string    |            | Enter and confirm the disk password. This will be used instead of the global SED password which is set in                |
+   |                              |           |            | :menuselection:`System --> Advanced`. See :ref:`Self-Encrypting Drives`.                                                 |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
