@@ -1303,7 +1303,7 @@ enter :samp:`\\{HOST}` in the address bar, where *HOST* is the IP
 address or hostname of the share system. This example shows a system
 named *FREENAS* with a share named *smb_share*.
 
-After clicking *smb_user1*, a Windows Security pop-up screen prompts for
+After clicking *smb_share*, a Windows Security pop-up screen prompts for
 the username and password of the user associated with *smb_share*. Enter
 the username and password to authenticate the share. The user can now
 copy data to and from the SMB share.
@@ -1327,7 +1327,7 @@ problems occur and the username and password are correct, type
 
    Status         Local   Remote                  Network
    ------------------------------------------------------------------------
-   OK                     \\FREENAS\smb_user1 Microsoft Windows Network
+   OK                     \\FREENAS\smb_share Microsoft Windows Network
    The command completed successfully.
 
 
@@ -1337,7 +1337,7 @@ Enter :command:`net use * /DELETE` to clear the cache:
 
    net use * /DELETE
    You have these remote connections:
-                  \\FREENAS\smb_user1
+                  \\FREENAS\smb_share
    Continuing will cancel the connections.
 
    Do you want to continue this operation? <Y/N> [N]: y
@@ -1348,7 +1348,7 @@ An additional warning is shown when the share is open in Explorer:
 .. code-block:: none
 
    There are open files and/or incomplete directory searches pending on the connection
-   to \\FREENAS|smb_user1.
+   to \\FREENAS|smb_share.
 
    Is it OK to continue disconnecting and force them closed? <Y/N> [N]: y
    The command completed successfully.
