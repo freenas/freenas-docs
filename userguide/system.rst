@@ -752,7 +752,7 @@ the full capabilities of the device. %brand% provides the
 :command:`sedhelper` wrapper script to ease SED administration from the
 command line.
 
-By default, SED are not locked until the administrator takes ownership
+By default, SEDs are not locked until the administrator takes ownership
 of them. This is done by explicitly configuring a global or per-device
 password in the %brand% |web-ui| and adding the password to the SEDs.
 
