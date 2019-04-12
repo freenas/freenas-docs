@@ -743,7 +743,7 @@ Three types of SED are supported:
 
 * TCG Enterprise standard for newer enterprise-grade SAS devices
 
-The %brand% middleware implements the security capabilities of
+%brand% implements the security capabilities of
 `camcontrol <https://www.freebsd.org/cgi/man.cgi?query=camcontrol>`__
 for legacy devices and
 `sedutil-cli <https://www.mankier.com/8/sedutil-cli>`__
@@ -753,15 +753,15 @@ the full capabilities of the device. %brand% provides the
 :command:`sedhelper` wrapper script to ease SED administration from the
 command line.
 
-By default, SED are not locked until the administrator takes ownership
-of them. This is done by explicitly configuring a global or per-device
-password in the %brand% |web-ui| and adding the password to the SEDs.
+By default, SEDs are not locked until the administrator takes ownership
+of them. Ownership is taken by explicitly configuring a global or
+per-device password in the %brand% |web-ui| and adding the password to
+the SEDs.
 
 A password-protected SED protects the data stored on the device
 when the device is physically removed from the %brand% system. This
-allows secure disposal of the device without having to first wipe its
-contents. If the device is instead removed to be repurposed on another
-system, it can only be unlocked if the password is known.
+allows secure disposal of the device without having to first wipe the
+contents. Repurposing a SED on another system requires the SED password.
 
 
 .. _Deploying SEDs:
@@ -769,9 +769,8 @@ system, it can only be unlocked if the password is known.
 Deploying SEDs
 ^^^^^^^^^^^^^^
 
-To determine which devices support SED and their device names, go to the
-:menuselection:`Shell`
-and enter :command:`sedutil-cli --scan`. In the results:
+Run :command:`sedutil-cli --scan` in the :ref:`Shell` to detect and list
+devices. The second column of the results identifies the drive type:
 
 * **no** indicates a non-SED device
 * **1** indicates a legacy TCG OPAL 1 device
@@ -795,10 +794,13 @@ Example:
 %brand% supports setting a global password for all detected SEDs or
 setting individual passwords for each SED. Using a global password for
 all SEDs is strongly recommended to simplify deployment and avoid
-physically maintaining separate passwords for each SED.
+maintaining separate passwords for each SED.
 
 
-**Setting a global password for SEDs**
+.. _Setting a global password for SEDs:
+
+Setting a global password for SEDs
+..................................
 
 Go to
 :menuselection:`System --> Advanced --> SED Password`
@@ -806,13 +808,12 @@ and enter the password. **Record this password and store it in a safe
 place!**
 
 Now the SEDs must be configured with this password. Go to the
-:menuselection:`Shell`
-and enter :samp:`sedhelper setup {password}`, where *password* is the
-global password entered in
+:ref:`Shell` and enter :samp:`sedhelper setup {password}`, where
+*password* is the global password entered in
 :menuselection:`System --> Advanced --> SED Password`.
 
 :command:`sedhelper` ensures that all detected SEDs are properly
-configured to use the provided password. Example:
+configured to use the provided password:
 
 .. code-block:: none
 
@@ -826,34 +827,39 @@ Rerun :samp:`sedhelper setup {password}` every time a new SED is placed
 in the system to apply the global password to the new SED.
 
 
-**Creating separate passwords for each SED**
+.. _Creating separate passwords for each SED:
+
+Creating separate passwords for each SED
+........................................
 
 Go to
 :menuselection:`Storage --> Volumes --> View Disks`.
 Click the confirmed SED, then :guilabel:`Edit`. Enter and confirm the
 password in the :guilabel:`Password for SED` and
-:guilabel:`Confirm SED Password` fields. Disks that have a configured
-SED password show bullets in their row of the
-:guilabel:`Password for SED` column of
-:menuselection:`Storage --> Volumes --> View Disks`.
-Conversely, the rows in that column will be empty for disks that do not
-support SED or are unlocked using the global password.
+:guilabel:`Confirm SED Password` fields.
 
-Now configure the SED to use the password. Go to the
-:menuselection:`Shell`
-and enter :samp:`sedhelper setup --disk {da1} {password}`, where *da1*
-is the SED to configure and *password* is the created password from
+The
+:menuselection:`Storage --> Volumes --> View Disks`.
+screen shows which disks have a configured SED password. The
+:guilabel:`SED Password` column shows a mark when the disk has a
+password. Disks that are not a SED or are unlocked using the global
+password are not marked in this column.
+
+The SED must be configured to use the new password. Go to the
+:ref:`Shell` and enter :samp:`sedhelper setup --disk {da1} {password}`,
+where *da1* is the SED to configure and *password* is the created
+password from
 :menuselection:`Storage --> Volumes --> View Disks --> Edit --> Password for SED`.
 
-**Repeat this process for each detected SED and any SED deployed to the
-%brand% system in the future.**
+This process must be repeated for each SED and any SEDs added to the
+system in the future.
 
-.. danger:: It is important to remember SED passwords! Without them,
-   SEDs cannot be unlocked and their data is unavailable. While it is
+.. danger:: Remember SED passwords! If the SED password is lost, SEDs
+   cannot be unlocked and their data is unavailable. While it is
    possible to specify the PSID number on the label of the device with
    :command:`sedutil-cli`, doing so **erases the contents** of the
    device rather than unlock it. Always record SED passwords whenever
-   they are configured or modified and store them in a safe place!
+   they are configured or modified and store them in a secure place!
 
 
 .. _Check SED Functionality:
@@ -861,22 +867,21 @@ is the SED to configure and *password* is the created password from
 Check SED Functionality
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-When SED devices are detected during system boot, the middleware
-checks for configured global and device-specific passwords. Devices with
-individual passwords are unlocked with their password and any remaining
-devices that have no device-specific password are unlocked using the
-global password. No additional manual intervention is required, but
-:command:`sedhelper unlock` is available to manually unlock all SEDs.
-Unlocking SEDs allows a pool to contain a mix of SED and non-SED
-devices.
+When SED devices are detected during system boot, %brand% checks for
+configured global and device-specific passwords.
 
-To verify SED locking is working correctly, go to the
-:menuselection:`Shell`. Enter
-:samp:`sedutil-cli --listLockingRange 0 {password} dev/{da1}`, where
-*da1* is the SED and *password* is the global or individual password for
-that SED. The command returns :literal:`ReadLockEnabled: 1`,
-:literal:`WriteLockEnabled: 1`, and :literal:`LockOnReset: 1` when the
-SED has locking enabled. Example:
+
+Unlocking SEDs allows a pool to contain a mix of SED and non-SED
+devices. Devices with individual passwords are unlocked with their
+password. Devices without a device-specific password are unlocked using
+the global password.
+
+To verify SED locking is working correctly, go to the :ref:`Shell`.
+Enter :samp:`sedutil-cli --listLockingRange 0 {password} dev/{da1}`,
+where *da1* is the SED and *password* is the global or individual
+password for that SED. The command returns :literal:`ReadLockEnabled: 1`,
+:literal:`WriteLockEnabled: 1`, and :literal:`LockOnReset: 1` for drives
+with locking enabled:
 
 .. code-block:: none
 
