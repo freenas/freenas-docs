@@ -876,7 +876,7 @@ Enter :samp:`sedutil-cli --listLockingRange 0 {password} dev/{da1}`,
 where *da1* is the SED and *password* is the global or individual
 password for that SED. The command returns :literal:`ReadLockEnabled: 1`,
 :literal:`WriteLockEnabled: 1`, and :literal:`LockOnReset: 1` for drives
-locking enabled:
+with locking enabled:
 
 .. code-block:: none
 
