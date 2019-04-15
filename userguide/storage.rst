@@ -200,6 +200,18 @@ compression ratio, whether it is mounted as read-only, whether
 deduplication has been enabled, the mountpoint path, and any comments
 entered for the pool.
 
+The status of the pools are also indicated by one of these symbols:
+
+* Green |pool-healthy|
+
+* Orange |pool-degraded|
+
+* Red |pool-faulted|
+
+* Blue |pool-unknown|
+
+* Yellow |pool-lock|
+
 There is an option to :guilabel:`Upgrade Pool`. This upgrades the
 pool to the latest :ref:`ZFS Feature Flags`. See the warnings in
 :ref:`Upgrading a ZFS Pool` before selecting this option. This button
@@ -270,8 +282,8 @@ to use it effectively:
   startup. Pools with a passphrase remain locked until the user
   enters the passphrase to unlock them.
 
-  Encrypted pools can be locked on demand by the user. They are
-  automatically locked when the system is shut down.
+  Encrypted pools can be locked on demand by users with the passphrase.
+  They are automatically locked when the system is shut down.
 
 * This type of encryption is primarily useful for users wanting the
   ability to remove disks from the pool without having to first wipe
@@ -387,10 +399,10 @@ click |pool-lock|, and select one of these operations:
 **Lock:** Only appears after a passphrase has been created. When a pool
 is locked, the data is not accessible until the pool is unlocked by
 supplying the passphrase. For this reason, selecting this action
-prompts to confirm. When the pool is locked, the status changes to
-*LOCKED (Locked Used / Locked Free)*. :guilabel:`Pool Operations` are
-limited to *Export/Disconnect*, and |pool-lock| changes to
-|pool-unlock|.
+requires entering the passphrase. When the pool is locked, the status
+changes to *LOCKED (Locked Used / Locked Free)*.
+:guilabel:`Pool Operations` are limited to *Export/Disconnect*, and
+|pool-lock| changes to |pool-unlock|.
 
 Unlock the pool by clicking the |pool-unlock| icon and entering
 the passphrase *or* use the :guilabel:`Browse` button to load the
@@ -1602,8 +1614,8 @@ To offline, online, or or replace the device, see
    | S.M.A.R.T. extra options     | string    | ✓          | Enter additional `smartctl(8) <https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in>`__  options.     |
    |                              |           |            |                                                                                                                          |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
-   | SED Password                 | string    |            | Enter and confirm the password which will be used for this device instead of the global SED password. Refer to           |
-   |                              |           |            | :ref:`Self-Encrypting Drives` for more information.                                                                      |
+   | SED Password                 | string    |            | Enter and confirm the disk password. This will be used instead of the global SED password which is set in                |
+   |                              |           |            | :menuselection:`System --> Advanced`. See :ref:`Self-Encrypting Drives`.                                                 |
    +------------------------------+-----------+------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
