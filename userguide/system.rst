@@ -230,10 +230,10 @@ backup. Other passwords, like iSCSI CHAP passwords, Active Directory
 bind credentials, and cloud credentials are stored in an encrypted form
 to prevent them from being visible as plain text in the saved system
 configuration. The key or *seed* for this encryption is normally stored
-only on the boot device. When :guilabel:`Save Config` is chosen, a dialog
+only on the |os-device|. When :guilabel:`Save Config` is chosen, a dialog
 gives the option to :guilabel:`Export Password Secret Seed` with the saved
 configuration, allowing the configuration file to be restored to
-a different boot device where the decryption seed is not already
+a different |os-device| where the decryption seed is not already
 present. Configuration backups containing the seed must be physically
 secured to prevent decryption of passwords and unauthorized access.
 
@@ -423,15 +423,15 @@ The buttons above the boot entries can be used to:
   underscores, and dashes are allowed in the name.
 
 * **Scrub Boot:** can be used to perform a manual scrub of the boot
-  devices. By default, the boot device is scrubbed every 7 days. To
+  devices. By default, the |os-device| is scrubbed every 7 days. To
   change the default interval, change the number in the
   :guilabel:`Automatic scrub interval (in days)` field. The date and
   results of the last scrub are also listed in this screen. The
-  condition of the boot device should be listed as *HEALTHY*.
+  condition of the |os-device| should be listed as *HEALTHY*.
 
-* **Status:** click this button to see the status of the boot devices.
+* **Status:** click this button to see the status of the |os-device|.
   :numref:`Figure %s <status_boot_dev_fig>`,
-  shows only one boot device, which is *ONLINE*.
+  shows only one |os-device|, which is *ONLINE*.
 
 .. note:: Using :guilabel:`Clone` to clone the active boot environment
    functions the same as using :guilabel:`Create`.
@@ -442,12 +442,12 @@ The buttons above the boot entries can be used to:
 #ifdef freenas
 .. figure:: images/be2.png
 
-   Viewing the Status of the Boot Device
+   Viewing the Status of the |OS-Device|
 #endif freenas
 #ifdef truenas
 .. figure:: images/tn_be2.png
 
-   Viewing the Status of the Boot Device
+   Viewing the Status of the |OS-Device|
 #endif truenas
 
 
@@ -455,50 +455,50 @@ The buttons above the boot entries can be used to:
 If the system has a mirrored boot pool, there will be a
 :guilabel:`Detach` button in addition to the :guilabel:`Replace` button.
 To remove a device from the boot pool, highlight the device and click
-its :guilabel:`Detach` button. Alternately, if one of the boot devices
+its :guilabel:`Detach` button. Alternately, if one of the |os-devices|
 has an *OFFLINE* :guilabel:`Status`, click the device to replace,
 then click :guilabel:`Replace` to rebuild the boot mirror.
 #endif freenas
 #ifdef truenas
-If one of the boot devices has a :guilabel:`Status` of *OFFLINE*,
+If one of the |os-devices| has a :guilabel:`Status` of *OFFLINE*,
 click the device to replace, select the new replacement device, and
 click :guilabel:`Replace Disk` to rebuild the boot mirror.
 #endif truenas
 
 #ifdef freenas
 Note that
-**the boot device cannot be replaced if it is the only boot device**
+**the |os-device| cannot be replaced if it is the only |os-device|**
 because it contains the operating system itself.
 #endif freenas
 
 
 #ifdef freenas
-.. index:: Mirroring the Boot Device
-.. _Mirroring the Boot Device:
+.. index:: Mirroring the |OS-Device|
+.. _Mirroring the |OS-Device|:
 
-Mirroring the Boot Device
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Mirroring the |OS-Device|
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If the system is currently booting from a device, another device
-can be added to create a mirrored boot device. If one device in a
+can be added to create a mirrored |os-device|. If one device in a
 mirror fails, the remaining device can still be used to boot the system.
 
-.. note:: When adding another boot device for a mirror, the new device
-   must have at least the same capacity as the existing boot device.
+.. note:: When adding another |os-device| for a mirror, the new device
+   must have at least the same capacity as the existing |os-device|.
    Larger capacity devices can be added, but the mirror will only have
    the capacity of the smallest device. Different models of devices
    which advertise the same nominal size are not necessarily the same
    actual size. For this reason, adding another of the same model of
-   boot device is recommended.
+   |os-device| is recommended.
 
 In the example shown in
 :numref:`Figure %s <mirror_boot_dev_fig>`,
 the user has clicked
 :menuselection:`System --> Boot --> Status`
-to display the current status of the boot device. The example
+to display the current status of the |os-device|. The example
 indicates that there is currently one device, *ada0p2*, its status is
-*ONLINE*, and it is currently the only boot device as indicated by the
-word *stripe*. To create a mirrored boot device, click either the
+*ONLINE*, and it is currently the only |os-device| as indicated by the
+word *stripe*. To create a mirrored |os-device|, click either the
 entry called *freenas-boot* or *stripe*, then click the
 :guilabel:`Attach` button. If another device is available, it appears
 in the :guilabel:`Member disk` drop-down menu. Select the desired
@@ -509,10 +509,10 @@ of the new device is made available to ZFS. The new device is
 partitioned to the same size as the existing device by default.
 Select :guilabel:`Use all disk space` to use all available space on
 the new device. If either device in the mirror fails, it can be replaced
-with another of the same size as the original boot device.
+with another of the same size as the original |os-device|.
 
 When :guilabel:`Use all disk space` is enabled, the entire capacity of
-the new device is used. If the original boot device fails and is
+the new device is used. If the original |os-device| fails and is
 removed, the boot mirror will consist of just the newer drive, and
 will grow to whatever capacity it provides. However, new devices added
 to this mirror must now be as large as the new capacity.
@@ -524,7 +524,7 @@ Click :guilabel:`Attach Disk` to attach the new disk to the mirror.
 
 .. figure:: images/system-boot-mirror1.png
 
-   Mirroring a Boot Device
+   Mirroring a |OS-Device|
 
 
 After the mirror is created, the :guilabel:`Status` screen indicates
@@ -536,7 +536,7 @@ shown as in
 
 .. figure:: images/system-boot-mirror2.png
 
-   Viewing the Status of a Mirrored Boot Device
+   Viewing the Status of a Mirrored |OS-Device|
 #endif freenas
 
 
@@ -579,9 +579,8 @@ The configurable settings are summarized in
    | Setting                    | Value               | Description                                                                   |
    |                            |                     |                                                                               |
    +============================+=====================+===============================================================================+
-   | Show Text Console          | checkbox            | Set for the system to immediately display the text console after booting.     |
-   | without Password Prompt    |                     | Unset to require logging into the system before the console menu is shown.    |
-   |                            |                     |                                                                               |
+   | Show Text Console          | checkbox            | Set for the text console to be available without entering a password.         |
+   | without Password Prompt    |                     |                                                                               |
    +----------------------------+---------------------+-------------------------------------------------------------------------------+
    | Use Serial Console         | checkbox            | **Do not** enable this option if the serial port is disabled.                 |
    |                            |                     |                                                                               |
@@ -724,6 +723,7 @@ For those who wish to see which checks are performed, the autotune
 script is located in :file:`/usr/local/bin/autotune`.
 #endif truenas
 
+
 .. index:: Self-Encrypting Drives
 .. _Self-Encrypting Drives:
 
@@ -732,7 +732,7 @@ Self-Encrypting Drives
 
 %brand% version 11.1-U5 introduced Self-Encrypting Drive (SED) support.
 
-Three types of SED devices are supported:
+Three types of SED are supported:
 
 * Legacy interface for older ATA devices. **Not recommended for
   security-critical environments**
@@ -742,87 +742,159 @@ Three types of SED devices are supported:
 
 * TCG Enterprise standard for newer enterprise-grade SAS devices
 
-The %brand% middleware implements the security capabilities of
-`camcontrol <https://www.freebsd.org/cgi/man.cgi?query=camcontrol>`__ (for
-legacy devices) and `sedutil-cli <https://www.mankier.com/8/sedutil-cli>`__
-(for TCG devices). When managing SED devices from the command line, it is
-important to use :command:`sedutil-cli` rather than camcontrol
-to access the full capabilities of the device. %brand% provides the
-:command:`sedhelper` wrapper script to ease SED device administration from
-the command line.
+%brand% implements the security capabilities of
+`camcontrol <https://www.freebsd.org/cgi/man.cgi?query=camcontrol>`__
+for legacy devices and
+`sedutil-cli <https://www.mankier.com/8/sedutil-cli>`__
+for TCG devices. When managing a SED from the command line, it is
+important to use :command:`sedutil-cli` rather than camcontrol to access
+the full capabilities of the device. %brand% provides the
+:command:`sedhelper` wrapper script to ease SED administration from the
+command line.
 
-By default, SED devices are not locked until the administrator takes
-ownership of them. This is done by explicitly configuring a global or
+By default, SEDs are not locked until the administrator takes ownership
+of them. Ownership is taken by explicitly configuring a global or
 per-device password in the %brand% |web-ui| and adding the password to
-the SED devices.
+the SEDs.
 
-Once configured, the system automatically unlocks all SEDs during the boot
-process, without requiring manual intervention. This allows a pool to
-contain a mix of SED and non-SED devices.
+A password-protected SED protects the data stored on the device
+when the device is physically removed from the %brand% system. This
+allows secure disposal of the device without having to first wipe the
+contents. Repurposing a SED on another system requires the SED password.
 
-A password-protected SED device protects the data stored on the device
-when the device is physically removed from the %brand% system. This allows
-secure disposal of the device without having to first wipe its contents.
-If the device is instead removed to be repurposed on another system, it
-can only be unlocked if the password is known.
 
-.. warning:: It is important to remember the password! Without it, the
-   device is unlockable and its data remains unavailable. While it is
-   possible to specify the PSID number on the label of the device with
-   the :command:`sedutil-cli` command, doing so will erase the contents
-   of the device rather than unlock it. Always record SED passwords
-   whenever they are configured or modified and store them in a safe
-   place!
+.. _Deploying SEDs:
 
-When SED devices are detected during system boot, the middleware checks
-for global and device-specific passwords. Devices with their own password
-are unlocked with their password and any remaining devices, without a
-device-specific password, are unlocked using the global password.
+Deploying SEDs
+^^^^^^^^^^^^^^
 
-To configure a global password, go to :menuselection:`System -->
-Advanced --> SED Password` and enter the password. Recording the
-password and storing it in a safe place is recommended.
-
-To determine which devices support SED and their device names:
-
-.. code-block:: none
-
- sedutil-cli --scan
-
-In the results:
+Run :command:`sedutil-cli --scan` in the :ref:`Shell` to detect and list
+devices. The second column of the results identifies the drive type:
 
 * **no** indicates a non-SED device
 * **1** indicates a legacy TCG OPAL 1 device
 * **2** indicates a modern TCG OPAL 2 device
 * **E** indicates a TCG Enterprise device
 
-To specify a password for a device, go to
-:menuselection:`Storage --> View Disks`. Highlight the device name for
-the confirmed SED device and click :guilabel:`Edit`. Enter and confirm
-the password in the :guilabel:`Password for SED` and
-:guilabel:`Confirm SED Password` fields. Disks that have a configured
-password will show bullets in their row of the :guilabel:`Password for SED`
-column of :menuselection:`Storage --> View Disks`. Conversely, the rows
-in that column will be empty for disks that do not support SED or which
-are unlocked using the global password.
-
-Remember to take ownership of the devices:
+Example:
 
 .. code-block:: none
 
- sedhelper setup password
+   root@truenas1:~ # sedutil-cli --scan
+   Scanning for Opal compliant disks
+   /dev/ada0  No  32GB SATA Flash Drive SFDK003L
+   /dev/ada1  No  32GB SATA Flash Drive SFDK003L
+   /dev/da0   No  HGST    HUS726020AL4210  A7J0
+   /dev/da1   No  HGST    HUS726020AL4210  A7J0
+   /dev/da10    E WDC     WUSTR1519ASS201  B925
+   /dev/da11    E WDC     WUSTR1519ASS201  B925
 
-This command ensures that all detected SED disks are properly setup using
-the specified password.
 
-.. note:: Rerun :command:`sedhelper setup password` every time a new SED
-   disk is placed in the system.
+%brand% supports setting a global password for all detected SEDs or
+setting individual passwords for each SED. Using a global password for
+all SEDs is strongly recommended to simplify deployment and avoid
+maintaining separate passwords for each SED.
 
-This command is used to unlock all available SED disks:
+
+.. _Setting a global password for SEDs:
+
+Setting a global password for SEDs
+..................................
+
+Go to
+:menuselection:`System --> Advanced --> SED Password`
+and enter the password. **Record this password and store it in a safe
+place!**
+
+Now the SEDs must be configured with this password. Go to the
+:ref:`Shell` and enter :samp:`sedhelper setup {password}`, where
+*password* is the global password entered in
+:menuselection:`System --> Advanced --> SED Password`.
+
+:command:`sedhelper` ensures that all detected SEDs are properly
+configured to use the provided password:
 
 .. code-block:: none
 
- sedhelper unlock
+   root@truenas1:~ # sedhelper setup abcd1234
+   da9			[OK]
+   da10			[OK]
+   da11			[OK]
+
+
+Rerun :samp:`sedhelper setup {password}` every time a new SED is placed
+in the system to apply the global password to the new SED.
+
+
+.. _Creating separate passwords for each SED:
+
+Creating separate passwords for each SED
+........................................
+
+Go to
+:menuselection:`Storage --> Volumes --> View Disks`.
+Click the confirmed SED, then :guilabel:`Edit`. Enter and confirm the
+password in the :guilabel:`Password for SED` and
+:guilabel:`Confirm SED Password` fields.
+
+The
+:menuselection:`Storage --> Volumes --> View Disks`.
+screen shows which disks have a configured SED password. The
+:guilabel:`SED Password` column shows a mark when the disk has a
+password. Disks that are not a SED or are unlocked using the global
+password are not marked in this column.
+
+The SED must be configured to use the new password. Go to the
+:ref:`Shell` and enter :samp:`sedhelper setup --disk {da1} {password}`,
+where *da1* is the SED to configure and *password* is the created
+password from
+:menuselection:`Storage --> Volumes --> View Disks --> Edit --> Password for SED`.
+
+This process must be repeated for each SED and any SEDs added to the
+system in the future.
+
+.. danger:: Remember SED passwords! If the SED password is lost, SEDs
+   cannot be unlocked and their data is unavailable. While it is
+   possible to specify the PSID number on the label of the device with
+   :command:`sedutil-cli`, doing so **erases the contents** of the
+   device rather than unlock it. Always record SED passwords whenever
+   they are configured or modified and store them in a secure place!
+
+
+.. _Check SED Functionality:
+
+Check SED Functionality
+^^^^^^^^^^^^^^^^^^^^^^^
+
+When SED devices are detected during system boot, %brand% checks for
+configured global and device-specific passwords.
+
+
+Unlocking SEDs allows a pool to contain a mix of SED and non-SED
+devices. Devices with individual passwords are unlocked with their
+password. Devices without a device-specific password are unlocked using
+the global password.
+
+To verify SED locking is working correctly, go to the :ref:`Shell`.
+Enter :samp:`sedutil-cli --listLockingRange 0 {password} dev/{da1}`,
+where *da1* is the SED and *password* is the global or individual
+password for that SED. The command returns :literal:`ReadLockEnabled: 1`,
+:literal:`WriteLockEnabled: 1`, and :literal:`LockOnReset: 1` for drives
+with locking enabled:
+
+.. code-block:: none
+
+   root@truenas1:~ # sedutil-cli --listLockingRange 0 abcd1234 /dev/da9
+   Band[0]:
+       Name:            Global_Range
+       CommonName:      Locking
+       RangeStart:      0
+       RangeLength:     0
+       ReadLockEnabled: 1
+       WriteLockEnabled:1
+       ReadLocked:      0
+       WriteLocked:     0
+       LockOnReset:     1
 
 
 .. index:: Email
@@ -1316,7 +1388,7 @@ The update process will not proceed unless there is enough free space
 in the boot pool for the new update files. If a space warning is
 shown, use :ref:`Boot` to remove unneeded boot environments.
 
-Operating system updates only modify the boot devices and do not
+Operating system updates only modify the |os-devices| and do not
 affect end-user data on storage drives.
 
 Available ZFS version upgrades are indicated by an :ref:`Alert` in the
@@ -2019,6 +2091,9 @@ information for the organization.
    | Names                |                   | Enter additional domain names and separate them with a space.                        |
    |                      |                   |                                                                                      |
    +----------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Organizational Unit  | string            | Organizational unit of the entity.                                                   |
+   |                      |                   |                                                                                      |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------+
 
 
 To create an intermediate CA which is part of a certificate
@@ -2201,6 +2276,9 @@ as the signing authority.
    |                        |                   |                                                                                      |
    +------------------------+-------------------+--------------------------------------------------------------------------------------+
    | Organization           | string            | Name of the company or organization.                                                 |
+   |                        |                   |                                                                                      |
+   +------------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Organizational Unit    | string            | Organizational unit of the entity.                                                   |
    |                        |                   |                                                                                      |
    +------------------------+-------------------+--------------------------------------------------------------------------------------+
    | Email Address          | string            | Email address for the person responsible for the CA.                                 |
