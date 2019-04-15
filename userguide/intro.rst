@@ -126,6 +126,14 @@ These screen options have changed:
 * The :guilabel:`MTU` field has been added to
   :menuselection:`Network --> Link Aggregations --> Edit`.
 
+* :guilabel:`Snapshot retention policy` has replaced
+  :guilabel:`Delete stale snapshots` in
+  :menuselection:`Storage --> Replication Tasks --> Add Replication`.
+
+* :guilabel:`Snapshot lifetime value` and
+  :guilabel:`Snapshot lifetime unit` have been added to
+  :menuselection:`Storage --> Replication Tasks --> Add Replication`.
+
 * The :guilabel:`DOS charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
