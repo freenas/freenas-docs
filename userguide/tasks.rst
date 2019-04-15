@@ -168,6 +168,12 @@ shows the configuration options for Cloud Syncs.
    | Enabled                | checkbox            | Unset to temporarily disable this Cloud Sync.                                                          |
    |                        |                     |                                                                                                        |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   | Bandwidth limit        | string              | Restrict the data transfer rate of this task. Enter either a single bandwidth limit or a bandwidth     |
+   |                        |                     | limit schedule in `rclone <https://rclone.org/docs/#bwlimit-bandwidth-spec>`__ format. Rate            |
+   |                        |                     | limitations are in *bytes/second*, not bits/second. The default unit is kilobytes. Example:            |
+   |                        |                     | *"08:00,512 12:00,10M 13:00,512 18:00,30M 23:00,off"*.                                                 |
+   |                        |                     |                                                                                                        |
+   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
    | Exclude                | string              | Newline-separated list of files and directories to exclude from sync. See                              |
    |                        |                     | https://rclone.org/filtering/.                                                                         |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
