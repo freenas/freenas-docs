@@ -290,7 +290,7 @@ This example :file:`settings.json` file is used for the
 `iocage-plugin-quassel artifact repository
 <https://github.com/freenas/iocage-plugin-quassel/blob/master/settings.json>`__.
 
-.. The above URL will need to be changed once Quasselcore is migated
+.. This URL will need to be changed when Quasselcore is migrated
    to the new ix-plugin-hub (https://github.com/ix-plugin-hub).
 
 
