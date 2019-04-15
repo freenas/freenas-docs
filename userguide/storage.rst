@@ -2388,11 +2388,11 @@ options in the replication task dialog.
    |                       |              | * *None*: never delete snapshots from the destination system.                                                |
    |                       |              |                                                                                                              |
    +-----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
-   | Snapshot lifetime     | integer      | How long a snapshot will remain on the destination system. Enter a number.                                   |
-   | value                 |              |                                                                                                              |
+   | Snapshot lifetime     | integer      | Time before a snapshot is deleted from the destination system. Enter a number and choose a                   |
+   | value                 |              | :guilabel:`Snapshot lifetime unit`.                                                                          |
    +-----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
-   | Snapshot lifetime     | drop-down    | How long a snapshot will remain on the destination system. Choose between *Hours*, *Days*, *Weeks*,          |
-   | unit                  | menu         | *Months*, and *Years*.                                                                                       |
+   | Snapshot lifetime     | drop-down    | Time before a snapshot is deleted from the destination system. Open the drop-down and choose a unit of       |
+   | unit                  | menu         | time to pair with the :guilabel:`Snapshot lifetime value`.                                                   |
    |                       |              |                                                                                                              |
    +-----------------------+--------------+--------------------------------------------------------------------------------------------------------------+
    | Replication Stream    | drop-down    | Choices are *lz4 (fastest)*, *pigz (all rounder)*, *plzip (best compression)*, or *Off* (no compression).    |
