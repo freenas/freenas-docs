@@ -169,24 +169,17 @@ if tags.has('bsg-es60'):
     cover_pic = r'\vspace*{.1in}\hspace*{4in}\includegraphics[width=6in]{../../../images/tn_es60.png}'
 
 
-# |brand| will be replaced with FreeNAS® or TrueNAS®
-# rst_epilog = '.. |brand| replace:: %s' % brand
-
 # roles for text replacement
-rst_prolog = u'''
-.. |copyright-year| replace:: 2019
-.. |dockerhost|     replace:: Docker VM
-.. |web-ui|         replace:: web interface
-'''
-
-# The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
-
-
 rst_prolog = u'''
 .. |alert-icon-error| replace:: 
 .. |alert-icon-info|  replace:: 
 .. |alert-icon-watch| replace:: 肋
+.. |copyright-year|   replace:: 2019
+.. |dockerhost|       replace:: Docker VM
+.. |os-device|        replace:: operating system device
+.. |os-devices|       replace:: operating system devices
+.. |OS-Device|        replace:: Operating System Device
+.. |OS-Devices|       replace:: Operating System Devices
 .. |pool-degraded|    replace::  (DEGRADED)
 .. |pool-faulted|     replace::  (FAULTED)
 .. |pool-healthy|     replace::  (HEALTHY)
@@ -209,14 +202,16 @@ rst_prolog = u'''
 .. |ui-refresh|       replace::  (Refresh)
 .. |ui-settings|      replace::  (Settings)
 .. |ui-task-manager|  replace::  (Task Manager)
+.. |usb-stick|        replace:: USB stick
+.. |usb-sticks|       replace:: USB sticks
+.. |web-ui|           replace:: web interface
 '''
 
-# roles for text replacement
-rst_prolog += u'''
-.. |copyright-year| replace:: 2019
-.. |dockerhost|     replace:: Docker Host
-.. |web-ui|         replace:: web interface
-'''
+
+# The name of the Pygments (syntax highlighting) style to use.
+pygments_style = 'sphinx'
+
+
 # -- Options for HTML output ---------------------------------------------------
 project = product
 

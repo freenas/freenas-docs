@@ -1773,6 +1773,11 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | |ui-browse| to list the remote filesystem and choose the folder.                                        |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Use --fast-list     | checkbox            | Only appears with a compatible :guilabel:`Credential`.                                                  |
+   |                     |                     | `Use fewer transactions in exchange for more RAM <https://rclone.org/docs/\#fast-list>`__.              |
+   |                     |                     | This can also speed up or slow down the transfer.                                                       |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Encryption          | drop-down menu      | Only appears when an S3 credential is the *Provider*. Choices are *None* (no encryption) or             |
    |                     |                     | *AES-256* (encrypted).                                                                                  |
    |                     |                     |                                                                                                         |
@@ -1818,7 +1823,15 @@ shows the configuration options for Cloud Syncs.
    | Enabled             | checkbox            | Enable this Cloud Sync Task. Unset to disable this Cloud Sync Task without deleting it.                 |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
-
+   | Bandwidth Limit     | string              | Restrict the data transfer rate of this task. Enter either a single bandwidth limit or a bandwidth      |
+   |                     |                     | limit schedule in `rclone <https://rclone.org/docs/#bwlimit-bandwidth-spec>`__ format. Rate             |
+   |                     |                     | limitations are in *bytes/second*, not bits/second. The default unit is kilobytes. Example:             |
+   |                     |                     | *"08:00,512 12:00,10M 13:00,512 18:00,30M 23:00,off"*.                                                  |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Exclude             | string              | List of files and directories to exclude from sync, one per line. See                                   |
+   |                     |                     | `<https://rclone.org/filtering/>`__.                                                                    |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
 
 .. note:: If the selected credential is incorrect it prompts for a
    correction. Click the :guilabel:`Fix Credential` button to
