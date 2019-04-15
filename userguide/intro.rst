@@ -115,6 +115,9 @@ These screen options have changed:
 * The :guilabel:`MTU` field has been added to
   :menuselection:`Network --> Link Aggregations --> Edit`.
 
+* The :guilabel:`DOS charset` field has been removed from
+  :menuselection:`Services --> SMB --> Configure`.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
