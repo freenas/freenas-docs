@@ -201,6 +201,7 @@ rst_prolog = u'''
 .. |ui-power|         replace::  (Power)
 .. |ui-refresh|       replace::  (Refresh)
 .. |ui-settings|      replace::  (Settings)
+.. |ui-task-manager|  replace::  (Task Manager)
 .. |usb-stick|        replace:: USB stick
 .. |usb-sticks|       replace:: USB sticks
 .. |web-ui|           replace:: web interface
