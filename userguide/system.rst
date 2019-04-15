@@ -730,8 +730,8 @@ Self-Encrypting Drives
 
 These SED specifications are supported:
 
-* `Legacy interface for older ATA devices. <https://www.bitmicro.com/wp-content/uploads/2018/09/ATA_Security_Feature_Set_vs_TCG_Opal_and_SEDs_AES-256_Encryption.pdf>`__
-   **Not recommended for security-critical environments**
+* Legacy interface for older ATA devices. **Not recommended for
+  security-critical environments**
 
 * `TCG OPAL 2 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Opal_SSC_v2.01_rev1.00.pdf>`__
   standard for newer consumer-grade devices
