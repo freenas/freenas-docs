@@ -20,8 +20,7 @@ other VMs.
 virtual machine software. This type of virtualization requires an
 Intel processor with Extended Page Tables (EPT) or an AMD processor
 with Rapid Virtualization Indexing (RVI) or Nested Page Tables (NPT).
-%brand% shows an error during VM creation when these features are not
-present on the host system.
+VMs cannot be created unless the host system supports these features.
 
 To verify that an Intel processor has the required features, use
 :ref:`Shell` to run :samp:`grep VT-x /var/run/dmesg.boot`. If the
