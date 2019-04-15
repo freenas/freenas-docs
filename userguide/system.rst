@@ -744,9 +744,9 @@ These SED specifications are supported:
 * `TCG Opalite <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Opalite_SSC_FAQ.pdf>`__
   is a reduced form of OPAL 2
 
-* `Pyrite Version 1 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Pyrite_SSC_v1.00_r1.00.pdf>`__
+* `TCG Pyrite Version 1 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Pyrite_SSC_v1.00_r1.00.pdf>`__
   and
-  `Pyrite Version 2 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Pyrite_SSC_v2.00_r1.00_PUB.pdf>`__
+  `TCG Pyrite Version 2 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Pyrite_SSC_v2.00_r1.00_PUB.pdf>`__
   provide a logical equivalent of the legacy ATA security for non-ATA
   devices. Hardware encryption is removed and only the drive firmware is
   used to protect the device.
