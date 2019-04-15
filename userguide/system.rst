@@ -734,15 +734,18 @@ These SED specifications are supported:
 * Legacy interface for older ATA devices. **Not recommended for
   security-critical environments**
 
+* `TCG Opal 1 <https://trustedcomputinggroup.org/wp-content/uploads/Opal_SSC_1.00_rev3.00-Final.pdf>`_
+  legacy specification
+
 * `TCG OPAL 2 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Opal_SSC_v2.01_rev1.00.pdf>`__
   standard for newer consumer-grade devices
 
 * `TCG Opalite <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Opalite_SSC_FAQ.pdf>`__
   is a reduced form of OPAL 2
 
-* `TCG Pyrite Version 1 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Pyrite_SSC_v1.00_r1.00.pdf>`__
+* `TCG Pyrite 1 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Pyrite_SSC_v1.00_r1.00.pdf>`__
   and
-  `TCG Pyrite Version 2 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Pyrite_SSC_v2.00_r1.00_PUB.pdf>`__
+  `TCG Pyrite 2 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Pyrite_SSC_v2.00_r1.00_PUB.pdf>`__
   provide a logical equivalent of the legacy ATA security for non-ATA
   devices. Hardware encryption is removed and only the drive firmware is
   used to protect the device.
@@ -790,9 +793,9 @@ devices. The second column of the results identifies the drive type:
 * **no** indicates a non-SED device
 * **1** indicates a legacy TCG OPAL 1 device
 * **2** indicates a modern TCG OPAL 2 device
-* **L** indicates a Opalite device
-* **p** indicates a Pyrite Version 1 device
-* **P** indicates a Pyrite Version 2 device
+* **L** indicates a TCG Opalite device
+* **p** indicates a TCG Pyrite 1 device
+* **P** indicates a TCG Pyrite 2 device
 * **E** indicates a TCG Enterprise device
 
 Example:
