@@ -102,12 +102,18 @@ This software has been added or updated:
 
 These screen options have changed:
 
-* The :guilabel:`Bandwidth limit` field has been added to
-  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
-
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
   :menuselection:`System --> Alerts`.
+
+* The :guilabel:`Bandwidth limit` field has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
+* The :guilabel:`MTU` field has been added to
+  :menuselection:`Network --> Interfaces --> Add Interface`.
+
+* The :guilabel:`MTU` field has been added to
+  :menuselection:`Network --> Link Aggregations --> Edit`.
 
 
 .. index:: Path and Name Lengths
