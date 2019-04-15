@@ -1357,10 +1357,6 @@ This configuration screen is really a front-end to
    |                                  |                | `Do Not Use SMB1 <https://www.ixsystems.com/blog/library/do-not-use-smb1/>`__.                        |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
-   | DOS Charset                      | drop-down menu | The character set Samba uses when communicating with DOS and Windows 9x/ME clients. Default is        |
-   |                                  |                | *CP437*.                                                                                              |
-   |                                  |                |                                                                                                       |
-   +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
    | UNIX Charset                     | drop-down menu | Default is *UTF-8* which supports all characters in all languages.                                    |
    |                                  |                |                                                                                                       |
    +----------------------------------+----------------+-------------------------------------------------------------------------------------------------------+
