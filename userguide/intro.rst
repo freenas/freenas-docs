@@ -126,6 +126,9 @@ These screen options have changed:
 * The :guilabel:`DOS charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
+* :guilabel:`NFS` has been added to
+  :menuselection:`Reporting`.
+
 
 .. index:: Path and Name Lengths
 .. _Path and Name Lengths:
