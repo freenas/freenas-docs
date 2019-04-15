@@ -1773,6 +1773,11 @@ shows the configuration options for Cloud Syncs.
    |                     |                     | |ui-browse| to list the remote filesystem and choose the folder.                                        |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Use --fast-list     | checkbox            | Only appears with a compatible :guilabel:`Credential`.                                                  |
+   |                     |                     | `Use fewer transactions in exchange for more RAM <https://rclone.org/docs/\#fast-list>`__.              |
+   |                     |                     | This can also speed up or slow down the transfer.                                                       |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Encryption          | drop-down menu      | Only appears when an S3 credential is the *Provider*. Choices are *None* (no encryption) or             |
    |                     |                     | *AES-256* (encrypted).                                                                                  |
    |                     |                     |                                                                                                         |
