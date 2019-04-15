@@ -86,6 +86,8 @@ Some of the conditions that trigger an alert include:
 
 * a new update is available
 
+* hardware events detected by an attached :ref:`IPMI` controller
+
 * ZFS pool status changes from :guilabel:`HEALTHY`
 
 * a S.M.A.R.T. error occurs
