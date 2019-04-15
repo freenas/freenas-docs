@@ -711,7 +711,7 @@ clicking the :guilabel:`Edit Options` button in
 .. table:: ZFS Dataset Options
    :class: longtable
 
-   +-----------------------+-----------------+-------------------+-----------------------------------------------------------------------------------------+
+   +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
    | Setting               | Value           | Advanced Mode  | Description                                                                                |
    |                       |                 |                |                                                                                            |
    +=======================+=================+================+============================================================================================+
@@ -746,14 +746,12 @@ clicking the :guilabel:`Edit Options` button in
    |                       |                 |                | to prevent users from taking all available space.                                          |
    |                       |                 |                |                                                                                            |
    +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
-   | Quota warning         | integer         | ✓              | Issues a warning alert when the dataset quota has reached the specifed value in percent.   |
-   | alert at, %           |                 |                | To inherit the dataset values of the parent, leave blank. To disable this setting, enter   |
-   |                       |                 |                | *0*.                                                                                       |
+   | Quota warning         | integer         | ✓              | Show an alert when the dataset quota reaches the specifed value in percent.                |
+   | alert at, %           |                 |                | Leave blank to inherit parent dataset values, or enter *0* to disable.                     |
    |                       |                 |                |                                                                                            |
    +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
-   | Quota critical        | integer         | ✓              | Issues a critical alert when the dataset quota has reached the specified value in percent. |
-   | alert at, %           |                 |                | To inherit the dataset values of the parent, leave blank. TO disable this setting, enter   |
-   |                       |                 |                | *0*.                                                                                       |
+   | Quota critical        | integer         | ✓              | Show a critical alert when the dataset quota reaches the specified value in percent.       |
+   | alert at, %           |                 |                | Leave blank to inherit parent dataset values, or enter *0* to disable.                     |
    |                       |                 |                |                                                                                            |
    +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
    | Quota for this        | integer         | ✓              | A specified value applies to both this dataset and any child datasets.                     |
@@ -761,14 +759,12 @@ clicking the :guilabel:`Edit Options` button in
    | children              |                 |                |                                                                                            |
    |                       |                 |                |                                                                                            |
    +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
-   | Quota warning         | integer         | ✓              | Issues a warning alert when the dataset quota has reached the specifed value in percent.   |
-   | alert at, %           |                 |                | To inherit the dataset values of the parent, leave blank. To disable this setting, enter   |
-   |                       |                 |                | *0*.                                                                                       |
+   | Quota warning         | integer         | ✓              | Show an alert when the dataset quota reaches the specifed value in percent.                |
+   | alert at, %           |                 |                | Leave blank to inherit parent dataset values, or enter *0* to disable.                     |
    |                       |                 |                |                                                                                            |
    +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
-   | Quota critical        | integer         | ✓              | Issues a critical alert when the dataset quota has reached the specified value in percent. |
-   | alert at, %           |                 |                | To inherit the dataset values of the parent, leave blank. TO disable this setting, enter   |
-   |                       |                 |                | *0*.                                                                                       |
+   | Quota critical        | integer         | ✓              | Show a critical alert when the dataset quota reaches the specified value in percent.       |
+   | alert at, %           |                 |                | Leave blank to inherit parent dataset values, or enter *0* to disable.                     |
    |                       |                 |                |                                                                                            |
    +-----------------------+-----------------+----------------+--------------------------------------------------------------------------------------------+
    | Reserved space for    | integer         | ✓              | Default of *0* is unlimited.                                                               |
