@@ -105,6 +105,11 @@ These screen options have changed:
   fields have been added to
   :menuselection:`System --> Alert Settings`.
 
+* The :guilabel:`Organizational Unit` field has been added to
+  :menuselection:`System --> CAs --> ADD`
+  and
+  :menuselection:`System --> Certificates --> ADD`.
+
 * The :guilabel:`Use --fast-list` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
