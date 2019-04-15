@@ -276,8 +276,8 @@ Encrypted volumes which do not have a passphrase are unlocked at
 startup. Volumes with a passphrase remain locked until the user enters
 the passphrase to unlock them.
 
-Encrypted volumes can be locked on demand by the user. They are
-automatically locked when the system is shut down.
+Encrypted volumes can be locked on demand by users with the passphrase.
+They are automatically locked when the system is shut down.
 
 Understanding the details of %brand% encryption is required to be able
 to use it effectively:
@@ -1554,9 +1554,10 @@ Encrypted volumes with a passphrase display an additional lock button:
 
    Lock Button
 
-These encrypted volumes can be *locked*. The data is not accessible
-until the volume is unlocked by suppying the passphrase or encryption
-key, and the button changes to an unlock button:
+These encrypted volumes can be *locked* by clicking the button and
+entering the passphrase. The data is not accessible until the volume is
+unlocked by suppying the passphrase or encryption key, and the button
+changes to an unlock button:
 
 .. _zfs_encrypt_unlock_fig:
 
