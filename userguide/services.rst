@@ -1658,6 +1658,11 @@ summarizes the configuration options.
    +----------------------+----------------+--------------------------------------------------------------------------------------------------+
 
 
+`Zenoss <https://www.zenoss.com/>`__
+provides a seamless monitoring service through SNMP for %brand% called
+`TrueNAS ZenPack <https://www.zenoss.com/product/zenpacks/truenas>`__.
+
+
 .. index:: SSH, Secure Shell
 .. _SSH:
 
