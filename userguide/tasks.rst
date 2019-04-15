@@ -174,6 +174,9 @@ shows the configuration options for Cloud Syncs.
    |                        |                     | *"08:00,512 12:00,10M 13:00,512 18:00,30M 23:00,off"*.                                                 |
    |                        |                     |                                                                                                        |
    +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
+   | Exclude                | string              | List of files and directories to exclude from sync, one per line. See                                  |
+   |                        |                     | `<https://rclone.org/filtering/>`__ .                                                                  |
+   +------------------------+---------------------+--------------------------------------------------------------------------------------------------------+
 
 
 The time selected is when the Cloud Sync task is allowed to

@@ -117,6 +117,9 @@ These screen options have changed:
 * The :guilabel:`Bandwidth limit` field has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
 
+* :guilabel:`Exclude` has been added to
+  :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
+
 * The :guilabel:`MTU` field has been added to
   :menuselection:`Network --> Interfaces --> Add Interface`.
 
