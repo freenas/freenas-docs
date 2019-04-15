@@ -2091,6 +2091,9 @@ information for the organization.
    | Names                |                   | Enter additional domain names and separate them with a space.                        |
    |                      |                   |                                                                                      |
    +----------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Organizational Unit  | string            | Organizational unit of the entity.                                                   |
+   |                      |                   |                                                                                      |
+   +----------------------+-------------------+--------------------------------------------------------------------------------------+
 
 
 To create an intermediate CA which is part of a certificate
@@ -2273,6 +2276,9 @@ as the signing authority.
    |                        |                   |                                                                                      |
    +------------------------+-------------------+--------------------------------------------------------------------------------------+
    | Organization           | string            | Name of the company or organization.                                                 |
+   |                        |                   |                                                                                      |
+   +------------------------+-------------------+--------------------------------------------------------------------------------------+
+   | Organizational Unit    | string            | Organizational unit of the entity.                                                   |
    |                        |                   |                                                                                      |
    +------------------------+-------------------+--------------------------------------------------------------------------------------+
    | Email Address          | string            | Email address for the person responsible for the CA.                                 |

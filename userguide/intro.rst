@@ -96,15 +96,23 @@ fixes.
 
 These major features are new in this version:
 
-
 This software has been added or updated:
-
 
 These screen options have changed:
 
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
   fields have been added to
   :menuselection:`System --> Alerts`.
+
+* The :guilabel:`Organizational Unit` field has been added to
+  :menuselection:`System --> CAs --> Create Internal CA`
+  and
+  :menuselection:`System --> CAs --> Create Intermediate CA`.
+
+* The :guilabel:`Organizational Unit` field has been added to
+  :menuselection:`System --> Certificates --> Create Internal Certificate`
+  and
+  :menuselection:`System --> Certificates --> Create Certificate Signing Request`.
 
 * The :guilabel:`Bandwidth limit` field has been added to
   :menuselection:`Tasks --> Cloud Sync --> Add Cloud Sync`.
