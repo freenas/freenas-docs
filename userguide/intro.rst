@@ -108,6 +108,9 @@ These screen options have changed:
   fields have been added to
   :menuselection:`System --> Alert Settings`.
 
+* The :guilabel:`DOS Charset` field has been removed from
+  :menuselection:`Services --> SMB --> Configure`.
+
 
 .. _Path and Name Lengths:
 
