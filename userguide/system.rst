@@ -746,18 +746,22 @@ These SED specifications are supported:
 * `TCG Opalite <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Opalite_SSC_FAQ.pdf>`__
   is a reduced form of OPAL 2
 
-* `TCG Pyrite 1 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Pyrite_SSC_v1.00_r1.00.pdf>`__
+* TCG Pyrite
+  `Version 1 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Pyrite_SSC_v1.00_r1.00.pdf>`__
   and
-  `TCG Pyrite 2 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Pyrite_SSC_v2.00_r1.00_PUB.pdf>`__
-  provide a logical equivalent of the legacy ATA security for non-ATA
-  devices. Hardware encryption is removed and only the drive firmware is
-  used to protect the device.
+  `Version 2 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Pyrite_SSC_v2.00_r1.00_PUB.pdf>`__
+  are similar to Opalite, but hardware encryption is removed. Pyrite
+  provides a logical equivalent of the legacy ATA security for non-ATA
+  devices. Only the drive firmware is used to protect the device.
 
-  .. warning:: Pyrite Version 1 does not have PSID support and **can
+  .. danger:: Pyrite Version 1 SEDs do not have PSID support and **can
      become unusable if the password is lost.**
 
+
 * `TCG Enterprise <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-SSC_Enterprise-v1.01_r1.00.pdf>`__
-  for high performance systems
+  is designed for systems with many data disks. **Do not use as a boot
+  device!** TCG Enterprise SEDs cannot be unlocked before the operating
+  system boots.
 
 See this
 Trusted Computing Group\ :sup:`®` and NVM Express\ :sup:`®`
