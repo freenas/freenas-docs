@@ -98,6 +98,10 @@ These major features are new in this version:
 
 This software has been added or updated:
 
+* The `zettarepl <https://github.com/freenas/zettarepl>`__ replication
+  tool has been added.
+
+
 These screen options have changed:
 
 * :guilabel:`IPMI SEL Low Space Left` and :guilabel:`IPMI System Event`
