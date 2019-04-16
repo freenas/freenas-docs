@@ -729,15 +729,40 @@ Self-Encrypting Drives
 
 %brand% version 11.1-U5 introduced Self-Encrypting Drive (SED) support.
 
-Three types of SED are supported:
+These SED specifications are supported:
 
 * Legacy interface for older ATA devices. **Not recommended for
   security-critical environments**
 
-* TCG OPAL 2 standard for newer consumer-grade devices (HDD or SSD over
-  PCIe or SATA)
+* `TCG Opal 1 <https://trustedcomputinggroup.org/wp-content/uploads/Opal_SSC_1.00_rev3.00-Final.pdf>`_
+  legacy specification
 
-* TCG Enterprise standard for newer enterprise-grade SAS devices
+* `TCG OPAL 2 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Opal_SSC_v2.01_rev1.00.pdf>`__
+  standard for newer consumer-grade devices
+
+* `TCG Opalite <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Opalite_SSC_FAQ.pdf>`__
+  is a reduced form of OPAL 2
+
+* TCG Pyrite
+  `Version 1 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Pyrite_SSC_v1.00_r1.00.pdf>`__
+  and
+  `Version 2 <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Pyrite_SSC_v2.00_r1.00_PUB.pdf>`__
+  are similar to Opalite, but hardware encryption is removed. Pyrite
+  provides a logical equivalent of the legacy ATA security for non-ATA
+  devices. Only the drive firmware is used to protect the device.
+
+  .. danger:: Pyrite Version 1 SEDs do not have PSID support and **can
+     become unusable if the password is lost.**
+
+
+* `TCG Enterprise <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-SSC_Enterprise-v1.01_r1.00.pdf>`__
+  is designed for systems with many data disks. These SEDs do not have
+  the functionality to be unlocked before the operating system boots.
+
+See this
+Trusted Computing Group\ :sup:`®` and NVM Express\ :sup:`®`
+`joint white paper <https://nvmexpress.org/wp-content/uploads/TCGandNVMe_Joint_White_Paper-TCG_Storage_Opal_and_NVMe_FINAL.pdf>`__
+for more details about these specifications.
 
 %brand% implements the security capabilities of
 `camcontrol <https://www.freebsd.org/cgi/man.cgi?query=camcontrol>`__
@@ -771,6 +796,9 @@ devices. The second column of the results identifies the drive type:
 * **no** indicates a non-SED device
 * **1** indicates a legacy TCG OPAL 1 device
 * **2** indicates a modern TCG OPAL 2 device
+* **L** indicates a TCG Opalite device
+* **p** indicates a TCG Pyrite 1 device
+* **P** indicates a TCG Pyrite 2 device
 * **E** indicates a TCG Enterprise device
 
 Example:
