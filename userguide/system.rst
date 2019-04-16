@@ -2380,7 +2380,7 @@ Clicking |ui-options| for an entry shows these configuration buttons:
   being used to access the %brand% system.
 
 * **Delete** is used to delete a certificate or certificate signing
-  request.
+  request. Certificates in use cannot be deleted.
 
 
 .. index:: Support
