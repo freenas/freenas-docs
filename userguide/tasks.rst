@@ -1829,6 +1829,10 @@ shows the configuration options for Cloud Syncs.
    | Sync Task           |                     | or *Custom*. Select *Custom* to open the advanced scheduler.                                            |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
+   | Transfers           | integer             | Number of simultaneous file transfers. Enter a number based on the available bandwidth and destination  |
+   |                     |                     | system performance. See `rclone --transfers <https://rclone.org/docs/#transfers-n>`__.                  |
+   |                     |                     |                                                                                                         |
+   +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+
    | Enabled             | checkbox            | Enable this Cloud Sync Task. Unset to disable this Cloud Sync Task without deleting it.                 |
    |                     |                     |                                                                                                         |
    +---------------------+---------------------+---------------------------------------------------------------------------------------------------------+

@@ -117,6 +117,9 @@ These screen options have changed:
 * The :guilabel:`Use --fast-list` checkbox has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
+* The :guilabel:`Transfers` field has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
 * The :guilabel:`Bandwidth Limit` field has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
