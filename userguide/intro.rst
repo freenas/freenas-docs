@@ -116,6 +116,9 @@ These screen options have changed:
 * The :guilabel:`Bandwidth Limit` field has been added to
   :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
 
+* :guilabel:`Exclude` has been added to
+  :menuselection:`Tasks --> Cloud Sync Tasks --> ADD`.
+
 * The :guilabel:`DOS Charset` field has been removed from
   :menuselection:`Services --> SMB --> Configure`.
 
