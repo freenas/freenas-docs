@@ -1786,6 +1786,11 @@ summarizes the configuration options.
    +-----------------------+--------------+-------------------------------------------------------------------------------------------+
 
 
+`Zenoss <https://www.zenoss.com/>`__
+provides a seamless monitoring service through SNMP for %brand% called
+`TrueNAS ZenPack <https://www.zenoss.com/product/zenpacks/truenas>`__.
+
+
 .. index:: SSH, Secure Shell
 .. _SSH:
 
@@ -2161,6 +2166,10 @@ UPS Configuration screen.
    |                         |              |                                                                                                                        |
    +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
    | Power Off UPS           | checkbox     | Set to power off the UPS after shutting down the FreeNAS system.                                                       |
+   |                         |              |                                                                                                                        |
+   +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
+   | Host Sync               | integer      | Enter a time in seconds for `UPSMON(8)<https://www.freebsd.org/cgi/man.cgi?query=upsmon>`__ to wait in master          |
+   |                         |              | mode for the slaves to disconnect during a shutdown.                                                                   |
    |                         |              |                                                                                                                        |
    +-------------------------+--------------+------------------------------------------------------------------------------------------------------------------------+
 
