@@ -760,9 +760,8 @@ These SED specifications are supported:
 
 
 * `TCG Enterprise <https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-SSC_Enterprise-v1.01_r1.00.pdf>`__
-  is designed for systems with many data disks. **Do not use as a boot
-  device!** TCG Enterprise SEDs cannot be unlocked before the operating
-  system boots.
+  is designed for systems with many data disks. These SEDs do not have
+  the functionality to be unlocked before the operating system boots.
 
 See this
 Trusted Computing Group\ :sup:`®` and NVM Express\ :sup:`®`
